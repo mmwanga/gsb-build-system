@@ -8,4 +8,4 @@ TODO:
   maybe make ldap in evolution statically built in
 * check gdm, see how it starts, check Xsession variables for sessions in 
   global Xsession file
-
+* shared-mime-info, add update to install scripts
