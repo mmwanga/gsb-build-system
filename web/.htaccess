@@ -1,1 +1,6 @@
 Options -Indexes -Includes -ExecCGI
+DirectoryIndex index.html index.shtml index.php
+
+RewriteEngine On
+RewriteBase /
+RewriteRule ^news/(.*)? /index.php?news_page=$1 [QSA]

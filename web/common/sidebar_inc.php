@@ -12,7 +12,7 @@
       <p class="sideBarTitle">Main Menu:</p>
 
       <ul>
-        <li><a href="./">Home</a></li>
+        <li><a href="/">Home</a></li>
 
         <li><a href="#about" title=
         "About the GSB Project">About GSB</a></li>
@@ -40,7 +40,7 @@
 
       <ul>
         <li><a href="http://sourceforge.net/projects/gsb" title=
-        "Sourceforge.net"><img src="./images/sflogo.png" alt=
+        "Sourceforge.net"><img src="/images/sflogo.png" alt=
         "SourceForge.net Logo" /></a></li>
       </ul>
     </div>

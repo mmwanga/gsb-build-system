@@ -16,10 +16,10 @@ print("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="MSSmartTagsPreventParsing" content="TRUE" />
   <meta http-equiv="MSTHEMECOMPATIBLE" content="no" />
-  <link rel="stylesheet" type="text/css" href="./css/style.css"
+  <link rel="stylesheet" type="text/css" href="/css/style.css"
   media="screen" title="Default Style" />
   <link rel="alternate stylesheet" type="text/css" href=
-  "./css/print.css" media="print" title="Print-friendly Style" />
+  "/css/print.css" media="print" title="Print-friendly Style" />
   <title>GSB: GNOME.SlackBuild</title>
 </head> 
 <!--
@@ -36,9 +36,9 @@ print("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
   
   <div id="header">
     <div class="subHeader">
-      <a href="./"><img src="./images/GSB_Logo.png" alt="GSB Logo"
+      <a href="/"><img src="/images/GSB_Logo.png" alt="GSB Logo"
       class="doNotPrint"/></a>
-      <h1 class="doNotDisplay"><a href="./" class="headerLink" title="GSB:
+      <h1 class="doNotDisplay"><a href="/" class="headerLink" title="GSB:
       GNOME.SlackBuild">GSB: Gnome.SlackBuild</a></h1>
     </div>
   </div>

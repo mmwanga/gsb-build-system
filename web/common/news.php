@@ -21,7 +21,7 @@ if (is_file($ff)) {
 
     if ($news_page <=0 && !$SHOW_NEWS)
     {
-        Header("Location: ./?news_page=1");
+        Header("Location: /news/1");
         exit;
     }
 
@@ -75,17 +75,17 @@ if (is_file($ff)) {
     }
 
     if ($start == 0 && $news_page <= 0) {
-        print( "\t<p>&lt; <a href=\"./?news_page=1\">Older News</a> &gt;</p>\n" );
+        print( "\t<p>&lt; <a href=\"/news/1\">Older News</a> &gt;</p>\n" );
     }
 
     if ($start > 0) {
-        $prevlink = "&lt; Prev";
-        $nextlink = "Next &gt;";
+        $prevlink = "";
+        $nextlink = "";
         if ( $max < count($farr)-1 )
-            $nextlink = "<a href=\"./?news_page=".($news_page+1)."\">Next &gt;</a>";
+            $nextlink = ": <a href=\"/news/".($news_page+1)."\">Next</a> &gt;";
         if ($news_page > 1)
-            $prevlink = "<a href=\"./?news_page=".($news_page-1)."\">&lt; Prev</a>";
-        print( "\t<p><a href=\"./\">Home</a> | ".$prevlink." : ". $nextlink . "</p>\n" );
+            $prevlink = " | &lt; <a href=\"/news/".($news_page-1)."\">Prev</a> ";
+        print( "\t<p><a href=\"/\">Home</a> ".$prevlink." ". $nextlink . "</p>\n" );
     }
 
     if ($news_page > 0) {
