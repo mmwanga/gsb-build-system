@@ -1,0 +1,45 @@
+Official Slackware Packages that are replaced by FRG in the minimum install
+
+These refer to slackware-10.1 packages unless otherwise noted
+
+L series:
+
+atk
+audiofile 
+	* (We can probably remove this from FRG as it hasn't updated in a long time)
+esound 
+	*(can probably remove also. It only seems to get updated at release time of a major version)
+glib2
+gtk+2
+libart_lgpl
+libglade (needs to be updated)
+libgsf
+libidl
+libmikmod
+	* (can probably be removed from FRG, it doesn't get updated)
+	* (this is in l for slackware-current, in gnome for 10.1)
+libwmf
+libxml2
+libxslt
+orbit2 (this is in l for slackware-current, in gnome for 10.1)
+pango
+startup-notification (needs to be updated)
+
+XAP Series:
+
+xscreensaver (not necessary)
+
+Packages Replaced by a full install of FRG:
+
+L series:
+
+expat (needed by gDesklets, -current has updated version)
+
+XAP Series:
+
+abiword
+gaim
+gimp
+gucharmap
+gnumeric
+
