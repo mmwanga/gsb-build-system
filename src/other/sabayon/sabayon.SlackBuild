@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-sabayon
 
-VERSION=0.15
+VERSION=0.16
 ARCH=${ARCH:-i486}
-BUILD=3
+BUILD=1
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -32,6 +32,7 @@ CFLAGS="$SLKCFLAGS" \
             --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static \
+            --with-distro=debian \
             i486-slackware-linux
 make
 make install DESTDIR=$PKG
