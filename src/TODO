@@ -1,0 +1,5 @@
+* make sure to change the db.h symlink to db4
+* add --cleanup to GSB.SlackBuild as an arg so that users with limited disk
+  space can build GSB without leaving around the package-foo and source dirs
+
+
