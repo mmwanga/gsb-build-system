@@ -198,6 +198,8 @@
 
       <li>check if anything is built into /usr/local and change it
       to /usr</li>
+
+      <li>fix up slack-desc files, some of them have very sparse descriptions</li>
     </ol>
 
     <p><a class="topOfPage doNotPrint" href="#top" title="Go to the top of this page">^
@@ -235,9 +237,9 @@
     <ul>
       <li>MIRRORS, I'd rather not rely on sourceforge to do package
       releases, for the iso its fine. Its nice that they have a lot
-      of mirrors to use, but the system they have is kinda annoying
+      of mirrors to use, but the system they have is kind of annoying
       and I would like to organize package releases in their own
-      dirs, as they are on the iso. So if you can help with this,
+      directories, as they are on the iso. So if you can help with this,
       please speak up :)</li>
 
       <li>Fixing scripts, see TODO</li>
