@@ -12,8 +12,9 @@ fi
 
 mkdir -p $TMP/gnome-$GVERSION/office
 
-#not included: libgda, libgnomedb, eps
-BUILD_ORDER="aiksaurus
+#not included: eps, iso-codes, PyXML
+BUILD_ORDER="
+aiksaurus
 ots
 libwmf
 libwpd
@@ -22,7 +23,8 @@ fribidi
 enchant
 libgda
 libgnomedb
-libgdamm"
+libgdamm
+"
 
 (
 
