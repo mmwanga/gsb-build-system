@@ -5,7 +5,7 @@
        <owner>gnome</owner>
        <type>string</type>
 -      <default>gnome</default>
-+      <default>Amaranth</default>
++      <default>BlankOn</default>
        <locale name="C">
          <short>Icon Theme</short>
          <long>Icon theme to use for the panel, nautilus etc.</long>
