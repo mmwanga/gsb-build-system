@@ -230,6 +230,74 @@ foreach my $fdopackage (keys %platform_fdo) {
   }
 }
 
+# Download Desktop Reqs
+foreach my $drpackage (keys %desktop_reqs) {
+
+  chdir "$pwd/gnome/desktop_reqs/$drpackage";
+  my $sb_file = $drpackage . $sb_ext;
+  my $packurl = $desktop_reqs{$drpackage}{url};
+  my $ver     = $desktop_reqs{$drpackage}{ver};
+  my $src     = $desktop_reqs{$drpackage}{src};
+
+  my $tarball = "$drpackage-$ver.$src";
+
+  if ( $download eq "true") {
+    if ( ! -f $tarball ) {
+      my $url = GSB::GSB::gsb_other_url_make($drpackage, $packurl, $ver, $src);
+      GSB::GSB::gsb_tarball_get($drpackage, $url);
+    }
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $drpackage);
+  }
+}
+
+# Download Desktop Reqs for gnomemeeting
+foreach my $gmpackage (keys %stupid_gnomemeeting_libs) {
+
+  my $pack = "openh323-pwlib";
+
+  chdir "$pwd/gnome/desktop_reqs/$pack";
+  my $sb_file = $pack . $sb_ext;
+  my $packurl = $stupid_gnomemeeting_libs{$gmpackage}{url};
+  my $ver     = $stupid_gnomemeeting_libs{$gmpackage}{ver};
+  my $src     = $stupid_gnomemeeting_libs{$gmpackage}{src};
+
+  my $tarball = "$gmpackage-$ver$src";
+
+  if ( $download eq "true") {
+    if ( ! -f $tarball ) {
+      my $url = GSB::Desktop_Requirements::gsb_gnomemeeting_libs_url_make($gmpackage, $packurl, $ver, $src);
+      GSB::GSB::gsb_tarball_get($gmpackage, $url);
+    }
+  }
+
+# NEED TO FIGURE OUT HOW TO EDIT THIS FILE
+#  if ( $edit eq "true" ) {
+#    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+#  }
+
+  if ( $gmpackage eq "pwlib" ) {
+    if ( $build ne "" ) {
+      GSB::Edit::gsb_build_release_make($sb_file, $build);
+    }
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $gmpackage);
+  }
+}
+
+
 # Download Desktop Packages
 foreach my $dpackage (keys %desktop) {
 
@@ -313,6 +381,7 @@ foreach my $dopackage (keys %desktop_other) {
 #  if ( $edit eq "true" ) {
 #    GSB::Edit::gsb_sb_edit($sb_file, $ver);
 #  }
+
 
   if ( ! -f $tarball ) {
     push(@bad_downloads, $dopackage);

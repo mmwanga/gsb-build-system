@@ -35,6 +35,11 @@ our %desktop_reqs =
 			 'ver' => '1.10',
 			 'src' => 'tar.gz',
                         },
+   'fam'             => {
+			 'url' => 'ftp://oss.sgi.com/projects/fam/download/stable',
+			 'ver' => '2.6.10',
+			 'src' => 'tar.gz',
+                        },
   );
 
 
@@ -63,8 +68,8 @@ our %stupid_gnomemeeting_libs =
 # Functions
 
 sub gsb_gnomemeeting_libs_url_make {
-  my $url  = shift;
   my $name = shift;
+  my $url  = shift;
   my $ver  = shift;
   my $src  = shift;
 
