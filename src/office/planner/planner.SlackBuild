@@ -1,12 +1,10 @@
 #!/bin/sh
-#
-# $Id$
 
 CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-planner
 
-VERSION=0.12.1
+VERSION=0.13
 ARCH=${ARCH:-i486}
 BUILD=1
 
