@@ -6,7 +6,6 @@ if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 
-# ximian-connector not built
 BUILD_ORDER="libgnomesu
 libgtkhtml
 gnome-icon-theme
@@ -85,7 +84,8 @@ gnome-system-monitor
 gnome-user-share
 gnome-icon-theme
 gnome-backgrounds
-gdm"
+gdm
+ximian-connector"
 
 (
 for i in $BUILD_ORDER
