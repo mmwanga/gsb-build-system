@@ -65,11 +65,11 @@ cd IndLinux-Hindi-$VERSION
   cp xfcemo/*.mo $PKG/usr/share/locale/hi/LC_MESSAGES 
 )
 
-mkdir -p $PKG/usr/local/doc/IndLinux-Hindi-$VERSION
+mkdir -p $PKG/usr/doc/IndLinux-Hindi-$VERSION
 cp -a IndLinux-Hindi-0.73.txt README \
-  $PKG/usr/local/doc/IndLinux-Hindi-$VERSION
-find $PKG/usr/local/doc/IndLinux-Hindi-$VERSION/ -type f -exec chmod 644 {} \;
-chown root.root $PKG/usr/local/doc/IndLinux-Hindi-$VERSION/*
+  $PKG/usr/doc/IndLinux-Hindi-$VERSION
+find $PKG/usr/doc/IndLinux-Hindi-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/doc/IndLinux-Hindi-$VERSION/*
 
 # strip:
 ( cd $PKG
@@ -77,8 +77,8 @@ chown root.root $PKG/usr/local/doc/IndLinux-Hindi-$VERSION/*
   find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
 )
 
-gzip -9 $PKG/usr/local/man/*/*
-gzip -9 $PKG/usr/local/info/*
+gzip -9 $PKG/usr/man/*/*
+gzip -9 $PKG/usr/info/*
 
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required

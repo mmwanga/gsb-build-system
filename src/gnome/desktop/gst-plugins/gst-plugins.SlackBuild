@@ -14,8 +14,6 @@ fi
 rm -rf $PKG
 mkdir -p $PKG
 
-export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
-
 SCHEMAS=$PKG/etc/gconf/schemas
 
 if [ "$ARCH" = "i386" ]; then

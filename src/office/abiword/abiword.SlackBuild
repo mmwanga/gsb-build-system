@@ -82,7 +82,7 @@ cp -a BUILD.TXT BiDiReadme.txt COPYING CREDITS.TXT README.TXT \
 cp -a \
   docs/*.abw \
   $PKG/usr/doc/abiword-$VERSION/docs
-find $PKG/usr/local/doc/template-$VERSION/ -type f -exec chmod 644 {} \;
+find $PKG/usr/doc/abiword-$VERSION/ -type f -exec chmod 644 {} \;
 (
   cd ../abiword-docs/man
   mkdir -p $PKG/usr/man/man8

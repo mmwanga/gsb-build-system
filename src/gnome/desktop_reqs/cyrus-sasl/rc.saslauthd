@@ -2,7 +2,7 @@
 # Start/stop/restart the saslauthd server:
 
 saslauthd_start() {
-	/usr/local/sbin/saslauthd -a getpwent
+	/usr/sbin/saslauthd -a getpwent
 }
 
 saslauthd_stop() {

@@ -30,16 +30,16 @@ cd $TMP
 tar xzvf $CWD/libcap-$VERSION.tar.gz
 cd libcap-$VERSION
 make
-make install prefix=/usr/local FAKEROOT=$PKG
+make install prefix=/usr FAKEROOT=$PKG
 
-chown -R root.bin $PKG/usr/local/sbin
+chown -R root.bin $PKG/usr/sbin
 
-mkdir -p $PKG/usr/local/doc/libcap-$VERSION
+mkdir -p $PKG/usr/doc/libcap-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
 	TODO \
-  	$PKG/usr/local/doc/libcap-$VERSION
-find $PKG/usr/local/doc/libcap-$VERSION/ -type f -exec chmod 644 {} \;
-chown root.root $PKG/usr/local/doc/libcap-$VERSION/*
+  	$PKG/usr/doc/libcap-$VERSION
+find $PKG/usr/doc/libcap-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/doc/libcap-$VERSION/*
 
 # strip:
 ( cd $PKG
@@ -47,8 +47,8 @@ chown root.root $PKG/usr/local/doc/libcap-$VERSION/*
   find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
 )
 
-gzip -9 $PKG/usr/local/man/*/*
-gzip -9 $PKG/usr/local/info/*
+gzip -9 $PKG/usr/man/*/*
+gzip -9 $PKG/usr/info/*
 
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required

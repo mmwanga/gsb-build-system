@@ -16,8 +16,6 @@ fi
 rm -rf $PKG
 mkdir -p $PKG
 
-export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
-
 cd $TMP 
 tar xzvf $CWD/dbus-$VERSION.tar.gz
 cd dbus-$VERSION

@@ -62,16 +62,16 @@ make depend
 make
 make install DESTDIR=$PKG
 
-chown -R root.bin $PKG/usr/local/bin $PKG/usr/local/sbin
+chown -R root.bin $PKG/usr/bin $PKG/usr/sbin
 
-mkdir -p $PKG/usr/local/doc/openldap-$VERSION
+mkdir -p $PKG/usr/doc/openldap-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
-  $PKG/usr/local/doc/openldap-$VERSION
-chmod 644 $PKG/usr/local/doc/openldap-$VERSION/*
-chown root.root $PKG/usr/local/doc/openldap-$VERSION/*
+  $PKG/usr/doc/openldap-$VERSION
+chmod 644 $PKG/usr/doc/openldap-$VERSION/*
+chown root.root $PKG/usr/doc/openldap-$VERSION/*
 
 find $PKG -type f | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded
-gzip -9 $PKG/usr/local/man/*/*
+gzip -9 $PKG/usr/man/*/*
 
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required

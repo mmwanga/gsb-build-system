@@ -35,9 +35,9 @@ CFLAGS="$SLKCFLAGS" \
             --sysconfdir=/etc \
             --localstatedir=/var/lib \
 	    --disable-static \
-	    --with-pwlib-dir=/usr/local \
-	    --with-openh323-dir=/usr/local \
-	    --with-ldap-dir=/usr/local \
+	    --with-pwlib-dir=/usr \
+	    --with-openh323-dir=/usr \
+	    --with-ldap-dir=/usr \
 	    --program-prefix="" \
 	    --program-suffix="" \
 	    --disable-howl \

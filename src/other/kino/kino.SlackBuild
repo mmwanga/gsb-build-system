@@ -14,8 +14,6 @@ fi
 rm -rf $PKG
 mkdir -p $PKG
 
-export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
-
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
 elif [ "$ARCH" = "i486" ]; then
@@ -38,14 +36,14 @@ CFLAGS="$SLKCFLAGS" \
 make
 make install DESTDIR=$PKG
 
-chown -R root.bin $PKG/usr/local/bin
+chown -R root.bin $PKG/usr/bin
 
-mkdir -p $PKG/usr/local/doc/kino-$VERSION
+mkdir -p $PKG/usr/doc/kino-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
 	TODO \
-  	$PKG/usr/local/doc/kino-$VERSION
-find $PKG/usr/local/doc/kino-$VERSION/ -type f -exec chmod 644 {} \;
-chown root.root $PKG/usr/local/doc/kino-$VERSION/*
+  	$PKG/usr/doc/kino-$VERSION
+find $PKG/usr/doc/kino-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/doc/kino-$VERSION/*
 
 # strip:
 ( cd $PKG
@@ -53,8 +51,8 @@ chown root.root $PKG/usr/local/doc/kino-$VERSION/*
   find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
 )
 
-gzip -9 $PKG/usr/local/man/*/*
-gzip -9 $PKG/usr/local/info/*
+gzip -9 $PKG/usr/man/*/*
+gzip -9 $PKG/usr/info/*
 
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required

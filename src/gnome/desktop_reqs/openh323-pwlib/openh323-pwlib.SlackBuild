@@ -45,26 +45,26 @@ make
 make install DESTDIR=$PWPKG
 
 (
-  mkdir -p $PWPKG/usr/local/bin
-  cd $PWPKG/usr/local/bin
+  mkdir -p $PWPKG/usr/bin
+  cd $PWPKG/usr/bin
   ln -sf ../share/pwlib/make/ptlib-config
 )
 
-chown -R root.bin $PWPKG/usr/local/bin
+chown -R root.bin $PWPKG/usr/bin
 
 (
-  cd $PWPKG/usr/local/include/ptclib/
+  cd $PWPKG/usr/include/ptclib/
   chmod 644 *.h
 )
 
-mkdir -p $PWPKG/usr/local/doc/pwlib-$VERSION
+mkdir -p $PWPKG/usr/doc/pwlib-$VERSION
 cp -a History.txt ReadMe.txt \
-  $PWPKG/usr/local/doc/pwlib-$VERSION
-chmod 644 $PWPKG/usr/local/doc/pwlib-$VERSION/*
-chown root.root $PWPKG/usr/local/doc/pwlib-$VERSION/*
+  $PWPKG/usr/doc/pwlib-$VERSION
+chmod 644 $PWPKG/usr/doc/pwlib-$VERSION/*
+chown root.root $PWPKG/usr/doc/pwlib-$VERSION/*
 
 find $PWPKG -type f | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded
-gzip -9 $PWPKG/usr/local/man/*/*
+gzip -9 $PWPKG/usr/man/*/*
 
 mkdir -p $PWPKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
@@ -100,19 +100,19 @@ make
 make install DESTDIR=$PKG
 
 (
-  cd $PKG/usr/local/include/openh323/
+  cd $PKG/usr/include/openh323/
   rm -rf CVS
   chmod 644 *.h
 )
 
-mkdir -p $PKG/usr/local/doc/openh323-$VERSION
+mkdir -p $PKG/usr/doc/openh323-$VERSION
 cp -a ReadMe.txt VoIPBlaster.txt \
-  $PKG/usr/local/doc/openh323-$VERSION
-chmod 644 $PKG/usr/local/doc/openh323-$VERSION/*
-chown root.root $PKG/usr/local/doc/openh323-$VERSION/*
+  $PKG/usr/doc/openh323-$VERSION
+chmod 644 $PKG/usr/doc/openh323-$VERSION/*
+chown root.root $PKG/usr/doc/openh323-$VERSION/*
 
 find $PKG -type f | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded
-gzip -9 $PKG/usr/local/man/*/*
+gzip -9 $PKG/usr/man/*/*
 
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
