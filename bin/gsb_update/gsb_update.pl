@@ -165,9 +165,7 @@ foreach my $ppackage (keys %platform) {
   chdir "$pwd/gnome/platform/$ppackage";
 
   if ( $download eq "true" ) {
-    if ( ! -f $tarball ) {
-      GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
-    }
+    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
   }
 
   if ( $edit eq "true" ) {
@@ -186,18 +184,16 @@ foreach my $ppackage (keys %platform) {
 # DOWNLOAD other platform libs
 foreach my $pnpackage (keys %platform_diff_naming) {
 
-  chdir "$pwd/gnome/platform/$pnpackage";
-
+  my $name    = $platform_diff_naming{$pnpackage}{name};
+  my $ver     = $platform_diff_naming{$pnpackage}{ver};
   my $sb_file = $pnpackage. $sb_ext;
-  my $name = $platform_diff_naming{$pnpackage}{name};
-  my $ver  = $platform_diff_naming{$pnpackage}{ver};
+
+  chdir "$pwd/gnome/platform/$pnpackage";
 
   my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
 
   if ( $download eq "true" ) {
-    if ( ! -f $tarball ) {
-      GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
-    }
+    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
   }
 
   if ( $edit eq "true" ) {
@@ -229,10 +225,8 @@ foreach my $fdopackage (keys %platform_fdo) {
   chdir "$pwd/gnome/platform/$name";
 
   if ( $download eq "true") {
-    if ( ! -f $tarball ) {
-      my $url = GSB::GSB::gsb_other_url_make($packurl, $tarball);
-      GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
-    }
+    my $url = GSB::GSB::gsb_other_url_make($packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
   }
 
   if ( $edit eq "true" ) {
@@ -264,10 +258,8 @@ foreach my $drpackage (keys %desktop_reqs) {
   chdir "$pwd/gnome/desktop_reqs/$name";
 
   if ( $download eq "true") {
-    if ( ! -f $tarball ) {
-      my $url = GSB::GSB::gsb_other_url_make($packurl, $tarball);
-      GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
-    }
+    my $url = GSB::GSB::gsb_other_url_make($packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
   }
 
   if ( $edit eq "true" ) {
@@ -301,10 +293,8 @@ foreach my $gmpackage (keys %stupid_gnomemeeting_libs) {
   chdir "$pwd/gnome/desktop_reqs/$pack";
 
   if ( $download eq "true") {
-    if ( ! -f $tarball ) {
-      my $url = GSB::GSB::gsb_other_url_make($packurl, $tarball);
-      GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
-    }
+    my $url = GSB::GSB::gsb_other_url_make($packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
   }
 
   if ( $edit eq "true" ) {
@@ -338,9 +328,7 @@ foreach my $dpackage (keys %desktop) {
   chdir "$pwd/gnome/desktop/$name";
 
   if ( $download eq "true" ) {
-    if ( ! -f $tarball ) {
-      GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
-    }
+    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
   }
 
   if ( $edit eq "true" ) {
@@ -369,9 +357,7 @@ foreach my $dnpackage (keys %desktop_diff_naming) {
   chdir "$pwd/gnome/desktop/$pack";
 
   if ( $download eq "true" ) {
-    if ( ! -f $tarball ) {
-      GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
-    }
+    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
   }
 
   if ( $edit eq "true" ) {
@@ -401,9 +387,7 @@ foreach my $dopackage (keys %desktop_other) {
   print "********** $tarball\n";
 
   if ( $download eq "true" ) {
-    if ( ! -f $tarball ) {
-      GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
-    }
+    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
   }
 
 # What to do about VERSION var here?
@@ -433,10 +417,8 @@ foreach my $ngpackage (keys %desktop_nongnome) {
   chdir "$pwd/gnome/desktop/$name";
 
   if ( $download eq "true") {
-    if ( ! -f $tarball ) {
-      my $url = GSB::GSB::gsb_other_url_make($packurl, $tarball);
-      GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
-    }
+    my $url = GSB::GSB::gsb_other_url_make($packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
   }
 
   if ( $edit eq "true" ) {
@@ -465,9 +447,7 @@ foreach my $cbpackage (keys %bindings_cxx) {
   chdir "$pwd/gnome/bindings/c++/$name";
 
   if ( $download eq "true") {
-    if ( ! -f $tarball ) {
-      GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
-    }
+    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
   }
 
   if ( $edit eq "true" ) {
@@ -495,9 +475,7 @@ foreach my $jbpackage (keys %bindings_java) {
   chdir "$pwd/gnome/bindings/java/$name";
 
   if ( $download eq "true") {
-    if ( ! -f $tarball ) {
-      GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
-    }
+    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
   }
 
   if ( $edit eq "true" ) {
@@ -525,9 +503,7 @@ foreach my $pbpackage (keys %bindings_python) {
   chdir "$pwd/gnome/bindings/python/$name";
 
   if ( $download eq "true") {
-    if ( ! -f $tarball ) {
-      GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
-    }
+    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
   }
 
   if ( $edit eq "true" ) {
@@ -559,9 +535,7 @@ foreach my $gtheme (keys %gnome_themes) {
   chdir "$pwd/gnome/themes/$name";
 
   if ( $download eq "true" ) {
-    if ( ! -f $tarball ) {
-      GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
-    }
+    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
   }
 
   if ( $edit eq "true" ) {
@@ -593,10 +567,8 @@ foreach my $otheme (keys %other_themes) {
   chdir "$pwd/gnome/themes/$name";
 
   if ( $download eq "true" ) {
-    if ( ! -f $tarball ) {
-      my $url = GSB::GSB::gsb_other_url_make($packurl, $tarball);
-      GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
-    }
+    my $url = GSB::GSB::gsb_other_url_make($packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
   }
 
   if ( $edit eq "true" ) {
@@ -616,19 +588,19 @@ foreach my $otheme (keys %other_themes) {
 # Office apps
 foreach my $ofpackage (keys %office) {
 
-  chdir "$pwd/office/$ofpackage";
-  my $sb_file = $ofpackage . $sb_ext;
-  my $packurl = $office{$ofpackage}{url};
-  my $ver     = $office{$ofpackage}{ver};
-  my $src     = $office{$ofpackage}{src};
+  my $name    = $ofpackage;
+  my $sb_file = $name . $sb_ext;
+  my $packurl = $office{$name}{url};
+  my $ver     = $office{$name}{ver};
+  my $src     = $office{$name}{src};
 
-  my $tarball = "$ofpackage-$ver.$src";
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+
+  chdir "$pwd/office/$name";
 
   if ( $download eq "true") {
-    if ( ! -f $tarball ) {
-      my $url = GSB::GSB::gsb_other_url_make($ofpackage, $packurl, $ver, $src);
-      GSB::GSB::gsb_tarball_get($ofpackage, $url);
-    }
+    my $url = GSB::GSB::gsb_other_url_make($packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($name, $var, $tarball, $type, $url);
   }
 
   if ( $edit eq "true" ) {
@@ -640,80 +612,23 @@ foreach my $ofpackage (keys %office) {
   }
 
   if ( ! -f $tarball ) {
-    push(@bad_downloads, $ofpackage);
+    push(@bad_downloads, $name);
   }
 }
 
 # GNOME Office
 foreach my $office_pack (keys %office_gnome) {
 
-  chdir "$pwd/office/$office_pack";
-  my $sb_file = $office_pack . $sb_ext;
-  my $tarball = "$office_pack-$office_gnome{$office_pack}.tar.bz2";
+  my $name    = $office_pack;
+  my $ver     = $office_gnome{$name};
+
+  my $sb_file = $name . $sb_ext;
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
+
+  chdir "$pwd/office/$name";
 
   if ( $download eq "true" ) {
-    if ( ! -f $tarball ) {
-      my $url = GSB::GSB::gsb_gnome_generic_url_make($office_pack, $office_gnome{$office_pack});
-      GSB::GSB::gsb_tarball_get($office_pack, $url);
-    }
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $office_gnome{$office_pack});
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $office_pack,);
-  }
-}
-
-# GNOME Office libs
-foreach my $office_pack (keys %office_gnome_libs) {
-
-  chdir "$pwd/office/libs/$office_pack";
-  my $sb_file = $office_pack . $sb_ext;
-  my $tarball = "$office_pack-$office_gnome_libs{$office_pack}.tar.bz2";
-
-  if ( $download eq "true" ) {
-    if ( ! -f $tarball ) {
-      my $url = GSB::GSB::gsb_gnome_generic_url_make($office_pack, $office_gnome_libs{$office_pack});
-      GSB::GSB::gsb_tarball_get($office_pack, $url);
-    }
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $office_gnome_libs{$office_pack});
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $office_pack);
-  }
-}
-
-# Office libs
-foreach my $olpackage (keys %office_libs) {
-
-  chdir "$pwd/office/libs/$olpackage";
-  my $sb_file = $olpackage . $sb_ext;
-  my $packurl = $office_libs{$olpackage}{url};
-  my $ver     = $office_libs{$olpackage}{ver};
-  my $src     = $office_libs{$olpackage}{src};
-
-  my $tarball = "$olpackage-$ver.$src";
-
-  if ( $download eq "true") {
-    if ( ! -f $tarball ) {
-      my $url = GSB::GSB::gsb_other_url_make($olpackage, $packurl, $ver, $src);
-      GSB::GSB::gsb_tarball_get($olpackage, $url);
-    }
+    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
   }
 
   if ( $edit eq "true" ) {
@@ -725,7 +640,67 @@ foreach my $olpackage (keys %office_libs) {
   }
 
   if ( ! -f $tarball ) {
-    push(@bad_downloads, $olpackage);
+    push(@bad_downloads, $name,);
+  }
+}
+
+# GNOME Office libs
+foreach my $goffice_libs (keys %office_gnome_libs) {
+
+  my $name    = $goffice_libs;
+  my $ver     = $office_gnome_libs{$name};
+
+  my $sb_file = $name . $sb_ext;
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
+
+  chdir "$pwd/office/libs/$name";
+
+  if ( $download eq "true" ) {
+    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
+# Office libs
+foreach my $olpackage (keys %office_libs) {
+
+  my $name    = $olpackage;
+  my $sb_file = $olpackage . $sb_ext;
+  my $packurl = $office_libs{$name}{url};
+  my $ver     = $office_libs{$name}{ver};
+  my $src     = $office_libs{$name}{src};
+  my $type    = "other";
+
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+
+  chdir "$pwd/office/libs/$name";
+
+  if ( $download eq "true") {
+    my $url = GSB::GSB::gsb_other_url_make($packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
   }
 }
 
@@ -733,18 +708,18 @@ foreach my $olpackage (keys %office_libs) {
 foreach my $opackage (keys %other) {
 
   chdir "$pwd/other/$opackage";
-  my $sb_file = $opackage . $sb_ext;
-  my $packurl = $other{$opackage}{url};
-  my $ver     = $other{$opackage}{ver};
-  my $src     = $other{$opackage}{src};
+  my $name    = $name;
+  my $sb_file = $name . $sb_ext;
+  my $packurl = $other{$name}{url};
+  my $ver     = $other{$name}{ver};
+  my $src     = $other{$name}{src};
+  my $type    = "other";
 
-  my $tarball = "$opackage-$ver.$src";
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src;
 
   if ( $download eq "true") {
-    if ( ! -f $tarball ) {
-      my $url = GSB::GSB::gsb_other_url_make($opackage, $packurl, $ver, $src);
-      GSB::GSB::gsb_tarball_get($opackage, $url);
-    }
+      my $url = GSB::GSB::gsb_other_url_make($packurl, $tarball);
+      GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $src, $url);
   }
 
   if ( $edit eq "true" ) {
@@ -756,7 +731,7 @@ foreach my $opackage (keys %other) {
   }
 
   if ( ! -f $tarball ) {
-    push(@bad_downloads, $opackage);
+    push(@bad_downloads, $name);
   }
 }
 

@@ -37,6 +37,8 @@ my $gsrcdir  = $gfiledir . '/sources';
 
 my $wget_options = "--cache=on --progress=bar:force";
 
+my $gnome_md5_file = "md5sum";
+
 #
 # End Config Options
 ################################################################################
@@ -83,7 +85,11 @@ sub gsb_tarball_get {
   my $type    = shift;
   my $url     = shift;
 
-  system("wget $wget_options $url");
+#  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+
+  if ( ! -f $tarball ) {
+    system("wget $wget_options $url");
+  }
 
   my $verify = "";
   $verify = GSB::Verify::gsb_md5_verify($name, $ver, $type);
@@ -151,12 +157,20 @@ sub gsb_gnome_tarball_get {
   my $ver     = shift;
   my $tarball = shift;
 
+  my $md5_file = "$name-$ver.$gnome_md5_file";
+
   my $type = "gnome";
 
   my $url     = GSB::GSB::gsb_gnome_generic_url_make($name, $ver);
   my $md5_url = GSB::GSB::gsb_gnome_md5sum_url_make($name, $ver);
 
-  system("wget $wget_options $url $md5_url");
+  if ( ! -f $tarball ){
+    system("wget $wget_options $url");
+  }
+
+  if ( ! -f $md5_file ){
+    system("wget $wget_options $md5_url");
+  }
 
   my $verify = "";
   $verify = GSB::Verify::gsb_md5_verify($name, $ver, $type);
@@ -164,7 +178,8 @@ sub gsb_gnome_tarball_get {
   if ( $verify ne "" ) {
     if ( $verify eq "bad" ) {
       unlink $tarball;
-      gsb_tarball_get($name, $ver, $tarball, $url);
+      unlink $md5_file;
+      gsb_gnome_tarball_get($name, $ver, $tarball);
     }
     elsif ( $verify eq "good" ) {
       print "\n *** $name tarball md5 matches ***\n\n\n";
