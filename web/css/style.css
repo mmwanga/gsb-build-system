@@ -24,6 +24,17 @@ hr {
     border: 0px;
 }
 
+.news_entry {
+    margin: 0 0 0 4em;
+}
+
+.newsheader {
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+
+
 #side-bar .imglink:hover {
     background: transparent;
 }
@@ -88,10 +99,6 @@ acronym, .titleTip {
 span.caption {
   font-style: italic;
   font-size: 90%;
-}
-
-.newsheader {
-  font-style: italic;
 }
 
 legend.strong {

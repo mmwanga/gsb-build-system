@@ -1,10 +1,10 @@
 ###
 2005-02-19-12-00-EST
 freerock
-Freerock's GNOME version 0.0.2.2 Released
-It is available for download as an iso on the download page.
-
-This release is a bug fix release:
+Freerock's GNOME version 0.0.2.2 Released:
+<p>It is available for download as an iso on the <a href="#downloads">download</a> page.
+<br />
+This release is a bug fix release:</p>
 <ul>
   <li>Abiword and Gstreamer crashes were fixed, some bad plugins were at fault</li>
   <li>Howl is actually installed by the install script</li>
@@ -13,49 +13,49 @@ This release is a bug fix release:
     and edit the line with echo "Starting Howl and add a " to the end</li>
   <li>added openldap and cyrus-sasl packages needed by evolution</li>
 </ul>
-The next release will feature a sources iso, so that it will be easier for
+<p>The next release will feature a sources iso, so that it will be easier for
 users to take the iso and build a gnome release on their own. A user would
 need to download the iso, mount it, then run GSB.SlackBuild and out will come
-their slackware packages.
+their slackware packages.</p>
 
 ###
 2005-02-18-14-20-EST
 freerock
-Fix for abiword package
-rm -f /usr/lib/AbiWord-2.2/plugins/libAbiMagick.*
-new iso version 0.0.2.2 with this and other fixes will be
-avaiable tomorrow afternoon
+Fix for abiword package:
+<p><tt>rm -f /usr/lib/AbiWord-2.2/plugins/libAbiMagick.*</tt></p>
+<p>new iso version 0.0.2.2 with this and other fixes will be
+avaiable tomorrow afternoon</p>
 
 ###
 2005-02-17-20-00-CST
 chipster
 Some Screenshots Available:
-Mark M. Young has made some of his screenshots available. They
+<p>Mark M. Young has made some of his screenshots available. They
 are somewhat small, but certainly  better than nothing for now :)
 Thanks Mark!<br />
-http://photobucket.com/albums/v710/MMYoung/
+http://photobucket.com/albums/v710/MMYoung/</p>
 
 ###
 2005-02-15-15-40-EST
 freerock
 GNOME-2.9.91 Packages Available:
-0.0.2.1 release slightly broken. howl doesn't get installed and
+<p>0.0.2.1 release slightly broken. howl doesn't get installed and
 openldap/cyrus-sasl packages are missing. For evolution,
 rsync://freerock.dyndns.org/pub/gsb/ has the missing packages for
 openldap and cyrus-sasl. howl is in the iso; it just doesn't get
-installed.
+installed.</p>
 
 ###
 2005-02-13-19-08-CST
 chipster
 Site Updates:
-Welcome to the new GSB web site. Please bear with us as we
-continue to make the site better for you.
+<p>Welcome to the new GSB web site. Please bear with us as we
+continue to make the site better for you.</p>
 
 ###
 2005-02-11-22-34-EST
 freerock
 GSB - A fresh GNOME Distribution for Slackware Linux:
-The GSB project has made front-page headlines on GnomeDesktop.org.
+<p>The GSB project has made front-page headlines on GnomeDesktop.org.
 See:<br />
-http://gnomedesktop.org/node/2152
+http://gnomedesktop.org/node/2152</p>
