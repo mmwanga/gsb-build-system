@@ -1,5 +1,13 @@
 ###
-2005-02-15-15-40-CST
+2005-02-17-20-00-CST
+chipster
+Some Screenshots Available:
+Mark M. Young has made some of his screenshots available. They
+are somewhat small, but certainly  better than nothing for now :)
+http://photobucket.com/albums/v710/MMYoung/
+
+###
+2005-02-15-15-40-EST
 freerock
 GNOME-2.9.91 Packages Available:
 0.0.2.1 release slightly broken. howl doesn't get installed and
