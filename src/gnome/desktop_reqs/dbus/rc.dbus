@@ -1,32 +1,48 @@
 #!/bin/sh
 # Start/stop/restart the dbus daemon:
+PIDFILE=/var/run/dbus.pid;
 
-PIDFILE=/var/run/dbus.pid
+dbus_start() {
+  if [ -x /usr/bin/dbus-daemon-1 -a "`pgrep -u messagebus dbus-daemon-1`" = "" ]; then
+    if [ `/sbin/kernelversion` == "2.6" ]; then
+      # Just in case the pidfile is still there, we need to nuke it.
+      if [ -e "$PIDFILE" ]; then
+        rm -f $PIDFILE
+      fi
 
-dbus_start()
-{
-  if [ -x /usr/bin/dbus-daemon-1 ]; then
-    echo "Starting message bus:  /usr/bin/dbus-daemon-1 --system"
-    /usr/bin/dbus-daemon-1 --system
+      echo -en "Starting message bus: ";
+      /usr/bin/dbus-daemon-1 --system &>/dev/null
+
+      if [ "$?" = "0" ]; then
+        echo "started"
+      fi
+    else
+      echo "Kernel 2.6 is required for DBUS features."
+    fi
+  else
+    if [ "`pgrep -u messagebus dbus-daemon-1`" != "" ]; then
+	  echo "/usr/bin/dbus-daemon-1 --system: already running"
+	fi
   fi
 }
 
-dbus_stop()
-{
-    if [ -f "$PIDFILE" ]; then
-       # The nice way
-       pid=`cat $PIDFILE`
-       kill $pid
-       rm -f $PIDFILE
-    else
-       killall -TERM dbus-daemon-1
-    fi
+dbus_stop() {
+  echo -en "Stopping message bus: ";
+  if [ -e "$PIDFILE" ]; then
+    # The nice way
+    PID=`cat $PIDFILE` &>/dev/null
+    kill $PID &>/dev/null
+    rm -f $PIDFILE &>/dev/null
+  else
+    pkill -u messagebus dbus-daemon-1 &>/dev/null
+  fi
+  echo "System Message-Bus Stopped"
 }
 
-dbus_restart()
-{
-  dbus_stop;
-  dbus_start;
+dbus_restart() {
+  dbus_stop
+  sleep 1
+  dbus_start
 }
 
 case "$1" in
@@ -42,4 +58,3 @@ case "$1" in
 *)
   echo "usage $0 start|stop|restart"
 esac
-
