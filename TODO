@@ -10,3 +10,5 @@ TODO:
   global Xsession file
 * shared-mime-info, add update to install scripts
 * add xscreensaver, xchat, gimp, hicolor-icon-theme to gsb
+* add a HACKING file with instructions on how to edit and add things to the
+  source tree
