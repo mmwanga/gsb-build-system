@@ -1,0 +1,197 @@
+Index: libmenu/menu-tree.c
+===================================================================
+RCS file: /cvs/gnome/gnome-menus/libmenu/menu-tree.c,v
+retrieving revision 1.9
+diff -u -p -r1.9 menu-tree.c
+--- libmenu/menu-tree.c	18 Feb 2005 17:17:51 -0000	1.9
++++ libmenu/menu-tree.c	25 Feb 2005 17:43:03 -0000
+@@ -67,6 +67,12 @@ typedef struct
+   gpointer            user_data;
+ } MenuTreeMonitor;
+ 
++typedef struct
++{
++  MenuTreeDirectory *directory;
++  GSList            *list;
++} MenuTreeListifyForeachData;
++
+ struct MenuTreeDirectory
+ {
+   MenuTreeDirectory *parent;
+@@ -75,6 +81,7 @@ struct MenuTreeDirectory
+   char         *name;
+ 
+   GSList *entries;
++  GSList *excluded_entries;
+   GSList *subdirs;
+ 
+   guint refcount : 24;
+@@ -702,17 +709,15 @@ menu_tree_invoke_monitors (MenuTree *tre
+     }
+ }
+ 
+-GSList *
+-menu_tree_directory_get_entries (MenuTreeDirectory *directory)
++static GSList *
++copy_and_ref_entry_list (GSList *list)
+ {
+   GSList *retval;
+   GSList *tmp;
+ 
+-  g_return_val_if_fail (directory != NULL, NULL);
+-
+   retval = NULL;
+ 
+-  tmp = directory->entries;
++  tmp = list;
+   while (tmp != NULL)
+     {
+       retval = g_slist_prepend (retval,
+@@ -725,6 +730,22 @@ menu_tree_directory_get_entries (MenuTre
+ }
+ 
+ GSList *
++menu_tree_directory_get_entries (MenuTreeDirectory *directory)
++{
++  g_return_val_if_fail (directory != NULL, NULL);
++
++  return copy_and_ref_entry_list (directory->entries);
++}
++
++GSList *
++menu_tree_directory_get_excluded_entries (MenuTreeDirectory *directory)
++{
++  g_return_val_if_fail (directory != NULL, NULL);
++
++  return copy_and_ref_entry_list (directory->excluded_entries);
++}
++
++GSList *
+ menu_tree_directory_get_subdirs (MenuTreeDirectory *directory)
+ {
+   GSList *retval;
+@@ -891,6 +912,7 @@ menu_tree_directory_new (MenuTreeDirecto
+   retval->name             = g_strdup (name);
+   retval->directory_entry  = NULL;
+   retval->entries          = NULL;
++  retval->excluded_entries = NULL;
+   retval->subdirs          = NULL;
+   retval->only_unallocated = FALSE;
+   retval->refcount         = 1;
+@@ -2267,16 +2289,21 @@ mark_allocated_foreach (const char   *de
+ }
+ 
+ static void
+-entries_listify_foreach (const char        *desktop_file_id,
+-                         DesktopEntry      *desktop_entry,
+-                         MenuTreeDirectory *directory)
++entries_listify_foreach (const char                 *desktop_file_id,
++                         DesktopEntry               *desktop_entry,
++                         MenuTreeListifyForeachData *foreach_data)
+ {
+   MenuTreeEntry *entry;
+ 
+-  entry = menu_tree_entry_new (directory, desktop_entry, desktop_file_id);
++  g_return_if_fail (foreach_data);
++  g_return_if_fail (foreach_data->directory);
++
++  entry = menu_tree_entry_new (foreach_data->directory,
++		  	       desktop_entry,
++			       desktop_file_id);
+ 
+-  directory->entries = g_slist_prepend (directory->entries,
+-                                        entry);
++  foreach_data->list = g_slist_prepend (foreach_data->list,
++		  			entry);
+ }
+ 
+ static MenuTreeDirectory *
+@@ -2290,11 +2317,14 @@ process_layout (MenuTree          *tree,
+   MenuLayoutNode     *layout_iter;
+   MenuTreeDirectory  *directory;
+   DesktopEntrySet    *entries;
++  DesktopEntrySet    *excluded_entries;
+   DesktopEntrySet    *allocated_set;
+   gboolean            deleted;
+   gboolean            only_unallocated;
+   GSList             *tmp;
+ 
++  MenuTreeListifyForeachData foreach_data;
++
+   g_assert (menu_layout_node_get_type (layout) == MENU_LAYOUT_NODE_MENU);
+   g_assert (menu_layout_node_menu_get_name (layout) != NULL);
+ 
+@@ -2311,6 +2341,7 @@ process_layout (MenuTree          *tree,
+   dir_dirs = menu_layout_node_menu_get_directory_dirs (layout);
+ 
+   entries = desktop_entry_set_new ();
++  excluded_entries = desktop_entry_set_new ();
+   allocated_set = desktop_entry_set_new ();
+ 
+   layout_iter = menu_layout_node_get_children (layout);
+@@ -2357,6 +2388,7 @@ process_layout (MenuTree          *tree,
+                 if (rule_set != NULL)
+                   {
+                     desktop_entry_set_union (entries, rule_set);
++                    desktop_entry_set_subtract (excluded_entries, rule_set);
+                     desktop_entry_set_union (allocated_set, rule_set);
+                     desktop_entry_set_unref (rule_set);
+                   }
+@@ -2389,6 +2421,7 @@ process_layout (MenuTree          *tree,
+                 if (rule_set != NULL)
+                   {
+                     desktop_entry_set_subtract (entries, rule_set);
++                    desktop_entry_set_union (excluded_entries, rule_set);
+                     desktop_entry_set_unref (rule_set);
+                   }
+ 
+@@ -2488,15 +2521,28 @@ process_layout (MenuTree          *tree,
+   if (deleted)
+     {
+       desktop_entry_set_unref (entries);
++      desktop_entry_set_unref (excluded_entries);
+       menu_tree_directory_unref (directory);
+       return NULL;
+     }
+ 
+-  directory->entries = NULL;
++  foreach_data.directory = directory;
++  foreach_data.list = NULL;
+   desktop_entry_set_foreach (entries,
+                              (DesktopEntrySetForeachFunc) entries_listify_foreach,
+-                             directory);
++                             &foreach_data);
+   desktop_entry_set_unref (entries);
++
++  directory->entries = foreach_data.list;
++
++  foreach_data.directory = directory;
++  foreach_data.list = NULL;
++  desktop_entry_set_foreach (excluded_entries,
++		  	     (DesktopEntrySetForeachFunc) entries_listify_foreach,
++			     &foreach_data);
++  desktop_entry_set_unref (excluded_entries);
++
++  directory->excluded_entries = foreach_data.list;
+ 
+   tmp = directory->entries;
+   while (tmp != NULL)
+Index: libmenu/menu-tree.h
+===================================================================
+RCS file: /cvs/gnome/gnome-menus/libmenu/menu-tree.h,v
+retrieving revision 1.2
+diff -u -p -r1.2 menu-tree.h
+--- libmenu/menu-tree.h	11 Jan 2005 11:41:04 -0000	1.2
++++ libmenu/menu-tree.h	25 Feb 2005 17:43:03 -0000
+@@ -44,8 +44,9 @@ MenuTreeDirectory *menu_tree_get_root_di
+ MenuTreeDirectory *menu_tree_get_directory_from_path (MenuTree   *tree,
+ 						      const char *path);
+ 
+-GSList *menu_tree_directory_get_entries (MenuTreeDirectory *directory);
+-GSList *menu_tree_directory_get_subdirs (MenuTreeDirectory *directory);
++GSList *menu_tree_directory_get_entries          (MenuTreeDirectory *directory);
++GSList *menu_tree_directory_get_excluded_entries (MenuTreeDirectory *directory);
++GSList *menu_tree_directory_get_subdirs          (MenuTreeDirectory *directory);
+ 
+ MenuTreeDirectory *menu_tree_directory_ref   (MenuTreeDirectory *directory);
+ void               menu_tree_directory_unref (MenuTreeDirectory *directory);
