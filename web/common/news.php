@@ -1,10 +1,9 @@
 <?php
-
 /*
 
     GSB news function PHP script <http://gsb.sf.net>
     Chip Cuccio <chipster@norlug.org>
-    $Id:$
+    $Id$
 
 */
 

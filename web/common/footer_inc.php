@@ -3,7 +3,7 @@
 
     Footer PHP script
     Chip Cuccio <chipster@norlug.org>
-    $Id:$
+    $Id$
 
 */
 ?>

@@ -3,7 +3,7 @@
 
     Sidebar/menu PHP script
     Chip Cuccio <chipster@norlug.org>
-    $Id:$
+    $Id$
 
 */
 ?>

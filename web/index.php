@@ -3,7 +3,7 @@
 /*
     The index.php "brain" PHP script
     Chip Cuccio <chipster@norlug.org>
-    $Id:$
+    $Id$
 
 */
 

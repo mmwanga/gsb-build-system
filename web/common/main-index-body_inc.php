@@ -3,7 +3,7 @@
 
     Main content body PHP script
     Chip Cuccio <chipster@norlug.org>
-    $Id:$
+    $Id$
 
 */
 ?>
