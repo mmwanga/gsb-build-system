@@ -25,6 +25,8 @@ gnome-panel
 gnome-session
 vte
 gnome-terminal
+gstreamer
+gst-plugins
 libgtop
 libxklavier
 gnome-applets

@@ -11,25 +11,8 @@ if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 
-BUILD_ORDER="gstreamer
-gst-plugins
-gst-ffmpeg
+BUILD_ORDER="gst-ffmpeg
 gst-monkeysaudio"
-
-# Build libs first
-(
-for i in libs
-do
-(
-  cd $i
-  echo ""
-  echo "*************************************************"
-  echo "*****   Building $i"
-  echo "*************************************************"
-  echo ""
-  ./gnome.gstreamer.$i.SlackBuild
-)
-done
 
 for i in $BUILD_ORDER
 do
