@@ -26,7 +26,7 @@ use warnings;
 #use GSB::Edit;
 use GSB::GSB;
 use GSB::Gnome;
-#use GSB::GStreamer;
+use GSB::GStreamer;
 use GSB::Office;
 use GSB::Other;
 use GSB::Requirements;
@@ -151,7 +151,7 @@ foreach my $ppackage (keys %platform) {
   }
 
   if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $platform{$ppackage);
+    GSB::Edit::gsb_sb_edit($sb_file, $platform{$ppackage});
   }
 
   if ( ! -f $tarball ) {
@@ -164,17 +164,20 @@ foreach my $pnpackage (keys %platform_diff_naming) {
 
   chdir "$pwd/gnome/platform/$pnpackage";
   my $sb_file = $pnpackage. $sb_ext;
-  my $tarball = "$pnpackage{name}-$pnpackage{ver}.tar.bz2";
+  my $name = $platform_diff_naming{$pnpackage}{name};
+  my $ver  = $platform_diff_naming{$pnpackage}{ver};
+
+  my $tarball = "$name-$ver.tar.bz2";
 
   if ( $download eq "true" ) {
     if ( ! -f $tarball ) {
-      my $url = GSB::GSB::gsb_gnome_platform_url_make($pnpackage{name}, $pnpackage{ver});
-      GSB::GSB::gsb_tarball_get(pnpackage, $url);
+      my $url = GSB::GSB::gsb_gnome_platform_url_make($name, $ver);
+      GSB::GSB::gsb_tarball_get($pnpackage, $url);
     }
   }
 
   if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $pnpackage{ver});
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
   }
 
   if ( ! -f $tarball ) {
@@ -187,17 +190,23 @@ foreach my $fdopackage (keys %platform_fdo) {
 
   chdir "$pwd/gnome/platform/$fdopackage";
   my $sb_file = $fdopackage . $sb_ext;
-  my $tarball = "$fdopackage-$fdopackage{ver}.$fdopackage{src}";
+  my $packurl = $platform_fdo{$fdopackage}{url};
+  my $ver     = $platform_fdo{$fdopackage}{ver};
+  my $src     = $platform_fdo{$fdopackage}{src};
+
+  my $tarball = "$fdopackage-$ver.$src";
 
   if ( $download eq "true") {
     if ( ! -f $tarball ) {
-      my $url = GSB::GSB::gsb_other_url_make($fdopackage, $fdopackage{url}, $fdopackage{ver}, $fdopackage{src});
-      GSB::GSB::gsb_tarball_get($url);
+      my $url = GSB::GSB::gsb_other_url_make($fdopackage, $packurl, $ver, $src);
+      GSB::GSB::gsb_tarball_get($fdopackage, $url);
+    }else{
+      print "tarball exists\n";
     }
   }
 
   if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $fdopackage{ver});
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
   }
 
   if ( ! -f $tarball ) {
@@ -205,8 +214,10 @@ foreach my $fdopackage (keys %platform_fdo) {
   }
 }
 
+exit (0);
+
 # Download Desktop Packages
-foreach local $dpackage (keys %desktop) {
+foreach my $dpackage (keys %desktop) {
 
   chdir "$pwd/gnome/desktop/$dpackage";
   my $sb_file = $dpackage . $sb_ext;
@@ -215,7 +226,7 @@ foreach local $dpackage (keys %desktop) {
   if ( $download eq "true") {
     if ( ! -f $tarball ) {
       my $url = GSB::GSB::gsb_gnome_desktop_url_make($dpackage, $desktop{$dpackage});
-      GSB::GSB::gsb_tarball_get{$url);
+      GSB::GSB::gsb_tarball_get($dpackage, $url);
     }
   }
 
@@ -224,7 +235,7 @@ foreach local $dpackage (keys %desktop) {
   }
 
   if ( ! -f $tarball ) {
-    push((@bad_downloads, $dpackage);
+    push(@bad_downloads, $dpackage);
   }
 }
 
@@ -245,7 +256,7 @@ foreach my $office_pack (keys %office_gnome) {
   }
 
   if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $fdopackage{ver});
+    GSB::Edit::gsb_sb_edit($sb_file, $office_gnome{$office_pack});
   }
 
   if ( ! -f $tarball ) {
