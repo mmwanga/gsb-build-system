@@ -30,7 +30,7 @@ my %other =
 			     'src' => 'tar.bz2',
 			    },
    'gaim'                => {
-			     'ver' => '1.1.2',
+			     'ver' => '1.1.3',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gaim',
 			     'src' => 'tar.bz2',
 			    },
@@ -38,6 +38,11 @@ my %other =
 			     'ver' => '1.3.19',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/galeon',
 			     'src' => 'tar.bz2',
+			    },
+   'gc'                  => {
+			     'ver' => '6.3',
+			     'url' => 'http://www.hpl.hp.com/personal/Hans_Boehm/gc/gc_source/',
+			     'src' => 'tar.gz',
 			    },
    'gftp'                => {
 			     'ver' => '2.0.18',
@@ -50,8 +55,8 @@ my %other =
 			     'src' => 'tar.gz',
 			    },
    'graveman'            => {
-			     'ver' => '0.3.6',
-			     'url' => 'http://www.nongnu.org/graveman/',
+			     'ver' => '0.3.8',
+			     'url' => 'http://www.nongnu.org/download/graveman/',
 			     'src' => 'tar.bz2',
 			    },
    'gtkpod'              => {
@@ -68,6 +73,11 @@ my %other =
 			     'ver' => '0.7.5',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/kino/',
 			     'src' => 'tar.gz',
+			    },
+   'inkscape'            => {
+			     'ver' => '0.40',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/inkscape/',
+			     'src' => 'tar.bz2',
 			    },
    'libburn'             => {
 			     'ver' => '0.2',
@@ -89,7 +99,7 @@ my %other =
 my %other_gnome =
   (
    'NetworkManager'      => '0.3.1',
-   'evince'              => '0.1.4',
+   'evince'              => '0.1.5',
    'ghex'                => '2.8.1',
    'glade'               => '2.9.0',
    'gnome-audio'         => '2.0.0',

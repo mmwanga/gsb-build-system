@@ -22,13 +22,26 @@ use strict;
 use warnings;
 
 # GSB Modules
+use GSB::Edit;
 use GSB::GSB;
 use GSB::Gnome;
 use GSB::GStreamer;
 use GSB::Office;
 use GSB::Other;
 use GSB::Requirements;
+use GSB::Desktop_Requirements;
 
+################################################################################
+#
+# config variables
+
+my @bad_downloads = "";
+
+my $gsb_root_sources = "../../src";
+
+#
+#
+################################################################################
 
 ################################################################################
 #
@@ -36,10 +49,23 @@ use GSB::Requirements;
 
 if (@ARGV != 1) {
   GSB::GSB::show_help();
-#  exit (0);
+  exit (0);
 }
 
-GSB::GSB::gsb_var_print();
+foreach my $package (keys %platform) {
+
+  my $url = gsb_gnome_platform_url_make($package, $platform{$package});
+
+  gsb_tarball_get{$url);
+}
+
+foreach my $package (keys %desktop) {
+
+  my $url = gsb_gnome_desktop_url_make($package, $platform{$package});
+
+  gsb_tarball_get{$url);
+}
+
 
 #print "The following packages could not be downloaded:\n";
 #print "GSB::GSB::@bad_downloads\n";

@@ -8,7 +8,6 @@ package GSB::GSB;
 require Exporter;
 
 our @ISA = ("Exporter");
-our @EXPORT = qw($gfiledir %gnome);
 our $VERSION = 0.0.3;
 
 ################################################################################
@@ -17,7 +16,7 @@ our $VERSION = 0.0.3;
 
 my %gnome =
   (
-   'version'  => '2.9.91',
+   'version'  => '2.9.92',
    'release'  => '2.9',
    'mirror'   => 'http://ftp.gnome.org',
    'srcroot'  => '/pub/GNOME',
@@ -32,6 +31,7 @@ my $grelease = "/$gnome{release}/$gnome{version}/sources";
 my $pfiledir = $gfiledir . $gnome{platform} . $grelease;
 my $dfiledir = $gfiledir . $gnome{desktop}  . $grelease;
 my $bfiledir = $gfiledir . $gnome{bindings} . $grelease;
+my $gsrcddir = $gfiledir . '/sources';
 
 my @bad_downloads = "";
 
@@ -50,9 +50,9 @@ sub show_help {
   $0 --conf=\<arg or all\>
 
   --conf         which files to download: gnome, gstreamer, office
-                 other, requirements
+                                          other, requirements
   --getlocal     get files from local directory, instead of mirror
-  --getrelease   download release so that --local can be used
+  --getrelease   download release so that --getlocal can be used
 
 EOF
 }
@@ -68,13 +68,51 @@ sub gsb_tarball_get {
     or die "Could not Download $file" && push(@bad_downloads, $file);
 }
 
-# make a $url for use by gsb_tarball_get
-#
-# check for number of keys, either 2 or 3, if 2 then its a tar.bz2 file: url/name-ver.tar.bz2
-# if 3, then construct the url as: url/name-ver.src
-sub gsb_url_make {
+# hash has 3 keys
+# give name and hash
+sub gsb_other_url_make {
+
+  my $name = shift;
+  my %thishash = shift;
+
+  my $url = "$thishash{$url}/$name-$thishash{$ver}.$thishash{$src}";
+
+  return $url;
+}
 
 
+# Give name and version to function
+sub gsb_gnome_platform_url_make {
+
+  my $name = shift;
+  my $ver  = shift;
+
+  my $url = "$pfiledir/$name-$ver.tar.bz2";
+
+  return $url;
+}
+
+# give name and version
+sub gsb_gnome_desktop_url_make {
+
+  my $name = shift;
+  my $ver  = shift;
+
+  my $url = "$dfiledir/$name-$ver.tar.bz2";
+
+  return $url;
+}
+
+# give binding type, name and version
+sub gsb_gnome_bindings_url_make {
+
+  my $binding_type = shift;
+  my $name         = shift;
+  my $ver          = shift;
+
+  my $url = "$bfiledir/$binding_type/$name-$ver.tar.bz2";
+
+  return $url;
 }
 
 # End Functions

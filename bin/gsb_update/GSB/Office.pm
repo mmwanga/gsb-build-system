@@ -14,7 +14,7 @@ my %office =
   (
    'abiword' => {
 		 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/abiword/',
-		 'ver' => '2.2.3',
+		 'ver' => '2.2.4',
 		 'src' => 'tar.bz2'
 		},
   );
@@ -49,7 +49,7 @@ my %office_libs =
 		  },
    'libwpd'    => {
 		   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libwpd/',
-		   'ver' => '0.7.2',
+		   'ver' => '0.8.0',
 		   'src' => 'tar.gz',
 		  },
    'ots'       => {
