@@ -21,7 +21,8 @@ psiconv
 fribidi
 enchant
 libgda
-libgnomedb"
+libgnomedb
+libgdamm"
 
 (
 

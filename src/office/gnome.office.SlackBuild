@@ -15,7 +15,9 @@ mkdir -p $TMP/gnome-$GVERSION/office
 # mergeant not included yet
 BUILD_ORDER="abiword
 dia
-gnumeric"
+gnumeric
+planner
+glom"
 
 (
 
