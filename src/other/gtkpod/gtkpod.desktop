@@ -6,5 +6,5 @@ Comment=Sync your Apple iPod
 Exec=gtkpod
 Terminal=false
 Type=Application
-Icon=gtkpod.png
+Icon=frg-gtkpod.png
 Categories=Application;AudioVideo;

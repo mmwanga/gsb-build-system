@@ -6,7 +6,7 @@ PKG=$TMP/package-gtkpod
 
 VERSION=0.88
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -37,6 +37,10 @@ make install DESTDIR=$PKG
 mkdir -p $PKG/usr/share/applications
 cp $CWD/gtkpod.desktop $PKG/usr/share/applications
 chmod 644 $PKG/usr/share/applications/gtkpod.desktop
+
+mkdir -p $PKG/usr/share/pixmaps/
+cp $CWD/frg-gtkpod.png $PKG/usr/share/pixmaps/
+chmod 644 $PKG/usr/share/pixmaps/frg-gtkpod.png
 
 chown -R root.bin $PKG/usr/bin
 
