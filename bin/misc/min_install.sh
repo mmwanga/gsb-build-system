@@ -11,7 +11,8 @@
       libcroco*.tgz \
       libgsf*.tgz \
       openh323*.tgz \
-      pwlib*.tgz
+      pwlib*.tgz \
+      howl*.tgz
 )
 
 # Install Gstreamer and media libs
