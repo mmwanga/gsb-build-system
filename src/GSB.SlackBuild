@@ -14,7 +14,7 @@ if [ ! -d $TMP ]; then
 fi
 
 # BUILD GNOME PLATFORM AND DESKTOP
-for i in requirements gstreamer gnome other office
+for i in requirements gnome gstreamer other office
 do
 	echo "****************************************************"
 	echo "*******      BUILDING $i"

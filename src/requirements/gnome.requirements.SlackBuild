@@ -12,9 +12,54 @@ fi
 
 mkdir -p $TMP/gnome-$GVERSION/requirements
 
-# howl for gnomemeeting not included yet
-BUILD_ORDER="
-"
+# faad2 and faac have a hard time building if mpeg4ip is installed, so
+# we remove it and then reinstall later
+/sbin/removepkg mpeg4ip
+
+BUILD_ORDER="a52dec
+avifile
+divx4linux
+faad2
+faac
+ffmpeg
+id3lib
+libavc1394
+libcdaudio
+libcddb
+libcdio
+libdv
+libdvbpsi3
+libdvdcss
+libdvdnav
+libdvdplay
+libdvdread
+libebml
+libfame
+libmatroska
+libmms
+libmovtar
+libmusicbrainz
+liboil
+libraw1394
+libsndfile
+libsamplerate
+libquicktime
+libvisual
+libvisual-plugins
+libvisual-nebulus
+libvisual-xmms
+lame
+mjpegtools
+mpeg2dec
+mpeg4ip
+libmusepack
+normalize
+openslp
+polypaudio
+swfdec
+libtheora
+xvidcore
+transcode"
 
 (
 
@@ -33,7 +78,6 @@ do
 )
 done
 
-
 for i in $BUILD_ORDER
 do
 (
@@ -50,4 +94,3 @@ do
 done
 # Fork screen output to a log
 ) 2>&1 | tee $TMP/gnome.requirements.build.log
-
