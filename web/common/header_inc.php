@@ -39,8 +39,7 @@ print("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
 <div id="top"></div>
   
 <div class="subHeader">
-  <h1 class="doNotDisplay"><a href="/" class="headerLink" title="GSB:
-  GNOME.SlackBuild">GSB: Gnome.SlackBuild</a></h1>
+  <h1><a href="/" title="GSB: GNOME.SlackBuild">GSB: Gnome.SlackBuild</a></h1>
 <?php include('content/header.html'); ?>
 </div>
 
