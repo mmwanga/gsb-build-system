@@ -1,0 +1,55 @@
+#!/bin/sh
+
+CWD=`pwd`
+TMP=${TMP:-/tmp}
+PKG=$TMP/package-denu/
+
+VERSION=2.3.2
+ARCH=${ARCH:-i486}
+BUILD=3
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG
+
+cd $TMP
+tar -xjvf $CWD/denu-$VERSION.tar.bz2
+cd denu-$VERSION
+./install.sh $PKG
+
+chown -R root.bin $PKG/usr/bin
+
+mkdir -p $PKG/usr/share/applications
+cp $CWD/denu.desktop $PKG/usr/share/applications
+chmod 644 $PKG/usr/share/applications/denu.desktop
+
+(
+  mkdir -p $PKG/usr/share/pixmaps
+  cd $PKG/usr/share/pixmaps
+  ln -sf ../denu/denu_icon_48.png denu.png
+)
+
+mkdir -p $PKG/usr/doc/denu-$VERSION
+cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
+        TODO $CWD/README.denu \
+        $PKG/usr/doc/denu-$VERSION
+find $PKG/usr/doc/denu-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/doc/denu-$VERSION/*
+
+gzip -9 $PKG/usr/man/*/*
+gzip -9 $PKG/usr/info/*
+
+mkdir -p $PKG/install
+cat $CWD/slack-required > $PKG/install/slack-required
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG
+makepkg -l y -c n $TMP/denu-$VERSION-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/denu-$VERSION
+  rm -rf $PKG
+fi
