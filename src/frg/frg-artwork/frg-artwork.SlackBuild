@@ -6,7 +6,7 @@ PKG=$TMP/package-frg-artwork
 
 VERSION=1.0.0
 ARCH=${ARCH:-i486}
-BUILD=7
+BUILD=8
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -34,8 +34,8 @@ cp $CWD/splash/* \
 	$PKG/usr/share/pixmaps/splash/frg
 
 # Copy default icon theme
-cp -r /usr/share/icons/Amaranth \
-	$PKG/usr/share/icons
+tar zxf $CWD/icons/ICON-BlankOn.tar.gz \
+	-C $PKG/usr/share/icons
 
 # copy gdm themes
 cp -r $CWD/gdm/* \
@@ -50,6 +50,9 @@ chown root.root $PKG/usr/doc/frg-artwork-$VERSION/*
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
+
+chown -R root.root $PKG
 
 cd $PKG
 makepkg -l y -c n $TMP/frg-artwork-$VERSION-$ARCH-$BUILD.tgz
