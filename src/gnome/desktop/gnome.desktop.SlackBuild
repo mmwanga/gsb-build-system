@@ -9,7 +9,6 @@ fi
 BUILD_ORDER="libgnomesu
 libgtkhtml
 gnome-icon-theme
-gnome-keyring
 gnome-keyring-manager
 startup-notification
 gtk-engines
