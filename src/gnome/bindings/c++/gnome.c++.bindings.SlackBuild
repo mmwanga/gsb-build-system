@@ -7,15 +7,15 @@ if [ ! -d $TMP ]; then
 fi
 
 BUILD_ORDER="libsigc++
-libxml++
 glibmm
+libxml++
 gtkmm
 libgnomemm
 libgnomecanvasmm
 libglademm
-libgnomeuimm
 gnome-vfsmm
 gconfmm
+libgnomeuimm
 bakery"
 
 (
