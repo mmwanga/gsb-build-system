@@ -45,7 +45,7 @@ rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates /tmp
 
 <ul>
   <li>install the slackware-10.1 mozilla package</li>
-  <li>add /usr/lib/firefox to /etc/ld.so.conf<li>
+  <li>add /usr/lib/firefox to /etc/ld.so.conf</li>
   <li>
     symlink the libraries from /usr/lib/firefox into /usr/lib. The
     following should do that for you. It was taken from the mozilla.SlackBuild
