@@ -12,7 +12,7 @@
 <?php
 // default main landing page
 if ($op == "index") {
-    print("<h2 id=\"news\">News and Announcements:</h2>");
+    print("<h1 id=\"news\">News and Announcements:</h1>");
     include_once('common/news_inc.php');
     include_once('content/about.html');
 } else {

@@ -21,7 +21,7 @@ $ff = "news.txt";
 $sep = "###";
 
 if (!is_file($ff)) {
-    print("<h3>No News</h3>\n\n");
+    print("<h2>No News</h2>\n\n");
 } else {
 
     define("_HOUR", 3);
@@ -58,16 +58,16 @@ if (!is_file($ff)) {
         $news = preg_replace("/(?<!<a href=\")((http||https|ftp|rsync|news|irc)+(s)?:\/\/[^<>\s]+)/i",
             "<a href=\"\\0\">&lt;\\0&gt;</a>", $news);
        
-        print( "<h3>".$subject."</h3>\n"
-              ."<h4 class=\"newsheader\">Posted ".$ndate." ".$ndate_tzone." by "
-              .$author."</h4>\n"
+        print( "<h2>".$subject."</h2>\n"
+              ."<p class=\"newsheader\">Posted ".$ndate." ".$ndate_tzone." by "
+              .$author."</p>\n"
               ."<div class=\"news_entry\">".$news[0]."</div>\n"
               ."<hr class=\"doNotDisplay\"/>\n" );
         if ($a >= $max-1) break; 
     }
 
     if ($start == 0 && $news_page <= 0) {
-        print( "<h5><a href=\"/news/1\">Older News</a> &raquo;</h5>\n" );
+        print( "<p><a href=\"/news/1\">Older News</a> &raquo;</p>\n" );
     }
 
     if ($start > 0) {
@@ -77,7 +77,7 @@ if (!is_file($ff)) {
             $nextlink = "<a href=\"/news/".($news_page+1)."\">Next</a>&gt;";
         if ($news_page > 1)
             $prevlink = "&lt;<a href=\"/news/".($news_page-1)."\">Prev</a>";
-        print( "<h5><a href=\"/\">Home</a> | ".$prevlink." : ". $nextlink . "</h5>\n" );
+        print( "<p><a href=\"/\">Home</a> | ".$prevlink." : ". $nextlink . "</p>\n" );
     }
 
     if ($news_page > 0) {

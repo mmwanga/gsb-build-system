@@ -24,6 +24,12 @@ hr {
     border: 0px;
 }
 
+img.screenthumb {
+    vertical-align: middle;
+    margin: 0 15px 15px 0;
+    border: 1px solid rgb(0,51,153);
+}
+
 .boilerplate {
    position: absolute;
    right: 1.5mm;
@@ -68,13 +74,6 @@ img {
 
 h1,h2,h3,h4,h5,h6 {
     font-family: Optima, "bitstream vera serif", georgia, "times new roman", serif;
-}
-
-h2 {
-    border-bottom: 1px solid black;
-    margin: 1em 0 0 0;
-    padding: 0.5ex 0 1.0ex 0;
-    line-height: 1.0em; 
 }
 
 .indent, .italic {
@@ -267,7 +266,7 @@ div.ads {
 }
 
 #main-body p {
-  margin: 1em 1ex 1em 1ex;
+  margin: 1em 1ex 1em 0;
   padding: 0;
 }
 
@@ -282,12 +281,32 @@ div.ads {
 }
 
 #main-body h1 {
-  color: white;
-  background-color: rgb(100,135,220);
-  font-weight: bold;
+  border-bottom: 1px solid black;
   margin: 1em 0 0 0;
-  padding: 0.5ex 0 0.5ex 1ex;
-  line-height: 1.3em;
+  padding: 0.5ex 0 1.0ex 0;
+  line-height: 1.0em;
+  font-size: 1.6em;
+}
+
+#main-body h2 {
+    margin: 1em 0 0 0;
+    padding: 0.5ex 0 1.0ex 0;
+    line-height: 1.0em;
+    font-size: 1.2em;
+}
+
+#main-body h2 {
+    margin: 1em 0 0 0;
+    padding: 0.5ex 0 1.0ex 0;
+    line-height: 1.0em;
+    font-size: 1.2em;
+}
+
+#main-body h3 {
+    margin: 1em 0 0 0;
+    padding: 0.5ex 0 1.0ex 0;
+    line-height: 1.0em;
+    font-size: 0.9em;
 }
 
 #main-body .topOfPage {
