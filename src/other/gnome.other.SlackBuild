@@ -37,7 +37,9 @@ kino
 gtkpod
 gnome-audio
 gc
-inkscape"
+inkscape
+gst-ffmpeg
+gst-monkeysaudio"
 
 (
 for i in $BUILD_ORDER
