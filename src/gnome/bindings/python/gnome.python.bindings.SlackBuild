@@ -6,9 +6,9 @@ if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 
-BUILD_ORDER="pygtk
+BUILD_ORDER="pyorbit
+pygtk
 gnome-python
-pyorbit
 gnome-python-extras
 pyphany"
 
