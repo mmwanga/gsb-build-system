@@ -32,16 +32,21 @@
         <li><a href="#help" title="Help the Project">Help the
         Project</a></li>
 
+        <li><a href="http://sourceforge.net/projects/gsb"
+        title="SourceForge.net Project Page">Project Page</a></li>
+
         <li><a href="#links" title="Relevant Links">Links</a></li>
       </ul>
     </div>
     <div>
-      <p class="sideBarTitle">Project Page:</p>
+      <p class="sideBarTitle">Sponsors:</p>
 
       <ul>
-        <li><a href="http://sourceforge.net/projects/gsb" title=
-        "Sourceforge.net"><img src="/images/sflogo.png" alt=
-        "SourceForge.net Logo" /></a></li>
+        <li><a href="http://sourceforge.net" title="SourceForge.net" class=
+        "imglink"><img src=
+        "http://sourceforge.net/sflogo.php?group_id=130126&amp;type=1"
+        width="88" height="31" alt="SourceForge.net Logo" /></a>
+        </li>
       </ul>
     </div>
   </div>

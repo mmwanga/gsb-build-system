@@ -32,6 +32,11 @@ hr {
     border: 0px;
 }
 
+#side-bar .imglink:hover {
+    background: transparent;
+    color: transparent;
+}
+
 pre,code,tt {
     font-size: 1.2em;
 }
