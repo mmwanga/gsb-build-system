@@ -1,0 +1,12 @@
+###
+2005-03-29-15-47-CST
+chipster
+Is GSB/FRG 1337
+You betcha!
+
+###
+2005-03-27-11-00-EST
+freerock
+Does GSB/FRG require the Linux 2.6 kernel?
+No. GSB/FRG does not require the 2.6 kernel. However, to take advantage
+of GNOME Volume Manager and (foo), the 2.6 kernel is needed.
