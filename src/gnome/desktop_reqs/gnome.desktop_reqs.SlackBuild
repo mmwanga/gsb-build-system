@@ -66,7 +66,8 @@ hal
 howl
 cyrus-sasl
 krb5
-openldap"
+openldap
+fam"
 
 (
 

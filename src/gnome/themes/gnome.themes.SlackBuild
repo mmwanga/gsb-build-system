@@ -9,7 +9,8 @@ fi
  
 # ximian-artwork not built, its themes are in gnome-themes-extras
 BUILD_ORDER="gnome-extra-themes
-gnome-themes-extras"
+gnome-themes-extras
+clearlooks"
 
 (
 for i in $BUILD_ORDER
