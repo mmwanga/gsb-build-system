@@ -55,6 +55,11 @@ our %other =
 			     'url' => 'http://gftp.seul.org/',
 			     'src' => 'tar.bz2',
 			    },
+   'gimp'                => {
+			     'ver' => '2.2.4',
+			     'url' => 'ftp://ftp.gimp.org/pub/gimp/v2.2/',
+			     'src' => 'tar.bz2',
+			    },
    'gnomebaker'          => {
 			     'ver' => '0.3',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gnomebaker/',
@@ -66,7 +71,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'gtkpod'              => {
-			     'ver' => '0.87.3',
+			     'ver' => '0.88',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtkpod/',
 			     'src' => 'tar.gz',
 			    },
@@ -105,6 +110,11 @@ our %other =
 			     'url' => 'http://poppler.freedesktop.org/',
 			     'src' => 'tar.gz',
 			    },
+   'xchat'                => {
+			     'ver' => '2.4.1',
+			     'url' => 'http://xchat.org/files/source/2.4/',
+			     'src' => 'tar.bz2',
+			    },
   );
 
 our %other_gnome =
@@ -115,7 +125,7 @@ our %other_gnome =
    'glade'               => '2.9.0',
    'gnome-audio'         => '2.0.0',
    'gnome-cups-manager'  => '0.30',
-   'gthumb'              => '2.6.3',
+   'gthumb'              => '2.6.4',
    'rhythmbox'           => '0.8.8',
   );
 

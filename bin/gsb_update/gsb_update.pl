@@ -31,6 +31,7 @@ use GSB::Office;
 use GSB::Other;
 use GSB::Desktop_Requirements;
 #use GSB::Themes;
+#use GSB::Verify;
 
 use Cwd;
 

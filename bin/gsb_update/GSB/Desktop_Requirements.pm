@@ -62,14 +62,12 @@ our %stupid_gnomemeeting_libs =
   (
    'openh323'  => {
 		   'url'   => 'http://www.gnomemeeting.org/admin/downloads/latest/sources/sources/',
-		   'ver'   => 'v1_15_2-src-',
-		   'sbver' => '1.15.2',
+		   'ver' => '1.15.3',
 		   'src'   => 'tar.gz',
 		  },
    'pwlib'     => {
 		   'url'   => 'http://www.gnomemeeting.org/admin/downloads/latest/sources/sources/',
-		   'ver'   => 'v1_8_3-src-',
-		   'sbver' => '1.8.3',
+		   'ver' => '1.8.4',
 		   'src'   => 'tar.gz',
 		  },
   );
@@ -88,7 +86,7 @@ sub gsb_gnomemeeting_libs_url_make {
   my $ver  = shift;
   my $src  = shift;
 
-  my $gsburl = "$url/$name-$ver$src";
+  my $gsburl = "$url/$name-$ver.$src";
   return $gsburl;
 }
 
