@@ -20,16 +20,31 @@ our %other =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/indlinux/',
 			     'src'  => 'tar.gz',
 			    },
+   'balsa'               => {
+			     'ver' => '2.3.0',
+			     'url' => 'http://balsa.gnome.org/',
+			     'src' => 'tar.bz2',
+			    },
    'bluefish'            => {
 			     'ver' => '1.0',
 			     'url' => 'http://pkedu.fbt.eitn.wau.nl/~olivier/downloads/',
 			     'src' => 'tar.bz2',
+			    },
+   'bmp'                 => {
+			     'ver' => '0.9.7',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/beepmp/',
+			     'src' => 'tar.gz',
 			    },
    'coaster'             => {
 			     'ver' => '0.1.4.2',
 			     'url' => 'http://www.coaster-burn.org/files/coaster/',
 			     'src' => 'tar.gz',
 			    },
+   'contact-lookup-applet' => {
+			       'ver' => '0.11',
+			       'url' => 'http://www.burtonini.com/computing/',
+			       'src' => 'tar.gz',
+			      },
    'drivel'              => {
 			     'ver' => '1.3.2',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/drivel/',
@@ -64,6 +79,11 @@ our %other =
 			     'ver' => '2.2.4',
 			     'url' => 'ftp://ftp.gimp.org/pub/gimp/v2.2/',
 			     'src' => 'tar.bz2',
+			    },
+   'gmime'               => {
+			     'ver' => '2.1.13',
+			     'url' => 'http://spruce.sourceforge.net/gmime/sources/v2.1/',
+			     'src' => 'tar.gz',
 			    },
    'gnomebaker'          => {
 			     'ver' => '0.3',
@@ -115,8 +135,13 @@ our %other =
 			     'url' => 'http://mikmod.raphnet.net/files/',
 			     'src' => 'tar.gz',
 			    },
+   'mail-notification'   => {
+			     'ver' => '1.1',
+			     'url' => 'http://savannah.nongnu.org/download/mailnotify/',
+			     'src' => 'tar.gz',
+			    },
    'poppler'             => {
-			     'ver' => '0.1.1',
+			     'ver' => '0.1.2',
 			     'url' => 'http://poppler.freedesktop.org/',
 			     'src' => 'tar.gz',
 			    },
@@ -140,10 +165,20 @@ our %other =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/streamripper/',
 			     'src' => 'tar.gz',
 			    },
+   'sylpheed'            => {
+			     'ver' => '1.9.6',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/sylpheed-claws/',
+			     'src' => 'tar.bz2',
+			    },
    'xchat'               => {
 			     'ver' => '2.4.1',
 			     'url' => 'http://xchat.org/files/source/2.4/',
 			     'src' => 'tar.bz2',
+			    },
+   'xscreensaver'        => {
+			     'ver' => '4.20',
+			     'url' => 'http://www.jwz.org/xscreensaver/',
+			     'src' => 'tar.gz',
 			    },
   );
 
