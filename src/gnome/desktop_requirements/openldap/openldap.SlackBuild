@@ -1,0 +1,78 @@
+#!/bin/sh
+#
+# $Id: openldap.SlackBuild 188 2004-12-18 08:22:16Z freerock $
+
+CWD=`pwd`
+if [ "$TMP" = "" ]; then
+  TMP=/tmp
+fi
+PKG=$TMP/package-openldap
+
+VERSION=2.2.23
+ARCH=i486
+BUILD=1
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG
+
+cd $TMP 
+tar xzvf $CWD/openldap-$VERSION.tgz
+cd openldap-$VERSION
+#
+CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr/local \
+	    --sysconfdir=/etc \
+	    --localstatedir=/var/openldap \
+	    --enable-syslog \
+	    --enable-dynamic \
+	    --with-readline \
+	    --with-threads \
+	    --with-tls \
+	    --with-cyrus-sasl \
+	    --enable-slapd \
+	    --enable-cleartext \
+	    --enable-modules \
+	    --enable-rlookups \
+	    --enable-wrappers \
+	    --enable-bdb \
+	    --enable-slurpd \
+	    --enable-modules \
+	    --enable-passwd=mod \
+       	    --enable-phonetic=mod \
+	    --enable-dnssrv=mod \
+	    --enable-ldap \
+	    --enable-meta=mod \
+	    --enable-monitor=mod \
+	    --enable-null=mod \
+	    --enable-shell=mod \
+	    --enable-local \
+	    --enable-hdb=mod 
+make depend
+make
+make install DESTDIR=$PKG
+
+chown -R root.bin $PKG/usr/local/bin $PKG/usr/local/sbin
+
+mkdir -p $PKG/usr/local/doc/openldap-$VERSION
+cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
+  $PKG/usr/local/doc/openldap-$VERSION
+chmod 644 $PKG/usr/local/doc/openldap-$VERSION/*
+chown root.root $PKG/usr/local/doc/openldap-$VERSION/*
+
+find $PKG -type f | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded
+gzip -9 $PKG/usr/local/man/*/*
+
+mkdir -p $PKG/install
+cat $CWD/slack-required > $PKG/install/slack-required
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG
+makepkg -l y -c n $TMP/openldap-$VERSION-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/template-$VERSION
+  rm -rf $PKG
+fi

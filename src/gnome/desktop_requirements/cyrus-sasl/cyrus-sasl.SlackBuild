@@ -1,0 +1,81 @@
+#!/bin/sh
+#
+# $Id: cyrus-sasl.SlackBuild 217 2005-01-21 17:48:55Z freerock $
+
+CWD=`pwd`
+if [ "$TMP" = "" ]; then
+  TMP=/tmp
+fi
+PKG=$TMP/package-cyrus-sasl
+
+VERSION=2.1.20
+ARCH=i486
+BUILD=1
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG
+
+cd $TMP 
+tar xzvf $CWD/cyrus-sasl-$VERSION.tar.gz
+cd cyrus-sasl-$VERSION
+#
+CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr/local \
+	    --disable-static \
+	    --program-prefix="" \
+	    --program-suffix="" \
+            i486-slackware-linux
+make
+make install DESTDIR=$PKG
+
+(
+  mkdir $PKG/usr/lib
+  cd $PKG/usr/lib
+  ln -s /usr/local/lib/sasl2 sasl2
+)
+
+mkdir -p $PKG/var/state/saslauthd
+
+(
+  cat $CWD/smtpd.conf > $PKG/usr/local/lib/sasl2/smtpd.conf.new
+)
+
+(
+  mkdir -p $PKG/etc/rc.d
+  cat $CWD/rc.saslauthd > $PKG/etc/rc.d/rc.saslauthd.new
+)
+
+chown -R root.bin $PKG/usr/local/bin $PKG/usr/local/sbin
+
+mkdir -p $PKG/usr/local/doc/cyrus-sasl-$VERSION/html
+cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
+	TODO \
+  	$PKG/usr/local/doc/cyrus-sasl-$VERSION
+cp -a doc/*.html $PKG/usr/local/doc/cyrus-sasl-$VERSION/html
+find $PKG/usr/local/doc/cyrus-sasl-$VERSION/ -type f -exec chmod 644 {} \;
+chown -R root.root $PKG/usr/local/doc/cyrus-sasl-$VERSION/*
+
+# strip:
+( cd $PKG
+  find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+  find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+)
+
+gzip -9 $PKG/usr/local/man/*/*
+gzip -9 $PKG/usr/local/info/*
+
+mkdir -p $PKG/install
+cat $CWD/slack-required > $PKG/install/slack-required
+cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
+
+cd $PKG
+makepkg -l y -c n $TMP/cyrus-sasl-$VERSION-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/cyrus-sasl-$VERSION
+  rm -rf $PKG
+fi

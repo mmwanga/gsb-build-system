@@ -1,0 +1,21 @@
+# $Id: slack-desc 217 2005-01-21 17:48:55Z freerock $
+#
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+       	  |-----handy-ruler------------------------------------------------------|
+cyrus-sasl: The Cyrus SASL (Simple Authentication and Security Layer) 
+cyrus-sasl:
+cyrus-sasl: SASL is the Simple Authentication and Security Layer, a method for 
+cyrus-sasl: adding authentication support to connection-based protocols. To use
+cyrus-sasl: SASL, a protocol includes a command for identifying and
+cyrus-sasl: authenticating a user to a server and for optionally negotiating
+cyrus-sasl: protection of subsequent protocol interactions. If its use is
+cyrus-sasl: negotiated, a security layer is inserted between the protocol and
+cyrus-sasl: the connection
+cyrus-sasl:
+cyrus-sasl:

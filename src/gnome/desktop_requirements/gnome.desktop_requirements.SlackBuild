@@ -10,7 +10,9 @@ BUILD_ORDER="dbus
 libcap
 hal
 howl
-krb5"
+cyrus-sasl
+krb5
+openldap"
 
 (
 for i in $BUILD_ORDER
