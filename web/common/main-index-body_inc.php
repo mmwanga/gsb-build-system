@@ -178,8 +178,6 @@
 
       <li>implement gnome.perl.bindings.SlackBuild</li>
 
-      <li>make SlackBuild for gnome-system-tools</li>
-
       <li>check if any of the packages need doinst.sh scripts for
       scrollkeeper updates</li>
 
@@ -191,8 +189,6 @@
         <ul>
           <li>NetworkManager - does not build with
           startup-notification-0.8, maybe try cvs build</li>
-
-          <li>howl - need to add rc.howl script</li>
 
           <li>ximian connector - needs kerberos to build</li>
         </ul>
