@@ -17,7 +17,7 @@ rm -rf $PKG
 mkdir -p $PKG
 
 cd $TMP 
-tar xzvf $CWD/libdvdplay-$VERSION.tar.gz
+tar xjvf $CWD/libdvdplay-$VERSION.tar.bz2
 cd libdvdplay-$VERSION
 #
 CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \

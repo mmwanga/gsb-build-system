@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-libmatroska
 
-VERSION=20030811
+VERSION=0.7.5
 ARCH=i486
 BUILD=1
 
@@ -22,7 +22,7 @@ cd libmatroska-$VERSION
 (
   cd make/linux
   cp Makefile Makefile.orig
-  sed -e 's#prefix=/usr/local#prefix=/usr#g' < Makefile.orig > Makefile
+  sed -e 's#prefix=/usr#prefix=/usr#g' < Makefile.orig > Makefile
   CFLAGS="-O2 -march=i486 -mcpu=i686" make
   cp -f Makefile Makefile.orig
   sed -e "s#prefix=/usr#prefix=$PKG/usr#g" < Makefile.orig > Makefile

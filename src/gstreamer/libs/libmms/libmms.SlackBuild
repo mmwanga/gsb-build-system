@@ -19,20 +19,20 @@ mkdir -p $PKG
 cd $TMP
 tar -xzvf $CWD/libmms-$VERSION.tar.gz
 cd libmms-$VERSION
-CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr/local \
+CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
             --disable-static \
             i486-slackware-linux
 make
 make install DESTDIR=$PKG
 
-chown -R root.bin $PKG/usr/local/bin
+chown -R root.bin $PKG/usr/bin
 
-mkdir -p $PKG/usr/local/doc/libmms-$VERSION
+mkdir -p $PKG/usr/doc/libmms-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
         TODO \
-        $PKG/usr/local/doc/libmms-$VERSION
-find $PKG/usr/local/doc/libmms-$VERSION/ -type f -exec chmod 644 {} \;
-chown root.root $PKG/usr/local/doc/libmms-$VERSION/*
+        $PKG/usr/doc/libmms-$VERSION
+find $PKG/usr/doc/libmms-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/doc/libmms-$VERSION/*
 
 # strip:
 ( cd $PKG
@@ -40,8 +40,8 @@ chown root.root $PKG/usr/local/doc/libmms-$VERSION/*
   find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
 )
 
-gzip -9 $PKG/usr/local/man/*/*
-gzip -9 $PKG/usr/local/info/*
+gzip -9 $PKG/usr/man/*/*
+gzip -9 $PKG/usr/info/*
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc

@@ -45,8 +45,7 @@ mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-makepkg -l y -c n $TMP/avifile-$VERSION-$ARCH-$BUILD.tgz
-mv $TMP/avifile-$VERSION-$ARCH-$BUILD.tgz $TMP/avifile-$PVERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/avifile-$PVERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then

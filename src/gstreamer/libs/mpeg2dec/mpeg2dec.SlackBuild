@@ -6,8 +6,8 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-mpeg2dec
 
-VERSION=0.4cvs
-CVER=20030612
+VERSION=0.4.0b
+PVERSION=0.4.0
 ARCH=i486
 BUILD=1
 
@@ -18,8 +18,8 @@ rm -rf $PKG
 mkdir -p $PKG
 
 cd $TMP 
-tar xjvf $CWD/mpeg2dec-$CVER.tar.bz2
-cd mpeg2dec-$CVER
+tar xzvf $CWD/mpeg2dec-$VERSION.tar.gz
+cd mpeg2dec-$PVERSION
 #
 CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
 	    --disable-static \
@@ -42,7 +42,6 @@ chown root.root $PKG/usr/doc/mpeg2dec-$VERSION/*
 )
 
 gzip -9 $PKG/usr/man/*/*
-gzip -9 $PKG/usr/info/*
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
@@ -52,6 +51,6 @@ makepkg -l y -c n $TMP/mpeg2dec-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/mpeg2dec-$VERSION
+  rm -rf $TMP/mpeg2dec-$PVERSION
   rm -rf $PKG
 fi

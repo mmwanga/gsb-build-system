@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-libcdio
 
-VERSION=0.64
+VERSION=0.72
 ARCH=i486
 BUILD=1
 

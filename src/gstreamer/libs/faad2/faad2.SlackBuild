@@ -20,6 +20,11 @@ cd $TMP
 unzip $CWD/faad2-"$VERSION".zip -d $TMP
 cd faad2
 bzcat $CWD/Makefile.am.faad2.patch.bz2 |patch -p0 --verbose
+cat $CWD/configure.in.mpeg4ip.patch |patch -p0 --verbose
+(
+cd common/mp4v2 
+cat $CWD/mp4atom-sliver.patch |patch -p0 --verbose
+)
 chmod +x bootstrap
 sh ./bootstrap
 CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \

@@ -10,13 +10,30 @@ if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 
+mkdir -p $TMP/gnome-$GVERSION/requirements
+
 # howl for gnomemeeting not included yet
 BUILD_ORDER="dbus
 libcap
-hal
-openh323-pwlib"
+hal"
 
 (
+
+for i in openh323-pwlib
+do
+(
+  cd $i
+  echo ""
+  echo "*************************************************"
+  echo "*****   Building $i"
+  echo "*************************************************"
+  echo ""
+  ./$i.SlackBuild
+  upgradepkg --install-new $TMP/openh323*.tgz $TMP/pwlib*.tgz
+  mv $TMP/openh323*.tgz $TMP/pwlib*.tgz $TMP/gnome-$GVERSION/requirements
+)
+done
+
 
 for i in $BUILD_ORDER
 do
@@ -29,11 +46,9 @@ do
   echo ""
   ./$i.SlackBuild
   upgradepkg --install-new $TMP/$i*.tgz
+  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/requirements
 )
 done
 # Fork screen output to a log
 ) 2>&1 | tee $TMP/gnome.requirements.build.log
-
-mkdir -p $TMP/gnome-$GVERSION/requirements
-mv $TMP/*.tgz $TMP/gnome-$GVERSION/requirements
 

@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-lame
 
-VERSION=3.93.1
+VERSION=3.96.1
 ARCH=i486
 BUILD=1
 

@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-gstreamer
 
-VERSION=0.8.8
+VERSION=0.8.9
 ARCH=i486
 BUILD=1
 

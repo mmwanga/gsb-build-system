@@ -1,24 +1,34 @@
 #!/bin/sh
 
+if [ -r ../GSB.options ]; then
+  . ../GSB.options
+fi
+
 TMP=${TMP:-/tmp}
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 
+mkdir -p $TMP/gnome-$GVERSION/gstreamer
+
+# faad2 and faac have a hard time building if mpeg4ip is installed, so we remove it
+# and then reinstall later
+/sbin/removepkg mpeg4ip
+
 BUILD_ORDER="a52dec
 avifile
-divx
+divx4linux
 faad2
 faac
 ffmpeg
 id3lib
-lame
 libavc1394
 libcdaudio
 libcddb
 libcdio
 libdv
+libdvbpsi3
 libdvdcss
 libdvdnav
 libdvdplay
@@ -30,26 +40,28 @@ libmms
 libmovtar
 libmusicbrainz
 liboil
-libquicktime
 libraw1394
-libsamplerate
 libsndfile
+libsamplerate
+libquicktime
 libvisual
 libvisual-plugins
 libvisual-nebulus
+libvisual-xmms
+lame
 mjpegtools
 mpeg2dec
 mpeg4ip
-musepack
+libmusepack
 normalize
 openslp
 polypaudio
 swfdec
-theora
-xvid
+libtheora
+xvidcore
 transcode"
-(
 
+(
 for i in $BUILD_ORDER
 do
 (
@@ -61,6 +73,7 @@ do
   echo ""
   ./$i.SlackBuild
   upgradepkg --install-new $TMP/$i*.tgz
+  mv $TMP/$i*.tgz $TMP/gnome-$VERSION/gstreamer
 )
 done
 # Fork screen output to a log

@@ -19,7 +19,7 @@ rm -rf $PKG
 mkdir -p $PKG
 
 cd $TMP 
-tar xjvf $CWD/libcap-$VERSION.tar.bz2
+tar xzvf $CWD/libcap-$VERSION.tar.gz
 cd libcap-$VERSION
 make
 make install prefix=/usr/local FAKEROOT=$PKG

@@ -12,8 +12,11 @@ if [ ! -d $TMP ]; then
 fi
 
 BUILD_ORDER="gstreamer
-gst-plugins"
+gst-plugins
+gst-ffmpeg
+gst-monkeysaudio"
 
+# Build libs first
 (
 for i in libs
 do
@@ -47,5 +50,3 @@ mv $TMP/*.tgz $TMP/gnome-$GVERSION/gstreamer
 # Fork screen output to a log
 ) 2>&1 | tee $TMP/gnome.gstreamer.build.log
 
-mkdir -p $TMP/gnome-$GVERSION/gstreamer
-mv $TMP/*.tgz $TMP/gnome-$GVERSION/gstreamer

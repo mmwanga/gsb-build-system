@@ -19,15 +19,16 @@ mkdir -p $PKG
 cd $TMP
 tar -xzvf $CWD/mpeg4ip-$VERSION.tar.gz
 cd mpeg4ip-$VERSION
-CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr/local \
+CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
 	    --program-prefix="" \
 	    --program-suffix="" \
+	    --disable-mp4live \
             i486-slackware-linux
 make
 make install DESTDIR=$PKG
 
 (
-  cd $PKG/usr/local/include
+  cd $PKG/usr/include
   cp mpeg4ip.h mpeg4ip.h.orig
   grep -v '\(PACKAGE\)\|\(VERSION\)' mpeg4ip.h.orig > mpeg4ip.h
   cp mpeg4ip_config.h mpeg4ip_config.h.orig
@@ -35,14 +36,14 @@ make install DESTDIR=$PKG
   rm mpeg4ip.h.orig mpeg4ip_config.h.orig
 )
 
-chown -R root.bin $PKG/usr/local/bin
+chown -R root.bin $PKG/usr/bin
 
-mkdir -p $PKG/usr/local/doc/mpeg4ip-$VERSION
+mkdir -p $PKG/usr/doc/mpeg4ip-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
         TODO \
-        $PKG/usr/local/doc/mpeg4ip-$VERSION
-find $PKG/usr/local/doc/mpeg4ip-$VERSION/ -type f -exec chmod 644 {} \;
-chown root.root $PKG/usr/local/doc/mpeg4ip-$VERSION/*
+        $PKG/usr/doc/mpeg4ip-$VERSION
+find $PKG/usr/doc/mpeg4ip-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/doc/mpeg4ip-$VERSION/*
 
 # strip:
 ( cd $PKG
@@ -50,8 +51,8 @@ chown root.root $PKG/usr/local/doc/mpeg4ip-$VERSION/*
   find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
 )
 
-gzip -9 $PKG/usr/local/man/*/*
-gzip -9 $PKG/usr/local/info/*
+gzip -9 $PKG/usr/man/*/*
+gzip -9 $PKG/usr/info/*
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc

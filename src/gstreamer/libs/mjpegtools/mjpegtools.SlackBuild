@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-mjpegtools
 
-VERSION=1.6.1.90
+VERSION=1.6.2
 ARCH=i486
 BUILD=1
 
@@ -24,6 +24,7 @@ CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
 	    --disable-static \
 	    --program-prefix="" \
 	    --program-suffix="" \
+	    --without-quicktime \
             i486-slackware-linux
 make
 make install DESTDIR=$PKG

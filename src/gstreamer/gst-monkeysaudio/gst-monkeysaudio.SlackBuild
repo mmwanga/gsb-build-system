@@ -1,12 +1,14 @@
 #!/bin/sh
+#
+# $Id$
 
 CWD=`pwd`
 if [ "$TMP" = "" ]; then
   TMP=/tmp
 fi
-PKG=$TMP/package-libvisual
+PKG=$TMP/package-gst-monkeysaudio
 
-VERSION=0.1.7
+VERSION=0.8.0
 ARCH=i486
 BUILD=1
 
@@ -17,22 +19,37 @@ rm -rf $PKG
 mkdir -p $PKG
 
 cd $TMP
-tar -xzvf $CWD/libvisual-$VERSION.tar.gz
-cd libvisual-$VERSION
+tar -xjvf $CWD/gst-monkeysaudio-$VERSION.tar.bz2
+cd gst-monkeysaudio-$VERSION
 CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
+            --sysconfdir=/etc \
+            --localstatedir=/var/lib \
             --disable-static \
             i486-slackware-linux
 make
 make install DESTDIR=$PKG
 
+SCHEMAS=$PKG/etc/gconf/schemas
+for i in $SCHEMAS/*.schemas
+do
+GCONF_CONFIG_SOURCE="xml::$PKG/etc/gconf/gconf.xml.defaults" \
+        gconftool-2 --makefile-install-rule $i
+done
+
+(
+  cd $PKG/etc/gconf/gconf.xml.defaults
+  find ./ -type d -exec chmod go+rx {} \;
+  find ./ -type f -exec chmod go+r {} \;
+)
+
 chown -R root.bin $PKG/usr/bin
 
-mkdir -p $PKG/usr/doc/libvisual-$VERSION
+mkdir -p $PKG/usr/doc/gst-monkeysaudio-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
         TODO \
-        $PKG/usr/doc/libvisual-$VERSION
-find $PKG/usr/doc/libvisual-$VERSION/ -type f -exec chmod 644 {} \;
-chown root.root $PKG/usr/doc/libvisual-$VERSION/*
+        $PKG/usr/doc/gst-monkeysaudio-$VERSION
+find $PKG/usr/doc/gst-monkeysaudio-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/doc/gst-monkeysaudio-$VERSION/*
 
 # strip:
 ( cd $PKG
@@ -45,13 +62,12 @@ gzip -9 $PKG/usr/info/*
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
-makepkg -l y -c n $TMP/libvisual-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/gst-monkeysaudio-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/libvisual-$VERSION
+  rm -rf $TMP/gst-monkeysaudio-$VERSION
   rm -rf $PKG
 fi

@@ -6,8 +6,8 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-ffmpeg
 
-CVERSION=0.4.8
-VERSION=0.4.8
+VERSION=0.4.9-pre1
+PVERSION=0.4.9pre1
 ARCH=i486
 BUILD=1
 
@@ -22,6 +22,7 @@ tar xzvf $CWD/ffmpeg-$VERSION.tar.gz
 cd ffmpeg-$VERSION
 #
 CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
+	    --enable-gpl \
 	    --enable-pp \
 	    --enable-shared
 make
@@ -51,7 +52,7 @@ mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-makepkg -l y -c n $TMP/ffmpeg-$CVERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/ffmpeg-$PVERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then

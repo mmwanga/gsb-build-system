@@ -1,12 +1,14 @@
 #!/bin/sh
+#
+# $Id$
 
 CWD=`pwd`
 if [ "$TMP" = "" ]; then
   TMP=/tmp
 fi
-PKG=$TMP/package-libsamplerate
+PKG=$TMP/package-libvisual-nebulus
 
-VERSION=0.1.2
+VERSION=0.1.4
 ARCH=i486
 BUILD=1
 
@@ -16,25 +18,24 @@ fi
 rm -rf $PKG
 mkdir -p $PKG
 
-cd $TMP 
-tar xzvf $CWD/libsamplerate-$VERSION.tar.gz
-cd libsamplerate-$VERSION
-CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
-	    --disable-static \
-	    --program-prefix="" \
-	    --program-suffix="" \
+cd $TMP
+tar -xzvf $CWD/libvisual-nebulus-$VERSION.tar.gz
+cd libvisual-nebulus-$VERSION
+CFLAGS="-O2 -march=i486 -mcpu=i686" LDFLAGS="-L/usr/X11R6/lib" \
+./configure --prefix=/usr \
+            --disable-static \
             i486-slackware-linux
 make
 make install DESTDIR=$PKG
 
 chown -R root.bin $PKG/usr/bin
 
-mkdir -p $PKG/usr/doc/libsamplerate-$VERSION
+mkdir -p $PKG/usr/doc/libvisual-nebulus-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
-	TODO \
-  	$PKG/usr/doc/libsamplerate-$VERSION
-find $PKG/usr/doc/libsamplerate-$VERSION/ -type f -exec chmod 644 {} \;
-chown root.root $PKG/usr/doc/libsamplerate-$VERSION/*
+        TODO \
+        $PKG/usr/doc/libvisual-nebulus-$VERSION
+find $PKG/usr/doc/libvisual-nebulus-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/doc/libvisual-nebulus-$VERSION/*
 
 # strip:
 ( cd $PKG
@@ -49,10 +50,10 @@ mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-makepkg -l y -c n $TMP/libsamplerate-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/libvisual-nebulus-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/libsamplerate-$VERSION
+  rm -rf $TMP/libvisual-nebulus-$VERSION
   rm -rf $PKG
 fi

@@ -24,7 +24,8 @@ cd build/generic
 CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
             i486-slackware-linux
 make
-make install DESTDIR=$PKG
+#make install DESTDIR=$PKG
+make install prefix=$PKG/usr
 
 cd $TMP/xvidcore-$VERSION
 
