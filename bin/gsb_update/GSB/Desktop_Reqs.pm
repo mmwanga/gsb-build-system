@@ -1,4 +1,4 @@
-package GSB::Desktop_Requirements;
+package GSB::Desktop_Reqs;
 require Exporter;
 
 use strict;

@@ -5,7 +5,12 @@
 #
 # TODO:
 #
-#   - auto download themes. Need to Populate Themes.pm file with apropriate hashes
+#   - Themes.pm: themes for gnome-extra-themes need to be auto downloaded
+#   - Verify.pm: add md5 and gpg checking of src tarballs
+#
+# TODO AFTER 0.2.0 release:
+#
+#   - Clean up repeatitive areas of gsb_update.pl
 #   - cli args: --conf={all,platform,desktop,desktop_reqs,office,other}
 #               --getrelease
 #               --getlocal
@@ -28,7 +33,7 @@ use GSB::Gnome;
 use GSB::GStreamer;
 use GSB::Office;
 use GSB::Other;
-use GSB::Desktop_Requirements;
+use GSB::Desktop_Reqs;
 use GSB::DoubleTar;
 use GSB::Themes;
 #use GSB::Verify;
