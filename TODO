@@ -10,11 +10,6 @@ WEBSITE:
 	* Package browser based on PACKAGES.TXT, and have a
 	  PACKAGES.TXT-$FRG_RELEASE_VERSION
 	  ie. PACKAGES.TXT-0.2.0
-	* some screenshots of the default theme and the FRG
-	  wallpaper.
-	* split screenshots page into: Default Look Screens
-	  and User Submitted Screenshots, should be done when
-	  we have our default theme up
 	* FAQ page. chipster, not sure how you want it setup
 	  as far as layout goes, if you want to script it with
 	  php or not.
