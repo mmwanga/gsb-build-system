@@ -237,6 +237,33 @@ foreach my $dpackage (keys %desktop) {
 
 # Download Bindings
 
+# Office apps
+foreach my $ofpackage (keys %office) {
+
+  chdir "$pwd/office/$ofpackage";
+  my $sb_file = $ofpackage . $sb_ext;
+  my $packurl = $office{$ofpackage}{url};
+  my $ver     = $office{$ofpackage}{ver};
+  my $src     = $office{$ofpackage}{src};
+
+  my $tarball = "$ofpackage-$ver.$src";
+
+  if ( $download eq "true") {
+    if ( ! -f $tarball ) {
+      my $url = GSB::GSB::gsb_other_url_make($ofpackage, $packurl, $ver, $src);
+      GSB::GSB::gsb_tarball_get($ofpackage, $url);
+    }
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $ofpackage);
+  }
+}
+
 # GNOME Office
 foreach my $office_pack (keys %office_gnome) {
 
@@ -283,7 +310,84 @@ foreach my $office_pack (keys %office_gnome_libs) {
   }
 }
 
-exit (0);
+# Office libs
+foreach my $olpackage (keys %office_libs) {
+
+  chdir "$pwd/office/libs/$olpackage";
+  my $sb_file = $olpackage . $sb_ext;
+  my $packurl = $office_libs{$olpackage}{url};
+  my $ver     = $office_libs{$olpackage}{ver};
+  my $src     = $office_libs{$olpackage}{src};
+
+  my $tarball = "$olpackage-$ver.$src";
+
+  if ( $download eq "true") {
+    if ( ! -f $tarball ) {
+      my $url = GSB::GSB::gsb_other_url_make($olpackage, $packurl, $ver, $src);
+      GSB::GSB::gsb_tarball_get($olpackage, $url);
+    }
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $olpackage);
+  }
+}
+
+# Other apps
+foreach my $opackage (keys %other) {
+
+  chdir "$pwd/other/$opackage";
+  my $sb_file = $opackage . $sb_ext;
+  my $packurl = $other{$opackage}{url};
+  my $ver     = $other{$opackage}{ver};
+  my $src     = $other{$opackage}{src};
+
+  my $tarball = "$opackage-$ver.$src";
+
+  if ( $download eq "true") {
+    if ( ! -f $tarball ) {
+      my $url = GSB::GSB::gsb_other_url_make($opackage, $packurl, $ver, $src);
+      GSB::GSB::gsb_tarball_get($opackage, $url);
+    }else{
+      print "tarball exists\n";
+    }
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $opackage);
+  }
+}
+
+# Other gnome apps
+foreach my $other_pack (keys %other_gnome) {
+
+  chdir "$pwd/other/$other_pack";
+  my $sb_file = $other_pack . $sb_ext;
+  my $tarball = "$other_pack-$other_gnome{$other_pack}.tar.bz2";
+
+  if ( $download eq "true" ) {
+    if ( ! -f $tarball ) {
+      my $url = GSB::GSB::gsb_gnome_generic_url_make($other_pack, $other_gnome{$other_pack});
+      GSB::GSB::gsb_tarball_get($other_pack, $url);
+    }
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $other_gnome{$other_pack});
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $other_pack);
+  }
+}
 
 print "The following packages could not be downloaded:\n";
 print "@bad_downloads\n";

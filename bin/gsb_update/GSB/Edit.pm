@@ -13,10 +13,17 @@ our $VERSION = 0.03;
 #
 # Functions
 
-# give the function a SlackBuild file to edit
+# first check if the VERSION variables are the same
+# if same then increment the BUILD variable by 1
+# if different then change the VERSION variable and make BUILD=1
+
+
+# give the function a SlackBuild file and a version number
 sub gsb_sb_edit {
 
   my $file = shift;
+
+
 
 }
 
