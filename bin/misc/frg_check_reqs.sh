@@ -20,8 +20,8 @@ libmad-0.15.1b-i486-1
 popt-1.7-i386-1
 gdk-pixbuf-0.22.0-i486-1
 cdparanoia-IIIalpha9.8-i386-1
-x11-6.8.?-i486-1
-x11-xnest-6.8.?-i486-1
+x11-6.8.?-i486-?
+x11-xnest-6.8.?-i486-?
 "
 
 check_packages() {
