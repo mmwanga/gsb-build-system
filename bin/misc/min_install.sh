@@ -2,7 +2,6 @@
 
 FRGROOT=`dirname $0`
 
-
 # Install Platform
 (
   cd $FRGROOT/platform
@@ -28,5 +27,6 @@ FRGROOT=`dirname $0`
   upgradepkg --install-new *.tgz
 )
 
-/usr/bin/update-mime-database /usr/share/mime
-/usr/bin/update-desktop-database
+if [ ! $FRG_FULL = "true" ]; then
+    $FRGROOT/frg_post_install.sh
+fi
