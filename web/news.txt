@@ -15,8 +15,8 @@ FRG-0.1.96 Released
 <blockquote><p>
  <code><strong>
 rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates/frg-0.1.94 /tmp
-rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates/frg-0.1.95 /tmp
-rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates /tmp
+<br />rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates/frg-0.1.95 /tmp
+<br />rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates /tmp
 </strong></code>
 </p></blockquote>
 
