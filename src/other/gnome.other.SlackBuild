@@ -52,7 +52,9 @@ drivel
 gmime
 mail-notification
 contact-lookup-applet
-bmp"
+bmp
+balsa
+sylpheed"
 
 (
 for i in $BUILD_ORDER
