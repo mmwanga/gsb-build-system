@@ -115,12 +115,11 @@ our %other =
 			     'url' => 'http://savannah.nongnu.org/download/streamtuner/',
 			     'src' => 'tar.gz',
 			    },
-   'streamripper'         => {
+   'streamripper'        => {
 			     'ver' => '1.61.4',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/streamripper/',
 			     'src' => 'tar.gz',
 			    },
-
    'xchat'               => {
 			     'ver' => '2.4.1',
 			     'url' => 'http://xchat.org/files/source/2.4/',
@@ -131,7 +130,7 @@ our %other =
 our %other_gnome =
   (
    'NetworkManager'      => '0.3.1',
-   'evince'              => '0.1.8',
+   'evince'              => '0.1.9',
    'ghex'                => '2.8.1',
    'glade'               => '2.9.0',
    'gnome-audio'         => '2.0.0',

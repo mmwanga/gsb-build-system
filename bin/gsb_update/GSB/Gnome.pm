@@ -44,8 +44,8 @@ our %platform =
    'libgnomeprint'       => '2.10.0',
    'libgnomeprintui'     => '2.10.0.1',
    'libgnomeui'          => '2.10.0',
-   'libxml2'             => '2.6.17',
-   'libxslt'             => '1.1.12',
+   'libxml2'             => '2.6.18',
+   'libxslt'             => '1.1.13',
    'pango'               => '1.8.1',
 
   );
@@ -186,11 +186,11 @@ our %desktop_other =
 
 our %bindings_cxx =
   (
-   'bakery'            => '2.3.11',
+   'bakery'            => '2.3.12',
    'gconfmm'           => '2.10.0',
    'glibmm'            => '2.6.1',
    'gnome-vfsmm'       => '2.10.0',
-   'gtkmm'             => '2.6.0',
+   'gtkmm'             => '2.6.1',
    'libglademm'        => '2.6.0',
    'libgnomecanvasmm'  => '2.10.0',
    'libgnomemm'        => '2.10.0',
