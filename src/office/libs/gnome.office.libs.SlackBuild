@@ -1,13 +1,18 @@
 #!/bin/sh
 
+if [ -r ../GSB.options ]; then
+  . ../GSB.options
+fi
+
 TMP=${TMP:-/tmp}
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 
-#not included: libgda, libgnomedb, eps
+mkdir -p $TMP/gnome-$GVERSION/office
 
+#not included: libgda, libgnomedb, eps
 BUILD_ORDER="aiksaurus
 ots
 libwmf
@@ -30,6 +35,7 @@ do
   echo ""
   ./$i.SlackBuild
   upgradepkg --install-new $TMP/$i*.tgz
+  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/office
 )
 done
 

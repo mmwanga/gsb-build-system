@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/sh
 
 if [ -r ../GSB.options ]; then
   . ../GSB.options
@@ -10,10 +10,12 @@ if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 
+mkdir -p $TMP/gnome-$GVERSION/office
+
+# mergeant not included yet
 BUILD_ORDER="abiword
 dia
-gnumeric
-mergeant"
+gnumeric"
 
 (
 
@@ -41,10 +43,9 @@ do
   echo ""
   ./$i.SlackBuild
   upgradepkg --install-new $TMP/$i*.tgz
+  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/office
 )
 done
 # Fork screen output to a log
 ) 2>&1 | tee $TMP/gnome.office.build.log
 
-mkdir -p $TMP/gnome-$GVERSION/office
-mv $TMP/*.tgz $TMP/gnome-$GVERSION/office
