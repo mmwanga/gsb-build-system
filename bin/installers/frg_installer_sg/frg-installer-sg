@@ -1,0 +1,756 @@
+#!/bin/sh
+#
+# The Freerock Installer SG
+#
+# An installer for Freerock packages utilizing slapt-get.  Based on Todd
+# Kulesza's Freerock Installer
+#
+# Copyright 2002-2004 Todd Kulesza
+# Copyright 2005 Jason Woodward <woodwardj@jaos.org>
+# Copyright 2005 GSB Project <http://gsb.sf.net>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Library General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+
+NAME=frg-installer-sg
+TITLE="FRG Installer SG"
+VERSION=0.2.0
+CACHE=/var/cache/$NAME
+ERRORLOG="/var/log/frg-installer-sg"
+DEFAULT_MIRROR="http://frg.freerock.org/frg/"
+tempfile=$CACHE/$$
+RCCONFIG=$CACHE/frg-installerrc
+DIALOG=dialog
+SLAPTGET="/usr/sbin/slapt-get --config $RCCONFIG "
+ERRORLOG="/var/log/frg-installer-sg"
+echo "$NAME $VERSION" > $ERRORLOG
+FORCE=
+NODEPS=
+UPGRADE=
+AUTO=
+export TEXTDOMAINDIR=/usr/share/locale
+export TEXTDOMAIN=$NAME
+DEP_LIBS="libz.so.1 libjpeg.so.62 libpng.so.3 libtiff.so.3 libcdda_paranoia.so.0 libcdda_interface.so.0 libaspell.so.15 libpcre.so.0 libcups.so.2 libpisync.so.0 libcurl.so.3 libexif.so.12"
+
+function main_menu {
+	$DIALOG --backtitle $"The $TITLE " \
+		--clear --cr-wrap --title $"The $TITLE $VERSION" \
+		--cancel-label $"Exit" --default-item "$default" \
+   		--menu $"Welcome to the $TITLE!
+
+Please select an action to perform:" 16 78 7 \
+		$"Install" $"Install a fresh copy of Freerock\'s GNOME" \
+		$"Upgrade" $"Upgrade an existing installation" \
+		$"View Updates" $"Show a list of available updates" \
+		$"Download Only" $"Download packages without installing them" \
+		$"Remove" $"Uninstall Freerock\'s GNOME" \
+		$"Preferences" $"Edit user preferences" \
+		$"Exit" $"Exit the $TITLE" 2> $tempfile
+
+	if [ $? != 0 ]; then exit_installer ;fi
+	local CHOICE=`cat $tempfile`
+
+	case $CHOICE in
+		$"Install")
+			update_local_pkg_cache
+			dl_install
+		;;
+		$"Upgrade")
+			update_local_pkg_cache
+			dl_install upgrade
+		;;
+		$"View Updates")
+			update_local_pkg_cache
+			dl_view_updates
+		;;
+		$"Download Only")
+			update_local_pkg_cache
+			dl_download_only
+		;;
+		$"Remove")
+			update_local_pkg_cache
+			dl_remove
+		;;
+		$"Preferences")
+			dl_preferences
+		;;
+		$"Exit")
+			exit_installer
+		;;
+	esac
+
+}
+
+function dl_install {
+	local want_upgrade=$1
+
+	if [ -z "$want_upgrade" ]; then
+		echo -n "Requested installation option... " >> $ERRORLOG
+		$DIALOG --backtitle $"The $TITLE - $LOCAL_OS $LOCAL_VERSION" \
+			--title $"Select Installation Type" --cr-wrap \
+			--default-item "$(cat $CACHE/install_type 2>/dev/null)" \
+    	    --menu $"What type of installation would you like?  In all \
+cases, only packages in the categories previously selected will be installed.
+" 11 70 3 \
+    	    $"Full" $"Install the complete Freerock GNOME system" \
+    	    $"Selective" $"Choose which packages to install" \
+    	    $"Minimal" $"Only install the core GNOME packages" 2> $CACHE/install_type
+	else
+		echo -n "Requested upgrade option... " >> $ERRORLOG
+		$DIALOG --backtitle $"The $TITLE - $LOCAL_OS $LOCAL_VERSION" \
+			--title $"Select Upgrade Type" --cr-wrap \
+			--default-item "$(cat $CACHE/install_type 2>/dev/null)" \
+    	    --menu $"What type of upgrade would you like?  In all \
+cases, only packages in the categories previously selected will be upgraded.
+" 11 70 3 \
+    	    $"Full" $"Install all available updates" \
+    	    $"Selective" $"Choose which updates to install" \
+    	    $"Minimal" $"Only update the core GNOME packages" 2> $CACHE/install_type
+	fi
+
+	if [ $? != 0 ]; then main_menu ;fi
+
+	case "$(cat $CACHE/install_type)" in
+		"Full")
+			echo "Full" >> $ERRORLOG
+			$SLAPTGET --install freerock-gnome | tee -a $ERRORLOG
+			if [ "$KEEP_OBSOLETE_APPS" == "false" ]; then
+				$SLAPTGET --install freerock-obsolete | tee -a $ERRORLOG
+			fi
+		;;
+		"Selective")
+			echo "Selective" >> $ERRORLOG
+			if [ -n "$want_upgrade" ]; then
+				select_pkgs dl_upgrade
+			else
+				select_pkgs dl_install
+			fi
+		;;
+		"Minimal")
+			echo "Minimal" >> $ERRORLOG
+			$SLAPTGET --install freerock-gnome-minimal | tee -a $ERRORLOG
+			if [ "$KEEP_OBSOLETE_APPS" == "false" ]; then
+				$SLAPTGET --install freerock-obsolete | tee -a $ERRORLOG
+			fi
+		;;
+	esac
+
+	main_menu
+}
+
+function dl_view_updates {
+	$SLAPTGET --upgrade -s |grep 'is to be'> $CACHE/updates
+	if [ -s $CACHE/updates ]; then
+		$DIALOG --backtitle $"The $TITLE - $LOCAL_OS $LOCAL_VERSION" --title $"Available Packages" \
+			--exit-label $"Back" --textbox $CACHE/updates 19 70
+	else
+		$DIALOG --backtitle $"The $TITLE - $LOCAL_OS $LOCAL_VERSION" \
+			--title $"No Updates Available" --aspect 25 --trim \
+			--msgbox $"Your system is currently up to date.  No \
+upgrades are available at this time." 0 0
+	fi
+	main_menu
+}
+
+function dl_download_only {
+	echo "Download Only option selected" >> $ERRORLOG
+	$SLAPTGET --install freerock-gnome --download-only | tee -a $ERRORLOG
+	main_menu
+}
+
+function dl_remove {
+	echo "Remove option selected" >> $ERRORLOG
+	$DIALOG --backtitle $"The $TITLE - $LOCAL_OS $LOCAL_VERSION" \
+			--title $"Uninstall?" --aspect 24 --trim \
+			--yesno $"Are you sure you want to uninstall the complete Freerock GNOME Desktop?" \
+			0 0 2> $tempfile
+	
+	if [ $? != 0 ]; then
+		main_menu
+	fi
+
+	$SLAPTGET --list|grep 'inst=yes'|awk '{print $1}' | xargs $SLAPTGET --remove -y | tee -a $ERRORLOG
+
+	if [ $? != 0 ]; then
+		$DIALOG --backtitle $"The $TITLE - $LOCAL_OS $LOCAL_VERSION" \
+			--title $"Uninstall Failed" --aspect 15 --trim \
+			--msgbox $"The Freerock GNOME Desktop was not removed.  Please check $ERRORLOG for details" 0 0
+		exit_installer 255
+	fi
+
+	$DIALOG --backtitle $"The $TITLE - $LOCAL_OS $LOCAL_VERSION" \
+			--title $"Uninstall Complete" --aspect 15 --trim \
+			--msgbox $"The Freerock GNOME Desktop has been successfully removed from your system.  \
+Certain system-wide packages such as FreeType and LibXML have been left installed so that standard Slackware \
+software will continue to function." 0 0
+
+	main_menu
+}
+
+function dl_preferences {
+	$DIALOG --backtitle $"The $TITLE - $LOCAL_OS $LOCAL_VERSION" \
+			--clear --cr-wrap --title $"Edit Preferences" \
+			--cancel-label $"Back" --default-item "$default" \
+    		--menu $"" 12 78 6 \
+		$"Set Source" $"Select source media (Net, CD, hard disk)" \
+		$"Set Proxy" $"Specify an HTTP proxy server" \
+		$"Set Directory" $"Specify a directory to hold downloaded files" \
+		$"Keep Old Programs" $"Choose whether to remove obsolete applications" \
+		$"Keep Install Files" $"Choose whether to save the installation files" \
+		$"Back" $"Go back to the main menu" 2> $tempfile
+		
+	if [ $? != 0 ]; then main_menu;fi
+	local CHOICE=`cat $tempfile`
+
+	case $CHOICE in
+		$"Set Source")
+			set_source
+		;;
+		$"Set Proxy")
+			set_proxy
+		;;
+		$"Set Directory")
+			set_directory
+		;;
+		$"Keep Old Programs")
+			set_keep_obsolete_apps
+		;;
+		$"Keep Install Files")
+			set_keep_install_files;
+		;;
+		$"Back")
+			main_menu
+		;;
+		*)
+			dl_preferences
+		;;
+	esac
+
+	main_menu
+}
+
+function exit_installer {
+	local err_code=$1
+	echo "Exiting..." >> $ERRORLOG
+	if [ -f $tempfile ]; then rm $tempfile;fi
+	if [ "$KEEP_INSTALL_FILES" == "false" ]; then
+		$SLAPTGET --clean
+	fi
+	exit $err_code
+}
+
+function select_pkgs {
+	local last_screen=$1
+	local -a CATEGORIES
+	local index=0
+	local cat=""
+	local COMMAND
+	local pkg
+	local -a PACKAGES
+
+	cat /dev/null > $CACHE/specified_pkgs
+
+	echo -e "-----\nentering select_pkgs..." >> $ERRORLOG
+
+	touch $CACHE/categories
+
+	CATEGORYCOMMAND='$DIALOG --backtitle $"The $TITLE - $LOCAL_OS $LOCAL_VERSION" --title $"Select Categories" --separate-output --checklist $"Use the space-bar to select which categories you wish to use packages from:" 15 70 7 '
+
+	CATEGORYCOMMAND="$CATEGORYCOMMAND 'Application Development' 'Packages for compiling software' "
+	if [ ! -s $CACHE/categories -o -n "$(grep 'Application Development' $CACHE/categories)" ]; then
+		CATEGORYCOMMAND="$CATEGORYCOMMAND on "
+	else
+		CATEGORYCOMMAND="$CATEGORYCOMMAND off "
+	fi
+
+	CATEGORYCOMMAND="$CATEGORYCOMMAND 'Desktop Extras' 'Utilities to enhance your desktop' "
+	if [ ! -s $CACHE/categories -o -n "$(grep 'Desktop Extras' $CACHE/categories)" ]; then
+		CATEGORYCOMMAND="$CATEGORYCOMMAND on "
+	else
+		CATEGORYCOMMAND="$CATEGORYCOMMAND off "
+	fi
+
+	CATEGORYCOMMAND="$CATEGORYCOMMAND 'GNOME Desktop' 'The core GNOME platform' "
+	if [ ! -s $CACHE/categories -o -n "$(grep 'GNOME Desktop' $CACHE/categories)" ]; then
+		CATEGORYCOMMAND="$CATEGORYCOMMAND on "
+	else
+		CATEGORYCOMMAND="$CATEGORYCOMMAND off "
+	fi
+
+	CATEGORYCOMMAND="$CATEGORYCOMMAND 'Internet Software' 'Communication and network programs' "
+	if [ ! -s $CACHE/categories -o -n "$(grep 'Internet Software' $CACHE/categories)" ]; then
+		CATEGORYCOMMAND="$CATEGORYCOMMAND on "
+	else
+		CATEGORYCOMMAND="$CATEGORYCOMMAND off "
+	fi
+
+	CATEGORYCOMMAND="$CATEGORYCOMMAND 'Media Software' 'Audio, video, and image packages' "
+	if [ ! -s $CACHE/categories -o -n "$(grep 'Media Software' $CACHE/categories)" ]; then
+		CATEGORYCOMMAND="$CATEGORYCOMMAND on "
+	else
+		CATEGORYCOMMAND="$CATEGORYCOMMAND off "
+	fi
+
+	CATEGORYCOMMAND="$CATEGORYCOMMAND 'Office Applications' 'Office and productivity packages' "
+	if [ ! -s $CACHE/categories -o -n "$(grep 'Office Applications' $CACHE/categories)" ]; then
+		CATEGORYCOMMAND="$CATEGORYCOMMAND on "
+	else
+		CATEGORYCOMMAND="$CATEGORYCOMMAND off "
+	fi
+
+	CATEGORYCOMMAND="$CATEGORYCOMMAND 'System Software' 'Required system packages' "
+	if [ ! -s $CACHE/categories -o -n "$(grep 'System Software' $CACHE/categories)" ]; then
+		CATEGORYCOMMAND="$CATEGORYCOMMAND on "
+	else
+		CATEGORYCOMMAND="$CATEGORYCOMMAND off "
+	fi
+
+	eval $CATEGORYCOMMAND 2>$CACHE/categories
+
+	if [ $? != 0 ]; then
+		if [ -z "$last_screen" ]; then
+			main_menu
+		else
+			case "$last_screen" in
+				"dl_install")
+					dl_install
+				;;
+				"dl_upgrade")
+					dl_install upgrade
+				;;
+			esac
+		fi
+	fi
+
+	while [ 1 ]; do
+		read cat
+		if [ -z "$cat" ]; then break;fi
+		case "$cat" in
+			"Application Development")
+				echo "adding '$cat' to $CACHE/categories" >> $ERRORLOG
+				CATEGORIES[$index]="Application_Development:freerock-gnome-devel"
+			;;
+			"Desktop Extras")
+				echo "adding '$cat' to $CACHE/categories" >> $ERRORLOG
+				CATEGORIES[$index]="Desktop_Extras:freerock-gnome-extras"
+			;;
+			"GNOME Desktop")
+				echo "adding '$cat' to $CACHE/categories" >> $ERRORLOG
+				CATEGORIES[$index]="GNOME_Desktop:freerock-gnome-minimal"
+			;;
+			"Internet Software")
+				echo "adding '$cat' to $CACHE/categories" >> $ERRORLOG
+				CATEGORIES[$index]="Internet_Software:freerock-gnome-network"
+			;;
+			"Media Software")
+				echo "adding '$cat' to $CACHE/categories" >> $ERRORLOG
+				CATEGORIES[$index]="Media_Software:freerock-gnome-media"
+			;;
+			"Office Applications")
+				echo "adding '$cat' to $CACHE/categories" >> $ERRORLOG
+				CATEGORIES[$index]="Office_Applications:freerock-gnome-office"
+			;;
+			"System Software")
+				echo "adding '$cat' to $CACHE/categories" >> $ERRORLOG
+				CATEGORIES[$index]="System_Software:freerock-gnome-system"
+			;;
+		esac
+		let index+=1;
+	done < $CACHE/categories
+
+	if [ $index -eq 0 ]; then select_pkgs $last_screen;fi
+
+	echo "categories selected = $index" >> $ERRORLOG
+
+	for pkg_cat in ${CATEGORIES[*]};do
+
+		let index=0
+		CAT=$(echo $pkg_cat|cut -f1 -d:|sed -r "s/_/ /g")
+		META_PKG=$(echo $pkg_cat|cut -f2 -d:)
+
+		echo "generating package list for category: $CAT" >> $ERRORLOG
+
+		$DIALOG --backtitle $"The $TITLE - $LOCAL_OS $LOCAL_VERSION" \
+			--title "In Progress" --aspect 50 --trim \
+			--infobox $"Generating Package list for ${CAT}..." 0 0
+
+		RAW_PKG_DATA=$($SLAPTGET --show $META_PKG|grep Required|awk -F 'Package Required:   ' '{print $2}')
+
+		OLDIFS=$IFS
+		IFS=','
+		unset PACKAGES
+		declare -a PACKAGES
+		for raw_pkg in $RAW_PKG_DATA;do
+			if [ -n "$(echo $raw_pkg|grep '|')" ]; then
+				PACKAGES[$index]=$(echo $raw_pkg|cut -f1 -d'|'|sed -r "s/ //g")
+				let index+=1
+				PACKAGES[$index]=$(echo $raw_pkg|cut -f2 -d'|'|sed -r "s/ //g")
+				let index+=1
+			else
+				PACKAGES[$index]=$(echo $raw_pkg|awk '{print $1}'|sed -r "s/ //g")
+				let index+=1
+			fi
+		done
+		IFS=$OLDIFS
+
+		COMMAND='$DIALOG --backtitle $"The $TITLE - $LOCAL_OS $LOCAL_VERSION" --title "$Category" --separate-output --checklist $"Use the space-bar to select packages:" 17 70 '
+
+		local pkg_list_size=$(echo ${PACKAGES[*]}|wc -w)
+		if [ $pkg_list_size -eq 0 ]; then continue;fi
+		if [ $pkg_list_size -gt 10 ]; then pkg_list_size=10;fi
+
+		COMMAND="$COMMAND $pkg_list_size "
+		for pkg in ${PACKAGES[*]};do
+			pkg_desc=$(grep "^${pkg}" $CACHE/package_list|grep -v -i 'meta package')
+			if [ -z "$pkg_desc" ]; then continue;fi
+			echo $pkg >> $ERRORLOG
+			short_desc=$(echo $pkg_desc|cut -f2 -d:|cut -f2 -d'('|cut -f1 -d')')
+			if [ "$last_screen" == "dl_upgrade" -a -n "$(echo $pkg_desc|grep 'inst=no')" ]; then
+				COMMAND="$COMMAND $pkg \"$short_desc\" off "
+			else
+				COMMAND="$COMMAND $pkg \"$short_desc\" on "
+			fi
+		done
+
+		eval $COMMAND 2>> $CACHE/specified_pkgs
+
+		if [ $? != 0 ]; then select_pkgs $last_screen;fi
+
+	done
+
+	cat $CACHE/specified_pkgs | xargs -r $SLAPTGET --install --no-dep -y | tee -a $ERRORLOG
+	if [ "$KEEP_OBSOLETE_APPS" == "false" ]; then
+		$SLAPTGET --install freerock-obsolete | tee -a $ERRORLOG
+	fi
+
+	echo "Complete.  Press Enter to continue..."
+	read
+
+	main_menu
+}
+
+function update_local_pkg_cache {
+	$DIALOG --backtitle $"The $TITLE - $LOCAL_OS $LOCAL_VERSION" \
+		--title $"In Progress" --aspect 50 --trim \
+		--infobox $"Retrieving Package info..." 0 0
+	$SLAPTGET --update >> $ERRORLOG 2>&1
+	echo "Retrieving Package info..." >> $ERRORLOG
+	$SLAPTGET --list > $CACHE/package_list
+}
+
+function system_check {
+
+	# check for the libraries GNOME needs...
+	echo $"Building library list..."
+	ldconfig -v > $tempfile 2>/dev/null
+	for dep in $DEP_LIBS
+	do
+		echo -n $"Checking for $dep... "
+		if [ "`grep $dep $tempfile`" == "" ]; then
+			echo $"not found."
+			MEETS_REQUIREMENTS=1
+		else
+			echo $"yes."
+		fi
+	done
+
+	if [[ $MEETS_REQUIREMENTS -eq 1 ]]; then
+		echo ""
+		printf $"Error: Your system is missing required software to install \
+Freerock GNOME.  The programs and libraries listed as 'not found' must be \
+installed in order to proceed.  Please ensure the following Slackware \
+packages are installed:"
+		printf "\n\n\taspell cdparanoia elflibs grep perl curl \
+\n\tpilot-link pkgtools sed textutils coreutils\n\n"
+		printf $"These can be downloaded from ftp.slackware.com and installed using \
+installpkg."
+		printf "\n\n"
+		printf $"Exiting..."
+		exit_installer 1
+	fi
+
+	if [ -e /etc/slackware-version ]; then
+		LOCAL_OS=$(cat /etc/slackware-version|cut -f1 -d' ');
+		LOCAL_VERSION=$(cat /etc/slackware-version|cut -f2 -d' ');
+		case "$LOCAL_VERSION" in
+			"8.1" | "9.0.0" | "9.1.0" | "10.0.0")
+				true
+			;;
+			*)
+				if [ -z "$FORCE" ]; then
+					not_supported
+				fi
+			;;
+		esac
+	elif [ -f /etc/collegelinux-version ]; then
+		LOCAL_OS=$(cat /etc/collegelinux-version|cut -f1 -d' ');
+		LOCAL_VERSION=$(cat /etc/collegelinux-version|cut -f2 -d' ');
+		case "$LOCAL_VERSION" in
+			"2.1" | "2.5")
+				true
+			;;
+			*)
+				if [ -z "$FORCE" ]; then
+					not_supported
+				fi
+			;;
+		esac
+	fi
+	local MACHINE_ARCH=`uname -m`
+	if [[ "$MACHINE_ARCH" != "i686" && "$FORCE" != "true" ]]; then
+		echo ""
+		echo "You appear to be running an $MACHINE_ARCH processor.  Freerock \
+GNOME will not work on this architecture.  If you believe this to be a \
+detection error, pass the --force parameter to the $TITLE."
+		echo ""
+		echo "Please press 'Enter' to exit..."
+		read
+		exit_installer 1
+	fi
+}
+
+function not_supported {
+	echo ""
+	echo "You appear to be running $LOCAL_OS $LOCAL_VERSION.  This is not \
+a supported platform for Freerock GNOME.  If you would like to try installing \
+anyway, pass the --force parameter to the $TITLE."
+	echo ""
+	echo "Please press 'Enter' to exit..."
+	read
+	exit_installer 1
+}
+
+function print_help {
+	echo ""
+	echo $"Usage: $NAME [options]"
+	echo ""
+	echo $"The $TITLE is menu-based, so none of these options are required."
+	echo ""
+	echo $"Options:"
+	echo $"  --autoupdate    Do an update without any user input."
+	echo $"  --force         Do not check for a supported OS."
+	echo $"  --upgrade       Go directly to the Upgrade menu."
+	echo $"  --view          View available updates."
+	echo ""
+	exit_installer 0
+}
+
+function print_version {
+	echo ""
+	echo $"The $TITLE"
+	echo $"Copyright 2002-2005 Todd Kulesza"
+	echo $"Copyright 2005 Jason Woodward"
+	echo $"Version $VERSION"
+	echo ""
+	exit_installer
+}
+
+function set_keep_obsolete_apps {
+	if [ -e $CACHE/keep_obsolete_apps ]; then
+		KEEP_OBSOLETE_APPS=`cat $CACHE/keep_obsolete_apps`
+	else
+		KEEP_OBSOLETE_APPS="false"
+	fi
+	
+	if [ "$KEEP_OBSOLETE_APPS" == "true" ]; then
+		yes="on"
+		no="off"
+	else
+		yes="off"
+		no="on"
+	fi
+	
+	$DIALOG --backtitle $"The $TITLE - $LOCAL_OS $LOCAL_VERSION" \
+			--title $"Keep Old Programs" \
+			--radiolist $"Do you want the Freerock Installer to keep old, obsolete \
+applications installed when newer programs are available?  Please note that \
+obsolete applications are unsupported and may not work." 11 70 2 \
+			$"Yes, keep them anyway" "" "$yes" \
+			$"No, remove obsolete programs" "" "$no" \
+			2> $tempfile
+	
+	retval=$?
+	choice=`cat $tempfile | sed -e 's/\"//g'`
+	if [ "$retval" == "0" ]; then
+		if [ "$choice" == $"Yes, keep them anyway" ]; then
+			echo "true" > $CACHE/keep_obsolete_apps
+		else
+		 	echo "false" > $CACHE/keep_obsolete_apps
+		fi
+		KEEP_OBSOLETE_APPS=`cat $CACHE/keep_obsolete_apps`
+	fi
+
+	dl_preferences
+}
+
+function set_keep_install_files {
+	if [ -e $CACHE/keep_install_files ]; then
+		KEEP_INSTALL_FILES=`cat $CACHE/keep_install_files`
+	else
+		KEEP_INSTALL_FILES="true"
+	fi
+	
+	if [ "$KEEP_INSTALL_FILES" == "true" ]; then
+		yes="on"
+		no="off"
+	else
+		yes="off"
+		no="on"
+	fi
+	
+	$DIALOG --backtitle $"The $TITLE - $LOCAL_OS $LOCAL_VERSION" \
+			--title $"Keep Install Files" \
+			--radiolist $"Do you want the Freerock Installer to save the most recent \
+files used to install Freerock GNOME?  This will make reinstallations very easy, since \
+the files will not need to be downloaded again." 11 70 2 \
+			$"Yes, keep them" "" "$yes" \
+			$"No, remove them" "" "$no" \
+			2> $tempfile
+	
+	retval=$?
+	choice=`cat $tempfile | sed -e 's/\"//g'`
+	if [ "$retval" == "0" ]; then
+		if [ "$choice" == $"Yes, keep them" ]; then
+			echo "true" > $CACHE/keep_install_files
+		else
+		 	echo "false" > $CACHE/keep_install_files
+		fi
+		KEEP_INSTALL_FILES=`cat $CACHE/keep_install_files`
+	fi
+
+	dl_preferences
+}
+
+function set_source {
+	$DIALOG --backtitle $"The $TITLE - $LOCAL_OS $LOCAL_VERSION" \
+		--title $"Select Source Media" \
+		--inputbox $"Enter the source URL you wish to use ie (file:///mnt/cdrom/)" 0 0 $DEFAULT_MIRROR \
+		2> $tempfile
+
+	if [ $? == 0 ]; then
+		source=$(cat $tempfile)
+		if [ -n "$source" ]; then
+			DEFAULT_MIRROR=$source
+			write_rc
+		fi
+	fi
+
+	dl_preferences
+}
+
+function set_proxy {
+	$DIALOG --backtitle $"The $TITLE - $LOCAL_OS $LOCAL_VERSION" \
+		--title $"HTTP Proxy Server" --aspect 12 --trim --cr-wrap \
+		--inputbox $"Enter the HTTP proxy server you use to connect \
+to the Internet.  If you do not use a proxy server, leave this line blank.
+
+Example: http://192.168.1.1:1080/
+Example with authentication: http://molly:shuriken@192.168.1.1:1080/
+" 0 0 $PROXY 2> $CACHE/proxy
+
+	if [ $? == 0 ]; then
+		PROXY=$(cat $CACHE/proxy)
+		export http_proxy=$PROXY
+		export ftp_proxy=$PROXY
+	fi
+
+	dl_preferences
+}
+
+function set_directory {
+	$DIALOG --backtitle $"The $TITLE - $LOCAL_OS $LOCAL_VERSION" \
+		--title $"Download Directory" --aspect 15 --trim \
+		--inputbox $"Enter the directory where you would like the Freerock \
+Installer to save files during a network-based installation.  This \
+directory should reside on a share with at least 300 megabytes of free disk \
+space." 0 0 $dir 2> $tempfile
+
+	if [ $? == 0 ]; then
+		dir=$(cat $tempfile)
+		if [ -n "$dir" ]; then
+			CACHE=$dir
+			write_rc
+		fi
+	fi
+
+	dl_preferences
+}
+
+function write_rc {
+	cat > $RCCONFIG <<EOF
+WORKINGDIR=$CACHE
+SOURCE=$DEFAULT_MIRROR
+EXCLUDE=
+EOF
+}
+
+OPTS=`getopt -o afhnuvw -l autoupdate,force,help,nodeps,upgrade,version,view \
+	-n '$NAME' -- "$@"`
+if [ "$?" != "0" ]; then
+	echo $"Try '$NAME --help'."
+	exit_installer 1
+fi
+eval set -- "$OPTS"
+
+while true; do
+	case $1 in
+		-a|--autoupdate) AUTO="true"; shift;;
+		-f|--force) FORCE="true"; shift;;
+		-h|--help) print_help; shift;;
+		-n|--nodeps) NODEPS="--no-dep"; shift;;
+		-u|--upgrade) UPGRADE="true"; shift;;
+		-v|--version) print_version; shift;;
+		-w|--view) VIEW="true"; shift;;
+		--) shift; break;;
+	esac
+done
+
+# disable console blanking since installation can take a while...
+setterm -blank 0
+
+if [ "`whoami`" != "root" ]; then
+	echo ""
+	echo $"Error: You must be ROOT to run the $TITLE.  Exiting..."
+	echo ""
+	
+	exit_installer 1
+fi
+
+if [ ! -d $CACHE ]; then mkdir -p $CACHE;fi
+
+if [ ! -f $RCCONFIG ]; then
+	write_rc
+fi
+
+if [ -f $CACHE/proxy ]; then
+	PROXY=$(cat $CACHE/PROXY)
+	export http_proxy=$PROXY
+	export ftp_proxy=$PROXY
+fi
+
+system_check
+if [ -n "$UPGRADE" ]; then
+	dl_install upgrade
+elif [ -n "$AUTO" ]; then
+	$SLAPTGET --update | tee -a $ERRORLOG
+	$SLAPTGET --install freerock-gnome | tee -a $ERRORLOG
+	if [ "$KEEP_OBSOLETE_APPS" == "false" ]; then
+		$SLAPTGET --install freerock-obsolete | tee -a $ERRORLOG
+	fi
+elif [ -n "$VIEW" ]; then
+	dl_view
+else
+	main_menu
+fi
+
