@@ -1,5 +1,43 @@
+##
+2005-03-14-10-30-EST
+FRG-0.1.95 Released
+<p>
+  This is the second release of FRG with GNOME-2.10.0. It fixes the issues
+  that were found in the next news item. This is still a beta release, so
+  that any bugs can be found and fixed  before calling it a stable release.
+</p>
+
+<p>
+  There are two bugs that still exist. In the gdm Actions menu, the Power Off
+  option is not there. The reboot and configure options are still there.
+  In the Logout dialogue the Power Off option is also not available. These 2
+  things were working properly with the GNOME 2.9.91 FRG packages. This issue
+  is most likely related to the gdm and gnome-session packages. We are trying
+  to figure out the problems, any help with these issues would be greatly
+  appreciated.
+</p>
+
+<p>
+  As a result of this we have downgraded the gdm package from gdm-2.6.0.8 to
+  gdm-2.6.0.7. This fixes the issue with the Power Off option in gdm's Actions
+  menu. If you would like to try and fix the gdm issue, the gdm-2.6.0.8
+  package is in the testing directory in the iso.
+</p>
+
+<p>
+  If you were using frg-0.1.94 and want to upgrade to frg-0.1.95, then all you
+  need to do is run the following rsync command and upgradepkg the packages in
+  the downloaded directory:
+</p>
+
+<blockquote><p>
+ <code><strong>
+rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates/frg-0.1.94 /tmp
+</strong></code>
+</p></blockquote>
+
 ###
-2005-03-12-5-00-EST
+2005-03-12-17-00-EST
 freerock
 Updates on FRG-0.1.94 release
 
@@ -63,7 +101,7 @@ fixed:</p>
 
 <blockquote><p>
  <code><strong>
-rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates /tmp
+rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates/frg-0.1.94 /tmp
 </strong></code>
 </p></blockquote>
 
