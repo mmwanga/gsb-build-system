@@ -8,7 +8,7 @@ fix for this. Just add the following near the top of the startkde script:</p>
 <blockquote><p>
  <code><strong>export XDG_CONFIG_DIRS=/opt/kde/etc/xdg</strong></code>
 </p></blockquote>
-<p>If the improper menus persist, please run kbuildsycoca from
+<p>If the improper menus persist, run kbuildsycoca from
 Konsole after you have logged into KDE. Thanks to Jim Philips and Locustfurnace for pointing 
 it out.</p>
 
