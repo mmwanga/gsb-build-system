@@ -1,5 +1,14 @@
---- libgnome-2.10.0/schemas/desktop_gnome_interface.schemas.in.orig	2005-03-14 16:47:35.000000000 -0500
-+++ libgnome-2.10.0/schemas/desktop_gnome_interface.schemas.in	2005-03-14 16:59:18.000000000 -0500
+--- libgnome-2.10.0/schemas/desktop_gnome_interface.schemas.in.orig	2005-03-20 12:17:06.000000000 -0500
++++ libgnome-2.10.0/schemas/desktop_gnome_interface.schemas.in	2005-03-20 12:17:38.000000000 -0500
+@@ -130,7 +130,7 @@
+       <applyto>/desktop/gnome/interface/icon_theme</applyto>
+       <owner>gnome</owner>
+       <type>string</type>
+-      <default>gnome</default>
++      <default>Amaranth</default>
+       <locale name="C">
+         <short>Icon Theme</short>
+         <long>Icon theme to use for the panel, nautilus etc.</long>
 @@ -141,7 +141,7 @@
        <applyto>/desktop/gnome/interface/gtk_theme</applyto>
        <owner>gnome</owner>
