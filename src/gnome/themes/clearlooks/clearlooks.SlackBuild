@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-clearlooks
 
-VERSION=0.4
+VERSION=0.5
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -36,17 +36,19 @@ CFLAGS="$SLKCFLAGS" \
 make
 make install DESTDIR=$PKG
 
-SCHEMAS=$PKG/etc/gconf/schemas
-for i in $SCHEMAS/*.schemas
-do
-GCONF_CONFIG_SOURCE="xml::$PKG/etc/gconf/gconf.xml.defaults" \
-        gconftool-2 --makefile-install-rule $i
-done
-
 (
-  cd $PKG/etc/gconf/gconf.xml.defaults
-  find ./ -type d -exec chmod go+rx {} \;
-  find ./ -type f -exec chmod go+r {} \;
+  cd $PKG/usr/share/themes
+  tar vzxf $CWD/21237-clearlooks-metacity-$VERSION.tar.gz
+  pushd .
+  for i in Clearlooks-DeepSky Clearlooks-Olive
+  do
+  cd $i
+  mkdir -p metacity-1
+  cd metacity-1
+  ln -s ../../Clearlooks/metacity-1/metacity-theme-1.xml
+  popd
+  pushd .
+  done
 )
 
 chown -R root.bin $PKG/usr/bin
