@@ -31,6 +31,9 @@ else
   echo "haldaemon:*:9797:0:::::" >> etc/shadow
 fi
 
+# most of this is taken from dropline's hal package
+# the patches for hal are also from dropline's sources
+
 # if rc.local doesn't exist, create it
 if [ ! -e /etc/rc.d/rc.local ]; then
 	echo "#!/bin/sh" > /etc/rc.d/rc.local

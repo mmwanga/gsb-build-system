@@ -31,7 +31,7 @@ else
   echo "messagebus:*:9797:0:::::" >> etc/shadow
 fi
 
-
+# most of this doinst.sh is taken from the dropline doinst.sh script for dbus
 if [ ! -d /var/lib/dbus ]; then
 	mkdir -p /var/lib/dbus
 fi
