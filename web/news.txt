@@ -1,7 +1,8 @@
 2005-04-03-2-00-EST
 freerock
 FRG-0.1.99.1 released
-<p>This will be the last "beta" release of FRG with gnome-2.10.0</p>
+<p>This will be the last "beta" release of FRG with gnome-2.10.0. The final stable
+release should be up later this week</p>
 
 
 ###
