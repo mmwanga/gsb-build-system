@@ -15,9 +15,19 @@ our $VERSION = 0.03;
 
 our %desktop_reqs =
   (
+   'cyrus-sasl'      => {
+			 'url' => 'ftp://ftp.andrew.cmu.edu/pub/cyrus-mail/',
+			 'ver' => '2.1.20',
+			 'src' => 'tar.gz',
+                        },
    'dbus'            => {
 			 'url' => 'http://dbus.freedesktop.org/releases/',
 			 'ver' => '0.23.2',
+			 'src' => 'tar.gz',
+                        },
+   'fam'             => {
+			 'url' => 'ftp://oss.sgi.com/projects/fam/download/stable',
+			 'ver' => '2.6.10',
 			 'src' => 'tar.gz',
                         },
    'hal'             => {
@@ -25,6 +35,11 @@ our %desktop_reqs =
 			 'ver' => '0.4.7',
 			 'src' => 'tar.gz',
                         },
+   'heimdal'         => {
+			 'url' => 'ftp://ftp.pdc.kth.se/pub/heimdal/src/',
+			 'ver' => '0.6.3',
+			 'src' => 'tar.gz',
+			},
    'howl'            => {
 			 'url' => 'http://www.porchdogsoft.com/download/',
 			 'ver' => '0.9.10',
@@ -35,11 +50,11 @@ our %desktop_reqs =
 			 'ver' => '1.10',
 			 'src' => 'tar.gz',
                         },
-   'fam'             => {
-			 'url' => 'ftp://oss.sgi.com/projects/fam/download/stable',
-			 'ver' => '2.6.10',
-			 'src' => 'tar.gz',
-                        },
+   'openldap'      => {
+			 'url' => 'ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/',
+			 'ver' => '2.2.23',
+			 'src' => 'tgz',
+			},
   );
 
 
