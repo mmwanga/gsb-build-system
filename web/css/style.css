@@ -52,6 +52,8 @@ img.screenthumb {
 
 #side-bar .imglink:hover {
     background: transparent;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
 }
 
 pre,code,tt {
@@ -169,12 +171,16 @@ acronym, .titleTip {
     list-style-position: outside;
     margin: 0;
     padding: 0 0 0.5em 0;
+    border-top: 1px solid rgb(240,240,240);
+    border-bottom: 1px solid rgb(240,240,240);
 }
 
 #side-bar li {
     margin: 0;
     font-size: 1.0em;
     padding: 0.1ex 0;  /* Circumvents a rendering bug (?) in MSIE 6.0 */
+    border-top: 1px solid rgb(240,240,240);
+    border-bottom: 1px solid rgb(240,240,240);
 }
 
 #side-bar a, .thisPage {
@@ -186,11 +192,16 @@ acronym, .titleTip {
     display: block;
     font-family: "Lucida Grande", "bitstream vera sans", verdana, arial, helvetica, sans-serif;
     font-weight: bold;
+    border-top: 1px solid rgb(240,240,240);
+    border-bottom: 1px solid rgb(240,240,240);
 }
 
 #side-bar a:hover {
     color: rgb(0,51,153);
-    text-decoration: underline;
+    text-decoration: none;
+    background: rgb(255,255,255);
+    border-top: 1px solid rgb(153,153,153);
+    border-bottom: 1px solid rgb(153,153,153);
 }
 
 .sideBarText {
@@ -251,21 +262,20 @@ acronym, .titleTip {
     margin: 1em 0 0 0;
     padding: 0.5ex 0 1.0ex 0;
     line-height: 1.0em;
-    font-size: 1.6em;
 }
 
 #main-body h2 {
+    border-bottom: 1px solid black;
     margin: 1em 0 0 0;
     padding: 0.5ex 0 1.0ex 0;
     line-height: 1.0em;
-    font-size: 1.2em;
 }
 
 #main-body h3 {
     margin: 1em 0 0 0;
     padding: 0.5ex 0 1.0ex 0;
     line-height: 1.0em;
-    font-size: 0.9em;
+
 }
 
 #main-body .topOfPage {

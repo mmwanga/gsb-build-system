@@ -9,7 +9,7 @@
 ?>
   <div id="side-bar">
     <div>
-      <p class="sideBarTitle">Main Menu:</p>
+      <h2 class="sideBarTitle">Main Menu:</h2>
 
       <ul>
         <li><a href="/">Home</a></li>
@@ -42,7 +42,7 @@
       </ul>
     </div>
     <div>
-      <p class="sideBarTitle">Sponsors:</p>
+      <h2 class="sideBarTitle">Sponsors:</h2>
 
       <ul>
         <li><a href="http://sourceforge.net" title="SourceForge.net" class=
