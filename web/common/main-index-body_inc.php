@@ -9,7 +9,7 @@
 ?>
   <div id="main-body">
 
-    <h2>Important News and Announcements:</h2>
+    <h2>News and Announcements:</h2>
     
     <?php include_once('common/news.php'); ?>
 
