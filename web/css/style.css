@@ -126,7 +126,7 @@ acronym, .titleTip {
     padding: 0.2ex 1ex 0.2ex 1.5mm;
     background-image:url(/images/GSB_Logo.png);
     background-repeat:no-repeat;
-    background-position: middle left;
+    background-position: center left;
     height: 65px;
 }
 
