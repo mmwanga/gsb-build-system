@@ -60,58 +60,50 @@ EOF
 # simple function to take a file name and url and download a source tarball
 # gsb_tarball_get($file, $url);
 sub gsb_tarball_get {
-
   my $file = shift;
   my $url = shift;
 
   system("wget -c $url") == 0
-    or die "Could not Download $file" && push(@bad_downloads, $file);
+    or warn "Could not Download $file" && push(@bad_downloads, $file);
 }
 
 # hash has 3 keys
-# give name and hash
+# give name, url, version, srctarballtype
 sub gsb_other_url_make {
-
   my $name = shift;
-  my %thishash = shift;
+  my $url  = shift;
+  my $ver  = shift;
+  my $src  = shift;
 
-  my $url = "$thishash{$url}/$name-$thishash{$ver}.$thishash{$src}";
-
-  return $url;
+  my $thisurl = "$url/$name-$ver.$src";
+  return $thisurl;
 }
-
 
 # Give name and version to function
 sub gsb_gnome_platform_url_make {
-
   my $name = shift;
   my $ver  = shift;
 
   my $url = "$pfiledir/$name-$ver.tar.bz2";
-
   return $url;
 }
 
 # give name and version
 sub gsb_gnome_desktop_url_make {
-
   my $name = shift;
   my $ver  = shift;
 
   my $url = "$dfiledir/$name-$ver.tar.bz2";
-
   return $url;
 }
 
 # give binding type, name and version
 sub gsb_gnome_bindings_url_make {
-
   my $binding_type = shift;
   my $name         = shift;
   my $ver          = shift;
 
   my $url = "$bfiledir/$binding_type/$name-$ver.tar.bz2";
-
   return $url;
 }
 

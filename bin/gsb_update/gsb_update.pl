@@ -31,6 +31,8 @@ use GSB::Other;
 use GSB::Requirements;
 use GSB::Desktop_Requirements;
 
+use Cwd;
+
 ################################################################################
 #
 # config variables
@@ -52,18 +54,31 @@ if (@ARGV != 1) {
   exit (0);
 }
 
+# Change directory to GSB's sources
+
+chdir $gsb_root_sources or
+  warn "Can't change dir to GSB Sources";
+
+my $pwd = getcwd();
+
+print "$pwd\n";
+
+exit (0);
+
+# download platform
 foreach my $package (keys %platform) {
 
-  my $url = gsb_gnome_platform_url_make($package, $platform{$package});
-
-  gsb_tarball_get{$url);
+  chdir "$pwd/gnome/platform/$package";
+  my $url = GSB::GSB::gsb_gnome_platform_url_make($package, $platform{$package});
+  GSB::GSB::gsb_tarball_get{$url);
 }
 
 foreach my $package (keys %desktop) {
 
-  my $url = gsb_gnome_desktop_url_make($package, $platform{$package});
+  chdir "$pwd/gnome/desktop/$package";
+  my $url = GSB::GSB::gsb_gnome_desktop_url_make($package, $platform{$package});
 
-  gsb_tarball_get{$url);
+  GSB::GSB::gsb_tarball_get{$url);
 }
 
 
