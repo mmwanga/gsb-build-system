@@ -37,10 +37,10 @@ CFLAGS="$SLKCFLAGS" \
 	    --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static \
+	    --enable-gstreamer \
 	    --enable-nautilus \
 	    --enable-mozilla \
             $ARCH-slackware-linux
-# add --enable-gstreamer to use the gstreamer backend
 make
 make install DESTDIR=$PKG
 
