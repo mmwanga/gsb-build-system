@@ -1,9 +1,66 @@
 ###
+2005-03-14-20-15-EST
+freerock
+FRG-0.1.96 Released
+<p>
+  The is the fourth release of FRG with GNOME-2.10.0.
+</p>
+
+<p>
+  If you have either FRG-0.1.94 or FRG-0.1.95, you can download the updated
+  packages via rsync instead of downloading the entire iso. Use one of these
+  commands depending on what version you are updating from
+</p>
+
+<blockquote><p>
+ <code><strong>
+rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates/frg-0.1.94 /tmp
+rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates/frg-0.1.95 /tmp
+rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates /tmp
+</strong></code>
+</p></blockquote>
+
+<ul>
+  <li>
+    <strong>Upgrading from frg-0.1.94:</strong> install the updates from the
+    frg-0.1.94 rsync directory, then install the updates from the frg-0.1.95
+    directory.
+  </li>
+  <li>
+    <strong>Upgrading from frg-0.1.95:</strong> install the updates from the
+    frg-0.1.95 rsync directory.
+  </li>
+</ul>
+
+<p>
+  This release fixes the gdm/logout power off options that were missing from
+  GDM's actions menu and from the logout dialogue. It also updates evince which
+  would crash trying to thumbnail pdfs. We have also removed gnumeric-1.5.0
+  from the office directory and moved it to the testing directory because
+  it is an unstable release of gnumeric. It has been replaced with
+  gnumeric-1.4.3. That said gnumeric-1.5.0 has been working fine for me.
+</p>
+
+<p>
+  Also Clearlooks is now the default theme gtk and metacity theme for FRG. We
+  have not decided on a default GDM or Icon theme yet. If anyone has any
+  suggestions as to what GDM and Icon themes would go good with the Clearlooks
+  theme, feel free to suggest them.
+</p>
+
+<p>
+  Several packages were also updated. The following packages have had version
+  updates: bakery, glom, gst-ffmpeg, gtkmm, libsoup, libxml2, libxslt. Also
+  bluefish, streamripper, and streamtuner have been added to the other
+  directory.
+</p>
+
+###
 2005-03-14-10-30-EST
 freerock
 FRG-0.1.95 Released
 <p>
-  This is the second release of FRG with GNOME-2.10.0. It fixes the issues
+  This is the third release of FRG with GNOME-2.10.0. It fixes the issues
   that were found in the next news item. This is still a beta release, so
   that any bugs can be found and fixed  before calling it a stable release.
 </p>
