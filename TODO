@@ -3,12 +3,8 @@ TODO:
 * perl bindings haven't been added yet, SlackBuild files need to be added
 * gsb_update.pl - needs to do something useful, only has some layout and 
   config stuff atm
-* abiword crashes
 * left out openldap and cyrus-sasl for evolution.
   maybe make ldap in evolution statically built in
-* check gdm, see how it starts, check Xsession variables for sessions in 
-  global Xsession file
-* shared-mime-info, add update to install scripts
 * add xscreensaver, xchat, gimp, hicolor-icon-theme to gsb
 * add a HACKING file with instructions on how to edit and add things to the
   source tree
