@@ -1,13 +1,11 @@
 #!/bin/sh
 
 CWD=`pwd`
-if [ "$TMP" = "" ]; then
-  TMP=/tmp
-fi
+TMP=${TMP:-/tmp}
 PKG=$TMP/package-gthumb
 
 VERSION=2.6.3
-ARCH=i486
+ARCH=${ARCH:-i486}
 BUILD=1
 
 if [ ! -d $TMP ]; then
@@ -19,6 +17,16 @@ mkdir -p $PKG/var/lib/scrollkeeper
 
 SCHEMAS=$PKG/etc/gconf/schemas
 
+if [ "$ARCH" = "i386" ]; then
+  SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
+elif [ "$ARCH" = "i486" ]; then
+  SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
+elif [ "$ARCH" = "s390" ]; then
+  SLKCFLAGS="-O2"
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2"
+fi
+
 cd $TMP 
 tar xjvf $CWD/gthumb-$VERSION.tar.bz2
 cd gthumb-$VERSION
@@ -26,11 +34,12 @@ zcat $CWD/gthumb.fixlocaledir.diff.gz | patch -p1 --verbose --backup --suffix=.o
 chown -R root.root .
 find . -perm 666 -exec chmod 644 {} \;
 find . -perm 664 -exec chmod 644 {} \;
-CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
+CFLAGS="$SLKCFLAGS" \
+./configure --prefix=/usr \
 	    --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static \
-            i486-slackware-linux
+            $ARCH-slackware-linux
 perl -i -pe 's,/usr/lib/locale,/usr/share/locale,' config.h
 make
 make install DESTDIR=$PKG

@@ -1,13 +1,11 @@
 #!/bin/sh
 
 CWD=`pwd`
-if [ "$TMP" = "" ]; then
-  TMP=/tmp
-fi
+TMP=${TMP:-/tmp}
 PKG=$TMP/package-gstreamer
 
 VERSION=0.8.9
-ARCH=i486
+ARCH=${ARCH:-i486}
 BUILD=1
 
 if [ ! -d $TMP ]; then
@@ -15,6 +13,16 @@ if [ ! -d $TMP ]; then
 fi
 rm -rf $PKG
 mkdir -p $PKG
+
+if [ "$ARCH" = "i386" ]; then
+  SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
+elif [ "$ARCH" = "i486" ]; then
+  SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
+elif [ "$ARCH" = "s390" ]; then
+  SLKCFLAGS="-O2"
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2"
+fi
 
 cd $TMP 
 tar xjvf $CWD/gstreamer-$VERSION.tar.bz2
@@ -30,7 +38,7 @@ find . -perm 775 -exec chmod 755 {} \;
 find . -perm 511 -exec chmod 755 {} \;
 find . -perm 711 -exec chmod 755 {} \;
 find . -perm 555 -exec chmod 755 {} \;
-CFLAGS="-O2 -march=i486 -mcpu=i686" \
+CFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
   --sysconfdir=/etc \
@@ -41,7 +49,7 @@ CFLAGS="-O2 -march=i486 -mcpu=i686" \
   --disable-tests \
   --disable-examples \
   --disable-docs-build \
-  i486-slackware-linux
+  $ARCH-slackware-linux
 make -j3
 make install DESTDIR=$PKG
 

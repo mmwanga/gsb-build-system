@@ -1,9 +1,7 @@
 #!/bin/sh
 
 CWD=`pwd`
-if [ "$TMP" = "" ]; then
-  TMP=/tmp
-fi
+TMP=${TMP:-/tmp}
 PKG=$TMP/package-gnome-extra-themes
 
 VERSION=1.0.1

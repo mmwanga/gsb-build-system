@@ -1,9 +1,7 @@
 #!/bin/sh
 
 CWD=`pwd` 
-if [ "$TMP" = "" ]; then
-  TMP=/tmp
-fi
+TMP=${TMP:-/tmp}
 PKG=$TMP/package-gdm
 
 if [ ! -d $TMP ]; then
@@ -30,6 +28,16 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 
+if [ "$ARCH" = "i386" ]; then
+  SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
+elif [ "$ARCH" = "i486" ]; then
+  SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
+elif [ "$ARCH" = "s390" ]; then
+  SLKCFLAGS="-O2"
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2"
+fi
+
 cd $TMP 
 rm -rf gdm-$VERSION
 tar xjvf $CWD/gdm-$VERSION.tar.bz2
@@ -38,7 +46,8 @@ chown -R root.root .
 # Quiet the output from the gdm script when /etc/profile is sourced:
 #zcat $CWD/gdm.quiet.diff.gz | patch -p1 --verbose --suffix=.orig
 # gdm will add -g anyway.  I suggest not fighting it.  ;-)
-CFLAGS="-O2 $ARCHCFLAGS" ./configure --prefix=/usr \
+CFLAGS="$SLKCFLAGS" \
+./configure --prefix=/usr \
             --sysconfdir=/etc/X11 \
             --localstatedir=/var/lib \
             $SLAKTARGET-slackware-linux

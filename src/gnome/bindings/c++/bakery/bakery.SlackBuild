@@ -1,13 +1,11 @@
 #!/bin/sh
 
 CWD=`pwd`
-if [ "$TMP" = "" ]; then
-  TMP=/tmp
-fi
+TMP=${TMP:-/tmp}
 PKG=$TMP/package-bakery
 
 VERSION=2.3.11
-ARCH=i486
+ARCH=${ARCH:-i486}
 BUILD=1
 
 if [ ! -d $TMP ]; then
@@ -16,14 +14,25 @@ fi
 rm -rf $PKG
 mkdir -p $PKG
 
+if [ "$ARCH" = "i386" ]; then
+  SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
+elif [ "$ARCH" = "i486" ]; then
+  SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
+elif [ "$ARCH" = "s390" ]; then
+  SLKCFLAGS="-O2"
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2"
+fi
+
 cd $TMP
 tar -xjvf $CWD/bakery-$VERSION.tar.bz2
 cd bakery-$VERSION
-CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
+CFLAGS="$SLKCFLAGS" \
+./configure --prefix=/usr \
             --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static \
-            i486-slackware-linux
+            $ARCH-slackware-linux
 make
 make install DESTDIR=$PKG
 

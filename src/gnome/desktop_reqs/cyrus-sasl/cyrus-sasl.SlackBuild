@@ -3,13 +3,11 @@
 # $Id: cyrus-sasl.SlackBuild 217 2005-01-21 17:48:55Z freerock $
 
 CWD=`pwd`
-if [ "$TMP" = "" ]; then
-  TMP=/tmp
-fi
+TMP=${TMP:-/tmp}
 PKG=$TMP/package-cyrus-sasl
 
 VERSION=2.1.20
-ARCH=i486
+ARCH=${ARCH:-i486}
 BUILD=1
 
 if [ ! -d $TMP ]; then
@@ -18,15 +16,26 @@ fi
 rm -rf $PKG
 mkdir -p $PKG
 
+if [ "$ARCH" = "i386" ]; then
+  SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
+elif [ "$ARCH" = "i486" ]; then
+  SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
+elif [ "$ARCH" = "s390" ]; then
+  SLKCFLAGS="-O2"
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2"
+fi
+
 cd $TMP 
 tar xzvf $CWD/cyrus-sasl-$VERSION.tar.gz
 cd cyrus-sasl-$VERSION
 #
-CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr/local \
+CFLAGS="$SLKCFLAGS" \
+./configure --prefix=/usr \
 	    --disable-static \
 	    --program-prefix="" \
 	    --program-suffix="" \
-            i486-slackware-linux
+            $ARCH-slackware-linux
 make
 make install DESTDIR=$PKG
 

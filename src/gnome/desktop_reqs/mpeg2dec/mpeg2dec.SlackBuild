@@ -1,14 +1,12 @@
 #!/bin/sh
 
 CWD=`pwd`
-if [ "$TMP" = "" ]; then
-  TMP=/tmp
-fi
+TMP=${TMP:-/tmp}
 PKG=$TMP/package-mpeg2dec
 
 VERSION=0.4.0b
 PVERSION=0.4.0
-ARCH=i486
+ARCH=${ARCH:-i486}
 BUILD=1
 
 if [ ! -d $TMP ]; then
@@ -17,13 +15,24 @@ fi
 rm -rf $PKG
 mkdir -p $PKG
 
+if [ "$ARCH" = "i386" ]; then
+  SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
+elif [ "$ARCH" = "i486" ]; then
+  SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
+elif [ "$ARCH" = "s390" ]; then
+  SLKCFLAGS="-O2"
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2"
+fi
+
 cd $TMP 
 tar xzvf $CWD/mpeg2dec-$VERSION.tar.gz
 cd mpeg2dec-$PVERSION
 #
-CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
+CFLAGS="$SLKCFLAGS" \
+./configure --prefix=/usr \
 	    --disable-static \
-            i486-slackware-linux
+            $ARCH-slackware-linux
 make
 make install DESTDIR=$PKG
 
