@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gtkhtml
 
-VERSION=3.5.6
+VERSION=3.6.0
 ARCH=${ARCH:-i486}
 BUILD=1
 

@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-psiconv
 
-VERSION=0.9.6
+VERSION=0.9.7
 ARCH=${ARCH:-i486}
 BUILD=1
 
