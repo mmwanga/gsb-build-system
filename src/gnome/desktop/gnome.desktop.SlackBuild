@@ -29,6 +29,8 @@ libgtop
 libxklavier
 gnome-applets
 metacity
+libgsf
+libcroco
 librsvg
 eel
 nautilus

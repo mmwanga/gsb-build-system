@@ -15,10 +15,9 @@ intltool
 libbonobo
 pango
 atk
+shared-mime-info
 gtk+2
 gconf
-desktop-file-utils
-shared-mime-info
 gnome-mime-data
 gnome-vfs
 audiofile
@@ -32,7 +31,8 @@ libbonoboui
 at-spi
 gail
 libgnomeprint
-libgnomeprintui"
+libgnomeprintui
+hicolor-icon-theme"
 
 (
 for i in $BUILD_ORDER

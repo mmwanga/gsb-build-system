@@ -13,11 +13,8 @@ fi
 mkdir -p $TMP/gnome-$GVERSION/requirements
 
 # howl for gnomemeeting not included yet
-BUILD_ORDER="dbus
-libcap
-hal
-libgsf
-libcroco"
+BUILD_ORDER="
+"
 
 (
 
