@@ -167,6 +167,11 @@ our %other =
 			     'url' => 'http://mikmod.raphnet.net/files/',
 			     'src' => 'tar.gz',
 			    },
+   'liferea'             => {
+			     'ver' => '0.9.1',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/liferea/',
+			     'src' => 'tar.gz',
+			    },
    'mail-notification'   => {
 			     'ver' => '1.1',
 			     'url' => 'http://savannah.nongnu.org/download/mailnotify/',
