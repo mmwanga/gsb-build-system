@@ -1,7 +1,5 @@
 TODO:
 
-* perl bindings haven't been added yet, SlackBuild files need to be added
-* gsb_update.pl - needs some regex to auto update SlackBuild files 
-* add xscreensaver, gimp, to gsb
+* add xscreensaver to gsb ???
 * add a HACKING file with instructions on how to edit and add things to the
   source tree
