@@ -8,7 +8,7 @@ PKG=$TMP/package-gnome-panel
 
 VERSION=2.9.91
 ARCH=i486
-BUILD=1
+BUILD=3
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source

@@ -1,3 +1,4 @@
-if [ -x /usr/bin/scrollkeeper-update ]; then
-  /usr/bin/scrollkeeper-update -p /var/lib/scrollkeeper 1> /dev/null 2> /dev/null
-fi
+for i in /etc/gconf/schemas/*.entries
+do
+	gconftool-2 --config-source=`gconftool-2 --get-default-source` --load $i
+done
