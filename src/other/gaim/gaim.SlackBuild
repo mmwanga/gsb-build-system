@@ -42,7 +42,7 @@ make install DESTDIR=$PKG
 ### add gaim-encryption
 ( cd $TMP
   rm -rf gaim-encryption-$GAIMENC
-  tar xjf $CWD/gaim-encryption-$GAIMENC.tar.gz
+  tar xzvf $CWD/gaim-encryption-$GAIMENC.tar.gz
   cd gaim-encryption-$GAIMENC
   ./configure \
   --prefix=/usr \
@@ -69,7 +69,7 @@ cp -a \
   ABOUT-NLS AUTHORS COPYING ChangeLog HACKING NEWS README TODO doc/FAQ doc/CREDITS \
   $PKG/usr/doc/gaim-$VERSION
 chmod 644 $PKG/usr/doc/gaim-$VERSION/*
-gzip -9 $PKG/usr/man/man1/*
+gzip -9 $PKG/usr/man/*/*
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
