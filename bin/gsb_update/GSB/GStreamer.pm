@@ -123,7 +123,7 @@ my %gstreamer_libs =
 			  },
    'libmovtar'         => {
 			   'ver' => '0.1.3',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mjpeg/libmovtar-0.1.3.tar.gz',
+			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mjpeg/',
 			   'url1' => 'http://heanet.dl.sourceforge.net/sourceforge/mjpeg/jpeg-mmx-0.1.5.tar.gz',
 			   'src' => 'tar.gz',
 			  },

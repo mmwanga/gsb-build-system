@@ -37,8 +37,6 @@ use Cwd;
 #
 # config variables
 
-my @bad_downloads = "";
-
 my $gsb_root_sources = "../../src";
 
 #
@@ -61,16 +59,21 @@ chdir $gsb_root_sources or
 
 my $pwd = getcwd();
 
-print "$pwd\n";
-
-exit (0);
-
 # download platform
 foreach my $package (keys %platform) {
 
   chdir "$pwd/gnome/platform/$package";
   my $url = GSB::GSB::gsb_gnome_platform_url_make($package, $platform{$package});
   GSB::GSB::gsb_tarball_get{$url);
+}
+
+foreach my $package (keys %platform_diff_naming) {
+
+  chdir "$pwd/gnome/platform/$package";
+  my $url = GSB::GSB::gsb_gnome_desktop_url_make($package{name}, $package{ver});
+
+  GSB::GSB::gsb_tarball_get($url);
+
 }
 
 foreach my $package (keys %desktop) {
@@ -81,9 +84,8 @@ foreach my $package (keys %desktop) {
   GSB::GSB::gsb_tarball_get{$url);
 }
 
-
-#print "The following packages could not be downloaded:\n";
-#print "GSB::GSB::@bad_downloads\n";
+print "The following packages could not be downloaded:\n";
+print "GSB::GSB::@bad_downloads\n";
 
 # end main()
 #

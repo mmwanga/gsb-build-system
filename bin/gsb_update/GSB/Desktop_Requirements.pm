@@ -52,9 +52,13 @@ my %stupid_gnomemeeting_libs =
 # Functions
 
 sub gsb_gnomemeeting_libs_url_make {
+  my $url  = shift;
+  my $name = shift;
+  my $ver  = shift;
+  my $src  = shift;
 
-
-
+  my $gsburl = "$url/$name-$ver$src";
+  return $gsburl;
 }
 
 #
