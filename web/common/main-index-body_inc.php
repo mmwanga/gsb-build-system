@@ -73,17 +73,34 @@
     <ol>
       <li>Download the iso and md5 sum file: <a href=
       "https://sourceforge.net/project/showfiles.php?group_id=130126&amp;package_id=143903">
-      FRG ISO</a>, then check the iso;<br /><tt>md5sum -c
-      file.iso.md5</tt></li>
+      FRG ISO</a>, then check the iso;
+      <blockquote>
+        <p><code>$ md5sum -c file.iso.md5</code></p>
+      </blockquote></li>
 
-      <li>mount the iso;<br />
-      <tt>mount -t iso9660 file.iso /mnt/iso -o loop</tt></li>
+      <li>mount the iso;
+      <blockquote>
+        <p><code>$ mkdir /mnt/iso</code></p>
+        <p><code>$ mount -t iso9660 file.iso /mnt/iso -o loop</code></p>
+        <p><code>$ cd /mnt/iso</code></p>
+      </blockquote></li>
 
-      <li><tt>cd /mnt/iso</tt></li>
+      <li>Then run either;
+      <blockquote>
+        <p><code>$ ./min_install.sh</code></p>
+      </blockquote>
 
-      <li>Then run either <tt>min_install.sh</tt> or
-      <tt>full_install.sh</tt> or manually use;<br />
-      <tt>upgradepkg --install-new</tt></li>
+      or
+
+      <blockquote>
+        <p><code>$ ./full_install.sh</code></p>
+      </blockquote>
+
+      or manually use;
+
+      <blockquote>
+        <p><code>$ upgradepkg --install-new</code></p>
+      </blockquote></li>
     </ol>
 
     <p><a class="topOfPage doNotPrint" href="#top" title="Go to the top of this page">^
@@ -181,9 +198,6 @@
 
       <li>check if anything is built into /usr/local and change it
       to /usr</li>
-
-      <li><del>Get some CSS and simple graphics for this page and a menu
-      on the left of this page</del> <ins datetime="20050215">DONE</ins></li>
     </ol>
 
     <p><a class="topOfPage doNotPrint" href="#top" title="Go to the top of this page">^
@@ -231,9 +245,6 @@
       <li>Testers, Testers, Guinea Pigs, Testers</li>
 
       <li>Anything missing? Want something added?</li>
-
-      <li><del>some simple css for this website, or someone to just do
-      the website</del> <ins datetime="20050215">DONE</ins></li>
 
       <li>Some Graphics maybe? splash screen, gdm screen ....</li>
 
