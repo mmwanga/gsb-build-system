@@ -4,26 +4,31 @@
   <wallpaper deleted="false">
     <name>FRG Bright</name>
     <filename>/usr/share/pixmaps/backgrounds/frg/frg_bright.png</filename>
-    <options>scaled</options>
+    <options>wallpaper</options>
   </wallpaper>
   <wallpaper deleted="false">
     <name>FRG Dark I</name>
     <filename>/usr/share/pixmaps/backgrounds/frg/frg_darkerI.png</filename>
-    <options>scaled</options>
+    <options>wallpaper</options>
   </wallpaper>
   <wallpaper deleted="false">
     <name>FRG Dark II</name>
     <filename>/usr/share/pixmaps/backgrounds/frg/frg_darkerII.png</filename>
-    <options>scaled</options>
+    <options>wallpaper</options>
   </wallpaper>
   <wallpaper deleted="false">
     <name>FRG Dark III</name>
     <filename>/usr/share/pixmaps/backgrounds/frg/frg_darkerIII.png</filename>
-    <options>scaled</options>
+    <options>wallpaper</options>
   </wallpaper>
   <wallpaper deleted="false">
     <name>FRG Spiral</name>
     <filename>/usr/share/pixmaps/backgrounds/frg/frg_spiral.png</filename>
-    <options>scaled</options>
+    <options>wallpaper</options>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>FRG Waves</name>
+    <filename>/usr/share/pixmaps/backgrounds/frg/frg_waves.png</filename>
+    <options>wallpaper</options>
   </wallpaper>
 </wallpapers>
