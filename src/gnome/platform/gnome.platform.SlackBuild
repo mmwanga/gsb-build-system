@@ -33,8 +33,9 @@ gail
 at-spi
 libgnomecups
 libgnomeprint
-libgnomeprintui
-hicolor-icon-theme"
+hicolor-icon-theme
+gnome-icon-theme
+libgnomeprintui"
 
 (
 for i in $BUILD_ORDER
