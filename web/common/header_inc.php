@@ -35,8 +35,6 @@ print("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
 <div id="top"></div>
   
 <div class="subHeader">
- <a href="/"><img src="/images/GSB_Logo.png" alt="GSB Logo"
-  class="doNotPrint"/></a>
   <h1 class="doNotDisplay"><a href="/" class="headerLink" title="GSB:
   GNOME.SlackBuild">GSB: Gnome.SlackBuild</a></h1>
 <?php include('content/header.html'); ?>

@@ -122,6 +122,10 @@ acronym, .titleTip {
     background-color: rgb(0,51,153);
     margin: 0;
     padding: 0.2ex 1ex 0.2ex 1.5mm;
+    background-image:url(/images/GSB_Logo.png);
+    background-repeat:no-repeat;
+    background-position: middle left;
+    height: 65px;
 }
 
 .subHeader a {
