@@ -39,6 +39,21 @@ CFLAGS="$SLKCFLAGS" \
 make
 make install DESTDIR=$PKG
 
+SCHEMAS=$PKG/etc/gconf/schemas
+for i in $SCHEMAS/*.schemas
+do
+GCONF_CONFIG_SOURCE="xml::$PKG/etc/gconf/gconf.xml.defaults" \
+        gconftool-2 --makefile-install-rule $i
+done
+
+chown -R root.bin $PKG/usr/bin
+
+(
+  cd $PKG/etc/gconf/gconf.xml.defaults
+  find ./ -type d -exec chmod go+rx {} \;
+  find ./ -type f -exec chmod go+r {} \;
+)
+
 chown -R root.bin $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/yelp-$VERSION
