@@ -1,4 +1,14 @@
 ###
+2005-02-26-12-45-EST
+freerock
+Build Order Slightly Wrong
+<p>While looking at the configure.in files to try and populate the slack-required files for slapt-get
+I noticed that the build order for GSB is wrong for some packages. I am currently fixing 
+this in SVN. I am following the order more or less given by <strong>jhbuild list</strong> instead
+of the documentation on gnome.org. This will not affect the build if you have previous versions
+of some libs installed. Mainly glib2, gtk2, libxml2</p>
+ 
+###
 2005-02-22-00-30-EST
 freerock
 KDE Menus might get changed
