@@ -65,7 +65,7 @@ libcap
 hal
 howl
 cyrus-sasl
-krb5
+heimdal
 openldap
 fam"
 
