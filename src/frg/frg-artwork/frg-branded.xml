@@ -31,4 +31,29 @@
     <filename>/usr/share/pixmaps/backgrounds/frg/frg_waves.png</filename>
     <options>wallpaper</options>
   </wallpaper>
+  <wallpaper deleted="false">
+    <name>FRG Rockstar B</name>
+    <filename>/usr/share/pixmaps/backgrounds/frg/frg_rockstar_blue.png</filename>
+    <options>wallpaper</options>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>FRG Rockstar R</name>
+    <filename>/usr/share/pixmaps/backgrounds/frg/frg_rockstar_red.png</filename>
+    <options>wallpaper</options>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>FRG Rockstar Y</name>
+    <filename>/usr/share/pixmaps/backgrounds/frg/frg_rockstar_yellow.png</filename>
+    <options>wallpaper</options>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>FRG Sunset</name>
+    <filename>/usr/share/pixmaps/backgrounds/frg/frg_sunset.png</filename>
+    <options>wallpaper</options>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>FRG Stripes</name>
+    <filename>/usr/share/pixmaps/backgrounds/frg/frg_stripes.png</filename>
+    <options>wallpaper</options>
+  </wallpaper>
 </wallpapers>
