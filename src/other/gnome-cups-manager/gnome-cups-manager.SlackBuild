@@ -25,7 +25,6 @@ fi
 cd $TMP 
 tar xjvf $CWD/gnome-cups-manager-$VERSION.tar.bz2
 cd gnome-cups-manager-$VERSION
-#
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
@@ -34,6 +33,14 @@ CFLAGS="$SLKCFLAGS" \
             $ARCH-slackware-linux
 make
 make install DESTDIR=$PKG
+
+(
+  cd $PKG/usr/share/pixmaps
+  ln -s ../icons/hicolor/48x48/devices/gnome-dev-printer.png
+)
+
+mkdir -p $PKG/usr/share/applications
+cat $CWD/gnome-cups-manager.desktop > $PKG/usr/share/applications/gnome-cups-manager.desktop
 
 chown -R root.bin $PKG/usr/bin
 chown -R root.bin $PKG/usr/sbin
