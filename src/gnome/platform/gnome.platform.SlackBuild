@@ -26,8 +26,9 @@ libgnome
 libart_lgpl
 libglade
 libgnomecanvas
-libgnomeui
 libbonoboui
+gnome-keyring
+libgnomeui
 gail
 at-spi
 libgnomecups
