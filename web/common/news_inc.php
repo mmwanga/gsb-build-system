@@ -74,10 +74,10 @@ if (is_file($ff)) {
         $prevlink = "";
         $nextlink = "";
         if ( $max < count($farr)-1 )
-            $nextlink = ": <a href=\"/news/".($news_page+1)."\">Next</a> &gt;";
+            $nextlink = "<a href=\"/news/".($news_page+1)."\">Next</a> &gt;";
         if ($news_page > 1)
-            $prevlink = ": <a href=\"/news/".($news_page-1)."\">Prev</a> &lt;";
-        print( "\t<p><a href=\"/\">Home</a> ".$prevlink." ". $nextlink . "</p>\n" );
+            $prevlink = "&lt; <a href=\"/news/".($news_page-1)."\">Prev</a>";
+        print( "\t<p><a href=\"/\">Home</a> | ".$prevlink." ". $nextlink . "</p>\n" );
     }
 
     if ($news_page > 0) {
