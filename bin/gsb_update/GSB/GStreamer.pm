@@ -146,6 +146,11 @@ our %gst_libs =
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libmms/',
 			   'src' => 'tar.gz',
 			  },
+   'libmovtar'         => {
+			   'ver' => '0.1.3',
+			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mjpeg/',
+			   'src' => 'tar.gz',
+			  },
    'libmusepack'       => {
 			   'ver' => '1.1',
 			   'url' => 'http://files.musepack.net/source/libmusepack-1.1.tar.bz2',
@@ -249,14 +254,14 @@ our %gst_libs =
   );
 
 
-my %gst_libs_other =
+our %gst_libs_other =
   (
-   'libmovtar'         => {
-			   'ver' => '0.1.3',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mjpeg/',
-			   'url1'=> 'http://heanet.dl.sourceforge.net/sourceforge/mjpeg/jpeg-mmx-0.1.5.tar.gz',
-			   'src' => 'tar.gz',
-			  },
+   'jpeg-mmx'         => {
+			  'ver' => '0.1.5',
+			  'dir' => 'libmovtar',
+			  'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mjpeg/',
+			  'src' => 'tar.gz',
+			 },
   );
 
 #

@@ -287,9 +287,9 @@ foreach my $dopackage (keys %desktop_other) {
 
 # What to do about VERSION var here?
 # maybe store the VARIABLE to edit in the hash somewhere?
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
+#  if ( $edit eq "true" ) {
+#    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+#  }
 
   if ( ! -f $tarball ) {
     push(@bad_downloads, $dopackage);
@@ -594,6 +594,37 @@ foreach my $gst_libs_pack (keys %gst_libs) {
 
   if ( ! -f $tarball ) {
     push(@bad_downloads, $gst_libs_pack);
+  }
+}
+
+# Download libs for single dir
+foreach my $gst_dlibs (keys %gst_libs_other) {
+
+  chdir "$pwd/gnome/desktop_reqs/$gst_libs_other{$gst_dlibs}{dir}";
+
+  my $sb_file = $gst_libs_other{$gst_dlibs}{dir} . $sb_ext;
+  my $packurl = $gst_libs_other{$gst_dlibs}{url};
+  my $ver     = $gst_libs_other{$gst_dlibs}{ver};
+  my $src     = $gst_libs_other{$gst_dlibs}{src};
+
+  my $tarball = "$gst_dlibs-$ver.$src";
+
+  print "\n\n *** $tarball *** \n\n";
+
+  if ( $download eq "true" ) {
+    if ( ! -f $tarball ) {
+      my $url = GSB::GSB::gsb_other_url_make($gst_dlibs, $packurl, $ver, $src);
+      GSB::GSB::gsb_tarball_get($gst_dlibs, $url);
+    }
+  }
+
+#  Again, what to do about version here
+#  if ( $edit eq "true" ) {
+#    GSB::Edit::gsb_sb_edit($sb_file, $gst_libs_other{$gst_dlibs});
+#  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $gst_dlibs);
   }
 }
 
