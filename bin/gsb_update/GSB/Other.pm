@@ -6,7 +6,7 @@ my %other =
   (
    'IndLinux'            => {
 			     'ver' => '0.9',
-			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/indlinux/'
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/indlinux/',
 			     'src'  => 'tar.gz',
 			    },
    'coaster'             => {
@@ -21,7 +21,7 @@ my %other =
 			    },
    'dvgrab'              => {
 			     'ver' => '1.7',
-			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/kino/'
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/kino/',
 			     'src' => 'tar.gz',
 			    },
    'gDesklets'           => {
@@ -66,7 +66,7 @@ my %other =
 			    },
    'kino'                => {
 			     'ver' => '0.7.5',
-			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/kino/'
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/kino/',
 			     'src' => 'tar.gz',
 			    },
    'libburn'             => {
@@ -81,7 +81,7 @@ my %other =
 			    },
    'libmikmod'           => {
 			     'ver' => '3.1.11',
-			     'url' => 'http://mikmod.raphnet.net/files/'
+			     'url' => 'http://mikmod.raphnet.net/files/',
 			     'src' => 'tar.gz',
 			    },
   );

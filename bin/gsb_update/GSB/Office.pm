@@ -1,3 +1,10 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+package GSB::Office;
+
 ################################################################################
 # Config Options
 #
@@ -68,6 +75,7 @@ my %office_gnome =
    'gnumeric'  => '1.5.0',
    'dia'       => '0.94',
    'mergeant'  => '0.52',
+   'planner'   => '0.12.1',
   );
 
 #
