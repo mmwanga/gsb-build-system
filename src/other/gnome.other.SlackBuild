@@ -48,7 +48,11 @@ xchat
 gimp
 streamripper
 streamtuner
-drivel"
+drivel
+gmime
+mail-notification
+contact-lookup-applet
+bmp"
 
 (
 for i in $BUILD_ORDER
