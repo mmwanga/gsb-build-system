@@ -47,8 +47,8 @@ switch ($op) {
     case "support":
         $title = "Support : $common_title";
         break;
-    case "todo":
-        $title = "TODO : $common_title";
+    case "development":
+        $title = "Development : $common_title";
         break;
     default:
         $title = "$common_title";

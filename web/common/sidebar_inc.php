@@ -28,17 +28,17 @@
 
         <li><a href="/roadmap" title="Roadmap">Roadmap</a></li>
 
-        <li><a href="/todo" title="TODO">TODO</a></li>
+        <li><a href="/development" title="Development">Development</a></li>
 
         <li><a href="/support" title="Support">Support</a></li>
 
         <li><a href="/help" title="Help the Project">Help the
         Project</a></li>
 
+        <li><a href="/links" title="Relevant Links">Links</a></li>
+
         <li><a href="http://sourceforge.net/projects/gsb"
         title="SourceForge.net Project Page">Project Page</a></li>
-
-        <li><a href="/links" title="Relevant Links">Links</a></li>
       </ul>
     </div>
     <div>
