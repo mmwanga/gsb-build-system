@@ -6,7 +6,7 @@ Options -Indexes -Includes -ExecCGI
 #
 # Direcory Index Options (in order)
 #
-DirectoryIndex index.html index.shtml index.php
+DirectoryIndex index.html index.php
 
 #
 # mod_rewite rules - make URI's friendly and easy to document/recite/remember
@@ -26,7 +26,7 @@ RewriteEngine On
     RewriteRule ^todo/?  /index.php?op=todo [QSA]
 
 #
-# special files to deny a web browser fro peeking at
+# special files to deny a web browser from peeking at
 #
 <Files ~ "^news\.txt">
     Order allow,deny
