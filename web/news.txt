@@ -1,4 +1,12 @@
 ###
+2005-02-18-14-20-EST
+freerock
+Fix for abiword package
+rm -f /usr/lib/AbiWord-2.2/plugins/libAbiMagick.*
+new iso version 0.0.2.2 with this and other fixes will be
+avaiable tomorrow afternoon
+
+###
 2005-02-17-20-00-CST
 chipster
 Some Screenshots Available:
