@@ -1,2 +1,4 @@
-libbonobo
+atk
 gail
+gtk+2
+libbonobo

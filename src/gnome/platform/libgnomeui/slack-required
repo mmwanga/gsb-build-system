@@ -1,2 +1,7 @@
+gconf
 gnome-keyring
+gnome-vfs
 libbonoboui
+libgnome
+libgnomecanvas
+pango
