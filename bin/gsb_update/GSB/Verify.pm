@@ -22,6 +22,7 @@ sub tarball_md5_sum_verify{
 
   # get md5 sum of
   my $tarmd5 = "foo";
+  my $md5sum = "";
 
   if ( $tarmd5 eq $md5sum ) {
     return (0);
@@ -38,7 +39,9 @@ sub gpg_sig_verify {
   my $signature = shift;
   my $verify    = "false";
 
-  if ( ) {
+  my $verify_sig = "";
+
+  if ( $verify_sig ) {
     $verify = "true";
   }
 
