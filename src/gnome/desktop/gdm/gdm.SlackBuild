@@ -12,7 +12,7 @@ mkdir -p $PKG
 
 VERSION=2.6.0.8
 ARCH=${ARCH:-i486}
-BUILD=3
+BUILD=4
 
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
