@@ -64,11 +64,13 @@ our %stupid_gnomemeeting_libs =
 		   'url'   => 'http://www.gnomemeeting.org/admin/downloads/latest/sources/sources/',
 		   'ver'   => '1.15.3',
 		   'src'   => 'tar.gz',
+		   'var'   => 'VERSION',
 		  },
    'pwlib'     => {
 		   'url'   => 'http://www.gnomemeeting.org/admin/downloads/latest/sources/sources/',
 		   'ver'   => '1.8.4',
 		   'src'   => 'tar.gz',
+		   'var'   => 'PVERSION',
 		  },
   );
 

@@ -9,8 +9,6 @@
 #   - cli args: --conf={all,platform,desktop,desktop_reqs,office,other}
 #               --getrelease
 #               --getlocal
-#   - need to account for packages (ie. avifile,openh323,pwlib,ffmpeg)
-#     with both a VERSION Var and a PVERSION var so that both are updated
 #   - for packages on sourceforge, change url to "sf" and have an existing function
 #     check if url is eq "sf" and download each package from a random sf mirror
 #     Store list of mirror in an array.
@@ -279,6 +277,7 @@ foreach my $gmpackage (keys %stupid_gnomemeeting_libs) {
   my $packurl = $stupid_gnomemeeting_libs{$gmpackage}{url};
   my $ver     = $stupid_gnomemeeting_libs{$gmpackage}{ver};
   my $src     = $stupid_gnomemeeting_libs{$gmpackage}{src};
+  my $var     = $stupid_gnomemeeting_libs{$gmpackage}{var};
 
   my $tarball = "$gmpackage-$ver.$src";
 
@@ -289,12 +288,15 @@ foreach my $gmpackage (keys %stupid_gnomemeeting_libs) {
     }
   }
 
-# NEED TO FIGURE OUT HOW TO EDIT THIS FILE
-#  if ( $edit eq "true" ) {
-#    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-#  }
+  if ( $edit eq "true" ) {
+    if ( $gmpackage eq "openh323" ) {
+      GSB::Edit::gsb_sb_edit($sb_file, $ver);
+    }else {
+      GSB::Edit::gsb_sb_double_edit($sb_file, $ver, $var);
+    }
+  }
 
-  if ( $gmpackage eq "pwlib" ) {
+  if ( $gmpackage eq "openh323" ) {
     if ( $build ne "" ) {
       GSB::Edit::gsb_build_release_make($sb_file, $build);
     }
