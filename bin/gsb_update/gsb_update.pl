@@ -5,7 +5,6 @@
 #
 # TODO:
 #
-#   - Edit.pm Themes.pm
 #   - auto download themes. Need to Populate Themes.pm file with apropriate hashes
 #   - cli args: --conf={all,gnome,requirements,gstreamer,office,other}
 #               --getrelease
