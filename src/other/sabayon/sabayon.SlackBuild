@@ -6,13 +6,13 @@ PKG=$TMP/package-sabayon
 
 VERSION=0.15
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 rm -rf $PKG
-mkdir -p $PKG
+mkdir -p $PKG/var/sabayon
 
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
@@ -49,7 +49,7 @@ done
   find ./ -type f -exec chmod go+r {} \;
 )
 
-chown -R root.bin $PKG/usr/bin
+chown -R root.bin $PKG/usr/bin $PKG/usr/sbin
 
 (           
   cd $PKG/usr/share/applications
@@ -57,6 +57,13 @@ chown -R root.bin $PKG/usr/bin
   do
   sed -i '/^Exec=/s/=/=gnomesu /' $i.desktop
   done
+)
+
+(
+  mkdir -p $PKG/etc/gconf/2/
+  cd $PKG/etc/gconf/2/
+  echo "include \"\$(HOME)/.gconf.path.mandatory\"" > local-madatory.path.new
+  echo "include \"\$(HOME)/.gconf.path.defaults\"" > local-defaults.path.new
 )
 
 mkdir -p $PKG/usr/doc/sabayon-$VERSION
@@ -78,6 +85,7 @@ gzip -9 $PKG/usr/info/*
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 makepkg -l y -c n $TMP/sabayon-$VERSION-$ARCH-$BUILD.tgz
