@@ -237,7 +237,7 @@ our %other_gnome =
    'gthumb'              => '2.6.4',
    'loudmouth'           => '0.17.2',
    'rhythmbox'           => '0.8.8',
-   'sabayon'             => '0.16',
+   'sabayon'             => '0.17',
   );
 
 our %other_other =

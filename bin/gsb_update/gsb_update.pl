@@ -53,7 +53,8 @@ my @bad_downloads;
 
 # THESE VARIABLES ARE NOT USED YET
 # these are here to make the main code below less repetative eventually, still
-#   needs some changes
+# needs some changes
+#
 # Group similar hashes together
 my %gnome_packages =
   (
