@@ -4,8 +4,10 @@ freerock
 GNOME 2.10.0 packages for Slackware 10.1
 <p>FRG-0.1.93 has been released for testing. It contains packages of GNOME 2.10.0
 built on slackware 10.1. Test and send feedback to the mailing list. Check the
-Support page for details.
-<p>
+Support page for details.</p>
+<p><strong>UPDATE:</strong> FRG-0.1.94 has been released with updated packages.
+Sabayon now works when started from a user account, you'll still need the root
+password though</p>
 
 ###
 2005-02-26-12-45-EST
