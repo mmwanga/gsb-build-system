@@ -12,7 +12,7 @@ mkdir -p $PKG
 
 VERSION=2.6.0.8
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=3
 
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
@@ -28,6 +28,7 @@ cd $TMP
 rm -rf gdm-$VERSION
 tar xjvf $CWD/gdm-$VERSION.tar.bz2
 cd gdm-$VERSION
+cat $CWD/frg.gdm.conf.in.patch |patch -p1 --verbose
 chown -R root.root .
 # Quiet the output from the gdm script when /etc/profile is sourced:
 #zcat $CWD/gdm.quiet.diff.gz | patch -p1 --verbose --suffix=.orig
@@ -74,7 +75,6 @@ rm -rf $PKG/var/lib/log/gdm
 gzip -9 $PKG/usr/man/man?/*.?
 mkdir -p $PKG/var/lib/scrollkeeper
 touch $PKG/usr/share/faces $PKG/var/lib/gdm
-cat $CWD/gdm.conf-graphical > $PKG/etc/X11/gdm/gdm.conf
 (
   cd $PKG/etc/X11/gdm/
   mv gdm.conf gdm.conf.new

@@ -2,6 +2,10 @@ if [ -x usr/bin/scrollkeeper-update ]; then
   usr/bin/scrollkeeper-update -p var/lib/scrollkeeper 1> /dev/null 2> /dev/null
 fi
 
+if [ -f etc/X11/gdm/gdm.conf ]; then
+  mv  etc/X11/gdm/gdm.conf  etc/X11/gdm/gdm.conf.old
+fi
+
 config() {
   NEW="$1"
   OLD="`dirname $NEW`/`basename $NEW .new`"

@@ -6,15 +6,13 @@ PKG=$TMP/package-metacity
 
 VERSION=2.10.0
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 rm -rf $PKG
 mkdir -p $PKG
-
-SCHEMAS=$PKG/etc/gconf/schemas
 
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
@@ -29,6 +27,7 @@ fi
 cd $TMP 
 tar xjvf $CWD/metacity-$VERSION.tar.bz2
 cd metacity-$VERSION
+cat $CWD/frg.metacity.default.theme.patch |patch -p1 --verbose
 chown -R root.root .
 find . -perm 666 -exec chmod 644 {} \;
 find . -perm 664 -exec chmod 644 {} \;
@@ -41,19 +40,20 @@ CFLAGS="$SLKCFLAGS" \
 make
 make install DESTDIR=$PKG
 
+SCHEMAS=$PKG/etc/gconf/schemas
 for i in $SCHEMAS/*.schemas
 do
 GCONF_CONFIG_SOURCE="xml::$PKG/etc/gconf/gconf.xml.defaults" \
         gconftool-2 --makefile-install-rule $i
 done
 
-chown -R root.bin $PKG/usr/bin
-
 (
   cd $PKG/etc/gconf/gconf.xml.defaults
   find ./ -type d -exec chmod go+rx {} \;
   find ./ -type f -exec chmod go+r {} \;
 )
+
+chown -R root.bin $PKG/usr/bin
 
 mkdir -p $PKG/etc/profile.d/
 cp -a $CWD/metacity.sh $PKG/etc/profile.d/
