@@ -36,7 +36,8 @@ chown -R root.bin $PKG/usr/bin
 
 (
   cd $PKG/etc/rc.d
-  mv rc.messagebus rc.messagebus.new
+  rm rc.messagebus
+  cp $CWD/rc.dbus rc.messagebus.new 
 )
 
 mkdir -p $PKG/usr/doc/dbus-$VERSION
