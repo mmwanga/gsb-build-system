@@ -33,8 +33,6 @@ my $dfiledir = $gfiledir . $gnome{desktop}  . $grelease;
 my $bfiledir = $gfiledir . $gnome{bindings} . $grelease;
 my $gsrcddir = $gfiledir . '/sources';
 
-our @bad_downloads = "";
-
 #
 # End Config Options
 ################################################################################
@@ -47,8 +45,12 @@ sub show_help {
 
   print STDERR <<EOF;
 
-  $0 --conf=\<arg or all\>
+  $0 \<args\>
 
+  --dl           download source tarballs
+  --edit         edit SlackBuild files
+
+NOT WORKING YET
   --conf         which files to download: gnome, gstreamer, office
                                           other, requirements
   --getlocal     get files from local directory, instead of mirror

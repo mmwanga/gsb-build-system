@@ -26,7 +26,7 @@ use warnings;
 #use GSB::Edit;
 use GSB::GSB;
 use GSB::Gnome;
-use GSB::GStreamer;
+#use GSB::GStreamer;
 use GSB::Office;
 use GSB::Other;
 use GSB::Requirements;
@@ -38,7 +38,61 @@ use Cwd;
 #
 # config variables
 
+# command line args variables
+my $download = "";
+my $edit     = "";
+my $conf     = "";
+
+my $sb_ext = '.SlackBuild';
+
 my $gsb_root_sources = "../../src";
+
+my @bad_downloads = "";
+
+
+# Group similar hashes together
+my %gnome_packages =
+  (
+   '%platform'             => 'gnome/platform',
+   '%platform_diff_naming' => 'gnome/platform',
+   '%platform_fdo'         => 'gnome/platform',
+   '%desktop'              => 'gnome/desktop',
+   '%themes'               => 'gnome/themes',
+   '%office_gnome'         => 'office',
+   '%office_gnome_libs'    => 'office/libs',
+   '%gstreamer'            => 'gnome/desktop',
+  );
+
+my %gnome_bindings =
+  (
+   '%bindings_cxx'     => {
+			   'type' => 'c++',
+			   'dir'  => 'gnome/bindings/c++',
+			  },
+   '%bindings_java'    => {
+			   'type' => 'java',
+			   'dir'  => 'gnome/bindings/java',
+		          },
+   '%bindings_python'  => {
+			   'type' => 'python',
+			   'dir'  => 'gnome/bindings/python',
+			  },
+  );
+
+my %gnome_other =
+  (
+   '%office'        => 'office',
+   '%office_libs'   => 'office/libs',
+   '%desktop_reqs'  => 'gnome/desktop_reqs',
+   '%gst_libs'      => 'requirements',
+   '%gst_other'     => 'other',
+   '%other'         => 'other',,
+  );
+
+my %stupid_gm =
+  (
+   '%stupid_gnomemeeting_libs' => 'gnome/desktop_reqs',
+  );
 
 #
 #
@@ -48,47 +102,182 @@ my $gsb_root_sources = "../../src";
 #
 # main()
 
-if (@ARGV != 1) {
+if (@ARGV < 1) {
   GSB::GSB::show_help();
   exit (0);
+}
+
+# Parse command line args
+
+foreach (@ARGV) {
+
+  if ( m/^--dl$/ ){
+    $download = "true";
+  }
+  elsif ( m/^--edit$/ ){
+    $edit = "true";
+  }
+  elsif ( m/^--conf=(.+)$/ ){
+    $conf = $1;
+  }
+  else {
+    die "ERROR: {$_} is a bad cmdline arg\n";
+  }
 }
 
 # Change directory to GSB's sources
 
 chdir $gsb_root_sources or
-  warn "Can't change dir to GSB Sources";
+  warn "Can't change dir to GSB Sources: $!";
 
 my $pwd = getcwd();
 
-# download platform
+################################################################################
+#
+# Download and Edit
+
+# DOWNLOAD Platform
 foreach my $ppackage (keys %platform) {
 
   chdir "$pwd/gnome/platform/$ppackage";
+  my $sb_file = $ppackage. $sb_ext;
+  my $tarball = "$ppackage-$platform{$ppackage}.tar.bz2";
 
-  my $url = GSB::GSB::gsb_gnome_platform_url_make($ppackage, $platform{$ppackage});
+  if ( $download eq "true" ) {
+    if ( ! -f $tarball ) {
+      my $url = GSB::GSB::gsb_gnome_platform_url_make($ppackage, $platform{$ppackage});
+      GSB::GSB::gsb_tarball_get($ppackage, $url);
+    }
+  }
 
-  GSB::GSB::gsb_tarball_get($ppackage, $url);
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $platform{$ppackage);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $ppackage );
+  }
 }
 
-#foreach local $package (keys %platform_diff_naming) {
+# DOWNLOAD other platform libs
+foreach my $pnpackage (keys %platform_diff_naming) {
 
-#  chdir "$pwd/gnome/platform/$package";
-#  local $url = GSB::GSB::gsb_gnome_desktop_url_make($package{name}, $package{ver});
+  chdir "$pwd/gnome/platform/$pnpackage";
+  my $sb_file = $pnpackage. $sb_ext;
+  my $tarball = "$pnpackage{name}-$pnpackage{ver}.tar.bz2";
 
-#  GSB::GSB::gsb_tarball_get($url);
+  if ( $download eq "true" ) {
+    if ( ! -f $tarball ) {
+      my $url = GSB::GSB::gsb_gnome_platform_url_make($pnpackage{name}, $pnpackage{ver});
+      GSB::GSB::gsb_tarball_get(pnpackage, $url);
+    }
+  }
 
-#}
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $pnpackage{ver});
+  }
 
-#foreach local $package (keys %desktop) {
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $pnpackage);
+  }
+}
 
-#  chdir "$pwd/gnome/desktop/$package";
-#  local $url = GSB::GSB::gsb_gnome_desktop_url_make($package, $platform{$package});
+# DOWNLOAD freedesktop.org platform libs
+foreach my $fdopackage (keys %platform_fdo) {
 
-#  GSB::GSB::gsb_tarball_get{$url);
-#}
+  chdir "$pwd/gnome/platform/$fdopackage";
+  my $sb_file = $fdopackage . $sb_ext;
+  my $tarball = "$fdopackage-$fdopackage{ver}.$fdopackage{src}";
+
+  if ( $download eq "true") {
+    if ( ! -f $tarball ) {
+      my $url = GSB::GSB::gsb_other_url_make($fdopackage, $fdopackage{url}, $fdopackage{ver}, $fdopackage{src});
+      GSB::GSB::gsb_tarball_get($url);
+    }
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $fdopackage{ver});
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $fdopackage);
+  }
+}
+
+# Download Desktop Packages
+foreach local $dpackage (keys %desktop) {
+
+  chdir "$pwd/gnome/desktop/$dpackage";
+  my $sb_file = $dpackage . $sb_ext;
+  my $tarball = "$dpackage-$desktop{dpackage}.tar.bz2";
+
+  if ( $download eq "true") {
+    if ( ! -f $tarball ) {
+      my $url = GSB::GSB::gsb_gnome_desktop_url_make($dpackage, $desktop{$dpackage});
+      GSB::GSB::gsb_tarball_get{$url);
+    }
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $desktop{dpackage});
+  }
+
+  if ( ! -f $tarball ) {
+    push((@bad_downloads, $dpackage);
+  }
+}
+
+# Download Bindings
+
+# GNOME Office
+foreach my $office_pack (keys %office_gnome) {
+
+  chdir "$pwd/office/$office_pack";
+  my $sb_file = $office_pack . $sb_ext;
+  my $tarball = "$office_pack-$office_gnome{$office_pack}.tar.bz2";
+
+  if ( $download eq "true" ) {
+    if ( ! -f $tarball ) {
+      my $url = GSB::GSB::gsb_gnome_generic_url_make($office_pack, $office_gnome{$office_pack});
+      GSB::GSB::gsb_tarball_get($office_pack, $url);
+    }
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $fdopackage{ver});
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $office_pack,);
+  }
+}
+
+# GNOME Office libs
+foreach my $office_pack (keys %office_gnome_libs) {
+
+  chdir "$pwd/office/libs/$office_pack";
+  my $sb_file = $office_pack . $sb_ext;
+  my $tarball = "$office_pack-$office_gnome_libs{$office_pack}.tar.bz2";
+
+  if ( $download eq "true" ) {
+    if ( ! -f $tarball ) {
+      my $url = GSB::GSB::gsb_gnome_generic_url_make($office_pack, $office_gnome_libs{$office_pack});
+      GSB::GSB::gsb_tarball_get($office_pack, $url);
+    }
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $office_gnome_libs{$office_pack});
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $office_pack);
+  }
+}
 
 print "The following packages could not be downloaded:\n";
-#print "$GSB::GSB::@bad_downloads\n";
+print "@bad_downloads\n";
 
 # end main()
 #

@@ -5,16 +5,15 @@ use strict;
 use warnings;
 
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw(%requirements %stupid_gnomemeeting_libs);
+our @EXPORT    = qw(%desktop_reqs %stupid_gnomemeeting_libs);
 our @EXPORT_OK = qw();
 our $VERSION = 0.03;
-
 
 ################################################################################
 # Desktop Requirements Config Options
 #
 
-my %requirements =
+my %desktop_reqs =
   (
    'dbus'            => {
 			 'url' => 'http://dbus.freedesktop.org/releases/',

@@ -5,9 +5,9 @@ use strict;
 use warnings;
 
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw(%gstremer %gstreamer_libs);
+our @EXPORT    = qw(%gstremer %gst_other %gst_libs);
 our @EXPORT_OK = qw();
-our $VERSION = 0.03;
+our $VERSION   = 0.03;
 
 ################################################################################
 # Config Options for GSTREAMER
@@ -17,11 +17,16 @@ our %gstreamer =
   (
    'gstreamer'         => '0.8.9',
    'gst-plugins'       => '0.8.7',
+  );
+
+our %gst_other =
+  (
    'gst-ffmpeg'        => '0.8.3',
    'gst-monkeysaudio'  => '0.8.0',
   );
 
-our %gstreamer_libs =
+
+our %gst_libs =
   (
    'a52dec'            => {
 			   'ver' => '0.7.4',
@@ -33,7 +38,6 @@ our %gstreamer_libs =
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/avifile/',
 			   'src' => 'tar.gz',
 			  },
-   # do not want VERSION updated for divx4linux
    'divx4linux'        => {
 			   'ver' => 'std-20030428',
 			   'url' => 'http://download.divx.com/divx/',
@@ -134,12 +138,6 @@ our %gstreamer_libs =
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libmms/',
 			   'src' => 'tar.gz',
 			  },
-   'libmovtar'         => {
-			   'ver' => '0.1.3',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mjpeg/',
-			   'url1' => 'http://heanet.dl.sourceforge.net/sourceforge/mjpeg/jpeg-mmx-0.1.5.tar.gz',
-			   'src' => 'tar.gz',
-			  },
    'libmusepack'       => {
 			   'ver' => '1.1',
 			   'url' => 'http://files.musepack.net/source/libmusepack-1.1.tar.bz2',
@@ -226,7 +224,7 @@ our %gstreamer_libs =
 			   'src' => 'tar.gz',
 			  },
    'swfdec'            => {
-			  'ver' => '0.3.2',
+			   'ver' => '0.3.2',
 			   'url' => 'http://www.schleef.org/swfdec/download/',
 			   'src' => 'tar.gz',
 			  },
@@ -239,6 +237,17 @@ our %gstreamer_libs =
 			   'ver' => '1.0.3',
 			   'url' => 'http://files.xvid.org/downloads/',
 			   'src' => 'tar.bz2',
+			  },
+  );
+
+
+my %gst_libs_other =
+  (
+   'libmovtar'         => {
+			   'ver' => '0.1.3',
+			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mjpeg/',
+			   'url1'=> 'http://heanet.dl.sourceforge.net/sourceforge/mjpeg/jpeg-mmx-0.1.5.tar.gz',
+			   'src' => 'tar.gz',
 			  },
   );
 

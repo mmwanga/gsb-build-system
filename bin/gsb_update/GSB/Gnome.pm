@@ -14,12 +14,6 @@ our $VERSION   = 0.03;
 # Config Options for GNOME
 #
 
-#temporary for testing
-our %plat =
-  (
-   'at-spi' => '1.6.3',
-  );
-
 our %platform =
   (
    'at-spi'              => '1.6.3',
@@ -120,7 +114,7 @@ our %desktop =
    'gnome-system-monitor'   => '1.1.92',
    'gnome-system-tools'     => '2.9.91',
    'gnome-terminal'         => '2.9.3',
-   'gnome-themes'           => '2.9.92',
+   'gnome-themes'           => '2.9.94',
    'gnome-user-share'       => '0.5',
    'gnome-utils'            => '2.9.92',
    'gnome-volume-manager'   => '1.1.3',

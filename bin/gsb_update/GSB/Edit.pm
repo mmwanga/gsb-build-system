@@ -5,13 +5,20 @@ use strict;
 use warnings;
 
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw(gsb_version_edit gsb_build_edit);
-our @EXPORT_OK = qw();
+our @EXPORT    = qw(gsb_sb_edit);
+our @EXPORT_OK = qw(gsb_version_edit gsb_build_edit);
 our $VERSION = 0.03;
 
 ################################################################################
 #
 # Functions
+
+# give the function a SlackBuild file to edit
+sub gsb_sb_edit {
+
+  my $file = shift;
+
+}
 
 # give the function a number and a slackbuild file
 # and it will search for ^VERSION=

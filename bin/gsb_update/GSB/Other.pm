@@ -1,12 +1,12 @@
 package GSB::Other;
-use Exporter;
+require Exporter;
 
 use strict;
 use warnings;
 
 our @ISA       = qw(Exporter);
 our @EXPORT    = qw(%other %other_gnome);
-our @EXPORT_OK = qw(%gnome);
+our @EXPORT_OK = qw();
 our $VERSION = 0.03;
 
 ################################################################################
@@ -110,7 +110,7 @@ our %other =
 our %other_gnome =
   (
    'NetworkManager'      => '0.3.1',
-   'evince'              => '0.1.5',
+   'evince'              => '0.1.6',
    'ghex'                => '2.8.1',
    'glade'               => '2.9.0',
    'gnome-audio'         => '2.0.0',
