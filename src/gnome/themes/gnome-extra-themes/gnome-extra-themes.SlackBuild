@@ -6,7 +6,7 @@ PKG=$TMP/package-gnome-extra-themes
 
 VERSION=1.0.1
 ARCH=noarch
-BUILD=2
+BUILD=3
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
