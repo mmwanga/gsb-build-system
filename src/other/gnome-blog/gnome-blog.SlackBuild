@@ -2,11 +2,11 @@
 
 CWD=`pwd`
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-libgnomesu
+PKG=$TMP/package-gnome-blog
 
-VERSION=0.9.7
+VERSION=0.8
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -25,14 +25,15 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 cd $TMP
-tar -xzvf $CWD/libgnomesu-$VERSION.tar.gz
-cd libgnomesu-$VERSION
+tar -xjvf $CWD/gnome-blog-$VERSION.tar.bz2
+cd gnome-blog-$VERSION
+patch -p1 < $CWD/schemas.patch
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static \
-            $ARCH-slackware-linux
+            i486-slackware-linux
 make
 make install DESTDIR=$PKG
 
@@ -51,12 +52,12 @@ done
 
 chown -R root.bin $PKG/usr/bin
 
-mkdir -p $PKG/usr/doc/libgnomesu-$VERSION
+mkdir -p $PKG/usr/doc/gnome-blog-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
         TODO \
-        $PKG/usr/doc/libgnomesu-$VERSION
-find $PKG/usr/doc/libgnomesu-$VERSION/ -type f -exec chmod 644 {} \;
-chown root.root $PKG/usr/doc/libgnomesu-$VERSION/*
+        $PKG/usr/doc/gnome-blog-$VERSION
+find $PKG/usr/doc/gnome-blog-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/doc/gnome-blog-$VERSION/*
 
 # strip:
 ( cd $PKG
@@ -72,10 +73,10 @@ cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-makepkg -l y -c n $TMP/libgnomesu-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/gnome-blog-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/libgnomesu-$VERSION
+  rm -rf $TMP/gnome-blog-$VERSION
   rm -rf $PKG
 fi

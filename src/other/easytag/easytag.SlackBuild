@@ -2,9 +2,9 @@
 
 CWD=`pwd`
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-libgnomesu
+PKG=$TMP/package-easytag
 
-VERSION=0.9.7
+VERSION=1.99.3
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -24,39 +24,30 @@ elif [ "$ARCH" = "x86_64" ]; then
   SLKCFLAGS="-O2"
 fi
 
-cd $TMP
-tar -xzvf $CWD/libgnomesu-$VERSION.tar.gz
-cd libgnomesu-$VERSION
+cd $TMP 
+tar xjvf $CWD/easytag-$VERSION.tar.bz2
+cd easytag-$VERSION
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
-            --sysconfdir=/etc \
-            --localstatedir=/var/lib \
-            --disable-static \
+	    --disable-static \
             $ARCH-slackware-linux
 make
 make install DESTDIR=$PKG
 
-SCHEMAS=$PKG/etc/gconf/schemas
-for i in $SCHEMAS/*.schemas
-do
-GCONF_CONFIG_SOURCE="xml::$PKG/etc/gconf/gconf.xml.defaults" \
-        gconftool-2 --makefile-install-rule $i
-done
-
-(
-  cd $PKG/etc/gconf/gconf.xml.defaults
-  find ./ -type d -exec chmod go+rx {} \;
-  find ./ -type f -exec chmod go+r {} \;
-)
-
 chown -R root.bin $PKG/usr/bin
 
-mkdir -p $PKG/usr/doc/libgnomesu-$VERSION
+(
+  cd $PKG/usr/share/easytag/
+  rm -f ChangeLog
+  ln -s ../../doc/easytag-$VERSION/ChangeLog ChangeLog
+)
+
+mkdir -p $PKG/usr/doc/easytag-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
-        TODO \
-        $PKG/usr/doc/libgnomesu-$VERSION
-find $PKG/usr/doc/libgnomesu-$VERSION/ -type f -exec chmod 644 {} \;
-chown root.root $PKG/usr/doc/libgnomesu-$VERSION/*
+	TODO \
+  	$PKG/usr/doc/easytag-$VERSION
+find $PKG/usr/doc/easytag-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/doc/easytag-$VERSION/*
 
 # strip:
 ( cd $PKG
@@ -68,14 +59,13 @@ gzip -9 $PKG/usr/man/*/*
 gzip -9 $PKG/usr/info/*
 
 mkdir -p $PKG/install
-cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-makepkg -l y -c n $TMP/libgnomesu-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/easytag-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/libgnomesu-$VERSION
+  rm -rf $TMP/easytag-$VERSION
   rm -rf $PKG
 fi
