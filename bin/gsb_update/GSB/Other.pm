@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw(%other %other_gnome);
+our @EXPORT    = qw(%other %other_gnome %other_other);
 our @EXPORT_OK = qw();
 our $VERSION = 0.03;
 
@@ -15,8 +15,8 @@ our $VERSION = 0.03;
 
 our %other =
   (
-   'IndLinux'            => {
-			     'ver' => '0.9',
+   'IndLinux-Hindi'      => {
+			     'ver' => '0.73',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/indlinux/',
 			     'src'  => 'tar.gz',
 			    },
@@ -49,11 +49,6 @@ our %other =
 			     'ver' => '1.3.19',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/galeon',
 			     'src' => 'tar.bz2',
-			    },
-   'gc'                  => {
-			     'ver' => '6.3',
-			     'url' => 'http://www.hpl.hp.com/personal/Hans_Boehm/gc/gc_source/',
-			     'src' => 'tar.gz',
 			    },
    'gftp'                => {
 			     'ver' => '2.0.18',
@@ -119,6 +114,30 @@ our %other_gnome =
    'rhythmbox'           => '0.8.8',
   );
 
+our %other_other =
+  (
+   'gc'                  => {
+			     'ver' => '6.4',
+			     'url' => 'http://www.hpl.hp.com/personal/Hans_Boehm/gc/gc_source/',
+			     'src' => 'tar.gz',
+			    },
+  );
 #
 # End Config Options
 ################################################################################
+
+################################################################################
+#
+# Functions specific to this module
+
+sub gsb_other_other_url_make {
+
+  my $name = shift;
+  my $url  = shift;
+  my $ver  = shift;
+  my $src  = shift;
+
+  my $thisurl = "$url/$name$ver.$src";
+  return $thisurl;
+
+}

@@ -18,9 +18,9 @@ our $VERSION = 0.03;
 our %office =
   (
    'abiword' => {
-		 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/abiword/',
-		 'ver' => '2.2.4',
-		 'src' => 'tar.bz2'
+		 'url' => "http://www.abisource.com/downloads/abiword/2.2.5/source/",
+		 'ver' => '2.2.5',
+		 'src' => 'tar.gz'
 		},
   );
 
@@ -70,8 +70,8 @@ our %office_libs =
 
 our %office_gnome_libs =
   (
-   'libgda'      => '1.3.0',
-   'libgnomedb'  => '1.3.0',
+   'libgda'      => '1.2.1',
+   'libgnomedb'  => '1.2.1',
   );
 
 our %office_gnome =

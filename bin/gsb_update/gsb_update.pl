@@ -389,6 +389,33 @@ foreach my $other_pack (keys %other_gnome) {
   }
 }
 
+# Other Other
+foreach my $oother_pack (keys %other_other) {
+
+  chdir "$pwd/other/$oother_pack";
+  my $sb_file = $oother_pack . $sb_ext;
+  my $packurl = $other_other{$oother_pack}{url};
+  my $ver     = $other_other{$oother_pack}{ver};
+  my $src     = $other_other{$oother_pack}{src};
+
+  my $tarball = "$oother_pack$ver.$src";
+
+  if ( $download eq "true" ) {
+    if ( ! -f $tarball ) {
+      my $url = GSB::Other::gsb_other_other_url_make($oother_pack, $packurl, $ver, $src);
+      GSB::GSB::gsb_tarball_get($oother_pack, $url);
+    }
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $other_gnome{$oother_pack});
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $oother_pack);
+  }
+}
+
 print "The following packages could not be downloaded:\n";
 print "@bad_downloads\n";
 
