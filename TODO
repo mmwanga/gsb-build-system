@@ -1,0 +1,5 @@
+TODO:
+
+* java bindings do not build, failed on make for first binding that needs to be built
+* perl bindings haven't been added yet, SlackBuild files need to be added
+* gsb_update.pl - needs to do something useful, only has some layout and config stuff atm
