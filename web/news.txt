@@ -1,4 +1,15 @@
 ###
+2005-02-22-00-30-EST
+freerock
+KDE Menus might get changed
+<p>The KDE menus might be changed if you install FRG because of the gnome-menus package,
+The gnome-menus package implements the freedesktop.org desktop menu spec. There is a simple
+fix for this. Just add the following: "<b>export XDG_CONFIG_DIRS=/opt/kde/etc/xdg</b>" near
+the top of the startkde script. If the improper menus persist, please run kbuildsycoca from
+Konsole after you have logged into KDE. Thanks to Jim Philips and Locustfurnace for pointing 
+it out.</p>
+
+###
 2005-02-19-12-00-EST
 freerock
 Freerock's GNOME version 0.0.2.2 Released:
