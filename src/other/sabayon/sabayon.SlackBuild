@@ -6,7 +6,7 @@ PKG=$TMP/package-sabayon
 
 VERSION=0.16
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=4
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -32,7 +32,7 @@ CFLAGS="$SLKCFLAGS" \
             --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static \
-            --with-distro=debian \
+            --with-distro=redhat \
             i486-slackware-linux
 make
 make install DESTDIR=$PKG
@@ -57,6 +57,7 @@ chown -R root.bin $PKG/usr/bin $PKG/usr/sbin
   for i in sabayon 
   do
   sed -i '/^Exec=/s/=/=gnomesu /' $i.desktop
+  sed -i '/^Categories=/s/SystemSetup/System;Settings/' $i.desktop
   done
 )
 
