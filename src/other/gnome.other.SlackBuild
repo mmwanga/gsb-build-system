@@ -40,7 +40,9 @@ gnome-audio
 gc
 inkscape
 gst-ffmpeg
-gst-monkeysaudio"
+gst-monkeysaudio
+xchat
+gimp"
 
 (
 for i in $BUILD_ORDER
