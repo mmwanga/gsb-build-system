@@ -21,6 +21,7 @@ our $VERSION   = 0.03;
 # Config Options for GNOME
 #
 
+#    'pkgconfig'           => '0.15.0',
 our %platform =
   (
    'at-spi'              => '1.6.3',
@@ -32,8 +33,8 @@ our %platform =
    'gnome-vfs'           => '2.10.0',
    'intltool'            => '0.33',
    'libart_lgpl'         => '2.3.17',
-   'libbonobo'           => '2.8.0',
-   'libbonoboui'         => '2.8.0',
+   'libbonobo'           => '2.8.1',
+   'libbonoboui'         => '2.8.1',
    'libglade'            => '2.5.1',
    'libgnome'            => '2.10.0',
    'libgnomecanvas'      => '2.10.0',
@@ -43,7 +44,7 @@ our %platform =
    'libxml2'             => '2.6.17',
    'libxslt'             => '1.1.12',
    'pango'               => '1.8.1',
-   'pkgconfig'           => '0.15.0',
+
   );
 
 our %platform_diff_naming =
@@ -65,7 +66,7 @@ our %platform_diff_naming =
 		'name' => 'gtk+',
 	       },
    'libidl' => {
-		'ver'  => '0.8.4',
+		'ver'  => '0.8.5',
 		'name' => 'libIDL',
 	       },
   );

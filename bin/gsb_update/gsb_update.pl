@@ -538,7 +538,7 @@ foreach my $oother_pack (keys %other_other) {
   }
 
   if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $other_gnome{$oother_pack});
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
   }
 
   if ( ! -f $tarball ) {
@@ -589,7 +589,7 @@ foreach my $gst_libs_pack (keys %gst_libs) {
   }
 
   if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $gst_libs{$gst_libs_pack});
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
   }
 
   if ( ! -f $tarball ) {
@@ -647,13 +647,15 @@ foreach my $gst_plugins_pack (keys %gst_other) {
   }
 
   if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $gst_other{$gst_plugins_pack});
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
   }
 
   if ( ! -f $tarball ) {
     push(@bad_downloads, $gst_plugins_pack);
   }
 }
+
+# DONE DOWNLOADING
 
 if ( ! @bad_downloads eq "" ) {
   print "The following packages could not be downloaded:\n\n";

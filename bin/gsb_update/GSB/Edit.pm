@@ -8,7 +8,7 @@ use Tie::File;
 our @ISA       = qw(Exporter);
 our @EXPORT    = qw(gsb_sb_edit);
 our @EXPORT_OK = qw(gsb_version_edit gsb_build_edit);
-our $VERSION = 0.03;
+our $VERSION   = 0.03;
 
 ################################################################################
 #
@@ -31,12 +31,15 @@ sub gsb_sb_edit {
   my $sb_version = gsb_version_get(@fh);
   my $sb_build   = gsb_build_get(@fh);
 
+  print "\n\n *** $new_ver *** $file *** $sb_version \n\n";
+
   if ( $new_ver eq $sb_version ) {
-    my $new_build_num = $sb_version + 1;
-    gsb_build_edit($new_build_num, @fh);
-  } else {
+    #my $new_build_num = $sb_build + 1;
+    #@fh = gsb_build_edit($new_build_num, @fh);
+    print "VERSIONS are the same, do nothing\n";
+  }else {
     @fh = gsb_version_edit($new_ver, @fh);
-    gsb_build_edit("1", @fh);
+    @fh = gsb_build_edit("1", @fh);
   }
 
   untie @fh;
@@ -76,8 +79,8 @@ sub gsb_version_get {
   my $version_num;
   my @arr = @_;
 
-  if ( /^VERSION=(.*)$/ ) {
-    for (@arr) {
+  for (@arr) {
+    if ( /^VERSION=(.*)$/ ) {
       $version_num = $1;
     }
   }
