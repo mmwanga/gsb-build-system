@@ -6,7 +6,7 @@ PKG=$TMP/package-gnome-icon-theme
 
 VERSION=2.10.0
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -58,6 +58,7 @@ gzip -9 $PKG/usr/man/*/*
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 makepkg -l y -c n $TMP/gnome-icon-theme-$VERSION-$ARCH-$BUILD.tgz
