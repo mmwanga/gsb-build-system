@@ -1,4 +1,32 @@
 ###
+2005-03-16-11-00-EST
+Final Beta (iso) Release coming soon
+<p>
+  I will release frg-0.1.97 in the next few days. I am hoping that this will
+  be the final beta release before calling it a stable release. The updated
+  packages will be on rsync and on the following mirror provided graciously by
+  Jeremy Brown: ftp://ftp.brownjava.org/pub/frg/
+</p>
+
+<p>
+  If there is any software that you would like to see shipped with FRG
+  send an email to the mailing list or to me with the suggestions. See the
+  support page for details.
+</p>
+
+<p>
+  The SVG bug has been found and fixed, thanks to Dagmar from dropline for the
+  fix. You just need to run the following command to fix the issue. The librsvg
+  package has been fixed to do this for you during installation
+</p>
+
+<blockquote><p>
+ <code><strong>
+/usr/bin/gdk-pixbuf-query-loaders > /etc/gtk-2.0/gdk-pixbuf.loaders
+</strong></code>
+</p></blockquote>
+
+###
 2005-03-15-19-00-EST
 freerock
 SVG bug somewhere.
