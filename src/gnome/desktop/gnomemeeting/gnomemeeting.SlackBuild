@@ -6,15 +6,14 @@ PKG=$TMP/package-gnomemeeting
 
 VERSION=1.2.1
 ARCH=${ARCH:-i486}
-BUILD=1
-
-SCHEMAS=$PKG/etc/gconf/schemas/gnomemeeting.schemas
+BUILD=4
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 rm -rf $PKG
 mkdir -p $PKG
+mkdir -p $PKG/var/lib/scrollkeeper
 
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
@@ -34,24 +33,33 @@ CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
             --localstatedir=/var/lib \
-	    --disable-static \
-	    --with-pwlib-dir=/usr \
-	    --with-openh323-dir=/usr \
-	    --with-ldap-dir=/usr \
-	    --program-prefix="" \
-	    --program-suffix="" \
-	    --disable-howl \
+	        --disable-static \
+	        --with-pwlib-dir=/usr \
+	        --with-openh323-dir=/usr \
+	        --with-ldap-dir=/usr \
+	        --enable-v4l2 \
+	        --enable-plugins \
+	        --program-prefix="" \
+	        --program-suffix="" \
             $ARCH-slackware-linux
 make
 make install DESTDIR=$PKG
+
+SCHEMAS=$PKG/etc/gconf/schemas
+for i in $SCHEMAS/*.schemas
+do
 GCONF_CONFIG_SOURCE="xml::$PKG/etc/gconf/gconf.xml.defaults" \
-        gconftool-2 --makefile-install-rule $SCHEMAS
+        gconftool-2 --makefile-install-rule $i
+done
+
+chown -R root.bin $PKG/usr/bin
 
 (
-  cd $PKG/etc/gconf
+  cd $PKG/etc/gconf/gconf.xml.defaults
   find ./ -type d -exec chmod go+rx {} \;
   find ./ -type f -exec chmod go+r {} \;
-) 
+)
+
 chown -R root.bin $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/gnomemeeting-$VERSION
