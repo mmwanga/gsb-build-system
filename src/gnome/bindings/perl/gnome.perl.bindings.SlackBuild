@@ -6,15 +6,15 @@ if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 
-BUILD_ORDER="ExtUtils-Depends
-ExtUtils-PkgConfig
+BUILD_ORDER="ExtUtils-PkgConfig
+ExtUtils-Depends
 Glib
 Gtk2
 Gnome2-Canvas
-Gnome2
-Gtk2-GladeXML
 Gnome2-GConf
-Gnome2-VFS"
+Gnome2-VFS
+Gnome2
+Gtk2-GladeXML"
 
 (
 for i in $BUILD_ORDER
