@@ -49,7 +49,7 @@ our %gst_libs =
    'avifile'           => {
 			   'ver' => '0.7-0.7.43',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/avifile/',
-			   'src' => 'tar.gz',
+			   'src' => 'tar.bz2',
 			  },
    'faac'              => {
 			   'ver' => '1.24',

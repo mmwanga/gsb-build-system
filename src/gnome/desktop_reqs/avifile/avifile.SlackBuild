@@ -4,8 +4,8 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-avifile
 
-VERSION=0.7-0.7.41
-PVERSION=0.7_0.7.41
+VERSION=0.7-0.7.43
+PVERSION=0.7_0.7.43
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -26,9 +26,8 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 cd $TMP 
-tar xzvf $CWD/avifile-$VERSION.tar.gz
+tar xjvf $CWD/avifile-$VERSION.tar.bz2
 cd avifile-$VERSION
-#
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
 	    --program-prefix="" \
