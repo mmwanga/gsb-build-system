@@ -107,7 +107,7 @@ sub gsb_build_release_make {
     or die "Cannot open $file: $!";
 
   for (@fh) {
-    s/^BUILD=(.*)$/BUILD=$1$release/;
+    s/^BUILD=([1-9]*).*$/BUILD=$1$release/;
   }
 
   untie @fh;
