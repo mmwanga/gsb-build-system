@@ -1,7 +1,4 @@
 #!/bin/sh
-#
-# TODO:
-#   - need to add office build script
 
 if [ -r ./GSB.options ]; then
   . ./GSB.options
