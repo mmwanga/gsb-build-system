@@ -1,0 +1,60 @@
+#!/bin/sh
+#
+# Start/Stop/Restart Howl daemons
+#
+# Initial Contribution: Chris Lewis (burn03@bellsouth.net) GWARE 02/16/2005
+# 
+
+NIFD_PID=/var/run/nifd.pid
+MDNS_PID=/var/run/mDNSResponder.pid
+
+howl_start() {
+    if [ -x /usr/bin/mDNSResponder ]; then
+	if [ ! -r $MDNS_PID ];then
+	    /usr/bin/mDNSResponder
+	fi
+    fi
+    if [ -x /usr/bin/nifd ]; then
+	if [ ! -r $NIFD_PID ]; then
+	    /usr/bin/nifd
+	fi
+    fi
+}
+
+howl_stop() {
+    if [ -r $NIFD_PID ]; then
+	kill -TERM `cat $NIFD_PID`
+    else
+	killall -TERM nifd
+    fi
+
+    if [ -r $MDNS_PID ]; then
+	kill -9 `cat $MDNS_PID`
+    else
+# Use KILL here as mDNSResponder seems to ignore TERM.
+# http://lists.porchdogsoft.com/pipermail/howl-users/2004-June/000215.html
+	killall -9 mDNSResponder
+    fi
+
+    rm -f $NIFD_PID
+    rm -f $MDNS_PID
+}
+
+howl_restart() {
+    howl_stop;
+    howl_start;
+}
+
+case "$1" in
+    'start')
+	howl_start
+	;;
+    'stop')
+	howl_stop
+	;;
+    'restart')
+	howl_restart
+	;;
+    *)
+	echo "usage $0 start|stop|restart"
+esac

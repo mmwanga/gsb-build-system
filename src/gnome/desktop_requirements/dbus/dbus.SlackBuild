@@ -28,6 +28,7 @@ CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
 	    --disable-mono-docs \
 	    --localstatedir=/var \
 	    --sysconfdir=/etc \
+	    --with-system-pid-file=/var/run/dbus.pid \
             i486-slackware-linux
 make
 make install DESTDIR=$PKG

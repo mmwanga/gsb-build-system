@@ -1,14 +1,11 @@
 #!/bin/sh
 # Start/stop/restart the dbus daemon:
 
-PIDFILE=/var/run/dbus/pid
+PIDFILE=/var/run/dbus.pid
 
 dbus_start()
 {
   if [ -x /usr/bin/dbus-daemon-1 ]; then
-    if [ -f $PIDFILE ]; then
-	rm -f $PIDFILE
-    fi
     echo "Starting message bus:  /usr/bin/dbus-daemon-1 --system"
     /usr/bin/dbus-daemon-1 --system
   fi
@@ -45,3 +42,4 @@ case "$1" in
 *)
   echo "usage $0 start|stop|restart"
 esac
+
