@@ -25,9 +25,9 @@ our %desktop_reqs =
 			 'ver' => '0.23.2',
 			 'src' => 'tar.gz',
                         },
-   'fam'             => {
-			 'url' => 'ftp://oss.sgi.com/projects/fam/download/stable',
-			 'ver' => '2.6.10',
+   'gamin'           => {
+			 'url' => 'http://www.gnome.org/~veillard/gamin/sources/',
+			 'ver' => '0.0.26',
 			 'src' => 'tar.gz',
                         },
    'hal'             => {
