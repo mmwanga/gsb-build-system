@@ -279,7 +279,7 @@ foreach my $gmpackage (keys %stupid_gnomemeeting_libs) {
   my $ver     = $stupid_gnomemeeting_libs{$gmpackage}{ver};
   my $src     = $stupid_gnomemeeting_libs{$gmpackage}{src};
 
-  my $tarball = "$gmpackage-$ver$src";
+  my $tarball = "$gmpackage-$ver.$src";
 
   if ( $download eq "true") {
     if ( ! -f $tarball ) {
