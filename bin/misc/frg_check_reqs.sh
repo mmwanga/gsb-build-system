@@ -9,7 +9,6 @@
 FRGROOT=`dirname $0`
 
 REQUIRED_PACKAGES="
-bar
 perl-5.8.6-i486-1
 mozilla-1.7.6-i486-1
 python-2.4-i486-1
@@ -21,7 +20,6 @@ libjpeg-6b-i386-4
 libpng-1.2.8-i486-1
 libtiff-3.7.1-i486-2
 libmad-0.15.1b-i486-1
-foo
 "
 
 check_packages() {
@@ -37,7 +35,7 @@ do
 check_packages $i
 done
 
-if [ -n $MISSING_PACKAGES ]; then
+if [ -n "$MISSING_PACKAGES" ]; then
     echo ""
     echo "The following packages are missing:"
     echo ""
