@@ -54,7 +54,9 @@ mail-notification
 contact-lookup-applet
 bmp
 balsa
-sylpheed"
+sylpheed
+loudmouth
+gossip"
 
 (
 for i in $BUILD_ORDER

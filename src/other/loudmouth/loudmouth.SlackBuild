@@ -2,9 +2,9 @@
 
 CWD=`pwd`
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-glade
+PKG=$TMP/package-loudmouth
 
-VERSION=2.10.0
+VERSION=0.17.2
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -13,7 +13,6 @@ if [ ! -d $TMP ]; then
 fi
 rm -rf $PKG
 mkdir -p $PKG
-mkdir -p $PKG/var/lib/scrollkeeper
 
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
@@ -25,29 +24,39 @@ elif [ "$ARCH" = "x86_64" ]; then
   SLKCFLAGS="-O2"
 fi
 
-cd $TMP 
-tar xjvf $CWD/glade-$VERSION.tar.bz2
-cd glade-$VERSION
-chown -R root.root .
-find . -perm 666 -exec chmod 644 {} \;
-find . -perm 664 -exec chmod 644 {} \;
+cd $TMP
+tar -xjvf $CWD/loudmouth-$VERSION.tar.bz2
+cd loudmouth-$VERSION
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
-	    --sysconfdir=/etc \
+            --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static \
-            $ARCH-slackware-linux
+            i486-slackware-linux
 make
 make install DESTDIR=$PKG
 
+SCHEMAS=$PKG/etc/gconf/schemas
+for i in $SCHEMAS/*.schemas
+do
+GCONF_CONFIG_SOURCE="xml::$PKG/etc/gconf/gconf.xml.defaults" \
+        gconftool-2 --makefile-install-rule $i
+done
+
+(
+  cd $PKG/etc/gconf/gconf.xml.defaults
+  find ./ -type d -exec chmod go+rx {} \;
+  find ./ -type f -exec chmod go+r {} \;
+)
+
 chown -R root.bin $PKG/usr/bin
 
-mkdir -p $PKG/usr/doc/glade-$VERSION
-cp -a \
-  AUTHORS BUGS COPYING HACKING MAINTAINERS NEWS README \
-  $PKG/usr/doc/glade-$VERSION
-find $PKG/usr/doc/glade-$VERSION/ -type f -exec chmod 644 {} \;
-chown -R root.root $PKG/usr/doc/glade-$VERSION/*
+mkdir -p $PKG/usr/doc/loudmouth-$VERSION
+cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
+        TODO \
+        $PKG/usr/doc/loudmouth-$VERSION
+find $PKG/usr/doc/loudmouth-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/doc/loudmouth-$VERSION/*
 
 # strip:
 ( cd $PKG
@@ -56,17 +65,17 @@ chown -R root.root $PKG/usr/doc/glade-$VERSION/*
 )
 
 gzip -9 $PKG/usr/man/*/*
+gzip -9 $PKG/usr/info/*
 
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
-cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
-makepkg -l y -c n $TMP/glade-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/loudmouth-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/glade-$VERSION
+  rm -rf $TMP/loudmouth-$VERSION
   rm -rf $PKG
 fi
