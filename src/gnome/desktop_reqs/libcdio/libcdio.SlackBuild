@@ -35,6 +35,8 @@ CFLAGS="$SLKCFLAGS" \
 make
 make install DESTDIR=$PKG
 
+rm -f $PKG/usr/info/dir
+
 chown -R root.bin $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/libcdio-$VERSION
