@@ -47,6 +47,13 @@
       <h2 class="sideBarTitle">Sponsors:</h2>
 
       <ul>
+
+        <li><a href="http://sourceforge.net/donate/index.php?group_id=130126"
+        class="imglink"><img
+        src="http://images-ssl.sourceforge.net/images/project-support.jpg"
+        alt="Donate to this project" width="88"
+        height="32" /></a></li>
+
         <li><a href="http://sourceforge.net" title="SourceForge.net" class=
         "imglink"><img src=
         "http://sourceforge.net/sflogo.php?group_id=130126&amp;type=1"
