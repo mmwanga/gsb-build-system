@@ -41,8 +41,8 @@ our %platform =
    'libgnome'            => '2.10.0',
    'libgnomecanvas'      => '2.10.0',
    'libgnomecups'        => '0.2.0',
-   'libgnomeprint'       => '2.10.0',
-   'libgnomeprintui'     => '2.10.0.1',
+   'libgnomeprint'       => '2.10.1',
+   'libgnomeprintui'     => '2.10.1',
    'libgnomeui'          => '2.10.0',
    'libxml2'             => '2.6.18',
    'libxslt'             => '1.1.13',
@@ -103,8 +103,8 @@ our %desktop =
    'eog'                    => '2.9.0',
    'epiphany'               => '1.6.0',
    'epiphany-extensions'    => '1.6.0',
-   'evolution'              => '2.2.0',
-   'evolution-data-server'  => '1.2.0',
+   'evolution'              => '2.2.1',
+   'evolution-data-server'  => '1.2.1',
    'evolution-webcal'       => '2.2.0',
    'file-roller'            => '2.10.0',
    'gcalctool'              => '5.5.41',
@@ -143,7 +143,7 @@ our %desktop =
    'goobox'                 => '0.9.90',
    'gpdf'                   => '2.10.0',
    'gtk-engines'            => '2.6.2',
-   'gtkhtml'                => '3.6.0',
+   'gtkhtml'                => '3.6.1',
    'gtksourceview'          => '1.2.0',
    'gucharmap'              => '1.4.3',
    'libcroco'               => '0.6.0',
@@ -168,7 +168,7 @@ our %desktop =
    'totem'                  => '1.0',
    'vino'                   => '2.10.0',
    'vte'                    => '0.11.12',
-   'ximian-connector'       => '2.2.0',
+   'ximian-connector'       => '2.2.1',
    'yelp'                   => '2.9.3',
    'zenity'                 => '2.10.0',
   );
@@ -176,7 +176,7 @@ our %desktop =
 our %desktop_diff_naming =
   (
    'gal2'  => {
-	       'ver'  => '2.4.0',
+	       'ver'  => '2.4.1',
 	       'name' => 'gal',
 	      },
   );
@@ -212,7 +212,7 @@ our %bindings_java =
    'libgconf-java'    => '2.10.0',
    'libglade-java'    => '2.10.0',
    'libgnome-java'    => '2.10.0',
-   'libgtk-java'      => '2.6.0',
+   'libgtk-java'      => '2.6.1',
 
   );
 
@@ -220,7 +220,7 @@ our %bindings_python =
   (
    'gnome-python'         => '2.10.0',
    'gnome-python-extras'  => '2.10.0',
-   'pygtk'                => '2.6.0',
+   'pygtk'                => '2.6.1',
    'pyorbit'              => '2.0.1',
    'pyphany'              => '0.1.2',
   );
