@@ -237,8 +237,6 @@ foreach my $dpackage (keys %desktop) {
 
 # Download Bindings
 
-print "OFFICE DOWNLOADING\n";
-
 # GNOME Office
 foreach my $office_pack (keys %office_gnome) {
 
@@ -262,8 +260,6 @@ foreach my $office_pack (keys %office_gnome) {
   }
 }
 
-exit (0);
-
 # GNOME Office libs
 foreach my $office_pack (keys %office_gnome_libs) {
 
@@ -286,6 +282,8 @@ foreach my $office_pack (keys %office_gnome_libs) {
     push(@bad_downloads, $office_pack);
   }
 }
+
+exit (0);
 
 print "The following packages could not be downloaded:\n";
 print "@bad_downloads\n";
