@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-divx4linux
 
-VERSION=std-20030428
+VERSION=20030428
 PVERSION=5.0.5
 ARCH=${ARCH:-i486}
 BUILD=1
@@ -26,7 +26,7 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 cd $TMP 
-tar xzvf $CWD/divx4linux-$VERSION.tar.gz
+tar xzvf $CWD/divx4linux-std-$VERSION.tar.gz
 cd divx4linux-$VERSION
 
 mkdir -p $PKG/usr/{lib,include}
@@ -34,11 +34,11 @@ mkdir -p $PKG/usr/{lib,include}
 cp *.h $PKG/usr/include/
 cp *.so $PKG/usr/lib/
 
-mkdir -p $PKG/usr/doc/divx4linux-$VERSION
+mkdir -p $PKG/usr/doc/divx4linux-$PVERSION
 cp -a *.htm \
-  $PKG/usr/doc/divx4linux-$VERSION
-chmod 644 $PKG/usr/doc/divx4linux-$VERSION/*
-chown root.root $PKG/usr/doc/divx4linux-$VERSION/*
+  $PKG/usr/doc/divx4linux-$PVERSION
+chmod 644 $PKG/usr/doc/divx4linux-$PVERSION/*
+chown root.root $PKG/usr/doc/divx4linux-$PVERSION/*
 
 find $PKG -type f | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded
 gzip -9 $PKG/usr/man/*/*
