@@ -41,7 +41,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'gaim'                => {
-			     'ver' => '1.1.3',
+			     'ver' => '1.1.4',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gaim',
 			     'src' => 'tar.bz2',
 			    },

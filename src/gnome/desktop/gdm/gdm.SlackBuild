@@ -10,7 +10,7 @@ fi
 rm -rf $PKG
 mkdir -p $PKG
 
-VERSION=2.6.0.7
+VERSION=2.6.0.8
 BUILD=1
 # Set $ARCH:
 if [ -z "$ARCH" -o "$ARCH" = "i486" ]; then

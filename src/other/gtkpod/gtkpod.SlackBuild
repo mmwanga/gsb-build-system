@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gtkpod
 
-VERSION=0.85.0
+VERSION=0.87.3
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
