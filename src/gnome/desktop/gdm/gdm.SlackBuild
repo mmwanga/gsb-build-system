@@ -11,22 +11,8 @@ rm -rf $PKG
 mkdir -p $PKG
 
 VERSION=2.6.0.8
+ARCH=${ARCH:-i486}
 BUILD=1
-# Set $ARCH:
-if [ -z "$ARCH" -o "$ARCH" = "i486" ]; then
-  # Default package $ARCH is i486:
-  ARCH=i486
-  # This is the target for ./configure:
-  SLAKTARGET=${SLAKTARGET:-i486}
-  # CFLAGS for this $ARCH:
-  ARCHCFLAGS=${ARCHCFLAGS:--march=i486 -mcpu=i686}
-  # Any $ARCH specific patches might be applied here:
-  # (none yet)
-elif [ "$ARCH" = "x86_64" ]; then
-  SLAKTARGET=${SLAKTARGET:-x86_64}
-  ARCHCFLAGS=${ARCHCFLAGS:-}
-fi
-
 
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
@@ -50,7 +36,7 @@ CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             --sysconfdir=/etc/X11 \
             --localstatedir=/var/lib \
-            $SLAKTARGET-slackware-linux
+            $ARCH-slackware-linux
 make
 make install DESTDIR=$PKG
 
@@ -71,7 +57,6 @@ chmod 755 $PKG/etc/X11/dm/Sessions/*
 # also move gdm.conf to gdm.conf.new so that it doesn't overwrite the old file
 ( cd $PKG/etc/X11/gdm
   zcat $CWD/Xsession.gz > Xsession
-  mv gdm.conf gdm.conf.new
 )
 mkdir -p $PKG/usr/doc/gdm-$VERSION
 cp -a ABOUT-NLS AUTHORS COPYING INSTALL NEWS README README.install RELEASENOTES TODO \
@@ -90,6 +75,19 @@ gzip -9 $PKG/usr/man/man?/*.?
 mkdir -p $PKG/var/lib/scrollkeeper
 touch $PKG/usr/share/faces $PKG/var/lib/gdm
 cat $CWD/gdm.conf-graphical > $PKG/etc/X11/gdm/gdm.conf
+(
+  cd $PKG/etc/X11/gdm/
+  mv gdm.conf gdm.conf.new
+)
+
+(
+  cd $PKG/usr/share/applications
+  for i in gdmsetup 
+  do        
+  sed -i '/^Exec=/s/=/=gnomesu /' $i.desktop
+  done
+)
+
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
