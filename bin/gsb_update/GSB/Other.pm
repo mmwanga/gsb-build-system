@@ -112,7 +112,7 @@ our %other =
 			    },
 
    'graveman'            => {
-			     'ver' => '0.3.8',
+			     'ver' => '0.3.9',
 			     'url' => 'http://savannah.nongnu.org/download/graveman/',
 			     'src' => 'tar.bz2',
 			    },
@@ -218,7 +218,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'xchat'               => {
-			     'ver' => '2.4.1',
+			     'ver' => '2.4.3',
 			     'url' => 'http://xchat.org/files/source/2.4/',
 			     'src' => 'tar.bz2',
 			    },

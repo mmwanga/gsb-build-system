@@ -45,6 +45,11 @@ our %office_libs =
 		   'ver' => '0.10.4',
 		   'src' => 'tar.bz2',
 		  },
+   'iso-codes' => {
+		   'url' => 'http://people.debian.org/~mckinstry/',
+		   'ver' => '0.46pre1',
+		   'src' => 'tar.gz',
+		  },
    'libwmf'    => {
 		   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/wvware/',
 		   'ver' => '0.2.8.3',
@@ -65,6 +70,11 @@ our %office_libs =
 		   'ver' => '0.9.7',
 		   'src' => 'tar.gz',
 		  },
+   'PyXML'     => {
+		   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/pyxml/',
+		   'ver' => '0.8.4',
+		   'src' => 'tar.gz',
+		  },
   );
 
 our %office_gnome_libs =
@@ -78,7 +88,7 @@ our %office_gnome =
   (
    'gnumeric'  => '1.4.3',
    'dia'       => '0.94',
-   'glom'      => '0.8.18',
+   'glom'      => '0.8.19',
    'mergeant'  => '0.52',
    'planner'   => '0.13',
   );

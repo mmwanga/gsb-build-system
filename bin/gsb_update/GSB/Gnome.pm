@@ -200,7 +200,7 @@ our %desktop_nongnome =
 
 our %bindings_cxx =
   (
-   'bakery'            => '2.3.12',
+   'bakery'            => '2.3.13',
    'gconfmm'           => '2.10.0',
    'glibmm'            => '2.6.1',
    'gnome-vfsmm'       => '2.10.0',
@@ -209,7 +209,7 @@ our %bindings_cxx =
    'libgnomecanvasmm'  => '2.10.0',
    'libgnomemm'        => '2.10.0',
    'libgnomeuimm'      => '2.10.0',
-   'libsigc++'         => '2.0.10',
+   'libsigc++'         => '2.0.11',
    'libxml++'          => '2.10.0',
   );
 
