@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-gpdf
 
-VERSION=2.9.1
+VERSION=2.9.3
 ARCH=i486
 BUILD=1
 

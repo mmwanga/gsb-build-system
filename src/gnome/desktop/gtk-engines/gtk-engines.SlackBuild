@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-gtk-engines
 
-VERSION=2.6.0
+VERSION=2.6.1
 ARCH=i486
 BUILD=1
 

@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-gnome-utils
 
-VERSION=2.9.90
+VERSION=2.9.91
 ARCH=i486
 BUILD=1
 

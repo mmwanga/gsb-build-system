@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-libgnomecups
 
-VERSION=0.1.13
+VERSION=0.1.14
 ARCH=i486
 BUILD=1
 

@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-gcalctool
 
-VERSION=5.5.33
+VERSION=5.5.34
 ARCH=i486
 BUILD=1
 

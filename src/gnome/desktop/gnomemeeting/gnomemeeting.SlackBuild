@@ -21,7 +21,7 @@ mkdir -p $PKG
 cd $TMP 
 tar xjvf $CWD/gnomemeeting-$VERSION.tar.bz2
 cd gnomemeeting-$VERSION
-#
+cat $CWD/gm.configure.eds.patch | patch -p0 --verbose
 CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
             --sysconfdir=/etc \
             --localstatedir=/var/lib \

@@ -1,0 +1,51 @@
+--- configure.orig	2005-02-09 15:58:47.000000000 -0500
++++ configure	2005-02-09 15:59:05.000000000 -0500
+@@ -21281,23 +21281,23 @@
+   else
+      PKG_CONFIG_MIN_VERSION=0.9.0
+      if $PKG_CONFIG --atleast-pkgconfig-version $PKG_CONFIG_MIN_VERSION; then
+-        echo "$as_me:$LINENO: checking for gtk+-2.0 >= 2.4.0 gthread-2.0 >= 2.4.0 esound >= 0.2.28 gconf-2.0 >= 2.2.0 libxml-2.0 >= 2.6.0 libgnome-2.0 >= 2.2.0 libgnomeui-2.0 >= 2.2.0 gnome-vfs-2.0 >= 2.2.0 libebook-1.0 >= 0.0.94" >&5
+-echo $ECHO_N "checking for gtk+-2.0 >= 2.4.0 gthread-2.0 >= 2.4.0 esound >= 0.2.28 gconf-2.0 >= 2.2.0 libxml-2.0 >= 2.6.0 libgnome-2.0 >= 2.2.0 libgnomeui-2.0 >= 2.2.0 gnome-vfs-2.0 >= 2.2.0 libebook-1.0 >= 0.0.94... $ECHO_C" >&6
++        echo "$as_me:$LINENO: checking for gtk+-2.0 >= 2.4.0 gthread-2.0 >= 2.4.0 esound >= 0.2.28 gconf-2.0 >= 2.2.0 libxml-2.0 >= 2.6.0 libgnome-2.0 >= 2.2.0 libgnomeui-2.0 >= 2.2.0 gnome-vfs-2.0 >= 2.2.0 libebook-1.2 >= 0.0.94" >&5
++echo $ECHO_N "checking for gtk+-2.0 >= 2.4.0 gthread-2.0 >= 2.4.0 esound >= 0.2.28 gconf-2.0 >= 2.2.0 libxml-2.0 >= 2.6.0 libgnome-2.0 >= 2.2.0 libgnomeui-2.0 >= 2.2.0 gnome-vfs-2.0 >= 2.2.0 libebook-1.2 >= 0.0.94... $ECHO_C" >&6
+ 
+-        if $PKG_CONFIG --exists "gtk+-2.0 >= 2.4.0 gthread-2.0 >= 2.4.0 esound >= 0.2.28 gconf-2.0 >= 2.2.0 libxml-2.0 >= 2.6.0 libgnome-2.0 >= 2.2.0 libgnomeui-2.0 >= 2.2.0 gnome-vfs-2.0 >= 2.2.0 libebook-1.0 >= 0.0.94" ; then
++        if $PKG_CONFIG --exists "gtk+-2.0 >= 2.4.0 gthread-2.0 >= 2.4.0 esound >= 0.2.28 gconf-2.0 >= 2.2.0 libxml-2.0 >= 2.6.0 libgnome-2.0 >= 2.2.0 libgnomeui-2.0 >= 2.2.0 gnome-vfs-2.0 >= 2.2.0 libebook-1.2 >= 0.0.94" ; then
+             echo "$as_me:$LINENO: result: yes" >&5
+ echo "${ECHO_T}yes" >&6
+             succeeded=yes
+ 
+             echo "$as_me:$LINENO: checking GNOMEMEETING_CFLAGS" >&5
+ echo $ECHO_N "checking GNOMEMEETING_CFLAGS... $ECHO_C" >&6
+-            GNOMEMEETING_CFLAGS=`$PKG_CONFIG --cflags "gtk+-2.0 >= 2.4.0 gthread-2.0 >= 2.4.0 esound >= 0.2.28 gconf-2.0 >= 2.2.0 libxml-2.0 >= 2.6.0 libgnome-2.0 >= 2.2.0 libgnomeui-2.0 >= 2.2.0 gnome-vfs-2.0 >= 2.2.0 libebook-1.0 >= 0.0.94"`
++            GNOMEMEETING_CFLAGS=`$PKG_CONFIG --cflags "gtk+-2.0 >= 2.4.0 gthread-2.0 >= 2.4.0 esound >= 0.2.28 gconf-2.0 >= 2.2.0 libxml-2.0 >= 2.6.0 libgnome-2.0 >= 2.2.0 libgnomeui-2.0 >= 2.2.0 gnome-vfs-2.0 >= 2.2.0 libebook-1.2 >= 0.0.94"`
+             echo "$as_me:$LINENO: result: $GNOMEMEETING_CFLAGS" >&5
+ echo "${ECHO_T}$GNOMEMEETING_CFLAGS" >&6
+ 
+             echo "$as_me:$LINENO: checking GNOMEMEETING_LIBS" >&5
+ echo $ECHO_N "checking GNOMEMEETING_LIBS... $ECHO_C" >&6
+-            GNOMEMEETING_LIBS=`$PKG_CONFIG --libs "gtk+-2.0 >= 2.4.0 gthread-2.0 >= 2.4.0 esound >= 0.2.28 gconf-2.0 >= 2.2.0 libxml-2.0 >= 2.6.0 libgnome-2.0 >= 2.2.0 libgnomeui-2.0 >= 2.2.0 gnome-vfs-2.0 >= 2.2.0 libebook-1.0 >= 0.0.94"`
++            GNOMEMEETING_LIBS=`$PKG_CONFIG --libs "gtk+-2.0 >= 2.4.0 gthread-2.0 >= 2.4.0 esound >= 0.2.28 gconf-2.0 >= 2.2.0 libxml-2.0 >= 2.6.0 libgnome-2.0 >= 2.2.0 libgnomeui-2.0 >= 2.2.0 gnome-vfs-2.0 >= 2.2.0 libebook-1.2 >= 0.0.94"`
+             echo "$as_me:$LINENO: result: $GNOMEMEETING_LIBS" >&5
+ echo "${ECHO_T}$GNOMEMEETING_LIBS" >&6
+         else
+@@ -21305,7 +21305,7 @@
+             GNOMEMEETING_LIBS=""
+             ## If we have a custom action on failure, don't print errors, but
+             ## do set a variable so people can do so.
+-            GNOMEMEETING_PKG_ERRORS=`$PKG_CONFIG --errors-to-stdout --print-errors "gtk+-2.0 >= 2.4.0 gthread-2.0 >= 2.4.0 esound >= 0.2.28 gconf-2.0 >= 2.2.0 libxml-2.0 >= 2.6.0 libgnome-2.0 >= 2.2.0 libgnomeui-2.0 >= 2.2.0 gnome-vfs-2.0 >= 2.2.0 libebook-1.0 >= 0.0.94"`
++            GNOMEMEETING_PKG_ERRORS=`$PKG_CONFIG --errors-to-stdout --print-errors "gtk+-2.0 >= 2.4.0 gthread-2.0 >= 2.4.0 esound >= 0.2.28 gconf-2.0 >= 2.2.0 libxml-2.0 >= 2.6.0 libgnome-2.0 >= 2.2.0 libgnomeui-2.0 >= 2.2.0 gnome-vfs-2.0 >= 2.2.0 libebook-1.2 >= 0.0.94"`
+             echo $GNOMEMEETING_PKG_ERRORS
+         fi
+ 
+@@ -21320,8 +21320,8 @@
+   if test $succeeded = yes; then
+      :
+   else
+-     { { echo "$as_me:$LINENO: error: Library requirements (gtk+-2.0 >= 2.4.0 gthread-2.0 >= 2.4.0 esound >= 0.2.28 gconf-2.0 >= 2.2.0 libxml-2.0 >= 2.6.0 libgnome-2.0 >= 2.2.0 libgnomeui-2.0 >= 2.2.0 gnome-vfs-2.0 >= 2.2.0 libebook-1.0 >= 0.0.94) not met; consider adjusting the PKG_CONFIG_PATH environment variable if your libraries are in a nonstandard prefix so pkg-config can find them." >&5
+-echo "$as_me: error: Library requirements (gtk+-2.0 >= 2.4.0 gthread-2.0 >= 2.4.0 esound >= 0.2.28 gconf-2.0 >= 2.2.0 libxml-2.0 >= 2.6.0 libgnome-2.0 >= 2.2.0 libgnomeui-2.0 >= 2.2.0 gnome-vfs-2.0 >= 2.2.0 libebook-1.0 >= 0.0.94) not met; consider adjusting the PKG_CONFIG_PATH environment variable if your libraries are in a nonstandard prefix so pkg-config can find them." >&2;}
++     { { echo "$as_me:$LINENO: error: Library requirements (gtk+-2.0 >= 2.4.0 gthread-2.0 >= 2.4.0 esound >= 0.2.28 gconf-2.0 >= 2.2.0 libxml-2.0 >= 2.6.0 libgnome-2.0 >= 2.2.0 libgnomeui-2.0 >= 2.2.0 gnome-vfs-2.0 >= 2.2.0 libebook-1.2 >= 0.0.94) not met; consider adjusting the PKG_CONFIG_PATH environment variable if your libraries are in a nonstandard prefix so pkg-config can find them." >&5
++echo "$as_me: error: Library requirements (gtk+-2.0 >= 2.4.0 gthread-2.0 >= 2.4.0 esound >= 0.2.28 gconf-2.0 >= 2.2.0 libxml-2.0 >= 2.6.0 libgnome-2.0 >= 2.2.0 libgnomeui-2.0 >= 2.2.0 gnome-vfs-2.0 >= 2.2.0 libebook-1.2 >= 0.0.94) not met; consider adjusting the PKG_CONFIG_PATH environment variable if your libraries are in a nonstandard prefix so pkg-config can find them." >&2;}
+    { (exit 1); exit 1; }; }
+   fi
+ 
