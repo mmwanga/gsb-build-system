@@ -5,7 +5,7 @@ TMP=${TMP:-/tmp}
 PKG=$TMP/package-mpeg2dec
 
 VERSION=0.4.0b
-PVERSION=0.4.0
+PVERSION=`echo $VERSION | sed 's/b//'`
 ARCH=${ARCH:-i486}
 BUILD=1
 
