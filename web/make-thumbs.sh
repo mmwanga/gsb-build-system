@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# $Id:$
+# $Id$
 
 clear
 
