@@ -61,7 +61,6 @@ my %office_gnome_libs =
   (
    'libgda'      => '1.3.0',
    'libgnomedb'  => '1.3.0',
-   'libgsf'      => '1.11.1',
   );
 
 my %office_gnome =
