@@ -85,6 +85,11 @@ our %other =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/kino/',
 			     'src' => 'tar.gz',
 			    },
+   'Imaging'             => {
+			     'ver' => '1.1.4',
+			     'url' => 'http://effbot.org/downloads/Imaging-1.1.4.tar.gz',
+			     'src' => 'tar.gz',
+			    },
    'inkscape'            => {
 			     'ver' => '0.41',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/inkscape/',
@@ -108,6 +113,16 @@ our %other =
    'poppler'             => {
 			     'ver' => '0.1.1',
 			     'url' => 'http://poppler.freedesktop.org/',
+			     'src' => 'tar.gz',
+			    },
+   'pstoedit'            => {
+			     'ver' => '3.40',
+			     'url' => 'http://home.t-online.de/home/helga.glunz/wglunz/pstoedit/',
+			     'src' => 'tar.gz',
+			    },
+   'skencil'             => {
+			     'ver' => '0.6.16',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/sketch/',
 			     'src' => 'tar.gz',
 			    },
    'streamtuner'         => {
