@@ -15,7 +15,7 @@ $author["freerock"]="freerock [at] gmail (dot) com";
 $max = 3;
 
 // news file
-$ff = "../news.txt";
+$ff = "news.txt";
 
 // entry separator
 $sep = "###";
