@@ -14,6 +14,8 @@
       <ul>
         <li><a href="./">Home</a></li>
 
+        <li><a href="#about">About GSB</a></li>
+
         <li><a href="#downloads" title=
         "Downloads">Downloads</a></li>
 

@@ -13,7 +13,7 @@
     
     <?php include_once('common/news.php'); ?>
 
-    <h2>About GSB: GNOME.SlackBuild</h2>
+    <h2 id="about">About GSB: GNOME.SlackBuild</h2>
 
     <p>Building a <a href="http://www.gnome.org">GNOME</a>
     Distribution for the <a href=
