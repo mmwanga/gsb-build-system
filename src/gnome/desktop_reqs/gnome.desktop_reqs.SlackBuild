@@ -16,14 +16,16 @@ mkdir -p $TMP/gnome-$GVERSION/desktop_reqs
 # we remove it and then reinstall later
 /sbin/removepkg mpeg4ip
 
+# remove because they depend on an old version of libvisual
+#libvisual-nebulus
+#libvisual-xmms
+
 BUILD_ORDER="a52dec
-avifile
 divx4linux
-faad2
-faac
 ffmpeg
 id3lib
-libavc1394
+faad2
+faac
 libcdaudio
 libcddb
 libcdio
@@ -31,8 +33,8 @@ libdv
 libdvbpsi3
 libdvdcss
 libdvdnav
-libdvdplay
 libdvdread
+libdvdplay
 libebml
 libfame
 libmatroska
@@ -41,13 +43,12 @@ libmovtar
 libmusicbrainz
 liboil
 libraw1394
+libavc1394
 libsndfile
 libsamplerate
 libquicktime
 libvisual
 libvisual-plugins
-libvisual-nebulus
-libvisual-xmms
 lame
 mjpegtools
 mpeg2dec
@@ -60,6 +61,7 @@ swfdec
 libtheora
 xvidcore
 transcode
+avifile
 dbus
 libcap
 hal
@@ -70,6 +72,21 @@ openldap
 fam"
 
 (
+
+for i in $BUILD_ORDER
+do
+(
+  cd $i
+  echo ""
+  echo "*************************************************"
+  echo "*****   Building $i"
+  echo "*************************************************"
+  echo ""
+  ./$i.SlackBuild
+  upgradepkg --install-new $TMP/$i*.tgz
+  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/desktop_reqs
+)
+done
 
 for i in openh323-pwlib
 do
@@ -86,19 +103,5 @@ do
 )
 done
 
-for i in $BUILD_ORDER
-do
-(
-  cd $i
-  echo ""
-  echo "*************************************************"
-  echo "*****   Building $i"
-  echo "*************************************************"
-  echo ""
-  ./$i.SlackBuild
-  upgradepkg --install-new $TMP/$i*.tgz
-  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/desktop_reqs
-)
-done
 # Fork screen output to a log
 ) 2>&1 | tee $TMP/gnome.desktop_reqs.build.log
