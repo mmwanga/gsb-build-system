@@ -25,11 +25,6 @@ our %other =
 			     'url' => 'http://www.coaster-burn.org/files/coaster/',
 			     'src' => 'tar.gz',
 			    },
-   'desktop-file-utils'  => {
-			     'ver' => '0.10',
-			     'url' => 'http://freedesktop.org/software/desktop-file-utils/releases/',
-			     'src' => 'tar.gz',
-			    },
    'dvgrab'              => {
 			     'ver' => '1.7',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/kino/',

@@ -77,6 +77,11 @@ our %platform_diff_naming =
 # these are packages from freedesktop.org
 our %platform_fdo =
   (
+   'desktop-file-utils'  => {
+			     'ver' => '0.10',
+			     'url' => 'http://freedesktop.org/software/desktop-file-utils/releases/',
+			     'src' => 'tar.gz',
+			    },
    'shared-mime-info'    => {
 			     'url' => 'http://freedesktop.org/software/shared-mime-info/',
 			     'ver' => '0.15',
