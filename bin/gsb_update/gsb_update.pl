@@ -6,7 +6,7 @@
 # TODO:
 #
 #   - auto download themes. Need to Populate Themes.pm file with apropriate hashes
-#   - cli args: --conf={all,gnome,requirements,gstreamer,office,other}
+#   - cli args: --conf={all,platform,desktop,desktop_reqs,office,other}
 #               --getrelease
 #               --getlocal
 #   - need to account for packages (ie. avifile,openh323,pwlib,ffmpeg)
@@ -16,6 +16,7 @@
 #     Store list of mirror in an array.
 #   - add function to GSB.pm to construct the tarball name
 #   - add function to delete old src tarballs
+#   - podify all modules
 #
 # $Id$
 
@@ -78,7 +79,12 @@ my %gnome_bindings =
    '%bindings_python'  => {
 			   'type' => 'python',
 			   'dir'  => 'gnome/bindings/python',
+f			  },
+   '%bindings_perl'  => {
+			   'type' => 'perl',
+			   'dir'  => 'gnome/bindings/perl',
 			  },
+
   );
 
 my %gnome_other =
@@ -133,7 +139,7 @@ foreach (@ARGV) {
 # Change directory to GSB's sources
 
 chdir $gsb_root_sources or
-  warn "Can't change dir to GSB Sources: $!";
+  die "Can't change dir to GSB Sources: $!";
 
 my $pwd = getcwd();
 

@@ -8,7 +8,7 @@ our @ISA       = qw(Exporter);
 our @EXPORT    = qw(%platform %platform_diff_naming %platform_fdo %desktop
 		   %bindings_cxx %bindings_java %bindings_python);
 our @EXPORT_OK = qw(%gnome);
-our $VERSION = 0.03;
+our $VERSION   = 0.03;
 
 ################################################################################
 # Config Options
@@ -16,8 +16,8 @@ our $VERSION = 0.03;
 
 my %gnome =
   (
-   'version'  => '2.9.92',
-   'release'  => '2.9',
+   'version'  => '2.10.0',
+   'release'  => '2.10',
    'mirror'   => 'http://ftp.gnome.org',
    'srcroot'  => '/pub/GNOME',
    'platform' => '/platform',
@@ -32,6 +32,8 @@ my $pfiledir = $gfiledir . $gnome{platform} . $grelease;
 my $dfiledir = $gfiledir . $gnome{desktop}  . $grelease;
 my $bfiledir = $gfiledir . $gnome{bindings} . $grelease;
 my $gsrcdir  = $gfiledir . '/sources';
+
+my $wget_options = "--cache=on --progress=bar:force";
 
 #
 # End Config Options
@@ -61,13 +63,21 @@ NOT WORKING YET
 EOF
 }
 
+# simple function to grab a url
+sub gsb_get {
+
+  my $url = shift;
+
+  system("wget $wget_options $url");
+}
+
 # simple function to take a file name and url and download a source tarball
 # gsb_tarball_get($file, $url);
 sub gsb_tarball_get {
   my $file = shift;
   my $url = shift;
 
-  system("wget --cache=on --progress=bar:force $url");
+  system("wget $wget_options $url");
 }
 
 # hash has 3 keys
@@ -97,6 +107,7 @@ sub gsb_gnome_generic_url_make {
 
 # Give name and version to function
 sub gsb_gnome_platform_url_make {
+
   my $name = shift;
   my $ver  = shift;
 
@@ -106,6 +117,7 @@ sub gsb_gnome_platform_url_make {
 
 # give name and version
 sub gsb_gnome_desktop_url_make {
+
   my $name = shift;
   my $ver  = shift;
 
@@ -121,6 +133,26 @@ sub gsb_gnome_bindings_url_make {
 
   my $thisurl = "$bfiledir/$binding_type/$name-$ver.tar.bz2";
   return $thisurl;
+}
+
+# construct a url for a md5 sum of a gnome tarball
+sub gsb_gnome_md5sum_url_make {
+  my $name = shift;
+  my $ver  = shift;
+
+  # get shortened directory name from version
+  my $sver = join '.', (split( /\./, $ver ))[0,1];
+
+  my $thisurl = "$gsrcdir/$name/$sver/$name-$ver.md5sum";
+  return $thisurl;
+}
+
+# construct a url for a md5 sum file of some tarball
+sub gsb_other_md5sum_url_make {
+  my $url      = shift;
+  my $md5_file = shift;
+
+  return my $thisurl = "$url/$md5_file";
 }
 
 # End Functions

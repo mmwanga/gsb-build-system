@@ -43,7 +43,7 @@ sub gsb_sb_edit {
 sub gsb_version_edit {
 
   my $newver = shift;
-  my @arr = @_;
+  my @arr    = @_;
 
   for (@arr) {
     s/^VERSION=(.*)$/VERSION=$newver/;
@@ -57,7 +57,7 @@ sub gsb_version_edit {
 sub gsb_build_edit {
 
   my $newnum = shift;
-  my @arr = @_;
+  my @arr    = @_;
 
   for (@arr) {
     s/^BUILD=(.*)$/BUILD=$newnum/;
@@ -66,11 +66,12 @@ sub gsb_build_edit {
   return @arr;
 }
 
+# get the value from the VERSION= variable
 # give function array
 sub gsb_version_get {
 
-  my $version_num;
-  my @arr = @_;
+  my $version_num = "";
+  my @arr         = @_;
 
   for (@arr) {
     if ( /^VERSION=(.*)$/ ) {
@@ -83,18 +84,19 @@ sub gsb_version_get {
 # give function array
 sub gsb_build_get{
 
-  my $build_num;
-  my @arr = @_;
+  my $build_num = "";
+  my @arr       = @_;
 
   for (@arr) {
     if ( /^BUILD=(.*)$/ ) {
       $build_num = $1;
     }
   }
+
   return $build_num;
 }
 
-# append gsb or frg to BUILD variables in slackbuild files
+# append gsb or frg or any string to all BUILD variables in slackbuild files
 # give function release string (gsb or frg) and file array
 sub gsb_build_release_make {
 
