@@ -67,15 +67,15 @@ if (is_file($ff)) {
         $ndate[_MONTH], $ndate[_DAY], $ndate[_YEAR]);
         $ndate = date("Y/m/d @ H:i", $ndate);
        
-        print( "<h3>".$subject."</h3>\n"
-              ."<dl>\n<dt><em>Posted ".$ndate." ".$ndate_tzone." by \n"
-              .$author."</em></dt>\n"
-              ."<dd><p>".$news[0]."</p></dd>\n</dl>\n\n" );
+        print( "<h3>".$subject."</h3>\n\n"
+              ."\t<dl>\n\t\t<dt><small>Posted ".$ndate." ".$ndate_tzone." by \n\t\t"
+              .$author."</small></dt>\n"
+              ."\t\t<dd>\n\t\t<p><em>".$news[0]."</em>\n\t\t</p>\n\t\t</dd>\n\t</dl>\n\n" );
         if ($a >= $max-1) break; 
     }
 
     if ($start == 0 && $news_page <= 0) {
-        print( "&lt; <a href=\"./?news_page=1\">Older News</a> &gt;\n" );
+        print( "<p>&lt; <a href=\"./?news_page=1\">Older News</a> &gt;</p>\n" );
     }
 
     if ($start > 0) {
@@ -85,7 +85,7 @@ if (is_file($ff)) {
             $nextlink = "<a href=\"./?news_page=".($news_page+1)."\">Next &gt;</a>";
         if ($news_page > 1)
             $prevlink = "<a href=\"./?news_page=".($news_page-1)."\">&lt; Prev</a>";
-        print( "<a href=\"./\">Home</a> | ".$prevlink." : ". $nextlink . "\n" );
+        print( "<p><a href=\"./\">Home</a> | ".$prevlink." : ". $nextlink . "</p>\n" );
     }
 
     if ($news_page > 0) {
