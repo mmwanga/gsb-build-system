@@ -2,6 +2,34 @@
 2005-03-12-5-00-EST
 freerock
 Updates on FRG-0.1.94 release
+
+<p><strong>UPDATE:</strong> Some more bugs have been found, some have been
+fixed:</p>
+
+<ul>
+  <li>
+    if you are using min_install.sh to install FRG, install the 
+    desktop-file-utils-0.10-i486-1frg.tgz package in the other/ directory in
+    the iso. It is needed for correct mime-type operation. After you install
+    this package, as root, run.
+  </li>
+</ul>
+
+<blockquote><p>
+  <code><strong>
+    /usr/bin/update-desktop-database
+  </strong></code>
+</p></blockquote>
+
+<ul>
+  <li>
+    GDM and the logout dialogue in the Desktop menu do not show the power off
+    option. They do show the reboot option though. This was working properly 
+    with GNOME-2.9.91 release. I'm currently looking as to what changed in 
+    the gdm and gnome-session packages to try and fix it.
+  </li>
+</ul>
+
 <p>
   Thank you to everyone who provided feedback on the release. We have found
   and fixed a few bugs.
