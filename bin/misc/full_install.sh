@@ -30,3 +30,4 @@ sh $FRGROOT/min_install.sh
 )
 
 /usr/bin/update-mime-database /usr/share/mime
+/usr/bin/update-desktop-database
