@@ -11,3 +11,17 @@ Testers:
 
 	Tevfik Yucek <tevfik.yucek@gmail.com>
 	Mark M. Young <mmyoung57@sbcglobal.net>
+
+Contributors:
+
+	Chris Lewis <burn03@bellsouth.net>
+	* GWARE 02/16/2005
+	* rc.howl and kerberos build scripts
+
+	<forgot name of ircnick>
+	* webpage at: http://locustfurnace.bravehost.com/
+	* screenshots of FRG in action
+
+	Dropline GNOME
+	* hal patches and rc.hal script
+	* dbus rc.dbus script
