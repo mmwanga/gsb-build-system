@@ -23,8 +23,10 @@ Updates on FRG-0.1.94 release
   </ul>
   </li>
   <li>
-    The gdm actions menu does not show the power off option anymore. The
-    reboot and configure options are still there. Anyone know what gives?
+    The gdm actions menu does not show the power off option anymore in version
+    2.6.0.8. The reboot and configure options are still there. Anyone know
+    what gives? gdm-2.6.0.7 package works fine, its available on the rsync
+    server below.
   </li>
 </ul>
 
