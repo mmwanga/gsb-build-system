@@ -6,5 +6,6 @@ TODO:
 * abiword crashes
 * left out openldap and cyrus-sasl for evolution.
   maybe make ldap in evolution statically built in
-
+* check gdm, see how it starts, check Xsession variables for sessions in 
+  global Xsession file
 
