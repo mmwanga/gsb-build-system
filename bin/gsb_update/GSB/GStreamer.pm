@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw(%gstremer %gst_other %gst_libs %gst_libs_other);
+our @EXPORT    = qw(%gstreamer %gst_other %gst_libs %gst_libs_other);
 our @EXPORT_OK = qw();
 our $VERSION   = 0.03;
 
@@ -16,13 +16,21 @@ our $VERSION   = 0.03;
 our %gstreamer =
   (
    'gstreamer'         => '0.8.9',
-   'gst-plugins'       => '0.8.7',
+   'gst-plugins'       => '0.8.8',
   );
 
 our %gst_other =
   (
-   'gst-ffmpeg'        => '0.8.3',
-   'gst-monkeysaudio'  => '0.8.0',
+   'gst-ffmpeg'        => {
+			   'ver' => '0.8.3',
+			   'url' => 'http://gstreamer.freedesktop.org/src/gst-ffmpeg/',
+			   'src' => 'tar.bz2',
+			  },
+   'gst-monkeysaudio'  => {
+			   'ver' => '0.8.0',
+			   'url' => 'http://gstreamer.freedesktop.org/src/gst-monkeysaudio/',
+			   'src' => 'tar.bz2',
+			  },
   );
 
 
@@ -66,7 +74,7 @@ our %gst_libs =
    'lame'              => {
 			   'ver' => '3.96.1',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/lame/',
-			   'src' => 'tar,gz',
+			   'src' => 'tar.gz',
 			  },
    'libavc1394'        => {
 			   'ver' => '0.4.1',
@@ -149,7 +157,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'liboil'            => {
-			   'ver' => 'liboil',
+			   'ver' => '0.3.0',
 			   'url' => 'http://www.schleef.org/liboil/download/',
 			   'src' => 'tar.gz',
 			  },
@@ -229,7 +237,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'transcode'         => {
-			   'ver' => '0.6.12',
+			   'ver' => '0.6.14',
 			   'url' => 'http://www.jakemsr.com/transcode/',
 			   'src' => 'tar.gz',
 			  },

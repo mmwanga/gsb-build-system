@@ -81,7 +81,6 @@ sub gsb_other_url_make {
 }
 
 # Generic URL to download from gnome's ftp sources directory
-
 sub gsb_gnome_generic_url_make {
   my $name = shift;
   my $ver  = shift;
