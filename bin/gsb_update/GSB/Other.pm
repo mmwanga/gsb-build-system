@@ -81,7 +81,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'galeon'              => {
-			     'ver' => '1.3.19',
+			     'ver' => '1.3.20',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/galeon',
 			     'src' => 'tar.bz2',
 			    },
@@ -208,7 +208,12 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'sylpheed'            => {
-			     'ver' => '1.9.6',
+			     'ver' => '1.9.7',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/sylpheed-claws/',
+			     'src' => 'tar.bz2',
+			    },
+   'sylpheed-claws'      => {
+			     'ver' => '1.9.7',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/sylpheed-claws/',
 			     'src' => 'tar.bz2',
 			    },

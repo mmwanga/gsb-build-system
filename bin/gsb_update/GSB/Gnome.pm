@@ -101,7 +101,7 @@ our %desktop =
    'control-center'         => '2.10.0',
    'dasher'                 => '3.2.15',
    'eel'                    => '2.10.0',
-   'eog'                    => '2.9.0',
+   'eog'                    => '2.10.0',
    'epiphany'               => '1.6.0',
    'epiphany-extensions'    => '1.6.0',
    'evolution'              => '2.2.1.1',
@@ -139,8 +139,8 @@ our %desktop =
    'gnome-volume-manager'   => '1.2.0',
    'gnome2-user-docs'       => '2.8.1',
    'gnomemeeting'           => '1.2.1',
-   'gnopernicus'            => '0.10.4',
-   'gok'                    => '1.0.2',
+   'gnopernicus'            => '0.10.5',
+   'gok'                    => '1.0.3',
    'goobox'                 => '0.9.90',
    'gpdf'                   => '2.10.0',
    'gtk-engines'            => '2.6.2',
@@ -221,7 +221,7 @@ our %bindings_java =
    'libgconf-java'    => '2.10.0',
    'libglade-java'    => '2.10.0',
    'libgnome-java'    => '2.10.0',
-   'libgtk-java'      => '2.6.1',
+   'libgtk-java'      => '2.6.1.1',
 
   );
 
