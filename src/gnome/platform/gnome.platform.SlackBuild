@@ -23,13 +23,14 @@ gnome-vfs
 audiofile
 esound
 libgnome
-libgnomeui
 libart_lgpl
 libglade
 libgnomecanvas
+libgnomeui
 libbonoboui
-at-spi
 gail
+at-spi
+libgnomecups
 libgnomeprint
 libgnomeprintui
 hicolor-icon-theme"
