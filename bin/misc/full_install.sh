@@ -5,7 +5,7 @@ FRGROOT=`dirname $0`
 export FRG_FULL=true
 
 # Install minimum install
-sh $FRGROOT/min_install.sh
+/bin/sh $FRGROOT/min_install.sh
 
 # Install Themes
 (
@@ -31,5 +31,4 @@ sh $FRGROOT/min_install.sh
   upgradepkg --install-new *.tgz
 )
 
-/usr/bin/update-mime-database /usr/share/mime
-/usr/bin/update-desktop-database
+/bin/sh $FRGROOT/frg_post_install.sh

@@ -1,5 +1,6 @@
 #!/bin/sh
-# script to be run post install
+#
+# script to be run post frg install
 #
 
 FRGROOT=`dirname $0`

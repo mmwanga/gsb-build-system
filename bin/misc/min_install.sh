@@ -28,5 +28,5 @@ FRGROOT=`dirname $0`
 )
 
 if [ ! $FRG_FULL = "true" ]; then
-    $FRGROOT/frg_post_install.sh
+    /bin/sh $FRGROOT/frg_post_install.sh
 fi

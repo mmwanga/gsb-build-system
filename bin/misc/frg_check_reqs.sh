@@ -2,10 +2,7 @@
 #
 # Script to check some pre-requisites for FRG
 #
-# check on some packages, mozilla, libexif, perl, python
-# 
-#
-#
+
 FRGROOT=`dirname $0`
 
 REQUIRED_PACKAGES="
@@ -20,6 +17,11 @@ libjpeg-6b-i386-4
 libpng-1.2.8-i486-1
 libtiff-3.7.1-i486-2
 libmad-0.15.1b-i486-1
+popt-1.7-i386-1
+gdk-pixbuf-0.22.0-i486-1
+cdparanoia-IIIalpha9.8-i386-1
+x11-6.8.?-i486-1
+x11-xnest-6.8.?-i486-1
 "
 
 check_packages() {
