@@ -30,17 +30,7 @@ print("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
     $Date: 2005-02-13 18:13:10 -0600 (Sun, 13 Feb 2005) $
     $Author: chipster $
 
-    Diags;
-        - Section: <?php print($op . "\n"); ?>
-        - URI:     <?php print($REQUEST_URI . "\n"); ?>
-  
 -->
 <body>  
-<div id="top"></div>
   
-<div class="subHeader">
-  <h1 class="doNotDisplay"><a href="/" class="headerLink" title="GSB:
-  GNOME.SlackBuild">GSB: Gnome.SlackBuild</a></h1>
 <?php include('content/header.html'); ?>
-</div>
-
