@@ -1,7 +1,7 @@
 ###
 2005-03-29-15-47-CST
 chipster
-Is GSB/FRG 1337
+Is GSB/FRG 1337?
 You betcha!
 
 ###
@@ -19,7 +19,7 @@ My Mime Types/File Associations are all screwed up. What do I do?
 <blockquote><p>
  <code><strong>
 /usr/bin/update-mime-database /usr/share/mime
-/usr/bin/update-desktop-database
+<br />/usr/bin/update-desktop-database
 </strong></code>
 </p></blockquote>
 
