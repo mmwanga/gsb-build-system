@@ -16,6 +16,7 @@ RewriteEngine On
     RewriteRule ^news/(.*)? /index.php?news_page=$1 [QSA]
     RewriteRule ^about/?  /index.php?op=about [QSA]
     RewriteRule ^download/?  /index.php?op=download [QSA]
+    RewriteRule ^downloads/?  /index.php?op=download [QSA]
     RewriteRule ^development/?  /index.php?op=development [QSA]
     RewriteRule ^help/?  /index.php?op=help [QSA]
     RewriteRule ^installation/?  /index.php?op=installation [QSA]
