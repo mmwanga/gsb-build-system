@@ -1,0 +1,33 @@
+#!/bin/sh
+
+. ../GSB.options
+
+TMP=${TMP:-/tmp}
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+
+BUILD_ORDER="gamin
+"
+mkdir -p $TMP/gnome-$GVERSION/reqs
+
+(
+for i in $BUILD_ORDER
+do
+(
+  cd $i
+  echo ""
+  echo ""
+  echo "*************************************************"
+  echo "*****         Building $i"
+  echo "*************************************************"
+  echo ""
+  ./$i.SlackBuild
+  upgradepkg --install-new $TMP/$i*.tgz
+)
+done
+# Fork screen output to a log
+) 2>&1 | tee $TMP/gnome.reqs.build.log
+
+mv $TMP/*.tgz $TMP/gnome-$GVERSION/reqs

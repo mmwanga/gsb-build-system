@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: openldap.SlackBuild 188 2004-12-18 08:22:16Z freerock $
+# $Id: openldap.SlackBuild 275 2005-03-08 01:20:25Z freerock $
 
 CWD=`pwd`
 TMP=${TMP:-/tmp}
@@ -8,7 +8,7 @@ PKG=$TMP/package-openldap
 
 VERSION=2.2.23
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=4
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -29,17 +29,16 @@ fi
 cd $TMP 
 tar xzvf $CWD/openldap-$VERSION.tgz
 cd openldap-$VERSION
-#
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
 	    --sysconfdir=/etc \
-	    --localstatedir=/var/openldap \
+	    --localstatedir=/var/lib/openldap \
 	    --enable-syslog \
 	    --enable-dynamic \
 	    --with-readline \
-	    --with-threads \
 	    --with-tls \
 	    --with-cyrus-sasl \
+	    --with-kerberos \
 	    --enable-slapd \
 	    --enable-cleartext \
 	    --enable-modules \
@@ -49,7 +48,7 @@ CFLAGS="$SLKCFLAGS" \
 	    --enable-slurpd \
 	    --enable-modules \
 	    --enable-passwd=mod \
-       	    --enable-phonetic=mod \
+       	--enable-phonetic=mod \
 	    --enable-dnssrv=mod \
 	    --enable-ldap \
 	    --enable-meta=mod \
@@ -61,6 +60,31 @@ CFLAGS="$SLKCFLAGS" \
 make depend
 make
 make install DESTDIR=$PKG
+
+# Build kerberos stuff
+(
+  cd contrib/slapd-modules/passwd
+  gcc -shared -I../../../include -Wall -g -DHAVE_KRB5 -o pw-kerberos.so kerberos.c
+  cp -a pw-kerberos.so $PKG/usr/libexec/openldap/
+)
+
+# make some config files .new
+( 
+  cd $PKG/etc/openldap
+  for i in ldap slapd
+  do
+  mv $i.conf $i.conf.new
+  done
+
+  cd schema
+  for i in corba core cosine inetorgperson java misc nis openldap
+  do
+  mv $i.schema $i.schema.new
+  done
+)
+
+mkdir -p $PKG/etc/rc.d
+cat $CWD/rc.openldap > $PKG/etc/rc.d/rc.openldap.new
 
 chown -R root.bin $PKG/usr/bin $PKG/usr/sbin
 
@@ -74,8 +98,8 @@ find $PKG -type f | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-
 gzip -9 $PKG/usr/man/*/*
 
 mkdir -p $PKG/install
-cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 makepkg -l y -c n $TMP/openldap-$VERSION-$ARCH-$BUILD.tgz
