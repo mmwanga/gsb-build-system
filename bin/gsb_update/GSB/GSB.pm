@@ -82,13 +82,17 @@ sub gsb_tarball_get {
 
 # hash has 3 keys
 # give name, url, version, srctarballtype
+# FIXME: change args to $url, $tarball
 sub gsb_other_url_make {
   my $name = shift;
   my $url  = shift;
+#  my $tarball = shift;
   my $ver  = shift;
   my $src  = shift;
 
+#  my $thisurl = "$url/$tarball";
   my $thisurl = "$url/$name-$ver.$src";
+
   return $thisurl;
 }
 

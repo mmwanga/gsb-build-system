@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw(%double_tarballs);
+our @EXPORT    = qw(%double_tarballs %double_tarballs_url);
 our @EXPORT_OK = qw();
 our $VERSION   = 0.03;
 
@@ -26,6 +26,13 @@ our %double_tarballs =
 			  'src' => 'tar.gz',
 			  'var' => 'GAIMENC',
 			 },
+   'divx4linux'       => {
+			  'ver' => 'std-20030428',
+			  'dir' => 'gnome/desktop_reqs/divx4linux',
+			  'url' => 'http://download.divx.com/divx/',
+			  'src' => 'tar.gz',
+			  'var' => 'TVERSION',
+			 },
 
    'divx4linux'       => {
 			  'ver' => 'std-20030428',
@@ -34,4 +41,15 @@ our %double_tarballs =
 			  'src' => 'tar.gz',
 			  'var' => 'TVERSION',
 			 },
+  );
+
+our %double_tarballs_url =
+  (
+   'clearlooks-metacity'       => {
+				   'ver' => '0.5',
+				   'dir' => 'gnome/themes/clearlooks',
+				   'url' => 'http://www.gnome-look.org/content/files/',
+				   'tar' => '21237-clearlooks-metacity-0.5.tar.gz',
+				   'var' => 'NONE',
+				  },
   );

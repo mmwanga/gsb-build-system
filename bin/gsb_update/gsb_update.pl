@@ -30,7 +30,7 @@ use GSB::Office;
 use GSB::Other;
 use GSB::Desktop_Requirements;
 use GSB::DoubleTar;
-#use GSB::Themes;
+use GSB::Themes;
 #use GSB::Verify;
 
 use Cwd;
@@ -516,6 +516,67 @@ foreach my $pbpackage (keys %bindings_python) {
   }
 }
 
+#DOWNLOAD THEMES
+
+# Download themes from ftp.gnome.org
+foreach my $gtheme (keys %gnome_themes) {
+
+  chdir "$pwd/gnome/themes/$gtheme";
+  my $sb_file = $gtheme . $sb_ext;
+  my $tarball = "$gtheme-$gnome_themes{$gtheme}.tar.bz2";
+
+  if ( $download eq "true" ) {
+    if ( ! -f $tarball ) {
+      my $url = GSB::GSB::gsb_gnome_generic_url_make($gtheme, $gnome_themes{$gtheme});
+      GSB::GSB::gsb_tarball_get($gtheme, $url);
+    }
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $gnome_themes{$gtheme});
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $gtheme );
+  }
+}
+
+# Download other themes
+foreach my $otheme (keys %other_themes) {
+
+  chdir "$pwd/gnome/themes/$otheme";
+  my $sb_file = $otheme . $sb_ext;
+  my $packurl = $other_themes{$otheme}{url};
+  my $ver     = $other_themes{$otheme}{ver};
+  my $src     = $other_themes{$otheme}{src};
+
+  my $tarball = "$otheme-$ver.$src";
+
+  if ( $download eq "true" ) {
+    if ( ! -f $tarball ) {
+      my $url = GSB::GSB::gsb_other_url_make($otheme, $packurl, $ver, $src);
+      GSB::GSB::gsb_tarball_get($otheme, $url);
+    }
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $otheme );
+  }
+}
+
+
 # Office apps
 foreach my $ofpackage (keys %office) {
 
@@ -780,15 +841,16 @@ foreach my $gst_libs_pack (keys %gst_libs) {
   }
 }
 
-# Download libs for single dir
+# Download extra tarballs for certain slackbuilds
 foreach my $dlibs (keys %double_tarballs) {
-  chdir "$pwd/$double_tarballs{$dlibs}{dir}";
 
   my $dir     = $double_tarballs{$dlibs}{dir};
   my $packurl = $double_tarballs{$dlibs}{url};
   my $ver     = $double_tarballs{$dlibs}{ver};
   my $src     = $double_tarballs{$dlibs}{src};
   my $var     = $double_tarballs{$dlibs}{var};
+
+ chdir "$pwd/$dir";
 
   my @tmp = split(/\//, $dir);
   my $sb  = pop(@tmp);
@@ -810,6 +872,38 @@ foreach my $dlibs (keys %double_tarballs) {
 
   if ( ! -f $tarball ) {
     push(@bad_downloads, $dlibs);
+  }
+}
+
+# More extra tarballs.
+foreach my $dtu (keys %double_tarballs_url) {
+
+  my $dir     = $double_tarballs_url{$dtu}{dir};
+  my $var     = $double_tarballs_url{$dtu}{var};
+  my $ver     = $double_tarballs_url{$dtu}{ver};
+  my $tarball = $double_tarballs_url{$dtu}{tar};
+  my $packurl = $double_tarballs_url{$dtu}{url};
+
+  chdir "$pwd/$dir";
+
+  my @tmp = split(/\//, $dir);
+  my $sb  = pop(@tmp);
+
+  my $sb_file = $sb . $sb_ext;
+
+  if ( $download eq "true" ) {
+    if ( ! -f $tarball ) {
+      my $url = "$packurl/$tarball";
+      GSB::GSB::gsb_tarball_get($dtu, $url);
+    }
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_double_edit($sb_file, $ver, $var);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $dtu);
   }
 }
 

@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw(%gnome_extra_themes %gnome_themes %other_themes);
+our @EXPORT    = qw(%gnome_themes %other_themes);
 our @EXPORT_OK = qw();
 our $VERSION   = 0.03;
 
@@ -21,7 +21,7 @@ our %gnome_themes =
 our %other_themes =
   (
    'clearlooks'           => {
-			      'ver' => '0.4',
+			      'ver' => '0.5',
 			      'url' => 'http://heanet.dl.sourceforge.net/sourceforge/clearlooks/',
 			      'src' => 'tar.bz2',
 			     },
