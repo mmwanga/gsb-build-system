@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw(%gstreamer %gst_other %gst_libs %gst_libs_other);
+our @EXPORT    = qw(%gstreamer %gst_other %gst_libs);
 our @EXPORT_OK = qw();
 our $VERSION   = 0.03;
 
@@ -44,11 +44,6 @@ our %gst_libs =
 			   'ver' => '0.7-0.7.43',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/avifile/',
 			   'src' => 'tar.bz2',
-			  },
-   'divx4linux'        => {
-			   'ver' => '20030428',
-			   'url' => 'http://download.divx.com/divx/',
-			   'src' => 'tar.gz',
 			  },
    'faac'              => {
 			   'ver' => '1.24',
@@ -250,17 +245,6 @@ our %gst_libs =
 			   'url' => 'http://files.xvid.org/downloads/',
 			   'src' => 'tar.bz2',
 			  },
-  );
-
-
-our %gst_libs_other =
-  (
-   'jpeg-mmx'         => {
-			  'ver' => '0.1.5',
-			  'dir' => 'libmovtar',
-			  'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mjpeg/',
-			  'src' => 'tar.gz',
-			 },
   );
 
 #

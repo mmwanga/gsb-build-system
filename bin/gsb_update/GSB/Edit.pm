@@ -113,6 +113,25 @@ sub gsb_build_release_make {
   untie @fh;
 }
 
+# function for arbitrary variable edit
+sub gsb_sb_double_edit {
+
+  my $file    = shift;
+  my $new_ver = shift;
+  my $new_var = shift;
+
+  tie my @fh, 'Tie::File', $file
+    or die "Cannot open $file: $!";
+
+  for (@fh) {
+    if ( /^$new_var=(.*)$/ ){
+      s/^$new_var=.*$/$new_var=$new_ver/;
+    }
+  }
+
+  untie @fh;
+}
+
 #
 # End Functions
 ################################################################################

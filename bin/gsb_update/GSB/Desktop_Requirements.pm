@@ -22,7 +22,7 @@ our %desktop_reqs =
                         },
    'dbus'            => {
 			 'url' => 'http://dbus.freedesktop.org/releases/',
-			 'ver' => '0.23.2',
+			 'ver' => '0.23.4',
 			 'src' => 'tar.gz',
                         },
    'gamin'           => {
@@ -50,7 +50,7 @@ our %desktop_reqs =
 			 'ver' => '1.10',
 			 'src' => 'tar.gz',
                         },
-   'openldap'      => {
+   'openldap'        => {
 			 'url' => 'ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/',
 			 'ver' => '2.2.23',
 			 'src' => 'tgz',
@@ -62,12 +62,12 @@ our %stupid_gnomemeeting_libs =
   (
    'openh323'  => {
 		   'url'   => 'http://www.gnomemeeting.org/admin/downloads/latest/sources/sources/',
-		   'ver' => '1.15.3',
+		   'ver'   => '1.15.3',
 		   'src'   => 'tar.gz',
 		  },
    'pwlib'     => {
 		   'url'   => 'http://www.gnomemeeting.org/admin/downloads/latest/sources/sources/',
-		   'ver' => '1.8.4',
+		   'ver'   => '1.8.4',
 		   'src'   => 'tar.gz',
 		  },
   );

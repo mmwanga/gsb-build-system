@@ -50,6 +50,11 @@ our %other =
 			       'url' => 'http://www.burtonini.com/computing/',
 			       'src' => 'tar.gz',
 			      },
+   'denu'                => {
+			     'ver' => '2.3.2',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/denu/',
+			     'src' => 'tar.bz2',
+			    },
    'drivel'              => {
 			     'ver' => '1.3.2',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/drivel/',
@@ -71,7 +76,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'gaim'                => {
-			     'ver' => '1.1.4',
+			     'ver' => '1.2.0',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gaim',
 			     'src' => 'tar.bz2',
 			    },

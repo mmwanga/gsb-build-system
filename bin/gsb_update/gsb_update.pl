@@ -31,6 +31,7 @@ use GSB::GStreamer;
 use GSB::Office;
 use GSB::Other;
 use GSB::Desktop_Requirements;
+use GSB::DoubleTar;
 #use GSB::Themes;
 #use GSB::Verify;
 
@@ -777,31 +778,35 @@ foreach my $gst_libs_pack (keys %gst_libs) {
 }
 
 # Download libs for single dir
-foreach my $gst_dlibs (keys %gst_libs_other) {
+foreach my $dlibs (keys %double_tarballs) {
+  chdir "$pwd/$double_tarballs{$dlibs}{dir}";
 
-  chdir "$pwd/gnome/desktop_reqs/$gst_libs_other{$gst_dlibs}{dir}";
+  my $dir     = $double_tarballs{$dlibs}{dir};
+  my $packurl = $double_tarballs{$dlibs}{url};
+  my $ver     = $double_tarballs{$dlibs}{ver};
+  my $src     = $double_tarballs{$dlibs}{src};
+  my $var     = $double_tarballs{$dlibs}{var};
 
-  my $sb_file = $gst_libs_other{$gst_dlibs}{dir} . $sb_ext;
-  my $packurl = $gst_libs_other{$gst_dlibs}{url};
-  my $ver     = $gst_libs_other{$gst_dlibs}{ver};
-  my $src     = $gst_libs_other{$gst_dlibs}{src};
+  my @tmp = split(/\//, $dir);
+  my $sb  = pop(@tmp);
 
-  my $tarball = "$gst_dlibs-$ver.$src";
+  my $sb_file = $sb . $sb_ext;
+
+  my $tarball = "$dlibs-$ver.$src";
 
   if ( $download eq "true" ) {
     if ( ! -f $tarball ) {
-      my $url = GSB::GSB::gsb_other_url_make($gst_dlibs, $packurl, $ver, $src);
-      GSB::GSB::gsb_tarball_get($gst_dlibs, $url);
+      my $url = GSB::GSB::gsb_other_url_make($dlibs, $packurl, $ver, $src);
+      GSB::GSB::gsb_tarball_get($dlibs, $url);
     }
   }
 
-#  Again, what to do about version here
-#  if ( $edit eq "true" ) {
-#    GSB::Edit::gsb_sb_edit($sb_file, $gst_libs_other{$gst_dlibs});
-#  }
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_double_edit($sb_file, $ver, $var);
+  }
 
   if ( ! -f $tarball ) {
-    push(@bad_downloads, $gst_dlibs);
+    push(@bad_downloads, $dlibs);
   }
 }
 
