@@ -10,12 +10,7 @@ installation guide
 Enjoy :)
 
 Build Order:
-	- requirements
-	- gstreamer
 	- gnome
 	- other
 	- office
 
-STATUS:
-
-	office and gstreamer dirs not tested yet, but skeleton is there
