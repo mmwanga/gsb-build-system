@@ -27,6 +27,12 @@ CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
 make
 make install DESTDIR=$PKG
 
+(
+  cd $PKG/usr/share/applications
+  sed -i '/^Icon=/s/48//' graveman.desktop
+  sed -i '/^Categories=/s/Utility/AudioVideo/' graveman.desktop
+)
+
 chown -R root.bin $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/graveman-$VERSION
