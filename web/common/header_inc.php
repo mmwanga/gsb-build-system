@@ -19,10 +19,8 @@ header("Content-Type: text/html;charset=utf-8");
   media="screen" title="Default Style" />
   <link rel="alternate stylesheet" type="text/css" href=
   "./css/print.css" media="print" title="Print-friendly Style" />
-
   <title>GSB: GNOME.SlackBuild</title>
 </head> 
-
 <!--
 
     GSB site code <http://gsb.sf.net>
@@ -30,7 +28,6 @@ header("Content-Type: text/html;charset=utf-8");
     $Id$
 
 -->
-
 <body>  
   <div id="top"></div>
   
