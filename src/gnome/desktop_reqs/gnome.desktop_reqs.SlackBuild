@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ -r ../GSB.options ]; then
-  . ../GSB.options
+  . ../../GSB.options
 fi
 
 TMP=${TMP:-/tmp}
@@ -9,8 +9,6 @@ TMP=${TMP:-/tmp}
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
-
-mkdir -p $TMP/gnome-$GVERSION/desktop_reqs
 
 # faad2 and faac have a hard time building if mpeg4ip is installed, so
 # we remove it and then reinstall later
@@ -84,7 +82,6 @@ do
   echo ""
   ./$i.SlackBuild
   upgradepkg --install-new $TMP/$i*.tgz
-  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/desktop_reqs
 )
 done
 
@@ -99,7 +96,6 @@ do
   echo ""
   ./$i.SlackBuild
   upgradepkg --install-new $TMP/openh323*.tgz $TMP/pwlib*.tgz
-  mv $TMP/openh323*.tgz $TMP/pwlib*.tgz $TMP/gnome-$GVERSION/desktop_reqs
 )
 done
 
