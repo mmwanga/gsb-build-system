@@ -9,12 +9,12 @@
 /* #### common styles #### */
 
 body {
-  color: black;
-  background-color: rgb(240,240,240);
-  font-family: "Lucida Grande", "bitstream vera sans", verdana, arial, helvetica, sans-serif;
-  font-size: 0.9em;
-  margin: 0;
-  padding: 0;
+    color: black;
+    background-color: rgb(240,240,240);
+    font-family: "Lucida Grande", "bitstream vera sans", verdana, arial, helvetica, sans-serif;
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0;
 }
 
 hr {
@@ -31,12 +31,12 @@ img.screenthumb {
 }
 
 .boilerplate {
-   position: absolute;
-   right: 1.5mm;
-   top: 0.25ex;
-   text-align: right;
-   margin-right: 1ex;
-   font-size: small;
+    position: absolute;
+    right: 1.5mm;
+    top: 0.25ex;
+    text-align: right;
+    margin-right: 1ex;
+    font-size: small;
 }
 
 .news_entry {
@@ -59,7 +59,7 @@ pre,code,tt {
 }
 
 input, select, option {
-   font: 12px "Lucida Grande", "bitstream vera sans", verdana, arial, helvetica, sans-serif;
+    font: 12px "Lucida Grande", "bitstream vera sans", verdana, arial, helvetica, sans-serif;
 }
 
 img {
@@ -89,39 +89,15 @@ hr.print {
 }
 
 acronym, .titleTip {
-  border-bottom: 1px dotted rgb(153,153,153);
-  cursor: help;
-  margin: 0;
-  padding: 0 0 0.4px 0;
+    border-bottom: 1px dotted rgb(153,153,153);
+    cursor: help;
+    margin: 0;
+    padding: 0 0 0.4px 0;
 }
 
 .doNotDisplay {
-  display: none;
+    display: none;
 }
-
-.smallCaps {
-  font-size: 110%;
-  font-variant: small-caps;
-}
-
-span.caption {
-  font-style: italic;
-  font-size: 90%;
-}
-
-legend.strong {
-  font-family: "Lucida Grande", "bitstream vera sans", verdana, arial, helvetica, sans-serif;
-  font-weight: bold;
-  font-size: 105%;
-}
-
-fieldset {
-  padding: 5px 5px 5px 5px;
-}
-
-div.ads {
-  text-align: center;
-}      
 
 
 /* ##### Header ##### */
@@ -133,24 +109,24 @@ div.ads {
 }
 
 .headerTitle {
-  font-size: 1.8em;
-  font-weight: bold;
-  font-style: italic;
-  font-family: "Lucida Grande", "bitstream vera sans", verdana, arial, helvetica, sans-serif;
-  margin: 0 0 0 0;
-  padding: 0.25ex 0;
+    font-size: 1.8em;
+    font-weight: bold;
+    font-style: italic;
+    font-family: "Lucida Grande", "bitstream vera sans", verdana, arial, helvetica, sans-serif;
+    margin: 0 0 0 0;
+    padding: 0.25ex 0;
 }
 
 .subHeader {
-  color: white;
-  background-color: rgb(0,51,153);
-  margin: 0;
-  padding: 0.2ex 1ex 0.2ex 1.5mm;
+    color: white;
+    background-color: rgb(0,51,153);
+    margin: 0;
+    padding: 0.2ex 1ex 0.2ex 1.5mm;
 }
 
 .subHeader a {
-  color: white;
-  background-color: transparent;
+    color: white;
+    background-color: transparent;
 }  
 
 .subHeader a:hover {
@@ -158,87 +134,79 @@ div.ads {
 }
 
 .superHeader .highlight, .subHeader .highlight {
-  color: rgb(253,160,91);
-  background-color: transparent;
+    color: rgb(253,160,91);
+    background-color: transparent;
 }
 
 
 /* ##### Side Bar ##### */
 
 #side-bar {
-  width: 12em;
-  float: left;
-  clear: left;
-  border-right: 1px solid rgb(153,153,153);
+    width: 12em;
+    float: left;
+    clear: left;
+    border-right: 1px solid rgb(153,153,153);
 }
 
 #side-bar div {
-  border-bottom: 1px solid rgb(153,153,153);
+    border-bottom: 1px solid rgb(153,153,153);
 }
 
 .sideBarTitle {
-  font-family: Optima, "bitstream vera serif", georgia, "times new roman", serif;
-  font-size: medium;
-  font-weight: bold;
-  margin: 0 0 0.5em 2.5mm;
-  padding: 0.5em 0 0 0;
+    font-family: Optima, "bitstream vera serif", georgia, "times new roman", serif;
+    font-size: medium;
+    font-weight: bold;
+    margin: 0 0 0.5em 2.5mm;
+    padding: 0.5em 0 0 0;
 }
 
 #side-bar ul {
-  list-style-type: none;
-  list-style-position: outside;
-  margin: 0;
-  padding: 0 0 0.5em 0;
+    list-style-type: none;
+    list-style-position: outside;
+    margin: 0;
+    padding: 0 0 0.5em 0;
 }
 
 #side-bar li {
-  margin: 0;
-  font-size: 1.0em;
-  padding: 0.1ex 0;  /* Circumvents a rendering bug (?) in MSIE 6.0 */
+    margin: 0;
+    font-size: 1.0em;
+    padding: 0.1ex 0;  /* Circumvents a rendering bug (?) in MSIE 6.0 */
 }
 
 #side-bar a, .thisPage {
-  color: rgb(0,51,153);
-  background-color: transparent;
-  text-decoration: none;
-  margin: 0;
-  padding: 0.1em 1ex 0.1em 5mm;
-  display: block;
-  font-family: "Lucida Grande", "bitstream vera sans", verdana, arial, helvetica, sans-serif;
-  font-weight: bold;
-}
-
-.thisPage {
-  color: black;
-  background-color: white;
-  padding-left: 4mm;
-  border-top: 1px solid rgb(153,153,153);
-  border-bottom: 1px solid rgb(153,153,153);
+    color: rgb(0,51,153);
+    background-color: transparent;
+    text-decoration: none;
+    margin: 0;
+    padding: 0.1em 1ex 0.1em 5mm;
+    display: block;
+    font-family: "Lucida Grande", "bitstream vera sans", verdana, arial, helvetica, sans-serif;
+    font-weight: bold;
 }
 
 #side-bar a:hover {
-  color: rgb(0,51,153);
-  text-decoration: underline;
+    color: rgb(0,51,153);
+    text-decoration: underline;
 }
 
 .sideBarText {
-  line-height: 1.5em;
-  margin: 0 0 1em 0;
-  padding: 0 1.5ex 0 2.5mm;
-  display: block;
+    line-height: 1.5em;
+    margin: 0 0 1em 0;
+    padding: 0 1.5ex 0 2.5mm;
+    display: block;
 }
 
 #side-bar .sideBarText a {
-  text-decoration: underline;
-  margin: 0;
-  padding: 0;
-  display: inline;
+    text-decoration: underline;
+    margin: 0;
+    padding: 0;
+    display: inline;
 }
 
 #side-bar .sideBarText a:hover {
-  color: rgb(0,102,204);
-  background-color: transparent;
-  text-decoration: none;
+    color: rgb(0,102,204);
+    background-color: transparent;
+    text-decoration: none;
 }
 
 .lighterBackground {
@@ -250,43 +218,36 @@ div.ads {
 /* ##### Main body ##### */
 
 #main-body {
-  color: black;
-  background-color: white;
-  line-height: 1.3em;
-  margin: 0 0 0 12em;
-  padding: 0.5mm 5mm 5mm 5mm;
-  border-left: 1px solid rgb(153,153,153);
-  border-bottom: 1px solid rgb(153,153,153);
+    color: black;
+    background-color: white;
+    line-height: 1.3em;
+    margin: 0 0 0 12em;
+    padding: 0.5mm 5mm 5mm 5mm;
+    border-left: 1px solid rgb(153,153,153);
+    border-bottom: 1px solid rgb(153,153,153);
 }
 
 #main-body p {
-  margin: 1em 1ex 1em 0;
-  padding: 0;
+    margin: 1em 1ex 1em 0;
+    padding: 0;
 }
 
 #main-body a {
-  color: rgb(0,51,153);
-  background-color: transparent;
-  text-decoration: underline;
+    color: rgb(0,51,153);
+    background-color: transparent;
+    text-decoration: underline;
 }
 
 #main-body a:hover {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 #main-body h1 {
-  border-bottom: 1px solid black;
-  margin: 1em 0 0 0;
-  padding: 0.5ex 0 1.0ex 0;
-  line-height: 1.0em;
-  font-size: 1.6em;
-}
-
-#main-body h2 {
+    border-bottom: 1px solid black;
     margin: 1em 0 0 0;
     padding: 0.5ex 0 1.0ex 0;
     line-height: 1.0em;
-    font-size: 1.2em;
+    font-size: 1.6em;
 }
 
 #main-body h2 {
@@ -304,26 +265,26 @@ div.ads {
 }
 
 #main-body .topOfPage {
-  color: rgb(0,51,153);
-  background-color: transparent;
-  text-decoration: none;
-  float: right;
-  padding: 2.1em 0 0 0;
+    color: rgb(0,51,153);
+    background-color: transparent;
+    text-decoration: none;
+    float: right;
+    padding: 2.1em 0 0 0;
 }
 
 dl {
-  margin: 1em 1ex 2em 1ex;
-  padding: 0;
+    margin: 1em 1ex 2em 1ex;
+    padding: 0;
 }
 
 dt {
-  margin: 0 0 0 0;
-  padding: 0;
+    margin: 0 0 0 0;
+    padding: 0;
 }
 
 dd {
-  margin: 0 0 2em 2em;
-  padding: 0;
+    margin: 0 0 2em 2em;
+    padding: 0;
 }
 
 
@@ -338,30 +299,31 @@ dd {
 }
 
 #footer {
-  color: white;
-  background-color: rgb(0,51,153);
-  margin: 0;
-  padding: 1em 2.5mm 2.5ex 2.5mm;
-  clear: both;
+    color: white;
+    background-color: rgb(0,51,153);
+    margin: 0;
+    padding: 1em 2.5mm 2.5ex 2.5mm;
+    clear: both;
 }
 
 #footer .left {
-  line-height: 1.45em;
-  float: left;
-  clear: left;
+    line-height: 1.45em;
+    float: left;
+    clear: left;
 }
 
 #footer .right {
-  text-align: right;
-  line-height: 1.45em;
+    text-align: right;
+    line-height: 1.45em;
 }
 
 #footer a {
-  color: white;
-  background-color: transparent;
-  text-decoration: underline;
+    color: white;
+    background-color: transparent;
+    text-decoration: underline;
 }
 
 #footer a:hover {
-  text-decoration: none;
+    text-decoration: none;
 }
+
