@@ -17,15 +17,15 @@ $sep = "<!-- ### -->";
 if (is_file($ff)) {
 
 /*
-    $level = intval($level);
+    $news_page = intval($news_page);
 
-    if ($level <=0 && !$SHOW_NEWS)
+    if ($news_page <=0 && !$SHOW_NEWS)
     {
-        Header("Location: ./?level=1");
+        Header("Location: ./?news_page=1");
         exit;
     }
 
-    if ($level > 0)
+    if ($news_page > 0)
     {
         $ST_TOPIC="news";
     }
@@ -49,8 +49,8 @@ if (is_file($ff)) {
     $farr = split($sep, trim($data));
     rsort($farr);
 
-    $start = $level > 0 ? ($max * $level) : 0;
-    $max = $level > 0 ? ($max * ($level+1)) : $max;
+    $start = $news_page > 0 ? ($max * $news_page) : 0;
+    $max = $news_page > 0 ? ($max * ($news_page+1)) : $max;
 
     for ($a=$start; $a<count($farr)-1; $a++) {
         $news = split("\n", trim($farr[$a]),4);
@@ -74,21 +74,21 @@ if (is_file($ff)) {
         if ($a >= $max-1) break; 
     }
 
-    if ($start == 0 && $level <= 0) {
-        print( "&lt; <a href=\"./?level=1\">Older News</a> &gt;\n" );
+    if ($start == 0 && $news_page <= 0) {
+        print( "&lt; <a href=\"./?news_page=1\">Older News</a> &gt;\n" );
     }
 
     if ($start > 0) {
         $prevlink = "&lt; Prev";
         $nextlink = "Next &gt;";
         if ( $max < count($farr)-1 )
-            $nextlink = "<a href=\"./?level=".($level+1)."\">Next &gt;</a>";
-        if ($level > 1)
-            $prevlink = "<a href=\"./?level=".($level-1)."\">&lt; Prev</a>";
+            $nextlink = "<a href=\"./?news_page=".($news_page+1)."\">Next &gt;</a>";
+        if ($news_page > 1)
+            $prevlink = "<a href=\"./?news_page=".($news_page-1)."\">&lt; Prev</a>";
         print( "<a href=\"./\">Home</a> | ".$prevlink." : ". $nextlink . "\n" );
     }
 
-    if ($level > 0) {
+    if ($news_page > 0) {
     }
 }
 ?>
