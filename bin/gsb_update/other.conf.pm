@@ -5,11 +5,12 @@
 my %other =
   (
    'IndLinux'            => {
-			     'ver' => '',
-			     'url' => '',
+			     'ver' => '0.9',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/indlinux/'
+			     'src'  => 'tar.gz',
 			    },
    'coaster'             => {
-			     'ver' => '0.1.4.1',
+			     'ver' => '0.1.4.2',
 			     'url' => 'http://www.coaster-burn.org/files/coaster/',
 			     'src' => 'tar.gz',
 			    },
@@ -19,52 +20,54 @@ my %other =
 			     'src' => 'tar.gz',
 			    },
    'dvgrab'              => {
-			     'ver' => '',
-			     'url' => '',
+			     'ver' => '1.7',
+			     'url' => 'http://kino.schirmacher.de/filemanager/download/43/'
+			     'src' => 'tar.gz',
 			    },
    'gDesklets'           => {
-			     'ver' => '',
-			     'url' => '',
+			     'ver' => '0.33.1',
+			     'url' => 'http://www.pycage.de/download/gdesklets/',
+			     'src' => 'tar.bz2',
 			    },
    'gaim'                => {
-			     'ver' => '',
-			     'url' => '',
+			     'ver' => '1.1.2',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gaim',
+			     'src' => 'tar.bz2',
 			    },
    'galeon'              => {
-			     'ver' => '',
-			     'url' => '',
+			     'ver' => '1.3.19',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/galeon',
+			     'src' => 'tar.bz2',
 			    },
    'gftp'                => {
-			     'ver' => '',
-			     'url' => '',
-			    },
-   'ghex'                => {
-			     'ver' => '',
-			     'url' => '',
-			    },
-   'glade'               => {
-			     'ver' => '',
-			     'url' => '',
+			     'ver' => '2.0.18',
+			     'url' => 'http://gftp.seul.org/',
+			     'src' => 'tar.bz2',
 			    },
    'gnomebaker'          => {
-			     'ver' => '',
-			     'url' => '',
+			     'ver' => '0.3',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gnomebaker/',
+			     'src' => 'tar.gz',
 			    },
    'graveman'            => {
-			     'ver' => '',
-			     'url' => '',
+			     'ver' => '0.3.6',
+			     'url' => 'http://www.nongnu.org/graveman/',
+			     'src' => 'tar.bz2',
 			    },
    'gtkpod'              => {
-			     'ver' => '',
+			     'ver' => '0.85.0',
 			     'url' => '',
+			     'src' => 'tar.gz',
 			    },
    'gtkspell'            => {
-			     'ver' => '',
-			     'url' => '',
+			     'ver' => '2.0.8',
+			     'url' => 'http://gtkspell.sourceforge.net/download/',
+			     'src' => 'tar.gz',
 			    },
    'kino'                => {
-			     'ver' => '',
-			     'url' => '',
+			     'ver' => '0.7.5',
+			     'url' => 'http://kino.schirmacher.de/filemanager/download/42/'
+			     'src' => 'tar.gz',
 			    },
    'libburn'             => {
 			     'ver' => '0.2',
@@ -77,21 +80,22 @@ my %other =
 			     'src' => 'tar.gz'
 			    },
    'libmikmod'           => {
-			     'ver' => '',
-			     'url' => '',
+			     'ver' => '3.1.11',
+			     'url' => 'http://mikmod.raphnet.net/files/'
+			     'src' => 'tar.gz',
 			    },
   );
 
 my %other_gnome =
   (
-   'NetworkManager'      => '',
-   'evince'              => '',
-   'ghex'                => '',
-   'glade'               => '',
-   'gnome-audio'         => '',
-   'gnome-cups-manager'  => '',
+   'NetworkManager'      => '0.3.1',
+   'evince'              => '0.1.4',
+   'ghex'                => '2.8.1',
+   'glade'               => '2.9.0',
+   'gnome-audio'         => '2.0.0',
+   'gnome-cups-manager'  => '0.28',
    'gthumb'              => '2.6.3',
-   'rhythmbox'           => '',
+   'rhythmbox'           => '0.8.8',
   );
 
 #

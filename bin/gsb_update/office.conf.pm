@@ -66,7 +66,7 @@ my %office_gnome_libs =
 
 my %office_gnome =
   (
-   'gnumeric'  => '1.4.2',
+   'gnumeric'  => '1.5.0',
    'dia'       => '0.94',
    'mergeant'  => '0.52',
   );

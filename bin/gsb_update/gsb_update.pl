@@ -5,10 +5,16 @@
 #
 # TODO:
 #   - implement office updating
-#   - check if version is older or just different, then substitute new 
+#   - check if version is older or just different, then substitute new
 #     version variable. If VERSION is changed change BUILD back to 1
-#   - auto download themes, ximian-artwork rpm and extract
+#   - auto download themes. Get ximian-artwork rpm and extract
 #   - cli args: --conf={all,gnome,requirements,gstreamer,office,other}
+#               --getrelease
+#               --getlocal
+#   - need to account for packages (ie. avifile,openh323,pwlib,ffmpeg)
+#     with both a VERSION Var and a PVERSION var so that both are updated
+#   - for packages on sourceforge, change url to sf and have a function randomly download each
+#     package from a different mirror
 #
 # $Id$
 
@@ -74,7 +80,9 @@ sub show_help {
 
   $0 --conf=\<arg or all\>
 
-  --conf   which files to download: gnome, gstreamer, office, other, requirements
+  --conf         which files to download: gnome, gstreamer, office, other, requirements
+  --getlocal     get files from local directory, instead of mirror
+  --getrelease   download release so that --local can be used
 
 EOF
 }

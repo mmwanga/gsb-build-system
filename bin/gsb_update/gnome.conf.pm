@@ -55,7 +55,7 @@ my %platform_fdo =
 # need to move howl, openh323-pwlib
 my %desktop =
   (
-   'bug-buddy'              => '',
+   'bug-buddy'              => '2.9.91',
    'control-center'         => '',
    'dasher'                 => '',
    'eel'                    => '',
@@ -103,7 +103,7 @@ my %desktop =
    'gnopernicus'            => '0.10.1',
    'gok'                    => '',
    'goobox'                 => '',
-   'gpdf'                   => '',
+   'gpdf'                   => '2.9.3',
    'gtk-engines'            => '',
    'gtkhtml'                => '3.5.6',
    'gtksourceview'          => '1.1.92',
@@ -134,38 +134,42 @@ my %desktop =
    'zenity'                 => '',
   );
 
-# bakery is not on gnome ftp, ??? libxml++, ??? python stuff
-my %bindings =
+my %bindings_cxx =
   (
-
-   'bakery'            => '',
-   'gconfmm'           => '',
-   'glibmm'            => '',
-   'gnome-vfsmm'       => '',
-   'gtkmm'             => '',
-   'libglademm'        => '',
-   'libgnomecanvasmm'  => '',
-   'libgnomemm'        => '',
-   'libgnomeuimm'      => '',
-   'libsigc++'         => '',
-   'libxml++'          => '',
-
+   'bakery'            => '2.3.11',
+   'gconfmm'           => '2.9.2',
+   'glibmm'            => '2.5.5',
+   'gnome-vfsmm'       => '2.8.0',
+   'gtkmm'             => '2.5.5',
+   'libglademm'        => '2.5.1',
+   'libgnomecanvasmm'  => '2.8.0',
+   'libgnomemm'        => '2.8.0',
+   'libgnomeuimm'      => '2.8.0',
+   'libsigc++'         => '2.0.9',
+   'libxml++'          => '2.9.1',
+  );
+my %bindings_java =
+  (
    'libgconf-java'  => '2.9.91',
    'libglade-java'  => '2.9.91',
    'libgnome-java'  => '2.9.91',
    'libgtk-java'    => '2.9.91',
+  );
 
-   'gnome-python'         => '',
-   'gnome-python-extras'  => '',
-   'pygtk'                => '',
-   'pyorbit'              => '',
+my %bindings_python =
+  (
+   'gnome-python'         => '2.9.4',
+   'gnome-python-extras'  => '2.9.3',
+   'pygtk'                => '2.5.3',
+   'pyorbit'              => '2.0.1',
+   'pyphany'              => '0.1.1',
   );
 
 my %themes =
   (
-   'gnome-extra-themes'   => '',
-   'gnome-themes-extras'  => '',
-   'ximian-artwork'       => '',
+   'gnome-extra-themes'   => '1.0.1',
+   'gnome-themes-extras'  => '0.8.0',
+   'ximian-artwork'       => '0.2.29',
   );
 
 #
