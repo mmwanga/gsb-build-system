@@ -15,7 +15,7 @@ of GNOME Volume Manager and (foo), the 2.6 kernel is needed.
 2005-03-30-16-00-EST
 freerock
 My Mime Types/File Associations are all screwed up. What do I do?
-<p>Run the following commands as root:<p>
+<p>Run the following commands as root:</p>
 <blockquote><p>
  <code><strong>
 /usr/bin/update-mime-database /usr/share/mime
