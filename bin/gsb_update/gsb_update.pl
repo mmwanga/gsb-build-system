@@ -1,4 +1,4 @@
-#/usr/bin/perl
+#!/usr/bin/perl
 
 # Script that will download the latest gnome release and then
 # update the various SlackBuilds in GSB.
@@ -11,12 +11,23 @@
 #   - cli args: --conf={all,gnome,requirements,gstreamer,office,other}
 #
 # $Id$
+
 use strict;
 use warnings;
 
 ################################################################################
 # Config Options
 #
+
+# the .conf.pm files
+my @conf =
+  (
+   'gnome',
+   'gstreamer',
+   'office',
+   'other',
+   'requirements',
+  );
 
 my %gnome =
   (
@@ -44,6 +55,11 @@ my $bfiledir = $gfiledir . $gnome{bindings} . $grelease;
 #
 # main()
 
+if (@ARGV != 1) {
+  show_help();
+  exit (0);
+}
+
 # end main()
 #
 ################################################################################
@@ -51,6 +67,17 @@ my $bfiledir = $gfiledir . $gnome{bindings} . $grelease;
 ################################################################################
 #
 # Begin Functions
+
+sub show_help {
+
+  print STDERR <<EOF;
+
+  $0 --conf=\<arg or all\>
+
+  --conf   which files to download: gnome, gstreamer, office, other, requirements
+
+EOF
+}
 
 # End Functions
 #
