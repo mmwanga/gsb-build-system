@@ -53,8 +53,8 @@ sub show_help {
                  files. ie --build=frg would make BUILD=1frg
 
 NOT WORKING YET
-  --conf         which files to download: gnome, gstreamer, office
-                                          other, requirements
+  --conf         which files to download: platform, desktop, desktop_reqs,
+                                          office, other, bindings, themes
   --getlocal     get files from local directory, instead of mirror
   --getrelease   download release so that --getlocal can be used
 
