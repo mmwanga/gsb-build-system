@@ -35,6 +35,7 @@ CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
 	  --enable-xft \
 	  --with-libxml2 \
 	  --enable-curl \
+	  --disable-magick \
 	  i486-slackware-linux
 make
 make install DESTDIR=$PKG
