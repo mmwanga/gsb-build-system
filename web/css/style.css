@@ -137,7 +137,7 @@ div.ads {
   color: white;
   background-color: rgb(0,51,153);
   margin: 0;
-  padding: 1ex 1ex 1ex 1.5mm;
+  padding: 0.2ex 1ex 0.2ex 1.5mm;
 }
 
 .subHeader a {
@@ -146,6 +146,7 @@ div.ads {
   text-decoration: none;
   font-weight: bold;
   margin: 0;
+  font-family: "Courier New", Courier, monospace;
   padding: 0 0.75ex 0 0.5ex;
 }  
 
