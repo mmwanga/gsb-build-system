@@ -80,7 +80,7 @@
       <tt>upgradepkg --install-new</tt></li>
     </ol>
 
-    <h2 id="roadmap">Road Map</h2>
+    <h2 id="roadmap">Roadmap</h2>
 
     <ul>
       <li>Gnome 2.9.90 (2.10.0 Beta 1)

@@ -14,7 +14,8 @@
       <ul>
         <li><a href="./">Home</a></li>
 
-        <li><a href="#about">About GSB</a></li>
+        <li><a href="#about" title=
+        "About the GSB Project">About GSB</a></li>
 
         <li><a href="#downloads" title=
         "Downloads">Downloads</a></li>
@@ -22,7 +23,7 @@
         <li><a href="#instrux" title=
         "Installation Instructions">Installation</a></li>
 
-        <li><a href="#roadmap" title="Roadmap">Road Map</a></li>
+        <li><a href="#roadmap" title="Roadmap">Roadmap</a></li>
 
         <li><a href="#todo" title="TODO">TODO</a></li>
 
