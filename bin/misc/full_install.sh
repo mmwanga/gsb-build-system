@@ -1,28 +1,32 @@
 #!/bin/sh
 
+FRGROOT=`dirname $0`
+
 # Install minimum install
-sh ./min_install.sh
+sh $FRGROOT/min_install.sh
 
 # Install Themes
 (
-  cd themes
+  cd $FRGROOT/themes
   upgradepkg --install-new *.tgz
 )
   
 # Install Language Bindings
 (
-  cd bindings
+  cd $FRGROOT/bindings
   upgradepkg --install-new *.tgz
 )
 
 # Install Office
 (
-  cd office
+  cd $FRGROOT/office
   upgradepkg --install-new *.tgz
 )
 
 # Install Other misc programs
 (
-  cd other
+  cd $FRGROOT/other
   upgradepkg --install-new *.tgz
 )
+
+/usr/bin/update-mime-database /usr/share/mime
