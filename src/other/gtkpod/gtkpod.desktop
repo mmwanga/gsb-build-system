@@ -1,0 +1,10 @@
+[DESKTOP ENTRY]
+Name=gtkpod
+Comment=gtkpod
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Categories=Application;AudioVideo;
+Icon=gtkpod.png
+Terminal=false
+Exec=gtkpod

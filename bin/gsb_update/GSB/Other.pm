@@ -20,6 +20,11 @@ our %other =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/indlinux/',
 			     'src'  => 'tar.gz',
 			    },
+   'bluefish'            => {
+			     'ver' => '1.0',
+			     'url' => 'http://pkedu.fbt.eitn.wau.nl/~olivier/downloads/',
+			     'src' => 'tar.bz2',
+			    },
    'coaster'             => {
 			     'ver' => '0.1.4.2',
 			     'url' => 'http://www.coaster-burn.org/files/coaster/',
