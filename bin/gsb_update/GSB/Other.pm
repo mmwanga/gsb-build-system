@@ -30,6 +30,11 @@ our %other =
 			     'url' => 'http://www.coaster-burn.org/files/coaster/',
 			     'src' => 'tar.gz',
 			    },
+   'drivel'              => {
+			     'ver' => '1.3.2',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/drivel/',
+			     'src' => 'tar.bz2',
+			    },
    'dvgrab'              => {
 			     'ver' => '1.7',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/kino/',

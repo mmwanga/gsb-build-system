@@ -47,7 +47,8 @@ sabayon
 xchat
 gimp
 streamripper
-streamtuner"
+streamtuner
+drivel"
 
 (
 for i in $BUILD_ORDER
