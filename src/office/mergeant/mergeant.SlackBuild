@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-mergeant
 
-VERSION=0.12.1
+VERSION=0.52
 ARCH=i486
 BUILD=1
 

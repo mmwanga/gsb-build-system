@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-gnumeric
 
-VERSION=1.3.0
+VERSION=1.5.0
 ARCH=i486
 BUILD=1
 

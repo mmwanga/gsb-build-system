@@ -6,16 +6,16 @@ if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 
+#not included: libgda, libgnomedb, eps
+
 BUILD_ORDER="aiksaurus
-eps
-libots
+ots
 libwmf
 libwpd
 psiconv
 fribidi
 enchant
-libgda
-libgnomedb"
+libgsf"
 
 (
 

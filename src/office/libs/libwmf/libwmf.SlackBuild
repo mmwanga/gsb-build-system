@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-libwmf
 
-VERSION=0.2.8
+VERSION=0.2.8.3
 ARCH=i486
 BUILD=1
 

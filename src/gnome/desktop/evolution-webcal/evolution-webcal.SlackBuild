@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-evolution-webcal
 
-VERSION=2.1.4
+VERSION=2.1.91
 ARCH=i486
 BUILD=1
 

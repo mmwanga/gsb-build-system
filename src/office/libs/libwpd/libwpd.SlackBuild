@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-libwpd
 
-VERSION=0.6.5
+VERSION=0.7.2
 ARCH=i486
 BUILD=1
 

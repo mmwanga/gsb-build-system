@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-libbonoboui
 
-VERSION=2.8.0
+VERSION=2.8.1
 ARCH=i486
 BUILD=1
 

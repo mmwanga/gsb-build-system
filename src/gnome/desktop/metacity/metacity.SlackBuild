@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-metacity
 
-VERSION=2.9.8
+VERSION=2.9.13
 ARCH=i486
 BUILD=1
 

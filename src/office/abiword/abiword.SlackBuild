@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-abiword
 
-VERSION=2.1.1
+VERSION=2.2.3
 ARCH=i486
 BUILD=1
 
@@ -18,7 +18,9 @@ mkdir -p $PKG
 
 cd $TMP 
 tar xjvf $CWD/abiword-$VERSION.tar.bz2
-cd abiword-$VERSION/abi
+cd abiword-$VERSION
+(
+cd abi 
 #
 if [ ! -r configure ]; then
   sh autogen.sh
@@ -33,15 +35,35 @@ CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
 	  --enable-xft \
 	  --with-libxml2 \
 	  --enable-curl \
-	  --with-pspell \
 	  i486-slackware-linux
 make
 make install DESTDIR=$PKG
+)
+(
+cd abiword-plugins
+#
+if [ ! -r configure ]; then
+  sh autogen.sh
+fi
+CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
+          --disable-static \
+          --enable-gnome \
+          --enable-all \
+          i486-slackware-linux
+make
+make install DESTDIR=$PKG
+)
 
 chown -R root.bin $PKG/usr/bin
 
-rm -rf $PKG/usr/share/icons
+mkdir -p $PKG/usr/share/pixmaps
+mv $PKG/usr/share/icons/abiword_48.png $PKG/usr/share/pixmaps
+(
+  cd $PKG/usr/share/icons/
+  ln -sf ../pixmaps/abiword_48.png .
+)
 
+cd abi
 mkdir -p $PKG/usr/doc/abiword-$VERSION/docs
 cp -a BUILD.TXT BiDiReadme.txt COPYING CREDITS.TXT README.TXT \
   COPYRIGHT.TXT \
@@ -61,26 +83,6 @@ chown -R root.root $PKG/usr/doc/abiword-$VERSION/*
 
 mkdir $PKG/usr/share/applications
 cat abiword.desktop > $PKG/usr/share/applications/abiword.desktop
-
-mkdir -p $PKG/usr/share/pixmaps
-cp abiword_48.png $PKG/usr/share/pixmaps
-
-#
-# Install abiword plugins
-#
-
-(
-  cd $TMP/abiword-$VERSION/abiword-plugins
-  if [ ! -r configure ]; then
-    sh nextgen.sh
-  fi
-  CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
-            --disable-static \
-            --with-abiword=$TMP/abiword-$VERSION/abi \
-            i486-slackware-linux
-  make
-  make install DESTDIR=$PKG
-)
 
 find $PKG -type f | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded
 gzip -9 $PKG/usr/man/*/*

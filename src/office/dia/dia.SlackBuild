@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-dia
 
-VERSION=0.93-pre1
+VERSION=0.94
 ARCH=i486
 BUILD=1
 

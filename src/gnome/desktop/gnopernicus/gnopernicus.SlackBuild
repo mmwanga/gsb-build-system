@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-gnopernicus
 
-VERSION=0.10.0
+VERSION=0.10.1
 ARCH=i486
 BUILD=1
 

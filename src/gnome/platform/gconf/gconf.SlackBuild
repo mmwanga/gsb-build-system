@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-GConf
 
-VERSION=2.9.2
+VERSION=2.9.91
 ARCH=i486
 BUILD=1
 

@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-eps
 
-VERSION=1.2
+VERSION=1.5
 ARCH=i486
 BUILD=1
 
