@@ -28,7 +28,7 @@ it out.</p>
 ###
 2005-02-19-12-00-EST
 freerock
-Freerock's GNOME version 0.0.2.2 Released:
+Freerock's GNOME version 0.0.2.2 Released
 <p>It is available for download as an iso on the <a href="/downloads">download</a> page.
 <br />
 This release is a bug fix release:</p>
@@ -48,7 +48,7 @@ their slackware packages.</p>
 ###
 2005-02-18-14-20-EST
 freerock
-Fix for abiword package:
+Fix for abiword package
 <p><tt>rm -f /usr/lib/AbiWord-2.2/plugins/libAbiMagick.*</tt></p>
 <p>new iso version 0.0.2.2 with this and other fixes will be
 avaiable tomorrow afternoon</p>
@@ -56,7 +56,7 @@ avaiable tomorrow afternoon</p>
 ###
 2005-02-17-20-00-CST
 chipster
-Some Screenshots Available:
+Some Screenshots Available
 <p>Mark M. Young has made some of his screenshots available. They
 are somewhat small, but certainly  better than nothing for now :)
 Thanks Mark!<br />
@@ -65,7 +65,7 @@ http://photobucket.com/albums/v710/MMYoung/</p>
 ###
 2005-02-15-15-40-EST
 freerock
-GNOME-2.9.91 Packages Available:
+GNOME-2.9.91 Packages Available
 <p>0.0.2.1 release slightly broken. howl doesn't get installed and
 openldap/cyrus-sasl packages are missing. For evolution,
 rsync://freerock.dyndns.org/pub/gsb/ has the missing packages for
@@ -75,14 +75,14 @@ installed.</p>
 ###
 2005-02-13-19-08-CST
 chipster
-Site Updates:
+Site Updates
 <p>Welcome to the new GSB web site. Please bear with us as we
 continue to make the site better for you.</p>
 
 ###
 2005-02-11-22-34-EST
 freerock
-GSB - A fresh GNOME Distribution for Slackware Linux:
+GSB - A fresh GNOME Distribution for Slackware Linux
 <p>The GSB project has made front-page headlines on GnomeDesktop.org.
 See:<br />
 http://gnomedesktop.org/node/2152</p>
