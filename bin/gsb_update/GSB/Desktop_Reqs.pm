@@ -77,21 +77,3 @@ our %stupid_gnomemeeting_libs =
 #
 # End Config Options
 ################################################################################
-
-################################################################################
-#
-# Functions
-
-sub gsb_gnomemeeting_libs_url_make {
-  my $name = shift;
-  my $url  = shift;
-  my $ver  = shift;
-  my $src  = shift;
-
-  my $gsburl = "$url/$name-$ver.$src";
-  return $gsburl;
-}
-
-#
-#
-################################################################################

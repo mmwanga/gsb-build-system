@@ -10,6 +10,8 @@ our @EXPORT    = qw(%platform %platform_diff_naming %platform_fdo %desktop
 our @EXPORT_OK = qw(%gnome);
 our $VERSION   = 0.03;
 
+use GSB::Verify;
+
 ################################################################################
 # Config Options
 #
@@ -74,40 +76,138 @@ sub gsb_get {
 # simple function to take a file name and url and download a source tarball
 # gsb_tarball_get($file, $url);
 sub gsb_tarball_get {
-  my $file = shift;
-  my $url = shift;
+
+  my $name    = shift;
+  my $ver     = shift;
+  my $tarball = shift;
+  my $type    = shift;
+  my $url     = shift;
 
   system("wget $wget_options $url");
+
+  my $verify = "";
+  $verify = GSB::Verify::gsb_md5_verify($name, $ver, $type);
+
+  if ( $verify ne "" ) {
+    if ( $verify eq "bad" ) {
+      unlink $tarball;
+      gsb_tarball_get($name, $ver, $tarball, $url);
+    }
+    elsif ( $verify eq "good" ) {
+      print "$name tarball md5 matches\n";
+    }
+    else {
+      print "md5 not checked\n";
+    }
+  }
 }
 
-# hash has 3 keys
-# give name, url, version, srctarballtype
-# FIXME: change args to $url, $tarball
+# give url, tarball name
 sub gsb_other_url_make {
-  my $name = shift;
-  my $url  = shift;
-#  my $tarball = shift;
-  my $ver  = shift;
-  my $src  = shift;
 
-#  my $thisurl = "$url/$tarball";
-  my $thisurl = "$url/$name-$ver.$src";
+  my $url     = shift;
+  my $tarball = shift;
 
-  return $thisurl;
+  return my $thisurl = "$url/$tarball";
 }
 
 # Generic URL to download from gnome's ftp sources directory
 sub gsb_gnome_generic_url_make {
   my $name = shift;
   my $ver  = shift;
+  my $type = shift;
 
   # get shortened directory name from version
   my $sver = join '.', (split( /\./, $ver ))[0,1];
 
-  my $thisurl = "$gsrcdir/$name/$sver/$name-$ver.tar.bz2";
+  return my $thisurl = "$gsrcdir/$name/$sver/$name-$ver.tar.bz2";
+}
+
+
+# construct a url for a md5 sum of a gnome tarball
+sub gsb_gnome_md5sum_url_make {
+  my $name = shift;
+  my $ver  = shift;
+
+  # get shortened directory name from version
+  my $sver = join '.', (split( /\./, $ver ))[0,1];
+
+  my $thisurl = "$gsrcdir/$name/$sver/$name-$ver.md5sum";
   return $thisurl;
 }
 
+# construct a url for a md5 sum file of some tarball
+sub gsb_other_md5sum_url_make {
+  my $url      = shift;
+  my $md5_file = shift;
+
+  return my $thisurl = "$url/$md5_file";
+}
+
+
+sub gsb_gnome_tarball_get {
+
+  my $name    = shift;
+  my $ver     = shift;
+  my $tarball = shift;
+
+  my $type = "gnome";
+
+  my $url     = GSB::GSB::gsb_gnome_generic_url_make($name, $ver);
+  my $md5_url = GSB::GSB::gsb_gnome_md5sum_url_make($name, $ver);
+
+  system("wget $wget_options $url $md5_url");
+
+  my $verify = "";
+  $verify = GSB::Verify::gsb_md5_verify($name, $ver, $type);
+
+  if ( $verify ne "" ) {
+    if ( $verify eq "bad" ) {
+      unlink $tarball;
+      gsb_tarball_get($name, $ver, $tarball, $url);
+    }
+    elsif ( $verify eq "good" ) {
+      print "\n *** $name tarball md5 matches ***\n\n\n";
+    }
+    else {
+      print "\n\n DEBUG: md5 not checked\n\n\n";
+    }
+  }
+
+}
+
+sub gsb_gnome_tarball_name_make {
+
+  my $name = shift;
+  my $ver  = shift;
+
+  return my $tarball = "$name-$ver.tar.bz2";
+}
+
+sub gsb_gnome_md5sum_name_make {
+
+  my $name = shift;
+  my $ver  = shift;
+
+  return my $tarball = "$name-$ver.md5sum";
+}
+
+sub gsb_generic_tarball_name_make {
+
+  my $name = shift;
+  my $ver  = shift;
+  my $src  = shift;
+
+  return my $tarball = "$name-$ver.$src";
+}
+
+
+# End Functions
+#
+################################################################################
+
+# Functions that were written but are not used:
+# left here in case we use them again
 
 # Give name and version to function
 sub gsb_gnome_platform_url_make {
@@ -138,27 +238,3 @@ sub gsb_gnome_bindings_url_make {
   my $thisurl = "$bfiledir/$binding_type/$name-$ver.tar.bz2";
   return $thisurl;
 }
-
-# construct a url for a md5 sum of a gnome tarball
-sub gsb_gnome_md5sum_url_make {
-  my $name = shift;
-  my $ver  = shift;
-
-  # get shortened directory name from version
-  my $sver = join '.', (split( /\./, $ver ))[0,1];
-
-  my $thisurl = "$gsrcdir/$name/$sver/$name-$ver.md5sum";
-  return $thisurl;
-}
-
-# construct a url for a md5 sum file of some tarball
-sub gsb_other_md5sum_url_make {
-  my $url      = shift;
-  my $md5_file = shift;
-
-  return my $thisurl = "$url/$md5_file";
-}
-
-# End Functions
-#
-################################################################################

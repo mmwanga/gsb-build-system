@@ -7,6 +7,7 @@
 #
 #   - Themes.pm: themes for gnome-extra-themes need to be auto downloaded
 #   - Verify.pm: add md5 and gpg checking of src tarballs
+#   - add perl bindings to auto download
 #
 # TODO AFTER 0.2.0 release:
 #
@@ -155,20 +156,22 @@ my $pwd = getcwd();
 # DOWNLOAD Platform
 foreach my $ppackage (keys %platform) {
 
+  my $name = $ppackage;
+  my $ver  = $platform{$name};
+
+  my $sb_file = $name . $sb_ext;
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
+
   chdir "$pwd/gnome/platform/$ppackage";
-  my $sb_file = $ppackage. $sb_ext;
-  my $tarball = "$ppackage-$platform{$ppackage}.tar.bz2";
 
   if ( $download eq "true" ) {
     if ( ! -f $tarball ) {
-#      my $url = GSB::GSB::gsb_gnome_platform_url_make($ppackage, $platform{$ppackage});
-      my $url = GSB::GSB::gsb_gnome_generic_url_make($ppackage, $platform{$ppackage});
-      GSB::GSB::gsb_tarball_get($ppackage, $url);
+      GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
     }
   }
 
   if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $platform{$ppackage});
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
   }
 
   if ( $build ne "" ) {
@@ -176,7 +179,7 @@ foreach my $ppackage (keys %platform) {
   }
 
   if ( ! -f $tarball ) {
-    push(@bad_downloads, $ppackage );
+    push(@bad_downloads, $name );
   }
 }
 
@@ -184,17 +187,16 @@ foreach my $ppackage (keys %platform) {
 foreach my $pnpackage (keys %platform_diff_naming) {
 
   chdir "$pwd/gnome/platform/$pnpackage";
+
   my $sb_file = $pnpackage. $sb_ext;
   my $name = $platform_diff_naming{$pnpackage}{name};
   my $ver  = $platform_diff_naming{$pnpackage}{ver};
 
-  my $tarball = "$name-$ver.tar.bz2";
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
 
   if ( $download eq "true" ) {
     if ( ! -f $tarball ) {
-#      my $url = GSB::GSB::gsb_gnome_platform_url_make($name, $ver);
-      my $url = GSB::GSB::gsb_gnome_generic_url_make($name, $ver);
-      GSB::GSB::gsb_tarball_get($pnpackage, $url);
+      GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
     }
   }
 
@@ -214,18 +216,22 @@ foreach my $pnpackage (keys %platform_diff_naming) {
 # DOWNLOAD freedesktop.org platform libs
 foreach my $fdopackage (keys %platform_fdo) {
 
-  chdir "$pwd/gnome/platform/$fdopackage";
-  my $sb_file = $fdopackage . $sb_ext;
-  my $packurl = $platform_fdo{$fdopackage}{url};
-  my $ver     = $platform_fdo{$fdopackage}{ver};
-  my $src     = $platform_fdo{$fdopackage}{src};
+  my $name    = $fdopackage;
 
-  my $tarball = "$fdopackage-$ver.$src";
+  my $sb_file = $name . $sb_ext;
+  my $packurl = $platform_fdo{$name}{url};
+  my $ver     = $platform_fdo{$name}{ver};
+  my $src     = $platform_fdo{$name}{src};
+  my $type    = "fdo";
+
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+
+  chdir "$pwd/gnome/platform/$name";
 
   if ( $download eq "true") {
     if ( ! -f $tarball ) {
-      my $url = GSB::GSB::gsb_other_url_make($fdopackage, $packurl, $ver, $src);
-      GSB::GSB::gsb_tarball_get($fdopackage, $url);
+      my $url = GSB::GSB::gsb_other_url_make($packurl, $tarball);
+      GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
     }
   }
 
@@ -238,25 +244,29 @@ foreach my $fdopackage (keys %platform_fdo) {
   }
 
   if ( ! -f $tarball ) {
-    push(@bad_downloads, $fdopackage);
+    push(@bad_downloads, $name);
   }
 }
 
 # Download Desktop Reqs
 foreach my $drpackage (keys %desktop_reqs) {
 
-  chdir "$pwd/gnome/desktop_reqs/$drpackage";
-  my $sb_file = $drpackage . $sb_ext;
-  my $packurl = $desktop_reqs{$drpackage}{url};
-  my $ver     = $desktop_reqs{$drpackage}{ver};
-  my $src     = $desktop_reqs{$drpackage}{src};
+  my $name    = $drpackage;
 
-  my $tarball = "$drpackage-$ver.$src";
+  my $sb_file = $name . $sb_ext;
+  my $packurl = $desktop_reqs{$name}{url};
+  my $ver     = $desktop_reqs{$name}{ver};
+  my $src     = $desktop_reqs{$name}{src};
+  my $type    = "other";
+
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+
+  chdir "$pwd/gnome/desktop_reqs/$name";
 
   if ( $download eq "true") {
     if ( ! -f $tarball ) {
-      my $url = GSB::GSB::gsb_other_url_make($drpackage, $packurl, $ver, $src);
-      GSB::GSB::gsb_tarball_get($drpackage, $url);
+      my $url = GSB::GSB::gsb_other_url_make($packurl, $tarball);
+      GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
     }
   }
 
@@ -269,95 +279,67 @@ foreach my $drpackage (keys %desktop_reqs) {
   }
 
   if ( ! -f $tarball ) {
-    push(@bad_downloads, $drpackage);
+    push(@bad_downloads, $name);
   }
 }
 
 # Download Desktop Reqs for gnomemeeting
 foreach my $gmpackage (keys %stupid_gnomemeeting_libs) {
 
-  my $pack = "openh323-pwlib";
+  my $name    = $gmpackage;
+  my $pack    = "openh323-pwlib";
+
+  my $sb_file = $pack . $sb_ext;
+  my $packurl = $stupid_gnomemeeting_libs{$name}{url};
+  my $ver     = $stupid_gnomemeeting_libs{$name}{ver};
+  my $src     = $stupid_gnomemeeting_libs{$name}{src};
+  my $var     = $stupid_gnomemeeting_libs{$name}{var};
+  my $type    = "other";
+
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
 
   chdir "$pwd/gnome/desktop_reqs/$pack";
-  my $sb_file = $pack . $sb_ext;
-  my $packurl = $stupid_gnomemeeting_libs{$gmpackage}{url};
-  my $ver     = $stupid_gnomemeeting_libs{$gmpackage}{ver};
-  my $src     = $stupid_gnomemeeting_libs{$gmpackage}{src};
-  my $var     = $stupid_gnomemeeting_libs{$gmpackage}{var};
-
-  my $tarball = "$gmpackage-$ver.$src";
 
   if ( $download eq "true") {
     if ( ! -f $tarball ) {
-      my $url = GSB::Desktop_Requirements::gsb_gnomemeeting_libs_url_make($gmpackage, $packurl, $ver, $src);
-      GSB::GSB::gsb_tarball_get($gmpackage, $url);
+      my $url = GSB::GSB::gsb_other_url_make($packurl, $tarball);
+      GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
     }
   }
 
   if ( $edit eq "true" ) {
-    if ( $gmpackage eq "openh323" ) {
+    if ( $name eq "openh323" ) {
       GSB::Edit::gsb_sb_edit($sb_file, $ver);
     }else {
       GSB::Edit::gsb_sb_double_edit($sb_file, $ver, $var);
     }
   }
 
-  if ( $gmpackage eq "openh323" ) {
+  if ( $name eq "openh323" ) {
     if ( $build ne "" ) {
       GSB::Edit::gsb_build_release_make($sb_file, $build);
     }
   }
 
   if ( ! -f $tarball ) {
-    push(@bad_downloads, $gmpackage);
+    push(@bad_downloads, $name);
   }
 }
-
 
 # Download Desktop Packages
 foreach my $dpackage (keys %desktop) {
 
-  chdir "$pwd/gnome/desktop/$dpackage";
-  my $sb_file = $dpackage . $sb_ext;
-  my $tarball = "$dpackage-$desktop{$dpackage}\.tar.bz2";
+  my $name    = $dpackage;
+  my $ver     = $desktop{$name};
 
-  if ( $download eq "true") {
-    if ( ! -f $tarball ) {
-#      my $url = GSB::GSB::gsb_gnome_desktop_url_make($dpackage, $desktop{$dpackage});
-      my $url = GSB::GSB::gsb_gnome_generic_url_make($dpackage, $desktop{$dpackage});
-      GSB::GSB::gsb_tarball_get($dpackage, $url);
-    }
-  }
+  my $sb_file = $name . $sb_ext;
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
 
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $desktop{$dpackage});
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $dpackage);
-  }
-}
-
-
-# DOWNLOAD other desktop tarballs
-foreach my $dnpackage (keys %desktop_diff_naming) {
-
-  chdir "$pwd/gnome/desktop/$dnpackage";
-  my $sb_file = $dnpackage. $sb_ext;
-  my $name = $desktop_diff_naming{$dnpackage}{name};
-  my $ver  = $desktop_diff_naming{$dnpackage}{ver};
-
-  my $tarball = "$name-$ver.tar.bz2";
+  chdir "$pwd/gnome/desktop/$name";
 
   if ( $download eq "true" ) {
     if ( ! -f $tarball ) {
-#      my $url = GSB::GSB::gsb_gnome_platform_url_make($name, $ver);
-      my $url = GSB::GSB::gsb_gnome_generic_url_make($name, $ver);
-      GSB::GSB::gsb_tarball_get($dnpackage, $url);
+      GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
     }
   }
 
@@ -370,26 +352,57 @@ foreach my $dnpackage (keys %desktop_diff_naming) {
   }
 
   if ( ! -f $tarball ) {
-    push(@bad_downloads, $dnpackage);
+    push(@bad_downloads, $name);
+  }
+}
+
+# DOWNLOAD other desktop tarballs
+foreach my $dnpackage (keys %desktop_diff_naming) {
+
+  my $pack    = $dnpackage;
+  my $sb_file = $pack . $sb_ext;
+  my $name    = $desktop_diff_naming{$pack}{name};
+  my $ver     = $desktop_diff_naming{$pack}{ver};
+
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
+
+  chdir "$pwd/gnome/desktop/$pack";
+
+  if ( $download eq "true" ) {
+    if ( ! -f $tarball ) {
+      GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
+    }
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $pack);
   }
 }
 
 # DOWNLOAD some other desktop tarballs
 foreach my $dopackage (keys %desktop_other) {
 
-  chdir "$pwd/gnome/desktop/$desktop_other{$dopackage}{dir}";
-
-  my $sb_file = $desktop_other{$dopackage}{dir} . $sb_ext;
   my $name = $dopackage;
-  my $ver  = $desktop_other{$dopackage}{ver};
+  my $ver  = $desktop_other{$name}{ver};
+  my $sb_file = $desktop_other{$name}{dir} . $sb_ext;
 
-  my $tarball = "$name-$ver.tar.bz2";
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
+
+  chdir "$pwd/gnome/desktop/$desktop_other{$name}{dir}";
+
+  print "********** $tarball\n";
 
   if ( $download eq "true" ) {
     if ( ! -f $tarball ) {
-#      my $url = GSB::GSB::gsb_gnome_desktop_url_make($name, $ver);
-      my $url = GSB::GSB::gsb_gnome_generic_url_make($name, $ver);
-      GSB::GSB::gsb_tarball_get($dopackage, $url);
+      GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
     }
   }
 
@@ -401,25 +414,28 @@ foreach my $dopackage (keys %desktop_other) {
 
 
   if ( ! -f $tarball ) {
-    push(@bad_downloads, $dopackage);
+    push(@bad_downloads, $name);
   }
 }
 
 # Download non gnome Desktop Packages
 foreach my $ngpackage (keys %desktop_nongnome) {
 
-  chdir "$pwd/gnome/desktop/$ngpackage";
-  my $sb_file = $ngpackage . $sb_ext;
-  my $packurl = $desktop_nongnome{$ngpackage}{url};
-  my $ver     = $desktop_nongnome{$ngpackage}{ver};
-  my $src     = $desktop_nongnome{$ngpackage}{src};
+  my $name    = $ngpackage;
+  my $sb_file = $name . $sb_ext;
+  my $packurl = $desktop_nongnome{$name}{url};
+  my $ver     = $desktop_nongnome{$name}{ver};
+  my $src     = $desktop_nongnome{$name}{src};
+  my $type    = "other";
 
-  my $tarball = "$ngpackage-$ver.$src";
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+
+  chdir "$pwd/gnome/desktop/$name";
 
   if ( $download eq "true") {
     if ( ! -f $tarball ) {
-      my $url = GSB::GSB::gsb_other_url_make($ngpackage, $packurl, $ver, $src);
-      GSB::GSB::gsb_tarball_get($ngpackage, $url);
+      my $url = GSB::GSB::gsb_other_url_make($packurl, $tarball);
+      GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
     }
   }
 
@@ -432,7 +448,7 @@ foreach my $ngpackage (keys %desktop_nongnome) {
   }
 
   if ( ! -f $tarball ) {
-    push(@bad_downloads, $ngpackage);
+    push(@bad_downloads, $name);
   }
 }
 
@@ -440,131 +456,17 @@ foreach my $ngpackage (keys %desktop_nongnome) {
 # C++
 foreach my $cbpackage (keys %bindings_cxx) {
 
-  chdir "$pwd/gnome/bindings/c++/$cbpackage";
-  my $sb_file = $cbpackage . $sb_ext;
-  my $tarball = "$cbpackage-$bindings_cxx{$cbpackage}\.tar.bz2";
+  my $name    = $cbpackage;
+  my $ver     = $bindings_cxx{$name};
+  my $sb_file = $name . $sb_ext;
+
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
+
+  chdir "$pwd/gnome/bindings/c++/$name";
 
   if ( $download eq "true") {
     if ( ! -f $tarball ) {
-#      my $url = GSB::GSB::gsb_gnome_bindings_url_make($cbpackage, $bindings_cxx{$cbpackage});
-      my $url = GSB::GSB::gsb_gnome_generic_url_make($cbpackage, $bindings_cxx{$cbpackage});
-      GSB::GSB::gsb_tarball_get($cbpackage, $url);
-    }
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $bindings_cxx{$cbpackage});
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $cbpackage);
-  }
-}
-
-# java
-foreach my $jbpackage (keys %bindings_java) {
-
-  chdir "$pwd/gnome/bindings/java/$jbpackage";
-  my $sb_file = $jbpackage . $sb_ext;
-  my $tarball = "$jbpackage-$bindings_java{$jbpackage}\.tar.bz2";
-
-  if ( $download eq "true") {
-    if ( ! -f $tarball ) {
-#      my $url = GSB::GSB::gsb_gnome_bindings_url_make($jbpackage, $bindings_java{$jbpackage});
-      my $url = GSB::GSB::gsb_gnome_generic_url_make($jbpackage, $bindings_java{$jbpackage});
-      GSB::GSB::gsb_tarball_get($jbpackage, $url);
-    }
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $bindings_java{$jbpackage});
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $jbpackage);
-  }
-}
-
-# Python
-foreach my $pbpackage (keys %bindings_python) {
-
-  chdir "$pwd/gnome/bindings/python/$pbpackage";
-  my $sb_file = $pbpackage . $sb_ext;
-  my $tarball = "$pbpackage-$bindings_python{$pbpackage}\.tar.bz2";
-
-  if ( $download eq "true") {
-    if ( ! -f $tarball ) {
-#      my $url = GSB::GSB::gsb_gnome_bindings_url_make($pbpackage, $bindings_python{$pbpackage});
-      my $url = GSB::GSB::gsb_gnome_generic_url_make($pbpackage, $bindings_python{$pbpackage});
-      GSB::GSB::gsb_tarball_get($pbpackage, $url);
-    }
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $bindings_python{$pbpackage});
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $pbpackage);
-  }
-}
-
-#DOWNLOAD THEMES
-
-# Download themes from ftp.gnome.org
-foreach my $gtheme (keys %gnome_themes) {
-
-  chdir "$pwd/gnome/themes/$gtheme";
-  my $sb_file = $gtheme . $sb_ext;
-  my $tarball = "$gtheme-$gnome_themes{$gtheme}.tar.bz2";
-
-  if ( $download eq "true" ) {
-    if ( ! -f $tarball ) {
-      my $url = GSB::GSB::gsb_gnome_generic_url_make($gtheme, $gnome_themes{$gtheme});
-      GSB::GSB::gsb_tarball_get($gtheme, $url);
-    }
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $gnome_themes{$gtheme});
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $gtheme );
-  }
-}
-
-# Download other themes
-foreach my $otheme (keys %other_themes) {
-
-  chdir "$pwd/gnome/themes/$otheme";
-  my $sb_file = $otheme . $sb_ext;
-  my $packurl = $other_themes{$otheme}{url};
-  my $ver     = $other_themes{$otheme}{ver};
-  my $src     = $other_themes{$otheme}{src};
-
-  my $tarball = "$otheme-$ver.$src";
-
-  if ( $download eq "true" ) {
-    if ( ! -f $tarball ) {
-      my $url = GSB::GSB::gsb_other_url_make($otheme, $packurl, $ver, $src);
-      GSB::GSB::gsb_tarball_get($otheme, $url);
+      GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
     }
   }
 
@@ -577,7 +479,136 @@ foreach my $otheme (keys %other_themes) {
   }
 
   if ( ! -f $tarball ) {
-    push(@bad_downloads, $otheme );
+    push(@bad_downloads, $name);
+  }
+}
+
+# java
+foreach my $jbpackage (keys %bindings_java) {
+
+  my $name    = $jbpackage;
+  my $ver     = $bindings_java{$name};
+
+  my $sb_file = $name . $sb_ext;
+  my $tarball = GSB::GSB::gsb_gnome_tarball_get($name, $ver);
+
+  chdir "$pwd/gnome/bindings/java/$name";
+
+  if ( $download eq "true") {
+    if ( ! -f $tarball ) {
+      GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
+    }
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
+# Python
+foreach my $pbpackage (keys %bindings_python) {
+
+  my $name = $pbpackage;
+  my $ver  = $bindings_python{$name};
+
+  my $sb_file = $name . $sb_ext;
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
+
+  chdir "$pwd/gnome/bindings/python/$name";
+
+  if ( $download eq "true") {
+    if ( ! -f $tarball ) {
+      GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
+    }
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
+exit(0);
+
+#DOWNLOAD THEMES
+
+# Download themes from ftp.gnome.org
+foreach my $gtheme (keys %gnome_themes) {
+
+  my $name = $gtheme;
+  my $ver  = $gnome_themes{$name};
+
+  my $sb_file = $name . $sb_ext;
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
+
+  chdir "$pwd/gnome/themes/$name";
+
+  if ( $download eq "true" ) {
+    if ( ! -f $tarball ) {
+      GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
+    }
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name );
+  }
+}
+
+# Download other themes
+foreach my $otheme (keys %other_themes) {
+
+  my $name = $otheme;
+
+  my $sb_file = $name . $sb_ext;
+  my $packurl = $other_themes{$name}{url};
+  my $ver     = $other_themes{$name}{ver};
+  my $src     = $other_themes{$name}{src};
+  my $type    = "other";
+
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+
+  chdir "$pwd/gnome/themes/$name";
+
+  if ( $download eq "true" ) {
+    if ( ! -f $tarball ) {
+      my $url = GSB::GSB::gsb_other_url_make($packurl, $tarball);
+      GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
+    }
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name );
   }
 }
 
