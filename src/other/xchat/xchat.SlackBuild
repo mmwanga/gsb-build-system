@@ -6,7 +6,7 @@ PKG=$TMP/package-xchat
 rm -rf $PKG
 mkdir -p $PKG/usr
 
-VERSION=2.4.1
+VERSION=2.4.2
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -24,6 +24,8 @@ cd $TMP
 rm -rf xchat-$VERSION
 tar xjvf $CWD/xchat-$VERSION.tar.bz2
 cd xchat-$VERSION
+cat $CWD/xc242-slist-nosel.diff |patch -p1 --verbose
+cat $CWD/xc242-whois-spec.diff |patch -p1 --verbose
 chown -R root.root .
 find . -perm 666 -exec chmod 644 {} \;
 find . -perm 664 -exec chmod 644 {} \;

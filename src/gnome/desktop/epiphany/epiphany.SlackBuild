@@ -6,7 +6,7 @@ PKG=$TMP/package-epiphany
 
 VERSION=1.6.0
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=3
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -38,6 +38,7 @@ CFLAGS="$SLKCFLAGS" \
 	    --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static \
+	        --disable-rpath \
             $ARCH-slackware-linux
 make
 make install DESTDIR=$PKG

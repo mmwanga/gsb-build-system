@@ -59,14 +59,18 @@ contact-lookup-applet
 bmp
 balsa
 sylpheed
+sylpheed-claws
 loudmouth
 gossip
 anjuta
 easytag
 liferea
 denu
+bluefish
 gqview
-gnome-blog"
+gnome-blog
+grip
+xscreensaver"
 
 (
 for i in $BUILD_ORDER

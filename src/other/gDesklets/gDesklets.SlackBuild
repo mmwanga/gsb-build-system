@@ -6,7 +6,7 @@ PKG=$TMP/package-gDesklets
 
 VERSION=0.34.3
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -49,6 +49,8 @@ done
   find ./ -type d -exec chmod go+rx {} \;
   find ./ -type f -exec chmod go+r {} \;
 )
+
+rm -f $PKG/usr/share/applications/mimeinfo.cache
 
 mkdir -p $PKG/usr/doc/gDesklets-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \

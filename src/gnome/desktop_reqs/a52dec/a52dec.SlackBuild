@@ -6,7 +6,7 @@ PKG=$TMP/package-a52dec
 
 VERSION=0.7.4
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -29,6 +29,7 @@ tar xzvf $CWD/a52dec-$VERSION.tar.gz
 cd a52dec-$VERSION
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
+			--enable-shared \
             $ARCH-slackware-linux
 make
 make install DESTDIR=$PKG
