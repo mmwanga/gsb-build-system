@@ -43,7 +43,7 @@ img {
 }
 
 h1,h2,h3,h4,h5,h6 {
-    font-family: Optima, "bitstream vera serif", "times new roman", serif;
+    font-family: Optima, "bitstream vera serif", georgia, "times new roman", serif;
 }
 
 h2 {
@@ -198,7 +198,7 @@ div.ads {
 }
 
 .sideBarTitle {
-  font-family: Optima, "bitstream vera serif", "times new roman", serif;
+  font-family: Optima, "bitstream vera serif", georgia, "times new roman", serif;
   font-size: medium;
   font-weight: bold;
   margin: 0 0 0.5em 2.5mm;
