@@ -25,6 +25,7 @@ RewriteEngine On
     RewriteRule ^screenshots/?  /index.php?op=screenshots [QSA]
     RewriteRule ^support/?  /index.php?op=support [QSA]
     RewriteRule ^todo/?  /index.php?op=todo [QSA]
+    RewriteRule ^faqs/?  /index.php?op=faqs [QSA]
 
 #
 # special files to deny a web browser from peeking at

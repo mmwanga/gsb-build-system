@@ -50,6 +50,9 @@ switch ($op) {
     case "development":
         $title = "Development : $common_title";
         break;
+    case "faqs":
+        $title = "FAQs : $common_title";
+        break;
     default:
         $title = "$common_title";
         header("Location: /");

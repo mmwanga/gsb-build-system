@@ -24,6 +24,10 @@ hr {
     border: 0px;
 }
 
+.faqhead {
+    font-style: italic;
+}
+
 img.screenthumb {
     vertical-align: middle;
     margin: 0 15px 15px 0;
