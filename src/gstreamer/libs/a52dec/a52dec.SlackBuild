@@ -37,6 +37,7 @@ chown -R root.bin $PKG/usr/bin
 gzip -9 $PKG/usr/man/*/*
 
 mkdir -p $PKG/install
+cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG

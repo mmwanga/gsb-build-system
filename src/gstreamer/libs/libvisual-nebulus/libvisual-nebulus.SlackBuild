@@ -47,6 +47,7 @@ gzip -9 $PKG/usr/man/*/*
 gzip -9 $PKG/usr/info/*
 
 mkdir -p $PKG/install
+cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG

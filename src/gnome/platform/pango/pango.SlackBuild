@@ -42,6 +42,7 @@ cp -a \
   AUTHORS COPYING ChangeLog NEWS README TODO \
   $PKG/usr/doc/pango-$VERSION
 mkdir -p $PKG/install
+cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG 

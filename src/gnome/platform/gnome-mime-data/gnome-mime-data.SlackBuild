@@ -49,6 +49,7 @@ cat man/gnome-vfs-mime.5 > $PKG/usr/man/man5/gnome-vfs-mime.5
 gzip -9 $PKG/usr/man/*/*
 
 mkdir -p $PKG/install
+cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG

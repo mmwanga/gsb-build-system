@@ -36,6 +36,7 @@ cp -a \
   AUTHORS COPYING ChangeLog NEWS README \
   $PKG/usr/doc/glib-$VERSION
 mkdir -p $PKG/install
+cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $TMP/package-glib2

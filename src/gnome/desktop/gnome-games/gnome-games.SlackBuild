@@ -84,6 +84,7 @@ if [ -d var/lib/games/tmp ]; then
   rm -rf var/lib/games/tmp
 fi
 EOF
+cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 cat $CWD/doinst.sh >> $PKG/install/doinst.sh
 

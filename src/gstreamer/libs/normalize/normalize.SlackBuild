@@ -38,6 +38,7 @@ chown root.root $PKG/usr/doc/normalize-$VERSION/*
 find $PKG -type f | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded
 gzip -9 $PKG/usr/man/*/*
 mkdir -p $PKG/install
+cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG

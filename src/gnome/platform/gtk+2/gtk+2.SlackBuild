@@ -45,6 +45,7 @@ cp -a $CWD/profile.d/* $PKG/etc/profile.d
 chmod 755 $PKG/etc/profile.d/*
 chown -R root.root $PKG/etc/
 mkdir -p $PKG/install
+cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $TMP/package-gtk+

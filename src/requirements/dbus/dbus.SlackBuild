@@ -55,6 +55,7 @@ chown root.root $PKG/usr/doc/dbus-$VERSION/*
 gzip -9 $PKG/usr/man/*/*
 
 mkdir -p $PKG/install
+cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
