@@ -12,7 +12,7 @@ $author["chipster"]="chipster@norlug.org";
 $author["freerock"]="freerock [at] gmail (dot) com";
 
 // max items to show on one page
-$max = 1;
+$max = 3;
 
 // news file
 $ff = "news.txt";
@@ -59,7 +59,7 @@ if (is_file($ff)) {
          href=\")((http|ftp|rsync|gopher)+(s)?:\/\/[^<>\s]+)/i", "<a
          href=\"\\0\">&lt;\\0&gt;</a>", $news);
        
-        print( "<h3 id=\"news_entry\">".$subject."</h3>\n\n"
+        print( "<h3>".$subject."</h3>\n\n"
               ."\t<dl>\n\t <dt><small>Posted ".$ndate." ".$ndate_tzone." by \n\t "
               .$author."</small></dt>\n"
               ."\t   <dd><p>\n\t    <em>".$news[0]."</em>\n\t   </p></dd>\n\t</dl>\n\n" );
