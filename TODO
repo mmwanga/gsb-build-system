@@ -5,6 +5,10 @@ GSB:
 
 	* add a HACKING file with instructions on how to edit
 	  and add things to the source tree
+FRG:
+
+	* See if using the Slackware provided libs for gtk/glib/pango and anything
+	  else in slackware/l is feasible
 
 WEBSITE:
 
