@@ -28,5 +28,7 @@ FRGROOT=`dirname $0`
 )
 
 if [ ! $FRG_FULL = "true" ]; then
+    /bin/sh $FRGROOT/frg_min_dups_install.sh
     /bin/sh $FRGROOT/frg_post_install.sh
 fi
+

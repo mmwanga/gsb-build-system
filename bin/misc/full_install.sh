@@ -31,4 +31,6 @@ export FRG_FULL=true
   upgradepkg --install-new *.tgz
 )
 
+/bin/sh $FRGROOT/frg_min_dups_install.sh
+/bin/sh $FRGROOT/frg_full_dups_install.sh
 /bin/sh $FRGROOT/frg_post_install.sh
