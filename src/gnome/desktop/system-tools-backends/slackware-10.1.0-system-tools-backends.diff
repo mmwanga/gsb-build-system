@@ -1,0 +1,205 @@
+Index: network-conf.in
+===================================================================
+RCS file: /cvs/gnome/system-tools-backends/network-conf.in,v
+retrieving revision 1.111
+diff -u -r1.111 network-conf.in
+--- network-conf.in	1 Mar 2005 01:22:43 -0000	1.111
++++ network-conf.in	8 Mar 2005 17:23:32 -0000
+@@ -73,7 +73,7 @@
+               "pld-1.0", "pld-1.1", "pld-1.99",
+               "conectiva-9", "conectiva-10",
+               "vine-3.0", "vine-3.1",
+-              "slackware-9.1.0", "slackware-10.0.0",
++              "slackware-9.1.0", "slackware-10.0.0", "slackware-10.1.0",
+               "gentoo", "freebsd-5", "freebsd-6");
+ 
+ $description =<<"end_of_description;";
+Index: network.pl.in
+===================================================================
+RCS file: /cvs/gnome/system-tools-backends/network.pl.in,v
+retrieving revision 1.194
+diff -u -r1.194 network.pl.in
+--- network.pl.in	7 Mar 2005 16:30:36 -0000	1.194
++++ network.pl.in	8 Mar 2005 17:23:34 -0000
+@@ -505,6 +505,7 @@
+        "vine-3.1"     => "redhat-6.2",
+        "slackware-9.1.0" => "redhat-6.2",
+        "slackware-10.0.0" => "redhat-6.2",
++       "slackware-10.1.0" => "redhat-6.2",
+        "gentoo"       => "debian-2.2",
+        "freebsd-5"    => "debian-2.2",
+        "freebsd-6"    => "debian-2.2",
+@@ -1784,6 +1785,7 @@
+     "vine-3.1"     => \&gst_network_rh62_get_file,
+     "slackware-9.1.0" => \&gst_network_deb22_get_file,
+     "slackware-10.0.0" => \&gst_network_deb22_get_file,
++    "slackware-10.1.0" => \&gst_network_deb22_get_file,
+     "gentoo"       => \&gst_network_deb22_get_file,
+     "freebsd-5"    => \&gst_network_deb22_get_file,
+     "freebsd-6"    => \&gst_network_deb22_get_file,
+@@ -3819,6 +3821,7 @@
+     "vine-3.1"     => "lo",
+     "slackware-9.1.0" => "",
+     "slackware-10.0.0" => "",
++    "slackware-10.1.0" => "",
+     "gentoo"       => "",
+     "freebsd-5"    => "",
+     "freebsd-6"    => "",
+@@ -3944,6 +3947,7 @@
+     "vine-3.1"     => "redhat-7.0",
+     "slackware-9.1.0" => "slackware-9.1.0",
+     "slackware-10.0.0" => "slackware-9.1.0",
++    "slackware-10.1.0" => "slackware-9.1.0",
+     "gentoo"       => "gentoo",
+     "freebsd-5"    => "freebsd-5",
+     "freebsd-6"    => "freebsd-5",
+@@ -4352,6 +4356,7 @@
+     "vine-3.1"     => "vine-3.0",
+     "slackware-9.1.0" => "slackware-9.1.0",
+     "slackware-10.0.0" => "slackware-9.1.0",
++    "slackware-10.1.0" => "slackware-9.1.0",
+     "gentoo"       => "gentoo",
+     "freebsd-5"    => "freebsd-5",
+     "freebsd-6"    => "freebsd-5",
+@@ -5167,6 +5172,7 @@
+     "vine-3.1"     => "redhat-7.0",
+     "slackware-9.1.0" => "slackware-9.1.0",
+     "slackware-10.0.0" => "slackware-9.1.0",
++    "slackware-10.1.0" => "slackware-9.1.0",
+     "gentoo"       => "gentoo",
+     "freebsd-5"    => "freebsd-5",
+     "freebsd-6"    => "freebsd-5",
+@@ -5561,6 +5567,7 @@
+     "vine-3.1"     => "vine-3.0",
+     "slackware-9.1.0" => "slackware-9.1.0",
+     "slackware-10.0.0" => "slackware-9.1.0",
++    "slackware-10.1.0" => "slackware-9.1.0",
+     "gentoo"       => "gentoo",
+     "freebsd-5"    => "freebsd-5",
+     "freebsd-6"    => "freebsd-5",
+Index: platform.pl.in
+===================================================================
+RCS file: /cvs/gnome/system-tools-backends/platform.pl.in,v
+retrieving revision 1.68
+diff -u -r1.68 platform.pl.in
+--- platform.pl.in	1 Mar 2005 01:22:43 -0000	1.68
++++ platform.pl.in	8 Mar 2005 17:23:34 -0000
+@@ -72,6 +72,7 @@
+   "slackware-9.0.0" => "Slackware 9.0.0",
+   "slackware-9.1.0" => "Slackware 9.1.0",
+   "slackware-10.0.0" => "Slackware 10.0.0",
++  "slackware-10.1.0" => "Slackware 10.1.0",
+   "freebsd-4"       => "FreeBSD 4",
+   "freebsd-5"       => "FreeBSD 5",
+   "freebsd-6"       => "FreeBSD 6",
+Index: service.pl.in
+===================================================================
+RCS file: /cvs/gnome/system-tools-backends/service.pl.in,v
+retrieving revision 1.85
+diff -u -r1.85 service.pl.in
+--- service.pl.in	1 Mar 2005 01:22:43 -0000	1.85
++++ service.pl.in	8 Mar 2005 17:23:35 -0000
+@@ -217,6 +217,7 @@
+ 
+      "slackware-9.1.0" => "slackware-9.1.0",
+      "slackware-10.0.0" => "slackware-9.1.0",
++     "slackware-10.1.0" => "slackware-9.1.0",
+ 
+      "gentoo"         => "gentoo",
+ 
+Index: services-conf.in
+===================================================================
+RCS file: /cvs/gnome/system-tools-backends/services-conf.in,v
+retrieving revision 1.24
+diff -u -r1.24 services-conf.in
+--- services-conf.in	1 Mar 2005 01:22:43 -0000	1.24
++++ services-conf.in	8 Mar 2005 17:23:35 -0000
+@@ -53,7 +53,7 @@
+ 
+               "suse-7.0", "turbolinux-7.0", "fedora-1", "fedora-2", "fedora-3", "specifix",
+               "pld-1.0", "pld-1.1", "pld-1.99",
+-              "slackware-9.1.0", "slackware-10.0.0",
++              "slackware-9.1.0", "slackware-10.0.0", "slackware-10.1.0",
+               "vine-3.0", "vine-3.1",
+               "gentoo", "freebsd-5", "freebsd-6", "suse-9.0", "suse-9.1");
+ 
+Index: shares-conf.in
+===================================================================
+RCS file: /cvs/gnome/system-tools-backends/shares-conf.in,v
+retrieving revision 1.88
+diff -u -r1.88 shares-conf.in
+--- shares-conf.in	1 Mar 2005 01:22:43 -0000	1.88
++++ shares-conf.in	8 Mar 2005 17:23:35 -0000
+@@ -72,7 +72,7 @@
+               "turbolinux-7.0", "fedora-1", "fedora-2", "fedora-3",
+               "pld-1.0", "pld-1.1", "pld-1.99",
+               "conectiva-9", "conectiva-10",
+-              "slackware-9.1.0", "slackware-10.0.0",
++              "slackware-9.1.0", "slackware-10.0.0", "slackware-10.1.0",
+               "gentoo", "freebsd-5");
+ 
+ $description =<<"end_of_description;";
+@@ -552,6 +552,7 @@
+      "vine-3.1"     => "redhat-6.2",
+      "slackware-9.1.0" => "slackware-9.1.0",
+      "slackware-10.0.0" => "slackware-9.1.0",
++     "slackware-10.1.0" => "slackware-9.1.0",
+      "gentoo"       => "gentoo",
+      "freebsd-5"    => "freebsd-5",
+      "freebsd-6"    => "freebsd-5",
+Index: time-conf.in
+===================================================================
+RCS file: /cvs/gnome/system-tools-backends/time-conf.in,v
+retrieving revision 1.117
+diff -u -r1.117 time-conf.in
+--- time-conf.in	1 Mar 2005 01:22:43 -0000	1.117
++++ time-conf.in	8 Mar 2005 17:23:35 -0000
+@@ -68,7 +68,7 @@
+               "mandrake-10.0", "mandrake-10.1",
+               "debian-2.2", "debian-3.0", "debian-sarge",
+               "suse-7.0", "suse-9.0", "suse-9.1", "turbolinux-7.0",
+-              "slackware-8.0.0", "slackware-8.1", "slackware-9.0.0", "slackware-9.1.0", "slackware-10.0.0",
++              "slackware-8.0.0", "slackware-8.1", "slackware-9.0.0", "slackware-9.1.0", "slackware-10.0.0", "slackware-10.1.0",
+               "gentoo", "pld-1.0", "pld-1.1", "pld-1.99", "fedora-1", "fedora-2", "fedora-3", "specifix",
+               "vine-3.0", "vine-3.1",
+               "freebsd-5", "freebsd-6");
+@@ -532,6 +532,7 @@
+    "slackware-9.0.0" => "debian-2.2",
+    "slackware-9.1.0" => "debian-2.2",
+    "slackware-10.0.0" => "debian-2.2",
++   "slackware-10.1.0" => "debian-2.2",
+ 
+    "gentoo"          => "gentoo",
+ 
+@@ -762,6 +763,7 @@
+    "slackware-9.0.0" => "debian-2.2",
+    "slackware-9.1.0" => "debian-2.2",
+    "slackware-10.0.0" => "debian-2.2",
++   "slackware-10.1.0" => "debian-2.2",
+ 
+    "gentoo"          => "gentoo",
+ 
+Index: users-conf.in
+===================================================================
+RCS file: /cvs/gnome/system-tools-backends/users-conf.in,v
+retrieving revision 1.131
+diff -u -r1.131 users-conf.in
+--- users-conf.in	1 Mar 2005 01:22:43 -0000	1.131
++++ users-conf.in	8 Mar 2005 17:23:36 -0000
+@@ -75,7 +75,7 @@
+               "mandrake-10.0", "mandrake-10.1",
+               "debian-2.2", "debian-3.0", "debian-sarge",
+               "suse-7.0", "suse-9.0", "suse-9.1", "turbolinux-7.0",
+-              "slackware-8.0.0", "slackware-8.1", "slackware-9.0.0", "slackware-9.1.0", "slackware-10.0.0",
++              "slackware-8.0.0", "slackware-8.1", "slackware-9.0.0", "slackware-9.1.0", "slackware-10.0.0", "slackware-10.1.0",
+               "freebsd-4", "freebsd-5", "freebsd-6",
+               "gentoo",
+               "archlinux-0.7",
+@@ -366,6 +366,7 @@
+   'archlinux-0.7'   => $gentoo_logindefs_defaults,
+   'slackware-9.1.0' => $gentoo_logindefs_defaults,
+   'slackware-10.0.0' => $gentoo_logindefs_defaults,
++  'slackware-10.1.0' => $gentoo_logindefs_defaults,
+   'freebsd-4'       => $freebsd_logindefs_defaults,
+   'freebsd-5'       => $freebsd_logindefs_defaults,
+   'freebsd-6'       => $freebsd_logindefs_defaults,
