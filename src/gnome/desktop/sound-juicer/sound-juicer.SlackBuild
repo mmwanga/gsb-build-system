@@ -8,8 +8,6 @@ VERSION=2.10.0
 ARCH=${ARCH:-i486}
 BUILD=1
 
-SCHEMAS=$PKG/etc/gconf/schemas/sound-juicer.schemas
-
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
@@ -27,9 +25,8 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 cd $TMP 
-tar xzvf $CWD/sound-juicer-$VERSION.tar.gz
+tar xjvf $CWD/sound-juicer-$VERSION.tar.bz2
 cd sound-juicer-$VERSION
-#
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
 	    --sysconfdir=/etc \
@@ -38,8 +35,13 @@ CFLAGS="$SLKCFLAGS" \
             $ARCH-slackware-linux
 make
 make install DESTDIR=$PKG
+
+SCHEMAS=$PKG/etc/gconf/schemas
+for i in $SCHEMAS/*.schemas
+do
 GCONF_CONFIG_SOURCE="xml::$PKG/etc/gconf/gconf.xml.defaults" \
-	gconftool-2 --makefile-install-rule $SCHEMAS
+        gconftool-2 --makefile-install-rule $i
+done
 
 (
   cd $PKG/etc/gconf/gconf.xml.defaults
@@ -59,7 +61,7 @@ find $PKG -type f | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-
 gzip -9 $PKG/usr/man/*/*
 
 mkdir -p $PKG/install
-zcat $CWD/doinst.sh.gz > $PKG/install/doinst.sh
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
