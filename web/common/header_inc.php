@@ -14,7 +14,7 @@ print('<?xml version="1.0" encoding="utf-8"?>' . "\n");
 
     GSB site code <http://gsb.sf.net>
     Chip Cuccio <chipster@norlug.org>
-    $Id:$
+    $Id$
 
 // -->
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -32,8 +32,8 @@ print('<?xml version="1.0" encoding="utf-8"?>' . "\n");
   
   <div id="header">
     <div class="subHeader">
-      <h1 class="headerTitle"><a href="./" class="headerLink">GSB:
-      GNOME.SlackBuild</a></h1>
+      <a href="./" class="headerLink" title="GSB: GNOME.SlackBuild"><img
+      src="./images/GSB_Logo.png" alt="GSB Logo" /></a>
     </div>
   </div>
 
