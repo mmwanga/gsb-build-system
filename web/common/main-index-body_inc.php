@@ -38,6 +38,9 @@
       release.</li>
     </ul>
 
+    <p><a class="topOfPage doNotPrint" href="#top" title="Go to the top of this page">^
+    TOP</a></p>
+
     <h2 id="downloads">Downloads</h2>
 
     <p>Releases are aviable in the <a href=
@@ -62,6 +65,9 @@
       FRG ISO</a>: iso file of Freerock's GNOME</li>
     </ul>
 
+    <p><a class="topOfPage doNotPrint" href="#top" title="Go to the top of this page">^
+    TOP</a></p>
+
     <h2 id="instrux">Installation Instructions</h2>
 
     <ol>
@@ -79,6 +85,9 @@
       <tt>full_install.sh</tt> or manually use;<br />
       <tt>upgradepkg --install-new</tt></li>
     </ol>
+
+    <p><a class="topOfPage doNotPrint" href="#top" title="Go to the top of this page">^
+    TOP</a></p>
 
     <h2 id="roadmap">Roadmap</h2>
 
@@ -118,6 +127,9 @@
         </ul>
       </li>
     </ul>
+
+    <p><a class="topOfPage doNotPrint" href="#top" title="Go to the top of this page">^
+    TOP</a></p>
 
     <h2 id="todo">TODO</h2>
 
@@ -174,6 +186,9 @@
       on the left of this page</del> <ins datetime="20050215">DONE</ins></li>
     </ol>
 
+    <p><a class="topOfPage doNotPrint" href="#top" title="Go to the top of this page">^
+    TOP</a></p>
+
     <h2 id="support">Support</h2>
 
     <p>Check irc channel first, if I don't respond send an email to
@@ -197,6 +212,9 @@
 
       <li>email: freerock ! gmail.com</li>
     </ul>
+
+    <p><a class="topOfPage doNotPrint" href="#top" title="Go to the top of this page">^
+    TOP</a></p>
 
     <h2 id="help">Help the Project</h2>
 
@@ -222,6 +240,9 @@
       <li>Suggestions, advice, flames, money are all welcome
       :-)</li>
     </ul>
+
+    <p><a class="topOfPage doNotPrint" href="#top" title="Go to the top of this page">^
+    TOP</a></p>
 
     <h2 id="links">Links</h2>
 

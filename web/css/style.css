@@ -17,6 +17,14 @@ body {
   padding: 0;
 }
 
+#main-body .topOfPage {
+  color: rgb(0,51,153);
+  background-color: transparent;
+  font-weight: bold;
+  text-decoration: none;
+  float: right;
+}
+
 hr {
     color: black;
     background-color: black;
