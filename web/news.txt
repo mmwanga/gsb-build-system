@@ -6,7 +6,9 @@ GSB Build Order Slightly Wrong
 I noticed that the build order for GSB is wrong for some packages. I am currently fixing 
 this in SVN. I am following the order more or less given by <strong>jhbuild list</strong> instead
 of the documentation on gnome.org. This will not affect the build if you have previous versions
-of some libs installed. Mainly glib2, gtk2, libxml2</p>
+of some libs installed. Mainly glib2, gtk2, and libxml2</p>
+<p> The order was wrong mainly for gstreamer, libcroco, and libgst. For the rest of the build, the order
+was more or less right</p>
  
 ###
 2005-02-22-00-30-EST
