@@ -1,4 +1,19 @@
 ###
+2005-04-04-13-13-CST
+chipster
+My KDE Menus are all messed up after installing FRG/GSB! How do I fix them?
+<p>The KDE menus might be changed if you install FRG because of the
+gnome-menus package, The gnome-menus package implements the freedesktop.org
+desktop menu specification. There is a simple fix for this. Just add the
+following near the top of the startkde script:</p>
+<blockquote><p>
+ <code><strong>export XDG_CONFIG_DIRS=/opt/kde/etc/xdg</strong></code>
+</p></blockquote>
+<p>If the improper menus persist, run kbuildsycoca from Konsole after you have
+logged into KDE. Thanks to Jim Philips and Locustfurnace for pointing 
+it out.</p>
+
+###
 2005-03-30-16-00-EST
 freerock
 My Mime Types/File Associations are all screwed up. What do I do?
