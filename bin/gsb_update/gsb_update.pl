@@ -593,6 +593,7 @@ foreach my $ofpackage (keys %office) {
   my $packurl = $office{$name}{url};
   my $ver     = $office{$name}{ver};
   my $src     = $office{$name}{src};
+  my $type    = "other";
 
   my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
 
@@ -600,7 +601,7 @@ foreach my $ofpackage (keys %office) {
 
   if ( $download eq "true") {
     my $url = GSB::GSB::gsb_other_url_make($packurl, $tarball);
-    GSB::GSB::gsb_tarball_get($name, $var, $tarball, $type, $url);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
   }
 
   if ( $edit eq "true" ) {
@@ -708,14 +709,14 @@ foreach my $olpackage (keys %office_libs) {
 foreach my $opackage (keys %other) {
 
   chdir "$pwd/other/$opackage";
-  my $name    = $name;
+  my $name    = $opackage;
   my $sb_file = $name . $sb_ext;
   my $packurl = $other{$name}{url};
   my $ver     = $other{$name}{ver};
   my $src     = $other{$name}{src};
   my $type    = "other";
 
-  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src;
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
 
   if ( $download eq "true") {
       my $url = GSB::GSB::gsb_other_url_make($packurl, $tarball);
