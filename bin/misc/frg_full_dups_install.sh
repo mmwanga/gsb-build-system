@@ -26,15 +26,15 @@ case "$gnumeric_selection" in
 	echo "Gnumeric Not installed"
 	;;
 '1')
-	upgradepkg --install-new $FRGROOT/dups/gnumeric-1.4.3-*frg.tgz
+	upgradepkg --install-new $FRGROOT/frg/dups/gnumeric-1.4.3-*frg.tgz
 	;;
 '2')
-	upgradepkg --install-new $FRGROOT/testing/gnumeric-1.5.0-*frg.tgz
+	upgradepkg --install-new $FRGROOT/frg/testing/gnumeric-1.5.0-*frg.tgz
 	;;
 *)
 	echo "Invalid selection"
 	echo "Installing stable Gnumeric"
-	upgradepkg --install-new $FRGROOT/dups/gnumeric-1.4.3-*frg.tgz
+	upgradepkg --install-new $FRGROOT/frg/dups/gnumeric-1.4.3-*frg.tgz
 esac
 
 # Install Drivel
@@ -58,15 +58,15 @@ case "$drivel_selection" in
 	echo "Drivel Not installed"
 	;;
 '1')
-	upgradepkg --install-new $FRGROOT/dups/drivel-1.2.4-*frg.tgz
+	upgradepkg --install-new $FRGROOT/frg/dups/drivel-1.2.4-*frg.tgz
 	;;
 '2')
-	upgradepkg --install-new $FRGROOT/alternatives/drivel-1.3.2-*frg.tgz
+	upgradepkg --install-new $FRGROOT/frg/alternatives/drivel-1.3.2-*frg.tgz
 	;;
 *)
 	echo "Invalid selection"
 	echo "Installing stable Drivel"
-	upgradepkg --install-new $FRGROOT/dups/drivel-1.2.4-*frg.tgz
+	upgradepkg --install-new $FRGROOT/frg/dups/drivel-1.2.4-*frg.tgz
 esac
 
 # Install GIMP
@@ -90,13 +90,13 @@ case "$gimp_selection" in
 	echo "Gimp Not installed"
 	;;
 '1')
-	upgradepkg --install-new $FRGROOT/dups/gimp-2.2.4-*frg.tgz
+	upgradepkg --install-new $FRGROOT/frg/dups/gimp-2.2.4-*frg.tgz
 	;;
 '2')
-	upgradepkg --install-new $FRGROOT/alternatives/gimp-2.2.4python-*frg.tgz
+	upgradepkg --install-new $FRGROOT/frg/alternatives/gimp-2.2.4python-*frg.tgz
 	;;
 *)
 	echo "Invalid selection"
 	echo "Installing stable GIMP"
-	upgradepkg --install-new $FRGROOT/dups/gimp-2.2.4-*frg.tgz
+	upgradepkg --install-new $FRGROOT/frg/dups/gimp-2.2.4-*frg.tgz
 esac

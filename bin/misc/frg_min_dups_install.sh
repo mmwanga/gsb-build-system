@@ -24,15 +24,15 @@ echo ""
 
 case "$librsvg_selection" in
 '1')
-	upgradepkg --install-new $FRGROOT/dups/librsvg-2.9.5-*frg.tgz
+	upgradepkg --install-new $FRGROOT/frg/dups/librsvg-2.9.5-*frg.tgz
 	;;
 '2')
-	upgradepkg --install-new $FRGROOT/testing/librsvg-2.10.0-*frg.tgz
+	upgradepkg --install-new $FRGROOT/frg/testing/librsvg-2.10.0-*frg.tgz
 	;;
 *)
 	echo "Invalid selection"
 	echo "Installing stable librsvg"
-	upgradepkg --install-new $FRGROOT/dups/librsvg-2.9.5-*frg.tgz
+	upgradepkg --install-new $FRGROOT/frg/dups/librsvg-2.9.5-*frg.tgz
 esac
 
 
@@ -52,15 +52,15 @@ echo ""
 
 case "$gm_selection" in
 '1')
-	upgradepkg --install-new $FRGROOT/dups/gnome-menus-2.10.0-*frg.tgz
+	upgradepkg --install-new $FRGROOT/frg/dups/gnome-menus-2.10.0-*frg.tgz
 	;;
 '2')
-	upgradepkg --install-new $FRGROOT/testing/gnome-menus-2.10.0p-*frg.tgz
+	upgradepkg --install-new $FRGROOT/frg/testing/gnome-menus-2.10.0p-*frg.tgz
 	;;
 *)
 	echo "Invalid selection"
 	echo "Installing stable gnome-menus"
-	upgradepkg --install-new $FRGROOT/dups/gnome-menus-2.10.0-*frg.tgz
+	upgradepkg --install-new $FRGROOT/frg/dups/gnome-menus-2.10.0-*frg.tgz
 esac
 
 
@@ -81,18 +81,18 @@ echo ""
 
 case "$totem_selection" in
 '1')
-	upgradepkg --install-new $FRGROOT/dups/totem-"$TOTEMVERSION"-*.tgz
+	upgradepkg --install-new $FRGROOT/frg/dups/totem-"$TOTEMVERSION"-*.tgz
 	;;
 '2')
-	upgradepkg --install-new $FRGROOT/alternatives/totem-"$TOTEMVERSION"xine-*frg.tgz
+	upgradepkg --install-new $FRGROOT/frg/alternatives/totem-"$TOTEMVERSION"xine-*frg.tgz
 	;;
 '3')
-	upgradepkg --install-new $FRGROOT/testing/totem-1.1.0cvs-*frg.tgz
+	upgradepkg --install-new $FRGROOT/frg/testing/totem-1.1.0cvs-*frg.tgz
 	;;
 *)
 	echo "Invalid selection"
 	echo "Installing stable Totem with gstreamer backend"
-	upgradepkg --install-new $FRGROOT/dups/totem-"$TOTEMVERSION"-*.tgz
+	upgradepkg --install-new $FRGROOT/frg/dups/totem-"$TOTEMVERSION"-*.tgz
 esac
 
 # Install GNOME GAMES
@@ -115,13 +115,13 @@ case "$games_selection" in
 	echo "Gnome Games not installed"
 	;;
 '1')
-	upgradepkg --install-new $FRGROOT/dups/gnome-games-2.10.0-*frg.tgz
+	upgradepkg --install-new $FRGROOT/frg/dups/gnome-games-2.10.0-*frg.tgz
 	;;
 '2')
-	upgradepkg --install-new $FRGROOT/testing/gnome-games-2.10.0sgid-*frg.tgz
+	upgradepkg --install-new $FRGROOT/frg/testing/gnome-games-2.10.0sgid-*frg.tgz
 	;;
 *)
 	echo "Invalid selection"
 	echo "Installing default gnome-games"
-	upgradepkg --install-new $FRGROOT/dups/gnome-games-2.10.0-*frg.tgz
+	upgradepkg --install-new $FRGROOT/frg/dups/gnome-games-2.10.0-*frg.tgz
 esac
