@@ -19,8 +19,7 @@ libwmf
 libwpd
 psiconv
 fribidi
-enchant
-libgsf"
+enchant"
 
 (
 
