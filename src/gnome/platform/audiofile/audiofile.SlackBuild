@@ -27,7 +27,8 @@ fi
 cd $TMP 
 tar xjvf $CWD/audiofile-$VERSION.tar.bz2
 cd audiofile-$VERSION
-CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
+CFLAGS="$SLKCFLAGS" \
+./configure --prefix=/usr \
             $ARCH-slackware-linux
 make
 make install DESTDIR=$PKG

@@ -30,7 +30,8 @@ cd gnome-mime-data-$VERSION
 chown -R root.root .
 find . -perm 666 -exec chmod 644 {} \;
 find . -perm 664 -exec chmod 644 {} \;
-CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
+CFLAGS="$SLKCFLAGS" \
+./configure --prefix=/usr \
 	    --sysconfdir=/etc \
             --localstatedir=/var/lib \
             $ARCH-slackware-linux

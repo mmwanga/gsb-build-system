@@ -30,7 +30,7 @@ tar xjvf $CWD/pango-$VERSION.tar.bz2
 cd pango-$VERSION
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
-CFLAGS="-O2 -march=i486 -mcpu=i686" \
+CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             --sysconfdir=/etc
 make

@@ -30,7 +30,7 @@ tar xjvf $CWD/libart_lgpl-$VERSION.tar.bz2
 cd libart_lgpl-$VERSION
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
-CFLAGS="-O2 -march=i486 -mcpu=i686" \
+CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr
 make
 make install DESTDIR=$PKG

@@ -29,7 +29,7 @@ rm -rf libxslt-$VERSION
 tar xjvf $CWD/libxslt-$VERSION.tar.bz2
 cd libxslt-$VERSION
 chown -R root.root .
-CFLAGS="-O2 -march=i486 -mcpu=i686" \
+CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             $ARCH-slackware-linux 
 make

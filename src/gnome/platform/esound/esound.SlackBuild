@@ -29,7 +29,8 @@ tar xjvf $CWD/esound-$VERSION.tar.bz2
 cd esound-$VERSION
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
-CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
+CFLAGS="$SLKCFLAGS" \
+./configure --prefix=/usr \
 	    --sysconfdir=/etc \
             $ARCH-slackware-linux
 make
