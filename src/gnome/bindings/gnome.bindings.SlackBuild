@@ -9,7 +9,8 @@ fi
 # perl not included yet
 BUILD_ORDER="c++
 python
-java"
+java
+perl"
 
 (
 for i in $BUILD_ORDER
@@ -25,4 +26,4 @@ do
 )
 done
 # Fork screen output to a log
-) 2>&1 | tee $TMP/gnome.platform.build.log
+) 2>&1 | tee $TMP/gnome.bindings.build.log
