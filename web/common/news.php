@@ -39,7 +39,7 @@ if (is_file($ff)) {
     define("_YEAR", 0);
 
     // authors' email addresses
-    $author["chipster"]="chipster [at] norlug (dot) org";
+    $author["chipster"]="chipster@norlug.org";
     $author["freerock"]="freerock [at] gmail (dot) com";
 
     $fd = fopen ($ff, "r");
@@ -53,7 +53,8 @@ if (is_file($ff)) {
     $max = $news_page > 0 ? ($max * ($news_page+1)) : $max;
 
     for ($a=$start; $a<count($farr)-1; $a++) {
-        $news = split("\n", trim($farr[$a]),4);
+        $news = explode("\n", trim($farr[$a]),4);
+        $news = str_replace("\n", "\n\t    ", $news);
         $ndate=array_shift($news);
         $nick=array_shift($news);
         $subject=array_shift($news);
@@ -68,9 +69,9 @@ if (is_file($ff)) {
         $ndate = date("Y/m/d @ H:i", $ndate);
        
         print( "<h3>".$subject."</h3>\n\n"
-              ."\t<dl>\n\t<dt><small>Posted ".$ndate." ".$ndate_tzone." by \n\t"
+              ."\t<dl>\n\t <dt><small>Posted ".$ndate." ".$ndate_tzone." by \n\t "
               .$author."</small></dt>\n"
-              ."\t<dd>\n\t<p><em>".$news[0]."</em>\n\t</p>\n\t</dd>\n\t</dl>\n\n" );
+              ."\t   <dd><p>\n\t    <em>".$news[0]."</em>\n\t   </p></dd>\n\t</dl>\n\n" );
         if ($a >= $max-1) break; 
     }
 
