@@ -190,6 +190,7 @@ our %other_gnome =
    'glade'               => '2.10.0',
    'gnome-audio'         => '2.0.0',
    'gnome-cups-manager'  => '0.30',
+   'gossip'              => '0.8',
    'gthumb'              => '2.6.4',
    'rhythmbox'           => '0.8.8',
   );
