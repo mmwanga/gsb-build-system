@@ -1,4 +1,69 @@
 ###
+2005-03-12-5-00-EST
+freerock
+Updates on FRG-0.1.94 release
+<p>
+  Thank you to everyone who provided feedback on the release. We have found
+  and fixed a few bugs.
+</p>
+
+<ul>
+  <li>xkbd issues. new libxklavier and control-center packages fix this</li>
+  <li>New gstreamer and gst-plugins packages
+  <ul>
+    <li>
+      gst-register does not get run when gstreamer and gst-plugins
+      packages are installed
+    </li>
+    <li>
+      libgstxine.so causes gst-register to seg fault. I 
+      thought I had fixed the slackbuild to fix
+      this as this issue popped up earlier. Its now fixed in SVN.
+    </li>
+  </ul>
+  </li>
+</ul>
+
+<p>To download the updated packages, run the following rsync command:</p>
+
+<blockquote><p>
+ <code><strong>
+rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates /tmp
+</strong></code>
+</p></blockquote>
+
+<p>
+  That command will download the frg-updates directory to /tmp. Then just run upgradepkg
+  on those packages.
+</p>
+
+<p>
+  libnss.so is needed for the release. So for Slackware-10.1 users,  
+  mozilla-1.7.5-i486-1 must be installed. If you are using 
+  slackware-current you can do one of the following:
+</p>
+
+<ul>
+  <li>install the slackware-10.1 mozilla package</li>
+  <li>add /usr/lib/firefox to /etc/ld.so.conf<li>
+  <li>
+    symlink the libraries from /usr/lib/firefox into /usr/lib. The
+    following should do that for you. It was taken from the mozilla.SlackBuild
+    in the Slackware 10.1 source tree.
+  </li>
+</ul>
+
+<blockquote><p>
+ <code><strong>
+ cd /usr/lib/firefox 
+<br />for nsslib in libnspr4.so libnss3.so libplc4.so libplds4.so libsmime3.so libsoftokn3.so libssl3.so ; do
+<br />    ln -sf $nsslib ../$nsslib
+<br />done 
+</strong></code>
+</p></blockquote>
+
+
+###
 2005-03-11-12-00-EST
 freerock
 GNOME 2.10.0 packages for Slackware 10.1
