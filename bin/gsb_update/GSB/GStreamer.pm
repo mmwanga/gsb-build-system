@@ -46,7 +46,7 @@ our %gst_libs =
 			   'src' => 'tar.bz2',
 			  },
    'divx4linux'        => {
-			   'ver' => 'std-20030428',
+			   'ver' => '20030428',
 			   'url' => 'http://download.divx.com/divx/',
 			   'src' => 'tar.gz',
 			  },
