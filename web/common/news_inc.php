@@ -55,7 +55,7 @@ if (!is_file($ff)) {
             $ndate[_MONTH], $ndate[_DAY], $ndate[_YEAR]);
         $ndate = date("Y/m/d @ H:i", $ndate);
 
-        $news = preg_replace("/(?<!<a href=\")((http|https|rsync|news|irc|ftp)+(s)?:\/\/[^<>\s]+)/i", "&lt;<a href=\"\\0\">\\0</a>&gt;", $news);
+        $news = preg_replace("/(?<!<a href=\")((http|https|rsync|news|irc|ftp)+(s)?:\/\/[^<>\s]+)/i", "<a href=\"\\0\">\\0</a>", $news);
 
         print( "<h3>".$subject."</h3>\n"
               ."<p class=\"newsheader\">Posted ".$ndate." ".$ndate_tzone." by "
