@@ -37,7 +37,7 @@ our %platform =
    'libidl'              => '0.8.4',
    'libxml2'             => '2.6.17',
    'libxslt'             => '1.1.12',
-   'pango'               => '1.8.0',
+   'pango'               => '1.8.1',
    'pkgconfig'           => '0.15.0',
   );
 
@@ -104,7 +104,7 @@ our %desktop =
    'gnome-media'            => '2.9.92',
    'gnome-menus'            => '2.9.92',
    'gnome-netstatus'        => '2.9.4',
-   'gnome-nettool'          => '1.1.0',
+   'gnome-nettool'          => '1.2.0',
    'gnome-panel'            => '2.9.92',
    'gnome-pilot'            => '2.0.12',
    'gnome-pilot-conduits'   => '2.0.12',
@@ -114,7 +114,7 @@ our %desktop =
    'gnome-system-monitor'   => '1.1.92',
    'gnome-system-tools'     => '2.9.91',
    'gnome-terminal'         => '2.9.3',
-   'gnome-themes'           => '2.9.94',
+   'gnome-themes'           => '2.9.95',
    'gnome-user-share'       => '0.5',
    'gnome-utils'            => '2.9.92',
    'gnome-volume-manager'   => '1.1.3',
@@ -122,7 +122,7 @@ our %desktop =
    'gnomemeeting'           => '1.2.0',
    'gnopernicus'            => '0.10.3',
    'gok'                    => '1.0.1',
-   'goobox'                 => '0.7.2',
+   'goobox'                 => '0.9.90',
    'gpdf'                   => '2.9.3',
    'gtk-engines'            => '2.6.0',
    'gtkhtml'                => '3.5.6',
@@ -190,6 +190,7 @@ our %themes =
   (
    'gnome-themes-extras'  => '0.8.1',
    'ximian-artwork'       => '0.2.29',
+   'clearlooks'            => '0.3.0',
   );
 
 #
