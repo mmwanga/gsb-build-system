@@ -14,16 +14,6 @@ fi
 rm -rf $PKG
 mkdir -p $PKG
 
-mkdir -p $PKG/usr/share/hwdata
-if [ ! -d /usr/share/hwdata ]; then
-	mkdir -p /usr/share/hwdata
-fi
-cp $CWD/pci.ids /usr/share/hwdata/
-cp $CWD/pci.ids $PKG/usr/share/hwdata/
-chmod 644 $PKG/usr/share/hwdata/pci.ids
-
-cp -f $CWD/DeviceManager.py tools/device-manager
-
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
 elif [ "$ARCH" = "i486" ]; then
@@ -34,9 +24,18 @@ elif [ "$ARCH" = "x86_64" ]; then
   SLKCFLAGS="-O2"
 fi
 
+mkdir -p $PKG/usr/share/hwdata
+if [ ! -d /usr/share/hwdata ]; then
+        mkdir -p /usr/share/hwdata
+fi
+cp $CWD/pci.ids /usr/share/hwdata/
+cp $CWD/pci.ids $PKG/usr/share/hwdata/
+chmod 644 $PKG/usr/share/hwdata/pci.ids
+
 cd $TMP
 tar xzvf $CWD/hal-$VERSION.tar.gz
 cd hal-$VERSION
+cp -f $CWD/DeviceManager.py tools/device-manager
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
 	    --with-mnt-root=/mnt \
