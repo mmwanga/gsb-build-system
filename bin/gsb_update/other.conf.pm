@@ -21,7 +21,7 @@ my %other =
 			    },
    'dvgrab'              => {
 			     'ver' => '1.7',
-			     'url' => 'http://kino.schirmacher.de/filemanager/download/43/'
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/kino/'
 			     'src' => 'tar.gz',
 			    },
    'gDesklets'           => {
@@ -66,7 +66,7 @@ my %other =
 			    },
    'kino'                => {
 			     'ver' => '0.7.5',
-			     'url' => 'http://kino.schirmacher.de/filemanager/download/42/'
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/kino/'
 			     'src' => 'tar.gz',
 			    },
    'libburn'             => {
