@@ -1,4 +1,14 @@
 ###
+2005-03-15-19-00-EST
+freerock
+SVG bug somewhere.
+<p>
+  There is a bug with the handling of svg images. Nautilus does not thumbnail
+  them and in the Theme Properties, it shows an X image instead of the
+  correct SVG image. Anyone have any ideas, email the mailing list or me.
+</p>
+
+###
 2005-03-14-20-15-EST
 freerock
 FRG-0.1.96 Released
