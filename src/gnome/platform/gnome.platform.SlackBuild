@@ -20,6 +20,7 @@ atk
 shared-mime-info
 gtk+2
 gconf
+desktop-file-utils
 gnome-mime-data
 gnome-vfs
 audiofile
