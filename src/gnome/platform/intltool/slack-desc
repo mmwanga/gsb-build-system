@@ -1,0 +1,12 @@
+        |-----handy-ruler------------------------------------------------------|
+intltool: intltool
+intltool:
+intltool: The intltool package is used to:
+intltool:
+intltool: o Extract translatable strings from various source files.
+intltool: o Collect the extracted strings together with messages from traditional
+intltool:   source files.
+intltool: o Merge back the translations from .po files into .xml, .desktop and
+intltool:   .oaf files.
+intltool:
+intltool:

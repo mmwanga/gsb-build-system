@@ -1,0 +1,49 @@
+#!/bin/sh
+
+CWD=`pwd`
+if [ "$TMP" = "" ]; then
+  TMP=/tmp
+fi
+PKG=$TMP/package-gnome-pilot-conduits
+
+VERSION=2.0.12
+ARCH=i486
+BUILD=1
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG
+
+cd $TMP 
+tar xjvf $CWD/gnome-pilot-conduits-$VERSION.tar.bz2
+cd gnome-pilot-conduits-$VERSION
+#
+CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
+            --sysconfdir=/etc \
+            --localstatedir=/var/lib \
+            i486-slackware-linux
+make
+make install DESTDIR=$PKG
+
+mkdir -p $PKG/usr/doc/gnome-pilot-conduits-$VERSION
+cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
+  $PKG/usr/doc/gnome-pilot-conduits-$VERSION
+chmod 644 $PKG/usr/doc/gnome-pilot-conduits-$VERSION/*
+chown root.root $PKG/usr/doc/gnome-pilot-conduits-$VERSION/*
+
+find $PKG -type f | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded
+gzip -9 $PKG/usr/man/*/*
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG
+makepkg -l y -c n $TMP/gnome-pilot-conduits-$VERSION-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/gnome-pilot-conduits-$VERSION
+  rm -rf $PKG
+fi

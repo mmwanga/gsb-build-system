@@ -1,0 +1,57 @@
+#!/bin/sh
+
+CWD=`pwd`
+if [ "$TMP" = "" ]; then
+  TMP=/tmp
+fi
+PKG=$TMP/package-libmatroska
+
+VERSION=20030811
+ARCH=i486
+BUILD=1
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG
+
+cd $TMP 
+tar xjvf $CWD/libmatroska-$VERSION.tar.bz2
+cd libmatroska-$VERSION
+(
+  cd make/linux
+  cp Makefile Makefile.orig
+  sed -e 's#prefix=/usr/local#prefix=/usr#g' < Makefile.orig > Makefile
+  CFLAGS="-O2 -march=i486 -mcpu=i686" make
+  cp -f Makefile Makefile.orig
+  sed -e "s#prefix=/usr#prefix=$PKG/usr#g" < Makefile.orig > Makefile
+  make install
+)
+
+mkdir -p $PKG/usr/doc/libmatroska-$VERSION
+cp -a LICENSE.GPL LICENSE.QPL \
+  $PKG/usr/doc/libmatroska-$VERSION
+chmod 644 $PKG/usr/doc/libmatroska-$VERSION/*
+chown root.root $PKG/usr/doc/libmatroska-$VERSION/*
+
+# strip:
+( cd $PKG
+  find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+  find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+)
+
+gzip -9 $PKG/usr/man/*/*
+gzip -9 $PKG/usr/info/*
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG
+makepkg -l y -c n $TMP/libmatroska-$VERSION-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/libmatroska-$VERSION
+  rm -rf $PKG
+fi

@@ -1,0 +1,59 @@
+#!/bin/sh
+
+CWD=`pwd`
+if [ "$TMP" = "" ]; then
+  TMP=/tmp
+fi
+
+PKG=$TMP/package-libxslt
+rm -rf $PKG
+mkdir -p $PKG
+
+VERSION=1.1.12
+ARCH=i486
+BUILD=1
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG
+
+cd $TMP 
+rm -rf libxslt-$VERSION
+tar xjvf $CWD/libxslt-$VERSION.tar.bz2
+cd libxslt-$VERSION
+chown -R root.root .
+CFLAGS="-O2 -march=i486 -mcpu=i686" \
+./configure --prefix=/usr \
+            i486-slackware-linux 
+make
+make install DESTDIR=$PKG
+mv $PKG/usr/share/doc $PKG/usr
+mv $PKG/usr/doc/libxslt-python-$VERSION $PKG/usr/doc/libxslt-$VERSION
+cp -a \
+  AUTHORS COPYING COPYING.LIB Copyright FEATURES INSTALL IPR NEWS README TODO libxslt.spec \
+  $PKG/usr/doc/libxslt-$VERSION
+find /usr/doc/libxslt-$VERSION -type f | xargs chmod 644
+chown -R root.bin $PKG/usr/bin
+( cd $PKG
+find . | xargs file | grep "ELF 32-bit LSB executable" | grep 80386 | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+find . | xargs file | grep "ELF 32-bit LSB shared object" | grep 80386 | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+)
+gzip -9 $PKG/usr/man/man?/*.?
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+#echo
+#echo "Only the python bindings in /usr/lib/python__/site-packages/ should"
+#echo "be kept... toss the other stuff"
+#echo
+
+cd $PKG
+makepkg -l y -c n $TMP/libxslt-$VERSION-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/libxslt-$VERSION
+  rm -rf $PKG
+fi
+

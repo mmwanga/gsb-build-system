@@ -1,0 +1,55 @@
+#!/bin/sh
+
+CWD=`pwd`
+if [ "$TMP" = "" ]; then
+  TMP=/tmp
+fi
+PKG=$TMP/package-avifile
+
+VERSION=0.7-0.7.41
+PVERSION=0.7_0.7.41
+ARCH=i486
+BUILD=1
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG
+
+cd $TMP 
+tar xzvf $CWD/avifile-$VERSION.tar.gz
+cd avifile-$VERSION
+#
+CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
+	    --program-prefix="" \
+	    --program-suffix="" \
+            i486-slackware-linux
+make
+make install DESTDIR=$PKG
+
+(cd $PKG/usr/include && ln -s avifile-0.7 avifile)
+
+chown -R root.bin $PKG/usr/bin
+
+mkdir -p $PKG/usr/doc/avifile-$VERSION
+cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
+  $PKG/usr/doc/avifile-$VERSION
+chmod 644 $PKG/usr/doc/avifile-$VERSION/*
+chown root.root $PKG/usr/doc/avifile-$VERSION/*
+
+find $PKG -type f | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded
+gzip -9 $PKG/usr/man/*/*
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG
+makepkg -l y -c n $TMP/avifile-$VERSION-$ARCH-$BUILD.tgz
+mv $TMP/avifile-$VERSION-$ARCH-$BUILD.tgz $TMP/avifile-$PVERSION-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/avifile-$VERSION
+  rm -rf $PKG
+fi

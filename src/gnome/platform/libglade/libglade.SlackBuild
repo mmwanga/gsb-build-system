@@ -1,0 +1,55 @@
+#!/bin/sh
+
+CWD=`pwd`
+if [ "$TMP" = "" ]; then
+  TMP=/tmp
+fi
+PKG=$TMP/package-libglade
+
+VERSION=2.5.0
+ARCH=i486
+BUILD=1
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG
+
+cd $TMP 
+tar xjvf $CWD/libglade-$VERSION.tar.bz2
+cd libglade-$VERSION
+chown -R root.root .
+find . -perm 666 -exec chmod 644 {} \;
+find . -perm 664 -exec chmod 644 {} \;
+CFLAGS="-O2 -march=i486 -mcpu=i686" \
+./configure --prefix=/usr \
+            --localstatedir=/var/lib \
+            i386-slackware-linux
+make
+make install DESTDIR=$PKG
+
+chown -R root.bin $PKG/usr/bin
+
+( cd $PKG
+  find . | xargs file | grep "ELF " | cut -f 1 -d : | xargs strip --strip-unneeded
+)
+
+mkdir -p $PKG/usr/doc/libglade-$VERSION
+cp -a \
+  AUTHORS COPYING ChangeLog NEWS README \
+  $PKG/usr/doc/libglade-$VERSION
+find $PKG/usr/doc/libglade-$VERSION/ -type f -exec chmod 644 {} \;
+chown -R root.root $PKG/usr/doc/libglade-$VERSION/*
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG
+makepkg -l y -c n $TMP/libglade-$VERSION-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/libglade-$VERSION
+  rm -rf $PKG
+fi

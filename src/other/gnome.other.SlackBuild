@@ -1,0 +1,55 @@
+#!/bin/sh
+
+if [ -r ../GSB.options ]; then
+  . ../GSB.options
+fi
+
+TMP=${TMP:-/tmp}
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+
+# not built: IndLinux NetworkManager gnome-audio
+
+BUILD_ORDER="libmikmod
+gtkspell
+libburn
+libcoaster
+coaster
+desktop-file-utils
+evince
+gDesklets
+gaim
+galeon
+gftp
+ghex
+glade
+gnome-cups-manager
+gnomebaker
+graveman
+gthumb
+rhythmbox
+dvgrab
+kino
+gtkpod"
+
+(
+for i in $BUILD_ORDER
+do
+(
+  cd $i
+  echo ""
+  echo "*************************************************"
+  echo "*****         Building $i"
+  echo "*************************************************"
+  echo ""
+  ./$i.SlackBuild
+  upgradepkg --install-new $TMP/$i*.tgz
+)
+done
+# Fork screen output to a log
+) 2>&1 | tee $TMP/gnome.other.build.log
+
+mkdir -p $TMP/gnome-$GVERSION/other
+mv $TMP/*.tgz $TMP/gnome-$GVERSION/other

@@ -1,0 +1,101 @@
+#!/bin/sh -e
+
+TMP=${TMP:-/tmp}
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+
+BUILD_ORDER="libgnomesu
+libgtkhtml
+gnome-icon-theme
+gnome-keyring
+gnome-keyring-manager
+startup-notification
+gtk-engines
+gnome-themes
+scrollkeeper
+gnome-desktop
+gnome-menus
+libwnck
+libsoup
+evolution-data-server
+gnome-panel
+gnome-session
+vte
+gnome-terminal
+libgtop
+libxklavier
+gnome-applets
+metacity
+librsvg
+eel
+nautilus
+control-center
+gtkhtml
+gnome-doc-utils
+yelp
+bug-buddy
+libgnomecups
+gtksourceview
+gedit
+eog
+ggv
+gconf-editor
+gnome-utils
+gnome-spell
+gnome-pilot
+gnome-pilot-conduits
+gnome-netstatus
+gcalctool
+gpdf
+gucharmap
+nautilus-cd-burner
+nautilus-sendto
+gnome-media
+zenity
+libgail-gnome
+gnome-speech
+gnome-mag
+dasher
+gnopernicus
+gok
+epiphany
+epiphany-extensions
+gnome-games
+gnome2-user-docs
+file-roller
+gnome-system-tools
+gnome-nettool
+vino
+gnome-volume-manager
+gal2
+evolution
+evolution-webcal
+ximian-connector
+gnomemeeting
+totem
+goobox
+gnome-system-monitor
+gnome-user-share
+gnome-icon-theme
+gnome-backgrounds
+gdm"
+
+(
+for i in $BUILD_ORDER
+do
+(
+  cd $i
+  echo ""
+  echo ""
+  echo "*************************************************"
+  echo "*****         Building $i"
+  echo "*************************************************"
+  echo ""
+  ./$i.SlackBuild
+  upgradepkg --install-new $TMP/$i*.tgz
+)
+done
+# Fork screen output to a log
+) 2>&1 | tee $TMP/gnome.desktop.build.log

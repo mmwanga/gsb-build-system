@@ -1,0 +1,88 @@
+#!/bin/sh
+
+CWD=`pwd` 
+if [ "$TMP" = "" ]; then
+  TMP=/tmp
+fi
+PKG=$TMP/package-gdm
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG
+
+VERSION=2.6.0.7
+BUILD=1
+# Set $ARCH:
+if [ -z "$ARCH" -o "$ARCH" = "i486" ]; then
+  # Default package $ARCH is i486:
+  ARCH=i486
+  # This is the target for ./configure:
+  SLAKTARGET=${SLAKTARGET:-i486}
+  # CFLAGS for this $ARCH:
+  ARCHCFLAGS=${ARCHCFLAGS:--march=i486 -mcpu=i686}
+  # Any $ARCH specific patches might be applied here:
+  # (none yet)
+elif [ "$ARCH" = "x86_64" ]; then
+  SLAKTARGET=${SLAKTARGET:-x86_64}
+  ARCHCFLAGS=${ARCHCFLAGS:-}
+fi
+
+
+cd $TMP 
+rm -rf gdm-$VERSION
+tar xjvf $CWD/gdm-$VERSION.tar.bz2
+cd gdm-$VERSION
+chown -R root.root .
+# Quiet the output from the gdm script when /etc/profile is sourced:
+#zcat $CWD/gdm.quiet.diff.gz | patch -p1 --verbose --suffix=.orig
+# gdm will add -g anyway.  I suggest not fighting it.  ;-)
+CFLAGS="-O2 $ARCHCFLAGS" ./configure --prefix=/usr \
+            --sysconfdir=/etc/X11 \
+            --localstatedir=/var/lib \
+            $SLAKTARGET-slackware-linux
+make
+make install DESTDIR=$PKG
+
+chown -R root.bin $PKG/usr/bin $PKG/usr/sbin
+( cd $PKG
+  find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+  find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+)
+mkdir -p $PKG/usr/share/faces
+# Simple session files designed to work with Slackware:
+mkdir -p $PKG/etc/X11/dm/Sessions
+for file in $CWD/Sessions/* ; do
+  cp $file $PKG/etc/X11/dm/Sessions
+done
+chown -R root.root $PKG/etc/X11/dm
+chmod 755 $PKG/etc/X11/dm/Sessions/*
+# Use a version of Xsession that supports our session choices:
+( cd $PKG/etc/X11/gdm
+  zcat $CWD/Xsession.gz > Xsession
+)
+mkdir -p $PKG/usr/doc/gdm-$VERSION
+cp -a ABOUT-NLS AUTHORS COPYING INSTALL NEWS README README.install RELEASENOTES TODO \
+   $PKG/usr/doc/gdm-$VERSION
+chmod 644 $PKG/usr/doc/gdm-$VERSION/*
+chown -R gdm.gdm $PKG/var/lib/gdm
+chmod 750 $PKG/var/lib/gdm
+# This is kind of sloppy, but less so that having the package look for /var/scrollkeeper.
+# It appears those are the choices we have here...
+mkdir -p $PKG/var/log/gdm
+rm -rf $PKG/var/lib/log/gdm
+( cd $PKG/var/lib/log
+  ln -sf ../../log/gdm .
+)
+gzip -9 $PKG/usr/man/man?/*.?
+mkdir -p $PKG/var/lib/scrollkeeper
+touch $PKG/usr/share/faces $PKG/var/lib/gdm
+cat $CWD/gdm.conf-graphical > $PKG/etc/X11/gdm/gdm.conf
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
+
+cd $PKG
+makepkg -l y -c n $TMP/gdm-$VERSION-$ARCH-$BUILD.tgz
+

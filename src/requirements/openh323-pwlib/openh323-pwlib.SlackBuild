@@ -1,0 +1,106 @@
+#!/bin/sh
+
+CWD=`pwd`
+if [ "$TMP" = "" ]; then
+  TMP=/tmp
+fi
+PKG=$TMP/package-openh323
+PWPKG=$TMP/package-pwlib
+
+VERSION=1.15.2
+PVERSION=1.8.3
+ARCH=i486
+BUILD=1
+
+# versions for the stupid src tarball
+OHVER=1_15_2
+PWVER=1_8_3
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG $PWPKG
+mkdir -p $PKG $PWPKG
+
+#
+# Make pwlib package first
+#
+
+cd $TMP 
+tar xzvf $CWD/pwlib-v$PWVER-src-tar.gz
+cd pwlib
+CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr/local \
+	    --enable-plugins \
+            i486-slackware-linux
+make
+make install DESTDIR=$PWPKG
+
+(
+  mkdir -p $PWPKG/usr/local/bin
+  cd $PWPKG/usr/local/bin
+  ln -sf ../share/pwlib/make/ptlib-config
+)
+
+chown -R root.bin $PWPKG/usr/local/bin
+
+(
+  cd $PWPKG/usr/local/include/ptclib/
+  chmod 644 *.h
+)
+
+mkdir -p $PWPKG/usr/local/doc/pwlib-$VERSION
+cp -a History.txt ReadMe.txt \
+  $PWPKG/usr/local/doc/pwlib-$VERSION
+chmod 644 $PWPKG/usr/local/doc/pwlib-$VERSION/*
+chown root.root $PWPKG/usr/local/doc/pwlib-$VERSION/*
+
+find $PWPKG -type f | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded
+gzip -9 $PWPKG/usr/local/man/*/*
+
+mkdir -p $PWPKG/install
+cat $CWD/slack-desc.pwlib > $PWPKG/install/slack-desc
+
+cd $PWPKG
+makepkg -l y -c n $TMP/pwlib-$PVERSION-$ARCH-$BUILD.tgz
+
+#
+#
+# Build OpenH323 now
+#
+#
+
+cd $TMP 
+tar xzvf $CWD/openh323-v$OHVER-src-tar.gz
+cd openh323
+CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr/local \
+	    --enable-localspeex \
+            i486-slackware-linux
+make
+make install DESTDIR=$PKG
+
+(
+  cd $PKG/usr/local/include/openh323/
+  rm -rf CVS
+  chmod 644 *.h
+)
+
+mkdir -p $PKG/usr/local/doc/openh323-$VERSION
+cp -a ReadMe.txt VoIPBlaster.txt \
+  $PKG/usr/local/doc/openh323-$VERSION
+chmod 644 $PKG/usr/local/doc/openh323-$VERSION/*
+chown root.root $PKG/usr/local/doc/openh323-$VERSION/*
+
+find $PKG -type f | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded
+gzip -9 $PKG/usr/local/man/*/*
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc.openh323 > $PKG/install/slack-desc
+
+cd $PKG
+makepkg -l y -c n $TMP/openh323-$VERSION-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/openh323 $TMP/pwlib
+  rm -rf $PKG $PWPKG
+fi

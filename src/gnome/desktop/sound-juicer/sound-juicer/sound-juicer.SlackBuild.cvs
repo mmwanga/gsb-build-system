@@ -1,0 +1,64 @@
+#!/bin/sh
+#
+# $Id: sound-juicer.SlackBuild.cvs 182 2004-12-12 04:02:20Z freerock $
+
+CWD=`pwd`
+if [ "$TMP" = "" ]; then
+  TMP=/tmp
+fi
+PKG=$TMP/package-sound-juicer
+
+VERSION=0.5.8
+ARCH=i486
+BUILD=1
+
+SCHEMAS=$PKG/etc/gconf/schemas/sound-juicer.schemas
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG
+
+CVSCODIR=$TMP/gnome
+cd $CVSCODIR/sound-juicer
+./autogen.sh
+CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
+	    --sysconfdir=/etc \
+            --localstatedir=/var/lib \
+            --disable-static \
+            i486-slackware-linux
+make
+make install DESTDIR=$PKG
+GCONF_CONFIG_SOURCE="xml::$PKG/etc/gconf/gconf.xml.defaults" \
+	gconftool-2 --makefile-install-rule $SCHEMAS
+
+(
+  cd $PKG/etc/gconf/gconf.xml.defaults
+  find ./ -type d -exec chmod go+rx {} \;
+  find ./ -type f -exec chmod go+r {} \;
+)
+
+chown -R root.bin $PKG/usr/bin
+
+mkdir -p $PKG/usr/doc/sound-juicer-$VERSION
+cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README TODO \
+ $PKG/usr/doc/sound-juicer-$VERSION
+chmod 644 $PKG/usr/doc/sound-juicer-$VERSION/*
+chown root.root $PKG/usr/doc/sound-juicer-$VERSION/*
+
+find $PKG -type f | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded
+gzip -9 $PKG/usr/man/*/*
+
+mkdir -p $PKG/install
+zcat $CWD/doinst.sh.gz > $PKG/install/doinst.sh
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG
+makepkg -l y -c n $TMP/sound-juicer-$VERSION-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/template-$VERSION
+  rm -rf $PKG
+fi

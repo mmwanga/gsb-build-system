@@ -1,0 +1,50 @@
+#!/bin/sh
+
+CWD=`pwd`
+if [ "$TMP" = "" ]; then
+  TMP=/tmp
+fi
+PKG=$TMP/package-xvid
+
+VERSION=1.1.0-beta1
+PVERSION=1.1.0_beta1
+ARCH=i486
+BUILD=1
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG
+
+cd $TMP 
+tar xjvf $CWD/xvidcore-$VERSION.tar.bz2
+cd xvidcore-$VERSION
+cd build/generic
+CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
+            i486-slackware-linux
+make
+make install DESTDIR=$PKG
+
+cd $TMP/xvidcore-$VERSION
+
+mkdir -p $PKG/usr/doc/xvid-$VERSION
+cp -a CodingStyle LICENSE README.txt authors.txt changelog.txt \
+  todo.txt doc/xvid*.txt $PKG/usr/doc/xvid-$VERSION
+chmod 644 $PKG/usr/doc/xvid-$VERSION/*
+chown root.root $PKG/usr/doc/xvid-$VERSION/*
+
+find $PKG -type f | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded
+gzip -9 $PKG/usr/man/*/*
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG
+makepkg -l y -c n $TMP/xvid-$PVERSION-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/xvid-$VERSION
+  rm -rf $PKG
+fi

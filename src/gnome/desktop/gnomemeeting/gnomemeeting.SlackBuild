@@ -1,0 +1,69 @@
+#!/bin/sh
+
+CWD=`pwd`
+if [ "$TMP" = "" ]; then
+  TMP=/tmp
+fi
+PKG=$TMP/package-gnomemeeting
+
+VERSION=1.2.0
+ARCH=i486
+BUILD=1
+
+SCHEMAS=$PKG/etc/gconf/schemas/gnomemeeting.schemas
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG
+
+cd $TMP 
+tar xjvf $CWD/gnomemeeting-$VERSION.tar.bz2
+cd gnomemeeting-$VERSION
+#
+CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
+            --sysconfdir=/etc \
+            --localstatedir=/var/lib \
+	    --disable-static \
+	    --with-pwlib-dir=/usr/local \
+	    --with-openh323-dir=/usr/local \
+	    --with-ldap-dir=/usr/local \
+	    --program-prefix="" \
+	    --program-suffix="" \
+	    --disable-howl \
+            i486-slackware-linux
+make
+make install DESTDIR=$PKG
+GCONF_CONFIG_SOURCE="xml::$PKG/etc/gconf/gconf.xml.defaults" \
+        gconftool-2 --makefile-install-rule $SCHEMAS
+
+(
+  cd $PKG/etc/gconf
+  find ./ -type d -exec chmod go+rx {} \;
+  find ./ -type f -exec chmod go+r {} \;
+) 
+chown -R root.bin $PKG/usr/bin
+
+mkdir -p $PKG/usr/doc/gnomemeeting-$VERSION
+cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
+  $PKG/usr/doc/gnomemeeting-$VERSION
+chmod 644 $PKG/usr/doc/gnomemeeting-$VERSION/*
+chown root.root $PKG/usr/doc/gnomemeeting-$VERSION/*
+
+find $PKG -type f | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded
+gzip -9 $PKG/usr/man/*/*
+gzip -9 $PKG/usr/info/*
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
+
+cd $PKG
+makepkg -l y -c n $TMP/gnomemeeting-$VERSION-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/gnomemeeting-$VERSION
+  rm -rf $PKG
+fi

@@ -1,0 +1,35 @@
+#!/bin/sh
+# Start/stop/restart the hal daemon:
+
+hal_start()
+{
+  if [ -x /usr/sbin/hald ]; then
+    echo "Starting HAL daemon:  /usr/sbin/hald"
+    /usr/sbin/hald --daemon=yes
+  fi
+}
+
+hal_stop()
+{
+  killall hald
+}
+
+hal_restart()
+{
+  hal_stop;
+  hal_start;
+}
+
+case "$1" in
+'start')
+  hal_start
+  ;;
+'stop')
+  hal_stop
+  ;;
+'restart')
+  hal_restart
+  ;;
+*)
+  echo "usage $0 start|stop|restart"
+esac

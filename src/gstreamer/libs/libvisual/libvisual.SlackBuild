@@ -1,0 +1,57 @@
+#!/bin/sh
+
+CWD=`pwd`
+if [ "$TMP" = "" ]; then
+  TMP=/tmp
+fi
+PKG=$TMP/package-libvisual
+
+VERSION=0.1.7
+ARCH=i486
+BUILD=1
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG
+
+cd $TMP
+tar -xzvf $CWD/libvisual-$VERSION.tar.gz
+cd libvisual-$VERSION
+CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr/local \
+            --disable-static \
+            i486-slackware-linux
+make
+make install DESTDIR=$PKG
+
+chown -R root.bin $PKG/usr/local/bin
+
+mkdir -p $PKG/usr/local/doc/libvisual-$VERSION
+cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
+        TODO \
+        $PKG/usr/local/doc/libvisual-$VERSION
+find $PKG/usr/local/doc/libvisual-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/local/doc/libvisual-$VERSION/*
+
+# strip:
+( cd $PKG
+  find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+  find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+)
+
+gzip -9 $PKG/usr/local/man/*/*
+gzip -9 $PKG/usr/local/info/*
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
+
+cd $PKG
+makepkg -l y -c n $TMP/libvisual-$VERSION-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/libvisual-$VERSION
+  rm -rf $PKG
+fi

@@ -1,0 +1,48 @@
+#!/bin/sh
+
+CWD=`pwd`
+if [ "$TMP" = "" ]; then
+  TMP=/tmp
+fi
+PKG=$TMP/package-pygtk
+
+VERSION=2.5.3
+ARCH=i486
+BUILD=1
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG
+
+cd $TMP 
+tar xjvf $CWD/pygtk-$VERSION.tar.bz2
+cd pygtk-$VERSION
+#
+CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
+	    --disable-static \
+            i486-slackware-linux
+make
+make install DESTDIR=$PKG
+
+mkdir -p $PKG/usr/doc/pygtk-$VERSION
+cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
+  $PKG/usr/doc/pygtk-$VERSION
+chmod 644 $PKG/usr/doc/pygtk-$VERSION/*
+chown root.root $PKG/usr/doc/pygtk-$VERSION/*
+
+find $PKG -type f | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded
+gzip -9 $PKG/usr/man/*/*
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG
+makepkg -l y -c n $TMP/pygtk-$VERSION-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/pygtk-$VERSION
+  rm -rf $PKG
+fi

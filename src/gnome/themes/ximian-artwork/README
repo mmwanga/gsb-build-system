@@ -1,0 +1,7 @@
+ $Id: README 10 2004-02-04 06:50:43Z freerock $
+
+to get the tarball that the SlackBuild uses do this:
+
+wget -c ftp.ximian.com/pub/xd2/redhat-9-i386/source/ximian-artwork-0.2.29-0.ximian.6.2.src.rpm
+
+rpm2cpio ximian-artwork-0.2.29-0.ximian.6.2.src.rpm |cpio -iumd ximian-artwork-0.2.29.tar.gz 

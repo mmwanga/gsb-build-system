@@ -1,0 +1,98 @@
+#!/bin/sh
+
+CWD=`pwd`
+if [ "$TMP" = "" ]; then
+  TMP=/tmp
+fi
+PKG=$TMP/package-abiword
+
+VERSION=2.1.1
+ARCH=i486
+BUILD=1
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG
+
+cd $TMP 
+tar xjvf $CWD/abiword-$VERSION.tar.bz2
+cd abiword-$VERSION/abi
+#
+if [ ! -r configure ]; then
+  sh autogen.sh
+fi
+CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
+	  --disable-static \
+          --sysconfdir=/etc \
+          --localstatedir=/var/lib \
+          --enable-gnome \
+	  --disable-static \
+	  --enable-extra-optimization \
+	  --enable-xft \
+	  --with-libxml2 \
+	  --enable-curl \
+	  --with-pspell \
+	  i486-slackware-linux
+make
+make install DESTDIR=$PKG
+
+chown -R root.bin $PKG/usr/bin
+
+rm -rf $PKG/usr/share/icons
+
+mkdir -p $PKG/usr/doc/abiword-$VERSION/docs
+cp -a BUILD.TXT BiDiReadme.txt COPYING CREDITS.TXT README.TXT \
+  COPYRIGHT.TXT \
+  $PKG/usr/doc/abiword-$VERSION
+cp -a \
+  docs/*.abw \
+  $PKG/usr/doc/abiword-$VERSION/docs
+find $PKG/usr/local/doc/template-$VERSION/ -type f -exec chmod 644 {} \;
+(
+  cd ../abiword-docs/man
+  mkdir -p $PKG/usr/man/man8
+  cat abiword.8 | gzip -9c > $PKG/usr/man/man8/abiword.8.gz
+  cd ..
+  cp -a Manual/en/Abiword_Manual.abw $PKG/usr/doc/abiword-$VERSION/docs
+)
+chown -R root.root $PKG/usr/doc/abiword-$VERSION/*
+
+mkdir $PKG/usr/share/applications
+cat abiword.desktop > $PKG/usr/share/applications/abiword.desktop
+
+mkdir -p $PKG/usr/share/pixmaps
+cp abiword_48.png $PKG/usr/share/pixmaps
+
+#
+# Install abiword plugins
+#
+
+(
+  cd $TMP/abiword-$VERSION/abiword-plugins
+  if [ ! -r configure ]; then
+    sh nextgen.sh
+  fi
+  CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
+            --disable-static \
+            --with-abiword=$TMP/abiword-$VERSION/abi \
+            i486-slackware-linux
+  make
+  make install DESTDIR=$PKG
+)
+
+find $PKG -type f | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded
+gzip -9 $PKG/usr/man/*/*
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG
+makepkg -l y -c n $TMP/abiword-$VERSION-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/abiword-$VERSION
+  rm -rf $PKG
+fi

@@ -1,0 +1,65 @@
+#!/bin/sh
+
+CWD=`pwd`
+if [ "$TMP" = "" ]; then
+  TMP=/tmp
+fi
+PKG=$TMP/package-shared-mime-info
+
+VERSION=0.15
+ARCH=i486
+BUILD=1
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG
+
+cd $TMP 
+tar xzvf $CWD/shared-mime-info-$VERSION.tar.gz
+cd shared-mime-info-$VERSION
+chown -R root.root .
+find . -perm 666 -exec chmod 644 {} \;
+find . -perm 664 -exec chmod 644 {} \;
+CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
+	    --sysconfdir=/etc \
+            --localstatedir=/var/lib \
+            --disable-static \
+	    --disable-update-mimedb \
+            i486-slackware-linux
+make
+make install DESTDIR=$PKG
+
+chown -R root.bin $PKG/usr/bin
+
+mkdir -p $PKG/usr/doc/shared-mime-info-$VERSION
+cp -a \
+  AUTHORS BUGS COPYING HACKING MAINTAINERS NEWS README \
+  $PKG/usr/doc/shared-mime-info-$VERSION
+find $PKG/usr/doc/shared-mime-info-$VERSION/ -type f -exec chmod 644 {} \;
+chown -R root.root $PKG/usr/doc/shared-mime-info-$VERSION/*
+
+# strip:
+( cd $PKG
+  find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+  find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+)
+
+gzip -9 $PKG/usr/man/*/*
+
+rm -f $PKG/usr/info/dir
+gzip -9 $PKG/usr/info/*
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
+
+cd $PKG
+makepkg -l y -c n $TMP/shared-mime-info-$VERSION-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/shared-mime-info-$VERSION
+  rm -rf $PKG
+fi

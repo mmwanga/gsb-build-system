@@ -1,0 +1,21 @@
+$Id$
+
+These gnome SlackBuilds are just Pat's .build scripts translated
+to .SlackBuilds
+
+Some SlackBuilds included are not in the source/gnome/ dir but are
+directly related to updating gnome according to the gnome
+installation guide
+
+Enjoy :)
+
+Build Order:
+	- requirements
+	- gstreamer
+	- gnome
+	- other
+	- office
+
+STATUS:
+
+	office and gstreamer dirs not tested yet, but skeleton is there

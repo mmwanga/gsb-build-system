@@ -1,0 +1,56 @@
+#!/bin/sh
+
+CWD=`pwd`
+if [ "$TMP" = "" ]; then
+  TMP=/tmp
+fi
+PKG=$TMP/package-gtkhtml
+
+VERSION=3.5.5
+ARCH=i486
+BUILD=1
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG
+
+cd $TMP 
+tar xjvf $CWD/gtkhtml-$VERSION.tar.bz2
+cd gtkhtml-$VERSION
+#
+chown -R root.root .
+find . -perm 666 -exec chmod 644 {} \;
+find . -perm 664 -exec chmod 644 {} \;
+#
+CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
+	    --disable-static \
+	    --sysconfdir=/etc \
+            --localstatedir=/var/lib \
+            i486-slackware-linux
+make
+make install
+make install DESTDIR=$PKG
+make uninstall
+
+mkdir -p $PKG/usr/doc/gtkhtml-$VERSION
+cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README TODO \
+  $PKG/usr/doc/gtkhtml-$VERSION
+chmod 644 $PKG/usr/doc/gtkhtml-$VERSION/*
+chown root.root $PKG/usr/doc/gtkhtml-$VERSION/*
+
+find $PKG -type f | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded
+gzip -9 $PKG/usr/man/*/*
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG
+makepkg -l y -c n $TMP/gtkhtml-$VERSION-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/gtkhtml-$VERSION
+  rm -rf $PKG
+fi

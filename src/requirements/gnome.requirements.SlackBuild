@@ -1,0 +1,39 @@
+#!/bin/sh
+
+if [ -r ../GSB.options ]; then
+  . ../GSB.options
+fi
+
+TMP=${TMP:-/tmp}
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+
+# howl for gnomemeeting not included yet
+BUILD_ORDER="dbus
+libcap
+hal
+openh323-pwlib"
+
+(
+
+for i in $BUILD_ORDER
+do
+(
+  cd $i
+  echo ""
+  echo "*************************************************"
+  echo "*****   Building $i"
+  echo "*************************************************"
+  echo ""
+  ./$i.SlackBuild
+  upgradepkg --install-new $TMP/$i*.tgz
+)
+done
+# Fork screen output to a log
+) 2>&1 | tee $TMP/gnome.requirements.build.log
+
+mkdir -p $TMP/gnome-$GVERSION/requirements
+mv $TMP/*.tgz $TMP/gnome-$GVERSION/requirements
+

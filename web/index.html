@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <title>GSB: GNOME.SlackBuild</title>
+  </head>
+
+  <body>
+    <h1>GSB: GNOME.SlackBuild</h1>
+    <p>
+      Building a <a href="http://www.gnome.org">GNOME</a> Distribution
+      for the <a href="http://www.slackware.com">Slackware Linux</a> Operating System.
+    </p>
+
+    <p>
+      The goal of this project is to run one script: <b>GNOME.SlackBuild</b>
+      and have it output Slackware packages for a GNOME release.
+      <br />
+      The current gsb
+      release <a href="http://sourceforge.net/project/showfiles.php?group_id=130126&amp;package_id=142651">0.0.1</a>
+      , builds GNOME version 2.9.90.
+      <br />
+      <br />
+      Binary packages will be available for the 2.9.91 release due out soon.
+    </p>
+
+    <h2>TODO</h2>
+
+    <ul>
+      <li>An installer for users 
+      <ul>
+	<li>something along the lines of: download packages then run upgradepkg --install-new *.tgz</li>
+	<li>
+	  maybe some dependancy checking for packages that need to be installed before others, ie dbus should be installed before
+	  hal so that dbus starts before hal
+	</li>
+	<li>I won't be doing this, so if anyone wants to do this feel free :)</li>
+      </ul>
+      </li>
+      <li>get web pages and scripts in CVS</li>
+      <li>implement gnome.office.SlackBuild</li>
+      <li>implement gnome.perl.bindings.SlackBuild</li>
+      <li>fix java bindings build, make currently fails</li>
+      <li>check if any of the packages need doinst.sh scripts for scrollkeeper updates</li>
+      <li>update some slackbuilds
+      <ul>
+	<li>IndLinux - just needs to be updated</li>
+	<li>NetworkManager - does not build with startup-notification-0.8, maybe try cvs build</li>
+	<li>gnome-audio - should this be added?</li>
+	<li>howl - need to add rc.howl script</li>
+	<li>ximian connector - needs kerberos to build</li> 
+	<li>gnomemeeting doesn't build with evolution-data-server in the gnome 2.9.90 release</li>
+      </ul>
+      </li>
+      <li>Get some CSS for this page and a menu on the left of this page</li>
+      <li>Write script to get tarballs for each release and put them in appropriate directory
+      and update respective SlackBuild's VERSION and BUILD variables (in progress)</li>
+      </ul>
+
+    <h2>Support</h2>
+    
+    <p>
+      use the mailing lists when possible, you are more likely to get a response, as there might not be someone active in the irc channel
+    </p>
+
+    <ul>
+      <li>#slackbuild on irc.freenode.net</li>
+      <li><a href="http://sourceforge.net/mail/?group_id=130126">Mailing Lists</a>
+      <ul>
+	<li>gcb-devel: Development Mailing Lists / Bug Reports</li>
+	<li>gcb-users: User Discussion</li>
+      </ul>
+      </li>
+    </ul>
+    
+    <p>
+      <br />
+      <a href="http://sourceforge.net/projects/gsb">
+	<img src="http://sourceforge.net/sflogo.php?group_id=130126&amp;type=5"
+	     width="100" height="31" alt="SourceForge.net Logo" /></a>
+    </p>
+
+    <p>
+      <a href="http://validator.w3.org/check?uri=referer"><img
+      src="http://www.w3.org/Icons/valid-xhtml10"
+      alt="Valid XHTML 1.0!" height="31" width="88" /></a>
+    </p>
+    
+  </body>
+
+</html>

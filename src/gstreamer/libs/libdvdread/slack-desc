@@ -1,0 +1,12 @@
+	  |-----handy-ruler------------------------------------------------------|
+libdvdread: libdvdread (DVD access library)
+libdvdread: 
+libdvdread: libdvdread provides a simple foundation for reading DVD video disks.
+libdvdread: It provides the functionality that is required to access many DVDs.
+libdvdread: It parses IFO files, reads NAV-blocks, and performs CSS
+libdvdread: authentication and descrambling.
+libdvdread: 
+libdvdread: 
+libdvdread: 
+libdvdread: 
+libdvdread: 

@@ -1,0 +1,58 @@
+#!/bin/sh
+
+CWD=`pwd`
+if [ "$TMP" = "" ]; then
+  TMP=/tmp
+fi
+PKG=$TMP/package-libmovtar
+
+VERSION=0.1.3
+JPEGMMXV=0.1.4
+ARCH=i486
+BUILD=1
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG
+
+cd $TMP
+tar xzvf $CWD/jpeg-mmx-$JPEGMMXV.tar.gz
+ln -sf jpeg-mmx-$JPEGMMXV jpeg-mmx
+cd jpeg-mmx-$JPEGMMXV
+CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure
+make
+
+cd $TMP 
+tar xzvf $CWD/libmovtar-$VERSION.tar.gz
+cd libmovtar-$VERSION
+#
+CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
+	    --disable-static \
+            i486-slackware-linux
+make
+make install DESTDIR=$PKG
+
+chown -R root.bin $PKG/usr/bin
+
+mkdir -p $PKG/usr/doc/libmovtar-$VERSION
+cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
+  $PKG/usr/doc/libmovtar-$VERSION
+chmod 644 $PKG/usr/doc/libmovtar-$VERSION/*
+chown root.root $PKG/usr/doc/libmovtar-$VERSION/*
+
+find $PKG -type f | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded
+gzip -9 $PKG/usr/man/*/*
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG
+makepkg -l y -c n $TMP/libmovtar-$VERSION-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/libmovtar-$VERSION
+  rm -rf $PKG
+fi

@@ -1,0 +1,12 @@
+		|-----handy-ruler------------------------------------------------------|
+shared-mime-info: shared-mime-info 
+shared-mime-info:
+shared-mime-info: This package contains the core database of common types and the
+shared-mime-info: update-mime-database command used to extend it. It requires glib2 to
+shared-mime-info: be installed for building the update command. Additionally, it uses
+shared-mime-info: intltool for translations, though this is only a dependency for the
+shared-mime-info: maintainers.
+shared-mime-info:
+shared-mime-info:
+shared-mime-info:
+shared-mime-info:

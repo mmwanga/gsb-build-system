@@ -1,0 +1,36 @@
+#!/bin/sh
+
+TMP=${TMP:-/tmp}
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+
+BUILD_ORDER="libsigc++
+libxml++
+glibmm
+gtkmm
+libgnomemm
+libgnomecanvasmm
+libglademm
+libgnomeuimm
+gnome-vfsmm
+gconfmm
+bakery"
+
+(
+for i in $BUILD_ORDER
+do
+(
+  cd $i
+  echo ""
+  echo "*************************************************"
+  echo "*****         Building $i"
+  echo "*************************************************"
+  echo ""
+  ./$i.SlackBuild
+  upgradepkg --install-new $TMP/$i*.tgz
+)
+done
+# Fork screen output to a log
+) 2>&1 | tee $TMP/gnome.c++.bindings.build.log
