@@ -33,10 +33,10 @@ RewriteEngine On
     Deny from all
 </Files>
 
-<Files ~ "(.*)_inc\.php">
-    Order allow,deny
-    Deny from all
-</Files>
+#<Files ~ "(.*)_inc\.php">
+#    Order allow,deny
+#    Deny from all
+#</Files>
 
 <Files ~ "(.*)\.sh">
     Order allow,deny

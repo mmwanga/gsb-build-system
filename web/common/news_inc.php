@@ -15,7 +15,7 @@ $author["freerock"]="freerock [at] gmail (dot) com";
 $max = 3;
 
 // news file
-$ff = "news.txt";
+$ff = "../news.txt";
 
 // entry separator
 $sep = "###";
@@ -54,10 +54,10 @@ if (!is_file($ff)) {
         $ndate=mktime($ndate[_HOUR],$ndate[_MINUTE], $ndate[_SEC],
             $ndate[_MONTH], $ndate[_DAY], $ndate[_YEAR]);
         $ndate = date("Y/m/d @ H:i", $ndate);
-
+        $news_id = $a;
         $news = preg_replace("/(?<!<a href=\")((http|https|rsync|news|irc|ftp)+(s)?:\/\/[^<>\s]+)/i", "<a href=\"\\0\">\\0</a>", $news);
 
-        print( "<h3 id=\"entry_$a\">".$subject."</h3>\n"
+        print( "<h3 id=\"news_id-$a\">".$subject."</h3>\n"
               ."<p class=\"newsheader\">Posted ".$ndate." ".$ndate_tzone." by "
               .$author."</p>\n"
               ."<div class=\"news_entry\">".$news[0]."</div>\n"
