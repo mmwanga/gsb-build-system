@@ -6,7 +6,7 @@ PKG=$TMP/package-gaim
 VERSION=1.1.4
 GAIMENC=2.35
 ARCH=${ARCH:-i486}
-BUILD=${BUILD:-1}
+BUILD=1
 
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
