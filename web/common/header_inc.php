@@ -3,7 +3,7 @@
 
     Header PHP script
     Chip Cuccio <chipster@norlug.org>
-    $Id$
+    $Id: header_inc.php 63 2005-02-13 23:46:18Z chipster $
 
 */
 header("Content-Type: text/html;charset=utf-8");
@@ -25,7 +25,7 @@ header("Content-Type: text/html;charset=utf-8");
 
     GSB site code <http://gsb.sf.net>
     Chip Cuccio <chipster@norlug.org>
-    $Id$
+    $Revision$ - $Date$ - $Author$
 
 -->
 <body>  
