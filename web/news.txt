@@ -1,17 +1,16 @@
 ###
 2005-02-29-12-00-EST
 freerock
-Freerock's GNOME version 0.0.2.2 available for download as an iso.
+Freerock's GNOME version 0.0.2.2 Released
+It is available for download as an iso on the download page.
 
 This release is a bug fix release:
 <ul>
   <li>Abiword and Gstreamer crashes were fixed, some bad plugins were at fault</li>
   <li>Howl is actually installed by the install script</li>
-  <li>
-    rc.hal fixed, there was a missing quotation mark on one of the lines.
+  <li>rc.hal fixed, there was a missing quotation mark on one of the lines.
     If you already have hal installed, please edit the /etc/rc.d/rc.howl script,
-    and edit the line with echo "Starting Howl and add a " to the end
-  </li>
+    and edit the line with echo "Starting Howl and add a " to the end</li>
   <li>added openldap and cyrus-sasl packages needed by evolution</li>
 </ul>
 
