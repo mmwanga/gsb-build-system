@@ -38,9 +38,8 @@ our %platform =
    'libgnome'            => '2.10.0',
    'libgnomecanvas'      => '2.10.0',
    'libgnomeprint'       => '2.10.0',
-   'libgnomeprintui'     => '2.10.0',
+   'libgnomeprintui'     => '2.10.0.1',
    'libgnomeui'          => '2.10.0',
-
    'libxml2'             => '2.6.17',
    'libxslt'             => '1.1.12',
    'pango'               => '1.8.1',
@@ -90,7 +89,7 @@ our %desktop =
   (
    'bug-buddy'              => '2.10.0',
    'control-center'         => '2.10.0',
-   'dasher'                 => '3.2.12',
+   'dasher'                 => '3.2.15',
    'eel'                    => '2.10.0',
    'eog'                    => '2.9.0',
    'epiphany'               => '1.6.0',
@@ -210,7 +209,6 @@ our %bindings_java =
    'libgtk-java'      => '2.6.0',
 
   );
-
 
 our %bindings_python =
   (

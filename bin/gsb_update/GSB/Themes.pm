@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw(%desktop_reqs %stupid_gnomemeeting_libs);
+our @EXPORT    = qw(%gnome_extra_themes %gnome_themes %other_themes);
 our @EXPORT_OK = qw();
 our $VERSION = 0.03;
 
@@ -13,22 +13,48 @@ our $VERSION = 0.03;
 #
 # Themes options
 
-our %gnome_extra_themes =
-  (
-
-  );
-
 our %gnome_themes =
   (
-
-  );
-
-our %themes =
-  (
    'gnome-themes-extras'  => '0.8.1',
-   'clearlooks'           => '0.3.0',
   );
 
+our %other_themes =
+  (
+   'clearlooks'           => {
+			      'ver' => '0.4',
+			      'url' => 'http://heanet.dl.sourceforge.net/sourceforge/clearlooks/',
+			      'src' => 'tar.bz2',
+			     },
+  );
+
+our %gnome_extra_themes =
+  (
+   ''           => {
+			      'ver' => '',
+			      'url' => '',
+			      'src' => '',
+			     },
+   ''           => {
+			      'ver' => '',
+			      'url' => '',
+			      'src' => '',
+			     },
+   ''           => {
+			      'ver' => '',
+			      'url' => '',
+			      'src' => '',
+			     },
+   ''           => {
+			      'ver' => '',
+			      'url' => '',
+			      'src' => '',
+			     },
+   ''           => {
+			      'ver' => '',
+			      'url' => '',
+			      'src' => '',
+			     },
+  );
 
 #
 #

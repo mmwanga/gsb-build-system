@@ -24,7 +24,7 @@ use strict;
 use warnings;
 
 # GSB Modules
-#use GSB::Edit;
+use GSB::Edit;
 use GSB::GSB;
 use GSB::Gnome;
 use GSB::GStreamer;

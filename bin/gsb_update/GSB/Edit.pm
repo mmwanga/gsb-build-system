@@ -3,6 +3,7 @@ require Exporter;
 
 use strict;
 use warnings;
+use Tie::File;
 
 our @ISA       = qw(Exporter);
 our @EXPORT    = qw(gsb_sb_edit);
@@ -22,19 +23,37 @@ our $VERSION = 0.03;
 sub gsb_sb_edit {
 
   my $file = shift;
-  my $ver = shift;
+  my $new_ver = shift;
 
+  tie my @fh, 'Tie::File', $file
+    or die "Cannot open $file: $!";
 
+  my $sb_version = gsb_version_get(@fh);
+  my $sb_build   = gsb_build_get(@fh);
 
+  if ( $new_ver eq $sb_version ) {
+    my $new_build_num = $sb_version + 1;
+    gsb_build_edit($new_build_num, @fh);
+  } else {
+    @fh = gsb_version_edit($new_ver, @fh);
+    gsb_build_edit("1", @fh);
+  }
+
+  untie @fh;
 }
 
 # Edit the VERSION variable
-# give the function a filehandle and version number as args
+# give the function a version number and array as args
 sub gsb_version_edit {
 
   my $newver = shift;
-  return (0);
+  my @arr = @_;
 
+  for (@arr) {
+    s/^VERSION=(.*)$/VERSION=$newver/;
+  }
+
+  return @arr;
 }
 
 # Edit the ^BUILD= variable
@@ -42,9 +61,41 @@ sub gsb_version_edit {
 sub gsb_build_edit {
 
   my $newnum = shift;
+  my @arr = @_;
 
-  return (0);
+  for (@arr) {
+    s/^BUILD=(.*)$/BUILD=$newnum/;
+  }
 
+  return @arr;
+}
+
+# give function array
+sub gsb_version_get {
+
+  my $version_num;
+  my @arr = @_;
+
+  if ( /^VERSION=(.*)$/ ) {
+    for (@arr) {
+      $version_num = $1;
+    }
+  }
+  return $version_num;
+}
+
+# give function array
+sub gsb_build_get{
+
+  my $build_num;
+  my @arr = @_;
+
+  for (@arr) {
+    if ( /^BUILD=(.*)$/ ) {
+      $build_num = $1;
+    }
+  }
+  return $build_num;
 }
 
 #
