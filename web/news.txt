@@ -1,4 +1,21 @@
 ###
+2005-03-27-11-00-EST
+freerock
+FRG-0.1.98 updates
+<p>Updates for FRG-0.1.98 are available here:</p>
+
+<blockquote><p>
+ <code><strong>
+ftp://ftp.brownjava.org/pub/frg/frg-updates/frg-0.1.98/
+</strong></code>
+</p></blockquote>
+
+<p>
+  There will be a FRG-0.1.99 release with these fixes as soon as the 
+  frg-artwork package is updated.
+</p>
+
+###
 2005-03-18-1-00-EST
 freerock
 FRG-0.1.97 available
