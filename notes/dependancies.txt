@@ -1,10 +1,13 @@
-pkg-config
-fontconfig
-FreeType
 libpng
 libjpeg
 libtiff
 libpopt
 mozilla
 gdk-pixbuf
-
+libexif
+python
+perl
+cdparanoia
+xscreensaver
+x11
+x11-xnest
