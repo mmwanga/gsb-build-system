@@ -32,6 +32,7 @@ CFLAGS="$SLKCFLAGS" \
             --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static \
+	    --without-javadocs \
             $ARCH-slackware-linux
 make
 make install DESTDIR=$PKG
