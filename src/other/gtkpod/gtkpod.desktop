@@ -1,10 +1,10 @@
-[DESKTOP ENTRY]
-Name=gtkpod
-Comment=gtkpod
+[Desktop Entry]
 Encoding=UTF-8
-Version=1.0
-Type=Application
-Categories=Application;AudioVideo;
-Icon=gtkpod.png
-Terminal=false
+Name=GTKPod
+GenericName=Syncs iPod
+Comment=Sync your Apple iPod
 Exec=gtkpod
+Terminal=false
+Type=Application
+Icon=gtkpod.png
+Categories=Application;AudioVideo;
