@@ -1,4 +1,13 @@
 ###
+2005-03-11-12-00-EST
+freerock
+GNOME 2.10.0 packages for Slackware 10.1
+<p>FRG-0.1.92 has been released for testing. It contains packages of GNOME 2.10.0
+built on slackware 10.1. Test and send feedback to the mailing list. Check the
+Support page for details.
+<p>
+
+###
 2005-02-26-12-45-EST
 freerock
 GSB Build Order Slightly Wrong
