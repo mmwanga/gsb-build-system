@@ -20,7 +20,9 @@ $ff = "news.txt";
 // entry separator
 $sep = "###";
 
-if (is_file($ff)) {
+if (!is_file($ff)) {
+    print("<h3>No News</h3>\n\n");
+} else {
 
     define("_HOUR", 3);
     define("_MINUTE", 4);
@@ -29,11 +31,11 @@ if (is_file($ff)) {
     define("_DAY", 2);
     define("_YEAR", 0);
 
-    $fd = fopen ($ff, "r");
-    $data = fread ($fd, filesize ($ff));
-    fclose ($fd);
+    $fd = @fopen ($ff, "r");
+    $data = @fread ($fd, filesize ($ff));
+    @fclose ($fd);
 
-    $farr = split($sep, trim($data));
+    $farr = explode($sep, trim($data));
     rsort($farr);
 
     $start = $news_page > 0 ? ($max * $news_page) : 0;
@@ -41,14 +43,11 @@ if (is_file($ff)) {
 
     for ($a=$start; $a<count($farr)-1; $a++) {
         $news = explode("\n", trim($farr[$a]),4);
-        //$news = str_replace("\n", "\n\t    ", $news);
         $ndate=array_shift($news);
         $nick=array_shift($news);
         $subject=array_shift($news);
 
-        //$author="<a href=\"mailto:".$author[$nick]."\">".$nick."</a>";
         $author = $nick;
-
         $ndate=split("-",$ndate);
         $ndate_tzone=$ndate[_SEC];
         $ndate[_SEC] = "00";
@@ -56,7 +55,7 @@ if (is_file($ff)) {
             $ndate[_MONTH], $ndate[_DAY], $ndate[_YEAR]);
         $ndate = date("Y/m/d @ H:i", $ndate);
 
-        $news = preg_replace("/(?<!<a href=\")((http|ftp|rsync|gopher)+(s)?:\/\/[^<>\s]+)/i",
+        $news = preg_replace("/(?<!<a href=\")((http||https|ftp|rsync|news|irc)+(s)?:\/\/[^<>\s]+)/i",
             "<a href=\"\\0\">&lt;\\0&gt;</a>", $news);
        
         print( "<h3>".$subject."</h3>\n\n"
