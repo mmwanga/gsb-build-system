@@ -6,7 +6,7 @@ PKG=$TMP/package-gnome-menus
 
 VERSION=2.10.0
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -27,6 +27,8 @@ fi
 cd $TMP
 tar -xjvf $CWD/gnome-menus-$VERSION.tar.bz2
 cd gnome-menus-$VERSION
+#cat $CWD/menu.patch |patch -p0 --verbose
+#cat $CWD/layout.patch |patch -p0 --verbose
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
@@ -50,6 +52,14 @@ done
 )
 
 chown -R root.bin $PKG/usr/bin
+
+(
+  cd $PKG/etc/xdg/menus
+  for i in applications preferences settings
+  do
+  mv $i.menu $i.menu.new
+  done
+)
 
 mkdir -p $PKG/usr/doc/gnome-menus-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
