@@ -8,7 +8,7 @@ PWPKG=$TMP/package-pwlib
 VERSION=1.15.3
 PVERSION=1.8.4
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -36,6 +36,7 @@ cd pwlib-$PVERSION
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
 	    --enable-plugins \
+	    --enable-v4l2 \
             $ARCH-slackware-linux
 make
 make install DESTDIR=$PWPKG
