@@ -120,7 +120,7 @@ our %other =
 our %other_gnome =
   (
    'NetworkManager'      => '0.3.1',
-   'evince'              => '0.1.7',
+   'evince'              => '0.1.8',
    'ghex'                => '2.8.1',
    'glade'               => '2.9.0',
    'gnome-audio'         => '2.0.0',
