@@ -1,5 +1,5 @@
 #some global variables for the generic SlackBuilds
 
 if [ -z $GVERSION ]; then
-  export GVERSION=2.9.91
+  export GVERSION=2.10.0
 fi
