@@ -79,8 +79,8 @@ my %gnome_bindings =
    '%bindings_python'  => {
 			   'type' => 'python',
 			   'dir'  => 'gnome/bindings/python',
-f			  },
-   '%bindings_perl'  => {
+			  },
+   '%bindings_perl'    => {
 			   'type' => 'perl',
 			   'dir'  => 'gnome/bindings/perl',
 			  },
