@@ -3,7 +3,7 @@
 
     GSB news function PHP script <http://gsb.sf.net>
     Chip Cuccio <chipster@norlug.org>
-    $Id$
+    $Id: news.php 109 2005-02-17 01:17:22Z chipster $
 
 */
 
@@ -76,7 +76,7 @@ if (is_file($ff)) {
         if ( $max < count($farr)-1 )
             $nextlink = ": <a href=\"/news/".($news_page+1)."\">Next</a> &gt;";
         if ($news_page > 1)
-            $prevlink = " | &lt; <a href=\"/news/".($news_page-1)."\">Prev</a> ";
+            $prevlink = ": &lt; <a href=\"/news/".($news_page-1)."\">Prev</a> ";
         print( "\t<p><a href=\"/\">Home</a> ".$prevlink." ". $nextlink . "</p>\n" );
     }
 

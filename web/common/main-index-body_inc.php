@@ -11,7 +11,7 @@
 
     <h2 id="news">News and Announcements:</h2>
     
-    <?php include_once('common/news.php'); ?>
+    <?php include_once('common/news_inc.php'); ?>
 
     <p><a class="topOfPage doNotPrint" href="#top" title="Go to the top of this page">^     TOP</a></p>
 

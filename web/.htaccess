@@ -4,3 +4,18 @@ DirectoryIndex index.html index.shtml index.php
 RewriteEngine On
 RewriteBase /
 RewriteRule ^news/(.*)? /index.php?news_page=$1 [QSA]
+
+<Files ~ "^news\.txt">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files ~ "(.*)_inc\.php">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files ~ "(.*)\.sh">
+    Order allow,deny
+    Deny from all
+</Files>
