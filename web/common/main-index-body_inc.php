@@ -40,6 +40,14 @@
       release.</li>
     </ul>
 
+    <p><a class="topOfPage doNotPrint" href="#top" title="Go to the top of
+    this page">^ TOP</a></p>
+
+    <h2 id="screenshots">Screenshots</h2>
+
+    <p>Some Screenshots for your enjoyment:</p>
+<?php include_once('common/screenshots_inc.html'); ?>
+
     <p><a class="topOfPage doNotPrint" href="#top" title="Go to the top of this page">^
     TOP</a></p>
 

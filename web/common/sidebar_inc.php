@@ -17,6 +17,9 @@
         <li><a href="#about" title=
         "About the GSB Project">About GSB</a></li>
 
+        <li><a href="#screenshots" title=
+        "Screenshots">Screenshots</a></li>
+
         <li><a href="#downloads" title=
         "Downloads">Downloads</a></li>
 
