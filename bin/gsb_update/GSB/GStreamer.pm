@@ -47,7 +47,7 @@ our %gst_libs =
 			  },
    'faac'              => {
 			   'ver' => '1.24',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/faac/faac-1.24.tar.gz',
+			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/faac/',
 			   'src' => 'tar.gz',
 			  },
    'faad2'             => {
@@ -147,7 +147,7 @@ our %gst_libs =
 			  },
    'libmusepack'       => {
 			   'ver' => '1.1',
-			   'url' => 'http://files.musepack.net/source/libmusepack-1.1.tar.bz2',
+			   'url' => 'http://www.saunalahti.fi/grimmel/musepack.net-files/source/',
 			   'src' => 'tar.bz2',
 			  },
    'libmusicbrainz'    => {
@@ -182,7 +182,7 @@ our %gst_libs =
 			  },
    'libtheora'         => {
 			   'ver' => '1.0alpha4',
-			   'url' => 'http://downloads.xiph.org/releases/',
+			   'url' => 'http://downloads.xiph.org/releases/theora/',
 			   'src' => 'tar.gz',
 			  },
    'libvisual'         => {
@@ -242,7 +242,7 @@ our %gst_libs =
 			  },
    'xvidcore'          => {
 			   'ver' => '1.0.3',
-			   'url' => 'http://files.xvid.org/downloads/',
+			   'url' => 'http://downloads.xvid.org/downloads/',
 			   'src' => 'tar.bz2',
 			  },
   );
