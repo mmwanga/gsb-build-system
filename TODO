@@ -2,7 +2,6 @@ TODO:
 
 GSB:
 
-	* add xscreensaver to gsb ???
 	* add a HACKING file with instructions on how to edit
 	  and add things to the source tree
 
@@ -14,4 +13,13 @@ WEBSITE:
 	* some screenshots of the default theme and the FRG
 	  wallpaper.
 	* split screenshots page into: Default Look Screens
-	  and User Submitted Screenshots
+	  and User Submitted Screenshots, should be done when
+	  we have our default theme up
+	* FAQ page. chipster, not sure how you want it setup
+	  as far as layout goes, if you want to script it with
+	  php or not.
+	* USER ASSIGNED SOFTWARE. Page that lists which users
+	  have been assiged to certain packages for testing 
+	  purposes. Maybe have a separate page with a check
+	  list to say that they have tested the package
+
