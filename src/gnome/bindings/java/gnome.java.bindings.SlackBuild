@@ -27,4 +27,4 @@ do
 )
 done
 # Fork screen output to a log
-) 2>&1 | tee $TMP/gnome.java.bindingd.build.log
+) 2>&1 | tee $TMP/gnome.java.bindings.build.log
