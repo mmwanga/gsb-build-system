@@ -3,7 +3,7 @@
 freerock
 Updates on FRG-0.1.94 release
 
-<p><strong>UPDATE:</strong> Some more bugs have been found, some have been
+<p><strong>UPDATE MARCH 13:</strong> Some more bugs have been found, some have been
 fixed:</p>
 
 <ul>
@@ -30,6 +30,7 @@ fixed:</p>
   </li>
 </ul>
 
+<p><strong>END UPDATE:</strong></p>
 <p>
   Thank you to everyone who provided feedback on the release. We have found
   and fixed a few bugs.
