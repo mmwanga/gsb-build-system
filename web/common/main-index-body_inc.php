@@ -63,7 +63,7 @@
       Freerock's Gnome</a>: GNOME packages for Slackware Linux</li>
 
       <li><a href=
-      "https://sourceforge.net/project/showfiles.php?group_id=130126&amp;package_id=143903">
+      "http://sourceforge.net/project/showfiles.php?group_id=130126&amp;package_id=143903">
       FRG ISO</a>: iso file of Freerock's GNOME</li>
     </ul>
 
@@ -74,7 +74,7 @@
 
     <ol>
       <li>Download the iso and md5 sum file: <a href=
-      "https://sourceforge.net/project/showfiles.php?group_id=130126&amp;package_id=143903">
+      "http://sourceforge.net/project/showfiles.php?group_id=130126&amp;package_id=143903">
       FRG ISO</a>, then check the iso;
       <blockquote>
         <p><code>$ md5sum -c file.iso.md5</code></p>
