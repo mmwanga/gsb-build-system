@@ -100,6 +100,11 @@ our %other =
 			     'url' => 'http://mikmod.raphnet.net/files/',
 			     'src' => 'tar.gz',
 			    },
+   'poppler'             => {
+			     'ver' => '0.1.1',
+			     'url' => 'http://poppler.freedesktop.org/',
+			     'src' => 'tar.gz',
+			    },
   );
 
 our %other_gnome =
