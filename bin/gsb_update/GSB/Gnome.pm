@@ -23,12 +23,11 @@ our $VERSION   = 0.03;
 
 our %platform =
   (
-   'at-spi'              => '1.6.2',
-   'atk'                 => '1.9.0',
+   'at-spi'              => '1.6.3',
+   'atk'                 => '1.9.1',
    'audiofile'           => '0.2.6',
    'esound'              => '0.2.35',
    'gail'                => '1.8.2',
-
    'gnome-mime-data'     => '2.4.2',
    'gnome-vfs'           => '2.10.0',
    'intltool'            => '0.33',
@@ -38,8 +37,8 @@ our %platform =
    'libglade'            => '2.5.1',
    'libgnome'            => '2.10.0',
    'libgnomecanvas'      => '2.10.0',
-   'libgnomeprint'       => '2.8.2',
-   'libgnomeprintui'     => '2.8.2',
+   'libgnomeprint'       => '2.10.0',
+   'libgnomeprintui'     => '2.10.0',
    'libgnomeui'          => '2.10.0',
 
    'libxml2'             => '2.6.17',
@@ -96,14 +95,14 @@ our %desktop =
    'eog'                    => '2.9.0',
    'epiphany'               => '1.6.0',
    'epiphany-extensions'    => '1.6.0',
-   'evolution'              => '2.1.6',
-   'evolution-data-server'  => '1.1.6',
+   'evolution'              => '2.2.0',
+   'evolution-data-server'  => '1.2.0',
    'evolution-webcal'       => '2.2.0',
    'file-roller'            => '2.10.0',
    'gcalctool'              => '5.5.41',
    'gconf-editor'           => '2.10.0',
    'gdm'                    => '2.6.0.8',
-   'gedit'                  => '2.9.7',
+   'gedit'                  => '2.10.0',
    'ggv'                    => '2.8.4',
    'gnome-applets'          => '2.10.0',
    'gnome-backgrounds'      => '2.10.0',
@@ -113,7 +112,7 @@ our %desktop =
    'gnome-icon-theme'       => '2.10.0',
    'gnome-keyring'          => '0.4.2',
    'gnome-keyring-manager'  => '0.0.4',
-   'gnome-mag'              => '0.11.13',
+   'gnome-mag'              => '0.12.0',
    'gnome-media'            => '2.10.0',
    'gnome-menus'            => '2.10.0',
    'gnome-netstatus'        => '2.10.0',
@@ -126,7 +125,7 @@ our %desktop =
    'gnome-spell'            => '1.0.6',
    'gnome-system-monitor'   => '2.10.0',
    'gnome-system-tools'     => '1.2.0',
-   'gnome-terminal'         => '2.9.3',
+   'gnome-terminal'         => '2.10.0',
    'gnome-themes'           => '2.10.0',
    'gnome-user-share'       => '0.5',
    'gnome-utils'            => '2.10.0',
@@ -139,11 +138,11 @@ our %desktop =
    'gpdf'                   => '2.10.0',
    'gtk-engines'            => '2.6.2',
    'gtkhtml'                => '3.5.6',
-   'gtksourceview'          => '1.1.93',
+   'gtksourceview'          => '1.2.0',
    'gucharmap'              => '1.4.3',
    'libcroco'               => '0.6.0',
    'libgail-gnome'          => '1.1.0',
-   'libgnomecups'           => '0.1.14',
+   'libgnomecups'           => '0.2.0',
    'libgnomesu'             => '0.9.5',
    'libgsf'                 => '1.11.1',
    'libgtkhtml'             => '2.6.2',
@@ -164,7 +163,7 @@ our %desktop =
    'totem'                  => '1.0',
    'vino'                   => '2.10.0',
    'vte'                    => '0.11.12',
-   'ximian-connector'       => '2.1.6',
+   'ximian-connector'       => '2.2.0',
    'yelp'                   => '2.9.3',
    'zenity'                 => '2.10.0',
   );
@@ -172,7 +171,7 @@ our %desktop =
 our %desktop_diff_naming =
   (
    'gal2'  => {
-	       'ver'  => '2.3.5',
+	       'ver'  => '2.4.0',
 	       'name' => 'gal',
 	      },
   );
@@ -197,7 +196,7 @@ our %bindings_cxx =
    'libgnomemm'        => '2.10.0',
    'libgnomeuimm'      => '2.10.0',
    'libsigc++'         => '2.0.10',
-   'libxml++'          => '2.9.2',
+   'libxml++'          => '2.10.0',
   );
 
 #    'libgtkhtml-java'  => '2.6.0',

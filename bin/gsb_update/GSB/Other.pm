@@ -109,7 +109,7 @@ our %other_gnome =
    'ghex'                => '2.8.1',
    'glade'               => '2.9.0',
    'gnome-audio'         => '2.0.0',
-   'gnome-cups-manager'  => '0.28',
+   'gnome-cups-manager'  => '0.30',
    'gthumb'              => '2.6.3',
    'rhythmbox'           => '0.8.8',
   );
