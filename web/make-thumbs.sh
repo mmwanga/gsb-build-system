@@ -6,6 +6,7 @@ clear
 
 echo "removing existing thumbs ..."
 echo ""
+cd ./screenies
 rm -rf thumb*
 sleep 1
 
