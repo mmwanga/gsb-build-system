@@ -62,7 +62,7 @@ our %office_libs =
 		  },
    'psiconv'   => {
 		   'url' => 'http://www.frodol.dds.nl/psiconv/',
-		   'ver' => '0.9.6',
+		   'ver' => '0.9.7',
 		   'src' => 'tar.gz',
 		  },
   );

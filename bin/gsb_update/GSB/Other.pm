@@ -36,7 +36,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'gDesklets'           => {
-			     'ver' => '0.33.1',
+			     'ver' => '0.34.1',
 			     'url' => 'http://www.pycage.de/download/gdesklets/',
 			     'src' => 'tar.bz2',
 			    },
@@ -71,7 +71,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'gtkspell'            => {
-			     'ver' => '2.0.8',
+			     'ver' => '2.0.10',
 			     'url' => 'http://gtkspell.sourceforge.net/download/',
 			     'src' => 'tar.gz',
 			    },

@@ -47,7 +47,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'avifile'           => {
-			   'ver' => '0.7-0.7.41',
+			   'ver' => '0.7-0.7.43',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/avifile/',
 			   'src' => 'tar.gz',
 			  },
@@ -77,7 +77,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libavc1394'        => {
-			   'ver' => '0.4.1',
+			   'ver' => '0.5.0',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libavc1394/',
 			   'src' => 'tar.gz',
 			  },
@@ -192,7 +192,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libvisual'         => {
-			   'ver' => '0.1.7',
+			   'ver' => '0.2.0',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libvisual/',
 			   'src' => 'tar.gz',
 			  },
@@ -202,7 +202,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libvisual-plugins' => {
-			   'ver' => '0.1.7',
+			   'ver' => '0.2.0',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libvisual/',
 			   'src' => 'tar.gz',
 			  },
