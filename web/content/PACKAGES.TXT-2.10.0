@@ -1,0 +1,5480 @@
+
+PACKAGE NAME:  at-spi-1.6.3-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  218 K
+PACKAGE SIZE (uncompressed):  1080 K
+PACKAGE REQUIRED:  atk,gail,gtk+2,libbonobo
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+at-spi: at-spi
+at-spi:
+at-spi: This is the Early Access Release of the Gnome Accessibility
+at-spi: Project's Assistive Technology Service Provider Interface.
+at-spi:
+at-spi:
+at-spi:
+at-spi:
+at-spi:
+at-spi:
+at-spi:
+
+PACKAGE NAME:  atk-1.9.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  191 K
+PACKAGE SIZE (uncompressed):  1000 K
+PACKAGE REQUIRED:  glib2
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+atk: atk
+atk:
+atk: atk is a library of accessability functions used by GNOME.
+atk:
+atk:
+atk:
+atk:
+atk:
+atk:
+atk:
+atk:
+
+PACKAGE NAME:  audiofile-0.2.6-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  174 K
+PACKAGE SIZE (uncompressed):  550 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+audiofile: audiofile (audio support library)
+audiofile:
+audiofile: Audiofile is a library to handle various audio file formats, and is
+audiofile: used by the esound daemon.  You can also use it to develop your own
+audiofile: audiofile applications.
+audiofile:
+audiofile:
+audiofile:
+audiofile:
+audiofile:
+audiofile:
+
+PACKAGE NAME:  esound-0.2.35-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  156 K
+PACKAGE SIZE (uncompressed):  500 K
+PACKAGE REQUIRED:  audiofile
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+esound: esound (Enlightened Sound Daemon)
+esound:
+esound: EsounD, the Enlightened Sound Daemon, is a server process that mixes
+esound: several audio streams for playback by a single audio device. For
+esound: example, if you're listening to music on a CD and you receive a
+esound: sound-related event from ICQ, the two applications won't have to
+esound: jockey for the use of your sound card.  Install esound if you'd like
+esound: to let sound applications share your audio device.
+esound:
+esound:
+esound:
+
+PACKAGE NAME:  gail-1.8.2-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  247 K
+PACKAGE SIZE (uncompressed):  910 K
+PACKAGE REQUIRED:  gtk+2,libgnomecanvas
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gail: gail
+gail:
+gail: This directory contains GAIL (GNOME Accessibility Interface) utility
+gail: library.  For more information about accessibility in GNOME, see:
+gail:
+gail:   http://developer.gnome.org/projects/gap
+gail:
+gail:
+gail:
+gail:
+gail:
+
+PACKAGE NAME:  gconf-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  1421 K
+PACKAGE SIZE (uncompressed):  4970 K
+PACKAGE REQUIRED:  gtk+,libxml2,orbit2
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gconf: gconf
+gconf:
+gconf: GConf is the GNOME Configuration database system.
+gconf:
+gconf:
+gconf:
+gconf:
+gconf:
+gconf:
+gconf:
+gconf:
+
+PACKAGE NAME:  glib2-2.6.3-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  1130 K
+PACKAGE SIZE (uncompressed):  6780 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+glib2: glib2 (library of C routines)
+glib2:
+glib2: GLib is a library which includes support routines for C such as lists,
+glib2: trees, hashes, memory allocation, and many other things.
+glib2:
+glib2:
+glib2:
+glib2:
+glib2:
+glib2:
+glib2:
+
+PACKAGE NAME:  gnome-keyring-0.4.2-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  105 K
+PACKAGE SIZE (uncompressed):  660 K
+PACKAGE REQUIRED:  gtk+2
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-keyring: gnome-keyring 
+gnome-keyring:
+gnome-keyring: Gnome Keyring is a program that keeps password and other secrets for
+gnome-keyring: users. It is run as a deamon in the session, similar to ssh-agent,
+gnome-keyring: and other applications can locate it by an environment variable.
+gnome-keyring:
+gnome-keyring:
+gnome-keyring:
+gnome-keyring:
+gnome-keyring:
+gnome-keyring:
+
+PACKAGE NAME:  gnome-mime-data-2.4.2-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  670 K
+PACKAGE SIZE (uncompressed):  3560 K
+PACKAGE REQUIRED:  shared-mime-info
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-mime-data: gnome-mime-data
+gnome-mime-data:
+gnome-mime-data: The GNOME MIME database contains a basic set of applications and MIME
+gnome-mime-data: types for a GNOME system.
+gnome-mime-data:
+gnome-mime-data:
+gnome-mime-data:
+gnome-mime-data:
+gnome-mime-data:
+gnome-mime-data:
+gnome-mime-data:
+
+PACKAGE NAME:  gtk+2-2.6.4-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  6608 K
+PACKAGE SIZE (uncompressed):  26830 K
+PACKAGE REQUIRED:  atk,gnome-mime-data,pango
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gtk+2: GTK+ version 2
+gtk+2:
+gtk+2: This is GTK+, a multi-platform toolkit for creating graphical user
+gtk+2: interfaces.  Offering a complete set of widgets, GTK+ is suitable for
+gtk+2: projects ranging from small one-off projects to complete application
+gtk+2: suites.
+gtk+2:
+gtk+2:
+gtk+2:
+gtk+2:
+gtk+2:
+
+PACKAGE NAME:  intltool-0.33-noarch-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  71 K
+PACKAGE SIZE (uncompressed):  260 K
+PACKAGE REQUIRED:  libxml2
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+intltool: intltool
+intltool:
+intltool: The intltool package is used to:
+intltool:
+intltool: o Extract translatable strings from various source files.
+intltool: o Collect the extracted strings together with messages from traditional
+intltool:   source files.
+intltool: o Merge back the translations from .po files into .xml, .desktop and
+intltool:   .oaf files.
+intltool:
+intltool:
+
+PACKAGE NAME:  libbonobo-2.8.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  458 K
+PACKAGE SIZE (uncompressed):  2240 K
+PACKAGE REQUIRED:  glib2,libxml2,orbit2
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libbonobo: libbonobo
+libbonobo:
+libbonobo: The bonobo library supports independant CORBA interfaces for creating
+libbonobo: reusable components.  It provides GNOME with a framework for handling
+libbonobo: compound documents, such as embedding a spreadsheet in a word
+libbonobo: processor document.
+libbonobo:
+libbonobo:
+libbonobo:
+libbonobo:
+libbonobo:
+
+PACKAGE NAME:  libglade-2.5.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  154 K
+PACKAGE SIZE (uncompressed):  580 K
+PACKAGE REQUIRED:  gtk+2,libxml2
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libglade: libglade
+libglade:
+libglade: The GLADE library allows loading user interfaces which are stored
+libglade: externally into a program.  This allows the interface to be changed
+libglade: without recompiling the program.  The interfaces can also be edited
+libglade: with GLADE.
+libglade:
+libglade: libglade is used extensively by GNOME, and also by xscreensaver-demo.
+libglade:
+libglade:
+libglade:
+
+PACKAGE NAME:  libgnomecanvas-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  239 K
+PACKAGE SIZE (uncompressed):  1300 K
+PACKAGE REQUIRED:  libart_lgpl,libglade
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libgnomecanvas: libgnomecanvas
+libgnomecanvas:
+libgnomecanvas: This is the GNOME Canvas Library.
+libgnomecanvas:
+libgnomecanvas:
+libgnomecanvas:
+libgnomecanvas:
+libgnomecanvas:
+libgnomecanvas:
+libgnomecanvas:
+libgnomecanvas:
+
+PACKAGE NAME:  libgnomeui-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  966 K
+PACKAGE SIZE (uncompressed):  4580 K
+PACKAGE REQUIRED:  gconf,gnome-keyring,gnome-vfs,libbonoboui,libgnome,libgnomecanvas,pango
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libgnomeui: libgnomeui
+libgnomeui:
+libgnomeui: User interface library needed for GNOME.
+libgnomeui:
+libgnomeui:
+libgnomeui:
+libgnomeui:
+libgnomeui:
+libgnomeui:
+libgnomeui:
+libgnomeui:
+
+PACKAGE NAME:  orbit2-2.12.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  325 K
+PACKAGE SIZE (uncompressed):  1770 K
+PACKAGE REQUIRED:  libidl
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+orbit2: orbit2
+orbit2:
+orbit2: ORBit is a high-performance CORBA (Common Object Request Broker
+orbit2: Architecture) ORB (object request broker).  It allows programs to
+orbit2: send requests and receive replies from other programs, regardless
+orbit2: of the locations of the two programs.  CORBA is an architecture that
+orbit2: enables communication between program objects, regardless of the
+orbit2: programming language they're written in or the operating system they
+orbit2: run on.
+orbit2:
+orbit2:
+
+PACKAGE NAME:  shared-mime-info-0.15-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  117 K
+PACKAGE SIZE (uncompressed):  550 K
+PACKAGE REQUIRED:  glib2,libxml2
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+shared-mime-info: shared-mime-info 
+shared-mime-info:
+shared-mime-info: This package contains the core database of common types and the
+shared-mime-info: update-mime-database command used to extend it. It requires glib2 to
+shared-mime-info: be installed for building the update command. Additionally, it uses
+shared-mime-info: intltool for translations, though this is only a dependency for the
+shared-mime-info: maintainers.
+shared-mime-info:
+shared-mime-info:
+shared-mime-info:
+shared-mime-info:
+
+PACKAGE NAME:  libgnomeprint-2.10.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  334 K
+PACKAGE SIZE (uncompressed):  1640 K
+PACKAGE REQUIRED:  libart_lgpl,libbonobo,libgnomecups
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libgnomeprint: libgnomeprint
+libgnomeprint:
+libgnomeprint: Libgnomeprint is the non-gui part of the printing libraries for GNOME
+libgnomeprint: applications.
+libgnomeprint:
+libgnomeprint:
+libgnomeprint:
+libgnomeprint:
+libgnomeprint:
+libgnomeprint:
+libgnomeprint:
+
+PACKAGE NAME:  gnome-vfs-2.10.0-i486-2frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  1122 K
+PACKAGE SIZE (uncompressed):  5450 K
+PACKAGE REQUIRED:  GConf,gnome-mime-data,libbonobo,libxml2
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-vfs: gnome-vfs
+gnome-vfs:
+gnome-vfs: This is the GNOME Virtual File System, currently used as one of the
+gnome-vfs: foundations of the Nautilus file manager.
+gnome-vfs:
+gnome-vfs: Also includes gnome-vfs-extras, which contains SMB and Icecast
+gnome-vfs: support.
+gnome-vfs:
+gnome-vfs:
+gnome-vfs:
+gnome-vfs:
+
+PACKAGE NAME:  libgnome-2.10.0-i486-6frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  943 K
+PACKAGE SIZE (uncompressed):  4420 K
+PACKAGE REQUIRED:  libxslt,gnome-vfs
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libgnome: libgnome
+libgnome:
+libgnome: Libraries needed for GNOME.
+libgnome:
+libgnome:
+libgnome:
+libgnome:
+libgnome:
+libgnome:
+libgnome:
+libgnome:
+
+PACKAGE NAME:  libxml2-2.6.18-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  1802 K
+PACKAGE SIZE (uncompressed):  7060 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libxml2: libxml2 (XML parser library)
+libxml2:
+libxml2: XML parser library.  This is required by GNOME and KDE.
+libxml2:
+libxml2:
+libxml2:
+libxml2:
+libxml2:
+libxml2:
+libxml2:
+libxml2:
+
+PACKAGE NAME:  hicolor-icon-theme-0.7-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  10 K
+PACKAGE SIZE (uncompressed):  150 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+hicolor-icon-theme: hicolor-icon-theme 
+hicolor-icon-theme:
+hicolor-icon-theme: The freedesktop.org project provides a shared high-color desktop icon 
+hicolor-icon-theme: theme shell for use under both KDE and GNOME desktops.
+hicolor-icon-theme:
+hicolor-icon-theme:
+hicolor-icon-theme:
+hicolor-icon-theme:
+hicolor-icon-theme:
+hicolor-icon-theme:
+hicolor-icon-theme:
+
+PACKAGE NAME:  libart_lgpl-2.3.17-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  122 K
+PACKAGE SIZE (uncompressed):  390 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libart_lgpl: libart_lgpl
+libart_lgpl:
+libart_lgpl: Libart is a library for high-performance 2D graphics.  It is used by
+libart_lgpl: both KDE and GNOME.  This is the LGPL'd component of the library,
+libart_lgpl: which includes the functions needed for running the GNOME canvas and
+libart_lgpl: for printing support.
+libart_lgpl:
+libart_lgpl: Raph Levien <raph@acm.org> is the author of libart.
+libart_lgpl:
+libart_lgpl:
+libart_lgpl:
+
+PACKAGE NAME:  libbonoboui-2.8.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  462 K
+PACKAGE SIZE (uncompressed):  2030 K
+PACKAGE REQUIRED:  libbonobo,libgnome,libgnomecanvas
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libbonoboui: libbonoboui
+libbonoboui:
+libbonoboui: The bonobo library supports independant CORBA interfaces for creating
+libbonoboui: reusable components.  It provides GNOME with a framework for handling
+libbonoboui: compound documents, such as embedding a spreadsheet in a word
+libbonoboui: processor document.
+libbonoboui:
+libbonoboui:
+libbonoboui:
+libbonoboui:
+libbonoboui:
+
+PACKAGE NAME:  libgnomecups-0.2.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  71 K
+PACKAGE SIZE (uncompressed):  320 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libgnomecups: libgnomecups 
+libgnomecups:
+libgnomecups: GNOME library for CUPS integration
+libgnomecups:
+libgnomecups:
+libgnomecups:
+libgnomecups:
+libgnomecups:
+libgnomecups:
+libgnomecups:
+libgnomecups:
+
+PACKAGE NAME:  libidl-0.8.5-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  88 K
+PACKAGE SIZE (uncompressed):  250 K
+PACKAGE REQUIRED:  glib2
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libidl: libIDL
+libidl:
+libidl: libIDL is a library licensed under the GNU LGPL for creating trees of
+libidl: CORBA Interface Definition Language (IDL) files, which is a
+libidl: specification for defining portable interfaces.  libIDL was initially
+libidl: written for ORBit (the ORB from the GNOME project, and the primary
+libidl: means of libIDL distribution).
+libidl:
+libidl:
+libidl:
+libidl:
+
+PACKAGE NAME:  pango-1.8.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  427 K
+PACKAGE SIZE (uncompressed):  2010 K
+PACKAGE REQUIRED:  glib2
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+pango: pango
+pango:
+pango: Pango is a library for layout and rendering of text, with an emphasis
+pango: on internationalization. Pango can be used anywhere that text layout
+pango: is needed; however, most of the work on Pango-1.0 was done using the
+pango: GTK+ widget toolkit as a test platform. Pango forms the core of text
+pango: and font handling for GTK+-2.0.
+pango:
+pango:
+pango:
+pango:
+
+PACKAGE NAME:  desktop-file-utils-0.10-i486-2frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  57 K
+PACKAGE SIZE (uncompressed):  160 K
+PACKAGE REQUIRED:  gnome-vfs
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+desktop-file-utils: desktop-file-utils
+desktop-file-utils:
+desktop-file-utils: Command-line utilities for working with desktop file entries 
+desktop-file-utils:
+desktop-file-utils:
+desktop-file-utils:
+desktop-file-utils:
+desktop-file-utils:
+desktop-file-utils:
+desktop-file-utils:
+desktop-file-utils:
+
+PACKAGE NAME:  libgnomeprintui-2.10.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  239 K
+PACKAGE SIZE (uncompressed):  1100 K
+PACKAGE REQUIRED:  gnome-icon-theme,gtk+2,libgnomecanvas,libgnomeprint
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libgnomeprintui: libgnomeprintui
+libgnomeprintui:
+libgnomeprintui: libgnomeprintui is the GUI part of the printing libraries for GNOME
+libgnomeprintui: applications.
+libgnomeprintui:
+libgnomeprintui:
+libgnomeprintui:
+libgnomeprintui:
+libgnomeprintui:
+libgnomeprintui:
+libgnomeprintui:
+
+PACKAGE NAME:  gnome-icon-theme-2.10.0-i486-3frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  2733 K
+PACKAGE SIZE (uncompressed):  5100 K
+PACKAGE REQUIRED:  hicolor-icon-theme
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-icon-theme: gnome-icon-theme
+gnome-icon-theme:
+gnome-icon-theme: A set of default icons for GNOME.
+gnome-icon-theme:
+gnome-icon-theme:
+gnome-icon-theme:
+gnome-icon-theme:
+gnome-icon-theme:
+gnome-icon-theme:
+gnome-icon-theme:
+gnome-icon-theme:
+
+PACKAGE NAME:  gamin-0.0.26-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  66 K
+PACKAGE SIZE (uncompressed):  230 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gamin: gamin
+gamin:
+gamin: Gamin is a file and directory monitoring system defined to be a
+gamin: subset of the FAM (File Alteration Monitor) system. This is a
+gamin: service provided by a library which allows to detect when a file or
+gamin: a directory has been modified.
+gamin:
+gamin:
+gamin:
+gamin:
+gamin:
+
+PACKAGE NAME:  libxslt-1.1.13-i486-1frg.tgz
+PACKAGE LOCATION:  ./platform
+PACKAGE SIZE (compressed):  568 K
+PACKAGE SIZE (uncompressed):  2420 K
+PACKAGE REQUIRED:  libxml2
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libxslt: libxslt (XML transformation library)
+libxslt:
+libxslt: XSLT support for libxml2.  (XSLT is a language used for transforming
+libxslt: XML documents)
+libxslt:
+libxslt: libxslt is required by GNOME and KDE.
+libxslt:
+libxslt:
+libxslt:
+libxslt:
+libxslt:
+
+PACKAGE NAME:  libdvdcss-1.2.8-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  40 K
+PACKAGE SIZE (uncompressed):  120 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libdvdcss: libdvdcss (DVD access library)
+libdvdcss: 
+libdvdcss: libdvdcss is a cross-platform library for transparent DVD device
+libdvdcss: access with on-the-fly CSS decryption. It currently runs under Linux,
+libdvdcss: FreeBSD, NetBSD, OpenBSD, BSD/OS, Solaris, BeOS, Win95/Win98,
+libdvdcss: Win2k/WinXP, MacOS X, HP-UX, QNX, and OS/2. It is used by libdvdread
+libdvdcss: and most DVD players such as VLC because of its portability and
+libdvdcss: because, unlike similar libraries, it does not require your DVD drive
+libdvdcss: to be region locked.
+libdvdcss: 
+libdvdcss: 
+
+PACKAGE NAME:  libdvdplay-1.0.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  30 K
+PACKAGE SIZE (uncompressed):  100 K
+PACKAGE REQUIRED:  libdvdread
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libdvdplay: libdvdplay 
+libdvdplay:
+libdvdplay: DVD menus navigation library
+libdvdplay:
+libdvdplay:
+libdvdplay:
+libdvdplay:
+libdvdplay:
+libdvdplay:
+libdvdplay:
+libdvdplay:
+
+PACKAGE NAME:  libfame-0.9.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  101 K
+PACKAGE SIZE (uncompressed):  380 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libfame: libfame
+libfame:
+libfame: libfame is a video encoding library. It can currently encode MPEG-1
+libfame: and MPEG-4 rectangular video, as well as MPEG-4 video with arbitrary
+libfame: shape.
+libfame:
+libfame:
+libfame:
+libfame:
+libfame:
+libfame:
+
+PACKAGE NAME:  mpeg4ip-1.2-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  12967 K
+PACKAGE SIZE (uncompressed):  35000 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+mpeg4ip: mpeg4ip
+mpeg4ip:
+mpeg4ip: A live MPEG-4/H.261/MPEG-2/H.263 MP3/AAC/AMR broadcaster and file
+mpeg4ip: recorder, command line utilities such as an MP4 file creator and
+mpeg4ip: hinter, and an player that can both stream and playback from local
+mpeg4ip: file
+mpeg4ip:
+mpeg4ip:
+mpeg4ip:
+mpeg4ip:
+mpeg4ip:
+
+PACKAGE NAME:  libdv-0.104-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  115 K
+PACKAGE SIZE (uncompressed):  300 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libdv: libdv 
+libdv:
+libdv: The Quasar  DV codec (libdv) is a software codec for DV video, the 
+libdv: encoding format used by most digital camcorders, typically those that
+libdv: support the IEEE 1394 (a.k.a. FireWire or i.Link) interface. Libdv
+libdv: was developed according to the official standards for DV video: IEC 
+libdv: 61834 and SMPTE 314M.
+libdv:
+libdv:
+libdv:
+libdv:
+
+PACKAGE NAME:  libdvdnav-0.1.10-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  106 K
+PACKAGE SIZE (uncompressed):  330 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libdvdnav: libdvdnav
+libdvdnav:
+libdvdnav: libdvdnav is a library for developers of multimedia applications. It
+libdvdnav: allows easy use of sophisticated DVD navigation features such as DVD
+libdvdnav: menus, multiangle playback and even interactive DVD games.
+libdvdnav:
+libdvdnav:
+libdvdnav:
+libdvdnav:
+libdvdnav:
+libdvdnav:
+
+PACKAGE NAME:  libdvdread-0.9.4-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  114 K
+PACKAGE SIZE (uncompressed):  350 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libdvdread: libdvdread (DVD access library)
+libdvdread: 
+libdvdread: libdvdread provides a simple foundation for reading DVD video disks.
+libdvdread: It provides the functionality that is required to access many DVDs.
+libdvdread: It parses IFO files, reads NAV-blocks, and performs CSS
+libdvdread: authentication and descrambling.
+libdvdread: 
+libdvdread: 
+libdvdread: 
+libdvdread: 
+libdvdread: 
+
+PACKAGE NAME:  libmms-0.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  20 K
+PACKAGE SIZE (uncompressed):  70 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libmms: libmms
+libmms:
+libmms: LibMMS aims to be common mms:// and mmsh:// (Microsoft streaming
+libmms: protocols) parsing library, licensed on LGPL, and thus usable by many
+libmms: projects that don't use GPL.
+libmms:
+libmms:
+libmms:
+libmms:
+libmms:
+libmms:
+
+PACKAGE NAME:  libmatroska-0.7.5-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  285 K
+PACKAGE SIZE (uncompressed):  1820 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libmatroska: libmatroska 
+libmatroska:
+libmatroska: A open source container format, needed to play .mka video files.
+libmatroska:
+libmatroska:
+libmatroska:
+libmatroska:
+libmatroska:
+libmatroska:
+libmatroska:
+libmatroska:
+
+PACKAGE NAME:  openslp-1.2.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  341 K
+PACKAGE SIZE (uncompressed):  1250 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+openslp: openslp 
+openslp:
+openslp: SLP library
+openslp:
+openslp:
+openslp:
+openslp:
+openslp:
+openslp:
+openslp:
+openslp:
+
+PACKAGE NAME:  polypaudio-0.7-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  312 K
+PACKAGE SIZE (uncompressed):  1130 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+polypaudio: polypaudio
+polypaudio:
+polypaudio: olypaudio is a sound server for Linux and other Unix like operating
+polypaudio: systems.
+polypaudio:
+polypaudio:
+polypaudio:
+polypaudio:
+polypaudio:
+polypaudio:
+polypaudio:
+
+PACKAGE NAME:  swfdec-0.3.2-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  96 K
+PACKAGE SIZE (uncompressed):  310 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+swfdec: swfdec
+swfdec:
+swfdec: Swfdec is a library for rendering Flash® animations and games.
+swfdec:
+swfdec:
+swfdec:
+swfdec:
+swfdec:
+swfdec:
+swfdec:
+swfdec:
+
+PACKAGE NAME:  xvidcore-1.0.3-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  412 K
+PACKAGE SIZE (uncompressed):  1350 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+xvidcore: xvidcore 
+xvidcore:
+xvidcore: XviD is an ISO MPEG-4 compliant video codec.
+xvidcore: 
+xvidcore:
+xvidcore:
+xvidcore:
+xvidcore:
+xvidcore:
+xvidcore:
+xvidcore:
+
+PACKAGE NAME:  heimdal-0.6.3-i486-2frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  1354 K
+PACKAGE SIZE (uncompressed):  3940 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+heimdal: heimdal
+heimdal:
+heimdal: Heimdal is a freely available implementation of the Kerberos V
+heimdal: protocol.
+heimdal:
+heimdal:
+heimdal:
+heimdal:
+heimdal:
+heimdal:
+heimdal:
+
+PACKAGE NAME:  divx4linux-5.0.5-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  404 K
+PACKAGE SIZE (uncompressed):  1320 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+divx4linux: divx4linux 
+divx4linux:
+divx4linux: Divx 5 codec
+divx4linux:
+divx4linux:
+divx4linux:
+divx4linux:
+divx4linux:
+divx4linux:
+divx4linux:
+divx4linux:
+
+PACKAGE NAME:  faac-1.24-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  73 K
+PACKAGE SIZE (uncompressed):  220 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+faac: faac
+faac:
+faac: Freeware Advanced Audio Coder for aac and mp4 files
+faac:
+faac:
+faac:
+faac:
+faac:
+faac:
+faac:
+faac:
+
+PACKAGE NAME:  faad2-2.0-i486-3frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  4033 K
+PACKAGE SIZE (uncompressed):  10970 K
+PACKAGE REQUIRED:  id3lib
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+faad2: FAAD 
+faad2: 
+faad2: Audio decoder for AAC/mp4 audio streams
+faad2:
+faad2: A plugin for xmms is also included
+faad2:
+faad2:
+faad2:
+faad2:
+faad2:
+faad2:
+
+PACKAGE NAME:  id3lib-3.8.3-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  2330 K
+PACKAGE SIZE (uncompressed):  7100 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+id3lib: id3lib 
+id3lib:
+id3lib: id3lib is an open-source, cross-platform software development
+id3lib: library for reading, writing, and manipulating ID3v1 and ID3v2 tags.
+id3lib: It is an on-going project whose primary goals are full compliance 
+id3lib: with the ID3v2 standard, portability across several platforms, and
+id3lib: providing a powerful and feature-rich API with a highly stable
+id3lib: and efficient implementation.
+id3lib:
+id3lib:
+id3lib:
+id3lib:
+
+PACKAGE NAME:  lame-3.96.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  391 K
+PACKAGE SIZE (uncompressed):  1220 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+lame: lame - LAME Ain't an Mp3 Encoder 
+lame:
+lame: An MP3 encoder :-)
+lame:
+lame:
+lame:
+lame:
+lame:
+lame:
+lame:
+lame:
+
+PACKAGE NAME:  libavc1394-0.5.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  40 K
+PACKAGE SIZE (uncompressed):  140 K
+PACKAGE REQUIRED:  libraw1394
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libavc1394: libavc1394 
+libavc1394:
+libavc1394: a programming interface for the 1394 Trade Association AV/C Digital
+libavc1394: Interface Command Set.
+libavc1394:
+libavc1394:
+libavc1394:
+libavc1394:
+libavc1394:
+libavc1394:
+libavc1394:
+
+PACKAGE NAME:  libcap-1.10-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  20 K
+PACKAGE SIZE (uncompressed):  80 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libcap: libcap 
+libcap:
+libcap: Linux Capabilities
+libcap:
+libcap:
+libcap:
+libcap:
+libcap:
+libcap:
+libcap:
+libcap:
+
+PACKAGE NAME:  libcdaudio-0.99.12-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  55 K
+PACKAGE SIZE (uncompressed):  170 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libcdaudio: libcdaudio
+libcdaudio:
+libcdaudio: libcdaudio is a portable library for controlling audio CDs. It is also
+libcdaudio: able to manage transfers of information with the CDDB and CDIndex 
+libcdaudio: systems.
+libcdaudio:
+libcdaudio:
+libcdaudio:
+libcdaudio:
+libcdaudio:
+libcdaudio:
+
+PACKAGE NAME:  libcddb-0.9.6-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  78 K
+PACKAGE SIZE (uncompressed):  270 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libcddb: libcddb 
+libcddb:
+libcddb: Libcddb is a C library to access data on a CDDB server
+libcddb:
+libcddb:
+libcddb:
+libcddb:
+libcddb:
+libcddb:
+libcddb:
+libcddb:
+
+PACKAGE NAME:  libcdio-0.72-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  291 K
+PACKAGE SIZE (uncompressed):  870 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libcdio: libcdio 
+libcdio:
+libcdio: Compact Disc Input and Control Library
+libcdio:
+libcdio:
+libcdio:
+libcdio:
+libcdio:
+libcdio:
+libcdio:
+libcdio:
+
+PACKAGE NAME:  libdvbpsi3-0.1.4-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  36 K
+PACKAGE SIZE (uncompressed):  230 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libdvbpsi3: libdvbpsi3
+libdvbpsi3:
+libdvbpsi3: libdvbpsi is a simple library designed for decoding and generation of
+libdvbpsi3: MPEG TS and DVB PSI tables.
+libdvbpsi3:
+libdvbpsi3:
+libdvbpsi3:
+libdvbpsi3:
+libdvbpsi3:
+libdvbpsi3:
+libdvbpsi3:
+
+PACKAGE NAME:  libebml-0.7.3-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  102 K
+PACKAGE SIZE (uncompressed):  520 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libebml: libebml 
+libebml:
+libebml: A form of binary XML
+libebml:
+libebml:
+libebml:
+libebml:
+libebml:
+libebml:
+libebml:
+libebml:
+
+PACKAGE NAME:  libmovtar-0.1.3-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  274 K
+PACKAGE SIZE (uncompressed):  650 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libmovtar: libmovtar 
+libmovtar:
+libmovtar: Support library & tools for the movtar video format
+libmovtar:
+libmovtar:
+libmovtar:
+libmovtar:
+libmovtar:
+libmovtar:
+libmovtar:
+libmovtar:
+
+PACKAGE NAME:  libmusepack-1.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  28 K
+PACKAGE SIZE (uncompressed):  110 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libmusepack: libmusepack
+libmusepack:
+libmusepack: Portable Musepack decoder library
+libmusepack:
+libmusepack:
+libmusepack:
+libmusepack:
+libmusepack:
+libmusepack:
+libmusepack:
+libmusepack:
+
+PACKAGE NAME:  libmusicbrainz-2.1.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  105 K
+PACKAGE SIZE (uncompressed):  310 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libmusicbrainz: libmusicbrainz
+libmusicbrainz:
+libmusicbrainz: MusicBrainz is a community music metadatabase that attempts to create 
+libmusicbrainz: a comprehensive music information site.  You can use the MusicBrainz 
+libmusicbrainz: data either by browsing this web site, or you can access the data 
+libmusicbrainz: from a client program 
+libmusicbrainz: 
+libmusicbrainz: 
+libmusicbrainz: 
+libmusicbrainz:
+libmusicbrainz:
+
+PACKAGE NAME:  liboil-0.3.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  113 K
+PACKAGE SIZE (uncompressed):  560 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+liboil: liboil
+liboil:
+liboil: Liboil is a library of simple functions that are optimized for
+liboil: various CPUs.
+liboil:
+liboil:
+liboil:
+liboil:
+liboil:
+liboil:
+liboil:
+
+PACKAGE NAME:  libquicktime-0.9.4-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  392 K
+PACKAGE SIZE (uncompressed):  1170 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libquicktime: libquicktime 
+libquicktime:
+libquicktime: a library for reading and writing quicktime files
+libquicktime:
+libquicktime:
+libquicktime:
+libquicktime:
+libquicktime:
+libquicktime:
+libquicktime:
+libquicktime:
+
+PACKAGE NAME:  libraw1394-1.1.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  43 K
+PACKAGE SIZE (uncompressed):  160 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libraw1394: libraw1394 
+libraw1394:
+libraw1394: libraw1394 provides direct access to the IEEE 1394 bus through the
+libraw1394: Linux 1394 subsystem's raw1394 user space interface.
+libraw1394:
+libraw1394:
+libraw1394:
+libraw1394:
+libraw1394:
+libraw1394:
+libraw1394:
+
+PACKAGE NAME:  libsamplerate-0.1.2-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  122 K
+PACKAGE SIZE (uncompressed):  190 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libsamplerate: libsamplerate 
+libsamplerate:
+libsamplerate: Sample Rate Converter for audio.
+libsamplerate:
+libsamplerate:
+libsamplerate:
+libsamplerate:
+libsamplerate:
+libsamplerate:
+libsamplerate:
+libsamplerate:
+
+PACKAGE NAME:  libsndfile-1.0.11-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  256 K
+PACKAGE SIZE (uncompressed):  790 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libsndfile: libsndfile 
+libsndfile: 
+libsndfile: Libsndfile is a C library for reading and writing files 
+libsndfile: containing sampled sound 
+libsndfile: 
+libsndfile: 
+libsndfile: 
+libsndfile: 
+libsndfile:
+libsndfile:
+libsndfile: 
+
+PACKAGE NAME:  libtheora-1.0alpha4-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  139 K
+PACKAGE SIZE (uncompressed):  360 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libtheora: libtheora 
+libtheora:
+libtheora: Theora - video codec intended for use within Ogg multimedia streaming
+libtheora: system.
+libtheora:
+libtheora:
+libtheora:
+libtheora:
+libtheora:
+libtheora:
+libtheora:
+
+PACKAGE NAME:  libvisual-0.2.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  111 K
+PACKAGE SIZE (uncompressed):  420 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libvisual: libvisual
+libvisual:
+libvisual: Libvisual is an abstraction library that comes between applications
+libvisual: and audio visualisation pluginS.
+libvisual:
+libvisual:
+libvisual:
+libvisual:
+libvisual:
+libvisual:
+libvisual:
+
+PACKAGE NAME:  libvisual-plugins-0.2.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  622 K
+PACKAGE SIZE (uncompressed):  1970 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libvisual-plugins: libvisual-plugins
+libvisual-plugins:
+libvisual-plugins: Collection of libvisual plugins
+libvisual-plugins:
+libvisual-plugins:
+libvisual-plugins:
+libvisual-plugins:
+libvisual-plugins:
+libvisual-plugins:
+libvisual-plugins:
+libvisual-plugins:
+
+PACKAGE NAME:  mjpegtools-1.6.2-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  787 K
+PACKAGE SIZE (uncompressed):  2040 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+mjpegtools: mjpegtools 
+mjpegtools:
+mjpegtools: The mjpeg programs are a set of tools that can do recording of videos
+mjpegtools: and playback, simple cut-and-paste editing and the MPEG compression
+mjpegtools: of audio and video.
+mjpegtools:
+mjpegtools:
+mjpegtools:
+mjpegtools:
+mjpegtools:
+mjpegtools:
+
+PACKAGE NAME:  mpeg2dec-0.4.0b-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  129 K
+PACKAGE SIZE (uncompressed):  380 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+mpeg2dec: mpeg2dec
+mpeg2dec:
+mpeg2dec: The mpeg2dec utility is used to decode MPEG video streams.  This
+mpeg2dec: package also includes libmpeg2, a free (GPLed) library for decoding
+mpeg2dec: MPEG2 and MPEG1 video streams.
+mpeg2dec:
+mpeg2dec:
+mpeg2dec:
+mpeg2dec:
+mpeg2dec:
+mpeg2dec:
+
+PACKAGE NAME:  normalize-0.7.6-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  73 K
+PACKAGE SIZE (uncompressed):  200 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+normalize: normalize 
+normalize: 
+normalize: normalize is a tool for adjusting the volume of audio files to a  
+normalize: standard level. This is useful for things like creating mixed CD's
+normalize: and mp3 collections, where different recording levels on different
+normalize: albums can cause the volume to vary greatly from song to song.
+normalize: 
+normalize: 
+normalize:
+normalize:
+normalize: 
+
+PACKAGE NAME:  transcode-0.6.14-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  2187 K
+PACKAGE SIZE (uncompressed):  5620 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+transcode: transcode 
+transcode:
+transcode: transcode is a linux text-console utility for video stream
+transcode: processing, running on a platform that supports shared libraries
+transcode: and threads.
+transcode:
+transcode:
+transcode:
+transcode:
+transcode:
+transcode:
+
+PACKAGE NAME:  openldap-2.2.23-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  1336 K
+PACKAGE SIZE (uncompressed):  3590 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+openldap: openldap 
+openldap:
+openldap: An open source implementation of the Lightweight Directory Access
+openldap: Protocol.
+openldap:
+openldap:
+openldap:
+openldap:
+openldap:
+openldap:
+openldap:
+
+PACKAGE NAME:  openh323-1.15.3-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  2178 K
+PACKAGE SIZE (uncompressed):  9400 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+openh323: OpenH323 
+openh323:
+openh323: The OpenH323 project aims to create a full featured, interoperable,
+openh323: Open Source implementation of the ITU H.323 teleconferencing
+openh323: protocol that can be used by personal developers and commercial
+openh323: users without charge.
+openh323:
+openh323:
+openh323:
+openh323:
+openh323:
+
+PACKAGE NAME:  cyrus-sasl-2.1.20-i486-2frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  315 K
+PACKAGE SIZE (uncompressed):  860 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+cyrus-sasl: The Cyrus SASL (Simple Authentication and Security Layer) 
+cyrus-sasl:
+cyrus-sasl: SASL is the Simple Authentication and Security Layer, a method for 
+cyrus-sasl: adding authentication support to connection-based protocols. To use
+cyrus-sasl: SASL, a protocol includes a command for identifying and
+cyrus-sasl: authenticating a user to a server and for optionally negotiating
+cyrus-sasl: protection of subsequent protocol interactions. If its use is
+cyrus-sasl: negotiated, a security layer is inserted between the protocol and
+cyrus-sasl: the connection
+cyrus-sasl:
+cyrus-sasl:
+
+PACKAGE NAME:  pwlib-1.8.4-i486-2frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  1373 K
+PACKAGE SIZE (uncompressed):  4960 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+pwlib: pwlib - Portable Windows Libaray
+pwlib:
+pwlib: A Portable Text and GUI C/C++ Class Libarary. 
+pwlib:
+pwlib:
+pwlib:
+pwlib:
+pwlib:
+pwlib:
+pwlib:
+pwlib:
+
+PACKAGE NAME:  avifile-0.7_0.7.43-i486-2frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  2111 K
+PACKAGE SIZE (uncompressed):  5780 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+avifile: avifile 
+avifile:
+avifile: Multimedia-related utilities for x86 Linux
+avifile:
+avifile:
+avifile:
+avifile:
+avifile:
+avifile:
+avifile:
+avifile:
+
+PACKAGE NAME:  ffmpeg-0.4.9pre1-i486-2frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  1083 K
+PACKAGE SIZE (uncompressed):  2740 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+ffmpeg: ffmpeg 
+ffmpeg:
+ffmpeg: FFmpeg is a complete solution to record, convert and stream audio 
+ffmpeg: and video.
+ffmpeg:
+ffmpeg:
+ffmpeg:
+ffmpeg:
+ffmpeg:
+ffmpeg:
+ffmpeg:
+
+PACKAGE NAME:  hal-0.4.7-i486-2frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  442 K
+PACKAGE SIZE (uncompressed):  1790 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+hal: hal (hardware abstraction layer)
+hal:
+hal: HAL is a hardware abstraction layer for GNU/Linux, designed to help
+hal: make hardware "just work".
+hal:
+hal:
+hal:
+hal:
+hal:
+hal:
+hal:
+
+PACKAGE NAME:  a52dec-0.7.4-i486-2frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  57 K
+PACKAGE SIZE (uncompressed):  170 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+a52dec: a52dev (AC-3 decoder library)
+a52dec: 
+a52dec: liba52 is a free library for decoding ATSC A/52 streams. It is
+a52dec: released under the terms of the GPL license. The A/52 standard is
+a52dec: used in a variety of applications, including digital television and
+a52dec: DVD. It is also known as AC-3.
+a52dec: 
+a52dec: 
+a52dec: 
+a52dec: 
+a52dec: 
+
+PACKAGE NAME:  Pyrex-0.9.3-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  267 K
+PACKAGE SIZE (uncompressed):  1120 K
+PACKAGE REQUIRED:  python
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+Pyrex: Pyrex
+Pyrex:
+Pyrex: Pyrex lets you write code that mixes Python and C data types any way
+Pyrex: you want, and compiles it into a C extension for Python. 
+Pyrex:
+Pyrex:
+Pyrex:
+Pyrex:
+Pyrex:
+Pyrex:
+Pyrex:
+
+PACKAGE NAME:  dbus-0.23.4-i486-2frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  581 K
+PACKAGE SIZE (uncompressed):  1780 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+dbus: dbus 
+dbus:
+dbus: D-BUS is a message bus system, a simple way for applications to talk
+dbus: to one another.
+dbus:
+dbus:
+dbus:
+dbus:
+dbus:
+dbus:
+dbus:
+
+PACKAGE NAME:  howl-0.9.10-i486-2frg.tgz
+PACKAGE LOCATION:  ./desktop_reqs
+PACKAGE SIZE (compressed):  239 K
+PACKAGE SIZE (uncompressed):  760 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+howl: howl
+howl:
+howl: Howl is a cross-platform implementation of Zeroconf networking.
+howl: Zeroconf brings a new ease of use to IP networking.
+howl:
+howl:
+howl:
+howl:
+howl:
+howl:
+howl:
+
+PACKAGE NAME:  librsvg-2.9.5-i486-3frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  151 K
+PACKAGE SIZE (uncompressed):  510 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+librsvg: librsvg
+librsvg:
+librsvg: Library used by Nautilus to handle Scalable Vector Graphics.
+librsvg:
+librsvg:
+librsvg:
+librsvg:
+librsvg:
+librsvg:
+librsvg:
+librsvg:
+
+PACKAGE NAME:  dasher-3.2.15-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  10546 K
+PACKAGE SIZE (uncompressed):  37590 K
+PACKAGE REQUIRED:  at-spi,gnome-speech,libbonoboui
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+dasher: dasher
+dasher:
+dasher: Dasher is a zooming predictive text entry system, designed for 
+dasher: situations where keyboard input is impractical (for instance,
+dasher: accessibility or PDAs). It is usable with highly limited amounts of 
+dasher: physical input while still allowing high rates of text entry.
+dasher:
+dasher:
+dasher:
+dasher:
+dasher:
+
+PACKAGE NAME:  eel-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  337 K
+PACKAGE SIZE (uncompressed):  1300 K
+PACKAGE REQUIRED:  gail,gconf,gnome-vfs,libgnomeui
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+eel: eel
+eel:
+eel: The Eazel Extensions Library, used by Nautilus.
+eel:
+eel:
+eel:
+eel:
+eel:
+eel:
+eel:
+eel:
+
+PACKAGE NAME:  gok-1.0.3-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  1346 K
+PACKAGE SIZE (uncompressed):  9230 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gok: gok
+gok:
+gok: GNOME On-screen Keyboard
+gok:
+gok:
+gok:
+gok:
+gok:
+gok:
+gok:
+gok:
+
+PACKAGE NAME:  epiphany-1.6.0-i486-3frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  3331 K
+PACKAGE SIZE (uncompressed):  9040 K
+PACKAGE REQUIRED:  libgnomeui,mozilla
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+epiphany: epiphany (GNOME web browser)
+epiphany:
+epiphany: Epiphany is a GNOME web browser based on the Mozilla rendering engine.
+epiphany:
+epiphany: The name means:  "An intuitive grasp of reality through something (as
+epiphany: an event) usually simple and striking"
+epiphany:
+epiphany: Epiphany's goals are simplicity and standards compliance.
+epiphany:
+epiphany:
+epiphany:
+
+PACKAGE NAME:  denu-2.3.2-i486-3frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  19 K
+PACKAGE SIZE (uncompressed):  130 K
+PACKAGE REQUIRED:  pygtk,python
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+denu: denu
+denu:
+denu: Denu is aimed at easing menu organization over a set of varying
+denu: window managers.
+denu:
+denu: http://denu.sourceforge.net/
+denu: http://denu.sourceforge.net/run_down.html
+denu:
+denu:
+denu:
+denu:
+
+PACKAGE NAME:  totem-1.0.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  1005 K
+PACKAGE SIZE (uncompressed):  3290 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+totem: totem 
+totem:
+totem: A movie player for the Gnome Desktop
+totem:
+totem:
+totem:
+totem:
+totem:
+totem:
+totem:
+totem:
+
+PACKAGE NAME:  bug-buddy-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  436 K
+PACKAGE SIZE (uncompressed):  2060 K
+PACKAGE REQUIRED:  gnome-menus,gnome-vfs,libglade,libgnomeui
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+bug-buddy: bug-buddy
+bug-buddy:
+bug-buddy: Utility to ease the reporting of bugs within the GNOME Desktop
+bug-buddy: Environment.
+bug-buddy:
+bug-buddy:
+bug-buddy:
+bug-buddy:
+bug-buddy:
+bug-buddy:
+bug-buddy:
+
+PACKAGE NAME:  epiphany-extensions-1.6.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  235 K
+PACKAGE SIZE (uncompressed):  980 K
+PACKAGE REQUIRED:  epiphany
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+epiphany-extensions: epiphany-extensions
+epiphany-extensions:
+epiphany-extensions: Extensions for the epiphany web browser
+epiphany-extensions:
+epiphany-extensions:
+epiphany-extensions:
+epiphany-extensions:
+epiphany-extensions:
+epiphany-extensions:
+epiphany-extensions:
+epiphany-extensions:
+
+PACKAGE NAME:  control-center-2.10.0-i486-3frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  2302 K
+PACKAGE SIZE (uncompressed):  7440 K
+PACKAGE REQUIRED:  gnome-desktop,gnome-menus,libxklavier,metacity,nautilus
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+control-center: control-center
+control-center:
+control-center: The GNOME control center.  Control-center is a configuration tool for
+control-center: easily setting up your GNOME environment.
+control-center:
+control-center:
+control-center:
+control-center:
+control-center:
+control-center:
+control-center:
+
+PACKAGE NAME:  evolution-webcal-2.2.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  70 K
+PACKAGE SIZE (uncompressed):  390 K
+PACKAGE REQUIRED:  libgnomeui,evolution-data-server
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+evolution-webcal: evolution-webcal 
+evolution-webcal:
+evolution-webcal: Handles webcal urls for Ximian Evolution
+evolution-webcal:
+evolution-webcal:
+evolution-webcal:
+evolution-webcal:
+evolution-webcal:
+evolution-webcal:
+evolution-webcal:
+evolution-webcal:
+
+PACKAGE NAME:  file-roller-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  948 K
+PACKAGE SIZE (uncompressed):  3450 K
+PACKAGE REQUIRED:  nautilus
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+file-roller: file-roller
+file-roller:
+file-roller: File Roller is an archive manager for the GNOME environment.  This
+file-roller: means that you can create and modify archives, view the contents of
+file-roller: archives, view files contained in archives, and extract files from
+file-roller: archives.  File Roller is actually a front-end (a graphical interface)
+file-roller: to command-line archiving programs like tar and zip.
+file-roller:
+file-roller:
+file-roller:
+file-roller:
+
+PACKAGE NAME:  gcalctool-5.5.41-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  696 K
+PACKAGE SIZE (uncompressed):  3570 K
+PACKAGE REQUIRED:  gtk+2
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gcalctool: gcalctool (calculator application)
+gcalctool:
+gcalctool: This is gcalctool, the calculator application that was previously in
+gcalctool: the OpenWindows Deskset of the Solaris 8 operating system. Sun
+gcalctool: Microsystems Inc. have kindly given permission to release it.
+gcalctool:
+gcalctool: gcalctool was written by Rich Burridge.
+gcalctool:
+gcalctool:
+gcalctool:
+gcalctool:
+
+PACKAGE NAME:  gconf-editor-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  217 K
+PACKAGE SIZE (uncompressed):  820 K
+PACKAGE REQUIRED:  gconf
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gconf-editor: gconf-editor
+gconf-editor:
+gconf-editor: A GNOME utility for manually editing the GConf configuration
+gconf-editor: database.
+gconf-editor:
+gconf-editor:
+gconf-editor:
+gconf-editor:
+gconf-editor:
+gconf-editor:
+gconf-editor:
+
+PACKAGE NAME:  clearlooks-0.5-i486-3frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  66 K
+PACKAGE SIZE (uncompressed):  240 K
+PACKAGE REQUIRED:  glib2,gtk+2
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+clearlooks: clearlooks
+clearlooks:
+clearlooks: An attractive gtk engine with a focus on usability.
+clearlooks:
+clearlooks:
+clearlooks:
+clearlooks:
+clearlooks:
+clearlooks:
+clearlooks:
+clearlooks:
+
+PACKAGE NAME:  gedit-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  2861 K
+PACKAGE SIZE (uncompressed):  13080 K
+PACKAGE REQUIRED:  eel,gtksourceview,libglade,libgnomeprintui,libgnomeui
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gedit: gedit
+gedit:
+gedit: gEdit is a small but powerful text editor designed for GNOME.  It
+gedit: includes such features as split-screen mode, a plugin API, which
+gedit: allows gEdit to be extended to support many features while remaining
+gedit: small at its core, multiple document editing through the use of a
+gedit: 'tabbed' notebook and many more functions.
+gedit:
+gedit:
+gedit:
+gedit:
+
+PACKAGE NAME:  ggv-2.8.4-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  947 K
+PACKAGE SIZE (uncompressed):  3310 K
+PACKAGE REQUIRED:  gconf,libgnomeui
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+ggv: ggv
+ggv:
+ggv: ggv allows you to view PostScript documents, and print ranges of
+ggv: pages.
+ggv:
+ggv:
+ggv:
+ggv:
+ggv:
+ggv:
+ggv:
+
+PACKAGE NAME:  gnome-applets-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  6300 K
+PACKAGE SIZE (uncompressed):  29210 K
+PACKAGE REQUIRED:  gail,gconf,gnome-panel,gnome-vfs,libgtop,libxklavier,scrollkeeper
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-applets: gnome-applets
+gnome-applets:
+gnome-applets: This package contains applets for use with the GNOME panel.
+gnome-applets:
+gnome-applets:
+gnome-applets:
+gnome-applets:
+gnome-applets:
+gnome-applets:
+gnome-applets:
+gnome-applets:
+
+PACKAGE NAME:  gnome-backgrounds-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  2098 K
+PACKAGE SIZE (uncompressed):  2370 K
+PACKAGE REQUIRED:  desktop-file-utils,gnome-desktop
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-backgrounds: gnome-backgrounds
+gnome-backgrounds:
+gnome-backgrounds: A Collection of gnome background images
+gnome-backgrounds:
+gnome-backgrounds:
+gnome-backgrounds:
+gnome-backgrounds:
+gnome-backgrounds:
+gnome-backgrounds:
+gnome-backgrounds:
+gnome-backgrounds:
+
+PACKAGE NAME:  gnome-desktop-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  619 K
+PACKAGE SIZE (uncompressed):  1590 K
+PACKAGE REQUIRED:  desktop-file-utils,esound,gnome-vfs,libbonoboui,libgnomeui,scrollkeeper,startup-notification
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-desktop: gnome-desktop
+gnome-desktop:
+gnome-desktop: This package contains the libgnome-desktop library, some documents
+gnome-desktop: installed as part of the core GNOME distribution, GNOME's .desktop
+gnome-desktop: files, the gnome-about program, some manpages, and GNOME's core
+gnome-desktop: graphics files and icons.
+gnome-desktop:
+gnome-desktop:
+gnome-desktop:
+gnome-desktop:
+gnome-desktop:
+
+PACKAGE NAME:  gnome-doc-utils-0.1.3-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  129 K
+PACKAGE SIZE (uncompressed):  1210 K
+PACKAGE REQUIRED:  intltool,libxslt
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-doc-utils: gnome-doc-utils
+gnome-doc-utils:
+gnome-doc-utils:
+gnome-doc-utils:
+gnome-doc-utils:
+gnome-doc-utils:
+gnome-doc-utils:
+gnome-doc-utils:
+gnome-doc-utils:
+gnome-doc-utils:
+gnome-doc-utils:
+
+PACKAGE NAME:  gnome-games-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  9234 K
+PACKAGE SIZE (uncompressed):  22180 K
+PACKAGE REQUIRED:  gail,gconf,libgnomeui,scrollkeeper
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-games: gnome-games
+gnome-games:
+gnome-games: A collection of entertaining games for GNOME.
+gnome-games:
+gnome-games:
+gnome-games:
+gnome-games:
+gnome-games:
+gnome-games:
+gnome-games:
+gnome-games:
+
+PACKAGE NAME:  gnome-keyring-manager-0.0.4-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  133 K
+PACKAGE SIZE (uncompressed):  650 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-keyring-manager: gnome-keyring-manager
+gnome-keyring-manager:
+gnome-keyring-manager: A keyring management program for the GNOME Desktop.
+gnome-keyring-manager:
+gnome-keyring-manager:
+gnome-keyring-manager:
+gnome-keyring-manager:
+gnome-keyring-manager:
+gnome-keyring-manager:
+gnome-keyring-manager:
+gnome-keyring-manager:
+
+PACKAGE NAME:  gnome-mag-0.12.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  111 K
+PACKAGE SIZE (uncompressed):  570 K
+PACKAGE REQUIRED:  at-spi,gtk+2,libbonoboui
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-mag: gnome-mag
+gnome-mag:
+gnome-mag: A screen magnifier
+gnome-mag:
+gnome-mag:
+gnome-mag:
+gnome-mag:
+gnome-mag:
+gnome-mag:
+gnome-mag:
+gnome-mag:
+
+PACKAGE NAME:  gnome-media-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  2767 K
+PACKAGE SIZE (uncompressed):  6160 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-media: gnome-media
+gnome-media:
+gnome-media: GNOME multimedia programs.
+gnome-media:
+gnome-media:
+gnome-media:
+gnome-media:
+gnome-media:
+gnome-media:
+gnome-media:
+gnome-media:
+
+PACKAGE NAME:  ximian-connector-2.2.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  806 K
+PACKAGE SIZE (uncompressed):  3010 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+ximian-connector: ximian-connector
+ximian-connector:
+ximian-connector: Exchange plugin for evolution
+ximian-connector:
+ximian-connector:
+ximian-connector:
+ximian-connector:
+ximian-connector:
+ximian-connector:
+ximian-connector:
+ximian-connector:
+
+PACKAGE NAME:  gnome-netstatus-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  208 K
+PACKAGE SIZE (uncompressed):  1110 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-netstatus: gnome-netstatus 
+gnome-netstatus:
+gnome-netstatus: Network applet for Gnome 2
+gnome-netstatus:
+gnome-netstatus:
+gnome-netstatus:
+gnome-netstatus:
+gnome-netstatus:
+gnome-netstatus:
+gnome-netstatus:
+gnome-netstatus:
+
+PACKAGE NAME:  gnome-nettool-1.2.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  202 K
+PACKAGE SIZE (uncompressed):  1020 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-nettool: GNOME interface for various networking tools
+gnome-nettool:
+gnome-nettool: GNOME Nettool is a set of front-ends to various networking
+gnome-nettool: command-line tools, like ping, netstat, ifconfig, whois, traceroute,
+gnome-nettool: finger.
+gnome-nettool:
+gnome-nettool:
+gnome-nettool:
+gnome-nettool:
+gnome-nettool:
+gnome-nettool:
+
+PACKAGE NAME:  xscreensaver-4.20-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  6272 K
+PACKAGE SIZE (uncompressed):  14950 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+xscreensaver: xscreensaver (a screen saver and locker for X)
+xscreensaver:
+xscreensaver: A modular screen saver and locker for the X Window System.  Highly
+xscreensaver: customizable:  allows the use of any program that can draw on the
+xscreensaver: root window as a display mode.  More than 100 display modes are
+xscreensaver: included in this package.
+xscreensaver:
+xscreensaver:
+xscreensaver:
+xscreensaver:
+xscreensaver:
+
+PACKAGE NAME:  gnome-pilot-2.0.12-i486-2frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  590 K
+PACKAGE SIZE (uncompressed):  2280 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-pilot: gnome-pilot 
+gnome-pilot:
+gnome-pilot: Gnome-Pilot is a package with a daemon (gpilotd) that monitor for
+gnome-pilot: pilot connects on one or more devices (cradles/XCopilots/xxx). It has
+gnome-pilot: a conduit system, and is accompanied by a few conduits, basically for
+gnome-pilot: installing files and backing up db's from the pilot.
+gnome-pilot:
+gnome-pilot:
+gnome-pilot:
+gnome-pilot:
+gnome-pilot:
+
+PACKAGE NAME:  gnome-pilot-conduits-2.0.12-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  239 K
+PACKAGE SIZE (uncompressed):  760 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-pilot-conduits: gnome-pilot-conduits 
+gnome-pilot-conduits:
+gnome-pilot-conduits: extra conduits for gnome-pilot
+gnome-pilot-conduits:
+gnome-pilot-conduits:
+gnome-pilot-conduits:
+gnome-pilot-conduits:
+gnome-pilot-conduits:
+gnome-pilot-conduits:
+gnome-pilot-conduits:
+gnome-pilot-conduits:
+
+PACKAGE NAME:  gnome-session-2.10.0-i486-3frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  398 K
+PACKAGE SIZE (uncompressed):  1450 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-session: gnome-session
+gnome-session:
+gnome-session: gnome-session includes the GNOME session manager, the GNOME session
+gnome-session: manager configuration program, and several other session management
+gnome-session: related utilities.
+gnome-session:
+gnome-session:
+gnome-session:
+gnome-session:
+gnome-session:
+gnome-session:
+
+PACKAGE NAME:  gnome-speech-0.3.6-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  77 K
+PACKAGE SIZE (uncompressed):  210 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-speech: gnome-speech
+gnome-speech:
+gnome-speech: This is GNOME Speech.  It's purpose is to provide a simple general API
+gnome-speech: for producing text-to-speech output.
+gnome-speech:
+gnome-speech:
+gnome-speech:
+gnome-speech:
+gnome-speech:
+gnome-speech:
+gnome-speech:
+
+PACKAGE NAME:  gnome-spell-1.0.6-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  62 K
+PACKAGE SIZE (uncompressed):  320 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-spell: gnome-spell 
+gnome-spell:
+gnome-spell: Gnome Spell is GNOME/Bonobo component for spell checking.
+gnome-spell:
+gnome-spell:
+gnome-spell:
+gnome-spell:
+gnome-spell:
+gnome-spell:
+gnome-spell:
+gnome-spell:
+
+PACKAGE NAME:  gnome-system-monitor-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  538 K
+PACKAGE SIZE (uncompressed):  2000 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-system-monitor: gnome-system-monitor
+gnome-system-monitor:
+gnome-system-monitor: The gnome-system-monitor is a nicer, simpler, easier to use
+gnome-system-monitor: replacement for gtop.
+gnome-system-monitor:
+gnome-system-monitor:
+gnome-system-monitor:
+gnome-system-monitor:
+gnome-system-monitor:
+gnome-system-monitor:
+gnome-system-monitor:
+
+PACKAGE NAME:  gnome-system-tools-1.2.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  1697 K
+PACKAGE SIZE (uncompressed):  4530 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-system-tools: gnome-system-tools
+gnome-system-tools:
+gnome-system-tools: Tools aimed to make the administration of UNIX systems easy.
+gnome-system-tools:
+gnome-system-tools:
+gnome-system-tools:
+gnome-system-tools:
+gnome-system-tools:
+gnome-system-tools:
+gnome-system-tools:
+gnome-system-tools:
+
+PACKAGE NAME:  gnome-terminal-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  2081 K
+PACKAGE SIZE (uncompressed):  10350 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-terminal: gnome-terminal
+gnome-terminal:
+gnome-terminal: An xterm-like application for GNOME.
+gnome-terminal:
+gnome-terminal:
+gnome-terminal:
+gnome-terminal:
+gnome-terminal:
+gnome-terminal:
+gnome-terminal:
+gnome-terminal:
+
+PACKAGE NAME:  gnome-themes-2.10.0-i486-3frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  2238 K
+PACKAGE SIZE (uncompressed):  4220 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-themes: gnome-themes
+gnome-themes:
+gnome-themes: This is a collection of themes for GNOME.  Several of these are high-
+gnome-themes: contrast themes intended to improve accessibility for users with
+gnome-themes: visual impairments.
+gnome-themes:
+gnome-themes:
+gnome-themes:
+gnome-themes:
+gnome-themes:
+gnome-themes:
+
+PACKAGE NAME:  gnome-user-share-0.5-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  30 K
+PACKAGE SIZE (uncompressed):  140 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-user-share: gnome-user-share
+gnome-user-share:
+gnome-user-share: gnome-user-share is a small package that binds together various free
+gnome-user-share: software projects to bring easy to use user-level file sharing to the
+gnome-user-share: masses. The program is meant to run in the background when the user
+gnome-user-share: is logged in, and when file sharing is enabled a webdav server is
+gnome-user-share: started that shares the $HOME/Public folder.
+gnome-user-share:
+gnome-user-share:
+gnome-user-share:
+gnome-user-share:
+
+PACKAGE NAME:  gnome-utils-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  1755 K
+PACKAGE SIZE (uncompressed):  5010 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-utils: gnome-utils
+gnome-utils:
+gnome-utils: This package will install some GNOME utilities, such as the search
+gnome-utils: tool and system information overview tool.
+gnome-utils:
+gnome-utils:
+gnome-utils:
+gnome-utils:
+gnome-utils:
+gnome-utils:
+gnome-utils:
+
+PACKAGE NAME:  gnome-volume-manager-1.2.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  168 K
+PACKAGE SIZE (uncompressed):  1010 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-volume-manager: gnome-volume-manager 
+gnome-volume-manager:
+gnome-volume-manager: gnome-volume-manager is a desktop-level daemon that enforces 
+gnome-volume-manager: volume-related policy in response to events received from HAL. Its
+gnome-volume-manager: goal is to implement all functionality as a state-machine in response
+gnome-volume-manager: to asynchronous events from HAL.
+gnome-volume-manager:
+gnome-volume-manager:
+gnome-volume-manager:
+gnome-volume-manager:
+gnome-volume-manager:
+
+PACKAGE NAME:  gnome2-user-docs-2.8.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  923 K
+PACKAGE SIZE (uncompressed):  2120 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome2-user-docs: gnome2-user-docs
+gnome2-user-docs:
+gnome2-user-docs: This package contains the GNOME User's Guide and other general GNOME
+gnome2-user-docs: documentation.
+gnome2-user-docs:
+gnome2-user-docs:
+gnome2-user-docs:
+gnome2-user-docs:
+gnome2-user-docs:
+gnome2-user-docs:
+gnome2-user-docs:
+
+PACKAGE NAME:  gnomemeeting-1.2.1-i486-4frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  3286 K
+PACKAGE SIZE (uncompressed):  9520 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnomemeeting: gnomemeeting 
+gnomemeeting:
+gnomemeeting: GnomeMeeting is an H.323 compatible videoconferencing and
+gnomemeeting: VOIP/IP-Telephony application that allows you to make audio and 
+gnomemeeting: video calls to remote users with H.323 hardware or software (such as
+gnomemeeting: Microsoft Netmeeting). It supports all modern videoconferencing
+gnomemeeting: features, such as registering to an ILS directory, gatekeeper support
+gnomemeeting: making multi-user conference calls using an external MCU, using
+gnomemeeting: modern Quicknet telephony cards, and making PC-To-Phone calls.
+gnomemeeting:
+gnomemeeting:
+
+PACKAGE NAME:  gnopernicus-0.10.4-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  1562 K
+PACKAGE SIZE (uncompressed):  5950 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnopernicus: gnopernicus
+gnopernicus:
+gnopernicus: The Gnopernicus project enables users with limited vision (or no
+gnopernicus: vision) to use the Gnome desktop and applications effectively.  By
+gnopernicus: providing automated focus tracking and fullscreen magnification,
+gnopernicus: Gnopernicus will aid low-vision Gnome users, and its screen reader
+gnopernicus: features will allow low-vision and blind users access to standard
+gnopernicus: GTK+2 and Java-based GUI applications via speech and braille output.
+gnopernicus:
+gnopernicus:
+gnopernicus:
+
+PACKAGE NAME:  yelp-2.9.3-i486-2frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  211 K
+PACKAGE SIZE (uncompressed):  870 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+yelp: yelp
+yelp:
+yelp: Yelp is the GNOME help browser.
+yelp:
+yelp:
+yelp:
+yelp:
+yelp:
+yelp:
+yelp:
+yelp:
+
+PACKAGE NAME:  goobox-0.9.90-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  247 K
+PACKAGE SIZE (uncompressed):  950 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+goobox: goobox
+goobox:
+goobox: Goobox is an CD player and ripper for GNOME 2
+goobox:
+goobox:
+goobox:
+goobox:
+goobox:
+goobox:
+goobox:
+goobox:
+
+PACKAGE NAME:  gpdf-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  729 K
+PACKAGE SIZE (uncompressed):  2370 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gpdf: gpdf 
+gpdf:
+gpdf: GNOME pdf viewer
+gpdf:
+gpdf:
+gpdf:
+gpdf:
+gpdf:
+gpdf:
+gpdf:
+gpdf:
+
+PACKAGE NAME:  gnome-menus-2.10.0-i486-2frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  97 K
+PACKAGE SIZE (uncompressed):  420 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-menus: gnome-menus
+gnome-menus:
+gnome-menus: The package contains an implementation of the draft "Desktop Menu 
+gnome-menus: Specification" from freedesktop.org
+gnome-menus:
+gnome-menus:
+gnome-menus:
+gnome-menus:
+gnome-menus:
+gnome-menus:
+gnome-menus:
+
+PACKAGE NAME:  eog-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  635 K
+PACKAGE SIZE (uncompressed):  2120 K
+PACKAGE REQUIRED:  eel,gconf,libbonoboui,libgnomeprintui,librsvg
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+eog: eog
+eog:
+eog: This is the Eye of Gnome, an image viewer program.  It is meant to be
+eog: a fast and functional image viewer as well as an image cataloging
+eog: program.
+eog:
+eog:
+eog:
+eog:
+eog:
+eog:
+
+PACKAGE NAME:  gtk-engines-2.6.2-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  245 K
+PACKAGE SIZE (uncompressed):  690 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gtk-engines: gtk-engines (GTK+ themes)
+gtk-engines:
+gtk-engines: This package provides theme engines for GTK+:
+gtk-engines:
+gtk-engines: Pixmap: A generic engine using pixmap rendering.
+gtk-engines: Metal: A metallic looking theme engine.
+gtk-engines: Redmond95: A theme engine that reminds us of Redmond.
+gtk-engines:
+gtk-engines:
+gtk-engines:
+gtk-engines:
+
+PACKAGE NAME:  gtksourceview-1.2.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  383 K
+PACKAGE SIZE (uncompressed):  1880 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gtksourceview: gtksourceview 
+gtksourceview:
+gtksourceview: a text widget that extends the standard gtk+ 2.x text widget 
+gtksourceview: GtkTextView. It improves GtkTextView by implementing syntax
+gtksourceview: highlighting and other features typical of a source editor.
+gtksourceview:
+gtksourceview:
+gtksourceview:
+gtksourceview:
+gtksourceview:
+gtksourceview:
+
+PACKAGE NAME:  gucharmap-1.4.3-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  1631 K
+PACKAGE SIZE (uncompressed):  5330 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gucharmap: gucharmap (character map utility)
+gucharmap:
+gucharmap: gucharmap is a Unicode character map and font viewer for GNOME.
+gucharmap:
+gucharmap:
+gucharmap:
+gucharmap:
+gucharmap:
+gucharmap:
+gucharmap:
+gucharmap:
+
+PACKAGE NAME:  libcroco-0.6.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  125 K
+PACKAGE SIZE (uncompressed):  460 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libcroco: libcroco (CSS2 parsing library)
+libcroco:
+libcroco: Libcroco is a standalone CSS2 parsing and manipulation library that
+libcroco: provides a CSS2 selection engine and an experimental XML/CSS
+libcroco: rendering engine.
+libcroco:
+libcroco:
+libcroco:
+libcroco:
+libcroco:
+libcroco:
+
+PACKAGE NAME:  libgail-gnome-1.1.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  19 K
+PACKAGE SIZE (uncompressed):  70 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libgail-gnome: libgail-gnome
+libgail-gnome:
+libgail-gnome: The GNOME Accessibility Interface library.
+libgail-gnome: For more information about accessibility in GNOME, see:
+libgail-gnome:
+libgail-gnome:   http://developer.gnome.org/projects/gap
+libgail-gnome:
+libgail-gnome:
+libgail-gnome:
+libgail-gnome:
+libgail-gnome:
+
+PACKAGE NAME:  gdm-2.6.0.8-i486-5frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  2915 K
+PACKAGE SIZE (uncompressed):  8060 K
+PACKAGE REQUIRED:  libgnomeui,librsvg
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gdm: gdm
+gdm:
+gdm: The Gnome Display Manager is a reimplementation of the well known
+gdm: xdm program.  gdm implements all significant features required for
+gdm: managing local and remote displays.
+gdm:
+gdm:
+gdm:
+gdm:
+gdm:
+gdm:
+
+PACKAGE NAME:  libgsf-1.11.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  148 K
+PACKAGE SIZE (uncompressed):  810 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libgsf: libgsf
+libgsf:
+libgsf: libgsf aims to provide an efficient extensible i/o abstraction for
+libgsf: dealing with different structured file formats.
+libgsf:
+libgsf: libgsf is used by AbiWord, Gnumeric, and KWord.
+libgsf:
+libgsf:
+libgsf:
+libgsf:
+libgsf:
+
+PACKAGE NAME:  libgtkhtml-2.6.3-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  192 K
+PACKAGE SIZE (uncompressed):  680 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libgtkhtml: libgtkhtml
+libgtkhtml:
+libgtkhtml: GtkHTML is a lightweight HTML rendering/printing/editing engine.  It
+libgtkhtml: was originally based on KHTMLW, part of the KDE project.
+libgtkhtml:
+libgtkhtml:
+libgtkhtml:
+libgtkhtml:
+libgtkhtml:
+libgtkhtml:
+libgtkhtml:
+
+PACKAGE NAME:  libgtop-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  119 K
+PACKAGE SIZE (uncompressed):  540 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libgtop: libgtop
+libgtop:
+libgtop: A library that fetches information about the running system such as
+libgtop: cpu usage, memory usage, and active processes.  On Linux systems, this
+libgtop: information is taken directly from the /proc filesystem.
+libgtop:
+libgtop:
+libgtop:
+libgtop:
+libgtop:
+libgtop:
+
+PACKAGE NAME:  libsoup-2.2.3-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  115 K
+PACKAGE SIZE (uncompressed):  380 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libsoup: libsoup 
+libsoup:
+libsoup: Libsoup is an HTTP library implementation in C.
+libsoup:
+libsoup:
+libsoup:
+libsoup:
+libsoup:
+libsoup:
+libsoup:
+libsoup:
+
+PACKAGE NAME:  libwnck-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  144 K
+PACKAGE SIZE (uncompressed):  800 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libwnck: libwnck
+libwnck:
+libwnck: The Window Navigator Construction Kit library, used by GNOME for
+libwnck: handling window management tasks.
+libwnck:
+libwnck:
+libwnck:
+libwnck:
+libwnck:
+libwnck:
+libwnck:
+
+PACKAGE NAME:  gnome-panel-2.10.0-i486-2frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  3088 K
+PACKAGE SIZE (uncompressed):  10610 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-panel: gnome-panel
+gnome-panel:
+gnome-panel: This is the GNOME panel, which houses many applets and menus, and is
+gnome-panel: one of the most visible and easily recognized GNOME components.
+gnome-panel:
+gnome-panel:
+gnome-panel:
+gnome-panel:
+gnome-panel:
+gnome-panel:
+gnome-panel:
+
+PACKAGE NAME:  nautilus-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  4021 K
+PACKAGE SIZE (uncompressed):  12190 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+nautilus: nautilus
+nautilus:
+nautilus: Nautilus is a highly-polished content manager for GNOME.  Nautilus
+nautilus: integrates access to files, applications, media, Internet-based
+nautilus: resources and the Web, delivering a dynamic and rich user experience.
+nautilus: Nautilus, developed by Eazel, Inc., is a free software project
+nautilus: developed under the GNU General Public License and is a core
+nautilus: component of the GNOME desktop project.
+nautilus:
+nautilus:
+nautilus:
+
+PACKAGE NAME:  nautilus-cd-burner-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  271 K
+PACKAGE SIZE (uncompressed):  1170 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+nautilus-cd-burner: nautilus-cd-burner
+nautilus-cd-burner:
+nautilus-cd-burner: nautilus-cd-burner is an extension to Nautilus that makes it easy to
+nautilus-cd-burner: write files to a CD burner.  The user uses Nautilus (or another
+nautilus-cd-burner: application supporting gnome-vfs) to copy the files to burn:///, and
+nautilus-cd-burner: then nautilus-cd-burner is launched to write the files to the CD.
+nautilus-cd-burner:
+nautilus-cd-burner:
+nautilus-cd-burner:
+nautilus-cd-burner:
+nautilus-cd-burner:
+
+PACKAGE NAME:  nautilus-sendto-0.3-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  30 K
+PACKAGE SIZE (uncompressed):  160 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+nautilus-sendto: nautilus-sendto
+nautilus-sendto:
+nautilus-sendto: Send files with nautilus
+nautilus-sendto:
+nautilus-sendto:
+nautilus-sendto:
+nautilus-sendto:
+nautilus-sendto:
+nautilus-sendto:
+nautilus-sendto:
+nautilus-sendto:
+
+PACKAGE NAME:  scrollkeeper-0.3.14-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  296 K
+PACKAGE SIZE (uncompressed):  1820 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+scrollkeeper: scrollkeeper
+scrollkeeper:
+scrollkeeper: ScrollKeeper is a cataloging system for documentation. It manages
+scrollkeeper: documentation metadata as specified by the Open Source Metadata
+scrollkeeper: Framework (OMF) and provides a simple API to allow help browsers to
+scrollkeeper: find, sort, and search the document catalog. It will also be able to
+scrollkeeper: communicate with catalog servers on the Net to search for documents
+scrollkeeper: which are not on the local system.
+scrollkeeper:
+scrollkeeper:
+scrollkeeper:
+
+PACKAGE NAME:  startup-notification-0.8-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  26 K
+PACKAGE SIZE (uncompressed):  100 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+startup-notification: startup-notification
+startup-notification:
+startup-notification: Adds support for applications to use "busy" cursors while starting up.
+startup-notification:
+startup-notification:
+startup-notification:
+startup-notification:
+startup-notification:
+startup-notification:
+startup-notification:
+startup-notification:
+
+PACKAGE NAME:  system-tools-backends-1.2.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  556 K
+PACKAGE SIZE (uncompressed):  2580 K
+PACKAGE REQUIRED:  glib,gnome-vfs,gtk+2,libgnome
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+system-tools-backends: system-tools-backends
+system-tools-backends:
+system-tools-backends: Backends for gnome-system-tools
+system-tools-backends:
+system-tools-backends:
+system-tools-backends:
+system-tools-backends:
+system-tools-backends:
+system-tools-backends:
+system-tools-backends:
+system-tools-backends:
+
+PACKAGE NAME:  vino-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  289 K
+PACKAGE SIZE (uncompressed):  1200 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+vino: vino
+vino:
+vino: An integrated VNC server for GNOME
+vino:
+vino:
+vino:
+vino:
+vino:
+vino:
+vino:
+vino:
+
+PACKAGE NAME:  vte-0.11.12-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  678 K
+PACKAGE SIZE (uncompressed):  1820 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+vte: vte
+vte:
+vte: VTE is a library (libvte) which implements a terminal emulator widget
+vte: for GTK+. 
+vte:
+vte:
+vte:
+vte:
+vte:
+vte:
+vte:
+
+PACKAGE NAME:  zenity-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  530 K
+PACKAGE SIZE (uncompressed):  1220 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+zenity: zenity 
+zenity:
+zenity: Displays GTK+ dialogs
+zenity:
+zenity:
+zenity:
+zenity:
+zenity:
+zenity:
+zenity:
+zenity:
+
+PACKAGE NAME:  evolution-2.2.1.1-i486-2frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  9113 K
+PACKAGE SIZE (uncompressed):  24380 K
+PACKAGE REQUIRED:  evolution-data-server,gnome-pilot-conduits,gnome-spell,gtkhtml
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+evolution: evolution 
+evolution:
+evolution: Evolution is the GNOME mailer, calendar, contact manager and 
+evolution: communications tool from Ximian, Inc.  The tools which make up
+evolution: Evolution are tightly integrated with one another, and together they
+evolution: act as a seamless personal information-management tool.
+evolution:
+evolution:
+evolution:
+evolution:
+evolution:
+
+PACKAGE NAME:  libxklavier-2.0-i486-2frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  65 K
+PACKAGE SIZE (uncompressed):  410 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libxklavier: libxklavier 
+libxklavier:
+libxklavier: libxklavier is a library providing high-level API for X Keyboard 
+libxklavier: Extension known as XKB. This library is indended to support XFree86
+libxklavier: and other commericial X servers.
+libxklavier:
+libxklavier:
+libxklavier:
+libxklavier:
+libxklavier:
+libxklavier:
+
+PACKAGE NAME:  gstreamer-0.8.9-i486-2frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  785 K
+PACKAGE SIZE (uncompressed):  2700 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gstreamer: gstreamer
+gstreamer:
+gstreamer: This is GStreamer, a framework for streaming media.  The fundamental
+gstreamer: design comes from the video pipeline at Oregon Graduate Institute, as
+gstreamer: well as some ideas from DirectMedia.  It's based on plugins that will
+gstreamer: provide the various codecs and other functionality. 
+gstreamer:
+gstreamer:
+gstreamer:
+gstreamer:
+gstreamer:
+
+PACKAGE NAME:  gst-plugins-0.8.8-i486-3frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  1929 K
+PACKAGE SIZE (uncompressed):  5580 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gst-plugins: gst-plugins
+gst-plugins:
+gst-plugins: This is gst-plugins, a set of multimedia plugins for GStreamer.
+gst-plugins:
+gst-plugins:
+gst-plugins:
+gst-plugins:
+gst-plugins:
+gst-plugins:
+gst-plugins:
+gst-plugins:
+
+PACKAGE NAME:  metacity-2.10.0-i486-2frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  1990 K
+PACKAGE SIZE (uncompressed):  9040 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+metacity: metacity
+metacity:
+metacity: Metacity is a simple window manager that integrates nicely with GNOME.
+metacity:
+metacity:
+metacity:
+metacity:
+metacity:
+metacity:
+metacity:
+metacity:
+
+PACKAGE NAME:  sound-juicer-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  342 K
+PACKAGE SIZE (uncompressed):  1290 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+sound-juicer: sound-juicer
+sound-juicer:
+sound-juicer: Sound Juicer is a CD-Ripping tool that aims to provide a clean 
+sound-juicer: interface and automatic file tagging.
+sound-juicer: 
+sound-juicer: 
+sound-juicer: 
+sound-juicer: 
+sound-juicer: 
+sound-juicer:
+sound-juicer:
+
+PACKAGE NAME:  evolution-data-server-1.2.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  3007 K
+PACKAGE SIZE (uncompressed):  10620 K
+PACKAGE REQUIRED:  gnome-vfs,libgnome,libsoup
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+evolution-data-server: evolution-data-server 
+evolution-data-server:
+evolution-data-server: Evolution component responsible for managing calendar and addressbook
+evolution-data-server: information
+evolution-data-server:
+evolution-data-server:
+evolution-data-server:
+evolution-data-server:
+evolution-data-server:
+evolution-data-server:
+evolution-data-server:
+
+PACKAGE NAME:  gtkhtml-3.6.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  794 K
+PACKAGE SIZE (uncompressed):  2870 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gtkhtml: gtkhtml 
+gtkhtml:
+gtkhtml: GtkHTML is a lightweight HTML rendering/printing/editing engine. It 
+gtkhtml: was originally based on KHTMLW, part of the KDE project, but is now
+gtkhtml: being developed independently.
+gtkhtml:
+gtkhtml:
+gtkhtml:
+gtkhtml:
+gtkhtml:
+gtkhtml:
+
+PACKAGE NAME:  gal2-2.4.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  689 K
+PACKAGE SIZE (uncompressed):  2840 K
+PACKAGE REQUIRED:  libgnomeprintui,libgnomeui
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gal2: gal2
+gal2:
+gal2: GNOME Application Library.
+gal2:
+gal2:
+gal2:
+gal2:
+gal2:
+gal2:
+gal2:
+gal2:
+
+PACKAGE NAME:  libgnomesu-0.9.7-i486-1frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  67 K
+PACKAGE SIZE (uncompressed):  280 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libgnomesu: libgnomesu
+libgnomesu:
+libgnomesu: libgnomesu is a library for providing superuser privileges to GNOME
+libgnomesu: applications.
+libgnomesu:
+libgnomesu:
+libgnomesu:
+libgnomesu:
+libgnomesu:
+libgnomesu:
+libgnomesu:
+
+PACKAGE NAME:  frg-artwork-1.0.0-i486-10frg.tgz
+PACKAGE LOCATION:  ./desktop
+PACKAGE SIZE (compressed):  3824 K
+PACKAGE SIZE (uncompressed):  6280 K
+PACKAGE REQUIRED:  gnome-backgrounds,librsvg
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+frg-artwork: frg-artwork
+frg-artwork:
+frg-artwork: A collection of wallpapers, splash screens and themes for Freerock's
+frg-artwork: GNOME.
+frg-artwork:
+frg-artwork: Thanks to Fernando Flores Ortiz and Fred for the artwork.
+frg-artwork:
+frg-artwork:
+frg-artwork:
+frg-artwork:
+frg-artwork:
+
+PACKAGE NAME:  gnome-extra-themes-1.0.1-noarch-3frg.tgz
+PACKAGE LOCATION:  ./themes
+PACKAGE SIZE (compressed):  37762 K
+PACKAGE SIZE (uncompressed):  105480 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-extra-themes: gnome-extra-themes
+gnome-extra-themes:
+gnome-extra-themes: A collection of high-quality GNOME themes for Metacity and GTK+.
+gnome-extra-themes:
+gnome-extra-themes:
+gnome-extra-themes:
+gnome-extra-themes:
+gnome-extra-themes:
+gnome-extra-themes:
+gnome-extra-themes:
+gnome-extra-themes:
+
+PACKAGE NAME:  gnome-themes-extras-0.8.1-i486-4frg.tgz
+PACKAGE LOCATION:  ./themes
+PACKAGE SIZE (compressed):  4013 K
+PACKAGE SIZE (uncompressed):  17160 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-themes-extras: gnome-themes-extras 
+gnome-themes-extras:
+gnome-themes-extras: a collection of metathemes for the GNOME desktop environment. These
+gnome-themes-extras: themes are using actual SVG files for their icons, not SVG files
+gnome-themes-extras: converted to PNG which are seen in some other themes.
+gnome-themes-extras:
+gnome-themes-extras:
+gnome-themes-extras:
+gnome-themes-extras:
+gnome-themes-extras:
+gnome-themes-extras:
+
+PACKAGE NAME:  gtkmm-2.6.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  5259 K
+PACKAGE SIZE (uncompressed):  43250 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gtkmm: gtkmm 
+gtkmm:
+gtkmm: C++ bindings for gtk+
+gtkmm:
+gtkmm:
+gtkmm:
+gtkmm:
+gtkmm:
+gtkmm:
+gtkmm:
+gtkmm:
+
+PACKAGE NAME:  ExtUtils-PkgConfig-1.07-i486-1frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  7 K
+PACKAGE SIZE (uncompressed):  30 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+ExtUtils-PkgConfig: ExtUtils-PkgConfig
+ExtUtils-PkgConfig:
+ExtUtils-PkgConfig: simplistic interface to pkg-config
+ExtUtils-PkgConfig:
+ExtUtils-PkgConfig:
+ExtUtils-PkgConfig:
+ExtUtils-PkgConfig:
+ExtUtils-PkgConfig:
+ExtUtils-PkgConfig:
+ExtUtils-PkgConfig:
+ExtUtils-PkgConfig:
+
+PACKAGE NAME:  Gnome2-Canvas-1.002-i486-1frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  81 K
+PACKAGE SIZE (uncompressed):  230 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+Gnome2-Canvas: Gnome2-Canvas
+Gnome2-Canvas:
+Gnome2-Canvas: A structured graphics canvas based on GNOME
+Gnome2-Canvas:
+Gnome2-Canvas:
+Gnome2-Canvas:
+Gnome2-Canvas:
+Gnome2-Canvas:
+Gnome2-Canvas:
+Gnome2-Canvas:
+Gnome2-Canvas:
+
+PACKAGE NAME:  Gnome2-VFS-1.020-i486-1frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  139 K
+PACKAGE SIZE (uncompressed):  430 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+Gnome2-VFS: Gnome2-VFS
+Gnome2-VFS:
+Gnome2-VFS: Perl interface to the 2.x series of the GNOME VFS library
+Gnome2-VFS:
+Gnome2-VFS:
+Gnome2-VFS:
+Gnome2-VFS:
+Gnome2-VFS:
+Gnome2-VFS:
+Gnome2-VFS:
+Gnome2-VFS:
+
+PACKAGE NAME:  Gtk2-GladeXML-1.004-i486-1frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  18 K
+PACKAGE SIZE (uncompressed):  60 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+Gtk2-GladeXML: Gtk2-GladeXML
+Gtk2-GladeXML:
+Gtk2-GladeXML: Create user interfaces directly from Glade XML files.
+Gtk2-GladeXML:
+Gtk2-GladeXML:
+Gtk2-GladeXML:
+Gtk2-GladeXML:
+Gtk2-GladeXML:
+Gtk2-GladeXML:
+Gtk2-GladeXML:
+Gtk2-GladeXML:
+
+PACKAGE NAME:  glibmm-2.6.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  685 K
+PACKAGE SIZE (uncompressed):  5530 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+glibmm: glibmm 
+glibmm:
+glibmm: C++ bindings for glib
+glibmm:
+glibmm:
+glibmm:
+glibmm:
+glibmm:
+glibmm:
+glibmm:
+glibmm:
+
+PACKAGE NAME:  libgnomemm-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  30 K
+PACKAGE SIZE (uncompressed):  120 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libgnomemm: libgnomemm
+libgnomemm:
+libgnomemm: libgnome c++ bindings
+libgnomemm:
+libgnomemm:
+libgnomemm:
+libgnomemm:
+libgnomemm:
+libgnomemm:
+libgnomemm:
+libgnomemm:
+
+PACKAGE NAME:  libxml++-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  360 K
+PACKAGE SIZE (uncompressed):  1730 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+
+PACKAGE NAME:  gnome-python-extras-2.10.0-i486-2frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  143 K
+PACKAGE SIZE (uncompressed):  550 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-python-extras: gnome-python-extras
+gnome-python-extras:
+gnome-python-extras:
+gnome-python-extras:
+gnome-python-extras:
+gnome-python-extras:
+gnome-python-extras:
+gnome-python-extras:
+gnome-python-extras:
+gnome-python-extras:
+gnome-python-extras:
+
+PACKAGE NAME:  libglade-java-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  93 K
+PACKAGE SIZE (uncompressed):  380 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libglade-java: libglade-java
+libglade-java:
+libglade-java:
+libglade-java: Java(tm) bindings for libglade
+libglade-java:
+libglade-java:
+libglade-java:
+libglade-java:
+libglade-java:
+libglade-java:
+libglade-java:
+
+PACKAGE NAME:  libglademm-2.6.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  262 K
+PACKAGE SIZE (uncompressed):  850 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libglademm: libglademm
+libglademm:
+libglademm: C++ bindings for libglade
+libglademm:
+libglademm:
+libglademm:
+libglademm:
+libglademm:
+libglademm:
+libglademm:
+libglademm:
+
+PACKAGE NAME:  libsigc++-2.0.10-i486-1frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  1446 K
+PACKAGE SIZE (uncompressed):  12520 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+
+PACKAGE NAME:  pygtk-2.6.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  1045 K
+PACKAGE SIZE (uncompressed):  4030 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+pygtk: pygtk 
+pygtk:
+pygtk: Python Bindings for the GTK Widget Set.
+pygtk:
+pygtk:
+pygtk:
+pygtk:
+pygtk:
+pygtk:
+pygtk:
+pygtk:
+
+PACKAGE NAME:  bakery-2.3.12-i486-1frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  133 K
+PACKAGE SIZE (uncompressed):  470 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+bakery: bakery
+bakery:
+bakery: Bakery is a C++ Framework for creating  GNOME applications using
+bakery: gtkmm.
+bakery:
+bakery:
+bakery:
+bakery:
+bakery:
+bakery:
+bakery:
+
+PACKAGE NAME:  pyphany-0.1.2-i486-2frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  505 K
+PACKAGE SIZE (uncompressed):  1360 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+pyphany: pyphany
+pyphany:
+pyphany: Epiphany Python Bindings
+pyphany:
+pyphany:
+pyphany:
+pyphany:
+pyphany:
+pyphany:
+pyphany:
+pyphany:
+
+PACKAGE NAME:  ExtUtils-Depends-0.205-i486-1frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  11 K
+PACKAGE SIZE (uncompressed):  40 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+ExtUtils-Depends: ExtUtils-Depends
+ExtUtils-Depends:
+ExtUtils-Depends: Easily build XS extensions that depend on XS extensions
+ExtUtils-Depends:
+ExtUtils-Depends:
+ExtUtils-Depends:
+ExtUtils-Depends:
+ExtUtils-Depends:
+ExtUtils-Depends:
+ExtUtils-Depends:
+ExtUtils-Depends:
+
+PACKAGE NAME:  Glib-1.080-i486-1frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  284 K
+PACKAGE SIZE (uncompressed):  690 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+Glib: Glib
+Glib:
+Glib: Perl wrappers for the GLib utility and Object libraries
+Glib:
+Glib:
+Glib:
+Glib:
+Glib:
+Glib:
+Glib:
+Glib:
+
+PACKAGE NAME:  Gnome2-GConf-1.000-i486-1frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  53 K
+PACKAGE SIZE (uncompressed):  150 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+Gnome2-GConf: Gnome2-GConf
+Gnome2-GConf:
+Gnome2-GConf: Perl wrappers for the GConf configuration engine.
+Gnome2-GConf:
+Gnome2-GConf:
+Gnome2-GConf:
+Gnome2-GConf:
+Gnome2-GConf:
+Gnome2-GConf:
+Gnome2-GConf:
+Gnome2-GConf:
+
+PACKAGE NAME:  Gtk2-1.080-i486-1frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  1425 K
+PACKAGE SIZE (uncompressed):  4190 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+Gtk2: Gtk2
+Gtk2:
+Gtk2: Perl interface to the 2.x series of the Gimp Toolkit library
+Gtk2:
+Gtk2:
+Gtk2:
+Gtk2:
+Gtk2:
+Gtk2:
+Gtk2:
+Gtk2:
+
+PACKAGE NAME:  gconfmm-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  51 K
+PACKAGE SIZE (uncompressed):  210 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gconfmm: gconfmm
+gconfmm:
+gconfmm: C++ bindings for gconf
+gconfmm:
+gconfmm:
+gconfmm:
+gconfmm:
+gconfmm:
+gconfmm:
+gconfmm:
+gconfmm:
+
+PACKAGE NAME:  gnome-vfsmm-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  105 K
+PACKAGE SIZE (uncompressed):  490 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-vfsmm: gnome-vfsmm
+gnome-vfsmm:
+gnome-vfsmm: C++ bindings for gnome-vfs
+gnome-vfsmm:
+gnome-vfsmm:
+gnome-vfsmm:
+gnome-vfsmm:
+gnome-vfsmm:
+gnome-vfsmm:
+gnome-vfsmm:
+gnome-vfsmm:
+
+PACKAGE NAME:  libgnomeuimm-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  157 K
+PACKAGE SIZE (uncompressed):  740 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libgnomeuimm: libgnomeuimm
+libgnomeuimm:
+libgnomeuimm: C++ bindings for libgnomeui
+libgnomeuimm:
+libgnomeuimm:
+libgnomeuimm:
+libgnomeuimm:
+libgnomeuimm:
+libgnomeuimm:
+libgnomeuimm:
+libgnomeuimm:
+
+PACKAGE NAME:  libgtk-java-2.6.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  1847 K
+PACKAGE SIZE (uncompressed):  5940 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libgtk-java: libgtk-java
+libgtk-java:
+libgtk-java:
+libgtk-java: Java(tm) bindings for gtk
+libgtk-java:
+libgtk-java:
+libgtk-java:
+libgtk-java:
+libgtk-java:
+libgtk-java:
+libgtk-java:
+
+PACKAGE NAME:  Gnome2-1.021-i486-1frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  255 K
+PACKAGE SIZE (uncompressed):  740 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+Gnome2: Gnome2
+Gnome2:
+Gnome2: Perl interface to the 2.x series of the GNOME libraries
+Gnome2:
+Gnome2:
+Gnome2:
+Gnome2:
+Gnome2:
+Gnome2:
+Gnome2:
+Gnome2:
+
+PACKAGE NAME:  libgnome-java-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  424 K
+PACKAGE SIZE (uncompressed):  1570 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libgnome-java: libgnome-java
+libgnome-java:
+libgnome-java: Java(tm) bindings for libgnome
+libgnome-java:
+libgnome-java:
+libgnome-java:
+libgnome-java:
+libgnome-java:
+libgnome-java:
+libgnome-java:
+libgnome-java:
+
+PACKAGE NAME:  libgnomecanvasmm-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  107 K
+PACKAGE SIZE (uncompressed):  560 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libgnomecanvasmm: libgnomecanvasmm
+libgnomecanvasmm:
+libgnomecanvasmm: C++ bindings for libgnomecanvas
+libgnomecanvasmm:
+libgnomecanvasmm:
+libgnomecanvasmm:
+libgnomecanvasmm:
+libgnomecanvasmm:
+libgnomecanvasmm:
+libgnomecanvasmm:
+libgnomecanvasmm:
+
+PACKAGE NAME:  pyorbit-2.0.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  47 K
+PACKAGE SIZE (uncompressed):  150 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+pyorbit: pyorbit 
+pyorbit:
+pyorbit: Python bindings for Orbit
+pyorbit:
+pyorbit:
+pyorbit:
+pyorbit:
+pyorbit:
+pyorbit:
+pyorbit:
+pyorbit:
+
+PACKAGE NAME:  gnome-python-2.10.0-i486-2frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  227 K
+PACKAGE SIZE (uncompressed):  990 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-python: gnome-python 
+gnome-python:
+gnome-python: Python bindings for gnome
+gnome-python:
+gnome-python:
+gnome-python:
+gnome-python:
+gnome-python:
+gnome-python:
+gnome-python:
+gnome-python:
+
+PACKAGE NAME:  libgconf-java-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./bindings
+PACKAGE SIZE (compressed):  74 K
+PACKAGE SIZE (uncompressed):  240 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libgconf-java: libgconf-java
+libgconf-java:
+libgconf-java: Java(tm) bindings for GConf
+libgconf-java:
+libgconf-java:
+libgconf-java:
+libgconf-java:
+libgconf-java:
+libgconf-java:
+libgconf-java:
+libgconf-java:
+
+PACKAGE NAME:  pstoedit-3.40-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  391 K
+PACKAGE SIZE (uncompressed):  1560 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+pstoedit: pstoedit
+pstoedit:
+pstoedit: pstoedit translates PostScript and PDF graphics into other vector
+pstoedit: formats.
+pstoedit:
+pstoedit:
+pstoedit:
+pstoedit:
+pstoedit:
+pstoedit:
+pstoedit:
+
+PACKAGE NAME:  galeon-1.3.20-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  3302 K
+PACKAGE SIZE (uncompressed):  9410 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+galeon: galeon (GNOME web browser)
+galeon:
+galeon: Galeon is a GNOME Web browser based on Gecko (the Mozilla rendering
+galeon: engine).  It's fast, it has a light interface, and it is fully
+galeon: standards-compliant. 
+galeon:
+galeon: For more information, see:  http://galeon.sourceforge.net
+galeon:
+galeon:
+galeon:
+galeon:
+
+PACKAGE NAME:  graveman-0.3.8-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  244 K
+PACKAGE SIZE (uncompressed):  950 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+graveman: graveman 
+graveman:
+graveman: GTK+ frontend to cdrtools
+graveman:
+graveman:
+graveman:
+graveman:
+graveman:
+graveman:
+graveman:
+graveman:
+
+PACKAGE NAME:  balsa-2.3.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  2008 K
+PACKAGE SIZE (uncompressed):  4760 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+balsa: balsa
+balsa:
+balsa: Balsa is an e-mail client for GNOME, highly configurable and
+balsa: incorporating all the features you would expect in a robust mail
+balsa: client.
+balsa:
+balsa:
+balsa:
+balsa:
+balsa:
+balsa:
+
+PACKAGE NAME:  ghex-2.8.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  671 K
+PACKAGE SIZE (uncompressed):  1640 K
+PACKAGE REQUIRED:  gail,libgnomeui,libgnomeprintui
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+ghex: ghex
+ghex:
+ghex: GHex allows the user to load data from any file, view and edit it in
+ghex: either hex or ASCII. A must for anyone playing games that use
+ghex: non-ASCII format for saving.  ;^)
+ghex:
+ghex:
+ghex:
+ghex:
+ghex:
+ghex:
+
+PACKAGE NAME:  drivel-1.2.4-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  245 K
+PACKAGE SIZE (uncompressed):  870 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+drivel: drivel
+drivel:
+drivel: Drivel is a weblog client for the GNOME Desktop. Its purpose is to
+drivel: retain a simple and elegant design. Drivel also integrates tightly
+drivel: with the GNOME Desktop technologies.
+drivel:
+drivel:
+drivel:
+drivel:
+drivel:
+drivel:
+
+PACKAGE NAME:  glade-2.10.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  1639 K
+PACKAGE SIZE (uncompressed):  4530 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+glade: glade
+glade:
+glade: Glade is a GUI builder for GTK+ that quick & easy development of user
+glade: interfaces for the GTK+ toolkit and the Gnome desktop environment. It
+glade: also contains built-in support for generating the C source code needed
+glade: to recreate the interfaces.  The user interfaces designed in Glade are
+glade: stored in the well-known XML format, enabling easy integration with
+glade: external tools.
+glade:
+glade:
+glade:
+
+PACKAGE NAME:  gDesklets-0.34.3-i486-2frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  640 K
+PACKAGE SIZE (uncompressed):  2540 K
+PACKAGE REQUIRED:  gnome-python,libgtop,expat >= 1.95.8
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gDesklets: gDesklets 
+gDesklets:
+gDesklets: gDesklets provides an advanced architecture for desktop applets - 
+gDesklets: tiny displays sitting on your desktop in a symbiotic relationship of
+gDesklets: eye candy and usefulness
+gDesklets:
+gDesklets:
+gDesklets:
+gDesklets:
+gDesklets:
+gDesklets:
+
+PACKAGE NAME:  gst-ffmpeg-0.8.4-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  1109 K
+PACKAGE SIZE (uncompressed):  2760 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gst-ffmpeg: gst-ffmpeg
+gst-ffmpeg:
+gst-ffmpeg: FFmpeg plugin for gstreamer.
+gst-ffmpeg:
+gst-ffmpeg:
+gst-ffmpeg:
+gst-ffmpeg:
+gst-ffmpeg:
+gst-ffmpeg:
+gst-ffmpeg:
+gst-ffmpeg:
+
+PACKAGE NAME:  gnome-cups-manager-0.30-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  299 K
+PACKAGE SIZE (uncompressed):  1350 K
+PACKAGE REQUIRED:  libgnomecups,libgnomeui
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-cups-manager: gnome-cups-manager 
+gnome-cups-manager:
+gnome-cups-manager: The GNOME CUPS Manager is a tool for adding new CUPS printers and for
+gnome-cups-manager: managing existing CUPS printers and queues.
+gnome-cups-manager:
+gnome-cups-manager:
+gnome-cups-manager:
+gnome-cups-manager:
+gnome-cups-manager:
+gnome-cups-manager:
+gnome-cups-manager:
+
+PACKAGE NAME:  gtkspell-2.0.10-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  25 K
+PACKAGE SIZE (uncompressed):  140 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gtkspell: gtkspell 
+gtkspell:
+gtkspell: GtkSpell provides word-processor-style highlighting and replacement of
+gtkspell: misspelled words in a GtkTextView widget. Right-clicking a
+gtkspell: misspelled word pop up a menu of suggested replacements.
+gtkspell:
+gtkspell:
+gtkspell:
+gtkspell:
+gtkspell:
+gtkspell:
+
+PACKAGE NAME:  skencil-0.6.16-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  1176 K
+PACKAGE SIZE (uncompressed):  4480 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+skencil: skencil
+skencil:
+skencil: Skencil is a Free Software interactive vector drawing appliction. It
+skencil: is a flexible and powerful tool for illustrations, diagrams and other
+skencil: purposes.
+skencil:
+skencil:
+skencil:
+skencil:
+skencil:
+skencil:
+
+PACKAGE NAME:  gftp-2.0.18-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  968 K
+PACKAGE SIZE (uncompressed):  2780 K
+PACKAGE REQUIRED:  gtk+2
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gftp: gftp
+gftp:
+gftp: gFTP is a multithreaded FTP client for X written using GTK+.  It
+gftp: features simultaneous downloads, resuming of interrupted file
+gftp: transfers, file transfer queues, downloading of entire directories,
+gftp: ftp proxy support, remote directory caching, passive and non-passive
+gftp: file transfers, drag-n-drop support, bookmarks menu, stop button,
+gftp: and many more features.
+gftp:
+gftp:
+gftp:
+
+PACKAGE NAME:  bluefish-1.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  1351 K
+PACKAGE SIZE (uncompressed):  5650 K
+PACKAGE REQUIRED:  gnome-vfs,gtk+2,pcre
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+bluefish: bluefish
+bluefish:
+bluefish:
+bluefish:
+bluefish:
+bluefish:
+bluefish:
+bluefish:
+bluefish:
+bluefish:
+bluefish:
+
+PACKAGE NAME:  libburn-0.2-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  55 K
+PACKAGE SIZE (uncompressed):  150 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libburn: libburn
+libburn:
+libburn: Libburn is an open-source library for reading, mastering and writing
+libburn: optical discs.
+libburn:
+libburn:
+libburn:
+libburn:
+libburn:
+libburn:
+libburn:
+
+PACKAGE NAME:  gnomebaker-0.3-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  389 K
+PACKAGE SIZE (uncompressed):  920 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnomebaker: gnomebaker 
+gnomebaker:
+gnomebaker: GTK+ frontend to cdrtools
+gnomebaker:
+gnomebaker:
+gnomebaker:
+gnomebaker:
+gnomebaker:
+gnomebaker:
+gnomebaker:
+gnomebaker:
+
+PACKAGE NAME:  gphoto2-2.1.5-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  138 K
+PACKAGE SIZE (uncompressed):  560 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gphoto2: gphoto2 
+gphoto2:
+gphoto2: gphoto2 is the command line interface to libgphoto2. It allows 
+gphoto2: almost everything that libgphoto2 can do.
+gphoto2:
+gphoto2:
+gphoto2:
+gphoto2:
+gphoto2:
+gphoto2:
+gphoto2:
+
+PACKAGE NAME:  libcoaster-0.1pre1-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  30 K
+PACKAGE SIZE (uncompressed):  110 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libcoaster: libcoaster
+libcoaster:
+libcoaster: Libcoaster is a library designed with one goal: Central preferences
+libcoaster: control on cd burners.
+libcoaster:
+libcoaster:
+libcoaster:
+libcoaster:
+libcoaster:
+libcoaster:
+libcoaster:
+
+PACKAGE NAME:  sylpheed-1.9.7-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  1463 K
+PACKAGE SIZE (uncompressed):  4110 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+sylpheed: sylpheed
+sylpheed:
+sylpheed: A GTK+2 based, lightweight, and fast e-mail client
+sylpheed:
+sylpheed:
+sylpheed:
+sylpheed:
+sylpheed:
+sylpheed:
+sylpheed:
+sylpheed:
+
+PACKAGE NAME:  libmikmod-3.1.11-i486-3frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  162 K
+PACKAGE SIZE (uncompressed):  380 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libmikmod: libmikmod
+libmikmod:
+libmikmod: This is libmikmod, a portable sound library.  This is used by XMMS
+libmikmod: to support some uncommon sound formats.
+libmikmod:
+libmikmod: Supported file formats include mod, stm, s3m, mtm, xm, and it.
+libmikmod:
+libmikmod:
+libmikmod:
+libmikmod:
+libmikmod:
+
+PACKAGE NAME:  xchat-2.4.2-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  2111 K
+PACKAGE SIZE (uncompressed):  5340 K
+PACKAGE REQUIRED:  gtk+2
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+xchat: xchat
+xchat:
+xchat: X-Chat is a GTK+-based IRC (Internet Relay Chat) client.
+xchat:
+xchat:
+xchat:
+xchat:
+xchat:
+xchat:
+xchat:
+xchat:
+
+PACKAGE NAME:  coaster-0.1.4.2-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  526 K
+PACKAGE SIZE (uncompressed):  1670 K
+PACKAGE REQUIRED:  gconfmm,gnome-vfsmm,gtk+2,gtkmm,libburn,libcoaster,libgnomeui
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+coaster: coaster
+coaster:
+coaster: GTK+ frontend to cdrtools
+coaster:
+coaster:
+coaster:
+coaster:
+coaster:
+coaster:
+coaster:
+coaster:
+
+PACKAGE NAME:  gossip-0.8-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  631 K
+PACKAGE SIZE (uncompressed):  1850 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gossip: gossip
+gossip:
+gossip: A Jabber client for GNOME2
+gossip:
+gossip:
+gossip:
+gossip:
+gossip:
+gossip:
+gossip:
+gossip:
+
+PACKAGE NAME:  expat-1.95.8-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  160 K
+PACKAGE SIZE (uncompressed):  480 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+expat: expat
+expat:
+expat: This is Expat, a C library for parsing XML, written by James Clark.
+expat: Expat is a stream-oriented XML parser used by Python, GNOME, Xft2,
+expat: and other things.
+expat:
+expat:
+expat:
+expat:
+expat:
+expat:
+
+PACKAGE NAME:  libgphoto2-2.1.5-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  826 K
+PACKAGE SIZE (uncompressed):  2900 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libgphoto2: libgphoto2 
+libgphoto2:
+libgphoto2: A portable library to gives access to more than 300 digital cameras
+libgphoto2:
+libgphoto2:
+libgphoto2:
+libgphoto2:
+libgphoto2:
+libgphoto2:
+libgphoto2:
+libgphoto2:
+
+PACKAGE NAME:  dvgrab-1.7-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  91 K
+PACKAGE SIZE (uncompressed):  230 K
+PACKAGE REQUIRED:  libavc1394,libraw1394
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+dvgrab: dvgrab 
+dvgrab:
+dvgrab: Utility to get video from a DV camera
+dvgrab:
+dvgrab:
+dvgrab:
+dvgrab:
+dvgrab:
+dvgrab:
+dvgrab:
+dvgrab:
+
+PACKAGE NAME:  kino-0.7.5-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  802 K
+PACKAGE SIZE (uncompressed):  2320 K
+PACKAGE REQUIRED:  dvgrab
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+kino: kino 
+kino:
+kino: Kino is a non-linear DV editor for GNU/Linux.
+kino:
+kino:
+kino:
+kino:
+kino:
+kino:
+kino:
+kino:
+
+PACKAGE NAME:  gnome-audio-2.0.0-noarch-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  1411 K
+PACKAGE SIZE (uncompressed):  2090 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-audio: gnome-audio
+gnome-audio:
+gnome-audio: This package contains extra sound files useful for customizing the
+gnome-audio: sounds that the GNOME desktop environment makes.  If you use the 
+gnome-audio: GNOME desktop environment, you may want to install this package of
+gnome-audio: complementary sounds.
+gnome-audio:
+gnome-audio:
+gnome-audio:
+gnome-audio:
+gnome-audio:
+
+PACKAGE NAME:  gc-6.4-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  304 K
+PACKAGE SIZE (uncompressed):  930 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gc: gc 
+gc:
+gc: The Boehm-Demers-Weiser conservative garbage collector can be used as
+gc: a garbage collecting replacement for C malloc or C++ new. It allows
+gc: you to allocate memory basically as you normally would, without
+gc: explicitly deallocating memory that is no longer useful. The
+gc: collector automatically recycles memory when it determines that it can
+gc: no longer be otherwise accessed.
+gc:
+gc:
+gc:
+
+PACKAGE NAME:  inkscape-0.41-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  5072 K
+PACKAGE SIZE (uncompressed):  15890 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+inkscape: inkscape 
+inkscape:
+inkscape: Open Source Scalable Vector Graphics Editor
+inkscape:
+inkscape:
+inkscape:
+inkscape:
+inkscape:
+inkscape:
+inkscape:
+inkscape:
+
+PACKAGE NAME:  streamtuner-0.99.99-i486-2frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  376 K
+PACKAGE SIZE (uncompressed):  1240 K
+PACKAGE REQUIRED:  glib,gtk+2,libcurl,libxml2,pygtk,python,taglib
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+streamtuner: streamtuner
+streamtuner:
+streamtuner: A stream directory browser. Through the use of a plugin system, it
+streamtuner: offers an intuitive GTK+ 2.0 interface to Internet radio directories
+streamtuner: such as SHOUTcast and Live365.
+streamtuner:
+streamtuner:
+streamtuner:
+streamtuner:
+streamtuner:
+streamtuner:
+
+PACKAGE NAME:  Imaging-1.1.4-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  312 K
+PACKAGE SIZE (uncompressed):  1050 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+Imaging: Imaging
+Imaging:
+Imaging: Python Imaging Library
+Imaging:
+Imaging:
+Imaging:
+Imaging:
+Imaging:
+Imaging:
+Imaging:
+Imaging:
+
+PACKAGE NAME:  anjuta-1.2.2-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  6084 K
+PACKAGE SIZE (uncompressed):  11080 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+anjuta: anjuta
+anjuta:
+anjuta:  Anjuta is a versatile Integrated Development Environment (IDE) for
+anjuta: C and C++ on GNU/Linux. It has been written for GTK/GNOME and
+anjuta: features a number of advanced programming facilities. These include
+anjuta: project management, application wizards, an on-board interactive
+anjuta: debugger, and a powerful source editor with source browsing and
+anjuta: syntax highlighting.
+anjuta:
+anjuta:
+anjuta:
+
+PACKAGE NAME:  contact-lookup-applet-0.11-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  54 K
+PACKAGE SIZE (uncompressed):  250 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+contact-lookup-applet: contact-lookup-applet
+contact-lookup-applet:
+contact-lookup-applet: GNOME 2 Applet to look up contacts in Evolution's Address Book.
+contact-lookup-applet:
+contact-lookup-applet:
+contact-lookup-applet:
+contact-lookup-applet:
+contact-lookup-applet:
+contact-lookup-applet:
+contact-lookup-applet:
+contact-lookup-applet:
+
+PACKAGE NAME:  gmime-2.1.13-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  414 K
+PACKAGE SIZE (uncompressed):  2030 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gmime: gmime
+gmime:
+gmime: The GMime suite provides a core library and set of utilities which
+gmime: may be used for the creation and parsing of messages using the
+gmime: Multipurpose Internet Mail Extension (MIME)
+gmime:
+gmime:
+gmime:
+gmime:
+gmime:
+gmime:
+
+PACKAGE NAME:  gtkam-0.1.12-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  350 K
+PACKAGE SIZE (uncompressed):  740 K
+PACKAGE REQUIRED:  libexif-gtk,libghoto2
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gtkam: gtkam 
+gtkam:
+gtkam: gtkam is the official GTK2 GUI for libgphoto2.
+gtkam:
+gtkam:
+gtkam:
+gtkam:
+gtkam:
+gtkam:
+gtkam:
+gtkam:
+
+PACKAGE NAME:  loudmouth-0.17.2-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  47 K
+PACKAGE SIZE (uncompressed):  180 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+loudmouth: loudmouth
+loudmouth:
+loudmouth: Loudmouth is a lightweight and easy-to-use C library for programming
+loudmouth: with the Jabber protocol. It's designed to be easy to get started
+loudmouth: with and yet extensible to let you do anything the Jabber protocol
+loudmouth: allows.
+loudmouth:
+loudmouth:
+loudmouth:
+loudmouth:
+loudmouth:
+
+PACKAGE NAME:  rhythmbox-0.8.8-i486-2frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  1822 K
+PACKAGE SIZE (uncompressed):  3520 K
+PACKAGE REQUIRED:  libbonoboui,gst-plugins
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+rhythmbox: rhythmbox 
+rhythmbox:
+rhythmbox: Rhythmbox is an integrated music management application, originally
+rhythmbox: inspired by Apple's iTunes. It is free software, designed to work well
+rhythmbox: under the GNOME Desktop, and based on the powerful GStreamer media
+rhythmbox: framework, or the Xine framework.
+rhythmbox:
+rhythmbox:
+rhythmbox:
+rhythmbox:
+rhythmbox:
+
+PACKAGE NAME:  streamripper-1.61.4-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  47 K
+PACKAGE SIZE (uncompressed):  120 K
+PACKAGE REQUIRED:  libmad
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+streamripper: streamripper
+streamripper:
+streamripper: Using information which a SHOUTcast server can optionally send,
+streamripper: this program breaks an audio stream into "tracks," stores them in
+streamripper: separate files as they arrive, and names the files by appending
+streamripper: ".mp3" to the name of the track.  The tracks can be listened to at
+streamripper: the user's leisure with an MPEG Layer 3 audio player.
+streamripper:
+streamripper:
+streamripper:
+streamripper:
+
+PACKAGE NAME:  liferea-0.9.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  459 K
+PACKAGE SIZE (uncompressed):  1340 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+liferea: liferea
+liferea:
+liferea: Liferea is an abbreviation for Linux Feed Reader. It is a news
+liferea: aggregator for online news feeds. It supports a number of different
+liferea: feed formats including RSS/RDF, CDF, Atom, OCS, and OPML.
+liferea:
+liferea:
+liferea:
+liferea:
+liferea:
+liferea:
+
+PACKAGE NAME:  poppler-0.1.2-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  485 K
+PACKAGE SIZE (uncompressed):  1550 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+poppler: poppler
+poppler:
+poppler: Poppler is a PDF rendering library based on the xpdf-3.0 code base.
+poppler:
+poppler:
+poppler:
+poppler:
+poppler:
+poppler:
+poppler:
+poppler:
+
+PACKAGE NAME:  gqview-2.0.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  710 K
+PACKAGE SIZE (uncompressed):  2120 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gqview: gqview
+gqview:
+gqview: GQview is an image viewer for Unix operating systems. It's key
+gqview: features include single click file viewing, external editor support,
+gqview: thumbnail preview, and zoom features. Some image management features
+gqview: are also included.
+gqview:
+gqview:
+gqview:
+gqview:
+gqview:
+
+PACKAGE NAME:  evince-0.1.9-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  199 K
+PACKAGE SIZE (uncompressed):  680 K
+PACKAGE REQUIRED:  gnome-vfs,gtk+2,libgnomeui
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+evince: evince
+evince:
+evince: Evince is a document viewer for multiple document formats like pdf,
+evince: postscript, and many others. The goal of evince is to replace the
+evince: multiple document viewers that exist on the GNOME Desktop, like ggv,
+evince: gpdf, and xpdf with a single simple application.
+evince:
+evince:
+evince:
+evince:
+evince:
+
+PACKAGE NAME:  gimp-2.2.4-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  10119 K
+PACKAGE SIZE (uncompressed):  29420 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gimp: gimp (The GNU Image Manipulation Program)
+gimp:
+gimp: The GIMP is a powerful tool for the preparation and manipulation of
+gimp: digital images.  The GIMP provides the user with a wide variety of
+gimp: image manipulation, painting, processing, and rendering tools.  The
+gimp: GIMP's open design and extensible architecture make for a very
+gimp: powerful end product for photo and image retouching, web graphics
+gimp: design, or digital illustration.
+gimp:
+gimp:
+gimp:
+
+PACKAGE NAME:  bmp-0.9.7-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  1026 K
+PACKAGE SIZE (uncompressed):  4000 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+bmp: bmp
+bmp:
+bmp: A GTK2 version of xmms
+bmp:
+bmp:
+bmp:
+bmp:
+bmp:
+bmp:
+bmp:
+bmp:
+
+PACKAGE NAME:  easytag-1.99.3-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  636 K
+PACKAGE SIZE (uncompressed):  1770 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+easytag: easytag 
+easytag:
+easytag: An mp3 tag editor
+easytag:
+easytag:
+easytag:
+easytag:
+easytag:
+easytag:
+easytag:
+easytag:
+
+PACKAGE NAME:  gthumb-2.6.4-i486-2frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  2179 K
+PACKAGE SIZE (uncompressed):  6790 K
+PACKAGE REQUIRED:  libgnomeui,libgnomeprintui
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gthumb: gthumb
+gthumb:
+gthumb: gThumb is an image viewing program that supports thumbnail views and
+gthumb: slideshows.
+gthumb:
+gthumb:
+gthumb:
+gthumb:
+gthumb:
+gthumb:
+gthumb:
+
+PACKAGE NAME:  libexif-gtk-0.3.5-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  46 K
+PACKAGE SIZE (uncompressed):  170 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libexif-gtk: libexif-gtk 
+libexif-gtk:
+libexif-gtk: libexif gtk library for use by gtkam.
+libexif-gtk:
+libexif-gtk:
+libexif-gtk:
+libexif-gtk:
+libexif-gtk:
+libexif-gtk:
+libexif-gtk:
+libexif-gtk:
+
+PACKAGE NAME:  mail-notification-1.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  294 K
+PACKAGE SIZE (uncompressed):  1080 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+mail-notification: mail-notification
+mail-notification:
+mail-notification: A GNOME2 applet that alerts you to new mail
+mail-notification:
+mail-notification:
+mail-notification:
+mail-notification:
+mail-notification:
+mail-notification:
+mail-notification:
+mail-notification:
+
+PACKAGE NAME:  sabayon-0.17-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  217 K
+PACKAGE SIZE (uncompressed):  880 K
+PACKAGE REQUIRED:  gamin,gconf,gdm,python,x11-xnest
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+sabayon: sabayon
+sabayon:
+sabayon: Sabayon is a system administration tool to manage GNOME desktop 
+sabayon: settings. Sabayon provides a sane way to edit GConf defaults and
+sabayon: GConf mandatory keys: the same way you edit your desktop. Sabayon
+sabayon: launches profiles in an Xnest window. Any changes you make in the
+sabayon: Xnest window are saved back to the profile file, which can then be
+sabayon: applied to user's accounts.
+sabayon:
+sabayon:
+sabayon:
+
+PACKAGE NAME:  gst-monkeysaudio-0.8.0-i486-2frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  55 K
+PACKAGE SIZE (uncompressed):  150 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gst-monkeysaudio: gst-monkeysaudio
+gst-monkeysaudio:
+gst-monkeysaudio: Monkey's Audio plugin for gstreamer
+gst-monkeysaudio:
+gst-monkeysaudio:
+gst-monkeysaudio:
+gst-monkeysaudio:
+gst-monkeysaudio:
+gst-monkeysaudio:
+gst-monkeysaudio:
+gst-monkeysaudio:
+
+PACKAGE NAME:  gtkpod-0.88-i486-3frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  407 K
+PACKAGE SIZE (uncompressed):  1070 K
+PACKAGE REQUIRED:  mpeg4ip
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gtkpod: gtkpod 
+gtkpod:
+gtkpod: Application to sync your Apple iPod
+gtkpod:
+gtkpod:
+gtkpod:
+gtkpod:
+gtkpod:
+gtkpod:
+gtkpod:
+gtkpod:
+
+PACKAGE NAME:  gaim-1.2.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./other
+PACKAGE SIZE (compressed):  4283 K
+PACKAGE SIZE (uncompressed):  11350 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gaim: gaim
+gaim:
+gaim: Gaim allows you to talk to anyone using a variety of messaging
+gaim: protocols, including AIM (Oscar and TOC), ICQ, IRC, Yahoo!, MSN
+gaim: Messenger, Jabber, Gadu-Gadu, Napster, and Zephyr.  These protocols
+gaim: are implemented using a modular, easy to use design.  To use a
+gaim: protocol, just load the plugin for it.
+gaim:
+gaim: Gaim is NOT affiliated with or endorsed by AOL.
+gaim:
+gaim:
+
+PACKAGE NAME:  aiksaurus-1.2.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./office
+PACKAGE SIZE (compressed):  372 K
+PACKAGE SIZE (uncompressed):  700 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+aiksaurus: aiksaurus 
+aiksaurus:
+aiksaurus: Aiksaurus is a set of libraries and applications which provide a
+aiksaurus: thesaurus
+aiksaurus:
+aiksaurus:
+aiksaurus:
+aiksaurus:
+aiksaurus:
+aiksaurus:
+aiksaurus:
+
+PACKAGE NAME:  ots-0.4.2-i486-1frg.tgz
+PACKAGE LOCATION:  ./office
+PACKAGE SIZE (compressed):  51 K
+PACKAGE SIZE (uncompressed):  260 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+ots: ots - Open Text Summarizer
+ots:
+ots: The Open Text Summarizer is an open source tool for summarizing
+ots: texts. The program reads a text and decides which sentences are
+ots: important and which are not.
+ots:
+ots:
+ots:
+ots:
+ots:
+ots:
+
+PACKAGE NAME:  libwmf-0.2.8.3-i486-1frg.tgz
+PACKAGE LOCATION:  ./office
+PACKAGE SIZE (compressed):  1113 K
+PACKAGE SIZE (uncompressed):  3960 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libwmf: libwmf 
+libwmf:
+libwmf: Library for converting WMF files
+libwmf:
+libwmf:
+libwmf:
+libwmf:
+libwmf:
+libwmf:
+libwmf:
+libwmf:
+
+PACKAGE NAME:  libwpd-0.8.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./office
+PACKAGE SIZE (compressed):  163 K
+PACKAGE SIZE (uncompressed):  520 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libwpd: libwpd 
+libwpd:
+libwpd: A library for importing and exporting WordPerfect (tm) documents
+libwpd:
+libwpd:
+libwpd:
+libwpd:
+libwpd:
+libwpd:
+libwpd:
+libwpd:
+
+PACKAGE NAME:  psiconv-0.9.7-i486-1frg.tgz
+PACKAGE LOCATION:  ./office
+PACKAGE SIZE (compressed):  219 K
+PACKAGE SIZE (uncompressed):  1090 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+psiconv: psiconv 
+psiconv:
+psiconv: utility for Psion 5 document formats.
+psiconv:
+psiconv:
+psiconv:
+psiconv:
+psiconv:
+psiconv:
+psiconv:
+psiconv:
+
+PACKAGE NAME:  fribidi-0.10.4-i486-1frg.tgz
+PACKAGE LOCATION:  ./office
+PACKAGE SIZE (compressed):  53 K
+PACKAGE SIZE (uncompressed):  210 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+fribidi: fribidi 
+fribidi:
+fribidi: A Free Implementation of the Unicode Bidirectional Algorithm. It is
+fribidi: needed by Abiword2
+fribidi:
+fribidi:
+fribidi:
+fribidi:
+fribidi:
+fribidi:
+fribidi:
+
+PACKAGE NAME:  enchant-1.1.5-i486-1frg.tgz
+PACKAGE LOCATION:  ./office
+PACKAGE SIZE (compressed):  68 K
+PACKAGE SIZE (uncompressed):  200 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+enchant: enchant
+enchant:
+enchant: A cross-platform abstract layer to spellchecking.
+enchant:
+enchant:
+enchant:
+enchant:
+enchant:
+enchant:
+enchant:
+enchant:
+
+PACKAGE NAME:  abiword-2.2.5-i486-1frg.tgz
+PACKAGE LOCATION:  ./office
+PACKAGE SIZE (compressed):  6960 K
+PACKAGE SIZE (uncompressed):  16750 K
+PACKAGE REQUIRED:  fribidi,gucharmap,nautilus
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+abiword: abiword (AbiWord Personal)
+abiword:
+abiword: AbiWord Personal is a lean and fast full-featured word processor.
+abiword: It can import many formats including Word97/2000 and RTF, Palm, Psion,
+abiword: DocBook and XHTML documents, and can export to RTF, Palm, Psion,
+abiword: XHTML, Text, and LaTeX formats.
+abiword:
+abiword: Linux Journal calls it "an elegant, open source word processor that
+abiword: delivers the Word functionality most people use."
+abiword:
+abiword:
+
+PACKAGE NAME:  dia-0.94-i486-1frg.tgz
+PACKAGE LOCATION:  ./office
+PACKAGE SIZE (compressed):  2698 K
+PACKAGE SIZE (uncompressed):  9570 K
+PACKAGE REQUIRED:  libgnomeui
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+dia: dia
+dia:
+dia: Dia is a program designed to draw diagrams.  It can be used to draw a
+dia: variety of diagram types, including UML, Network, flowchart, and
+dia: others.  The native file format for Dia is XML.  It has print support,
+dia: and can export to a number of formats such as EPS, SVG, CGM and PNG.
+dia:
+dia:
+dia:
+dia:
+dia:
+
+PACKAGE NAME:  libgda-1.2.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./office
+PACKAGE SIZE (compressed):  731 K
+PACKAGE SIZE (uncompressed):  4170 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libgda: libgda 
+libgda:
+libgda: data abstraction layer. It can manage data stored in databases or XML
+libgda: files and it can be used by non-GNOME applications.
+libgda:
+libgda:
+libgda:
+libgda:
+libgda:
+libgda:
+libgda:
+
+PACKAGE NAME:  libgnomedb-1.2.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./office
+PACKAGE SIZE (compressed):  328 K
+PACKAGE SIZE (uncompressed):  1570 K
+PACKAGE REQUIRED:  gnome-vfs,libgda,libglade,libgnomeui
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libgnomedb: libgnomedb 
+libgnomedb:
+libgnomedb: Database Widget Library. These widgets are integrated with the
+libgnomedb: latest versions of glade.
+libgnomedb:
+libgnomedb:
+libgnomedb:
+libgnomedb:
+libgnomedb:
+libgnomedb:
+libgnomedb:
+
+PACKAGE NAME:  gnumeric-1.4.3-i486-1frg.tgz
+PACKAGE LOCATION:  ./office
+PACKAGE SIZE (compressed):  12525 K
+PACKAGE SIZE (uncompressed):  32680 K
+PACKAGE REQUIRED:  gal,libbonoboui,libgsf
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnumeric: gnumeric
+gnumeric:
+gnumeric: This is Gnumeric, the GNOME spreadsheet program.  It aims to be a
+gnumeric: drop-in replacement for commercial spreadsheets.  It provides import
+gnumeric: and export from MS Excel files and many other formats (csv, latex,
+gnumeric: xbase, applix).
+gnumeric:
+gnumeric:
+gnumeric:
+gnumeric:
+gnumeric:
+
+PACKAGE NAME:  planner-0.13-i486-1frg.tgz
+PACKAGE LOCATION:  ./office
+PACKAGE SIZE (compressed):  2502 K
+PACKAGE SIZE (uncompressed):  5300 K
+PACKAGE REQUIRED:  libgnomecanvas,libgnomeui
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+planner: planner
+planner:
+planner: Planner is a tool for planning, scheduling and tracking projects.
+planner: Planner is an open source project targetting the GNOME Desktop. The
+planner: project is run by Imendio, who develops the software in cooperation
+planner: with the Planner community.
+planner:
+planner:
+planner:
+planner:
+planner:
+
+PACKAGE NAME:  libgdamm-1.3.6-i486-1frg.tgz
+PACKAGE LOCATION:  ./office
+PACKAGE SIZE (compressed):  69 K
+PACKAGE SIZE (uncompressed):  330 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+libgdamm: libgdamm
+libgdamm:
+libgdamm: C++ bindings for libgda.
+libgdamm:
+libgdamm:
+libgdamm:
+libgdamm:
+libgdamm:
+libgdamm:
+libgdamm:
+libgdamm:
+
+PACKAGE NAME:  glom-0.8.18-i486-1frg.tgz
+PACKAGE LOCATION:  ./office
+PACKAGE SIZE (compressed):  616 K
+PACKAGE SIZE (uncompressed):  2190 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+glom: glom
+glom:
+glom: Glom is a GUI that allows you to design table definitions and the
+glom: relationships between them. It also allows you to edit and search the
+glom: data in those tables, and to specify field values in terms of other
+glom: fields.
+glom:
+glom:
+glom:
+glom:
+glom:
+
+PACKAGE NAME:  gnumeric-1.5.0-i486-1frg.tgz
+PACKAGE LOCATION:  ./testing
+PACKAGE SIZE (compressed):  12546 K
+PACKAGE SIZE (uncompressed):  32720 K
+PACKAGE REQUIRED:  gal,libbonoboui,libgsf
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnumeric: gnumeric
+gnumeric:
+gnumeric: This is Gnumeric, the GNOME spreadsheet program.  It aims to be a
+gnumeric: drop-in replacement for commercial spreadsheets.  It provides import
+gnumeric: and export from MS Excel files and many other formats (csv, latex,
+gnumeric: xbase, applix).
+gnumeric:
+gnumeric:
+gnumeric:
+gnumeric:
+gnumeric:
+
+PACKAGE NAME:  drivel-1.3.2-i486-1frg.tgz
+PACKAGE LOCATION:  ./testing
+PACKAGE SIZE (compressed):  271 K
+PACKAGE SIZE (uncompressed):  930 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+drivel: drivel
+drivel:
+drivel: Drivel is a weblog client for the GNOME Desktop. Its purpose is to
+drivel: retain a simple and elegant design. Drivel also integrates tightly
+drivel: with the GNOME Desktop technologies.
+drivel:
+drivel:
+drivel:
+drivel:
+drivel:
+drivel:
+
+PACKAGE NAME:  gnome-menu-editor-0.1-i486-1frg.tgz
+PACKAGE LOCATION:  ./testing
+PACKAGE SIZE (compressed):  22 K
+PACKAGE SIZE (uncompressed):  70 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-menu-editor: gnome-menu-editor
+gnome-menu-editor:
+gnome-menu-editor: Menu editor for GNOME, based on the Freedesktop.org Menu Spec 
+gnome-menu-editor:
+gnome-menu-editor:
+gnome-menu-editor:
+gnome-menu-editor:
+gnome-menu-editor:
+gnome-menu-editor:
+gnome-menu-editor:
+gnome-menu-editor:
+
+PACKAGE NAME:  librsvg-2.10.0-i486-2frg.tgz
+PACKAGE LOCATION:  ./testing
+PACKAGE SIZE (compressed):  150 K
+PACKAGE SIZE (uncompressed):  510 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+librsvg: librsvg
+librsvg:
+librsvg: Library used by Nautilus to handle Scalable Vector Graphics.
+librsvg:
+librsvg:
+librsvg:
+librsvg:
+librsvg:
+librsvg:
+librsvg:
+librsvg:
+
+PACKAGE NAME:  gnome-menus-2.10.0p-i486-2frg.tgz
+PACKAGE LOCATION:  ./testing
+PACKAGE SIZE (compressed):  98 K
+PACKAGE SIZE (uncompressed):  420 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-menus: gnome-menus
+gnome-menus:
+gnome-menus: The package contains an implementation of the draft "Desktop Menu 
+gnome-menus: Specification" from freedesktop.org
+gnome-menus:
+gnome-menus:
+gnome-menus:
+gnome-menus:
+gnome-menus:
+gnome-menus:
+gnome-menus:
+
+PACKAGE NAME:  gnome-games-2.10.0sgid-i486-1frg.tgz
+PACKAGE LOCATION:  ./testing
+PACKAGE SIZE (compressed):  9234 K
+PACKAGE SIZE (uncompressed):  22180 K
+PACKAGE REQUIRED:  gail,gconf,libgnomeui,scrollkeeper
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-games: gnome-games
+gnome-games:
+gnome-games: A collection of entertaining games for GNOME.
+gnome-games:
+gnome-games:
+gnome-games:
+gnome-games:
+gnome-games:
+gnome-games:
+gnome-games:
+gnome-games:
+
+PACKAGE NAME:  gnome-blog-0.9-i486-1frg.tgz
+PACKAGE LOCATION:  ./testing
+PACKAGE SIZE (compressed):  106 K
+PACKAGE SIZE (uncompressed):  500 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gnome-blog: gnome-blog
+gnome-blog:
+gnome-blog: Post entries to your blog right from the gnome panel
+gnome-blog:
+gnome-blog:
+gnome-blog:
+gnome-blog:
+gnome-blog:
+gnome-blog:
+gnome-blog:
+gnome-blog:
+
+PACKAGE NAME:  totem-1.0.1xine-i486-1frg.tgz
+PACKAGE LOCATION:  ./testing
+PACKAGE SIZE (compressed):  1002 K
+PACKAGE SIZE (uncompressed):  3270 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+totem: totem 
+totem:
+totem: A movie player for the Gnome Desktop
+totem:
+totem:
+totem:
+totem:
+totem:
+totem:
+totem:
+totem:
+
+PACKAGE NAME:  gimp-2.2.4python-i486-1frg.tgz
+PACKAGE LOCATION:  ./testing
+PACKAGE SIZE (compressed):  10231 K
+PACKAGE SIZE (uncompressed):  29740 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+gimp: gimp (The GNU Image Manipulation Program)
+gimp:
+gimp: The GIMP is a powerful tool for the preparation and manipulation of
+gimp: digital images.  The GIMP provides the user with a wide variety of
+gimp: image manipulation, painting, processing, and rendering tools.  The
+gimp: GIMP's open design and extensible architecture make for a very
+gimp: powerful end product for photo and image retouching, web graphics
+gimp: design, or digital illustration.
+gimp:
+gimp:
+gimp:
+
+PACKAGE NAME:  sylpheed-claws-1.9.6-i486-1frg.tgz
+PACKAGE LOCATION:  ./testing
+PACKAGE SIZE (compressed):  2098 K
+PACKAGE SIZE (uncompressed):  6290 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+sylpheed-claws: sylpheed-claws
+sylpheed-claws:
+sylpheed-claws: An enhanced version of the Sylpheed email client
+sylpheed-claws:
+sylpheed-claws:
+sylpheed-claws:
+sylpheed-claws:
+sylpheed-claws:
+sylpheed-claws:
+sylpheed-claws:
+sylpheed-claws:
+
+PACKAGE NAME:  totem-1.1.0cvs-i486-2frg.tgz
+PACKAGE LOCATION:  ./testing
+PACKAGE SIZE (compressed):  1059 K
+PACKAGE SIZE (uncompressed):  3430 K
+PACKAGE REQUIRED:  
+PACKAGE CONFLICTS:  
+PACKAGE SUGGESTS:  
+PACKAGE DESCRIPTION:
+totem: totem 
+totem:
+totem: A movie player for the Gnome Desktop
+totem:
+totem:
+totem:
+totem:
+totem:
+totem:
+totem:
+totem:
+
