@@ -1,4 +1,36 @@
 ###
+2005-03-18-1-00-EST
+freerock
+FRG-0.1.97 available
+<p>
+  With the release of frg-0.1.97, we are freezing the applications included
+  with FRG. There will be no new software included in this release. Hopefully
+  this will be the last beta release before the stable 0.2.0 release. We are
+  aiming for a Monday, March 21 release of FRG with GNOME-2.10.0.
+</p>
+
+<p>
+  The only things that need to be finished are the default look and feel. We
+  have already set Clearlooks as the default GTK and METACITY theme. We still
+  need to set the default ICON and GDM themes. Suggestions on which to use are
+  welcome. We are also looking for some artwork to include with the release.
+  We are looking for splash screens and some backgrounds that will go well with
+  the Clearlooks theme. If you can help out with this check the support page
+  for contact infomation.
+</p>
+
+<p>
+  To upgrade from the frg-0.1.96 release download the updates from the frg-0.1.96
+  directory. Updates are available here:
+</p>
+
+<blockquote><p>
+ <code><strong>
+ftp://ftp.brownjava.org/pub/frg/frg-updates/
+</strong></code>
+</p></blockquote>
+
+###
 2005-03-16-11-00-EST
 freerock
 Final Beta (iso) Release coming soon
