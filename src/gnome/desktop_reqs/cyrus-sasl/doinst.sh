@@ -11,7 +11,7 @@ config() {
 }
 
 config etc/rc.d/rc.saslauthd.new
-config usr/local/lib/sasl2/smtpd.conf.new
+config usr/lib/sasl2/smtpd.conf.new
 
 # if rc.local doesn't exist, create it
 if [ ! -e /etc/rc.d/rc.local ]; then
