@@ -7,7 +7,7 @@ PKG=$TMP/package-ffmpeg
 VERSION=0.4.9-pre1
 PVERSION=0.4.9pre1
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -28,7 +28,7 @@ fi
 cd $TMP 
 tar xzvf $CWD/ffmpeg-$VERSION.tar.gz
 cd ffmpeg-$VERSION
-#
+cat $CWD/frg.ffmpeg.no.imlib2.configure.patch | patch -p1 --verbose
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
 	    --enable-gpl \
