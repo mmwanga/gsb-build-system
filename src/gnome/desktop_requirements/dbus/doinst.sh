@@ -32,20 +32,20 @@ else
 fi
 
 # most of this doinst.sh is taken from the dropline doinst.sh script for dbus
-if [ ! -d /var/lib/dbus ]; then
-	mkdir -p /var/lib/dbus
+if [ ! -d var/lib/dbus ]; then
+	mkdir -p var/lib/dbus
 fi
 
 # if rc.local doesn't exist, create it
-if [ ! -e /etc/rc.d/rc.local ]; then
-	echo "#!/bin/sh" > /etc/rc.d/rc.local
-	chmod 755 /etc/rc.d/rc.local
+if [ ! -e etc/rc.d/rc.local ]; then
+	echo "#!/bin/sh" > etc/rc.d/rc.local
+	chmod 755 etc/rc.d/rc.local
 fi
 	
 # if rc.messagebus is executable, run it on startup
-run=`grep ". /etc/rc.d/rc.messagebus" /etc/rc.d/rc.local`
+run=`grep ". /etc/rc.d/rc.messagebus" etc/rc.d/rc.local`
 if [[ "${run}" == "" ]]; then	
-cat << EOF >> /etc/rc.d/rc.local
+cat << EOF >> etc/rc.d/rc.local
 
 # To disable dbus, chmod rc.messagebus to 644
 if [ -x /etc/rc.d/rc.messagebus ]; then

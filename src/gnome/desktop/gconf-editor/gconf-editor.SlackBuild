@@ -16,6 +16,8 @@ fi
 rm -rf $PKG
 mkdir -p $PKG
 
+mkdir -p $PKG/var/lib/scrollkeeper
+
 cd $TMP 
 tar xjvf $CWD/gconf-editor-$VERSION.tar.bz2
 cd gconf-editor-$VERSION
@@ -29,6 +31,8 @@ CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
             i486-slackware-linux
 make
 make install DESTDIR=$PKG
+
+rm -rf $PKG/var/lib/scrollkeeper/*
 
 chown -R root.bin $PKG/usr/bin
 
@@ -50,6 +54,7 @@ gzip -9 $PKG/usr/man/*/*
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 makepkg -l y -c n $TMP/gconf-editor-$VERSION-$ARCH-$BUILD.tgz

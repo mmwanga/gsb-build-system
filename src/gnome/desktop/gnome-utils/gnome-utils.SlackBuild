@@ -34,6 +34,8 @@ CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
 make
 make install DESTDIR=$PKG
 
+rm -rf $PKG/var/lib/scrollkeeper/*
+
 for i in $SCHEMAS/*.schemas
 do
 GCONF_CONFIG_SOURCE="xml::$PKG/etc/gconf/gconf.xml.defaults" \

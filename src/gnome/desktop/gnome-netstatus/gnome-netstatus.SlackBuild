@@ -15,6 +15,7 @@ if [ ! -d $TMP ]; then
 fi
 rm -rf $PKG
 mkdir -p $PKG
+mkdir -p $PKG/var/lib/scrollkeeper
 
 SCHEMAS=$PKG/etc/gconf/schemas
 
@@ -31,6 +32,8 @@ CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
             i486-slackware-linux
 make
 make install DESTDIR=$PKG
+
+rm -rf $PKG/var/lib/scrollkeeper/*
 
 for i in $SCHEMAS/*.schemas
 do

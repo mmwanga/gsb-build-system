@@ -15,6 +15,7 @@ if [ ! -d $TMP ]; then
 fi
 rm -rf $PKG
 mkdir -p $PKG
+mkdir -p $PKG/var/lib/scrollkeeper
 
 SCHEMAS=$PKG/etc/gconf/schemas
 
@@ -67,6 +68,7 @@ gzip -9 $PKG/usr/info/*
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 makepkg -l y -c n $TMP/gpdf-$VERSION-$ARCH-$BUILD.tgz

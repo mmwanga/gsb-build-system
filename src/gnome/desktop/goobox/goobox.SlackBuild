@@ -15,6 +15,7 @@ if [ ! -d $TMP ]; then
 fi
 rm -rf $PKG
 mkdir -p $PKG
+mkdir -p $PKG/var/lib/scrollkeeper
 
 cd $TMP
 tar -xjvf $CWD/goobox-$VERSION.tar.bz2
