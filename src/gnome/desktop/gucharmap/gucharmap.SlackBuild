@@ -39,11 +39,6 @@ CFLAGS="$SLKCFLAGS" \
 make
 make install DESTDIR=$PKG
 
-(
-  mkdir -p $PKG/etc/gtk-2.0
-  cp /etc/gtk-2.0/gtk.immodules $PKG/etc/gtk-2.0
-)
-
 chown -R root.bin $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/gucharmap-$VERSION
