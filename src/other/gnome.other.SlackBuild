@@ -10,7 +10,9 @@ if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 
-# not built: IndLinux NetworkManager gnome-audio
+mkdir -p $TMP/gnome-$GVERSION/other
+
+# not built: IndLinux NetworkManager
 
 BUILD_ORDER="libmikmod
 gtkspell
@@ -32,7 +34,8 @@ gthumb
 rhythmbox
 dvgrab
 kino
-gtkpod"
+gtkpod
+gnome-audio"
 
 (
 for i in $BUILD_ORDER
@@ -46,10 +49,8 @@ do
   echo ""
   ./$i.SlackBuild
   upgradepkg --install-new $TMP/$i*.tgz
+  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/other
 )
 done
 # Fork screen output to a log
 ) 2>&1 | tee $TMP/gnome.other.build.log
-
-mkdir -p $TMP/gnome-$GVERSION/other
-mv $TMP/*.tgz $TMP/gnome-$GVERSION/other

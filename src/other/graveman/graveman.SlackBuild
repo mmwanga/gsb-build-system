@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-graveman
 
-VERSION=0.3.4
+VERSION=0.3.6
 ARCH=i486
 BUILD=1
 
@@ -17,7 +17,7 @@ rm -rf $PKG
 mkdir -p $PKG
 
 cd $TMP 
-tar xjvf $CWD/graveman_$VERSION.tar.bz2
+tar xjvf $CWD/graveman-$VERSION.tar.bz2
 cd graveman-$VERSION
 chown -R root.root .
 find . -perm 666 -exec chmod 644 {} \;

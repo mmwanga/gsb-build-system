@@ -5,7 +5,7 @@ CWD=`pwd`
 if [ "$TMP" = "" ]; then
   TMP=/tmp
 fi
-PKG=$TMP/package-template
+PKG=$TMP/package-gnome-cups-manager
 
 VERSION=0.28
 ARCH=i486
@@ -42,5 +42,5 @@ mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-makepkg -l y -c n /tmp/gnome-cups-manager-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/gnome-cups-manager-$VERSION-$ARCH-$BUILD.tgz
 

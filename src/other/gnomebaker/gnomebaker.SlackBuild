@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-gnomebaker
 
-VERSION=0.2
+VERSION=0.3
 ARCH=i486
 BUILD=1
 

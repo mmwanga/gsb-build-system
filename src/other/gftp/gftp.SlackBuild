@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-gftp
 
-VERSION=2.0.18rc1
+VERSION=2.0.18
 ARCH=i486
 BUILD=1
 

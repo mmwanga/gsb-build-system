@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-coaster
 
-VERSION=0.1.4
+VERSION=0.1.4.2
 ARCH=i486
 BUILD=1
 
