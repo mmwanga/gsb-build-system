@@ -57,7 +57,7 @@ if (!is_file($ff)) {
 
         $news = preg_replace("/(?<!<a href=\")((http|https|rsync|news|irc|ftp)+(s)?:\/\/[^<>\s]+)/i", "<a href=\"\\0\">\\0</a>", $news);
 
-        print( "<h3>".$subject."</h3>\n"
+        print( "<h3 id=\"entry_$a\">".$subject."</h3>\n"
               ."<p class=\"newsheader\">Posted ".$ndate." ".$ndate_tzone." by "
               .$author."</p>\n"
               ."<div class=\"news_entry\">".$news[0]."</div>\n"
