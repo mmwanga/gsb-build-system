@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gtkpod
 
-VERSION=0.87.3
+VERSION=0.88
 ARCH=${ARCH:-i486}
 BUILD=1
 
