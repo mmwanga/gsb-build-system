@@ -1,21 +1,33 @@
+#
+# Site Apache Options (deny indexes, disable SSI, and disable CGI)
+#
 Options -Indexes -Includes -ExecCGI
+
+#
+# Direcory Index Options (in order)
+#
 DirectoryIndex index.html index.shtml index.php
 
+#
+# mod_rewite rules - make URI's friendly and easy to document/recite/remember
+#
 RewriteEngine On
-RewriteBase /
-RewriteRule ^news/(.*)? /index.php?news_page=$1 [QSA]
-RewriteRule ^about/?  /index.php?op=about [QSA]
-RewriteRule ^download/?  /index.php?op=download [QSA]
-RewriteRule ^development/?  /index.php?op=development [QSA]
-RewriteRule ^help/?  /index.php?op=help [QSA]
-RewriteRule ^installation/?  /index.php?op=installation [QSA]
-RewriteRule ^links/?  /index.php?op=links [QSA]
-RewriteRule ^roadmap/?  /index.php?op=roadmap [QSA]
-RewriteRule ^screenshots/?  /index.php?op=screenshots [QSA]
-RewriteRule ^support/?  /index.php?op=support [QSA]
-RewriteRule ^todo/?  /index.php?op=todo [QSA]
+    RewriteBase /
+    RewriteRule ^news/(.*)? /index.php?news_page=$1 [QSA]
+    RewriteRule ^about/?  /index.php?op=about [QSA]
+    RewriteRule ^download/?  /index.php?op=download [QSA]
+    RewriteRule ^development/?  /index.php?op=development [QSA]
+    RewriteRule ^help/?  /index.php?op=help [QSA]
+    RewriteRule ^installation/?  /index.php?op=installation [QSA]
+    RewriteRule ^links/?  /index.php?op=links [QSA]
+    RewriteRule ^roadmap/?  /index.php?op=roadmap [QSA]
+    RewriteRule ^screenshots/?  /index.php?op=screenshots [QSA]
+    RewriteRule ^support/?  /index.php?op=support [QSA]
+    RewriteRule ^todo/?  /index.php?op=todo [QSA]
 
-
+#
+# special files to deny a web browser fro peeking at
+#
 <Files ~ "^news\.txt">
     Order allow,deny
     Deny from all
@@ -30,3 +42,4 @@ RewriteRule ^todo/?  /index.php?op=todo [QSA]
     Order allow,deny
     Deny from all
 </Files>
+
