@@ -12,7 +12,6 @@ my %platform =
    'glib2'               => '2.6.2',
    'gnome-mime-data'     => '2.4.2',
    'gnome-vfs'           => '2.9.90',
-   'gtk+2'               => '2.6.2',
    'intltool'            => '0.33',
    'libart_lgpl'         => '2.3.17',
    'libbonobo'           => '2.8.0',
@@ -30,11 +29,20 @@ my %platform =
    'pkgconfig'           => '0.15.0',
   );
 
-# Need to change this to include sub hashes to account for the naming difference
 my %platform_diff_naming =
   (
-   'orbit2'              => '2.12.1',
-   'gconf'               => '2.9.91',
+   'orbit2' => {
+		'ver'  => '2.12.1',
+		'name' => 'ORBit',
+	       },
+   'gconf'  => {
+		'ver'  => '2.9.91',
+		'name' => 'GConf',
+	       },
+   'gtk+2'  => {
+		'ver'  => '2.6.2',
+		'name' => 'gtk+',
+	       },
   );
 
 # these are packages from freedesktop.org, these are in tar.gz format
@@ -97,7 +105,7 @@ my %desktop =
    'goobox'                 => '',
    'gpdf'                   => '',
    'gtk-engines'            => '',
-   'gtkhtml'                => '',
+   'gtkhtml'                => '3.5.6',
    'gtksourceview'          => '1.1.92',
    'gucharmap'              => '',
    'howl'                   => '',
@@ -142,10 +150,10 @@ my %bindings =
    'libsigc++'         => '',
    'libxml++'          => '',
 
-   'libgconf-java'  => '',
-   'libglade-java'  => '',
-   'libgnome-java'  => '',
-   'libgtk-java'    => '',
+   'libgconf-java'  => '2.9.91',
+   'libglade-java'  => '2.9.91',
+   'libgnome-java'  => '2.9.91',
+   'libgtk-java'    => '2.9.91',
 
    'gnome-python'         => '',
    'gnome-python-extras'  => '',

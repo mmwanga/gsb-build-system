@@ -4,7 +4,8 @@
 
 my %gstreamer =
   (
-
+   'gstreamer'   => '0.8.8',
+   'gst-plugins' => '0.8.7',
   );
 
 my %gstreamer_libs =
