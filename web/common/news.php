@@ -7,29 +7,20 @@
 
 */
 
+// authors' email addresses
+$author["chipster"]="chipster@norlug.org";
+$author["freerock"]="freerock [at] gmail (dot) com";
+
 // max items to show on one page
 $max = 1;
+
 // news file
-$ff = "news.html";
+$ff = "news.txt";
+
 // entry separator
-$sep = "<!-- ### -->";
+$sep = "###";
 
 if (is_file($ff)) {
-
-/*
-    $news_page = intval($news_page);
-
-    if ($news_page <=0 && !$SHOW_NEWS)
-    {
-        Header("Location: /news/1");
-        exit;
-    }
-
-    if ($news_page > 0)
-    {
-        $ST_TOPIC="news";
-    }
-*/
 
     define("_HOUR", 3);
     define("_MINUTE", 4);
@@ -37,10 +28,6 @@ if (is_file($ff)) {
     define("_MONTH", 1);
     define("_DAY", 2);
     define("_YEAR", 0);
-
-    // authors' email addresses
-    $author["chipster"]="chipster@norlug.org";
-    $author["freerock"]="freerock [at] gmail (dot) com";
 
     $fd = fopen ($ff, "r");
     $data = fread ($fd, filesize ($ff));
@@ -67,6 +54,10 @@ if (is_file($ff)) {
         $ndate=mktime($ndate[_HOUR],$ndate[_MINUTE], $ndate[_SEC],
         $ndate[_MONTH], $ndate[_DAY], $ndate[_YEAR]);
         $ndate = date("Y/m/d @ H:i", $ndate);
+
+        $news = preg_replace("/(?<!<a
+         href=\")((http|ftp|rsync|gopher)+(s)?:\/\/[^<>\s]+)/i", "<a
+         href=\"\\0\">&lt;\\0&gt;</a>", $news);
        
         print( "<h3 id=\"news_entry\">".$subject."</h3>\n\n"
               ."\t<dl>\n\t <dt><small>Posted ".$ndate." ".$ndate_tzone." by \n\t "
