@@ -28,6 +28,7 @@ cd $TMP
 tar xzvf $CWD/openslp-$VERSION.tar.gz
 cd openslp-$VERSION
 ./autogen.sh
+./autogen.sh
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
 	    --sysconfdir=/etc/openslp \
