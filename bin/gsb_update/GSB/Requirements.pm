@@ -1,3 +1,14 @@
+package GSB::Requirements;
+require Exporter;
+
+use strict;
+use warnings;
+
+our @ISA       = qw(Exporter);
+our @EXPORT    = qw(%requirements);
+our @EXPORT_OK = qw();
+our $VERSION = 0.03;
+
 ################################################################################
 # Requirements Config Options
 #

@@ -1,8 +1,26 @@
+package GSB::Gnome;
+require Exporter;
+
+use warnings;
+use strict;
+
+our @ISA       = qw(Exporter);
+our @EXPORT    = qw(%plat %platform %platform_diff_naming %platform_fdo %desktop
+		   %bindings_cxx %bindings_java %bindings_python);
+our @EXPORT_OK = qw();
+our $VERSION   = 0.03;
+
 ################################################################################
 # Config Options for GNOME
 #
 
-my %platform =
+#temporary for testing
+our %plat =
+  (
+   'at-spi' => '1.6.3',
+  );
+
+our %platform =
   (
    'at-spi'              => '1.6.3',
    'atk'                 => '1.9.0',
@@ -30,7 +48,7 @@ my %platform =
   );
 
 # needs a special function
-my %platform_diff_naming =
+our %platform_diff_naming =
   (
    'orbit2' => {
 		'ver'  => '2.12.1',
@@ -47,7 +65,7 @@ my %platform_diff_naming =
   );
 
 # these are packages from freedesktop.org, these are in tar.gz format
-my %platform_fdo =
+our %platform_fdo =
   (
    'shared-mime-info'    => {
 			     'url' => 'http://freedesktop.org/software/shared-mime-info/',
@@ -61,7 +79,7 @@ my %platform_fdo =
 			    },
   );
 
-my %desktop =
+our %desktop =
   (
    'bug-buddy'              => '2.9.92',
    'control-center'         => '2.9.91',
@@ -142,7 +160,7 @@ my %desktop =
    'zenity'                 => '2.9.92',
   );
 
-my %bindings_cxx =
+our %bindings_cxx =
   (
    'bakery'            => '2.3.11',
    'gconfmm'           => '2.9.2',
@@ -156,7 +174,7 @@ my %bindings_cxx =
    'libsigc++'         => '2.0.10',
    'libxml++'          => '2.9.2',
   );
-my %bindings_java =
+our %bindings_java =
   (
    'libgconf-java'    => '2.9.91.1',
    'libglade-java'    => '2.9.91.1',
@@ -165,7 +183,7 @@ my %bindings_java =
    'libgtkhtml-java'  => '2.6.0',
   );
 
-my %bindings_python =
+our %bindings_python =
   (
    'gnome-python'         => '2.9.5',
    'gnome-python-extras'  => '2.9.4',
@@ -174,7 +192,7 @@ my %bindings_python =
    'pyphany'              => '0.1.2',
   );
 
-my %themes =
+our %themes =
   (
    'gnome-themes-extras'  => '0.8.1',
    'ximian-artwork'       => '0.2.29',

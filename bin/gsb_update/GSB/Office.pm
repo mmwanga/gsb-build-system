@@ -1,16 +1,21 @@
-#!/usr/bin/perl
+package GSB::Office;
+
+use Exporter;
 
 use strict;
 use warnings;
 
-package GSB::Office;
+our @ISA       = qw(Exporter);
+our @EXPORT    = qw(%office %office_libs %office_gnome_libs %office_gnome);
+our @EXPORT_OK = qw(%gnome);
+our $VERSION = 0.03;
 
 ################################################################################
 # Config Options
 #
 
 # src tarballs in other locations
-my %office =
+our %office =
   (
    'abiword' => {
 		 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/abiword/',
@@ -20,7 +25,7 @@ my %office =
   );
 
 
-my %office_libs =
+our %office_libs =
   (
    'aiksaurus' => {
 		   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/aiksaurus/',
@@ -64,13 +69,13 @@ my %office_libs =
 		  },
   );
 
-my %office_gnome_libs =
+our %office_gnome_libs =
   (
    'libgda'      => '1.3.0',
    'libgnomedb'  => '1.3.0',
   );
 
-my %office_gnome =
+our %office_gnome =
   (
    'gnumeric'  => '1.5.0',
    'dia'       => '0.94',

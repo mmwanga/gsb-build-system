@@ -1,3 +1,15 @@
+package GSB::Desktop_Requirements;
+require Exporter;
+
+use strict;
+use warnings;
+
+our @ISA       = qw(Exporter);
+our @EXPORT    = qw(%requirements %stupid_gnomemeeting_libs);
+our @EXPORT_OK = qw();
+our $VERSION = 0.03;
+
+
 ################################################################################
 # Desktop Requirements Config Options
 #

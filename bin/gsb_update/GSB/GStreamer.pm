@@ -1,14 +1,27 @@
+package GSB::GStreamer;
+require Exporter;
+
+use strict;
+use warnings;
+
+our @ISA       = qw(Exporter);
+our @EXPORT    = qw(%gstremer %gstreamer_libs);
+our @EXPORT_OK = qw();
+our $VERSION = 0.03;
+
 ################################################################################
 # Config Options for GSTREAMER
 #
 
-my %gstreamer =
+our %gstreamer =
   (
-   'gstreamer'   => '0.8.9',
-   'gst-plugins' => '0.8.7',
+   'gstreamer'         => '0.8.9',
+   'gst-plugins'       => '0.8.7',
+   'gst-ffmpeg'        => '0.8.3',
+   'gst-monkeysaudio'  => '0.8.0',
   );
 
-my %gstreamer_libs =
+our %gstreamer_libs =
   (
    'a52dec'            => {
 			   'ver' => '0.7.4',

@@ -15,6 +15,7 @@
 #     with both a VERSION Var and a PVERSION var so that both are updated
 #   - for packages on sourceforge, change url to sf and have a function randomly download each
 #     package from a different mirror
+#   - new args: --dl --edit
 #
 # $Id$
 
@@ -22,7 +23,7 @@ use strict;
 use warnings;
 
 # GSB Modules
-use GSB::Edit;
+#use GSB::Edit;
 use GSB::GSB;
 use GSB::Gnome;
 use GSB::GStreamer;
@@ -60,32 +61,34 @@ chdir $gsb_root_sources or
 my $pwd = getcwd();
 
 # download platform
-foreach my $package (keys %platform) {
+foreach my $ppackage (keys %platform) {
 
-  chdir "$pwd/gnome/platform/$package";
-  my $url = GSB::GSB::gsb_gnome_platform_url_make($package, $platform{$package});
-  GSB::GSB::gsb_tarball_get{$url);
+  chdir "$pwd/gnome/platform/$ppackage";
+
+  my $url = GSB::GSB::gsb_gnome_platform_url_make($ppackage, $platform{$ppackage});
+
+  GSB::GSB::gsb_tarball_get($ppackage, $url);
 }
 
-foreach my $package (keys %platform_diff_naming) {
+#foreach local $package (keys %platform_diff_naming) {
 
-  chdir "$pwd/gnome/platform/$package";
-  my $url = GSB::GSB::gsb_gnome_desktop_url_make($package{name}, $package{ver});
+#  chdir "$pwd/gnome/platform/$package";
+#  local $url = GSB::GSB::gsb_gnome_desktop_url_make($package{name}, $package{ver});
 
-  GSB::GSB::gsb_tarball_get($url);
+#  GSB::GSB::gsb_tarball_get($url);
 
-}
+#}
 
-foreach my $package (keys %desktop) {
+#foreach local $package (keys %desktop) {
 
-  chdir "$pwd/gnome/desktop/$package";
-  my $url = GSB::GSB::gsb_gnome_desktop_url_make($package, $platform{$package});
+#  chdir "$pwd/gnome/desktop/$package";
+#  local $url = GSB::GSB::gsb_gnome_desktop_url_make($package, $platform{$package});
 
-  GSB::GSB::gsb_tarball_get{$url);
-}
+#  GSB::GSB::gsb_tarball_get{$url);
+#}
 
 print "The following packages could not be downloaded:\n";
-print "GSB::GSB::@bad_downloads\n";
+#print "$GSB::GSB::@bad_downloads\n";
 
 # end main()
 #

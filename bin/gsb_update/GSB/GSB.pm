@@ -1,14 +1,14 @@
-#!/usr/bin/perl
+package GSB::GSB;
+require Exporter;
 
 use strict;
 use warnings;
 
-package GSB::GSB;
-
-require Exporter;
-
-our @ISA = ("Exporter");
-our $VERSION = 0.0.3;
+our @ISA       = qw(Exporter);
+our @EXPORT    = qw(%platform %platform_diff_naming %platform_fdo %desktop
+		   %bindings_cxx %bindings_java %bindings_python);
+our @EXPORT_OK = qw(%gnome);
+our $VERSION = 0.03;
 
 ################################################################################
 # Config Options
@@ -33,7 +33,7 @@ my $dfiledir = $gfiledir . $gnome{desktop}  . $grelease;
 my $bfiledir = $gfiledir . $gnome{bindings} . $grelease;
 my $gsrcddir = $gfiledir . '/sources';
 
-my @bad_downloads = "";
+our @bad_downloads = "";
 
 #
 # End Config Options
@@ -63,8 +63,7 @@ sub gsb_tarball_get {
   my $file = shift;
   my $url = shift;
 
-  system("wget -c $url") == 0
-    or warn "Could not Download $file" && push(@bad_downloads, $file);
+  system("wget -c $url");
 }
 
 # hash has 3 keys
@@ -84,8 +83,8 @@ sub gsb_gnome_platform_url_make {
   my $name = shift;
   my $ver  = shift;
 
-  my $url = "$pfiledir/$name-$ver.tar.bz2";
-  return $url;
+  my $thisurl = "$pfiledir/$name-$ver.tar.bz2";
+  return $thisurl;
 }
 
 # give name and version
@@ -93,8 +92,8 @@ sub gsb_gnome_desktop_url_make {
   my $name = shift;
   my $ver  = shift;
 
-  my $url = "$dfiledir/$name-$ver.tar.bz2";
-  return $url;
+  my $thisurl = "$dfiledir/$name-$ver.tar.bz2";
+  return $thisurl;
 }
 
 # give binding type, name and version
@@ -103,8 +102,8 @@ sub gsb_gnome_bindings_url_make {
   my $name         = shift;
   my $ver          = shift;
 
-  my $url = "$bfiledir/$binding_type/$name-$ver.tar.bz2";
-  return $url;
+  my $thisurl = "$bfiledir/$binding_type/$name-$ver.tar.bz2";
+  return $thisurl;
 }
 
 # End Functions

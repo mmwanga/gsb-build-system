@@ -1,13 +1,13 @@
-#!/usr/bin/perl
-#
-# Module with edit routines to edit GSB's slackbuild files
-#
-# $Id$
+package GSB::Edit;
+require Exporter;
 
 use strict;
 use warnings;
 
-package GSB::Edit;
+our @ISA       = qw(Exporter);
+our @EXPORT    = qw(gsb_version_edit gsb_build_edit);
+our @EXPORT_OK = qw();
+our $VERSION = 0.03;
 
 ################################################################################
 #
@@ -18,6 +18,7 @@ package GSB::Edit;
 # check if its the same -> do nothing
 # if different edit the variable with the new number and then edit the BUILD
 # variable to 1
+
 sub gsb_version_edit {
 
   return (0);

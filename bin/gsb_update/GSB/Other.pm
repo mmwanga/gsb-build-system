@@ -1,8 +1,19 @@
+package GSB::Other;
+use Exporter;
+
+use strict;
+use warnings;
+
+our @ISA       = qw(Exporter);
+our @EXPORT    = qw(%other %other_gnome);
+our @EXPORT_OK = qw(%gnome);
+our $VERSION = 0.03;
+
 ################################################################################
 # Config Options for OTHER
 #
 
-my %other =
+our %other =
   (
    'IndLinux'            => {
 			     'ver' => '0.9',
@@ -96,7 +107,7 @@ my %other =
 			    },
   );
 
-my %other_gnome =
+our %other_gnome =
   (
    'NetworkManager'      => '0.3.1',
    'evince'              => '0.1.5',
