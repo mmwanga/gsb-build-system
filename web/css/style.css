@@ -26,6 +26,11 @@ hr {
 
 .faqhead {
     font-style: italic;
+    font-weight: bold;
+}
+
+.faqentry {
+    margin: 0 0 0 2.8em;
 }
 
 img.screenthumb {
@@ -185,6 +190,7 @@ acronym, .titleTip {
     padding: 0.1ex 0;  /* Circumvents a rendering bug (?) in MSIE 6.0 */
     border-top: 1px solid rgb(240,240,240);
     border-bottom: 1px solid rgb(240,240,240);
+    font-size: 1.7ex;
 }
 
 #side-bar a, .thisPage {

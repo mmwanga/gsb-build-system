@@ -57,14 +57,18 @@ if (!is_file($ff)) {
         $faq_id = $a;
         $faq = preg_replace("/(?<!<a href=\")((http|https|rsync|news|irc|ftp)+(s)?:\/\/[^<>\s]+)/i", "<a href=\"\\0\">\\0</a>", $faq);
 
-        print( "<h3 class=\"faqhead\" id=\"faq_id-$a\">\"".$subject."\"</h3>\n"
-              ."<blockquote>\n<div class=\"faq_entry\">".$faq[0]."</div>\n</blockquote>\n"
-              ."<hr class=\"doNotDisplay\"/>\n" );
+        if(!ereg("</p>", $faq[0])) {
+            print( "<dt class=\"faqhead\" id=\"faq_id-$a\">\"".$subject."\"</dt>\n"
+                   ."<dd class=\"faqentry\"><br />\n".$faq[0]."\n<br /><br /></dd>\n" );
+        } else {
+             print( "<dt class=\"faqhead\" id=\"faq_id-$a\">\"".$subject."\"</dt>\n"
+                   ."<dd class=\"faqentry\">\n".$faq[0]."\n</dd>\n" );
+        }
         if ($a >= $max-1) break; 
     }
 
     if ($start == 0 && $faq_page <= 0) {
-        print( "<p></p>\n" );
+        print( "\n" );
     }
 
     if ($start > 0) {
@@ -74,7 +78,7 @@ if (!is_file($ff)) {
             $nextlink = "";
         if ($faq_page > 1)
             $prevlink = "";
-        print( "<p></p>\n" );
+        print( "\n" );
     }
 
     if ($faq_page > 0) {

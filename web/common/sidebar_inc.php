@@ -12,12 +12,15 @@
       <h2 class="sideBarTitle">Main Menu:</h2>
 
       <ul>
-        <li><a href="/">Home</a></li>
+        <li><a href="/" title="Home Page">Home</a></li>
 
-        <li><a href="/news/">News</a></li>
+        <li><a href="/news/" title="News">News</a></li>
 
         <li><a href="/about" title=
         "About the GSB Project">About GSB</a></li>
+
+        <li><a href="/faqs" title=
+        "Frequently-asked Questions">FAQs</a></li>
 
         <li><a href="/screenshots" title=
         "Screenshots">Screenshots</a></li>
