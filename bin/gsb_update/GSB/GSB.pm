@@ -86,7 +86,7 @@ sub gsb_gnome_generic_url_make {
   my $ver  = shift;
 
   # get shortened directory name from version
-  (my $sver = $ver) =~ s/(.*)\.(.*)\.(.*)$/$1\.$2/;
+  my $sver = join '.', (split( /\./, $ver ))[0,1];
 
   my $thisurl = "$gsrcdir/$name/$sver/$name-$ver.tar.bz2";
   return $thisurl;

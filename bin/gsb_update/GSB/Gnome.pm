@@ -5,8 +5,15 @@ use warnings;
 use strict;
 
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw(%plat %platform %platform_diff_naming %platform_fdo %desktop
-		   %desktop_diff_naming %bindings_cxx %bindings_java %bindings_python);
+our @EXPORT    = qw(%platform
+                    %platform_diff_naming
+                    %platform_fdo
+                    %desktop
+                    %desktop_diff_naming
+                    %desktop_other
+                    %bindings_cxx
+                    %bindings_java
+                    %bindings_python);
 our @EXPORT_OK = qw();
 our $VERSION   = 0.03;
 
@@ -170,6 +177,14 @@ our %desktop_diff_naming =
 	      },
   );
 
+our %desktop_other =
+  (
+   'gnome-games-extra-data' => {
+				'ver' => '2.10.0',
+				'dir' => 'gnome-games',
+			       },
+  );
+
 our %bindings_cxx =
   (
    'bakery'            => '2.3.11',
@@ -186,6 +201,8 @@ our %bindings_cxx =
   );
 
 #    'libgtkhtml-java'  => '2.6.0',
+#    'libgtkmozembed-java' => '1.7.0',
+#    'libvte-java' => '0.11.11',
 our %bindings_java =
   (
    'libgconf-java'    => '2.10.0',

@@ -48,11 +48,11 @@ my $sb_ext = '.SlackBuild';
 
 my $gsb_root_sources = "../../src";
 
-my @bad_downloads = "";
+my @bad_downloads;
 
-
-# THESE VARIABLE ARE NOT USED YET
-# these are here to make main code below less repetative
+# THESE VARIABLES ARE NOT USED YET
+# these are here to make the main code below less repetative eventually, still
+#   needs some changes
 # Group similar hashes together
 my %gnome_packages =
   (
@@ -263,6 +263,36 @@ foreach my $dnpackage (keys %desktop_diff_naming) {
 
   if ( ! -f $tarball ) {
     push(@bad_downloads, $dnpackage);
+  }
+}
+
+# DOWNLOAD some other desktop tarballs
+foreach my $dopackage (keys %desktop_other) {
+
+  chdir "$pwd/gnome/desktop/$desktop_other{$dopackage}{dir}";
+
+  my $sb_file = $desktop_other{$dopackage}{dir} . $sb_ext;
+  my $name = $dopackage;
+  my $ver  = $desktop_other{$dopackage}{ver};
+
+  my $tarball = "$name-$ver.tar.bz2";
+
+  if ( $download eq "true" ) {
+    if ( ! -f $tarball ) {
+#      my $url = GSB::GSB::gsb_gnome_desktop_url_make($name, $ver);
+      my $url = GSB::GSB::gsb_gnome_generic_url_make($name, $ver);
+      GSB::GSB::gsb_tarball_get($dopackage, $url);
+    }
+  }
+
+# What to do about VERSION var here?
+# maybe store the VARIABLE to edit in the hash somewhere?
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $dopackage);
   }
 }
 
@@ -594,14 +624,14 @@ foreach my $gst_plugins_pack (keys %gst_other) {
   }
 }
 
+if ( ! @bad_downloads eq "" ) {
+  print "The following packages could not be downloaded:\n\n";
 
-print "The following packages could not be downloaded:\n";
-
-foreach my $bad_pack (@bad_downloads) {
-  print "$bad_pack\n";
+  foreach my $bad_pack (@bad_downloads) {
+    print "$bad_pack\n";
+  }
+  print "\n";
 }
-print "\n";
-
 # end main()
 #
 ################################################################################
