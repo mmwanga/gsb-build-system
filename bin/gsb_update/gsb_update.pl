@@ -214,14 +214,12 @@ foreach my $fdopackage (keys %platform_fdo) {
   }
 }
 
-exit (0);
-
 # Download Desktop Packages
 foreach my $dpackage (keys %desktop) {
 
   chdir "$pwd/gnome/desktop/$dpackage";
   my $sb_file = $dpackage . $sb_ext;
-  my $tarball = "$dpackage-$desktop{dpackage}.tar.bz2";
+  my $tarball = "$dpackage-$desktop{$dpackage}\.tar.bz2";
 
   if ( $download eq "true") {
     if ( ! -f $tarball ) {
@@ -238,6 +236,8 @@ foreach my $dpackage (keys %desktop) {
     push(@bad_downloads, $dpackage);
   }
 }
+
+exit (0);
 
 # Download Bindings
 
