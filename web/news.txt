@@ -1,5 +1,6 @@
-##
+###
 2005-03-14-10-30-EST
+freerock
 FRG-0.1.95 Released
 <p>
   This is the second release of FRG with GNOME-2.10.0. It fixes the issues
