@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/sh
 
 TMP=${TMP:-/tmp}
 
@@ -6,6 +6,7 @@ if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 
+# ximian-connector not built
 BUILD_ORDER="libgnomesu
 libgtkhtml
 gnome-icon-theme
@@ -72,7 +73,6 @@ gnome-volume-manager
 gal2
 evolution
 evolution-webcal
-ximian-connector
 gnomemeeting
 totem
 goobox

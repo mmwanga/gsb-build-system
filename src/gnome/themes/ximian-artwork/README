@@ -2,6 +2,6 @@
 
 to get the tarball that the SlackBuild uses do this:
 
-wget -c ftp.ximian.com/pub/xd2/redhat-9-i386/source/ximian-artwork-0.2.29-0.ximian.6.2.src.rpm
+wget -c ftp://ftp.ximian.com/pub/xd2/suse-90-i586/source/ximian-artwork-0.2.29-0.ximian.8.3.src.rpm 
 
-rpm2cpio ximian-artwork-0.2.29-0.ximian.6.2.src.rpm |cpio -iumd ximian-artwork-0.2.29.tar.gz 
+rpm2cpio ximian-artwork-0.2.29-0.ximian.8.3.src.rpm |cpio -iumd ximian-artwork-0.2.29.tar.gz

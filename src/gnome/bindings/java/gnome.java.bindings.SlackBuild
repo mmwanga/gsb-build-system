@@ -8,9 +8,8 @@ fi
 
 BUILD_ORDER="libgtk-java
 libgconf-java
-libglade-java
 libgnome-java
-"
+libglade-java"
 
 (
 for i in $BUILD_ORDER

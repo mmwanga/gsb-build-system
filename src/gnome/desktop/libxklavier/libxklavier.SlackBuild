@@ -17,7 +17,7 @@ rm -rf $PKG
 mkdir -p $PKG
 
 cd $TMP 
-tar xzvf $CWD/libxklavier-$VERSION.tar.gz
+tar xjvf $CWD/libxklavier-$VERSION.tar.bz2
 cd libxklavier-$VERSION
 chown -R root.root .
 find . -perm 666 -exec chmod 644 {} \;

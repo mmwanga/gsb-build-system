@@ -30,9 +30,7 @@ CFLAGS="-O2 -march=i486 -mcpu=i686" ./configure --prefix=/usr \
             --localstatedir=/var/lib \
             i486-slackware-linux
 make
-make install
 make install DESTDIR=$PKG
-make uninstall
 
 mkdir -p $PKG/usr/doc/gtkhtml-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README TODO \

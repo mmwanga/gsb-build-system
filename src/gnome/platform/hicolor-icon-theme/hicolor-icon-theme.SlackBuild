@@ -6,7 +6,7 @@ if [ "$TMP" = "" ]; then
 fi
 PKG=$TMP/package-hicolor-icon-theme
 
-VERSION=0.4
+VERSION=0.5
 ARCH=i486
 BUILD=1
 

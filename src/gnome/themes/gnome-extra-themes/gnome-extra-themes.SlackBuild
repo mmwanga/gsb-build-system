@@ -29,6 +29,16 @@ mkdir -p $PKG/usr/share/themes
   done
 )
 
+mkdir -p $PKG/usr/share/gdm/themes
+( cd $PKG/usr/share/gdm/themes
+  for file in $CWD/themes/gdm/*.tar.gz ; do
+    tar xzf $file
+  done
+  for file in $CWD/themes/gdm/*.tar.bz2 ; do
+    tar xjf $file
+  done
+)
+
 mkdir -p $PKG/usr/share/icons
 ( cd $PKG/usr/share/icons
   for file in $CWD/themes/icons/*.tar.gz ; do
@@ -38,6 +48,7 @@ mkdir -p $PKG/usr/share/icons
     tar xjf $file
   done
 )
+
 
 ( cd $PKG
   chown -R root.root .

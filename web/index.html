@@ -16,32 +16,89 @@
     </p>
 
     <p>
-      The goal of this project is to run one script: <b>GNOME.SlackBuild</b>
+      The goal of this project is to run one script: <b>GSB.SlackBuild</b>
       and have it output Slackware packages for a GNOME release.
       <br />
       The current gsb
       release <a href="http://sourceforge.net/project/showfiles.php?group_id=130126&amp;package_id=142651">0.0.1</a>
-      , builds GNOME version 2.9.90.
+      , builds GNOME version 2.9.91.
       <br />
       <br />
-      Binary packages will be available for the 2.9.91 release due out soon.
+      Binary packages are available for the GNOME 2.9.91 release.
     </p>
 
-    <h2>TODO</h2>
+    <h2>Download</h2>
 
-    <p>In Order of Importance</p>
+    <p>
+      Releases are aviable in the <a href="http://sourceforge.net/project/showfiles.php?group_id=130126">Files Section</a> of the 
+      <a href="http://sf.net/projects/gsb">Sourceforge Project Page</a>. There 
+      are individual packages and an iso available for download.
+    </p>
+    <ul>
+      <li>
+	<a href="http://sourceforge.net/project/showfiles.php?group_id=130126&amp;package_id=142651">GSB: </a>
+	GNOME SlackBuild scripts used to build Freerock's Gnome packages.
+      </li>
+      <li>
+	<a href="http://sourceforge.net/project/showfiles.php?group_id=130126&amp;package_id=143806">Freerock's Gnome: </a>
+	GNOME packages for Slackware Linux
+      </li>
+      <li>
+	<a href="">FRG ISO:</a>
+	iso file of Freerock's GNOME
+      </li>
+    </ul>
+
+    <h2>Road Map</h2>
 
     <ul>
-      <li>Write script to get tarballs for each release and put them in appropriate directory
-      and update respective SlackBuild's VERSION and BUILD variables (currently under way)</li>
+      <li>Gnome 2.9.90 (2.10.0 Beta 1)
+      <ul>
+	<li>Built on Slackware-10.0 and packaged</li>
+	<li>available on my rsync server, email for details</li>
+      </ul>
+      </li>
+      <li>Gnome 2.9.91 (2.10.0 Beta 2)
+      <ul>
+	<li>Built on Slackware 10.0</li>
+	<li>Packages available on sourceforge mirrors or download iso</li>
+	<li>
+	  I will be upgrading to slackware 10.1, so if you want 2.9.91
+	  built on slackware 10.1, send me an email and I'll put it up on my rsync server
+	</li>
+      </ul>
+      </li>
+      <li>Gnome 2.9.92 (2.10.0 RC1)
+      <ul>
+	<li>Built on Slackware 10.1</li>
+	<li>slapt-get compliance</li>
+	<li>script to download source tarballs and auto update scripts</li>
+      </ul>
+      </li>
+    </ul>
+    
+    <h2>TODO</h2>
+    
+    <p>In Order of Importance</p>
+    
+    <ul>
+      <li>
+	Write script to get source tarballs for each release and put them in 
+	appropriate directory and update respective SlackBuild's VERSION and BUILD
+	variables (currently under way)
+      </li>
       <li>Installer:
       <ul>
 	<li>slapt-get compliance - currently under way</li>
 	<li>If anyone wants to write a different installer, feel free</li>
+	<li>
+	  Simple way to get packages from sourceforge mirrors, wget -r -np on the 
+	  gsb dir doesn't seem to work 
+	</li>
       </ul>
       </li>
-      <li>fix java bindings build, make currently fails</li>
       <li>implement gnome.perl.bindings.SlackBuild</li>
+      <li>make SlackBuild for gnome-system-tools</li>
       <li>check if any of the packages need doinst.sh scripts for scrollkeeper updates</li>
       <li>add .desktop entries to packages that do not have them</li>
       <li>update some slackbuilds
@@ -51,16 +108,17 @@
 	<li>ximian connector - needs kerberos to build</li> 
       </ul>
       </li>
+      <li>check if anything is built into /usr/local and change it to /usr</li>
       <li>Get some CSS for this page and a menu on the left of this page</li>
       
-      </ul>
-
+    </ul>
+    
     <h2>Support</h2>
     
     <p>
-      use the mailing lists when possible, you are more likely to get a response, as there might not be someone active in the irc channel
+      Check irc channel first, if I don't respond send an email to me or to one of the mailing lists.
     </p>
-
+    
     <ul>
       <li>freerock @ #slackbuild on irc.freenode.net</li>
       <li><a href="http://sourceforge.net/mail/?group_id=130126">Mailing Lists</a>
@@ -71,6 +129,23 @@
       </li>
       <li>email freerock ! gmail.com</li>
     </ul>
+    
+    <h2>Help</h2>
+    
+    <ul>
+      <li>
+	MIRRORS, I'd rather not rely on sourceforge to do releases, its nice that they
+	have a lot of mirrors to use, but the system they have is kinda annoying and I would 
+	like to organize releases in their own dirs, ie. gnome-platform, gnome-desktop,
+	gnome-bindings etc... So if you can help with this, speak up :)
+      </li>
+      <li>Fixing scripts, see TODO</li>
+      <li>Testers, Testers, Guinea Pigs, Testers</li>
+      <li>Anything missing? Want something added?</li>
+      <li>some simple css for this website, or someone to just do the website</li>
+      <li>Some Graphics maybe? splash screen, gdm screen ....</li>
+      <li>Suggestions, advice, flames, money are all welcome :-)</li>
+    </ul>
 
     <h2>Links</h2>
 
@@ -80,6 +155,7 @@
       <li><a href="http://software.jaos.org/">Slapt-get</a></li>
       <li><a href="http://www.mutagenix.org/">Mutagenix</a></li>
       <li><a href="http://www.gware.org">G-ware</a></li>
+      <li><a href="http://www.dropline.net/gnome">Dropline GNOME</a></li>
     </ul>
 
     <p>

@@ -16,7 +16,7 @@ my %platform =
    'libart_lgpl'         => '2.3.17',
    'libbonobo'           => '2.8.0',
    'libbonoboui'         => '2.8.0',
-   'libglade'            => '2.5.0',
+   'libglade'            => '2.5.1',
    'libgnome'            => '2.9.1',
    'libgnomecanvas'      => '2.9.1',
    'libgnomeprint'       => '2.8.2',
@@ -100,7 +100,7 @@ my %desktop =
    'gnome2-user-docs'       => '2.8.1',
    'gnomemeeting'           => '1.2.0',
    'gnopernicus'            => '0.10.1',
-   'gok'                    => '0.12.1',
+   'gok'                    => '0.12.4',
    'goobox'                 => '0.7.2',
    'gpdf'                   => '2.9.3',
    'gtk-engines'            => '2.6.0',
@@ -115,7 +115,7 @@ my %desktop =
    'librsvg'                => '2.9.5',
    'libsoup'                => '2.2.2',
    'libwnck'                => '2.9.91',
-   'libxklavier'            => '1.14', # check if this is tar.gz only
+   'libxklavier'            => '1.14',
    'metacity'               => '2.9.13',
    'nautilus'               => '2.9.91',
    'nautilus-cd-burner'     => '2.9.5',
@@ -147,10 +147,10 @@ my %bindings_cxx =
   );
 my %bindings_java =
   (
-   'libgconf-java'  => '2.9.91',
-   'libglade-java'  => '2.9.91',
-   'libgnome-java'  => '2.9.91',
-   'libgtk-java'    => '2.9.91',
+   'libgconf-java'  => '2.9.91.1',
+   'libglade-java'  => '2.9.91.1',
+   'libgnome-java'  => '2.9.91.1',
+   'libgtk-java'    => '2.9.91.1',
   );
 
 my %bindings_python =
@@ -165,7 +165,7 @@ my %bindings_python =
 my %themes =
   (
    'gnome-extra-themes'   => '1.0.1',
-   'gnome-themes-extras'  => '0.8.0',
+   'gnome-themes-extras'  => '0.8.1',
    'ximian-artwork'       => '0.2.29',
   );
 

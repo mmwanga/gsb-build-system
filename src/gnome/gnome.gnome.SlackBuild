@@ -35,7 +35,7 @@ mv $TMP/*.tgz $TMP/gnome-$GVERSION/$i
 done
 
 # redirect screen output to a log
-) 2>&1 | tee $TMP/gnome.$VERSION.build.log
+) 2>&1 | tee $TMP/gnome.$GVERSION.build.log
 
 echo "****************************************************"
 echo "*******      FINISHED BUILDING GNOME $GVERSION"

@@ -3,3 +3,12 @@ GSB - GNOME SlackBuild
       GNOME release
 
 http://gsb.sf.net
+
+The majority of the .SlackBuild scripts are just the official gnome
+.build scripts that ship in the official slackware source tree. There
+are also some .SlackBuilds related to gnome from Slackware included here.
+COPYING.slackware reflects the copyright on those scripts.
+
+The rest are under the COPYING license, although currently under the GPL, I'll
+probably change this to a BSD license like the COPYING.slackware file
+

@@ -1,10 +1,18 @@
 #!/bin/sh
 CWD=`pwd`
-PKG=/tmp/package-libcroco
+
+$TMP=${TMP:-/tmp}
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+
+PKG=$TMP/package-libcroco
 
 VERSION=0.6.0
 ARCH=${ARCH:-i486}
 BUILD=1
+
 
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
@@ -18,7 +26,7 @@ fi
 
 rm -rf $PKG
 mkdir -p $PKG
-cd /tmp
+cd $TMP
 rm -rf libcroco-$VERSION
 tar xjvf $CWD/libcroco-$VERSION.tar.bz2
 cd libcroco-$VERSION
@@ -48,5 +56,5 @@ mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-makepkg -l y -c n ../libcroco-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/libcroco-$VERSION-$ARCH-$BUILD.tgz
 

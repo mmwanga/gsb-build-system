@@ -6,9 +6,10 @@ if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 
+ 
+# ximian-artwork not built, its themes are in gnome-themes-extras
 BUILD_ORDER="gnome-extra-themes
-gnome-themes-extras
-ximian-artwork"
+gnome-themes-extras"
 
 (
 for i in $BUILD_ORDER
