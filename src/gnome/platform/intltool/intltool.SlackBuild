@@ -1,9 +1,7 @@
 #!/bin/sh
 
 CWD=`pwd`
-if [ "$TMP" = "" ]; then
-  TMP=/tmp
-fi
+TMP=${TMP:-/tmp}
 PKG=$TMP/package-intltool
 
 VERSION=0.33
@@ -16,6 +14,16 @@ fi
 rm -rf $PKG
 mkdir -p $PKG/usr
 
+if [ "$ARCH" = "i386" ]; then
+  SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
+elif [ "$ARCH" = "i486" ]; then
+  SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
+elif [ "$ARCH" = "s390" ]; then
+  SLKCFLAGS="-O2"
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2"
+fi
+
 cd $TMP 
 tar xjvf $CWD/intltool-$VERSION.tar.bz2
 cd intltool-$VERSION
@@ -23,7 +31,7 @@ chown -R root.root .
 find . -perm 666 -exec chmod 644 {} \;
 find . -perm 664 -exec chmod 644 {} \;
 ./configure --prefix=/usr \
-            i486-slackware-linux
+            $ARCH-slackware-linux
 make
 make install DESTDIR=$PKG
 chown -R root.bin $PKG/usr/bin
