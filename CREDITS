@@ -7,6 +7,10 @@ Webmaster:
 
 	chipster <chipster@norlug.org>
 
+Artwork:
+
+	Gpl_Source <fernando.flores.ortiz@gmail.com>
+
 Testers:
 
 	Tevfik Yucek <tevfik.yucek@gmail.com>
@@ -17,7 +21,7 @@ Contributors:
 
 	Chris Lewis <burn03@bellsouth.net>
 	* GWARE 02/16/2005
-	* rc.howl and kerberos build scripts
+	* rc.howl and krb5 build scripts
 
 	<Locustfurnace on irc>
 	* screenshots of FRG in action
@@ -25,6 +29,7 @@ Contributors:
 	Dropline GNOME
 	* hal patches and rc.hal script
 	* dbus rc.dbus script
+	* fix for librsvg doinst.sh to add svg to gdk
 
 	Mark M. Young <mmyoung57@sbcglobal.net>
 	* screenshots of FRG in action
