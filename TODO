@@ -1,5 +1,17 @@
 TODO:
 
-* add xscreensaver to gsb ???
-* add a HACKING file with instructions on how to edit and add things to the
-  source tree
+GSB:
+
+	* add xscreensaver to gsb ???
+	* add a HACKING file with instructions on how to edit
+	  and add things to the source tree
+
+WEBSITE:
+
+	* Package browser based on PACKAGES.TXT, and have a
+	  PACKAGES.TXT-$FRG_RELEASE_VERSION
+	  ie. PACKAGES.TXT-0.2.0
+	* some screenshots of the default theme and the FRG
+	  wallpaper.
+	* split screenshots page into: Default Look Screens
+	  and User Submitted Screenshots
