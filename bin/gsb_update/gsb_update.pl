@@ -54,8 +54,6 @@ my @bad_downloads = "";
 my %gnome_packages =
   (
    '%platform'             => 'gnome/platform',
-   '%platform_diff_naming' => 'gnome/platform',
-   '%platform_fdo'         => 'gnome/platform',
    '%desktop'              => 'gnome/desktop',
    '%themes'               => 'gnome/themes',
    '%office_gnome'         => 'office',
@@ -237,9 +235,9 @@ foreach my $dpackage (keys %desktop) {
   }
 }
 
-exit (0);
-
 # Download Bindings
+
+print "OFFICE DOWNLOADING\n";
 
 # GNOME Office
 foreach my $office_pack (keys %office_gnome) {
@@ -263,6 +261,8 @@ foreach my $office_pack (keys %office_gnome) {
     push(@bad_downloads, $office_pack,);
   }
 }
+
+exit (0);
 
 # GNOME Office libs
 foreach my $office_pack (keys %office_gnome_libs) {

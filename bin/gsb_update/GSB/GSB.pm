@@ -31,7 +31,7 @@ my $grelease = "/$gnome{release}/$gnome{version}/sources";
 my $pfiledir = $gfiledir . $gnome{platform} . $grelease;
 my $dfiledir = $gfiledir . $gnome{desktop}  . $grelease;
 my $bfiledir = $gfiledir . $gnome{bindings} . $grelease;
-my $gsrcddir = $gfiledir . '/sources';
+my $gsrcdir  = $gfiledir . '/sources';
 
 #
 # End Config Options
@@ -65,7 +65,7 @@ sub gsb_tarball_get {
   my $file = shift;
   my $url = shift;
 
-  system("wget -c $url");
+  system("wget --cache=on --progress=bar:force $url");
 }
 
 # hash has 3 keys
@@ -79,6 +79,20 @@ sub gsb_other_url_make {
   my $thisurl = "$url/$name-$ver.$src";
   return $thisurl;
 }
+
+# Generic URL to download from gnome's ftp sources directory
+
+sub gsb_gnome_generic_url_make {
+  my $name = shift;
+  my $ver  = shift;
+
+  # get shortened directory name from version
+  (my $sver = $ver) =~ s/(.*)\.(.*)\.(.*)$/$1\.$2/;
+
+  my $thisurl = "$gsrcdir/$name/$sver/$name-$ver.tar.bz2";
+  return $thisurl;
+}
+
 
 # Give name and version to function
 sub gsb_gnome_platform_url_make {
