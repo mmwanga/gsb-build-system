@@ -5,6 +5,7 @@ TMP=${TMP:-/tmp}
 PKG=$TMP/package-divx4linux
 
 VERSION=std-20030428
+PVERSION=5.0.5
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -25,8 +26,8 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 cd $TMP 
-tar xzvf $CWD/divx4linux-std-20030428.tar.gz
-cd divx4linux-20030428
+tar xzvf $CWD/divx4linux-$VERSION.tar.gz
+cd divx4linux-$VERSION
 
 mkdir -p $PKG/usr/{lib,include}
 
@@ -47,7 +48,7 @@ cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-makepkg -l y -c n $TMP/divx4linux-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/divx4linux-$PVERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
