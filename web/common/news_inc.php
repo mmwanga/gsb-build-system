@@ -41,28 +41,28 @@ if (is_file($ff)) {
 
     for ($a=$start; $a<count($farr)-1; $a++) {
         $news = explode("\n", trim($farr[$a]),4);
-        $news = str_replace("\n", "\n\t    ", $news);
+        //$news = str_replace("\n", "\n\t    ", $news);
         $ndate=array_shift($news);
         $nick=array_shift($news);
         $subject=array_shift($news);
 
-        $author="<a href=\"mailto:".$author[$nick]."\">".$nick."</a>";
-    
+        //$author="<a href=\"mailto:".$author[$nick]."\">".$nick."</a>";
+        $author = $nick;
+
         $ndate=split("-",$ndate);
         $ndate_tzone=$ndate[_SEC];
         $ndate[_SEC] = "00";
         $ndate=mktime($ndate[_HOUR],$ndate[_MINUTE], $ndate[_SEC],
-        $ndate[_MONTH], $ndate[_DAY], $ndate[_YEAR]);
+            $ndate[_MONTH], $ndate[_DAY], $ndate[_YEAR]);
         $ndate = date("Y/m/d @ H:i", $ndate);
 
-        $news = preg_replace("/(?<!<a
-         href=\")((http|ftp|rsync|gopher)+(s)?:\/\/[^<>\s]+)/i", "<a
-         href=\"\\0\">&lt;\\0&gt;</a>", $news);
+        $news = preg_replace("/(?<!<a href=\")((http|ftp|rsync|gopher)+(s)?:\/\/[^<>\s]+)/i",
+            "<a href=\"\\0\">&lt;\\0&gt;</a>", $news);
        
         print( "<h3>".$subject."</h3>\n\n"
               ."\t<dl>\n\t <dt><small>Posted ".$ndate." ".$ndate_tzone." by \n\t "
               .$author."</small></dt>\n"
-              ."\t   <dd><p>\n\t    <em>".$news[0]."</em>\n\t   </p></dd>\n\t</dl>\n\n" );
+              ."\t   <dd><p>\n\t    <em>".nl2br($news[0])."</em>\n\t   </p></dd>\n\t</dl>\n\n" );
         if ($a >= $max-1) break; 
     }
 
