@@ -198,7 +198,7 @@
       <li>email: freerock ! gmail.com</li>
     </ul>
 
-    <h2 id="help">Help</h2>
+    <h2 id="help">Help the Project</h2>
 
     <ul>
       <li>MIRRORS, I'd rather not rely on sourceforge to do package
