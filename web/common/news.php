@@ -68,9 +68,9 @@ if (is_file($ff)) {
         $ndate = date("Y/m/d @ H:i", $ndate);
        
         print( "<h3>".$subject."</h3>\n\n"
-              ."\t<dl>\n\t\t<dt><small>Posted ".$ndate." ".$ndate_tzone." by \n\t\t"
+              ."<dl>\n\t<dt><small>Posted ".$ndate." ".$ndate_tzone." by \n\t"
               .$author."</small></dt>\n"
-              ."\t\t<dd>\n\t\t<p><em>".$news[0]."</em>\n\t\t</p>\n\t\t</dd>\n\t</dl>\n\n" );
+              ."\t<dd>\n\t<p><em>".$news[0]."</em>\n\t</p>\n\t</dd>\n</dl>\n\n" );
         if ($a >= $max-1) break; 
     }
 
