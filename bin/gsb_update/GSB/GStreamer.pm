@@ -33,12 +33,6 @@ our %gst_other =
 			  },
   );
 
-# Need to do something with this because of version variable
-#   'divx4linux'        => {
-#			   'ver' => 'std-20030428',
-#			   'url' => 'http://download.divx.com/divx/',
-#			   'src' => 'tar.gz',
-#			  },
 our %gst_libs =
   (
    'a52dec'            => {
@@ -50,6 +44,11 @@ our %gst_libs =
 			   'ver' => '0.7-0.7.43',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/avifile/',
 			   'src' => 'tar.bz2',
+			  },
+   'divx4linux'        => {
+			   'ver' => 'std-20030428',
+			   'url' => 'http://download.divx.com/divx/',
+			   'src' => 'tar.gz',
 			  },
    'faac'              => {
 			   'ver' => '1.24',
