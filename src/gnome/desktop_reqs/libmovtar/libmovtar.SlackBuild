@@ -30,23 +30,12 @@ tar xzvf $CWD/jpeg-mmx-$JPEGMMXV.tar.gz
 ln -sf jpeg-mmx-$JPEGMMXV jpeg-mmx
 cd jpeg-mmx-$JPEGMMXV
 CFLAGS="$SLKCFLAGS" \
-./configure --prefix=/usr \
+./configure --prefix=/usr
 make
-
-if [ "$ARCH" = "i386" ]; then
-  SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
-elif [ "$ARCH" = "i486" ]; then
-  SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
-elif [ "$ARCH" = "s390" ]; then
-  SLKCFLAGS="-O2"
-elif [ "$ARCH" = "x86_64" ]; then
-  SLKCFLAGS="-O2"
-fi
 
 cd $TMP 
 tar xzvf $CWD/libmovtar-$VERSION.tar.gz
 cd libmovtar-$VERSION
-#
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
 	    --disable-static \
