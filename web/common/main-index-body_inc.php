@@ -170,8 +170,8 @@
       <li>check if anything is built into /usr/local and change it
       to /usr</li>
 
-      <li>Get some CSS and simple graphics for this page and a menu
-      on the left of this page</li>
+      <li><del>Get some CSS and simple graphics for this page and a menu
+      on the left of this page</del></li>
     </ol>
 
     <h2 id="support">Support</h2>
