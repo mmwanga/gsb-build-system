@@ -9,3 +9,4 @@ TODO:
 * check gdm, see how it starts, check Xsession variables for sessions in 
   global Xsession file
 * shared-mime-info, add update to install scripts
+* add xscreensaver, xchat, gimp, hicolor-icon-theme to gsb
