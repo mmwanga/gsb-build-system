@@ -7,7 +7,7 @@ use warnings;
 our @ISA       = qw(Exporter);
 our @EXPORT    = qw(%other %other_gnome %other_other);
 our @EXPORT_OK = qw();
-our $VERSION = 0.03;
+our $VERSION   = 0.03;
 
 ################################################################################
 # Config Options for OTHER
@@ -18,7 +18,12 @@ our %other =
    'IndLinux-Hindi'      => {
 			     'ver' => '0.73',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/indlinux/',
-			     'src'  => 'tar.gz',
+			     'src' => 'tar.gz',
+			    },
+   'anjuta'              => {
+			     'ver' => '1.2.2',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/anjuta/',
+			     'src' => 'tar.gz',
 			    },
    'balsa'               => {
 			     'ver' => '2.3.0',
@@ -55,6 +60,11 @@ our %other =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/kino/',
 			     'src' => 'tar.gz',
 			    },
+   'easytag'             => {
+			     'ver' => '1.99.3',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/easytag/',
+			     'src' => 'tar.bz2',
+			    },
    'gDesklets'           => {
 			     'ver' => '0.34.1',
 			     'url' => 'http://www.pycage.de/download/gdesklets/',
@@ -90,10 +100,21 @@ our %other =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gnomebaker/',
 			     'src' => 'tar.gz',
 			    },
+   'gphoto2'             => {
+			     'ver' => '2.1.5',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto/',
+			     'src' => 'tar.gz',
+			    },
+
    'graveman'            => {
 			     'ver' => '0.3.8',
 			     'url' => 'http://savannah.nongnu.org/download/graveman/',
 			     'src' => 'tar.bz2',
+			    },
+   'gtkam'               => {
+			     'ver' => '0.1.12',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto/',
+			     'src' => 'tar.gz',
 			    },
    'gtkpod'              => {
 			     'ver' => '0.88',
@@ -112,7 +133,7 @@ our %other =
 			    },
    'Imaging'             => {
 			     'ver' => '1.1.4',
-			     'url' => 'http://effbot.org/downloads/Imaging-1.1.4.tar.gz',
+			     'url' => 'http://effbot.org/downloads/',
 			     'src' => 'tar.gz',
 			    },
    'inkscape'            => {
@@ -129,6 +150,17 @@ our %other =
 			     'ver' => '0.1pre1',
 			     'url' => 'http://www.coaster-burn.org/files/libcoaster/',
 			     'src' => 'tar.gz'
+			    },
+   'libexif-gtk'             => {
+			     'ver' => '0.3.5',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libexif/',
+			     'src' => 'tar.bz2',
+			    },
+
+   'libgphoto2'          => {
+			     'ver' => '2.1.5',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto/',
+			     'src' => 'tar.gz',
 			    },
    'libmikmod'           => {
 			     'ver' => '3.1.11',
@@ -190,8 +222,10 @@ our %other_gnome =
    'glade'               => '2.10.0',
    'gnome-audio'         => '2.0.0',
    'gnome-cups-manager'  => '0.30',
+   'gnome-blog'          => '0.8',
    'gossip'              => '0.8',
    'gthumb'              => '2.6.4',
+   'loudmouth'           => '0.17.2',
    'rhythmbox'           => '0.8.8',
   );
 

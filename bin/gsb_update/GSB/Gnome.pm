@@ -11,6 +11,7 @@ our @EXPORT    = qw(%platform
                     %desktop
                     %desktop_diff_naming
                     %desktop_other
+                    %desktop_nongnome
                     %bindings_cxx
                     %bindings_java
                     %bindings_python);
@@ -148,7 +149,6 @@ our %desktop =
    'gucharmap'              => '1.4.3',
    'libcroco'               => '0.6.0',
    'libgail-gnome'          => '1.1.0',
-   'libgnomesu'             => '0.9.5',
    'libgsf'                 => '1.11.1',
    'libgtkhtml'             => '2.6.3',
    'libgtop'                => '2.10.0',
@@ -187,6 +187,15 @@ our %desktop_other =
 				'ver' => '2.10.0',
 				'dir' => 'gnome-games',
 			       },
+  );
+
+our %desktop_nongnome =
+  (
+      'libgnomesu'  => {
+			'ver' => '0.9.7',
+			'url' => 'http://members.chello.nl/~h.lai/libgnomesu/',
+			'src' => 'tar.gz',
+		       },
   );
 
 our %bindings_cxx =

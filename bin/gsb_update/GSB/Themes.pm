@@ -7,7 +7,7 @@ use warnings;
 our @ISA       = qw(Exporter);
 our @EXPORT    = qw(%gnome_extra_themes %gnome_themes %other_themes);
 our @EXPORT_OK = qw();
-our $VERSION = 0.03;
+our $VERSION   = 0.03;
 
 ################################################################################
 #

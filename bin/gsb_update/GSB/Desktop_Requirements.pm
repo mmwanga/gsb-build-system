@@ -7,7 +7,7 @@ use warnings;
 our @ISA       = qw(Exporter);
 our @EXPORT    = qw(%desktop_reqs %stupid_gnomemeeting_libs);
 our @EXPORT_OK = qw();
-our $VERSION = 0.03;
+our $VERSION   = 0.03;
 
 ################################################################################
 # Desktop Requirements Config Options

@@ -333,6 +333,7 @@ foreach my $dpackage (keys %desktop) {
   }
 }
 
+
 # DOWNLOAD other desktop tarballs
 foreach my $dnpackage (keys %desktop_diff_naming) {
 
@@ -392,6 +393,37 @@ foreach my $dopackage (keys %desktop_other) {
 
   if ( ! -f $tarball ) {
     push(@bad_downloads, $dopackage);
+  }
+}
+
+# Download non gnome Desktop Packages
+foreach my $ngpackage (keys %desktop_nongnome) {
+
+  chdir "$pwd/gnome/desktop/$ngpackage";
+  my $sb_file = $ngpackage . $sb_ext;
+  my $packurl = $desktop_nongnome{$ngpackage}{url};
+  my $ver     = $desktop_nongnome{$ngpackage}{ver};
+  my $src     = $desktop_nongnome{$ngpackage}{src};
+
+  my $tarball = "$ngpackage-$ver.$src";
+
+  if ( $download eq "true") {
+    if ( ! -f $tarball ) {
+      my $url = GSB::GSB::gsb_other_url_make($ngpackage, $packurl, $ver, $src);
+      GSB::GSB::gsb_tarball_get($ngpackage, $url);
+    }
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $ngpackage);
   }
 }
 
