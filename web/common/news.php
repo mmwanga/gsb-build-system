@@ -68,7 +68,7 @@ if (is_file($ff)) {
         $ndate[_MONTH], $ndate[_DAY], $ndate[_YEAR]);
         $ndate = date("Y/m/d @ H:i", $ndate);
        
-        print( "<h3>".$subject."</h3>\n\n"
+        print( "<h3 id=\"news_entry\">".$subject."</h3>\n\n"
               ."\t<dl>\n\t <dt><small>Posted ".$ndate." ".$ndate_tzone." by \n\t "
               .$author."</small></dt>\n"
               ."\t   <dd><p>\n\t    <em>".$news[0]."</em>\n\t   </p></dd>\n\t</dl>\n\n" );
