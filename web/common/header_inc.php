@@ -25,7 +25,9 @@ header("Content-Type: text/html;charset=utf-8");
 
     GSB site code <http://gsb.sf.net>
     Chip Cuccio <chipster@norlug.org>
-    $Revision$ - $Date$ - $Author$
+    $Revision$
+    $Date: 2005-02-13 18:13:10 -0600 (Sun, 13 Feb 2005) $
+    $Author$
 
 -->
 <body>  
