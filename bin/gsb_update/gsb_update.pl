@@ -42,6 +42,7 @@ use Cwd;
 my $download = "";
 my $edit     = "";
 my $conf     = "";
+my $build    = "";
 
 my $sb_ext = '.SlackBuild';
 
@@ -120,6 +121,9 @@ foreach (@ARGV) {
   elsif ( m/^--conf=(.+)$/ ){
     $conf = $1;
   }
+  elsif ( m/^--build=(.+)$/ ){
+    $build = $1;
+  }
   else {
     die "ERROR: {$_} is a bad cmdline arg\n";
   }
@@ -155,6 +159,10 @@ foreach my $ppackage (keys %platform) {
     GSB::Edit::gsb_sb_edit($sb_file, $platform{$ppackage});
   }
 
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
   if ( ! -f $tarball ) {
     push(@bad_downloads, $ppackage );
   }
@@ -180,6 +188,10 @@ foreach my $pnpackage (keys %platform_diff_naming) {
 
   if ( $edit eq "true" ) {
     GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
   }
 
   if ( ! -f $tarball ) {
@@ -209,6 +221,10 @@ foreach my $fdopackage (keys %platform_fdo) {
     GSB::Edit::gsb_sb_edit($sb_file, $ver);
   }
 
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
   if ( ! -f $tarball ) {
     push(@bad_downloads, $fdopackage);
   }
@@ -231,6 +247,10 @@ foreach my $dpackage (keys %desktop) {
 
   if ( $edit eq "true" ) {
     GSB::Edit::gsb_sb_edit($sb_file, $desktop{$dpackage});
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
   }
 
   if ( ! -f $tarball ) {
@@ -258,6 +278,10 @@ foreach my $dnpackage (keys %desktop_diff_naming) {
 
   if ( $edit eq "true" ) {
     GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
   }
 
   if ( ! -f $tarball ) {
@@ -315,6 +339,10 @@ foreach my $cbpackage (keys %bindings_cxx) {
     GSB::Edit::gsb_sb_edit($sb_file, $bindings_cxx{$cbpackage});
   }
 
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
   if ( ! -f $tarball ) {
     push(@bad_downloads, $cbpackage);
   }
@@ -339,6 +367,10 @@ foreach my $jbpackage (keys %bindings_java) {
     GSB::Edit::gsb_sb_edit($sb_file, $bindings_java{$jbpackage});
   }
 
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
   if ( ! -f $tarball ) {
     push(@bad_downloads, $jbpackage);
   }
@@ -361,6 +393,10 @@ foreach my $pbpackage (keys %bindings_python) {
 
   if ( $edit eq "true" ) {
     GSB::Edit::gsb_sb_edit($sb_file, $bindings_python{$pbpackage});
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
   }
 
   if ( ! -f $tarball ) {
@@ -390,6 +426,10 @@ foreach my $ofpackage (keys %office) {
     GSB::Edit::gsb_sb_edit($sb_file, $ver);
   }
 
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
   if ( ! -f $tarball ) {
     push(@bad_downloads, $ofpackage);
   }
@@ -413,6 +453,10 @@ foreach my $office_pack (keys %office_gnome) {
     GSB::Edit::gsb_sb_edit($sb_file, $office_gnome{$office_pack});
   }
 
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
   if ( ! -f $tarball ) {
     push(@bad_downloads, $office_pack,);
   }
@@ -434,6 +478,10 @@ foreach my $office_pack (keys %office_gnome_libs) {
 
   if ( $edit eq "true" ) {
     GSB::Edit::gsb_sb_edit($sb_file, $office_gnome_libs{$office_pack});
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
   }
 
   if ( ! -f $tarball ) {
@@ -463,6 +511,10 @@ foreach my $olpackage (keys %office_libs) {
     GSB::Edit::gsb_sb_edit($sb_file, $ver);
   }
 
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
   if ( ! -f $tarball ) {
     push(@bad_downloads, $olpackage);
   }
@@ -490,6 +542,10 @@ foreach my $opackage (keys %other) {
     GSB::Edit::gsb_sb_edit($sb_file, $ver);
   }
 
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
   if ( ! -f $tarball ) {
     push(@bad_downloads, $opackage);
   }
@@ -511,6 +567,10 @@ foreach my $other_pack (keys %other_gnome) {
 
   if ( $edit eq "true" ) {
     GSB::Edit::gsb_sb_edit($sb_file, $other_gnome{$other_pack});
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
   }
 
   if ( ! -f $tarball ) {
@@ -540,6 +600,10 @@ foreach my $oother_pack (keys %other_other) {
     GSB::Edit::gsb_sb_edit($sb_file, $ver);
   }
 
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
   if ( ! -f $tarball ) {
     push(@bad_downloads, $oother_pack);
   }
@@ -562,6 +626,10 @@ foreach my $gpackage (keys %gstreamer) {
 
   if ( $edit eq "true" ) {
     GSB::Edit::gsb_sb_edit($sb_file, $gstreamer{$gpackage});
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
   }
 
   if ( ! -f $tarball ) {
@@ -589,6 +657,10 @@ foreach my $gst_libs_pack (keys %gst_libs) {
 
   if ( $edit eq "true" ) {
     GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
   }
 
   if ( ! -f $tarball ) {
@@ -645,6 +717,10 @@ foreach my $gst_plugins_pack (keys %gst_other) {
 
   if ( $edit eq "true" ) {
     GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
   }
 
   if ( ! -f $tarball ) {

@@ -48,7 +48,9 @@ sub show_help {
   $0 \<args\>
 
   --dl           download source tarballs
-  --edit         edit SlackBuild files
+  --edit         edit SlackBuild files. Updates VERSION and BUILD variables
+  --build=arg    append string to all BUILD variables in the SlackBuild
+                 files. ie --build=frg would make BUILD=1frg
 
 NOT WORKING YET
   --conf         which files to download: gnome, gstreamer, office

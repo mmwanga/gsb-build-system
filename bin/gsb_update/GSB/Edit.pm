@@ -94,6 +94,23 @@ sub gsb_build_get{
   return $build_num;
 }
 
+# append gsb or frg to BUILD variables in slackbuild files
+# give function release string (gsb or frg) and file array
+sub gsb_build_release_make {
+
+  my $file = shift;
+  my $release = shift;
+
+  tie my @fh, 'Tie::File', $file
+    or die "Cannot open $file: $!";
+
+  for (@fh) {
+    s/^BUILD=(.*)$/BUILD=$1$release/;
+  }
+
+  untie @fh;
+}
+
 #
 # End Functions
 ################################################################################
