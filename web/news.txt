@@ -4,10 +4,21 @@ freerock
 FRG-0.1.97 available
 <p>
   With the release of frg-0.1.97, we are freezing the applications included
-  with FRG. There will be no new software included in this release. Hopefully
+  with FRG. There will be no new software included in the stable release. Hopefully
   this will be the last beta release before the stable 0.2.0 release. We are
-  aiming for a Monday, March 21 release of FRG with GNOME-2.10.0.
+  aiming for a Monday, March 21 stable release of FRG with GNOME-2.10.0.
 </p>
+
+<p>
+  To upgrade from the frg-0.1.96 release, download the updates from the frg-0.1.96
+  directory. Updates are available here:
+</p>
+
+<blockquote><p>
+ <code><strong>
+ftp://ftp.brownjava.org/pub/frg/frg-updates/
+</strong></code>
+</p></blockquote>
 
 <p>
   The only things that need to be finished are the default look and feel. We
@@ -20,15 +31,17 @@ FRG-0.1.97 available
 </p>
 
 <p>
-  To upgrade from the frg-0.1.96 release download the updates from the frg-0.1.96
-  directory. Updates are available here:
+  We would also like to setup a list of users who can be assigned certain
+  packages to test out. We have 266 packages in this release and testing all of
+  them is difficult to do. If you can help out with this, please see the support
+  page for contact details. Please specify the packages that you would like to be
+  assigned to test.
 </p>
 
-<blockquote><p>
- <code><strong>
-ftp://ftp.brownjava.org/pub/frg/frg-updates/
-</strong></code>
-</p></blockquote>
+<p>
+  There are other things we need help with. See the "Help the Project" and
+  Development pages for more info.
+</p>
 
 ###
 2005-03-16-11-00-EST
