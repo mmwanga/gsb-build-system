@@ -47,7 +47,7 @@ cat << EOF >> etc/rc.d/rc.local
 
 # To disable hal, chmod rc.hal to 644
 if [ -x /etc/rc.d/rc.hal ]; then
-  echo "Starting HAL
+  echo "Starting HAL"
   . /etc/rc.d/rc.hal start
 fi
 EOF
