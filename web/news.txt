@@ -1,5 +1,5 @@
 ###
-2005-02-29-12-00-EST
+2005-02-19-12-00-EST
 freerock
 Freerock's GNOME version 0.0.2.2 Released
 It is available for download as an iso on the download page.
