@@ -4,6 +4,17 @@ DirectoryIndex index.html index.shtml index.php
 RewriteEngine On
 RewriteBase /
 RewriteRule ^news/(.*)? /index.php?news_page=$1 [QSA]
+RewriteRule ^about/?  /index.php?op=about [QSA]
+RewriteRule ^download/?  /index.php?op=download [QSA]
+RewriteRule ^dev/?  /index.php?op=dev [QSA]
+RewriteRule ^help/?  /index.php?op=help [QSA]
+RewriteRule ^installation/?  /index.php?op=installation [QSA]
+RewriteRule ^links/?  /index.php?op=links [QSA]
+RewriteRule ^roadmap/?  /index.php?op=roadmap [QSA]
+RewriteRule ^screenshots/?  /index.php?op=screenshots [QSA]
+RewriteRule ^support/?  /index.php?op=support [QSA]
+RewriteRule ^todo/?  /index.php?op=todo [QSA]
+
 
 <Files ~ "^news\.txt">
     Order allow,deny

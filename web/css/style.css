@@ -24,6 +24,15 @@ hr {
     border: 0px;
 }
 
+.boilerplate {
+   position: absolute;
+   right: 1.5mm;
+   top: 0.25ex;
+   text-align: right;
+   margin-right: 1ex;
+   font-size: small;
+}
+
 .news_entry {
     margin: 0 0 0 4em;
 }
@@ -143,11 +152,10 @@ div.ads {
 .subHeader a {
   color: white;
   background-color: transparent;
-  text-decoration: none;
+  /*text-decoration: none;
   font-weight: bold;
   margin: 0;
-  font-family: "Courier New", Courier, monospace;
-  padding: 0 0.75ex 0 0.5ex;
+  padding: 0 0.75ex 0 0.5ex;*/
 }  
 
 .subHeader a:hover {

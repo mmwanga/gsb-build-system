@@ -2,7 +2,7 @@
 2005-02-19-12-00-EST
 freerock
 Freerock's GNOME version 0.0.2.2 Released:
-<p>It is available for download as an iso on the <a href="#downloads">download</a> page.
+<p>It is available for download as an iso on the <a href="/downloads">download</a> page.
 <br />
 This release is a bug fix release:</p>
 <ul>

@@ -20,7 +20,7 @@ print("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
   media="screen" title="Default Style" />
   <link rel="alternate stylesheet" type="text/css" href=
   "/css/print.css" media="print" title="Print-friendly Style" />
-  <title>GSB: GNOME.SlackBuild</title>
+  <title><?php echo($title); ?></title>
 </head> 
 <!--
 
@@ -32,14 +32,13 @@ print("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
 
 -->
 <body>  
-  <div id="top"></div>
+<div id="top"></div>
   
-  <div id="header">
-    <div class="subHeader">
-      <a href="/"><img src="/images/GSB_Logo.png" alt="GSB Logo"
-      class="doNotPrint"/></a>
-      <h1 class="doNotDisplay"><a href="/" class="headerLink" title="GSB:
-      GNOME.SlackBuild">GSB: Gnome.SlackBuild</a></h1>
-    </div>
-  </div>
+<div class="subHeader">
+ <a href="/"><img src="/images/GSB_Logo.png" alt="GSB Logo"
+  class="doNotPrint"/></a>
+  <h1 class="doNotDisplay"><a href="/" class="headerLink" title="GSB:
+  GNOME.SlackBuild">GSB: Gnome.SlackBuild</a></h1>
+<?php include('content/header.html'); ?>
+</div>
 
