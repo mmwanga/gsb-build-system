@@ -13,7 +13,7 @@ our $VERSION = 0.03;
 # Desktop Requirements Config Options
 #
 
-my %desktop_reqs =
+our %desktop_reqs =
   (
    'dbus'            => {
 			 'url' => 'http://dbus.freedesktop.org/releases/',
@@ -38,7 +38,7 @@ my %desktop_reqs =
   );
 
 
-my %stupid_gnomemeeting_libs =
+our %stupid_gnomemeeting_libs =
   (
    'openh323'  => {
 		   'url'   => 'http://www.gnomemeeting.org/admin/downloads/latest/sources/sources/',

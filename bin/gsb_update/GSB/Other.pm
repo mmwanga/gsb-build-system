@@ -62,12 +62,12 @@ our %other =
 			    },
    'graveman'            => {
 			     'ver' => '0.3.8',
-			     'url' => 'http://www.nongnu.org/download/graveman/',
+			     'url' => 'http://savannah.nongnu.org/download/graveman/',
 			     'src' => 'tar.bz2',
 			    },
    'gtkpod'              => {
-			     'ver' => '0.85.0',
-			     'url' => '',
+			     'ver' => '0.87.3',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtkpod/',
 			     'src' => 'tar.gz',
 			    },
    'gtkspell'            => {
@@ -81,7 +81,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'inkscape'            => {
-			     'ver' => '0.40',
+			     'ver' => '0.41',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/inkscape/',
 			     'src' => 'tar.bz2',
 			    },

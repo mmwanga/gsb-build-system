@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw(%gstremer %gst_other %gst_libs);
+our @EXPORT    = qw(%gstremer %gst_other %gst_libs %gst_libs_other);
 our @EXPORT_OK = qw();
 our $VERSION   = 0.03;
 

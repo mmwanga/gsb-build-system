@@ -1,5 +1,4 @@
 package GSB::Office;
-
 use Exporter;
 
 use strict;
@@ -7,7 +6,7 @@ use warnings;
 
 our @ISA       = qw(Exporter);
 our @EXPORT    = qw(%office %office_libs %office_gnome_libs %office_gnome);
-our @EXPORT_OK = qw(%gnome);
+our @EXPORT_OK = qw();
 our $VERSION = 0.03;
 
 ################################################################################

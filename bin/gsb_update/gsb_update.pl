@@ -13,9 +13,9 @@
 #               --getlocal
 #   - need to account for packages (ie. avifile,openh323,pwlib,ffmpeg)
 #     with both a VERSION Var and a PVERSION var so that both are updated
-#   - for packages on sourceforge, change url to sf and have a function randomly download each
-#     package from a different mirror
-#   - new args: --dl --edit
+#   - for packages on sourceforge, change url to sf and have a existing function
+#     check if url is eq "sf" and download each package from a random sf mirror
+#     Store list of mirror in an array.
 #
 # $Id$
 
@@ -143,7 +143,8 @@ foreach my $ppackage (keys %platform) {
 
   if ( $download eq "true" ) {
     if ( ! -f $tarball ) {
-      my $url = GSB::GSB::gsb_gnome_platform_url_make($ppackage, $platform{$ppackage});
+#      my $url = GSB::GSB::gsb_gnome_platform_url_make($ppackage, $platform{$ppackage});
+      my $url = GSB::GSB::gsb_gnome_generic_url_make($ppackage, $platform{$ppackage});
       GSB::GSB::gsb_tarball_get($ppackage, $url);
     }
   }
