@@ -5,7 +5,7 @@ TMP=${TMP:-/tmp}
 PKG=$TMP/package-avifile
 
 VERSION=0.7-0.7.43
-PVERSION=0.7_0.7.43
+PVERSION=`echo $VERSION| sed 's/-/_/'`
 ARCH=${ARCH:-i486}
 BUILD=2
 
