@@ -30,4 +30,9 @@ else
   echo "sabayon:*:9797:0:::::" >> etc/shadow
 fi
 
-bin/chown -R sabayon.sabayon var/sabayon
+if [ -z $ROOT ]; then
+	bin/chown -R sabayon.sabayon var/sabayon
+else
+	bin/chown -R 63.63 var/sabayon
+fi
+
