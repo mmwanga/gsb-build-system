@@ -171,7 +171,7 @@
       to /usr</li>
 
       <li><del>Get some CSS and simple graphics for this page and a menu
-      on the left of this page</del></li>
+      on the left of this page</del> <ins datetime="20050215">DONE</ins></li>
     </ol>
 
     <h2 id="support">Support</h2>
@@ -215,7 +215,7 @@
       <li>Anything missing? Want something added?</li>
 
       <li><del>some simple css for this website, or someone to just do
-      the website</del></li>
+      the website</del> <ins datetime="20050215">DONE</ins></li>
 
       <li>Some Graphics maybe? splash screen, gdm screen ....</li>
 
