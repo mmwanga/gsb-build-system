@@ -1,0 +1,11 @@
+pkg-config
+libpng
+libjpeg
+libtiff
+libpopt
+mozilla
+gdk-pixbuf
+
+These should come with X:
+	fontconfig
+	FreeType

@@ -1,0 +1,10 @@
+pkg-config
+fontconfig
+FreeType
+libpng
+libjpeg
+libtiff
+libpopt
+mozilla
+gdk-pixbuf
+
