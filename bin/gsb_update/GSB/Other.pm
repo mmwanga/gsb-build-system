@@ -110,7 +110,18 @@ our %other =
 			     'url' => 'http://poppler.freedesktop.org/',
 			     'src' => 'tar.gz',
 			    },
-   'xchat'                => {
+   'streamtuner'         => {
+			     'ver' => '0.99.99',
+			     'url' => 'http://savannah.nongnu.org/download/streamtuner/',
+			     'src' => 'tar.gz',
+			    },
+   'streamripper'         => {
+			     'ver' => '1.61.4',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/streamripper/',
+			     'src' => 'tar.gz',
+			    },
+
+   'xchat'               => {
 			     'ver' => '2.4.1',
 			     'url' => 'http://xchat.org/files/source/2.4/',
 			     'src' => 'tar.bz2',

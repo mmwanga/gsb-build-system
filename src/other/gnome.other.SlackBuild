@@ -42,7 +42,9 @@ gst-ffmpeg
 gst-monkeysaudio
 sabayon
 xchat
-gimp"
+gimp
+streamripper
+streamtuner"
 
 (
 for i in $BUILD_ORDER
