@@ -6,7 +6,7 @@ PKG=$TMP/package-hal
 
 VERSION=0.4.7
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -35,6 +35,7 @@ chmod 644 $PKG/usr/share/hwdata/pci.ids
 cd $TMP
 tar xzvf $CWD/hal-$VERSION.tar.gz
 cd hal-$VERSION
+cat $CWD/hal-slackware-storage-policy.patch | patch -p1 --verbose
 cp -f $CWD/DeviceManager.py tools/device-manager
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
