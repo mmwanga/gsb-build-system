@@ -609,8 +609,6 @@ foreach my $gst_dlibs (keys %gst_libs_other) {
 
   my $tarball = "$gst_dlibs-$ver.$src";
 
-  print "\n\n *** $tarball *** \n\n";
-
   if ( $download eq "true" ) {
     if ( ! -f $tarball ) {
       my $url = GSB::GSB::gsb_other_url_make($gst_dlibs, $packurl, $ver, $src);
