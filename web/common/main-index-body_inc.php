@@ -13,6 +13,8 @@
     
     <?php include_once('common/news.php'); ?>
 
+    <p><a class="topOfPage doNotPrint" href="#top" title="Go to the top of this page">^     TOP</a></p>
+
     <h2 id="about">About GSB: GNOME.SlackBuild</h2>
 
     <p>Building a <a href="http://www.gnome.org">GNOME</a>
