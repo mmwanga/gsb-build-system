@@ -34,7 +34,7 @@ CFLAGS="$SLKCFLAGS" \
             --disable-static \
 	    --program-prefix="" \
 	    --program-suffix="" \
-            i486-slackware-linux
+            $ARCH-slackware-linux
 make
 make install DESTDIR=$PKG
 

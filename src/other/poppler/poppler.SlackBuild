@@ -34,7 +34,7 @@ CXXFLAGS="$SLKCFLAGS -I/usr/X11R6/include" \
             --localstatedir=/var/lib \
             --disable-static \
 	    --disable-cairo-output \
-            i486-slackware-linux
+            $ARCH-slackware-linux
 make
 make install DESTDIR=$PKG
 

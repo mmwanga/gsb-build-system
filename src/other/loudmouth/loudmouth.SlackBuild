@@ -32,7 +32,7 @@ CFLAGS="$SLKCFLAGS" \
             --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static \
-            i486-slackware-linux
+            $ARCH-slackware-linux
 make
 make install DESTDIR=$PKG
 

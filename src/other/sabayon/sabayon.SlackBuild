@@ -33,7 +33,7 @@ CFLAGS="$SLKCFLAGS" \
             --localstatedir=/var/lib \
             --disable-static \
             --with-distro=slackware \
-            i486-slackware-linux
+            $ARCH-slackware-linux
 make
 make install DESTDIR=$PKG
 
