@@ -11,7 +11,7 @@ if [ ! -d $TMP ]; then
 fi
 
 # BUILD GNOME PLATFORM AND DESKTOP
-for i in reqs gnome other office
+for i in gnome other office
 do
 	echo "****************************************************"
 	echo "*******      BUILDING $i"

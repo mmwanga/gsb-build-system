@@ -22,6 +22,7 @@ gtk+2
 gconf
 desktop-file-utils
 gnome-mime-data
+gamin
 gnome-vfs
 audiofile
 esound
