@@ -52,7 +52,7 @@ our %desktop_reqs =
                         },
    'openldap'        => {
 			 'url' => 'ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/',
-			 'ver' => '2.2.23',
+			 'ver' => '2.2.24',
 			 'src' => 'tgz',
 			},
   );

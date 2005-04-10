@@ -25,6 +25,11 @@ our %other =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/anjuta/',
 			     'src' => 'tar.gz',
 			    },
+   'avidemux'            => {
+			     'ver' => '2.3.8rc2b',
+			     'url' => 'http://download.berlios.de/avidemux/',
+			     'src' => 'tar.gz',
+			    },
    'balsa'               => {
 			     'ver' => '2.3.0',
 			     'url' => 'http://balsa.gnome.org/',
@@ -91,7 +96,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'gimp'                => {
-			     'ver' => '2.2.4',
+			     'ver' => '2.2.6',
 			     'url' => 'ftp://ftp.gimp.org/pub/gimp/v2.2/',
 			     'src' => 'tar.bz2',
 			    },
@@ -183,7 +188,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'poppler'             => {
-			     'ver' => '0.1.2',
+			     'ver' => '0.2.0',
 			     'url' => 'http://poppler.freedesktop.org/',
 			     'src' => 'tar.gz',
 			    },
@@ -232,7 +237,7 @@ our %other =
 our %other_gnome =
   (
    'NetworkManager'      => '0.3.1',
-   'evince'              => '0.1.9',
+   'evince'              => '0.2.0',
    'ghex'                => '2.8.1',
    'glade'               => '2.10.0',
    'gnome-audio'         => '2.0.0',

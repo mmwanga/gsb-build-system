@@ -33,14 +33,6 @@ our %double_tarballs =
 			  'src' => 'tar.gz',
 			  'var' => 'TVERSION',
 			 },
-
-   'divx4linux'       => {
-			  'ver' => 'std-20030428',
-			  'dir' => 'gnome/desktop_reqs/divx4linux',
-			  'url' => 'http://download.divx.com/divx/',
-			  'src' => 'tar.gz',
-			  'var' => 'TVERSION',
-			 },
   );
 
 our %double_tarballs_url =
