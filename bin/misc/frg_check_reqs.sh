@@ -48,6 +48,6 @@ if [ -n "$MISSING_PACKAGES" ]; then
     done
 
     echo ""
-    echo "Please install them from your Slackware CDs"
+    echo "Please install them from your Slackware CDs or a slackware mirror"
     echo ""
 fi

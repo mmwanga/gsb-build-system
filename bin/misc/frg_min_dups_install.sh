@@ -118,7 +118,7 @@ case "$games_selection" in
 	upgradepkg --install-new $FRGROOT/frg/dups/gnome-games-2.10.0-*frg.tgz
 	;;
 '2')
-	upgradepkg --install-new $FRGROOT/frg/testing/gnome-games-2.10.0sgid-*frg.tgz
+	upgradepkg --install-new $FRGROOT/frg/alternatives/gnome-games-2.10.0sgid-*frg.tgz
 	;;
 *)
 	echo "Invalid selection"

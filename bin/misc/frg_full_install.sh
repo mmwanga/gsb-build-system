@@ -1,9 +1,5 @@
 #!/bin/sh
 
-FRGROOT=`dirname $0`
-
-export FRG_FULL=true
-
 # Install minimum install
 /bin/sh "$FRGROOT"/frg_min_install.sh
 

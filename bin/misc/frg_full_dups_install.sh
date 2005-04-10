@@ -4,22 +4,29 @@
 #
 # $Id$
 
-FRGROOT=`dirname $0`
 
 # Install GNUMERIC
-printf "*********************************
+
+if [ -z "$DEFAULT" ]; then
+
+    printf "*********************************
 
 Select which Gnumeric (spreadsheet) to install\n"
 
-echo "
+    echo "
 0) Do not install
 1) Gnumeric 1.4.3 (stable version)
 2) Gnumeric 1.5.0 (unstable version)
 "
 
-printf "Selection: "
-read gnumeric_selection
-echo ""
+    printf "Selection: "
+    read gnumeric_selection
+    echo ""
+fi
+
+if [ $DEFAULT = 'true' ]; then
+    gnumeric_selection=1
+fi
 
 case "$gnumeric_selection" in
 '0')
@@ -37,21 +44,29 @@ case "$gnumeric_selection" in
 	upgradepkg --install-new $FRGROOT/frg/dups/gnumeric-1.4.3-*frg.tgz
 esac
 
+
 # Install Drivel
 
-printf "*********************************
+if [ -z "$DEFAULT" ]; then
+    printf "*********************************
 
 Select which Drivel (blog client) to install\n"
 
-echo "
+    echo "
 0) Do not install
 1) Drivel 1.2.4 (stable version)
 2) Drivel 1.3.2 (development version)
 "
 
-printf "Selection: "
-read drivel_selection
-echo ""
+    printf "Selection: "
+    read drivel_selection
+    echo ""
+fi
+
+if [ $DEFAULT = 'true' ]; then
+    drivel_selection=1
+fi
+
 
 case "$drivel_selection" in
 '0')
@@ -71,19 +86,25 @@ esac
 
 # Install GIMP
 
-printf "*********************************
+if [ -z "$DEFAULT" ]; then
+    printf "*********************************
 
 Select which GIMP to install\n"
 
-echo "
+    echo "
 0) Do not install
 1) GIMP 2.2.4 
 2) GIMP 2.2.4 with pygimp installed
 "
 
-printf "Selection: "
-read gimp_selection
-echo ""
+    printf "Selection: "
+    read gimp_selection
+    echo ""
+fi
+
+if [ $DEFAULT = 'true' ]; then
+    gimp_selection=1
+fi
 
 case "$gimp_selection" in
 '0')
