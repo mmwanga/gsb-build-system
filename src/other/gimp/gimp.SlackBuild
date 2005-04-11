@@ -6,7 +6,7 @@ PKG=$TMP/package-gimp
 rm -rf $PKG
 mkdir -p $PKG
 
-VERSION=2.2.4
+VERSION=2.2.6
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -33,6 +33,7 @@ CFLAGS="$SLKCFLAGS" \
   --sysconfdir=/etc \
   --localstatedir=/var/lib \
   --disable-static \
+  --enable-python \
   $ARCH-slackware-linux
 make -j3
 mkdir -p $PKG/usr/share/applications $PKG/usr/share/application-registry

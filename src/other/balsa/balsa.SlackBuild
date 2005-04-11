@@ -34,7 +34,8 @@ CFLAGS="$SLKCFLAGS" \
             --localstatedir=/var/lib \
             --disable-static \
 	    --with-ssl \
-	    --without-esmtp \
+	    --with-esmtp \
+	    --with-gpgme=/usr/bin/gpgme-config \
             $ARCH-slackware-linux
 make
 make install DESTDIR=$PKG

@@ -6,7 +6,7 @@ PKG=$TMP/package-libmikmod
 
 VERSION=3.1.11
 ARCH=${ARCH:-i486}
-BUILD=3
+BUILD=4
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -27,7 +27,7 @@ fi
 cd $TMP 
 tar xzvf $CWD/libmikmod-$VERSION.tar.gz
 cd libmikmod-$VERSION
-cat $CWD/libmikmod-3.1.11-a.diff | patch -p1 --verbose
+#cat $CWD/libmikmod-3.1.11-a.diff | patch -p1 --verbose
 chown -R root.root .
 find . -perm 666 -exec chmod 644 {} \;
 find . -perm 664 -exec chmod 644 {} \;

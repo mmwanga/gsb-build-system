@@ -2,9 +2,9 @@
 
 CWD=`pwd`
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-evince
+PKG=$TMP/package-gpgme
 
-VERSION=0.2.0
+VERSION=1.0.2
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -25,38 +25,22 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 cd $TMP
-tar -xjvf $CWD/evince-$VERSION.tar.bz2
-cd evince-$VERSION
+tar -xzvf $CWD/gpgme-$VERSION.tar.gz
+cd gpgme-$VERSION
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
-            --sysconfdir=/etc \
-            --localstatedir=/var/lib \
-            --disable-static \
             $ARCH-slackware-linux
 make
 make install DESTDIR=$PKG
 
-SCHEMAS=$PKG/etc/gconf/schemas
-for i in $SCHEMAS/*.schemas
-do
-GCONF_CONFIG_SOURCE="xml::$PKG/etc/gconf/gconf.xml.defaults" \
-        gconftool-2 --makefile-install-rule $i
-done
-
-(
-  cd $PKG/etc/gconf/gconf.xml.defaults
-  find ./ -type d -exec chmod go+rx {} \;
-  find ./ -type f -exec chmod go+r {} \;
-)
-
 chown -R root.bin $PKG/usr/bin
 
-mkdir -p $PKG/usr/doc/evince-$VERSION
+mkdir -p $PKG/usr/doc/gpgme-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
         TODO \
-        $PKG/usr/doc/evince-$VERSION
-find $PKG/usr/doc/evince-$VERSION/ -type f -exec chmod 644 {} \;
-chown root.root $PKG/usr/doc/evince-$VERSION/*
+        $PKG/usr/doc/gpgme-$VERSION
+find $PKG/usr/doc/gpgme-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/doc/gpgme-$VERSION/*
 
 # strip:
 ( cd $PKG
@@ -72,10 +56,10 @@ cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-makepkg -l y -c n $TMP/evince-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/gpgme-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/evince-$VERSION
+  rm -rf $TMP/gpgme-$VERSION
   rm -rf $PKG
 fi

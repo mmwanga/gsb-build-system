@@ -14,7 +14,8 @@ mkdir -p $TMP/gnome-$GVERSION/other
 
 # not built: IndLinux NetworkManager
 
-BUILD_ORDER="libmikmod
+BUILD_ORDER="
+libmikmod
 libgphoto2
 gphoto2
 libexif-gtk
@@ -53,6 +54,9 @@ gimp
 streamripper
 streamtuner
 drivel
+libgpg-error
+gpgme
+libesmtp
 gmime
 mail-notification
 contact-lookup-applet
@@ -70,7 +74,10 @@ bluefish
 gqview
 gnome-blog
 grip
-xscreensaver"
+xscreensaver
+gnome-pkgtool
+avidemux
+"
 
 (
 for i in $BUILD_ORDER

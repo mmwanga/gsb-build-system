@@ -6,7 +6,7 @@ PKG=$TMP/package-bmp
 
 VERSION=0.9.7
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -34,6 +34,7 @@ CFLAGS="$SLKCFLAGS" \
             --disable-static \
 	    --program-prefix="" \
 	    --program-suffix="" \
+	        --with-xmms-eq \
             $ARCH-slackware-linux
 make
 make install DESTDIR=$PKG
