@@ -1,0 +1,17 @@
+audiofile
+esound
+gconf
+gdk_pixbuf
+glade
+glib2
+gnome-vfs
+gtk+2
+libart_lgpl
+libbonobo
+libbonoboui
+libxml2
+libxslt
+loudmouth
+openssl
+orbit2
+pango
