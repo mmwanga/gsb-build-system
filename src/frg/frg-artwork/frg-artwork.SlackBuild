@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-frg-artwork
 
-VERSION=1.0.0
+VERSION=1.0.1
 ARCH=${ARCH:-i486}
-BUILD=10
+BUILD=1
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -19,7 +19,12 @@ mkdir -p \
 	$PKG/usr/share/pixmaps/splash/frg \
 	$PKG/usr/share/icons \
 	$PKG/usr/share/gdm/themes \
-	$PKG/usr/share/gnome-background-properties
+	$PKG/usr/share/gnome-background-properties \
+	$PKG/usr/share/themes/FRG/
+
+# FRG Theme
+cp $CWD/frg.gnome.index.theme \
+	$PKG/usr/share/themes/FRG/
 
 # Copy background config file
 cp $CWD/frg-branded.xml \
@@ -43,8 +48,6 @@ cp -r $CWD/gdm/* \
 
 (
   cd $PKG/usr/share/gdm/themes
-  pwd
-  sleep 5
   find ./ -type d -name "\.svn" -exec rm -rf {} \;
 )
 
