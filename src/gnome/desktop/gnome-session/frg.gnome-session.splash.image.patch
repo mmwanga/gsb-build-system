@@ -5,7 +5,7 @@
           <owner>gnome</owner>
           <type>string</type>
 -         <default>splash/gnome-splash.png</default>
-+         <default>splash/frg/frg_darkerII_splash_without_bar.png</default>
++         <default>splash/frg/frg_darkerII_splash_with_bar.png</default>
           <locale name="C">
              <short>Preferred Image to use for login splash screen</short>
              <long>This is a relative path value based off the $datadir/pixmaps/ directory.  Sub-directories and image names are valid values. Changing this value will effect the next session login.</long>

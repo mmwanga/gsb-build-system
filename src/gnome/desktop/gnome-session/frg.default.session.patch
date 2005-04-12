@@ -1,0 +1,21 @@
+--- gnome-session-2.10.0/gnome-session/default.in.orig	2005-04-10 12:57:14.000000000 -0400
++++ gnome-session-2.10.0/gnome-session/default.in	2005-04-11 00:48:19.000000000 -0400
+@@ -8,7 +8,7 @@
+ # The clients must be numbered from 0 to the value of num_clients - 1.
+ 
+ [Default]
+-num_clients=4
++num_clients=6
+ 0,id=default0
+ 0,Priority=0
+ 0,RestartCommand=gnome-smproxy --sm-client-id default0
+@@ -21,3 +21,9 @@
+ 3,id=default3
+ 3,Priority=40
+ 3,RestartCommand=nautilus --no-default-window --sm-client-id default3
++4,id=default4
++4,Priority=50
++4,RestartCommand=dbus-daemon-1 --session
++5,id=default5
++5,Priority=50
++5,RestartCommand=gnome-volume-manager --sm-client-id default5

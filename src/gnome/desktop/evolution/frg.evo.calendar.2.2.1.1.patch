@@ -1,0 +1,22 @@
+? plugins/itip-formatter/evolution-backup.tar.gz
+? plugins/itip-formatter/fb.patch
+? plugins/itip-formatter/recur-string.patch
+? plugins/itip-formatter/task-itip.patch
+? plugins/itip-formatter/temp.patch
+? plugins/itip-formatter/temp2.patch
+Index: plugins/itip-formatter/itip-formatter.c
+===================================================================
+RCS file: /cvs/gnome/evolution/plugins/itip-formatter/itip-formatter.c,v
+retrieving revision 1.38.2.1
+diff -u -r1.38.2.1 itip-formatter.c
+--- plugins/itip-formatter/itip-formatter.c	15 Mar 2005 15:56:02 -0000	1.38.2.1
++++ plugins/itip-formatter/itip-formatter.c	18 Mar 2005 15:33:35 -0000
+@@ -1011,7 +1011,7 @@
+ 		return FALSE;	       
+ 	}
+ 
+-	switch (kind) {
++	switch (icalcomponent_isa (pitip->ical_comp)) {
+ 	case ICAL_VEVENT_COMPONENT:
+ 		pitip->type = E_CAL_SOURCE_TYPE_EVENT;
+ 		break;

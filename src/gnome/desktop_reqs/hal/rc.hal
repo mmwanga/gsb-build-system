@@ -4,8 +4,12 @@
 hal_start()
 {
   if [ -x /usr/sbin/hald ]; then
-    echo "Starting HAL daemon:  /usr/sbin/hald"
-    /usr/sbin/hald --daemon=yes
+	if [ `/sbin/kernelversion` == "2.6" ]; then
+	    echo "Starting HAL daemon:  /usr/sbin/hald"
+	    /usr/sbin/hald --daemon=yes
+	else
+	    echo "Kernel 2.6 is required for HAL features."
+	fi
   fi
 }
 
@@ -16,8 +20,9 @@ hal_stop()
 
 hal_restart()
 {
-  hal_stop;
-  hal_start;
+  hal_stop
+  sleep 1
+  hal_start
 }
 
 case "$1" in

@@ -6,7 +6,7 @@ PKG=$TMP/package-hal
 
 VERSION=0.4.7
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source

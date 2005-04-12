@@ -4,7 +4,6 @@ PIDFILE=/var/run/dbus.pid;
 
 dbus_start() {
   if [ -x /usr/bin/dbus-daemon-1 -a "`pgrep -u messagebus dbus-daemon-1`" = "" ]; then
-    if [ `/sbin/kernelversion` == "2.6" ]; then
       # Just in case the pidfile is still there, we need to nuke it.
       if [ -e "$PIDFILE" ]; then
         rm -f $PIDFILE
@@ -16,9 +15,6 @@ dbus_start() {
       if [ "$?" = "0" ]; then
         echo "started"
       fi
-    else
-      echo "Kernel 2.6 is required for DBUS features."
-    fi
   else
     if [ "`pgrep -u messagebus dbus-daemon-1`" != "" ]; then
 	  echo "/usr/bin/dbus-daemon-1 --system: already running"
