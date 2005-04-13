@@ -10,7 +10,7 @@ config() {
   # Otherwise, we leave the .new copy for the admin to consider...
 }
 
-config etc/gconf/2/local-madatory.path.new
+config etc/gconf/2/local-mandatory.path.new
 config etc/gconf/2/local-defaults.path.new
 
 # If the sabayon user/group don't exist, add them:
