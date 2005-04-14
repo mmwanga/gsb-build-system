@@ -6,7 +6,7 @@ PKG=$TMP/package-libebml
 
 VERSION=0.7.3
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -30,7 +30,7 @@ cd libebml-$VERSION
 (
   cd make/linux
   cp Makefile Makefile.orig
-  sed -e 's#prefix=/usr#prefix=/usr#g' < Makefile.orig > Makefile
+  sed -e 's#prefix=/usr/local#prefix=/usr#g' < Makefile.orig > Makefile
   make
   cp -f Makefile Makefile.orig
   sed -e "s#prefix=/usr#prefix=$PKG/usr#g" < Makefile.orig > Makefile
