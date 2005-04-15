@@ -1,0 +1,11 @@
+x11: ADD
+x11-devel: SKP
+x11-docs: SKP
+x11-docs-html: SKP
+x11-fonts-100dpi: ADD
+x11-fonts-cyrillic: SKP
+x11-fonts-misc: ADD
+x11-fonts-scale: ADD
+x11-xdmx: SKP
+x11-xnest: ADD
+x11-xvfb: SKP
