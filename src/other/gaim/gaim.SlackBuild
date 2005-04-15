@@ -7,7 +7,7 @@ PKG=$TMP/package-gaim
 VERSION=1.2.1
 GAIMENC=2.36
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 rm -rf $PKG
 mkdir -p $PKG
@@ -37,6 +37,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --program-suffix="" \
   $ARCH-slackware-linux
 make -j4
+make install
 make install DESTDIR=$PKG
 
 ### add gaim-encryption
