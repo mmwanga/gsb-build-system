@@ -16,6 +16,7 @@ FRG:
 	* mozilla-nss libs for people who do not want mozilla installed
 	* clean up build order will howl, dbus, hal
 	* default.session: dbus, gnome-volume-manager
+	* mozilla plugins: add note to README/INSTALL files
 
 WEBSITE:
 
