@@ -60,15 +60,10 @@ libtheora
 xvidcore
 transcode
 avifile
-Pyrex
-dbus
-libcap
-hal
-howl
 cyrus-sasl
 heimdal
 openldap
-gamin"
+"
 
 (
 

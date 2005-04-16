@@ -14,6 +14,7 @@ glib2
 libidl
 orbit2
 intltool
+howl
 libbonobo
 pango
 atk
@@ -23,6 +24,10 @@ gconf
 desktop-file-utils
 gnome-mime-data
 gamin
+Pyrex
+libcap
+dbus
+hal
 gnome-vfs
 audiofile
 esound
