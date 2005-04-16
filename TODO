@@ -5,10 +5,15 @@ GSB:
 
 	* add a HACKING file with instructions on how to edit
 	  and add things to the source tree
+
 FRG:
 
 	* See if using the Slackware provided libs for gtk/glib/pango and anything
 	  else in slackware/l is feasible
+	* Add a frg-$VERSION package so users know which version they have installed.
+	* fonts package
+	* mozilla-nss libs for people who do not want mozilla installed
+	* clean up build order will howl, dbus, hal
 
 WEBSITE:
 
@@ -23,3 +28,6 @@ WEBSITE:
 	  purposes. Maybe have a separate page with a check
 	  list to say that they have tested the package
 
+MINIROCK GNOME:
+
+	Cut down version of FREEROCK GNOME
