@@ -51,8 +51,7 @@ if [ -x /etc/rc.d/rc.hal ]; then
 	# wait a few seconds to let udev complete its 
 	# initialization.  Otherwise hald will not recognize CD/DVD
 	# drives and will not start polling them
-	sleep 5
-	. /etc/rc.d/rc.hal start
+( sleep 5; /etc/rc.d/rc.hal start ) &
 fi
 EOF
 fi
