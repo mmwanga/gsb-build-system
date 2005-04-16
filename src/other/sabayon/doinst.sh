@@ -36,3 +36,6 @@ else
 	bin/chown -R 63.63 var/sabayon
 fi
 
+if [ -x usr/bin/update-desktop-database ]; then
+  usr/bin/update-desktop-database 1> /dev/null 2> /dev/null
+fi

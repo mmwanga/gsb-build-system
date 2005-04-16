@@ -7,7 +7,7 @@ PKG=$TMP/package-gaim
 VERSION=1.2.1
 GAIMENC=2.36
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 rm -rf $PKG
 mkdir -p $PKG
@@ -72,7 +72,9 @@ cp -a \
 chmod 644 $PKG/usr/doc/gaim-$VERSION/*
 gzip -9 $PKG/usr/man/*/*
 mkdir -p $PKG/install
+cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 makepkg -l y -c n ../gaim-$VERSION-$ARCH-$BUILD.tgz
