@@ -234,6 +234,56 @@ our %bindings_python =
    'pyphany'              => '0.1.2',
   );
 
+our %bindings_perl =
+  (
+   'ExtUtils-Depends'    => {
+			     'ver' => '0.205',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtk2-perl/',
+			     'src' => 'tar.gz',
+			    },
+   'ExtUtils-PkgConfig'  => {
+			     'ver' => '1.07',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtk2-perl/',
+			     'src' => 'tar.gz',
+			    },
+   'Glib'                => {
+			     'ver' => '1.081',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtk2-perl/',
+			     'src' => 'tar.gz',
+			    },
+   'Gnome2'              => {
+			     'ver' => '1.021',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtk2-perl/',
+			     'src' => 'tar.gz',
+			    },
+   'Gnome2-Canvas'       => {
+			     'ver' => '1.002',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtk2-perl/',
+			     'src' => 'tar.gz',
+			    },
+   'Gnome2-GConf'        => {
+			     'ver' => '1.000',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtk2-perl/',
+			     'src' => 'tar.gz',
+			    },
+   'Gnome2-VFS'          => {
+			     'ver' => '1.021',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtk2-perl/',
+			     'src' => 'tar.gz',
+			    },
+   'Gtk2'                => {
+			     'ver' => '1.081',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtk2-perl/',
+			     'src' => 'tar.gz',
+			    },
+   'Gtk2-GladeXML'       => {
+			     'ver' => '1.004',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtk2-perl/',
+			     'src' => 'tar.gz',
+			    },
+  );
+
+
 #
 # End Config Options
 ################################################################################

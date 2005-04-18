@@ -81,12 +81,12 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libcddb'           => {
-			   'ver' => '0.9.6',
+			   'ver' => '1.0.0',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libcddb/',
 			   'src' => 'tar.gz',
 			  },
    'libcdio'           => {
-			   'ver' => '0.72',
+			   'ver' => '0.73',
 			   'url' => 'http://ftp.gnu.org/gnu/libcdio/',
 			   'src' => 'tar.gz',
 			  },
@@ -146,7 +146,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libmusepack'       => {
-			   'ver' => '1.1',
+			   'ver' => '1.1.1',
 			   'url' => 'http://www.saunalahti.fi/grimmel/musepack.net-files/source/',
 			   'src' => 'tar.bz2',
 			  },
