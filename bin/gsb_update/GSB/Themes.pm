@@ -21,7 +21,7 @@ our %gnome_themes =
 our %other_themes =
   (
    'clearlooks'           => {
-			      'ver' => '0.5',
+			      'ver' => '0.5.2a',
 			      'url' => 'http://heanet.dl.sourceforge.net/sourceforge/clearlooks/',
 			      'src' => 'tar.bz2',
 			     },

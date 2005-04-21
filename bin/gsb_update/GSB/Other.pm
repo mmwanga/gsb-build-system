@@ -101,7 +101,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'gmime'               => {
-			     'ver' => '2.1.13',
+			     'ver' => '2.1.14',
 			     'url' => 'http://spruce.sourceforge.net/gmime/sources/v2.1/',
 			     'src' => 'tar.gz',
 			    },
