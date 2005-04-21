@@ -17,8 +17,8 @@ our $VERSION   = 0.03;
 our %office =
   (
    'abiword' => {
-		 'url' => "http://www.abisource.com/downloads/abiword/2.2.6/source/",
-		 'ver' => '2.2.6',
+		 'url' => "http://www.abisource.com/downloads/abiword/2.2.7/source/",
+		 'ver' => '2.2.7',
 		 'src' => 'tar.gz'
 		},
   );
@@ -44,11 +44,6 @@ our %office_libs =
 		   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/fribidi/',
 		   'ver' => '0.10.4',
 		   'src' => 'tar.bz2',
-		  },
-   'iso-codes' => {
-		   'url' => 'http://people.debian.org/~mckinstry/',
-		   'ver' => '0.46pre1',
-		   'src' => 'tar.gz',
 		  },
    'libwmf'    => {
 		   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/wvware/',
@@ -88,7 +83,7 @@ our %office_gnome =
   (
    'gnumeric'  => '1.4.3',
    'dia'       => '0.94',
-   'glom'      => '0.8.19',
+   'glom'      => '0.8.22',
    'mergeant'  => '0.52',
    'planner'   => '0.13',
   );

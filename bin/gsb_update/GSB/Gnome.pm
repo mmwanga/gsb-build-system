@@ -7,14 +7,15 @@ use strict;
 our @ISA       = qw(Exporter);
 our @EXPORT    = qw(%platform
                     %platform_diff_naming
-                    %platform_fdo
+                    %platform_reqs
                     %desktop
                     %desktop_diff_naming
                     %desktop_other
                     %desktop_nongnome
                     %bindings_cxx
                     %bindings_java
-                    %bindings_python);
+                    %bindings_python
+                    %bindings_perl);
 our @EXPORT_OK = qw();
 our $VERSION   = 0.03;
 
@@ -76,16 +77,41 @@ our %platform_diff_naming =
   );
 
 # these are packages from freedesktop.org
-our %platform_fdo =
+our %platform_reqs =
   (
+   'dbus'                => {
+			     'url' => 'http://dbus.freedesktop.org/releases/',
+			     'ver' => '0.23.4',
+			     'src' => 'tar.gz',
+			    },
    'desktop-file-utils'  => {
 			     'ver' => '0.10',
 			     'url' => 'http://freedesktop.org/software/desktop-file-utils/releases/',
 			     'src' => 'tar.gz',
 			    },
+   'gamin'               => {
+			     'url' => 'http://www.gnome.org/~veillard/gamin/sources/',
+			     'ver' => '0.0.26',
+			     'src' => 'tar.gz',
+			    },
+   'hal'                 => {
+			     'url' => 'http://freedesktop.org/~david/dist/',
+			     'ver' => '0.4.7',
+			     'src' => 'tar.gz',
+			    },
+   'howl'                => {
+			     'url' => 'http://www.porchdogsoft.com/download/',
+			     'ver' => '0.9.10',
+			     'src' => 'tar.gz',
+			    },
+   'libcap'              => {
+			     'url' => 'http://www.kernel.org/pub/linux/libs/security/linux-privs/kernel-2.4/',
+			     'ver' => '1.10',
+			     'src' => 'tar.gz',
+			    },
    'shared-mime-info'    => {
-			     'url' => 'http://freedesktop.org/software/shared-mime-info/',
-			     'ver' => '0.15',
+			     'url' => 'http://freedesktop.org/~jrb/',
+			     'ver' => '0.16',
 			     'src' => 'tar.gz',
 			    },
    'hicolor-icon-theme'  => {

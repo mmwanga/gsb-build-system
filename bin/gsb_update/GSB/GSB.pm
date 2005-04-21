@@ -69,48 +69,13 @@ EOF
 
 # simple function to grab a url
 sub gsb_get {
-
   my $url = shift;
 
   system("wget $wget_options $url");
 }
 
-# simple function to take a file name and url and download a source tarball
-# gsb_tarball_get($file, $url);
-sub gsb_tarball_get {
-
-  my $name    = shift;
-  my $ver     = shift;
-  my $tarball = shift;
-  my $type    = shift;
-  my $url     = shift;
-
-#  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
-
-  if ( ! -f $tarball ) {
-    system("wget $wget_options $url");
-  }
-
-  my $verify = "";
-  $verify = GSB::Verify::gsb_md5_verify($name, $ver, $type);
-
-  if ( $verify ne "" ) {
-    if ( $verify eq "bad" ) {
-      unlink $tarball;
-      gsb_tarball_get($name, $ver, $tarball, $url);
-    }
-    elsif ( $verify eq "good" ) {
-      print "$name tarball md5 matches\n";
-    }
-    else {
-      print "md5 not checked\n";
-    }
-  }
-}
-
 # give url, tarball name
-sub gsb_other_url_make {
-
+sub gsb_generic_url_make {
   my $url     = shift;
   my $tarball = shift;
 
@@ -129,7 +94,6 @@ sub gsb_gnome_generic_url_make {
   return my $thisurl = "$gsrcdir/$name/$sver/$name-$ver.tar.bz2";
 }
 
-
 # construct a url for a md5 sum of a gnome tarball
 sub gsb_gnome_md5sum_url_make {
   my $name = shift;
@@ -143,33 +107,81 @@ sub gsb_gnome_md5sum_url_make {
 }
 
 # construct a url for a md5 sum file of some tarball
-sub gsb_other_md5sum_url_make {
+sub gsb_generic_md5sum_url_make {
   my $url      = shift;
   my $md5_file = shift;
 
   return my $thisurl = "$url/$md5_file";
 }
 
+sub gsb_gnome_md5sum_name_make {
+  my $name = shift;
+  my $ver  = shift;
 
-sub gsb_gnome_tarball_get {
+  return my $tarball = "$name-$ver.md5sum";
+}
 
+sub gsb_generic_tarball_name_make {
+  my $name = shift;
+  my $ver  = shift;
+  my $src  = shift;
+
+  return my $tarball = "$name-$ver.$src";
+}
+
+sub gsb_gnome_tarball_name_make {
+  my $name = shift;
+  my $ver  = shift;
+
+  return my $tarball = "$name-$ver.tar.bz2";
+}
+
+# simple function to take a file name and url and download a source tarball
+# gsb_tarball_get($file, $url);
+sub gsb_tarball_get {
   my $name    = shift;
   my $ver     = shift;
   my $tarball = shift;
+  my $type    = shift;
+  my $url     = shift;
 
-  my $md5_file = "$name-$ver.$gnome_md5_file";
+  if ( ! -f $tarball ) {
+    gsb_get($url);
+  }
 
-  my $type = "gnome";
+  my $verify = "";
+  $verify = GSB::Verify::gsb_md5_verify($name, $ver, $type);
+
+  if ( $verify ne "" ) {
+    if ( $verify eq "bad" ) {
+      unlink $tarball;
+      gsb_tarball_get($name, $ver, $tarball, $url);
+    }
+    elsif ( $verify eq "good" ) {
+      print "$name tarball md5 matches (NOT REALLY CHECKED YET)\n";
+    }
+    else {
+      print "md5 not checked\n";
+    }
+  }
+}
+
+sub gsb_gnome_tarball_get {
+  my $name      = shift;
+  my $ver       = shift;
+  my $tarball   = shift;
+  my $md5_file  = "$name-$ver.$gnome_md5_file";
+  my $type      = "gnome";
 
   my $url     = GSB::GSB::gsb_gnome_generic_url_make($name, $ver);
   my $md5_url = GSB::GSB::gsb_gnome_md5sum_url_make($name, $ver);
 
   if ( ! -f $tarball ){
-    system("wget $wget_options $url");
+    gsb_get($url);
   }
 
   if ( ! -f $md5_file ){
-    system("wget $wget_options $md5_url");
+    gsb_get($md5_url);
   }
 
   my $verify = "";
@@ -188,34 +200,7 @@ sub gsb_gnome_tarball_get {
       print "\n\n DEBUG: md5 not checked\n\n\n";
     }
   }
-
 }
-
-sub gsb_gnome_tarball_name_make {
-
-  my $name = shift;
-  my $ver  = shift;
-
-  return my $tarball = "$name-$ver.tar.bz2";
-}
-
-sub gsb_gnome_md5sum_name_make {
-
-  my $name = shift;
-  my $ver  = shift;
-
-  return my $tarball = "$name-$ver.md5sum";
-}
-
-sub gsb_generic_tarball_name_make {
-
-  my $name = shift;
-  my $ver  = shift;
-  my $src  = shift;
-
-  return my $tarball = "$name-$ver.$src";
-}
-
 
 # End Functions
 #

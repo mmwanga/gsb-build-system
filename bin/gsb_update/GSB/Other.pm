@@ -26,7 +26,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'avidemux'            => {
-			     'ver' => '2.3.8rc2b',
+			     'ver' => '2.0.38rc2b',
 			     'url' => 'http://download.berlios.de/avidemux/',
 			     'src' => 'tar.gz',
 			    },
@@ -51,7 +51,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'contact-lookup-applet' => {
-			       'ver' => '0.11',
+			       'ver' => '0.12',
 			       'url' => 'http://www.burtonini.com/computing/',
 			       'src' => 'tar.gz',
 			      },
@@ -76,12 +76,12 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'gDesklets'           => {
-			     'ver' => '0.34.1',
+			     'ver' => '0.34.3',
 			     'url' => 'http://www.pycage.de/download/gdesklets/',
 			     'src' => 'tar.bz2',
 			    },
    'gaim'                => {
-			     'ver' => '1.2.0',
+			     'ver' => '1.2.1',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gaim',
 			     'src' => 'tar.bz2',
 			    },
@@ -117,7 +117,7 @@ our %other =
 			    },
 
    'graveman'            => {
-			     'ver' => '0.3.9',
+			     'ver' => '0.3.10',
 			     'url' => 'http://savannah.nongnu.org/download/graveman/',
 			     'src' => 'tar.bz2',
 			    },
@@ -218,7 +218,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'sylpheed-claws'      => {
-			     'ver' => '1.9.7',
+			     'ver' => '1.9.6',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/sylpheed-claws/',
 			     'src' => 'tar.bz2',
 			    },

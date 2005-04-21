@@ -20,36 +20,11 @@ our %desktop_reqs =
 			 'ver' => '2.1.20',
 			 'src' => 'tar.gz',
                         },
-   'dbus'            => {
-			 'url' => 'http://dbus.freedesktop.org/releases/',
-			 'ver' => '0.23.4',
-			 'src' => 'tar.gz',
-                        },
-   'gamin'           => {
-			 'url' => 'http://www.gnome.org/~veillard/gamin/sources/',
-			 'ver' => '0.0.26',
-			 'src' => 'tar.gz',
-                        },
-   'hal'             => {
-			 'url' => 'http://freedesktop.org/~david/dist/',
-			 'ver' => '0.4.7',
-			 'src' => 'tar.gz',
-                        },
    'heimdal'         => {
 			 'url' => 'ftp://ftp.pdc.kth.se/pub/heimdal/src/',
 			 'ver' => '0.6.3',
 			 'src' => 'tar.gz',
 			},
-   'howl'            => {
-			 'url' => 'http://www.porchdogsoft.com/download/',
-			 'ver' => '0.9.10',
-			 'src' => 'tar.gz',
-                        },
-   'libcap'          => {
-			 'url' => 'http://www.kernel.org/pub/linux/libs/security/linux-privs/kernel-2.4/',
-			 'ver' => '1.10',
-			 'src' => 'tar.gz',
-                        },
    'openldap'        => {
 			 'url' => 'ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/',
 			 'ver' => '2.2.24',
