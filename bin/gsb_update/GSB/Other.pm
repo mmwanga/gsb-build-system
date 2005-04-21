@@ -47,7 +47,7 @@ our %other =
 			    },
    'coaster'             => {
 			     'ver' => '0.1.4.2',
-			     'url' => 'http://www.coaster-burn.org/files/coaster/',
+			     'url' => 'http://www.coaster-burner.org/files/coaster/',
 			     'src' => 'tar.gz',
 			    },
    'contact-lookup-applet' => {
@@ -158,7 +158,7 @@ our %other =
 			    },
    'libcoaster'          => {
 			     'ver' => '0.1pre1',
-			     'url' => 'http://www.coaster-burn.org/files/libcoaster/',
+			     'url' => 'http://www.coaster-burner.org/files/libcoaster/',
 			     'src' => 'tar.gz'
 			    },
    'libexif-gtk'             => {

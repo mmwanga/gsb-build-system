@@ -184,16 +184,18 @@ foreach my $ppackage (keys %platform) {
 # DOWNLOAD other platform libs
 foreach my $pnpackage (keys %platform_diff_naming) {
 
-  my $name    = $platform_diff_naming{$pnpackage}{name};
+  my $name    = $pnpackage;
+
+  my $oname   = $platform_diff_naming{$pnpackage}{name};
   my $ver     = $platform_diff_naming{$pnpackage}{ver};
-  my $sb_file = $pnpackage. $sb_ext;
+  my $sb_file = $name. $sb_ext;
 
   chdir "$pwd/gnome/platform/$name";
 
-  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($oname, $ver);
 
   if ( $download eq "true" ) {
-    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
+    GSB::GSB::gsb_gnome_tarball_get($oname, $ver, $tarball);
   }
 
   if ( $edit eq "true" ) {
@@ -205,7 +207,7 @@ foreach my $pnpackage (keys %platform_diff_naming) {
   }
 
   if ( ! -f $tarball ) {
-    push(@bad_downloads, $pnpackage);
+    push(@bad_downloads, $name);
   }
 }
 
