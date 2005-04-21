@@ -12,8 +12,9 @@ fi
 
 mkdir -p $TMP/gnome-$GVERSION/office
 
-#not included: eps, iso-codes, PyXML
+#not included: eps, PyXML
 BUILD_ORDER="
+iso-codes
 aiksaurus
 ots
 libwmf
