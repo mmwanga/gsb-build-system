@@ -15,7 +15,7 @@ rm -rf $PKG
 mkdir -p $PKG
 
 cd $TMP
-tar -xzvf $CWD/iso-codes-$VERSION.tar.gz
+tar -xzvf $CWD/iso-codes_$VERSION.orig.tar.gz
 cd iso-codes-cvs
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
