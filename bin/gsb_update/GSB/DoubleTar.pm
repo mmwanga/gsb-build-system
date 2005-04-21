@@ -42,8 +42,8 @@ our %double_tarballs_url =
    'clearlooks-metacity'       => {
 				   'ver' => '0.5.2a',
 				   'dir' => 'gnome/themes/clearlooks',
-				   'url' => 'http://www.gnome-look.org/content/files/',
-				   'tar' => '21237-clearlooks-metacity-0.5.2a.tar.gz',
+				   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/clearlooks/clearlooks-metacity-0.5.2a.tar.gz',
+				   'tar' => 'clearlooks-metacity-0.5.2a.tar.gz',
 				   'var' => 'MVERSION',
 				  },
    'iso-codes'                 => {
