@@ -5,6 +5,7 @@ TMP=${TMP:-/tmp}
 PKG=$TMP/package-clearlooks
 
 VERSION=0.5
+MVERSION=0.5.2a
 ARCH=${ARCH:-i486}
 BUILD=3
 
@@ -38,7 +39,7 @@ make install DESTDIR=$PKG
 
 (
   cd $PKG/usr/share/themes
-  tar vzxf $CWD/21237-clearlooks-metacity-$VERSION.tar.gz
+  tar vzxf $CWD/21237-clearlooks-metacity-$MVERSION.tar.gz
   pushd .
   for i in Clearlooks-DeepSky Clearlooks-Olive
   do
