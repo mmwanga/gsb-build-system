@@ -35,6 +35,8 @@ our %double_tarballs =
 			 },
   );
 
+
+# iso-codes isn't a double tarball but its here temporarily
 our %double_tarballs_url =
   (
    'clearlooks-metacity'       => {
@@ -43,5 +45,12 @@ our %double_tarballs_url =
 				   'url' => 'http://www.gnome-look.org/content/files/',
 				   'tar' => '21237-clearlooks-metacity-0.5.2a.tar.gz',
 				   'var' => 'MVERSION',
+				  },
+   'iso-codes'                 => {
+				   'ver' => '0.46',
+				   'dir' => 'office/libs/iso-codes',
+				   'url' => 'http://http.us.debian.org/debian/pool/main/i/iso-codes/',
+				   'tar' => 'iso-codes_0.46.orig.tar.gz',
+				   'var' => 'VERSION',
 				  },
   );

@@ -110,12 +110,16 @@ our %other =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gnomebaker/',
 			     'src' => 'tar.gz',
 			    },
+   'gpgme'               => {
+			     'ver' => '1.0.2',
+			     'url' => 'ftp://ftp.gnupg.org/gcrypt/gpgme/',
+			     'src' => 'tar.gz',
+			    },
    'gphoto2'             => {
 			     'ver' => '2.1.5',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto/',
 			     'src' => 'tar.gz',
 			    },
-
    'graveman'            => {
 			     'ver' => '0.3.10',
 			     'url' => 'http://savannah.nongnu.org/download/graveman/',
@@ -161,12 +165,21 @@ our %other =
 			     'url' => 'http://www.coaster-burner.org/files/libcoaster/',
 			     'src' => 'tar.gz'
 			    },
-   'libexif-gtk'             => {
+   'libesmtp'            => {
+			     'ver' => '1.0.3r1',
+			     'url' => 'http://www.stafford.uklinux.net/libesmtp/',
+			     'src' => 'tar.bz2',
+			    },
+   'libexif-gtk'         => {
 			     'ver' => '0.3.5',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libexif/',
 			     'src' => 'tar.bz2',
 			    },
-
+   'libgpg-error'        => {
+			     'ver' => '1.0',
+			     'url' => 'ftp://ftp.gnupg.org/gcrypt/libgpg-error/',
+			     'src' => 'tar.gz',
+			    },
    'libgphoto2'          => {
 			     'ver' => '2.1.5',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto/',
