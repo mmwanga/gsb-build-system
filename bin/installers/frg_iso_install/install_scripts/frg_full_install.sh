@@ -1,32 +1,32 @@
 #!/bin/sh
 
 # Install minimum install
-/bin/sh "$FRGROOT"/frg_min_install.sh
+/bin/sh "$FRGROOT"/install_scripts/frg_min_install.sh
 
 # Install Themes
 (
-  cd "$FRGROOT"/frg/themes
+  cd "$FRGROOT"/frgnome/themes
   upgradepkg --install-new *.tgz
 )
   
 # Install Language Bindings
 (
-  cd "$FRGROOT"/frg/bindings
+  cd "$FRGROOT"/frgnome/bindings
   upgradepkg --install-new *.tgz
 )
 
 # Install Office
 (
-  cd "$FRGROOT"/frg/office
+  cd "$FRGROOT"/extra/office
   upgradepkg --install-new *.tgz
 )
 
 # Install Other misc programs
 (
-  cd "$FRGROOT"/frg/other
+  cd "$FRGROOT"/extra/other
   upgradepkg --install-new *.tgz
 )
 
-/bin/sh "$FRGROOT"/frg_min_dups_install.sh
-/bin/sh "$FRGROOT"/frg_full_dups_install.sh
-/bin/sh "$FRGROOT"/frg_post_install.sh
+/bin/sh "$FRGROOT"/install_scripts/frg_min_dups_install.sh
+/bin/sh "$FRGROOT"/install_scripts/frg_full_dups_install.sh
+/bin/sh "$FRGROOT"/install_scripts/frg_post_install.sh

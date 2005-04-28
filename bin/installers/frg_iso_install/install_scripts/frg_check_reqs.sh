@@ -13,11 +13,8 @@ libexif-0.6.11-i486-1
 flac-1.1.1-i486-1
 libogg-1.1-i486-1
 libao-0.8.5-i486-1
-libjpeg-6b-i386-4
-libpng-1.2.8-i486-1
-libtiff-3.7.1-i486-2
 libmad-0.15.1b-i486-1
-popt-1.7-i386-1
+libmikmod-3.1.1?-i486-?
 gdk-pixbuf-0.22.0-i486-1
 cdparanoia-IIIalpha9.8-i386-1
 x11-6.8.?-i486-?

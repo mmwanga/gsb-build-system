@@ -6,10 +6,15 @@
 # TODO:
 #   - command line args: --install={min,full} --prompts={default, alternative}
 
-export FRGROOT=`dirname $0`
+CWD=`pwd`
+BASE=`dirname $0`
 
-FRG_VERSION=0.2.0
-GNOME_VERSION=2.10.0
+export FRGROOT="$CWD/$BASE"
+
+echo $FRGROOT
+
+FRG_VERSION=0.2.1
+GNOME_VERSION=2.10.1
 
 # Parse command line arguments
 
@@ -59,15 +64,16 @@ Select which install you would like.
 2) Full install    - All Freerock GNOME packages 
 
 "
+ 
     printf "Selection: "
     read install_type
 
     case "$install_type" in
 	"1")
-	    sh $FRGROOT/install/frg_min_install.sh
+	    sh $FRGROOT/install_scripts/frg_min_install.sh
 	    ;;
 	"2")
-	    sh $FRGROOT/install/frg_full_install.sh
+	    sh $FRGROOT/install_scripts/frg_full_install.sh
 	    ;;
 	*)
 	    echo "Invalid Selection, aborting"

@@ -4,10 +4,18 @@
 #
 # $Id$
 
+GNUMERIC_VERSION=1.4.3
+GNUMERIC_ALT=1.5.0
+
+DRIVEL_VERSION=1.2.4
+DRIVEL_ALT=1.3.2
+
+GIMP_VERSION=2.2.6
+
 
 # Install GNUMERIC
 
-if [ -z "$DEFAULT" ]; then
+if [ "$NO_PROMPT" != "true" ]; then
 
     printf "*********************************
 
@@ -24,8 +32,12 @@ Select which Gnumeric (spreadsheet) to install\n"
     echo ""
 fi
 
-if [ $DEFAULT = 'true' ]; then
+if [ "$DEFAULT" = "true" ]; then
     gnumeric_selection=1
+fi
+
+if [ "$ALT" = "true" ]; then
+    gnumeric_selection=2
 fi
 
 case "$gnumeric_selection" in
@@ -33,21 +45,21 @@ case "$gnumeric_selection" in
 	echo "Gnumeric Not installed"
 	;;
 '1')
-	upgradepkg --install-new $FRGROOT/frg/dups/gnumeric-1.4.3-*frg.tgz
+	upgradepkg --install-new $FRGROOT/extra/office/gnumeric-"$GNUMERIC_VERSION"-*frg.tgz
 	;;
 '2')
-	upgradepkg --install-new $FRGROOT/frg/testing/gnumeric-1.5.0-*frg.tgz
+	upgradepkg --install-new $FRGROOT/extra/testing/gnumeric-"$GNUMERIC_ALT"-*frg.tgz
 	;;
 *)
 	echo "Invalid selection"
 	echo "Installing stable Gnumeric"
-	upgradepkg --install-new $FRGROOT/frg/dups/gnumeric-1.4.3-*frg.tgz
+	upgradepkg --install-new $FRGROOT/extra/office/gnumeric-"$GNUMERIC_VERSION"-*frg.tgz
 esac
 
 
 # Install Drivel
 
-if [ -z "$DEFAULT" ]; then
+if [ "$NO_PROMPT" != "true" ]; then
     printf "*********************************
 
 Select which Drivel (blog client) to install\n"
@@ -63,30 +75,33 @@ Select which Drivel (blog client) to install\n"
     echo ""
 fi
 
-if [ $DEFAULT = 'true' ]; then
+if [ "$DEFAULT" = "true" ]; then
     drivel_selection=1
 fi
 
+if [ "$ALT" = "true" ]; then
+    drivel_selection=2
+fi
 
 case "$drivel_selection" in
 '0')
 	echo "Drivel Not installed"
 	;;
 '1')
-	upgradepkg --install-new $FRGROOT/frg/dups/drivel-1.2.4-*frg.tgz
+	upgradepkg --install-new $FRGROOT/extra/other/drivel-"$DRIVEL_VERSION"-*frg.tgz
 	;;
 '2')
-	upgradepkg --install-new $FRGROOT/frg/alternatives/drivel-1.3.2-*frg.tgz
+	upgradepkg --install-new $FRGROOT/extra/alt/drivel-"$DRIVEL_ALT"-*frg.tgz
 	;;
 *)
 	echo "Invalid selection"
 	echo "Installing stable Drivel"
-	upgradepkg --install-new $FRGROOT/frg/dups/drivel-1.2.4-*frg.tgz
+	upgradepkg --install-new $FRGROOT/extra/other/drivel-"$DRIVEL_VERSION"-*frg.tgz
 esac
 
 # Install GIMP
 
-if [ -z "$DEFAULT" ]; then
+if [ "$NO_PROMPT" != "true" ]; then
     printf "*********************************
 
 Select which GIMP to install\n"
@@ -102,8 +117,12 @@ Select which GIMP to install\n"
     echo ""
 fi
 
-if [ $DEFAULT = 'true' ]; then
+if [ "$DEFAULT" = "true" ]; then
     gimp_selection=1
+fi
+
+if [ "$ALT" = "true" ]; then
+    gimp_selection=2
 fi
 
 case "$gimp_selection" in
@@ -111,13 +130,13 @@ case "$gimp_selection" in
 	echo "Gimp Not installed"
 	;;
 '1')
-	upgradepkg --install-new $FRGROOT/frg/dups/gimp-2.2.4-*frg.tgz
+	upgradepkg --install-new $FRGROOT/extra/other/gimp-"$GIMP_VERSION"-*frg.tgz
 	;;
 '2')
-	upgradepkg --install-new $FRGROOT/frg/alternatives/gimp-2.2.4python-*frg.tgz
+	upgradepkg --install-new $FRGROOT/extra/alt/gimp-"$GIMP_VERSION"python-*frg.tgz
 	;;
 *)
 	echo "Invalid selection"
 	echo "Installing stable GIMP"
-	upgradepkg --install-new $FRGROOT/frg/dups/gimp-2.2.4-*frg.tgz
+	upgradepkg --install-new $FRGROOT/extra/other/gimp-"$GIMP_VERSION"-*frg.tgz
 esac

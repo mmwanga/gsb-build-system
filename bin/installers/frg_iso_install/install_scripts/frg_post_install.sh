@@ -3,9 +3,7 @@
 # script to be run post frg install
 #
 
-FRGROOT=`dirname $0`
-
 /usr/bin/update-mime-database /usr/share/mime
 /usr/bin/update-desktop-database
 
-$FRGROOT/frg_check_reqs.sh
+"$FRGROOT"/install_scripts/frg_check_reqs.sh
