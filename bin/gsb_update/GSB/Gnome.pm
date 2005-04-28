@@ -116,7 +116,7 @@ our %platform_reqs =
 			    },
    'hicolor-icon-theme'  => {
 			     'url' => 'http://icon-theme.freedesktop.org/releases/',
-			     'ver' => '0.7',
+			     'ver' => '0.8',
 			     'src' => 'tar.gz',
 			    },
   );
@@ -128,12 +128,12 @@ our %desktop =
    'dasher'                 => '3.2.15',
    'eel'                    => '2.10.1',
    'eog'                    => '2.10.0',
-   'epiphany'               => '1.6.2',
-   'epiphany-extensions'    => '1.6.2',
+   'epiphany'               => '1.6.3',
+   'epiphany-extensions'    => '1.6.3',
    'evolution'              => '2.2.2',
    'evolution-data-server'  => '1.2.2',
    'evolution-webcal'       => '2.2.1',
-   'file-roller'            => '2.10.2',
+   'file-roller'            => '2.10.3',
    'gcalctool'              => '5.5.42',
    'gconf-editor'           => '2.10.0',
    'gdm'                    => '2.6.0.9',
@@ -166,7 +166,7 @@ our %desktop =
    'gnome2-user-docs'       => '2.8.1',
    'gnomemeeting'           => '1.2.1',
    'gnopernicus'            => '0.10.7',
-   'gok'                    => '1.0.3',
+   'gok'                    => '1.0.4',
    'goobox'                 => '0.9.91',
    'gpdf'                   => '2.10.0',
    'gtk-engines'            => '2.6.3',
@@ -257,7 +257,7 @@ our %bindings_python =
    'gnome-python-extras'  => '2.10.1',
    'pygtk'                => '2.6.1',
    'pyorbit'              => '2.0.1',
-   'pyphany'              => '0.1.3',
+   'pyphany'              => '0.1.4',
   );
 
 our %bindings_perl =

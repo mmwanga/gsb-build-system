@@ -201,7 +201,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'poppler'             => {
-			     'ver' => '0.2.0',
+			     'ver' => '0.3.0',
 			     'url' => 'http://poppler.freedesktop.org/',
 			     'src' => 'tar.gz',
 			    },
@@ -250,14 +250,14 @@ our %other =
 our %other_gnome =
   (
    'NetworkManager'      => '0.3.1',
-   'evince'              => '0.2.0',
+   'evince'              => '0.2.1',
    'ghex'                => '2.8.1',
    'glade'               => '2.10.0',
    'gnome-audio'         => '2.0.0',
    'gnome-cups-manager'  => '0.30',
    'gnome-blog'          => '0.9',
    'gossip'              => '0.8',
-   'gthumb'              => '2.6.4',
+   'gthumb'              => '2.6.5',
    'loudmouth'           => '0.17.2',
    'rhythmbox'           => '0.8.8',
    'sabayon'             => '0.17',
