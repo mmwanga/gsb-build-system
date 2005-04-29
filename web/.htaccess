@@ -45,3 +45,8 @@ RewriteEngine On
     Deny from all
 </Files>
 
+<Files ~ "(.*)\.html">
+    Order allow,deny
+    Deny from all
+</Files>
+
