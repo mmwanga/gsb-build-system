@@ -8,28 +8,28 @@ GSB:
 
 FRG:
 
-	* See if using the Slackware provided libs for gtk/glib/pango and anything
-	  else in slackware/l is feasible
 	* Add a frg-$VERSION package so users know which version they have installed.
 	* fonts package
 		http://eyegene.ophthy.med.umich.edu/unicode/fontguide/
 	* mozilla-nss libs for people who do not want mozilla installed
-	* clean up build order will howl, dbus, hal
 	* default.session: dbus, gnome-volume-manager
 	* mozilla plugins: add note to README/INSTALL files
+	* frg-current: move around folders and some files, pygtk and 
+	  gnome-python are needed for hal
+	* rc.gsb, should be added to frg-$VERSION package
+	* check hal rc.d scripts (delay)
 
 WEBSITE:
 
 	* Package browser based on PACKAGES.TXT, and have a
 	  PACKAGES.TXT-$FRG_RELEASE_VERSION
 	  ie. PACKAGES.TXT-0.2.0
-	* FAQ page. chipster, not sure how you want it setup
-	  as far as layout goes, if you want to script it with
-	  php or not.
 	* USER ASSIGNED SOFTWARE. Page that lists which users
 	  have been assiged to certain packages for testing 
 	  purposes. Maybe have a separate page with a check
 	  list to say that they have tested the package
+	* Add svn tarballs to website
+	* Add ChangeLogs to website (stable release and -current)
 
 MINIROCK GNOME:
 
