@@ -81,7 +81,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libcddb'           => {
-			   'ver' => '1.0.1',
+			   'ver' => '1.0.2',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libcddb/',
 			   'src' => 'tar.gz',
 			  },

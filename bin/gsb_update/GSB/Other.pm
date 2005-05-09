@@ -26,7 +26,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'avidemux'            => {
-			     'ver' => '2.0.38rc2b',
+			     'ver' => '2.0.38rc3',
 			     'url' => 'http://download.berlios.de/avidemux/',
 			     'src' => 'tar.gz',
 			    },
@@ -121,7 +121,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'graveman'            => {
-			     'ver' => '0.3.10',
+			     'ver' => '0.3.11',
 			     'url' => 'http://savannah.nongnu.org/download/graveman/',
 			     'src' => 'tar.bz2',
 			    },
