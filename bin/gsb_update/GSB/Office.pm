@@ -31,7 +31,7 @@ our %office_libs =
 		   'src' => 'tar.gz',
 		  },
    'enchant'   => {
-		   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/abiword/',
+		   'url' => 'http://www.abisource.com/downloads/enchant/1.1.6/',
 		   'ver' => '1.1.6',
 		   'src' => 'tar.gz',
 		  },
@@ -83,7 +83,7 @@ our %office_gnome =
   (
    'gnumeric'  => '1.4.3',
    'dia'       => '0.94',
-   'glom'      => '0.8.25',
+   'glom'      => '0.8.26',
    'mergeant'  => '0.52',
    'planner'   => '0.13',
   );

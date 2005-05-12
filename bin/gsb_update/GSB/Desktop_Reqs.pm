@@ -22,7 +22,7 @@ our %desktop_reqs =
                         },
    'heimdal'         => {
 			 'url' => 'ftp://ftp.pdc.kth.se/pub/heimdal/src/',
-			 'ver' => '0.6.3',
+			 'ver' => '0.6.4',
 			 'src' => 'tar.gz',
 			},
    'openldap'        => {

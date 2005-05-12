@@ -165,7 +165,7 @@ our %desktop =
    'gnome-volume-manager'   => '1.2.1',
    'gnome2-user-docs'       => '2.8.1',
    'gnomemeeting'           => '1.2.1',
-   'gnopernicus'            => '0.10.8',
+   'gnopernicus'            => '0.10.9',
    'gok'                    => '1.0.4',
    'goobox'                 => '0.9.91',
    'gpdf'                   => '2.10.0',
@@ -195,7 +195,7 @@ our %desktop =
    'vino'                   => '2.10.0',
    'vte'                    => '0.11.13',
    'ximian-connector'       => '2.2.2',
-   'yelp'                   => '2.9.3',
+   'yelp'                   => '2.10.0',
    'zenity'                 => '2.10.0',
   );
 

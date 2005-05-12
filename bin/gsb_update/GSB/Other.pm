@@ -122,7 +122,7 @@ our %other =
 			    },
    'graveman'            => {
 			     'ver' => '0.3.11',
-			     'url' => 'http://savannah.nongnu.org/download/graveman/',
+			     'url' => 'http://graveman.tuxfamily.org/',
 			     'src' => 'tar.bz2',
 			    },
    'gtkam'               => {
