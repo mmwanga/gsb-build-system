@@ -26,7 +26,7 @@ our $VERSION   = 0.03;
 #    'pkgconfig'           => '0.15.0',
 our %platform =
   (
-   'at-spi'              => '1.6.3',
+   'at-spi'              => '1.6.4',
    'atk'                 => '1.10.1',
    'audiofile'           => '0.2.6',
    'esound'              => '0.2.35',
@@ -119,6 +119,11 @@ our %platform_reqs =
 			     'ver' => '0.8',
 			     'src' => 'tar.gz',
 			    },
+   'Pyrex'               => {
+			     'url' => 'http://www.cosc.canterbury.ac.nz/~greg/python/Pyrex/',
+			     'ver' => '0.9.3',
+			     'src' => 'tar.gz',
+			    },
   );
 
 our %desktop =
@@ -154,7 +159,7 @@ our %desktop =
    'gnome-pilot'            => '2.0.13',
    'gnome-pilot-conduits'   => '2.0.13',
    'gnome-session'          => '2.10.0',
-   'gnome-speech'           => '0.3.6',
+   'gnome-speech'           => '0.3.7',
    'gnome-spell'            => '1.0.6',
    'gnome-system-monitor'   => '2.10.1',
    'gnome-system-tools'     => '1.2.0',
@@ -162,11 +167,11 @@ our %desktop =
    'gnome-themes'           => '2.10.1',
    'gnome-user-share'       => '0.5',
    'gnome-utils'            => '2.10.1',
-   'gnome-volume-manager'   => '1.2.1',
+   'gnome-volume-manager'   => '1.2.2',
    'gnome2-user-docs'       => '2.8.1',
    'gnomemeeting'           => '1.2.1',
    'gnopernicus'            => '0.10.9',
-   'gok'                    => '1.0.4',
+   'gok'                    => '1.0.5',
    'goobox'                 => '0.9.91',
    'gpdf'                   => '2.10.0',
    'gtk-engines'            => '2.6.3',
@@ -175,7 +180,7 @@ our %desktop =
    'gucharmap'              => '1.4.3',
    'libcroco'               => '0.6.0',
    'libgail-gnome'          => '1.1.1',
-   'libgsf'                 => '1.11.1',
+   'libgsf'                 => '1.12.0',
    'libgtkhtml'             => '2.6.3',
    'libgtop'                => '2.10.1',
    'librsvg'                => '2.9.5',
@@ -235,7 +240,7 @@ our %bindings_cxx =
    'libgnomecanvasmm'  => '2.10.0',
    'libgnomemm'        => '2.10.0',
    'libgnomeuimm'      => '2.10.0',
-   'libsigc++'         => '2.0.11',
+   'libsigc++'         => '2.0.12',
    'libxml++'          => '2.10.0',
   );
 
@@ -255,7 +260,7 @@ our %bindings_python =
   (
    'gnome-python'         => '2.10.0',
    'gnome-python-extras'  => '2.10.1',
-   'pygtk'                => '2.6.1',
+   'pygtk'                => '2.6.2',
    'pyorbit'              => '2.0.1',
    'pyphany'              => '0.1.4',
   );
