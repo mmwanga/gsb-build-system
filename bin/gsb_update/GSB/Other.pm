@@ -246,7 +246,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'xscreensaver'        => {
-			     'ver' => '4.20',
+			     'ver' => '4.21',
 			     'url' => 'http://www.jwz.org/xscreensaver/',
 			     'src' => 'tar.gz',
 			    },
