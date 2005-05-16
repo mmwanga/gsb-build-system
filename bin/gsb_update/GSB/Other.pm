@@ -81,7 +81,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'gaim'                => {
-			     'ver' => '1.2.1',
+			     'ver' => '1.3.0',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gaim',
 			     'src' => 'tar.bz2',
 			    },
@@ -120,6 +120,10 @@ our %other =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto/',
 			     'src' => 'tar.gz',
 			    },
+   'gqview'              => {
+			     'ver' => '2.0.1',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gqview/',
+			     'src' => 'tar.gz',
    'graveman'            => {
 			     'ver' => '0.3.11',
 			     'url' => 'http://graveman.tuxfamily.org/',
