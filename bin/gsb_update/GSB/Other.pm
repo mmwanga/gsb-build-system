@@ -124,6 +124,7 @@ our %other =
 			     'ver' => '2.0.1',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gqview/',
 			     'src' => 'tar.gz',
+			    },
    'graveman'            => {
 			     'ver' => '0.3.11',
 			     'url' => 'http://graveman.tuxfamily.org/',
