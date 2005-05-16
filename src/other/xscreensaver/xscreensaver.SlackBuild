@@ -2,7 +2,7 @@ TMP=${TMP:-/tmp}
 PKG=$TMP/package-xscreensaver
 CWD=`pwd` 
 
-VERSION=4.20
+VERSION=4.21
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 
@@ -22,6 +22,9 @@ cd $TMP
 rm -rf xscreensaver-$VERSION
 tar xzvf $CWD/xscreensaver-$VERSION.tar.gz
 cd xscreensaver-$VERSION
+
+zcat $CWD/xscreensaver.setuid.diff.gz | patch -p1 --verbose
+
 chown -R root.root .
 xml_config=/usr/bin/xml-config xml2_config=/usr/bin/xml2-config \
 CFLAGS="$SLKCFLAGS" \
