@@ -10,6 +10,13 @@ if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 
+# make db.h point to db4/db.h
+(
+  cd /usr/include
+  rm -f db.h
+  ln -s db4/db.h db.h
+)
+
 # BUILD GNOME PLATFORM AND DESKTOP
 for i in gnome other office
 do
