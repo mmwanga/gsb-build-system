@@ -21,7 +21,7 @@ our %desktop_reqs =
 			 'src' => 'tar.gz',
                         },
    'heimdal'         => {
-			 'url' => 'ftp://ftp.pdc.kth.se/pub/heimdal/src/',
+			 'url' => 'ftp://ftp.sunet.se/pub/unix/admin/mirror-pdc/heimdal/src/',
 			 'ver' => '0.6.4',
 			 'src' => 'tar.gz',
 			},

@@ -161,7 +161,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libquicktime'      => {
-			   'ver' => '0.9.5',
+			   'ver' => '0.9.6',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libquicktime/',
 			   'src' => 'tar.gz',
 			  },

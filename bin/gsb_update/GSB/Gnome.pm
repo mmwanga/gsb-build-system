@@ -101,7 +101,7 @@ our %platform_reqs =
 			    },
    'howl'                => {
 			     'url' => 'http://www.porchdogsoft.com/download/',
-			     'ver' => '0.9.10',
+			     'ver' => '1.0.0',
 			     'src' => 'tar.gz',
 			    },
    'libcap'              => {

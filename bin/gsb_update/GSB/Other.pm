@@ -21,12 +21,12 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'anjuta'              => {
-			     'ver' => '1.2.2',
+			     'ver' => '1.2.3',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/anjuta/',
 			     'src' => 'tar.gz',
 			    },
    'avidemux'            => {
-			     'ver' => '2.0.38rc3',
+			     'ver' => '2.0.38',
 			     'url' => 'http://download.berlios.de/avidemux/',
 			     'src' => 'tar.gz',
 			    },
@@ -126,7 +126,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'graveman'            => {
-			     'ver' => '0.3.11',
+			     'ver' => '0.3.12',
 			     'url' => 'http://graveman.tuxfamily.org/',
 			     'src' => 'tar.bz2',
 			    },
