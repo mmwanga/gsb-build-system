@@ -127,7 +127,7 @@ our %other =
 			    },
    'graveman'            => {
 			     'ver' => '0.3.12',
-			     'url' => 'http://graveman.tuxfamily.org/',
+			     'url' => 'http://graveman.tuxfamily.org/sources/',
 			     'src' => 'tar.bz2',
 			    },
    'gtkam'               => {
