@@ -1,3 +1,17 @@
+###
+2005-05-24-14-47-CST
+chipster
+FRG-0.2.0 Released!
+<p>This is the final release of FRG with GNOME 2.10.0. Get it while it's
+hot!:</p>
+
+<blockquote><p>
+ <strong>HTTP</strong>; <code>http://mirror.datapipe.net/norlug/frg/frg-0.2.0/</code><br />
+ <strong>FTP</strong>; <code>ftp://mirror.datapipe.net/pub/norlug/frg/frg-0.2.0/</code>
+</p>
+</blockquote>
+
+###
 2005-04-03-2-00-EST
 freerock
 FRG-0.1.99.1 released
