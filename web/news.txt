@@ -1,4 +1,20 @@
 ###
+2005-05-27-9-30-EST
+freerock
+GNOME 2.10.1 packages
+<p>GNOME 2.10.1 packages are available for testing in frg-current. You can find the packages on
+a FRG mirror.</p>
+
+<blockquote><p>
+ <strong>HTTP</strong>; <code>http://mirror.datapipe.net/norlug/frg/frg-current/</code><br />
+ <strong>FTP</strong>; <code>ftp://mirror.datapipe.net/pub/norlug/frg/frg-current/</code><br />
+ <strong>FTP</strong>; <code>ftp://ftp.brownjava.org/pub/frg/frg-current/</code>
+</p>
+</blockquote>
+
+<p>Check the Support page for details on how to contact us with bug reports</p>
+
+###
 2005-05-24-14-47-CST
 chipster
 FRG-0.2.0 Released!
