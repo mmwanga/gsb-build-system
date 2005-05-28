@@ -26,7 +26,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'avidemux'            => {
-			     'ver' => '2.0.38',
+			     'ver' => '2.0.40',
 			     'url' => 'http://download.berlios.de/avidemux/',
 			     'src' => 'tar.gz',
 			    },
@@ -86,7 +86,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'galeon'              => {
-			     'ver' => '1.3.20',
+			     'ver' => '1.3.21',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/galeon',
 			     'src' => 'tar.bz2',
 			    },

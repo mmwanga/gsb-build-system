@@ -16,7 +16,7 @@ our $VERSION   = 0.03;
 our %gstreamer =
   (
    'gstreamer'         => '0.8.10',
-   'gst-plugins'       => '0.8.8',
+   'gst-plugins'       => '0.8.9',
   );
 
 our %gst_other =
@@ -161,7 +161,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libquicktime'      => {
-			   'ver' => '0.9.6',
+			   'ver' => '0.9.7',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libquicktime/',
 			   'src' => 'tar.gz',
 			  },
@@ -231,7 +231,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'swfdec'            => {
-			   'ver' => '0.3.2',
+			   'ver' => '0.3.5',
 			   'url' => 'http://www.schleef.org/swfdec/download/',
 			   'src' => 'tar.gz',
 			  },
