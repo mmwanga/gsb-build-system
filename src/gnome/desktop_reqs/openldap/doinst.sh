@@ -10,7 +10,7 @@ config() {
   # Otherwise, we leave the .new copy for the admin to consider...
 }
 
-#config etc/rc.d/rc.openldap
+config etc/rc.d/rc.openldap.new
 
 for i in ldap slapd
 do
