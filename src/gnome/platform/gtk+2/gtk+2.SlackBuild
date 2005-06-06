@@ -2,9 +2,9 @@
 
 CWD=`pwd`
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-gtk+
+PKG=$TMP/package-gtk+2
 
-VERSION=2.6.4
+VERSION=2.6.7
 ARCH=${ARCH:-i486}
 BUILD=2
 
@@ -58,8 +58,9 @@ cp -a $CWD/profile.d/* $PKG/etc/profile.d
 chmod 755 $PKG/etc/profile.d/*
 chown -R root.root $PKG/etc/
 mkdir -p $PKG/install
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
-cd $TMP/package-gtk+
+cd $PKG 
 makepkg -l y -c n ../gtk+2-$VERSION-$ARCH-$BUILD.tgz
