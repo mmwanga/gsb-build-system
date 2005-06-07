@@ -34,6 +34,7 @@ $0 --install=<arg> --prompts=<arg>
                  multiple types. Default or alternative packages
                  --prompts=default or --prompts=alt
 
+    --help       Display usage info
 "
 }
 
@@ -80,3 +81,4 @@ Select which install you would like.
 	    exit 0
     esac
 fi
+

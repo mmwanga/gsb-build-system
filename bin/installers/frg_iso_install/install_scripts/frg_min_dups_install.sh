@@ -4,17 +4,13 @@
 #
 # $Id$
 
-FRGROOT=`dirname $0`
-
 LIBRSVG=2.9.5
 LIBRSVG_ALT=2.10.0
 
-GNOME_MENUS=2.10.0
+GNOME_GAMES=2.10.1
 
-GNOME_GAMES=2.10.0
-
-TOTEMVERSION=1.0.1
-TOTEM_CVS=1.1.0
+TOTEMVERSION=1.0.2
+TOTEM_CVS=1.1.2
 
 # Install LIBRSVG
 if [ "$NO_PROMPT" != "true" ]; then
@@ -42,55 +38,16 @@ fi
 
 case "$librsvg_selection" in
 '1')
-	    upgradepkg --install-new $FRGROOT/frg/desktop/librsvg-"$LIBRSVG"-*frg.tgz
+	    upgradepkg --install-new $FRGROOT/frgnome/desktop/librsvg-"$LIBRSVG"-*frg.tgz
 	    ;;
 '2')
-	    upgradepkg --install-new $FRGROOT/frg/testing/librsvg-"$LIBRSVG_ALT"-*frg.tgz
+	    upgradepkg --install-new $FRGROOT/frgnome/testing/librsvg-"$LIBRSVG_ALT"-*frg.tgz
 	    ;;
 *)
 	    echo "Invalid selection"
 	    echo "Installing stable librsvg"
-	    upgradepkg --install-new $FRGROOT/frg/desktop/librsvg-"$LIBRSVG"-*frg.tgz
+	    upgradepkg --install-new $FRGROOT/frgnome/desktop/librsvg-"$LIBRSVG"-*frg.tgz
 esac
-
-# Install GNOME-MENUS
-
-if [ "$NO_PROMPT" != "true" ]; then
-    printf "*********************************
-
-Select which gnome-menus to install 1 or 2\n"
-
-    echo "
-1) gnome-menu $GNOME_MENUS
-2) gnome-menu $GNOME_MENUS (patched to work with unstable gnome-menu-editor)
-"
-
-    printf "Selection: "
-    read gm_selection
-    echo ""
-fi
-
-if [ "$DEFAULT" = "true" ]; then
-    gm_selection=1
-fi
-
-if [ "$ALT" = "true" ]; then
-    gm_selection=2
-fi
-
-case "$gm_selection" in
-'1')
-	upgradepkg --install-new $FRGROOT/frg/desktop/gnome-menus-"$GNOME_MENUS"-*frg.tgz
-	;;
-'2')
-	upgradepkg --install-new $FRGROOT/frg/testing/gnome-menus-"$GNOME_MENUS"p-*frg.tgz
-	;;
-*)
-	echo "Invalid selection"
-	echo "Installing stable gnome-menus"
-	upgradepkg --install-new $FRGROOT/frg/desktop/gnome-menus-"$GNOME_MENUS"-*frg.tgz
-esac
-
 
 # Install TOTEM
 if [ "$NO_PROMPT" != "true" ]; then
@@ -101,7 +58,7 @@ Select which Totem to install 0, 1, 2 or 3\n"
     echo "
 1) Totem $TOTEMVERSION with gstreamer backend
 2) Totem $TOTEMVERSION with xine backend
-3) Totem cvs 1.1.0 with gstreamer backend
+3) Totem cvs $TOTEM_CVS with gstreamer backend
 "
 
     printf "Selection: "
@@ -119,18 +76,18 @@ fi
 
 case "$totem_selection" in
 '1')
-	upgradepkg --install-new $FRGROOT/frg/desktop/totem-"$TOTEMVERSION"-*.tgz
+	upgradepkg --install-new $FRGROOT/frgnome/desktop/totem-"$TOTEMVERSION"-*.tgz
 	;;
 '2')
-	upgradepkg --install-new $FRGROOT/frg/alt/totem-"$TOTEMVERSION"xine-*frg.tgz
+	upgradepkg --install-new $FRGROOT/extras/alternatives/totem-"$TOTEMVERSION"xine-*frg.tgz
 	;;
 '3')
-	upgradepkg --install-new $FRGROOT/frg/testing/totem-"$TOTEM_CVS"cvs-*frg.tgz
+	upgradepkg --install-new $FRGROOT/testing/totem-"$TOTEM_CVS"-*frg.tgz
 	;;
 *)
 	echo "Invalid selection"
 	echo "Installing stable Totem with gstreamer backend"
-	upgradepkg --install-new $FRGROOT/frg/desktop/totem-"$TOTEMVERSION"-*.tgz
+	upgradepkg --install-new $FRGROOT/frgnome/desktop/totem-"$TOTEMVERSION"-*.tgz
 esac
 
 # Install GNOME GAMES
@@ -164,13 +121,14 @@ case "$games_selection" in
 	echo "Gnome Games not installed"
 	;;
 '1')
-	upgradepkg --install-new $FRGROOT/frg/desktop/gnome-games-"$GNOME_GAMES"-*frg.tgz
+	upgradepkg --install-new $FRGROOT/frgnome/desktop/gnome-games-"$GNOME_GAMES"-*frg.tgz
 	;;
 '2')
-	upgradepkg --install-new $FRGROOT/frg/alt/gnome-games-"$GNOME_GAMES"sgid-*frg.tgz
+	upgradepkg --install-new $FRGROOT/extras/alternatives/gnome-games-"$GNOME_GAMES"sgid-*frg.tgz
 	;;
 *)
 	echo "Invalid selection"
 	echo "Installing default gnome-games"
-	upgradepkg --install-new $FRGROOT/frg/desktop/gnome-games-"$GNOME_GAMES"-*frg.tgz
+	upgradepkg --install-new $FRGROOT/frgnome/desktop/gnome-games-"$GNOME_GAMES"-*frg.tgz
 esac
+

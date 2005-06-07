@@ -45,15 +45,15 @@ case "$gnumeric_selection" in
 	echo "Gnumeric Not installed"
 	;;
 '1')
-	upgradepkg --install-new $FRGROOT/extra/office/gnumeric-"$GNUMERIC_VERSION"-*frg.tgz
+	upgradepkg --install-new $FRGROOT/extras/office/gnumeric-"$GNUMERIC_VERSION"-*frg.tgz
 	;;
 '2')
-	upgradepkg --install-new $FRGROOT/extra/testing/gnumeric-"$GNUMERIC_ALT"-*frg.tgz
+	upgradepkg --install-new $FRGROOT/extras/testing/gnumeric-"$GNUMERIC_ALT"-*frg.tgz
 	;;
 *)
 	echo "Invalid selection"
 	echo "Installing stable Gnumeric"
-	upgradepkg --install-new $FRGROOT/extra/office/gnumeric-"$GNUMERIC_VERSION"-*frg.tgz
+	upgradepkg --install-new $FRGROOT/extras/office/gnumeric-"$GNUMERIC_VERSION"-*frg.tgz
 esac
 
 
@@ -88,15 +88,15 @@ case "$drivel_selection" in
 	echo "Drivel Not installed"
 	;;
 '1')
-	upgradepkg --install-new $FRGROOT/extra/other/drivel-"$DRIVEL_VERSION"-*frg.tgz
+	upgradepkg --install-new $FRGROOT/extras/other/drivel-"$DRIVEL_VERSION"-*frg.tgz
 	;;
 '2')
-	upgradepkg --install-new $FRGROOT/extra/alt/drivel-"$DRIVEL_ALT"-*frg.tgz
+	upgradepkg --install-new $FRGROOT/extras/alternatives/drivel-"$DRIVEL_ALT"-*frg.tgz
 	;;
 *)
 	echo "Invalid selection"
 	echo "Installing stable Drivel"
-	upgradepkg --install-new $FRGROOT/extra/other/drivel-"$DRIVEL_VERSION"-*frg.tgz
+	upgradepkg --install-new $FRGROOT/extras/other/drivel-"$DRIVEL_VERSION"-*frg.tgz
 esac
 
 # Install GIMP
@@ -108,8 +108,8 @@ Select which GIMP to install\n"
 
     echo "
 0) Do not install
-1) GIMP 2.2.4 
-2) GIMP 2.2.4 with pygimp installed
+1) GIMP $GIMP_VERSION 
+2) GIMP $GIMP_VERSION with pygimp installed
 "
 
     printf "Selection: "
@@ -140,3 +140,4 @@ case "$gimp_selection" in
 	echo "Installing stable GIMP"
 	upgradepkg --install-new $FRGROOT/extra/other/gimp-"$GIMP_VERSION"-*frg.tgz
 esac
+

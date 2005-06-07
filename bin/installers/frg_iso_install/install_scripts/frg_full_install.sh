@@ -17,13 +17,13 @@
 
 # Install Office
 (
-  cd "$FRGROOT"/extra/office
+  cd "$FRGROOT"/extras/office
   upgradepkg --install-new *.tgz
 )
 
 # Install Other misc programs
 (
-  cd "$FRGROOT"/extra/other
+  cd "$FRGROOT"/extras/other
   upgradepkg --install-new *.tgz
 )
 
