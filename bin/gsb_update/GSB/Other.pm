@@ -71,7 +71,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'easytag'             => {
-			     'ver' => '1.99.3',
+			     'ver' => '1.99.5',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/easytag/',
 			     'src' => 'tar.bz2',
 			    },
