@@ -1,6 +1,6 @@
 glib
 gtk+2
-libcurl
+curl
 libxml2
 pygtk
 python
