@@ -206,7 +206,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'poppler'             => {
-			     'ver' => '0.3.0',
+			     'ver' => '0.3.2',
 			     'url' => 'http://poppler.freedesktop.org/',
 			     'src' => 'tar.gz',
 			    },
