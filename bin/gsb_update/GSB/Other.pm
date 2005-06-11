@@ -226,7 +226,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'streamripper'        => {
-			     'ver' => '1.61.4',
+			     'ver' => '1.61.8',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/streamripper/',
 			     'src' => 'tar.gz',
 			    },
