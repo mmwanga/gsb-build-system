@@ -61,7 +61,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'drivel'              => {
-			     'ver' => '1.3.2',
+			     'ver' => '2.0.0',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/drivel/',
 			     'src' => 'tar.bz2',
 			    },
