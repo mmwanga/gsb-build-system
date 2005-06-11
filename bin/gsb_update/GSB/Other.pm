@@ -21,7 +21,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'anjuta'              => {
-			     'ver' => '1.2.3',
+			     'ver' => '2.0.0',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/anjuta/',
 			     'src' => 'tar.gz',
 			    },
