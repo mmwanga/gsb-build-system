@@ -27,7 +27,7 @@ fi
 cd $TMP 
 tar xjvf $CWD/libwnck-$VERSION.tar.bz2
 cd libwnck-$VERSION
-cat $CWD/libwnck-2.10.0-blink-state.diff |patch -p1 --verbose
+#cat $CWD/libwnck-2.10.0-blink-state.diff |patch -p1 --verbose
 chown -R root.root .
 find . -perm 666 -exec chmod 644 {} \;
 find . -perm 664 -exec chmod 644 {} \;

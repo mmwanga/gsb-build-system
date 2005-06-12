@@ -28,9 +28,9 @@ cd $TMP
 tar xjvf $CWD/metacity-$VERSION.tar.bz2
 cd metacity-$VERSION
 cat $CWD/frg.metacity.default.theme.patch |patch -p1 --verbose
-cat $CWD/metacity-2.10.1-blink.diff | patch -p1 --verbose
-cat $CWD/metacity-2.10.1-placement.diff | patch -p1 --verbose
-cat $CWD/metacity-2.10.1-click.diff | patch -p1 --verbose
+#cat $CWD/metacity-2.10.1-blink.diff | patch -p1 --verbose
+#cat $CWD/metacity-2.10.1-placement.diff | patch -p1 --verbose
+#cat $CWD/metacity-2.10.1-click.diff | patch -p1 --verbose
 chown -R root.root .
 find . -perm 666 -exec chmod 644 {} \;
 find . -perm 664 -exec chmod 644 {} \;
