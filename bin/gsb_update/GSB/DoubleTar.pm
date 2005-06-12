@@ -20,7 +20,7 @@ our %double_tarballs =
 			  'var' => 'JPEGMMXV',
 			 },
    'gaim-encryption'  => {
-			  'ver' => '2.37',
+			  'ver' => '2.38',
 			  'dir' => 'other/gaim',
 			  'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gaim-encryption/',
 			  'src' => 'tar.gz',
