@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-liferea
 
-VERSION=0.9.1
+VERSION=0.9.2
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -70,6 +70,7 @@ gzip -9 $PKG/usr/info/*
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 makepkg -l y -c n $TMP/liferea-$VERSION-$ARCH-$BUILD.tgz
