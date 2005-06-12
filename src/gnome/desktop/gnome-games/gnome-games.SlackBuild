@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gnome-games
 
-VERSION=2.10.0
+VERSION=2.10.1
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -63,8 +63,8 @@ GCONF_CONFIG_SOURCE="xml::$PKG/etc/gconf/gconf.xml.defaults" \
 done
 
 chown -R root.bin $PKG/usr/bin
-#chown root.games $PKG/usr/bin/*
-#chmod g+s $PKG/usr/bin/*
+chown root.games $PKG/usr/bin/*
+chmod g+s $PKG/usr/bin/*
 
 (
   cd $PKG/etc/gconf/gconf.xml.defaults

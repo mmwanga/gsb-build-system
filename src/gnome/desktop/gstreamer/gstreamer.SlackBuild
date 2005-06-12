@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gstreamer
 
-VERSION=0.8.9
+VERSION=0.8.10
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source

@@ -28,7 +28,6 @@ fi
 cd $TMP 
 tar xjvf $CWD/gnomemeeting-$VERSION.tar.bz2
 cd gnomemeeting-$VERSION
-#cat $CWD/gm.configure.eds.patch | patch -p0 --verbose
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
