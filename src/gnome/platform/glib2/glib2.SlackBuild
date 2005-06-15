@@ -9,6 +9,7 @@ ARCH=${ARCH:-i486}
 BUILD=1
 
 if [ -f /var/log/packages/glib2-$VERSION-$ARCH-$BUILD ]; then
+  echo "glib2-$VERSION-$ARCH-$BUILD exists"
   exit 0
 fi
 
