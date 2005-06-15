@@ -36,7 +36,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'bluefish'            => {
-			     'ver' => '1.0',
+			     'ver' => '1.0.1',
 			     'url' => 'http://pkedu.fbt.eitn.wau.nl/~olivier/downloads/',
 			     'src' => 'tar.bz2',
 			    },
