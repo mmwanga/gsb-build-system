@@ -30,10 +30,10 @@ cd gnome-audio-$VERSION
 chown -R root.root .
 find . -perm 666 -exec chmod 644 {} \;
 find . -perm 664 -exec chmod 644 {} \;
-CFLAGS="$SLKCFLAGS" \
-./configure --prefix=/usr \
-            $ARCH-slackware-linux
-make
+#CFLAGS="$SLKCFLAGS" \
+#./configure --prefix=/usr \
+#           $ARCH-slackware-linux
+#make
 # This might be the most broken source package in GNOME  :-)
 # make install DESTDIR=$PKG
 mkdir -p $PKG/usr/share/sounds
