@@ -1,0 +1,385 @@
+gslapt-0.3.2/
+gslapt-0.3.2/ChangeLog
+gslapt-0.3.2/AUTHORS
+gslapt-0.3.2/COPYING
+gslapt-0.3.2/NEWS
+gslapt-0.3.2/FAQ
+gslapt-0.3.2/pixmaps/
+gslapt-0.3.2/pixmaps/gslapt.png
+gslapt-0.3.2/pixmaps/pkg_action_available.png
+gslapt-0.3.2/pixmaps/pkg_action_downgrade.png
+gslapt-0.3.2/pixmaps/pkg_action_install.png
+gslapt-0.3.2/pixmaps/pkg_action_installed.png
+gslapt-0.3.2/pixmaps/pkg_action_reinstall.png
+gslapt-0.3.2/pixmaps/pkg_action_remove.png
+gslapt-0.3.2/pixmaps/pkg_action_upgrade.png
+gslapt-0.3.2/Makefile.am
+gslapt-0.3.2/README
+gslapt-0.3.2/TODO
+gslapt-0.3.2/INSTALL
+gslapt-0.3.2/configure.in
+gslapt-0.3.2/gslapt.desktop
+gslapt-0.3.2/gslapt.glade
+gslapt-0.3.2/gslapt.gladep
+gslapt-0.3.2/slack-desc
+gslapt-0.3.2/slack-required
+gslapt-0.3.2/stamp-h.in
+gslapt-0.3.2/po/
+gslapt-0.3.2/po/Makefile.in.in
+gslapt-0.3.2/po/ChangeLog
+gslapt-0.3.2/po/POTFILES.in
+gslapt-0.3.2/po/de.po
+gslapt-0.3.2/po/en.po
+gslapt-0.3.2/po/gslapt.pot
+gslapt-0.3.2/po/pl.po
+gslapt-0.3.2/po/pt.po
+gslapt-0.3.2/po/sv.po
+gslapt-0.3.2/src/
+gslapt-0.3.2/src/Makefile.in
+gslapt-0.3.2/src/Makefile.am
+gslapt-0.3.2/src/Makefile.jaos
+gslapt-0.3.2/src/callbacks.c
+gslapt-0.3.2/src/callbacks.h
+gslapt-0.3.2/src/interface.c
+gslapt-0.3.2/src/interface.h
+gslapt-0.3.2/src/main.c
+gslapt-0.3.2/src/support.c
+gslapt-0.3.2/src/support.h
+gslapt-0.3.2/aclocal.m4
+gslapt-0.3.2/mkinstalldirs
+gslapt-0.3.2/depcomp
+gslapt-0.3.2/config.h.in
+gslapt-0.3.2/install-sh
+gslapt-0.3.2/missing
+gslapt-0.3.2/Makefile.in
+gslapt-0.3.2/configure
+Patching for i486
+configure: WARNING: you should use --build, --host, --target
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for style of include used by make... GNU
+checking for i486-slackware-linux-gcc... i486-slackware-linux-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether i486-slackware-linux-gcc accepts -g... yes
+checking for i486-slackware-linux-gcc option to accept ANSI C... none needed
+checking dependency style of i486-slackware-linux-gcc... gcc3
+checking for library containing strerror... none required
+checking for i486-slackware-linux-gcc... (cached) i486-slackware-linux-gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether i486-slackware-linux-gcc accepts -g... (cached) yes
+checking for i486-slackware-linux-gcc option to accept ANSI C... (cached) none needed
+checking dependency style of i486-slackware-linux-gcc... (cached) gcc3
+checking for i486-slackware-linux-gcc... (cached) i486-slackware-linux-gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether i486-slackware-linux-gcc accepts -g... (cached) yes
+checking for i486-slackware-linux-gcc option to accept ANSI C... (cached) none needed
+checking dependency style of i486-slackware-linux-gcc... (cached) gcc3
+checking how to run the C preprocessor... i486-slackware-linux-gcc -E
+checking for egrep... grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking curl/curl.h usability... yes
+checking curl/curl.h presence... yes
+checking for curl/curl.h... yes
+checking slapt.h usability... yes
+checking slapt.h presence... yes
+checking for slapt.h... yes
+checking for curl_global_init in -lcurl... yes
+checking for search_upgrade_transaction in -lslapt... yes
+checking for pkg-config... /usr/bin/pkg-config
+checking for gtk+-2.0 >= 2.0.0... yes
+checking PACKAGE_CFLAGS... -DXTHREADS -D_REENTRANT -DXUSE_MTSAFE_API -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/X11R6/include -I/usr/include/atk-1.0 -I/usr/include/pango-1.0 -I/usr/include/freetype2 -I/usr/include/freetype2/config -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include  
+checking PACKAGE_LIBS... -lgtk-x11-2.0 -lgdk-x11-2.0 -latk-1.0 -lgdk_pixbuf-2.0 -lm -lpangoxft-1.0 -lpangox-1.0 -lpango-1.0 -lgobject-2.0 -lgmodule-2.0 -ldl -lglib-2.0  
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking for LC_MESSAGES... yes
+checking libintl.h usability... yes
+checking libintl.h presence... yes
+checking for libintl.h... yes
+checking for ngettext in libc... yes
+checking for dgettext in libc... yes
+checking for bind_textdomain_codeset... yes
+checking for msgfmt... /usr/bin/msgfmt
+checking for dcgettext... yes
+checking for gmsgfmt... /usr/bin/msgfmt
+checking for xgettext... /usr/bin/xgettext
+checking for catalogs to be installed...  en pl pt sv de
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating po/Makefile.in
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing default-1 commands
+make  all-recursive
+make[1]: Entering directory `/home/storage/pkgbuilding/build/gslapt-0.3.2'
+Making all in src
+make[2]: Entering directory `/home/storage/pkgbuilding/build/gslapt-0.3.2/src'
+if i486-slackware-linux-gcc -DHAVE_CONFIG_H -I. -I. -I.. -DPACKAGE_DATA_DIR=\""/usr/share"\" -DPACKAGE_LOCALE_DIR=\""/usr/share/locale"\" -DXTHREADS -D_REENTRANT -DXUSE_MTSAFE_API -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/X11R6/include -I/usr/include/atk-1.0 -I/usr/include/pango-1.0 -I/usr/include/freetype2 -I/usr/include/freetype2/config -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include      -O2 -march=i486 -mcpu=i686 -MT main.o -MD -MP -MF ".deps/main.Tpo" -c -o main.o main.c; \
+then mv -f ".deps/main.Tpo" ".deps/main.Po"; else rm -f ".deps/main.Tpo"; exit 1; fi
+if i486-slackware-linux-gcc -DHAVE_CONFIG_H -I. -I. -I.. -DPACKAGE_DATA_DIR=\""/usr/share"\" -DPACKAGE_LOCALE_DIR=\""/usr/share/locale"\" -DXTHREADS -D_REENTRANT -DXUSE_MTSAFE_API -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/X11R6/include -I/usr/include/atk-1.0 -I/usr/include/pango-1.0 -I/usr/include/freetype2 -I/usr/include/freetype2/config -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include      -O2 -march=i486 -mcpu=i686 -MT support.o -MD -MP -MF ".deps/support.Tpo" -c -o support.o support.c; \
+then mv -f ".deps/support.Tpo" ".deps/support.Po"; else rm -f ".deps/support.Tpo"; exit 1; fi
+if i486-slackware-linux-gcc -DHAVE_CONFIG_H -I. -I. -I.. -DPACKAGE_DATA_DIR=\""/usr/share"\" -DPACKAGE_LOCALE_DIR=\""/usr/share/locale"\" -DXTHREADS -D_REENTRANT -DXUSE_MTSAFE_API -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/X11R6/include -I/usr/include/atk-1.0 -I/usr/include/pango-1.0 -I/usr/include/freetype2 -I/usr/include/freetype2/config -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include      -O2 -march=i486 -mcpu=i686 -MT interface.o -MD -MP -MF ".deps/interface.Tpo" -c -o interface.o interface.c; \
+then mv -f ".deps/interface.Tpo" ".deps/interface.Po"; else rm -f ".deps/interface.Tpo"; exit 1; fi
+interface.c: In function `create_window_preferences':
+interface.c:80: warning: passing arg 2 of `gtk_window_set_title' makes pointer from integer without a cast
+interface.c:115: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:142: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:160: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:214: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:231: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:249: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:303: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:320: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c: In function `create_gslapt':
+interface.c:543: warning: passing arg 2 of `gtk_window_set_title' makes pointer from integer without a cast
+interface.c:564: warning: passing arg 1 of `gtk_menu_item_new_with_mnemonic' makes pointer from integer without a cast
+interface.c:578: warning: passing arg 1 of `gtk_menu_item_new_with_mnemonic' makes pointer from integer without a cast
+interface.c:587: warning: passing arg 1 of `gtk_menu_item_new_with_mnemonic' makes pointer from integer without a cast
+interface.c:601: warning: passing arg 1 of `gtk_image_menu_item_new_with_mnemonic' makes pointer from integer without a cast
+interface.c:614: warning: passing arg 1 of `gtk_menu_item_new_with_mnemonic' makes pointer from integer without a cast
+interface.c:623: warning: passing arg 1 of `gtk_image_menu_item_new_with_mnemonic' makes pointer from integer without a cast
+interface.c:637: warning: passing arg 1 of `gtk_image_menu_item_new_with_mnemonic' makes pointer from integer without a cast
+interface.c:651: warning: passing arg 1 of `gtk_image_menu_item_new_with_mnemonic' makes pointer from integer without a cast
+interface.c:665: warning: passing arg 1 of `gtk_image_menu_item_new_with_mnemonic' makes pointer from integer without a cast
+interface.c:679: warning: passing arg 1 of `gtk_image_menu_item_new_with_mnemonic' makes pointer from integer without a cast
+interface.c:693: warning: passing arg 1 of `gtk_image_menu_item_new_with_mnemonic' makes pointer from integer without a cast
+interface.c:707: warning: passing arg 1 of `gtk_menu_item_new_with_mnemonic' makes pointer from integer without a cast
+interface.c:716: warning: passing arg 1 of `gtk_menu_item_new_with_mnemonic' makes pointer from integer without a cast
+interface.c:721: warning: passing arg 1 of `gtk_image_menu_item_new_with_mnemonic' makes pointer from integer without a cast
+interface.c:740: warning: passing arg 2 of `gtk_tool_button_new' makes pointer from integer without a cast
+interface.c:744: warning: passing arg 3 of `gtk_tool_item_set_tooltip' makes pointer from integer without a cast
+interface.c:748: warning: passing arg 2 of `gtk_tool_button_new' makes pointer from integer without a cast
+interface.c:752: warning: passing arg 3 of `gtk_tool_item_set_tooltip' makes pointer from integer without a cast
+interface.c:756: warning: passing arg 2 of `gtk_tool_button_new' makes pointer from integer without a cast
+interface.c:760: warning: passing arg 3 of `gtk_tool_item_set_tooltip' makes pointer from integer without a cast
+interface.c:769: warning: passing arg 2 of `gtk_tool_button_new' makes pointer from integer without a cast
+interface.c:773: warning: passing arg 3 of `gtk_tool_item_set_tooltip' makes pointer from integer without a cast
+interface.c:801: warning: passing arg 1 of `gtk_button_new_with_mnemonic' makes pointer from integer without a cast
+interface.c:806: warning: passing arg 3 of `gtk_tooltips_set_tip' makes pointer from integer without a cast
+interface.c:808: warning: passing arg 1 of `gtk_button_new_with_mnemonic' makes pointer from integer without a cast
+interface.c:812: warning: passing arg 3 of `gtk_tooltips_set_tip' makes pointer from integer without a cast
+interface.c:866: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:875: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:886: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:906: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:924: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:944: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:967: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:979: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:993: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:1013: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:1038: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:1050: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:1062: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:1071: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:1080: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:1089: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:1134: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:1158: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:1188: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:1197: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:1206: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:1248: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c: In function `create_transaction_window':
+interface.c:1439: warning: passing arg 2 of `gtk_window_set_title' makes pointer from integer without a cast
+interface.c:1481: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:1488: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:1540: warning: passing arg 1 of `gtk_check_button_new_with_mnemonic' makes pointer from integer without a cast
+interface.c: In function `create_dl_progress_window':
+interface.c:1615: warning: passing arg 2 of `gtk_window_set_title' makes pointer from integer without a cast
+interface.c:1636: warning: passing arg 2 of `gtk_progress_bar_set_text' makes pointer from integer without a cast
+interface.c: In function `create_about':
+interface.c:1709: warning: passing arg 2 of `gtk_window_set_title' makes pointer from integer without a cast
+interface.c:1744: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c: In function `create_icon_legend':
+interface.c:1892: warning: passing arg 2 of `gtk_window_set_title' makes pointer from integer without a cast
+interface.c:1913: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:1935: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:1950: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:1965: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:1980: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:1995: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:2010: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c:2025: warning: passing arg 1 of `gtk_label_new' makes pointer from integer without a cast
+interface.c: In function `create_pkgtools_progress_window':
+interface.c:2092: warning: passing arg 2 of `gtk_window_set_title' makes pointer from integer without a cast
+interface.c:2113: warning: passing arg 2 of `gtk_progress_bar_set_text' makes pointer from integer without a cast
+if i486-slackware-linux-gcc -DHAVE_CONFIG_H -I. -I. -I.. -DPACKAGE_DATA_DIR=\""/usr/share"\" -DPACKAGE_LOCALE_DIR=\""/usr/share/locale"\" -DXTHREADS -D_REENTRANT -DXUSE_MTSAFE_API -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/X11R6/include -I/usr/include/atk-1.0 -I/usr/include/pango-1.0 -I/usr/include/freetype2 -I/usr/include/freetype2/config -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include      -O2 -march=i486 -mcpu=i686 -MT callbacks.o -MD -MP -MF ".deps/callbacks.Tpo" -c -o callbacks.o callbacks.c; \
+then mv -f ".deps/callbacks.Tpo" ".deps/callbacks.Po"; else rm -f ".deps/callbacks.Tpo"; exit 1; fi
+i486-slackware-linux-gcc  -O2 -march=i486 -mcpu=i686   -o gslapt  main.o support.o interface.o callbacks.o -lgtk-x11-2.0 -lgdk-x11-2.0 -latk-1.0 -lgdk_pixbuf-2.0 -lm -lpangoxft-1.0 -lpangox-1.0 -lpango-1.0 -lgobject-2.0 -lgmodule-2.0 -ldl -lglib-2.0    -lslapt  -L/usr/lib -lcurl -L/lib -lidn -lssl -lcrypto -ldl -lssl -lcrypto -ldl -lz -lglib-2.0 -lgthread-2.0
+make[2]: Leaving directory `/home/storage/pkgbuilding/build/gslapt-0.3.2/src'
+Making all in po
+make[2]: Entering directory `/home/storage/pkgbuilding/build/gslapt-0.3.2/po'
+file=./`echo en | sed 's,.*/,,'`.gmo \
+  && rm -f $file && /usr/bin/msgfmt -o $file en.po
+file=./`echo pl | sed 's,.*/,,'`.gmo \
+  && rm -f $file && /usr/bin/msgfmt -o $file pl.po
+file=./`echo pt | sed 's,.*/,,'`.gmo \
+  && rm -f $file && /usr/bin/msgfmt -o $file pt.po
+file=./`echo sv | sed 's,.*/,,'`.gmo \
+  && rm -f $file && /usr/bin/msgfmt -o $file sv.po
+file=./`echo de | sed 's,.*/,,'`.gmo \
+  && rm -f $file && /usr/bin/msgfmt -o $file de.po
+make[2]: Leaving directory `/home/storage/pkgbuilding/build/gslapt-0.3.2/po'
+make[2]: Entering directory `/home/storage/pkgbuilding/build/gslapt-0.3.2'
+make[2]: Nothing to be done for `all-am'.
+make[2]: Leaving directory `/home/storage/pkgbuilding/build/gslapt-0.3.2'
+make[1]: Leaving directory `/home/storage/pkgbuilding/build/gslapt-0.3.2'
+Making install in src
+make[1]: Entering directory `/home/storage/pkgbuilding/build/gslapt-0.3.2/src'
+make[2]: Entering directory `/home/storage/pkgbuilding/build/gslapt-0.3.2/src'
+test -z "/usr/sbin" || mkdir -p -- "/home/storage/pkgbuilding/build/package-gslapt/usr/sbin"
+  /usr/bin/ginstall -c 'gslapt' '/home/storage/pkgbuilding/build/package-gslapt/usr/sbin/gslapt'
+make[2]: Nothing to be done for `install-data-am'.
+make[2]: Leaving directory `/home/storage/pkgbuilding/build/gslapt-0.3.2/src'
+make[1]: Leaving directory `/home/storage/pkgbuilding/build/gslapt-0.3.2/src'
+Making install in po
+make[1]: Entering directory `/home/storage/pkgbuilding/build/gslapt-0.3.2/po'
+if test -r ".././mkinstalldirs"; then \
+  .././mkinstalldirs /home/storage/pkgbuilding/build/package-gslapt/usr/share; \
+else \
+  /bin/sh ../mkinstalldirs /home/storage/pkgbuilding/build/package-gslapt/usr/share; \
+fi
+mkdir -p -- /home/storage/pkgbuilding/build/package-gslapt/usr/share
+mkdir -p -- /home/storage/pkgbuilding/build/package-gslapt/usr/share/locale/en/LC_MESSAGES
+installing en.gmo as /home/storage/pkgbuilding/build/package-gslapt/usr/share/locale/en/LC_MESSAGES/gslapt.mo
+mkdir -p -- /home/storage/pkgbuilding/build/package-gslapt/usr/share/locale/pl/LC_MESSAGES
+installing pl.gmo as /home/storage/pkgbuilding/build/package-gslapt/usr/share/locale/pl/LC_MESSAGES/gslapt.mo
+mkdir -p -- /home/storage/pkgbuilding/build/package-gslapt/usr/share/locale/pt/LC_MESSAGES
+installing pt.gmo as /home/storage/pkgbuilding/build/package-gslapt/usr/share/locale/pt/LC_MESSAGES/gslapt.mo
+mkdir -p -- /home/storage/pkgbuilding/build/package-gslapt/usr/share/locale/sv/LC_MESSAGES
+installing sv.gmo as /home/storage/pkgbuilding/build/package-gslapt/usr/share/locale/sv/LC_MESSAGES/gslapt.mo
+mkdir -p -- /home/storage/pkgbuilding/build/package-gslapt/usr/share/locale/de/LC_MESSAGES
+installing de.gmo as /home/storage/pkgbuilding/build/package-gslapt/usr/share/locale/de/LC_MESSAGES/gslapt.mo
+if test "gslapt" = "glib"; then \
+  if test -r ".././mkinstalldirs"; then \
+    .././mkinstalldirs /home/storage/pkgbuilding/build/package-gslapt/usr/share/glib-2.0/gettext/po; \
+  else \
+    /bin/sh ../mkinstalldirs /home/storage/pkgbuilding/build/package-gslapt/usr/share/glib-2.0/gettext/po; \
+  fi; \
+  /usr/bin/ginstall -c -m 644 ./Makefile.in.in \
+		  /home/storage/pkgbuilding/build/package-gslapt/usr/share/glib-2.0/gettext/po/Makefile.in.in; \
+else \
+  : ; \
+fi
+make[1]: Leaving directory `/home/storage/pkgbuilding/build/gslapt-0.3.2/po'
+make[1]: Entering directory `/home/storage/pkgbuilding/build/gslapt-0.3.2'
+make[2]: Entering directory `/home/storage/pkgbuilding/build/gslapt-0.3.2'
+make[2]: Nothing to be done for `install-exec-am'.
+/bin/sh ./mkinstalldirs /home/storage/pkgbuilding/build/package-gslapt//usr/share/applications; \
+/bin/sh ./mkinstalldirs /home/storage/pkgbuilding/build/package-gslapt//usr/share/doc/gslapt ; \
+/usr/bin/ginstall -c -m 644 AUTHORS ChangeLog COPYING FAQ README /home/storage/pkgbuilding/build/package-gslapt//usr/share/doc/gslapt ; \
+/usr/bin/ginstall -c -m 644 gslapt.desktop /home/storage/pkgbuilding/build/package-gslapt//usr/share/applications/gslapt.desktop; \
+/bin/sh ./mkinstalldirs /home/storage/pkgbuilding/build/package-gslapt//usr/share/pixmaps; \
+/usr/bin/ginstall -c -m 644 pixmaps/gslapt.png /home/storage/pkgbuilding/build/package-gslapt//usr/share/pixmaps/; \
+if test -d ./pixmaps; then \
+  /bin/sh ./mkinstalldirs /home/storage/pkgbuilding/build/package-gslapt/usr/share/gslapt/pixmaps; \
+  for pixmap in ./pixmaps/*; do \
+    if test -f $pixmap; then \
+      /usr/bin/ginstall -c -m 644 $pixmap /home/storage/pkgbuilding/build/package-gslapt/usr/share/gslapt/pixmaps; \
+    fi \
+  done \
+fi
+mkdir -p -- /home/storage/pkgbuilding/build/package-gslapt//usr/share/applications
+mkdir -p -- /home/storage/pkgbuilding/build/package-gslapt//usr/share/doc/gslapt
+mkdir -p -- /home/storage/pkgbuilding/build/package-gslapt//usr/share/pixmaps
+mkdir -p -- /home/storage/pkgbuilding/build/package-gslapt/usr/share/gslapt/pixmaps
+make[2]: Leaving directory `/home/storage/pkgbuilding/build/gslapt-0.3.2'
+make[1]: Leaving directory `/home/storage/pkgbuilding/build/gslapt-0.3.2'
+gzip: /home/storage/pkgbuilding/build/package-gslapt/usr/man/*/*: No such file or directory
+gzip: /home/storage/pkgbuilding/build/package-gslapt/usr/info/*: No such file or directory
+
+Slackware package maker, version 2.1.
+
+Searching for symbolic links:
+
+No symbolic links were found, so we won't make an installation script.
+You can make your own later in ./install/doinst.sh and rebuild the
+package if you like.
+
+This next step is optional - you can set the directories in your package
+to some sane permissions. If any of the directories in your package have
+special permissions, then DO NOT reset them here!
+
+Would you like to reset all directory permissions to 755 (drwxr-xr-x) and
+directory ownerships to root.root ([y]es, [n]o)? n
+
+
+Creating tar file gslapt-0.3.2-i486-1.tar...
+
+./
+usr/
+usr/sbin/
+usr/sbin/gslapt
+usr/share/
+usr/share/locale/
+usr/share/locale/en/
+usr/share/locale/en/LC_MESSAGES/
+usr/share/locale/en/LC_MESSAGES/gslapt.mo
+usr/share/locale/pl/
+usr/share/locale/pl/LC_MESSAGES/
+usr/share/locale/pl/LC_MESSAGES/gslapt.mo
+usr/share/locale/pt/
+usr/share/locale/pt/LC_MESSAGES/
+usr/share/locale/pt/LC_MESSAGES/gslapt.mo
+usr/share/locale/sv/
+usr/share/locale/sv/LC_MESSAGES/
+usr/share/locale/sv/LC_MESSAGES/gslapt.mo
+usr/share/locale/de/
+usr/share/locale/de/LC_MESSAGES/
+usr/share/locale/de/LC_MESSAGES/gslapt.mo
+usr/share/applications/
+usr/share/applications/gslapt.desktop
+usr/share/pixmaps/
+usr/share/pixmaps/gslapt.png
+usr/share/gslapt/
+usr/share/gslapt/pixmaps/
+usr/share/gslapt/pixmaps/gslapt.png
+usr/share/gslapt/pixmaps/pkg_action_available.png
+usr/share/gslapt/pixmaps/pkg_action_downgrade.png
+usr/share/gslapt/pixmaps/pkg_action_install.png
+usr/share/gslapt/pixmaps/pkg_action_installed.png
+usr/share/gslapt/pixmaps/pkg_action_reinstall.png
+usr/share/gslapt/pixmaps/pkg_action_remove.png
+usr/share/gslapt/pixmaps/pkg_action_upgrade.png
+usr/doc/
+usr/doc/gslapt-0.3.2/
+usr/doc/gslapt-0.3.2/AUTHORS
+usr/doc/gslapt-0.3.2/COPYING
+usr/doc/gslapt-0.3.2/ChangeLog
+usr/doc/gslapt-0.3.2/INSTALL
+usr/doc/gslapt-0.3.2/NEWS
+usr/doc/gslapt-0.3.2/README
+usr/doc/gslapt-0.3.2/TODO
+usr/doc/gslapt-0.3.2/FAQ
+install/
+install/slack-required
+install/slack-desc
+tar-1.13: gslapt-0.3.2-i486-1.tar is the archive; not dumped
+
+Gzipping gslapt-0.3.2-i486-1.tar...
+
+Renaming gslapt-0.3.2-i486-1.tar.gz to gslapt-0.3.2-i486-1.tgz...
+
+Moving gslapt-0.3.2-i486-1.tgz to /home/storage/pkgbuilding/build...
+
+Package creation complete.
+
