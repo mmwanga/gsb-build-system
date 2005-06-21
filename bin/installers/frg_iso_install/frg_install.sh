@@ -44,8 +44,8 @@ while getopts "i:p:h" options
 	  echo "INSTALL VAR: $INSTALL"
 	  ;;
     "p" )
-	  PROMPTS="$OPTARG"
-	  NO_PROMPT="true"
+	  export PROMPTS="$OPTARG"
+	  export NO_PROMPT="true"
 	  echo "PROMPT VAR: $PROMPTS"
 	  ;;
     "h" )
@@ -108,4 +108,3 @@ else
 	exit 0
     fi
 fi
-

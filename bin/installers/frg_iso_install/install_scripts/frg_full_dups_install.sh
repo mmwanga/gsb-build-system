@@ -22,7 +22,6 @@ if [ "$NO_PROMPT" != "true" ]; then
 Select which Gnumeric (spreadsheet) to install\n"
 
     echo "
-0) Do not install
 1) Gnumeric 1.4.3 (stable version)
 2) Gnumeric 1.5.0 (unstable version)
 "
@@ -32,18 +31,15 @@ Select which Gnumeric (spreadsheet) to install\n"
     echo ""
 fi
 
-if [ "$DEFAULT" = "true" ]; then
+if [ "$PROMPTS" = "default" ]; then
     gnumeric_selection=1
 fi
 
-if [ "$ALT" = "true" ]; then
+if [ "$PROMPTS" = "alt" ]; then
     gnumeric_selection=2
 fi
 
 case "$gnumeric_selection" in
-'0')
-	echo "Gnumeric Not installed"
-	;;
 '1')
 	upgradepkg --install-new $FRGROOT/extras/office/gnumeric-"$GNUMERIC_VERSION"-*frg.tgz
 	;;
@@ -65,7 +61,6 @@ if [ "$NO_PROMPT" != "true" ]; then
 Select which Drivel (blog client) to install\n"
 
     echo "
-0) Do not install
 1) Drivel 1.2.4 (stable version)
 2) Drivel 1.3.2 (development version)
 "
@@ -75,18 +70,15 @@ Select which Drivel (blog client) to install\n"
     echo ""
 fi
 
-if [ "$DEFAULT" = "true" ]; then
+if [ "$PROMPTS" = "default" ]; then
     drivel_selection=1
 fi
 
-if [ "$ALT" = "true" ]; then
+if [ "$PROMPTS" = "alt" ]; then
     drivel_selection=2
 fi
 
 case "$drivel_selection" in
-'0')
-	echo "Drivel Not installed"
-	;;
 '1')
 	upgradepkg --install-new $FRGROOT/extras/other/drivel-"$DRIVEL_VERSION"-*frg.tgz
 	;;
@@ -107,7 +99,6 @@ if [ "$NO_PROMPT" != "true" ]; then
 Select which GIMP to install\n"
 
     echo "
-0) Do not install
 1) GIMP $GIMP_VERSION 
 2) GIMP $GIMP_VERSION with pygimp installed
 "
@@ -117,11 +108,11 @@ Select which GIMP to install\n"
     echo ""
 fi
 
-if [ "$DEFAULT" = "true" ]; then
+if [ "$PROMPTS" = "default" ]; then
     gimp_selection=1
 fi
 
-if [ "$ALT" = "true" ]; then
+if [ "$PROMPTS" = "alt" ]; then
     gimp_selection=2
 fi
 

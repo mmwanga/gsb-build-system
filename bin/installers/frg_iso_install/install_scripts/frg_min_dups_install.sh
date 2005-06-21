@@ -28,11 +28,11 @@ Select which librsvg to install 1 or 2\n"
     echo ""
 fi
 
-if [ "$DEFAULT" = "true" ]; then
+if [ "$PROMPTS" = "default" ]; then
     librsvg_selection=1
 fi
 
-if [ "$ALT" = "true" ]; then
+if [ "$PROMPTS" = "alt" ]; then
     librsvg_selection=2
 fi
 
@@ -58,7 +58,7 @@ Select which Totem to install 0, 1, 2 or 3\n"
     echo "
 1) Totem $TOTEMVERSION with gstreamer backend
 2) Totem $TOTEMVERSION with xine backend
-3) Totem cvs $TOTEM_CVS with gstreamer backend
+3) Totem unstable $TOTEM_CVS with gstreamer backend
 "
 
     printf "Selection: "
@@ -66,11 +66,11 @@ Select which Totem to install 0, 1, 2 or 3\n"
     echo ""
 fi
 
-if [ "$DEFAULT" = "true" ]; then
+if [ "$PROMPTS" = "default" ]; then
     totem_selection=1
 fi
 
-if [ "$ALT" = "true" ]; then
+if [ "$PROMPTS" = "alt" ]; then
     totem_selection=2
 fi
 
@@ -98,7 +98,6 @@ if [ "$NO_PROMPT" != "true" ]; then
 Select which gnome-games to install\n"
 
     echo "
-0) Do not install gnome-games
 1) gnome-games $GNOME_GAMES
 2) gnome-games $GNOME_GAMES (binaries are setgid games)
 "
@@ -108,18 +107,15 @@ Select which gnome-games to install\n"
     echo ""
 fi
 
-if [ "$DEFAULT" = "true" ]; then
+if [ "$PROMPTS" = "default" ]; then
     games_selection=1
 fi
 
-if [ "$ALT" = "true" ]; then
+if [ "$PROMPTS" = "alt" ]; then
     games_selection=2
 fi
 
 case "$games_selection" in
-'0')
-	echo "Gnome Games not installed"
-	;;
 '1')
 	upgradepkg --install-new $FRGROOT/frgnome/desktop/gnome-games-"$GNOME_GAMES"-*frg.tgz
 	;;
@@ -131,4 +127,3 @@ case "$games_selection" in
 	echo "Installing default gnome-games"
 	upgradepkg --install-new $FRGROOT/frgnome/desktop/gnome-games-"$GNOME_GAMES"-*frg.tgz
 esac
-
