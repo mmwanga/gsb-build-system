@@ -7,7 +7,7 @@
 #   - command line args: --install={min,full} --prompts={default, alternative}
 
 CWD=`pwd`
-BASE=`dirname $0`
+BASE=`dirname $0| sed "s#/.#/"`
 
 export FRGROOT="$CWD/$BASE"
 
@@ -73,6 +73,8 @@ Featuring GNOME $GNOME_VERSION
 
 "
 
+echo $FRGROOT
+exit 0
 # Select which type of install to run
 
 if [ "$NO_PROMPT" != "true" ]; then
