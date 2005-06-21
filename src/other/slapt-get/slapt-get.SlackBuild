@@ -15,7 +15,7 @@ rm -rf $PKG
 mkdir -p $PKG
 
 if [ -f /var/log/packages/slapt-get-$VERSION-$ARCH-$BUILD ]; then
-  echo "slapt-get-$VERSION-$ARCH-$BUILD exists"
+  echo "slapt-get-$VERSION-$ARCH-$BUILD package already installed"
   exit 0
 fi
 
