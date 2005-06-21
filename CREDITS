@@ -48,3 +48,7 @@ Contributors:
 
 	Eugene Crosser <crosser@average.org>
 	* Lots of suggestions and fixes
+
+	Darren Austin <lists@afterdark.org.uk>
+	* bin/misc/gen_metadata.sh
+	    script to generate PACKAGES.TXT and CHECKSUMS.md5
