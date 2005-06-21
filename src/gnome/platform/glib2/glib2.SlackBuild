@@ -9,7 +9,7 @@ ARCH=${ARCH:-i486}
 BUILD=1
 
 if [ -f /var/log/packages/glib2-$VERSION-$ARCH-$BUILD ]; then
-  echo "glib2-$VERSION-$ARCH-$BUILD exists"
+  echo "glib2-$VERSION-$ARCH-$BUILD package already installed"
   exit 0
 fi
 
@@ -54,7 +54,7 @@ find . -perm 664 -exec chmod 644 {} \;
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
-            $ARCH_CONFIGURE 
+            $ARCH_CONFIGURE
 make
 make install DESTDIR=$PKG
 strip $PKG/usr/bin/*
