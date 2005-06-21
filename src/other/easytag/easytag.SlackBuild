@@ -6,7 +6,7 @@ PKG=$TMP/package-easytag
 
 VERSION=1.99.5
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -60,6 +60,7 @@ gzip -9 $PKG/usr/info/*
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 makepkg -l y -c n $TMP/easytag-$VERSION-$ARCH-$BUILD.tgz
