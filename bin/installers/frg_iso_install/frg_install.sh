@@ -11,13 +11,8 @@ BASE=`dirname $0`
 
 export FRGROOT="$CWD/$BASE"
 
-echo $FRGROOT
-
 FRG_VERSION=0.2.1
 GNOME_VERSION=2.10.1
-
-# Parse command line arguments
-
 
 # Functions
 
@@ -25,25 +20,49 @@ GNOME_VERSION=2.10.1
 usage() {
 
 printf "
-$0 --install=<arg> --prompts=<arg>
+$0 -install <arg> -prompts <arg>
 
-    --install    choose which install to run. min or full
+    -i    choose which install to run. min or full
                  --install=min or --install=full
 
-    --prompts    Option to disable prompting for packages that have
+    -p    Option to disable prompting for packages that have
                  multiple types. Default or alternative packages
                  --prompts=default or --prompts=alt
 
-    --help       Display usage info
+    -h    Display usage info
+
 "
 }
 
 # MAIN()
 
-if [ "$HELP" = "true" ]; then
-    usage
-    exit 0
-fi
+while getopts "i:p:h" options
+ do
+  case $options in
+    "i" )
+	  INSTALL="$OPTARG"
+	  echo "INSTALL VAR: $INSTALL"
+	  ;;
+    "p" )
+	  PROMPTS="$OPTARG"
+	  NO_PROMPT="true"
+	  echo "PROMPT VAR: $PROMPTS"
+	  ;;
+    "h" )
+	  usage
+	  exit 0
+	  ;;
+    ? )
+          usage
+	  exit 0
+	  ;;
+    * )
+	  usage
+	  exit 0
+	  ;;
+  esac
+done
+shift $(($OPTIND -1))
 
 printf "
 ********************************************************************************
@@ -65,7 +84,6 @@ Select which install you would like.
 2) Full install    - All Freerock GNOME packages 
 
 "
- 
     printf "Selection: "
     read install_type
 
@@ -80,5 +98,14 @@ Select which install you would like.
 	    echo "Invalid Selection, aborting"
 	    exit 0
     esac
+else 
+    if [ $INSTALL = "min" ]; then
+	sh $FRGROOT/install_scripts/frg_min_install.sh
+    elif [ $INSTALL = "full" ]; then
+	sh $FRGROOT/install_scripts/frg_full_install.sh
+    else
+	echo "Argument to -i: $INSTALL is not a valid install type"
+	exit 0
+    fi
 fi
 
