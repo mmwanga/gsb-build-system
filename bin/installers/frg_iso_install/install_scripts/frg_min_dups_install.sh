@@ -4,13 +4,96 @@
 #
 # $Id$
 
+LIBWNCK=2.10.0
+
+METACITY=2.10.1
+
 LIBRSVG=2.9.5
 LIBRSVG_ALT=2.10.0
 
-GNOME_GAMES=2.10.1
+TOTEMVERSION=1.0.1
+TOTEM_CVS=1.1.1
 
-TOTEMVERSION=1.0.2
-TOTEM_CVS=1.1.2
+
+# Install LIBWNCK
+if [ "$NO_PROMPT" != "true" ]; then
+    printf "*********************************
+
+Select which libwnck to install 1 or 2\n"
+
+    echo "
+1) libwnck $LIBWNCK
+2) libwnck $LIBWNCK (patched)
+      patched to add blinking taskbar/titlebar
+"
+
+    printf "Selection: "
+    read libwnck_selection
+    echo ""
+fi
+
+if [ "$PROMPTS" = "default" ]; then
+    libwnck_selection=1
+fi
+
+if [ "$PROMPTS" = "alt" ]; then
+    libwnck_selection=2
+fi
+
+case "$libwnck_selection" in
+'1')
+	    upgradepkg --install-new $FRGROOT/frgnome/desktop/libwnck-"$LIBWNCK"-*frg.tgz
+	    ;;
+'2')
+	    upgradepkg --install-new $FRGROOT/extras/alternatives/libwnck-"$LIBWNCK"p-*frg.tgz
+	    ;;
+*)
+	    echo "Invalid selection"
+	    echo "Installing default libwnck"
+	    upgradepkg --install-new $FRGROOT/frgnome/desktop/libwnck-"$LIBWNCK"-*frg.tgz
+esac
+
+# Install Metacity
+if [ "$NO_PROMPT" != "true" ]; then
+    printf "*********************************
+
+Select which metacity to install 1 or 2\n"
+
+    echo "
+1) metacity $METACITY
+2) metacity $METACITY (patched)
+      patched to add functionality:
+         - Blinking taskbar/titlebar
+         - window placement options
+         - change click behavior
+"
+
+    printf "Selection: "
+    read metacity_selection
+    echo ""
+fi
+
+if [ "$PROMPTS" = "default" ]; then
+    metacity_selection=1
+fi
+
+if [ "$PROMPTS" = "alt" ]; then
+    metacity_selection=2
+fi
+
+case "$metacity_selection" in
+'1')
+	    upgradepkg --install-new $FRGROOT/frgnome/desktop/metacity-"$METACITY"-*frg.tgz
+	    ;;
+'2')
+	    upgradepkg --install-new $FRGROOT/extras/alternatives/metacity-"$METACITY"p-*frg.tgz
+	    ;;
+*)
+	    echo "Invalid selection"
+	    echo "Installing default metacity"
+	    upgradepkg --install-new $FRGROOT/frgnome/desktop/metacity-"$METACITY"-*frg.tgz
+esac
+
 
 # Install LIBRSVG
 if [ "$NO_PROMPT" != "true" ]; then
@@ -19,8 +102,8 @@ if [ "$NO_PROMPT" != "true" ]; then
 Select which librsvg to install 1 or 2\n"
 
     echo "
-1) librsvg 2.9.5
-2) librsvg 2.10.0 (unreleased)
+1) librsvg $LIBRSVG
+2) librsvg $LIBRSVG_ALT (unreleased)
 "
 
     printf "Selection: "
@@ -41,13 +124,14 @@ case "$librsvg_selection" in
 	    upgradepkg --install-new $FRGROOT/frgnome/desktop/librsvg-"$LIBRSVG"-*frg.tgz
 	    ;;
 '2')
-	    upgradepkg --install-new $FRGROOT/frgnome/testing/librsvg-"$LIBRSVG_ALT"-*frg.tgz
+	    upgradepkg --install-new $FRGROOT/testing/librsvg-"$LIBRSVG_ALT"-*frg.tgz
 	    ;;
 *)
 	    echo "Invalid selection"
 	    echo "Installing stable librsvg"
 	    upgradepkg --install-new $FRGROOT/frgnome/desktop/librsvg-"$LIBRSVG"-*frg.tgz
 esac
+
 
 # Install TOTEM
 if [ "$NO_PROMPT" != "true" ]; then
@@ -88,42 +172,4 @@ case "$totem_selection" in
 	echo "Invalid selection"
 	echo "Installing stable Totem with gstreamer backend"
 	upgradepkg --install-new $FRGROOT/frgnome/desktop/totem-"$TOTEMVERSION"-*.tgz
-esac
-
-# Install GNOME GAMES
-
-if [ "$NO_PROMPT" != "true" ]; then
-    printf "*********************************
-
-Select which gnome-games to install\n"
-
-    echo "
-1) gnome-games $GNOME_GAMES
-2) gnome-games $GNOME_GAMES (binaries are setgid games)
-"
-
-    printf "Selection: "
-    read games_selection
-    echo ""
-fi
-
-if [ "$PROMPTS" = "default" ]; then
-    games_selection=1
-fi
-
-if [ "$PROMPTS" = "alt" ]; then
-    games_selection=2
-fi
-
-case "$games_selection" in
-'1')
-	upgradepkg --install-new $FRGROOT/frgnome/desktop/gnome-games-"$GNOME_GAMES"-*frg.tgz
-	;;
-'2')
-	upgradepkg --install-new $FRGROOT/extras/alternatives/gnome-games-"$GNOME_GAMES"sgid-*frg.tgz
-	;;
-*)
-	echo "Invalid selection"
-	echo "Installing default gnome-games"
-	upgradepkg --install-new $FRGROOT/frgnome/desktop/gnome-games-"$GNOME_GAMES"-*frg.tgz
 esac

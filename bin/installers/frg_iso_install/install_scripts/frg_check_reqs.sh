@@ -7,8 +7,8 @@ FRGROOT=`dirname $0`
 
 REQUIRED_PACKAGES="
 perl-5.8.6-i486-1
-mozilla-1.7.6-i486-1
-python-2.4-i486-1
+mozilla-1.7.?-i486-?
+python-2.4*-i486-?
 libexif-0.6.11-i486-1
 flac-1.1.1-i486-1
 libogg-1.1-i486-1

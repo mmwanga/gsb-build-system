@@ -7,7 +7,7 @@
 #   - command line args: --install={min,full} --prompts={default, alternative}
 
 CWD=`pwd`
-BASE=`dirname $0| sed "s#/.#/"`
+BASE=`dirname $0| sed "s#/.#/#"`
 
 export FRGROOT="$CWD/$BASE"
 
@@ -23,11 +23,11 @@ printf "
 $0 -install <arg> -prompts <arg>
 
     -i    choose which install to run. min or full
-                 --install=min or --install=full
+                 -i min or -i full
 
     -p    Option to disable prompting for packages that have
                  multiple types. Default or alternative packages
-                 --prompts=default or --prompts=alt
+                 -p default or -p alt
 
     -h    Display usage info
 
@@ -42,11 +42,24 @@ while getopts "i:p:h" options
     "i" )
 	  INSTALL="$OPTARG"
 	  echo "INSTALL VAR: $INSTALL"
+	  if [[ "$INSTALL" != "min" || "$INSTALL" != "full" ]]; then
+	      echo "$INSTALL is an invalid argument for -i"
+	      usage
+	      exit 0
+	  fi
+	  if [ "$INSTALL" = "full" ]; then
+	      export FRG_FULL="true"
+	  fi
 	  ;;
     "p" )
 	  export PROMPTS="$OPTARG"
 	  export NO_PROMPT="true"
 	  echo "PROMPT VAR: $PROMPTS"
+	  if [[ "$PROMPTS" != "default" || "$PROMPTS" != "full" ]]; then
+	      echo "$PROMPTS is an invalid argument for -p"
+	      usage
+	      exit 0
+	  fi
 	  ;;
     "h" )
 	  usage
@@ -73,10 +86,7 @@ Featuring GNOME $GNOME_VERSION
 
 "
 
-echo $FRGROOT
-exit 0
 # Select which type of install to run
-
 if [ "$NO_PROMPT" != "true" ]; then
 
     printf "
@@ -98,6 +108,7 @@ Select which install you would like.
 	    ;;
 	*)
 	    echo "Invalid Selection, aborting"
+	    usage
 	    exit 0
     esac
 else 
