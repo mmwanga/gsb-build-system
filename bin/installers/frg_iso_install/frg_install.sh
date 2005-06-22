@@ -55,7 +55,7 @@ while getopts "i:p:h" options
 	  export PROMPTS="$OPTARG"
 	  export NO_PROMPT="true"
 	  echo "PROMPT VAR: $PROMPTS"
-	  if [[ "$PROMPTS" != "default" && "$PROMPTS" != "full" ]]; then
+	  if [[ "$PROMPTS" != "default" && "$PROMPTS" != "alt" ]]; then
 	      echo "$PROMPTS is an invalid argument for -p"
 	      usage
 	      exit 0
