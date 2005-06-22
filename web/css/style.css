@@ -11,7 +11,7 @@
 body {
     color: black;
     background-color: rgb(240,240,240);
-    font-family: "Lucida Grande", "bitstream vera sans", verdana, arial, helvetica, sans-serif;
+    font-family: "Lucida Grande", "trebuchet ms", verdana, arial, helvetica, sans-serif;
     font-size: 0.9em;
     margin: 0;
     padding: 0;
@@ -70,7 +70,7 @@ pre,code,tt {
 }
 
 input, select, option {
-    font: 12px "Lucida Grande", "bitstream vera sans", verdana, arial, helvetica, sans-serif;
+    font: 12px "Lucida Grande", "trebuchet ms", verdana, arial, helvetica, sans-serif;
 }
 
 img {
@@ -84,7 +84,7 @@ img {
 }
 
 h1,h2,h3,h4,h5,h6 {
-    font-family: Optima, "bitstream vera serif", georgia, "times new roman", serif;
+    font-family: Optima, georgia, "times new roman", times, serif;
 }
 
 .indent, .italic {
@@ -116,14 +116,14 @@ acronym, .titleTip {
 .bannerTitle {
     font-style: italic;
     font-weight: bold;
-    font-family: "Lucida Grande", "bitstream vera sans", verdana, arial, helvetica, sans-serif;
+    font-family: "Lucida Grande", "trebuchet ms", verdana, arial, helvetica, sans-serif;
 }
 
 .headerTitle {
     font-size: 1.8em;
     font-weight: bold;
     font-style: italic;
-    font-family: "Lucida Grande", "bitstream vera sans", verdana, arial, helvetica, sans-serif;
+    font-family: "Lucida Grande", "trebuchet ms", verdana, arial, helvetica, sans-serif;
     margin: 0 0 0 0;
     padding: 0.25ex 0;
 }
@@ -168,7 +168,7 @@ acronym, .titleTip {
 }
 
 .sideBarTitle {
-    font-family: Optima, "bitstream vera serif", georgia, "times new roman", serif;
+    font-family: Optima, georgia, "times new roman", times, serif;
     font-size: medium;
     font-weight: bold;
     margin: 0 0 0.5em 2.5mm;
@@ -200,7 +200,7 @@ acronym, .titleTip {
     margin: 0;
     padding: 0.1em 1ex 0.1em 5mm;
     display: block;
-    font-family: "Lucida Grande", "bitstream vera sans", verdana, arial, helvetica, sans-serif;
+    font-family: "Lucida Grande", "trebuchet ms", verdana, arial, helvetica, sans-serif;
     font-weight: bold;
     border-top: 1px solid rgb(240,240,240);
     border-bottom: 1px solid rgb(240,240,240);
