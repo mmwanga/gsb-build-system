@@ -104,6 +104,7 @@ Select which install you would like.
 	    sh $FRGROOT/install_scripts/frg_min_install.sh
 	    ;;
 	"2")
+	    export FRG_FULL="true"
 	    sh $FRGROOT/install_scripts/frg_full_install.sh
 	    ;;
 	*)

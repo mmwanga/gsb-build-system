@@ -14,7 +14,7 @@ flac-1.1.1-i486-1
 libogg-1.1-i486-1
 libao-0.8.5-i486-1
 libmad-0.15.1b-i486-1
-libmikmod-3.1.1?-i486-?
+libmikmod-3.1.1?-i486-*
 gdk-pixbuf-0.22.0-i486-1
 cdparanoia-IIIalpha9.8-i386-1
 x11-6.8.?-i486-?
