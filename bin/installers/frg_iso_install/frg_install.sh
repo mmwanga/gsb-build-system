@@ -42,7 +42,7 @@ while getopts "i:p:h" options
     "i" )
 	  INSTALL="$OPTARG"
 	  echo "INSTALL VAR: $INSTALL"
-	  if [[ "$INSTALL" != "min" || "$INSTALL" != "full" ]]; then
+	  if [[ "$INSTALL" != "min" && "$INSTALL" != "full" ]]; then
 	      echo "$INSTALL is an invalid argument for -i"
 	      usage
 	      exit 0
@@ -55,7 +55,7 @@ while getopts "i:p:h" options
 	  export PROMPTS="$OPTARG"
 	  export NO_PROMPT="true"
 	  echo "PROMPT VAR: $PROMPTS"
-	  if [[ "$PROMPTS" != "default" || "$PROMPTS" != "full" ]]; then
+	  if [[ "$PROMPTS" != "default" && "$PROMPTS" != "full" ]]; then
 	      echo "$PROMPTS is an invalid argument for -p"
 	      usage
 	      exit 0
