@@ -15,6 +15,9 @@ mkdir -p $TMP/gnome-$GVERSION/other
 # not built: IndLinux NetworkManager
 
 BUILD_ORDER="
+libpixman
+glitz
+cairo
 libmikmod
 libgphoto2
 gphoto2
