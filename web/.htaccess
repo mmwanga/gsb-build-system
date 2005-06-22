@@ -13,19 +13,23 @@ DirectoryIndex index.html index.php
 #
 RewriteEngine On
     RewriteBase /
-    RewriteRule ^news/(.*)? /index.php?news_page=$1 [QSA]
-    RewriteRule ^about/?  /index.php?op=about [QSA]
-    RewriteRule ^download/?  /index.php?op=download [QSA]
-    RewriteRule ^downloads/?  /index.php?op=download [QSA]
-    RewriteRule ^development/?  /index.php?op=development [QSA]
-    RewriteRule ^help/?  /index.php?op=help [QSA]
-    RewriteRule ^installation/?  /index.php?op=installation [QSA]
-    RewriteRule ^links/?  /index.php?op=links [QSA]
-    RewriteRule ^roadmap/?  /index.php?op=roadmap [QSA]
-    RewriteRule ^screenshots/?  /index.php?op=screenshots [QSA]
-    RewriteRule ^support/?  /index.php?op=support [QSA]
-    RewriteRule ^todo/?  /index.php?op=todo [QSA]
-    RewriteRule ^faqs/?  /index.php?op=faqs [QSA]
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^.*$ - [S=50]
+    RewriteRule ^news/?$ /index.php?news_page=1 [QSA,L]
+    RewriteRule ^news/?([0-9]{1,})/?$ /index.php?news_page=$1 [QSA,L]
+    RewriteRule ^about/?$  /index.php?op=about [QSA,L]
+    RewriteRule ^download/?$  /index.php?op=download [QSA,L]
+    RewriteRule ^downloads/?$  /index.php?op=download [QSA,L]
+    RewriteRule ^development/?$  /index.php?op=development [QSA,L]
+    RewriteRule ^help/?$  /index.php?op=help [QSA,L]
+    RewriteRule ^installation/?$  /index.php?op=installation [QSA,L]
+    RewriteRule ^links/?$  /index.php?op=links [QSA,L]
+    RewriteRule ^roadmap/?$  /index.php?op=roadmap [QSA,L]
+    RewriteRule ^screenshots/?$  /index.php?op=screenshots [QSA,L]
+    RewriteRule ^support/?$  /index.php?op=support [QSA,L]
+    RewriteRule ^todo/?$  /index.php?op=todo [QSA,L]
+    RewriteRule ^faqs/?$  /index.php?op=faqs [QSA,L]
 
 #
 # special files to deny a web browser from peeking at

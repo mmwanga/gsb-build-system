@@ -16,31 +16,31 @@
 
         <li><a href="/news/" title="News">News</a></li>
 
-        <li><a href="/about" title=
+        <li><a href="/about/" title=
         "About the GSB Project">About GSB</a></li>
 
-        <li><a href="/faqs" title=
+        <li><a href="/faqs/" title=
         "Frequently-asked Questions">FAQs</a></li>
 
-        <li><a href="/screenshots" title=
+        <li><a href="/screenshots/" title=
         "Screenshots">Screenshots</a></li>
 
-        <li><a href="/download" title=
+        <li><a href="/download/" title=
         "Download">Download</a></li>
 
-        <li><a href="/installation" title=
+        <li><a href="/installation/" title=
         "Installation Instructions">Installation</a></li>
 
-        <li><a href="/roadmap" title="Roadmap">Roadmap</a></li>
+        <li><a href="/roadmap/" title="Roadmap">Roadmap</a></li>
 
-        <li><a href="/development" title="Development">Development</a></li>
+        <li><a href="/development/" title="Development">Development</a></li>
 
-        <li><a href="/support" title="Support">Support</a></li>
+        <li><a href="/support/" title="Support">Support</a></li>
 
-        <li><a href="/help" title="Help the Project">Help the
+        <li><a href="/help/" title="Help the Project">Help the
         Project</a></li>
 
-        <li><a href="/links" title="Relevant Links">Links</a></li>
+        <li><a href="/links/" title="Relevant Links">Links</a></li>
 
         <li><a href="http://sourceforge.net/projects/gsb"
         title="SourceForge.net Project Page">Project Page</a></li>
