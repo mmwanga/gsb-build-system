@@ -45,6 +45,11 @@ our %other =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/beepmp/',
 			     'src' => 'tar.gz',
 			    },
+   'cairo'               => {
+			     'ver' => '0.4.0',
+			     'url' => 'http://cairographics.org/snapshots/',
+			     'src' => 'tar.gz',
+			    },
    'coaster'             => {
 			     'ver' => '0.1.4.2',
 			     'url' => 'http://www.coaster-burner.org/files/coaster/',
@@ -99,6 +104,11 @@ our %other =
 			     'ver' => '2.2.6',
 			     'url' => 'ftp://ftp.gimp.org/pub/gimp/v2.2/',
 			     'src' => 'tar.bz2',
+			    },
+   'glitz'               => {
+			     'ver' => '0.4.3',
+			     'url' => 'http://cairographics.org/snapshots/',
+			     'src' => 'tar.gz',
 			    },
    'gmime'               => {
 			     'ver' => '2.1.14',
@@ -193,6 +203,11 @@ our %other =
    'libmikmod'           => {
 			     'ver' => '3.1.11',
 			     'url' => 'http://mikmod.raphnet.net/files/',
+			     'src' => 'tar.gz',
+			    },
+   'ilbpixman'           => {
+			     'ver' => '0.1.5',
+			     'url' => 'http://cairographics.org/snapshots/',
 			     'src' => 'tar.gz',
 			    },
    'liferea'             => {
