@@ -1,8 +1,29 @@
+<?php
+    /*
+    this function reads a file to determine the latest stable
+    version of FRG
+    */
+
+if(is_file('stable.txt')) {
+    $ver = trim(`cat stable.txt`);
+}
+?> 
     <h2>ChangeLog: Choose a version</h2>
 
     <ul>
-        <li><a href="/changelog/0.2.0">frg-0.2.0</a></li>
-        <li><a href="/changelog/current">frg-current</a></li>
+        <li><a href="/changelog/current">frg-current</a>
+          <ul>
+            <li>This is the current development tree for upcoming versions
+             of FRG.</li>
+          </ul>
+        </li>
+
+        <li><a href="/changelog/<?php echo($ver); ?>">frg-<?php echo($ver); ?></a>
+          <ul>
+            <li>This is the ChangeLog for the latest stable release of
+             FRG.</li>
+          </ul>
+        </li>
     </ul>
 
 </div>
