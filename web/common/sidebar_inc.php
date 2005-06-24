@@ -28,6 +28,9 @@
         <li><a href="/download/" title=
         "Download">Download</a></li>
 
+        <li><a href="/changelog/" title=
+        "ChangeLogs">ChangeLogs</a></li>
+
         <li><a href="/installation/" title=
         "Installation Instructions">Installation</a></li>
 

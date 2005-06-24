@@ -21,7 +21,7 @@ if ($op == "index" && (!eregi("news", $REQUEST_URI))) {
     include_once('common/news_inc.php');
 } else {
     // Section selector - BODY - rest of site sections
-    section($op,$news);
+    section($op,$news,$frg_ver);
 }
 ?>
 

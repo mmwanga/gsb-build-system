@@ -50,6 +50,10 @@ switch ($op) {
     case "development":
         $title = "Development : $common_title";
         break;
+    case "changelog":
+        $title = "ChangeLog : $common_title";
+        $frg_ver = $frg_ver;
+        break;
     case "faqs":
         $title = "FAQs : $common_title";
         break;
@@ -60,7 +64,7 @@ switch ($op) {
 }
 
 // The "engine" that runs the site ops.
-function section($op,$news) {
+function section($op,$news,$frg_ver) {
     $PAGE['url_'.$op] = ("content/$op.html");
     $doit = "url"."_"."$op";
     if (is_file($PAGE[$doit])) {

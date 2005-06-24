@@ -18,6 +18,7 @@ RewriteEngine On
     RewriteRule ^.*$ - [S=50]
     RewriteRule ^news/?$ /index.php?news_page=1 [QSA,L]
     RewriteRule ^news/?([0-9]{1,})/?$ /index.php?news_page=$1 [QSA,L]
+    RewriteRule ^changelog/(.*)?$ /index.php?op=changelog&frg_ver=$1 [QSA,L]
     RewriteRule ^about/?$  /index.php?op=about [QSA,L]
     RewriteRule ^download/?$  /index.php?op=download [QSA,L]
     RewriteRule ^downloads/?$  /index.php?op=download [QSA,L]

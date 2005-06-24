@@ -1,0 +1,43 @@
+<?php
+
+if(!$frg_ver) {
+    include('content/changelog_choices.html');
+    include('common/footer_inc.php');
+    exit();
+}
+
+switch ($frg_ver) {
+    case "current":
+        break;
+    case "0.2.0":
+        break;
+    default:
+        echo "<h2>Bad Request</h2>\n</div>\n";
+        include('common/footer_inc.php');
+        exit();
+}
+
+$url = "http://mirror.datapipe.net/norlug/frg/frg-$frg_ver/ChangeLog";
+$file = @fopen($url, "r");
+if(!$file) {
+    echo "<h2>Bad Request</h2>\n</div>\n";
+    include('common/footer_inc.php');
+    exit();
+} else {
+    while(!feof($file)) {
+        $result .= fgets($file,256);
+    }
+    fclose($file);
+}
+
+$result = strip_tags($result,  "<a>");
+$result = nl2br(htmlentities($result));
+
+?>
+
+<h2><tt>frg-<?php echo($frg_ver);?></tt> ChangeLog</h2>
+
+<tt>
+<?php print($result); ?>
+</tt>
+
