@@ -1,0 +1,29 @@
+#!/bin/sh
+
+CWD=`pwd`
+TMP=${TMP:-/tmp}
+PKG=$TMP/package-frg-version
+
+VERSION=0.2.0.1
+ARCH=noarch
+BUILD=1
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG
+
+mkdir $PKG/etc
+echo "Freerock GNOME $VERSION" > $PKG/etc/frg-version
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG
+makepkg -l y -c n $TMP/frg-version-$VERSION-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $PKG
+fi
