@@ -64,7 +64,7 @@ switch ($op) {
 }
 
 // The "engine" that runs the site ops.
-function section($op,$news,$frg_ver) {
+function section($op,$news,$frg_ver,$SERVER_NAME,$REQUEST_URI) {
     $PAGE['url_'.$op] = ("content/$op.html");
     $doit = "url"."_"."$op";
     if (is_file($PAGE[$doit])) {
