@@ -9,7 +9,7 @@
 ?>
   <div id="side-bar">
     <div>
-      <h2 class="sideBarTitle">Main Menu:</h2>
+      <h2 class="sideBarTitle">Navigation:</h2>
 
       <ul>
         <li><a href="/" title="Home Page">Home</a></li>
