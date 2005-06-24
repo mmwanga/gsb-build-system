@@ -17,21 +17,15 @@ switch ($frg_ver) {
         exit();
 }
 
-$url = "http://mirror.datapipe.net/norlug/frg/frg-$frg_ver/ChangeLog";
-$file = @fopen($url, "r");
-if(!$file) {
-    echo "<h2>Bad Request</h2>\n</div>\n";
-    include('common/footer_inc.php');
-    exit();
+$file = "ChangeLogs/$frg_ver/ChangeLog";
+if (!is_file($file)) {
+        echo "<h2>Bad Request</h2>\n</div>\n";
+        include('common/footer_inc.php');
+        exit();
 } else {
-    while(!feof($file)) {
-        $result .= fgets($file,256);
-    }
-    fclose($file);
+    $result = `cat $file`;
+    $result = nl2br(htmlentities($result));
 }
-
-$result = strip_tags($result,  "<a>");
-$result = nl2br(htmlentities($result));
 
 ?>
 
