@@ -193,7 +193,7 @@ acronym, .titleTip {
     font-size: 1.7ex;
 }
 
-#side-bar a, .thisPage {
+#side-bar a {
     color: rgb(0,51,153);
     background-color: transparent;
     text-decoration: none;
@@ -210,6 +210,22 @@ acronym, .titleTip {
     color: rgb(0,51,153);
     text-decoration: none;
     background: rgb(255,255,255);
+    border-top: 1px solid rgb(153,153,153);
+    border-bottom: 1px solid rgb(153,153,153);
+}
+
+#side-bar .thisPage {
+    text-decoration: none;
+    color: white;
+    background-color: rgb(0,51,153);
+    border-top: 1px solid rgb(153,153,153);
+    border-bottom: 1px solid rgb(153,153,153);
+}
+
+#side-bar .thisPage:hover {
+    text-decoration: none;
+    color: white;
+    background-color: rgb(0,51,153);
     border-top: 1px solid rgb(153,153,153);
     border-bottom: 1px solid rgb(153,153,153);
 }
