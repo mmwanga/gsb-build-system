@@ -24,79 +24,82 @@
 <?php }
     if(strstr($QUERY_STRING, "about")) { ?>
         <li><a href="/about/" title=
-        "About the GSB Project" class="thisPage">About GSB</a></li>
+          "About the GSB Project" class="thisPage">About GSB</a></li>
 <?php } else { ?>
         <li><a href="/about/" title=
-        "About the GSB Project">About GSB</a></li>
+          "About the GSB Project">About GSB</a></li>
 <?php }
     if (strstr($QUERY_STRING, "faqs")) { ?>
         <li><a href="/faqs/" title=
-        "Frequently-asked Questions" class="thisPage">FAQs</a></li>
+          "Frequently-asked Questions" class="thisPage">FAQs</a></li>
 <?php } else { ?>
         <li><a href="/faqs/" title=
-        "Frequently-asked Questions">FAQs</a></li>
+          "Frequently-asked Questions">FAQs</a></li>
 <?php }
     if(strstr($QUERY_STRING, "screenshots")) { ?>
         <li><a href="/screenshots/" title=
-        "Screenshots" class="thisPage">Screenshots</a></li>
+          "Screenshots" class="thisPage">Screenshots</a></li>
 <?php } else { ?>
         <li><a href="/screenshots/" title=
-        "Screenshots">Screenshots</a></li>
+          "Screenshots">Screenshots</a></li>
 <?php }
     if (strstr($QUERY_STRING, "download")) { ?>
         <li><a href="/download/" title=
-        "Download" class="thisPage">Download</a></li>
+          "Download" class="thisPage">Download</a></li>
 <?php } else { ?>
         <li><a href="/download/" title=
-        "Download">Download</a></li>
+          "Download">Download</a></li>
 <?php }
     if (strstr($QUERY_STRING, "changelog")) { ?>
         <li><a href="/changelog/" title=
-        "ChangeLogs" class="thisPage">ChangeLogs</a></li>
+           "ChangeLogs" class="thisPage">ChangeLogs</a></li>
 <?php } else { ?>
         <li><a href="/changelog/" title=
-        "ChangeLogs">ChangeLogs</a></li>
+          "ChangeLogs">ChangeLogs</a></li>
 <?php }
     if (strstr($QUERY_STRING, "installation")) { ?>
         <li><a href="/installation/" title=
-        "Installation Instructions" class="thisPage">Installation</a></li>
+          "Installation Instructions" class=
+          "thisPage">Installation</a></li>
 <?php } else { ?>
         <li><a href="/installation/" title=
-        "Installation Instructions">Installation</a></li>
+          "Installation Instructions">Installation</a></li>
 <?php }
     if (strstr($QUERY_STRING, "roadmap")) { ?>
         <li><a href="/roadmap/" title="Roadmap"
-        class="thisPage">Roadmap</a></li>
+          class="thisPage">Roadmap</a></li>
 <?php } else { ?>
-        <li><a href="/roadmap/" title="Roadmap">Roadmap</a></li>
+        <li><a href="/roadmap/" title=
+          "Roadmap">Roadmap</a></li>
 <?php }
     if (strstr($QUERY_STRING, "development")) { ?>
         <li><a href="/development/" title="Development"
-        class="thisPage">Development</a></li>
+          class="thisPage">Development</a></li>
 <?php } else { ?>
-        <li><a href="/development/" title="Development">Development</a></li>
+        <li><a href="/development/" title=
+          "Development">Development</a></li>
 <?php }
     if (strstr($QUERY_STRING, "support")) { ?>
         <li><a href="/support/" title="Support"
-        class="thisPage">Support</a></li>
+          class="thisPage">Support</a></li>
 <?php } else { ?>
         <li><a href="/support/" title="Support">Support</a></li>
 <?php }
     if (strstr($QUERY_STRING, "help")) { ?>
         <li><a href="/help/" title="Help the Project"
-        class="thisPage">Help the Project</a></li>
+          class="thisPage">Help the Project</a></li>
 <?php } else { ?>
         <li><a href="/help/" title="Help the Project">Help the
-        Project</a></li>
+          Project</a></li>
 <?php }
     if (strstr($QUERY_STRING, "links")) { ?>
         <li><a href="/links/" title="Relevant Links"
-        class="thisPage">Links</a></li>
+          class="thisPage">Links</a></li>
 <?php } else { ?>
         <li><a href="/links/" title="Relevant Links">Links</a></li>
 <?php } ?>
         <li><a href="http://sourceforge.net/projects/gsb"
-        title="SourceForge.net Project Page">Project Page</a></li>
+          title="SourceForge.net Project Page">Project Page</a></li>
       </ul>
     </div>
     <div>
