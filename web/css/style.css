@@ -191,6 +191,7 @@ acronym, .titleTip {
     border-top: 1px solid rgb(240,240,240);
     border-bottom: 1px solid rgb(240,240,240);
     font-size: 1.7ex;
+    font-family: "Lucida Grande", "trebuchet ms", verdana, arial, helvetica, sans-serif;
 }
 
 #side-bar a {
@@ -200,7 +201,6 @@ acronym, .titleTip {
     margin: 0;
     padding: 0.1em 1ex 0.1em 5mm;
     display: block;
-    font-family: "Lucida Grande", "trebuchet ms", verdana, arial, helvetica, sans-serif;
     font-weight: bold;
     border-top: 1px solid rgb(240,240,240);
     border-bottom: 1px solid rgb(240,240,240);
