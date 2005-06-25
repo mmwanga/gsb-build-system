@@ -7,6 +7,7 @@
 
 */
 
+
 // Set the default index section if none specified or on initial page entry
 if (!isset($op)) {
     $op = "index";
