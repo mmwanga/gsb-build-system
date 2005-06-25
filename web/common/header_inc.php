@@ -18,10 +18,10 @@ print("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="MSSmartTagsPreventParsing" content="TRUE" />
   <meta http-equiv="MSTHEMECOMPATIBLE" content="no" />
-  <link rel="stylesheet" type="text/css" href="/css/style.css?<?php (echo($rnd); ?>"
+  <link rel="stylesheet" type="text/css" href="/css/style.css?<?php echo($rnd); ?>"
   media="screen" title="Default Style" />
   <link rel="alternate stylesheet" type="text/css" href=
-  "/css/print.css?<?php (echo($rnd); ?>" media="print" title="Print-friendly Style" />
+  "/css/print.css?<?php echo($rnd); ?>" media="print" title="Print-friendly Style" />
   <title><?php echo($title); ?></title>
 </head> 
 <!--
