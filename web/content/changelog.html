@@ -6,25 +6,20 @@ if(!$frg_ver) {
     exit();
 }
 
-switch ($frg_ver) {
-    case "current":
-        break;
-    case "0.2.0":
-        break;
-    default:
-        echo "<h2>Bad Request</h2>\n</div>\n";
-        include('common/footer_inc.php');
-        exit();
-}
-
-$file = "ChangeLogs/$frg_ver/ChangeLog";
-if (!is_file($file)) {
-        echo "<h2>Bad Request</h2>\n</div>\n";
+$file = "http://poosie/frg/frg-$frg_ver/ChangeLog";
+$page = @fopen($file, "r");
+if (!$page) {
+        echo "<h2>No such ChangeLog</h2>\n</div>\n";
         include('common/footer_inc.php');
         exit();
 } else {
-    $result = `cat $file`;
-    $result = nl2br(htmlentities($result));
+    while(!@feof($page)) {
+        $result .= @fgets($page,256);
+    }
+    @fclose($page);
+    $result = htmlentities($result);
+    $result = str_replace(" ", "&nbsp;", $result);
+    $result = nl2br($result);
 }
 
 ?>
