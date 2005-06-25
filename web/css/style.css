@@ -262,10 +262,9 @@ acronym, .titleTip {
     color: black;
     background-color: white;
     line-height: 1.3em;
-    margin: 0 0 0 12em;
+    margin: 0 0 0 12.1em;
     padding: 0.5mm 5mm 5mm 5mm;
-    border-left: 1px solid rgb(153,153,153);
-    border-bottom: 1px solid rgb(153,153,153);
+    border-bottom: 1px solid white;
 }
 
 #main-body p {
