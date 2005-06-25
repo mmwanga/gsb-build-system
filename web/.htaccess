@@ -16,7 +16,7 @@ RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} -f [OR]
     RewriteCond %{REQUEST_FILENAME} -d
     RewriteRule ^.*$ - [S=50]
-    RewriteRule ^news/?$ /index.php?news_page=1 [QSA,L]
+    RewriteRule ^news/?$ /index.php?news_page=0 [QSA,L]
     RewriteRule ^news/?([0-9]{1,})/?$ /index.php?news_page=$1 [QSA,L]
     RewriteRule ^changelog/(.*)?$ /index.php?op=changelog&frg_ver=$1 [QSA,L]
     RewriteRule ^about/?$  /index.php?op=about [QSA,L]
