@@ -33,9 +33,11 @@ print("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
     $Date: 2005-02-13 18:13:10 -0600 (Sun, 13 Feb 2005) $
     $Author: chipster $
 
-    OP:  <?php echo($op."\n"); ?>
-    URI: <?php echo($REQUEST_URI."\n"); ?>
-    QS:  <?php echo($QUERY_STRING."\n"); ?>
+    Diags:
+
+        OP:  <?php echo($op."\n"); ?>
+        URI: <?php echo($REQUEST_URI."\n"); ?>
+        QS:  <?php echo($QUERY_STRING."\n"); ?>
 
 -->
 <body>  
