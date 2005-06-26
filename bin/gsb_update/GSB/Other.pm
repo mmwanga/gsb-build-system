@@ -205,7 +205,7 @@ our %other =
 			     'url' => 'http://mikmod.raphnet.net/files/',
 			     'src' => 'tar.gz',
 			    },
-   'ilbpixman'           => {
+   'libpixman'           => {
 			     'ver' => '0.1.5',
 			     'url' => 'http://cairographics.org/snapshots/',
 			     'src' => 'tar.gz',
