@@ -30,14 +30,9 @@ print("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
     GSB site code <http://gsb.sf.net>
     Chip Cuccio <chipster@norlug.org>
     $Revision$
-    $Date: 2005-02-13 18:13:10 -0600 (Sun, 13 Feb 2005) $
+    $Date: $
     $Author: chipster $
 
-    Diags:
-
-        OP:  <?php echo($op."\n"); ?>
-        URI: <?php echo($REQUEST_URI."\n"); ?>
-        QS:  <?php echo($QUERY_STRING."\n"); ?>
 
 -->
 <body>  
