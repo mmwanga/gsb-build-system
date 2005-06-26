@@ -101,7 +101,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'gimp'                => {
-			     'ver' => '2.2.6',
+			     'ver' => '2.2.7',
 			     'url' => 'ftp://ftp.gimp.org/pub/gimp/v2.2/',
 			     'src' => 'tar.bz2',
 			    },
