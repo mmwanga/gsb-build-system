@@ -26,14 +26,11 @@ print("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
   <title><?php echo($title); ?></title>
 </head> 
 <!--
-
     GSB site code <http://gsb.sf.net>
     Chip Cuccio <chipster@norlug.org>
     $Revision: 703 $
     $Date$
     $Author: chipster $
-
-
 -->
 <body>  
   
