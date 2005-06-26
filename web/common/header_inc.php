@@ -29,8 +29,8 @@ print("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
 
     GSB site code <http://gsb.sf.net>
     Chip Cuccio <chipster@norlug.org>
-    $Revision$
-    $Date: $
+    $Revision: 703 $
+    $Date$
     $Author: chipster $
 
 

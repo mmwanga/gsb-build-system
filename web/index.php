@@ -3,7 +3,7 @@
 
     The index.php "brain" PHP script
     Chip Cuccio <chipster@norlug.org>
-    $Id$
+    $Id: index.php 703 2005-06-26 02:39:11Z chipster $
 
 */
 
