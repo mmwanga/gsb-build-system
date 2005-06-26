@@ -21,7 +21,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'anjuta'              => {
-			     'ver' => '2.0.0',
+			     'ver' => '1.2.3',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/anjuta/',
 			     'src' => 'tar.gz',
 			    },
@@ -76,7 +76,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'easytag'             => {
-			     'ver' => '1.99.5',
+			     'ver' => '1.99.6',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/easytag/',
 			     'src' => 'tar.bz2',
 			    },
@@ -126,7 +126,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'gphoto2'             => {
-			     'ver' => '2.1.5',
+			     'ver' => '2.1.6',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto/',
 			     'src' => 'tar.gz',
 			    },
@@ -196,7 +196,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'libgphoto2'          => {
-			     'ver' => '2.1.5',
+			     'ver' => '2.1.6',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto/',
 			     'src' => 'tar.gz',
 			    },
@@ -246,7 +246,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'sylpheed'            => {
-			     'ver' => '1.9.7',
+			     'ver' => '2.0.0pre3',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/sylpheed-claws/',
 			     'src' => 'tar.bz2',
 			    },
@@ -256,7 +256,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'xchat'               => {
-			     'ver' => '2.4.3',
+			     'ver' => '2.4.4',
 			     'url' => 'http://xchat.org/files/source/2.4/',
 			     'src' => 'tar.bz2',
 			    },
@@ -270,7 +270,7 @@ our %other =
 our %other_gnome =
   (
    'NetworkManager'      => '0.3.1',
-   'evince'              => '0.3.1',
+   'evince'              => '0.3.2',
    'ghex'                => '2.8.1',
    'glade'               => '2.10.0',
    'gnome-audio'         => '2.0.0',

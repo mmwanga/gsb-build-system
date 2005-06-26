@@ -22,7 +22,7 @@ our %gstreamer =
 our %gst_other =
   (
    'gst-ffmpeg'        => {
-			   'ver' => '0.8.4',
+			   'ver' => '0.8.5',
 			   'url' => 'http://gstreamer.freedesktop.org/src/gst-ffmpeg/',
 			   'src' => 'tar.bz2',
 			  },

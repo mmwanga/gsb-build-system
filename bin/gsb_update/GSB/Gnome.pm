@@ -67,7 +67,7 @@ our %platform_diff_naming =
 		'name' => 'glib',
 	       },
    'gtk+2'  => {
-		'ver'  => '2.6.7',
+		'ver'  => '2.6.8',
 		'name' => 'gtk+',
 	       },
    'libidl' => {
@@ -164,7 +164,7 @@ our %desktop =
    'gnome-system-monitor'   => '2.10.1',
    'gnome-system-tools'     => '1.2.0',
    'gnome-terminal'         => '2.10.0',
-   'gnome-themes'           => '2.10.1',
+   'gnome-themes'           => '2.10.2',
    'gnome-user-share'       => '0.5',
    'gnome-utils'            => '2.10.1',
    'gnome-volume-manager'   => '1.2.2',
@@ -180,9 +180,9 @@ our %desktop =
    'gucharmap'              => '1.4.3',
    'libcroco'               => '0.6.0',
    'libgail-gnome'          => '1.1.1',
-   'libgsf'                 => '1.12.0',
+   'libgsf'                 => '1.12.1',
    'libgtkhtml'             => '2.6.3',
-   'libgtop'                => '2.10.1',
+   'libgtop'                => '2.10.2',
    'librsvg'                => '2.9.5',
    'libsoup'                => '2.2.3',
    'libwnck'                => '2.10.0',
@@ -196,7 +196,7 @@ our %desktop =
    'sound-juicer'           => '2.10.1',
    'startup-notification'   => '0.8',
    'system-tools-backends'  => '1.2.0',
-   'totem'                  => '1.0.3',
+   'totem'                  => '1.0.4',
    'vino'                   => '2.10.0',
    'vte'                    => '0.11.13',
    'ximian-connector'       => '2.2.3',
@@ -231,7 +231,7 @@ our %desktop_nongnome =
 
 our %bindings_cxx =
   (
-   'bakery'            => '2.3.13',
+   'bakery'            => '2.3.15',
    'gconfmm'           => '2.10.0',
    'glibmm'            => '2.6.1',
    'gnome-vfsmm'       => '2.10.0',
@@ -278,12 +278,12 @@ our %bindings_perl =
 			     'src' => 'tar.gz',
 			    },
    'Glib'                => {
-			     'ver' => '1.081',
+			     'ver' => '1.082',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtk2-perl/',
 			     'src' => 'tar.gz',
 			    },
    'Gnome2'              => {
-			     'ver' => '1.021',
+			     'ver' => '1.023',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtk2-perl/',
 			     'src' => 'tar.gz',
 			    },
@@ -298,17 +298,17 @@ our %bindings_perl =
 			     'src' => 'tar.gz',
 			    },
    'Gnome2-VFS'          => {
-			     'ver' => '1.021',
+			     'ver' => '1.022',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtk2-perl/',
 			     'src' => 'tar.gz',
 			    },
    'Gtk2'                => {
-			     'ver' => '1.081',
+			     'ver' => '1.082',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtk2-perl/',
 			     'src' => 'tar.gz',
 			    },
    'Gtk2-GladeXML'       => {
-			     'ver' => '1.004',
+			     'ver' => '1.005',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtk2-perl/',
 			     'src' => 'tar.gz',
 			    },
