@@ -91,7 +91,7 @@ our %platform_reqs =
 			    },
    'gamin'               => {
 			     'url' => 'http://www.gnome.org/~veillard/gamin/sources/',
-			     'ver' => '0.0.26',
+			     'ver' => '0.1.1',
 			     'src' => 'tar.gz',
 			    },
    'hal'                 => {
@@ -223,7 +223,7 @@ our %desktop_other =
 our %desktop_nongnome =
   (
       'libgnomesu'  => {
-			'ver' => '0.9.7',
+			'ver' => '1.0.0',
 			'url' => 'http://members.chello.nl/~h.lai/libgnomesu/',
 			'src' => 'tar.gz',
 		       },
