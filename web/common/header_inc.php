@@ -3,7 +3,7 @@
 
     Header PHP script
     Chip Cuccio <chipster@norlug.org>
-    $Id: header_inc.php 63 2005-02-13 23:46:18Z chipster $
+    $Id$
 
 */
 $rnd = md5(rand(1,999999));
@@ -26,10 +26,10 @@ print("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
   <title><?php echo($title); ?></title>
 </head> 
 <!--
-    GSB site code <http://gsb.sf.net>
+    GSB site code <http://gsb.freerock.org>
     Chip Cuccio <chipster@norlug.org>
     $Revision: 703 $
-    $Date$
+    $Date: 2005-06-25 21:56:40 -0500 (Sat, 25 Jun 2005) $
     $Author: chipster $
 -->
 <body>  
