@@ -66,7 +66,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'drivel'              => {
-			     'ver' => '2.0.0',
+			     'ver' => '2.0.1',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/drivel/',
 			     'src' => 'tar.bz2',
 			    },
@@ -86,7 +86,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'gaim'                => {
-			     'ver' => '1.3.0',
+			     'ver' => '1.3.1',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gaim',
 			     'src' => 'tar.bz2',
 			    },
@@ -277,7 +277,7 @@ our %other_gnome =
    'gnome-cups-manager'  => '0.30',
    'gnome-blog'          => '0.9',
    'gossip'              => '0.8',
-   'gthumb'              => '2.6.5',
+   'gthumb'              => '2.6.6',
    'loudmouth'           => '0.17.2',
    'rhythmbox'           => '0.8.8',
    'sabayon'             => '0.18',
