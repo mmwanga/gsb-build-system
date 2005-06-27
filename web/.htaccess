@@ -4,9 +4,9 @@
 Options -Indexes -Includes -ExecCGI
 
 #
-# Direcory Index Options (in order)
+# Direcory Index Options
 #
-DirectoryIndex index.html index.php
+DirectoryIndex index.php
 
 #
 # mod_rewite rules - make URI's friendly and easy to document/recite/remember
@@ -35,23 +35,8 @@ RewriteEngine On
 #
 # special files to deny a web browser from peeking at
 #
-<Files ~ "^news\.txt">
-    Order allow,deny
-    Deny from all
-</Files>
-
-<Files ~ "(.*)_inc\.php">
-    Order allow,deny
-    Deny from all
-</Files>
-
-<Files ~ "(.*)\.sh">
-    Order allow,deny
-    Deny from all
-</Files>
-
-<Files ~ "(.*)\.html">
-    Order allow,deny
-    Deny from all
+<Files ~ "(\.(txt|sh|html)|(.*)_inc\.php)$">
+  Order deny,allow
+  Deny from all
 </Files>
 

@@ -1,4 +1,10 @@
 ###
+2005-06-27-14:02-CST
+chipster
+After installing FRB/GSB, my keyboard does not repeat keys any longer. How is that fixed?
+From GNOME Menu Bar, choose "Desktop -&gt; Preferences -&gt; Keyboard", then
+check the "Repeat Keys" box.
+###
 2005-04-04-13-13-CST
 chipster
 My KDE Menus are all messed up after installing FRG/GSB! How do I fix them?
