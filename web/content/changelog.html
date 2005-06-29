@@ -6,6 +6,9 @@ if(!$frg_ver) {
     exit();
 }
 
+// clean up $frg_ver var
+$frg_ver = str_replace("/", "", $frg_ver);
+
 $file = "http://poosie/frg/frg-$frg_ver/ChangeLog";
 $page = @fopen($file, "r");
 if (!$page) {
