@@ -73,7 +73,7 @@ switch ($op) {
 
 // The "engine" that runs the site ops.
 function section($op,$news,$frg_ver,$errno,$errdesc,$SERVER_NAME,
-                 $HTTP_REFERER,$SERVER_SIGNATURE,$REQUEST_URI) {
+                 $HTTP_REFERER,$SERVER_SIGNATURE,$REQUEST_URI,$REDIRECT_URL) {
     $PAGE['url_'.$op] = ("content/$op.html");
     $doit = "url"."_"."$op";
     if (is_file($PAGE[$doit])) {
