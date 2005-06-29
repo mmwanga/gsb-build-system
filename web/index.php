@@ -24,23 +24,14 @@ switch ($op) {
     case "about":
         $title = "About : $common_title";
         break;
-    case "dev":
-        $title = "Development : $common_title";
-        break;
     case "download":
         $title = "Downloads : $common_title";
-        break;
-    case "help":
-        $title = "Help : $common_title";
         break;
     case "installation":
         $title = "Installation : $common_title";
         break;
     case "links":
         $title = "Links : $common_title";
-        break;
-    case "roadmap";
-        $title = "Roadmap : $common_title";
         break;
     case "screenshots";
         $title = "Screenshots : $common_title";

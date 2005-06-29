@@ -65,13 +65,6 @@
         <li><a href="/installation/" title=
           "Installation Instructions">Installation</a></li>
 <?php }
-    if (strstr($QUERY_STRING, "roadmap")) { ?>
-        <li><a href="/roadmap/" title="Roadmap"
-          class="thisPage">Roadmap</a></li>
-<?php } else { ?>
-        <li><a href="/roadmap/" title=
-          "Roadmap">Roadmap</a></li>
-<?php }
     if (strstr($QUERY_STRING, "development")) { ?>
         <li><a href="/development/" title="Development"
           class="thisPage">Development</a></li>
@@ -84,13 +77,6 @@
           class="thisPage">Support</a></li>
 <?php } else { ?>
         <li><a href="/support/" title="Support">Support</a></li>
-<?php }
-    if (strstr($QUERY_STRING, "help")) { ?>
-        <li><a href="/help/" title="Help the Project"
-          class="thisPage">Help the Project</a></li>
-<?php } else { ?>
-        <li><a href="/help/" title="Help the Project">Help the
-          Project</a></li>
 <?php }
     if (strstr($QUERY_STRING, "links")) { ?>
         <li><a href="/links/" title="Relevant Links"
