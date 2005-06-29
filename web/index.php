@@ -16,6 +16,19 @@ if (!isset($op)) {
 // set common title
 $common_title = "GSB: GNOME.SlackBuild";
 
+// error handlers
+switch ($errno) {
+    case "401":
+        $errdesc = "Error 401 - Authorization Required";
+        break;
+    case "403":
+        $errdesc = "Error 403 - Access Forbidden";
+        break;
+    case "404":
+        $errdesc = "Error 404 - Not Found";
+        break;
+}
+
 // Section title display engine
 switch ($op) { 
     case "index":
@@ -46,6 +59,9 @@ switch ($op) {
         $title = "ChangeLog : $common_title";
         $frg_ver = $frg_ver;
         break;
+    case "http_error":
+        $title = $errdesc;
+        break;
     case "faqs":
         $title = "FAQs : $common_title";
         break;
@@ -56,7 +72,8 @@ switch ($op) {
 }
 
 // The "engine" that runs the site ops.
-function section($op,$news,$frg_ver,$SERVER_NAME,$REQUEST_URI) {
+function section($op,$news,$frg_ver,$errno,$errdesc,$SERVER_NAME,
+                 $HTTP_REFERER,$SERVER_SIGNATURE,$REQUEST_URI) {
     $PAGE['url_'.$op] = ("content/$op.html");
     $doit = "url"."_"."$op";
     if (is_file($PAGE[$doit])) {

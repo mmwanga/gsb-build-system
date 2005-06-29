@@ -40,3 +40,10 @@ RewriteEngine On
   Deny from all
 </Files>
 
+#
+# error handling
+#
+ErrorDocument 404 /index.php?op=http_error&errno=404
+ErrorDocument 403 /index.php?op=http_error&errno=403
+ErrorDocument 401 /index.php?op=http_error&errno=401
+
