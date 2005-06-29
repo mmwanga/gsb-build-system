@@ -106,14 +106,11 @@
       <h2 class="sideBarTitle">Sponsors:</h2>
 
       <ul>
-
         <li><a href="http://www.datapipe.net"
         title="Datapipe graciously provides the official mirror for GSB/FRG packages and ISOs">DataPipe Managed Hosting Services</a></li>
-
         <li><a href="http://sourceforge.net/donate/?group_id=130126"
-        class="imglink"><img src="images/project-support.jpg"
+        class="imglink"><img src="/images/project-support.jpg"
         alt="Donate to this project" /></a></li>
-
         <li><a href="http://sourceforge.net?group_id=130126"
         title="Project supported by SourceForge.net" class=
         "imglink"><img src="/images/sf_logo.png" alt=
