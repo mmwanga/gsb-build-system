@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-iso-codes
 
-VERSION=0.46pre1
+VERSION=0.46
 ARCH=noarch
 BUILD=1
 
@@ -16,7 +16,7 @@ mkdir -p $PKG
 
 cd $TMP
 tar -xzvf $CWD/iso-codes_$VERSION.orig.tar.gz
-cd iso-codes-cvs
+cd iso-codes-$VERSION
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
             --localstatedir=/var/lib \

@@ -6,9 +6,9 @@ PKG=$TMP/package-xchat
 rm -rf $PKG
 mkdir -p $PKG/usr
 
-VERSION=2.4.3
+VERSION=2.4.4
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
@@ -49,6 +49,7 @@ cp -a \
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 makepkg -l y -c n $TMP/xchat-$VERSION-$ARCH-$BUILD.tgz

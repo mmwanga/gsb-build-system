@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gtk+2
 
-VERSION=2.6.7
+VERSION=2.6.8
 ARCH=${ARCH:-i486}
 BUILD=2
 
@@ -39,7 +39,7 @@ make install DESTDIR=$PKG
 # I'm spamming your root partition
 make install
 mkdir -p $PKG/etc/gtk-2.0
-cp -a /etc/gtk-2.0/* $PKG/etc/gtk-2.0
+#cp -a /etc/gtk-2.0/* $PKG/etc/gtk-2.0
 strip $PKG/usr/bin/*
 chown -R root.bin $PKG/usr/bin
 ( cd $PKG
@@ -63,4 +63,4 @@ cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG 
-makepkg -l y -c n ../gtk+2-$VERSION-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n ../gtk+2-$VERSION-$ARCH-$BUILD.tgz

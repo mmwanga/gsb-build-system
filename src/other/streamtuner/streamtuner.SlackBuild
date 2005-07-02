@@ -6,7 +6,7 @@ PKG=$TMP/package-streamtuner
 
 VERSION=0.99.99
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=4
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source

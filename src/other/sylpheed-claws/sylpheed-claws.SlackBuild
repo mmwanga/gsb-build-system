@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-sylpheed-claws
 
-VERSION=1.9.6
+VERSION=1.9.12
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -33,6 +33,7 @@ CFLAGS="$SLKCFLAGS" \
             --localstatedir=/var/lib \
             --disable-static \
             --enable-openssl \
+            --disable-pgpmime-plugin \
 	    --program-prefix="" \
 	    --program-suffix="-claws" \
             $ARCH-slackware-linux

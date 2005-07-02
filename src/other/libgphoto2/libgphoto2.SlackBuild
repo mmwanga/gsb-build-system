@@ -6,7 +6,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-libgphoto2
 
-VERSION=2.1.5
+VERSION=2.1.6
 ARCH=${ARCH:-i486}
 BUILD=1
 

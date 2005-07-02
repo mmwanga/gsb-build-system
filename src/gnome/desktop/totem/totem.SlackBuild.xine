@@ -1,0 +1,91 @@
+#!/bin/sh
+
+CWD=`pwd`
+TMP=${TMP:-/tmp}
+PKG=$TMP/package-totem
+
+VERSION=1.0.4
+ARCH=${ARCH:-i486}
+BUILD=2
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG
+mkdir -p $PKG/var/lib/scrollkeeper
+
+
+if [ "$ARCH" = "i386" ]; then
+  SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
+elif [ "$ARCH" = "i486" ]; then
+  SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
+elif [ "$ARCH" = "s390" ]; then
+  SLKCFLAGS="-O2"
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2"
+fi
+
+cd $TMP 
+tar xjvf $CWD/totem-$VERSION.tar.bz2
+cd totem-$VERSION
+chown -R root.root .
+find . -perm 666 -exec chmod 644 {} \;
+find . -perm 664 -exec chmod 644 {} \;
+CFLAGS="$SLKCFLAGS" \
+./configure --prefix=/usr \
+	    --sysconfdir=/etc \
+            --localstatedir=/var/lib \
+            --disable-static \
+	    --enable-nautilus \
+	    --enable-mozilla \
+            $ARCH-slackware-linux
+make
+make install DESTDIR=$PKG
+
+SCHEMAS=$PKG/etc/gconf/schemas
+for i in $SCHEMAS/*.schemas
+do
+GCONF_CONFIG_SOURCE="xml::$PKG/etc/gconf/gconf.xml.defaults" \
+        gconftool-2 --makefile-install-rule $i
+done
+
+(
+  cd $PKG/etc/gconf/gconf.xml.defaults
+  find ./ -type d -exec chmod go+rx {} \;
+  find ./ -type f -exec chmod go+r {} \;
+)
+
+chown -R root.bin $PKG/usr/bin
+
+mkdir -p $PKG/usr/doc/totem-$VERSION
+cp -a \
+  AUTHORS BUGS COPYING HACKING MAINTAINERS NEWS README \
+  $PKG/usr/doc/totem-$VERSION
+find $PKG/usr/doc/totem-$VERSION/ -type f -exec chmod 644 {} \;
+chown -R root.root $PKG/usr/doc/totem-$VERSION/*
+
+# strip:
+( cd $PKG
+  find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+  find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+)
+
+gzip -9 $PKG/usr/man/*/*
+
+rm -f $PKG/usr/info/dir
+gzip -9 $PKG/usr/info/*
+
+mkdir -p $PKG/install
+cat $CWD/slack-required > $PKG/install/slack-required
+cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
+
+cd $PKG
+makepkg -l y -c n $TMP/totem-$VERSION"xine"-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/totem-$VERSION
+  rm -rf $PKG
+fi

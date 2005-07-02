@@ -13,11 +13,13 @@ fi
 mkdir -p $TMP/gnome-$GVERSION/office
 
 # mergeant not included yet
-BUILD_ORDER="abiword
+# glom taken out, depends on packages in gnome 2.11.x
+BUILD_ORDER="
+abiword
 dia
 gnumeric
 planner
-glom"
+"
 
 (
 

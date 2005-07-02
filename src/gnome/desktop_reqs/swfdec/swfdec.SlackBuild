@@ -14,8 +14,6 @@ fi
 rm -rf $PKG
 mkdir -p $PKG
 
-export PKG_CONFIG_PATH=/usr/lib/pkgconfig
-
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
 elif [ "$ARCH" = "i486" ]; then
@@ -29,7 +27,7 @@ fi
 cd $TMP
 tar -xzvf $CWD/swfdec-$VERSION.tar.gz
 cd swfdec-$VERSION
-bzcat $CWD/configure.swfdec.patch.bz2 |patch -p0 --verbose
+#bzcat $CWD/configure.swfdec.patch.bz2 |patch -p0 --verbose
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             --disable-static \

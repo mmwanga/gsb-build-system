@@ -8,7 +8,7 @@ mkdir -p $PKG
 
 VERSION=2.2.7
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=3
 
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
@@ -48,6 +48,12 @@ rm -f $PKG/usr/man/man?/*.?
   ln -sf gimprc-2.2.5.gz gimprc.5.gz
 )
 
+(
+  mkdir -p $PKG/usr/share/mime-info
+  cd $PKG/usr/share/mime-info
+  ln -s ../gimp/2.0/misc/gimp.keys .
+)
+
 mkdir -p $PKG/usr/doc/gimp-$VERSION
 cp -a \
   AUTHORS COPYING HACKING INSTALL LICENSE MAINTAINERS NEWS PLUGIN_MAINTAINERS README* TODO.xml \
@@ -61,9 +67,10 @@ cp -a \
 
 chown -R root.bin $PKG/usr/bin
 mkdir -p $PKG/install
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-makepkg -l y -c n ../gimp-$VERSION-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n ../gimp-$VERSION-$ARCH-$BUILD.tgz
 

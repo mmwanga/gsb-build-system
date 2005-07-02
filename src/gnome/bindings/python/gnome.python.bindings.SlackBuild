@@ -10,7 +10,9 @@ BUILD_ORDER="pyorbit
 pygtk
 gnome-python
 gnome-python-extras
-pyphany"
+pyphany
+gst-python
+"
 
 (
 for i in $BUILD_ORDER

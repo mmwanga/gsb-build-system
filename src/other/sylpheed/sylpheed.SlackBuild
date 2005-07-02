@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-sylpheed
 
-VERSION=1.9.7
+VERSION=2.0.0beta3
 ARCH=${ARCH:-i486}
 BUILD=2
 
@@ -70,6 +70,7 @@ gzip -9 $PKG/usr/info/*
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 makepkg -l y -c n $TMP/sylpheed-$VERSION-$ARCH-$BUILD.tgz

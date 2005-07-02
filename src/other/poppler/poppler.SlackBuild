@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-poppler
 
-VERSION=0.3.2
+VERSION=0.3.3
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -33,7 +33,6 @@ CXXFLAGS="$SLKCFLAGS -I/usr/X11R6/include" \
             --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static \
-	    --disable-cairo-output \
             $ARCH-slackware-linux
 make
 make install DESTDIR=$PKG
