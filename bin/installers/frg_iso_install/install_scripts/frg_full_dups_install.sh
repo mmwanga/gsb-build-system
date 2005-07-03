@@ -41,7 +41,7 @@ case "$gnumeric_selection" in
 	upgradepkg --install-new $FRGROOT/extras/office/gnumeric-"$GNUMERIC_VERSION"-*frg.tgz
 	;;
 '2')
-	upgradepkg --install-new $FRGROOT/extras/testing/gnumeric-"$GNUMERIC_ALT"-*frg.tgz
+	upgradepkg --install-new $FRGROOT/testing/gnumeric-"$GNUMERIC_ALT"-*frg.tgz
 	;;
 *)
 	echo "Invalid selection"

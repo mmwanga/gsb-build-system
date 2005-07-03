@@ -81,8 +81,8 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'gDesklets'           => {
-			     'ver' => '0.34.3',
-			     'url' => 'http://www.pycage.de/download/gdesklets/',
+			     'ver' => '0.35.1',
+			     'url' => 'http://www.gdesklets.org/releases/',
 			     'src' => 'tar.bz2',
 			    },
    'gaim'                => {
@@ -121,7 +121,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'gpgme'               => {
-			     'ver' => '1.0.2',
+			     'ver' => '1.0.3',
 			     'url' => 'ftp://ftp.gnupg.org/gcrypt/gpgme/',
 			     'src' => 'tar.gz',
 			    },
@@ -168,6 +168,11 @@ our %other =
    'inkscape'            => {
 			     'ver' => '0.41',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/inkscape/',
+			     'src' => 'tar.bz2',
+			    },
+   'istanbul'            => {
+			     'ver' => '0.1.1',
+			     'url' => 'http://live.hujjat.org',
 			     'src' => 'tar.bz2',
 			    },
    'libburn'             => {
@@ -221,7 +226,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'poppler'             => {
-			     'ver' => '0.3.2',
+			     'ver' => '0.3.3',
 			     'url' => 'http://poppler.freedesktop.org/',
 			     'src' => 'tar.gz',
 			    },
@@ -246,14 +251,19 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'sylpheed'            => {
-			     'ver' => '2.0.0pre3',
+			     'ver' => '2.0.0beta3',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/sylpheed-claws/',
 			     'src' => 'tar.bz2',
 			    },
    'sylpheed-claws'      => {
-			     'ver' => '1.9.6',
+			     'ver' => '1.9.12',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/sylpheed-claws/',
 			     'src' => 'tar.bz2',
+			    },
+   'thoggen'             => {
+			     'ver' => '0.3',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/thoggen/',
+			     'src' => 'tar.gz',
 			    },
    'xchat'               => {
 			     'ver' => '2.4.4',

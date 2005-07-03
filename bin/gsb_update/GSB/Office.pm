@@ -41,9 +41,9 @@ our %office_libs =
 		   'src' => 'tar.gz',
 		  },
    'fribidi'   => {
-		   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/fribidi/',
-		   'ver' => '0.10.4',
-		   'src' => 'tar.bz2',
+		   'url' => 'http://fribidi.org/download/',
+		   'ver' => '0.10.5',
+		   'src' => 'tar.gz',
 		  },
    'libwmf'    => {
 		   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/wvware/',

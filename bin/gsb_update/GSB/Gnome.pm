@@ -15,6 +15,7 @@ our @EXPORT    = qw(%platform
                     %bindings_cxx
                     %bindings_java
                     %bindings_python
+                    %bindings_python_other
                     %bindings_perl);
 our @EXPORT_OK = qw();
 our $VERSION   = 0.03;
@@ -23,7 +24,8 @@ our $VERSION   = 0.03;
 # Config Options for GNOME
 #
 
-#    'pkgconfig'           => '0.15.0',
+#    'pkgconfig'           => '0.18.0',
+
 our %platform =
   (
    'at-spi'              => '1.6.4',
@@ -264,6 +266,16 @@ our %bindings_python =
    'pyorbit'              => '2.0.1',
    'pyphany'              => '0.1.4',
   );
+
+our %bindings_python_other =
+    (
+     'gst-python' => {
+	              'ver' => '0.8.2',
+		      'url' => 'http://gstreamer.freedesktop.org/src/gst-python/',
+		      'src' => 'tar.bz2',
+		     },
+     );
+
 
 our %bindings_perl =
   (

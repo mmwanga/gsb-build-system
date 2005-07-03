@@ -522,6 +522,40 @@ foreach my $pbpackage (keys %bindings_python) {
   }
 }
 
+foreach my $pbopackage (keys %bindings_python_other) {
+
+  my $name    = $pbopackage;
+
+  my $sb_file = $name . $sb_ext;
+  my $packurl = $bindings_python_other{$name}{url};
+  my $ver     = $bindings_python_other{$name}{ver};
+  my $src     = $bindings_python_other{$name}{src};
+  my $type    = "other";
+
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+
+  chdir "$pwd/gnome/bindings/python/$name";
+
+  if ( $download eq "true") {
+    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
+
+
 # Perl
 foreach my $plbpackage (keys %bindings_perl) {
 
