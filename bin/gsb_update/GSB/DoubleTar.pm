@@ -36,7 +36,7 @@ our %double_tarballs =
   );
 
 
-# iso-codes isn't a double tarball but its here temporarily
+# iso-codes isn't a double tarball but its here temporarily because of how its named.
 our %double_tarballs_url =
   (
    'clearlooks-metacity'       => {

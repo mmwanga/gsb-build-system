@@ -140,6 +140,11 @@ our %other =
 			     'url' => 'http://graveman.tuxfamily.org/sources/',
 			     'src' => 'tar.bz2',
 			    },
+   'gslaptt'             => {
+			     'ver' => '0.3.3',
+			     'url' => 'http://software.jaos.org/source/gslapt/',
+			     'src' => 'tar.gz',
+			    },
    'gtkam'               => {
 			     'ver' => '0.1.12',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto/',
@@ -238,6 +243,16 @@ our %other =
    'skencil'             => {
 			     'ver' => '0.6.16',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/sketch/',
+			     'src' => 'tar.gz',
+			    },
+   'slapt-get'           => {
+			     'ver' => '0.9.9m',
+			     'url' => 'http://software.jaos.org/source/slapt-get/',
+			     'src' => 'tar.gz',
+			    },
+   'smeg'                => {
+			     'ver' => '0.7.5',
+			     'url' => 'http://dev.realistanew.com/smeg/0.7.5/',
 			     'src' => 'tar.gz',
 			    },
    'streamtuner'         => {

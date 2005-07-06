@@ -274,6 +274,11 @@ our %bindings_python_other =
 		      'url' => 'http://gstreamer.freedesktop.org/src/gst-python/',
 		      'src' => 'tar.bz2',
 		     },
+     'pyxdg'      => {
+                      'ver' => '0.14',
+		      'url' => 'http://www.freedesktop.org/~lanius/',
+		      'src' => 'tar.gz',
+		     },
      );
 
 
