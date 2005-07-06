@@ -12,6 +12,7 @@ gnome-python
 gnome-python-extras
 pyphany
 gst-python
+pyxdg
 "
 
 (

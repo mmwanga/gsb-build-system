@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-slapt-get
 
-VERSION=0.9.9l
+VERSION=0.9.9m
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -36,7 +36,6 @@ fi
 cd $TMP
 tar -xzvf $CWD/slapt-get-$VERSION.tar.gz
 cd slapt-get-$VERSION
-cat $CWD/slapt-get.Makefile.DESTDIR.diff |patch -p1 --verbose
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then

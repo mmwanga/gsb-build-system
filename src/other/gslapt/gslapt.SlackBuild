@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gslapt
 
-VERSION=0.3.2
+VERSION=0.3.3
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -85,6 +85,7 @@ gzip -9 $PKG/usr/info/*
 mkdir -p $PKG/install
 cat slack-required > $PKG/install/slack-required
 cat slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 makepkg -l y -c n $TMP/gslapt-$VERSION-$ARCH-$BUILD.tgz
