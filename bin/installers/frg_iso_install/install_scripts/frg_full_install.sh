@@ -5,7 +5,7 @@
 
 # Install Themes
 (
-  cd "$FRGROOT"/frgnome/themes
+  cd "$FRGROOT"/extras/themes
 
   for i in *.tgz
   do

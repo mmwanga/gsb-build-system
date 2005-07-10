@@ -48,7 +48,7 @@
   for i in *.tgz
   do
     PACK=`echo $i|cut -d - -f 1`
-    if [[ "$PACK" = "metacity" && "$PACK" = "libwnck" && "$PACK" = "librsvg" && "$PACK" = "totem" ]]; then
+    if [[ "$PACK" = "metacity" || "$PACK" = "libwnck" || "$PACK" = "librsvg" || "$PACK" = "totem" ]]; then
 	echo "Dupe package, skipping"
     else
 	upgradepkg --install-new $i
