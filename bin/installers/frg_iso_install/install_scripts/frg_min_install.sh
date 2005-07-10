@@ -4,6 +4,9 @@
 (
   cd "$FRGROOT"/frgnome/platform
 
+  upgradepkg --install-new dbus*.tgz
+  upgradepkg --install-new hal*.tgz
+
   for i in *.tgz
   do
     PACK=`echo $i|cut -d - -f 1`
@@ -20,8 +23,7 @@
 # Install Desktop requirements
 (
   cd "$FRGROOT"/frgnome/desktop_reqs
-  upgradepkg --install-new dbus*.tgz
-  upgradepkg --install-new hal*.tgz
+
   upgradepkg --install-new cyrus-sasl*.tgz
   upgradepkg --install-new openldap*.tgz
 
@@ -40,12 +42,13 @@
 # Install Desktop
 (
   cd "$FRGROOT"/frgnome/desktop
+
   upgradepkg --install-new scrollkeeper*.tgz
 
   for i in *.tgz
   do
     PACK=`echo $i|cut -d - -f 1`
-    if [ "$PACK" = "metacity" || "$PACK" = "libwnck" || "$PACK" = "librsvg" || "$PACK" = "totem" ]; then
+    if [[ "$PACK" = "metacity" && "$PACK" = "libwnck" && "$PACK" = "librsvg" && "$PACK" = "totem" ]]; then
 	echo "Dupe package, skipping"
     else
 	upgradepkg --install-new $i
