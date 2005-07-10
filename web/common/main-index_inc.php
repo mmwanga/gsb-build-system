@@ -12,9 +12,9 @@
 <?php
 // default main landing page
 if ($op == "index" && (!eregi("news", $REQUEST_URI))) {
+    include_once('content/about.html');
     print("<h2 id=\"news\">News and Announcements:</h2>\n");
     include_once('common/news_inc.php');
-    include_once('content/about.html');
 // if in news sections, omit "about" footer item
 } elseif ($op == "index" && (eregi("news", $REQUEST_URI))) {
     print("<h2 id=\"news\">News and Announcements:</h2>\n");

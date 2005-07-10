@@ -12,8 +12,11 @@ $author["chipster"]="chipster@norlug.org";
 $author["freerock"]="freerock [at] gmail (dot) com";
 
 // max items to show on one page
-$max = 3;
-
+if(strstr($REQUEST_URI, "news")) {
+    $max = 5;
+} else {
+    $max = 3;
+}
 // news file
 $ff = "news.txt";
 
