@@ -55,7 +55,7 @@ if (!is_file($ff)) {
             $ndate[_MONTH], $ndate[_DAY], $ndate[_YEAR]);
         $ndate = date("Y/m/d @ H:i", $ndate);
         $faq_id = $a;
-        $faq = preg_replace("/(?<!<a href=\")((http|https|rsync|news|irc|ftp)+(s)?:\/\/[^<>\s]+)/i", "<a href=\"\\0\">\\0</a>", $faq);
+        //$faq = preg_replace("/(?<!<a href=\")((http|https|rsync|news|irc|ftp)+(s)?:\/\/[^<>\s]+)/i", "<a href=\"\\0\">\\0</a>", $faq);
 
         if(!ereg("</p>", $faq[0])) {
             print( "<dt class=\"faqhead\" id=\"faq_id-$a\">\"".$subject."\"</dt>\n"
