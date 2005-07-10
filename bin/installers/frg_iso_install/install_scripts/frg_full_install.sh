@@ -6,25 +6,58 @@
 # Install Themes
 (
   cd "$FRGROOT"/frgnome/themes
-  upgradepkg --install-new *.tgz
+
+  for i in *.tgz
+  do
+    PACK=`echo $i|cut -d - -f 1`
+    if [ "$PACK" = "NOTHING_TO_CHECK_HERE" ]; then
+	echo "Dupe package, skipping"
+    else
+	upgradepkg --install-new $i
+    fi
+  done
 )
   
 # Install Language Bindings
 (
   cd "$FRGROOT"/frgnome/bindings
-  upgradepkg --install-new *.tgz
+  for i in *.tgz
+  do
+    PACK=`echo $i|cut -d - -f 1`
+    if [ "$PACK" = "NOTHING_TO_CHECK_HERE" ]; then
+	echo "Dupe package, skipping"
+    else
+	upgradepkg --install-new $i
+    fi
+  done
 )
 
 # Install Office
 (
   cd "$FRGROOT"/extras/office
-  upgradepkg --install-new *.tgz
+  for i in *.tgz
+  do
+    PACK=`echo $i|cut -d - -f 1`
+    if [ "$PACK" = "gnumeric" ]; then
+	echo "Dupe package, skipping"
+    else
+	upgradepkg --install-new $i
+    fi
+  done
 )
 
 # Install Other misc programs
 (
   cd "$FRGROOT"/extras/other
-  upgradepkg --install-new *.tgz
+  for i in *.tgz
+  do
+    PACK=`echo $i|cut -d - -f 1`
+    if [ "$PACK" = "sylpheed" ]; then
+	echo "Dupe package, skipping"
+    else
+	upgradepkg --install-new $i
+    fi
+  done
 )
 
 /bin/sh "$FRGROOT"/install_scripts/frg_min_dups_install.sh

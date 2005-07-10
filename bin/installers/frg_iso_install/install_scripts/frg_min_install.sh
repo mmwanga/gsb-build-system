@@ -3,7 +3,17 @@
 # Install Platform
 (
   cd "$FRGROOT"/frgnome/platform
-  upgradepkg --install-new *.tgz
+
+  for i in *.tgz
+  do
+    PACK=`echo $i|cut -d - -f 1`
+    if [ "$PACK" = "NOTHING_TO_CHECK_HERE" ]; then
+	echo "Dupe package, skipping"
+    else
+	upgradepkg --install-new $i
+    fi
+  done
+
   upgradepkg --reinstall shared-mime-info*.tgz
 )
 
@@ -15,14 +25,32 @@
   upgradepkg --install-new cyrus-sasl*.tgz
   upgradepkg --install-new openldap*.tgz
 
-  upgradepkg --install-new *.tgz
+  for i in *.tgz
+  do
+    PACK=`echo $i|cut -d - -f 1`
+    if [ "$PACK" = "NOTHING_TO_CHECK_HERE" ]; then
+	echo "Dupe package, skipping"
+    else
+	upgradepkg --install-new $i
+    fi
+  done
+
 )
 
 # Install Desktop
 (
   cd "$FRGROOT"/frgnome/desktop
   upgradepkg --install-new scrollkeeper*.tgz
-  upgradepkg --install-new *.tgz
+
+  for i in *.tgz
+  do
+    PACK=`echo $i|cut -d - -f 1`
+    if [ "$PACK" = "metacity" || "$PACK" = "libwnck" || "$PACK" = "librsvg" || "$PACK" = "totem" ]; then
+	echo "Dupe package, skipping"
+    else
+	upgradepkg --install-new $i
+    fi
+  done
 )
 
 if [ "$FRG_FULL" != "true" ]; then
