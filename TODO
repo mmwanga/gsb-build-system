@@ -8,7 +8,6 @@ GSB:
 
 FRG:
 
-	* Add a frg-$VERSION package so users know which version they have installed.
 	* fonts package
 		http://eyegene.ophthy.med.umich.edu/unicode/fontguide/
 	* mozilla-nss libs for people who do not want mozilla installed
@@ -29,7 +28,6 @@ WEBSITE:
 	  purposes. Maybe have a separate page with a check
 	  list to say that they have tested the package
 	* Add svn tarballs to website
-	* Add ChangeLogs to website (stable release and -current)
 
 MINIROCK GNOME:
 

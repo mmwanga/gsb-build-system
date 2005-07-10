@@ -8,6 +8,7 @@
 #   - Themes.pm: themes for gnome-extra-themes need to be auto downloaded
 #   - Verify.pm: add md5 and gpg checking of src tarballs
 #   - add perl bindings to auto download
+#   - add a --option to remove build string
 #
 # TODO AFTER 0.2.0 release:
 #

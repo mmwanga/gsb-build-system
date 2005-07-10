@@ -66,7 +66,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'drivel'              => {
-			     'ver' => '2.0.1',
+			     'ver' => '2.0.2',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/drivel/',
 			     'src' => 'tar.bz2',
 			    },
@@ -86,7 +86,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'gaim'                => {
-			     'ver' => '1.3.1',
+			     'ver' => '1.4.0',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gaim',
 			     'src' => 'tar.bz2',
 			    },
@@ -140,7 +140,7 @@ our %other =
 			     'url' => 'http://graveman.tuxfamily.org/sources/',
 			     'src' => 'tar.bz2',
 			    },
-   'gslaptt'             => {
+   'gslapt'             => {
 			     'ver' => '0.3.3',
 			     'url' => 'http://software.jaos.org/source/gslapt/',
 			     'src' => 'tar.gz',

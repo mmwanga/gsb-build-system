@@ -82,7 +82,10 @@ gnome-system-monitor
 gnome-user-share
 gnome-backgrounds
 gdm
-ximian-connector"
+evolution-exchange
+xscreensaver
+gnome-screensaver
+"
 
 (
 for i in $BUILD_ORDER

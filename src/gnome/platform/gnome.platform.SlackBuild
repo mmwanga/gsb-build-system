@@ -8,7 +8,9 @@ if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 
-BUILD_ORDER="libxml2
+BUILD_ORDER="
+pkg-config
+libxml2
 libxslt
 glib2
 libidl
@@ -19,6 +21,9 @@ libbonobo
 pango
 atk
 shared-mime-info
+libpixman
+glitz
+cairo
 gtk+2
 gconf
 desktop-file-utils

@@ -4,15 +4,15 @@
 # By default, prompts user for intervention
 #
 # TODO:
-#   - command line args: --install={min,full} --prompts={default, alternative}
+#
 
 CWD=`pwd`
 BASE=`dirname $0| sed "s#/.#/#"`
 
 export FRGROOT="$CWD/$BASE"
 
-FRG_VERSION=0.2.1
-GNOME_VERSION=2.10.1
+FRG_VERSION=0.3.0
+GNOME_VERSION=2.11.5
 
 # Functions
 

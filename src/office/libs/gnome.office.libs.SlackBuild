@@ -26,6 +26,8 @@ enchant
 libgda
 libgnomedb
 libgdamm
+goffice
+present
 "
 
 (

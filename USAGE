@@ -1,0 +1,17 @@
+To get started:
+
+cd bin/gsb_update
+./gsb_update.pl --dl --edit --build=foo
+cd -
+cd src
+./GSB.SlackBuild
+
+
+Explanation of gsb_update:
+
+--dl:         downloads all the source tarballs into their own dir
+--edit:       edits the VERSION and BUILD variables in the SlackBuilds to
+              match what was downloaded by --dl
+--build=foo   Appends 'foo' to the end of all BUILD variables. This creates
+              packages with this naming convention: gtk+2-2.7.1-i486-1foo.tgz
+

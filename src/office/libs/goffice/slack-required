@@ -1,0 +1,12 @@
+cairo
+gconf
+glib2
+gtk+2
+intltool
+libart
+libglade
+libgnomeprint
+libgnomeui
+libgsf
+libxml2
+pango

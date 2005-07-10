@@ -13,6 +13,7 @@ gnome-python-extras
 pyphany
 gst-python
 pyxdg
+nautilus-python
 "
 
 (
