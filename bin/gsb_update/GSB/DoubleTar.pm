@@ -40,10 +40,10 @@ our %double_tarballs =
 our %double_tarballs_url =
   (
    'clearlooks-metacity'       => {
-				   'ver' => '0.5.2a',
+				   'ver' => '0.6',
 				   'dir' => 'gnome/themes/clearlooks',
 				   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/clearlooks/',
-				   'tar' => 'clearlooks-metacity-0.5.2a.tar.gz',
+				   'tar' => 'clearlooks-metacity-0.6.tar.gz',
 				   'var' => 'MVERSION',
 				  },
    'iso-codes'                 => {

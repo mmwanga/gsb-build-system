@@ -4,8 +4,8 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-clearlooks
 
-VERSION=0.5
-MVERSION=0.5.2a
+VERSION=0.6.2
+MVERSION=0.6
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -40,8 +40,9 @@ make install DESTDIR=$PKG
 (
   cd $PKG/usr/share/themes
   tar vzxf $CWD/clearlooks-metacity-$MVERSION.tar.gz
+  chown -R root.root .
   pushd .
-  for i in Clearlooks-DeepSky Clearlooks-Olive
+  for i in Clearlooks-DeepSky Clearlooks-Olive Clearlooks-Quicksilver
   do
   cd $i
   mkdir -p metacity-1
