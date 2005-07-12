@@ -81,6 +81,11 @@ our %platform_diff_naming =
 # these are packages from freedesktop.org
 our %platform_reqs =
   (
+   'cairo'               => {
+			     'ver' => '0.4.0',
+			     'url' => 'http://cairographics.org/snapshots/',
+			     'src' => 'tar.gz',
+			    },
    'dbus'                => {
 			     'url' => 'http://dbus.freedesktop.org/releases/',
 			     'ver' => '0.34',
@@ -96,6 +101,11 @@ our %platform_reqs =
 			     'ver' => '0.1.1',
 			     'src' => 'tar.gz',
 			    },
+   'glitz'               => {
+			     'ver' => '0.4.3',
+			     'url' => 'http://cairographics.org/snapshots/',
+			     'src' => 'tar.gz',
+			    },
    'hal'                 => {
 			     'url' => 'http://freedesktop.org/~david/dist/',
 			     'ver' => '0.5.2',
@@ -109,6 +119,11 @@ our %platform_reqs =
    'libcap'              => {
 			     'url' => 'http://www.kernel.org/pub/linux/libs/security/linux-privs/kernel-2.4/',
 			     'ver' => '1.10',
+			     'src' => 'tar.gz',
+			    },
+   'libpixman'           => {
+			     'ver' => '0.1.5',
+			     'url' => 'http://cairographics.org/snapshots/',
 			     'src' => 'tar.gz',
 			    },
    'shared-mime-info'    => {
@@ -230,11 +245,16 @@ our %desktop_other =
 
 our %desktop_nongnome =
   (
-      'libgnomesu'  => {
-			'ver' => '1.0.0',
-			'url' => 'http://members.chello.nl/~h.lai/libgnomesu/',
-			'src' => 'tar.gz',
-		       },
+      'libgnomesu'   => {
+			 'ver' => '1.0.0',
+			 'url' => 'http://members.chello.nl/~h.lai/libgnomesu/',
+			 'src' => 'tar.gz',
+		        },
+      'xscreensaver' => {
+	                 'ver' => '4.22',
+			 'url' => 'http://www.jwz.org/xscreensaver/',
+			 'src' => 'tar.gz',
+			},
   );
 
 our %bindings_cxx =
