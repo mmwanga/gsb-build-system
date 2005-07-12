@@ -12,7 +12,7 @@ body {
     color: black;
     background-color: #eeeeee;
     font-family: "Lucida Grande", "trebuchet ms", verdana, arial, helvetica, sans-serif;
-    font-size: 0.9em;
+    font-size: 0.95em;
     margin: 0;
     padding: 0;
 }
@@ -186,11 +186,10 @@ acronym, .titleTip {
 
 #side-bar li {
     margin: 0;
-    font-size: 1.0em;
     padding: 0.1ex 0;  /* Circumvents a rendering bug (?) in MSIE 6.0 */
     border-top: 1px solid #eeeeee;
     border-bottom: 1px solid #eeeeee;
-    font-size: 1.7ex;
+    font-size: 1.6ex;
     font-family: "Lucida Grande", "trebuchet ms", verdana, arial, helvetica, sans-serif;
 }
 
