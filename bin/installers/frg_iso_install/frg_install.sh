@@ -23,11 +23,14 @@ printf "
 $0 -install <arg> -prompts <arg>
 
     -i    choose which install to run. min or full
-                 -i min or -i full
+                 -i min  or  -i full
 
     -p    Option to disable prompting for packages that have
                  multiple types. Default or alternative packages
-                 -p default or -p alt
+                 -p default  or  -p alt
+
+    -r    Option to enable or disable the rc.d scripts that are installed with frg
+                 -r on  or  -r off
 
     -h    Display usage info
 
@@ -36,7 +39,7 @@ $0 -install <arg> -prompts <arg>
 
 # MAIN()
 
-while getopts "i:p:h" options
+while getopts "i:p:r:h" options
  do
   case $options in
     "i" )
@@ -61,6 +64,15 @@ while getopts "i:p:h" options
 	      exit 0
 	  fi
 	  ;;
+    "r" )
+	  export RCD="$OPTARG"
+	  echo "RCD ENABLE: $RCD"
+	  if [[ "$RCD" != "on" && "$RCD" != "off" ]]; then
+	      echo "$RCD is an invalid argument for -r"
+	      usage
+	      exit 0
+	  fi
+	  ;;
     "h" )
 	  usage
 	  exit 0
@@ -76,6 +88,7 @@ while getopts "i:p:h" options
   esac
 done
 shift $(($OPTIND -1))
+
 
 printf "
 ********************************************************************************
@@ -122,3 +135,13 @@ else
 	exit 0
     fi
 fi
+
+
+printf "
+********************************************************************************
+
+Installation of Freerock GNOME $FRG_VERSION Complete
+
+Enjoy GNOME $GNOME_VERSION
+
+"

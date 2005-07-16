@@ -4,8 +4,9 @@
 (
   cd "$FRGROOT"/frgnome/platform
 
-  upgradepkg --install-new dbus*.tgz
-  upgradepkg --install-new hal*.tgz
+  upgradepkg --install-new dbus-*.tgz
+  upgradepkg --install-new hal-*.tgz
+  upgradepkg --install-new pango-*.tgz
 
   for i in *.tgz
   do
@@ -24,8 +25,8 @@
 (
   cd "$FRGROOT"/frgnome/desktop_reqs
 
-  upgradepkg --install-new cyrus-sasl*.tgz
-  upgradepkg --install-new openldap*.tgz
+  upgradepkg --install-new cyrus-sasl-*.tgz
+  upgradepkg --install-new openldap-*.tgz
 
   for i in *.tgz
   do
@@ -43,7 +44,7 @@
 (
   cd "$FRGROOT"/frgnome/desktop
 
-  upgradepkg --install-new scrollkeeper*.tgz
+  upgradepkg --install-new scrollkeeper-*.tgz
 
   for i in *.tgz
   do
