@@ -57,6 +57,8 @@
   done
 )
 
+upgradepkg --reinstall "$FRGROOT"/frgnome/platform/libgnome-*.tgz
+
 if [ "$FRG_FULL" != "true" ]; then
     /bin/sh "$FRGROOT"/install_scripts/frg_min_dups_install.sh
     /bin/sh "$FRGROOT"/install_scripts/frg_post_install.sh
