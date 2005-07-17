@@ -35,7 +35,7 @@ RewriteEngine On
 #
 # special files to deny a web browser from peeking at
 #
-<Files ~ "(\.(txt|sh|html)|(.*)_inc\.php)$">
+<Files ~ "(\.(sh|html)|(.*)_inc\.php)$">
   Order deny,allow
   Deny from all
 </Files>
