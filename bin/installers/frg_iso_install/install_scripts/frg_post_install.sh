@@ -5,7 +5,7 @@
 
 CWD=`pwd`
 
-if [ $ROOT != "" ]; then
+if [ "$ROOT" != "" ]; then
   cd $ROOT
 else
   cd /
