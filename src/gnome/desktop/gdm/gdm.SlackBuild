@@ -63,7 +63,7 @@ chmod 755 $PKG/etc/X11/dm/Sessions/*
 # Use a version of Xsession that supports our session choices:
 # also move gdm.conf to gdm.conf.new so that it doesn't overwrite the old file
 ( cd $PKG/etc/X11/gdm
-  zcat $CWD/Xsession.gz > Xsession
+  cat $CWD/Xsession > Xsession
 )
 mkdir -p $PKG/usr/doc/gdm-$VERSION
 cp -a ABOUT-NLS AUTHORS COPYING INSTALL NEWS README README.install RELEASENOTES TODO \
