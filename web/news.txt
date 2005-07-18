@@ -1,4 +1,12 @@
 ###
+2005-06-18-16-00-EST
+freerock
+Freerock GNOME 0.2.2 released, featuring GNOME 2.10.2
+<p>The lastest stable release of Freerock GNOME is now available on sourceforge and the mirrors. We would like to thank everyone for helping making this another great stable release. Please see the downloads page for info.</p>
+
+<p>There is another release of GSB available. Version 0.1.92 builds GNOME 2.10.2</p>
+
+###
 2005-05-27-9-30-EST
 freerock
 GNOME 2.10.1 packages
