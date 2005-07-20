@@ -81,12 +81,12 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libcddb'           => {
-			   'ver' => '1.0.2',
+			   'ver' => '1.1.0',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libcddb/',
 			   'src' => 'tar.gz',
 			  },
    'libcdio'           => {
-			   'ver' => '0.73',
+			   'ver' => '0.75',
 			   'url' => 'http://ftp.gnu.org/gnu/libcdio/',
 			   'src' => 'tar.gz',
 			  },
@@ -96,12 +96,12 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libdvbpsi3'        => {
-			   'ver' => '0.1.4',
+			   'ver' => '0.1.5',
 			   'url' => 'http://download.videolan.org/pub/libdvbpsi/0.1.4/',
 			   'src' => 'tar.bz2',
 			  },
    'libdvdcss'         => {
-			   'ver' => '1.2.8',
+			   'ver' => '1.2.9',
 			   'url' => 'http://download.videolan.org/pub/libdvdcss/1.2.8/',
 			   'src' => 'tar.bz2',
 			  },

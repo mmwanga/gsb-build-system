@@ -36,7 +36,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'bluefish'            => {
-			     'ver' => '1.0.1',
+			     'ver' => '1.0.2',
 			     'url' => 'http://pkedu.fbt.eitn.wau.nl/~olivier/downloads/',
 			     'src' => 'tar.bz2',
 			    },
@@ -71,7 +71,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'easytag'             => {
-			     'ver' => '1.99.6',
+			     'ver' => '1.99.7',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/easytag/',
 			     'src' => 'tar.bz2',
 			    },
@@ -106,7 +106,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'gnomebaker'          => {
-			     'ver' => '0.3',
+			     'ver' => '0.4',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gnomebaker/',
 			     'src' => 'tar.gz',
 			    },
@@ -251,7 +251,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'sylpheed'            => {
-			     'ver' => '2.0.0beta3',
+			     'ver' => '2.0.0beta6',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/sylpheed-claws/',
 			     'src' => 'tar.bz2',
 			    },
