@@ -1,5 +1,5 @@
 #!/bin/bash
-# gen_metadata.sh - Generate package meta data, PACKAGES.TXT and CHECKSUMS.md5.
+# gen_metadata.sh - Generate package meta data.
 # Copyright (c) 2005 Darren 'Tadgy' Austin <darren@afterdark.org.uk>
 #
 # This program is free software; you can redistribute it and/or modify
@@ -20,6 +20,11 @@
 #	05/06/05	DA	Initial version.
 #	12/06/05	DA	Fixed bug with the egrep regex which prevented
 #				extracting descriptions which ended in +'s.
+#	18/07/05	DA	Updated to create Slackware compliant meta
+#				files, including PACKAGES.TXT, FILE_LIST,
+#				FILELIST.TXT and CHECKSUMS.md5.  This should
+#				allow tools such as swaret to use the frg repos.
+#
 
 # If you have a package mirror site, specifying it here will result in the
 # location being included in package metadata.
@@ -29,6 +34,9 @@
 # Personally, I prefer the Slackware standard 'txt' extension, but change to
 # 'meta' for the original FRG name convention.  --DA.
 METAEXT="txt"
+
+# The sub-directories to process.
+SUBDIRS="extras frgnome patches testing"
 
 # Generate package metadata.
 function gen_pkg_meta() {
@@ -41,6 +49,7 @@ function gen_pkg_meta() {
 		METAFILE=${FILE%tgz}$METAEXT
 		if [ ! -e  $METAFILE ]
 		then
+			echo -n "${IND}Creating $METAFILE ... "
 			# No metadata file exists for this package, so its new.
 			echo "PACKAGE NAME:  `echo $FILE | rev | cut -d/ -f1 | rev`" >$METAFILE
 			if [ -n "$DL_URL" ]
@@ -56,25 +65,17 @@ function gen_pkg_meta() {
 			echo "PACKAGE SUGGESTS:  `tar zxOf $FILE install/slack-suggests 2>/dev/null | tr '\n' ' ' `" >>$METAFILE
 			echo "PACKAGE DESCRIPTION:" >>$METAFILE
 			tar xzOf $FILE install/slack-desc 2>/dev/null | grep -v "^#" | egrep "[[:alnum:]\+]+\:" >>$METAFILE
-			echo "Created $METAFILE"
+			echo "Done."
 			RET=0
 		fi
 	done
 	return $RET
 }
 
-# Generate the CHECKSUMS.md5 file.
-function gen_checksums_md5() {
-	echo -n "Generating CHECKSUMS.md5... "
-	echo -n >CHECKSUMS.md5
-	find . -type f -name \*.tgz -exec md5sum {} \; >>CHECKSUMS.md5
-	echo "Done."
-}
-
 # Generate the PACKAGES.TXT file.
 function gen_packages_txt() {
-	echo -n "Generating PACKAGES.TXT... "
-	echo -n >PACKAGES.TXT
+	echo -n "${IND}Generating PACKAGES.TXT ... "
+	echo -e "PACKAGES.TXT; `date`\n\n" >PACKAGES.TXT
 	for FILE in `find . -type f -name \*.$METAEXT | rev | cut -d/ -f1 | rev | sort -f`
 	do
 		find . -type f -name $FILE -exec cat {} \; >>PACKAGES.TXT
@@ -83,15 +84,58 @@ function gen_packages_txt() {
 	echo "Done."
 }
 
+# Generate a FILE_LIST.
+function gen_file_list() {
+	# $1 = Filename to output to.
 
-# Check and create (if required) individual package metadata files.
-gen_pkg_meta
+	echo -n "${IND}Generating $1 ... "
+	echo -e "`date`\n\n" >$1
+	find . | sort | xargs ls -ld >>$1
+	echo "Done."
+}
 
-# Only update CHECKSUMS.md5 and PACKAGES.TXT if some package metadata files
-# were created.
-if [ $? = 0 ]
+# Generate the CHECKSUMS.md5 file.
+function gen_checksums_md5() {
+	echo -n "${IND}Generating CHECKSUMS.md5 ... "
+	echo "MD5 message digest                Filename" >CHECKSUMS.md5
+	find . -type f -name \*.tgz -exec md5sum {} \; >>CHECKSUMS.md5
+	echo "Done."
+}
+
+TOP=`pwd`
+for DIR in $SUBDIRS
+do
+	cd $DIR || continue
+	echo "Processing $DIR/"
+	IND='  '
+
+	# Create any required package matadata files in the sub-directory.
+	gen_pkg_meta
+
+	# Update the PACKAGES.TXT, FILE_LIST and CHECKSUMS.md5 in the
+	# sub-directory only if any metadata files were created.
+	if [ $? = 0 ]
+	then
+		gen_packages_txt
+		gen_file_list "FILE_LIST"
+		gen_checksums_md5
+		REGEN=1
+	else
+		echo "${IND}Nothing to update."
+	fi
+	cd $TOP
+done
+
+if [ "$REGEN" = "1" ]
 then
-	gen_checksums_md5
-	gen_packages_txt
-fi
+	IND=''
 
+	# Create the top level PACKAGES.TXT.
+	gen_packages_txt
+
+	# Create the top level FILELIST.TXT
+	gen_file_list "FILELIST.TXT"
+
+	# Update the top level CHECKSUMS.md5.
+	gen_checksums_md5
+fi
