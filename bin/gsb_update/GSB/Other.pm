@@ -126,7 +126,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'graveman'            => {
-			     'ver' => '0.3.12',
+			     'ver' => '0.3.12-4',
 			     'url' => 'http://graveman.tuxfamily.org/sources/',
 			     'src' => 'tar.bz2',
 			    },
