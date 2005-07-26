@@ -95,14 +95,14 @@ our %gst_libs =
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libdv/',
 			   'src' => 'tar.gz',
 			  },
-   'libdvbpsi3'        => {
+   'libdvbpsi4'        => {
 			   'ver' => '0.1.5',
 			   'url' => 'http://download.videolan.org/pub/libdvbpsi/0.1.5/',
 			   'src' => 'tar.bz2',
 			  },
    'libdvdcss'         => {
 			   'ver' => '1.2.9',
-			   'url' => 'http://download.videolan.org/pub/libdvdcss/1.2.8/',
+			   'url' => 'http://download.videolan.org/pub/libdvdcss/1.2.9/',
 			   'src' => 'tar.bz2',
 			  },
    'libdvdnav'         => {
