@@ -87,7 +87,7 @@ our %office_gnome =
    'gnumeric'  => '1.5.2',
    'dia'       => '0.94',
    'glom'      => '0.8.36',
-   'mergeant'  => '0.60',
+   'mergeant'  => '0.61',
    'planner'   => '0.13',
   );
 
