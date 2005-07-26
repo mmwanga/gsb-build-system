@@ -97,7 +97,7 @@ our %gst_libs =
 			  },
    'libdvbpsi3'        => {
 			   'ver' => '0.1.5',
-			   'url' => 'http://download.videolan.org/pub/libdvbpsi/0.1.4/',
+			   'url' => 'http://download.videolan.org/pub/libdvbpsi/0.1.5/',
 			   'src' => 'tar.bz2',
 			  },
    'libdvdcss'         => {
