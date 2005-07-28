@@ -24,6 +24,9 @@
 #				files, including PACKAGES.TXT, FILE_LIST,
 #				FILELIST.TXT and CHECKSUMS.md5.  This should
 #				allow tools such as swaret to use the frg repos.
+#	28/07/05	DA	Fixed a bug where the PACKAGE LOCATION was not
+#				being set correctly, causing slapt-get to look
+#				in the wrong place for packages.
 #
 
 # If you have a package mirror site, specifying it here will result in the
@@ -40,11 +43,12 @@ SUBDIRS="extras frgnome patches testing"
 
 # Generate package metadata.
 function gen_pkg_meta() {
-	# Returns:	0 = At least one metadata file was created.
-	#		1 = No files were created (everything up to date).
+	# Arguments:	$1 = The sub directory to process.
+	# Returns:	 0 = At least one metadata file was created.
+	#		 1 = No files were created (everything up to date).
 
 	RET=1
-	for FILE in `find . -type f -name \*.tgz`
+	for FILE in `find ./$1 -type f -name \*.tgz`
 	do
 		METAFILE=${FILE%tgz}$METAEXT
 		if [ ! -e  $METAFILE ]
@@ -74,56 +78,66 @@ function gen_pkg_meta() {
 
 # Generate the PACKAGES.TXT file.
 function gen_packages_txt() {
+	# Arguments:	$1 = The sub directory to process.
+
 	echo -n "${IND}Generating PACKAGES.TXT ... "
-	echo -e "PACKAGES.TXT; `date`\n\n" >PACKAGES.TXT
-	for FILE in `find . -type f -name \*.$METAEXT | rev | cut -d/ -f1 | rev | sort -f`
+	echo -e "PACKAGES.TXT; `date`\n\n" >./$1/PACKAGES.TXT
+	for FILE in `find ./$1 -type f -name \*.$METAEXT | rev | cut -d/ -f1 | rev | sort -f`
 	do
-		find . -type f -name $FILE -exec cat {} \; >>PACKAGES.TXT
-		echo >>PACKAGES.TXT
+		find ./$1 -type f -name $FILE -exec cat {} \; >>./$1/PACKAGES.TXT
+		echo >>./$1/PACKAGES.TXT
 	done
 	echo "Done."
 }
 
-# Generate a FILE_LIST.
+# Generate the FILE_LIST file.
 function gen_file_list() {
-	# $1 = Filename to output to.
+	# Arguments:	$1 = The sub directory to process.
 
-	echo -n "${IND}Generating $1 ... "
-	echo -e "`date`\n\n" >$1
-	find . | sort | xargs ls -ld >>$1
+	echo -n "${IND}Generating FILE_LIST ... "
+	echo -e "`date`\n\n" >./$1/FILE_LIST
+	( cd ./$1 && find . | sort | xargs ls -ld >>./FILE_LIST )
 	echo "Done."
 }
 
 # Generate the CHECKSUMS.md5 file.
 function gen_checksums_md5() {
+	# Arguments:	$1 = The sub directory to process.
+
 	echo -n "${IND}Generating CHECKSUMS.md5 ... "
-	echo "MD5 message digest                Filename" >CHECKSUMS.md5
-	find . -type f -name \*.tgz -exec md5sum {} \; >>CHECKSUMS.md5
+	echo "MD5 message digest                Filename" >./$1/CHECKSUMS.md5
+	( cd ./$1 && find . -type f -name \*.tgz -exec md5sum {} \; >>./CHECKSUMS.md5 )
 	echo "Done."
 }
 
-TOP=`pwd`
+# Generate the top level FILELIST.TXT file.
+function gen_filelist_txt() {
+	echo -n "${IND}Generating FILELIST.TXT ... "
+	echo -e "`date`\n\n" >./FILELIST.TXT
+	find . | sort | xargs ls -ld >>./FILELIST.TXT
+	echo "Done."
+}
+
+
 for DIR in $SUBDIRS
 do
-	cd $DIR || continue
 	echo "Processing $DIR/"
 	IND='  '
 
 	# Create any required package matadata files in the sub-directory.
-	gen_pkg_meta
+	gen_pkg_meta "$DIR"
 
 	# Update the PACKAGES.TXT, FILE_LIST and CHECKSUMS.md5 in the
-	# sub-directory only if any metadata files were created.
+	# sub-directory only if any new metadata files were created.
 	if [ $? = 0 ]
 	then
-		gen_packages_txt
-		gen_file_list "FILE_LIST"
-		gen_checksums_md5
+		gen_packages_txt "$DIR"
+		gen_file_list "$DIR"
+		gen_checksums_md5 "$DIR"
 		REGEN=1
 	else
 		echo "${IND}Nothing to update."
 	fi
-	cd $TOP
 done
 
 if [ "$REGEN" = "1" ]
@@ -134,7 +148,7 @@ then
 	gen_packages_txt
 
 	# Create the top level FILELIST.TXT
-	gen_file_list "FILELIST.TXT"
+	gen_filelist_txt
 
 	# Update the top level CHECKSUMS.md5.
 	gen_checksums_md5
