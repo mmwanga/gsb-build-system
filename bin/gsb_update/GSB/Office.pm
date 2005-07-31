@@ -83,10 +83,10 @@ our %office_gnome_libs =
 
 our %office_gnome =
   (
-   'abiword'   => '2.3.1',
+   'abiword'   => '2.3.4',
    'gnumeric'  => '1.5.2',
    'dia'       => '0.94',
-   'glom'      => '0.8.36',
+   'glom'      => '0.9.0',
    'mergeant'  => '0.61',
    'planner'   => '0.13',
   );
