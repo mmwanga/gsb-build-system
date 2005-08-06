@@ -1,57 +1,84 @@
-<h2 id="instrux">Installation Instructions</h2>
+  <h2 id="instrux">Installation Instructions</h2>
 
-<ol>
-  <li>Download the iso and md5 sum file: <a href=
-  "http://sourceforge.net/project/showfiles.php?group_id=130126&amp;package_id=143903">
-  FRG ISO</a>, then check the iso;
+  <h3>Installation via <tt>`slapt-get`</tt></h3>
+
+  <p>First, make certain you have the FRG package respository in
+  your <tt>/etc/slapt-get/slapt-getrc</tt>;</p>
+
   <blockquote>
-    <p><code>$ md5sum -c file.iso.md5</code></p>
-  </blockquote></li>
-  
-  <li>mount the iso;
-  <blockquote>
-    <p><code>$ mkdir /mnt/iso</code></p>
-    <p><code>$ mount -t iso9660 file.iso /mnt/iso -o loop</code></p>
-    <p><code>$ cd /mnt/iso</code></p>
-  </blockquote></li>
-  
-  <li>Then run either;
-  <blockquote>
-    <p><code>$ ./min_install.sh</code></p>
+    <div>
+      <code>SOURCE=http://mirror.datapipe.net/norlug/frg/frg-&lt;version&gt;</code>
+    </div>
   </blockquote>
-  
-  or
-  
+
+  <p><small>(don't forget to run <code>`slapt-get --update`</code>
+  after adding new respositories!)</small></p>
+
+  <p>Then run the following command and grab a cup of coffee;</p>
+
   <blockquote>
-    <p><code>$ ./full_install.sh</code></p>
+    <div>
+      <pre>
+# slapt-get --search [0-9]frg$|awk '{print $1}'|xargs \
+    -r slapt-get --install -y
+</pre>
+    </div>
   </blockquote>
-  
-  or manually use;
-  
-  <blockquote>
-    <p><code>$ upgradepkg --install-new</code></p>
-  </blockquote></li>
-</ol>
 
-<h2>Uninstall Instructions</h2>
+  <p>Then, enjoy your new GNOME-enabled Slackware machine :)</p>
 
-<p>
-  Please note that when uninstalling, you will have to reinstall some packages
-  from the l disk set on your slackware cdrom. Please see 
-  <a href="../content/replaced_slack_packs.txt">replaced_slack_packs.txt</a> for
-  more infomation
-</p>
+  <h3>Installation via ISO:</h3>
 
-<p>
-  Instructions are crude, but they do work.
-</p>
+  <ol>
+    <li>Download the iso and md5 sum file: <a href=
+    "http://sourceforge.net/project/showfiles.php?group_id=130126&amp;package_id=143903">
+      FRG ISO</a>, then check the iso;
 
-<ol>
-  <li>
-    cd /var/log/packages
-  </li>
+      <blockquote>
+        <p><code>$ md5sum -c file.iso.md5</code></p>
+      </blockquote>
+    </li>
 
-  <li>
-    ls -1| grep frg$| xargs -n 1 removepkg
-  </li>
-</ol>
+    <li>mount the iso;
+
+      <blockquote>
+        <p><code>$ mkdir /mnt/iso</code></p>
+
+        <p><code>$ mount -t iso9660 file.iso /mnt/iso -o
+        loop</code></p>
+
+        <p><code>$ cd /mnt/iso</code></p>
+      </blockquote>
+    </li>
+
+    <li>Then run either;
+
+      <blockquote>
+        <p><code>$ ./min_install.sh</code></p>
+      </blockquote>or
+
+      <blockquote>
+        <p><code>$ ./full_install.sh</code></p>
+      </blockquote>or manually use;
+
+      <blockquote>
+        <p><code>$ upgradepkg --install-new</code></p>
+      </blockquote>
+    </li>
+  </ol>
+
+  <h2>Uninstall Instructions</h2>
+
+  <p>Please note that when uninstalling, you will have to reinstall
+  some packages from the l disk set on your slackware cdrom. Please
+  see <a href=
+  "../content/replaced_slack_packs.txt">replaced_slack_packs.txt</a>
+  for more infomation</p>
+
+  <p>Instructions are crude, but they do work.</p>
+
+  <ol>
+    <li>cd /var/log/packages</li>
+
+    <li>ls -1| grep frg$| xargs -n 1 removepkg</li>
+  </ol>

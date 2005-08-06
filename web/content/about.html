@@ -1,38 +1,41 @@
-    <h2 id="about">About GSB: GNOME.SlackBuild</h2>
+  <h2 id="about">About GSB: GNOME.SlackBuild</h2>
 
-    <p>
-      GSB is comprised of two projects, GSB and FRG.
-      <br /><small>Don't you think the world needs more acronyms? ;-)</small>
-    </p>
-      <ol>
-      <li>
-	GSB: GNOME.SlackBuild - a collection of scripts that build a GNOME
-	release on Slackware Linux.
-      </li>
-      <li>
-	FRG: Freerock GNOME - GNOME packages for Slackware linux, these
-	packages are built using GSB.
-      </li>
-      </ol>
+<?php
+/* only show intro screenshot thumb on homepage */
+if($op !== "about") { ?>
+  <p><a href="/screenshots/" title=
+  "Click to see screenshots"><img src="/images/screen-thumb.png"
+  alt="Screenshot thumbnail image" style=
+  "margin: 0px 0px 5px 5px; padding: 0; border: 0px solid #ccc; float: right;" />
+  </a></p>
 
-    <p>
-      The goal of this project is to run one script:
-      <strong>GSB.SlackBuild</strong> and have it output Slackware packages for
-      a GNOME release.
-      <br />
-      <br />
-      FRG is a secondary project built on top of GSB.
-    </p>
+<?php } ?>
+  <p>GSB is comprised of two projects, GSB and FRG.<br />
+  <small>Don't you think the world needs more acronyms?
+  ;-)</small></p>
 
-    <ul>
+  <ol>
+    <li>GSB: GNOME.SlackBuild - a collection of scripts that build
+    a GNOME release on Slackware Linux.</li>
 
-      <li>
-	The current version of Freerock GNOME is 0.2.0.
-      </li>
+    <li>FRG: Freerock GNOME - GNOME packages for Slackware linux,
+    these packages are built using GSB.</li>
+  </ol>
 
-      <li>
-	The current version of the GSB source is: 0.1.90. It builds
-	GNOME 2.10.0 (this is an beta version, if you are unsure wait until 0.2.0 is released)
-      </li>
+  <p>The goal of this project is to run one script:
+  <strong>GSB.SlackBuild</strong> and have it output Slackware
+  packages for a GNOME release.<br />
+  <br />
+  FRG is a secondary project built on top of GSB.</p>
 
-    </ul>
+  <ul>
+    <li>The latest stable version of Freerock GNOME is <span style=
+    "color: maroon;"><?php trim(include('frg-ver.txt')); ?></span></li>
+
+    <li>The current version of the GSB source is <span style=
+    "color: maroon;"><?php trim(include('gsb-ver.txt')); ?></span>.
+    It builds GNOME <span style=
+    "color: maroon;"><?php trim(include('gnome-ver.txt')); ?></span>
+    (this is a beta version, if you are unsure wait until stable is
+    released).</li>
+  </ul>

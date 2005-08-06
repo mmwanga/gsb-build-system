@@ -14,9 +14,9 @@ GNOME 2.10.1 packages
 a FRG mirror.</p>
 
 <blockquote><p>
- <strong>HTTP</strong>; <code>http://mirror.datapipe.net/norlug/frg/frg-current/</code><br />
- <strong>FTP</strong>; <code>ftp://mirror.datapipe.net/pub/norlug/frg/frg-current/</code><br />
- <strong>FTP</strong>; <code>ftp://ftp.brownjava.org/pub/frg/frg-current/</code>
+ <strong>HTTP</strong>; <tt>http://mirror.datapipe.net/norlug/frg/frg-current/</tt><br />
+ <strong>FTP</strong>; <tt>ftp://mirror.datapipe.net/pub/norlug/frg/frg-current/</tt><br />
+ <strong>FTP</strong>; <tt>ftp://ftp.brownjava.org/pub/frg/frg-current/</tt>
 </p>
 </blockquote>
 
@@ -30,8 +30,8 @@ FRG-0.2.0 Released!
 hot!:</p>
 
 <blockquote><p>
- <strong>HTTP</strong>; <code>http://mirror.datapipe.net/norlug/frg/frg-0.2.0/</code><br />
- <strong>FTP</strong>; <code>ftp://mirror.datapipe.net/pub/norlug/frg/frg-0.2.0/</code>
+ <strong>HTTP</strong>; <tt>http://mirror.datapipe.net/norlug/frg/frg-0.2.0/</tt><br />
+ <strong>FTP</strong>; <tt>ftp://mirror.datapipe.net/pub/norlug/frg/frg-0.2.0/</tt>
 </p>
 </blockquote>
 
@@ -50,9 +50,9 @@ FRG-0.1.98 updates
 <p>Updates for FRG-0.1.98 are available here:</p>
 
 <blockquote><p>
- <code><strong>
+ <tt><strong>
 ftp://ftp.brownjava.org/pub/frg/frg-updates/frg-0.1.98/
-</strong></code>
+</strong></tt>
 </p></blockquote>
 
 <p>
@@ -77,9 +77,9 @@ FRG-0.1.97 available
 </p>
 
 <blockquote><p>
- <code><strong>
+ <tt><strong>
 ftp://ftp.brownjava.org/pub/frg/frg-updates/
-</strong></code>
+</strong></tt>
 </p></blockquote>
 
 <p>
@@ -128,11 +128,9 @@ Final Beta (iso) Release coming soon
   package has been fixed to do this for you during installation
 </p>
 
-<blockquote><p>
- <code><strong>
-/usr/bin/gdk-pixbuf-query-loaders > /etc/gtk-2.0/gdk-pixbuf.loaders
-</strong></code>
-</p></blockquote>
+<blockquote><div>
+<pre># /usr/bin/gdk-pixbuf-query-loaders > /etc/gtk-2.0/gdk-pixbuf.loaders</pre>
+</div></blockquote>
 
 ###
 2005-03-15-19-00-EST
@@ -158,13 +156,12 @@ FRG-0.1.96 Released
   commands depending on what version you are updating from
 </p>
 
-<blockquote><p>
- <code><strong>
-rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates/frg-0.1.94 /tmp
-<br />rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates/frg-0.1.95 /tmp
-<br />rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates /tmp
-</strong></code>
-</p></blockquote>
+<blockquote><div>
+<pre># rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates/frg-0.1.94 /tmp
+<br /># rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates/frg-0.1.95 /tmp
+<br /># rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates /tmp</pre>
+</div>
+</blockquote>
 
 <ul>
   <li>
@@ -234,11 +231,9 @@ FRG-0.1.95 Released
   the downloaded directory:
 </p>
 
-<blockquote><p>
- <code><strong>
-rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates/frg-0.1.94 /tmp
-</strong></code>
-</p></blockquote>
+<blockquote><div>
+<pre># rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates/frg-0.1.94 /tmp</pre>
+</div></blockquote>
 
 ###
 2005-03-12-17-00-EST
@@ -257,11 +252,9 @@ fixed:</p>
   </li>
 </ul>
 
-<blockquote><p>
-  <code><strong>
-    /usr/bin/update-desktop-database
-  </strong></code>
-</p></blockquote>
+<blockquote><div>
+  <pre># /usr/bin/update-desktop-database</pre>
+</div></blockquote>
 
 <ul>
   <li>
@@ -303,11 +296,9 @@ fixed:</p>
 
 <p>To download the updated packages, run the following rsync command:</p>
 
-<blockquote><p>
- <code><strong>
-rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates/frg-0.1.94 /tmp
-</strong></code>
-</p></blockquote>
+<blockquote><div>
+<pre># rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates/frg-0.1.94 /tmp</pre>
+</div></blockquote>
 
 <p>
   That command will download the frg-updates directory to /tmp. Then just run upgradepkg
@@ -330,15 +321,12 @@ rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates/frg-0.1.94 /tmp
   </li>
 </ul>
 
-<blockquote><p>
- <code><strong>
- cd /usr/lib/firefox 
-<br />for nsslib in libnspr4.so libnss3.so libplc4.so libplds4.so libsmime3.so libsoftokn3.so libssl3.so ; do
-<br />    ln -sf $nsslib ../$nsslib
-<br />done 
-</strong></code>
-</p></blockquote>
-
+<blockquote><div>
+<pre># cd /usr/lib/firefox 
+# for nsslib in libnspr4.so libnss3.so libplc4.so libplds4.so \
+    libsmime3.so libsoftokn3.so libssl3.so ; do \
+    ln -sf $nsslib ../$nsslib done</pre>
+</div></blockquote>
 
 ###
 2005-03-11-12-00-EST
@@ -371,9 +359,9 @@ KDE Menus might get changed
 package, The gnome-menus package implements the freedesktop.org desktop menu spec.
 There is a simple fix for this. Just add the following near the top of the
 startkde script:</p>
-<blockquote><p>
- <code><strong>export XDG_CONFIG_DIRS=/opt/kde/etc/xdg</strong></code>
-</p></blockquote>
+<blockquote><div>
+<pre># export XDG_CONFIG_DIRS=/opt/kde/etc/xdg</pre>
+</div></blockquote>
 <p>If the improper menus persist, run kbuildsycoca from Konsole after you have
 logged into KDE. Thanks to Jim Philips and Locustfurnace for pointing 
 it out.</p>

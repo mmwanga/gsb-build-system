@@ -5,13 +5,14 @@ How can I intall FRG using <tt>slapt-get</tt>?
 <p>First, make certain you have the FRG package respository in your
 <tt>/etc/slapt-get/slapt-getrc</tt>;</p>
 <blockquote><div>
-  <code>SOURCE=http://mirror.datapipe.net/norlug/frg/frg-&lt;version&gt;</code>
+  <pre>SOURCE=http://mirror.datapipe.net/norlug/frg/frg-&lt;version&gt;</pre>
 </div></blockquote>
-<p><small>(don't forget to run <code>`slapt-get --update`</code> after adding new
+<p><small>(don't forget to run <pre>`slapt-get --update`</pre> after adding new
 respositories!)</small></p>
 <p>Then run the following command and grab a cup of coffee;</p>
 <blockquote><div>
-  <code># slapt-get --search [0-9]frg$|awk '{print $1}'|xargs -r slapt-get --install -y</code>
+  <pre># slapt-get --search [0-9]frg$|awk '{print $1}'|xargs \
+     -r slapt-get --install -y</pre>
 </div></blockquote>
 <p>Then, enjoy your new GNOME-enabled Slackware machine :)</p>
 ###
@@ -28,9 +29,9 @@ My KDE Menus are all messed up after installing FRG/GSB! How do I fix them?
 gnome-menus package, The gnome-menus package implements the freedesktop.org
 desktop menu specification. There is a simple fix for this. Just add the
 following near the top of the startkde script:</p>
-<blockquote><p>
- <code><strong>export XDG_CONFIG_DIRS=/opt/kde/etc/xdg</strong></code>
-</p></blockquote>
+<blockquote><div>
+ <pre># export XDG_CONFIG_DIRS=/opt/kde/etc/xdg</pre>
+</div></blockquote>
 <p>If the improper menus persist, run kbuildsycoca from Konsole after you have
 logged into KDE. Thanks to Jim Philips and Locustfurnace for pointing 
 it out.</p>
@@ -40,12 +41,10 @@ it out.</p>
 freerock
 My Mime Types/File Associations are all screwed up. What do I do?
 <p>Run the following commands as root:</p>
-<blockquote><p>
- <code><strong>
-/usr/bin/update-mime-database /usr/share/mime
-<br />/usr/bin/update-desktop-database
-</strong></code>
-</p></blockquote>
+<blockquote><div>
+<pre># /usr/bin/update-mime-database /usr/share/mime
+# /usr/bin/update-desktop-database</pre>
+</div></blockquote>
 
 ###
 2005-03-29-15-47-CST

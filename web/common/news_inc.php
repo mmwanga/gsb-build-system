@@ -59,7 +59,6 @@ if (!is_file($ff)) {
         $ndate = date("Y/m/d @ H:i", $ndate);
         $news_id = $a;
         $news = preg_replace("/(?<!<a href=\")((http|https|rsync|news|irc|ftp)+(s)?:\/\/[^<>\s]+)/i", "<a href=\"\\0\">\\0</a>", $news);
-
         print( "<h3 id=\"news_id-$a\">".$subject."</h3>\n"
               ."<p class=\"newsheader\">Posted ".$ndate." ".$ndate_tzone." by "
               .$author."</p>\n"
