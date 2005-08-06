@@ -17,17 +17,17 @@ our %desktop_reqs =
   (
    'cyrus-sasl'      => {
 			 'url' => 'ftp://ftp.andrew.cmu.edu/pub/cyrus-mail/',
-			 'ver' => '2.1.20',
+			 'ver' => '2.1.21',
 			 'src' => 'tar.gz',
                         },
    'heimdal'         => {
 			 'url' => 'ftp://ftp.sunet.se/pub/unix/admin/mirror-pdc/heimdal/src/',
-			 'ver' => '0.6.4',
+			 'ver' => '0.7',
 			 'src' => 'tar.gz',
 			},
    'openldap'        => {
 			 'url' => 'ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/',
-			 'ver' => '2.2.26',
+			 'ver' => '2.2.27',
 			 'src' => 'tgz',
 			},
   );
