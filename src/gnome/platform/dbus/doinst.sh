@@ -44,7 +44,7 @@ fi
 	
 # if rc.messagebus is executable, run it on startup
 run=`grep ". /etc/rc.d/rc.messagebus" etc/rc.d/rc.local`
-if [[ "${run}" == "" ]]; then	
+if [ "${run}" == "" ]; then	
 cat << EOF >> etc/rc.d/rc.local
 
 # To disable dbus, chmod rc.messagebus to 644

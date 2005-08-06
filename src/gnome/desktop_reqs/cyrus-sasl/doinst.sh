@@ -21,7 +21,7 @@ fi
 
 # if rc.saslauthd is executable, run it on startup
 run=`grep ". /etc/rc.d/rc.saslauthd" etc/rc.d/rc.local`
-if [[ "${run}" == "" ]]; then
+if [ "${run}" == "" ]; then
 cat << EOF >> etc/rc.d/rc.local
 
 # To disable saslauthd, chmod rc.dbus to 644

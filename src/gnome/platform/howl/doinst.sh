@@ -20,7 +20,7 @@ fi
 	
 # if rc.howl is executable, run it on startup
 run=`grep ". /etc/rc.d/rc.howl" etc/rc.d/rc.local`
-if [[ "${run}" == "" ]]; then	
+if [ "${run}" == "" ]; then	
 cat << EOF >> etc/rc.d/rc.local
 
 # To disable howl, chmod rc.howl to 644
