@@ -7,7 +7,7 @@ How can I intall FRG using <tt>slapt-get</tt>?
 <blockquote><div>
   <pre>SOURCE=http://mirror.datapipe.net/norlug/frg/frg-&lt;version&gt;</pre>
 </div></blockquote>
-<p><small>(don't forget to run <pre>`slapt-get --update`</pre> after adding new
+<p><small>(don't forget to run <tt>`slapt-get --update`</tt> after adding new
 respositories!)</small></p>
 <p>Then run the following command and grab a cup of coffee;</p>
 <blockquote><div>
