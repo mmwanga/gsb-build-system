@@ -13,9 +13,9 @@ $author["freerock"]="freerock [at] gmail (dot) com";
 
 // max items to show on one page
 if(strstr($REQUEST_URI, "news")) {
-    $max = 5;
+    $max = 666666;
 } else {
-    $max = 3;
+    $max = 4;
 }
 // news file
 $ff = "news.txt";
