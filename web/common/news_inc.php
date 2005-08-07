@@ -13,7 +13,7 @@ $author["freerock"]="freerock [at] gmail (dot) com";
 
 // max items to show on one page
 if(strstr($REQUEST_URI, "news")) {
-    $max = 666666;
+    $max = 6;
 } else {
     $max = 4;
 }
