@@ -178,7 +178,7 @@ if ( preg_match('/[^a-z.0-9]/', $_REQUEST['ver']) )
 	error();
 if ( ! isset($_REQUEST['dir']) )
 	error();
-if ( preg_match('#[^a-z/]#', $_REQUEST['dir']) )
+if ( preg_match('#[^a-z/._]#', $_REQUEST['dir']) )
 	error();
 	
 $ver = $_REQUEST['ver'];
