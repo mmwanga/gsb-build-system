@@ -29,6 +29,7 @@ rm -rf gdm-$VERSION
 tar xjvf $CWD/gdm-$VERSION.tar.bz2
 cd gdm-$VERSION
 cat $CWD/frg.gdm.conf.in.patch |patch -p1 --verbose
+cat $CWD/frg.gdm.postlogin-dbus.patch | patch -p0 --verbose
 chown -R root.root .
 # Quiet the output from the gdm script when /etc/profile is sourced:
 #zcat $CWD/gdm.quiet.diff.gz | patch -p1 --verbose --suffix=.orig
@@ -84,6 +85,12 @@ touch $PKG/usr/share/faces $PKG/var/lib/gdm
 (
   cd $PKG/etc/X11/gdm/
   mv gdm.conf gdm.conf.new
+)
+
+# Activate dbus on login
+(
+  cd $PKG/etc/X11/gdm/PostLogin
+  mv Default.sample Default
 )
 
 (

@@ -30,7 +30,7 @@ cd $TMP
 tar xjvf $CWD/gnome-session-$VERSION.tar.bz2
 cd gnome-session-$VERSION
 cat $CWD/frg.gnome-session.splash.image.patch | patch -p1 --verbose
-cat $CWD/frg.default.session.patch | patch -p1 --verbose
+cat $CWD/frg.default.session.patch | patch -p0 --verbose
 chown -R root.root .
 find . -perm 666 -exec chmod 644 {} \;
 find . -perm 664 -exec chmod 644 {} \;

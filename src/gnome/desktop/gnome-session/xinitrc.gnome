@@ -24,6 +24,11 @@ if [ -f $usermodmap ]; then
     xmodmap $usermodmap
 fi
 
+if [ -x /usr/bin/dbus-daemon-1 ]
+then
+	/usr/bin/dbus-daemon-1 --session --fork
+fi
+
 # This nag screen isn't going to save anybody.
 export NAUTILUS_OK_TO_RUN_AS_ROOT=1
 

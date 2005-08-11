@@ -47,6 +47,9 @@ chown root.root $PKG/usr/doc/aiksaurus-$VERSION/*
 find $PKG -type f | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded
 gzip -9 $PKG/usr/man/*/*
 
+mkdir -p $PKG/usr/share/applications
+cat $CWD/gaiksaurus.desktop >$PKG/usr/share/applications/gaiksaurus.desktop
+
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
