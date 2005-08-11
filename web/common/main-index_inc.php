@@ -22,7 +22,8 @@ if ($op == "index" && (!eregi("news", $REQUEST_URI))) {
 } else {
     // Section selector - BODY - rest of site sections
     section($op,$news,$frg_ver,$errno,$errdesc,$SERVER_NAME,
-            $HTTP_REFERER,$SERVER_SIGNATURE,$REQUEST_URI,$REDIRECT_URL);
+            $HTTP_REFERER,$SERVER_SIGNATURE,$REQUEST_URI,$REDIRECT_URL,
+            $mode,$dir,$path,$ver);
 }
 ?>
 

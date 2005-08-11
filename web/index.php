@@ -59,6 +59,9 @@ switch ($op) {
         $title = "ChangeLog : $common_title";
         $frg_ver = $frg_ver;
         break;
+    case "packages":
+        $title = "Package Browser: $common_title";
+        break;
     case "http_error":
         $title = $errdesc;
         break;
@@ -73,7 +76,8 @@ switch ($op) {
 
 // The "engine" that runs the site ops.
 function section($op,$news,$frg_ver,$errno,$errdesc,$SERVER_NAME,
-                 $HTTP_REFERER,$SERVER_SIGNATURE,$REQUEST_URI,$REDIRECT_URL) {
+                 $HTTP_REFERER,$SERVER_SIGNATURE,$REQUEST_URI,$REDIRECT_URL,
+                 $mode,$dir,$path,$ver) {
     $PAGE['url_'.$op] = ("content/$op.html");
     $doit = "url"."_"."$op";
     if (is_file($PAGE[$doit])) {
