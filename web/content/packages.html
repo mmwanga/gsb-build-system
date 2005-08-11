@@ -162,8 +162,8 @@ if ( file_exists("$path/$dir/testing") )
 else
     print "testing";
 print "\n]\n</td>\n";
-print "<td>(" . date("Y/m/d H:i T", filemtime("$path/$dir/CHECKSUMS.md5")) .
-	")</td>\n";
+print "<td><tt>(" . date("Y/m/d H:i T", filemtime("$path/$dir/CHECKSUMS.md5")) .
+	")</tt></td>\n";
 print "</tr>";
 }
 ?>
