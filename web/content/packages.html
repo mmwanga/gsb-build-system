@@ -2,7 +2,7 @@
 include 'common/packages_config_inc.php';
 function error() {
         print ("<h3>Error - no packages found</h3>\n"
-              ."</p><a href='/?op=packages'>Back...</a></p></div>\n");
+              ."</p><a href='/?op=packages'>Back...</a></p>\n");
         include('common/footer_inc.php');
         exit();
 }
@@ -193,12 +193,12 @@ if ( ! file_exists("$path/$verdir/$dir") )
 
 if ( $dir == "" )
 {
-	print "<div>\n<h3>pwd: $distro-$ver/</h3>\n";
+	print "<h3>pwd: $distro-$ver/</h3>\n";
 	print "<a href='/?op=packages'>../</a><br />\n";
 }
 else
 {
-	print "<div>\n<h3>pwd: $distro-$ver/$dir/</h3>\n";
+	print "<h3>pwd: $distro-$ver/$dir/</h3>\n";
 	strpos($dir, "/")
   	? $parentdir = preg_replace('#([^/]+)/[^\\\]+$#', '\1', $dir)
 		: $parentdir = "";
@@ -223,7 +223,7 @@ while ($filename = @readdir($dh))
 			print "&nbsp;&nbsp;<a href='/?op=packages&amp;mode=pack&amp;ver=$ver&amp;path=$link'><tt>$filename</tt></a><br />\n";
 	}
 }
-print "</div>\n";
+print "\n";
 } # if ( $mode == 'browse' )
 if ( $mode == 'findpkg' ) {
 	if ( preg_match("#[^a-zA-Z0-9.\-_+]#", $_REQUEST['package']) )
@@ -243,7 +243,7 @@ if ( $mode == 'findpkg' ) {
 
   $matchingPacks = package_find($search, $verdir);
 
-	print "<div>\n<p>Found " . sizeof($matchingPacks) . " matching packs:</p>\n";
+	print "<p>Found " . sizeof($matchingPacks) . " matching packs:</p>\n";
 	print "<ul>\n";
 	foreach ($matchingPacks as $matchingPack)
 	{
@@ -251,7 +251,7 @@ if ( $mode == 'findpkg' ) {
 		print "<li><a href='/?op=packages&amp;mode=pack&amp;ver=$ver&amp;path="	
 			. urlencode($path) . "'>$path</a></li>\n";
 	}
-	print "</ul>\n<p><a href='/?op=packages'>Back</a></p>\n</div>\n";		
+	print "</ul>\n<p><a href='/?op=packages'>Back</a></p>\n";		
 } # if ( $mode == 'findpkg' )
 if ( $mode == 'findfile' )
 {
@@ -295,7 +295,7 @@ if ( $mode == 'findfile' )
 			$flag = "";
 		$line = `bzgrep -ne "/$search$post" $path/$verdir/$dir/MANIFEST.bz2 | cut -f 1 -d :`;
 		if ( $line == "" )
-			print "<div><p>File not found.</p><p><a href='/?op=packages'>Back</a></p></div>\n";
+			print "<p>File not found.</p><p><a href='/?op=packages'>Back</a></p>\n";
 		else
 		{
 			$packlines = explode("\n", `bzgrep -n '||   Package:  ' $path/$verdir/$dir/MANIFEST.bz2`);
@@ -307,8 +307,8 @@ if ( $mode == 'findfile' )
 				$pack = substr($packline, strrpos($packline, ":") + 5);
 				$pack = substr($pack, 0, strrpos($pack, "."));
 			}
-			print "<div><p>Found in <a href='/?op=packages&amp;mode=pack&amp;ver=$ver&amp;path=" . 
-				urlencode($dir/$pack) . "'>$dir/$pack</a>.</p><p><a href='/?op=packages'>Back</a></p></div>\n";
+			print "<p>Found in <a href='/?op=packages&amp;mode=pack&amp;ver=$ver&amp;path=" . 
+				urlencode($dir/$pack) . "'>$dir/$pack</a>.</p><p><a href='/?op=packages'>Back</a></p>\n";
 		}
 	} else {
 		# Use MySQL instead of brute forcing it
@@ -327,10 +327,10 @@ if ( $mode == 'findfile' )
 			$result = mysql_query("SELECT * FROM $distro$sqlVer WHERE file like '%/$search';");
 		}
 		if (mysql_num_rows($result) == 0)
-			print "<div><p>File not found.</p><p><a href='/?op=packages'>Back</a></p></div>\n";
+			print "<p>File not found.</p><p><a href='/?op=packages'>Back</a></p>\n";
 		else
 		{
-			print "<div><p>Found in " . mysql_num_rows($result) . " packs:</p><ul>\n";
+			print "<p>Found in " . mysql_num_rows($result) . " packs:</p><ul>\n";
 			while ($row = mysql_fetch_assoc($result))
 			{
 				$pack = substr($row['package'], 0, strrpos($row['package'], '.'));
@@ -340,7 +340,7 @@ if ( $mode == 'findfile' )
 		}
 		mysql_free_result($result);
 		mysql_close($link);
-		print "</ul>\n<p><a href='/?op=packages'>Back</a></p></div>\n";
+		print "</ul>\n<p><a href='/?op=packages'>Back</a></p>\n";
 	}
 } # if ( $mode == 'findfile' )
 if ( $mode == 'pack' ) {
@@ -361,10 +361,10 @@ if ( $mode == 'pack' ) {
 	
 	$matchingPacks = package_find($fileName, $verdir);
 	if ( sizeof($matchingPacks) == 0 )
-		print "<div><p>Error: invalid number of matching packs.</p><p><a href='/?op=packages'>Back</a></p></div>\n";
+		print "<p>Error: invalid number of matching packs.</p><p><a href='/?op=packages'>Back</a></p>\n";
 	else
 	{
-		print "<div><h3>" . $matchingPacks[0]['name'] . "</h3>\n<p>
+		print "<h3>" . $matchingPacks[0]['name'] . "</h3>\n<p>
 Location: <a href='http://mirror.datapipe.net/norlug/$distro/$verdir/$filePath'><tt>$filePath<!--.$pkgExt--></tt></a><br />
 Compressed size: " . $matchingPacks[0]['compressed'] . "<br />
 Uncompressed size: " . $matchingPacks[0]['uncompressed'] . "
