@@ -372,8 +372,10 @@ Uncompressed size: " . $matchingPacks[0]['uncompressed'] . "
 
 <p><a href='/?op=packages&amp;mode=browse&amp;ver=$ver&amp;dir=" . substr($filePath, 0, strpos($filePath, $fileName) - 1) . "'>../</a></p>
 	
-<pre class=\"packdesc\">" . trim($matchingPacks[0]['desc']) . "</pre>
-</div>";
+<pre class=\"packdesc\">" . trim($matchingPacks[0]['desc']) . "</pre>";
 	}
 } # if ( $mode == 'pack' )
 ?>
+<hr />
+<p style="font-size: x-small">This package browser is based on GPL code from the <a
+href="http://slamd64.com/">Slamd64 Linux Project</a>'s package browser.</p>
