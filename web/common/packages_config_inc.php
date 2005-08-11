@@ -8,6 +8,7 @@ $hideDirs = array( NULL,
 	'source',
 	'isolinux',
 	'kernels',
+    'install_scripts',
 	'.',
 	'..'
 	);
