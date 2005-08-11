@@ -1,8 +1,9 @@
 <?php
-$distro = 'frg';
+$distro = "frg";
+$stable = trim(`cat frg-ver.txt`);
 $versions = array( # 'version' => 'directory name', most recent first
-	'current' => 'frg-current',
-	'0.2.2' => 'frg-0.2.2'
+	current => "$distro-current",
+	$stable => "$distro-$stable"
 	);
 $hideDirs = array( NULL,
 	'source',

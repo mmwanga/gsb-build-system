@@ -140,7 +140,7 @@ function package_find($search, $verdir)
 
 ?>
 
-<h2>FRG Package Browser</h2>
+<h2>FRG Package Browser<?php if(isset($ver)) { print(": <tt style='font-size: 1.2em; color: maroon;'>$distro-$ver</tt>"); }?></h2>
 
 <?php if ( $mode == 'home' ) { ?>
 <table border='0' cellpadding='4' >
@@ -148,7 +148,7 @@ function package_find($search, $verdir)
 foreach ($versions as $version => $dir )
 {
 print "<tr class='versionRow'>
-	<td class='version'>$distro-$version</td>
+	<td class='version'><strong>$distro-$version</strong></td>
 	<td>
 		[
 		<a href='/?op=packages&amp;mode=browse&amp;ver=$version&amp;dir=frgnome'>frgnome</a> |
@@ -223,6 +223,7 @@ while ($filename = @readdir($dh))
 			print "&nbsp;&nbsp;<a href='/?op=packages&amp;mode=pack&amp;ver=$ver&amp;path=$link'><tt>$filename</tt></a><br />\n";
 	}
 }
+@closedir($dh);
 print "\n";
 } # if ( $mode == 'browse' )
 if ( $mode == 'findpkg' ) {
