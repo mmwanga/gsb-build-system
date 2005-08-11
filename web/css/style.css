@@ -24,6 +24,12 @@ hr {
     border: 0px;
 }
 
+.packdesc {
+    background-color: #CCCCCC;
+    padding: 2px;
+    border: 1px solid #888888;
+}
+
 .faqhead {
     font-style: italic;
     font-weight: bold;
