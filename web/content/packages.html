@@ -377,5 +377,7 @@ Uncompressed size: " . $matchingPacks[0]['uncompressed'] . "
 } # if ( $mode == 'pack' )
 ?>
 <hr />
+<?php if($mode !== "pack") { ?>
 <p style="font-size: x-small">This package browser is based on GPL code from the <a
 href="http://slamd64.com/">Slamd64 Linux Project</a>'s package browser.</p>
+<?php } ?>
