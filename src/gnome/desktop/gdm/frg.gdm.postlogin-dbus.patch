@@ -13,5 +13,5 @@
 +
 +if [ -x /usr/bin/dbus-daemon-1 ]
 +then
-+	/usr/bin/dbus-daemon-1 --session --keep
++	/usr/bin/dbus-daemon-1 --session --fork
 +fi
