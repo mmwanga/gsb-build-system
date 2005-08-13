@@ -1,0 +1,14 @@
+atk
+cairo
+expat
+gail
+glib2
+gtk+2
+libart_lgpl
+libgnomecanvas
+libpixman
+libpng
+libxml2
+pango
+x11
+zlib

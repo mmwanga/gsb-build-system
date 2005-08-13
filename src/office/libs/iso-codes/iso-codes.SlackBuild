@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-iso-codes
 
-VERSION=0.46
+VERSION=0.47
 ARCH=noarch
 BUILD=1
 
@@ -21,8 +21,8 @@ cd iso-codes-$VERSION
             --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static \
-            $ARCH-slackware-linux
-make
+            $ARCH-slackware-linux || exit 1
+make || exit 1
 make install DESTDIR=$PKG
 
 chown -R root.bin $PKG/usr/bin

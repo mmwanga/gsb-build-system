@@ -1,0 +1,6 @@
+gconf
+glib2
+gtk+2
+orbit2
+startup-notification
+x11

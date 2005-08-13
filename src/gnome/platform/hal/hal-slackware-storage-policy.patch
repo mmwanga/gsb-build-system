@@ -1,5 +1,5 @@
---- hal-0.4.7/fdi/90defaultpolicy/storage-policy.orig	2005-03-25 10:00:54.000000000 +0100
-+++ hal-0.4.7/fdi/90defaultpolicy/storage-policy.fdi	2005-03-25 10:01:43.000000000 +0100
+--- hal-0.5.2/fdi/policy/10osvendor/10-storage-policy.fdi.orig	2005-03-25 10:00:54.000000000 +0100
++++ hal-0.5.2/fdi/policy/10osvendor/10-storage-policy.fdi	2005-03-25 10:01:43.000000000 +0100
 @@ -5,12 +5,12 @@
    <!-- Default policies merged onto computer root object  -->
    <device>

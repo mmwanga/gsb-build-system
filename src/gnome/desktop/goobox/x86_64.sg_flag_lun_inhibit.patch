@@ -1,0 +1,13 @@
+diff -Naur goobox-0.9.91.orig/src/transport.hxx goobox-0.9.91/src/transport.hxx
+--- goobox-0.9.91.orig/src/transport.hxx	2005-04-05 07:55:41.000000000 -0400
++++ goobox-0.9.91/src/transport.hxx	2005-08-13 16:25:20.000000000 -0400
+@@ -114,6 +114,9 @@
+ 		sg_io.mx_sb_len	= sizeof(_sense);
+ 		sg_io.cmdp	= cgc.cmd;
+ 		sg_io.sbp	= _sense.u;
++#ifndef SG_FLAG_LUN_INHIBIT
++  #define SG_FLAG_LUN_INHIBIT 2
++#endif
+ 		sg_io.flags	= SG_FLAG_LUN_INHIBIT|SG_FLAG_DIRECT_IO;
+ 	    }
+ #endif

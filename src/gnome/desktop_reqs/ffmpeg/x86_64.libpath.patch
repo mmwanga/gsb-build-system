@@ -1,0 +1,64 @@
+diff -Naur ffmpeg-0.4.9-pre1.orig/libavcodec/Makefile ffmpeg-0.4.9-pre1/libavcodec/Makefile
+--- ffmpeg-0.4.9-pre1.orig/libavcodec/Makefile	2004-06-18 09:11:15.000000000 -0400
++++ ffmpeg-0.4.9-pre1/libavcodec/Makefile	2005-08-12 13:21:47.000000000 -0400
+@@ -268,9 +268,9 @@
+ ifeq ($(CONFIG_WIN32),yes)
+ 	install -s -m 755 $(SLIB) "$(prefix)"
+ else
+-	install -d $(prefix)/lib
+-	install -s -m 755 $(SLIB) $(prefix)/lib/libavcodec-$(VERSION).so
+-	ln -sf libavcodec-$(VERSION).so $(prefix)/lib/libavcodec.so
++	install -d $(prefix)/lib64
++	install -s -m 755 $(SLIB) $(prefix)/lib64/libavcodec-$(VERSION).so
++	ln -sf libavcodec-$(VERSION).so $(prefix)/lib64/libavcodec.so
+ 	ldconfig || true
+ endif
+ else
+@@ -278,7 +278,7 @@
+ endif
+ 
+ installlib: all install-headers
+-	install -m 644 $(LIB) $(prefix)/lib
++	install -m 644 $(LIB) $(prefix)/lib64
+ 
+ install-headers:
+ 	mkdir -p "$(prefix)/include/ffmpeg"
+diff -Naur ffmpeg-0.4.9-pre1.orig/libavformat/Makefile ffmpeg-0.4.9-pre1/libavformat/Makefile
+--- ffmpeg-0.4.9-pre1.orig/libavformat/Makefile	2004-04-24 11:16:23.000000000 -0400
++++ ffmpeg-0.4.9-pre1/libavformat/Makefile	2005-08-12 13:21:47.000000000 -0400
+@@ -104,9 +104,9 @@
+ ifeq ($(CONFIG_WIN32),yes)
+ 	install -s -m 755 $(SLIB) "$(prefix)"
+ else
+-	install -d $(prefix)/lib
+-	install -s -m 755 $(SLIB) $(prefix)/lib/libavformat-$(VERSION).so
+-	ln -sf libavformat-$(VERSION).so $(prefix)/lib/libavformat.so
++	install -d $(prefix)/lib64
++	install -s -m 755 $(SLIB) $(prefix)/lib64/libavformat-$(VERSION).so
++	ln -sf libavformat-$(VERSION).so $(prefix)/lib64/libavformat.so
+ 	ldconfig || true
+ endif
+ else
+@@ -114,7 +114,7 @@
+ endif
+ 
+ installlib: all install-headers
+-	install -m 644 $(LIB) $(prefix)/lib
++	install -m 644 $(LIB) $(prefix)/lib64
+ 
+ install-headers:
+ 	mkdir -p "$(prefix)/include/ffmpeg"
+diff -Naur ffmpeg-0.4.9-pre1.orig/vhook/Makefile ffmpeg-0.4.9-pre1/vhook/Makefile
+--- ffmpeg-0.4.9-pre1.orig/vhook/Makefile	2004-07-08 07:02:04.000000000 -0400
++++ ffmpeg-0.4.9-pre1/vhook/Makefile	2005-08-12 13:22:05.000000000 -0400
+@@ -26,8 +26,8 @@
+ 	$(CC) -MM $(CFLAGS) $^ 1>.depend
+ 
+ install:
+-	install -d "$(prefix)/lib/vhook"
+-	install -m 755 $(HOOKS) "$(prefix)/lib/vhook"
++	install -d "$(prefix)/lib64/vhook"
++	install -m 755 $(HOOKS) "$(prefix)/lib64/vhook"
+ 
+ imlib2.so: imlib2.o
+ 	$(CC) -g -o $@ $(SHFLAGS) $< -lImlib2

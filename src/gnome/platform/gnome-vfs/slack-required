@@ -2,3 +2,13 @@ gconf
 gnome-mime-data
 libbonobo
 libxml2
+bzip2
+gamin
+glib2
+heimdal
+howl
+openssl
+openssl-solibs
+orbit2
+popt
+zlib

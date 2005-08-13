@@ -1,0 +1,14 @@
+bzip2
+cxxlibs
+mozilla | mozilla-firefox | firefox
+gcc
+gcc-g++
+gconf
+gnome-keyring
+gnome-vfs
+gtk+2
+libglade
+libgnome
+libgnomecanvas
+libgnomeui
+libgpg-error

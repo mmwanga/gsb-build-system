@@ -1,4 +1,13 @@
 gail
+gamin
 gconf
 gnome-vfs
 libgnomeui
+gnome-desktop
+gnome-keyring
+gnome-menus
+gtk+2
+howl
+libart_lgpl
+libglade
+startup-notification

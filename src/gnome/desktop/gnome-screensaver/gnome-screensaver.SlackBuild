@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gnome-screensaver
 
-VERSION=0.0.6
+VERSION=0.0.8
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -58,8 +58,8 @@ CFLAGS="$SLKCFLAGS" \
             --localstatedir=/var/lib \
             --disable-static \
             $ARCH_CONFIGURE \
-            $ARCH-slackware-linux
-make
+            $ARCH-slackware-linux || exit 1
+make || exit 1
 make install DESTDIR=$PKG
 
 SCHEMAS=$PKG/etc/gconf/schemas

@@ -2,3 +2,10 @@ gail
 gconf
 libgnomeui
 scrollkeeper
+bzip2
+cxxlibs
+gcc
+gcc-g++
+guile
+libcroco
+librsvg

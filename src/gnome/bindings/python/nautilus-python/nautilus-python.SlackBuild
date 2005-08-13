@@ -58,8 +58,8 @@ CFLAGS="$SLKCFLAGS" \
             --localstatedir=/var/lib \
             --disable-static \
             $ARCH_CONFIGURE \
-            $ARCH-slackware-linux
-make
+            $ARCH-slackware-linux || exit 1
+make || exit 1
 make install DESTDIR=$PKG
 
 SCHEMAS=$PKG/etc/gconf/schemas
@@ -98,6 +98,11 @@ cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
+if [ "$ARCH" = "x86_64" ]; then
+  if [ -d usr/lib ]; then
+    cp -r usr/lib usr/lib64
+  fi
+fi
 makepkg -l y -c n $TMP/nautilus-python-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:

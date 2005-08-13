@@ -1,3 +1,5 @@
 glib2
 libxml2
 orbit2
+popt
+zlib

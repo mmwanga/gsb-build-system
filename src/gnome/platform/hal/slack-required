@@ -1,2 +1,4 @@
-gnome-python
-pygtk
+dbus
+expat
+glib2
+popt

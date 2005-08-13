@@ -1,0 +1,12 @@
+alsa-lib
+audiofile
+dbus
+esound
+gnome-desktop
+gnome-vfs
+gst-plugins
+gstreamer
+gtk+2
+hal
+nautilus-cd-burner
+startup-notification

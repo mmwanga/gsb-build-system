@@ -18,12 +18,12 @@ orbit2
 intltool
 howl
 libbonobo
+glitz
+cairo
 pango
 atk
 shared-mime-info
 libpixman
-glitz
-cairo
 gtk+2
 gconf
 desktop-file-utils

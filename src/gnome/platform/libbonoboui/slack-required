@@ -1,3 +1,5 @@
 libbonobo
 libgnome
 libgnomecanvas
+howl
+openssl-solibs | openssl

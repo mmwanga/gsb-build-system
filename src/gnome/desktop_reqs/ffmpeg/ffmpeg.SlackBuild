@@ -17,28 +17,52 @@ mkdir -p $PKG/usr
 
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
+  ARCH_CONFIGUR=""
 elif [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
+  ARCH_CONFIGUR=""
 elif [ "$ARCH" = "s390" ]; then
   SLKCFLAGS="-O2"
+  ARCH_CONFIGUR=""
 elif [ "$ARCH" = "x86_64" ]; then
-  SLKCFLAGS="-O2"
+  SLKCFLAGS="-O2 -fPIC"
+  ARCH_CONFIGUR="--libdir=/usr/lib64"
 fi
 
 cd $TMP 
 tar xzvf $CWD/ffmpeg-$VERSION.tar.gz
 cd ffmpeg-$VERSION
 cat $CWD/frg.ffmpeg.no.imlib2.configure.patch | patch -p1 --verbose
+
+# Apply $ARCH specific patches
+if [ "$ARCH" = "i386" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "i486" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "s390" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "x86_64" ]; then
+  echo "Applying patches for $ARCH"
+  cat $CWD/x86_64.libpath.patch |patch -p1 --verbose
+fi
+
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
 	    --enable-gpl \
 	    --enable-pp \
-	    --enable-shared
-make
+	    --enable-shared \
+      $ARCH_CONFIGURE || exit 1
+make || exit 1
 cp config.mak config.mak.orig
 sed -i "s#=/usr#=${PKG}/usr#g" config.mak
+if [ "$ARCH" = "x86_64" ]; then
+  sed -i "s/LIBPREF=lib$/LIBPREF=lib64/g" config.mak
+fi
 #sed-4 -i 's/prefix=\/usr/prefix=\($PKG)/usr/' config.mak
-make install 
+make install  || exit 1
 
 (
   mkdir -p $PKG/usr/include/libpostproc

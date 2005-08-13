@@ -3,3 +3,12 @@ gnome-menus
 libxklavier
 metacity
 nautilus
+evolution-data-server
+gamin
+gnome-keyring
+gnome-vfs
+libgnome
+libgnomecanvas
+libgnomeui
+libxklavier
+startup-notification

@@ -1,0 +1,10 @@
+bzip2
+glib2
+gnome-vfs
+howl
+libbonobo
+libxml2
+openssl-solibs | openssl
+orbit2
+popt
+zlib

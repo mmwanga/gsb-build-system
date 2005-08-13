@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gnome-desktop
 
-VERSION=2.11.4
+VERSION=2.11.90
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -17,12 +17,16 @@ mkdir -p $PKG/var/lib/scrollkeeper
 
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
+  ARCH_CONFIGURE=""
 elif [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
+  ARCH_CONFIGURE=""
 elif [ "$ARCH" = "s390" ]; then
   SLKCFLAGS="-O2"
+  ARCH_CONFIGURE=""
 elif [ "$ARCH" = "x86_64" ]; then
-  SLKCFLAGS="-O2"
+  SLKCFLAGS="-O2 -fPIC"
+  ARCH_CONFIGURE="--libdir=/usr/lib64"
 fi
 
 cd $TMP 
@@ -37,7 +41,13 @@ CFLAGS="$SLKCFLAGS" \
             --localstatedir=/var/lib \
             --disable-static \
 	    --with-gnome-distributor="FRG gsb.sourceforge.net" \
+            $ARCH_CONFIGURE \
             $ARCH-slackware-linux
+
+if [ "$ARCH" = "x86_64" ]; then
+  sed -i -re "s/desktop-docs//" -e "s/gnome\-doc\-utils\.make/README/" Makefile
+fi
+
 make
 make install DESTDIR=$PKG
 

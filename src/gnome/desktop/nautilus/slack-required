@@ -1,0 +1,27 @@
+bzip2
+eel
+gail
+gamin
+gnome-desktop
+gnome-keyring
+gnome-menus
+gnome-vfs
+gtk+2
+howl
+libart_lgpl
+libbonobo
+libbonoboui
+libcroco
+libexif
+libglade
+libgnome
+libgnomecanvas
+libgnomeui
+libgsf
+libpixman
+libpng
+librsvg
+libxml2
+openssl-solibs | openssl
+orbit2
+startup-notification

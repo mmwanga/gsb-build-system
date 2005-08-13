@@ -45,9 +45,10 @@ do
   echo "*****   Building $i"
   echo "*************************************************"
   echo ""
-  ./$i.SlackBuild
+  ./$i.SlackBuild || exit 1
   upgradepkg --install-new $TMP/$i*.tgz
-  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/office
+  sleep 5
+  #mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/office
 )
 done
 # Fork screen output to a log

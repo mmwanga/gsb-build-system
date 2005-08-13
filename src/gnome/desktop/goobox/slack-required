@@ -1,0 +1,8 @@
+alsa-lib
+audiofile
+cxxlibs
+esound
+gnome-vfs
+gst-plugins
+gstreamer
+gtk+2

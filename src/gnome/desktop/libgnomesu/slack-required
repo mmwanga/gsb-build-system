@@ -1,0 +1,19 @@
+expat
+gconf
+glib2
+gnome-keyring
+gnome-vfs
+gtk+2
+howl
+libart_lgpl
+libbonobo
+libbonoboui
+libgnome
+libgnomecanvas
+libgnomeui
+libpixman
+libpng
+libxml2
+openssl-solibs | openssl
+orbit2
+popt

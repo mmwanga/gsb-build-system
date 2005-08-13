@@ -1,0 +1,9 @@
+cxxlibs
+expat
+gcc-g++
+glib2
+glibmm
+gtk+2
+gtkmm
+libsigc++
+zlib

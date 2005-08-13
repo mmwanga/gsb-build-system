@@ -8,16 +8,17 @@ fi
 
 BUILD_ORDER="libgnomesu
 libgtkhtml
+scrollkeeper
 gnome-keyring-manager
 startup-notification
 gtk-engines
 gnome-themes
-scrollkeeper
 gnome-desktop
 gnome-menus
 libwnck
 libsoup
 evolution-data-server
+gnome-doc-utils
 gnome-panel
 gnome-session
 vte
@@ -35,7 +36,6 @@ eel
 nautilus
 control-center
 gtkhtml
-gnome-doc-utils
 yelp
 bug-buddy
 gtksourceview

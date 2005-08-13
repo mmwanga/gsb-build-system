@@ -1,0 +1,4 @@
+cxxlibs
+gcc
+gcc-g++
+zlib

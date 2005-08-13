@@ -16,12 +16,16 @@ mkdir -p $PKG
 
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
+  ARCH_CONFIGURE=""
 elif [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
+  ARCH_CONFIGURE=""
 elif [ "$ARCH" = "s390" ]; then
   SLKCFLAGS="-O2"
+  ARCH_CONFIGURE=""
 elif [ "$ARCH" = "x86_64" ]; then
-  SLKCFLAGS="-O2"
+  SLKCFLAGS="-O2 -fPIC"
+  ARCH_CONFIGURE="--libdir=/usr/lib64"
 fi
 
 mkdir -p $PKG/usr/share/hwdata
@@ -37,6 +41,22 @@ tar xzvf $CWD/hal-$VERSION.tar.gz
 cd hal-$VERSION
 cat $CWD/hal-slackware-storage-policy.patch | patch -p1 --verbose
 cp -f $CWD/DeviceManager.py tools/device-manager
+
+# Apply $ARCH specific patches
+if [ "$ARCH" = "i386" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "i486" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "s390" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "x86_64" ]; then
+  echo "Applying patches for $ARCH"
+  cat $CWD/x86_64.hal_sg_flag_lun_inhibit.patch | patch -p1 --verbose
+fi
+
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
 	    --with-mnt-root=/mnt \
@@ -50,6 +70,7 @@ CFLAGS="$SLKCFLAGS" \
 	    --disable-docbook-docs \
 	    --disable-static \
 	    --with-pid-file=/var/run/hal.pid \
+            $ARCH_CONFIGURE \
             $ARCH-slackware-linux
 make
 make install DESTDIR=$PKG
