@@ -2,9 +2,9 @@
 
 CWD=`pwd`
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-anjuta
+PKG=$TMP/package-guile
 
-VERSION=2.0.1
+VERSION=1.6.7
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -14,8 +14,8 @@ fi
 rm -rf $PKG
 mkdir -p $PKG
 
-if [ -f /var/log/packages/anjuta-$VERSION-$ARCH-$BUILD ]; then
-  echo "anjuta-$VERSION-$ARCH-$BUILD package already installed"
+if [ -f /var/log/packages/guile-$VERSION-$ARCH-$BUILD ]; then
+  echo "guile-$VERSION-$ARCH-$BUILD package already installed"
   exit 0
 fi
 
@@ -34,8 +34,8 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 cd $TMP
-tar -xzvf $CWD/anjuta-$VERSION.tar.gz
-cd anjuta-$VERSION
+tar -xzvf $CWD/guile-$VERSION.tar.gz
+cd guile-$VERSION
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
@@ -54,36 +54,20 @@ fi
 
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
-            --sysconfdir=/etc \
-            --localstatedir=/var/lib \
-            --disable-static \
-	    --without-subversion \
+            --with-threads \
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux
 make
 make install DESTDIR=$PKG
 
-SCHEMAS=$PKG/etc/gconf/schemas
-for i in $SCHEMAS/*.schemas
-do
-GCONF_CONFIG_SOURCE="xml::$PKG/etc/gconf/gconf.xml.defaults" \
-        gconftool-2 --makefile-install-rule $i
-done
-
-(
-  cd $PKG/etc/gconf/gconf.xml.defaults
-  find ./ -type d -exec chmod go+rx {} \;
-  find ./ -type f -exec chmod go+r {} \;
-)
-
 chown -R root.bin $PKG/usr/bin
 
-mkdir -p $PKG/usr/doc/anjuta-$VERSION
+mkdir -p $PKG/usr/doc/guile-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
         TODO \
-        $PKG/usr/doc/anjuta-$VERSION
-find $PKG/usr/doc/anjuta-$VERSION/ -type f -exec chmod 644 {} \;
-chown root.root $PKG/usr/doc/anjuta-$VERSION/*
+        $PKG/usr/doc/guile-$VERSION
+find $PKG/usr/doc/guile-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/doc/guile-$VERSION/*
 
 # strip:
 ( cd $PKG
@@ -92,6 +76,7 @@ chown root.root $PKG/usr/doc/anjuta-$VERSION/*
 )
 
 gzip -9 $PKG/usr/man/*/*
+rm $PKG/usr/info/dir
 gzip -9 $PKG/usr/info/*
 
 mkdir -p $PKG/install
@@ -99,10 +84,10 @@ cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-makepkg -l y -c n $TMP/anjuta-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/guile-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/anjuta-$VERSION
+  rm -rf $TMP/guile-$VERSION
   rm -rf $PKG
 fi

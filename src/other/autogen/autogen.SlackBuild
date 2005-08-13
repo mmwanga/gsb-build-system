@@ -2,9 +2,9 @@
 
 CWD=`pwd`
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-anjuta
+PKG=$TMP/package-autogen
 
-VERSION=2.0.1
+VERSION=5.7.1
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -14,8 +14,8 @@ fi
 rm -rf $PKG
 mkdir -p $PKG
 
-if [ -f /var/log/packages/anjuta-$VERSION-$ARCH-$BUILD ]; then
-  echo "anjuta-$VERSION-$ARCH-$BUILD package already installed"
+if [ -f /var/log/packages/autogen-$VERSION-$ARCH-$BUILD ]; then
+  echo "autogen-$VERSION-$ARCH-$BUILD package already installed"
   exit 0
 fi
 
@@ -34,8 +34,9 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 cd $TMP
-tar -xzvf $CWD/anjuta-$VERSION.tar.gz
-cd anjuta-$VERSION
+tar -xjvf $CWD/autogen-$VERSION.tar.bz2
+cd autogen-$VERSION
+sed -i -e '/SUBDIRS = /s/ doc\>//' Makefile.in
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
@@ -54,36 +55,21 @@ fi
 
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
-            --sysconfdir=/etc \
-            --localstatedir=/var/lib \
-            --disable-static \
-	    --without-subversion \
+            --program-prefix="" \
+            --program-suffix="" \
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux
 make
 make install DESTDIR=$PKG
 
-SCHEMAS=$PKG/etc/gconf/schemas
-for i in $SCHEMAS/*.schemas
-do
-GCONF_CONFIG_SOURCE="xml::$PKG/etc/gconf/gconf.xml.defaults" \
-        gconftool-2 --makefile-install-rule $i
-done
-
-(
-  cd $PKG/etc/gconf/gconf.xml.defaults
-  find ./ -type d -exec chmod go+rx {} \;
-  find ./ -type f -exec chmod go+r {} \;
-)
-
 chown -R root.bin $PKG/usr/bin
 
-mkdir -p $PKG/usr/doc/anjuta-$VERSION
+mkdir -p $PKG/usr/doc/autogen-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
         TODO \
-        $PKG/usr/doc/anjuta-$VERSION
-find $PKG/usr/doc/anjuta-$VERSION/ -type f -exec chmod 644 {} \;
-chown root.root $PKG/usr/doc/anjuta-$VERSION/*
+        $PKG/usr/doc/autogen-$VERSION
+find $PKG/usr/doc/autogen-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/doc/autogen-$VERSION/*
 
 # strip:
 ( cd $PKG
@@ -99,10 +85,10 @@ cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-makepkg -l y -c n $TMP/anjuta-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/autogen-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/anjuta-$VERSION
+  rm -rf $TMP/autogen-$VERSION
   rm -rf $PKG
 fi
