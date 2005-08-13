@@ -7,7 +7,9 @@
 
   <blockquote>
     <div>
-      <code>SOURCE=http://mirror.datapipe.net/norlug/frg/frg-&lt;version&gt;</code>
+      <pre>
+SOURCE=http://mirror.datapipe.net/norlug/frg/frg-&lt;version&gt;
+</pre>
     </div>
   </blockquote>
 
@@ -19,7 +21,7 @@
   <blockquote>
     <div>
       <pre>
-# slapt-get --search [0-9]frg$|awk '{print $1}'|xargs \
+$ slapt-get --search [0-9]frg$|awk '{print $1}'|xargs \
     -r slapt-get --install -y
 </pre>
     </div>
@@ -35,34 +37,51 @@
       FRG ISO</a>, then check the iso;
 
       <blockquote>
-        <p><code>$ md5sum -c file.iso.md5</code></p>
+        <div>
+          <pre>
+$ md5sum -c file.iso.md5
+</pre>
+        </div>
       </blockquote>
     </li>
 
     <li>mount the iso;
 
       <blockquote>
-        <p><code>$ mkdir /mnt/iso</code></p>
-
-        <p><code>$ mount -t iso9660 file.iso /mnt/iso -o
-        loop</code></p>
-
-        <p><code>$ cd /mnt/iso</code></p>
+        <div>
+          <pre>
+$ mkdir /mnt/iso
+$ mount -t iso9660 file.iso /mnt/iso -o loop
+$ cd /mnt/iso
+</pre>
+        </div>
       </blockquote>
     </li>
 
     <li>Then run either;
 
       <blockquote>
-        <p><code>$ ./min_install.sh</code></p>
+        <div>
+          <pre>
+$ ./min_install.sh
+</pre>
+        </div>
       </blockquote>or
 
       <blockquote>
-        <p><code>$ ./full_install.sh</code></p>
+        <div>
+          <pre>
+$ ./full_install.sh
+</pre>
+        </div>
       </blockquote>or manually use;
 
       <blockquote>
-        <p><code>$ upgradepkg --install-new</code></p>
+        <div>
+          <pre>
+$ upgradepkg --install-new
+</pre>
+        </div>
       </blockquote>
     </li>
   </ol>
@@ -78,7 +97,7 @@
   <p>Instructions are crude, but they do work.</p>
 
   <ol>
-    <li>cd /var/log/packages</li>
+    <li><tt>cd /var/log/packages</tt></li>
 
-    <li>ls -1| grep frg$| xargs -n 1 removepkg</li>
+    <li><tt>ls -1| grep frg$| xargs -n 1 removepkg</tt></li>
   </ol>

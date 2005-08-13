@@ -11,7 +11,7 @@ How can I intall FRG using <tt>slapt-get</tt>?
 respositories!)</small></p>
 <p>Then run the following command and grab a cup of coffee;</p>
 <blockquote><div>
-  <pre># slapt-get --search [0-9]frg$|awk '{print $1}'|xargs \
+  <pre>$ slapt-get --search [0-9]frg$|awk '{print $1}'|xargs \
      -r slapt-get --install -y</pre>
 </div></blockquote>
 <p>Then, enjoy your new GNOME-enabled Slackware machine :)</p>
@@ -30,7 +30,7 @@ gnome-menus package, The gnome-menus package implements the freedesktop.org
 desktop menu specification. There is a simple fix for this. Just add the
 following near the top of the startkde script:</p>
 <blockquote><div>
- <pre># export XDG_CONFIG_DIRS=/opt/kde/etc/xdg</pre>
+ <pre>$ export XDG_CONFIG_DIRS=/opt/kde/etc/xdg</pre>
 </div></blockquote>
 <p>If the improper menus persist, run kbuildsycoca from Konsole after you have
 logged into KDE. Thanks to Jim Philips and Locustfurnace for pointing 
@@ -42,8 +42,8 @@ freerock
 My Mime Types/File Associations are all screwed up. What do I do?
 <p>Run the following commands as root:</p>
 <blockquote><div>
-<pre># /usr/bin/update-mime-database /usr/share/mime
-# /usr/bin/update-desktop-database</pre>
+<pre>$ /usr/bin/update-mime-database /usr/share/mime
+$ /usr/bin/update-desktop-database</pre>
 </div></blockquote>
 
 ###

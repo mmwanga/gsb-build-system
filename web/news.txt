@@ -129,7 +129,7 @@ Final Beta (iso) Release coming soon
 </p>
 
 <blockquote><div>
-<pre># /usr/bin/gdk-pixbuf-query-loaders > /etc/gtk-2.0/gdk-pixbuf.loaders</pre>
+<pre>$ /usr/bin/gdk-pixbuf-query-loaders > /etc/gtk-2.0/gdk-pixbuf.loaders</pre>
 </div></blockquote>
 
 ###
@@ -157,9 +157,9 @@ FRG-0.1.96 Released
 </p>
 
 <blockquote><div>
-<pre># rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates/frg-0.1.94 /tmp
-<br /># rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates/frg-0.1.95 /tmp
-<br /># rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates /tmp</pre>
+<pre>$ rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates/frg-0.1.94 /tmp
+<br />$ rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates/frg-0.1.95 /tmp
+<br />$ rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates /tmp</pre>
 </div>
 </blockquote>
 
@@ -232,7 +232,7 @@ FRG-0.1.95 Released
 </p>
 
 <blockquote><div>
-<pre># rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates/frg-0.1.94 /tmp</pre>
+<pre>$ rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates/frg-0.1.94 /tmp</pre>
 </div></blockquote>
 
 ###
@@ -253,7 +253,7 @@ fixed:</p>
 </ul>
 
 <blockquote><div>
-  <pre># /usr/bin/update-desktop-database</pre>
+  <pre>$ /usr/bin/update-desktop-database</pre>
 </div></blockquote>
 
 <ul>
@@ -297,7 +297,7 @@ fixed:</p>
 <p>To download the updated packages, run the following rsync command:</p>
 
 <blockquote><div>
-<pre># rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates/frg-0.1.94 /tmp</pre>
+<pre>$ rsync -aPv rsync://freerock.dyndns.org/pub/frg-updates/frg-0.1.94 /tmp</pre>
 </div></blockquote>
 
 <p>
@@ -322,8 +322,8 @@ fixed:</p>
 </ul>
 
 <blockquote><div>
-<pre># cd /usr/lib/firefox 
-# for nsslib in libnspr4.so libnss3.so libplc4.so libplds4.so \
+<pre>$ cd /usr/lib/firefox 
+$ for nsslib in libnspr4.so libnss3.so libplc4.so libplds4.so \
     libsmime3.so libsoftokn3.so libssl3.so ; do \
     ln -sf $nsslib ../$nsslib done</pre>
 </div></blockquote>
@@ -360,7 +360,7 @@ package, The gnome-menus package implements the freedesktop.org desktop menu spe
 There is a simple fix for this. Just add the following near the top of the
 startkde script:</p>
 <blockquote><div>
-<pre># export XDG_CONFIG_DIRS=/opt/kde/etc/xdg</pre>
+<pre>$ export XDG_CONFIG_DIRS=/opt/kde/etc/xdg</pre>
 </div></blockquote>
 <p>If the improper menus persist, run kbuildsycoca from Konsole after you have
 logged into KDE. Thanks to Jim Philips and Locustfurnace for pointing 

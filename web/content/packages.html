@@ -373,7 +373,7 @@ Uncompressed size: " . $matchingPacks[0]['uncompressed'] . "
 
 <p><a href='/?op=packages&amp;mode=browse&amp;ver=$ver&amp;dir=" . substr($filePath, 0, strpos($filePath, $fileName) - 1) . "'>../</a></p>
 	
-<pre class=\"packdesc\">" . trim($matchingPacks[0]['desc']) . "</pre>";
+<pre>" . trim($matchingPacks[0]['desc']) . "</pre>";
 	}
 } # if ( $mode == 'pack' )
 ?>

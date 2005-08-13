@@ -24,9 +24,9 @@ hr {
     border: 0px;
 }
 
-.packdesc {
-    background-color: #CCCCCC;
-    padding: 2px;
+pre {
+    background-color: #cdcdcd;
+    padding: 3px;
     border: 1px solid #888888;
 }
 
@@ -76,7 +76,7 @@ img.screenthumb {
 }
 
 pre,code,tt {
-    font-size: 1.1em;
+    font-size: 1.05em;
 }
 
 input, select, option {
