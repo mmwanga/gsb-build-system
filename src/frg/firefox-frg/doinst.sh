@@ -1,5 +1,5 @@
 
-FIREFOXDIR=usr/lib64/firefox
+FIREFOXDIR=usr/lib/firefox-1.0.6
 REGXPCOM=../../../$FIREFOXDIR/regxpcom
 REGCHROME=../../../$FIREFOXDIR/regchrome
 FIREFOX=../../../$FIREFOXDIR/firefox-bin
