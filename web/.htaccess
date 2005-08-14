@@ -31,6 +31,7 @@ RewriteEngine On
     RewriteRule ^support/?$  /index.php?op=support [QSA,L]
     RewriteRule ^todo/?$  /index.php?op=todo [QSA,L]
     RewriteRule ^faqs/?$  /index.php?op=faqs [QSA,L]
+    RewriteRule ^random-screenthumb$  /common/screenthumb-rot.php [QSA,L]
 
 #
 # special files to deny a web browser from peeking at
