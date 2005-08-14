@@ -1,0 +1,77 @@
+#!/bin/sh
+CWD=`pwd`
+TMP=${TMP:-/tmp}
+PKG=$TMP/package-firefox
+
+VERSION=1.0.6
+ARCH=${ARCH:-i486}
+BUILD=1
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP
+fi
+rm -rf $PKG
+mkdir -p $PKG
+
+if [ "$ARCH" = "i386" ]; then
+  SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
+  LIBDIR="/usr/lib"
+  ARCH_CONFIGURE=""
+elif [ "$ARCH" = "i486" ]; then
+  SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
+  LIBDIR="/usr/lib"
+  ARCH_CONFIGURE=""
+elif [ "$ARCH" = "s390" ]; then
+  SLKCFLAGS="-O2"
+  LIBDIR="/usr/lib"
+  ARCH_CONFIGURE=""
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2 -fPIC"
+  LIBDIR="/usr/lib64"
+  ARCH_CONFIGURE="--libdir=$LIBDIR"
+fi
+
+cd $TMP
+tar xjf $CWD/firefox-$VERSION-source.tar.bz2
+if [ -d firefox-$VERSION ]; then
+	rm -rf firefox-$VERSION
+fi
+mv mozilla firefox-$VERSION
+cd firefox-$VERSION
+cp $CWD/default.xpm ./widget/src/gtk2/default.xpm
+
+MOZ_PHOENIX=1 CFLAGS="$SLKCFLAGS" \
+	./configure --prefix=/usr --enable-optimize="-pipe -w -O2" \
+	--disable-debug \
+	--with-default-mozilla-five-home=$LIBDIR/firefox \
+	--enable-strip-libs --enable-strip --disable-tests --enable-crypto --disable-ldap \
+	--enable-extensions=cookie,xml-rpc,xmlextras,pref,transformiix,universalchardet,webservices,inspector,gnomevfs,negotiateauth,p3p \
+	--disable-mailnews --disable-composer --enable-single-profile --disable-profilesharing \
+	--enable-xft --enable-xinerama --disable-freetype2 --enable-default-toolkit=gtk2 \
+	--disable-installer --with-pthreads --disable-jsd \
+  $ARCH_CONFIGURE || exit 1
+
+MOZ_PHOENIX=1 make -s export || exit 1
+MOZ_PHOENIX=1 make -s libs || exit 1
+MOZ_PHOENIX=1 make DESTDIR=$PKG install
+
+find $PKG/ -name '*.so' | xargs chmod -x
+chmod -x ${PKG}${LIBDIR}/firefox/components/*.js
+# rm -rf ${PKG}${LIBDIR}/firefox/defaults/profile/extensions/installed-extensions.txt 2>/dev/null
+# mv ${PKG}${LIBDIR}/firefox/defaults/profile/extensions/{972ce4c6-7e08-4474-a285-3208198ce6fd}/install.rdf ${PKG}${LIBDIR}/firefox/extensions/{972ce4c6-7e08-4474-a285-3208198ce6fd}/
+# rm -rf ${PKG}${LIBDIR}/firefox/defaults/profile/extensions/{972ce4c6-7e08-4474-a285-3208198ce6fd}
+
+mkdir -p $PKG/usr/share/applications
+cat $CWD/firefox.desktop > $PKG/usr/share/applications/firefox.desktop
+mkdir -p $PKG/usr/share/pixmaps
+cat $CWD/firefox.png > $PKG/usr/share/pixmaps/firefox.png
+mkdir $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/slack-required > $PKG/install/slack-required
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
+(cd ${PKG}${LIBDIR}/firefox; mv lib* ../; ln -s ../lib* ./ )
+(cd ${PKG}${LIBDIR}/firefox; ln -s mozilla-xremote-client mozilla-firefox-xremote-client)
+(cd ${PKG}${LIBDIR}/firefox; ln -sf mozilla-xremote-client firefox-xremote-client)
+
+cd $PKG
+makepkg -l y -c n $TMP/firefox-$VERSION-$ARCH-$BUILD.tgz
