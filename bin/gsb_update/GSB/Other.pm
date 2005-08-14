@@ -76,7 +76,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'gDesklets'           => {
-			     'ver' => '0.35.1',
+			     'ver' => '0.35.2',
 			     'url' => 'http://www.gdesklets.org/releases/',
 			     'src' => 'tar.bz2',
 			    },
@@ -110,6 +110,11 @@ our %other =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gnomebaker/',
 			     'src' => 'tar.gz',
 			    },
+   'gnome-pkgtool'       => {
+                             'ver' => '0.5.2',
+                             'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gnome-pkgtool/',
+                             'src' => 'tar.gz',
+                            },
    'gpgme'               => {
 			     'ver' => '1.0.3',
 			     'url' => 'ftp://ftp.gnupg.org/gcrypt/gpgme/',
@@ -130,6 +135,11 @@ our %other =
 			     'url' => 'http://graveman.tuxfamily.org/sources/',
 			     'src' => 'tar.bz2',
 			    },
+   'grip'                => {
+                             'ver' => '3.2.0',
+                             'url' => 'http://heanet.dl.sourceforge.net/sourceforge/grip/',
+                             'src' => 'tar.gz',
+                            },
    'gslapt'             => {
 			     'ver' => '0.3.3',
 			     'url' => 'http://software.jaos.org/source/gslapt/',
@@ -251,7 +261,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'sylpheed'            => {
-			     'ver' => '2.0.0rc',
+			     'ver' => '2.0.0',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/sylpheed-claws/',
 			     'src' => 'tar.bz2',
 			    },
@@ -275,17 +285,20 @@ our %other =
 our %other_gnome =
   (
    'NetworkManager'      => '0.3.1',
+   'devhelp'             => '0.9.3',
    'evince'              => '0.3.2',
+   'gdl'                 => '0.6.0',
    'ghex'                => '2.8.1',
    'glade'               => '2.10.0',
    'gnome-audio'         => '2.0.0',
+   'gnome-build'         => '0.1.2',
    'gnome-cups-manager'  => '0.30',
    'gnome-blog'          => '0.9',
    'gossip'              => '0.8',
    'gthumb'              => '2.6.6',
-   'loudmouth'           => '0.17.2',
-   'rhythmbox'           => '0.8.8',
-   'sabayon'             => '0.18',
+   'loudmouth'           => '1.0',
+   'rhythmbox'           => '0.9.0',
+   'sabayon'             => '2.11.90',
   );
 
 our %other_other =

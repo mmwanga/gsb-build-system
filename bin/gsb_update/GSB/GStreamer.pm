@@ -22,7 +22,7 @@ our %gstreamer =
 our %gst_other =
   (
    'gst-ffmpeg'        => {
-			   'ver' => '0.8.5',
+			   'ver' => '0.8.6',
 			   'url' => 'http://gstreamer.freedesktop.org/src/gst-ffmpeg/',
 			   'src' => 'tar.bz2',
 			  },
@@ -81,7 +81,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libcddb'           => {
-			   'ver' => '1.1.0',
+			   'ver' => '1.2.1',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libcddb/',
 			   'src' => 'tar.gz',
 			  },

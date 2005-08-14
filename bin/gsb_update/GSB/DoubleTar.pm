@@ -47,10 +47,10 @@ our %double_tarballs_url =
 				   'var' => 'MVERSION',
 				  },
    'iso-codes'                 => {
-				   'ver' => '0.46',
+				   'ver' => '0.47',
 				   'dir' => 'office/libs/iso-codes',
 				   'url' => 'http://http.us.debian.org/debian/pool/main/i/iso-codes/',
-				   'tar' => 'iso-codes_0.46.orig.tar.gz',
+				   'tar' => 'iso-codes_0.47.orig.tar.gz',
 				   'var' => 'VERSION',
 				  },
   );
