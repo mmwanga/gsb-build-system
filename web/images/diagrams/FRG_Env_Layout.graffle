@@ -21,6 +21,45 @@
 	<array>
 		<dict>
 			<key>Bounds</key>
+			<string>{{612, 519}, {108, 39}}</string>
+			<key>Class</key>
+			<string>ShapedGraphic</string>
+			<key>ID</key>
+			<integer>112</integer>
+			<key>Shape</key>
+			<string>Rectangle</string>
+			<key>Style</key>
+			<dict>
+				<key>fill</key>
+				<dict>
+					<key>FillType</key>
+					<integer>2</integer>
+					<key>GradientColor</key>
+					<dict>
+						<key>b</key>
+						<string>0.666667</string>
+						<key>g</key>
+						<string>0.666667</string>
+						<key>r</key>
+						<string>0.666667</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>Text</key>
+			<dict>
+				<key>Pad</key>
+				<integer>10</integer>
+				<key>Text</key>
+				<string>{\rtf1\mac\ansicpg10000\cocoartf824\cocoasubrtf100
+{\fonttbl\f0\fnil\fcharset77 GillSans;}
+{\colortbl;\red255\green255\blue255;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc\pardirnatural
+
+\f0\fs18 \cf0 8/2005 - Chip Cuccio &lt;chipster@norlug.org&gt;}</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Bounds</key>
 			<string>{{252, 288}, {198, 28}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
@@ -29,7 +68,7 @@
 			<key>Flow</key>
 			<string>Resize</string>
 			<key>ID</key>
-			<integer>110</integer>
+			<integer>111</integer>
 			<key>Shape</key>
 			<string>Rectangle</string>
 			<key>Style</key>
@@ -87,7 +126,7 @@
 					<key>Flow</key>
 					<string>Resize</string>
 					<key>ID</key>
-					<integer>108</integer>
+					<integer>109</integer>
 					<key>Shape</key>
 					<string>Rectangle</string>
 					<key>Style</key>
@@ -114,7 +153,7 @@
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>
-					<integer>109</integer>
+					<integer>110</integer>
 					<key>ImageID</key>
 					<integer>3</integer>
 					<key>Shape</key>
@@ -141,7 +180,7 @@
 			<key>GroupConnect</key>
 			<string>YES</string>
 			<key>ID</key>
-			<integer>107</integer>
+			<integer>108</integer>
 			<key>Magnets</key>
 			<array>
 				<string>{2.98023e-08, -0.468543}</string>
@@ -156,7 +195,7 @@
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
-			<integer>106</integer>
+			<integer>107</integer>
 			<key>Shape</key>
 			<string>Rectangle</string>
 			<key>Style</key>
@@ -207,7 +246,7 @@
 					<key>Flow</key>
 					<string>Resize</string>
 					<key>ID</key>
-					<integer>104</integer>
+					<integer>105</integer>
 					<key>Shape</key>
 					<string>Rectangle</string>
 					<key>Style</key>
@@ -234,7 +273,7 @@
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>
-					<integer>105</integer>
+					<integer>106</integer>
 					<key>ImageID</key>
 					<integer>3</integer>
 					<key>Shape</key>
@@ -261,7 +300,7 @@
 			<key>GroupConnect</key>
 			<string>YES</string>
 			<key>ID</key>
-			<integer>103</integer>
+			<integer>104</integer>
 			<key>Magnets</key>
 			<array>
 				<string>{2.98023e-08, -0.468543}</string>
@@ -280,7 +319,7 @@
 			<key>Flow</key>
 			<string>Resize</string>
 			<key>ID</key>
-			<integer>102</integer>
+			<integer>103</integer>
 			<key>Shape</key>
 			<string>Rectangle</string>
 			<key>Style</key>
@@ -328,12 +367,12 @@ once per day intervals ("pull")}</string>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
-				<integer>95</integer>
+				<integer>96</integer>
 				<key>Info</key>
 				<integer>2</integer>
 			</dict>
 			<key>ID</key>
-			<integer>101</integer>
+			<integer>102</integer>
 			<key>Points</key>
 			<array>
 				<string>{303.817, 428.619}</string>
@@ -389,7 +428,7 @@ once per day intervals ("pull")}</string>
 			<key>Tail</key>
 			<dict>
 				<key>ID</key>
-				<integer>58</integer>
+				<integer>59</integer>
 			</dict>
 		</dict>
 		<dict>
@@ -402,7 +441,7 @@ once per day intervals ("pull")}</string>
 			<key>Flow</key>
 			<string>Resize</string>
 			<key>ID</key>
-			<integer>100</integer>
+			<integer>101</integer>
 			<key>Shape</key>
 			<string>Rectangle</string>
 			<key>Style</key>
@@ -450,12 +489,12 @@ once per day intervals ("pull")}</string>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
-				<integer>75</integer>
+				<integer>76</integer>
 				<key>Info</key>
 				<integer>3</integer>
 			</dict>
 			<key>ID</key>
-			<integer>99</integer>
+			<integer>100</integer>
 			<key>Points</key>
 			<array>
 				<string>{328.5, 326.716}</string>
@@ -483,7 +522,7 @@ once per day intervals ("pull")}</string>
 			<key>Tail</key>
 			<dict>
 				<key>ID</key>
-				<integer>95</integer>
+				<integer>96</integer>
 				<key>Info</key>
 				<integer>1</integer>
 			</dict>
@@ -498,7 +537,7 @@ once per day intervals ("pull")}</string>
 			<key>Flow</key>
 			<string>Resize</string>
 			<key>ID</key>
-			<integer>98</integer>
+			<integer>99</integer>
 			<key>Shape</key>
 			<string>Rectangle</string>
 			<key>Style</key>
@@ -560,7 +599,7 @@ once per day intervals ("pull")}</string>
 					<key>Flow</key>
 					<string>Resize</string>
 					<key>ID</key>
-					<integer>96</integer>
+					<integer>97</integer>
 					<key>Shape</key>
 					<string>Rectangle</string>
 					<key>Style</key>
@@ -587,7 +626,7 @@ once per day intervals ("pull")}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>
-					<integer>97</integer>
+					<integer>98</integer>
 					<key>ImageID</key>
 					<integer>3</integer>
 					<key>Shape</key>
@@ -614,7 +653,7 @@ once per day intervals ("pull")}</string>
 			<key>GroupConnect</key>
 			<string>YES</string>
 			<key>ID</key>
-			<integer>95</integer>
+			<integer>96</integer>
 			<key>Magnets</key>
 			<array>
 				<string>{2.98023e-08, -0.468543}</string>
@@ -625,7 +664,7 @@ once per day intervals ("pull")}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{522, 382.125}, {125, 28}}</string>
+			<string>{{504, 364.125}, {125, 28}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -633,7 +672,7 @@ once per day intervals ("pull")}</string>
 			<key>Flow</key>
 			<string>Resize</string>
 			<key>ID</key>
-			<integer>94</integer>
+			<integer>95</integer>
 			<key>Shape</key>
 			<string>Rectangle</string>
 			<key>Style</key>
@@ -687,7 +726,7 @@ once per day intervals ("pull")}</string>
 			<key>Flow</key>
 			<string>Resize</string>
 			<key>ID</key>
-			<integer>93</integer>
+			<integer>94</integer>
 			<key>Shape</key>
 			<string>Rectangle</string>
 			<key>Style</key>
@@ -733,7 +772,7 @@ once per day intervals ("pull")}</string>
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{37, 373.125}, {127, 28}}</string>
+			<string>{{39, 355.125}, {127, 28}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -741,7 +780,7 @@ once per day intervals ("pull")}</string>
 			<key>Flow</key>
 			<string>Resize</string>
 			<key>ID</key>
-			<integer>92</integer>
+			<integer>93</integer>
 			<key>Shape</key>
 			<string>Rectangle</string>
 			<key>Style</key>
@@ -776,10 +815,10 @@ once per day intervals ("pull")}</string>
 				<key>Text</key>
 				<string>{\rtf1\mac\ansicpg10000\cocoartf824\cocoasubrtf100
 {\fonttbl\f0\fnil\fcharset77 GillSans;}
-{\colortbl;\red255\green255\blue255;\red32\green82\blue29;}
+{\colortbl;\red255\green255\blue255;\red50\green42\blue201;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc\pardirnatural
 
-\f0\fs24 \cf2 RSYNC\
+\f0\fs24 \cf2 `svnmirror.sh` via cron\
 5 min. intervals ("push")}</string>
 			</dict>
 			<key>Wrap</key>
@@ -791,7 +830,7 @@ once per day intervals ("pull")}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
-			<integer>91</integer>
+			<integer>92</integer>
 			<key>Shape</key>
 			<string>Rectangle</string>
 			<key>Style</key>
@@ -829,10 +868,10 @@ once per day intervals ("pull")}</string>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
-				<integer>58</integer>
+				<integer>59</integer>
 			</dict>
 			<key>ID</key>
-			<integer>90</integer>
+			<integer>91</integer>
 			<key>Points</key>
 			<array>
 				<string>{175.5, 210.907}</string>
@@ -888,7 +927,7 @@ once per day intervals ("pull")}</string>
 			<key>Tail</key>
 			<dict>
 				<key>ID</key>
-				<integer>75</integer>
+				<integer>76</integer>
 				<key>Info</key>
 				<integer>2</integer>
 			</dict>
@@ -899,7 +938,7 @@ once per day intervals ("pull")}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
-			<integer>89</integer>
+			<integer>90</integer>
 			<key>Shape</key>
 			<string>Rectangle</string>
 			<key>Style</key>
@@ -942,10 +981,10 @@ once per day intervals ("pull")}</string>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
-				<integer>75</integer>
+				<integer>76</integer>
 			</dict>
 			<key>ID</key>
-			<integer>88</integer>
+			<integer>89</integer>
 			<key>Points</key>
 			<array>
 				<string>{566.7, 174.528}</string>
@@ -975,7 +1014,7 @@ once per day intervals ("pull")}</string>
 			<key>Tail</key>
 			<dict>
 				<key>ID</key>
-				<integer>85</integer>
+				<integer>86</integer>
 				<key>Info</key>
 				<integer>4</integer>
 			</dict>
@@ -995,7 +1034,7 @@ once per day intervals ("pull")}</string>
 					<key>Flow</key>
 					<string>Resize</string>
 					<key>ID</key>
-					<integer>86</integer>
+					<integer>87</integer>
 					<key>Shape</key>
 					<string>Rectangle</string>
 					<key>Style</key>
@@ -1022,7 +1061,7 @@ once per day intervals ("pull")}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>
-					<integer>87</integer>
+					<integer>88</integer>
 					<key>ImageID</key>
 					<integer>3</integer>
 					<key>Shape</key>
@@ -1049,7 +1088,7 @@ once per day intervals ("pull")}</string>
 			<key>GroupConnect</key>
 			<string>YES</string>
 			<key>ID</key>
-			<integer>85</integer>
+			<integer>86</integer>
 			<key>Magnets</key>
 			<array>
 				<string>{2.98023e-08, -0.468543}</string>
@@ -1064,7 +1103,7 @@ once per day intervals ("pull")}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
-			<integer>84</integer>
+			<integer>85</integer>
 			<key>Shape</key>
 			<string>Rectangle</string>
 			<key>Style</key>
@@ -1105,16 +1144,16 @@ once per day intervals ("pull")}</string>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
-				<integer>79</integer>
+				<integer>80</integer>
 				<key>Info</key>
 				<integer>4</integer>
 			</dict>
 			<key>ID</key>
-			<integer>83</integer>
+			<integer>84</integer>
 			<key>Points</key>
 			<array>
-				<string>{378.449, 477.193}</string>
-				<string>{533.363, 491.963}</string>
+				<string>{375.615, 470.488}</string>
+				<string>{504.363, 470.963}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -1166,7 +1205,7 @@ once per day intervals ("pull")}</string>
 			<key>Tail</key>
 			<dict>
 				<key>ID</key>
-				<integer>58</integer>
+				<integer>59</integer>
 			</dict>
 		</dict>
 		<dict>
@@ -1179,7 +1218,7 @@ once per day intervals ("pull")}</string>
 			<key>Flow</key>
 			<string>Resize</string>
 			<key>ID</key>
-			<integer>82</integer>
+			<integer>83</integer>
 			<key>Shape</key>
 			<string>Rectangle</string>
 			<key>Style</key>
@@ -1226,7 +1265,7 @@ once per day intervals ("pull")}</string>
 			<array>
 				<dict>
 					<key>Bounds</key>
-					<string>{{513, 538}, {2, 12}}</string>
+					<string>{{484, 517}, {2, 12}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -1234,7 +1273,7 @@ once per day intervals ("pull")}</string>
 					<key>Flow</key>
 					<string>Resize</string>
 					<key>ID</key>
-					<integer>80</integer>
+					<integer>81</integer>
 					<key>Shape</key>
 					<string>Rectangle</string>
 					<key>Style</key>
@@ -1259,11 +1298,11 @@ once per day intervals ("pull")}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{537, 440}, {77, 112}}</string>
+					<string>{{508, 419}, {77, 112}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>
-					<integer>81</integer>
+					<integer>82</integer>
 					<key>ImageID</key>
 					<integer>4</integer>
 					<key>Shape</key>
@@ -1290,7 +1329,7 @@ once per day intervals ("pull")}</string>
 			<key>GroupConnect</key>
 			<string>YES</string>
 			<key>ID</key>
-			<integer>79</integer>
+			<integer>80</integer>
 			<key>Magnets</key>
 			<array>
 				<string>{0.0132104, -0.474138}</string>
@@ -1305,12 +1344,12 @@ once per day intervals ("pull")}</string>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
-				<integer>107</integer>
+				<integer>108</integer>
 				<key>Info</key>
 				<integer>4</integer>
 			</dict>
 			<key>ID</key>
-			<integer>78</integer>
+			<integer>79</integer>
 			<key>Points</key>
 			<array>
 				<string>{356.316, 431.829}</string>
@@ -1368,7 +1407,7 @@ once per day intervals ("pull")}</string>
 			<key>Tail</key>
 			<dict>
 				<key>ID</key>
-				<integer>58</integer>
+				<integer>59</integer>
 			</dict>
 		</dict>
 		<dict>
@@ -1386,7 +1425,7 @@ once per day intervals ("pull")}</string>
 					<key>Flow</key>
 					<string>Resize</string>
 					<key>ID</key>
-					<integer>76</integer>
+					<integer>77</integer>
 					<key>Shape</key>
 					<string>Rectangle</string>
 					<key>Style</key>
@@ -1413,7 +1452,7 @@ once per day intervals ("pull")}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>
-					<integer>77</integer>
+					<integer>78</integer>
 					<key>ImageID</key>
 					<integer>3</integer>
 					<key>Shape</key>
@@ -1440,7 +1479,7 @@ once per day intervals ("pull")}</string>
 			<key>GroupConnect</key>
 			<string>YES</string>
 			<key>ID</key>
-			<integer>75</integer>
+			<integer>76</integer>
 			<key>Magnets</key>
 			<array>
 				<string>{2.98023e-08, -0.468543}</string>
@@ -1459,7 +1498,7 @@ once per day intervals ("pull")}</string>
 			<key>Flow</key>
 			<string>Resize</string>
 			<key>ID</key>
-			<integer>74</integer>
+			<integer>75</integer>
 			<key>Shape</key>
 			<string>Rectangle</string>
 			<key>Style</key>
@@ -1488,7 +1527,7 @@ once per day intervals ("pull")}</string>
 				<string>{\rtf1\mac\ansicpg10000\cocoartf824\cocoasubrtf100
 {\fonttbl\f0\fnil\fcharset77 GillSans;\f1\fnil\fcharset77 Monaco;}
 {\colortbl;\red255\green255\blue255;}
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural
 
 \f0\fs24 \cf0 NORLUG Public SVN server\
 
@@ -1502,12 +1541,12 @@ once per day intervals ("pull")}</string>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
-				<integer>69</integer>
+				<integer>70</integer>
 				<key>Info</key>
 				<integer>2</integer>
 			</dict>
 			<key>ID</key>
-			<integer>73</integer>
+			<integer>74</integer>
 			<key>Points</key>
 			<array>
 				<string>{100.5, 453}</string>
@@ -1520,11 +1559,11 @@ once per day intervals ("pull")}</string>
 					<key>Color</key>
 					<dict>
 						<key>b</key>
-						<string>0.160784</string>
+						<string>0.788043</string>
 						<key>g</key>
-						<string>0.521569</string>
+						<string>0.165848</string>
 						<key>r</key>
-						<string>0</string>
+						<string>0.197314</string>
 					</dict>
 					<key>HeadArrow</key>
 					<string>SharpBackArrow</string>
@@ -1535,7 +1574,7 @@ once per day intervals ("pull")}</string>
 			<key>Tail</key>
 			<dict>
 				<key>ID</key>
-				<integer>65</integer>
+				<integer>66</integer>
 			</dict>
 		</dict>
 		<dict>
@@ -1548,7 +1587,7 @@ once per day intervals ("pull")}</string>
 			<key>Flow</key>
 			<string>Resize</string>
 			<key>ID</key>
-			<integer>72</integer>
+			<integer>73</integer>
 			<key>Shape</key>
 			<string>Rectangle</string>
 			<key>Style</key>
@@ -1597,7 +1636,7 @@ once per day intervals ("pull")}</string>
 					<key>Flow</key>
 					<string>Resize</string>
 					<key>ID</key>
-					<integer>70</integer>
+					<integer>71</integer>
 					<key>Shape</key>
 					<string>Rectangle</string>
 					<key>Style</key>
@@ -1624,7 +1663,7 @@ once per day intervals ("pull")}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>
-					<integer>71</integer>
+					<integer>72</integer>
 					<key>ImageID</key>
 					<integer>3</integer>
 					<key>Shape</key>
@@ -1651,7 +1690,7 @@ once per day intervals ("pull")}</string>
 			<key>GroupConnect</key>
 			<string>YES</string>
 			<key>ID</key>
-			<integer>69</integer>
+			<integer>70</integer>
 			<key>Magnets</key>
 			<array>
 				<string>{2.98023e-08, -0.468543}</string>
@@ -1666,10 +1705,10 @@ once per day intervals ("pull")}</string>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
-				<integer>58</integer>
+				<integer>59</integer>
 			</dict>
 			<key>ID</key>
-			<integer>68</integer>
+			<integer>69</integer>
 			<key>Points</key>
 			<array>
 				<string>{118.243, 488.858}</string>
@@ -1725,7 +1764,7 @@ once per day intervals ("pull")}</string>
 			<key>Tail</key>
 			<dict>
 				<key>ID</key>
-				<integer>65</integer>
+				<integer>66</integer>
 				<key>Info</key>
 				<integer>3</integer>
 			</dict>
@@ -1745,7 +1784,7 @@ once per day intervals ("pull")}</string>
 					<key>Flow</key>
 					<string>Resize</string>
 					<key>ID</key>
-					<integer>66</integer>
+					<integer>67</integer>
 					<key>Shape</key>
 					<string>Rectangle</string>
 					<key>Style</key>
@@ -1772,7 +1811,7 @@ once per day intervals ("pull")}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>
-					<integer>67</integer>
+					<integer>68</integer>
 					<key>ImageID</key>
 					<integer>3</integer>
 					<key>Shape</key>
@@ -1799,7 +1838,7 @@ once per day intervals ("pull")}</string>
 			<key>GroupConnect</key>
 			<string>YES</string>
 			<key>ID</key>
-			<integer>65</integer>
+			<integer>66</integer>
 			<key>Magnets</key>
 			<array>
 				<string>{2.98023e-08, -0.468543}</string>
@@ -1814,10 +1853,10 @@ once per day intervals ("pull")}</string>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
-				<integer>75</integer>
+				<integer>76</integer>
 			</dict>
 			<key>ID</key>
-			<integer>64</integer>
+			<integer>65</integer>
 			<key>Points</key>
 			<array>
 				<string>{607.5, 258.386}</string>
@@ -1847,7 +1886,7 @@ once per day intervals ("pull")}</string>
 			<key>Tail</key>
 			<dict>
 				<key>ID</key>
-				<integer>107</integer>
+				<integer>108</integer>
 				<key>Info</key>
 				<integer>1</integer>
 			</dict>
@@ -1858,13 +1897,13 @@ once per day intervals ("pull")}</string>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
-				<integer>107</integer>
+				<integer>108</integer>
 			</dict>
 			<key>ID</key>
-			<integer>63</integer>
+			<integer>64</integer>
 			<key>Points</key>
 			<array>
-				<string>{564.834, 442.897}</string>
+				<string>{535.834, 421.897}</string>
 				<string>{607.5, 318.907}</string>
 			</array>
 			<key>Style</key>
@@ -1889,7 +1928,7 @@ once per day intervals ("pull")}</string>
 			<key>Tail</key>
 			<dict>
 				<key>ID</key>
-				<integer>79</integer>
+				<integer>80</integer>
 				<key>Info</key>
 				<integer>1</integer>
 			</dict>
@@ -1900,10 +1939,10 @@ once per day intervals ("pull")}</string>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
-				<integer>58</integer>
+				<integer>59</integer>
 			</dict>
 			<key>ID</key>
-			<integer>62</integer>
+			<integer>63</integer>
 			<key>Points</key>
 			<array>
 				<string>{118.243, 246.528}</string>
@@ -1959,7 +1998,7 @@ once per day intervals ("pull")}</string>
 			<key>Tail</key>
 			<dict>
 				<key>ID</key>
-				<integer>69</integer>
+				<integer>70</integer>
 				<key>Info</key>
 				<integer>3</integer>
 			</dict>
@@ -1970,12 +2009,12 @@ once per day intervals ("pull")}</string>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
-				<integer>85</integer>
+				<integer>86</integer>
 				<key>Info</key>
 				<integer>2</integer>
 			</dict>
 			<key>ID</key>
-			<integer>61</integer>
+			<integer>62</integer>
 			<key>Points</key>
 			<array>
 				<string>{328.192, 428.678}</string>
@@ -2033,7 +2072,7 @@ once per day intervals ("pull")}</string>
 			<key>Tail</key>
 			<dict>
 				<key>ID</key>
-				<integer>58</integer>
+				<integer>59</integer>
 			</dict>
 		</dict>
 		<dict>
@@ -2042,12 +2081,12 @@ once per day intervals ("pull")}</string>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
-				<integer>103</integer>
+				<integer>104</integer>
 				<key>Info</key>
 				<integer>2</integer>
 			</dict>
 			<key>ID</key>
-			<integer>60</integer>
+			<integer>61</integer>
 			<key>Points</key>
 			<array>
 				<string>{369, 459}</string>
@@ -2109,12 +2148,12 @@ once per day intervals ("pull")}</string>
 			<key>Head</key>
 			<dict>
 				<key>ID</key>
-				<integer>107</integer>
+				<integer>108</integer>
 				<key>Info</key>
 				<integer>2</integer>
 			</dict>
 			<key>ID</key>
-			<integer>59</integer>
+			<integer>60</integer>
 			<key>Labels</key>
 			<array>
 				<dict>
@@ -2169,7 +2208,7 @@ once per day intervals ("pull")}</string>
 			<key>Tail</key>
 			<dict>
 				<key>ID</key>
-				<integer>103</integer>
+				<integer>104</integer>
 				<key>Info</key>
 				<integer>3</integer>
 			</dict>
@@ -2187,7 +2226,7 @@ once per day intervals ("pull")}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>
-					<integer>57</integer>
+					<integer>58</integer>
 					<key>Shape</key>
 					<string>Cloud</string>
 					<key>Style</key>
@@ -2248,7 +2287,7 @@ once per day intervals ("pull")}</string>
 					<key>HFlip</key>
 					<string>YES</string>
 					<key>ID</key>
-					<integer>58</integer>
+					<integer>59</integer>
 					<key>Shape</key>
 					<string>Cloud</string>
 					<key>Style</key>
@@ -2300,7 +2339,7 @@ once per day intervals ("pull")}</string>
 			<key>GridCenter</key>
 			<string>YES</string>
 			<key>ID</key>
-			<integer>56</integer>
+			<integer>57</integer>
 		</dict>
 	</array>
 	<key>GridInfo</key>
@@ -3763,7 +3802,7 @@ once per day intervals ("pull")}</string>
 	<key>MagnetsVisible</key>
 	<string>NO</string>
 	<key>ModificationDate</key>
-	<string>2005-08-13 19:47:13 -0500</string>
+	<string>2005-08-14 10:58:16 -0500</string>
 	<key>Modifier</key>
 	<string>Chip Cuccio</string>
 	<key>Orientation</key>
@@ -3861,8 +3900,8 @@ once per day intervals ("pull")}</string>
 	CQkJCTxyZWFsPjczNDwvcmVhbD4KCQkJCQk8L2FycmF5PgoJCQkJCTxrZXk+Y29tLmFw
 	cGxlLnByaW50LnRpY2tldC5jbGllbnQ8L2tleT4KCQkJCQk8c3RyaW5nPmNvbS5hcHBs
 	ZS5wcmludGluZ21hbmFnZXI8L3N0cmluZz4KCQkJCQk8a2V5PmNvbS5hcHBsZS5wcmlu
-	dC50aWNrZXQubW9kRGF0ZTwva2V5PgoJCQkJCTxkYXRlPjIwMDUtMDgtMTRUMDA6NDQ6
-	MDdaPC9kYXRlPgoJCQkJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5zdGF0ZUZs
+	dC50aWNrZXQubW9kRGF0ZTwva2V5PgoJCQkJCTxkYXRlPjIwMDUtMDgtMTRUMTU6NTI6
+	MDZaPC9kYXRlPgoJCQkJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5zdGF0ZUZs
 	YWc8L2tleT4KCQkJCQk8aW50ZWdlcj4wPC9pbnRlZ2VyPgoJCQkJPC9kaWN0PgoJCQk8
 	L2FycmF5PgoJCTwvZGljdD4KCQk8a2V5PmNvbS5hcHBsZS5wcmludC5QYWdlRm9ybWF0
 	LlBNQWRqdXN0ZWRQYXBlclJlY3Q8L2tleT4KCQk8ZGljdD4KCQkJPGtleT5jb20uYXBw
@@ -3875,7 +3914,7 @@ once per day intervals ("pull")}</string>
 	L3JlYWw+CgkJCQkJPC9hcnJheT4KCQkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNr
 	ZXQuY2xpZW50PC9rZXk+CgkJCQkJPHN0cmluZz5jb20uYXBwbGUucHJpbnRpbmdtYW5h
 	Z2VyPC9zdHJpbmc+CgkJCQkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0Lm1vZERh
-	dGU8L2tleT4KCQkJCQk8ZGF0ZT4yMDA1LTA4LTE0VDAwOjQ0OjA3WjwvZGF0ZT4KCQkJ
+	dGU8L2tleT4KCQkJCQk8ZGF0ZT4yMDA1LTA4LTE0VDE1OjUyOjA2WjwvZGF0ZT4KCQkJ
 	CQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuc3RhdGVGbGFnPC9rZXk+CgkJCQkJ
 	PGludGVnZXI+MDwvaW50ZWdlcj4KCQkJCTwvZGljdD4KCQkJPC9hcnJheT4KCQk8L2Rp
 	Y3Q+CgkJPGtleT5jb20uYXBwbGUucHJpbnQuUGFwZXJJbmZvLlBNQ3VzdG9tUGFwZXI8
@@ -3983,11 +4022,11 @@ once per day intervals ("pull")}</string>
 		<key>Frame</key>
 		<string>{{211, 49}, {854, 783}}</string>
 		<key>ShowRuler</key>
-		<true/>
+		<false/>
 		<key>ShowStatusBar</key>
 		<true/>
 		<key>VisibleRegion</key>
-		<string>{{-46, -31}, {823, 639}}</string>
+		<string>{{-54, -54}, {839, 685}}</string>
 		<key>Zoom</key>
 		<string>1</string>
 	</dict>
