@@ -26,7 +26,7 @@ print("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
     media="screen" title="Yummy Style" />
   <link rel="alternate stylesheet" type="text/css" href=
     "/css/print.css" media="print" title="Printer-friendly Style" />
-  <title><?php echo($title); ?></title>
+  <title><?php echo($title); ?> - a GNOME distribution for Slackware Linux</title>
 </head> 
 <!--
     GSB site code <http://gsb.freerock.org>
