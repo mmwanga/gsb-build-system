@@ -29,6 +29,25 @@ fi
 cd $TMP 
 tar xzvf $CWD/libcap-$VERSION.tar.gz
 cd libcap-$VERSION
+<<<<<<< .mine
+
+# Apply $ARCH specific patches
+if [ "$ARCH" = "i386" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "i486" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "s390" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "x86_64" ]; then
+  echo "Applying patches for $ARCH"
+  cat $CWD/amd65_cflags.patch | patch -p1 --verbose
+fi
+
+CFLAGS="$SLKCFLAGS" \
+=======
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
@@ -46,6 +65,7 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 CFLAGS="$SLKCFLAGS" \
+>>>>>>> .r819
 make
 make install prefix=/usr FAKEROOT=$PKG
 

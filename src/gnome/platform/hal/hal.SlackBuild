@@ -40,6 +40,9 @@ cd $TMP
 tar xzvf $CWD/hal-$VERSION.tar.gz
 cd hal-$VERSION
 cat $CWD/hal-slackware-storage-policy.patch | patch -p1 --verbose
+if [ "$ARCH" = "x86_64" ]; then
+  cat $CWD/amd64_sg_flag_lun_inhibit.patch |patch -p1 --verbose
+fi
 cp -f $CWD/DeviceManager.py tools/device-manager
 
 # Apply $ARCH specific patches

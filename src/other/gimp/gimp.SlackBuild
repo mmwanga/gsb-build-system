@@ -12,12 +12,16 @@ BUILD=3
 
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
+  ARCH_CONFIGURE=""
 elif [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
+  ARCH_CONFIGURE=""
 elif [ "$ARCH" = "s390" ]; then
   SLKCFLAGS="-O2"
+  ARCH_CONFIGURE=""
 elif [ "$ARCH" = "x86_64" ]; then
-  SLKCFLAGS="-O2"
+  SLKCFLAGS="-O2 -fPIC"
+  ARCH_CONFIGURE="--libdir=/usr/lib64"
 fi
 
 cd $TMP 
@@ -34,8 +38,9 @@ CFLAGS="$SLKCFLAGS" \
   --localstatedir=/var/lib \
   --disable-static \
   --enable-python \
-  $ARCH-slackware-linux
-make -j3
+  $ARCH_CONFIGURE \
+  $ARCH-slackware-linux || exit 1
+make -j3 || exit 1
 mkdir -p $PKG/usr/share/applications $PKG/usr/share/application-registry
 make install DESTDIR=$PKG
 gzip -9 $PKG/usr/man/man?/*.?

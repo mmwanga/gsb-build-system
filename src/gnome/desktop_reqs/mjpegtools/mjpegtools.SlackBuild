@@ -31,6 +31,13 @@ fi
 cd $TMP 
 tar xzvf $CWD/mjpegtools-$VERSION.tar.gz
 cd mjpegtools-$VERSION
+<<<<<<< .mine
+
+if [ "$ARCH" = "x86_64" ]; then
+  cat $CWD/amd64_gplusplus_syntax.patch | patch -p1 --verbose
+fi
+
+=======
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
@@ -47,6 +54,7 @@ elif [ "$ARCH" = "x86_64" ]; then
   cat $CWD/x86_64.gplusplus_syntax.patch | patch -p1 --verbose
 fi
 
+>>>>>>> .r819
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
 	    --disable-static \

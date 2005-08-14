@@ -25,7 +25,7 @@ cd Imaging-$VERSION
   cp ImConfig.h  ImPlatform.h  Imaging.h $PKG/usr/include/Imaging/
   chmod 644 $PKG/usr/include/Imaging/*.h
 )
-python setup.py build
+python setup.py build || exit 1
 python setup.py install --root=$PKG
 
 chown -R root.bin $PKG/usr/bin
@@ -51,6 +51,11 @@ cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
+if [ "$ARCH" = "x86_64" ]; then
+  if [ -d usr/lib ]; then
+    cp -r usr/lib usr/lib64
+  fi
+fi
 makepkg -l y -c n $TMP/Imaging-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
