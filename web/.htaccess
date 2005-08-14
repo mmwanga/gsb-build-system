@@ -18,22 +18,19 @@ RewriteEngine On
     RewriteRule ^.*$ - [S=50]
     RewriteRule ^news/?$ /?news_page=0 [QSA,L]
     RewriteRule ^news/?([0-9]{1,})/?$ /?news_page=$1 [QSA,L]
-    RewriteRule ^packages/?$ /?op=packages [QSA,L]
-    RewriteRule ^packages/ver/(.*)/dir/(.*)?$ /?op=packages&mode=browse&ver=$1&dir=$2 [QSA,L]
-    RewriteRule ^packages/ver/(.*)/info/(.*)$ /?op=packages&mode=pack&ver=$1&path=$2 [QSA,L]
-    RewriteRule ^changelog/(.*)?$ /?op=changelog&frg_ver=$1 [QSA,L]
-    RewriteRule ^about/?$  /?op=about [QSA,L]
-    RewriteRule ^download/?$  /?op=download [QSA,L]
-    RewriteRule ^downloads/?$  /?op=download [QSA,L]
-    RewriteRule ^development/?$  /?op=development [QSA,L]
-    RewriteRule ^help/?$  /?op=help [QSA,L]
-    RewriteRule ^installation/?$  /?op=installation [QSA,L]
-    RewriteRule ^links/?$  /?op=links [QSA,L]
-    RewriteRule ^roadmap/?$  /?op=roadmap [QSA,L]
-    RewriteRule ^screenshots/?$  /?op=screenshots [QSA,L]
-    RewriteRule ^support/?$  /?op=support [QSA,L]
-    RewriteRule ^todo/?$  /?op=todo [QSA,L]
-    RewriteRule ^faqs/?$  /?op=faqs [QSA,L]
+    RewriteRule ^changelog/(.*)?$ /index.php?op=changelog&frg_ver=$1 [QSA,L]
+    RewriteRule ^about/?$  /index.php?op=about [QSA,L]
+    RewriteRule ^download/?$  /index.php?op=download [QSA,L]
+    RewriteRule ^downloads/?$  /index.php?op=download [QSA,L]
+    RewriteRule ^development/?$  /index.php?op=development [QSA,L]
+    RewriteRule ^help/?$  /index.php?op=help [QSA,L]
+    RewriteRule ^installation/?$  /index.php?op=installation [QSA,L]
+    RewriteRule ^links/?$  /index.php?op=links [QSA,L]
+    RewriteRule ^roadmap/?$  /index.php?op=roadmap [QSA,L]
+    RewriteRule ^screenshots/?$  /index.php?op=screenshots [QSA,L]
+    RewriteRule ^support/?$  /index.php?op=support [QSA,L]
+    RewriteRule ^todo/?$  /index.php?op=todo [QSA,L]
+    RewriteRule ^faqs/?$  /index.php?op=faqs [QSA,L]
 
 #
 # special files to deny a web browser from peeking at
@@ -46,7 +43,7 @@ RewriteEngine On
 #
 # error handling
 #
-ErrorDocument 404 /?op=http_error&errno=404
-ErrorDocument 403 /?op=http_error&errno=403
-ErrorDocument 401 /?op=http_error&errno=401
+ErrorDocument 404 /index.php?op=http_error&errno=404
+ErrorDocument 403 /index.php?op=http_error&errno=403
+ErrorDocument 401 /index.php?op=http_error&errno=401
 
