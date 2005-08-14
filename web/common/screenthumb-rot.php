@@ -14,12 +14,13 @@
 	$extList['jpeg'] = 'image/jpeg';
 	$extList['png'] = 'image/png';
 	
-
+/*
 // sanity - yeah!
 if(!strstr($HTTP_REFERER, $SERVER_NAME)) {
     header("Location: /");
     exit();
 }
+*/
 
 $img = null;
 
