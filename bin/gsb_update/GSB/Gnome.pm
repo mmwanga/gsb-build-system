@@ -82,7 +82,7 @@ our %platform_diff_naming =
 our %platform_reqs =
   (
    'cairo'               => {
-			     'ver' => '0.9.0',
+			     'ver' => '0.9.2',
 			     'url' => 'http://cairographics.org/snapshots/',
 			     'src' => 'tar.gz',
 			    },

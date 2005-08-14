@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-evolution-webcal
 
-VERSION=2.3.90
+VERSION=2.3.91
 ARCH=${ARCH:-i486}
 BUILD=1
 

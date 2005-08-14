@@ -6,7 +6,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gst-ffmpeg
 
-VERSION=0.8.5
+VERSION=0.8.6
 ARCH=${ARCH:-i486}
 BUILD=1
 

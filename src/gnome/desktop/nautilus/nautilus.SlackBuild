@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-nautilus
 
-VERSION=2.11.90
+VERSION=2.11.91
 ARCH=${ARCH:-i486}
 BUILD=1
 
