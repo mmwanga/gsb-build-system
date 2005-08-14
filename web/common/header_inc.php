@@ -19,8 +19,8 @@ print("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
   <meta name="MSSmartTagsPreventParsing" content="TRUE" />
   <meta http-equiv="MSTHEMECOMPATIBLE" content="no" />
   <meta name="keywords" content="gnome,slackware,gnome slackware,slackware gnome,freerock,freerock gnome,freerock's gnome,frg,gnome slackbuild,slackbuid,gsb" />
-  <meta name="description" content="Gnome.Slackbuild/Freerock GNOME is a GNOME distribution for Slackware Linux" />
-  <meta name="author" content="Chip Cuccio">
+  <meta name="description" content="Gnome.SlackBuild / Freerock GNOME is a GNOME distribution for Slackware Linux" />
+  <meta name="author" content="Chip Cuccio" />
   <link rel="stylesheet" type="text/css"
     href="/css/style.css?<?php echo($rnd); ?>"
     media="screen" title="Yummy Style" />
