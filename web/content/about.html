@@ -10,9 +10,10 @@ if($op !== "about") { ?>
   </a>
 
 <?php } ?>
-  GSB is comprised of two projects, GSB and FRG.<br />
-  <small>Don't you think the world needs more acronyms?
-  ;-)</small></p>
+  GSB is comprised of two projects, GSB and FRG.
+<?php if($op == "about") { ?><br />
+  <small>Don't you think the world needs more acronyms? ;-)</small>
+<?php }?></p>
 
   <ol>
     <li>FRG: Freerock GNOME - a complete GNOME distribution for Slackware
