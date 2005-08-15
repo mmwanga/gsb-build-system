@@ -39,8 +39,8 @@ find . -perm 664 -exec chmod 644 {} \;
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             $ARCH_CONFIGURE \
-            $ARCH-slackware-linux 
-make
+            $ARCH-slackware-linux  || exit 1
+make || exit 1
 make install DESTDIR=$PKG
 mv $PKG/usr/share/doc $PKG/usr
 mv $PKG/usr/doc/libxml2-python-$VERSION $PKG/usr/doc/libxml2-$VERSION

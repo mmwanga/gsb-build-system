@@ -36,8 +36,8 @@ chown -R root.root .
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             $ARCH_CONFIGURE \
-            $ARCH-slackware-linux 
-make
+            $ARCH-slackware-linux  || exit 1
+make || exit 1
 make install DESTDIR=$PKG
 mv $PKG/usr/share/doc $PKG/usr
 mv $PKG/usr/doc/libxslt-python-$VERSION $PKG/usr/doc/libxslt-$VERSION

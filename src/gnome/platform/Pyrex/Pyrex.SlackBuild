@@ -17,7 +17,7 @@ mkdir -p $PKG
 cd $TMP
 tar -xzvf $CWD/Pyrex-$VERSION.tar.gz
 cd Pyrex-$VERSION
-python setup.py build
+python setup.py build || exit 1
 python setup.py install --root=$PKG
 
 chown -R root.bin $PKG/usr/bin

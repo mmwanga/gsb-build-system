@@ -38,8 +38,8 @@ CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
             --with-xinput=yes \
-            $ARCH_CONFIGURE
-make
+            $ARCH_CONFIGURE || exit 1
+make || exit 1
 make install DESTDIR=$PKG
 # I'm spamming your root partition
 make install

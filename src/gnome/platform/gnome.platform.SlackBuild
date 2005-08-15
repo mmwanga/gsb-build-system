@@ -18,12 +18,12 @@ orbit2
 intltool
 howl
 libbonobo
+libpixman
 glitz
 cairo
 pango
 atk
 shared-mime-info
-libpixman
 gtk+2
 gconf
 desktop-file-utils
@@ -62,7 +62,7 @@ do
   echo "*****         Building $i"
   echo "*************************************************"
   echo ""
-  ./$i.SlackBuild
+  ./$i.SlackBuild || exit 1
   upgradepkg --install-new $TMP/$i*.tgz
 )
 done

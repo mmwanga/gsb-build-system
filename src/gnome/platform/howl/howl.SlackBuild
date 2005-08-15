@@ -34,8 +34,8 @@ cd howl-$VERSION
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             $ARCH_CONFIGURE \
-            $ARCH-slackware-linux
-make
+            $ARCH-slackware-linux || exit 1
+make || exit 1
 make install DESTDIR=$PKG
 
 (

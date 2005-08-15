@@ -37,8 +37,8 @@ find . -perm 664 -exec chmod 644 {} \;
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
-            $ARCH_CONFIGURE
-make
+            $ARCH_CONFIGURE || exit 1
+make || exit 1
 make install DESTDIR=$PKG
 strip $PKG/usr/bin/*
 chown -R root.bin $PKG/usr/bin

@@ -36,12 +36,12 @@ find . -perm 666 -exec chmod 644 {} \;
 find . -perm 664 -exec chmod 644 {} \;
 ./configure --prefix=/usr \
             $ARCH_CONFIGURE \
-            $ARCH-slackware-linux
-make
+            $ARCH-slackware-linux || exit 1
+make || exit 1
 make install DESTDIR=$PKG
 chown -R root.bin $PKG/usr/bin
 ( cd $PKG
-  find . | xargs file | grep "ELF " | cut -f 1 -d : | xargs strip --strip-unneeded
+  find . | xargs file | grep "ELF " | cut -f 1 -d : | xargs -r strip --strip-unneeded
 )
 gzip -9 $PKG/usr/man/man?/*
 mkdir -p $PKG/usr/doc/intltool-$VERSION

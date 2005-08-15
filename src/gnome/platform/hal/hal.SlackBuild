@@ -74,8 +74,8 @@ CFLAGS="$SLKCFLAGS" \
 	    --disable-static \
 	    --with-pid-file=/var/run/hal.pid \
             $ARCH_CONFIGURE \
-            $ARCH-slackware-linux
-make
+            $ARCH-slackware-linux || exit 1
+make || exit 1
 make install DESTDIR=$PKG
 
 chown -R root.bin $PKG/usr/bin

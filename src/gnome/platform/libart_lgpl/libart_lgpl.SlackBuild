@@ -36,8 +36,8 @@ chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
-          $ARCH_CONFIGURE
-make
+          $ARCH_CONFIGURE || exit 1
+make || exit 1
 make install DESTDIR=$PKG
 chown -R root.bin $PKG/usr/bin
 strip --strip-unneeded $PKG/usr/lib/libart_lgpl*so
