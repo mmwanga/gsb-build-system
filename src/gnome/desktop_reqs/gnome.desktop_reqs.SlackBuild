@@ -20,7 +20,6 @@ fi
 
 BUILD_ORDER="a52dec
 divx4linux
-mpeg4ip
 ffmpeg
 id3lib
 faad2
@@ -51,6 +50,7 @@ libvisual-plugins
 lame
 mjpegtools
 mpeg2dec
+mpeg4ip
 libmusepack
 normalize
 openslp
