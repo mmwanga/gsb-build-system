@@ -39,5 +39,4 @@ else
   echo "ldap:*:9797:0:::::" >> etc/shadow
 fi
 
-bin/chown -R ldap.ldap var/lib/openldap etc/openldap
-
+chroot . bin/chown -R ldap.ldap var/lib/openldap etc/openldap

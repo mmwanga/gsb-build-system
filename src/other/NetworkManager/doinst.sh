@@ -1,5 +1,3 @@
-#!/bin/sh
-
 config() {
   NEW="$1"
   OLD="`dirname $NEW`/`basename $NEW .new`"
@@ -15,19 +13,20 @@ config() {
 config etc/rc.d/rc.networkmanager.new
 
 # if rc.local doesn't exist, create it
-if [ ! -e /etc/rc.d/rc.local ]; then
-	echo "#!/bin/sh" > /etc/rc.d/rc.local
-	chmod 755 /etc/rc.d/rc.local
+if [ ! -e etc/rc.d/rc.local ]; then
+	echo "#!/bin/sh" > etc/rc.d/rc.local
+	chmod 755 etc/rc.d/rc.local
 fi
 	
 # if rc.networkmanager is executable, run it on startup
-run=`grep ". /etc/rc.d/rc.networkmanager" /etc/rc.d/rc.local`
+run=`grep ". /etc/rc.d/rc.networkmanager" etc/rc.d/rc.local`
 if [[ "${run}" == "" ]]; then	
-	# run rc.networkmanager from rc.local
-	echo "" >> /etc/rc.d/rc.local
-	echo "# To disable networkmanager, chmod rc.networkmanager to 644" >> /etc/rc.d/rc.local
-	echo "if [ -x /etc/rc.d/rc.networkmanager ]; then" >> /etc/rc.d/rc.local
-	echo "Starting NetworkManager" >> /etc/rc.d/rc.local
-	echo "	. /etc/rc.d/rc.networkmanager start" >> /etc/rc.d/rc.local
-	echo "fi" >> /etc/rc.d/rc.local
+cat << EOF >>etc/rc.d/rc.local
+
+# To disable networkmanager, chmod rc.networkmanager to 644
+if [ -x /etc/rc.d/rc.networkmanager ]; then
+  echo "Starting NetworkManager"
+  . /etc/rc.d/rc.networkmanager start
+fi
+EOF
 fi

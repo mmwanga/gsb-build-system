@@ -30,11 +30,7 @@ else
   echo "sabayon:*:9797:0:::::" >> etc/shadow
 fi
 
-if [ -z $ROOT ]; then
-	bin/chown -R sabayon.sabayon var/sabayon
-else
-	bin/chown -R 63.63 var/sabayon
-fi
+chroot . bin/chown -R sabayon.sabayon var/sabayon
 
 if [ -x usr/bin/update-desktop-database ]; then
   usr/bin/update-desktop-database 1> /dev/null 2> /dev/null

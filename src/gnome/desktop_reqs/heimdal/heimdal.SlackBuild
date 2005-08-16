@@ -42,6 +42,9 @@ CFLAGS="$SLKCFLAGS" \
 make
 make install DESTDIR=$PKG
 
+# Already provided by glibc
+rm -f $PKG/usr/include/glob.h
+
 (
   cd $PKG/usr/bin
   for i in ftp login rcp rlogin rsh telnet su
