@@ -21,7 +21,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'anjuta'              => {
-			     'ver' => '1.2.3',
+			     'ver' => '2.0.1',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/anjuta/',
 			     'src' => 'tar.gz',
 			    },
@@ -130,6 +130,11 @@ our %other =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gqview/',
 			     'src' => 'tar.gz',
 			    },
+   'graphviz'            => {
+                             'ver' => '2.4',
+                             'url' => 'http://www.graphviz.org/pub/graphviz/ARCHIVE/',
+                             'src' => 'tar.gz',
+                            };
    'graveman'            => {
 			     'ver' => '0.3.12-4',
 			     'url' => 'http://graveman.tuxfamily.org/sources/',
@@ -226,7 +231,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'poppler'             => {
-			     'ver' => '0.3.3',
+			     'ver' => '0.4.0',
 			     'url' => 'http://poppler.freedesktop.org/',
 			     'src' => 'tar.gz',
 			    },
@@ -286,7 +291,7 @@ our %other_gnome =
   (
    'NetworkManager'      => '0.3.1',
    'devhelp'             => '0.9.3',
-   'evince'              => '0.3.2',
+   'evince'              => '0.3.3',
    'gdl'                 => '0.6.0',
    'ghex'                => '2.8.1',
    'glade'               => '2.10.0',
@@ -294,9 +299,9 @@ our %other_gnome =
    'gnome-build'         => '0.1.2',
    'gnome-cups-manager'  => '0.30',
    'gnome-blog'          => '0.9',
-   'gossip'              => '0.8',
+   'gossip'              => '0.9',
    'gthumb'              => '2.6.6',
-   'loudmouth'           => '1.0',
+   'loudmouth'           => '1.0.1',
    'rhythmbox'           => '0.9.0',
    'sabayon'             => '2.11.90',
   );
