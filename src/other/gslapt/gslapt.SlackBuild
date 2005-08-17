@@ -61,7 +61,7 @@ CFLAGS="$SLKCFLAGS" \
             $ARCH-slackware-linux || exit 1
 make || exit 1
 make pkg PKGDIR=$PKG
-mv $PKG/gslapt-${VERSION}-${ARCH}-1.tgz $TMP/
+mv $PKG/gslapt-${VERSION}-${ARCH}-1.tgz $TMP/gslapt-${VERSION}-${ARCH}-${BUILD}.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then

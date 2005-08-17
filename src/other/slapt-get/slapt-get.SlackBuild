@@ -52,7 +52,7 @@ fi
 CFLAGS="$SLKCFLAGS" \
 make || exit 1
 make pkg
-mv pkg/slapt-get*.tgz $TMP/
+mv pkg/slapt-get*.tgz $TMP/slapt-get-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
