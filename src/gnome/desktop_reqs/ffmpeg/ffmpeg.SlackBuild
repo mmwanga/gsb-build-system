@@ -33,24 +33,6 @@ cd $TMP
 tar xzvf $CWD/ffmpeg-$VERSION.tar.gz
 cd ffmpeg-$VERSION
 cat $CWD/frg.ffmpeg.no.imlib2.configure.patch | patch -p1 --verbose
-<<<<<<< .mine
-
-# Apply $ARCH specific patches
-if [ "$ARCH" = "i386" ]; then
-  echo "Applying patches for $ARCH"
-  #cat $CWD/foo.patch | patch -p0 --verbose
-elif [ "$ARCH" = "i486" ]; then
-  echo "Applying patches for $ARCH"
-  #cat $CWD/foo.patch | patch -p0 --verbose
-elif [ "$ARCH" = "s390" ]; then
-  echo "Applying patches for $ARCH"
-  #cat $CWD/foo.patch | patch -p0 --verbose
-elif [ "$ARCH" = "x86_64" ]; then
-  echo "Applying patches for $ARCH"
-  cat $CWD/amd64_libpath.patch |patch -p1 --verbose
-fi
-
-=======
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
@@ -67,7 +49,6 @@ elif [ "$ARCH" = "x86_64" ]; then
   cat $CWD/x86_64.libpath.patch |patch -p1 --verbose
 fi
 
->>>>>>> .r819
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
 	    --enable-gpl \

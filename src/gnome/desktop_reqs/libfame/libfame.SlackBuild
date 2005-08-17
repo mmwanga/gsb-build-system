@@ -31,14 +31,6 @@ fi
 cd $TMP
 tar -xzvf $CWD/libfame-$VERSION.tar.gz
 cd libfame-$VERSION
-<<<<<<< .mine
-
-if [ "$ARCH" = "x86_64" ]; then
-  cat $CWD/amd64_config_sub.patch | patch -p1 --verbose
-  cat $CWD/amd64_fame_malloc.patch | patch -p1 --verbose
-fi
-
-=======
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
@@ -56,15 +48,14 @@ elif [ "$ARCH" = "x86_64" ]; then
   cat $CWD/x86_64.fame_malloc.patch | patch -p1 --verbose
 fi
 
->>>>>>> .r819
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             --disable-static \
 	    --program-prefix="" \
 	    --program-suffix="" \
             $ARCH_CONFIGURE \
-            $ARCH-slackware-linux
-make
+            $ARCH-slackware-linux || exit 1
+make || exit 1
 make install DESTDIR=$PKG
 
 chown -R root.bin $PKG/usr/bin
