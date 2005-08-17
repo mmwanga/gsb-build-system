@@ -14,7 +14,7 @@ if (!isset($op)) {
 }
 
 // set common title
-$common_title = "GSB: GNOME.SlackBuild";
+$common_title = "Freerock GNOME / GNOME.SlackBuild";
 
 // error handlers
 switch ($errno) {
