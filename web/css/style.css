@@ -51,8 +51,9 @@ img.screenthumb {
 
 .boilerplate {
     position: absolute;
+    top: 45px;
     right: 1.5mm;
-    top: 0.25ex;
+    /*top: 0.25ex;*/
     text-align: right;
     margin-right: 1ex;
     font-size: small;
@@ -140,13 +141,13 @@ acronym, .titleTip {
 
 .subHeader {
     color: white;
-    background-color: rgb(0,51,153);
+    background-color: rgb(35,90,157);
     margin: 0;
     padding: 0.2ex 1ex 0.2ex 1.5mm;
-    background-image:url(/images/GSB_Logo.png);
+    background-image:url(/images/GSB_Logo-3.png);
     background-repeat:no-repeat;
     background-position: center left;
-    height: 65px;
+    height: 141px;
 }
 
 .subHeader a {
@@ -204,7 +205,7 @@ acronym, .titleTip {
 }
 
 #side-bar a {
-    color: rgb(0,51,153);
+    color: rgb(35,90,157);
     background-color: transparent;
     text-decoration: none;
     margin: 0;
@@ -216,7 +217,7 @@ acronym, .titleTip {
 }
 
 #side-bar a:hover {
-    color: rgb(0,51,153);
+    color: rgb(35,90,157);
     text-decoration: none;
     background: rgb(255,255,255);
     border-top: 1px solid rgb(153,153,153);
@@ -226,7 +227,7 @@ acronym, .titleTip {
 #side-bar .thisPage {
     text-decoration: none;
     color: white;
-    background-color: rgb(0,51,153);
+    background-color: rgb(35,90,157);
     border-top: 1px solid rgb(153,153,153);
     border-bottom: 1px solid rgb(153,153,153);
 }
@@ -234,7 +235,7 @@ acronym, .titleTip {
 #side-bar .thisPage:hover {
     text-decoration: none;
     color: white;
-    background-color: rgb(0,51,153);
+    background-color: rgb(35,90,157);
     border-top: 1px solid rgb(153,153,153);
     border-bottom: 1px solid rgb(153,153,153);
 }
@@ -282,7 +283,7 @@ acronym, .titleTip {
 }
 
 #main-body a {
-    color: rgb(0,51,153);
+    color: rgb(35,90,157);
     background-color: transparent;
     text-decoration: underline;
 }
@@ -313,7 +314,7 @@ acronym, .titleTip {
 }
 
 #main-body .topOfPage {
-    color: rgb(0,51,153);
+    color: rgb(35,90,157);
     background-color: transparent;
     text-decoration: none;
     float: right;
@@ -368,7 +369,7 @@ dd {
 }
 
 #footer a {
-    color: rgb(0,51,153);
+    color: rgb(35,90,157);
     background-color: transparent;
     text-decoration: underline;
 }
