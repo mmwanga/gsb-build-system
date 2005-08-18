@@ -25,6 +25,15 @@ cd iso-codes-$VERSION
 make || exit 1
 make install DESTDIR=$PKG
 
+(
+  cd $PKG
+  if [ -d usr/share/pkgconfig ]; then
+    mkdir -p usr/lib/pkgconfig
+    mv usr/share/pkgconfig/* usr/lib/pkgconfig/
+    rmdir usr/share/pkgconfig
+  fi
+)
+
 chown -R root.bin $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/iso-codes-$VERSION
@@ -48,11 +57,6 @@ cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-if [ -d usr/share/pkgconfig ]; then
-  mkdir -p usr/lib/pkgconfig
-  mv usr/share/pkgconfig/* usr/lib/pkgconfig/
-  rmdir usr/share/pkgconfig
-fi
 makepkg -l y -c n $TMP/iso-codes-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
