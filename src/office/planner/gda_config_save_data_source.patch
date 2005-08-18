@@ -1,0 +1,42 @@
+diff -Naur planner-0.13.orig/libplanner/mrp-sql.c planner-0.13/libplanner/mrp-sql.c
+--- planner-0.13.orig/libplanner/mrp-sql.c	2005-02-27 17:31:26.000000000 -0500
++++ planner-0.13/libplanner/mrp-sql.c	2005-08-18 16:10:30.000000000 -0400
+@@ -2169,7 +2169,7 @@
+ 	gda_config_save_data_source (dsn_name, 
+                                      provider, 
+                                      db_txt,
+-                                     "planner project", login, password);
++                                     "planner project", login, password,FALSE);
+ 	g_free (db_txt);
+ 
+ 	client = gda_client_new ();
+@@ -3613,7 +3613,7 @@
+ 	gda_config_save_data_source (dsn_name, 
+                                      provider,
+ 				     db_txt,
+-                                     "planner project", user, password);
++                                     "planner project", user, password,FALSE);
+ 	g_free (db_txt);
+ 
+ 	client = gda_client_new ();
+diff -Naur planner-0.13.orig/src/planner-sql-plugin.c planner-0.13/src/planner-sql-plugin.c
+--- planner-0.13.orig/src/planner-sql-plugin.c	2005-02-27 17:31:26.000000000 -0500
++++ planner-0.13/src/planner-sql-plugin.c	2005-08-18 16:11:16.000000000 -0400
+@@ -715,7 +715,7 @@
+ 	gda_config_save_data_source (dsn_name, 
+                                      provider, 
+                                      db_txt,
+-                                     "planner project", login, password);
++                                     "planner project", login, password,FALSE);
+ 	g_free (db_txt);
+ 
+ 	client = gda_client_new ();
+@@ -1106,7 +1106,7 @@
+ 	gda_config_save_data_source (dsn_name, 
+                                      provider, 
+                                      db_txt,
+-                                     "planner project", login, password);
++                                     "planner project", login, password,FALSE);
+ 	g_free (db_txt);
+ 	client = gda_client_new ();
+ 	conn = sql_get_tested_connection (dsn_name, server, database, client, plugin);

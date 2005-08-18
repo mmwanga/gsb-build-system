@@ -31,6 +31,7 @@ fi
 cd $TMP
 tar -xjvf $CWD/planner-$VERSION.tar.bz2
 cd planner-$VERSION
+cat $CWD/gda_config_save_data_source.patch |patch -p1 --verbose
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
