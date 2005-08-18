@@ -45,6 +45,7 @@ CFLAGS="$SLKCFLAGS" \
 	    --enable-pilot-conduits=yes \
 	    --disable-gtk-doc \
 	    --with-openldap=yes \
+      --enable-openssl=yes \
             $ARCH_CONFIGURE \
 	    $ARCH-slackware-linux || exit 1
 make || exit 1
