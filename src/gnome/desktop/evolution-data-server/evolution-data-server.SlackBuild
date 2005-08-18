@@ -25,7 +25,7 @@ elif [ "$ARCH" = "s390" ]; then
   ARCH_CONFIGURE=""
 elif [ "$ARCH" = "x86_64" ]; then
   SLKCFLAGS="-O2 -fPIC"
-  ARCH_CONFIGURE="--libdir=/usr/lib64 --with-openldap=no"
+  ARCH_CONFIGURE="--libdir=/usr/lib64 --with-openldap=no --with-nspr-include=/usr/include/firefox-1.0.6/nspr --with-nspr-libs=/usr/lib64/firefox-1.0.6"
 fi
 
 cd $TMP 
@@ -41,8 +41,8 @@ CFLAGS="$SLKCFLAGS" \
             --disable-static \
 	    --with-openldap=yes \
             $ARCH_CONFIGURE \
-            $ARCH-slackware-linux
-make
+            $ARCH-slackware-linux || exit 1
+make || exit 1
 make install DESTDIR=$PKG
 
 chown -R root.bin $PKG/usr/bin
