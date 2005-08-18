@@ -48,7 +48,7 @@ our %platform =
    'libgnomeprint'       => '2.11.0',
    'libgnomeprintui'     => '2.11.0',
    'libgnomeui'          => '2.11.2',
-   'libxml2'             => '2.6.19',
+   'libxml2'             => '2.6.20',
    'libxslt'             => '1.1.14',
    'pango'               => '1.9.1',
 
