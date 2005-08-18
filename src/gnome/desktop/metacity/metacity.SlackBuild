@@ -31,7 +31,10 @@ fi
 cd $TMP 
 tar xjvf $CWD/metacity-$VERSION.tar.bz2
 cd metacity-$VERSION
-cat $CWD/frg.metacity.default.theme.patch |patch -p1 --verbose
+
+# default is now clearlooks!
+#cat $CWD/frg.metacity.default.theme.patch |patch -p1 --verbose
+
 #cat $CWD/metacity-2.10.1-blink.diff | patch -p1 --verbose
 #cat $CWD/metacity-2.10.1-placement.diff | patch -p1 --verbose
 #cat $CWD/metacity-2.10.1-click.diff | patch -p1 --verbose
