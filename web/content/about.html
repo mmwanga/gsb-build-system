@@ -32,12 +32,12 @@ if($op !== "about") { ?>
 
   <ul>
     <li>The latest stable version of Freerock GNOME is <span style=
-    "color: maroon;"><?php trim(include('frg-ver.txt')); ?></span></li>
+    "color: maroon;"><?php echo($frg_ver); ?></span></li>
 
     <li>The current version of the GSB source is <span style=
-    "color: maroon;"><?php trim(include('gsb-ver.txt')); ?></span>.
+    "color: maroon;"><?php echo($gsb_ver); ?></span>.
     It builds GNOME <span style=
-    "color: maroon;"><?php trim(include('gnome-ver.txt')); ?></span>
+    "color: maroon;"><?php echo($gnome_ver); ?></span>
     (this is a beta version, if you are unsure wait until stable is
     released).</li>
   </ul>

@@ -21,9 +21,9 @@ if ($op == "index" && (!eregi("news", $REQUEST_URI))) {
     include_once('common/news_inc.php');
 } else {
     // Section selector - BODY - rest of site sections
-    section($op,$news,$frg_ver,$errno,$errdesc,$SERVER_NAME,
-            $HTTP_REFERER,$SERVER_SIGNATURE,$REQUEST_URI,$REDIRECT_URL,
-            $mode,$dir,$path,$ver);
+    section($op,$news,$errno,$errdesc,$SERVER_NAME,$HTTP_REFERER,
+            $SERVER_SIGNATURE,$REQUEST_URI,$REDIRECT_URL,$mode,
+            $dir,$path,$ver,$frg_ver,$gsb_ver,$gnome_ver,$cl_ver);
 }
 ?>
 

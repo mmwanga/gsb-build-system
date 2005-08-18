@@ -1,6 +1,6 @@
 <?php
 
-if(!$frg_ver) {
+if(!$cl_ver) {
     include('content/changelog_choices.html');
     print("</div>\n");
     include('common/footer_inc.php');
@@ -8,9 +8,9 @@ if(!$frg_ver) {
 }
 
 // clean up $frg_ver var
-$frg_ver = str_replace("/", "", $frg_ver);
+$cl_ver = str_replace("/", "", $cl_ver);
 
-$file = "http://poosie/frg/frg-$frg_ver/ChangeLog";
+$file = "http://poosie/frg/frg-$cl_ver/ChangeLog";
 $page = @fopen($file, "r");
 if (!$page) {
         echo "<h2>No such ChangeLog</h2>\n</div>\n";
@@ -28,6 +28,6 @@ if (!$page) {
 
 ?>
   <h2><tt style=
-  "color: maroon; font-size: 1.2em;">frg-<?php echo($frg_ver);?></tt>
+  "color: maroon; font-size: 1.2em;">frg-<?php echo($cl_ver);?></tt>
   ChangeLog</h2><br />
   <tt><?php print($result); ?></tt>

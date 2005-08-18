@@ -7,6 +7,7 @@
 
 */
 $rnd = md5(rand(1,999999));
+require('common/versions_inc.php');
 header("Content-Type: text/html;charset=utf-8");
 print("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
 ?>
