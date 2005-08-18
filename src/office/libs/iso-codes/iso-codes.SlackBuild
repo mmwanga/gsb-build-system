@@ -48,6 +48,11 @@ cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
+if [ -d usr/share/pkgconfig ]; then
+  mkdir -p usr/lib/pkgconfig
+  mv usr/share/pkgconfig/* usr/lib/pkgconfig/
+  rmdir usr/share/pkgconfig
+fi
 makepkg -l y -c n $TMP/iso-codes-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
