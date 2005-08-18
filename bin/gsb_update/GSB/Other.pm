@@ -134,7 +134,7 @@ our %other =
                              'ver' => '2.4',
                              'url' => 'http://www.graphviz.org/pub/graphviz/ARCHIVE/',
                              'src' => 'tar.gz',
-                            };
+                            },
    'graveman'            => {
 			     'ver' => '0.3.12-4',
 			     'url' => 'http://graveman.tuxfamily.org/sources/',
