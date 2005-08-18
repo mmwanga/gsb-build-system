@@ -29,7 +29,7 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 cd $TMP 
-tar xvjf $CWD/gnome-pkgtool-$VERSION.tar.bz2
+tar xvjf $CWD/gnome-pkgtool-$VERSION.tar.bz2 || tar xzvf $CWD/gnome-pkgtool-$VERSION.tar.gz
 cd gnome-pkgtool-$VERSION
 chown -R root.root .
 find . -perm 666 -exec chmod 644 {} \;
