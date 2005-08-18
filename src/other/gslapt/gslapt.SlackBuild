@@ -37,6 +37,10 @@ cd $TMP
 tar -xzvf $CWD/gslapt-$VERSION.tar.gz
 cd gslapt-$VERSION
 
+if [ "$ARCH" = "x86_64" ]; then
+  cat $CWD/x86_64.slack-required > slack-required
+fi
+
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
   echo "Patching for $ARCH"
