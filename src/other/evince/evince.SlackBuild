@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-evince
 
-VERSION=0.3.2
+VERSION=0.3.3
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -31,6 +31,12 @@ fi
 cd $TMP
 tar -xjvf $CWD/evince-$VERSION.tar.bz2
 cd evince-$VERSION
+
+# this should be fixed in next upstream
+if [ "$VERSION" = "0.3.3" ]; then
+  cat $CWD/0.3.3_ev-aplication-service_target.patch |patch -p1 --verbose
+fi
+
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
