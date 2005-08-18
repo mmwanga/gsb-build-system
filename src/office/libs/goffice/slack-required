@@ -3,7 +3,7 @@ gconf
 glib2
 gtk+2
 intltool
-libart
+libart_lgpl
 libglade
 libgnomeprint
 libgnomeui

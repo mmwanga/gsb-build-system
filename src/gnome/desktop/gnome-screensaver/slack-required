@@ -1,6 +1,6 @@
 dbus
 gconf
-gdk
+gdk-pixbuf
 glib2
 gnome-vfs
 gtk+2
