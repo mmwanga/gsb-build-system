@@ -28,6 +28,9 @@
         Volkerding</a>
       </address>
     </div>
+    <script type="text/javascript" src="/js/awstats_misc_tracker.js"></script>
+    <img src="/js/awstats_misc_tracker.js?nojs=y" height="0"
+    width="0" style="display: none; border-width: 0px;" alt="" />
   </div>
 </body>
 </html>
