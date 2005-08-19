@@ -1,6 +1,6 @@
 <?php
 $distro = "frg";
-$stable = trim(`cat frg-ver.txt`);
+$stable = $frg_ver;
 $versions = array( # 'version' => 'directory name', most recent first
 	current => "$distro-current",
 	$stable => "$distro-$stable"

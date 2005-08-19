@@ -13,6 +13,10 @@ if (!isset($op)) {
     $op = "index";
 }
 
+// globals
+$rnd = md5(rand(1,999999));
+require('common/versions_inc.php');
+
 // set common title
 $common_title = "Freerock GNOME / GNOME.SlackBuild";
 
@@ -57,7 +61,6 @@ switch ($op) {
         break;
     case "changelog":
         $title = "ChangeLog : $common_title";
-        $frg_ver = $frg_ver;
         break;
     case "packages":
         $title = "Package Browser: $common_title";
@@ -85,10 +88,6 @@ function section($op,$news,$errno,$errdesc,$SERVER_NAME,$HTTP_REFERER,
     }
     return $section;
 }
-
-// globals
-$rnd = md5(rand(1,999999));
-require('common/versions_inc.php');
 
 // common includes
 include('common/header_inc.php');
