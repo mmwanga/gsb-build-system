@@ -211,7 +211,7 @@ acronym, .titleTip {
 }
 
 #side-bar a {
-    color: rgb(35,90,157);
+    color: #147;
     background-color: transparent;
     text-decoration: none;
     margin: 0;
@@ -223,7 +223,7 @@ acronym, .titleTip {
 }
 
 #side-bar a:hover {
-    color: rgb(35,90,157);
+    color: #06c;
     text-decoration: none;
     background: rgb(255,255,255);
     border-top: 1px solid rgb(153,153,153);
@@ -288,14 +288,16 @@ acronym, .titleTip {
     padding: 0;
 }
 
+
 #main-body a {
-    color: rgb(35,90,157);
+    color: #147;
     background-color: transparent;
     text-decoration: underline;
 }
 
 #main-body a:hover {
     text-decoration: none;
+    color: #06c;
 }
 
 #main-body h1 {
@@ -375,7 +377,7 @@ dd {
 }
 
 #footer a {
-    color: rgb(35,90,157);
+    color: #147;
     background-color: transparent;
     text-decoration: underline;
 }
