@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# $Id:$
+#$Id:$
 
 HTML_FILE="../common/screenshots_inc.html"
 
