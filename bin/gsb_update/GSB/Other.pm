@@ -141,7 +141,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'grip'                => {
-                             'ver' => '3.2.0',
+                             'ver' => '3.3.1',
                              'url' => 'http://heanet.dl.sourceforge.net/sourceforge/grip/',
                              'src' => 'tar.gz',
                             },

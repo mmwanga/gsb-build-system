@@ -211,7 +211,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'mpeg4ip'           => {
-			   'ver' => '1.2',
+			   'ver' => '1.3',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mpeg4ip/',
 			   'src' => 'tar.gz',
 			  },
