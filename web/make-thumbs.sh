@@ -24,7 +24,8 @@ echo "" > $HTML_FILE
 for i in $( ls *.png ); do
     PAGE_ENTRY="  <a href=\"/screenies/$i\"><img src=
    \"/screenies/thumbs/thumb-$i\" alt=\"$i\"
-    class=\"screenthumb\" title=\"$i\" /></a>
+    class=\"screenthumb\" title=\"$i\" />
+  </a>
 "
     echo "      Generating 'thumb-$i' and adding to HTML page..."
     convert -geometry 150x150 $i thumbs/thumb-$i
