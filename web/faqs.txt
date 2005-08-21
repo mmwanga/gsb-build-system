@@ -2,19 +2,33 @@
 2005-07-10-12:13-CST
 chipster
 How can I intall FRG using <tt>slapt-get</tt>?
-<p>First, make certain you have the FRG package respository in your
-<tt>/etc/slapt-get/slapt-getrc</tt>;</p>
-<blockquote><div>
-  <pre>SOURCE=http://mirror.datapipe.net/norlug/frg/frg-&lt;version&gt;</pre>
-</div></blockquote>
-<p><small>(don't forget to run <tt>`slapt-get --update`</tt> after adding new
-respositories!)</small></p>
-<p>Then run the following command and grab a cup of coffee;</p>
-<blockquote><div>
-  <pre>$ slapt-get --search [0-9]frg$|awk '{print $1}'|xargs \
-     -r slapt-get --install -y</pre>
-</div></blockquote>
-<p>Then, enjoy your new GNOME-enabled Slackware machine :)</p>
+  <p>First, make certain you have the FRG package respository in
+  your <tt>/etc/slapt-get/slapt-getrc</tt>;</p>
+
+  <ol>
+    <li>
+      <pre>
+SOURCE=&lt;full-path-to-the-mirror-of-your-choice&gt;/frg-&lt;version&gt;
+</pre>
+
+      <p>See the <strong><a href="/downloads/#mirrors">Downloads section</a>
+      </strong> for a list of avaliable mirrors.</p>
+
+      <p><small>(don't forget to run <code>`slapt-get --update`</code>
+      after adding new respositories!)</small></p>
+    </li>
+
+    <li>
+      Then run the following command and grab a cup of coffee;
+
+      <pre>
+$ slapt-get --search [0-9]frg$|awk '{print $1}'|xargs \
+    -r slapt-get --install -y
+</pre>
+
+      <p>Then, enjoy your new GNOME-enabled Slackware machine :)</p>
+    </li>
+  </ol>
 ###
 2005-06-27-14:02-CST
 chipster

@@ -5,29 +5,30 @@
   <p>First, make certain you have the FRG package respository in
   your <tt>/etc/slapt-get/slapt-getrc</tt>;</p>
 
-  <blockquote>
-    <div>
+  <ol>
+    <li>
       <pre>
-SOURCE=http://mirror.datapipe.net/norlug/frg/frg-&lt;version&gt;
+SOURCE=&lt;full-path-to-the-mirror-of-your-choice&gt;/frg-&lt;version&gt;
 </pre>
-    </div>
-  </blockquote>
 
-  <p><small>(don't forget to run <code>`slapt-get --update`</code>
-  after adding new respositories!)</small></p>
+      <p>See the <strong><a href="/downloads/#mirrors">Downloads section</a>
+      </strong> for a list of avaliable mirrors.</p> 
 
-  <p>Then run the following command and grab a cup of coffee;</p>
+      <p><small>(don't forget to run <code>`slapt-get --update`</code>
+      after adding new respositories!)</small></p>
+    </li>
 
-  <blockquote>
-    <div>
+    <li>
+      Then run the following command and grab a cup of coffee;
+
       <pre>
 $ slapt-get --search [0-9]frg$|awk '{print $1}'|xargs \
     -r slapt-get --install -y
 </pre>
-    </div>
-  </blockquote>
 
-  <p>Then, enjoy your new GNOME-enabled Slackware machine :)</p>
+      <p>Then, enjoy your new GNOME-enabled Slackware machine :)</p>
+    </li>
+  </ol>
 
   <h3>Installation via ISO:</h3>
 
