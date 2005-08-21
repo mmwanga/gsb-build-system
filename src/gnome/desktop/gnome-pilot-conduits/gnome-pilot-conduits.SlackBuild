@@ -37,8 +37,8 @@ CFLAGS="$SLKCFLAGS" \
             --sysconfdir=/etc \
             --localstatedir=/var/lib \
             $ARCH_CONFIGURE \
-            $ARCH-slackware-linux
-make
+            $ARCH-slackware-linux || exit 
+make || exit 
 make install DESTDIR=$PKG
 
 mkdir -p $PKG/usr/doc/gnome-pilot-conduits-$VERSION

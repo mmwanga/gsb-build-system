@@ -41,8 +41,8 @@ CFLAGS="$SLKCFLAGS" \
             --disable-static \
 	    --program-prefix="" --program-suffix="" \
             $ARCH_CONFIGURE \
-            $ARCH-slackware-linux
-make
+            $ARCH-slackware-linux || exit 
+make || exit 
 make install DESTDIR=$PKG
 
 (

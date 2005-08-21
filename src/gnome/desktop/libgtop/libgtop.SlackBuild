@@ -42,8 +42,8 @@ CFLAGS="$SLKCFLAGS" \
 	    --program-prefix="" \
             --program-suffix="" \
             $ARCH_CONFIGURE \
-            $ARCH-slackware-linux
-make
+            $ARCH-slackware-linux || exit 
+make || exit 
 make install DESTDIR=$PKG
 
 chown -R root.bin $PKG/usr/bin

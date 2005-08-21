@@ -48,8 +48,8 @@ CXXFLAGS="$SLKCFLAGS" \
             --disable-more-warnings \
             --disable-mozilla-component \
             $ARCH_CONFIGURE \
-            $ARCH-slackware-linux
-make
+            $ARCH-slackware-linux || exit 
+make || exit 
 make install DESTDIR=$PKG
 
 for i in $SCHEMAS/*.schemas

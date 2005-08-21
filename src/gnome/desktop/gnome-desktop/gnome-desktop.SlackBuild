@@ -42,13 +42,13 @@ CFLAGS="$SLKCFLAGS" \
             --disable-static \
 	    --with-gnome-distributor="FRG gsb.sourceforge.net" \
             $ARCH_CONFIGURE \
-            $ARCH-slackware-linux
+            $ARCH-slackware-linux || exit 
 
 if [ "$ARCH" = "x86_64" ]; then
   sed -i -re "s/desktop-docs//" -e "s/gnome\-doc\-utils\.make/README/" Makefile
 fi
 
-make
+make || exit 
 make install DESTDIR=$PKG
 
 rm -rf $PKG/var/lib/scrollkeeper/*

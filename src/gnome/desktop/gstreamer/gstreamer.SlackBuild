@@ -54,8 +54,8 @@ CFLAGS="$SLKCFLAGS" \
   --disable-examples \
   --disable-docs-build \
             $ARCH_CONFIGURE \
-  $ARCH-slackware-linux
-make -j3
+  $ARCH-slackware-linux || exit 
+make -j3 || exit 
 make install DESTDIR=$PKG
 
 chown -R root.bin $PKG/usr/bin

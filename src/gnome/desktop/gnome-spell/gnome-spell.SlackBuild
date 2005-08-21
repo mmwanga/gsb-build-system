@@ -39,8 +39,8 @@ CFLAGS="$SLKCFLAGS" \
             --localstatedir=/var/lib \
 	    --disable-gtk-doc \
             $ARCH_CONFIGURE \
-            $ARCH-slackware-linux
-make
+            $ARCH-slackware-linux || exit 
+make || exit 
 make install DESTDIR=$PKG
 
 mkdir -p $PKG/usr/doc/gnome-spell-$VERSION
