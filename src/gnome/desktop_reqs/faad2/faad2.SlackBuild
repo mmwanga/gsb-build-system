@@ -46,10 +46,10 @@ CFLAGS="$SLKCFLAGS" \
 	    --with-mp4v2 \
 	    --with-drm \
             $ARCH_CONFIGURE \
-            $ARCH-slackware-linux
+            $ARCH-slackware-linux || exit 1
 
 # some needed steps to get the xmms plugin
-make
+make || exit 1
 make install
 make install DESTDIR=$PKG
 make uninstall

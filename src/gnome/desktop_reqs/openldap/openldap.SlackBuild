@@ -56,9 +56,9 @@ CFLAGS="$SLKCFLAGS" \
 	    --enable-null=mod \
 	    --enable-shell=mod \
 	    --enable-local \
-	    --enable-hdb=mod 
-make depend
-make
+	    --enable-hdb=mod  || exit 1
+make depend || exit 1
+make || exit 1
 make install DESTDIR=$PKG
 
 # Build kerberos stuff

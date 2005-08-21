@@ -30,8 +30,8 @@ cd libvisual-nebulus-$VERSION
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             --disable-static \
-            $ARCH-slackware-linux
-make
+            $ARCH-slackware-linux || exit 1
+make || exit 1
 make install DESTDIR=$PKG
 
 chown -R root.bin $PKG/usr/bin

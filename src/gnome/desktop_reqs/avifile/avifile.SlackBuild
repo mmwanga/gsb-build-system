@@ -38,8 +38,8 @@ CFLAGS="$SLKCFLAGS" \
 	    --program-suffix="" \
 		--without-qt \
             $ARCH_CONFIGURE \
-            $ARCH-slackware-linux
-make
+            $ARCH-slackware-linux || exit 1
+make || exit 1
 make install DESTDIR=$PKG
 
 (cd $PKG/usr/include && ln -s avifile-0.7 avifile)
