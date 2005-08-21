@@ -4,7 +4,6 @@ audiofile
 esound
 gconf
 glib2
-gnome-vfs
 howl
 libbonobo
 libxml2
