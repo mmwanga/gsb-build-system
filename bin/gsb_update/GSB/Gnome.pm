@@ -39,8 +39,8 @@ our %platform =
    'gnome-vfs'           => '2.11.90',
    'intltool'            => '0.34.1',
    'libart_lgpl'         => '2.3.17',
-   'libbonobo'           => '2.10.0',
-   'libbonoboui'         => '2.10.0',
+   'libbonobo'           => '2.10.1',
+   'libbonoboui'         => '2.10.1',
    'libglade'            => '2.5.1',
    'libgnome'            => '2.11.2',
    'libgnomecanvas'      => '2.11.1',
@@ -50,14 +50,14 @@ our %platform =
    'libgnomeui'          => '2.11.2',
    'libxml2'             => '2.6.20',
    'libxslt'             => '1.1.14',
-   'pango'               => '1.9.1',
+   'pango'               => '1.10.0',
 
   );
 
 our %platform_diff_naming =
   (
    'orbit2' => {
-		'ver'  => '2.12.2',
+		'ver'  => '2.12.3',
 		'name' => 'ORBit2',
 	       },
    'gconf'  => {
@@ -155,7 +155,7 @@ our %desktop =
    'dasher'                 => '3.2.15',
    'eel'                    => '2.11.91',
    'eog'                    => '2.11.90',
-   'epiphany'               => '1.7.4',
+   'epiphany'               => '1.7.5',
    'epiphany-extensions'    => '1.7.4',
    'evolution'              => '2.3.7',
    'evolution-data-server'  => '1.3.7',
@@ -204,7 +204,7 @@ our %desktop =
    'gucharmap'              => '1.4.3',
    'libcroco'               => '0.6.0',
    'libgail-gnome'          => '1.1.1',
-   'libgsf'                 => '1.12.1',
+   'libgsf'                 => '1.12.2',
    'libgtkhtml'             => '2.6.3',
    'libgtop'                => '2.11.91',
    'librsvg'                => '2.9.5',
@@ -261,9 +261,9 @@ our %bindings_cxx =
   (
    'bakery'            => '2.3.15',
    'gconfmm'           => '2.10.0',
-   'glibmm'            => '2.7.2',
+   'glibmm'            => '2.7.3',
    'gnome-vfsmm'       => '2.10.0',
-   'gtkmm'             => '2.7.3',
+   'gtkmm'             => '2.7.4',
    'libglademm'        => '2.6.0',
    'libgnomecanvasmm'  => '2.11.1',
    'libgnomemm'        => '2.10.0',
@@ -280,7 +280,7 @@ our %bindings_java =
    'libgconf-java'    => '2.11.4',
    'libglade-java'    => '2.11.4',
    'libgnome-java'    => '2.11.4',
-   'libgtk-java'      => '2.6.2',
+   'libgtk-java'      => '2.7.0',
 
   );
 

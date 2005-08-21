@@ -291,7 +291,7 @@ our %other_gnome =
   (
    'NetworkManager'      => '0.3.1',
    'devhelp'             => '0.9.3',
-   'evince'              => '0.3.3',
+   'evince'              => '0.3.4',
    'gdl'                 => '0.6.0',
    'ghex'                => '2.8.1',
    'glade'               => '2.10.0',
