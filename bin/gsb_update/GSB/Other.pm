@@ -25,6 +25,11 @@ our %other =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/anjuta/',
 			     'src' => 'tar.gz',
 			    },
+   'autogen'             => {
+                             'ver' => '5.7.2',
+                             'url' => 'http://heanet.dl.sourceforge.net/sourceforge/autogen/',
+                             'src' => 'tar.bz2',
+			    };
    'avidemux'            => {
 			     'ver' => '2.0.40',
 			     'url' => 'http://download.berlios.de/avidemux/',
