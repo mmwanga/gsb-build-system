@@ -6,7 +6,7 @@ PKG=$TMP/package-planner
 
 VERSION=0.13
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -31,7 +31,11 @@ fi
 cd $TMP
 tar -xjvf $CWD/planner-$VERSION.tar.bz2
 cd planner-$VERSION
-cat $CWD/gda_config_save_data_source.patch |patch -p1 --verbose
+
+cat $CWD/libgda_fix.patch | patch -p1 --verbose
+
+sed -i.bak -re "s/libgda/libgda-2.0/g" configure
+
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             --sysconfdir=/etc \

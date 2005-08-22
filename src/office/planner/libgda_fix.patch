@@ -1,0 +1,171 @@
+diff -Naur planner-0.13.orig/libplanner/mrp-sql.c planner-0.13/libplanner/mrp-sql.c
+--- planner-0.13.orig/libplanner/mrp-sql.c	2005-02-27 17:31:26.000000000 -0500
++++ planner-0.13/libplanner/mrp-sql.c	2005-08-22 13:56:28.000000000 -0400
+@@ -188,10 +188,12 @@
+ {
+ 	GdaCommand   *cmd;
+ 	GdaDataModel *res;
++  GError *e;
+ 
+ 	cmd = gda_command_new (query, GDA_COMMAND_TYPE_SQL, STOP_ON_ERR);
+-	res = gda_connection_execute_single_command  (con, cmd, NULL);
++	res = gda_connection_execute_single_command  (con, cmd, NULL,&e);
+ 	gda_command_free (cmd);
++  g_error_free(e);
+ 	return res;
+ }
+ 
+@@ -199,7 +201,7 @@
+ sql_get_last_error (GdaConnection *connection)
+ {
+ 	GList       *list;
+-	GdaError    *error;
++	GError    *error;
+ 	const gchar *error_txt;
+ 
+ 	g_return_val_if_fail (GDA_IS_CONNECTION (connection), 
+@@ -207,7 +209,7 @@
+ 
+ 	list = (GList *) gda_connection_get_errors (connection);
+ 
+-	error = (GdaError *) g_list_last (list)->data;
++	error = (GError *) g_list_last (list)->data;
+       
+ 	/* FIXME: Poor user, she won't get localized messages */
+ 	error_txt = gda_error_get_description (error);
+@@ -2169,12 +2171,12 @@
+ 	gda_config_save_data_source (dsn_name, 
+                                      provider, 
+                                      db_txt,
+-                                     "planner project", login, password);
++                                     "planner project", login, password,FALSE);
+ 	g_free (db_txt);
+ 
+ 	client = gda_client_new ();
+ 
+-	data->con = gda_client_open_connection (client, dsn_name, NULL, NULL, 0);
++	data->con = gda_client_open_connection (client, dsn_name, NULL, NULL, 0,error);
+ 
+ 	if (!GDA_IS_CONNECTION (data->con)) {
+ 		g_warning (_("Connection to database '%s' failed.\n"), database);
+@@ -3613,12 +3615,12 @@
+ 	gda_config_save_data_source (dsn_name, 
+                                      provider,
+ 				     db_txt,
+-                                     "planner project", user, password);
++                                     "planner project", user, password,FALSE);
+ 	g_free (db_txt);
+ 
+ 	client = gda_client_new ();
+ 
+-	data->con = gda_client_open_connection (client, dsn_name, NULL, NULL, 0);
++	data->con = gda_client_open_connection (client, dsn_name, NULL, NULL, 0,error);
+ 	
+ 	data->revision = GPOINTER_TO_INT (g_object_get_data (G_OBJECT (data->project), 
+ 							     REVISION));
+diff -Naur planner-0.13.orig/src/planner-sql-plugin.c planner-0.13/src/planner-sql-plugin.c
+--- planner-0.13.orig/src/planner-sql-plugin.c	2005-02-27 17:31:26.000000000 -0500
++++ planner-0.13/src/planner-sql-plugin.c	2005-08-22 13:56:37.000000000 -0400
+@@ -108,10 +108,12 @@
+ {
+ 	GdaCommand   *cmd;
+ 	GdaDataModel *res;
++  GError *error;
+ 
+ 	cmd = gda_command_new (query, GDA_COMMAND_TYPE_SQL, STOP_ON_ERR);
+-	res = gda_connection_execute_single_command  (con, cmd, NULL);
++	res = gda_connection_execute_single_command  (con, cmd, NULL,&error);
+ 	gda_command_free (cmd);
++  g_error_free(error);
+ 	
+ 	return res;
+ }
+@@ -120,7 +122,7 @@
+ sql_get_last_error (GdaConnection *connection)
+ {
+ 	GList       *list;
+-	GdaError    *error;
++	GError    *error;
+ 	const gchar *error_txt;
+ 
+ 	list = (GList *) gda_connection_get_errors (connection);
+@@ -129,7 +131,7 @@
+ 		return _("No errors reported.");
+ 	}
+ 
+-	error = (GdaError *) g_list_last (list)->data;
++	error = (GError *) g_list_last (list)->data;
+       
+ 	/* FIXME: Poor user, she won't get localized messages */
+ 	error_txt = gda_error_get_description (error);
+@@ -595,6 +597,7 @@
+ 	/* FIXME: In postgresql we use template1 as the connection database */
+ 	gchar             *init_database = "template1";
+ 	gchar             *query;
++  GError            *error;
+ 
+ 	dsn = gda_config_find_data_source (dsn_name);
+ 	cnc_string_orig = dsn->cnc_string;
+@@ -607,7 +610,7 @@
+ 	gda_config_save_data_source_info (dsn);
+ 
+ 	client = gda_client_new ();
+-	conn = gda_client_open_connection (client, dsn_name, NULL, NULL, 0);
++	conn = gda_client_open_connection (client, dsn_name, NULL, NULL, 0, &error);
+ 	if (conn == NULL) {
+ 		g_warning ("Can't connect to database server in order to check/create the database: %s", cnc_string_orig);
+ 	} else {
+@@ -635,6 +638,7 @@
+ 		g_object_unref (client);
+ 	}
+ 	g_free (dsn->cnc_string);
++  g_error_free (error);
+ 	dsn->cnc_string = cnc_string_orig;
+ 	gda_config_save_data_source_info (dsn);
+ 
+@@ -651,8 +655,9 @@
+ {
+ 	GdaConnection *conn;
+ 	gchar         *str;
++  GError        *error;
+ 
+-	conn = gda_client_open_connection (client, dsn_name, NULL, NULL, 0);
++	conn = gda_client_open_connection (client, dsn_name, NULL, NULL, 0, &error);
+ 
+ 	if (conn == NULL) {
+ 		if (!create_database (dsn_name, host, db_name, plugin)) {
+@@ -661,7 +666,7 @@
+ 			show_error_dialog (plugin, str);
+ 			conn = NULL;
+ 		} else {
+-			conn = gda_client_open_connection (client, dsn_name, NULL, NULL, 0);
++			conn = gda_client_open_connection (client, dsn_name, NULL, NULL, 0, &error);
+ 		}
+ 	}
+ 
+@@ -676,6 +681,7 @@
+ 		}
+ 	}
+ 
++  g_error_free (error);
+ 	/* g_object_unref (client); */
+ 	return conn;
+ }
+@@ -715,7 +721,7 @@
+ 	gda_config_save_data_source (dsn_name, 
+                                      provider, 
+                                      db_txt,
+-                                     "planner project", login, password);
++                                     "planner project", login, password,FALSE);
+ 	g_free (db_txt);
+ 
+ 	client = gda_client_new ();
+@@ -1106,7 +1112,7 @@
+ 	gda_config_save_data_source (dsn_name, 
+                                      provider, 
+                                      db_txt,
+-                                     "planner project", login, password);
++                                     "planner project", login, password,FALSE);
+ 	g_free (db_txt);
+ 	client = gda_client_new ();
+ 	conn = sql_get_tested_connection (dsn_name, server, database, client, plugin);
