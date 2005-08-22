@@ -6,7 +6,7 @@ PKG=$TMP/package-control-center
 
 VERSION=2.11.91
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -39,6 +39,22 @@ find . -perm 664 -exec chmod 644 {} \;
 if [ "$ARCH" = "x86_64" ]; then
   sed -re "s/(xft >= )2\.[0-9]\.[0-9]/\12\.1\.1/g" -i configure
 fi
+
+# Apply $ARCH specific patches
+if [ "$ARCH" = "i386" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "i486" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "s390" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "x86_64" ]; then
+  echo "Applying patches for $ARCH"
+  cat $CWD/x86_64_pango_xft.patch | patch -p1 --verbose
+fi
+
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
 	    --sysconfdir=/etc \
