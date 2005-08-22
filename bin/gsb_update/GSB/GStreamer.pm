@@ -71,7 +71,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libavc1394'        => {
-			   'ver' => '0.5.0',
+			   'ver' => '0.5.1',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libavc1394/',
 			   'src' => 'tar.gz',
 			  },
