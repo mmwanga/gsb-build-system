@@ -8,7 +8,7 @@ PKG=$TMP/package-libgphoto2
 
 VERSION=2.1.6
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -34,6 +34,22 @@ cd $TMP
 tar xzvf $CWD/libgphoto2-$VERSION.tar.gz
 cd libgphoto2-$VERSION
 #
+
+# Apply $ARCH specific patches
+if [ "$ARCH" = "i386" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "i486" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "s390" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "x86_64" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+fi
+
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
 	    --disable-static \
@@ -69,7 +85,11 @@ gzip -9 $PKG/usr/man/*/*
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
-cat $CWD/doinst.sh > $PKG/install/doinst.sh
+if [ "$ARCH" = "x86_64" ]; then
+  cat $CWD/doinst.sh | sed -re "s/lib\//lib64\//" > $PKG/install/doinst.sh
+else
+  cat $CWD/doinst.sh > $PKG/install/doinst.sh
+fi
 
 cd $PKG
 makepkg -p -l y -c n $TMP/libgphoto2-$VERSION-$ARCH-$BUILD.tgz
