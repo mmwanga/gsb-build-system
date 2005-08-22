@@ -17,8 +17,8 @@ mkdir -p $PKG
 cd $TMP
 tar -xzvf $CWD/Gtk2-$VERSION.tar.gz
 cd Gtk2-$VERSION
-perl Makefile.PL
-make
+perl Makefile.PL || exit 1
+make || exit 1
 make install DESTDIR=$PKG
 
 # Move man directory into /usr

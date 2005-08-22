@@ -1,7 +1,7 @@
 audiofile
 esound
 gconf
-gdk_pixbuf
+gdk-pixbuf
 glade
 glib2
 gnome-vfs

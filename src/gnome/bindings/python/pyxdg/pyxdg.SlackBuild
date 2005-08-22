@@ -38,8 +38,8 @@ elif [ "$ARCH" = "x86_64" ]; then
   #cat $CWD/foo.patch | patch -p0 --verbose
 fi
 
-python setup.py build
-python setup.py install --root=$PKG
+python setup.py build || exit 1
+python setup.py install --root=$PKG || exit 1
 
 chown -R root.bin $PKG/usr/bin
 

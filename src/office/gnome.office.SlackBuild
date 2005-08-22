@@ -45,7 +45,7 @@ do
   echo "*****   Building $i"
   echo "*************************************************"
   echo ""
-  ./$i.SlackBuild || exit 1
+  ./$i.SlackBuild
   upgradepkg --install-new $TMP/$i*.tgz
   sleep 5
   #mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/office
