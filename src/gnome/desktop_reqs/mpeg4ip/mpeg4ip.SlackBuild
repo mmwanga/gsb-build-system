@@ -6,7 +6,7 @@ PKG=$TMP/package-mpeg4ip
 
 VERSION=1.3
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -31,6 +31,9 @@ fi
 cd $TMP
 tar -xzvf $CWD/mpeg4ip-$VERSION.tar.gz
 cd mpeg4ip-$VERSION
+if [ -x bootstrap ]; then
+  ./bootstrap
+fi
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
 	    --program-prefix="" \
