@@ -23,16 +23,17 @@ MIRROR="http://mirror.datapipe.net/norlug/frg/"
 
 SLAPTGET_DLPATH="$MIRROR/frg-$FRG_VER/extras/other/$SLAPTGET_FILE"
 
+TEMP_CONFIGFILE="$TMP/slapt-getrc"
+TEMP_CONFIG="
+WORKINGDIR=/var/slapt-get
+SOURCE=$MIRROR/$FRG_VER"
+
 # END USER-DEFINED SECTION
 
 #
 # set paths for binaries/libs/etc.
 #
 export PATH=$PATH:/usr/sbin:/usr/local/bin
-
-#
-# Determine if user running program is of root-equivalence
-#
 
 clear
 echo ""
@@ -49,7 +50,6 @@ if [ ! -e "${SUDO}" ]; then
     echo ""
     exit 1
 else
-    # test and cache sudo credentials
     $SUDO uname > /dev/null 2>&1 
 fi
 
@@ -64,7 +64,6 @@ if [ ! -e "${WGET}" ]; then
     exit 1
 fi
 
-# prepare
 SLAPTGET_BIN=`which slapt-get`
 if [ ! -e "${SLAPTGET_BIN}" ]; then
     echo ""
@@ -76,17 +75,19 @@ if [ ! -e "${SLAPTGET_BIN}" ]; then
     $SUDO rm -f $TMP/$SLAPTGET_FILE
 fi
 
-$SUDO perl -pi -e \
-  "s/#SOURCE=http:\/\/mirror.datapipe.net\/norlug\/frg\/frg-current/SOURCE=http:\/\/mirror.datapipe.net\/norlug\/frg\/frg-$FRG_VER/g" /etc/slapt-get/slapt-getrc
+echo $TEMP_CONFIG > $TEMP_CONFIGFILE
+
 echo ""
 echo "Updating package lists..."
 echo ""
-$SUDO slapt-get --update
+$SUDO slapt-get --config $TEMP_CONFIGFILE --update
 echo ""
 echo "Instaling/updating Freerock GNOME"...
 echo ""
 
-$SUDO slapt-get --search [0-9]frg$ | awk '{print $1}' | xargs -r slapt-get --install -y
+$SUDO slapt-get --config $TEMP_CONFIGFILE --search \
+  [0-9]frg$ | awk '{print $1}' | xargs -r slapt-get --install -y
+$SUDO slapt-get --config $TEMP_CONFIGFILE --clean
 
 echo ""
 echo "Freerock GNOME has been installed!"
