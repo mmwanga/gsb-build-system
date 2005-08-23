@@ -1,0 +1,95 @@
+#!/usr/bin/env bash
+
+#
+#  +--------------------------------------------------------------------+
+#  | Freerock GNOME installer script                                    |
+#  | (c) 2005 Chip Cuccio <http://gsb.freerock.org/>                    |
+#  | This progam is distributed under the GNU GPL;                      |
+#  |   See <http://www.gnu.org/licenses/gpl.html> for lic. info         |
+#  |--------------------------------------------------------------------|
+#  | $Id: $                   |
+#  +--------------------------------------------------------------------+
+#
+
+# BEGIN USER-DEFINED SECTION
+
+FRG_VER="0.2.2"
+SLAPTGET_VER="0.9.9m-i486-1frg"
+SLAPTGET_FILE="slapt-get-$SLAPTGET_VER.tgz"
+
+TMP="/tmp"
+
+MIRROR="http://mirror.datapipe.net/norlug/frg/"
+
+SLAPTGET_DLPATH="$MIRROR/frg-$FRG_VER/extras/other/$SLAPTGET_FILE"
+
+# END USER-DEFINED SECTION
+
+#
+# set paths for binaries/libs/etc.
+#
+export PATH=$PATH:/usr/sbin:/usr/local/bin
+
+#
+# Determine if user running program is of root-equivalence
+#
+
+clear
+echo ""
+echo "Preparing Freerock GNOME installation..."
+echo ""
+
+#
+# is sudo installed?
+#
+SUDO=`which sudo`
+if [ ! -e "${SUDO}" ]; then
+    echo ""
+    echo "sudo must be installed to run this program"
+    echo ""
+    exit 1
+else
+    # test and cache sudo credentials
+    $SUDO uname > /dev/null 2>&1 
+fi
+
+#
+# is wget installed?
+#
+WGET=`which wget`
+if [ ! -e "${WGET}" ]; then
+    echo ""
+    echo "wget must be installed to run this program"
+    echo ""
+    exit 1
+fi
+
+# prepare
+SLAPTGET_BIN=`which slapt-get`
+if [ ! -e "${SLAPTGET_BIN}" ]; then
+    echo ""
+    echo "slapt-get not found. Downloading and installing..."
+    echo ""
+    $WGET --progress=bar \
+      $SLAPTGET_DLPATH -O $TMP/$SLAPTGET_FILE
+    $SUDO upgradepkg --install-new  $TMP/$SLAPTGET_FILE
+    $SUDO rm -f $TMP/$SLAPTGET_FILE
+fi
+
+$SUDO perl -pi -e \
+  "s/#SOURCE=http:\/\/mirror.datapipe.net\/norlug\/frg\/frg-current/SOURCE=http:\/\/mirror.datapipe.net\/norlug\/frg\/frg-$FRG_VER/g" /etc/slapt-get/slapt-getrc
+echo ""
+echo "Updating package lists..."
+echo ""
+$SUDO slapt-get --update
+echo ""
+echo "Instaling/updating Freerock GNOME"...
+echo ""
+
+$SUDO slapt-get --search [0-9]frg$ | awk '{print $1}' | xargs -r slapt-get --install -y
+
+echo ""
+echo "Freerock GNOME has been installed!"
+echo ""
+
+exit
