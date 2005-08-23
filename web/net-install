@@ -23,7 +23,7 @@ TEMP_CONFIGFILE="$TMP/slapt-getrc"
 # determine if r3wt
 #
 PROGUSER=`whoami`
-if [ ${PROGUSER} = "root" ]; then
+if [ ${PROGUSER} != "root" ]; then
     clear
     echo
     echo "You must be root when running this program!"
