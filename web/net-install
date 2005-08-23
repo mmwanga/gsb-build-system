@@ -80,13 +80,16 @@ echo $TEMP_CONFIG > $TEMP_CONFIGFILE
 echo ""
 echo "Updating package lists..."
 echo ""
+
 $SUDO slapt-get --config $TEMP_CONFIGFILE --update
+
 echo ""
 echo "Instaling/updating Freerock GNOME"...
 echo ""
 
 $SUDO slapt-get --config $TEMP_CONFIGFILE --search \
   [0-9]frg$ | awk '{print $1}' | xargs -r slapt-get --install -y
+
 $SUDO slapt-get --config $TEMP_CONFIGFILE --clean
 
 echo ""
