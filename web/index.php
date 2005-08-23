@@ -3,7 +3,7 @@
 
     The index.php "brain" PHP script
     Chip Cuccio <chipster@norlug.org>
-    $Id: index.php 703 2005-06-26 02:39:11Z chipster $
+    $Id$
 
 */
 
@@ -17,7 +17,7 @@ if (!isset($op)) {
 $rnd = md5(rand(1,999999));
 require('common/versions_inc.php');
 
-// set common title
+// common title
 $common_title = "Freerock GNOME / GNOME.SlackBuild";
 
 // error handlers
