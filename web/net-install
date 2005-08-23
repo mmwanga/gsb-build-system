@@ -92,6 +92,8 @@ $SUDO slapt-get --config $TEMP_CONFIGFILE --search \
 
 $SUDO slapt-get --config $TEMP_CONFIGFILE --clean
 
+$SUDO rm -f $TEMP_CONFIGFILE
+
 echo ""
 echo "Freerock GNOME has been installed!"
 echo ""
