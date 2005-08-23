@@ -15,7 +15,7 @@ FRG_VER="0.2.2"
 SLAPTGET_VER="0.9.9m-i486-1frg"
 SLAPTGET_FILE="slapt-get-$SLAPTGET_VER.tgz"
 TMP="/tmp"
-MIRROR="http://mirror.datapipe.net/norlug/frg/"
+MIRROR="http://mirror.datapipe.net/norlug/frg"
 SLAPTGET_DLPATH="$MIRROR/frg-$FRG_VER/extras/other/$SLAPTGET_FILE"
 TEMP_CONFIGFILE="$TMP/slapt-getrc"
 
@@ -31,7 +31,7 @@ echo ""
 sleep 2
 echo "
 WORKINGDIR=/var/slapt-get
-SOURCE=$MIRROR/$FRG_VER" > $TEMP_CONFIGFILE
+SOURCE=$MIRROR/frg-$FRG_VER" > $TEMP_CONFIGFILE
 
 #
 # is sudo installed?
