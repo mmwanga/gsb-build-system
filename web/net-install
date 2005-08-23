@@ -39,6 +39,7 @@ clear
 echo ""
 echo "Preparing Freerock GNOME installation..."
 echo ""
+sleep 2
 
 #
 # is sudo installed?
@@ -69,11 +70,13 @@ if [ ! -e "${SLAPTGET_BIN}" ]; then
     echo ""
     echo "slapt-get not found. Downloading and installing..."
     echo ""
+    sleep 2
     $WGET --progress=bar \
       $SLAPTGET_DLPATH -O $TMP/$SLAPTGET_FILE
     $SUDO upgradepkg --install-new  $TMP/$SLAPTGET_FILE
     $SUDO rm -f $TMP/$SLAPTGET_FILE
 fi
+sleep 2
 
 echo $TEMP_CONFIG > $TEMP_CONFIGFILE
 
