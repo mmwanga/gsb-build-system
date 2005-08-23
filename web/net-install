@@ -40,6 +40,7 @@ echo ""
 echo "Preparing Freerock GNOME installation..."
 echo ""
 sleep 2
+echo $TEMP_CONFIG > $TEMP_CONFIGFILE
 
 #
 # is sudo installed?
@@ -77,8 +78,6 @@ if [ ! -e "${SLAPTGET_BIN}" ]; then
     $SUDO rm -f $TMP/$SLAPTGET_FILE
 fi
 sleep 2
-
-echo $TEMP_CONFIG > $TEMP_CONFIGFILE
 
 echo ""
 echo "Updating package lists..."
