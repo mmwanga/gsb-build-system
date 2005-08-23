@@ -49,19 +49,6 @@ WORKINGDIR=/var/slapt-get
 SOURCE=$MIRROR/frg-$FRG_VER" > $TEMP_CONFIGFILE
 
 #
-# is sudo installed?
-#
-SUDO=`which sudo`
-if [ ! -e "${SUDO}" ]; then
-    echo ""
-    echo "sudo must be installed to run this program"
-    echo ""
-    exit 1
-else
-    $SUDO uname > /dev/null 2>&1 
-fi
-
-#
 # is wget installed?
 #
 WGET=`which wget`
@@ -80,8 +67,8 @@ if [ ! -e "${SLAPTGET_BIN}" ]; then
     sleep 2
     $WGET --progress=bar \
       $SLAPTGET_DLPATH -O $TMP/$SLAPTGET_FILE
-    $SUDO upgradepkg --install-new  $TMP/$SLAPTGET_FILE
-    $SUDO rm -f $TMP/$SLAPTGET_FILE
+    upgradepkg --install-new  $TMP/$SLAPTGET_FILE
+    rm -f $TMP/$SLAPTGET_FILE
 fi
 sleep 2
 
@@ -89,18 +76,18 @@ echo ""
 echo "Updating package lists..."
 echo ""
 
-$SUDO slapt-get --config $TEMP_CONFIGFILE --update
+slapt-get --config $TEMP_CONFIGFILE --update
 
 echo ""
 echo "Instaling/updating Freerock GNOME"...
 echo ""
 
-$SUDO slapt-get --config $TEMP_CONFIGFILE --search \
+slapt-get --config $TEMP_CONFIGFILE --search \
   [0-9]frg$ | awk '{print $1}' | xargs -r slapt-get --install -y
 
-$SUDO slapt-get --config $TEMP_CONFIGFILE --clean
+slapt-get --config $TEMP_CONFIGFILE --clean
 
-$SUDO rm -f $TEMP_CONFIGFILE
+rm -f $TEMP_CONFIGFILE
 
 echo ""
 echo "Freerock GNOME has been installed!"
