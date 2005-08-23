@@ -1,0 +1,49 @@
+#!/bin/sh
+
+CWD=`pwd`
+TMP=${TMP:-/tmp}
+PKG=$TMP/package-frg-slapt-get-meta
+
+FRG_VERSION=0.2.2
+ARCH=noarch
+BUILD=1
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG
+
+
+for i in gnome-office gnome-other gnome-bindings gnome-bindings-c++ gnome-bindings-perl gnome-bindings-python gnome-desktop gnome-desktop-reqs gnome gnome-platform gnome-themes
+do
+mkdir -p $PKG/$i/install
+done
+
+for i in gnome-office gnome-other gnome-bindings gnome-bindings-c++ gnome-bindings-perl gnome-bindings-python gnome-desktop gnome-desktop-reqs gnome gnome-platform gnome-themes
+do
+  if [ -f $CWD/slack-desc.$i ]; then
+      cat $CWD/slack-desc.$i > $PKG/$i/install/slack-desc
+  fi
+
+  if [ -f $CWD/slack-required.$i ]; then
+      cat $CWD/slack-required.$i > $PKG/$i/install/slack-required
+  fi
+
+  if [ -f $CWD/slack-suggests.$i ]; then
+      cat $CWD/slack-suggests.$i > $PKG/$i/install/slack-suggests
+  fi
+done
+
+
+for i in gnome-office gnome-other gnome-bindings gnome-bindings-c++ gnome-bindings-perl gnome-bindings-python gnome-desktop gnome-desktop-reqs gnome gnome-platform gnome-themes
+do
+  cd $PKG/$i
+  makepkg -l y -c n $TMP/frg-$i-meta-$FRG_VERSION-$ARCH-$BUILD.tgz
+done
+
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $PKG
+fi

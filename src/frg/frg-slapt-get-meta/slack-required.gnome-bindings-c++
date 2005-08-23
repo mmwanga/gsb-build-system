@@ -1,0 +1,13 @@
+gnome-desktop-meta
+gcc-g++
+cxxlibs
+bakery
+gnome-vfsmm
+glibmm
+gtkmm
+libglademm
+libgnomemm
+libgnomeuimm
+libxml++
+libsigc++
+libgnomecanvasmm

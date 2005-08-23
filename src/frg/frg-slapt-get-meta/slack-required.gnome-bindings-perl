@@ -1,0 +1,11 @@
+gnome-desktop-meta
+perl
+ExtUtils-PkgConfig
+ExtUtils-Depends
+Glib
+Gtk2
+Gtk2-GladeXML
+Gnome2-Canvas
+Gnome2-GConf
+Gnome2-VFS
+Gnome2
