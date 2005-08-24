@@ -82,7 +82,7 @@ echo ""
 echo "Instaling/updating Freerock GNOME"...
 echo ""
 
-slapt-get --config $TEMP_CONFIGFILE --install gnome -y
+slapt-get --config $TEMP_CONFIGFILE --install frg-gnome -y
 
 slapt-get --config $TEMP_CONFIGFILE --clean
 
