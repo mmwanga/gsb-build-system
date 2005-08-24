@@ -1,4 +1,12 @@
 ###
+2005-08-24-2005-13-00-CST
+chipster
+New package browser
+We've deployed a new <a href="/packages/">package browser</a>.  It's a little
+rough at the moment, but it does work.  :-)  It's based on GPL code from the
+package browser of the Slamd64 project.  Thanks Fred!
+
+###
 2005-06-18-16-00-EST
 freerock
 Freerock GNOME 0.2.2 released, featuring GNOME 2.10.2
