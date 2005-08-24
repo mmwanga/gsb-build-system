@@ -30,6 +30,15 @@ pre {
     border: 1px solid #888888;
 }
 
+.introthumb {
+    margin: 0px 0px 3px 3px;
+    padding: 10px;
+    border: 1px
+    solid #888888;
+    background: #cdcdcd;
+    float: right;
+}
+
 .faqhead {
     font-style: italic;
     font-weight: bold;
