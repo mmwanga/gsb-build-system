@@ -21,7 +21,7 @@ print("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
   <meta name="description" content="Gnome.SlackBuild / Freerock GNOME is a GNOME distribution for Slackware Linux" />
   <meta name="author" content="Chip Cuccio" />
   <link rel="stylesheet" type="text/css"
-    href="/css/style.css?<?php echo($rnd); ?>"
+    href="/css/style.css"
     media="screen" title="Yummy Style" />
   <link rel="alternate stylesheet" type="text/css" href=
     "/css/print.css" media="print" title="Printer-friendly Style" />
