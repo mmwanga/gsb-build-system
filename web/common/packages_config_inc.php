@@ -19,7 +19,6 @@ $path = "/home/chipster/poosie-export/frg";
 $fastMode = true; # if false, it's not just slow, it will also only return the first pack
 
 # below only required for fastMode
-
 $mysql_db = 'pb';
 $mysql_user = 'pb';
 $mysql_pass = 'pb';
