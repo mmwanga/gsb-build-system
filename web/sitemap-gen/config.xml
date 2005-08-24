@@ -170,5 +170,6 @@
   <filter action="drop" type="wildcard" pattern="*.xml" />
   <filter action="drop" type="wildcard" pattern="*net-install*" />
   <filter action="drop" type="wildcard" pattern="*random-screenthumb*" />
+  <filter action="drop" type="wildcard" pattern="*?op=packages*" />
 
 </site>
