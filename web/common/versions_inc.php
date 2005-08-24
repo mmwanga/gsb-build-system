@@ -8,6 +8,7 @@ $proj_ver = explode(" : ", trim($versions[0]));
 $frg_ver = $proj_ver[0];
 $gsb_ver = $proj_ver[1];
 $gnome_ver = $proj_ver[2];
+$slack_ver = $proj_ver[3];
 
 //debug
 /*

@@ -32,11 +32,12 @@ RewriteEngine On
     RewriteRule ^todo/?$  /index.php?op=todo [QSA,L]
     RewriteRule ^faqs/?$  /index.php?op=faqs [QSA,L]
     RewriteRule ^random-screenthumb$  /common/screenthumb-rot.php [QSA,L]
+    RewriteRule ^packages/?$  /?op=packages [R,L]
 
 #
 # special files to deny a web browser from peeking at
 #
-<Files ~ "(\.(sh|html)|(.*)_inc\.php)$">
+<Files ~ "(\.(sh|html)|(.*)_inc\.php|sitemap-gen)$">
   Order deny,allow
   Deny from all
 </Files>

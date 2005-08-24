@@ -3,7 +3,7 @@
 
     Main content body PHP script
     Chip Cuccio <chipster@norlug.org>
-    $Id: main-index_inc.php 141 2005-02-20 15:52:16Z chipster $
+    $Id$
 
 */
 ?>
@@ -12,10 +12,10 @@
 <?php
 // default main landing page
 if ($op == "index" && (!eregi("news", $REQUEST_URI))) {
-    include_once('content/about.html');
+    include_once('content/intro.html');
     print("<h2 id=\"news\">News and Announcements:</h2>\n");
     include_once('common/news_inc.php');
-// if in news sections, omit "about" footer item
+// if in news sections, omit "intro" item
 } elseif ($op == "index" && (eregi("news", $REQUEST_URI))) {
     print("<h2 id=\"news\">News and Announcements:</h2>\n");
     include_once('common/news_inc.php');
@@ -23,7 +23,8 @@ if ($op == "index" && (!eregi("news", $REQUEST_URI))) {
     // Section selector - BODY - rest of site sections
     section($op,$news,$errno,$errdesc,$SERVER_NAME,$HTTP_REFERER,
             $SERVER_SIGNATURE,$REQUEST_URI,$REDIRECT_URL,$mode,
-            $dir,$path,$ver,$frg_ver,$gsb_ver,$gnome_ver,$cl_ver);
+            $slack_ver,$dir,$path,$ver,$frg_ver,$gsb_ver,$gnome_ver,
+            $cl_ver);
 }
 ?>
 

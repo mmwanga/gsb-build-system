@@ -3,7 +3,7 @@
 
     Sidebar/menu PHP script
     Chip Cuccio <chipster@norlug.org>
-    $Id: sidebar_inc.php 703 2005-06-26 02:39:11Z chipster $
+    $Id$
 
 */
 ?>
@@ -51,6 +51,13 @@
 
         <li><a href="/download/" title=
         "Download">Download</a></li><?php }
+            if(strstr($QUERY_STRING, "packages")) { ?>
+
+        <li><a href="/packages/" title="Package Browser" class=
+        "thisPage">Packages</a></li><?php } else { ?>
+
+        <li><a href="/packages/" title=
+        "Package Browser">Packages</a></li><?php }
             if (strstr($QUERY_STRING, "changelog")) { ?>
 
         <li><a href="/changelog/" title="ChangeLogs" class=
