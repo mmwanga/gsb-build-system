@@ -62,9 +62,6 @@ switch ($op) {
     case "changelog":
         $title = "ChangeLog : $common_title";
         break;
-    case "packages":
-        $title = "Package Browser: $common_title";
-        break;
     case "http_error":
         $title = $errdesc;
         break;
