@@ -9,6 +9,11 @@ JPEGMMXV=0.1.5
 ARCH=${ARCH:-i486}
 BUILD=1
 
+if [ -f /var/log/packages/libmovtar-$VERSION-$ARCH-$BUILD ]; then
+  echo "libmovtar-$VERSION-$ARCH-$BUILD package already installed"
+  exit 0
+fi
+
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
@@ -20,6 +25,9 @@ if [ "$ARCH" = "i386" ]; then
   ARCH_CONFIGURE=""
 elif [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
+  ARCH_CONFIGURE=""
+elif [ "$ARCH" = "powerpc" ]; then
+  SLKCFLAGS="-O2"
   ARCH_CONFIGURE=""
 elif [ "$ARCH" = "s390" ]; then
   SLKCFLAGS="-O2"
@@ -44,6 +52,9 @@ elif [ "$ARCH" = "i486" ]; then
 elif [ "$ARCH" = "s390" ]; then
   echo "Applying patches for $ARCH"
   #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "powerpc" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "x86_64" ]; then
   echo "Applying patches for $ARCH"
   cat $CWD/x86_64.jpeg_mmx_jd_preprocessor.patch | patch -p1 --verbose
@@ -57,6 +68,25 @@ make || exit 1
 cd $TMP 
 tar xzvf $CWD/libmovtar-$VERSION.tar.gz
 cd libmovtar-$VERSION
+
+# Apply $ARCH specific patches
+if [ "$ARCH" = "i386" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "i486" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "s390" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "powerpc" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "x86_64" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+fi
+
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
 	    --disable-static \

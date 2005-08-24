@@ -8,6 +8,11 @@ VERSION=0.5.2
 ARCH=${ARCH:-i486}
 BUILD=1
 
+if [ -f /var/log/packages/hal-$VERSION-$ARCH-$BUILD ]; then
+  echo "hal-$VERSION-$ARCH-$BUILD package already installed"
+  exit 0
+fi
+
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
@@ -20,6 +25,9 @@ if [ "$ARCH" = "i386" ]; then
 elif [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
   ARCH_CONFIGURE=""
+elif [ "$ARCH" = "powerpc" ]; then
+  SLKCFLAGS="-O2"
+  ARCH_CONFIGURE=""
 elif [ "$ARCH" = "s390" ]; then
   SLKCFLAGS="-O2"
   ARCH_CONFIGURE=""
@@ -30,7 +38,7 @@ fi
 
 mkdir -p $PKG/usr/share/hwdata
 if [ ! -d /usr/share/hwdata ]; then
-        mkdir -p /usr/share/hwdata
+  mkdir -p /usr/share/hwdata
 fi
 cp $CWD/pci.ids /usr/share/hwdata/
 cp $CWD/pci.ids $PKG/usr/share/hwdata/
@@ -39,6 +47,25 @@ chmod 644 $PKG/usr/share/hwdata/pci.ids
 cd $TMP
 tar xzvf $CWD/hal-$VERSION.tar.gz
 cd hal-$VERSION
+
+# Apply $ARCH specific patches
+if [ "$ARCH" = "i386" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "i486" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "s390" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "powerpc" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "x86_64" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+fi
+
 cat $CWD/hal-slackware-storage-policy.patch | patch -p1 --verbose
 cp -f $CWD/DeviceManager.py tools/device-manager
 
@@ -49,6 +76,9 @@ if [ "$ARCH" = "i386" ]; then
 elif [ "$ARCH" = "i486" ]; then
   echo "Applying patches for $ARCH"
   #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "powerpc" ]; then
+  SLKCFLAGS="-O2"
+  ARCH_CONFIGURE=""
 elif [ "$ARCH" = "s390" ]; then
   echo "Applying patches for $ARCH"
   #cat $CWD/foo.patch | patch -p0 --verbose

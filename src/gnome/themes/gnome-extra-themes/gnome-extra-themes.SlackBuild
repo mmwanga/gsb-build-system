@@ -8,6 +8,11 @@ VERSION=1.0.1
 ARCH=noarch
 BUILD=3
 
+if [ -f /var/log/packages/gnome-extra-themes-$VERSION-$ARCH-$BUILD ]; then
+  echo "gnome-extra-themes-$VERSION-$ARCH-$BUILD package already installed"
+  exit 0
+fi
+
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi

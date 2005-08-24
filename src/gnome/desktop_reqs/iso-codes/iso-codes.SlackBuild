@@ -8,6 +8,11 @@ VERSION=0.47
 ARCH=noarch
 BUILD=1
 
+if [ -f /var/log/packages/iso-codes-$VERSION-$ARCH-$BUILD ]; then
+  echo "iso-codes-$VERSION-$ARCH-$BUILD package already installed"
+  exit 0
+fi
+
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
@@ -17,6 +22,25 @@ mkdir -p $PKG
 cd $TMP
 tar -xzvf $CWD/iso-codes_$VERSION.orig.tar.gz
 cd iso-codes-$VERSION
+
+# Apply $ARCH specific patches
+if [ "$ARCH" = "i386" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "i486" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "s390" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "powerpc" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "x86_64" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+fi
+
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
             --localstatedir=/var/lib \

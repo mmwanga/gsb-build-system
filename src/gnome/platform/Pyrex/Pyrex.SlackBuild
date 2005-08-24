@@ -8,6 +8,11 @@ VERSION=0.9.3
 ARCH=${ARCH:-i486}
 BUILD=1
 
+if [ -f /var/log/packages/Pyrex-$VERSION-$ARCH-$BUILD ]; then
+  echo "Pyrex-$VERSION-$ARCH-$BUILD package already installed"
+  exit 0
+fi
+
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
@@ -17,6 +22,25 @@ mkdir -p $PKG
 cd $TMP
 tar -xzvf $CWD/Pyrex-$VERSION.tar.gz
 cd Pyrex-$VERSION
+
+# Apply $ARCH specific patches
+if [ "$ARCH" = "i386" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "i486" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "s390" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "powerpc" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "x86_64" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+fi
+
 python setup.py build || exit 1
 python setup.py install --root=$PKG
 

@@ -8,6 +8,11 @@ VERSION=2.1.14
 ARCH=${ARCH:-i486}
 BUILD=1
 
+if [ -f /var/log/packages/gmime-$VERSION-$ARCH-$BUILD ]; then
+  echo "gmime-$VERSION-$ARCH-$BUILD package already installed"
+  exit 0
+fi
+
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
@@ -20,6 +25,9 @@ if [ "$ARCH" = "i386" ]; then
 elif [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
   ARCH_CONFIGURE=""
+elif [ "$ARCH" = "powerpc" ]; then
+  SLKCFLAGS="-O2"
+  ARCH_CONFIGURE=""
 elif [ "$ARCH" = "s390" ]; then
   SLKCFLAGS="-O2"
   ARCH_CONFIGURE=""
@@ -31,6 +39,25 @@ fi
 cd $TMP
 tar -xzvf $CWD/gmime-$VERSION.tar.gz
 cd gmime-$VERSION
+
+# Apply $ARCH specific patches
+if [ "$ARCH" = "i386" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "i486" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "s390" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "powerpc" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "x86_64" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+fi
+
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
 	    --disable-mono \

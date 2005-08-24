@@ -8,6 +8,11 @@ VERSION=0.0.2
 ARCH=${ARCH:-i486}
 BUILD=1
 
+if [ -f /var/log/packages/present-$VERSION-$ARCH-$BUILD ]; then
+  echo "present-$VERSION-$ARCH-$BUILD package already installed"
+  exit 0
+fi
+
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
@@ -24,6 +29,9 @@ if [ "$ARCH" = "i386" ]; then
   ARCH_CONFIGURE=""
 elif [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
+  ARCH_CONFIGURE=""
+elif [ "$ARCH" = "powerpc" ]; then
+  SLKCFLAGS="-O2"
   ARCH_CONFIGURE=""
 elif [ "$ARCH" = "s390" ]; then
   SLKCFLAGS="-O2"
@@ -45,6 +53,9 @@ elif [ "$ARCH" = "i486" ]; then
   echo "Applying patches for $ARCH"
   #cat $CWD/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "s390" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "powerpc" ]; then
   echo "Applying patches for $ARCH"
   #cat $CWD/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "x86_64" ]; then

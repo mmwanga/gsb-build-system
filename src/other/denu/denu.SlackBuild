@@ -8,6 +8,11 @@ VERSION=2.3.2
 ARCH=${ARCH:-i486}
 BUILD=3
 
+if [ -f /var/log/packages/denu-$VERSION-$ARCH-$BUILD ]; then
+  echo "denu-$VERSION-$ARCH-$BUILD package already installed"
+  exit 0
+fi
+
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
@@ -17,6 +22,25 @@ mkdir -p $PKG
 cd $TMP
 tar -xjvf $CWD/denu-$VERSION.tar.bz2
 cd denu-$VERSION
+
+# Apply $ARCH specific patches
+if [ "$ARCH" = "i386" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "i486" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "s390" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "powerpc" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "x86_64" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+fi
+
 ./install.sh $PKG
 
 chown -R root.bin $PKG/usr/bin

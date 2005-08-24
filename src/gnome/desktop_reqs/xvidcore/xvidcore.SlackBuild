@@ -9,6 +9,11 @@ PVERSION=1.0.3
 ARCH=${ARCH:-i486}
 BUILD=1
 
+if [ -f /var/log/packages/xvidcore-$VERSION-$ARCH-$BUILD ]; then
+  echo "xvidcore-$VERSION-$ARCH-$BUILD package already installed"
+  exit 0
+fi
+
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
@@ -21,6 +26,9 @@ if [ "$ARCH" = "i386" ]; then
 elif [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
   ARCH_CONFIGURE=""
+elif [ "$ARCH" = "powerpc" ]; then
+  SLKCFLAGS="-O2"
+  ARCH_CONFIGURE=""
 elif [ "$ARCH" = "s390" ]; then
   SLKCFLAGS="-O2"
   ARCH_CONFIGURE=""
@@ -32,6 +40,25 @@ fi
 cd $TMP 
 tar xjvf $CWD/xvidcore-$VERSION.tar.bz2
 cd xvidcore-$VERSION
+
+# Apply $ARCH specific patches
+if [ "$ARCH" = "i386" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "i486" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "s390" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "powerpc" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "x86_64" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+fi
+
 cd build/generic
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
@@ -40,16 +67,6 @@ CFLAGS="$SLKCFLAGS" \
 make || exit 1
 #make install DESTDIR=$PKG
 make install prefix=$PKG/usr
-
-if [ "$ARCH" = "i386" ]; then
-  SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
-elif [ "$ARCH" = "i486" ]; then
-  SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
-elif [ "$ARCH" = "s390" ]; then
-  SLKCFLAGS="-O2"
-elif [ "$ARCH" = "x86_64" ]; then
-  SLKCFLAGS="-O2"
-fi
 
 cd $TMP/xvidcore-$VERSION
 
