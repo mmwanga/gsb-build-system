@@ -11,7 +11,7 @@
 #  +--------------------------------------------------------------------+
 #
 
-FRG_VER="0.2.2"
+FRG_VER="current"
 SLAPTGET_VER="0.9.9m-i486-1frg"
 SLAPTGET_FILE="slapt-get-$SLAPTGET_VER.tgz"
 TMP="/tmp"
@@ -82,8 +82,7 @@ echo ""
 echo "Instaling/updating Freerock GNOME"...
 echo ""
 
-slapt-get --config $TEMP_CONFIGFILE --search \
-  [0-9]frg$ | awk '{print $1}' | xargs -r slapt-get --install -y
+slapt-get --config $TEMP_CONFIGFILE --install gnome -y
 
 slapt-get --config $TEMP_CONFIGFILE --clean
 
