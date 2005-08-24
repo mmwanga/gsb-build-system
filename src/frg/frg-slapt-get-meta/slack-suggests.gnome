@@ -1,5 +1,5 @@
-gnome-bindings-c++-meta
-gnome-bindings-meta
-gnome-bindings-perl-meta
-gnome-bindings-python-meta
-gnome-other-meta
+frgnome-bindings-c++
+frgnome-bindings
+frgnome-bindings-perl
+frgnome-bindings-python
+frgnome-other

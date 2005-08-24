@@ -1,12 +1,12 @@
-                           |-----handy-ruler------------------------------------------------------|
-frg-gnome-desktop-reqs-meta: frg-gnome-desktop-reqs-meta - Required software for GNOME
-frg-gnome-desktop-reqs-meta:
-frg-gnome-desktop-reqs-meta: This package provides some required software and libraries for GNOME.
-frg-gnome-desktop-reqs-meta:
-frg-gnome-desktop-reqs-meta:
-frg-gnome-desktop-reqs-meta:
-frg-gnome-desktop-reqs-meta:
-frg-gnome-desktop-reqs-meta:
-frg-gnome-desktop-reqs-meta:
-frg-gnome-desktop-reqs-meta:
-frg-gnome-desktop-reqs-meta:
+                    |-----handy-ruler------------------------------------------------------|
+frgnome-desktop-reqs: frgnome-desktop-reqs - Required software for GNOME
+frgnome-desktop-reqs:
+frgnome-desktop-reqs: This package provides some required software and libraries for GNOME.
+frgnome-desktop-reqs:
+frgnome-desktop-reqs:
+frgnome-desktop-reqs:
+frgnome-desktop-reqs:
+frgnome-desktop-reqs:
+frgnome-desktop-reqs:
+frgnome-desktop-reqs:
+frgnome-desktop-reqs:

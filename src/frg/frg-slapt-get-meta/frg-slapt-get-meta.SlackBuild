@@ -15,12 +15,26 @@ rm -rf $PKG
 mkdir -p $PKG
 
 
-for i in gnome-office gnome-other gnome-bindings gnome-bindings-c++ gnome-bindings-perl gnome-bindings-python gnome-desktop gnome-desktop-reqs gnome gnome-platform gnome-themes
+META_PACKS="
+gnome-office
+gnome-other
+gnome-bindings
+gnome-bindings-c++
+gnome-bindings-perl
+gnome-bindings-python
+gnome-desktop
+gnome-desktop-reqs
+gnome
+gnome-platform
+gnome-themes
+"
+
+for i in $META_PACKS
 do
 mkdir -p $PKG/$i/install
 done
 
-for i in gnome-office gnome-other gnome-bindings gnome-bindings-c++ gnome-bindings-perl gnome-bindings-python gnome-desktop gnome-desktop-reqs gnome gnome-platform gnome-themes
+for i in $META_PACKS
 do
   if [ -f $CWD/slack-desc.$i ]; then
       cat $CWD/slack-desc.$i > $PKG/$i/install/slack-desc
@@ -35,13 +49,11 @@ do
   fi
 done
 
-
-for i in gnome-office gnome-other gnome-bindings gnome-bindings-c++ gnome-bindings-perl gnome-bindings-python gnome-desktop gnome-desktop-reqs gnome gnome-platform gnome-themes
+for i in $META_PACKS
 do
   cd $PKG/$i
-  makepkg -l y -c n $TMP/frg-$i-meta-$FRG_VERSION-$ARCH-$BUILD.tgz
+  makepkg -l y -c n $TMP/fr"$i"-$FRG_VERSION-$ARCH-$BUILD.tgz
 done
-
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then

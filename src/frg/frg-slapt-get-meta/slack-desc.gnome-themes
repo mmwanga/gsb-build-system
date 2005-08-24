@@ -1,13 +1,13 @@
-                     |-----handy-ruler------------------------------------------------------|
-frg-gnome-themes-meta: frg-gnome-themes-meta - GNOME themes meta package
-frg-gnome-themes-meta:
-frg-gnome-themes-meta: This package provides themes for the GNOME desktop.
-frg-gnome-themes-meta:
-frg-gnome-themes-meta:
-frg-gnome-themes-meta:
-frg-gnome-themes-meta:
-frg-gnome-themes-meta:
-frg-gnome-themes-meta:
-frg-gnome-themes-meta:
-frg-gnome-themes-meta:
+              |-----handy-ruler------------------------------------------------------|
+frgnome-themes: frgnome-themes - GNOME themes meta package
+frgnome-themes:
+frgnome-themes: This package provides themes for the GNOME desktop.
+frgnome-themes:
+frgnome-themes:
+frgnome-themes:
+frgnome-themes:
+frgnome-themes:
+frgnome-themes:
+frgnome-themes:
+frgnome-themes:
 

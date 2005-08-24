@@ -1,12 +1,12 @@
-                    |-----handy-ruler------------------------------------------------------|
-frg-gnome-other-meta: frg-gnome-other-meta - GNOME other meta package
-frg-gnome-other-meta:
-frg-gnome-other-meta: This package provides various add on packages for the GNOME desktop.
-frg-gnome-other-meta:
-frg-gnome-other-meta:
-frg-gnome-other-meta:
-frg-gnome-other-meta:
-frg-gnome-other-meta:
-frg-gnome-other-meta:
-frg-gnome-other-meta:
-frg-gnome-other-meta:
+              |-----handy-ruler------------------------------------------------------|
+frgnome-other: frgnome-other - GNOME other meta package
+frgnome-other:
+frgnome-other: This package provides various add on packages for the GNOME desktop.
+frgnome-other:
+frgnome-other:
+frgnome-other:
+frgnome-other:
+frgnome-other:
+frgnome-other:
+frgnome-other:
+frgnome-other:

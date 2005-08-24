@@ -1,5 +1,5 @@
-gnome-platform-meta
-gnome-required-meta
+frgnome-platform
+frgnome-desktop-reqs
 dasher
 eel
 evolution-data-server

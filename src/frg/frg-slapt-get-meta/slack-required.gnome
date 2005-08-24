@@ -1,5 +1,5 @@
-gnome-required-meta
-gnome-platform-meta
-gnome-desktop-meta
-gnome-office-meta
-gnome-themes-meta
+frgnome-desktop-reqs
+frgnome-platform
+frgnome-desktop
+frgnome-office
+frgnome-themes
