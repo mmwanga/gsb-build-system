@@ -14,7 +14,7 @@ if (!isset($op)) {
 }
 
 // globals
-$rnd = md5(rand(1,999999));
+$rnd = rand(0,99999);
 require('common/versions_inc.php');
 
 // common title
