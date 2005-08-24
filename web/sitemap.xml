@@ -9,48 +9,60 @@
   <priority>1.0000</priority>
  </url>
  <url>
+  <loc>http://gsb.freerock.org/?op=packages</loc>
+  <priority>0.0021</priority>
+ </url>
+ <url>
+  <loc>http://gsb.freerock.org/?op=packages&amp;mode=browse&amp;ver=current&amp;dir=frgnome</loc>
+  <priority>0.0010</priority>
+ </url>
+ <url>
+  <loc>http://gsb.freerock.org/?op=packages&amp;mode=browse&amp;ver=currgent&amp;dir=frgnome</loc>
+  <priority>0.0010</priority>
+ </url>
+ <url>
   <loc>http://gsb.freerock.org/about/</loc>
-  <priority>0.1222</priority>
+  <priority>0.1213</priority>
  </url>
  <url>
   <loc>http://gsb.freerock.org/changelog/</loc>
-  <priority>0.0790</priority>
+  <priority>0.0795</priority>
  </url>
  <url>
   <loc>http://gsb.freerock.org/changelog/0.2.2/</loc>
-  <priority>0.0242</priority>
+  <priority>0.0241</priority>
  </url>
  <url>
   <loc>http://gsb.freerock.org/changelog/current/</loc>
-  <priority>0.0537</priority>
+  <priority>0.0544</priority>
  </url>
  <url>
   <loc>http://gsb.freerock.org/development/</loc>
-  <priority>0.0369</priority>
+  <priority>0.0366</priority>
  </url>
  <url>
   <loc>http://gsb.freerock.org/download/</loc>
-  <priority>0.2803</priority>
+  <priority>0.2782</priority>
  </url>
  <url>
   <loc>http://gsb.freerock.org/downloads/</loc>
-  <priority>0.0432</priority>
+  <priority>0.0429</priority>
  </url>
  <url>
   <loc>http://gsb.freerock.org/faqs/</loc>
-  <priority>0.1465</priority>
+  <priority>0.1464</priority>
  </url>
  <url>
   <loc>http://gsb.freerock.org/installation/</loc>
-  <priority>0.2086</priority>
+  <priority>0.2071</priority>
  </url>
  <url>
   <loc>http://gsb.freerock.org/links/</loc>
-  <priority>0.0506</priority>
+  <priority>0.0502</priority>
  </url>
  <url>
   <loc>http://gsb.freerock.org/news/</loc>
-  <priority>0.0495</priority>
+  <priority>0.0492</priority>
  </url>
  <url>
   <loc>http://gsb.freerock.org/news/1/</loc>
@@ -62,14 +74,14 @@
  </url>
  <url>
   <loc>http://gsb.freerock.org/news/3/</loc>
-  <priority>0.0011</priority>
+  <priority>0.0010</priority>
  </url>
  <url>
   <loc>http://gsb.freerock.org/screenshots/</loc>
-  <priority>0.3583</priority>
+  <priority>0.3577</priority>
  </url>
  <url>
   <loc>http://gsb.freerock.org/support/</loc>
-  <priority>0.0611</priority>
+  <priority>0.0617</priority>
  </url>
 </urlset>

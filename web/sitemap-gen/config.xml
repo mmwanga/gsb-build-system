@@ -167,6 +167,7 @@
   <filter action="drop" type="wildcard" pattern="*.js*" />
   <filter action="drop" type="wildcard" pattern="*.jpg*" />
   <filter action="drop" type="wildcard" pattern="*.pl*" />
+  <filter action="drop" type="wildcard" pattern="*.xml" />
   <filter action="drop" type="wildcard" pattern="*net-install*" />
   <filter action="drop" type="wildcard" pattern="*random-screenthumb*" />
 
