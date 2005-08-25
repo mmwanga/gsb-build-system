@@ -67,11 +67,6 @@ our %office_libs =
 		   'ver' => '0.9.7',
 		   'src' => 'tar.gz',
 		  },
-   'PyXML'     => {
-		   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/pyxml/',
-		   'ver' => '0.8.4',
-		   'src' => 'tar.gz',
-		  },
   );
 
 our %office_gnome_libs =
