@@ -3,7 +3,7 @@
 
     Header PHP script
     Chip Cuccio <chipster@norlug.org>
-    $Id: header_inc.php 988 2005-08-25 22:14:03Z chipster $
+    $Id$
 
 */
 header("Content-Type: text/html;charset=utf-8");
