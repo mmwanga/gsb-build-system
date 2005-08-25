@@ -32,7 +32,7 @@ print("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
     Chip Cuccio <chipster@norlug.org>
     $Revision$
     $Date$
-    $Author: chipster $
+    $Author$
 -->
 <body>  
   
