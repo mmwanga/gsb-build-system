@@ -3,7 +3,7 @@
 
     Header PHP script
     Chip Cuccio <chipster@norlug.org>
-    $Id$
+    $Id: header_inc.php 988 2005-08-25 22:14:03Z chipster $
 
 */
 header("Content-Type: text/html;charset=utf-8");
@@ -32,7 +32,7 @@ print("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
     Chip Cuccio <chipster@norlug.org>
     $Revision: 703 $
     $Date: 2005-06-25 21:56:40 -0500 (Sat, 25 Jun 2005) $
-    $Author: chipster $
+    $Author$
 -->
 <body>  
   
