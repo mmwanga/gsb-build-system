@@ -30,9 +30,7 @@ print("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n");
 <!--
     GSB site code <http://gsb.freerock.org>
     Chip Cuccio <chipster@norlug.org>
-    $Revision: 703 $
-    $Date: 2005-06-25 21:56:40 -0500 (Sat, 25 Jun 2005) $
-    $Author$
+    $Id:$
 -->
 <body>  
   
