@@ -65,7 +65,7 @@ function gen_pkg_meta() {
 				echo "PACKAGE MIRROR:  $DL_URL" >>$METAFILE
 			fi
 			echo "PACKAGE LOCATION:  `echo $FILE | rev | cut -d/ -f2- | rev`" >>$METAFILE
-			SIZES="`gunzip -l $FILE | tail -1 | tr -s ' '`"
+			SIZES="`gunzip -l $FILE | tail -n 1 | tr -s ' '`"
 			echo "PACKAGE SIZE (compressed):  $(( `echo \"$SIZES\" | cut -d' ' -f2` / 1024 )) K" >>$METAFILE
 			echo "PACKAGE SIZE (uncompressed):  $(( `echo \"$SIZES\" | cut -d' ' -f3` / 1024 )) K" >>$METAFILE
 			echo "PACKAGE REQUIRED:  `tar zxOf $FILE install/slack-required 2>/dev/null | tr '\n' ',' | sed -e 's/,$//'`" >>$METAFILE
