@@ -24,9 +24,13 @@
 #				files, including PACKAGES.TXT, FILE_LIST,
 #				FILELIST.TXT and CHECKSUMS.md5.  This should
 #				allow tools such as swaret to use the frg repos.
-#	28/07/05	DA	Fixed a bug where the PACKAGE LOCATION was not
-#				being set correctly, causing slapt-get to look
-#				in the wrong place for packages.
+#	28/07/05	DA	Fixed a bug where the 'PACKAGE LOCATION' was
+#				not being set correctly, causing slapt-get to
+#				look in the wrong place for packages.
+#				Thanks to cacate0tl for the report.
+#	28/07/05	DA	Create compressed versions of PACKAGES.TXT and
+#				CHECKSUMS.md5 as well as the uncompressed ones.
+#				Requested by malloc for slapt-get support.
 #
 
 # If you have a package mirror site, specifying it here will result in the
@@ -87,6 +91,7 @@ function gen_packages_txt() {
 		find ./$1 -type f -name $FILE -exec cat {} \; >>./$1/PACKAGES.TXT
 		echo >>./$1/PACKAGES.TXT
 	done
+	cat ./$1/PACKAGES.TXT | gzip -9c >./$1/PACKAGES.TXT.gz
 	echo "Done."
 }
 
@@ -107,6 +112,7 @@ function gen_checksums_md5() {
 	echo -n "${IND}Generating CHECKSUMS.md5 ... "
 	echo "MD5 message digest                Filename" >./$1/CHECKSUMS.md5
 	( cd ./$1 && find . -type f -name \*.tgz -exec md5sum {} \; >>./CHECKSUMS.md5 )
+	cat ./$1/CHECKSUMS.md5 | gzip -9c >./$1/CHECKSUMS.md5.gz
 	echo "Done."
 }
 
@@ -153,3 +159,4 @@ then
 	# Update the top level CHECKSUMS.md5.
 	gen_checksums_md5
 fi
+
