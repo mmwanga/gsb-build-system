@@ -5,7 +5,7 @@ TMP=${TMP:-/tmp}
 PKG=$TMP/package-frg-firefox-libs
 
 VERSION=0.1
-ARCH=${ARCH:-i486}
+ARCH=${ARCH:-noarch}
 BUILD=1
 
 if [ ! -d $TMP ]; then
