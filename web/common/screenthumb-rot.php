@@ -6,7 +6,7 @@
 
     // common vars
 
-	$folder = "../screenies/thumbs/";
+	$folder = "/home/chipster/gsb.freerock.org/screenies/thumbs/";
 
     $extList = array();
 	$extList['gif'] = 'image/gif';
