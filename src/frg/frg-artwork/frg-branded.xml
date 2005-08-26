@@ -56,4 +56,19 @@
     <filename>/usr/share/pixmaps/backgrounds/frg/frg_stripes.png</filename>
     <options>stretched</options>
   </wallpaper>
+  <wallpaper deleted="false">
+   <name>FRG Rock 1 (photo by Michelle Sabatier)</name>
+   <filename>/usr/share/pixmaps/backgrounds/frg/frg_rock1.jpg</filename>
+   <options>stretched</options>
+ </wallpaper>
+ <wallpaper deleted="false">
+   <name>FRG Rock 2 White</name>
+   <filename>/usr/share/pixmaps/backgrounds/frg/frg_rock2w.jpg</filename>
+   <options>stretched</options>
+ </wallpaper>
+ <wallpaper deleted="false">
+   <name>FRG Rock 2 Blue</name>
+   <filename>/usr/share/pixmaps/backgrounds/frg/frg_rock2b.jpg</filename>
+   <options>stretched</options>
+ </wallpaper>
 </wallpapers>
