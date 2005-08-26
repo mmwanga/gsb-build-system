@@ -31,11 +31,11 @@ pre {
 }
 
 .introthumb {
-    margin: 0px 0px 3px 3px;
+    margin: 0px 0px 5px 5px;
     padding: 10px;
     border: 1px
     solid #888888;
-    background: #cdcdcd;
+    background: #eeeeee;
     float: right;
 }
 
