@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gnome-terminal
 
-VERSION=2.11.2
+VERSION=2.11.3
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/gnome-terminal-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-terminal-$VERSION-$ARCH-$BUILD package already installed"

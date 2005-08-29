@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gtk-engines
 
-VERSION=2.6.4
+VERSION=2.6.5
 ARCH=${ARCH:-i486}
 BUILD=1
 

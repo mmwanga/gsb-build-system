@@ -1,0 +1,12 @@
+       |-----handy-ruler------------------------------------------------------|
+monodoc: MonoDoc
+monodoc:
+monodoc: This is the MonoDoc module.It contains the documentation for
+monodoc: the Mono class libraries, tools to produce and edit the
+monodoc: documentation, and a documentation browser.
+monodoc:
+monodoc:
+monodoc:
+monodoc:
+monodoc:
+monodoc:

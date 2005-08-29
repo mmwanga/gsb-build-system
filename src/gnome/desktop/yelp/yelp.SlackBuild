@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-yelp
 
-VERSION=2.10.0
+VERSION=2.11.92
 ARCH=${ARCH:-i486}
 BUILD=1
 
