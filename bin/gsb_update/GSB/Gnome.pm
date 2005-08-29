@@ -82,13 +82,13 @@ our %platform_diff_naming =
 our %platform_reqs =
   (
    'cairo'               => {
-			     'ver' => '0.9.2',
-			     'url' => 'http://cairographics.org/snapshots/',
+			     'ver' => '1.0.0',
+			     'url' => 'http://cairographics.org/releases/',
 			     'src' => 'tar.gz',
 			    },
    'dbus'                => {
 			     'url' => 'http://dbus.freedesktop.org/releases/',
-			     'ver' => '0.34',
+			     'ver' => '0.36.1',
 			     'src' => 'tar.gz',
 			    },
    'desktop-file-utils'  => {
@@ -102,13 +102,13 @@ our %platform_reqs =
 			     'src' => 'tar.gz',
 			    },
    'glitz'               => {
-			     'ver' => '0.4.3',
+			     'ver' => '0.4.4',
 			     'url' => 'http://cairographics.org/snapshots/',
 			     'src' => 'tar.gz',
 			    },
    'hal'                 => {
 			     'url' => 'http://freedesktop.org/~david/dist/',
-			     'ver' => '0.5.2',
+			     'ver' => '0.5.4',
 			     'src' => 'tar.gz',
 			    },
    'howl'                => {
@@ -121,8 +121,18 @@ our %platform_reqs =
 			     'ver' => '1.10',
 			     'src' => 'tar.gz',
 			    },
+   'libgcrypt'           => {
+                             'ver' => '1.2.1',
+                             'url' => 'ftp://ftp.gnupg.org/gcrypt/libgcrypt/',
+                             'src' => 'tar.gz',
+                            },
+   'libgpg-error'        => {
+                             'ver' => '1.0',
+                             'url' => 'ftp://ftp.gnupg.org/gcrypt/libgpg-error/',
+                             'src' => 'tar.gz',
+                            },
    'libpixman'           => {
-			     'ver' => '0.1.5',
+			     'ver' => '0.1.6',
 			     'url' => 'http://cairographics.org/snapshots/',
 			     'src' => 'tar.gz',
 			    },

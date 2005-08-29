@@ -210,11 +210,6 @@ our %other =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libexif/',
 			     'src' => 'tar.bz2',
 			    },
-   'libgpg-error'        => {
-			     'ver' => '1.0',
-			     'url' => 'ftp://ftp.gnupg.org/gcrypt/libgpg-error/',
-			     'src' => 'tar.gz',
-			    },
    'libgphoto2'          => {
 			     'ver' => '2.1.6',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto/',
@@ -270,6 +265,11 @@ our %other =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/streamripper/',
 			     'src' => 'tar.gz',
 			    },
+   'subversion'          => {
+                             'ver' => '1.2.3',
+                             'url' => 'http://subversion.tigris.org/downloads/',
+                             'src' => 'tar.bz2',
+                            },
    'sylpheed'            => {
 			     'ver' => '2.0.0',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/sylpheed-claws/',
