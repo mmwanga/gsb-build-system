@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-glitz
 
-VERSION=0.4.3
+VERSION=0.4.4
 ARCH=${ARCH:-i486}
 BUILD=1
 
