@@ -50,8 +50,7 @@ at-spi
 libgnomecups
 libgnomeprint
 hicolor-icon-theme
-gnome-icon-theme
-libgnomeprintui"
+"
 
 (
 for i in $BUILD_ORDER

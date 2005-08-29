@@ -6,7 +6,10 @@ if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 
-BUILD_ORDER="libgnomesu
+BUILD_ORDER="
+gnome-icon-theme
+libgnomeprintui
+libgnomesu
 libgtkhtml
 scrollkeeper
 gnome-keyring-manager
