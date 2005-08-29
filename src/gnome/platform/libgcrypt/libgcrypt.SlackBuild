@@ -2,16 +2,11 @@
 
 CWD=`pwd`
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-libgpg-error
+PKG=$TMP/package-libgcrypt
 
-VERSION=1.0
+VERSION=1.2.1
 ARCH=${ARCH:-i486}
 BUILD=1
-
-if [ -f /var/log/packages/libgpg-error-$VERSION-$ARCH-$BUILD ]; then
-  echo "libgpg-error-$VERSION-$ARCH-$BUILD package already installed"
-  exit 0
-fi
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -19,16 +14,21 @@ fi
 rm -rf $PKG
 mkdir -p $PKG
 
+if [ -f /var/log/packages/libgcrypt-$VERSION-$ARCH-$BUILD ]; then
+  echo "libgcrypt-$VERSION-$ARCH-$BUILD package already installed"
+  exit 0
+fi
+
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
   ARCH_CONFIGURE=""
 elif [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
   ARCH_CONFIGURE=""
-elif [ "$ARCH" = "powerpc" ]; then
+elif [ "$ARCH" = "s390" ]; then
   SLKCFLAGS="-O2"
   ARCH_CONFIGURE=""
-elif [ "$ARCH" = "s390" ]; then
+elif [ "$ARCH" = "powerpc" ]; then
   SLKCFLAGS="-O2"
   ARCH_CONFIGURE=""
 elif [ "$ARCH" = "x86_64" ]; then
@@ -37,8 +37,8 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 cd $TMP
-tar -xzvf $CWD/libgpg-error-$VERSION.tar.gz
-cd libgpg-error-$VERSION
+tar -xzvf $CWD/libgcrypt-$VERSION.tar.gz
+cd libgcrypt-$VERSION
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
@@ -60,6 +60,8 @@ fi
 
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
+            --sysconfdir=/etc \
+            --localstatedir=/var/lib \
             --disable-static \
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 1
@@ -68,12 +70,12 @@ make install DESTDIR=$PKG
 
 chown -R root.bin $PKG/usr/bin
 
-mkdir -p $PKG/usr/doc/libgpg-error-$VERSION
+mkdir -p $PKG/usr/doc/libgcrypt-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
         TODO \
-        $PKG/usr/doc/libgpg-error-$VERSION
-find $PKG/usr/doc/libgpg-error-$VERSION/ -type f -exec chmod 644 {} \;
-chown root.root $PKG/usr/doc/libgpg-error-$VERSION/*
+        $PKG/usr/doc/libgcrypt-$VERSION
+find $PKG/usr/doc/libgcrypt-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/doc/libgcrypt-$VERSION/*
 
 # strip:
 ( cd $PKG
@@ -89,10 +91,10 @@ cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-makepkg -l y -c n $TMP/libgpg-error-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/libgcrypt-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/libgpg-error-$VERSION
+  rm -rf $TMP/libgcrypt-$VERSION
   rm -rf $PKG
 fi

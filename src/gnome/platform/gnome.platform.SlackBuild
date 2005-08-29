@@ -10,6 +10,8 @@ fi
 
 BUILD_ORDER="
 pkg-config
+libgpg-error
+libgcrypt
 libxml2
 libxslt
 glib2
