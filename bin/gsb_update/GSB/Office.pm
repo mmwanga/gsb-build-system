@@ -16,14 +16,14 @@ our $VERSION   = 0.03;
 # src tarballs in other locations
 
 # not used anymore, abiword is on ftp.gnome.org also.
-#our %office =
-#  (
-#   'abiword' => {
-#		 'url' => "http://www.abisource.com/downloads/abiword/2.2.8/source/",
-#		 'ver' => '2.2.8',
-#		 'src' => 'tar.gz'
-#		},
-#  );
+our %office =
+  (
+   'abiword' => {
+		 'url' => "http://www.abisource.com/downloads/abiword/2.3.5/source/",
+		 'ver' => '2.3.5',
+		 'src' => 'tar.gz'
+		},
+  );
 
 our %office_libs =
   (
@@ -80,8 +80,8 @@ our %office_gnome_libs =
 
 our %office_gnome =
   (
-   'abiword'   => '2.3.5',
-   'gnumeric'  => '1.5.3',
+#   'abiword'   => '2.3.5',
+   'gnumeric'  => '1.5.5',
    'dia'       => '0.94',
    'glom'      => '0.9.0',
    'mergeant'  => '0.62',

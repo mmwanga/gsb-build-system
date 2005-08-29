@@ -236,7 +236,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'poppler'             => {
-			     'ver' => '0.4.0',
+			     'ver' => '0.4.1',
 			     'url' => 'http://poppler.freedesktop.org/',
 			     'src' => 'tar.gz',
 			    },
@@ -296,7 +296,7 @@ our %other_gnome =
   (
    'NetworkManager'      => '0.3.1',
    'devhelp'             => '0.9.3',
-   'evince'              => '0.3.4',
+   'evince'              => '0.4.0',
    'gdl'                 => '0.6.0',
    'ghex'                => '2.8.1',
    'glade'               => '2.10.0',
