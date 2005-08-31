@@ -18,6 +18,10 @@ fi
 #libvisual-nebulus
 #libvisual-xmms
 
+# removed
+# heimdal, needs to be cleaned up
+# cyrus-sasl, included with slackware now
+
 BUILD_ORDER="a52dec
 divx4linux
 ffmpeg
@@ -60,8 +64,6 @@ libtheora
 xvidcore
 transcode
 avifile
-heimdal
-cyrus-sasl
 openldap
 PyXML
 iso-codes

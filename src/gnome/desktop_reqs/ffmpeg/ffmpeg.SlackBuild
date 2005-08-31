@@ -9,7 +9,7 @@ PVERSION=`echo $VERSION |sed 's/-//'`
 ARCH=${ARCH:-i486}
 BUILD=2
 
-if [ -f /var/log/packages/ffmpeg-$VERSION-$ARCH-$BUILD ]; then
+if [ -f /var/log/packages/ffmpeg-$PVERSION-$ARCH-$BUILD ]; then
   echo "ffmpeg-$VERSION-$ARCH-$BUILD package already installed"
   exit 0
 fi

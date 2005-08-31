@@ -36,7 +36,9 @@ elif [ "$ARCH" = "x86_64" ]; then
   ARCH_CONFIGURE="--libdir=/usr/lib64"
 fi
 
+
 cd $TMP
+rm -rf faad2
 unzip $CWD/faad2-"$VERSION".zip -d $TMP
 cd faad2
 bzcat $CWD/Makefile.am.faad2.patch.bz2 |patch -p0 --verbose

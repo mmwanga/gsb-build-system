@@ -9,7 +9,7 @@ PVERSION=`echo $VERSION | sed 's/b//'`
 ARCH=${ARCH:-i486}
 BUILD=1
 
-if [ -f /var/log/packages/mpeg2dec-$PVERSION-$ARCH-$BUILD ]; then
+if [ -f /var/log/packages/mpeg2dec-$VERSION-$ARCH-$BUILD ]; then
   echo "mpeg2dec-$VERSION-$ARCH-$BUILD package already installed"
   exit 0
 fi

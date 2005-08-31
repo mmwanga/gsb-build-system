@@ -10,7 +10,7 @@ PVERSION=1.8.4
 ARCH=${ARCH:-i486}
 BUILD=2
 
-if [ -f /var/log/packages/openh323-pwlib-$VERSION-$ARCH-$BUILD ]; then
+if [ -f /var/log/packages/openh323-$VERSION-$ARCH-$BUILD ]; then
   echo "openh323-pwlib-$VERSION-$ARCH-$BUILD package already installed"
   exit 0
 fi

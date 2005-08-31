@@ -63,6 +63,7 @@ fi
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             --disable-static \
+            --x-includes=/usr/X11R6/include \
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 1
 make || exit 1
