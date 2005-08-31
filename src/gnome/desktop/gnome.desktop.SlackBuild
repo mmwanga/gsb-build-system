@@ -12,6 +12,7 @@ libgnomeprintui
 libgnomesu
 libgtkhtml
 scrollkeeper
+gnome-doc-utils
 gnome-keyring-manager
 startup-notification
 gtk-engines
@@ -21,7 +22,6 @@ gnome-menus
 libwnck
 libsoup
 evolution-data-server
-gnome-doc-utils
 gnome-panel
 gnome-session
 vte
