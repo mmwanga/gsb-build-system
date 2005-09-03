@@ -68,7 +68,6 @@ sylpheed
 sylpheed-claws
 loudmouth
 gossip
-anjuta
 easytag
 liferea
 denu
@@ -79,8 +78,6 @@ grip
 xscreensaver
 gnome-pkgtool
 avidemux
-slapt-get
-gslapt
 istanbul
 thoggen
 smeg
@@ -90,7 +87,6 @@ devhelp
 guile
 autogen
 graphviz
-subversion
 anjuta
 "
 
