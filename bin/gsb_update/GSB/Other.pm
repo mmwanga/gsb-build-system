@@ -170,6 +170,11 @@ our %other =
 			     'url' => 'http://gtkspell.sourceforge.net/download/',
 			     'src' => 'tar.gz',
 			    },
+   'guile'            => {
+			     'ver' => '1.6.7',
+			     'url' => 'http://ftp.gnu.org/pub/gnu/guile/',
+			     'src' => 'tar.gz',
+			    },
    'kino'                => {
 			     'ver' => '0.7.5',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/kino/',
@@ -338,3 +343,4 @@ sub gsb_other_other_url_make {
   return $thisurl;
 
 }
+
