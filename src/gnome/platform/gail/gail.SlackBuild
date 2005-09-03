@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gail
 
-VERSION=1.8.4
+VERSION=1.8.5
 ARCH=${ARCH:-i486}
 BUILD=1
 

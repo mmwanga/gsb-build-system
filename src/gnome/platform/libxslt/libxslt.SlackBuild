@@ -87,6 +87,15 @@ cat $CWD/slack-desc > $PKG/install/slack-desc
 #echo
 
 cd $PKG
+
+if [ "$ARCH" = "x86_64" ]; then
+  if [ -d usr/lib64/python*/site-packages/ ]; then
+    NEWLIBDIR=$(echo usr/lib64/python*/site-packages| sed -e "s/lib64/lib/")
+    mkdir -p $NEWLIBDIR
+    cp -r usr/lib64/python*/site-packages/* $NEWLIBDIR/
+  fi
+fi
+
 makepkg -l y -c n $TMP/libxslt-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:

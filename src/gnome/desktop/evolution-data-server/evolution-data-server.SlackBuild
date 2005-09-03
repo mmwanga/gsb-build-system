@@ -10,7 +10,7 @@ BUILD=1
 
 if [ -f /var/log/packages/evolution-data-server-$VERSION-$ARCH-$BUILD ]; then
   echo "evolution-data-server-$VERSION-$ARCH-$BUILD package already installed"
-  exit 0
+  #exit 0
 fi
 
 if [ ! -d $TMP ]; then

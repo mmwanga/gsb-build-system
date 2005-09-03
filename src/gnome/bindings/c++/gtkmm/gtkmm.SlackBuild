@@ -71,6 +71,7 @@ CFLAGS="$SLKCFLAGS" \
 make || exit 1
 make install DESTDIR=$PKG
 
+mkdir -p $PKG/etc/gconf
 SCHEMAS=$PKG/etc/gconf/schemas
 for i in $SCHEMAS/*.schemas
 do
