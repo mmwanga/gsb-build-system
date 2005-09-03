@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gcalctool
 
-VERSION=5.6.28
+VERSION=5.6.31
 ARCH=${ARCH:-i486}
 BUILD=1
 

@@ -92,8 +92,9 @@ CFLAGS="$SLKCFLAGS" \
           --disable-static \
           --enable-gnome \
           --enable-all \
-          $ARCH-slackware-linux
-make
+          $ARCH_CONFIGURE \
+          $ARCH-slackware-linux || exit 1
+make || exit 1
 make install DESTDIR=$PKG
 )
 
