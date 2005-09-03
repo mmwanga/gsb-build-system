@@ -52,3 +52,8 @@ Contributors:
 	Darren Austin <lists@afterdark.org.uk>
 	* bin/misc/gen_metadata.sh
 	    script to generate PACKAGES.TXT and CHECKSUMS.md5
+
+  Jason Woodward <woodwardj@jaos.org>
+  * slapt-get and gslapt
+  * x86_64 port
+
