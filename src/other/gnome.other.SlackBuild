@@ -86,7 +86,6 @@ smeg
 gdl
 gnome-build
 devhelp
-guile
 autogen
 graphviz
 subversion
