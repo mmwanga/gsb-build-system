@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-liferea
 
-VERSION=0.9.4
+VERSION=0.9.7a
 ARCH=${ARCH:-i486}
 BUILD=1
 
