@@ -9,7 +9,7 @@ ARCH=${ARCH:-i486}
 BUILD=1
 
 if [ -f /var/log/packages/libxml++-$VERSION-$ARCH-$BUILD ]; then
-  echo "libgnomeuimm-$VERSION-$ARCH-$BUILD package already installed"
+  echo "libxml++-$VERSION-$ARCH-$BUILD package already installed"
   exit 0
 fi
 

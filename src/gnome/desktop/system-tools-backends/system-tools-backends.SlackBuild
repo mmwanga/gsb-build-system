@@ -39,7 +39,7 @@ fi
 cd $TMP
 tar -xjvf $CWD/system-tools-backends-$VERSION.tar.bz2
 cd system-tools-backends-$VERSION
-cat $CWD/slackware-10.1.0-system-tools-backends.diff | patch -p0 --verbose
+#cat $CWD/slackware-10.1.0-system-tools-backends.diff | patch -p0 --verbose
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then

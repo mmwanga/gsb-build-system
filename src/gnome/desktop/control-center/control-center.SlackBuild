@@ -44,9 +44,11 @@ cd control-center-$VERSION
 if [ "$ARCH" = "i386" ]; then
   echo "Applying patches for $ARCH"
   #cat $CWD/foo.patch | patch -p0 --verbose
+  sed -re "s/(xft >= )2\.[0-9]\.[0-9]/\12\.1\.1/g" -i configure
 elif [ "$ARCH" = "i486" ]; then
   echo "Applying patches for $ARCH"
   #cat $CWD/foo.patch | patch -p0 --verbose
+  sed -re "s/(xft >= )2\.[0-9]\.[0-9]/\12\.1\.1/g" -i configure
 elif [ "$ARCH" = "s390" ]; then
   echo "Applying patches for $ARCH"
   #cat $CWD/foo.patch | patch -p0 --verbose

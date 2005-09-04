@@ -6,7 +6,7 @@ CWD=`pwd`
 
 VERSION=4.22
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/xscreensaver-$VERSION-$ARCH-$BUILD ]; then
   echo "xscreensaver-$VERSION-$ARCH-$BUILD package already installed"
