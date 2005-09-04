@@ -333,7 +333,7 @@ our %bindings_perl =
 			     'src' => 'tar.gz',
 			    },
    'Glib'                => {
-			     'ver' => '1.082',
+			     'ver' => '1.093',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtk2-perl/',
 			     'src' => 'tar.gz',
 			    },
@@ -348,17 +348,17 @@ our %bindings_perl =
 			     'src' => 'tar.gz',
 			    },
    'Gnome2-GConf'        => {
-			     'ver' => '1.000',
+			     'ver' => '1.013',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtk2-perl/',
 			     'src' => 'tar.gz',
 			    },
    'Gnome2-VFS'          => {
-			     'ver' => '1.022',
+			     'ver' => '1.031',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtk2-perl/',
 			     'src' => 'tar.gz',
 			    },
    'Gtk2'                => {
-			     'ver' => '1.082',
+			     'ver' => '1.093',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtk2-perl/',
 			     'src' => 'tar.gz',
 			    },
