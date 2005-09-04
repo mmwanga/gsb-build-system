@@ -226,7 +226,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'liferea'             => {
-			     'ver' => '0.9.7a',
+			     'ver' => '0.9.7b',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/liferea/',
 			     'src' => 'tar.gz',
 			    },
