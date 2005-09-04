@@ -313,7 +313,7 @@ our %bindings_python_other =
 		      'src' => 'tar.bz2',
 		     },
      'pyxdg'      => {
-                      'ver' => '0.14',
+                      'ver' => '0.15',
 		      'url' => 'http://www.freedesktop.org/~lanius/',
 		      'src' => 'tar.gz',
 		     },
