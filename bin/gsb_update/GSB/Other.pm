@@ -31,7 +31,7 @@ our %other =
                              'src' => 'tar.bz2',
 			    },
    'avidemux'            => {
-			     'ver' => '2.0.40',
+			     'ver' => '2.0.42',
 			     'url' => 'http://download.berlios.de/avidemux/',
 			     'src' => 'tar.gz',
 			    },
@@ -76,7 +76,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'easytag'             => {
-			     'ver' => '1.99.7',
+			     'ver' => '1.99.8',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/easytag/',
 			     'src' => 'tar.bz2',
 			    },
@@ -111,7 +111,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'gnomebaker'          => {
-			     'ver' => '0.4',
+			     'ver' => '0.4.2',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gnomebaker/',
 			     'src' => 'tar.gz',
 			    },
@@ -226,7 +226,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'liferea'             => {
-			     'ver' => '0.9.4',
+			     'ver' => '0.9.7a',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/liferea/',
 			     'src' => 'tar.gz',
 			    },
@@ -276,7 +276,7 @@ our %other =
                              'src' => 'tar.bz2',
                             },
    'sylpheed'            => {
-			     'ver' => '2.0.0',
+			     'ver' => '2.0.1',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/sylpheed-claws/',
 			     'src' => 'tar.bz2',
 			    },
