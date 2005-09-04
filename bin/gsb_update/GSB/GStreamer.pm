@@ -15,8 +15,8 @@ our $VERSION   = 0.03;
 
 our %gstreamer =
   (
-   'gstreamer'         => '0.8.10',
-   'gst-plugins'       => '0.8.10',
+   'gstreamer'         => '0.8.11',
+   'gst-plugins'       => '0.8.11',
   );
 
 our %gst_other =

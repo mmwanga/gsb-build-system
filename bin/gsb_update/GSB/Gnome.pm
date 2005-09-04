@@ -159,12 +159,12 @@ our %platform_reqs =
 our %desktop =
   (
    'bug-buddy'              => '2.11.92',
-   'control-center'         => '2.11.92',
+   'control-center'         => '2.12.0',
    'dasher'                 => '3.2.17',
    'eel'                    => '2.11.92',
    'eog'                    => '2.11.92',
-   'epiphany'               => '1.7.6',
-   'epiphany-extensions'    => '1.7.5',
+   'epiphany'               => '1.8.0',
+   'epiphany-extensions'    => '1.8.0',
    'evolution'              => '2.3.8',
    'evolution-caldav'       => '2.3.99.2',
    'evolution-data-server'  => '1.3.8',

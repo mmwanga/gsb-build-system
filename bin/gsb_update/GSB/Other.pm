@@ -36,7 +36,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'balsa'               => {
-			     'ver' => '2.3.0',
+			     'ver' => '2.3.4',
 			     'url' => 'http://balsa.gnome.org/',
 			     'src' => 'tar.bz2',
 			    },
@@ -56,7 +56,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'contact-lookup-applet' => {
-			       'ver' => '0.12',
+			       'ver' => '0.13',
 			       'url' => 'http://www.burtonini.com/computing/',
 			       'src' => 'tar.gz',
 			      },
@@ -71,7 +71,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'dvgrab'              => {
-			     'ver' => '1.7',
+			     'ver' => '1.8',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/kino/',
 			     'src' => 'tar.gz',
 			    },
@@ -86,7 +86,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'gaim'                => {
-			     'ver' => '1.4.0',
+			     'ver' => '1.5.0',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gaim',
 			     'src' => 'tar.bz2',
 			    },
@@ -106,7 +106,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'gmime'               => {
-			     'ver' => '2.1.14',
+			     'ver' => '2.1.16',
 			     'url' => 'http://spruce.sourceforge.net/gmime/sources/v2.1/',
 			     'src' => 'tar.gz',
 			    },
@@ -161,12 +161,12 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'gtkpod'              => {
-			     'ver' => '0.88',
+			     'ver' => '0.94.0',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtkpod/',
 			     'src' => 'tar.gz',
 			    },
    'gtkspell'            => {
-			     'ver' => '2.0.10',
+			     'ver' => '2.0.11',
 			     'url' => 'http://gtkspell.sourceforge.net/download/',
 			     'src' => 'tar.gz',
 			    },
@@ -176,7 +176,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'kino'                => {
-			     'ver' => '0.7.5',
+			     'ver' => '0.7.6',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/kino/',
 			     'src' => 'tar.gz',
 			    },
@@ -186,7 +186,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'inkscape'            => {
-			     'ver' => '0.41',
+			     'ver' => '0.42',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/inkscape/',
 			     'src' => 'tar.bz2',
 			    },
