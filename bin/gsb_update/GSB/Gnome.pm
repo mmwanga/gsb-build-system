@@ -146,7 +146,7 @@ our %platform_reqs =
 			    },
    'pkg-config'          => {
 			     'url' => 'http://pkgconfig.freedesktop.org/releases/',
-			     'ver' => '0.18.1',
+			     'ver' => '0.19',
 			     'src' => 'tar.gz',
 			    },
    'Pyrex'               => {
