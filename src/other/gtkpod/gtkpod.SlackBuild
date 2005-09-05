@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gtkpod
 
-VERSION=0.88
+VERSION=0.94.0
 ARCH=${ARCH:-i486}
-BUILD=3
+BUILD=1
 
 if [ -f /var/log/packages/gtkpod-$VERSION-$ARCH-$BUILD ]; then
   echo "gtkpod-$VERSION-$ARCH-$BUILD package already installed"
