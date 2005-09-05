@@ -46,8 +46,8 @@ our %platform =
    'libgnomecups'        => '0.2.0',
    'libgnomeprint'       => '2.11.0',
    'libgnomeui'          => '2.11.4',
-   'libxml2'             => '2.6.20',
-   'libxslt'             => '1.1.14',
+   'libxml2'             => '2.6.21',
+   'libxslt'             => '1.1.15',
    'pango'               => '1.10.0',
 
   );
