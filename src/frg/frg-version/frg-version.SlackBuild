@@ -16,7 +16,7 @@ mkdir -p $PKG/etc
 
 if [ "$ARCH" = "powerpc" ]; then
   echo "Freerock GNOME $VERSION build for Slackintosh" > $PKG/etc/frg-version
-if [ "$ARCH" = "x86_64" ]; then
+elif [ "$ARCH" = "x86_64" ]; then
   echo "Freerock GNOME $VERSION build for Slamd64" > $PKG/etc/frg-version
 else
   echo "Freerock GNOME $VERSION" > $PKG/etc/frg-version
