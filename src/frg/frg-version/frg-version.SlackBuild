@@ -12,10 +12,13 @@ if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 rm -rf $PKG
-mkdir -p $PKG
+mkdir -p $PKG/etc
 
-mkdir $PKG/etc
-echo "Freerock GNOME $VERSION" > $PKG/etc/frg-version
+if [ "$ARCH" = "powerpc" ]; then
+  echo "Freerock GNOME $VERSION build for Slackintosh" > $PKG/etc/frg-version
+else
+  echo "Freerock GNOME $VERSION" > $PKG/etc/frg-version
+fi
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
