@@ -22,19 +22,19 @@ mkdir -p $PKG/var/lib/scrollkeeper
 
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
-  ARCH_CONFIGURE=""
+  ARCH_CONFIGURE="--with-gnome-distributor=\"FRG gsb.sourceforge.net build for slackware\"" 
 elif [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
-  ARCH_CONFIGURE=""
+  ARCH_CONFIGURE="--with-gnome-distributor=\"FRG gsb.sourceforge.net build for slackware\""
 elif [ "$ARCH" = "powerpc" ]; then
   SLKCFLAGS="-O2"
-  ARCH_CONFIGURE=""
+  ARCH_CONFIGURE="--with-gnome-distributor=\"FRG gsb.sourceforge.net build for slackintosh\""
 elif [ "$ARCH" = "s390" ]; then
   SLKCFLAGS="-O2"
   ARCH_CONFIGURE=""
 elif [ "$ARCH" = "x86_64" ]; then
   SLKCFLAGS="-O2 -fPIC"
-  ARCH_CONFIGURE="--libdir=/usr/lib64"
+  ARCH_CONFIGURE="--libdir=/usr/lib64 --with-gnome-distributor=\"FRG gsb.sourceforge.net build for slamd64\"" 
 fi
 
 cd $TMP 
@@ -67,7 +67,7 @@ CFLAGS="$SLKCFLAGS" \
 	    --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static \
-	    --with-gnome-distributor="FRG gsb.sourceforge.net" \
+
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 
 
