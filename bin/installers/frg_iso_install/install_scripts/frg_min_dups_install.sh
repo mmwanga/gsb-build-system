@@ -4,15 +4,14 @@
 #
 # $Id$
 
-LIBWNCK=2.10.3
-
-METACITY=2.10.3
+LIBWNCK=2.12.0
+METACITY=2.12.0
 
 LIBRSVG=2.9.5
-LIBRSVG_ALT=2.10.0
+LIBRSVG_ALT=2.11.1
 
-TOTEMVERSION=1.0.4
-TOTEM_CVS=1.1.2
+TOTEMVERSION=1.2.0
+TOTEM_CVS=1.2.0
 
 
 # Install LIBWNCK
@@ -142,7 +141,6 @@ Select which Totem to install 0, 1, 2 or 3\n"
     echo "
 1) Totem $TOTEMVERSION with gstreamer backend
 2) Totem $TOTEMVERSION with xine backend
-3) Totem unstable $TOTEM_CVS with gstreamer backend
 "
 
     printf "Selection: "
@@ -164,9 +162,6 @@ case "$totem_selection" in
 	;;
 '2')
 	upgradepkg --install-new $FRGROOT/extras/alternatives/totem-"$TOTEMVERSION"xine-*frg.tgz
-	;;
-'3')
-	upgradepkg --install-new $FRGROOT/testing/totem-"$TOTEM_CVS"-*frg.tgz
 	;;
 *)
 	echo "Invalid selection"

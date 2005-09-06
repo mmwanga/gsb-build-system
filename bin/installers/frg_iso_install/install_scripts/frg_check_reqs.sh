@@ -6,19 +6,19 @@
 FRGROOT=`dirname $0`
 
 REQUIRED_PACKAGES="
-perl-5.8.6-i486-1
-mozilla-1.7.?-i486-?
-python-2.4*-i486-?
-libexif-0.6.11-i486-1
-flac-1.1.1-i486-1
-libogg-1.1-i486-1
-libao-0.8.5-i486-1
-libmad-0.15.1b-i486-1
-libmikmod-3.1.1?-i486-*
-gdk-pixbuf-0.22.0-i486-1
-cdparanoia-IIIalpha9.8-i386-1
-x11-6.8.?-i486-?
-x11-xnest-6.8.?-i486-?
+perl-*-i486-*
+mozilla-*-i486-*
+python-*-i486-*
+libexif-*-i486-*
+flac-*-i486-*
+libogg-*-i486-*
+libao-*-i486-*
+libmad-*-i486-*
+libmikmod-*-i486-*
+gdk-pixbuf-*-i486-*
+cdparanoia-*-i386-*
+x11-*-i486-*
+x11-xnest-*-i486-*
 "
 
 check_packages() {
