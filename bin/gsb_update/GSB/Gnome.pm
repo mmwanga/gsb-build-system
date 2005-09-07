@@ -213,8 +213,8 @@ our %bindings_cxx =
   (
    'bakery'            => '2.3.15',
    'gconfmm'           => '2.12.0',
-   'glibmm'            => '2.7.3',
-   'gnome-vfsmm'       => '2.10.0',
+   'glibmm'            => '2.8.0',
+   'gnome-vfsmm'       => '2.12.0',
    'gtkmm'             => '2.8.0',
    'libglademm'        => '2.6.1',
    'libgnomecanvasmm'  => '2.12.0',
