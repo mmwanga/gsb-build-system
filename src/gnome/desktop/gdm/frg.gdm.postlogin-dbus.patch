@@ -11,7 +11,7 @@
  # for the user or something like that.  $HOME, $LOGIN and such will all be
  # set appropriately and this script is run as root.
 +
-+if [ -x /usr/bin/dbus-daemon-1 ]
++if [ -x /usr/bin/dbus-daemon ]
 +then
-+	/usr/bin/dbus-daemon-1 --session --fork
++	/usr/bin/dbus-daemon --session --fork
 +fi
