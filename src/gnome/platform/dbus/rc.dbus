@@ -3,21 +3,21 @@
 PIDFILE=/var/run/dbus.pid;
 
 dbus_start() {
-  if [ -x /usr/bin/dbus-daemon-1 -a "`pgrep -u messagebus dbus-daemon-1`" = "" ]; then
+  if [ -x /usr/bin/dbus-daemon -a "`pgrep -u messagebus dbus-daemon`" = "" ]; then
       # Just in case the pidfile is still there, we need to nuke it.
       if [ -e "$PIDFILE" ]; then
         rm -f $PIDFILE
       fi
 
       echo -en "Starting message bus: ";
-      /usr/bin/dbus-daemon-1 --system &>/dev/null
+      /usr/bin/dbus-daemon --system &>/dev/null
 
       if [ "$?" = "0" ]; then
         echo "started"
       fi
   else
-    if [ "`pgrep -u messagebus dbus-daemon-1`" != "" ]; then
-	  echo "/usr/bin/dbus-daemon-1 --system: already running"
+    if [ "`pgrep -u messagebus dbus-daemon`" != "" ]; then
+	  echo "/usr/bin/dbus-daemon --system: already running"
 	fi
   fi
 }
@@ -30,7 +30,7 @@ dbus_stop() {
     kill $PID &>/dev/null
     rm -f $PIDFILE &>/dev/null
   else
-    pkill -u messagebus dbus-daemon-1 &>/dev/null
+    pkill -u messagebus dbus-daemon &>/dev/null
   fi
   echo "System Message-Bus Stopped"
 }
