@@ -84,7 +84,7 @@ our %platform_reqs =
 			    },
    'dbus'                => {
 			     'url' => 'http://dbus.freedesktop.org/releases/',
-			     'ver' => '0.36.1',
+			     'ver' => '0.50',
 			     'src' => 'tar.gz',
 			    },
    'desktop-file-utils'  => {
