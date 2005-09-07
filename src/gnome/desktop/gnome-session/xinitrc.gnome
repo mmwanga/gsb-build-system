@@ -24,9 +24,9 @@ if [ -f $usermodmap ]; then
     xmodmap $usermodmap
 fi
 
-if [ -x /usr/bin/dbus-daemon-1 ]
+if [ -x /usr/bin/dbus-daemon ]
 then
-	/usr/bin/dbus-daemon-1 --session --fork
+	/usr/bin/dbus-daemon --session --fork
 fi
 
 # This nag screen isn't going to save anybody.
