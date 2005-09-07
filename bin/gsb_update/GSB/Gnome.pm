@@ -24,8 +24,6 @@ our $VERSION   = 0.03;
 # Config Options for GNOME
 #
 
-#    'pkgconfig'           => '0.18.0',
-
 our %platform =
   (
    'at-spi'              => '1.6.6',
@@ -179,7 +177,7 @@ our %desktop =
    'gnome-applets'          => '2.12.0',
    'gnome-backgrounds'      => '2.12.0',
    'gnome-desktop'          => '2.12.0',
-   'gnome-doc-utils'        => '0.3.3',
+   'gnome-doc-utils'        => '0.4.0',
    'gnome-games'            => '2.12.0',
    'gnome-icon-theme'       => '2.12.0',
    'gnome-keyring-manager'  => '2.11.92',
@@ -198,7 +196,7 @@ our %desktop =
    'gnome-system-monitor'   => '2.12.0',
    'gnome-system-tools'     => '1.3.92',
    'gnome-terminal'         => '2.12.0',
-   'gnome-themes'           => '2.11.92',
+   'gnome-themes'           => '2.12.0',
    'gnome-user-share'       => '0.5',
    'gnome-utils'            => '2.12.0',
    'gnome-volume-manager'   => '1.4.0',
@@ -222,7 +220,7 @@ our %desktop =
    'libsoup'                => '2.2.6.1',
    'libwnck'                => '2.12.0',
    'libxklavier'            => '2.0',
-   'metacity'               => '2.11.3',
+   'metacity'               => '2.12.0',
    'nautilus'               => '2.12.0',
    'nautilus-cd-burner'     => '2.12.0',
    'nautilus-media'         => '0.8.1',
@@ -235,7 +233,7 @@ our %desktop =
    'vino'                   => '2.12.0',
    'vte'                    => '0.11.15',
    'yelp'                   => '2.12.0',
-   'zenity'                 => '2.11.92',
+   'zenity'                 => '2.12.0',
   );
 
 our %desktop_diff_naming =
