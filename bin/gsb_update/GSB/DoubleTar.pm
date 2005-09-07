@@ -26,6 +26,13 @@ our %double_tarballs =
 			  'src' => 'tar.gz',
 			  'var' => 'GAIMENC',
 			 },
+   'gnome-games-extra-data' => {
+				'ver' => '2.12.0',
+				'dir' => 'gnome/desktop/gnome-games',
+				'url' => 'http://ftp.gnome.org/pub/GNOME/sources/gnome-games/2.12/',
+				'src' => 'tar.bz2',
+				'var' => 'EXTRAVERSION',
+			       },
    'divx4linux'       => {
 			  'ver' => 'std-20030428',
 			  'dir' => 'gnome/desktop_reqs/divx4linux',

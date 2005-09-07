@@ -39,7 +39,7 @@ our %platform =
    'libbonobo'           => '2.10.1',
    'libbonoboui'         => '2.10.1',
    'libglade'            => '2.5.1',
-   'libgnome'            => '2.12.0',
+   'libgnome'            => '2.12.0.1',
    'libgnomecanvas'      => '2.12.0',
    'libgnomecups'        => '0.2.1',
    'libgnomeprint'       => '2.12.0',
@@ -189,67 +189,10 @@ our %desktop =
    'gnome-panel'            => '2.12.0',
    'gnome-pilot'            => '2.0.13',
    'gnome-pilot-conduits'   => '2.0.13',
-   'gnome-screensaver'      => '0.0.11',
+   'gnome-screensaver'      => '0.0.12',
    'gnome-session'          => '2.12.0',
    'gnome-speech'           => '0.3.7',
    'gnome-spell'            => '1.0.6',
-   'gnome-system-monitor'   => '2.12.0',
-   'gnome-system-tools'     => '1.3.92',
-   'gnome-terminal'         => '2.12.0',
-   'gnome-themes'           => '2.12.0',
-   'gnome-user-share'       => '0.5',
-   'gnome-utils'            => '2.12.0',
-   'gnome-volume-manager'   => '1.4.0',
-   'gnome2-user-docs'       => '2.8.1',
-   'gnomemeeting'           => '1.2.2',
-   'gnopernicus'            => '0.11.6',
-   'gok'                    => '1.0.5',
-   'goobox'                 => '0.9.92',
-   'gpdf'                   => '2.10.0',
-   'gtk-engines'            => '2.6.5',
-   'gtkhtml'                => '3.8.0',
-   'gtksourceview'          => '1.4.1',
-   'gucharmap'              => '1.4.4',
-   'libcroco'               => '0.6.0',
-   'libgail-gnome'          => '1.1.1',
-   'libgnomeprintui'        => '2.12.0',
-   'libgsf'                 => '1.12.2',
-   'libgtkhtml'             => '2.6.3',
-   'libgtop'                => '2.12.0',
-   'librsvg'                => '2.11.1',
-   'libsoup'                => '2.2.6.1',
-   'libwnck'                => '2.12.0',
-   'libxklavier'            => '2.0',
-   'metacity'               => '2.12.0',
-   'nautilus'               => '2.12.0',
-   'nautilus-cd-burner'     => '2.12.0',
-   'nautilus-media'         => '0.8.1',
-   'nautilus-sendto'        => '0.4',
-   'scrollkeeper'           => '0.3.14',
-   'sound-juicer'           => '2.12.0',
-   'startup-notification'   => '0.8',
-   'system-tools-backends'  => '1.3.92',
-   'totem'                  => '1.2.0',
-   'vino'                   => '2.12.0',
-   'vte'                    => '0.11.15',
-   'yelp'                   => '2.12.0',
-   'zenity'                 => '2.12.0',
-  );
-
-our %desktop_diff_naming =
-  (
-   'gal2'  => {
-	       'ver'  => '2.5.3',
-	       'name' => 'gal',
-	      },
-  );
-
-our %desktop_other =
-  (
-   'gnome-games-extra-data' => {
-				'ver' => '2.12.0',
-				'dir' => 'gnome-games',
-			       },
   );
 
 our %desktop_nongnome =
