@@ -156,7 +156,7 @@ our %platform_reqs =
 
 our %desktop =
   (
-   'bug-buddy'              => '2.11.92',
+   'bug-buddy'              => '2.12.0',
    'control-center'         => '2.12.0',
    'dasher'                 => '3.2.18',
    'eel'                    => '2.12.0',
@@ -170,17 +170,17 @@ our %desktop =
    'evolution-webcal'       => '2.4.0.1',
    'file-roller'            => '2.12.0',
    'gcalctool'              => '5.6.31',
-   'gconf-editor'           => '2.11.92',
+   'gconf-editor'           => '2.12.0',
    'gdm'                    => '2.8.0.4',
    'gedit'                  => '2.12.0',
    'ggv'                    => '2.12.0',
    'gnome-applets'          => '2.12.0',
    'gnome-backgrounds'      => '2.12.0',
    'gnome-desktop'          => '2.12.0',
-   'gnome-doc-utils'        => '0.4.0',
+   'gnome-doc-utils'        => '0.4.1',
    'gnome-games'            => '2.12.0',
    'gnome-icon-theme'       => '2.12.0',
-   'gnome-keyring-manager'  => '2.11.92',
+   'gnome-keyring-manager'  => '2.12.0',
    'gnome-mag'              => '0.12.1',
    'gnome-media'            => '2.11.91',
    'gnome-menus'            => '2.12.0',
@@ -247,7 +247,7 @@ our %desktop_diff_naming =
 our %desktop_other =
   (
    'gnome-games-extra-data' => {
-				'ver' => '2.10.0',
+				'ver' => '2.12.0',
 				'dir' => 'gnome-games',
 			       },
   );
@@ -269,14 +269,14 @@ our %desktop_nongnome =
 our %bindings_cxx =
   (
    'bakery'            => '2.3.15',
-   'gconfmm'           => '2.10.0',
+   'gconfmm'           => '2.12.0',
    'glibmm'            => '2.7.3',
    'gnome-vfsmm'       => '2.10.0',
-   'gtkmm'             => '2.7.4',
-   'libglademm'        => '2.6.0',
-   'libgnomecanvasmm'  => '2.11.1',
-   'libgnomemm'        => '2.10.0',
-   'libgnomeuimm'      => '2.10.0',
+   'gtkmm'             => '2.8.0',
+   'libglademm'        => '2.6.1',
+   'libgnomecanvasmm'  => '2.12.0',
+   'libgnomemm'        => '2.12.0',
+   'libgnomeuimm'      => '2.12.0',
    'libsigc++'         => '2.0.16',
    'libxml++'          => '2.11.0',
   );

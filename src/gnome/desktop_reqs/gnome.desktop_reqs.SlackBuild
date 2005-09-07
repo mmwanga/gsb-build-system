@@ -18,8 +18,6 @@ fi
 #libvisual-nebulus
 #libvisual-xmms
 
-# removed
-# heimdal, needs to be cleaned up
 # cyrus-sasl, included with slackware now
 
 BUILD_ORDER="a52dec
@@ -67,6 +65,7 @@ avifile
 openldap
 PyXML
 iso-codes
+heimdal
 "
 
 (

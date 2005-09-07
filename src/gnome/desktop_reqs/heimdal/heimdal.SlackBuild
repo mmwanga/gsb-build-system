@@ -59,7 +59,7 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 CFLAGS="$SLKCFLAGS" \
-./configure --prefix=/usr \
+./configure --prefix=/opt/heimdal \
 	    --enable-shared \
 	    --without-openldap \
             $ARCH_CONFIGURE \
