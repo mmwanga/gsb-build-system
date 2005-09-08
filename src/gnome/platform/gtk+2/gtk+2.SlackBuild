@@ -96,3 +96,9 @@ cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG 
 makepkg -p -l y -c n $TMP/gtk+2-$VERSION-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/gtk+-$VERSION
+  rm -rf $PKG
+fi
