@@ -295,6 +295,11 @@ our %other =
 			     'url' => 'http://xchat.org/files/source/2.4/',
 			     'src' => 'tar.bz2',
 			    },
+    'nautilus-open-terminal'  => {
+			     'ver' => '0.4',
+			     'url' => 'http://manny.cluecoder.org/packages/nautilus-open-terminal/',
+			     'src' => 'tar.gz',
+          },
   );
 
 our %other_gnome =
