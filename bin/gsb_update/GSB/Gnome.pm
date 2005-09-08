@@ -221,7 +221,7 @@ our %bindings_cxx =
    'libgnomemm'        => '2.12.0',
    'libgnomeuimm'      => '2.12.0',
    'libsigc++'         => '2.0.16',
-   'libxml++'          => '2.11.0',
+   'libxml++'          => '2.12.0',
   );
 
 #    'libgtkhtml-java'  => '2.6.0',
