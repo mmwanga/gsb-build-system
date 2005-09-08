@@ -1,5 +1,7 @@
 #!/bin/sh
 
+. ../GSB.options
+
 TMP=${TMP:-/tmp}
 
 if [ ! -d $TMP ]; then
@@ -18,6 +20,8 @@ ikvm
 monodevelop
 "
 
+mkdir -p $TMP/gnome-$GVERSION/mono
+
 (
 for i in $BUILD_ORDER
 do
@@ -28,8 +32,9 @@ do
   echo "*****         Building $i"
   echo "*************************************************"
   echo ""
-  ./$i.SlackBuild
+  ./$i.SlackBuild --cleanup
   upgradepkg --install-new $TMP/$i*.tgz
+  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/mono
 )
 done
 # Fork screen output to a log
