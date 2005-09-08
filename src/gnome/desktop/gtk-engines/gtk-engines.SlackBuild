@@ -73,12 +73,12 @@ make install DESTDIR=$PKG
 
 chown -R root.bin $PKG/usr/bin
 
-(
-  cd $PKG/usr/lib/gtk-2.0/
-  rm -rf engines/
-  cd $PKG/usr/share/themes/
-  rm -rf Clearlooks
-)
+#(
+#  cd $PKG/usr/lib/gtk-2.0/
+#  rm -rf engines/
+#  cd $PKG/usr/share/themes/
+#  rm -rf Clearlooks
+#)
 
 mkdir -p $PKG/usr/doc/gtk-engines-$VERSION
 cp -a \
