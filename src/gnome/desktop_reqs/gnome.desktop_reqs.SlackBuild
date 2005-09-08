@@ -19,13 +19,14 @@ fi
 #libvisual-xmms
 
 # cyrus-sasl, included with slackware now
+# normalize removed, slackware has included it
 
 BUILD_ORDER="a52dec
 divx4linux
 ffmpeg
 id3lib
-faad2
 faac
+faad2
 libcdaudio
 libcddb
 libcdio
@@ -54,7 +55,6 @@ mjpegtools
 mpeg2dec
 mpeg4ip
 libmusepack
-normalize
 openslp
 polypaudio
 swfdec
@@ -79,7 +79,7 @@ do
   echo "*****   Building $i"
   echo "*************************************************"
   echo ""
-  ./$i.SlackBuild
+  ./$i.SlackBuild --cleanup
   upgradepkg --install-new $TMP/$i*.tgz
 )
 done
