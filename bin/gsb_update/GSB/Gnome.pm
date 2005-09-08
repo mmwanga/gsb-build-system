@@ -94,7 +94,7 @@ our %platform_reqs =
 			    },
    'gamin'               => {
 			     'url' => 'http://www.gnome.org/~veillard/gamin/sources/',
-			     'ver' => '0.1.1',
+			     'ver' => '0.1.5',
 			     'src' => 'tar.gz',
 			    },
    'glitz'               => {
