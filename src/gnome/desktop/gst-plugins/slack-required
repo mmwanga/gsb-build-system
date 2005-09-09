@@ -23,6 +23,7 @@ libfame
 libid3tag
 libmad
 libmms
+libmpcdec
 libogg
 liboil
 libraw1394
