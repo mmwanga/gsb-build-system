@@ -89,3 +89,8 @@ cat $CWD/slack-required > $PKG/install/slack-required
 cd $PKG
 makepkg -l y -c n $TMP/libcroco-$VERSION-$ARCH-$BUILD.tgz
 
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/libcroco-$VERSION
+  rm -rf $PKG
+fi

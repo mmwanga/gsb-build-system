@@ -101,6 +101,6 @@ makepkg -l y -c n $TMP/faad2-$VERSION-$ARCH-$BUILD.tgz
  
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/faad2-$VERSION
+  rm -rf $TMP/faad2
   rm -rf $PKG
 fi

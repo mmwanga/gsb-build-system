@@ -86,6 +86,6 @@ makepkg -l y -c n $TMP/libdv-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/nmap-$VERSION
+  rm -rf $TMP/libdv-$VERSION
   rm -rf $PKG
 fi

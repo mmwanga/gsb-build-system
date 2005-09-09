@@ -95,6 +95,6 @@ makepkg -l y -c n $TMP/faac-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/faac-$VERSION
+  rm -rf $TMP/faac
   rm -rf $PKG
 fi

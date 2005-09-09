@@ -149,5 +149,6 @@ makepkg -l y -c n $TMP/gnome-games-$VERSION-$ARCH-$BUILD.tgz
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
   rm -rf $TMP/gnome-games-$VERSION
+  rm -rf $TMP/gnome-games-extra-data-$EXTRAVERSION
   rm -rf $PKG
 fi

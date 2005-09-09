@@ -84,6 +84,6 @@ makepkg -l y -c n $TMP/libmusicbrainz-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/template-$VERSION
+  rm -rf $TMP/libmusicbrainz-$VERSION
   rm -rf $PKG
 fi

@@ -52,6 +52,8 @@ libgnomeprint
 hicolor-icon-theme
 "
 
+mkdir -p $TMP/gnome-$GVERSION/platform
+
 (
 for i in $BUILD_ORDER
 do
@@ -63,8 +65,9 @@ do
   echo "*****         Building $i"
   echo "*************************************************"
   echo ""
-  ./$i.SlackBuild || exit 1
+  ./$i.SlackBuild --cleanup || exit 1
   upgradepkg --install-new $TMP/$i*.tgz
+  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/platform
 )
 done
 # Fork screen output to a log

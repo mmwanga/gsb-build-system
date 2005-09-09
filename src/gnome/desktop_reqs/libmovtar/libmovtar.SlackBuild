@@ -116,5 +116,7 @@ makepkg -l y -c n $TMP/libmovtar-$VERSION-$ARCH-$BUILD.tgz
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
   rm -rf $TMP/libmovtar-$VERSION
+  rm -rf $TMP/jpeg-mmx-$JPEGMMXV
+  rm -f $TMP/jpeg-mmx
   rm -rf $PKG
 fi
