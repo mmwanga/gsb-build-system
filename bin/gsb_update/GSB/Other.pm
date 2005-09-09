@@ -241,7 +241,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'pstoedit'            => {
-			     'ver' => '3.40',
+			     'ver' => '3.41',
 			     'url' => 'http://home.t-online.de/home/helga.glunz/wglunz/pstoedit/',
 			     'src' => 'tar.gz',
 			    },
