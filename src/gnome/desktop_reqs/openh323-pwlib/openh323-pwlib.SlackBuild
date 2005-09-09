@@ -5,10 +5,10 @@ TMP=${TMP:-/tmp}
 PKG=$TMP/package-openh323
 PWPKG=$TMP/package-pwlib
 
-VERSION=1.15.3
-PVERSION=1.8.4
+VERSION=1.15.6
+PVERSION=1.8.7
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/openh323-$VERSION-$ARCH-$BUILD ]; then
   echo "openh323-pwlib-$VERSION-$ARCH-$BUILD package already installed"

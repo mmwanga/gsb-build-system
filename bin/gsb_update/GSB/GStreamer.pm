@@ -76,7 +76,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libcdaudio'        => {
-			   'ver' => '0.99.12',
+			   'ver' => '0.99.12p2',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libcdaudio/',
 			   'src' => 'tar.gz',
 			  },
@@ -156,7 +156,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'liboil'            => {
-			   'ver' => '0.3.0',
+			   'ver' => '0.3.2',
 			   'url' => 'http://www.schleef.org/liboil/download/',
 			   'src' => 'tar.gz',
 			  },
@@ -181,7 +181,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libtheora'         => {
-			   'ver' => '1.0alpha4',
+			   'ver' => '1.0alpha5',
 			   'url' => 'http://downloads.xiph.org/releases/theora/',
 			   'src' => 'tar.gz',
 			  },
@@ -221,7 +221,7 @@ our %gst_libs =
 			   'src' => 'tar.bz2',
 			  },
    'openslp'           => {
-			   'ver' => '1.2.0',
+			   'ver' => '1.2.1',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/openslp/',
 			   'src' => 'tar.gz',
 			  },
@@ -236,7 +236,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'transcode'         => {
-			   'ver' => '0.6.14',
+			   'ver' => '1.0.0',
 			   'url' => 'http://www.jakemsr.com/transcode/',
 			   'src' => 'tar.gz',
 			  },
