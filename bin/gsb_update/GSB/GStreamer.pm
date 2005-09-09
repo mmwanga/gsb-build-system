@@ -145,9 +145,9 @@ our %gst_libs =
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mjpeg/',
 			   'src' => 'tar.gz',
 			  },
-   'libmusepack'       => {
-			   'ver' => '1.1.1',
-			   'url' => 'http://www.saunalahti.fi/grimmel/musepack.net-files/source/',
+   'libmpcdec'       => {
+			   'ver' => '1.2.1',
+			   'url' => 'http://files.musepack.net/source/',
 			   'src' => 'tar.bz2',
 			  },
    'libmusicbrainz'    => {

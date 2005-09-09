@@ -54,7 +54,7 @@ lame
 mjpegtools
 mpeg2dec
 mpeg4ip
-libmusepack
+libmpcdec
 openslp
 polypaudio
 swfdec
