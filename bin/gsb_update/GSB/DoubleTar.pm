@@ -29,7 +29,7 @@ our %double_tarballs =
    'gnome-games-extra-data' => {
 				'ver' => '2.12.0',
 				'dir' => 'gnome/desktop/gnome-games',
-				'url' => 'http://ftp.gnome.org/pub/GNOME/sources/gnome-games/2.12/',
+				'url' => 'http://ftp.gnome.org/pub/GNOME/sources/gnome-games-extra-data/2.12/',
 				'src' => 'tar.bz2',
 				'var' => 'EXTRAVERSION',
 			       },
