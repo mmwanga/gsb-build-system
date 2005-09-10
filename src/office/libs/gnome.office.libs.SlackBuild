@@ -1,8 +1,6 @@
 #!/bin/sh
 
-if [ -r ../GSB.options ]; then
-  . ../GSB.options
-fi
+. ../../GSB.options
 
 TMP=${TMP:-/tmp}
 
@@ -10,9 +8,7 @@ if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 
-mkdir -p $TMP/gnome-$GVERSION/office
-
-#not included: eps, PyXML
+#not included: eps
 BUILD_ORDER="
 aiksaurus
 ots
@@ -28,6 +24,8 @@ goffice
 present
 "
 
+mkdir -p $TMP/gnome-$GVERSION/office
+
 (
 
 for i in $BUILD_ORDER
@@ -39,7 +37,7 @@ do
   echo "*****   Building $i"
   echo "*************************************************"
   echo ""
-  ./$i.SlackBuild
+  ./$i.SlackBuild --cleanup
   upgradepkg --install-new $TMP/$i*.tgz
   mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/office
 )

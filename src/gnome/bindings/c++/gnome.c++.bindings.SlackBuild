@@ -1,5 +1,7 @@
 #!/bin/sh
 
+. ../../../GSB.options
+
 TMP=${TMP:-/tmp}
 
 if [ ! -d $TMP ]; then
@@ -28,8 +30,9 @@ do
   echo "*****         Building $i"
   echo "*************************************************"
   echo ""
-  ./$i.SlackBuild
+  ./$i.SlackBuild --cleanup
   upgradepkg --install-new $TMP/$i*.tgz
+  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/bindings
 )
 done
 # Fork screen output to a log

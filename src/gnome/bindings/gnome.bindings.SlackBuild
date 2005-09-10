@@ -1,5 +1,7 @@
 #!/bin/sh
 
+. ../../GSB.options
+
 TMP=${TMP:-/tmp}
 
 if [ ! -d $TMP ]; then
@@ -13,6 +15,8 @@ c++
 python
 perl
 "
+
+mkdir -p $TMP/gnome-$GVERSION/bindings
 
 (
 for i in $BUILD_ORDER

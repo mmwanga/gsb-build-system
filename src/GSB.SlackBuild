@@ -17,6 +17,11 @@ fi
   ln -s db4/db.h db.h
 )
 
+echo "****************************************************"
+echo "*******      BUILDING GNOME-$GVERSION"
+echo "****************************************************"
+
+
 # BUILD GNOME PLATFORM AND DESKTOP
 for i in gnome other office
 do
@@ -34,3 +39,7 @@ done
 
 mkdir -p $TMP/gnome-$GVERSION/logs
 mv $TMP/gnome.*.build.log $TMP/gnome-$GVERSION/logs
+
+echo "****************************************************"
+echo "*******      FINISHED BUILDING GNOME-$GVERSION"
+echo "****************************************************"

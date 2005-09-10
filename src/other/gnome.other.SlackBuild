@@ -1,8 +1,6 @@
 #!/bin/sh
 
-if [ -r ../GSB.options ]; then
-  . ../GSB.options
-fi
+. ../GSB.options
 
 TMP=${TMP:-/tmp}
 
@@ -15,10 +13,6 @@ mkdir -p $TMP/gnome-$GVERSION/other
 # not built: IndLinux NetworkManager
 
 BUILD_ORDER="
-libpixman
-glitz
-cairo
-libmikmod
 libgphoto2
 gphoto2
 libexif-gtk
@@ -93,6 +87,8 @@ anjuta
 nautilus-open-terminal
 "
 
+mkdir -p $TMP/gnome-$GVERSION/other
+
 (
 for i in $BUILD_ORDER
 do
@@ -103,7 +99,7 @@ do
   echo "*****         Building $i"
   echo "*************************************************"
   echo ""
-  ./$i.SlackBuild
+  ./$i.SlackBuild --cleanup
   upgradepkg --install-new $TMP/$i*.tgz
   mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/other
 )
