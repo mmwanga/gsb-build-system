@@ -39,7 +39,8 @@ fi
 cd $TMP 
 tar xzvf $CWD/abiword-$VERSION.tar.gz
 cd abiword-$VERSION
-cat $CWD/abiword-2.3.4-pangographics.patch | patch -p1 --verbose
+#cat $CWD/abiword-2.3.4-pangographics.patch | patch -p1 --verbose
+cat $CWD/pango_xft.patch | patch -p1 --verbose
 cat $CWD/abiword-2.3.5.goffice-0.4.format_h.patch | patch  -p1 --verbose
 
 # Apply $ARCH specific patches
