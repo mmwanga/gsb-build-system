@@ -213,7 +213,7 @@ our %desktop =
    'libcroco'               => '0.6.0',
    'libgail-gnome'          => '1.1.1',
    'libgnomeprintui'        => '2.12.0',
-   'libgsf'                 => '1.12.2',
+   'libgsf'                 => '1.12.3',
    'libgtkhtml'             => '2.6.3',
    'libgtop'                => '2.12.0',
    'librsvg'                => '2.11.1',
@@ -288,7 +288,7 @@ our %bindings_java =
 our %bindings_python =
   (
    'gnome-python'         => '2.12.0',
-   'gnome-python-extras'  => '2.11.4',
+   'gnome-python-extras'  => '2.12.0',
    'nautilus-python'      => '0.4.0',
    'pygtk'                => '2.8.0',
    'pyorbit'              => '2.0.1',
