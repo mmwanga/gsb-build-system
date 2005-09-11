@@ -39,6 +39,8 @@ fi
 cd $TMP 
 tar xzvf $CWD/abiword-$VERSION.tar.gz
 cd abiword-$VERSION
+cat $CWD/abiword-2.3.4-pangographics.patch | patch -p1 --verbose
+cat $CWD/abiword-2.3.5.goffice-0.4.format_h.patch | patch  -p1 --verbose
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
@@ -75,11 +77,13 @@ CFLAGS="$SLKCFLAGS" \
 	  --with-libxml2 \
 	  --enable-curl \
 	  --disable-magick \
-    $ARCH_CONFIGURE \
+          $ARCH_CONFIGURE \
 	  $ARCH-slackware-linux || exit 1
 make || exit 1
 make install DESTDIR=$PKG
+
 cd ..
+
 cd abiword-plugins
 if [ ! -r configure ]; then
   sh autogen.sh

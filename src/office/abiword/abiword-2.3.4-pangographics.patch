@@ -1,0 +1,23 @@
+diff --recursive -Nau abiword-2.3.4.orig/abi/src/af/gr/unix/GNUmakefile.am abiword-2.3.4/abi/src/af/gr/unix/GNUmakefile.am
+--- abiword-2.3.4.orig/abi/src/af/gr/unix/GNUmakefile.am	2005-03-20 18:41:14.000000000 +0100
++++ abiword-2.3.4/abi/src/af/gr/unix/GNUmakefile.am	2005-08-19 15:20:28.000000000 +0200
+@@ -24,6 +24,5 @@
+ 
+ libGr_unix_a_SOURCES=\
+ 	gr_UnixGraphics.cpp	\
+-	gr_UnixImage.cpp \
+-	gr_UnixPangoGraphics.cpp
++	gr_UnixImage.cpp
+ 
+diff --recursive -Nau abiword-2.3.4.orig/abi/src/af/xap/unix/xap_UnixApp.cpp abiword-2.3.4/abi/src/af/xap/unix/xap_UnixApp.cpp
+--- abiword-2.3.4.orig/abi/src/af/xap/unix/xap_UnixApp.cpp	2005-07-05 16:08:20.000000000 +0200
++++ abiword-2.3.4/abi/src/af/xap/unix/xap_UnixApp.cpp	2005-08-19 16:04:00.000000000 +0200
+@@ -107,7 +107,7 @@
+ 
+ 		
+ 		UT_ASSERT( bSuccess );
+-#if 1
++#if 0
+ 		bSuccess = pGF->registerClass(GR_UnixPangoGraphics::graphicsAllocator,
+ 									  GR_UnixPangoGraphics::graphicsDescriptor,
+ 									  GR_UnixPangoGraphics::s_getClassId());

@@ -1,0 +1,11 @@
+--- abiword-2.3.5/abiword-plugins/tools/abigochart/unix/AbiGOChart.cpp.orig	2005-09-11 12:06:02.000000000 -0400
++++ abiword-2.3.5/abiword-plugins/tools/abigochart/unix/AbiGOChart.cpp	2005-09-11 12:06:19.000000000 -0400
+@@ -76,7 +76,7 @@
+ #include <goffice/graph/gog-object-xml.h>
+ #include <goffice/data/go-data-simple.h>
+ #include <goffice/graph/gog-renderer-gnome-print.h>
+-#include <goffice/utils/format.h>
++#include <goffice/utils/go-format.h>
+ #include <gsf/gsf-impl-utils.h>
+ 
+ #include "ut_sleep.h"
