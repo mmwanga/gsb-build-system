@@ -93,3 +93,8 @@ cat $CWD/slack-desc > $PKG/install/slack-desc
 cd $PKG
 makepkg -l y -c n $TMP/gnome-cups-manager-$VERSION-$ARCH-$BUILD.tgz
 
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/gnome-cups-manager-$VERSION
+  rm -rf $PKG
+fi

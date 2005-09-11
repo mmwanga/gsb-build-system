@@ -107,3 +107,9 @@ cat $CWD/slack-desc > $PKG/install/slack-desc
 cd $PKG
 makepkg -p -l y -c n ../gimp-$VERSION-$ARCH-$BUILD.tgz
 
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/gimp-$VERSION
+  rm -rf $PKG
+fi
+

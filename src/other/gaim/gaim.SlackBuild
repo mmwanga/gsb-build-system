@@ -131,3 +131,9 @@ cat $CWD/doinst.sh > $PKG/install/doinst.sh
 cd $PKG
 makepkg -l y -c n ../gaim-$VERSION-$ARCH-$BUILD.tgz
 
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/gaim-$VERSION
+  rm -rf $TMP/gaim-encryption-$GAIMENC
+  rm -rf $PKG
+fi

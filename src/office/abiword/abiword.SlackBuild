@@ -58,7 +58,6 @@ elif [ "$ARCH" = "x86_64" ]; then
   #cat $CWD/foo.patch | patch -p0 --verbose
 fi
 
-(
 cd abi 
 #
 if [ ! -r configure ]; then
@@ -80,10 +79,8 @@ CFLAGS="$SLKCFLAGS" \
 	  $ARCH-slackware-linux || exit 1
 make || exit 1
 make install DESTDIR=$PKG
-)
-(
+cd ..
 cd abiword-plugins
-#
 if [ ! -r configure ]; then
   sh autogen.sh
 fi
@@ -96,7 +93,6 @@ CFLAGS="$SLKCFLAGS" \
           $ARCH-slackware-linux || exit 1
 make || exit 1
 make install DESTDIR=$PKG
-)
 
 chown -R root.bin $PKG/usr/bin
 

@@ -89,3 +89,8 @@ cat $CWD/doinst.sh > $PKG/install/doinst.sh
 cd $PKG
 makepkg -l y -c n $TMP/xscreensaver-$VERSION-$ARCH-$BUILD.tgz
 
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/xscreensaver-$VERSION
+  rm -rf $PKG
+fi
