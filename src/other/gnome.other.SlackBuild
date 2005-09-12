@@ -87,6 +87,7 @@ anjuta
 nautilus-open-terminal
 gnome-power-manager
 lock-keys-applet
+nvu
 "
 
 mkdir -p $TMP/gnome-$GVERSION/other

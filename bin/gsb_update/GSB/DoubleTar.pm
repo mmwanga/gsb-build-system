@@ -60,4 +60,11 @@ our %double_tarballs_url =
 				   'tar' => 'iso-codes_0.47.orig.tar.gz',
 				   'var' => 'VERSION',
 				  },
+   'nvu'                 => {
+				   'ver' => '1.0',
+				   'dir' => 'other/nvu',
+				   'url' => 'http://cvs.nvu.com/download/',
+				   'tar' => 'nvu-1.0-sources.tar.bz2',
+				   'var' => 'VERSION',
+				  },
   );
