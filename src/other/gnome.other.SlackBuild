@@ -85,6 +85,7 @@ graphviz
 subversion
 anjuta
 nautilus-open-terminal
+gnome-power-manager
 "
 
 mkdir -p $TMP/gnome-$GVERSION/other
