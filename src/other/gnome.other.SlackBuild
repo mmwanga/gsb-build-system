@@ -86,6 +86,7 @@ subversion
 anjuta
 nautilus-open-terminal
 gnome-power-manager
+lock-keys-applet
 "
 
 mkdir -p $TMP/gnome-$GVERSION/other

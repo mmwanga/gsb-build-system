@@ -120,6 +120,11 @@ our %other =
                              'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gnome-pkgtool/',
                              'src' => 'tar.gz',
                             },
+   'gnome-power-manager'       => {
+                             'ver' => '0.2.2.1',
+                             'url' => 'http://unc.dl.sourceforge.net/sourceforge/gnome-power/',
+                             'src' => 'tar.gz',
+                            },
    'gpgme'               => {
 			     'ver' => '1.0.3',
 			     'url' => 'ftp://ftp.gnupg.org/gcrypt/gpgme/',
@@ -230,11 +235,21 @@ our %other =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/liferea/',
 			     'src' => 'tar.gz',
 			    },
+   'lock-keys-applet'             => {
+			     'ver' => '1.0',
+			     'url' => 'http://www.wh-hms.uni-ulm.de/~mfcn/lock-keys-applet/packages/',
+			     'src' => 'tar.gz',
+			    },
    'mail-notification'   => {
 			     'ver' => '1.1',
 			     'url' => 'http://savannah.nongnu.org/download/mailnotify/',
 			     'src' => 'tar.gz',
 			    },
+   'nautilus-open-terminal'  => {
+			     'ver' => '0.4',
+			     'url' => 'http://manny.cluecoder.org/packages/nautilus-open-terminal/',
+			     'src' => 'tar.gz',
+          },
    'poppler'             => {
 			     'ver' => '0.4.2',
 			     'url' => 'http://poppler.freedesktop.org/',
@@ -295,11 +310,6 @@ our %other =
 			     'url' => 'http://xchat.org/files/source/2.4/',
 			     'src' => 'tar.bz2',
 			    },
-    'nautilus-open-terminal'  => {
-			     'ver' => '0.4',
-			     'url' => 'http://manny.cluecoder.org/packages/nautilus-open-terminal/',
-			     'src' => 'tar.gz',
-          },
   );
 
 our %other_gnome =
