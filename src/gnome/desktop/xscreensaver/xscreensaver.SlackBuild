@@ -6,7 +6,7 @@ CWD=`pwd`
 
 VERSION=4.22
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ -f /var/log/packages/xscreensaver-$VERSION-$ARCH-$BUILD ]; then
   echo "xscreensaver-$VERSION-$ARCH-$BUILD package already installed"
@@ -62,6 +62,7 @@ CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr/X11R6 \
+  --mandir=/usr/X11R6/man \
   --with-shadow \
   --with-jpeg \
   --with-gl \
