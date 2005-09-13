@@ -6,7 +6,7 @@ PKG=$TMP/package-gnome-system-tools
 
 VERSION=1.4.0
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gnome-system-tools-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-system-tools-$VERSION-$ARCH-$BUILD package already installed"
