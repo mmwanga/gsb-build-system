@@ -6,7 +6,7 @@ PKG=$TMP/package-gnomebaker
 
 VERSION=0.4.2
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gnomebaker-$VERSION-$ARCH-$BUILD ]; then
   echo "gnomebaker-$VERSION-$ARCH-$BUILD package already installed"
@@ -88,6 +88,7 @@ rm -f $PKG/usr/info/dir
 gzip -9 $PKG/usr/info/*
 
 mkdir -p $PKG/install
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
