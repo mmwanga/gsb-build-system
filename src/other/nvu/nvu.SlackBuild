@@ -65,7 +65,7 @@ cat $CWD/nvu.png > $PKG/usr/share/pixmaps/nvu.png
 mkdir $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 cat $CWD/slack-required > $PKG/install/slack-required
-cat $CWD/doinst.sh > $PKG/install/doinst.sh
+cat $CWD/doinst.sh |sed -re "s#usr/lib#$LIBDIR#" > $PKG/install/doinst.sh
 (cd ${PKG}${LIBDIR}/nvu; ln -s mozilla-xremote-client mozilla-nvu-xremote-client)
 (cd ${PKG}${LIBDIR}/nvu; ln -sf mozilla-xremote-client nvu-xremote-client)
 

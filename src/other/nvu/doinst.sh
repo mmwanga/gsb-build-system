@@ -1,4 +1,4 @@
-NVUDIR=usr/lib64/nvu-1.0
+NVUDIR=usr/lib/nvu-1.0
 REGXPCOM=../../../$NVUDIR/regxpcom
 REGCHROME=../../../$NVUDIR/regchrome
 NVU=../../../$NVUDIR/nvu-bin
