@@ -16,6 +16,7 @@ abiword
 dia
 gnumeric
 planner
+mergeant
 "
 
 mkdir -p $TMP/gnome-$GVERSION/office
