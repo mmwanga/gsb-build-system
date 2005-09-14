@@ -44,7 +44,7 @@ our %platform =
    'libgnomecups'        => '0.2.1',
    'libgnomeprint'       => '2.12.0',
    'libgnomeui'          => '2.12.0',
-   'libxml2'             => '2.6.21',
+   'libxml2'             => '2.6.22',
    'libxslt'             => '1.1.15',
    'pango'               => '1.10.0',
 
@@ -189,7 +189,7 @@ our %desktop =
    'gnome-panel'            => '2.12.0',
    'gnome-pilot'            => '2.0.13',
    'gnome-pilot-conduits'   => '2.0.13',
-   'gnome-screensaver'      => '0.0.12',
+   'gnome-screensaver'      => '0.0.13',
    'gnome-session'          => '2.12.0',
    'gnome-speech'           => '0.3.7',
    'gnome-spell'            => '1.0.6',
