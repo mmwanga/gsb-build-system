@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-frg-slapt-get-meta
 
-FRG_VERSION=0.2.2
+FRG_VERSION=2.12.0
 ARCH=noarch
-BUILD=1
+BUILD=1frg
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source

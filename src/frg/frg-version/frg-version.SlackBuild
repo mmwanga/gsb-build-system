@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-frg-version
 
-VERSION=0.2.0.99
+VERSION=2.11.999
 ARCH=noarch
 BUILD=1
 

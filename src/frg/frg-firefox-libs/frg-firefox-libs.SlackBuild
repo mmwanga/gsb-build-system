@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-frg-firefox-libs
 
-VERSION=0.1
+VERSION=2.12.0
 ARCH=${ARCH:-noarch}
 BUILD=1
 
