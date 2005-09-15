@@ -6,7 +6,7 @@ PKG=$TMP/package-gdm
 
 VERSION=2.8.0.4
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gdm-$VERSION-$ARCH-$BUILD ]; then
   echo "gdm-$VERSION-$ARCH-$BUILD package already installed"
@@ -41,7 +41,7 @@ rm -rf gdm-$VERSION
 tar xjvf $CWD/gdm-$VERSION.tar.bz2
 cd gdm-$VERSION
 cat $CWD/frg.gdm.conf.in.patch |patch -p1 --verbose
-cat $CWD/frg.gdm.postlogin-dbus.patch | patch -p0 --verbose
+#cat $CWD/frg.gdm.postlogin-dbus.patch | patch -p0 --verbose
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then

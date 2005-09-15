@@ -82,7 +82,6 @@ gnome-build
 devhelp
 autogen
 graphviz
-subversion
 anjuta
 nautilus-open-terminal
 gnome-power-manager
