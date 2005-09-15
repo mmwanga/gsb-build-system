@@ -1,4 +1,4 @@
-frgnome-desktop
+frgnome-desktop >= 2.12.0-noarch-1frg
 libgphoto2
 gphoto2
 libexif-gtk

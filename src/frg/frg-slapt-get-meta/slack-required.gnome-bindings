@@ -1,4 +1,4 @@
-frgnome-desktop
-frgnome-bindings-c++
-frgnome-bindings-perl
-frgnome-bindings-python
+frgnome-desktop >= 2.12.0-noarch-1frg
+frgnome-bindings-c++ >= 2.12.0-noarch-1frg
+frgnome-bindings-perl >= 2.12.0-noarch-1frg
+frgnome-bindings-python >= 2.12.0-noarch-1frg

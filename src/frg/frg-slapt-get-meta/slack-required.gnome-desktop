@@ -1,5 +1,5 @@
-frgnome-platform
-frgnome-desktop-reqs
+frgnome-platform >= 2.12.0-noarch-1frg
+frgnome-desktop-reqs >= 2.12.0-noarch-1frg
 gnome-icon-theme
 libgnomeprintui
 libgnomesu
