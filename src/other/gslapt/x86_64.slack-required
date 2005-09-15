@@ -6,4 +6,4 @@ x11
 gtk+2
 atk
 pango
-slapt-get >= 0.9.10a-x86_64-1
+slapt-get >= 0.9.10c-x86_64-1
