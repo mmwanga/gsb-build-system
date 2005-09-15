@@ -1,0 +1,169 @@
+#!/bin/sh
+
+CWD=`pwd`
+TMP=${TMP:-/tmp}
+PKG=$TMP/package-openh323
+PWPKG=$TMP/package-pwlib
+
+VERSION=cvs
+PVERSION=cvs
+ARCH=${ARCH:-i486}
+BUILD=1
+
+if [ -f /var/log/packages/openh323-$VERSION-$ARCH-$BUILD ]; then
+  echo "openh323-pwlib-$VERSION-$ARCH-$BUILD package already installed"
+  exit 0
+fi
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG $PWPKG
+mkdir -p $PKG $PWPKG
+
+if [ "$ARCH" = "i386" ]; then
+  SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
+  ARCH_CONFIGURE=""
+elif [ "$ARCH" = "i486" ]; then
+  SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
+  ARCH_CONFIGURE=""
+elif [ "$ARCH" = "powerpc" ]; then
+  SLKCFLAGS="-O2"
+  ARCH_CONFIGURE=""
+elif [ "$ARCH" = "s390" ]; then
+  SLKCFLAGS="-O2"
+  ARCH_CONFIGURE=""
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2 -fPIC"
+  ARCH_CONFIGURE="--libdir=/usr/lib64"
+fi
+
+#
+# Make pwlib package first
+#
+cd $TMP 
+tar xzvf $CWD/pwlib-$PVERSION.tar.gz
+cd pwlib
+
+# Apply $ARCH specific patches
+if [ "$ARCH" = "i386" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "i486" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "s390" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "powerpc" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "x86_64" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+  zcat $CWD/ldap_sasl_ssl_libs_configure.patch.gz | patch -p1 --verbose
+fi
+
+CFLAGS="$SLKCFLAGS" \
+./configure --prefix=/usr \
+	    --enable-plugins \
+	    --enable-v4l2 \
+            $ARCH_CONFIGURE \
+            $ARCH-slackware-linux || exit 1
+make || exit 1
+make install DESTDIR=$PWPKG
+
+(
+  mkdir -p $PWPKG/usr/bin
+  cd $PWPKG/usr/bin
+  ln -sf ../share/pwlib/make/ptlib-config
+)
+
+chown -R root.bin $PWPKG/usr/bin
+
+(
+  cd $PWPKG/usr/include/ptclib/
+  chmod 644 *.h
+)
+
+mkdir -p $PWPKG/usr/doc/pwlib-$PVERSION
+cp -a History.txt ReadMe.txt \
+  $PWPKG/usr/doc/pwlib-$PVERSION
+chmod 644 $PWPKG/usr/doc/pwlib-$PVERSION/*
+chown root.root $PWPKG/usr/doc/pwlib-$PVERSION/*
+
+find $PWPKG -type f | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded
+gzip -9 $PWPKG/usr/man/*/*
+
+mkdir -p $PWPKG/install
+cat $CWD/slack-required.pwlib > $PWPKG/install/slack-required
+cat $CWD/slack-desc.pwlib > $PWPKG/install/slack-desc
+
+cd $PWPKG
+makepkg -l y -c n $TMP/pwlib-$PVERSION-$ARCH-$BUILD.tgz
+
+#
+#
+# Build OpenH323 now
+#
+#
+
+cd $TMP 
+tar xzvf $CWD/openh323-$VERSION.tar.gz
+ln -s openh323-$VERSION openh323
+cd openh323
+
+# Apply $ARCH specific patches
+if [ "$ARCH" = "i386" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "i486" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "s390" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "powerpc" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "x86_64" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+fi
+
+CFLAGS="$SLKCFLAGS" \
+./configure --prefix=/usr \
+	    --enable-localspeex \
+            $ARCH_CONFIGURE \
+            $ARCH-slackware-linux || exit 1
+make || exit 1
+make install DESTDIR=$PKG
+
+(
+  cd $PKG/usr/include/openh323/
+  rm -rf CVS
+  chmod 644 *.h
+)
+
+mkdir -p $PKG/usr/doc/openh323-$VERSION
+cp -a ReadMe.txt VoIPBlaster.txt \
+  $PKG/usr/doc/openh323-$VERSION
+chmod 644 $PKG/usr/doc/openh323-$VERSION/*
+chown root.root $PKG/usr/doc/openh323-$VERSION/*
+
+find $PKG -type f | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded
+gzip -9 $PKG/usr/man/*/*
+
+mkdir -p $PKG/install
+cat $CWD/slack-required.openh323 > $PKG/install/slack-required
+cat $CWD/slack-desc.openh323 > $PKG/install/slack-desc
+
+cd $PKG
+makepkg -l y -c n $TMP/openh323-$VERSION-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/openh323-$VERSION $TMP/pwlib-$PVERSION
+  rm -f $TMP/pwlib $TMP/openh323
+  rm -rf $PKG $PWPKG
+fi
