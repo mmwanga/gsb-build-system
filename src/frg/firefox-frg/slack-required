@@ -1,8 +1,6 @@
 atk
 cxxlibs
 expat
-gcc
-gcc-g++
 glib2
 gtk+2
 libidl

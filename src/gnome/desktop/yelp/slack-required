@@ -1,8 +1,6 @@
 bzip2
 cxxlibs
 mozilla | mozilla-firefox | firefox
-gcc
-gcc-g++
 gconf
 gnome-keyring
 gnome-vfs

@@ -1,7 +1,5 @@
 bzip2
 cxxlibs
-gcc
-gcc-g++
 glib2
 libgsf
 libwpd

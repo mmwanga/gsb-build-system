@@ -1,6 +1,4 @@
 cxxlibs
 expat
-gcc
-gcc-g++
 x11
 zlib
