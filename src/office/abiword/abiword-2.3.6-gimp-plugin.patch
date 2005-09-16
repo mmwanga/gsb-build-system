@@ -1,0 +1,15 @@
+--- xap_UnixAppImpl.cpp.orig	2005-09-16 03:06:21.000000000 -0400
++++ xap_UnixAppImpl.cpp	2005-09-16 03:09:50.000000000 -0400
+@@ -64,6 +64,12 @@
+ 
+ bool XAP_UnixAppImpl::openURL(const char * szURL)
+ {
++  //
++  // Need this to make AbiGimp Load!!!!!
++  //
++        if(progExists("epiphany"))
++       {
++       }
+ #ifdef HAVE_GNOME
+ 	gnome_url_show(szURL, NULL);
+ 	return false;
