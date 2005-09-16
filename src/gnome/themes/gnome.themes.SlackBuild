@@ -12,7 +12,7 @@ BUILD_ORDER="gnome-extra-themes
 gnome-themes-extras
 clearlooks"
 
-mkdir -p $TMP/gnome-$GVERSION/themes
+mkdir -p $TMP/gnome-$GVERSION/extras/themes
 
 (
 for i in $BUILD_ORDER
@@ -27,7 +27,7 @@ do
   echo ""
   ./$i.SlackBuild --cleanup
   upgradepkg --install-new $TMP/$i*.tgz
-  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/themes
+  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/extras/themes
 )
 done
 # Fork screen output to a log

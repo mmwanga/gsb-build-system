@@ -68,7 +68,7 @@ iso-codes
 heimdal
 "
 
-mkdir -p $TMP/gnome-$GVERSION/desktop_reqs
+mkdir -p $TMP/gnome-$GVERSION/frgnome/desktop_reqs
 
 (
 
@@ -83,7 +83,7 @@ do
   echo ""
   ./$i.SlackBuild --cleanup
   upgradepkg --install-new $TMP/$i*.tgz
-  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/desktop_reqs
+  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/frgnome/desktop_reqs
 )
 done
 
@@ -98,7 +98,7 @@ do
   echo ""
   ./$i.SlackBuild
   upgradepkg --install-new $TMP/openh323*.tgz $TMP/pwlib*.tgz
-  mv $TMP/openh323*.tgz $TMP/pwlib*.tgz $TMP/gnome-$GVERSION/desktop_reqs
+  mv $TMP/openh323*.tgz $TMP/pwlib*.tgz $TMP/gnome-$GVERSION/frgnome/desktop_reqs
 )
 done
 

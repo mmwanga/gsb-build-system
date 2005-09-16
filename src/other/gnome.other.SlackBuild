@@ -8,7 +8,6 @@ if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 
-mkdir -p $TMP/gnome-$GVERSION/other
 
 # not built: IndLinux NetworkManager
 
@@ -89,7 +88,7 @@ lock-keys-applet
 nvu
 "
 
-mkdir -p $TMP/gnome-$GVERSION/other
+mkdir -p $TMP/gnome-$GVERSION/extras/other
 
 (
 for i in $BUILD_ORDER
@@ -103,7 +102,7 @@ do
   echo ""
   ./$i.SlackBuild --cleanup
   upgradepkg --install-new $TMP/$i*.tgz
-  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/other
+  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/extras/other
 )
 done
 # Fork screen output to a log

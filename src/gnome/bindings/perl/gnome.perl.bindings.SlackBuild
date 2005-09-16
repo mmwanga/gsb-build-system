@@ -8,7 +8,8 @@ if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 
-BUILD_ORDER="ExtUtils-PkgConfig
+BUILD_ORDER="
+ExtUtils-PkgConfig
 ExtUtils-Depends
 Glib
 Gtk2
@@ -16,7 +17,10 @@ Gnome2-Canvas
 Gnome2-GConf
 Gnome2-VFS
 Gnome2
-Gtk2-GladeXML"
+Gtk2-GladeXML
+"
+
+mkdir -p $TMP/gnome-$GVERSION/frgnome/bindings
 
 (
 for i in $BUILD_ORDER
@@ -31,7 +35,7 @@ do
   echo ""
   ./$i.SlackBuild --cleanup
   upgradepkg --install-new $TMP/$i*.tgz
-  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/bindings
+  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/frgnome/bindings
 )
 done
 # Fork screen output to a log

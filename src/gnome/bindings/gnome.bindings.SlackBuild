@@ -16,7 +16,7 @@ python
 perl
 "
 
-mkdir -p $TMP/gnome-$GVERSION/bindings
+mkdir -p $TMP/gnome-$GVERSION/frgnome/bindings
 
 (
 for i in $BUILD_ORDER

@@ -8,7 +8,8 @@ if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 
-BUILD_ORDER="libsigc++
+BUILD_ORDER="
+libsigc++
 glibmm
 libxml++
 gtkmm
@@ -18,7 +19,10 @@ libglademm
 gnome-vfsmm
 gconfmm
 libgnomeuimm
-bakery"
+bakery
+"
+
+mkdir -p $TMP/gnome-$GVERSION/frgnome/bindings
 
 (
 for i in $BUILD_ORDER
@@ -32,7 +36,7 @@ do
   echo ""
   ./$i.SlackBuild --cleanup
   upgradepkg --install-new $TMP/$i*.tgz
-  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/bindings
+  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/frgnome/bindings
 )
 done
 # Fork screen output to a log

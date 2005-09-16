@@ -12,7 +12,8 @@ if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 
-mkdir -p $TMP/gnome-$GVERSION
+mkdir -p $TMP/gnome-$GVERSION/frgnome
+mkdir -p $TMP/gnome-$GVERSION/extras
 
 # fork output to file to log the build
 (
@@ -30,8 +31,8 @@ do
 	echo "****************************************************"
         echo "*******      FINISHED BUILDING $i"
         echo "****************************************************"
-mkdir -p $TMP/gnome-$GVERSION/$i
-mv $TMP/*.tgz $TMP/gnome-$GVERSION/$i
+mkdir -p $TMP/gnome-$GVERSION/frgnome/$i
+mv $TMP/*.tgz $TMP/gnome-$GVERSION/frgnome/$i
 done
 
 # redirect screen output to a log

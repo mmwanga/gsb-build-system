@@ -24,7 +24,7 @@ goffice
 present
 "
 
-mkdir -p $TMP/gnome-$GVERSION/office
+mkdir -p $TMP/gnome-$GVERSION/extras/office
 
 (
 
@@ -39,7 +39,7 @@ do
   echo ""
   ./$i.SlackBuild --cleanup
   upgradepkg --install-new $TMP/$i*.tgz
-  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/office
+  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/extras/office
 )
 done
 
