@@ -6,7 +6,7 @@ PKG=$TMP/package-gtkmm
 
 VERSION=2.8.0
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gtkmm-$VERSION-$ARCH-$BUILD ]; then
   echo "gtkmm-$VERSION-$ARCH-$BUILD package already installed"
