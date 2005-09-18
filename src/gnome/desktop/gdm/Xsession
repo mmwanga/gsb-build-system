@@ -112,6 +112,9 @@ kde)
 	exec startkde
 	;;
 gnome)
+	exec dbus-launch --exit-with-session gnome-session 
+	;;
+gnome_nodbus)
 	exec gnome-session
 	;;
 openwin)

@@ -6,7 +6,7 @@ PKG=$TMP/package-gdm
 
 VERSION=2.8.0.4
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ -f /var/log/packages/gdm-$VERSION-$ARCH-$BUILD ]; then
   echo "gdm-$VERSION-$ARCH-$BUILD package already installed"
