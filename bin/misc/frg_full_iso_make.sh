@@ -1,7 +1,7 @@
 #!/bin/sh
 
-FRG=0.2.1
-GNOME=2.10.1
+FRG=2.12.0
+GNOME=2.12.0
 
 ISO_NAME="frg-${FRG}-${GNOME}.iso"
 
