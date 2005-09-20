@@ -61,6 +61,7 @@ fi
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
 	    --disable-static \
+            --disable-mp4 \
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 1
 make || exit 1

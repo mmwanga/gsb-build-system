@@ -2,6 +2,5 @@ bzip2
 cxxlibs
 glib2
 libgsf
-libwpd
 libxml2
 zlib
