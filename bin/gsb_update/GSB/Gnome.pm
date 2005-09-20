@@ -226,13 +226,13 @@ our %desktop =
    'nautilus-media'         => '0.8.1',
    'nautilus-sendto'        => '0.4',
    'scrollkeeper'           => '0.3.14',
-   'sound-juicer'           => '2.12.0',
+   'sound-juicer'           => '2.12.2',
    'startup-notification'   => '0.8',
    'system-tools-backends'  => '1.4.0',
    'totem'                  => '1.2.0',
    'vino'                   => '2.12.0',
    'vte'                    => '0.11.15',
-   'yelp'                   => '2.12.0',
+   'yelp'                   => '2.12.1',
    'zenity'                 => '2.12.0',
    );
 

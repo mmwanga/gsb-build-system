@@ -306,7 +306,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'xchat'               => {
-			     'ver' => '2.4.4',
+			     'ver' => '2.4.5',
 			     'url' => 'http://xchat.org/files/source/2.4/',
 			     'src' => 'tar.bz2',
 			    },
