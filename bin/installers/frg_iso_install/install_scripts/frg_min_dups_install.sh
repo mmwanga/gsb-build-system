@@ -7,9 +7,6 @@
 LIBWNCK=2.12.0
 METACITY=2.12.0
 
-LIBRSVG=2.9.5
-LIBRSVG_ALT=2.11.1
-
 TOTEMVERSION=1.2.0
 TOTEM_CVS=1.2.0
 
@@ -91,44 +88,6 @@ case "$metacity_selection" in
 	    echo "Invalid selection"
 	    echo "Installing default metacity"
 	    upgradepkg --install-new $FRGROOT/frgnome/desktop/metacity-"$METACITY"-*frg.tgz
-esac
-
-
-# Install LIBRSVG
-if [ "$NO_PROMPT" != "true" ]; then
-    printf "*********************************
-
-Select which librsvg to install 1 or 2\n"
-
-    echo "
-1) librsvg $LIBRSVG
-2) librsvg $LIBRSVG_ALT (unreleased)
-"
-
-    printf "Selection: "
-    read librsvg_selection
-    echo ""
-fi
-
-if [ "$PROMPTS" = "default" ]; then
-    librsvg_selection=1
-fi
-
-if [ "$PROMPTS" = "alt" ]; then
-    librsvg_selection=2
-fi
-
-case "$librsvg_selection" in
-'1')
-	    upgradepkg --install-new $FRGROOT/frgnome/desktop/librsvg-"$LIBRSVG"-*frg.tgz
-	    ;;
-'2')
-	    upgradepkg --install-new $FRGROOT/testing/librsvg-"$LIBRSVG_ALT"-*frg.tgz
-	    ;;
-*)
-	    echo "Invalid selection"
-	    echo "Installing stable librsvg"
-	    upgradepkg --install-new $FRGROOT/frgnome/desktop/librsvg-"$LIBRSVG"-*frg.tgz
 esac
 
 

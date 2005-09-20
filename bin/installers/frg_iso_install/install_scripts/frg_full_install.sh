@@ -38,7 +38,7 @@
   for i in *.tgz
   do
     PACK=`echo $i|cut -d - -f 1`
-    if [ "$PACK" = "gnumeric" ]; then
+    if [ "$PACK" = "NOTHING_TO_CHECK_HERE" ]; then
 	echo "Dupe package, skipping"
     else
 	upgradepkg --install-new $i
@@ -52,7 +52,7 @@
   for i in *.tgz
   do
     PACK=`echo $i|cut -d - -f 1`
-    if [[ "$PACK" = "sylpheed" || "$PACK" = "subversion" ]]; then
+    if [ "$PACK" = "sylpheed" ]; then
 	echo "Dupe package, skipping"
     else
 	upgradepkg --install-new $i

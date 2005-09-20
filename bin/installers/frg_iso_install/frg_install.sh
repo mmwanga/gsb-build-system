@@ -11,8 +11,8 @@ BASE=`dirname $0| sed "s#/.#/#"`
 
 export FRGROOT="$CWD/$BASE"
 
-FRG_VERSION=2.11.92
-GNOME_VERSION=2.11.92
+FRG_VERSION=2.11.999
+GNOME_VERSION=2.12.0
 
 # Functions
 

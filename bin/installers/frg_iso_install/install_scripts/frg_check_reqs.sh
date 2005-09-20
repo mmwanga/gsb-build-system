@@ -6,32 +6,32 @@
 FRGROOT=`dirname $0`
 
 REQUIRED_PACKAGES="
-perl-*-i486-*
-mozilla-*-i486-*
-python-*-i486-*
-libexif-*-i486-*
-flac-*-i486-*
-libogg-*-i486-*
-libao-*-i486-*
-libmad-*-i486-*
-libmikmod-*-i486-*
-gdk-pixbuf-*-i486-*
-cdparanoia-*-i386-*
-x11-*-i486-*
-x11-xnest-*-i486-*
+perl
+mozilla
+python
+libexif
+flac
+libogg
+libao
+libmad
+libmikmod
+gdk-pixbuf
+cdparanoia
+x11
+x11-xnest
 "
 
 check_packages() {
     PACKAGE=$1
 
-    if [ ! -f /var/log/packages/$PACKAGE ]; then
+    if [ ! -f "/var/log/packages/$PACKAGE-*" ]; then
 	MISSING_PACKAGES="$MISSING_PACKAGES $i"
     fi
 }
 
 for i in $REQUIRED_PACKAGES
 do
-check_packages $i
+  check_packages $i
 done
 
 if [ -n "$MISSING_PACKAGES" ]; then

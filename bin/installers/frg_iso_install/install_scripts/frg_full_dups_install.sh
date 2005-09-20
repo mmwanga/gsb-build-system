@@ -4,52 +4,8 @@
 #
 # $Id$
 
-GNUMERIC_VERSION=1.4.3
-GNUMERIC_ALT=1.5.5
-
 SYLPHEED_VERSION=2.0.1
 SYLPHEED_CLAWS_VERSION=1.9.12
-
-SUBVERSION=1.2.3
-
-# Install GNUMERIC
-
-if [ "$NO_PROMPT" != "true" ]; then
-
-    printf "*********************************
-
-Select which Gnumeric (spreadsheet) to install\n"
-
-    echo "
-1) Gnumeric $GNUMERIC_VERSION (stable version)
-2) Gnumeric $GNUMERIC_ALT (unstable version)
-"
-
-    printf "Selection: "
-    read gnumeric_selection
-    echo ""
-fi
-
-if [ "$PROMPTS" = "default" ]; then
-    gnumeric_selection=1
-fi
-
-if [ "$PROMPTS" = "alt" ]; then
-    gnumeric_selection=2
-fi
-
-case "$gnumeric_selection" in
-'1')
-	upgradepkg --install-new $FRGROOT/extras/office/gnumeric-"$GNUMERIC_VERSION"-*frg.tgz
-	;;
-'2')
-	upgradepkg --install-new $FRGROOT/testing/gnumeric-"$GNUMERIC_ALT"-*frg.tgz
-	;;
-*)
-	echo "Invalid selection"
-	echo "Installing stable Gnumeric"
-	upgradepkg --install-new $FRGROOT/extras/office/gnumeric-"$GNUMERIC_VERSION"-*frg.tgz
-esac
 
 # Install Sylpheed-claws
 
@@ -87,47 +43,5 @@ case "$sylpheed_selection" in
 	echo "Invalid selection"
 	echo "Installing default Sylpheed"
 	upgradepkg --install-new $FRGROOT/extras/other/sylpheed-"$SYLPHEED_VERSION"-*frg.tgz
-esac
-
-
-# Install Subversion 
-
-if [ "$NO_PROMPT" != "true" ]; then
-    printf "*********************************
-
-Do you want to install Subversion?
-
-Anjuta2 users will want to install this.
-
-Enter in 1 or 2\n"
-
-    echo "
-1) Yes (Subversion $SUBVERSION_VERSION) 
-2) No
-"
-
-    printf "Selection: "
-    read sylpheed_selection
-    echo ""
-fi
-
-if [ "$PROMPTS" = "default" ]; then
-    subversion_selection=2
-fi
-
-if [ "$PROMPTS" = "alt" ]; then
-    subversion_selection=1
-fi
-
-case "$subversion_selection" in
-'1')
-	upgradepkg --install-new $FRGROOT/extras/other/subversion-"$SUBVERSION"-*frg.tgz
-	;;
-'2')
-	echo "Not installing Subversion"
-	;;
-*)
-	echo "Invalid selection"
-	echo "Not installing Subversion"
 esac
 
