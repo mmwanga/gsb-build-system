@@ -58,3 +58,5 @@ Contributors:
         * slapt-get and gslapt
         * x86_64 port
 
+        Thorsten Johannvorderbrueggen <thorsten.johannvorderbrueggen@t-online.de>
+        * powerpc port
