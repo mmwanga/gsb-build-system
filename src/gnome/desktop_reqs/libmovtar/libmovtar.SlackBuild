@@ -7,7 +7,7 @@ PKG=$TMP/package-libmovtar
 VERSION=0.1.3
 JPEGMMXV=0.1.5
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/libmovtar-$VERSION-$ARCH-$BUILD ]; then
   echo "libmovtar-$VERSION-$ARCH-$BUILD package already installed"
