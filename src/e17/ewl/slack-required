@@ -1,0 +1,12 @@
+cxxlibs
+ecore
+edb
+edje
+eet
+embryo
+evas
+libjpeg
+libpng
+openssl-solibs | openssl
+x11
+zlib

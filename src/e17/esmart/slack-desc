@@ -1,0 +1,11 @@
+      |-----handy-ruler------------------------------------------------------|
+esmart: esmart - a collection of evas smart objects
+esmart:
+esmart: A collection of evas smart objects, including EThumb and Container.  
+esmart: EThumb is an evas smart object version of the freedesktop.org
+esmart: thumbnail spec.  Container is a smart object that takes care of
+esmart: laying out arbitrary evas objects (including other smart objects) in
+esmart: either a horizontal or vertical layout.
+esmart: 
+esmart:
+esmart:

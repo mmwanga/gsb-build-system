@@ -1,0 +1,11 @@
+     |-----handy-ruler------------------------------------------------------|
+ecore: ecore - event/X abstraction layer
+ecore:
+ecore: Ecore is the event/X abstraction layer that makes doing selections,
+ecore: Xdnd, general X stuff, event loops, timeouts and idle handlers fast,
+ecore: optimized, and convenient. It's a separate library so anyone can make
+ecore: use of the work put into Ecore to make this job easy for applications.
+ecore: 
+ecore: 
+ecore:
+ecore:

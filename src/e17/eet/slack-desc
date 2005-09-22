@@ -1,0 +1,11 @@
+   |-----handy-ruler------------------------------------------------------|
+eet: eet - compression library for Enlightenment
+eet:
+eet: Eet is a tiny library designed to write an arbitary set of chunks of
+eet: data to a file and optionally compress each chunk (very much like a
+eet: zip file) and allow fast random-access reading of the file later
+eet: on. It does not do zip as a zip itself has more complexity than is
+eet: needed, and it was much simpler to implement this once here.
+eet: 
+eet:
+eet:
