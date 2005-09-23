@@ -8,10 +8,11 @@ PWPKG=$TMP/package-pwlib
 VERSION=1.15.6
 PVERSION=1.8.7
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
-if [ -f /var/log/packages/openh323-$VERSION-$ARCH-$BUILD ]; then
-  echo "openh323-pwlib-$VERSION-$ARCH-$BUILD package already installed"
+
+if [ -f /var/log/packages/pwlib-$PVERSION-$ARCH-$BUILD ]; then
+  echo "pwlib-$PVERSION-$ARCH-$BUILD package already installed"
   exit 0
 fi
 
@@ -103,11 +104,18 @@ cat $CWD/slack-desc.pwlib > $PWPKG/install/slack-desc
 cd $PWPKG
 makepkg -l y -c n $TMP/pwlib-$PVERSION-$ARCH-$BUILD.tgz
 
+upgradepkg --install-new $TMP/pwlib-$PVERSION-$ARCH-$BUILD.tgz
+
 #
 #
 # Build OpenH323 now
 #
 #
+
+if [ -f /var/log/packages/openh323-$VERSION-$ARCH-$BUILD ]; then
+  echo "openh323-$VERSION-$ARCH-$BUILD package already installed"
+  exit 0
+fi
 
 cd $TMP 
 tar xzvf $CWD/openh323-$VERSION.tar.gz
