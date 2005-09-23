@@ -1,0 +1,64 @@
+? aaa
+? bbb
+? config.guess
+? config.h
+? config.h.in
+? config.sub
+? foo
+? ltmain.sh
+? patch
+? patch-2
+? patch-services
+? patch-vlos-1.2
+? process.pl
+? stamp-h1
+? system-tools-backends-1.4.0.tar.gz
+? m4macros/Makefile
+? m4macros/Makefile.in
+Index: ChangeLog
+===================================================================
+RCS file: /cvs/system-tools-backends/system-tools-backends/ChangeLog,v
+retrieving revision 1.809
+diff -u -r1.809 ChangeLog
+--- ChangeLog	4 Sep 2005 17:27:58 -0000	1.809
++++ ChangeLog	19 Sep 2005 23:09:29 -0000
+@@ -1,3 +1,8 @@
++2005-09-20  Carlos Garnacho Parro  <carlosg@gnome.org>
++
++	* network.pl.in: Fixed WEP key detection on both slackware and gentoo.
++	Closes GNOME bug #316732
++
+ 2005-09-04  Carlos Garnacho Parro  <carlosg@gnome.org>
+ 
+ 	* Release 1.4.0
+Index: network.pl.in
+===================================================================
+RCS file: /cvs/system-tools-backends/system-tools-backends/network.pl.in,v
+retrieving revision 1.208
+diff -u -r1.208 network.pl.in
+--- network.pl.in	27 Aug 2005 15:01:45 -0000	1.208
++++ network.pl.in	19 Sep 2005 23:09:38 -0000
+@@ -5165,9 +5165,9 @@
+        [ "gateway",            \&gst_network_get_gateway,            RC_INET_CONF, GATEWAY, "%address%", "%netmask%" ],
+        [ "auto",               \&gst_network_slackware91_get_auto,   [RC_INET, RC_LOCAL, IFACE]],
+        [ "bootproto",          \&gst_network_slackware91_parse_bootproto, [RC_INET_CONF, IFACE]],
+-       [ "essid",              \&gst_parse_wireless_opts,            [ WIRELESS, IFACE], \&gst_network_get_wireless_ifaces, ESSID ],
+-       [ "key_type",           \&gst_network_get_wep_key_type,      [ \&gst_parse_wireless_opts, [ WIRELESS, IFACE], \&gst_network_get_wireless_ifaces, KEY ]],
+-       [ "key",                \&gst_network_get_wep_key,           [ \&gst_parse_wireless_opts, [ WIRELESS, IFACE], \&gst_network_get_wireless_ifaces, KEY ]],
++       [ "essid",              \&gst_parse_wireless_opts,            [ WIRELESS, IFACE ], \&gst_network_get_wireless_ifaces, ESSID ],
++       [ "key_type",           \&gst_network_get_wep_key_type,      [ \&gst_parse_wireless_opts, WIRELESS, IFACE, \&gst_network_get_wireless_ifaces, KEY ]],
++       [ "key",                \&gst_network_get_wep_key,           [ \&gst_parse_wireless_opts, WIRELESS, IFACE, \&gst_network_get_wireless_ifaces, KEY ]],
+        [ "enabled",            \&gst_network_interface_active,       IFACE, \&gst_network_active_interfaces_get ],
+        # Modem stuff
+        [ "update_dns",         \&gst_network_check_type,            [IFACE, "modem", \&gst_parse_kw, PPP_OPTIONS, "usepeerdns" ]],
+@@ -5215,8 +5215,8 @@
+        [ "enabled",            \&gst_network_interface_active,       IFACE, \&gst_network_active_interfaces_get ],
+        [ "bootproto",          \&gst_network_parse_bootproto,        NET, "iface_%dev%" ],
+        [ "essid",              \&gst_parse_wireless_opts,            [ WIRELESS, IFACE], \&gst_network_get_wireless_ifaces, ESSID ],
+-       [ "key_type",           \&gst_network_get_wep_key_type,       [ \&gst_parse_wireless_opts, [ WIRELESS, IFACE], \&gst_network_get_wireless_ifaces, KEY ]],
+-       [ "key",                \&gst_network_get_wep_key,            [ \&gst_parse_wireless_opts, [ WIRELESS, IFACE], \&gst_network_get_wireless_ifaces, KEY ]],
++       [ "key_type",           \&gst_network_get_wep_key_type,       [ \&gst_parse_wireless_opts, WIRELESS, IFACE, \&gst_network_get_wireless_ifaces, KEY ]],
++       [ "key",                \&gst_network_get_wep_key,            [ \&gst_parse_wireless_opts, WIRELESS, IFACE, \&gst_network_get_wireless_ifaces, KEY ]],
+        # modem stuff
+        [ "update_dns",         \&gst_parse_sh_bool,                  PPPNET, PEERDNS ],
+        [ "mtu",                \&gst_parse_sh,                       PPPNET, MTU ],

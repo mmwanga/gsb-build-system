@@ -6,7 +6,7 @@ PKG=$TMP/package-system-tools-backends
 
 VERSION=1.4.0
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/system-tools-backends-$VERSION-$ARCH-$BUILD ]; then
   echo "system-tools-backends-$VERSION-$ARCH-$BUILD package already installed"
@@ -41,6 +41,7 @@ tar -xjvf $CWD/system-tools-backends-$VERSION.tar.bz2
 cd system-tools-backends-$VERSION
 
 cat $CWD/slackware-10.2.0-system-tools-backends.diff | patch -p0 --verbose
+cat $CWD/system-tools-backends.slackware_su.patch | patch -p0 --verbose
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
