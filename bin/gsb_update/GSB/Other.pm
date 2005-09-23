@@ -322,6 +322,7 @@ our %other_gnome =
    'glade'               => '2.12.0',
    'gnome-audio'         => '2.0.0',
    'gnome-build'         => '0.1.2',
+   'gnome-common'        => '2.12.0',
    'gnome-cups-manager'  => '0.31',
    'gnome-blog'          => '0.9',
    'gossip'              => '0.9',
