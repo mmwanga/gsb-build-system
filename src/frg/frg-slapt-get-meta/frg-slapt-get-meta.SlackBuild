@@ -5,7 +5,7 @@ TMP=${TMP:-/tmp}
 PKG=$TMP/package-frg-slapt-get-meta
 
 FRG_VERSION=2.12.0
-ARCH=noarch
+ARCH=${ARCH:-i486}
 BUILD=1frg
 
 if [ ! -d $TMP ]; then
@@ -48,6 +48,10 @@ do
       cat $CWD/slack-suggests.$i > $PKG/$i/install/slack-suggests
   fi
 done
+
+if [ "$ARCH" = "i486" ]; then
+   echo "frg-artwork" >> $PKG/gnome-desktop/install/slack-required
+fi 
 
 for i in $META_PACKS
 do
