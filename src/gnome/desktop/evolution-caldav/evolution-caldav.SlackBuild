@@ -40,6 +40,10 @@ cd $TMP
 tar -xjvf $CWD/evolution-caldav-$VERSION.tar.bz2
 cd evolution-caldav-$VERSION
 
+rm -f Makefile.am
+cp $CWD/$VERSION.Makefile.am Makefile.am
+cp $CWD/$VERSION.eplugin.mk eplugin.mk 
+
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
   echo "Applying patches for $ARCH"

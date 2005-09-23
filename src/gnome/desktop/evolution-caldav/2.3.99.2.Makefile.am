@@ -1,0 +1,16 @@
+SUBDIRS =				\
+	calendar			\
+	eplugin				\
+	po
+
+DISTCLEANFILES =			\
+	intltool-extract		\
+	intltool-update			\
+	intltool-merge
+
+EXTRA_DIST =				\
+	eplugin.mk			\
+	intltool-extract.in		\
+	intltool-merge.in		\
+	intltool-update.in
+
