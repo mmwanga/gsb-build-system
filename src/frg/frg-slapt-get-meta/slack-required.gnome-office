@@ -1,15 +1,18 @@
 frgnome-desktop >= 2.12.0-noarch-1frg
+aiksaurus
 ots
 libwmf
-fribidi
-dia
-gnumeric
 libwpd
 psiconv
+fribidi
 enchant
+libgda
+libgnomedb
+libgdamm
+goffice
+present
 abiword
-iso-codes
-PyXML
-aiksaurus
-mergeant
+dia
+gnumeric
 planner
+mergeant
