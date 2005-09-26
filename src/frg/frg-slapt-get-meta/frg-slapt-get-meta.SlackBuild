@@ -42,6 +42,9 @@ do
 
   if [ -f $CWD/slack-required.$i ]; then
       cat $CWD/slack-required.$i > $PKG/$i/install/slack-required
+      if [ "$ARCH" = "i486" ]; then
+	  sed -i 's/noarch/i486/g' $PKG/$i/install/slack-required
+      fi
   fi
 
   if [ -f $CWD/slack-suggests.$i ]; then
