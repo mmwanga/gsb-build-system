@@ -289,7 +289,7 @@ our %bindings_python =
   (
    'gnome-python'         => '2.12.0',
    'gnome-python-extras'  => '2.12.0',
-   'nautilus-python'      => '0.4.1',
+   'nautilus-python'      => '0.4.0',
    'pygtk'                => '2.8.0',
    'pyorbit'              => '2.0.1',
    'pyphany'              => '0.1.4',

@@ -38,8 +38,8 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 cd $TMP 
-tar xzvf $CWD/gnomemeeting-$VERSION.tar.gz
-cd gnomemeeting
+tar xzvf $CWD/gnomemeeting-opal-$VERSION.tar.gz
+cd gnomemeeting-opal
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
