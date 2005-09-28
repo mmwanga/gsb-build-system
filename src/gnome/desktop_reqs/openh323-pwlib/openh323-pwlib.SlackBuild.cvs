@@ -102,6 +102,7 @@ cat $CWD/slack-desc.pwlib > $PWPKG/install/slack-desc
 cd $PWPKG
 makepkg -l y -c n $TMP/pwlib-$PVERSION-$ARCH-$BUILD.tgz
 
+upgradepkg --install-new $TMP/pwlib-$PVERSION-$ARCH-$BUILD.tgz
 #
 #
 # Build OpenH323 now
