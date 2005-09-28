@@ -6,7 +6,7 @@ PKG=$TMP/package-gnome-session
 
 VERSION=2.12.0
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gnome-session-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-session-$VERSION-$ARCH-$BUILD package already installed"
@@ -90,7 +90,8 @@ chown -R root.bin $PKG/usr/bin
 
 mkdir -p $PKG/etc/X11/xinit
 cat $CWD/xinitrc.gnome > $PKG/etc/X11/xinit/xinitrc.gnome
-chmod 755 $PKG/etc/X11/xinit/xinitrc.gnome
+cat $CWD/xinitrc.gnome-no-dbus > $PKG/etc/X11/xinit/xinitrc.gnome-no-dbus
+chmod 755 $PKG/etc/X11/xinit/xinitrc.gnome $PKG/etc/X11/xinit/xinitrc.gnome-no-dbus
 
 mkdir -p $PKG/usr/doc/gnome-session-$VERSION
 cp -a \

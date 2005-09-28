@@ -28,4 +28,4 @@ fi
 export NAUTILUS_OK_TO_RUN_AS_ROOT=1
 
 # Start the window manager:
-exec dbus-launch --exit-with-session gnome-session
+exec gnome-session
