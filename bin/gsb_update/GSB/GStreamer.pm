@@ -86,7 +86,7 @@ our %gst_libs =
 			   'src' => 'tar.bz2',
 			  },
    'libcdio'           => {
-			   'ver' => '0.75',
+			   'ver' => '0.76',
 			   'url' => 'http://ftp.gnu.org/gnu/libcdio/',
 			   'src' => 'tar.gz',
 			  },

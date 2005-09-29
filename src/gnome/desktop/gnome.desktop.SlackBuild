@@ -8,6 +8,8 @@ if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 
+# gnome-screensaver removed until it works without PAM
+
 BUILD_ORDER="
 gnome-icon-theme
 libgnomeprintui
@@ -90,7 +92,6 @@ gnome-backgrounds
 gdm
 evolution-exchange
 xscreensaver
-gnome-screensaver
 "
 
 mkdir -p $TMP/gnome-$GVERSION/frgnome/desktop

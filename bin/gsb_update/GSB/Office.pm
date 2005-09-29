@@ -72,8 +72,8 @@ our %office_libs =
 our %office_gnome_libs =
   (
    'goffice'     => '0.0.4',
-   'libgda'      => '1.3.91',
-   'libgnomedb'  => '1.3.91',
+   'libgda'      => '1.9.99',
+   'libgnomedb'  => '1.9.99',
    'libgdamm'    => '1.3.7',
    'present'     => '0.0.3',
   );

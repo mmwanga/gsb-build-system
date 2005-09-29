@@ -61,11 +61,11 @@ our %platform_diff_naming =
 		'name' => 'GConf',
 	       },
    'glib2'  => {
-		'ver'  => '2.8.1',
+		'ver'  => '2.8.2',
 		'name' => 'glib',
 	       },
    'gtk+2'  => {
-		'ver'  => '2.8.3',
+		'ver'  => '2.8.4',
 		'name' => 'gtk+',
 	       },
    'libidl' => {
@@ -189,7 +189,7 @@ our %desktop =
    'gnome-panel'            => '2.12.0',
    'gnome-pilot'            => '2.0.13',
    'gnome-pilot-conduits'   => '2.0.13',
-   'gnome-screensaver'      => '0.0.13',
+   'gnome-screensaver'      => '0.0.14',
    'gnome-session'          => '2.12.0',
    'gnome-speech'           => '0.3.7',
    'gnome-spell'            => '1.0.6',
@@ -216,7 +216,7 @@ our %desktop =
    'libgsf'                 => '1.12.3',
    'libgtkhtml'             => '2.6.3',
    'libgtop'                => '2.12.0',
-   'librsvg'                => '2.12.0',
+   'librsvg'                => '2.12.2',
    'libsoup'                => '2.2.6.1',
    'libwnck'                => '2.12.0',
    'libxklavier'            => '2.0',
