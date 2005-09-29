@@ -6,7 +6,7 @@ PKG=$TMP/package-gtk+2
 
 VERSION=2.8.4
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gtk+2-$VERSION-$ARCH-$BUILD ]; then
   echo "gtk+2-$VERSION-$ARCH-$BUILD package already installed"

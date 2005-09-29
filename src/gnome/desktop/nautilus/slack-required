@@ -18,7 +18,6 @@ libgnome
 libgnomecanvas
 libgnomeui
 libgsf
-libpixman
 libpng
 librsvg
 libxml2

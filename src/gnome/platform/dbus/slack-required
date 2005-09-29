@@ -4,7 +4,6 @@ cairo
 expat
 glib2
 gtk+2
-libpixman
 libpng
 pango
 x11

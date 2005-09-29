@@ -6,7 +6,7 @@ PKG=$TMP/package-libquicktime
 
 VERSION=0.9.7
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/libquicktime-$VERSION-$ARCH-$BUILD ]; then
   echo "libquicktime-$VERSION-$ARCH-$BUILD package already installed"

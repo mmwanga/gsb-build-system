@@ -3,7 +3,6 @@ cairo
 expat
 glib2
 gtk+2
-libpixman
 libpng
 libjpeg
 libtiff
