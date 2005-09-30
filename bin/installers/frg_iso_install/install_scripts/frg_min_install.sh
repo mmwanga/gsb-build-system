@@ -17,8 +17,6 @@
 	upgradepkg --install-new $i
     fi
   done
-
-  upgradepkg --reinstall shared-mime-info*.tgz
 )
 
 # Install Desktop requirements

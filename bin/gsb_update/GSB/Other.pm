@@ -241,7 +241,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'mail-notification'   => {
-			     'ver' => '2.0',
+			     'ver' => '1.1',
 			     'url' => 'http://savannah.nongnu.org/download/mailnotify/',
 			     'src' => 'tar.gz',
 			    },
