@@ -6,7 +6,7 @@ PKG=$TMP/package-gnome-icon-theme
 
 VERSION=2.12.0
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gnome-icon-theme-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-icon-theme-$VERSION-$ARCH-$BUILD package already installed"

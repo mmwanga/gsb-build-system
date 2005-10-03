@@ -6,7 +6,7 @@ PKG=$TMP/package-gnome-themes-extras
 
 VERSION=0.8.1
 ARCH=${ARCH:-i486}
-BUILD=4
+BUILD=5
 
 if [ -f /var/log/packages/gnome-themes-extras-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-themes-extras-$VERSION-$ARCH-$BUILD package already installed"
