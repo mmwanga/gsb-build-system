@@ -6,7 +6,7 @@ PKG=$TMP/package-gnomemeeting
 
 VERSION=1.2.2
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gnomemeeting-$VERSION-$ARCH-$BUILD ]; then
   echo "gnomemeeting-$VERSION-$ARCH-$BUILD package already installed"

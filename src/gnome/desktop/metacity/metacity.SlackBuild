@@ -8,8 +8,8 @@ VERSION=2.12.0
 ARCH=${ARCH:-i486}
 BUILD=1
 
-if [ -f /var/log/packages/metacity-$VERSION-$ARCH-$BUILD ]; then
-  echo "metacity-$VERSION-$ARCH-$BUILD package already installed"
+if [ -f /var/log/packages/metacity-$VERSION"p"-$ARCH-$BUILD ]; then
+  echo "metacity-$VERSION"p"-$ARCH-$BUILD package already installed"
   exit 0
 fi
 
@@ -39,9 +39,6 @@ fi
 cd $TMP 
 tar xjvf $CWD/metacity-$VERSION.tar.bz2
 cd metacity-$VERSION
-
-# default is now clearlooks!
-#cat $CWD/frg.metacity.default.theme.patch |patch -p1 --verbose
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
@@ -115,7 +112,7 @@ cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-makepkg -l y -c n $TMP/metacity-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/metacity-$VERSION"p"-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
