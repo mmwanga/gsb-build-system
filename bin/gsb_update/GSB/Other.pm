@@ -156,7 +156,7 @@ our %other =
                              'src' => 'tar.gz',
                             },
    'gslapt'             => {
-			     'ver' => '0.3.7',
+			     'ver' => '0.3.8',
 			     'url' => 'http://software.jaos.org/source/gslapt/',
 			     'src' => 'tar.gz',
 			    },
@@ -266,7 +266,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'slapt-get'           => {
-			     'ver' => '0.9.10c',
+			     'ver' => '0.9.10d',
 			     'url' => 'http://software.jaos.org/source/slapt-get/',
 			     'src' => 'tar.gz',
 			    },

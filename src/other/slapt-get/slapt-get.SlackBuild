@@ -3,7 +3,7 @@
 CWD=`pwd`
 TMP=${TMP:-/tmp}
 
-VERSION=0.9.10c
+VERSION=0.9.10d
 ARCH=${ARCH:-i486}
 BUILD=1
 
