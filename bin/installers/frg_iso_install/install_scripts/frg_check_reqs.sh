@@ -22,16 +22,12 @@ x11-xnest
 "
 
 check_packages() {
-    PACKAGE=/var/log/packages/$i*
-    #The 2> /dev/null is necessary for packages with more than one match
-    #EX: python has;
-	#python-2.4-i486-1
-	#python-demo-2.4-noarch-1
-	#python-tools-2.4-noarch-1
-    #Script needs a bit more work if more precise pkg matching is needed
-    if [ ! -f $PACKAGE 2> /dev/null ]; then
-	MISSING_PACKAGES="$MISSING_PACKAGES $i"
-    fi
+  local PKG=$1
+  PACKAGE=/var/log/packages/${PKG}-[0-9]*
+
+  if [ ! -f $PACKAGE 2> /dev/null ]; then
+  	MISSING_PACKAGES="$MISSING_PACKAGES $PKG"
+  fi
 }
 
 for i in $REQUIRED_PACKAGES
