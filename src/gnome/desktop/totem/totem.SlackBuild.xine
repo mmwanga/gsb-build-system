@@ -6,7 +6,7 @@ PKG=$TMP/package-totem
 
 VERSION=1.2.0
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -55,6 +55,7 @@ fi
 chown -R root.root .
 find . -perm 666 -exec chmod 644 {} \;
 find . -perm 664 -exec chmod 644 {} \;
+MOZILLA_PLUGINDIR="/usr/lib/mozilla/" \
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
 	    --sysconfdir=/etc \

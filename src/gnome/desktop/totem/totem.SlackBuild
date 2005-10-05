@@ -6,7 +6,7 @@ PKG=$TMP/package-totem
 
 VERSION=1.2.0
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/totem-$VERSION-$ARCH-$BUILD ]; then
   echo "totem-$VERSION-$ARCH-$BUILD package already installed"
@@ -62,6 +62,7 @@ fi
 chown -R root.root .
 find . -perm 666 -exec chmod 644 {} \;
 find . -perm 664 -exec chmod 644 {} \;
+MOZILLA_PLUGINDIR="/usr/lib/mozilla/" \
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
 	    --sysconfdir=/etc \

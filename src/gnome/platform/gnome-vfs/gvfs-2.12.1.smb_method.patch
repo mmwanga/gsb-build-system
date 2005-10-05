@@ -1,0 +1,11 @@
+--- modules/smb-method.c	2005-06-08 09:19:54.000000000 +0200
++++ modules/smb-method.c_new	2005-10-04 21:55:42.734727616 +0200
+@@ -1486,7 +1486,7 @@
+ 
+ 		/* Important: perform_authentication leaves and re-enters the lock! */
+ 		while (perform_authentication (&actx) > 0) {
+-			r = smb_context->close (smb_context, handle->file);
++			r = smb_context->close_fn (smb_context, handle->file);
+ 			actx.res = (r >= 0) ? GNOME_VFS_OK : gnome_vfs_result_from_errno ();
+ 		}
+ 
