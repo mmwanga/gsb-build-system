@@ -4,7 +4,7 @@ PKG=/tmp/package-udev
 
 VERSION=070
 ARCH=${ARCH:-i486}
-BUILD=1frg
+BUILD=2frg
 
 rm -rf $PKG
 mkdir -p $PKG
