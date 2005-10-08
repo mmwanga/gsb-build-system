@@ -6,7 +6,7 @@ PKG=$TMP/package-gnome-pilot
 
 VERSION=2.0.13
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gnome-pilot-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-pilot-$VERSION-$ARCH-$BUILD package already installed"
@@ -72,6 +72,12 @@ make install DESTDIR=$PKG
 
 mkdir -p $PKG/usr/lib/pkgconfig
 cp gnome-pilot-2.0.pc $PKG/usr/lib/pkgconfig
+
+(
+  mkdir -p $PKG/usr/share/applications
+  cd $PKG/usr/share/applications
+  ln -sf ../control-center-2.0/capplets/gpilotd-control-applet.desktop
+)
 
 chown -R root.bin $PKG/usr/bin
 
