@@ -230,12 +230,22 @@ our %other =
 			     'url' => 'http://mikmod.raphnet.net/files/',
 			     'src' => 'tar.gz',
 			    },
+   'libexif-gtk'         => {
+                             'ver' => '0.3.5',
+                             'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libexif/',
+                             'src' => 'tar.bz2',
+                            },
+   'libnotify'         => {
+                             'ver' => '0.2.2',
+                             'url' => 'http://galago-project.org/files/releases/source/libnotify/',
+                             'src' => 'tar.gz',
+                            },
    'liferea'             => {
 			     'ver' => '0.9.7b',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/liferea/',
 			     'src' => 'tar.gz',
 			    },
-   'lock-keys-applet'             => {
+   'lock-keys-applet'    => {
 			     'ver' => '1.0',
 			     'url' => 'http://www.wh-hms.uni-ulm.de/~mfcn/lock-keys-applet/packages/',
 			     'src' => 'tar.gz',
@@ -249,7 +259,12 @@ our %other =
 			     'ver' => '0.4',
 			     'url' => 'http://manny.cluecoder.org/packages/nautilus-open-terminal/',
 			     'src' => 'tar.gz',
-          },
+                            },
+   'notification-daemon' => {
+                             'ver' => '0.2.2',
+                             'url' => 'http://galago-project.org/files/releases/source/notification-daemon/',
+                             'src' => 'tar.gz',
+                            },
    'poppler'             => {
 			     'ver' => '0.4.2',
 			     'url' => 'http://poppler.freedesktop.org/',
