@@ -12,6 +12,8 @@ fi
 # not built: IndLinux NetworkManager
 
 BUILD_ORDER="
+libnotify
+notification-daemon
 libgphoto2
 gphoto2
 libexif-gtk
