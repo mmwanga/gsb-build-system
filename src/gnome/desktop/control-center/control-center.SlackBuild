@@ -69,6 +69,7 @@ CFLAGS="$SLKCFLAGS" \
 	    --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static \
+            --enable-aboutme \
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 
 make || exit 
