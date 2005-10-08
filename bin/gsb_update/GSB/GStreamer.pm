@@ -156,7 +156,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'liboil'            => {
-			   'ver' => '0.3.2',
+			   'ver' => '0.3.3',
 			   'url' => 'http://www.schleef.org/liboil/download/',
 			   'src' => 'tar.gz',
 			  },

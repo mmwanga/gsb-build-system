@@ -186,7 +186,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'Imaging'             => {
-			     'ver' => '1.1.4',
+			     'ver' => '1.1.5',
 			     'url' => 'http://effbot.org/downloads/',
 			     'src' => 'tar.gz',
 			    },
