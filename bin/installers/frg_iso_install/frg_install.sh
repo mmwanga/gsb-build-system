@@ -11,8 +11,8 @@ BASE=`dirname $0| sed "s#/.#/#"`
 
 export FRGROOT="$CWD/$BASE"
 
-FRG_VERSION=2.11.999
-GNOME_VERSION=2.12.0
+FRG_VERSION=2.12.0.999
+GNOME_VERSION=2.12.1
 
 # Functions
 
@@ -100,7 +100,7 @@ Featuring GNOME $GNOME_VERSION
 "
 
 # Select which type of install to run
-if [ "$NO_PROMPT" != "true" ]; then
+if [[ "$INSTALL" != "min" && "$INSTALL" != "full" ]]; then
 
     printf "
 Select which install you would like.

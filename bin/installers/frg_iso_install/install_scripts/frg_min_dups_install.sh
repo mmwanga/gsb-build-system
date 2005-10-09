@@ -4,50 +4,11 @@
 #
 # $Id$
 
-LIBWNCK=2.12.0
 METACITY=2.12.0
 
 TOTEMVERSION=1.2.0
 TOTEM_CVS=1.2.0
 
-
-# Install LIBWNCK
-if [ "$NO_PROMPT" != "true" ]; then
-    printf "*********************************
-
-Select which libwnck to install 1 or 2\n"
-
-    echo "
-1) libwnck $LIBWNCK
-2) libwnck $LIBWNCK (patched)
-      patched to add blinking taskbar/titlebar
-"
-
-    printf "Selection: "
-    read libwnck_selection
-    echo ""
-fi
-
-if [ "$PROMPTS" = "default" ]; then
-    libwnck_selection=1
-fi
-
-if [ "$PROMPTS" = "alt" ]; then
-    libwnck_selection=2
-fi
-
-case "$libwnck_selection" in
-'1')
-	    upgradepkg --install-new $FRGROOT/frgnome/desktop/libwnck-"$LIBWNCK"-*frg.tgz
-	    ;;
-'2')
-	    upgradepkg --install-new $FRGROOT/extras/alternatives/libwnck-"$LIBWNCK"p-*frg.tgz
-	    ;;
-*)
-	    echo "Invalid selection"
-	    echo "Installing default libwnck"
-	    upgradepkg --install-new $FRGROOT/frgnome/desktop/libwnck-"$LIBWNCK"-*frg.tgz
-esac
 
 # Install Metacity
 if [ "$NO_PROMPT" != "true" ]; then
@@ -59,7 +20,6 @@ Select which metacity to install 1 or 2\n"
 1) metacity $METACITY
 2) metacity $METACITY (patched)
       patched to add functionality:
-         - Blinking taskbar/titlebar
          - window placement options
          - change click behavior
 "

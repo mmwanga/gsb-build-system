@@ -62,8 +62,8 @@ case "$rcd_selection" in
 	echo "Enabling Hal"
 	chmod +x etc/rc.d/rc.hal
 	echo ""
-	echo "rc.howl, rc.saslauthd and rc.openldap are in also in"
-	echo "etc/rc.d for your consideration"
+	echo "rc.howl and rc.openldap are also in etc/rc.d for"
+	echo "your consideration"
 	;;
 '2')
 	echo ""

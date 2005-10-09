@@ -23,7 +23,6 @@
 (
   cd "$FRGROOT"/frgnome/desktop_reqs
 
-  upgradepkg --install-new cyrus-sasl-*.tgz
   upgradepkg --install-new openldap-*.tgz
 
   for i in *.tgz
@@ -47,7 +46,7 @@
   for i in *.tgz
   do
     PACK=`echo $i|cut -d - -f 1`
-    if [[ "$PACK" = "metacity" || "$PACK" = "libwnck" || "$PACK" = "totem" ]]; then
+    if [[ "$PACK" = "metacity" || "$PACK" = "totem" ]]; then
 	echo "Dupe package, skipping"
     else
 	upgradepkg --install-new $i
