@@ -8,12 +8,13 @@ if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 
+# pyphany removed until updated version appears
+
 BUILD_ORDER="
 pyorbit
 pygtk
 gnome-python
 gnome-python-extras
-pyphany
 gst-python
 pyxdg
 nautilus-python

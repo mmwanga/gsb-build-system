@@ -72,6 +72,12 @@ make install DESTDIR=$PKG
 
 chown -R root.bin $PKG/usr/bin
 
+(
+  mkdir -p $PKG/usr/lib/pkgconfig
+  cd $PKG/usr/lib/pkgconfig
+  ln -sf ../../share/pkgconfig/gnome-icon-theme.pc
+)
+
 mkdir -p $PKG/usr/doc/gnome-icon-theme-$VERSION
 cp -a \
   AUTHORS BUGS COPYING HACKING MAINTAINERS NEWS README \

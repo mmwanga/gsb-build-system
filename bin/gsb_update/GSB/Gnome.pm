@@ -216,7 +216,7 @@ our %desktop =
    'libgsf'                 => '1.12.3',
    'libgtkhtml'             => '2.6.3',
    'libgtop'                => '2.12.0',
-   'librsvg'                => '2.12.6',
+   'librsvg'                => '2.12.7',
    'libsoup'                => '2.2.6.1',
    'libwnck'                => '2.12.1',
    'libxklavier'            => '2.0',
@@ -290,7 +290,7 @@ our %bindings_python =
    'gnome-python'         => '2.12.1',
    'gnome-python-extras'  => '2.12.0',
    'nautilus-python'      => '0.4.0',
-   'pygtk'                => '2.8.1',
+   'pygtk'                => '2.8.2',
    'pyorbit'              => '2.0.1',
    'pyphany'              => '0.1.4',
   );

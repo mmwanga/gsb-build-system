@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-frg-version
 
-VERSION=2.12
+VERSION=2.12.0.999
 ARCH=noarch
-BUILD=1
+BUILD=1frg
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
