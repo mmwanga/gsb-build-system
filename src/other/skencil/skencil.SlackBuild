@@ -39,6 +39,7 @@ elif [ "$ARCH" = "powerpc" ]; then
 elif [ "$ARCH" = "x86_64" ]; then
   echo "Applying patches for $ARCH"
   #cat $CWD/foo.patch | patch -p0 --verbose
+  cat $CWD/x86_64_libdir.patch | patch -p1 --verbose
 fi
 
 python setup.py configure --imaging-include=/usr/include/Imaging/ || exit 1
