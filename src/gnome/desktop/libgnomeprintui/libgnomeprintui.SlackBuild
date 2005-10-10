@@ -56,7 +56,6 @@ elif [ "$ARCH" = "powerpc" ]; then
 elif [ "$ARCH" = "x86_64" ]; then
   echo "Applying patches for $ARCH"
   #cat $CWD/foo.patch | patch -p0 --verbose
-  cat $CWD/remove_gnome-icon-theme_pkgconfig_check.patch | patch -p1 --verbose
 fi
 
 chown -R root.root .
