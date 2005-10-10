@@ -6,7 +6,7 @@ PKG=$TMP/package-pango
 
 VERSION=1.10.1
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/pango-$VERSION-$ARCH-$BUILD ]; then
   echo "pango-$VERSION-$ARCH-$BUILD package already installed"
@@ -65,9 +65,6 @@ CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             $ARCH_CONFIGURE \
             --sysconfdir=/etc || exit 1
-if [ -z "$(grep '^CAIRO_LIBS' examples/Makefile|grep pixman 2>/dev/null)" ]; then
-  sed -i -re "s/^(CAIRO_LIBS.*)$/\1 \-lpixman/" examples/Makefile
-fi
 make || exit 1
 make install DESTDIR=$PKG
 # Spamming your root partition:
