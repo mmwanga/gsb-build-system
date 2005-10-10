@@ -100,7 +100,7 @@ cat $CWD/slack-desc > $PKG/install/slack-desc
 cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
-makepkg -l y -c n $TMP/graveman-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/graveman-${VERSION/-/_}-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
