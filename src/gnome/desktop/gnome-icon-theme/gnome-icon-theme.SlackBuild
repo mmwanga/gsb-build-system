@@ -98,6 +98,13 @@ cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
+# make sure pkg-config script is in the right location
+if [ -f $PKG/usr/share/pkgconfig/gnome-icon-theme.pc ]; then
+  mkdir -p $PKG/usr/lib/pkgconfig
+  mv $PKG/usr/share/pkgconfig/*.pc $PKG/usr/lib/pkgconfig/
+  rmdir $PKG/usr/share/pkgconfig
+fi
+
 cd $PKG
 makepkg -l y -c n $TMP/gnome-icon-theme-$VERSION-$ARCH-$BUILD.tgz
 
