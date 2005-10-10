@@ -6,7 +6,7 @@ PKG=$TMP/package-gnome-applets
 
 VERSION=2.12.1
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gnome-applets-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-applets-$VERSION-$ARCH-$BUILD package already installed"
@@ -40,6 +40,8 @@ fi
 cd $TMP 
 tar xjvf $CWD/gnome-applets-$VERSION.tar.bz2
 cd gnome-applets-$VERSION
+
+cat $CWD/gnome-applets.modemlights_gnomesu_network-admin.patch | patch -p1 --verbose
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
