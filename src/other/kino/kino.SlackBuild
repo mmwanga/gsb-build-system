@@ -6,7 +6,7 @@ PKG=$TMP/package-kino
 
 VERSION=0.7.6
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/kino-$VERSION-$ARCH-$BUILD ]; then
   echo "kino-$VERSION-$ARCH-$BUILD package already installed"
@@ -63,6 +63,7 @@ CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
 	    --disable-static \
 	    --sysconfdir=/etc \
+            --with-hotplug-script-dir=/etc/hotplug/usb \
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 1
 make || exit 1
