@@ -102,6 +102,7 @@ gzip -9 $PKG/usr/info/*
 
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
+cat $CWD/slack-conflicts > $PKG/install/slack-conflicts
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
