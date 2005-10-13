@@ -191,7 +191,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'inkscape'            => {
-			     'ver' => '0.42',
+			     'ver' => '0.42.2',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/inkscape/',
 			     'src' => 'tar.bz2',
 			    },
@@ -271,8 +271,8 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'pstoedit'            => {
-			     'ver' => '3.41',
-			     'url' => 'http://home.t-online.de/home/helga.glunz/wglunz/pstoedit/',
+			     'ver' => '3.42',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/pstoedit/',
 			     'src' => 'tar.gz',
 			    },
    'skencil'             => {
@@ -316,7 +316,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'thoggen'             => {
-			     'ver' => '0.3',
+			     'ver' => '0.4.1',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/thoggen/',
 			     'src' => 'tar.gz',
 			    },

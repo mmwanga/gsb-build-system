@@ -6,7 +6,7 @@ PKG=$TMP/package-libquicktime
 
 VERSION=0.9.7
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ -f /var/log/packages/libquicktime-$VERSION-$ARCH-$BUILD ]; then
   echo "libquicktime-$VERSION-$ARCH-$BUILD package already installed"
@@ -66,6 +66,11 @@ CFLAGS="$SLKCFLAGS" \
             $ARCH-slackware-linux || exit 1
 make || exit 1
 make install DESTDIR=$PKG
+
+(
+  cd $PKG/usr/include/
+  ln -sf lqt quicktime
+)
 
 chown -R root.bin $PKG/usr/bin
 
