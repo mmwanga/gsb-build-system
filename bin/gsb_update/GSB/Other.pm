@@ -344,7 +344,7 @@ our %other_gnome =
    'gthumb'              => '2.6.8',
    'loudmouth'           => '1.0.1',
    'rhythmbox'           => '0.9.0',
-   'sabayon'             => '2.11.90',
+   'sabayon'             => '2.12.0',
   );
 
 our %other_other =
