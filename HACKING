@@ -1,0 +1,24 @@
+THIS DOC IS JUST A ROUGH DRAFT, its subject to change.
+
+
+Just a small ammount of rules so that we can keep the sources consistent.
+
+1) Before running svn diff:
+   run clean_src.sh from the top level dir ( trunk/ ) so that the ARCH variables
+   and BUILD variables are clean. eg:
+       - The ARCH variable should always look like this in SVN:
+             ARCH=${ARCH:-i486}
+       - The BUILD variable should always been free of alpha characters.
+
+2) ARCH specific patches:
+   - Any patches that are specific to an ARCH should be named like this:
+        x86_64.patch_to_fix_this.patch
+        powerpc.some_patch_to_fix_this.patch
+
+3) Commits should be atomic. So when there is a version update in gsb_update, the 
+   corresponding updates in the src/ tree should be commited at the same time.
+   An example commit would be the following:
+     svn ci bin/gsb_update src/
+
+4) Log messages should be somewhat descriptive for anything other than version
+   updates
