@@ -6,7 +6,7 @@ PKG=$TMP/package-enchant
 
 VERSION=1.1.6
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/enchant-$VERSION-$ARCH-$BUILD ]; then
   echo "enchant-$VERSION-$ARCH-$BUILD package already installed"

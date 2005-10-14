@@ -6,7 +6,7 @@ PKG=$TMP/package-ExtUtils-PkgConfig
 
 VERSION=1.07
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/ExtUtils-PkgConfig-$VERSION-$ARCH-$BUILD ]; then
   echo "ExtUtils-PkgConfig-$VERSION-$ARCH-$BUILD package already installed"

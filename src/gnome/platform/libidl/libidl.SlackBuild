@@ -6,7 +6,7 @@ PKG=$TMP/package-libidl
 
 VERSION=0.8.6
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/libidl-$VERSION-$ARCH-$BUILD ]; then
   echo "libidl-$VERSION-$ARCH-$BUILD package already installed"

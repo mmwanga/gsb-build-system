@@ -6,7 +6,7 @@ PKG=$TMP/package-hal
 
 VERSION=0.5.4
 ARCH=${ARCH:-i486}
-BUILD=3
+BUILD=4
 
 if [ -f /var/log/packages/hal-$VERSION-$ARCH-$BUILD ]; then
   echo "hal-$VERSION-$ARCH-$BUILD package already installed"

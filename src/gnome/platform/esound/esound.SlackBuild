@@ -6,7 +6,7 @@ PKG=$TMP/package-esound
 
 VERSION=0.2.36
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ -f /var/log/packages/esound-$VERSION-$ARCH-$BUILD ]; then
   echo "esound-$VERSION-$ARCH-$BUILD package already installed"
