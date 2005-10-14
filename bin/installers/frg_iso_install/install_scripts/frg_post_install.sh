@@ -19,11 +19,14 @@ do
        if [ -e usr/share/icons/$i/icon-theme.cache ]; then
                rm -f usr/share/icons/$i/icon-theme.cache
        fi
-       usr/bin/gtk-update-icon-cache -q --ignore-theme-index usr/share/icons/$i
+       if [ -d usr/share/icons/$i ]; then
+               usr/bin/gtk-update-icon-cache -q --ignore-theme-index usr/share/icons/$i
+       fi
 done
 
 usr/bin/update-mime-database usr/share/mime
 usr/bin/update-desktop-database
+usr/bin/gst-register
 
 sh "$FRGROOT"/install_scripts/frg_check_reqs.sh
 

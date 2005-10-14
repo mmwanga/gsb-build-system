@@ -3,6 +3,13 @@
 # Install minimum install
 /bin/sh "$FRGROOT"/install_scripts/frg_min_install.sh
 
+# Install FRGnome
+(
+  cd "$FRGROOT"/frgnome
+  
+  upgradepkg --install-new frgnome-*.tgz
+)
+
 # Install Themes
 (
   cd "$FRGROOT"/extras/themes

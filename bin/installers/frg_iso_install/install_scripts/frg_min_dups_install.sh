@@ -55,7 +55,7 @@ esac
 if [ "$NO_PROMPT" != "true" ]; then
     printf "*********************************
 
-Select which Totem to install 0, 1, 2 or 3\n"
+Select which Totem to install 1 or 2\n"
 
     echo "
 1) Totem $TOTEMVERSION with gstreamer backend

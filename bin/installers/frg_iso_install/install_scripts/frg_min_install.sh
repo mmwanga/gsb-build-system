@@ -1,9 +1,18 @@
 #!/bin/sh
 
+# Install FRG-Version
+(
+  cd "$FRGROOT"/frgnome
+  
+  upgradepkg --install-new frg-version-*.tgz
+)
+
 # Install Platform
 (
   cd "$FRGROOT"/frgnome/platform
 
+  removepkg libpixman
+  upgradepkg --install-new pkgconfig%pkg-config-*.tgz
   upgradepkg --install-new dbus-*.tgz
   upgradepkg --install-new hal-*.tgz
   upgradepkg --install-new pango-*.tgz
@@ -23,6 +32,7 @@
 (
   cd "$FRGROOT"/frgnome/desktop_reqs
 
+  removepkg libmusepack
   upgradepkg --install-new openldap-*.tgz
 
   for i in *.tgz
