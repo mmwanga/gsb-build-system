@@ -176,7 +176,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libsndfile'        => {
-			   'ver' => '1.0.11',
+			   'ver' => '1.0.12',
 			   'url' => 'http://www.mega-nerd.com/libsndfile/',
 			   'src' => 'tar.gz',
 			  },

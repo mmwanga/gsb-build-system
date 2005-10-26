@@ -14,4 +14,3 @@ config etc/rc.d/rc.udev.new
 
 chmod -x etc/hotplug/firmware.agent
 
-

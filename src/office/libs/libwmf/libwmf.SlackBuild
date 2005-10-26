@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-libwmf
 
-VERSION=0.2.8.3
+VERSION=0.2.8.4
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/libwmf-$VERSION-$ARCH-$BUILD ]; then
   echo "libwmf-$VERSION-$ARCH-$BUILD package already installed"

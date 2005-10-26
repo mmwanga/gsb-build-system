@@ -111,7 +111,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'gnomebaker'          => {
-			     'ver' => '0.4.2',
+			     'ver' => '0.5.0',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gnomebaker/',
 			     'src' => 'tar.gz',
 			    },
@@ -343,7 +343,7 @@ our %other_gnome =
    'gossip'              => '0.9',
    'gthumb'              => '2.6.8',
    'loudmouth'           => '1.0.1',
-   'rhythmbox'           => '0.9.0',
+   'rhythmbox'           => '0.9.1',
    'sabayon'             => '2.12.0',
   );
 

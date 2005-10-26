@@ -19,8 +19,8 @@ our $VERSION   = 0.03;
 our %office =
   (
    'abiword' => {
-		 'url' => "http://www.abisource.com/downloads/abiword/2.4.0/source/",
-		 'ver' => '2.4.0',
+		 'url' => "http://www.abisource.com/downloads/abiword/2.4.1/source/",
+		 'ver' => '2.4.1',
 		 'src' => 'tar.gz'
 		},
   );
@@ -49,7 +49,7 @@ our %office_libs =
 		  },
    'libwmf'    => {
 		   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/wvware/',
-		   'ver' => '0.2.8.3',
+		   'ver' => '0.2.8.4',
 		   'src' => 'tar.gz',
 		  },
    'libwpd'    => {
