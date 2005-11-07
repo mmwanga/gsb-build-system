@@ -52,7 +52,7 @@
   cd "$FRGROOT"/frgnome/desktop
 
   upgradepkg --install-new scrollkeeper-*.tgz
-  removepkg ximian-connector
+  upgradepkg --install-new ximian-connector%evolution-exchange-*.tgz
 
   for i in *.tgz
   do
