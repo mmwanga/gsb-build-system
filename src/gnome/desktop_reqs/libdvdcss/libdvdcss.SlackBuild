@@ -6,7 +6,7 @@ PKG=$TMP/package-libdvdcss
 
 VERSION=1.2.9
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/libdvdcss-$VERSION-$ARCH-$BUILD ]; then
   echo "libdvdcss-$VERSION-$ARCH-$BUILD package already installed"

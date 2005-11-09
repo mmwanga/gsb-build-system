@@ -6,7 +6,7 @@ PKG=$TMP/package-gnome-pilot-conduits
 
 VERSION=2.0.13
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gnome-pilot-conduits-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-pilot-conduits-$VERSION-$ARCH-$BUILD package already installed"

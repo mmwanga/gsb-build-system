@@ -4,7 +4,7 @@ PKG=/tmp/package-udev
 
 VERSION=070
 ARCH=${ARCH:-i486}
-BUILD=2frg
+BUILD=3frg
 
 rm -rf $PKG
 mkdir -p $PKG
@@ -64,7 +64,7 @@ cp -a \
 gzip -9 $PKG/usr/man/man?/*.?
 ( cd $PKG/usr/man/man8 ; rm udevsend.8 ; ln -sf udevd.8.gz udevsend.8.gz )
 mkdir -p $PKG/install
-zcat $CWD/doinst.sh > $PKG/install/doinst.sh
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG

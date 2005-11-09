@@ -46,7 +46,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'bmp'                 => {
-			     'ver' => '0.9.7',
+			     'ver' => '0.9.7.1',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/beepmp/',
 			     'src' => 'tar.gz',
 			    },
@@ -76,7 +76,7 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'easytag'             => {
-			     'ver' => '1.99.8',
+			     'ver' => '1.99.9',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/easytag/',
 			     'src' => 'tar.bz2',
 			    },
@@ -101,7 +101,7 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'gimp'                => {
-			     'ver' => '2.2.8',
+			     'ver' => '2.2.9',
 			     'url' => 'ftp://ftp.gimp.org/pub/gimp/v2.2/',
 			     'src' => 'tar.bz2',
 			    },
@@ -241,7 +241,7 @@ our %other =
                              'src' => 'tar.gz',
                             },
    'liferea'             => {
-			     'ver' => '0.9.7b',
+			     'ver' => '1.0-RC3',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/liferea/',
 			     'src' => 'tar.gz',
 			    },
@@ -321,8 +321,8 @@ our %other =
 			     'src' => 'tar.gz',
 			    },
    'xchat'               => {
-			     'ver' => '2.4.5',
-			     'url' => 'http://xchat.org/files/source/2.4/',
+			     'ver' => '2.6.0',
+			     'url' => 'http://xchat.org/files/source/2.6/',
 			     'src' => 'tar.bz2',
 			    },
   );

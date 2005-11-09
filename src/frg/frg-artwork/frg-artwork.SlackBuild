@@ -6,7 +6,7 @@ PKG=$TMP/package-frg-artwork
 
 VERSION=1.0.2
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -24,7 +24,7 @@ mkdir -p \
 
 # FRG Theme
 cp $CWD/frg.gnome.index.theme \
-	$PKG/usr/share/themes/FRG/
+	$PKG/usr/share/themes/FRG/index.theme
 
 # Copy background config file
 cp $CWD/frg-branded.xml \

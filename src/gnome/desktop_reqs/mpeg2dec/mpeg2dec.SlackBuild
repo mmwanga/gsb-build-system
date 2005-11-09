@@ -7,7 +7,7 @@ PKG=$TMP/package-mpeg2dec
 VERSION=0.4.0b
 PVERSION=`echo $VERSION | sed 's/b//'`
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/mpeg2dec-$VERSION-$ARCH-$BUILD ]; then
   echo "mpeg2dec-$VERSION-$ARCH-$BUILD package already installed"

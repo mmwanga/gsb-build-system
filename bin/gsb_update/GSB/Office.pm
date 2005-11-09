@@ -33,8 +33,8 @@ our %office_libs =
 		   'src' => 'tar.gz',
 		  },
    'enchant'   => {
-		   'url' => 'http://www.abisource.com/downloads/enchant/1.1.6/',
-		   'ver' => '1.1.6',
+		   'url' => 'http://www.abisource.com/downloads/enchant/1.2.0/',
+		   'ver' => '1.2.0',
 		   'src' => 'tar.gz',
 		  },
    'eps'       => {
@@ -44,7 +44,7 @@ our %office_libs =
 		  },
    'fribidi'   => {
 		   'url' => 'http://fribidi.org/download/',
-		   'ver' => '0.10.5',
+		   'ver' => '0.10.7',
 		   'src' => 'tar.gz',
 		  },
    'libwmf'    => {
@@ -72,8 +72,8 @@ our %office_libs =
 our %office_gnome_libs =
   (
    'goffice'     => '0.1.0',
-   'libgda'      => '1.9.99',
-   'libgnomedb'  => '1.9.99',
+   'libgda'      => '1.9.100',
+   'libgnomedb'  => '1.9.100',
    'libgdamm'    => '1.3.7',
    'present'     => '0.0.3',
   );

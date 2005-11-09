@@ -7,7 +7,7 @@ PKG=$TMP/package-xvidcore
 VERSION=1.0.3
 PVERSION=1.0.3
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/xvidcore-$VERSION-$ARCH-$BUILD ]; then
   echo "xvidcore-$VERSION-$ARCH-$BUILD package already installed"

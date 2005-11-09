@@ -57,7 +57,7 @@ our %platform_diff_naming =
 		'name' => 'ORBit2',
 	       },
    'gconf'  => {
-		'ver'  => '2.12.0',
+		'ver'  => '2.12.1',
 		'name' => 'GConf',
 	       },
    'glib2'  => {
@@ -144,7 +144,7 @@ our %platform_reqs =
 			    },
    'pkg-config'          => {
 			     'url' => 'http://pkgconfig.freedesktop.org/releases/',
-			     'ver' => '0.19',
+			     'ver' => '0.20',
 			     'src' => 'tar.gz',
 			    },
    'Pyrex'               => {
@@ -169,7 +169,7 @@ our %desktop =
    'evolution-exchange'     => '2.4.1',
    'evolution-webcal'       => '2.4.1',
    'file-roller'            => '2.12.1',
-   'gcalctool'              => '5.6.31',
+   'gcalctool'              => '5.7.8',
    'gconf-editor'           => '2.12.0',
    'gdm'                    => '2.8.0.5',
    'gedit'                  => '2.12.1',
@@ -189,7 +189,7 @@ our %desktop =
    'gnome-panel'            => '2.12.1',
    'gnome-pilot'            => '2.0.13',
    'gnome-pilot-conduits'   => '2.0.13',
-   'gnome-screensaver'      => '0.0.16',
+   'gnome-screensaver'      => '0.0.18',
    'gnome-session'          => '2.12.0',
    'gnome-speech'           => '0.3.8',
    'gnome-spell'            => '1.0.6',
@@ -262,9 +262,9 @@ our %bindings_cxx =
   (
    'bakery'            => '2.3.15',
    'gconfmm'           => '2.12.0',
-   'glibmm'            => '2.8.0',
+   'glibmm'            => '2.8.1',
    'gnome-vfsmm'       => '2.12.0',
-   'gtkmm'             => '2.8.0',
+   'gtkmm'             => '2.8.1',
    'libglademm'        => '2.6.1',
    'libgnomecanvasmm'  => '2.12.0',
    'libgnomemm'        => '2.12.0',
@@ -278,17 +278,17 @@ our %bindings_cxx =
 #    'libvte-java' => '0.11.11',
 our %bindings_java =
   (
-   'libgconf-java'    => '2.11.4',
-   'libglade-java'    => '2.11.4',
-   'libgnome-java'    => '2.11.4',
-   'libgtk-java'      => '2.7.0',
+   'libgconf-java'    => '2.12.1',
+   'libglade-java'    => '2.12.1',
+   'libgnome-java'    => '2.12.1',
+   'libgtk-java'      => '2.8.1',
 
   );
 
 our %bindings_python =
   (
    'gnome-python'         => '2.12.1',
-   'gnome-python-extras'  => '2.12.0',
+   'gnome-python-extras'  => '2.12.1',
    'nautilus-python'      => '0.4.0',
    'pygtk'                => '2.8.2',
    'pyorbit'              => '2.0.1',

@@ -53,7 +53,6 @@ libvisual-plugins
 lame
 mjpegtools
 mpeg2dec
-mpeg4ip
 libmpcdec
 openslp
 polypaudio

@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-pkg-config
 
-VERSION=0.19
+VERSION=0.20
 ARCH=${ARCH:-i486}
 BUILD=1
 

@@ -6,7 +6,7 @@ PKG=$TMP/package-libdvbpsi4
 
 VERSION=0.1.5
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/libdvbpsi4-$VERSION-$ARCH-$BUILD ]; then
   echo "libdvbpsi4-$VERSION-$ARCH-$BUILD package already installed"

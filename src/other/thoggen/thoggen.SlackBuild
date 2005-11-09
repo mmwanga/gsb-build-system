@@ -6,7 +6,7 @@ PKG=$TMP/package-thoggen
 
 VERSION=0.4.1
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=3
 
 if [ -f /var/log/packages/thoggen-$VERSION-$ARCH-$BUILD ]; then
   echo "thoggen-$VERSION-$ARCH-$BUILD package already installed"
@@ -87,6 +87,7 @@ gzip -9 $PKG/usr/man/*/*
 gzip -9 $PKG/usr/info/*
 
 mkdir -p $PKG/install
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 

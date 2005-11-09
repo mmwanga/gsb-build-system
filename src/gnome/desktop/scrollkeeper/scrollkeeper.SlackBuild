@@ -6,7 +6,7 @@ PKG=$TMP/package-scrollkeeper
 
 VERSION=0.3.14
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/scrollkeeper-$VERSION-$ARCH-$BUILD ]; then
   echo "scrollkeeper-$VERSION-$ARCH-$BUILD package already installed"

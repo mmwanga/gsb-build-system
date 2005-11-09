@@ -6,7 +6,7 @@ PKG=$TMP/package-gnome-user-share
 
 VERSION=0.5
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gnome-user-share-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-user-share-$VERSION-$ARCH-$BUILD package already installed"

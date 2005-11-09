@@ -6,7 +6,7 @@ PKG=$TMP/package-gtkam
 
 VERSION=0.1.12
 ARCH=${ARCH:-i486}
-BUILD=3
+BUILD=4
 
 if [ -f /var/log/packages/gtkam-$VERSION-$ARCH-$BUILD ]; then
   echo "gtkam-$VERSION-$ARCH-$BUILD package already installed"

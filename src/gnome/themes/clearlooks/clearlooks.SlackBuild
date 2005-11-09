@@ -7,7 +7,7 @@ PKG=$TMP/package-clearlooks
 VERSION=0.6.2
 MVERSION=0.6
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ -f /var/log/packages/clearlooks-$VERSION-$ARCH-$BUILD ]; then
   echo "clearlooks-$VERSION-$ARCH-$BUILD package already installed"
@@ -68,6 +68,8 @@ CFLAGS="$SLKCFLAGS" \
             $ARCH-slackware-linux || exit 1
 make || exit 1
 make install DESTDIR=$PKG
+
+rm -rf $PKG/usr/lib
 
 (
   cd $PKG/usr/share/themes

@@ -1,6 +1,4 @@
 #!/bin/sh
-#
-# $Id: libgphoto2.SlackBuild 275 2005-03-08 01:20:25Z freerock $
 
 CWD=`pwd`
 TMP=${TMP:-/tmp}
@@ -8,7 +6,7 @@ PKG=$TMP/package-libgphoto2
 
 VERSION=2.1.6
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ -f /var/log/packages/libgphoto2-$VERSION-$ARCH-$BUILD ]; then
   echo "libgphoto2-$VERSION-$ARCH-$BUILD package already installed"

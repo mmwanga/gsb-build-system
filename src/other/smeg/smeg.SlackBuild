@@ -6,7 +6,7 @@ PKG=$TMP/package-smeg
 
 VERSION=0.7.5
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/smeg-$VERSION-$ARCH-$BUILD ]; then
   echo "smeg-$VERSION-$ARCH-$BUILD package already installed"
