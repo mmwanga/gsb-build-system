@@ -1,0 +1,10 @@
+cairo
+gtk+2
+taglib
+xine
+libglade
+gamin
+dbus
+curl
+perl
+python

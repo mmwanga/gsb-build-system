@@ -55,7 +55,6 @@ libesmtp
 gmime
 mail-notification
 contact-lookup-applet
-bmp
 balsa
 sylpheed
 sylpheed-claws
@@ -82,6 +81,7 @@ anjuta
 nautilus-open-terminal
 gnome-power-manager
 lock-keys-applet
+bmpx
 nvu
 "
 
