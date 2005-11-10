@@ -54,10 +54,10 @@ our %double_tarballs_url =
 				   'var' => 'MVERSION',
 				  },
    'iso-codes'                 => {
-				   'ver' => '0.47',
+				   'ver' => '0.49',
 				   'dir' => 'gnome/desktop_reqs/iso-codes',
 				   'url' => 'http://http.us.debian.org/debian/pool/main/i/iso-codes/',
-				   'tar' => 'iso-codes_0.47.orig.tar.gz',
+				   'tar' => 'iso-codes_0.49.orig.tar.gz',
 				   'var' => 'VERSION',
 				  },
    'nvu'                 => {

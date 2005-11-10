@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw(%mono);
+our @EXPORT    = qw(%mono %mono_diff_naming);
 our @EXPORT_OK = qw();
 our $VERSION   = 0.01;
 
@@ -26,8 +26,8 @@ our %mono=
                             'src' => 'tar.gz',
                            },
    'gtk-sharp'              => {
-                             'ver' => '2.4.0',
-                             'url' => 'http://go-mono.com/sources/gtk-sharp-2.0/',
+                             'ver' => '1.0.10',
+                             'url' => 'http://go-mono.com/sources/gtk-sharp/',
                              'src' => 'tar.gz',
                            },
    'gtksourceview-sharp-2.0' => {
@@ -61,6 +61,16 @@ our %mono=
                             'src' => 'tar.gz',
                            },
  );
+
+our %mono_diff_naming =
+  (
+   'gtk-sharp2' => {
+                'ver'  => '2.4.0',
+                'name' => 'gtk-sharp',
+		'url'  => 'http://go-mono.com/sources/gtk-sharp-2.0/',
+                'src'  => 'tar.gz',
+               },
+  );
 
 #
 # End Config Options

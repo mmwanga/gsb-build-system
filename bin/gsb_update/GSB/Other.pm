@@ -45,9 +45,9 @@ our %other =
 			     'url' => 'http://pkedu.fbt.eitn.wau.nl/~olivier/downloads/',
 			     'src' => 'tar.bz2',
 			    },
-   'bmp'                 => {
-			     'ver' => '0.9.7.1',
-			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/beepmp/',
+   'bmpx'                 => {
+			     'ver' => '0.12.3',
+			     'url' => 'http://bmpx.kicks-ass.net/downloads/0.12/',
 			     'src' => 'tar.gz',
 			    },
    'coaster'             => {
@@ -344,7 +344,7 @@ our %other_gnome =
    'gthumb'              => '2.6.8',
    'loudmouth'           => '1.0.1',
    'rhythmbox'           => '0.9.1',
-   'sabayon'             => '2.12.0',
+   'sabayon'             => '2.12.1',
   );
 
 our %other_other =

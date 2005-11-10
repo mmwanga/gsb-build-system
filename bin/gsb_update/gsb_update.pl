@@ -840,6 +840,44 @@ foreach my $omono_pack (keys %mono) {
 }
 
 
+# DOWNLOAD other mono libs
+foreach my $mononpackage (keys %mono_diff_naming) {
+
+  my $name    = $mononpackage;
+
+  my $oname   = $mono_diff_naming{$mononpackage}{name};
+  my $ver     = $mono_diff_naming{$mononpackage}{ver};
+  my $packurl = $mono_diff_naming{$mononpackage}{url};
+  my $src     = $mono_diff_naming{$mononpackage}{src};
+  my $sb_file = $name. $sb_ext;
+
+  my $type    = 'other';
+
+  chdir "$pwd/mono/$name";
+
+  my $tarball = "$oname-$ver.$src";
+
+  if ( $download eq "true" ) {
+    my $url = GSB::Mono::gsb_mono_url_make($oname, $packurl, $ver, $src);
+    GSB::GSB::gsb_tarball_get($oname, $ver, $tarball, $type, $url);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
+
+###########################################################3
+
 # Other gnome apps
 foreach my $other_pack (keys %other_gnome) {
 
