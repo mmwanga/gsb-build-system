@@ -1,0 +1,10 @@
+gtk+2
+glib2
+libart_lgpl
+gnome-vfs
+libgnomecanvas
+libglade
+librsvg
+libgtkhtml
+vte
+monodoc
