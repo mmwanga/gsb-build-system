@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-mail-notification
 
-VERSION=1.1
+VERSION=2.0
 ARCH=${ARCH:-i486}
-BUILD=3
+BUILD=1
 
 if [ -f /var/log/packages/mail-notification-$VERSION-$ARCH-$BUILD ]; then
   echo "mail-notification-$VERSION-$ARCH-$BUILD package already installed"
@@ -40,6 +40,12 @@ fi
 cd $TMP
 tar -xzvf $CWD/mail-notification-$VERSION.tar.gz
 cd mail-notification-$VERSION
+
+cat $CWD/mail-notification-2.0-gmail-properties-fix.diff | patch -p0 --verbose
+cat $CWD/mail-notification-2.0-evolution-2.4.diff | patch -p0 --verbose
+cat $CWD/mail-notification-2.0-buildfix.diff | patch -p0 --verbose
+
+
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
