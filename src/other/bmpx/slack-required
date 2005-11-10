@@ -1,7 +1,7 @@
 cairo
 gtk+2
 taglib
-xine
+xine-lib
 libglade
 gamin
 dbus
