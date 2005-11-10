@@ -16,7 +16,7 @@ our $VERSION   = 0.01;
 our %mono=
   (
    'boo'                   => {
-                            'ver' => '0.5.5.1651',
+                            'ver' => '0.7.0.1921',
                             'url' => 'http://go-mono.com/sources/boo/',
                             'src' => 'tar.gz',
                            },
@@ -26,7 +26,7 @@ our %mono=
                             'src' => 'tar.gz',
                            },
    'gtk-sharp'              => {
-                             'ver' => '2.5.92',
+                             'ver' => '2.4.0',
                              'url' => 'http://go-mono.com/sources/gtk-sharp-2.0/',
                              'src' => 'tar.gz',
                            },
@@ -41,22 +41,22 @@ our %mono=
                             'src' => 'tar.gz',
                            },
    'libgdiplus'             => {
-                            'ver' => '1.1.9.2',
+                            'ver' => '1.1.10',
                             'url' => 'http://go-mono.com/sources/libgdiplus-1.1/',
                             'src' => 'tar.gz',
                            },
    'mono'                   => {
-                            'ver' => '1.1.9.2',
+                            'ver' => '1.1.10',
                             'url' => 'http://go-mono.com/sources/mono-1.1/',
                             'src' => 'tar.gz',
                            },
    'monodevelop'            => {
-                            'ver' => '0.7',
+                            'ver' => '0.8',
                             'url' => 'http://go-mono.com/sources/monodevelop/',
                             'src' => 'tar.gz',
                            },
    'monodoc'                => {
-                            'ver' => '1.1.9',
+                            'ver' => '1.1.10',
                             'url' => 'http://go-mono.com/sources/monodoc',
                             'src' => 'tar.gz',
                            },
