@@ -35,6 +35,7 @@ use GSB::Gnome;
 use GSB::GStreamer;
 use GSB::Office;
 use GSB::Other;
+use GSB::Mono;
 use GSB::Desktop_Reqs;
 use GSB::DoubleTar;
 use GSB::Themes;
@@ -101,6 +102,7 @@ my %gnome_other =
    '%desktop_reqs'  => 'gnome/desktop_reqs',
    '%gst_libs'      => 'requirements',
    '%gst_other'     => 'other',
+   '%mono'          => 'mono',
    '%other'         => 'other',,
   );
 
@@ -789,6 +791,39 @@ foreach my $opackage (keys %other) {
   if ( $download eq "true") {
       my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
       GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $src, $url);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
+# mono
+foreach my $omono_pack (keys %mono) {
+
+  my $name    = $omono_pack;
+
+  my $sb_file = $name . $sb_ext;
+  my $packurl = $mono{$name}{url};
+  my $ver     = $mono{$name}{ver};
+  my $src     = $mono{$name}{src};
+  my $type    = "other";
+
+  my $tarball = "$name-$ver.$src";
+
+  chdir "$pwd/mono/$name";
+
+  if ( $download eq "true" ) {
+    my $url = GSB::Mono::gsb_mono_url_make($name, $packurl, $ver, $src);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
   }
 
   if ( $edit eq "true" ) {

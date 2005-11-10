@@ -23,6 +23,7 @@ echo "****************************************************"
 
 
 # BUILD GNOME PLATFORM AND DESKTOP
+# mono ruby - not yet
 for i in gnome other office
 do
 	echo "****************************************************"
