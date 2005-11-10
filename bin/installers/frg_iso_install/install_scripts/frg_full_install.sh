@@ -56,6 +56,9 @@
 # Install Other misc programs
 (
   cd "$FRGROOT"/extras/other
+  
+  upgradepkg --install-new bmp%bmpx-*.tgz
+  
   for i in *.tgz
   do
     PACK=`echo $i|cut -d - -f 1`
