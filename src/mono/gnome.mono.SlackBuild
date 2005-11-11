@@ -13,7 +13,7 @@ libgdiplus
 mono
 monodoc
 gtk-sharp
-gtk-sharp-2.0
+gtk-sharp2
 gtksourceview-sharp-2.0
 gecko-sharp-2.0
 boo
