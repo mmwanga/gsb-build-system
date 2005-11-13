@@ -4,7 +4,7 @@
 #
 # $Id$
 
-SYLPHEED_VERSION=2.0.1
+SYLPHEED_VERSION=2.0.4
 SYLPHEED_CLAWS_VERSION=1.9.12
 
 # Install Sylpheed-claws
