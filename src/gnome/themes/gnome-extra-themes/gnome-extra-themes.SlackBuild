@@ -69,4 +69,4 @@ cat $CWD/slack-desc > $PKG/install/slack-desc
 cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG 
-makepkg -l y -c n $TMP/gnome-extra-themes-$VERSION-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $TMP/gnome-extra-themes-$VERSION-$ARCH-$BUILD.tgz
