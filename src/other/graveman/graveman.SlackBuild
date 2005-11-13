@@ -5,10 +5,11 @@ TMP=${TMP:-/tmp}
 PKG=$TMP/package-graveman
 
 VERSION=0.3.12-4
+PVERSION=${VERSION/-/_}
 ARCH=${ARCH:-i486}
 BUILD=2
 
-if [ -f /var/log/packages/graveman-$VERSION-$ARCH-$BUILD ]; then
+if [ -f /var/log/packages/graveman-$PVERSION-$ARCH-$BUILD ]; then
   echo "graveman-$VERSION-$ARCH-$BUILD package already installed"
   exit 0
 fi
@@ -100,7 +101,7 @@ cat $CWD/slack-desc > $PKG/install/slack-desc
 cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
-makepkg -l y -c n $TMP/graveman-${VERSION/-/_}-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/graveman-$PVERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then

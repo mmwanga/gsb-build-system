@@ -6,7 +6,7 @@ PKG=$TMP/package-rhythmbox
 
 VERSION=0.9.1
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/rhythmbox-$VERSION-$ARCH-$BUILD ]; then
   echo "rhythmbox-$VERSION-$ARCH-$BUILD package already installed"
@@ -108,6 +108,7 @@ rm -f $PKG/usr/info/dir
 gzip -9 $PKG/usr/info/*
 
 mkdir -p $PKG/install
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 

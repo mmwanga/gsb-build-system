@@ -6,7 +6,7 @@ PKG=$TMP/package-mail-notification
 
 VERSION=2.0
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/mail-notification-$VERSION-$ARCH-$BUILD ]; then
   echo "mail-notification-$VERSION-$ARCH-$BUILD package already installed"
@@ -45,8 +45,6 @@ cat $CWD/mail-notification-2.0-gmail-properties-fix.diff | patch -p0 --verbose
 cat $CWD/mail-notification-2.0-evolution-2.4.diff | patch -p0 --verbose
 cat $CWD/mail-notification-2.0-buildfix.diff | patch -p0 --verbose
 
-
-
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
   echo "Applying patches for $ARCH"
@@ -70,6 +68,8 @@ CFLAGS="$SLKCFLAGS" \
             --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static \
+            --program-prefix="" \
+            --program-suffix="" \
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 1
 make || exit 1
@@ -116,6 +116,7 @@ mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 cat $CWD/doinst.sh > $PKG/install/doinst.sh
+
 cd $PKG
 makepkg -l y -c n $TMP/mail-notification-$VERSION-$ARCH-$BUILD.tgz
 

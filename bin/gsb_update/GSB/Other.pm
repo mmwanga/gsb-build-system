@@ -46,8 +46,8 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'bmpx'                 => {
-			     'ver' => '0.12.3',
-			     'url' => 'http://bmpx.kicks-ass.net/downloads/0.12/',
+			     'ver' => '0.12.4',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/beepmp/',
 			     'src' => 'tar.gz',
 			    },
    'coaster'             => {
@@ -306,7 +306,7 @@ our %other =
                              'src' => 'tar.bz2',
                             },
    'sylpheed'            => {
-			     'ver' => '2.0.1',
+			     'ver' => '2.0.4',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/sylpheed-claws/',
 			     'src' => 'tar.bz2',
 			    },
