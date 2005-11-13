@@ -143,8 +143,14 @@ windowmaker)
 afterstep)
 	exec afterstep
 	;;
+e16)
+	exec e16
+	;;
 enlightenment)
 	exec enlightenment
+	;;
+dotxsession)
+	exec $HOME/.xsession
 	;;
 twm)
 	#xclock -geometry 50x50-1+1 &
