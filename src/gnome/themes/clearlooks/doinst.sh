@@ -1,4 +1,4 @@
-for i in Clearlooks
+for i in Clearlooks Clearlooks-DeepSky Clearlooks-Olive Clearlooks-Quicksilver
 do
     if [ -e usr/share/icons/$i/icon-theme.cache ]; then
         rm -f usr/share/icons/$i/icon-theme.cache

@@ -7,7 +7,7 @@ PKG=$TMP/package-clearlooks
 VERSION=0.6.2
 MVERSION=0.6
 ARCH=${ARCH:-i486}
-BUILD=3
+BUILD=4
 
 if [ -f /var/log/packages/clearlooks-$VERSION-$ARCH-$BUILD ]; then
   echo "clearlooks-$VERSION-$ARCH-$BUILD package already installed"
@@ -79,6 +79,7 @@ rm -rf $PKG/usr/lib
   for i in Clearlooks-DeepSky Clearlooks-Olive Clearlooks-Quicksilver
   do
   cd $i
+  cp $CWD/index.theme.$i index.theme
   mkdir -p metacity-1
   cd metacity-1
   ln -s ../../Clearlooks/metacity-1/metacity-theme-1.xml
