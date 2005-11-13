@@ -6,7 +6,7 @@ PKG=$TMP/package-gnome-system-tools
 
 VERSION=1.4.0
 ARCH=${ARCH:-i486}
-BUILD=3
+BUILD=4
 
 if [ -f /var/log/packages/gnome-system-tools-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-system-tools-$VERSION-$ARCH-$BUILD package already installed"
@@ -109,6 +109,7 @@ gzip -9 $PKG/usr/man/*/*
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 makepkg -l y -c n $TMP/gnome-system-tools-$VERSION-$ARCH-$BUILD.tgz

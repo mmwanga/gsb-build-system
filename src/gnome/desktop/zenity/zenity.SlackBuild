@@ -6,7 +6,7 @@ PKG=$TMP/package-zenity
 
 VERSION=2.12.1
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/zenity-$VERSION-$ARCH-$BUILD ]; then
   echo "zenity-$VERSION-$ARCH-$BUILD package already installed"
@@ -109,6 +109,7 @@ gzip -9 $PKG/usr/info/*
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 makepkg -l y -c n $TMP/zenity-$VERSION-$ARCH-$BUILD.tgz

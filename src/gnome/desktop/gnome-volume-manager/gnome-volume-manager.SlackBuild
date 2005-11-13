@@ -6,7 +6,7 @@ PKG=$TMP/package-gnome-volume-manager
 
 VERSION=1.4.0
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gnome-volume-manager-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-volume-manager-$VERSION-$ARCH-$BUILD package already installed"
@@ -107,6 +107,7 @@ gzip -9 $PKG/usr/info/*
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 makepkg -l y -c n $TMP/gnome-volume-manager-$VERSION-$ARCH-$BUILD.tgz

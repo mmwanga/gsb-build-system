@@ -6,7 +6,7 @@ PKG=$TMP/package-gpdf
 
 VERSION=2.10.0
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ -f /var/log/packages/gpdf-$VERSION-$ARCH-$BUILD ]; then
   echo "gpdf-$VERSION-$ARCH-$BUILD package already installed"

@@ -6,7 +6,7 @@ PKG=$TMP/package-grip
 
 VERSION=3.3.1
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/grip-$VERSION-$ARCH-$BUILD ]; then
   echo "grip-$VERSION-$ARCH-$BUILD package already installed"
@@ -85,6 +85,7 @@ gzip -9 $PKG/usr/man/*/*
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 makepkg -l y -c n $TMP/grip-$VERSION-$ARCH-$BUILD.tgz

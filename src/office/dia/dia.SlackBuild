@@ -6,7 +6,7 @@ PKG=$TMP/package-dia
 
 VERSION=0.94
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ -f /var/log/packages/dia-$VERSION-$ARCH-$BUILD ]; then
   echo "dia-$VERSION-$ARCH-$BUILD package already installed"
@@ -82,6 +82,7 @@ gzip -9 $PKG/usr/man/*/*
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 makepkg -l y -c n $TMP/dia-$VERSION-$ARCH-$BUILD.tgz

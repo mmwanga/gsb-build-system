@@ -6,7 +6,7 @@ PKG=$TMP/package-ghex
 
 VERSION=2.8.1
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ -f /var/log/packages/ghex-$VERSION-$ARCH-$BUILD ]; then
   echo "ghex-$VERSION-$ARCH-$BUILD package already installed"

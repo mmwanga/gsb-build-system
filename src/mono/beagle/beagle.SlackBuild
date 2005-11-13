@@ -6,7 +6,7 @@ PKG=$TMP/package-beagle
 
 VERSION=0.1.2
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -102,6 +102,7 @@ gzip -9 $PKG/usr/man/*/*
 gzip -9 $PKG/usr/info/*
 
 mkdir -p $PKG/install
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
