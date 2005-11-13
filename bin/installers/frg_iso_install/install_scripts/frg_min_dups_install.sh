@@ -9,7 +9,7 @@ METACITY=2.12.1
 TOTEMVERSION=1.2.0
 TOTEM_CVS=1.2.0
 
-UDEV=0.70
+UDEV=070
 
 # Install Metacity
 if [ "$NO_PROMPT" != "true" ]; then
