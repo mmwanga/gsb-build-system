@@ -19,6 +19,14 @@ gecko-sharp-2.0
 boo
 ikvm
 monodevelop
+sqlite2
+sqlite3
+dbus-sharp
+gmime-sharp
+libipoddevice
+ipod-sharp
+banshee
+beagle
 "
 
 mkdir -p $TMP/gnome-$GVERSION/extras/mono
