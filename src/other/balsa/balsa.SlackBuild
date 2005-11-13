@@ -6,7 +6,7 @@ PKG=$TMP/package-balsa
 
 VERSION=2.3.4
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/balsa-$VERSION-$ARCH-$BUILD ]; then
   echo "balsa-$VERSION-$ARCH-$BUILD package already installed"
@@ -38,8 +38,10 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 cd $TMP
-tar -xjvf $CWD/balsa-$VERSION.tar.bz2
+tar -xjvf $CWD/balsa-$VERSION.tar.bz2 || exit 1
 cd balsa-$VERSION
+
+cat $CWD/Makefile.in.gtk_update_icon_cache.patch | patch -p1 --verbose
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
