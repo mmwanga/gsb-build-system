@@ -10,17 +10,18 @@ FRG_ROOT=/home/storage/pub/frg/
     -R -J -o ${ISO_NAME} \
     -V "FRG ${FRG} Minimum" \
     -A "Freerock GNOME ${FRG}" \
-    -x $FRG_ROOT/frg-$FRG/bindings \
-    -x $FRG_ROOT/frg-$FRG/office \
-    -x $FRG_ROOT/frg-$FRG/other \
+    -x $FRG_ROOT/frg-$FRG/frgnome/bindings \
+    -x $FRG_ROOT/frg-$FRG/extras/office \
+    -x $FRG_ROOT/frg-$FRG/extras/other \
+    -x $FRG_ROOT/frg-$FRG/extras/mono \
     -x $FRG_ROOT/frg-$FRG/testing \
-    -x $FRG_ROOT/frg-$FRG/themes \
-    -x $FRG_ROOT/frg-$FRG/updates \
+    -x $FRG_ROOT/frg-$FRG/extras/themes \
+    -x $FRG_ROOT/frg-$FRG/pasture \
     -x $FRG_ROOT/frg-$FRG/patches \
-    -x $FRG_ROOT/frg-$FRG/frg_full_dups_install.sh \
-    -x $FRG_ROOT/frg-$FRG/frg_full_install.sh \
-    -m $FRG_ROOT/frg-$FRG/alternatives/'sylpheed*' \
-    -m $FRG_ROOT/frg-$FRG/alternatives/'gimp*' \
+    -x $FRG_ROOT/frg-$FRG/install_scripts/frg_full_dups_install.sh \
+    -x $FRG_ROOT/frg-$FRG/install_scripts/frg_full_install.sh \
+    -m $FRG_ROOT/frg-$FRG/extras/alternatives/'sylpheed*' \
+    -m $FRG_ROOT/frg-$FRG/extras/alternatives/'gimp*' \
     $FRG_ROOT/frg-$FRG/
 
 
