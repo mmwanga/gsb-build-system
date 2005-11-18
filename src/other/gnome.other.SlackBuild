@@ -41,7 +41,6 @@ Imaging
 skencil
 pstoedit
 gc
-inkscape
 gst-ffmpeg
 gst-monkeysaudio
 sabayon
@@ -82,7 +81,6 @@ nautilus-open-terminal
 gnome-power-manager
 lock-keys-applet
 bmpx
-nvu
 "
 
 mkdir -p $TMP/gnome-$GVERSION/extras/other

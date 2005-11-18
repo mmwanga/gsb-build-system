@@ -14,7 +14,7 @@ fi
 rm -rf $PKG
 mkdir -p $PKG
 
-if [ -f /var/log/packages/dbus-$VERSION-$ARCH-$BUILD ]; then
+if [ -f /var/log/packages/dbus-sharp-$VERSION-$ARCH-$BUILD ]; then
   echo "dbus-sharp-$VERSION-$ARCH-$BUILD package already installed"
   exit 0
 fi

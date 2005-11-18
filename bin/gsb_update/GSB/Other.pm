@@ -41,12 +41,12 @@ our %other =
 			     'src' => 'tar.bz2',
 			    },
    'bluefish'            => {
-			     'ver' => '1.0.2',
+			     'ver' => '1.0.4',
 			     'url' => 'http://pkedu.fbt.eitn.wau.nl/~olivier/downloads/',
 			     'src' => 'tar.bz2',
 			    },
    'bmpx'                 => {
-			     'ver' => '0.12.4',
+			     'ver' => '0.12.7',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/beepmp/',
 			     'src' => 'tar.gz',
 			    },
@@ -343,6 +343,7 @@ our %other_gnome =
    'gossip'              => '0.9',
    'gthumb'              => '2.6.8',
    'loudmouth'           => '1.0.1',
+   'pessulus'            => '0.2',
    'rhythmbox'           => '0.9.1',
    'sabayon'             => '2.12.1',
   );

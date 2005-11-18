@@ -2,16 +2,11 @@
 
 CWD=`pwd`
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-gnome-user-share
+PKG=$TMP/package-pessulus
 
-VERSION=0.8
+VERSION=0.2
 ARCH=${ARCH:-i486}
-BUILD=2
-
-if [ -f /var/log/packages/gnome-user-share-$VERSION-$ARCH-$BUILD ]; then
-  echo "gnome-user-share-$VERSION-$ARCH-$BUILD package already installed"
-  exit 0
-fi
+BUILD=1
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -19,16 +14,21 @@ fi
 rm -rf $PKG
 mkdir -p $PKG
 
+if [ -f /var/log/packages/pessulus-$VERSION-$ARCH-$BUILD ]; then
+  echo "pessulus-$VERSION-$ARCH-$BUILD package already installed"
+  exit 0
+fi
+
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
   ARCH_CONFIGURE=""
 elif [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
   ARCH_CONFIGURE=""
-elif [ "$ARCH" = "powerpc" ]; then
+elif [ "$ARCH" = "s390" ]; then
   SLKCFLAGS="-O2"
   ARCH_CONFIGURE=""
-elif [ "$ARCH" = "s390" ]; then
+elif [ "$ARCH" = "powerpc" ]; then
   SLKCFLAGS="-O2"
   ARCH_CONFIGURE=""
 elif [ "$ARCH" = "x86_64" ]; then
@@ -37,8 +37,8 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 cd $TMP
-tar -xjvf $CWD/gnome-user-share-$VERSION.tar.bz2
-cd gnome-user-share-$VERSION
+tar -xjvf $CWD/pessulus-$VERSION.tar.bz2
+cd pessulus-$VERSION
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
@@ -83,12 +83,12 @@ done
 
 chown -R root.bin $PKG/usr/bin
 
-mkdir -p $PKG/usr/doc/gnome-user-share-$VERSION
+mkdir -p $PKG/usr/doc/pessulus-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
         TODO \
-        $PKG/usr/doc/gnome-user-share-$VERSION
-find $PKG/usr/doc/gnome-user-share-$VERSION/ -type f -exec chmod 644 {} \;
-chown root.root $PKG/usr/doc/gnome-user-share-$VERSION/*
+        $PKG/usr/doc/pessulus-$VERSION
+find $PKG/usr/doc/pessulus-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/doc/pessulus-$VERSION/*
 
 # strip:
 ( cd $PKG
@@ -105,10 +105,10 @@ cat $CWD/slack-desc > $PKG/install/slack-desc
 cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
-makepkg -l y -c n $TMP/gnome-user-share-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/pessulus-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/gnome-user-share-$VERSION
+  rm -rf $TMP/pessulus-$VERSION
   rm -rf $PKG
 fi

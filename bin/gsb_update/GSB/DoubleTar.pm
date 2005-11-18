@@ -40,6 +40,13 @@ our %double_tarballs =
 			  'src' => 'tar.gz',
 			  'var' => 'TVERSION',
 			 },
+   'evolution' => {
+                           'ver' => '2.4.1',
+                           'dir' => 'other/mail-notification',
+                           'url' => 'http://ftp.gnome.org/pub/GNOME/sources/evolution/2.4/',
+                           'src' => 'tar.bz2',
+                           'var' => 'EVO_VER',
+                          },
   );
 
 

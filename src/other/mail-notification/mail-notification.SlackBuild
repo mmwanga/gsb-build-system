@@ -6,7 +6,9 @@ PKG=$TMP/package-mail-notification
 
 VERSION=2.0
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
+
+EVO_VAR=2.4.1
 
 if [ -f /var/log/packages/mail-notification-$VERSION-$ARCH-$BUILD ]; then
   echo "mail-notification-$VERSION-$ARCH-$BUILD package already installed"
@@ -38,7 +40,8 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 cd $TMP
-tar -xzvf $CWD/mail-notification-$VERSION.tar.gz
+tar -xjvf $CWD/evolution-$EVO_VAR.tar.bz2 || exit 1
+tar -xzvf $CWD/mail-notification-$VERSION.tar.gz || exit 1
 cd mail-notification-$VERSION
 
 cat $CWD/mail-notification-2.0-gmail-properties-fix.diff | patch -p0 --verbose
@@ -70,6 +73,7 @@ CFLAGS="$SLKCFLAGS" \
             --disable-static \
             --program-prefix="" \
             --program-suffix="" \
+            --with-evolution-source-dir=$TMP/evolution-$EVO_VAR \
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 1
 make || exit 1
