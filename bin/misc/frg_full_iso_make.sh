@@ -1,9 +1,8 @@
 #!/bin/sh
 
-FRG=2.12.0
-GNOME=2.12.0
+FRG=2.12.1
 
-ISO_NAME="frg-${FRG}-${GNOME}.iso"
+ISO_NAME="frg-${FRG}.iso"
 
 FRG_ROOT=/home/storage/pub/frg/
 

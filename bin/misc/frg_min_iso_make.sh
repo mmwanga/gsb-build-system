@@ -1,9 +1,8 @@
 #!/bin/sh
 
-FRG=2.12.0
-GNOME=2.12.0
+FRG=2.12.1
 
-ISO_NAME="frg-min-${FRG}-${GNOME}.iso"
+ISO_NAME="frg-min-${FRG}.iso"
 
 FRG_ROOT=/home/storage/pub/frg/
 
@@ -21,6 +20,7 @@ FRG_ROOT=/home/storage/pub/frg/
     -x $FRG_ROOT/frg-$FRG/frg_full_dups_install.sh \
     -x $FRG_ROOT/frg-$FRG/frg_full_install.sh \
     -m $FRG_ROOT/frg-$FRG/alternatives/'sylpheed*' \
+    -m $FRG_ROOT/frg-$FRG/alternatives/'gimp*' \
     $FRG_ROOT/frg-$FRG/
 
 
