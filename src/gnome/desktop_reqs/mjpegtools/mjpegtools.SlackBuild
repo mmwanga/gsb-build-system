@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-mjpegtools
 
-VERSION=1.6.2
+VERSION=1.8.0
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/mjpegtools-$VERSION-$ARCH-$BUILD ]; then
   echo "mjpegtools-$VERSION-$ARCH-$BUILD package already installed"
@@ -56,25 +56,6 @@ elif [ "$ARCH" = "powerpc" ]; then
 elif [ "$ARCH" = "x86_64" ]; then
   echo "Applying patches for $ARCH"
   #cat $CWD/foo.patch | patch -p0 --verbose
-fi
-
-
-# Apply $ARCH specific patches
-if [ "$ARCH" = "i386" ]; then
-  echo "Applying patches for $ARCH"
-  #cat $CWD/foo.patch | patch -p0 --verbose
-elif [ "$ARCH" = "i486" ]; then
-  echo "Applying patches for $ARCH"
-  #cat $CWD/foo.patch | patch -p0 --verbose
-elif [ "$ARCH" = "powerpc" ]; then
-  SLKCFLAGS="-O2"
-  ARCH_CONFIGURE=""
-elif [ "$ARCH" = "s390" ]; then
-  echo "Applying patches for $ARCH"
-  #cat $CWD/foo.patch | patch -p0 --verbose
-elif [ "$ARCH" = "x86_64" ]; then
-  echo "Applying patches for $ARCH"
-  cat $CWD/x86_64.gplusplus_syntax.patch | patch -p1 --verbose
 fi
 
 CFLAGS="$SLKCFLAGS" \
