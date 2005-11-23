@@ -201,7 +201,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'mjpegtools'        => {
-			   'ver' => '1.6.2',
+			   'ver' => '1.8.0',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mjpeg/',
 			   'src' => 'tar.gz',
 			  },
