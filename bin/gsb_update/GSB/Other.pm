@@ -160,6 +160,11 @@ our %other =
 			     'url' => 'http://software.jaos.org/source/gslapt/',
 			     'src' => 'tar.gz',
 			    },
+   'slapt-update-notifier'             => {
+			     'ver' => '0.1',
+			     'url' => 'http://software.jaos.org/source/slapt-update-notifier/',
+			     'src' => 'tar.gz',
+			    },
    'gtkam'               => {
 			     'ver' => '0.1.12',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto/',

@@ -1,0 +1,85 @@
+#!/bin/sh
+
+CWD=`pwd`
+TMP=${TMP:-/tmp}
+PKG=$TMP/package-slapt-update-notifier
+
+VERSION=0.1
+ARCH=${ARCH:-i486}
+BUILD=1frg
+
+if [ -f /var/log/packages/slapt-update-notifier-$VERSION-$ARCH-$BUILD ]; then
+  echo "slapt-update-notifier-$VERSION-$ARCH-$BUILD package already installed"
+  exit 0
+fi
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG
+
+if [ "$ARCH" = "i386" ]; then
+  SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
+  ARCH_CONFIGURE=""
+elif [ "$ARCH" = "i486" ]; then
+  SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
+  ARCH_CONFIGURE=""
+elif [ "$ARCH" = "powerpc" ]; then
+  SLKCFLAGS="-O2"
+  ARCH_CONFIGURE=""
+elif [ "$ARCH" = "s390" ]; then
+  SLKCFLAGS="-O2"
+  ARCH_CONFIGURE=""
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2 -fPIC"
+  ARCH_CONFIGURE="--libdir=/usr/lib64"
+fi
+
+cd $TMP
+if [ -d slapt-update-notifier-$VERSION ]; then
+  rm -r slapt-update-notifier-$VERSION
+fi
+tar -xzvf $CWD/slapt-update-notifier-$VERSION.tar.gz
+cd slapt-update-notifier-$VERSION
+
+# Apply $ARCH specific patches
+if [ "$ARCH" = "i386" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "i486" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "s390" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "powerpc" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "x86_64" ]; then
+  echo "Applying patches for $ARCH"
+  cat $CWD/x86_64.slack-required > slack-required
+fi
+
+CFLAGS="$SLKCFLAGS" \
+./configure --prefix=/usr \
+            --sysconfdir=/etc \
+            --localstatedir=/var/lib \
+            --disable-static \
+            $ARCH_CONFIGURE \
+            $ARCH-slackware-linux || exit 1
+make || exit 1
+make pkg PKGDIR=$PKG
+rm $PKG/slapt-update-notifier-${VERSION}-*-1.tgz
+
+mkdir -p $PKG/install
+chmod 644 $PKG/install/*
+
+cd $PKG
+makepkg -l y -c n $TMP/slapt-update-notifier-$VERSION-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/slapt-update-notifier-$VERSION
+  rm -rf $PKG
+fi
