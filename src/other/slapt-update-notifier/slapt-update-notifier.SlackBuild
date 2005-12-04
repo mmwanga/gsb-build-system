@@ -6,7 +6,7 @@ PKG=$TMP/package-slapt-update-notifier
 
 VERSION=0.1
 ARCH=${ARCH:-i486}
-BUILD=1frg
+BUILD=1
 
 if [ -f /var/log/packages/slapt-update-notifier-$VERSION-$ARCH-$BUILD ]; then
   echo "slapt-update-notifier-$VERSION-$ARCH-$BUILD package already installed"
