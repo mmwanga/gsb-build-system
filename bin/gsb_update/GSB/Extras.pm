@@ -160,8 +160,8 @@ our %extras_gnome_apps =
 our %extras_gnome_other_apps =
   (
    'gnome-power-manager'       => {
-                             'ver' => '0.2.2.1',
-                             'url' => 'http://unc.dl.sourceforge.net/sourceforge/gnome-power/',
+                             'ver' => '0.3.1',
+                             'url' => 'http://internap.dl.sourceforge.net/sourceforge/gnome-power/',
                              'src' => 'tar.gz',
                             },
   );
@@ -212,7 +212,7 @@ our %extras_apps =
 			    },
    'gDesklets'           => {
 			     'ver' => '0.35.2',
-			     'url' => 'http://www.gdesklets.org/releases/',
+			     'url' => 'http://www.gdesklets.org/downloads/',
 			     'src' => 'tar.bz2',
 			    },
    'gaim'                => {
