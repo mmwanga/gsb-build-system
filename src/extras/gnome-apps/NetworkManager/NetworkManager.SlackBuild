@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-NetworkManager
 
-VERSION=0.3.1
+VERSION=0.5.1
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -116,7 +116,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-NetworkManager
 
-VERSION=0.3.1
+VERSION=0.5.1
 ARCH=${ARCH:-i486}
 BUILD=1
 

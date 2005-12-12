@@ -15,7 +15,7 @@ our $VERSION   = 0.03;
 
 our %gnome_themes =
   (
-   'gnome-themes-extras'  => '0.8.1',
+   'gnome-themes-extras'  => '0.9.0',
   );
 
 our %other_themes =

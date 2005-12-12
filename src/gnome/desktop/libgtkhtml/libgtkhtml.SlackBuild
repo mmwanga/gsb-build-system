@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-libgtkhtml
 
-VERSION=2.6.3
+VERSION=2.11.0
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/libgtkhtml-$VERSION-$ARCH-$BUILD ]; then
   echo "libgtkhtml-$VERSION-$ARCH-$BUILD package already installed"

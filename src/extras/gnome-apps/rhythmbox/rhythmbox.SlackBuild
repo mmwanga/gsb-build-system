@@ -6,7 +6,7 @@ PKG=$TMP/package-rhythmbox
 
 VERSION=0.9.1
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/rhythmbox-$VERSION-$ARCH-$BUILD ]; then
   echo "rhythmbox-$VERSION-$ARCH-$BUILD package already installed"
@@ -128,7 +128,7 @@ PKG=$TMP/package-rhythmbox
 
 VERSION=0.9.1
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/rhythmbox-$VERSION-$ARCH-$BUILD ]; then
   echo "rhythmbox-$VERSION-$ARCH-$BUILD package already installed"
