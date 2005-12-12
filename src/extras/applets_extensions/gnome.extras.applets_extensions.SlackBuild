@@ -1,0 +1,74 @@
+#!/bin/sh
+
+. ../GSB.options
+
+TMP=${TMP:-/tmp}
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+
+BUILD_ORDER="
+mail-notification
+contact-lookup-applet
+istanbul
+nautilus-open-terminal
+lock-keys-applet
+"
+
+mkdir -p $TMP/gnome-$GVERSION/extras/applets_extensions
+
+(
+for i in $BUILD_ORDER
+do
+(
+  cd $i
+  echo ""
+  echo "*************************************************"
+  echo "*****         Building $i"
+  echo "*************************************************"
+  echo ""
+  ./$i.SlackBuild --cleanup
+  upgradepkg --install-new $TMP/$i*.tgz
+  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/extras/applets_extensions
+)
+done
+# Fork screen output to a log
+) 2>&1 | tee $TMP/gnome.extras.applets_extensions.build.log
+#!/bin/sh
+
+. ../GSB.options
+
+TMP=${TMP:-/tmp}
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+
+BUILD_ORDER="
+mail-notification
+contact-lookup-applet
+istanbul
+nautilus-open-terminal
+lock-keys-applet
+"
+
+mkdir -p $TMP/gnome-$GVERSION/extras/applets_extensions
+
+(
+for i in $BUILD_ORDER
+do
+(
+  cd $i
+  echo ""
+  echo "*************************************************"
+  echo "*****         Building $i"
+  echo "*************************************************"
+  echo ""
+  ./$i.SlackBuild --cleanup
+  upgradepkg --install-new $TMP/$i*.tgz
+  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/extras/applets_extensions
+)
+done
+# Fork screen output to a log
+) 2>&1 | tee $TMP/gnome.extras.applets_extensions.build.log

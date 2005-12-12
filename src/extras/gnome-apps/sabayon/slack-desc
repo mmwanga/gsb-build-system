@@ -1,0 +1,24 @@
+       |-----handy-ruler------------------------------------------------------|
+sabayon: sabayon
+sabayon:
+sabayon: Sabayon is a system administration tool to manage GNOME desktop 
+sabayon: settings. Sabayon provides a sane way to edit GConf defaults and
+sabayon: GConf mandatory keys: the same way you edit your desktop. Sabayon
+sabayon: launches profiles in an Xnest window. Any changes you make in the
+sabayon: Xnest window are saved back to the profile file, which can then be
+sabayon: applied to user's accounts.
+sabayon:
+sabayon:
+sabayon:
+       |-----handy-ruler------------------------------------------------------|
+sabayon: sabayon
+sabayon:
+sabayon: Sabayon is a system administration tool to manage GNOME desktop 
+sabayon: settings. Sabayon provides a sane way to edit GConf defaults and
+sabayon: GConf mandatory keys: the same way you edit your desktop. Sabayon
+sabayon: launches profiles in an Xnest window. Any changes you make in the
+sabayon: Xnest window are saved back to the profile file, which can then be
+sabayon: applied to user's accounts.
+sabayon:
+sabayon:
+sabayon:

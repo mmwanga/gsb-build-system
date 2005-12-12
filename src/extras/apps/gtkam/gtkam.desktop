@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name=GTKam
+Comment=Digital Camera Picture Viewer
+Exec=/usr/bin/gtkam
+Icon=gtkam-camera.png
+Terminal=0
+Type=Application
+Categories=Application;Graphics;
+[Desktop Entry]
+Name=GTKam
+Comment=Digital Camera Picture Viewer
+Exec=/usr/bin/gtkam
+Icon=gtkam-camera.png
+Terminal=0
+Type=Application
+Categories=Application;Graphics;

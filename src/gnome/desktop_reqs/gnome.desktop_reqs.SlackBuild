@@ -65,6 +65,7 @@ openldap
 PyXML
 iso-codes
 heimdal
+poppler
 "
 
 mkdir -p $TMP/gnome-$GVERSION/frgnome/desktop_reqs

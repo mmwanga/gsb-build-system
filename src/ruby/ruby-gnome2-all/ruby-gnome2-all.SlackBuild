@@ -1,6 +1,4 @@
 #!/bin/sh
-#
-# http://ruby-gnome2.sourceforge.jp
 
 CWD=`pwd`
 TMP=${TMP:-/tmp}

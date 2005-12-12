@@ -1,0 +1,20 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=GTKPod
+GenericName=Syncs iPod
+Comment=Sync your Apple iPod
+Exec=gtkpod
+Terminal=false
+Type=Application
+Icon=frg-gtkpod.png
+Categories=Application;AudioVideo;
+[Desktop Entry]
+Encoding=UTF-8
+Name=GTKPod
+GenericName=Syncs iPod
+Comment=Sync your Apple iPod
+Exec=gtkpod
+Terminal=false
+Type=Application
+Icon=frg-gtkpod.png
+Categories=Application;AudioVideo;

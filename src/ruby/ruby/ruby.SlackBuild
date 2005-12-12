@@ -63,15 +63,10 @@ fi
 
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
-            --sysconfdir=/etc \
-            --localstatedir=/var/lib \
-            --disable-static \
-            --with-preview=yes \
-            --program-suffix="" \
-            --program-prefix="" \
+            --enable-shared \
+            --enable-pthread \
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 1
-
 make || exit 1
 make install DESTDIR=$PKG
 
@@ -81,6 +76,8 @@ mkdir -p $PKG/usr/doc/ruby-$VERSION
 cp -a \
 LGPL ChangeLog LEGAL README ToDo \
  $PKG/usr/doc/ruby-$VERSION
+find $PKG/usr/doc/mono-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/doc/mono-$VERSION/*
 
 # strip
 ( cd $PKG

@@ -1,0 +1,30 @@
+diff -Naur evince-0.3.3.orig/shell/Makefile.in evince-0.3.3/shell/Makefile.in
+--- evince-0.3.3.orig/shell/Makefile.in	2005-08-15 23:14:10.000000000 -0400
++++ evince-0.3.3/shell/Makefile.in	2005-08-18 00:26:10.000000000 -0400
+@@ -688,9 +688,9 @@
+ 	echo '#include "ev-marshal.h"' > ev-marshal.c
+ 	glib-genmarshal --prefix=ev_marshal ev-marshal.list --body >> ev-marshal.c
+ 
+-@DBUS_TOOL_NO_PREFIX_TRUE@ev-application-service.h: $(srcdir)/ev-application-service.xml
++@DBUS_TOOL_NO_PREFIX_TRUE@ev-application-service.h:
+ @DBUS_TOOL_NO_PREFIX_TRUE@	dbus-binding-tool --mode=glib-server --output=ev-application-service.h $(srcdir)/ev-application-service.xml
+-@DBUS_TOOL_NO_PREFIX_FALSE@ev-application-service.h: $(srcdir)/ev-application-service.xml
++@DBUS_TOOL_NO_PREFIX_FALSE@ev-application-service.h:
+ @DBUS_TOOL_NO_PREFIX_FALSE@	dbus-binding-tool --prefix=ev_application --mode=glib-server --output=ev-application-service.h $(srcdir)/ev-application-service.xml
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
+ # Otherwise a system limit (for SysV at least) may be exceeded.
+diff -Naur evince-0.3.3.orig/shell/Makefile.in evince-0.3.3/shell/Makefile.in
+--- evince-0.3.3.orig/shell/Makefile.in	2005-08-15 23:14:10.000000000 -0400
++++ evince-0.3.3/shell/Makefile.in	2005-08-18 00:26:10.000000000 -0400
+@@ -688,9 +688,9 @@
+ 	echo '#include "ev-marshal.h"' > ev-marshal.c
+ 	glib-genmarshal --prefix=ev_marshal ev-marshal.list --body >> ev-marshal.c
+ 
+-@DBUS_TOOL_NO_PREFIX_TRUE@ev-application-service.h: $(srcdir)/ev-application-service.xml
++@DBUS_TOOL_NO_PREFIX_TRUE@ev-application-service.h:
+ @DBUS_TOOL_NO_PREFIX_TRUE@	dbus-binding-tool --mode=glib-server --output=ev-application-service.h $(srcdir)/ev-application-service.xml
+-@DBUS_TOOL_NO_PREFIX_FALSE@ev-application-service.h: $(srcdir)/ev-application-service.xml
++@DBUS_TOOL_NO_PREFIX_FALSE@ev-application-service.h:
+ @DBUS_TOOL_NO_PREFIX_FALSE@	dbus-binding-tool --prefix=ev_application --mode=glib-server --output=ev-application-service.h $(srcdir)/ev-application-service.xml
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
+ # Otherwise a system limit (for SysV at least) may be exceeded.

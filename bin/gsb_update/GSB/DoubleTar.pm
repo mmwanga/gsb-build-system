@@ -21,7 +21,7 @@ our %double_tarballs =
 			 },
    'gaim-encryption'  => {
 			  'ver' => '2.38',
-			  'dir' => 'other/gaim',
+			  'dir' => 'extras/apps/gaim',
 			  'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gaim-encryption/',
 			  'src' => 'tar.gz',
 			  'var' => 'GAIMENC',
@@ -42,7 +42,7 @@ our %double_tarballs =
 			 },
    'evolution' => {
                            'ver' => '2.4.1',
-                           'dir' => 'other/mail-notification',
+                           'dir' => 'extras/applets_extensions/mail-notification',
                            'url' => 'http://ftp.gnome.org/pub/GNOME/sources/evolution/2.4/',
                            'src' => 'tar.bz2',
                            'var' => 'EVO_VER',
@@ -69,7 +69,7 @@ our %double_tarballs_url =
 				  },
    'nvu'                 => {
 				   'ver' => '1.0',
-				   'dir' => 'other/nvu',
+				   'dir' => 'extras/apps/nvu',
 				   'url' => 'http://cvs.nvu.com/download/',
 				   'tar' => 'nvu-1.0-sources.tar.bz2',
 				   'var' => 'VERSION',

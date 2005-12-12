@@ -1,0 +1,20 @@
+[Desktop Entry]
+Name=Denu Menu Editor
+Comment=Menu Editor
+Encoding=UTF-8
+Version=2.3.1
+Type=Application
+Categories=Application;System;SystemSetup;
+Icon=denu.png
+Terminal=false
+Exec=denu
+[Desktop Entry]
+Name=Denu Menu Editor
+Comment=Menu Editor
+Encoding=UTF-8
+Version=2.3.1
+Type=Application
+Categories=Application;System;SystemSetup;
+Icon=denu.png
+Terminal=false
+Exec=denu

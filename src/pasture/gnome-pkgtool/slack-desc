@@ -1,0 +1,22 @@
+             |-----handy-ruler------------------------------------------------------|
+gnome-pkgtool: gnome-pkgtool
+gnome-pkgtool:
+gnome-pkgtool: gnome-pkgtool is a GTK+/GNOME front-end to Slackware package
+gnome-pkgtool: management tools (pkgtool). gnome-pkgtool relies on installpkg(8)
+gnome-pkgtool: and removepkg(8) tools for installing and uninstalling packages and
+gnome-pkgtool: on checkinstall for building packages from source. 
+gnome-pkgtool:
+gnome-pkgtool:
+gnome-pkgtool:
+gnome-pkgtool:
+             |-----handy-ruler------------------------------------------------------|
+gnome-pkgtool: gnome-pkgtool
+gnome-pkgtool:
+gnome-pkgtool: gnome-pkgtool is a GTK+/GNOME front-end to Slackware package
+gnome-pkgtool: management tools (pkgtool). gnome-pkgtool relies on installpkg(8)
+gnome-pkgtool: and removepkg(8) tools for installing and uninstalling packages and
+gnome-pkgtool: on checkinstall for building packages from source. 
+gnome-pkgtool:
+gnome-pkgtool:
+gnome-pkgtool:
+gnome-pkgtool:

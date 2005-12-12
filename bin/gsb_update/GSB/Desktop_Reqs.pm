@@ -30,6 +30,11 @@ our %desktop_reqs =
 			 'ver' => '2.2.27',
 			 'src' => 'tgz',
 			},
+   'poppler'         => {
+			 'url' => 'http://poppler.freedesktop.org/',
+			 'ver' => '0.4.2',
+			 'src' => 'tar.gz',
+			},
    'PyXML'           => {
 			 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/pyxml/',
 			 'ver' => '0.8.4',

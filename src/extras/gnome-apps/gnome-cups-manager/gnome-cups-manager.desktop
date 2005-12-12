@@ -1,0 +1,30 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=GNOME Cups Manager
+GenericName=Cups Configuration
+Comment=Configure and Add Printers with CUPS 
+TryExec=gnome-cups-manager
+Exec=gnome-cups-manager
+Icon=gnome-dev-printer.png
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=GNOME;Application;System;Utility;
+X-GNOME-Bugzilla-Bugzilla=GNOME
+X-GNOME-Bugzilla-Product=gnome-cups-manager
+X-GNOME-Bugzilla-Component=general
+[Desktop Entry]
+Encoding=UTF-8
+Name=GNOME Cups Manager
+GenericName=Cups Configuration
+Comment=Configure and Add Printers with CUPS 
+TryExec=gnome-cups-manager
+Exec=gnome-cups-manager
+Icon=gnome-dev-printer.png
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=GNOME;Application;System;Utility;
+X-GNOME-Bugzilla-Bugzilla=GNOME
+X-GNOME-Bugzilla-Product=gnome-cups-manager
+X-GNOME-Bugzilla-Component=general

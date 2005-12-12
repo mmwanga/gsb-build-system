@@ -1,4 +1,4 @@
-THIS DOC IS JUST A ROUGH DRAFT, its subject to change.
+THIS DOC IS JUST A ROUGH DRAFT, it is subject to change.
 
 
 Just a small ammount of rules so that we can keep the sources consistent.
@@ -8,7 +8,7 @@ Just a small ammount of rules so that we can keep the sources consistent.
    and BUILD variables are clean. eg:
        - The ARCH variable should always look like this in SVN:
              ARCH=${ARCH:-i486}
-       - The BUILD variable should always been free of alpha characters.
+       - The BUILD variable should always be free of alpha characters.
 
 2) ARCH specific patches:
    - Any patches that are specific to an ARCH should be named like this:

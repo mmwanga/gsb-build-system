@@ -1,0 +1,84 @@
+#!/bin/sh
+
+. ../GSB.options
+
+TMP=${TMP:-/tmp}
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+
+
+# not built: NetworkManager
+
+BUILD_ORDER="
+gnome-cups-manager
+gthumb
+rhythmbox
+gnome-audio
+sabayon
+gnome-power-manager
+pessulus
+"
+
+mkdir -p $TMP/gnome-$GVERSION/extras/gnome-apps
+
+(
+for i in $BUILD_ORDER
+do
+(
+  cd $i
+  echo ""
+  echo "*************************************************"
+  echo "*****         Building $i"
+  echo "*************************************************"
+  echo ""
+  ./$i.SlackBuild --cleanup
+  upgradepkg --install-new $TMP/$i*.tgz
+  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/extras/gnome-apps
+)
+done
+# Fork screen output to a log
+) 2>&1 | tee $TMP/gnome.extras.gnome-apps.build.log
+#!/bin/sh
+
+. ../GSB.options
+
+TMP=${TMP:-/tmp}
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+
+
+# not built: NetworkManager
+
+BUILD_ORDER="
+gnome-cups-manager
+gthumb
+rhythmbox
+gnome-audio
+sabayon
+gnome-power-manager
+pessulus
+"
+
+mkdir -p $TMP/gnome-$GVERSION/extras/gnome-apps
+
+(
+for i in $BUILD_ORDER
+do
+(
+  cd $i
+  echo ""
+  echo "*************************************************"
+  echo "*****         Building $i"
+  echo "*************************************************"
+  echo ""
+  ./$i.SlackBuild --cleanup
+  upgradepkg --install-new $TMP/$i*.tgz
+  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/extras/gnome-apps
+)
+done
+# Fork screen output to a log
+) 2>&1 | tee $TMP/gnome.extras.gnome-apps.build.log

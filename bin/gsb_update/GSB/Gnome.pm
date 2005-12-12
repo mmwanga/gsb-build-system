@@ -163,6 +163,7 @@ our %desktop =
    'eog'                    => '2.12.1',
    'epiphany'               => '1.8.2',
    'epiphany-extensions'    => '1.8.1',
+   'evince'                 => '0.4.0',
    'evolution'              => '2.4.1',
    'evolution-caldav'       => '2.3.99.2',
    'evolution-data-server'  => '1.4.1.1',
@@ -246,16 +247,21 @@ our %desktop_diff_naming =
 
 our %desktop_nongnome =
   (
-      'libgnomesu'   => {
-			 'ver' => '1.0.0',
-			 'url' => 'http://members.chello.nl/~h.lai/libgnomesu/',
-			 'src' => 'tar.gz',
-		        },
-      'xscreensaver' => {
-	                 'ver' => '4.22',
-			 'url' => 'http://www.jwz.org/xscreensaver/',
-			 'src' => 'tar.gz',
-			},
+   'libgnomesu'   => {
+		      'ver' => '1.0.0',
+		      'url' => 'http://members.chello.nl/~h.lai/libgnomesu/',
+		      'src' => 'tar.gz',
+		     },
+   'smeg'         => {
+		      'ver' => '0.7.5',
+		      'url' => 'http://dev.realistanew.com/smeg/0.7.5/',
+		      'src' => 'tar.gz',
+		     },
+   'xscreensaver' => {
+		      'ver' => '4.22',
+		      'url' => 'http://www.jwz.org/xscreensaver/',
+		      'src' => 'tar.gz',
+		     },
   );
 
 our %bindings_cxx =

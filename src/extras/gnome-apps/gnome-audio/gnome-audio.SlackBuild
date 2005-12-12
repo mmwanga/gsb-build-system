@@ -1,0 +1,170 @@
+#!/bin/sh
+
+CWD=`pwd`
+TMP=${TMP:-/tmp}
+PKG=$TMP/package-gnome-audio
+
+VERSION=2.0.0
+ARCH=noarch
+BUILD=2
+
+if [ -f /var/log/packages/gnome-audio-$VERSION-$ARCH-$BUILD ]; then
+  echo "gnome-audio-$VERSION-$ARCH-$BUILD package already installed"
+  exit 0
+fi
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG/usr
+
+if [ "$ARCH" = "i386" ]; then
+  SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
+elif [ "$ARCH" = "i486" ]; then
+  SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
+elif [ "$ARCH" = "powerpc" ]; then
+  SLKCFLAGS="-O2"
+  ARCH_CONFIGURE=""
+elif [ "$ARCH" = "s390" ]; then
+  SLKCFLAGS="-O2"
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2 -fPIC"
+fi
+
+cd $TMP 
+tar xjvf $CWD/gnome-audio-$VERSION.tar.bz2
+cd gnome-audio-$VERSION
+
+# Apply $ARCH specific patches
+if [ "$ARCH" = "i386" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "i486" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "s390" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "powerpc" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "x86_64" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+fi
+
+chown -R root.root .
+find . -perm 666 -exec chmod 644 {} \;
+find . -perm 664 -exec chmod 644 {} \;
+#CFLAGS="$SLKCFLAGS" \
+#./configure --prefix=/usr \
+#           $ARCH-slackware-linux
+#make
+# This might be the most broken source package in GNOME  :-)
+# make install DESTDIR=$PKG
+mkdir -p $PKG/usr/share/sounds
+( cd sounds ; cp -a *.wav gtk-events panel $PKG/usr/share/sounds )
+find $PKG/usr/share/sounds -type f | xargs chmod 644
+find $PKG/usr/share/sounds -type d | xargs chmod 755
+mkdir -p $PKG/usr/doc/gnome-audio-$VERSION
+cp -a \
+  README \
+  $PKG/usr/doc/gnome-audio-$VERSION
+mkdir -p $PKG/install
+cat $CWD/slack-required > $PKG/install/slack-required
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG 
+makepkg -l y -c n $TMP/gnome-audio-$VERSION-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/gnome-audio-$VERSION
+  rm -rf $PKG
+fi
+#!/bin/sh
+
+CWD=`pwd`
+TMP=${TMP:-/tmp}
+PKG=$TMP/package-gnome-audio
+
+VERSION=2.0.0
+ARCH=noarch
+BUILD=2
+
+if [ -f /var/log/packages/gnome-audio-$VERSION-$ARCH-$BUILD ]; then
+  echo "gnome-audio-$VERSION-$ARCH-$BUILD package already installed"
+  exit 0
+fi
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG/usr
+
+if [ "$ARCH" = "i386" ]; then
+  SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
+elif [ "$ARCH" = "i486" ]; then
+  SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
+elif [ "$ARCH" = "powerpc" ]; then
+  SLKCFLAGS="-O2"
+  ARCH_CONFIGURE=""
+elif [ "$ARCH" = "s390" ]; then
+  SLKCFLAGS="-O2"
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2 -fPIC"
+fi
+
+cd $TMP 
+tar xjvf $CWD/gnome-audio-$VERSION.tar.bz2
+cd gnome-audio-$VERSION
+
+# Apply $ARCH specific patches
+if [ "$ARCH" = "i386" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "i486" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "s390" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "powerpc" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "x86_64" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+fi
+
+chown -R root.root .
+find . -perm 666 -exec chmod 644 {} \;
+find . -perm 664 -exec chmod 644 {} \;
+#CFLAGS="$SLKCFLAGS" \
+#./configure --prefix=/usr \
+#           $ARCH-slackware-linux
+#make
+# This might be the most broken source package in GNOME  :-)
+# make install DESTDIR=$PKG
+mkdir -p $PKG/usr/share/sounds
+( cd sounds ; cp -a *.wav gtk-events panel $PKG/usr/share/sounds )
+find $PKG/usr/share/sounds -type f | xargs chmod 644
+find $PKG/usr/share/sounds -type d | xargs chmod 755
+mkdir -p $PKG/usr/doc/gnome-audio-$VERSION
+cp -a \
+  README \
+  $PKG/usr/doc/gnome-audio-$VERSION
+mkdir -p $PKG/install
+cat $CWD/slack-required > $PKG/install/slack-required
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG 
+makepkg -l y -c n $TMP/gnome-audio-$VERSION-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/gnome-audio-$VERSION
+  rm -rf $PKG
+fi

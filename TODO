@@ -11,7 +11,6 @@ FRG:
 	* fonts package
 		http://eyegene.ophthy.med.umich.edu/unicode/fontguide/
 	* mozilla-nss libs for people who do not want mozilla installed
-	* default.session: dbus, gnome-volume-manager
 	* mozilla plugins: add note to README/INSTALL files
 	* frg-current: move around folders and some files, pygtk and 
 	  gnome-python are needed for hal
@@ -32,3 +31,5 @@ WEBSITE:
 MINIROCK GNOME:
 
 	Cut down version of FREEROCK GNOME
+        Will not replace a single official slackware package
+        Dunno when I'll have any time for this

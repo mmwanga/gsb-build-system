@@ -1,11 +1,11 @@
-    |-----handy-ruler---------------------------------------------------------|
+    |-----handy-ruler------------------------------------------------------|    
 mono: Mono
 mono:
-mono: Mono is a comprehensive open source development platform based on the
-mono: .NET framework that allows developers to build Linux and cross-platform
-mono: applications with unprecedented productivity. Mono's .NET implementation
-mono: is based on the ECMA standards for C# and the Common Language
-mono: Infrastructure.
+mono: Mono is a comprehensive open source development platform based on
+mono: the .NET framework that allows developers to build Linux and 
+mono: cross-platforma applications with unprecedented productivity. Mono's
+mono: .NET implementation is based on the ECMA standards for C# and the
+mono: Common Language Infrastructure.
 mono:
 mono:
 mono:

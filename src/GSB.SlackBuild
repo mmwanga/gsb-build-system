@@ -24,7 +24,7 @@ echo "****************************************************"
 
 # BUILD GNOME PLATFORM AND DESKTOP
 # mono ruby - not yet
-for i in gnome other office
+for i in gnome extras office
 do
 	echo "****************************************************"
 	echo "*******      BUILDING $i"
