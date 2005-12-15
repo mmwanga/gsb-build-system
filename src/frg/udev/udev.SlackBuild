@@ -2,7 +2,7 @@
 CWD=`pwd`
 PKG=/tmp/package-udev
 
-VERSION=070
+VERSION=077
 ARCH=${ARCH:-i486}
 BUILD=3frg
 
