@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-liferea
 
-VERSION=1.0-RC3
+VERSION=1.0-RC4
 PVERSION=${VERSION/-/_/}
 ARCH=${ARCH:-i486}
 BUILD=1
@@ -119,7 +119,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-liferea
 
-VERSION=1.0-RC3
+VERSION=1.0-RC4
 PVERSION=${VERSION/-/_/}
 ARCH=${ARCH:-i486}
 BUILD=1

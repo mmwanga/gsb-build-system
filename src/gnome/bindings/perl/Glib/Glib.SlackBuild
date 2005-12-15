@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-Glib
 
-VERSION=1.093
+VERSION=1.102
 ARCH=${ARCH:-i486}
 BUILD=1
 

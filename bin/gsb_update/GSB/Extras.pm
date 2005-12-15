@@ -150,9 +150,9 @@ our %extras_gnome_apps =
    'NetworkManager'      => '0.5.1',
    'gnome-audio'         => '2.0.0',
    'gnome-cups-manager'  => '0.30',
-   'gthumb'              => '2.6.8',
+   'gthumb'              => '2.7.1',
    'pessulus'            => '0.2',
-   'rhythmbox'           => '0.9.1',
+   'rhythmbox'           => '0.9.2',
    'sabayon'             => '2.12.2',
   );
 
@@ -176,7 +176,7 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'avidemux'            => {
-			     'ver' => '2.0.42',
+			     'ver' => '2.1.0',
 			     'url' => 'http://download.berlios.de/avidemux/',
 			     'src' => 'tar.gz',
 			    },
@@ -191,7 +191,7 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'bmpx'                 => {
-			     'ver' => '0.12.7',
+			     'ver' => '0.12.9',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/beepmp/',
 			     'src' => 'tar.gz',
 			    },
@@ -206,7 +206,7 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'easytag'             => {
-			     'ver' => '1.99.9',
+			     'ver' => '1.99.10',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/easytag/',
 			     'src' => 'tar.bz2',
 			    },
@@ -221,7 +221,7 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'galeon'              => {
-			     'ver' => '1.3.21',
+			     'ver' => '2.0.0',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/galeon',
 			     'src' => 'tar.bz2',
 			    },
@@ -276,12 +276,12 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'inkscape'            => {
-			     'ver' => '0.42.2',
+			     'ver' => '0.43',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/inkscape/',
 			     'src' => 'tar.bz2',
 			    },
    'liferea'             => {
-			     'ver' => '1.0-RC3',
+			     'ver' => '1.0-RC4',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/liferea/',
 			     'src' => 'tar.gz',
 			    },

@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-avidemux
 
-VERSION=2.0.42
+VERSION=2.1.0
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/avidemux-$VERSION-$ARCH-$BUILD ]; then
   echo "avidemux-$VERSION-$ARCH-$BUILD package already installed"
@@ -102,9 +102,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-avidemux
 
-VERSION=2.0.42
+VERSION=2.1.0
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/avidemux-$VERSION-$ARCH-$BUILD ]; then
   echo "avidemux-$VERSION-$ARCH-$BUILD package already installed"

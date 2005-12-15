@@ -1,5 +1,5 @@
 #some global variables for the generic gnome.*.SlackBuilds
 
 if [ -z $GVERSION ]; then
-  export GVERSION=2.13.1
+  export GVERSION=2.13.3
 fi
