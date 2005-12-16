@@ -6,7 +6,7 @@ PKG=$TMP/package-ggv
 
 VERSION=2.12.0
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/ggv-$VERSION-$ARCH-$BUILD ]; then
   echo "ggv-$VERSION-$ARCH-$BUILD package already installed"
@@ -67,6 +67,7 @@ CFLAGS="$SLKCFLAGS" \
 	    --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static \
+            --enable-pdf-options \
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 
 make || exit 
