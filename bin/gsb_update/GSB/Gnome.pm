@@ -220,7 +220,6 @@ our %desktop =
    'librsvg'                => '2.13.3',
    'libsoup'                => '2.2.7',
    'libwnck'                => '2.13.3',
-   'libxklavier'            => '2.1',
    'metacity'               => '2.13.5',
    'nautilus'               => '2.13.3',
    'nautilus-cd-burner'     => '2.13.3',
@@ -261,6 +260,11 @@ our %desktop_nongnome =
 		      'ver' => '4.22',
 		      'url' => 'http://www.jwz.org/xscreensaver/',
 		      'src' => 'tar.gz',
+		     },
+   'libxklavier' => {
+		      'ver' => '2.1',
+		      'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gswitchit/',
+ 		      'src' => 'tar.gz',
 		     },
   );
 

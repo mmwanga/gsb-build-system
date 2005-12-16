@@ -63,7 +63,7 @@ our %office_libs =
 		   'src' => 'tar.gz',
 		  },
    'psiconv'   => {
-		   'url' => 'http://www.frodol.dds.nl/psiconv/',
+		   'url' => 'http://software.frodo.looijaard.name/psiconv/files/',
 		   'ver' => '0.9.7',
 		   'src' => 'tar.gz',
 		  },
