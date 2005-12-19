@@ -10,15 +10,3 @@ libesmtp:
 libesmtp:
 libesmtp:
 libesmtp:
-        |-----handy-ruler------------------------------------------------------|
-libesmtp: libesmtp
-libesmtp:
-libesmtp: libESMTP is a library to manage posting (or submission of) electronic
-libesmtp: mail using SMTP to a preconfigured Mail Transport Agent (MTA) such as
-libesmtp: Exim. It may be used as part of a Mail User Agent (MUA) or another
-libesmtp: program that must be able to post electronic mail but where mail
-libesmtp: functionality is not that program's primary purpose.
-libesmtp:
-libesmtp:
-libesmtp:
-libesmtp:
