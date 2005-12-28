@@ -135,7 +135,7 @@ our %extras_libs_other =
 # src/extras/libs
 our %extras_libs_gnome =
   (
-   'devhelp'             => '0.9.3',
+   'devhelp'             => '0.11',
    'gdl'                 => '0.6.0',
    'glade'               => '2.12.1',
    'gnome-build'         => '0.1.2',

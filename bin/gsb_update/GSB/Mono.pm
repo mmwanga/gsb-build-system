@@ -26,7 +26,7 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'beagle'                 => {
-				'ver' => '0.1.2',
+				'ver' => '0.1.4',
 				'url' => 'http://ftp.gnome.org/pub/GNOME/sources/beagle/0.1/',
 				'src' => 'tar.bz2',
 			       },
@@ -46,7 +46,7 @@ our %mono=
 				 'src' => 'tar.gz',
 				},
    'ikvm'                   => {
-				'ver' => '0.20',
+				'ver' => '0.22',
 				'url' => 'http://go-mono.com/sources/ikvm',
 				'src' => 'tar.gz',
 			       },
@@ -56,7 +56,7 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'libgdiplus'             => {
-				'ver' => '1.1.10',
+				'ver' => '1.1.11',
 				'url' => 'http://go-mono.com/sources/libgdiplus-1.1/',
 				'src' => 'tar.gz',
 			       },
@@ -66,17 +66,17 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'mono'                   => {
-				'ver' => '1.1.10',
+				'ver' => '1.1.12.1',
 				'url' => 'http://go-mono.com/sources/mono-1.1/',
 				'src' => 'tar.gz',
 			       },
    'monodevelop'            => {
-				'ver' => '0.8',
+				'ver' => '0.9',
 				'url' => 'http://go-mono.com/sources/monodevelop/',
 				'src' => 'tar.gz',
 			       },
    'monodoc'                => {
-				'ver' => '1.1.10',
+				'ver' => '1.1.11',
 				'url' => 'http://go-mono.com/sources/monodoc',
 				'src' => 'tar.gz',
 			       },
