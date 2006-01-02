@@ -151,7 +151,7 @@ our %extras_gnome_apps =
    'gnome-audio'         => '2.0.0',
    'gnome-cups-manager'  => '0.30',
    'gthumb'              => '2.7.1',
-   'pessulus'            => '0.2',
+   'pessulus'            => '0.4',
    'rhythmbox'           => '0.9.2',
    'sabayon'             => '2.12.2',
   );
