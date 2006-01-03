@@ -211,7 +211,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'mpeg4ip'           => {
-			   'ver' => '1.3',
+			   'ver' => '1.4',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mpeg4ip/',
 			   'src' => 'tar.gz',
 			  },
@@ -241,7 +241,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'xvidcore'          => {
-			   'ver' => '1.0.3',
+			   'ver' => '1.1.0',
 			   'url' => 'http://downloads.xvid.org/downloads/',
 			   'src' => 'tar.bz2',
 			  },

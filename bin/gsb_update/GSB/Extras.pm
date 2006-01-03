@@ -86,7 +86,7 @@ our %extras_libs =
 			     'src' => 'tar.gz',
 			    },
    'libesmtp'            => {
-			     'ver' => '1.0.3r1',
+			     'ver' => '1.0.4',
 			     'url' => 'http://www.stafford.uklinux.net/libesmtp/',
 			     'src' => 'tar.bz2',
 			    },
@@ -231,7 +231,7 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'gimp'                => {
-			     'ver' => '2.2.9',
+			     'ver' => '2.2.10',
 			     'url' => 'ftp://ftp.gimp.org/pub/gimp/v2.2/',
 			     'src' => 'tar.bz2',
 			    },
@@ -261,7 +261,7 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'gtkam'               => {
-			     'ver' => '0.1.12',
+			     'ver' => '0.1.13',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto/',
 			     'src' => 'tar.gz',
 			    },
@@ -281,7 +281,7 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'liferea'             => {
-			     'ver' => '1.0-RC4',
+			     'ver' => '1.0',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/liferea/',
 			     'src' => 'tar.gz',
 			    },

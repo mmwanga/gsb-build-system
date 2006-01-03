@@ -173,7 +173,7 @@ our %desktop =
    'gcalctool'              => '5.7.18',
    'gconf-editor'           => '2.12.0',
    'gdm'                    => '2.13.0.4',
-   'gedit'                  => '2.13.0',
+   'gedit'                  => '2.13.1',
    'ggv'                    => '2.12.0',
    'gnome-applets'          => '2.13.1',
    'gnome-backgrounds'      => '2.12.1',
@@ -348,7 +348,7 @@ our %bindings_perl =
 			     'src' => 'tar.gz',
 			    },
    'Gnome2-GConf'        => {
-			     'ver' => '1.020',
+			     'ver' => '1.021',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtk2-perl/',
 			     'src' => 'tar.gz',
 			    },

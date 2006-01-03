@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-Gnome2-GConf
 
-VERSION=1.020
+VERSION=1.021
 ARCH=${ARCH:-i486}
 BUILD=1
 
