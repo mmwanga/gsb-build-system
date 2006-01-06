@@ -120,6 +120,11 @@ our %extras_libs =
                              'url' => 'http://galago-project.org/files/releases/source/notification-daemon/',
                              'src' => 'tar.gz',
                             },
+   'python-ldap'         => {
+                             'ver' => '2.0.11',
+                             'url' => 'http://heanet.dl.sourceforge.net/sourceforge/python-ldap/',
+                             'src' => 'tar.gz',
+                            },
   );
 
 # src/extras/libs

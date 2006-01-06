@@ -9,6 +9,7 @@ if [ ! -d $TMP ]; then
 fi
 
 BUILD_ORDER="
+python-ldap
 libnotify
 notification-daemon
 libgphoto2
