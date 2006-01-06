@@ -1,0 +1,9 @@
+glib2
+dbus
+gtk+2
+python
+pygtk
+libcap
+gdbm
+expat
+libdaemon
