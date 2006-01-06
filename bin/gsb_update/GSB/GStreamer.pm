@@ -27,7 +27,7 @@ our %gst_other =
 			   'src' => 'tar.bz2',
 			  },
    'gst-monkeysaudio'  => {
-			   'ver' => '0.8.0',
+			   'ver' => '0.8.2',
 			   'url' => 'http://gstreamer.freedesktop.org/src/gst-monkeysaudio/',
 			   'src' => 'tar.bz2',
 			  },
@@ -200,6 +200,11 @@ our %gst_libs =
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libvisual/',
 			   'src' => 'tar.gz',
 			  },
+   'mac'               => {
+                           'ver' => '3.99-u4-b4',
+                           'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mac-port/',
+                           'src' => 'tar.gz',
+                          },
    'mjpegtools'        => {
 			   'ver' => '1.8.0',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mjpeg/',
