@@ -6,7 +6,7 @@ PKG=$TMP/package-heimdal
 
 VERSION=0.7
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/heimdal-$VERSION-$ARCH-$BUILD ]; then
   echo "heimdal-$VERSION-$ARCH-$BUILD package already installed"
@@ -67,24 +67,7 @@ CFLAGS="$SLKCFLAGS" \
 make || exit 1
 make install DESTDIR=$PKG
 
-# Already provided by glibc
-rm -f $PKG/usr/include/glob.h
-
-(
-  cd $PKG/usr/bin
-  for i in ftp login rcp rlogin rsh telnet su
-  do
-  mv $i $i-heimdal
-  done
-
-  cd $PKG/usr/man/man1
-  for i in ftp rcp rlogin rsh telnet
-  do
-  mv $i.1 $i-heimdal.1
-  done
-)
-
-chown -R root.bin $PKG/usr/bin
+chown -R root.bin $PKG/opt/heimdal/bin
 
 mkdir -p $PKG/usr/doc/heimdal-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
@@ -99,10 +82,10 @@ chown root.root $PKG/usr/doc/heimdal-$VERSION/*
   find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
 )
 
-rm -rf $PKG/usr/man/cat*
-gzip -9 $PKG/usr/man/*/*
-gzip -9 $PKG/usr/info/*
-rm -f $PKG/usr/info/dir.gz
+rm -rf $PKG/opt/heimdal/man/cat*
+gzip -9 $PKG/opt/heimdal/man/*/*
+gzip -9 $PKG/opt/heimdal/info/*
+rm -f $PKG/opt/heimdal/info/dir.gz
 
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required

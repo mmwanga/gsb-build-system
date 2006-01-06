@@ -6,7 +6,7 @@ PKG=$TMP/package-gmime
 
 VERSION=2.1.16
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gmime-$VERSION-$ARCH-$BUILD ]; then
   echo "gmime-$VERSION-$ARCH-$BUILD package already installed"
@@ -65,6 +65,14 @@ CFLAGS="$SLKCFLAGS" \
             $ARCH-slackware-linux || exit 1
 make || exit 1
 make install DESTDIR=$PKG
+
+(
+  cd $PKG/usr/bin
+  for i in uuencode uudecode
+  do
+    mv $i $i-gmime
+  done
+)
 
 chown -R root.bin $PKG/usr/bin
 
