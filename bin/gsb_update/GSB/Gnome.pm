@@ -233,7 +233,7 @@ our %desktop =
    'vino'                   => '2.12.0',
    'vte'                    => '0.11.16',
    'yelp'                   => '2.13.2',
-   'zenity'                 => '2.13.3',
+   'zenity'                 => '2.13.4',
    );
 
 our %desktop_diff_naming =
