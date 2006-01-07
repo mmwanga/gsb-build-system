@@ -61,7 +61,7 @@ our %platform_diff_naming =
 		'name' => 'GConf',
 	       },
    'glib2'  => {
-		'ver'  => '2.9.1',
+		'ver'  => '2.9.2',
 		'name' => 'glib',
 	       },
    'gtk+2'  => {
@@ -191,12 +191,12 @@ our %desktop =
    'gnome-pilot'            => '2.0.13',
    'gnome-pilot-conduits'   => '2.0.13',
    'gnome-screensaver'      => '0.0.24',
-   'gnome-session'          => '2.12.0',
+   'gnome-session'          => '2.13.4',
    'gnome-speech'           => '0.3.9',
    'gnome-spell'            => '1.0.6',
    'gnome-system-monitor'   => '2.13.4',
    'gnome-system-tools'     => '1.4.0',
-   'gnome-terminal'         => '2.13.0',
+   'gnome-terminal'         => '2.13.1',
    'gnome-themes'           => '2.13.2',
    'gnome-user-share'       => '0.9',
    'gnome-utils'            => '2.13.4',
