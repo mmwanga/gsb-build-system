@@ -3,9 +3,9 @@
 CWD=`pwd`
 TMP=${TMP:-/tmp}
 
-VERSION=0.9.10d
+VERSION=0.9.11a
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/slapt-get-$VERSION-$ARCH-$BUILD ]; then
   echo "slapt-get-$VERSION-$ARCH-$BUILD package already installed"
