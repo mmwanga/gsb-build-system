@@ -21,7 +21,7 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'banshee'                => {
-				'ver' => '0.9.11.1',
+				'ver' => '0.10.2',
 				'url' => 'http://banshee-project.org/files/banshee/',
 				'src' => 'tar.gz',
 			       },
@@ -51,12 +51,12 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'ipod-sharp'             => {
-				'ver' => '0.5.10',
+				'ver' => '0.5.12',
 				'url' => 'http://banshee-project.org/files/ipod-sharp/',
 				'src' => 'tar.gz',
 			       },
    'libgdiplus'             => {
-				'ver' => '1.1.11',
+				'ver' => '1.1.13',
 				'url' => 'http://go-mono.com/sources/libgdiplus-1.1/',
 				'src' => 'tar.gz',
 			       },
@@ -66,7 +66,7 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'mono'                   => {
-				'ver' => '1.1.12.1',
+				'ver' => '1.1.13.1',
 				'url' => 'http://go-mono.com/sources/mono-1.1/',
 				'src' => 'tar.gz',
 			       },
@@ -76,7 +76,7 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'monodoc'                => {
-				'ver' => '1.1.11',
+				'ver' => '1.1.13',
 				'url' => 'http://go-mono.com/sources/monodoc',
 				'src' => 'tar.gz',
 			       },
