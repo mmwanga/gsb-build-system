@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-system-tools-backends
 
-VERSION=1.4.0
+VERSION=1.4.2
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/system-tools-backends-$VERSION-$ARCH-$BUILD ]; then
   echo "system-tools-backends-$VERSION-$ARCH-$BUILD package already installed"

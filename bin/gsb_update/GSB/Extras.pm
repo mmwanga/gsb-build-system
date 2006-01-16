@@ -236,7 +236,7 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'gimp'                => {
-			     'ver' => '2.2.10',
+			     'ver' => '2.3.6',
 			     'url' => 'ftp://ftp.gimp.org/pub/gimp/v2.2/',
 			     'src' => 'tar.bz2',
 			    },

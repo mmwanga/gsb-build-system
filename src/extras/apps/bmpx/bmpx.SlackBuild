@@ -6,7 +6,7 @@ PKG=$TMP/package-bmpx
 
 VERSION=0.12.9
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=3
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -76,6 +76,12 @@ make install DESTDIR=$PKG
   cd $PKG/usr/share
   mv man ..
   rmdir share
+)
+
+(
+  mkdir -p $PKG/usr/share/pixmaps/
+  cd $PKG/usr/share/pixmaps/
+  ln -s ../icons/hicolor/48x48/apps/bmpx.png
 )
 
 chown -R root.bin $PKG/usr/bin

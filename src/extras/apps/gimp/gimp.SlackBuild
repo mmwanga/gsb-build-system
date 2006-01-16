@@ -6,9 +6,9 @@ PKG=$TMP/package-gimp
 rm -rf $PKG
 mkdir -p $PKG
 
-VERSION=2.2.10
+VERSION=2.3.6
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gimp-$VERSION-$ARCH-$BUILD ]; then
   echo "gimp-$VERSION-$ARCH-$BUILD package already installed"
@@ -85,6 +85,12 @@ rm -f $PKG/usr/man/man?/*.?
   mkdir -p $PKG/usr/share/mime-info
   cd $PKG/usr/share/mime-info
   ln -s ../gimp/2.0/misc/gimp.keys .
+)
+
+(
+  mkdir -p $PKG/usr/share/pixmaps/
+  cd $PKG/usr/share/pixmaps/
+  ln -s ../icons/hicolor/48x48/apps/gimp.png
 )
 
 mkdir -p $PKG/usr/doc/gimp-$VERSION

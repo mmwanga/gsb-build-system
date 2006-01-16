@@ -85,6 +85,12 @@ done
 
 chown -R root.bin $PKG/usr/bin
 
+(
+  mkdir -p $PKG/usr/share/pixmaps
+  cd $PKG/usr/share/pixmaps
+  ln -s ../icons/hicolor/24x24/apps/music-player-banshee.png
+)
+
 mkdir -p $PKG/usr/doc/banshee-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
         TODO \

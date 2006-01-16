@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gnome-system-tools
 
-VERSION=1.4.0
+VERSION=1.4.1
 ARCH=${ARCH:-i486}
-BUILD=4
+BUILD=1
 
 if [ -f /var/log/packages/gnome-system-tools-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-system-tools-$VERSION-$ARCH-$BUILD package already installed"
@@ -63,6 +63,8 @@ CFLAGS="$SLKCFLAGS" \
             --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static \
+            --enable-boot \
+            --enable-disks \
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 1
 make || exit 1
