@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-at-spi
 
-VERSION=1.6.6
+VERSION=1.7.0
 ARCH=${ARCH:-i486}
 BUILD=1
 

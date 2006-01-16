@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gnome-utils
 
-VERSION=2.13.4
+VERSION=2.13.5
 ARCH=${ARCH:-i486}
 BUILD=1
 
