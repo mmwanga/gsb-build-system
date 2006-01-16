@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. ../GSB.options
+. ../../GSB.options
 
 TMP=${TMP:-/tmp}
 

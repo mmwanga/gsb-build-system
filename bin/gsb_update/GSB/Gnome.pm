@@ -53,7 +53,7 @@ our %platform =
 our %platform_diff_naming =
   (
    'orbit2' => {
-		'ver'  => '2.13.1',
+		'ver'  => '2.13.2',
 		'name' => 'ORBit2',
 	       },
    'gconf'  => {
@@ -176,7 +176,7 @@ our %desktop =
    'gedit'                  => '2.13.2',
    'ggv'                    => '2.12.0',
    'gnome-applets'          => '2.13.1',
-   'gnome-backgrounds'      => '2.12.1',
+   'gnome-backgrounds'      => '2.12.2',
    'gnome-desktop'          => '2.13.4',
    'gnome-doc-utils'        => '0.5.2',
    'gnome-games'            => '2.13.4',
