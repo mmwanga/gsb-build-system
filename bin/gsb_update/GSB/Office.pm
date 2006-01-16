@@ -19,8 +19,8 @@ our $VERSION   = 0.03;
 our %office =
   (
    'abiword' => {
-		 'url' => "http://www.abisource.com/downloads/abiword/2.4.1/source/",
-		 'ver' => '2.4.1',
+		 'url' => "http://www.abisource.com/downloads/abiword/2.4.2/source/",
+		 'ver' => '2.4.2',
 		 'src' => 'tar.gz'
 		},
   );
@@ -83,7 +83,7 @@ our %office_gnome =
 #   'abiword'   => '2.3.5',
    'gnumeric'  => '1.6.0',
    'dia'       => '0.94',
-   'glom'      => '0.9.0',
+   'glom'      => '0.9.1',
    'mergeant'  => '0.62',
    'planner'   => '0.13',
   );

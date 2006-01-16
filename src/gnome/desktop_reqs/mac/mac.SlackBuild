@@ -7,7 +7,7 @@ PKG=$TMP/package-mac
 VERSION=3.99-u4-b4
 PVERSION=`echo ${VERSION} | sed 's/-/_/g'`
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source

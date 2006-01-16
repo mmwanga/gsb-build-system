@@ -331,7 +331,7 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'xchat'               => {
-			     'ver' => '2.6.0',
+			     'ver' => '2.6.1',
 			     'url' => 'http://xchat.org/files/source/2.6/',
 			     'src' => 'tar.bz2',
 			    },
