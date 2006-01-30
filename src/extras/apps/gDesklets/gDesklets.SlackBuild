@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gDesklets
 
-VERSION=0.35.2
+VERSION=0.35.3
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/gDesklets-$VERSION-$ARCH-$BUILD ]; then
   echo "gDesklets-$VERSION-$ARCH-$BUILD package already installed"

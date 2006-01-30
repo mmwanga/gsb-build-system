@@ -46,27 +46,27 @@ sub gsb_extras_libs_other_url_make {
 our %extras_libs =
   (
    'autogen'             => {
-                             'ver' => '5.7.2',
+                             'ver' => '5.8.1',
                              'url' => 'http://heanet.dl.sourceforge.net/sourceforge/autogen/',
                              'src' => 'tar.bz2',
 			    },
    'gmime'               => {
-			     'ver' => '2.1.16',
+			     'ver' => '2.1.19',
 			     'url' => 'http://spruce.sourceforge.net/gmime/sources/v2.1/',
 			     'src' => 'tar.gz',
 			    },
    'gpgme'               => {
-			     'ver' => '1.0.3',
+			     'ver' => '1.1.0',
 			     'url' => 'ftp://ftp.gnupg.org/gcrypt/gpgme/',
 			     'src' => 'tar.gz',
 			    },
    'gphoto2'             => {
-			     'ver' => '2.1.6',
+			     'ver' => '2.1.99',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto/',
 			     'src' => 'tar.gz',
 			    },
    'graphviz'            => {
-                             'ver' => '2.4',
+                             'ver' => '2.6',
                              'url' => 'http://www.graphviz.org/pub/graphviz/ARCHIVE/',
                              'src' => 'tar.gz',
                             },
@@ -96,7 +96,7 @@ our %extras_libs =
 			     'src' => 'tar.bz2',
 			    },
    'libgphoto2'          => {
-			     'ver' => '2.1.6',
+			     'ver' => '2.1.99',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto/',
 			     'src' => 'tar.gz',
 			    },
@@ -111,12 +111,12 @@ our %extras_libs =
                              'src' => 'tar.bz2',
                             },
    'libnotify'         => {
-                             'ver' => '0.2.2',
+                             'ver' => '0.3.0',
                              'url' => 'http://galago-project.org/files/releases/source/libnotify/',
                              'src' => 'tar.gz',
                             },
    'notification-daemon' => {
-                             'ver' => '0.2.2',
+                             'ver' => '0.2.4',
                              'url' => 'http://galago-project.org/files/releases/source/notification-daemon/',
                              'src' => 'tar.gz',
                             },
@@ -131,7 +131,7 @@ our %extras_libs =
 our %extras_libs_other =
   (
    'gc'                  => {
-			     'ver' => '6.4',
+			     'ver' => '6.6',
 			     'url' => 'http://www.hpl.hp.com/personal/Hans_Boehm/gc/gc_source/',
 			     'src' => 'tar.gz',
 			    },
@@ -155,21 +155,22 @@ our %extras_gnome_apps =
    'NetworkManager'      => '0.5.1',
    'gnome-audio'         => '2.0.0',
    'gnome-cups-manager'  => '0.30',
+   'gnome-power-manager' => '0.3.4',
    'gthumb'              => '2.7.2',
-   'pessulus'            => '0.4',
+   'pessulus'            => '0.5',
    'rhythmbox'           => '0.9.2',
    'sabayon'             => '2.12.2',
   );
 
 # src/extras/gnome-apps
-our %extras_gnome_other_apps =
-  (
-   'gnome-power-manager'       => {
-                             'ver' => '0.3.1',
-                             'url' => 'http://internap.dl.sourceforge.net/sourceforge/gnome-power/',
-                             'src' => 'tar.gz',
-                            },
-  );
+#our %extras_gnome_other_apps =
+#  (
+#   'gnome-power-manager'       => {
+#                             'ver' => '0.3.4',
+#                             'url' => 'http://internap.dl.sourceforge.net/sourceforge/gnome-power/',
+#                             'src' => 'tar.gz',
+#                            },
+#  );
 
 
 # src/extras/apps
@@ -186,7 +187,7 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'balsa'               => {
-			     'ver' => '2.3.4',
+			     'ver' => '2.3.8',
 			     'url' => 'http://balsa.gnome.org/',
 			     'src' => 'tar.bz2',
 			    },
@@ -206,7 +207,7 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'dvgrab'              => {
-			     'ver' => '1.8',
+			     'ver' => '2.0',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/kino/',
 			     'src' => 'tar.gz',
 			    },
@@ -216,7 +217,7 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'gDesklets'           => {
-			     'ver' => '0.35.2',
+			     'ver' => '0.35.3',
 			     'url' => 'http://www.gdesklets.org/downloads/',
 			     'src' => 'tar.bz2',
 			    },
@@ -237,7 +238,7 @@ our %extras_apps =
 			    },
    'gimp'                => {
 			     'ver' => '2.3.6',
-			     'url' => 'ftp://ftp.gimp.org/pub/gimp/v2.2/',
+			     'url' => 'ftp://ftp.gimp.org/pub/gimp/v2.3/',
 			     'src' => 'tar.bz2',
 			    },
    'gnomebaker'          => {
@@ -246,7 +247,7 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'gqview'              => {
-			     'ver' => '2.0.1',
+			     'ver' => '2.1.1',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gqview/',
 			     'src' => 'tar.gz',
 			    },
@@ -276,7 +277,7 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'kino'                => {
-			     'ver' => '0.7.6',
+			     'ver' => '0.8.0',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/kino/',
 			     'src' => 'tar.gz',
 			    },
@@ -311,17 +312,17 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'streamripper'        => {
-			     'ver' => '1.61.8',
+			     'ver' => '1.61.13',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/streamripper/',
 			     'src' => 'tar.gz',
 			    },
    'sylpheed'            => {
-			     'ver' => '2.0.4',
+			     'ver' => '2.1.8',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/sylpheed-claws/',
 			     'src' => 'tar.bz2',
 			    },
    'sylpheed-claws'      => {
-			     'ver' => '1.9.12',
+			     'ver' => '1.9.99',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/sylpheed-claws/',
 			     'src' => 'tar.bz2',
 			    },
@@ -370,7 +371,7 @@ our %extras_applets =
 			     'src' => 'tar.gz',
 			    },
    'nautilus-open-terminal'  => {
-			     'ver' => '0.4',
+			     'ver' => '0.6',
 			     'url' => 'http://manny.cluecoder.org/packages/nautilus-open-terminal/',
 			     'src' => 'tar.gz',
                             },

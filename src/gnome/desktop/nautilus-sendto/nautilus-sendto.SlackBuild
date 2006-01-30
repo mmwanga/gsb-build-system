@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-nautilus-sendto
 
-VERSION=0.4
+VERSION=0.5
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/nautilus-sendto-$VERSION-$ARCH-$BUILD ]; then
   echo "nautilus-sendto-$VERSION-$ARCH-$BUILD package already installed"

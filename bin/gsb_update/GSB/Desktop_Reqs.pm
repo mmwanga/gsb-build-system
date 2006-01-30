@@ -27,12 +27,12 @@ our %desktop_reqs =
 			},
    'openldap'        => {
 			 'url' => 'ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/',
-			 'ver' => '2.2.27',
+			 'ver' => '2.2.30',
 			 'src' => 'tgz',
 			},
    'poppler'         => {
 			 'url' => 'http://poppler.freedesktop.org/',
-			 'ver' => '0.4.2',
+			 'ver' => '0.5.0',
 			 'src' => 'tar.gz',
 			},
    'PyXML'           => {

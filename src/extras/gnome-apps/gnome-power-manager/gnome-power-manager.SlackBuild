@@ -5,7 +5,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gnome-power-manager
 
-VERSION=0.3.1
+VERSION=0.3.4
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -35,7 +35,7 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 cd $TMP 
-tar xzvf $CWD/gnome-power-manager-$VERSION.tar.gz
+tar xjvf $CWD/gnome-power-manager-$VERSION.tar.bz2
 cd gnome-power-manager-$VERSION
 
 # Apply $ARCH specific patches

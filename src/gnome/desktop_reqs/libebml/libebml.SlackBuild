@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-libebml
 
-VERSION=0.7.3
+VERSION=0.7.6
 ARCH=${ARCH:-i486}
-BUILD=3
+BUILD=1
 
 if [ -f /var/log/packages/libebml-$VERSION-$ARCH-$BUILD ]; then
   echo "libebml-$VERSION-$ARCH-$BUILD package already installed"

@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-libwpd
 
-VERSION=0.8.0
+VERSION=0.8.4
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/libwpd-$VERSION-$ARCH-$BUILD ]; then
   echo "libwpd-$VERSION-$ARCH-$BUILD package already installed"

@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gphoto2
 
-VERSION=2.1.6
+VERSION=2.1.99
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/gphoto2-$VERSION-$ARCH-$BUILD ]; then
   echo "gphoto2-$VERSION-$ARCH-$BUILD package already installed"

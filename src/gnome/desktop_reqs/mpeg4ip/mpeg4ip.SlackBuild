@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-mpeg4ip
 
-VERSION=1.4
+VERSION=1.4.1
 ARCH=${ARCH:-i486}
 BUILD=1
 

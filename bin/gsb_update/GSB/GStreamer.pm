@@ -121,7 +121,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libebml'           => {
-			   'ver' => '0.7.3',
+			   'ver' => '0.7.6',
 			   'url' => 'http://dl.matroska.org/downloads/libebml/',
 			   'src' => 'tar.bz2',
 			  },
@@ -131,12 +131,12 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libmatroska'       => {
-			   'ver' => '0.7.5',
+			   'ver' => '0.8.0',
 			   'url' => 'http://dl.matroska.org/downloads/libmatroska/',
 			   'src' => 'tar.bz2',
 			  },
    'libmms'            => {
-			   'ver' => '0.1',
+			   'ver' => '0.2',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libmms/',
 			   'src' => 'tar.gz',
 			  },
@@ -146,12 +146,12 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libmpcdec'       => {
-			   'ver' => '1.2.1',
+			   'ver' => '1.2.2',
 			   'url' => 'http://files.musepack.net/source/',
 			   'src' => 'tar.bz2',
 			  },
    'libmusicbrainz'    => {
-			   'ver' => '2.1.1',
+			   'ver' => '2.1.2',
 			   'url' => 'ftp://ftp.musicbrainz.org/pub/musicbrainz/',
 			   'src' => 'tar.gz',
 			  },
@@ -166,7 +166,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libraw1394'        => {
-			   'ver' => '1.1.0',
+			   'ver' => '1.2.0',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libraw1394/',
 			   'src' => 'tar.gz',
 			  },
@@ -176,7 +176,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libsndfile'        => {
-			   'ver' => '1.0.12',
+			   'ver' => '1.0.13',
 			   'url' => 'http://www.mega-nerd.com/libsndfile/',
 			   'src' => 'tar.gz',
 			  },
@@ -216,7 +216,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'mpeg4ip'           => {
-			   'ver' => '1.4',
+			   'ver' => '1.4.1',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mpeg4ip/',
 			   'src' => 'tar.gz',
 			  },
@@ -226,7 +226,7 @@ our %gst_libs =
 			   'src' => 'tar.bz2',
 			  },
    'openslp'           => {
-			   'ver' => '1.2.1',
+			   'ver' => '1.3.0',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/openslp/',
 			   'src' => 'tar.gz',
 			  },
@@ -236,7 +236,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'swfdec'            => {
-			   'ver' => '0.3.5',
+			   'ver' => '0.3.6',
 			   'url' => 'http://www.schleef.org/swfdec/download/',
 			   'src' => 'tar.gz',
 			  },

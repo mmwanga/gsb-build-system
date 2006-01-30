@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-dbus-sharp
 
-VERSION=0.50
+VERSION=0.60
 ARCH=${ARCH:-i486}
 BUILD=1
 

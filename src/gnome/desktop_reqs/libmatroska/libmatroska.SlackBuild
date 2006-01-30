@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-libmatroska
 
-VERSION=0.7.5
+VERSION=0.8.0
 ARCH=${ARCH:-i486}
-BUILD=3
+BUILD=1
 
 if [ -f /var/log/packages/libmatroska-$VERSION-$ARCH-$BUILD ]; then
   echo "libmatroska-$VERSION-$ARCH-$BUILD package already installed"

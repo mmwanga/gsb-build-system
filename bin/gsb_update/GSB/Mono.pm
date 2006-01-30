@@ -26,7 +26,7 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'beagle'                 => {
-				'ver' => '0.1.4',
+				'ver' => '0.2.0',
 				'url' => 'http://ftp.gnome.org/pub/GNOME/sources/beagle/0.1/',
 				'src' => 'tar.bz2',
 			       },
@@ -56,7 +56,7 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'libgdiplus'             => {
-				'ver' => '1.1.13',
+				'ver' => '1.1.13.2',
 				'url' => 'http://go-mono.com/sources/libgdiplus-1.1/',
 				'src' => 'tar.gz',
 			       },
@@ -66,7 +66,7 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'mono'                   => {
-				'ver' => '1.1.13.1',
+				'ver' => '1.1.13.2',
 				'url' => 'http://go-mono.com/sources/mono-1.1/',
 				'src' => 'tar.gz',
 			       },
@@ -91,7 +91,7 @@ our %mono_diff_naming =
 		     'src'  => 'tar.gz',
 		    },
    'dbus-sharp'  => {
-		     'ver'  => '0.50',
+		     'ver'  => '0.60',
 		     'name' => 'dbus',
 		     'url'  => 'http://dbus.freedesktop.org/releases/',
 		     'src'  => 'tar.gz',
