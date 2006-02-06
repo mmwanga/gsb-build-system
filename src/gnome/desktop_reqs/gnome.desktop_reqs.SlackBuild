@@ -67,6 +67,8 @@ PyXML
 iso-codes
 heimdal
 poppler
+pwlib
+opal
 "
 
 mkdir -p $TMP/gnome-$GVERSION/frgnome/desktop_reqs
@@ -85,21 +87,6 @@ do
   ./$i.SlackBuild --cleanup
   upgradepkg --install-new $TMP/$i*.tgz
   mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/frgnome/desktop_reqs
-)
-done
-
-for i in openh323-pwlib
-do
-(
-  cd $i
-  echo ""
-  echo "*************************************************"
-  echo "*****   Building $i"
-  echo "*************************************************"
-  echo ""
-  ./$i.SlackBuild
-  upgradepkg --install-new $TMP/openh323*.tgz $TMP/pwlib*.tgz
-  mv $TMP/openh323*.tgz $TMP/pwlib*.tgz $TMP/gnome-$GVERSION/frgnome/desktop_reqs
 )
 done
 

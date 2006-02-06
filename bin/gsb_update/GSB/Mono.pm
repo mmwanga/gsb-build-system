@@ -26,7 +26,7 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'beagle'                 => {
-				'ver' => '0.2.0',
+				'ver' => '0.2.1',
 				'url' => 'http://ftp.gnome.org/pub/GNOME/sources/beagle/0.1/',
 				'src' => 'tar.bz2',
 			       },

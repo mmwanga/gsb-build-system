@@ -25,6 +25,11 @@ our %desktop_reqs =
 			 'ver' => '0.7',
 			 'src' => 'tar.gz',
 			},
+   'opal'            => {
+                         'url' => 'http://www.ekiga.org/downloads/sources/',
+                         'ver' => '2.1.2',
+                         'src' => 'tar.gz',
+                        },
    'openldap'        => {
 			 'url' => 'ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/',
 			 'ver' => '2.2.30',
@@ -35,6 +40,11 @@ our %desktop_reqs =
 			 'ver' => '0.5.0',
 			 'src' => 'tar.gz',
 			},
+   'opal'            => {
+                         'url' => 'http://www.ekiga.org/downloads/sources/',
+                         'ver' => '1.9.2',
+                         'src' => 'tar.gz',
+                        },
    'PyXML'           => {
 			 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/pyxml/',
 			 'ver' => '0.8.4',
@@ -42,22 +52,6 @@ our %desktop_reqs =
 			},
   );
 
-
-our %stupid_gnomemeeting_libs =
-  (
-   'openh323'  => {
-		   'url'   => 'http://www.gnomemeeting.org/admin/downloads/latest/sources/sources/',
-		   'ver'   => '1.15.6',
-		   'src'   => 'tar.gz',
-		   'var'   => 'VERSION',
-		  },
-   'pwlib'     => {
-		   'url'   => 'http://www.gnomemeeting.org/admin/downloads/latest/sources/sources/',
-		   'ver'   => '1.8.7',
-		   'src'   => 'tar.gz',
-		   'var'   => 'PVERSION',
-		  },
-  );
 
 #
 # End Config Options

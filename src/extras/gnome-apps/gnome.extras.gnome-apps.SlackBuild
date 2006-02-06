@@ -19,6 +19,7 @@ gnome-audio
 sabayon
 gnome-power-manager
 pessulus
+meld
 "
 
 mkdir -p $TMP/gnome-$GVERSION/extras/gnome-apps

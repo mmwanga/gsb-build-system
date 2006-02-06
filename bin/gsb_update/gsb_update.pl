@@ -106,11 +106,6 @@ my %gnome_other =
    '%other'         => 'other',,
   );
 
-my %stupid_gm =
-  (
-   '%stupid_gnomemeeting_libs' => 'gnome/desktop_reqs',
-  );
-
 #
 #
 ################################################################################
@@ -273,47 +268,6 @@ foreach my $drpackage (keys %desktop_reqs) {
 
   if ( $build ne "" ) {
     GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
-}
-
-# Download Desktop Reqs for gnomemeeting
-foreach my $gmpackage (keys %stupid_gnomemeeting_libs) {
-
-  my $name    = $gmpackage;
-  my $pack    = "openh323-pwlib";
-
-  my $sb_file = $pack . $sb_ext;
-  my $packurl = $stupid_gnomemeeting_libs{$name}{url};
-  my $ver     = $stupid_gnomemeeting_libs{$name}{ver};
-  my $src     = $stupid_gnomemeeting_libs{$name}{src};
-  my $var     = $stupid_gnomemeeting_libs{$name}{var};
-  my $type    = "other";
-
-  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
-
-  chdir "$pwd/gnome/desktop_reqs/$pack";
-
-  if ( $download eq "true") {
-    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
-    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
-  }
-
-  if ( $edit eq "true" ) {
-    if ( $name eq "openh323" ) {
-      GSB::Edit::gsb_sb_edit($sb_file, $ver);
-    }else {
-      GSB::Edit::gsb_sb_double_edit($sb_file, $ver, $var);
-    }
-  }
-
-  if ( $name eq "openh323" ) {
-    if ( $build ne "" ) {
-      GSB::Edit::gsb_build_release_make($sb_file, $build);
-    }
   }
 
   if ( ! -f $tarball ) {

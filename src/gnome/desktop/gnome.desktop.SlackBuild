@@ -11,6 +11,8 @@ fi
 # gnome-screensaver removed until it works without PAM
 
 BUILD_ORDER="
+libbtctl
+gnome-bluetooth
 gnome-icon-theme
 libgnomeprintui
 libgnomesu
@@ -80,7 +82,7 @@ gal2
 evolution
 evolution-webcal
 evolution-caldav
-gnomemeeting
+ekiga
 totem
 sound-juicer
 gnome-system-monitor

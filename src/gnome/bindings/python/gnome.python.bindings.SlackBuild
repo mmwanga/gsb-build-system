@@ -15,6 +15,7 @@ pyorbit
 pygtk
 gnome-python
 gnome-python-extras
+gnome-python-desktop
 gst-python
 pyxdg
 nautilus-python

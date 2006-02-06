@@ -116,7 +116,7 @@ our %gst_libs =
 			   'src' => 'tar.bz2',
 			  },
    'libdvdread'        => {
-			   'ver' => '0.9.4',
+			   'ver' => '0.9.5',
 			   'url' => 'http://www.dtek.chalmers.se/groups/dvd/dist/',
 			   'src' => 'tar.gz',
 			  },
@@ -161,7 +161,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libquicktime'      => {
-			   'ver' => '0.9.7',
+			   'ver' => '0.9.8',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libquicktime/',
 			   'src' => 'tar.gz',
 			  },

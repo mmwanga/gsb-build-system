@@ -155,11 +155,12 @@ our %extras_gnome_apps =
    'NetworkManager'      => '0.5.1',
    'gnome-audio'         => '2.0.0',
    'gnome-cups-manager'  => '0.30',
-   'gnome-power-manager' => '0.3.4',
+   'gnome-power-manager' => '2.13.5',
    'gthumb'              => '2.7.2',
-   'pessulus'            => '0.5',
-   'rhythmbox'           => '0.9.2',
-   'sabayon'             => '2.12.2',
+   'meld'                => '1.1.3',
+   'pessulus'            => '0.6',
+   'rhythmbox'           => '0.9.3.1',
+   'sabayon'             => '2.12.3',
   );
 
 # src/extras/gnome-apps
@@ -242,7 +243,7 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'gnomebaker'          => {
-			     'ver' => '0.5.0',
+			     'ver' => '0.5.1',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gnomebaker/',
 			     'src' => 'tar.gz',
 			    },
@@ -287,7 +288,7 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'liferea'             => {
-			     'ver' => '1.0',
+			     'ver' => '1.0.3',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/liferea/',
 			     'src' => 'tar.gz',
 			    },
@@ -381,6 +382,8 @@ our %extras_applets =
 our %extras_applets_gnome =
   (
    'quick-lounge-applet'      => '2.12.1',
+   'fast-user-switch-applet'  => '2.13.5',
+   'deskbar-applet'           => '2.13.90.1',
   );
 
 
