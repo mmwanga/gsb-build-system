@@ -27,7 +27,7 @@ our %mono=
 			       },
    'beagle'                 => {
 				'ver' => '0.2.1',
-				'url' => 'http://ftp.gnome.org/pub/GNOME/sources/beagle/0.1/',
+				'url' => 'http://ftp.gnome.org/pub/GNOME/sources/beagle/0.2/',
 				'src' => 'tar.bz2',
 			       },
    'gecko-sharp-2.0'        => {

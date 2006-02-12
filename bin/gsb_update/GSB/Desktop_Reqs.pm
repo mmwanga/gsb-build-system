@@ -40,7 +40,7 @@ our %desktop_reqs =
 			 'ver' => '0.5.0',
 			 'src' => 'tar.gz',
 			},
-   'opal'            => {
+   'pwlib'            => {
                          'url' => 'http://www.ekiga.org/downloads/sources/',
                          'ver' => '1.9.2',
                          'src' => 'tar.gz',

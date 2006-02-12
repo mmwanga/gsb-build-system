@@ -46,14 +46,14 @@ our %platform =
    'libgnomeui'          => '2.13.3',
    'libxml2'             => '2.6.23',
    'libxslt'             => '1.1.15',
-   'pango'               => '1.11.3',
+   'pango'               => '1.11.4',
 
   );
 
 our %platform_diff_naming =
   (
    'orbit2' => {
-		'ver'  => '2.13.2',
+		'ver'  => '2.13.3',
 		'name' => 'ORBit2',
 	       },
    'gconf'  => {
@@ -61,11 +61,11 @@ our %platform_diff_naming =
 		'name' => 'GConf',
 	       },
    'glib2'  => {
-		'ver'  => '2.9.5',
+		'ver'  => '2.9.6',
 		'name' => 'glib',
 	       },
    'gtk+2'  => {
-		'ver'  => '2.8.11',
+		'ver'  => '2.8.12',
 		'name' => 'gtk+',
 	       },
    'libidl' => {
@@ -158,7 +158,7 @@ our %desktop =
   (
    'bug-buddy'              => '2.13.0',
    'control-center'         => '2.13.91',
-   'dasher'                 => '3.99.3',
+   'dasher'                 => '3.99.4',
    'eel'                    => '2.13.90',
    'ekiga'                  => '1.99.0',
    'eog'                    => '2.13.90',
@@ -176,13 +176,13 @@ our %desktop =
    'gdm'                    => '2.13.0.7',
    'gedit'                  => '2.13.90',
    'ggv'                    => '2.12.0',
-   'gnome-applets'          => '2.13.3',
+   'gnome-applets'          => '2.13.4',
    'gnome-backgrounds'      => '2.13.90',
    'gnome-bluetooth'        => '0.7.0',
    'gnome-desktop'          => '2.13.90',
    'gnome-doc-utils'        => '0.5.4',
    'gnome-games'            => '2.13.6',
-   'gnome-icon-theme'       => '2.13.6',
+   'gnome-icon-theme'       => '2.14.0',
    'gnome-keyring-manager'  => '2.12.0',
    'gnome-mag'              => '0.12.3',
    'gnome-media'            => '2.13.91',
@@ -196,14 +196,14 @@ our %desktop =
    'gnome-screensaver'      => '2.13.90',
    'gnome-session'          => '2.13.90',
    'gnome-speech'           => '0.3.9',
-   'gnome-spell'            => '1.0.6',
+   'gnome-spell'            => '1.0.7',
    'gnome-system-monitor'   => '2.13.90',
    'gnome-system-tools'     => '2.13.2',
-   'gnome-terminal'         => '2.13.90',
+   'gnome-terminal'         => '2.13.91',
    'gnome-themes'           => '2.13.90',
    'gnome-user-share'       => '0.9',
-   'gnome-utils'            => '2.13.91',
-   'gnome-volume-manager'   => '1.5.12',
+   'gnome-utils'            => '2.13.92',
+   'gnome-volume-manager'   => '1.5.13',
    'gnome2-user-docs'       => '2.8.1',
    'gnopernicus'            => '1.0.1',
    'gok'                    => '1.0.5',
@@ -220,7 +220,7 @@ our %desktop =
    'libgsf'                 => '1.13.3',
    'libgtkhtml'             => '2.11.0',
    'libgtop'                => '2.13.3',
-   'librsvg'                => '2.13.91',
+   'librsvg'                => '2.13.93',
    'libsoup'                => '2.2.7',
    'libwnck'                => '2.13.90',
    'metacity'               => '2.13.55',
@@ -229,12 +229,12 @@ our %desktop =
    'nautilus-media'         => '0.8.1',
    'nautilus-sendto'        => '0.5',
    'scrollkeeper'           => '0.3.14',
-   'sound-juicer'           => '2.13.4',
+   'sound-juicer'           => '2.13.5',
    'startup-notification'   => '0.8',
    'system-tools-backends'  => '1.4.2',
    'totem'                  => '1.3.90',
    'vino'                   => '2.13.5',
-   'vte'                    => '0.11.17',
+   'vte'                    => '0.11.18',
    'yelp'                   => '2.13.4',
    'zenity'                 => '2.13.90',
    );
@@ -273,7 +273,7 @@ our %desktop_nongnome =
 
 our %bindings_cxx =
   (
-   'bakery'            => '2.3.16',
+   'bakery'            => '2.3.17',
    'gconfmm'           => '2.12.0',
    'glibmm'            => '2.9.1',
    'gnome-vfsmm'       => '2.12.0',
@@ -303,7 +303,7 @@ our %bindings_python =
    'gnome-python'         => '2.12.1',
    'gnome-python-desktop' => '2.13.3',
    'gnome-python-extras'  => '2.13.3',
-   'nautilus-python'      => '0.4.0',
+   'nautilus-python'      => '0.4.2',
    'pygtk'                => '2.8.4',
    'pyorbit'              => '2.13.1',
    'pyphany'              => '0.1.4',
