@@ -245,7 +245,7 @@ our %extras_apps =
    'gnomebaker'          => {
 			     'ver' => '0.5.1',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gnomebaker/',
-			     'src' => 'tar.gz',
+			     'src' => 'tar.bz2',
 			    },
    'gqview'              => {
 			     'ver' => '2.1.1',
