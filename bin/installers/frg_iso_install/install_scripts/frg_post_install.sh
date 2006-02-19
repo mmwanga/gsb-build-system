@@ -20,7 +20,7 @@ do
                rm -f usr/share/icons/$i/icon-theme.cache
        fi
        if [ -d usr/share/icons/$i ]; then
-               usr/bin/gtk-update-icon-cache -q --ignore-theme-index usr/share/icons/$i
+               usr/bin/gtk-update-icon-cache -f -q --ignore-theme-index usr/share/icons/$i
        fi
 done
 
