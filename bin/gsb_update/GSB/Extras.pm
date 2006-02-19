@@ -155,8 +155,8 @@ our %extras_gnome_apps =
    'NetworkManager'      => '0.5.1',
    'gnome-audio'         => '2.0.0',
    'gnome-cups-manager'  => '0.30',
-   'gnome-power-manager' => '2.13.5',
-   'gthumb'              => '2.7.2',
+   'gnome-power-manager' => '2.13.90',
+   'gthumb'              => '2.7.3',
    'meld'                => '1.1.3',
    'pessulus'            => '0.6',
    'rhythmbox'           => '0.9.3.1',
@@ -344,7 +344,7 @@ our %extras_apps =
 our %extras_apps_gnome =
   (
    'ghex'                => '2.8.1',
-   'gossip'              => '0.9',
+   'gossip'              => '0.10',
   );
 
 
@@ -382,8 +382,8 @@ our %extras_applets =
 our %extras_applets_gnome =
   (
    'quick-lounge-applet'      => '2.12.1',
-   'fast-user-switch-applet'  => '2.13.5',
-   'deskbar-applet'           => '2.13.90.1',
+   'fast-user-switch-applet'  => '2.13.91',
+   'deskbar-applet'           => '2.13.91',
   );
 
 
