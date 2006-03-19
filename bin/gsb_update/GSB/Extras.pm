@@ -198,7 +198,7 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'bmpx'                 => {
-			     'ver' => '0.13.1',
+			     'ver' => '0.14.1',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/beepmp/',
 			     'src' => 'tar.gz',
 			    },
@@ -288,7 +288,7 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'liferea'             => {
-			     'ver' => '1.0.7',
+			     'ver' => '1.0.8',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/liferea/',
 			     'src' => 'tar.gz',
 			    },

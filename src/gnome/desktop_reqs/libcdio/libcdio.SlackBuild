@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-libcdio
 
-VERSION=0.76
+VERSION=0.77
 ARCH=${ARCH:-i486}
 BUILD=1
 
