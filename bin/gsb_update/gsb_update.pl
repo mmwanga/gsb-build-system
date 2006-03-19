@@ -1246,13 +1246,15 @@ foreach my $mononpackage (keys %mono_diff_naming) {
 
 # DONE DOWNLOADING
 
-if ( ! @bad_downloads eq "" ) {
-  print "\nThe following packages could not be downloaded:\n\n";
+if ( $download eq "true" ) {
+    if ( ! @bad_downloads eq "" ) {
+	print "\nThe following packages could not be downloaded:\n\n";
 
-  foreach my $bad_pack (@bad_downloads) {
-    print "$bad_pack\n";
-  }
-  print "\n";
+	foreach my $bad_pack (@bad_downloads) {
+	    print "$bad_pack\n";
+	}
+	print "\n";
+    }
 }
 # end main()
 #
