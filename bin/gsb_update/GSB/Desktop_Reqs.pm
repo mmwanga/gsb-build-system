@@ -26,8 +26,8 @@ our %desktop_reqs =
 			 'src' => 'tar.gz',
 			},
    'opal'            => {
-                         'url' => 'http://www.ekiga.org/downloads/sources/',
-                         'ver' => '2.1.2',
+                         'url' => 'http://www.ekiga.org/admin/downloads/latest/sources/sources/',
+                         'ver' => '2.2.1',
                          'src' => 'tar.gz',
                         },
    'openldap'        => {
@@ -41,8 +41,8 @@ our %desktop_reqs =
 			 'src' => 'tar.gz',
 			},
    'pwlib'            => {
-                         'url' => 'http://www.ekiga.org/downloads/sources/',
-                         'ver' => '1.9.2',
+                         'url' => 'http://www.ekiga.org/admin/downloads/latest/sources/sources/',
+                         'ver' => '1.10.0',
                          'src' => 'tar.gz',
                         },
    'PyXML'           => {

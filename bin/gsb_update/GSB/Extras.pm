@@ -155,10 +155,10 @@ our %extras_gnome_apps =
    'NetworkManager'      => '0.5.1',
    'gnome-audio'         => '2.0.0',
    'gnome-cups-manager'  => '0.30',
-   'gnome-power-manager' => '2.13.90',
-   'gthumb'              => '2.7.3',
+   'gnome-power-manager' => '2.14.0',
+   'gthumb'              => '2.7.4',
    'meld'                => '1.1.3',
-   'pessulus'            => '0.6',
+   'pessulus'            => '0.9',
    'rhythmbox'           => '0.9.3.1',
    'sabayon'             => '2.12.3',
   );
@@ -183,7 +183,7 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'avidemux'            => {
-			     'ver' => '2.1.0',
+			     'ver' => '2.1.2',
 			     'url' => 'http://download.berlios.de/avidemux/',
 			     'src' => 'tar.gz',
 			    },
@@ -198,7 +198,7 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'bmpx'                 => {
-			     'ver' => '0.12.9',
+			     'ver' => '0.13.1',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/beepmp/',
 			     'src' => 'tar.gz',
 			    },
@@ -228,7 +228,7 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'galeon'              => {
-			     'ver' => '2.0.0',
+			     'ver' => '2.0.1',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/galeon',
 			     'src' => 'tar.bz2',
 			    },
@@ -238,7 +238,7 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'gimp'                => {
-			     'ver' => '2.3.6',
+			     'ver' => '2.3.7',
 			     'url' => 'ftp://ftp.gimp.org/pub/gimp/v2.3/',
 			     'src' => 'tar.bz2',
 			    },
@@ -288,7 +288,7 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'liferea'             => {
-			     'ver' => '1.0.3',
+			     'ver' => '1.0.7',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/liferea/',
 			     'src' => 'tar.gz',
 			    },
@@ -313,12 +313,12 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'streamripper'        => {
-			     'ver' => '1.61.13',
+			     'ver' => '1.61.18',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/streamripper/',
 			     'src' => 'tar.gz',
 			    },
    'sylpheed'            => {
-			     'ver' => '2.1.8',
+			     'ver' => '2.2.3',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/sylpheed-claws/',
 			     'src' => 'tar.bz2',
 			    },
@@ -343,8 +343,8 @@ our %extras_apps =
 # src/extras/apps
 our %extras_apps_gnome =
   (
-   'ghex'                => '2.8.1',
-   'gossip'              => '0.10',
+   'ghex'                => '2.8.2',
+   'gossip'              => '0.10.2',
   );
 
 
@@ -382,8 +382,8 @@ our %extras_applets =
 our %extras_applets_gnome =
   (
    'quick-lounge-applet'      => '2.12.1',
-   'fast-user-switch-applet'  => '2.13.91',
-   'deskbar-applet'           => '2.13.91',
+   'fast-user-switch-applet'  => '2.14.0',
+   'deskbar-applet'           => '2.14.0',
   );
 
 

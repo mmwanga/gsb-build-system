@@ -4,9 +4,9 @@ TMP=${TMP:-/tmp}
 PKG=$TMP/package-xscreensaver
 CWD=`pwd` 
 
-VERSION=4.22
+VERSION=4.24
 ARCH=${ARCH:-i486}
-BUILD=4
+BUILD=1
 
 if [ -f /var/log/packages/xscreensaver-$VERSION-$ARCH-$BUILD ]; then
   echo "xscreensaver-$VERSION-$ARCH-$BUILD package already installed"

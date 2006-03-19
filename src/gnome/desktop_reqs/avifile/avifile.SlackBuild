@@ -4,10 +4,10 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-avifile
 
-VERSION=0.7-0.7.43
+VERSION=0.7-0.7.45
 PVERSION=`echo $VERSION| sed 's/-/_/'`
 ARCH=${ARCH:-i486}
-BUILD=3
+BUILD=1
 
 if [ -f /var/log/packages/avifile-$PVERSION-$ARCH-$BUILD ]; then
   echo "avifile-$VERSION-$ARCH-$BUILD package already installed"

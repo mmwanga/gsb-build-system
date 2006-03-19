@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-Gnome2-VFS
 
-VERSION=1.050
+VERSION=1.060
 ARCH=${ARCH:-i486}
 BUILD=1
 

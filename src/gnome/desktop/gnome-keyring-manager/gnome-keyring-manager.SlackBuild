@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gnome-keyring-manager
 
-VERSION=2.12.0
+VERSION=2.14.0
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/gnome-keyring-manager-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-keyring-manager-$VERSION-$ARCH-$BUILD package already installed"

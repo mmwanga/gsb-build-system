@@ -41,7 +41,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'avifile'           => {
-			   'ver' => '0.7-0.7.43',
+			   'ver' => '0.7-0.7.45',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/avifile/',
 			   'src' => 'tar.bz2',
 			  },
@@ -152,7 +152,7 @@ our %gst_libs =
 			  },
    'libmusicbrainz'    => {
 			   'ver' => '2.1.2',
-			   'url' => 'ftp://ftp.musicbrainz.org/pub/musicbrainz/',
+			   'url' => 'http://musicbrainz.org/ftpmirror/pub/musicbrainz/',
 			   'src' => 'tar.gz',
 			  },
    'liboil'            => {
@@ -176,7 +176,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libsndfile'        => {
-			   'ver' => '1.0.13',
+			   'ver' => '1.0.14',
 			   'url' => 'http://www.mega-nerd.com/libsndfile/',
 			   'src' => 'tar.gz',
 			  },
