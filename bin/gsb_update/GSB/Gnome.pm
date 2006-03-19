@@ -77,6 +77,11 @@ our %platform_diff_naming =
 # these are packages from freedesktop.org
 our %platform_reqs =
   (
+   'avahi'               => {
+                             'ver' => '0.6.9',
+                             'url' => 'http://www.avahi.org/download/',
+                             'src' => 'tar.gz',
+                            },
    'cairo'               => {
 			     'ver' => '1.0.4',
 			     'url' => 'http://cairographics.org/releases/',
@@ -112,6 +117,11 @@ our %platform_reqs =
 			     'ver' => '1.0.0',
 			     'src' => 'tar.gz',
 			    },
+   'libdaemon'           => {
+                             'ver' => '0.10',
+                             'url' => 'http://0pointer.de/lennart/projects/libdaemon/',
+                             'src' => 'tar.gz',
+                            },
    'libcap'              => {
 			     'url' => 'http://www.kernel.org/pub/linux/libs/security/linux-privs/kernel-2.4/',
 			     'ver' => '1.10',

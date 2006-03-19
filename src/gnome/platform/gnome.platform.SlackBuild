@@ -18,7 +18,8 @@ glib2
 libidl
 orbit2
 intltool
-howl
+libdaemon
+avahi
 libbonobo
 glitz
 cairo
