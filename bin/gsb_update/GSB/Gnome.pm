@@ -57,7 +57,7 @@ our %platform_diff_naming =
 		'name' => 'ORBit2',
 	       },
    'gconf'  => {
-		'ver'  => '2.13.5',
+		'ver'  => '2.14.0',
 		'name' => 'GConf',
 	       },
    'glib2'  => {
