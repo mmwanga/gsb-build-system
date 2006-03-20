@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-avahi
 
-VERSION=0.6.2
+VERSION=0.6.9
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -61,9 +61,14 @@ fi
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
-            --localstatedir=/var/lib \
-            --with-distro=none \
+            --localstatedir=/var \
+            --with-distro=slackware \
+            --with-dbus-system-address=unix:path=/var/lib/dbus/system_bus_socket \
             --enable-compat-howl \
+            --enable-compat-libdns_sd \
+            --disable-doxygen-doc \
+            --disable-xmltoman \
+            --disable-manpages \
             --disable-static \
             --disable-qt3 \
             --disable-qt4 \

@@ -5,7 +5,7 @@ libxml2
 bzip2
 gamin
 glib2
-howl
+avahi
 openssl
 openssl-solibs
 orbit2

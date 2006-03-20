@@ -18,8 +18,6 @@ glib2
 libidl
 orbit2
 intltool
-libdaemon
-avahi
 libbonobo
 glitz
 cairo
@@ -41,6 +39,8 @@ esound
 libgnome
 libart_lgpl
 libglade
+libdaemon
+avahi
 libgnomecanvas
 libbonoboui
 gnome-keyring

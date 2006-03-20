@@ -4,7 +4,7 @@ audiofile
 esound
 gconf
 glib2
-howl
+avahi
 libbonobo
 libxml2
 openssl-solibs | openssl
