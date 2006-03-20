@@ -1046,6 +1046,7 @@ foreach my $gnpackage (keys %gst_diff_name) {
   my $src     = $gst_diff_name{$gnpackage}{src};
   my $packurl = $gst_diff_name{$gnpackage}{url};
   my $sb_file = $name. $sb_ext;
+  my $type    = 'other';
 
   chdir "$pwd/gnome/desktop/$name";
 
