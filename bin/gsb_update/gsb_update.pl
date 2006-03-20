@@ -1003,18 +1003,24 @@ foreach my $other_pack (keys %extras_applets_gnome) {
 
 
 # Download GSTREAMER stuff
-foreach my $gpackage (keys %gstreamer) {
+foreach my $gst (keys %gstreamer) {
 
-  my $name    = $gpackage;
-  my $ver     = $gstreamer{$name};
+  my $name    = $gst;
 
-  my $sb_file = $name . $sb_ext;
-  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
+  my $sb_file = $gst . $sb_ext;
+  my $packurl = $gstreamer{$gst}{url};
+  my $ver     = $gstreamer{$gst}{ver};
+  my $src     = $gstreamer{$gst}{src};
+  my $type    = 'other';
 
-  chdir "$pwd/gnome/desktop/$name";
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+
+  chdir "$pwd/gnome/desktop/$gst";
+
 
   if ( $download eq "true") {
-    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
+    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
   }
 
   if ( $edit eq "true" ) {
@@ -1029,6 +1035,40 @@ foreach my $gpackage (keys %gstreamer) {
     push(@bad_downloads, $name);
   }
 }
+
+# DOWNLOAD other platform libs
+foreach my $gnpackage (keys %gst_diff_name) {
+
+  my $name    = $gnpackage;
+
+  my $oname   = $gst_diff_name{$gnpackage}{name};
+  my $ver     = $gst_diff_name{$gnpackage}{ver};
+  my $src     = $gst_diff_name{$gnpackage}{src};
+  my $packurl = $gst_diff_name{$gnpackage}{url};
+  my $sb_file = $name. $sb_ext;
+
+  chdir "$pwd/gnome/desktop/$name";
+
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($oname, $ver, $src);
+
+  if ( $download eq "true" ) {
+    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($oname, $ver, $tarball, $type, $url);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $oname);
+  }
+}
+
 
 # Download GSTREAMER libs
 foreach my $gst_libs_pack (keys %gst_libs) {

@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw(%gstreamer %gst_other %gst_libs);
+our @EXPORT    = qw(%gstreamer %gst_diff_name %gst_other %gst_libs);
 our @EXPORT_OK = qw();
 our $VERSION   = 0.03;
 
@@ -15,8 +15,41 @@ our $VERSION   = 0.03;
 
 our %gstreamer =
   (
-   'gstreamer'         => '0.8.11',
-   'gst-plugins'       => '0.8.11',
+   'gstreamer'         => {
+                           'ver' => '0.8.12',
+                           'url' => 'http://gstreamer.freedesktop.org/src/gstreamer/',
+                           'src' => 'tar.bz2',
+                          },
+   'gst-plugins-base'  => {
+                           'ver' => '0.10.5',
+                           'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-base/',
+                           'src' => 'tar.bz2',
+                          },
+   'gst-plugins-good'  => {
+                           'ver' => '0.10.2',
+                           'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-good/',
+                           'src' => 'tar.bz2',
+                          },
+   'gst-plugins-bad'   => {
+                           'ver' => '0.10.1',
+                           'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-bad/',
+                           'src' => 'tar.bz2',
+                          },
+   'gst-plugins-ugly'  => {
+                           'ver' => '0.10.2',
+                           'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-ugly/',
+                           'src' => 'tar.bz2',
+                          },
+  );
+
+our %gst_diff_name =
+  (
+   'gstreamer10'       => {
+                           'name' => 'gstreamer',
+                           'ver'  => '0.10.4',
+                           'url'  => 'http://gstreamer.freedesktop.org/src/gstreamer/',
+                           'src'  => 'tar.bz2',
+                          },
   );
 
 our %gst_other =
