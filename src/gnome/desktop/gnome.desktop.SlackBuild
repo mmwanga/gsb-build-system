@@ -32,8 +32,11 @@ gnome-panel
 gnome-session
 vte
 gnome-terminal
-gstreamer
-gst-plugins
+gstreamer10
+gst-plugins-base
+gst-plugins-good
+gst-plugins-bad
+gst-plugins-ugly
 libgtop
 libxklavier
 gnome-applets

@@ -10,6 +10,6 @@ gnome-desktop
 gnome-keyring
 gnome-menus
 gnome-vfs
-howl
+avahi
 libgnomecanvas
 startup-notification

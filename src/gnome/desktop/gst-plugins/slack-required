@@ -9,7 +9,7 @@ gconf
 gnome-vfs
 gstreamer
 gtk+2
-howl
+avahi
 lame
 libart_lgpl
 libavc1394

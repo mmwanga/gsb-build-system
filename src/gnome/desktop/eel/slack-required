@@ -7,7 +7,7 @@ gnome-desktop
 gnome-keyring
 gnome-menus
 gtk+2
-howl
+avahi
 libart_lgpl
 libglade
 startup-notification

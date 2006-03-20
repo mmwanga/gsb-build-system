@@ -2,7 +2,7 @@ glib2
 gnome-keyring
 gnome-vfs
 gtk+2
-howl
+avahi
 libglade
 libgnome
 libgnomecanvas

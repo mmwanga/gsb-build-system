@@ -6,5 +6,5 @@ gnome-menus
 gnome-panel
 gnome-vfs
 gtk+2
-howl
+avahi
 startup-notification

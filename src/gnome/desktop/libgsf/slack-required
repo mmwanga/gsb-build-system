@@ -1,7 +1,7 @@
 bzip2
 glib2
 gnome-vfs
-howl
+avahi
 libbonobo
 libxml2
 openssl-solibs | openssl
