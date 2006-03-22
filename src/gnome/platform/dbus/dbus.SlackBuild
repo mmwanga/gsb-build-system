@@ -6,7 +6,7 @@ PKG=$TMP/package-dbus
 
 VERSION=0.61
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/dbus-$VERSION-$ARCH-$BUILD ]; then
   echo "dbus-$VERSION-$ARCH-$BUILD package already installed"
@@ -72,6 +72,8 @@ CFLAGS="$SLKCFLAGS" \
 	    --with-system-pid-file=/var/run/dbus.pid \
             --disable-qt \
 	    --with-session-socket-dir=/tmp \
+            --program-prefix="" \
+            --program-suffix="" \
             $ARCH-slackware-linux || exit 1
 make || exit 1
 make install DESTDIR=$PKG
