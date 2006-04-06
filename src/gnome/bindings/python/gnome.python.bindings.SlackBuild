@@ -11,8 +11,6 @@ fi
 # pyphany removed until updated version appears
 
 BUILD_ORDER="
-pyorbit
-pygtk
 gnome-python
 gnome-python-extras
 gnome-python-desktop

@@ -26,8 +26,8 @@ our $VERSION   = 0.03;
 
 our %platform =
   (
-   'at-spi'              => '1.7.6',
-   'atk'                 => '1.11.3',
+   'at-spi'              => '1.7.7',
+   'atk'                 => '1.11.4',
    'audiofile'           => '0.2.6',
    'esound'              => '0.2.36',
    'gail'                => '1.8.11',
@@ -47,6 +47,9 @@ our %platform =
    'libxml2'             => '2.6.23',
    'libxslt'             => '1.1.15',
    'pango'               => '1.12.0',
+   'pygobject'           => '2.10.0',
+   'pygtk'               => '2.8.5',
+   'pyorbit'             => '2.14.0',
 
   );
 
@@ -142,6 +145,16 @@ our %platform_reqs =
 			     'url' => 'http://cairographics.org/snapshots/',
 			     'src' => 'tar.gz',
 			    },
+   'libsvg'              => {
+                             'ver' => '0.1.4',
+                             'url' => 'http://cairographics.org/snapshots/',
+                             'src' => 'tar.gz',
+                            },
+   'libsvg-cairo'        => {
+                             'ver' => '0.1.6',
+                             'url' => 'http://cairographics.org/snapshots/',
+                             'src' => 'tar.gz',
+                            },
    'shared-mime-info'    => {
 			     'url' => 'http://freedesktop.org/~jrb/',
 			     'ver' => '0.16',
@@ -152,6 +165,13 @@ our %platform_reqs =
 			     'ver' => '0.8',
 			     'src' => 'tar.gz',
 			    },
+
+   'pycairo'             => {
+                             'ver' => '1.0.2',
+                             'url' => 'http://cairographics.org/releases/',
+                             'src' => 'tar.gz',
+                            },
+
    'pkg-config'          => {
 			     'url' => 'http://pkgconfig.freedesktop.org/releases/',
 			     'ver' => '0.20',
@@ -168,7 +188,7 @@ our %desktop =
   (
    'bug-buddy'              => '2.14.0',
    'control-center'         => '2.14.0',
-   'dasher'                 => '4.0.1',
+   'dasher'                 => '4.0.2',
    'eel'                    => '2.14.0',
    'ekiga'                  => '2.0.1',
    'eog'                    => '2.14.0',
@@ -230,7 +250,7 @@ our %desktop =
    'libgsf'                 => '1.14.0',
    'libgtkhtml'             => '2.11.0',
    'libgtop'                => '2.14.0',
-   'librsvg'                => '2.14.2',
+   'librsvg'                => '2.14.3',
    'libsoup'                => '2.2.91',
    'libwnck'                => '2.14.0',
    'metacity'               => '2.14.1',
@@ -239,7 +259,7 @@ our %desktop =
    'nautilus-media'         => '0.8.1',
    'nautilus-sendto'        => '0.5',
    'scrollkeeper'           => '0.3.14',
-   'sound-juicer'           => '2.14.0',
+   'sound-juicer'           => '2.14.1',
    'startup-notification'   => '0.8',
    'system-tools-backends'  => '1.4.2',
    'totem'                  => '1.4.0',
@@ -283,7 +303,7 @@ our %desktop_nongnome =
 
 our %bindings_cxx =
   (
-   'bakery'            => '2.3.17',
+   'bakery'            => '2.4.0',
    'gconfmm'           => '2.14.0',
    'glibmm'            => '2.10.0',
    'gnome-vfsmm'       => '2.14.0',
@@ -301,10 +321,10 @@ our %bindings_cxx =
 #    'libvte-java' => '0.11.11',
 our %bindings_java =
   (
-   'libgconf-java'    => '2.12.1',
-   'libglade-java'    => '2.12.1',
-   'libgnome-java'    => '2.12.1',
-   'libgtk-java'      => '2.8.1',
+   'libgconf-java'    => '2.12.2',
+   'libglade-java'    => '2.12.2',
+   'libgnome-java'    => '2.12.2',
+   'libgtk-java'      => '2.8.4',
 
   );
 
@@ -314,8 +334,6 @@ our %bindings_python =
    'gnome-python-desktop' => '2.14.0',
    'gnome-python-extras'  => '2.14.0',
    'nautilus-python'      => '0.4.3',
-   'pygtk'                => '2.8.4',
-   'pyorbit'              => '2.14.0',
    'pyphany'              => '0.1.4',
   );
 

@@ -15,6 +15,17 @@ our $VERSION   = 0.03;
 
 our %desktop_reqs =
   (
+
+   'bluez-libs'      => {
+                         'ver' => '2.25',
+                         'url' => 'http://bluez.sf.net/download/',
+                         'src' => 'tar.gz',
+                        },
+   'bluez-utils'     => {
+                         'ver' => '2.25',
+                         'url' => 'http://bluez.sf.net/download/',
+                         'src' => 'tar.gz',
+                        },
    'cyrus-sasl'      => {
 			 'url' => 'ftp://ftp.andrew.cmu.edu/pub/cyrus-mail/',
 			 'ver' => '2.1.21',
@@ -35,6 +46,11 @@ our %desktop_reqs =
 			 'ver' => '2.2.30',
 			 'src' => 'tgz',
 			},
+   'openobex'        => {
+                         'ver' => '1.2',
+                         'url' => 'http://heanet.dl.sourceforge.net/sourceforge/openobex/',
+                         'src' => 'tar.gz',
+                        },
    'poppler'         => {
 			 'url' => 'http://poppler.freedesktop.org/',
 			 'ver' => '0.5.0',

@@ -71,9 +71,9 @@ our %office_libs =
 
 our %office_gnome_libs =
   (
-   'goffice'     => '0.2.0',
-   'libgda'      => '1.9.100',
-   'libgnomedb'  => '1.9.100',
+   'goffice'     => '0.2.1',
+   'libgda'      => '1.9.102',
+   'libgnomedb'  => '1.9.102',
    'libgdamm'    => '1.3.7',
    'present'     => '0.0.3',
   );
@@ -81,9 +81,9 @@ our %office_gnome_libs =
 our %office_gnome =
   (
 #   'abiword'   => '2.3.5',
-   'gnumeric'  => '1.6.2',
+   'gnumeric'  => '1.6.3',
    'dia'       => '0.94',
-   'glom'      => '0.9.91',
+   'glom'      => '1.0.0',
    'mergeant'  => '0.62',
    'planner'   => '0.13',
   );

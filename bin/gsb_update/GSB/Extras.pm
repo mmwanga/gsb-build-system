@@ -51,7 +51,7 @@ our %extras_libs =
                              'src' => 'tar.bz2',
 			    },
    'gmime'               => {
-			     'ver' => '2.1.19',
+			     'ver' => '2.2.1',
 			     'url' => 'http://spruce.sourceforge.net/gmime/sources/v2.1/',
 			     'src' => 'tar.gz',
 			    },
@@ -145,18 +145,19 @@ our %extras_libs_gnome =
    'glade'               => '2.12.1',
    'gnome-build'         => '0.1.2',
    'gnome-common'        => '2.12.0',
-   'loudmouth'           => '1.0.1',
+   'loudmouth'           => '1.0.3',
   );
 
 
 # src/extras/gnome-apps
 our %extras_gnome_apps =
   (
-   'NetworkManager'      => '0.5.1',
+   'NetworkManager'      => '0.6.1',
    'gnome-audio'         => '2.0.0',
+   'gnome-commander'     => '1.1.7',
    'gnome-cups-manager'  => '0.30',
    'gnome-power-manager' => '2.14.0',
-   'gthumb'              => '2.7.4',
+   'gthumb'              => '2.7.5.1',
    'meld'                => '1.1.3',
    'pessulus'            => '0.9',
    'rhythmbox'           => '0.9.3.1',
@@ -193,12 +194,12 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'bluefish'            => {
-			     'ver' => '1.0.4',
+			     'ver' => '1.0.5',
 			     'url' => 'http://pkedu.fbt.eitn.wau.nl/~olivier/downloads/',
 			     'src' => 'tar.bz2',
 			    },
    'bmpx'                 => {
-			     'ver' => '0.14.1',
+			     'ver' => '0.14.3',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/beepmp/',
 			     'src' => 'tar.gz',
 			    },
@@ -288,7 +289,7 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'liferea'             => {
-			     'ver' => '1.0.8',
+			     'ver' => '1.0.9',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/liferea/',
 			     'src' => 'tar.gz',
 			    },
@@ -318,7 +319,7 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'sylpheed'            => {
-			     'ver' => '2.2.3',
+			     'ver' => '2.2.4',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/sylpheed-claws/',
 			     'src' => 'tar.bz2',
 			    },
@@ -333,7 +334,7 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'xchat'               => {
-			     'ver' => '2.6.1',
+			     'ver' => '2.6.2',
 			     'url' => 'http://xchat.org/files/source/2.6/',
 			     'src' => 'tar.bz2',
 			    },

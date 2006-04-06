@@ -2,9 +2,9 @@
 
 CWD=`pwd`
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-gstreamer10
+PKG=$TMP/package-bluez-libs
 
-VERSION=0.10.4
+VERSION=2.25
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -14,8 +14,8 @@ fi
 rm -rf $PKG
 mkdir -p $PKG
 
-if [ -f /var/log/packages/gstreamer10-$VERSION-$ARCH-$BUILD ]; then
-  echo "gstreamer10-$VERSION-$ARCH-$BUILD package already installed"
+if [ -f /var/log/packages/bluez-libs-$VERSION-$ARCH-$BUILD ]; then
+  echo "bluez-libs-$VERSION-$ARCH-$BUILD package already installed"
   exit 0
 fi
 
@@ -37,8 +37,8 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 cd $TMP
-tar -xjvf $CWD/gstreamer-$VERSION.tar.bz2
-cd gstreamer-$VERSION
+tar -xzvf $CWD/bluez-libs-$VERSION.tar.gz
+cd bluez-libs-$VERSION
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
@@ -68,27 +68,14 @@ CFLAGS="$SLKCFLAGS" \
 make || exit 1
 make install DESTDIR=$PKG
 
-SCHEMAS=$PKG/etc/gconf/schemas
-for i in $SCHEMAS/*.schemas
-do
-GCONF_CONFIG_SOURCE="xml::$PKG/etc/gconf/gconf.xml.defaults" \
-        gconftool-2 --makefile-install-rule $i
-done
-
-(
-  cd $PKG/etc/gconf/gconf.xml.defaults
-  find ./ -type d -exec chmod go+rx {} \;
-  find ./ -type f -exec chmod go+r {} \;
-)
-
 chown -R root.bin $PKG/usr/bin
 
-mkdir -p $PKG/usr/doc/gstreamer10-$VERSION
+mkdir -p $PKG/usr/doc/bluez-libs-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
         TODO \
-        $PKG/usr/doc/gstreamer10-$VERSION
-find $PKG/usr/doc/gstreamer10-$VERSION/ -type f -exec chmod 644 {} \;
-chown root.root $PKG/usr/doc/gstreamer10-$VERSION/*
+        $PKG/usr/doc/bluez-libs-$VERSION
+find $PKG/usr/doc/bluez-libs-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/doc/bluez-libs-$VERSION/*
 
 # strip:
 ( cd $PKG
@@ -102,13 +89,12 @@ gzip -9 $PKG/usr/info/*
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
-cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
-makepkg -l y -c n $TMP/gstreamer10-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/bluez-libs-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/gstreamer-$VERSION
+  rm -rf $TMP/bluez-libs-$VERSION
   rm -rf $PKG
 fi

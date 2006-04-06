@@ -21,6 +21,8 @@ intltool
 libbonobo
 glitz
 cairo
+libsvg
+libsvg-cairo
 pango
 atk
 shared-mime-info
@@ -31,11 +33,15 @@ gnome-mime-data
 gamin
 Pyrex
 libcap
-dbus
-hal
 audiofile
 esound
 libglade
+pyorbit
+pycairo
+pygobject
+pygtk
+dbus
+hal
 libdaemon
 avahi
 gnome-vfs
