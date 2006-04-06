@@ -33,14 +33,14 @@ Pyrex
 libcap
 dbus
 hal
-gnome-vfs
 audiofile
 esound
-libgnome
-libart_lgpl
 libglade
 libdaemon
 avahi
+gnome-vfs
+libgnome
+libart_lgpl
 libgnomecanvas
 libbonoboui
 gnome-keyring
