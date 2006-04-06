@@ -284,9 +284,9 @@ our %desktop_nongnome =
 		      'url' => 'http://members.chello.nl/~h.lai/libgnomesu/',
 		      'src' => 'tar.gz',
 		     },
-   'smeg'         => {
-		      'ver' => '0.7.5',
-		      'url' => 'http://dev.realistanew.com/smeg/0.7.5/',
+   'alacarte'     => {
+		      'ver' => '0.8',
+		      'url' => 'http://dev.realistanew.com/alacarte/releases/0.8/',
 		      'src' => 'tar.gz',
 		     },
    'xscreensaver' => {
