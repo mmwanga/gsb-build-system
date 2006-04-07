@@ -184,8 +184,8 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'liboil'            => {
-			   'ver' => '0.3.6',
-			   'url' => 'http://www.schleef.org/liboil/download/',
+			   'ver' => '0.3.8',
+			   'url' => 'http://liboil.freedesktop.org/download/',
 			   'src' => 'tar.gz',
 			  },
    'libquicktime'      => {

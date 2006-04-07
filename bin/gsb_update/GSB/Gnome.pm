@@ -322,7 +322,7 @@ our %bindings_cxx =
 our %bindings_java =
   (
    'libgconf-java'    => '2.12.2',
-   'libglade-java'    => '2.12.2',
+   'libglade-java'    => '2.12.3',
    'libgnome-java'    => '2.12.2',
    'libgtk-java'      => '2.8.4',
 

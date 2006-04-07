@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-liboil
 
-VERSION=0.3.6
+VERSION=0.3.8
 ARCH=${ARCH:-i486}
 BUILD=1
 
