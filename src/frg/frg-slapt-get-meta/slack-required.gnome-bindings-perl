@@ -1,11 +1,11 @@
-frgnome-desktop >= 2.12.0-noarch-1frg
+frgnome-desktop >= 2.14.0-noarch-1frg
 perl
 ExtUtils-PkgConfig
 ExtUtils-Depends
 Glib
 Gtk2
-Gtk2-GladeXML
 Gnome2-Canvas
 Gnome2-GConf
 Gnome2-VFS
 Gnome2
+Gtk2-GladeXML

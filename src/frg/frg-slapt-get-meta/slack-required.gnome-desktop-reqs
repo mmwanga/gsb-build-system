@@ -8,6 +8,7 @@ libcdaudio
 libcddb
 libcdio
 libdv
+libdvbpsi3
 libdvdcss
 libdvdnav
 libdvdread
@@ -38,7 +39,14 @@ libtheora
 xvidcore
 transcode
 avifile
+mac
 openldap
 PyXML
 iso-codes
 heimdal
+poppler
+pwlib
+opal
+bluez-libs
+bluez-utils
+openobex

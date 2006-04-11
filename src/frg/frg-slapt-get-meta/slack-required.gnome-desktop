@@ -1,5 +1,8 @@
-frgnome-platform >= 2.12.0-noarch-1frg
-frgnome-desktop-reqs >= 2.12.0-noarch-1frg
+frgnome-platform >= 2.14.0-noarch-1frg
+frgnome-desktop-reqs >= 2.14.0-noarch-1frg
+ilibbtctl
+gob2
+gnome-bluetooth
 gnome-icon-theme
 libgnomeprintui
 libgnomesu
@@ -19,8 +22,11 @@ gnome-panel
 gnome-session
 vte
 gnome-terminal
-gstreamer
-gst-plugins
+gstreamer10
+gst-plugins-base
+gst-plugins-good
+gst-plugins-bad
+gst-plugins-ugly
 libgtop
 libxklavier
 gnome-applets
@@ -37,7 +43,6 @@ bug-buddy
 gtksourceview
 gedit
 eog
-ggv
 gconf-editor
 gnome-utils
 gnome-spell
@@ -45,7 +50,6 @@ gnome-pilot
 gnome-pilot-conduits
 gnome-netstatus
 gcalctool
-gpdf
 gucharmap
 nautilus-cd-burner
 nautilus-sendto
@@ -70,9 +74,9 @@ gnome-volume-manager
 gal2
 evolution
 evolution-webcal
-gnomemeeting
+evolution-caldav
+ekiga
 totem
-goobox
 sound-juicer
 gnome-system-monitor
 gnome-user-share
@@ -80,4 +84,5 @@ gnome-backgrounds
 gdm
 evolution-exchange
 xscreensaver
-smeg
+evince
+alacarte

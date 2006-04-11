@@ -1,6 +1,8 @@
-frgnome-desktop >= 2.12.0-noarch-1frg
+frgnome-desktop >= 2.14.0-noarch-1frg
 python
-pygtk
-pyorbit
 gnome-python
 gnome-python-extras
+gnome-python-desktop
+gst-python
+pyxdg
+nautilus-python
