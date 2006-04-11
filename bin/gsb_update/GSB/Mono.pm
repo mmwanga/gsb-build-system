@@ -16,17 +16,17 @@ our $VERSION   = 0.01;
 our %mono=
   (
    'boo'                    => {
-				'ver' => '0.7.0.1921',
+				'ver' => '0.7.5.2013',
 				'url' => 'http://go-mono.com/sources/boo/',
 				'src' => 'tar.gz',
 			       },
    'banshee'                => {
-				'ver' => '0.10.2',
+				'ver' => '0.10.9',
 				'url' => 'http://banshee-project.org/files/banshee/',
 				'src' => 'tar.gz',
 			       },
    'beagle'                 => {
-				'ver' => '0.2.3',
+				'ver' => '0.2.4',
 				'url' => 'http://ftp.gnome.org/pub/GNOME/sources/beagle/0.2/',
 				'src' => 'tar.bz2',
 			       },
@@ -51,27 +51,27 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'ipod-sharp'             => {
-				'ver' => '0.5.12',
+				'ver' => '0.5.15',
 				'url' => 'http://banshee-project.org/files/ipod-sharp/',
 				'src' => 'tar.gz',
 			       },
    'libgdiplus'             => {
-				'ver' => '1.1.13.2',
+				'ver' => '1.1.14',
 				'url' => 'http://go-mono.com/sources/libgdiplus-1.1/',
 				'src' => 'tar.gz',
 			       },
    'libipoddevice'          => {
-				'ver' => '0.3.5',
+				'ver' => '0.4.1',
 				'url' => 'http://banshee-project.org/files/libipoddevice/',
 				'src' => 'tar.gz',
 			       },
    'mono'                   => {
-				'ver' => '1.1.13.2',
+				'ver' => '1.1.14',
 				'url' => 'http://go-mono.com/sources/mono-1.1/',
 				'src' => 'tar.gz',
 			       },
    'monodevelop'            => {
-				'ver' => '0.9',
+				'ver' => '0.10',
 				'url' => 'http://go-mono.com/sources/monodevelop/',
 				'src' => 'tar.gz',
 			       },
@@ -85,31 +85,31 @@ our %mono=
 our %mono_diff_naming =
   (
    'gtk-sharp2'  => {
-		     'ver'  => '2.4.0',
+		     'ver'  => '2.8.2',
 		     'name' => 'gtk-sharp',
-		     'url'  => 'http://go-mono.com/sources/gtk-sharp-2.0/',
+		     'url'  => 'http://go-mono.com/sources/gtk-sharp-2.8/',
 		     'src'  => 'tar.gz',
 		    },
    'dbus-sharp'  => {
-		     'ver'  => '0.60',
+		     'ver'  => '0.61',
 		     'name' => 'dbus',
 		     'url'  => 'http://dbus.freedesktop.org/releases/',
 		     'src'  => 'tar.gz',
 		    },
    'gmime-sharp' => {
-		    'ver'  => '2.1.16',
+		    'ver'  => '2.2.1',
 		    'name' => 'gmime',
-		    'url'  => 'http://spruce.sourceforge.net/gmime/sources/v2.1/',
+		    'url'  => 'http://spruce.sourceforge.net/gmime/sources/v2.2/',
 		    'src'  => 'tar.gz',
 		   },
    'sqlite2'     => {
-		     'ver'  => '2.8.16',
+		     'ver'  => '2.8.17',
 		     'name' => 'sqlite',
 		     'url'  => 'http://sqlite.org/',
 		     'src'  => 'tar.gz',
 		    },
    'sqlite3'     => {
-		     'ver'  => '3.2.7',
+		     'ver'  => '3.3.5',
 		     'name' => 'sqlite',
 		     'url'  => 'http://sqlite.org/',
 		     'src'  => 'tar.gz',

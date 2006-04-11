@@ -47,7 +47,7 @@ our %desktop_reqs =
 			 'src' => 'tgz',
 			},
    'openobex'        => {
-                         'ver' => '1.2',
+                         'ver' => '1.0.1',
                          'url' => 'http://heanet.dl.sourceforge.net/sourceforge/openobex/',
                          'src' => 'tar.gz',
                         },

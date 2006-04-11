@@ -8,16 +8,16 @@ VERSION=2.25
 ARCH=${ARCH:-i486}
 BUILD=1
 
+if [ -f /var/log/packages/bluez-utils-$VERSION-$ARCH-$BUILD ]; then
+  echo "bluez-utils-$VERSION-$ARCH-$BUILD package already installed"
+  exit 0
+fi
+
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 rm -rf $PKG
 mkdir -p $PKG
-
-if [ -f /var/log/packages/bluez-utils-$VERSION-$ARCH-$BUILD ]; then
-  echo "bluez-utils-$VERSION-$ARCH-$BUILD package already installed"
-  exit 0
-fi
 
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"

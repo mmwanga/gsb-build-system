@@ -12,6 +12,7 @@ fi
 
 BUILD_ORDER="
 libbtctl
+gob2
 gnome-bluetooth
 gnome-icon-theme
 libgnomeprintui

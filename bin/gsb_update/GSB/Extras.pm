@@ -52,7 +52,7 @@ our %extras_libs =
 			    },
    'gmime'               => {
 			     'ver' => '2.2.1',
-			     'url' => 'http://spruce.sourceforge.net/gmime/sources/v2.1/',
+			     'url' => 'http://spruce.sourceforge.net/gmime/sources/v2.2/',
 			     'src' => 'tar.gz',
 			    },
    'gpgme'               => {
@@ -115,6 +115,11 @@ our %extras_libs =
                              'url' => 'http://galago-project.org/files/releases/source/libnotify/',
                              'src' => 'tar.gz',
                             },
+   'libsexy'             => {
+                             'ver' => '0.1.8',
+                             'url' => 'http://releases.chipx86.com/libsexy/libsexy/',
+                             'src' => 'tar.gz',
+                            },
    'notification-daemon' => {
                              'ver' => '0.2.4',
                              'url' => 'http://galago-project.org/files/releases/source/notification-daemon/',
@@ -152,14 +157,14 @@ our %extras_libs_gnome =
 # src/extras/gnome-apps
 our %extras_gnome_apps =
   (
-   'NetworkManager'      => '0.6.1',
+   'NetworkManager'      => '0.6.2',
    'gnome-audio'         => '2.0.0',
    'gnome-commander'     => '1.1.7',
    'gnome-cups-manager'  => '0.30',
-   'gnome-power-manager' => '2.14.0',
+   'gnome-power-manager' => '2.14.1',
    'gthumb'              => '2.7.5.1',
    'meld'                => '1.1.3',
-   'pessulus'            => '0.9',
+   'pessulus'            => '0.9.1',
    'rhythmbox'           => '0.9.3.1',
    'sabayon'             => '2.12.3',
   );
@@ -214,7 +219,7 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'easytag'             => {
-			     'ver' => '1.99.11',
+			     'ver' => '1.99.12',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/easytag/',
 			     'src' => 'tar.bz2',
 			    },
@@ -320,7 +325,7 @@ our %extras_apps =
 			    },
    'sylpheed'            => {
 			     'ver' => '2.2.4',
-			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/sylpheed-claws/',
+			     'url' => 'http://sylpheed.good-day.net/sylpheed/v2.2/',
 			     'src' => 'tar.bz2',
 			    },
    'sylpheed-claws'      => {
@@ -383,8 +388,8 @@ our %extras_applets =
 our %extras_applets_gnome =
   (
    'quick-lounge-applet'      => '2.12.1',
-   'fast-user-switch-applet'  => '2.14.0',
-   'deskbar-applet'           => '2.14.0',
+   'fast-user-switch-applet'  => '2.14.1',
+   'deskbar-applet'           => '2.14.1',
   );
 
 

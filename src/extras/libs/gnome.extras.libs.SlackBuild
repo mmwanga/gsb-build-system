@@ -11,6 +11,7 @@ fi
 BUILD_ORDER="
 python-ldap
 libnotify
+libsexy
 notification-daemon
 libgphoto2
 gphoto2

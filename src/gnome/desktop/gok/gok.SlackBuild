@@ -41,6 +41,10 @@ cd $TMP
 tar xjvf $CWD/gok-$VERSION.tar.bz2
 cd gok-$VERSION
 
+if [ "$VERSION" = "1.0.7" ]; then
+  cat $CWD/gok.cspi_is_accessible.patch | patch -p0 --verbose
+fi
+
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
   echo "Applying patches for $ARCH"

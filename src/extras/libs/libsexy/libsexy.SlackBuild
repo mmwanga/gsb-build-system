@@ -2,16 +2,11 @@
 
 CWD=`pwd`
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-NetworkManager
+PKG=$TMP/package-libsexy
 
-VERSION=0.6.2
+VERSION=0.1.8
 ARCH=${ARCH:-i486}
 BUILD=1
-
-if [ -f /var/log/packages/NetworkManager-$VERSION-$ARCH-$BUILD ]; then
-  echo "NetworkManager-$VERSION-$ARCH-$BUILD package already installed"
-  exit 0
-fi
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -19,16 +14,21 @@ fi
 rm -rf $PKG
 mkdir -p $PKG
 
+if [ -f /var/log/packages/libsexy-$VERSION-$ARCH-$BUILD ]; then
+  echo "libsexy-$VERSION-$ARCH-$BUILD package already installed"
+  exit 0
+fi
+
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
   ARCH_CONFIGURE=""
 elif [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
   ARCH_CONFIGURE=""
-elif [ "$ARCH" = "powerpc" ]; then
+elif [ "$ARCH" = "s390" ]; then
   SLKCFLAGS="-O2"
   ARCH_CONFIGURE=""
-elif [ "$ARCH" = "s390" ]; then
+elif [ "$ARCH" = "powerpc" ]; then
   SLKCFLAGS="-O2"
   ARCH_CONFIGURE=""
 elif [ "$ARCH" = "x86_64" ]; then
@@ -36,9 +36,9 @@ elif [ "$ARCH" = "x86_64" ]; then
   ARCH_CONFIGURE="--libdir=/usr/lib64"
 fi
 
-cd $TMP 
-tar xjvf $CWD/NetworkManager-$VERSION.tar.bz2
-cd NetworkManager-$VERSION
+cd $TMP
+tar -xzvf $CWD/libsexy-$VERSION.tar.gz
+cd libsexy-$VERSION
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
@@ -58,34 +58,37 @@ elif [ "$ARCH" = "x86_64" ]; then
   #cat $CWD/foo.patch | patch -p0 --verbose
 fi
 
-chown -R root.root .
-find . -perm 666 -exec chmod 644 {} \;
-find . -perm 664 -exec chmod 644 {} \;
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
-	    --sysconfdir=/etc \
+            --sysconfdir=/etc \
             --localstatedir=/var/lib \
-	    --with-distro=slackware \
-	    --enable-notification-icon \
             --disable-static \
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 1
 make || exit 1
 make install DESTDIR=$PKG
 
-chown -R root.bin $PKG/usr/bin
+SCHEMAS=$PKG/etc/gconf/schemas
+for i in $SCHEMAS/*.schemas
+do
+GCONF_CONFIG_SOURCE="xml::$PKG/etc/gconf/gconf.xml.defaults" \
+        gconftool-2 --makefile-install-rule $i
+done
 
 (
-  cd $PKG/etc/rc.d
-  mv rc.networkmanager rc.networkmanager.new
+  cd $PKG/etc/gconf/gconf.xml.defaults
+  find ./ -type d -exec chmod go+rx {} \;
+  find ./ -type f -exec chmod go+r {} \;
 )
 
-mkdir -p $PKG/usr/doc/NetworkManager-$VERSION
-cp -a \
-  AUTHORS BUGS COPYING HACKING MAINTAINERS NEWS README \
-  $PKG/usr/doc/NetworkManager-$VERSION
-find $PKG/usr/doc/NetworkManager-$VERSION/ -type f -exec chmod 644 {} \;
-chown -R root.root $PKG/usr/doc/NetworkManager-$VERSION/*
+chown -R root.bin $PKG/usr/bin
+
+mkdir -p $PKG/usr/doc/libsexy-$VERSION
+cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
+        TODO \
+        $PKG/usr/doc/libsexy-$VERSION
+find $PKG/usr/doc/libsexy-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/doc/libsexy-$VERSION/*
 
 # strip:
 ( cd $PKG
@@ -94,19 +97,17 @@ chown -R root.root $PKG/usr/doc/NetworkManager-$VERSION/*
 )
 
 gzip -9 $PKG/usr/man/*/*
-
-rm -f $PKG/usr/info/dir
 gzip -9 $PKG/usr/info/*
 
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
-cat $CWD/doinst.sh > $PKG/install/doinst.sh
+
 cd $PKG
-makepkg -l y -c n $TMP/NetworkManager-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/libsexy-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/NetworkManager-$VERSION
+  rm -rf $TMP/libsexy-$VERSION
   rm -rf $PKG
 fi
