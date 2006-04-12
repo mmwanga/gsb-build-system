@@ -40,7 +40,6 @@ cd $TMP
 tar xjvf $CWD/gnome-vfs-$VERSION.tar.bz2
 cd gnome-vfs-$VERSION
 
-#cat $CWD/gvfs-2.12.1.smb_method.patch | patch -p0 --verbose
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then

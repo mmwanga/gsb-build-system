@@ -13,6 +13,6 @@
  2,id=default2
  2,Priority=20
  2,RestartCommand=nautilus --no-default-window --sm-client-id default2
-+3,id=default4
++3,id=default3
 +3,Priority=50
 +3,RestartCommand=gnome-volume-manager --sm-client-id default4

@@ -58,14 +58,6 @@ elif [ "$ARCH" = "x86_64" ]; then
   #cat $CWD/foo.patch | patch -p0 --verbose
 fi
 
-# this should be fixed in next upstream
-if [ "$VERSION" = "0.3.3" ]; then
-  cat $CWD/0.3.3_ev-aplication-service_target.patch |patch -p1 --verbose
-fi
-if [ "$VERSION" = "0.4.0" ]; then
-  cat $CWD/0.4.0-desktop.in.in.patch |patch -p1 --verbose
-fi
-
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
