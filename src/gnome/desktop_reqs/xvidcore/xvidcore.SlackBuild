@@ -5,7 +5,6 @@ TMP=${TMP:-/tmp}
 PKG=$TMP/package-xvidcore
 
 VERSION=1.1.0
-PVERSION=1.0.3
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -84,7 +83,7 @@ cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-makepkg -l y -c n $TMP/xvidcore-$PVERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/xvidcore-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then

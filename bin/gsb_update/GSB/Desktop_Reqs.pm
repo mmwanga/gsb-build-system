@@ -53,7 +53,7 @@ our %desktop_reqs =
                         },
    'poppler'         => {
 			 'url' => 'http://poppler.freedesktop.org/',
-			 'ver' => '0.5.0',
+			 'ver' => '0.5.1',
 			 'src' => 'tar.gz',
 			},
    'pwlib'            => {

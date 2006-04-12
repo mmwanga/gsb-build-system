@@ -43,6 +43,13 @@ cd gdm-$VERSION
 
 cat $CWD/frg.gdm.conf.in.patch |patch -p1 --verbose
 
+if [ "$VERSION" = "2.14.1" ]; then
+(
+  cd gui/greeter
+  cat $CWD/gdm.gdmthemetester.in.patch
+)
+fi
+
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
   echo "Applying patches for $ARCH"

@@ -22,7 +22,7 @@ config() {
   # Otherwise, we leave the .new copy for the admin to consider...
 }
 
-config
+#config
 
 chroot . sbin/ldconfig 1> /dev/null 2> /dev/null
 
