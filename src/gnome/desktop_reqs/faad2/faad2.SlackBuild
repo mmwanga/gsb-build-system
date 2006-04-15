@@ -37,6 +37,8 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 
+/sbin/removepkg mpeg4ip
+
 cd $TMP
 rm -rf faad2
 unzip $CWD/faad2-"$VERSION".zip -d $TMP

@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gdm
 
-VERSION=2.14.1
+VERSION=2.14.2
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -42,13 +42,6 @@ tar xjvf $CWD/gdm-$VERSION.tar.bz2
 cd gdm-$VERSION
 
 cat $CWD/frg.gdm.conf.in.patch |patch -p1 --verbose
-
-if [ "$VERSION" = "2.14.1" ]; then
-(
-  cd gui/greeter
-  cat $CWD/gdm.gdmthemetester.in.patch
-)
-fi
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then

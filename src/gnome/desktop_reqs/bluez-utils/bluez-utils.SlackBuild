@@ -6,7 +6,7 @@ PKG=$TMP/package-bluez-utils
 
 VERSION=2.25
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/bluez-utils-$VERSION-$ARCH-$BUILD ]; then
   echo "bluez-utils-$VERSION-$ARCH-$BUILD package already installed"
@@ -68,7 +68,15 @@ CFLAGS="$SLKCFLAGS" \
 make || exit 1
 make install DESTDIR=$PKG
 
-chown -R root.bin $PKG/usr/bin
+chown -R root.bin $PKG/usr/bin $PKG/usr/sbin
+
+(
+  cd /etc/bluetooth
+  for i in hcid.conf pin rfcomm.conf
+  do
+     mv $i $i.new
+  done
+)
 
 mkdir -p $PKG/usr/doc/bluez-utils-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
@@ -89,6 +97,7 @@ gzip -9 $PKG/usr/info/*
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 makepkg -l y -c n $TMP/bluez-utils-$VERSION-$ARCH-$BUILD.tgz

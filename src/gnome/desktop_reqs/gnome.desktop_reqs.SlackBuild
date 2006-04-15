@@ -10,7 +10,7 @@ fi
 
 # faad2 and faac have a hard time building if mpeg4ip is installed, so
 # we remove it and then reinstall later
-/sbin/removepkg mpeg4ip
+#/sbin/removepkg mpeg4ip
 
 # remove because they depend on an old version of libvisual
 #libvisual-nebulus

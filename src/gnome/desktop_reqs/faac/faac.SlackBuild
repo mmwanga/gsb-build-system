@@ -36,6 +36,8 @@ elif [ "$ARCH" = "x86_64" ]; then
   ARCH_CONFIGURE="--libdir=/usr/lib64"
 fi
 
+/sbin/removepkg mpeg4ip
+
 cd $TMP
 tar -xzvf $CWD/faac-$VERSION.tar.gz
 cd faac
