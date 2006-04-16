@@ -4,8 +4,8 @@ dbus
 esound
 gnome-desktop
 gnome-vfs
-gst-plugins
-gstreamer
+gst-plugins-base
+gstreamer10
 gtk+2
 hal
 nautilus-cd-burner

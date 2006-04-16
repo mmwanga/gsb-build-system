@@ -6,7 +6,6 @@ dbus
 gail
 gnome-keyring
 gnome-vfs
-gstreamer
 gtk+2
 libsoup
 libxml2

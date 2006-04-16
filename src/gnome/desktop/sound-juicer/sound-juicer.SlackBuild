@@ -6,7 +6,7 @@ PKG=$TMP/package-sound-juicer
 
 VERSION=2.14.3
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/sound-juicer-$VERSION-$ARCH-$BUILD ]; then
   echo "sound-juicer-$VERSION-$ARCH-$BUILD package already installed"

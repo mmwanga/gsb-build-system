@@ -3,6 +3,7 @@ audiofile
 cxxlibs
 esound
 gnome-vfs
-gst-plugins
-gstreamer
+gst-plugins-base
+gst-plugins-good
+gstreamer10
 gtk+2

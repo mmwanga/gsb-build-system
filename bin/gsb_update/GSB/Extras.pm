@@ -165,7 +165,7 @@ our %extras_gnome_apps =
    'gthumb'              => '2.7.5.1',
    'meld'                => '1.1.3',
    'pessulus'            => '0.9.1',
-   'rhythmbox'           => '0.9.3.1',
+   'rhythmbox'           => '0.9.4',
    'sabayon'             => '2.12.3',
   );
 

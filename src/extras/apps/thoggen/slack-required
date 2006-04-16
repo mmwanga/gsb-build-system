@@ -1,6 +1,6 @@
 dbus
-gstreamer
-gst-plugins
+gstreamer10
+gst-plugins-base
 glib2
 gtk+2
 hal

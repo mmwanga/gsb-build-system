@@ -1,4 +1,5 @@
-gstreamer
-gst-plugins
+gstreamer10
+gst-plugins-base
+gst-plugins-good
 pygtk
 gst-python
