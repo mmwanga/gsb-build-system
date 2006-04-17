@@ -6,7 +6,7 @@ PKG=$TMP/package-gimp
 rm -rf $PKG
 mkdir -p $PKG
 
-VERSION=2.3.7
+VERSION=2.3.8
 ARCH=${ARCH:-i486}
 BUILD=1
 
