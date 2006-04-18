@@ -389,7 +389,7 @@ our %extras_applets_gnome =
   (
    'quick-lounge-applet'      => '2.12.1',
    'fast-user-switch-applet'  => '2.14.1',
-   'deskbar-applet'           => '2.14.1',
+   'deskbar-applet'           => '2.14.1.1',
   );
 
 
