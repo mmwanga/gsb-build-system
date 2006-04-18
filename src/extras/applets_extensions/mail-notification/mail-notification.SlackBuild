@@ -127,5 +127,6 @@ makepkg -l y -c n $TMP/mail-notification-$VERSION-$ARCH-$BUILD.tgz
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
   rm -rf $TMP/mail-notification-$VERSION
+  rm -rf $TMP/evolution-$EVO_VER
   rm -rf $PKG
 fi
