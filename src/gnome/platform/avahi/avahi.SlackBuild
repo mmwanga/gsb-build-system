@@ -6,7 +6,7 @@ PKG=$TMP/package-avahi
 
 VERSION=0.6.9
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/avahi-$VERSION-$ARCH-$BUILD ]; then
   echo "avahi-$VERSION-$ARCH-$BUILD package already installed"
@@ -63,7 +63,7 @@ CFLAGS="$SLKCFLAGS" \
             --sysconfdir=/etc \
             --localstatedir=/var \
             --with-distro=slackware \
-            --with-dbus-system-address=unix:path=/var/lib/dbus/system_bus_socket \
+            --with-dbus-system-address=unix:path=/var/run/dbus/system_bus_socket \
             --enable-compat-howl \
             --enable-compat-libdns_sd \
             --disable-doxygen-doc \
@@ -80,6 +80,14 @@ make || exit 1
 make install DESTDIR=$PKG
 
 chown -R root.bin $PKG/usr/bin
+
+(
+  cd $PKG/etc/rc.d
+  for i in avahidaemon avahidnsconfd
+  do
+    mv rc.$i rc.$i.new
+  done
+)
 
 mkdir -p $PKG/usr/doc/avahi-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \

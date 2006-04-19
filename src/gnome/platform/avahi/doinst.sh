@@ -12,7 +12,8 @@ config() {
   # Otherwise, we leave the .new copy for the admin to consider...
 }
 
-config etc/rc.d/rc.avahi.new
+config etc/rc.d/rc.avahidaemon.new
+config etc/rc.d/rc.avahidnsconfd.new
 
 # If the avahi user/group don't exist, add them:
 if grep "^avahi:x:" etc/passwd 1> /dev/null 2> /dev/null ; then
@@ -38,14 +39,15 @@ if [ ! -e etc/rc.d/rc.local ]; then
 fi
 	
 # if rc.avahi is executable, run it on startup
-run=`grep ". /etc/rc.d/rc.avahi" etc/rc.d/rc.local`
+run=`grep ". /etc/rc.d/rc.avahidaemon" etc/rc.d/rc.local`
 if [ "${run}" == "" ]; then	
 cat << EOF >> etc/rc.d/rc.local
 
-# To disable dbus, chmod rc.avahi to 644
-if [ -x /etc/rc.d/rc.avahi ]; then
+# To disable avahi, chmod rc.avahidaemon to 644
+if [ -x /etc/rc.d/rc.avahidaemon -a -x /etc/rc.d/rc.avahidnsconfd ]; then
   echo "Starting the Avahi Zeroconf Subsystem"
-  . /etc/rc.d/rc.avahi start
+  . /etc/rc.d/rc.avahidaemon start
+  . /etc/rc.d/rc.avahidnsconfd start
 fi
 EOF
 fi

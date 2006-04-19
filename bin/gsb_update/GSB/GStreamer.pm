@@ -31,7 +31,7 @@ our %gstreamer =
                            'src' => 'tar.bz2',
                           },
    'gst-plugins-ugly'  => {
-                           'ver' => '0.10.2',
+                           'ver' => '0.10.3',
                            'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-ugly/',
                            'src' => 'tar.bz2',
                           },
@@ -50,7 +50,7 @@ our %gst_diff_name =
 our %gst_other =
   (
    'gst-ffmpeg'        => {
-			   'ver' => '0.8.7',
+			   'ver' => '0.10.1',
 			   'url' => 'http://gstreamer.freedesktop.org/src/gst-ffmpeg/',
 			   'src' => 'tar.bz2',
 			  },
