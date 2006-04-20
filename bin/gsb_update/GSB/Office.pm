@@ -82,7 +82,7 @@ our %office_gnome =
   (
 #   'abiword'   => '2.3.5',
    'gnumeric'  => '1.6.3',
-   'dia'       => '0.94',
+   'dia'       => '0.95',
    'glom'      => '1.0.0',
    'mergeant'  => '0.62',
    'planner'   => '0.13',
