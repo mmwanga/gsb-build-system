@@ -161,11 +161,11 @@ our %extras_gnome_apps =
    'gnome-audio'         => '2.0.0',
    'gnome-commander'     => '1.1.7',
    'gnome-cups-manager'  => '0.30',
-   'gnome-power-manager' => '2.14.1',
+   'gnome-power-manager' => '2.14.3',
    'gthumb'              => '2.7.6',
    'meld'                => '1.1.3',
-   'pessulus'            => '0.9.1',
-   'rhythmbox'           => '0.9.4',
+   'pessulus'            => '0.10.1',
+   'rhythmbox'           => '0.9.4.1',
    'sabayon'             => '2.12.3',
   );
 

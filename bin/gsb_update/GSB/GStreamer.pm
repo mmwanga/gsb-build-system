@@ -259,7 +259,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'polypaudio'        => {
-			   'ver' => '0.7',
+			   'ver' => '0.8',
 			   'url' => 'http://0pointer.de/lennart/projects/polypaudio/',
 			   'src' => 'tar.gz',
 			  },

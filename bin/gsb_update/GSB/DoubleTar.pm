@@ -27,9 +27,9 @@ our %double_tarballs =
 			  'var' => 'GAIMENC',
 			 },
    'gnome-games-extra-data' => {
-				'ver' => '2.12.0',
+				'ver' => '2.14.0',
 				'dir' => 'gnome/desktop/gnome-games',
-				'url' => 'http://ftp.gnome.org/pub/GNOME/sources/gnome-games-extra-data/2.12/',
+				'url' => 'http://ftp.gnome.org/pub/GNOME/sources/gnome-games-extra-data/2.14/',
 				'src' => 'tar.bz2',
 				'var' => 'EXTRAVERSION',
 			       },

@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-polypaudio
 
-VERSION=0.7
+VERSION=0.8
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/polypaudio-$VERSION-$ARCH-$BUILD ]; then
   echo "polypaudio-$VERSION-$ARCH-$BUILD package already installed"
