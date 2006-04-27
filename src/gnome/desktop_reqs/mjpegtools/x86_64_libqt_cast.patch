@@ -1,0 +1,12 @@
+diff -Naur mjpegtools-1.8.0.orig/lavtools/lav_io.c mjpegtools-1.8.0/lavtools/lav_io.c
+--- mjpegtools-1.8.0.orig/lavtools/lav_io.c	2005-08-27 07:47:20.000000000 -0400
++++ mjpegtools-1.8.0/lavtools/lav_io.c	2006-04-26 22:38:42.000000000 -0400
+@@ -1367,7 +1367,7 @@
+          break;
+ #ifdef HAVE_LIBQUICKTIME
+       case 'q':
+-         res = fileno(((quicktime_t *)lav_file->qt_fd)->stream);
++         res = fileno(lav_file->qt_fd);
+          break;
+ #endif
+       default:
