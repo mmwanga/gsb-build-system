@@ -2,23 +2,22 @@
 
 CWD=`pwd`
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-gconf-editor
+PKG=$TMP/package-neon
 
-VERSION=2.14.0
+VERSION=0.26.0
 ARCH=${ARCH:-i486}
-BUILD=2
-
-if [ -f /var/log/packages/gconf-editor-$VERSION-$ARCH-$BUILD ]; then
-  echo "gconf-editor-$VERSION-$ARCH-$BUILD package already installed"
-  exit 0
-fi
+BUILD=1
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 rm -rf $PKG
 mkdir -p $PKG
-mkdir -p $PKG/var/lib/scrollkeeper
+
+if [ -f /var/log/packages/neon-$VERSION-$ARCH-$BUILD ]; then
+  echo "neon-$VERSION-$ARCH-$BUILD package already installed"
+  exit 0
+fi
 
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
@@ -26,10 +25,10 @@ if [ "$ARCH" = "i386" ]; then
 elif [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
   ARCH_CONFIGURE=""
-elif [ "$ARCH" = "powerpc" ]; then
+elif [ "$ARCH" = "s390" ]; then
   SLKCFLAGS="-O2"
   ARCH_CONFIGURE=""
-elif [ "$ARCH" = "s390" ]; then
+elif [ "$ARCH" = "powerpc" ]; then
   SLKCFLAGS="-O2"
   ARCH_CONFIGURE=""
 elif [ "$ARCH" = "x86_64" ]; then
@@ -37,13 +36,9 @@ elif [ "$ARCH" = "x86_64" ]; then
   ARCH_CONFIGURE="--libdir=/usr/lib64"
 fi
 
-cd $TMP 
-tar xjvf $CWD/gconf-editor-$VERSION.tar.bz2
-cd gconf-editor-$VERSION
-
-if [ "$VERSION" = "2.14.0" ]; then
-  cat $CWD/gconf-editor-free.patch | patch -p0 --verbose
-fi
+cd $TMP
+tar -xzvf $CWD/neon-$VERSION.tar.gz
+cd neon-$VERSION
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
@@ -63,44 +58,27 @@ elif [ "$ARCH" = "x86_64" ]; then
   #cat $CWD/foo.patch | patch -p0 --verbose
 fi
 
-chown -R root.root .
-find . -perm 666 -exec chmod 644 {} \;
-find . -perm 664 -exec chmod 644 {} \;
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
-	    --sysconfdir=/etc \
+            --enable-shared \
+            --disable-static \
+            --with-ssl \
+            --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static \
             $ARCH_CONFIGURE \
-            $ARCH-slackware-linux || exit 
-make || exit 
+            $ARCH-slackware-linux || exit 1
+make || exit 1
 make install DESTDIR=$PKG
 
-SCHEMAS=$PKG/etc/gconf/schemas
-for i in $SCHEMAS/*.schemas
-do
-GCONF_CONFIG_SOURCE="xml::$PKG/etc/gconf/gconf.xml.defaults" \
-        gconftool-2 --makefile-install-rule $i
-done
-
 chown -R root.bin $PKG/usr/bin
 
-(
-  cd $PKG/etc/gconf/gconf.xml.defaults
-  find ./ -type d -exec chmod go+rx {} \;
-  find ./ -type f -exec chmod go+r {} \;
-)
-
-rm -rf $PKG/var/lib/scrollkeeper/*
-
-chown -R root.bin $PKG/usr/bin
-
-mkdir -p $PKG/usr/doc/gconf-editor-$VERSION
-cp -a \
-  AUTHORS BUGS COPYING HACKING MAINTAINERS NEWS README \
-  $PKG/usr/doc/gconf-editor-$VERSION
-find $PKG/usr/doc/gconf-editor-$VERSION/ -type f -exec chmod 644 {} \;
-chown -R root.root $PKG/usr/doc/gconf-editor-$VERSION/*
+mkdir -p $PKG/usr/doc/neon-$VERSION
+cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
+        TODO \
+        $PKG/usr/doc/neon-$VERSION
+find $PKG/usr/doc/neon-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/doc/neon-$VERSION/*
 
 # strip:
 ( cd $PKG
@@ -109,17 +87,17 @@ chown -R root.root $PKG/usr/doc/gconf-editor-$VERSION/*
 )
 
 gzip -9 $PKG/usr/man/*/*
+gzip -9 $PKG/usr/info/*
 
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
-cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
-makepkg -l y -c n $TMP/gconf-editor-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/neon-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/gconf-editor-$VERSION
+  rm -rf $TMP/neon-$VERSION
   rm -rf $PKG
 fi

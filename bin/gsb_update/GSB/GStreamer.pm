@@ -214,7 +214,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libvisual'         => {
-			   'ver' => '0.2.0',
+			   'ver' => '0.4.0',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libvisual/',
 			   'src' => 'tar.gz',
 			  },
@@ -224,7 +224,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libvisual-plugins' => {
-			   'ver' => '0.2.0',
+			   'ver' => '0.4.0',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libvisual/',
 			   'src' => 'tar.gz',
 			  },

@@ -1,0 +1,12 @@
+--- src/gconf-editor-window.c.old	2006-04-29 22:05:26.000000000 +0200
++++ src/gconf-editor-window.c	2006-03-20 11:57:56.000000000 +0100
+@@ -950,7 +950,7 @@ gconf_editor_gconf_value_changed (GConfC
+ 		gconf_add_recent_key (window, key);
+ 	}
+ 
+-	g_free (value);
++	gconf_value_free (value);
+ 	g_free (key);
+ 	gtk_tree_path_free (path);
+ }
+

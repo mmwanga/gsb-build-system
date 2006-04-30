@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-notification-daemon
 
-VERSION=0.2.4
+VERSION=0.3.5
 ARCH=${ARCH:-i486}
 BUILD=1
 

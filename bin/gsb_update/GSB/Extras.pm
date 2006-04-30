@@ -100,6 +100,11 @@ our %extras_libs =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto/',
 			     'src' => 'tar.gz',
 			    },
+   'libgpod'              => {
+                             'ver' => '0.3.2',
+                             'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtkpod/',
+                             'src' => 'tar.gz',
+                            },
    'libmikmod'           => {
 			     'ver' => '3.1.11',
 			     'url' => 'http://mikmod.raphnet.net/files/',
@@ -111,7 +116,7 @@ our %extras_libs =
                              'src' => 'tar.bz2',
                             },
    'libnotify'         => {
-                             'ver' => '0.3.0',
+                             'ver' => '0.4.0',
                              'url' => 'http://galago-project.org/files/releases/source/libnotify/',
                              'src' => 'tar.gz',
                             },
@@ -120,8 +125,13 @@ our %extras_libs =
                              'url' => 'http://releases.chipx86.com/libsexy/libsexy/',
                              'src' => 'tar.gz',
                             },
+   'neon'           => {
+                             'ver' => '0.26.0',
+                             'url' => 'http://www.webdav.org/neon/',
+                             'src' => 'tar.gz',
+                            },
    'notification-daemon' => {
-                             'ver' => '0.2.4',
+                             'ver' => '0.3.5',
                              'url' => 'http://galago-project.org/files/releases/source/notification-daemon/',
                              'src' => 'tar.gz',
                             },
@@ -279,7 +289,7 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'gtkpod'              => {
-			     'ver' => '0.94.0',
+			     'ver' => '0.99.4',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtkpod/',
 			     'src' => 'tar.gz',
 			    },
@@ -294,7 +304,7 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'liferea'             => {
-			     'ver' => '1.0.9',
+			     'ver' => '1.0.10',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/liferea/',
 			     'src' => 'tar.gz',
 			    },

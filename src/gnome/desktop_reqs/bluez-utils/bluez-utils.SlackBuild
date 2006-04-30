@@ -77,6 +77,13 @@ chown -R root.bin $PKG/usr/bin $PKG/usr/sbin
   done
 )
 
+(
+  mkdir -p $PKG/etc/rc.d
+  cp scripts/bluetooth.init $PKG/etc/rc.d
+  sed -i 's#init\.d#rc\.d#g' bluetooth.init
+  mv bluetooth.init rc.bluetooth.new
+)
+
 mkdir -p $PKG/usr/doc/bluez-utils-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
         TODO \

@@ -6,7 +6,7 @@ PKG=$TMP/package-gnome-user-docs
 
 VERSION=2.14.2
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gnome-user-docs-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-user-docs-$VERSION-$ARCH-$BUILD package already installed"
@@ -90,6 +90,7 @@ chown -R root.root $PKG/usr/doc/gnome-user-docs-$VERSION/*
 gzip -9 $PKG/usr/man/*/*
 
 mkdir -p $PKG/install
+cat $CWD/slack-conflicts > $PKG/install/slack-conflicts
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 cat $CWD/doinst.sh > $PKG/install/doinst.sh

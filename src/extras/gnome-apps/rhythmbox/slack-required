@@ -1,4 +1,5 @@
 libbonoboui
-gst-plugins
+gst-plugins-base
 totem
 libnotify
+libgpod

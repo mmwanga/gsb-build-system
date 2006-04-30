@@ -33,6 +33,7 @@ gnome-build
 devhelp
 autogen
 graphviz
+neon
 "
 
 mkdir -p $TMP/gnome-$GVERSION/extras/libs
