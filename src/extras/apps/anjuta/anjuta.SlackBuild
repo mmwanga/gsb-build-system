@@ -6,7 +6,7 @@ PKG=$TMP/package-anjuta
 
 VERSION=2.0.1
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ -f /var/log/packages/anjuta-$VERSION-$ARCH-$BUILD ]; then
   echo "anjuta-$VERSION-$ARCH-$BUILD package already installed"
@@ -39,6 +39,8 @@ fi
 cd $TMP
 tar -xzvf $CWD/anjuta-$VERSION.tar.gz
 cd anjuta-$VERSION
+
+cat $CWD/2.0.1.runtime.fix.patch | patch -p0 --verbose
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
