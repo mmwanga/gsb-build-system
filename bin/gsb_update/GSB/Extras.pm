@@ -294,7 +294,7 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'kino'                => {
-			     'ver' => '0.8.0',
+			     'ver' => '0.8.1',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/kino/',
 			     'src' => 'tar.gz',
 			    },
@@ -360,7 +360,7 @@ our %extras_apps =
 our %extras_apps_gnome =
   (
    'ghex'                => '2.8.2',
-   'gossip'              => '0.10.2',
+   'gossip'              => '0.11',
   );
 
 

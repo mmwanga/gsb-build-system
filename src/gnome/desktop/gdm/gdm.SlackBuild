@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gdm
 
-VERSION=2.14.4
+VERSION=2.14.5
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/gdm-$VERSION-$ARCH-$BUILD ]; then
   echo "gdm-$VERSION-$ARCH-$BUILD package already installed"

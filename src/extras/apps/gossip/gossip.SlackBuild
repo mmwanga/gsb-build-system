@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gossip
 
-VERSION=0.10.2
+VERSION=0.11
 ARCH=${ARCH:-i486}
 BUILD=1
 

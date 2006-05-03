@@ -62,7 +62,8 @@ CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
 	    --program-prefix="" \
 	    --program-suffix="" \
-		--without-qt \
+            --without-qt \
+            --disable-samples \
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 1
 
