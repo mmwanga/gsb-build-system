@@ -96,6 +96,6 @@ makepkg -l y -c n $TMP/sqlite3-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/sqlite3-$VERSION
+  rm -rf $TMP/sqlite-$VERSION
   rm -rf $PKG
 fi

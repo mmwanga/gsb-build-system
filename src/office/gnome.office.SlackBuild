@@ -17,6 +17,7 @@ dia
 gnumeric
 planner
 mergeant
+glom
 "
 
 mkdir -p $TMP/gnome-$GVERSION/extras/office

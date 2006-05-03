@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gstreamer10
 
-VERSION=0.10.4
+VERSION=0.10.5
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/gstreamer10-$VERSION-$ARCH-$BUILD ]; then
   echo "gstreamer10-$VERSION-$ARCH-$BUILD package already installed"

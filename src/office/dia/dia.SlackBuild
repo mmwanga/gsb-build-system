@@ -63,6 +63,9 @@ CFLAGS="$SLKCFLAGS" \
 	    --disable-static \
 	    --sysconfdir=/etc \
             --localstatedir=/var/lib \
+            --with-cairo \
+            --with-python \
+            --with-gnomeprint \
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 1
 make || exit 1

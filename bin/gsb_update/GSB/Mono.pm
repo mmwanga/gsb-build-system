@@ -26,7 +26,7 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'beagle'                 => {
-				'ver' => '0.2.4',
+				'ver' => '0.2.6',
 				'url' => 'http://ftp.gnome.org/pub/GNOME/sources/beagle/0.2/',
 				'src' => 'tar.bz2',
 			       },
@@ -56,8 +56,8 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'libgdiplus'             => {
-				'ver' => '1.1.14',
-				'url' => 'http://go-mono.com/sources/libgdiplus-1.1/',
+				'ver' => '1.1.15',
+				'url' => 'http://go-mono.com/sources/libgdiplus/',
 				'src' => 'tar.gz',
 			       },
    'libipoddevice'          => {
@@ -66,8 +66,8 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'mono'                   => {
-				'ver' => '1.1.14',
-				'url' => 'http://go-mono.com/sources/mono-1.1/',
+				'ver' => '1.1.15',
+				'url' => 'http://go-mono.com/sources/mono/',
 				'src' => 'tar.gz',
 			       },
    'monodevelop'            => {

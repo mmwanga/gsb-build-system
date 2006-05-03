@@ -47,7 +47,6 @@ if [ "$ARCH" = "i386" ]; then
   #cat $CWD/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "i486" ]; then
   echo "Applying patches for $ARCH"
-  #cat $CWD/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "s390" ]; then
   echo "Applying patches for $ARCH"
   #cat $CWD/foo.patch | patch -p0 --verbose
@@ -66,6 +65,9 @@ CFLAGS="$SLKCFLAGS" \
 		--without-qt \
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 1
+
+find ./ -name "Makefile" -exec sed -i 's#-mtune=i386##g' {} \;
+
 make || exit 1
 make install DESTDIR=$PKG
 

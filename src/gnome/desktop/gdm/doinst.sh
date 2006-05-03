@@ -18,5 +18,5 @@ config() {
   # Otherwise, we leave the .new copy for the admin to consider...
 }
 
-config etc/X11/gdm/gdm.conf.new
+config etc/X11/gdm/custom.conf.new
 

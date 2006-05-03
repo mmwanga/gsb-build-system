@@ -17,7 +17,7 @@ if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 rm -rf $PKG
-mkdir -p $PKG
+mkdir -p $PKG/media
 
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"

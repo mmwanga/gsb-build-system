@@ -16,7 +16,7 @@ our $VERSION   = 0.03;
 our %gstreamer =
   (
    'gst-plugins-base'  => {
-                           'ver' => '0.10.5',
+                           'ver' => '0.10.6',
                            'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-base/',
                            'src' => 'tar.bz2',
                           },
@@ -41,7 +41,7 @@ our %gst_diff_name =
   (
    'gstreamer10'       => {
                            'name' => 'gstreamer',
-                           'ver'  => '0.10.4',
+                           'ver'  => '0.10.5',
                            'url'  => 'http://gstreamer.freedesktop.org/src/gstreamer/',
                            'src'  => 'tar.bz2',
                           },
@@ -157,7 +157,12 @@ our %gst_libs =
 			   'ver' => '0.9.1',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/fame/',
 			   'src' => 'tar.gz',
-			  },
+                          },
+   'libiec61883'       => {
+                           'ver' => '1.0.0',
+                           'url' => 'http://www.linux1394.org/dl/',
+                           'src' => 'tar.gz',
+                          },
    'libmatroska'       => {
 			   'ver' => '0.8.0',
 			   'url' => 'http://dl.matroska.org/downloads/libmatroska/',
@@ -194,8 +199,8 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libraw1394'        => {
-			   'ver' => '1.2.0',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libraw1394/',
+			   'ver' => '1.2.1',
+			   'url' => 'http://www.linux1394.org/dl/',
 			   'src' => 'tar.gz',
 			  },
    'libsamplerate'     => {

@@ -2,14 +2,14 @@
 
 CWD=`pwd`
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-dbus-sharp
+PKG=$TMP/package-libiec61883
 
-VERSION=0.61
+VERSION=1.0.0
 ARCH=${ARCH:-i486}
 BUILD=1
 
-if [ -f /var/log/packages/dbus-sharp-$VERSION-$ARCH-$BUILD ]; then
-  echo "dbus-sharp-$VERSION-$ARCH-$BUILD package already installed"
+if [ -f /var/log/packages/libiec61883-$VERSION-$ARCH-$BUILD ]; then
+  echo "libiec61883-$VERSION-$ARCH-$BUILD package already installed"
   exit 0
 fi
 
@@ -37,8 +37,8 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 cd $TMP
-tar -xzvf $CWD/dbus-$VERSION.tar.gz
-cd dbus-$VERSION
+tar -xzvf $CWD/libiec61883-$VERSION.tar.gz
+cd libiec61883-$VERSION
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
@@ -60,29 +60,35 @@ fi
 
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
-            $ARCH_CONFIGURE \
-            --enable-mono \
-            --localstatedir=/var \
             --sysconfdir=/etc \
-            --with-system-pid-file=/var/run/dbus.pid \
-            --disable-qt \
-            --with-session-socket-dir=/tmp \
+            --localstatedir=/var/lib \
+            --disable-static \
+            $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 1
-cd mono
 make || exit 1
 make install DESTDIR=$PKG
 
-mkdir -p $PKG/usr/lib/pkgconfig
-cp ../dbus-sharp.pc $PKG/usr/lib/pkgconfig
+SCHEMAS=$PKG/etc/gconf/schemas
+for i in $SCHEMAS/*.schemas
+do
+GCONF_CONFIG_SOURCE="xml::$PKG/etc/gconf/gconf.xml.defaults" \
+        gconftool-2 --makefile-install-rule $i
+done
+
+(
+  cd $PKG/etc/gconf/gconf.xml.defaults
+  find ./ -type d -exec chmod go+rx {} \;
+  find ./ -type f -exec chmod go+r {} \;
+)
 
 chown -R root.bin $PKG/usr/bin
 
-mkdir -p $PKG/usr/doc/dbus-sharp-$VERSION
+mkdir -p $PKG/usr/doc/libiec61883-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
         TODO \
-        $PKG/usr/doc/dbus-sharp-$VERSION
-find $PKG/usr/doc/dbus-sharp-$VERSION/ -type f -exec chmod 644 {} \;
-chown root.root $PKG/usr/doc/dbus-sharp-$VERSION/*
+        $PKG/usr/doc/libiec61883-$VERSION
+find $PKG/usr/doc/libiec61883-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/doc/libiec61883-$VERSION/*
 
 # strip:
 ( cd $PKG
@@ -98,10 +104,10 @@ cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-makepkg -l y -c n $TMP/dbus-sharp-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/libiec61883-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/dbus-$VERSION
+  rm -rf $TMP/libiec61883-$VERSION
   rm -rf $PKG
 fi

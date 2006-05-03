@@ -6,7 +6,7 @@ PKG=$TMP/package-yelp
 
 VERSION=2.14.1
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/yelp-$VERSION-$ARCH-$BUILD ]; then
   echo "yelp-$VERSION-$ARCH-$BUILD package already installed"

@@ -6,7 +6,7 @@ hal_start()
   if [ -x /usr/sbin/hald ]; then
 	if [ `/sbin/kernelversion` == "2.6" ]; then
 	    echo "Starting HAL daemon:  /usr/sbin/hald"
-	    /usr/sbin/hald --daemon=yes --retain-privileges
+	    /usr/sbin/hald --daemon=yes
 	else
 	    echo "Kernel 2.6 is required for HAL features."
 	fi

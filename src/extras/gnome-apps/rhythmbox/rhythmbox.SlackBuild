@@ -69,7 +69,8 @@ CFLAGS="$SLKCFLAGS" \
             --disable-static \
 	    --enable-ipod \
 	    --enable-nautilus-menu \
-      $ARCH_CONFIGURE \
+            --disable-libnotify \
+            $ARCH_CONFIGURE \
 	    $ARCH-slackware-linux || exit 1
 make || exit 1
 make install DESTDIR=$PKG

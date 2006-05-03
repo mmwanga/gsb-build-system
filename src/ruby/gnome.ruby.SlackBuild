@@ -25,7 +25,7 @@ do
   echo "*****         Building $i"
   echo "*************************************************"
   echo ""
-  ./$i.SlackBuild
+  ./$i.SlackBuild --cleanup
   upgradepkg --install-new $TMP/$i*.tgz
   mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/extras/ruby
 )

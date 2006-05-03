@@ -341,7 +341,7 @@ our %bindings_python =
 our %bindings_python_other =
     (
      'gst-python' => {
-	              'ver' => '0.10.3',
+	              'ver' => '0.10.4',
 		      'url' => 'http://gstreamer.freedesktop.org/src/gst-python/',
 		      'src' => 'tar.bz2',
 		     },

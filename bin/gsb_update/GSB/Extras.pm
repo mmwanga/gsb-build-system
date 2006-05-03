@@ -204,7 +204,7 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'balsa'               => {
-			     'ver' => '2.3.8',
+			     'ver' => '2.3.12',
 			     'url' => 'http://balsa.gnome.org/',
 			     'src' => 'tar.bz2',
 			    },
@@ -254,8 +254,8 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'gimp'                => {
-			     'ver' => '2.3.8',
-			     'url' => 'ftp://ftp.gimp.org/pub/gimp/v2.3/',
+			     'ver' => '2.2.11',
+			     'url' => 'ftp://ftp.gimp.org/pub/gimp/v2.2/',
 			     'src' => 'tar.bz2',
 			    },
    'gnomebaker'          => {
@@ -344,7 +344,7 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'thoggen'             => {
-			     'ver' => '0.4.1',
+			     'ver' => '0.4.2',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/thoggen/',
 			     'src' => 'tar.gz',
 			    },
