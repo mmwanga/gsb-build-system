@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-bmpx
 
-VERSION=0.14.3
+VERSION=0.14.4
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -67,6 +67,8 @@ CFLAGS="$SLKCFLAGS" \
             --program-prefix="" \
             --program-suffix="" \
             --mandir=/usr/man \
+            --enable-amazon \
+            --enable-hal \
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 1
 make || exit 1
