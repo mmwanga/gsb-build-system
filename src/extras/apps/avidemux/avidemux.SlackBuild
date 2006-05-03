@@ -58,10 +58,12 @@ elif [ "$ARCH" = "x86_64" ]; then
   #cat $CWD/foo.patch | patch -p0 --verbose
 fi
 
-LDFLAGS="-L/usr/lib/mozilla-1.7.13/" \
+JS_MOZ_INCLUDE=`mozilla-config --cflags js|awk '{print $1}'|sed 's#-I##'`
+
+LDFLAGS=`mozilla-config --libs` \
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
-            --with-jsapi-include=/usr/include/mozilla-1.7.13/js \
+            --with-jsapi-include=${JS_MOZ_INCLUDE} \
             $ARCH_CONFIGURE || exit 1
 make || exit 1
 make install DESTDIR=$PKG
