@@ -3,8 +3,6 @@
 CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-xchat
-rm -rf $PKG
-mkdir -p $PKG/usr
 
 VERSION=2.6.2
 ARCH=${ARCH:-i486}
@@ -14,6 +12,12 @@ if [ -f /var/log/packages/xchat-$VERSION-$ARCH-$BUILD ]; then
   echo "xchat-$VERSION-$ARCH-$BUILD package already installed"
   exit 0
 fi
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG/usr
 
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
