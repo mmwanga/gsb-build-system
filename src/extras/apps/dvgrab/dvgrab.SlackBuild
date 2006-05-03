@@ -40,6 +40,8 @@ cd $TMP
 tar xzvf $CWD/dvgrab-$VERSION.tar.gz
 cd dvgrab-$VERSION
 
+cat $CWD/libquicktime.compile.fix.patch | patch -p2 --verbose
+
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
   echo "Applying patches for $ARCH"
@@ -56,6 +58,13 @@ elif [ "$ARCH" = "powerpc" ]; then
 elif [ "$ARCH" = "x86_64" ]; then
   echo "Applying patches for $ARCH"
   #cat $CWD/foo.patch | patch -p0 --verbose
+fi
+
+if [ "$VERSION" = "2.0" ]; then
+  aclocal
+  autoheader
+  automake
+  autoconf
 fi
 
 CFLAGS="$SLKCFLAGS" \
