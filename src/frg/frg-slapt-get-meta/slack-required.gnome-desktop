@@ -64,7 +64,7 @@ gok
 epiphany
 epiphany-extensions
 gnome-games
-gnome2-user-docs
+gnome-user-docs
 file-roller
 system-tools-backends
 gnome-system-tools
@@ -74,7 +74,6 @@ gnome-volume-manager
 gal2
 evolution
 evolution-webcal
-evolution-caldav
 ekiga
 totem
 sound-juicer

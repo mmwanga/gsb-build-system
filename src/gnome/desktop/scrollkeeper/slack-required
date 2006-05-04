@@ -1,4 +1,4 @@
 libxml2
 libxslt
 zlib
-sgml-tools
+sgml-tools | linuxdoc-tools

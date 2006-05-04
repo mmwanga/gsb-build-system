@@ -52,10 +52,10 @@ do
   fi
 done
 
-if [ "$ARCH" = "i486" ]; then
-   echo "frg-artwork" >> $PKG/gnome-desktop/install/slack-required
-   echo "x-cursor-theme-jimmac" >> $PKG/gnome-desktop/install/slack-required
-fi 
+#if [ "$ARCH" = "i486" ]; then
+#   echo "frg-artwork" >> $PKG/gnome-desktop/install/slack-required
+#   echo "x-cursor-theme-jimmac" >> $PKG/gnome-desktop/install/slack-required
+#fi 
 
 for i in $META_PACKS
 do
