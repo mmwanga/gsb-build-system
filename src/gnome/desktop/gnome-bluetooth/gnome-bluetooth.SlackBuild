@@ -6,7 +6,7 @@ PKG=$TMP/package-gnome-bluetooth
 
 VERSION=0.7.0
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=3
 
 if [ -f /var/log/packages/gnome-bluetooth-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-bluetooth-$VERSION-$ARCH-$BUILD package already installed"
@@ -40,6 +40,13 @@ cd $TMP
 tar -xjvf $CWD/gnome-bluetooth-$VERSION.tar.bz2
 cd gnome-bluetooth-$VERSION
 
+cat $CWD/gnome-bluetooth_0.7.0-0ubuntu2.diff | patch -p1 --verbose
+
+for i in MenusRevisited.patch fix-icon-location.patch fix-python-Makefile.patch
+do
+  patch -p1 --verbose < debian/patches/${i}
+done
+
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
   echo "Applying patches for $ARCH"
@@ -58,6 +65,13 @@ elif [ "$ARCH" = "x86_64" ]; then
   #cat $CWD/foo.patch | patch -p0 --verbose
 fi
 
+#if [ "$VERSION" = "0.7.0" ]; then
+#  aclocal
+#  autoheader
+#  automake
+#  autoconf
+#fi
+
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
@@ -67,6 +81,13 @@ CFLAGS="$SLKCFLAGS" \
             $ARCH-slackware-linux || exit 1
 make || exit 1
 make install DESTDIR=$PKG
+
+(
+  cd $PKG/usr
+  mv usr/lib/python* ./lib
+  rmdir usr/lib
+  rmdir usr
+)
 
 SCHEMAS=$PKG/etc/gconf/schemas
 for i in $SCHEMAS/*.schemas

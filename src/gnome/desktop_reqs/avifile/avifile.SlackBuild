@@ -41,6 +41,8 @@ cd $TMP
 tar xjvf $CWD/avifile-$VERSION.tar.bz2
 cd avifile-$VERSION
 
+cat $CWD/disable-samples-build.patch | patch -p0 --verbose
+
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
   echo "Applying patches for $ARCH"
