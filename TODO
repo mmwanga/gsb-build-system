@@ -5,6 +5,7 @@ GSB:
 
 	* add a HACKING file with instructions on how to edit
 	  and add things to the source tree
+	* add a --debug option to gsb_update.pl
 
 FRG:
 

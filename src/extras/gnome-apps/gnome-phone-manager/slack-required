@@ -1,0 +1,10 @@
+evolution-data-server
+gconf
+gtk+2
+glib+2
+libgnomeui
+libgnome
+gdk-pixbuf
+libbtctl
+libglade
+gnome-bluetooth

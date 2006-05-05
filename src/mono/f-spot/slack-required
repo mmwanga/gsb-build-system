@@ -1,0 +1,10 @@
+mono
+libgnome
+libgnomeui
+libexif
+gtk-sharp2
+gtk+2
+dbus-sharp
+gconf
+libgphoto2
+sqlite2

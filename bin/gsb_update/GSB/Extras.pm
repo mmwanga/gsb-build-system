@@ -176,6 +176,7 @@ our %extras_gnome_apps =
    'gnome-audio'         => '2.0.0',
    'gnome-commander'     => '1.1.7',
    'gnome-cups-manager'  => '0.30',
+   'gnome-phone-manager' => '0.7',
    'gnome-power-manager' => '2.14.3',
    'gthumb'              => '2.7.6',
    'meld'                => '1.1.3',

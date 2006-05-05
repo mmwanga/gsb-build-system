@@ -29,6 +29,7 @@ avahi-sharp
 njb-sharp
 banshee
 beagle
+f-spot
 "
 
 mkdir -p $TMP/gnome-$GVERSION/extras/mono

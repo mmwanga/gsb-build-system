@@ -30,6 +30,11 @@ our %mono=
 				'url' => 'http://ftp.gnome.org/pub/GNOME/sources/beagle/0.2/',
 				'src' => 'tar.bz2',
 			       },
+   'f-spot'                 => {
+                                'ver' => '0.1.11',
+                                'url' => 'http://ftp.gnome.org/pub/GNOME/sources/f-spot/0.1/',
+                                'src' => 'tar.bz2',
+                               },
    'gecko-sharp-2.0'        => {
 				'ver' => '0.11',
 				'url' => 'http://go-mono.com/sources/gecko-sharp-2.0/',

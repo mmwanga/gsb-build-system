@@ -292,7 +292,6 @@
 + _Comment=Receive files sent by Bluetooth devices
 + Icon=blueradio-48
 + Exec=gnome-obex-server
-++NoDisplay=true
 + Terminal=0
 + Type=Application
 + Categories=Application;System;
@@ -303,7 +302,6 @@
 + _Comment=Display Bluetooth devices and their properties
 + Icon=blueradio-48
 + Exec=gnome-bluetooth-manager
-++NoDisplay=true
 + Terminal=0
 + Type=Application
 + Categories=Application;System;

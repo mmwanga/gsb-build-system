@@ -21,12 +21,12 @@ our %gstreamer =
                            'src' => 'tar.bz2',
                           },
    'gst-plugins-good'  => {
-                           'ver' => '0.10.2',
+                           'ver' => '0.10.3',
                            'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-good/',
                            'src' => 'tar.bz2',
                           },
    'gst-plugins-bad'   => {
-                           'ver' => '0.10.1',
+                           'ver' => '0.10.3',
                            'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-bad/',
                            'src' => 'tar.bz2',
                           },

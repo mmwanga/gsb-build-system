@@ -20,6 +20,7 @@ sabayon
 gnome-power-manager
 pessulus
 meld
+gnome-phone-manager
 "
 
 mkdir -p $TMP/gnome-$GVERSION/extras/gnome-apps

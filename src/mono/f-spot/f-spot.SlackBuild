@@ -2,14 +2,14 @@
 
 CWD=`pwd`
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-gst-plugins-good
+PKG=$TMP/package-f-spot
 
-VERSION=0.10.3
+VERSION=0.1.11
 ARCH=${ARCH:-i486}
 BUILD=1
 
-if [ -f /var/log/packages/gst-plugins-good-$VERSION-$ARCH-$BUILD ]; then
-  echo "gst-plugins-good-$VERSION-$ARCH-$BUILD package already installed"
+if [ -f /var/log/packages/f-spot-$VERSION-$ARCH-$BUILD ]; then
+  echo "f-spot-$VERSION-$ARCH-$BUILD package already installed"
   exit 0
 fi
 
@@ -37,8 +37,8 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 cd $TMP
-tar -xjvf $CWD/gst-plugins-good-$VERSION.tar.bz2
-cd gst-plugins-good-$VERSION
+tar -xjvf $CWD/f-spot-$VERSION.tar.bz2
+cd f-spot-$VERSION
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
@@ -83,12 +83,12 @@ done
 
 chown -R root.bin $PKG/usr/bin
 
-mkdir -p $PKG/usr/doc/gst-plugins-good-$VERSION
+mkdir -p $PKG/usr/doc/f-spot-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
         TODO \
-        $PKG/usr/doc/gst-plugins-good-$VERSION
-find $PKG/usr/doc/gst-plugins-good-$VERSION/ -type f -exec chmod 644 {} \;
-chown root.root $PKG/usr/doc/gst-plugins-good-$VERSION/*
+        $PKG/usr/doc/f-spot-$VERSION
+find $PKG/usr/doc/f-spot-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/doc/f-spot-$VERSION/*
 
 # strip:
 ( cd $PKG
@@ -102,13 +102,12 @@ gzip -9 $PKG/usr/info/*
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
-cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
-makepkg -l y -c n $TMP/gst-plugins-good-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/f-spot-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/gst-plugins-good-$VERSION
+  rm -rf $TMP/f-spot-$VERSION
   rm -rf $PKG
 fi
