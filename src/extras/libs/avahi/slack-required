@@ -1,0 +1,9 @@
+dbus
+gtk+2
+libcap
+libdaemon
+libglade
+libpng
+libxml2
+x11
+python
