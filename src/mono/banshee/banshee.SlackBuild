@@ -65,6 +65,8 @@ CFLAGS="$SLKCFLAGS" \
             --disable-static \
             --program-prefix="" \
             --program-suffix="" \
+            --with-gstreamer-0-10 \
+            --disable-helix \
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 1
 make || exit 1
