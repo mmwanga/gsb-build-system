@@ -1,0 +1,12 @@
+      |-----handy-ruler------------------------------------------------------|
+libnjb: libnjb
+libnjb:
+libnjb: libnjb is a C library and API for communicating with the Creative
+libnjb: Nomad JukeBox and Dell DJ digital audio players under BSD, Linux, Mac
+libnjb: OS X and Windows. The protocol these devices use is presumably called
+libnjb: PDE (Portable Digital Entertainment protocol) at Creative. Newer
+libnjb: devices using the Microsoft MTP (Media Transfer Protocol) are NOT
+libnjb: supported. There are no kernel devices required for libnjb's
+libnjb: operation, so instead it depends on user-level USB using libusb on
+libnjb: all platforms.
+libnjb:

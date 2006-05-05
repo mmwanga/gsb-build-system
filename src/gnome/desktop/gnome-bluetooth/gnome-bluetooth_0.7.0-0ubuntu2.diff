@@ -269,7 +269,6 @@
 +-Icon=blueradio-48
 ++Icon=blueradio
 + Exec=gnome-bluetooth-manager
-+ NoDisplay=True
 + Terminal=0
 +diff -Nur gnome-bluetooth-0.7.0/python/manager.py gnome-bluetooth-0.7.0.new/python/manager.py
 +--- gnome-bluetooth-0.7.0/python/manager.py	2005-11-22 12:05:13.000000000 +0100

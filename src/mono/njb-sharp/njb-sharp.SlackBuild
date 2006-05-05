@@ -2,14 +2,14 @@
 
 CWD=`pwd`
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-gnome-bluetooth
+PKG=$TMP/package-njb-sharp
 
-VERSION=0.7.0
+VERSION=0.3.0
 ARCH=${ARCH:-i486}
-BUILD=4
+BUILD=1
 
-if [ -f /var/log/packages/gnome-bluetooth-$VERSION-$ARCH-$BUILD ]; then
-  echo "gnome-bluetooth-$VERSION-$ARCH-$BUILD package already installed"
+if [ -f /var/log/packages/njb-sharp-$VERSION-$ARCH-$BUILD ]; then
+  echo "njb-sharp-$VERSION-$ARCH-$BUILD package already installed"
   exit 0
 fi
 
@@ -37,15 +37,8 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 cd $TMP
-tar -xjvf $CWD/gnome-bluetooth-$VERSION.tar.bz2
-cd gnome-bluetooth-$VERSION
-
-cat $CWD/gnome-bluetooth_0.7.0-0ubuntu2.diff | patch -p1 --verbose
-
-for i in MenusRevisited.patch fix-icon-location.patch fix-python-Makefile.patch
-do
-  patch -p1 --verbose < debian/patches/${i}
-done
+tar -xzvf $CWD/njb-sharp-$VERSION.tar.gz
+cd njb-sharp-$VERSION
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
@@ -70,32 +63,24 @@ CFLAGS="$SLKCFLAGS" \
             --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static \
+            --program-prefix="" \
+            --program-suffix="" \
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 1
 make || exit 1
 make install DESTDIR=$PKG
 
-SCHEMAS=$PKG/etc/gconf/schemas
-for i in $SCHEMAS/*.schemas
-do
-GCONF_CONFIG_SOURCE="xml::$PKG/etc/gconf/gconf.xml.defaults" \
-        gconftool-2 --makefile-install-rule $i
-done
-
-(
-  cd $PKG/etc/gconf/gconf.xml.defaults
-  find ./ -type d -exec chmod go+rx {} \;
-  find ./ -type f -exec chmod go+r {} \;
-)
+mkdir -p $PKG/usr/share/hal/fdi/information/20thirdparty/
+cp $CWD/20-njb.fdi $PKG/usr/share/hal/fdi/information/20thirdparty/
 
 chown -R root.bin $PKG/usr/bin
 
-mkdir -p $PKG/usr/doc/gnome-bluetooth-$VERSION
+mkdir -p $PKG/usr/doc/njb-sharp-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
         TODO \
-        $PKG/usr/doc/gnome-bluetooth-$VERSION
-find $PKG/usr/doc/gnome-bluetooth-$VERSION/ -type f -exec chmod 644 {} \;
-chown root.root $PKG/usr/doc/gnome-bluetooth-$VERSION/*
+        $PKG/usr/doc/njb-sharp-$VERSION
+find $PKG/usr/doc/njb-sharp-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/doc/njb-sharp-$VERSION/*
 
 # strip:
 ( cd $PKG
@@ -111,10 +96,10 @@ cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-makepkg -l y -c n $TMP/gnome-bluetooth-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/njb-sharp-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/gnome-bluetooth-$VERSION
+  rm -rf $TMP/njb-sharp-$VERSION
   rm -rf $PKG
 fi

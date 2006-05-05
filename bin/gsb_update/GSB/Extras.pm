@@ -115,7 +115,12 @@ our %extras_libs =
                              'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libexif/',
                              'src' => 'tar.bz2',
                             },
-   'libnotify'         => {
+   'libnjb'              => {
+                             'ver' => '2.2.5',
+                             'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libnjb/',
+                             'src' => 'tar.gz',
+                            },
+   'libnotify'           => {
                              'ver' => '0.4.0',
                              'url' => 'http://galago-project.org/files/releases/source/libnotify/',
                              'src' => 'tar.gz',

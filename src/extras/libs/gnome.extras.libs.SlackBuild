@@ -35,6 +35,7 @@ autogen
 graphviz
 neon
 libgpod
+libnjb
 "
 
 mkdir -p $TMP/gnome-$GVERSION/extras/libs

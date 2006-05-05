@@ -25,6 +25,8 @@ dbus-sharp
 gmime-sharp
 libipoddevice
 ipod-sharp
+avahi-sharp
+njb-sharp
 banshee
 beagle
 "

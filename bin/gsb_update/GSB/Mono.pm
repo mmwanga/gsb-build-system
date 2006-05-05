@@ -21,7 +21,7 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'banshee'                => {
-				'ver' => '0.10.9',
+				'ver' => '0.10.10',
 				'url' => 'http://banshee-project.org/files/banshee/',
 				'src' => 'tar.gz',
 			       },
@@ -61,7 +61,7 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'libipoddevice'          => {
-				'ver' => '0.4.1',
+				'ver' => '0.4.5',
 				'url' => 'http://banshee-project.org/files/libipoddevice/',
 				'src' => 'tar.gz',
 			       },
@@ -80,10 +80,21 @@ our %mono=
 				'url' => 'http://go-mono.com/sources/monodoc',
 				'src' => 'tar.gz',
 			       },
+   'njb-sharp'              => {
+                                'ver' => '0.3.0',
+                                'url' => 'http://banshee-project.org/files/njb-sharp/',
+                                'src' => 'tar.gz',
+                               },
   );
 
 our %mono_diff_naming =
   (
+   'avahi-sharp'  => {
+                     'ver'  => '0.6.9',
+                     'name' => 'avahi',
+                     'url'  => 'http://avahi.org/download/',
+                     'src'  => 'tar.gz',
+                    },
    'gtk-sharp2'  => {
 		     'ver'  => '2.8.2',
 		     'name' => 'gtk-sharp',
