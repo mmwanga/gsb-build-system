@@ -46,7 +46,7 @@ sub gsb_extras_libs_other_url_make {
 our %extras_libs =
   (
    'autogen'             => {
-                             'ver' => '5.8.1',
+                             'ver' => '5.8.4',
                              'url' => 'http://heanet.dl.sourceforge.net/sourceforge/autogen/',
                              'src' => 'tar.bz2',
 			    },
