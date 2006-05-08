@@ -55,6 +55,11 @@ our %extras_libs =
 			     'url' => 'http://spruce.sourceforge.net/gmime/sources/v2.2/',
 			     'src' => 'tar.gz',
 			    },
+   'gnokii'              => {
+                             'ver' => '0.6.12',
+                             'url' => 'http://www.gnokii.org/download/gnokii/',
+                             'src' => 'tar.bz2',
+                            },
    'gpgme'               => {
 			     'ver' => '1.1.0',
 			     'url' => 'ftp://ftp.gnupg.org/gcrypt/gpgme/',
@@ -174,7 +179,7 @@ our %extras_gnome_apps =
   (
    'NetworkManager'      => '0.6.2',
    'gnome-audio'         => '2.0.0',
-   'gnome-commander'     => '1.1.7',
+   'gnome-commander'     => '1.2.0',
    'gnome-cups-manager'  => '0.30',
    'gnome-phone-manager' => '0.7',
    'gnome-power-manager' => '2.14.3',

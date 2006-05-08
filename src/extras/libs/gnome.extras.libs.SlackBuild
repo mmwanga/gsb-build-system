@@ -36,6 +36,7 @@ graphviz
 neon
 libgpod
 libnjb
+gnokii
 "
 
 mkdir -p $TMP/gnome-$GVERSION/extras/libs
