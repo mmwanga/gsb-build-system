@@ -6,7 +6,7 @@ PKG=$TMP/package-nautilus-cd-burner
 
 VERSION=2.14.1
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/nautilus-cd-burner-$VERSION-$ARCH-$BUILD ]; then
   echo "nautilus-cd-burner-$VERSION-$ARCH-$BUILD package already installed"
@@ -102,6 +102,7 @@ chown -R root.root $PKG/usr/doc/nautilus-cd-burner-$VERSION/*
 gzip -9 $PKG/usr/man/*/*
 
 mkdir -p $PKG/install
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 

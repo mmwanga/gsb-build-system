@@ -6,7 +6,7 @@ PKG=$TMP/package-epiphany-extensions
 
 VERSION=2.14.1
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/epiphany-extensions-$VERSION-$ARCH-$BUILD ]; then
   echo "epiphany-extensions-$VERSION-$ARCH-$BUILD package already installed"
@@ -69,6 +69,8 @@ CFLAGS="$SLKCFLAGS" \
 make || exit 1
 make install DESTDIR=$PKG
 
+rm -rf $PKG/var/lib/scrollkeeper/*
+
 chown -R root.bin $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/epiphany-extensions-$VERSION
@@ -88,6 +90,7 @@ gzip -9 $PKG/usr/man/*/*
 gzip -9 $PKG/usr/info/*
 
 mkdir -p $PKG/install
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 

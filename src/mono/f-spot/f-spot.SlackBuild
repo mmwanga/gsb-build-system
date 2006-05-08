@@ -6,7 +6,7 @@ PKG=$TMP/package-f-spot
 
 VERSION=0.1.11
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/f-spot-$VERSION-$ARCH-$BUILD ]; then
   echo "f-spot-$VERSION-$ARCH-$BUILD package already installed"
@@ -101,6 +101,7 @@ gzip -9 $PKG/usr/man/*/*
 gzip -9 $PKG/usr/info/*
 
 mkdir -p $PKG/install
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 

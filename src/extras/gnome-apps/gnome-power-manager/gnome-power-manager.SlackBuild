@@ -7,7 +7,7 @@ PKG=$TMP/package-gnome-power-manager
 
 VERSION=2.14.3
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gnome-power-manager-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-power-manager-$VERSION-$ARCH-$BUILD package already installed"
@@ -65,6 +65,8 @@ CFLAGS="$SLKCFLAGS" \
             $ARCH-slackware-linux || exit 1
 make || exit 1
 make install DESTDIR=$PKG
+
+rm -rf $PKG/var/lib/scrollkeeper
 
 SCHEMAS=$PKG/etc/gconf/schemas
 for i in $SCHEMAS/*.schemas

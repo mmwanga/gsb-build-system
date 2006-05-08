@@ -68,6 +68,8 @@ CFLAGS="$SLKCFLAGS" \
 make || exit 1
 make install DESTDIR=$PKG
 
+rm -rf $PKG/var/lib/scrollkeeper/*
+
 SCHEMAS=$PKG/etc/gconf/schemas
 for i in $SCHEMAS/*.schemas
 do

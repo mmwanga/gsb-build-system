@@ -6,7 +6,7 @@ PKG=$TMP/package-gnome-phone-manager
 
 VERSION=0.7
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ -f /var/log/packages/gnome-phone-manager-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-phone-manager-$VERSION-$ARCH-$BUILD package already installed"
