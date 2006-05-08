@@ -27,6 +27,7 @@ gnome-desktop-reqs
 gnome
 gnome-platform
 gnome-themes
+gnome-mono
 "
 
 for i in $META_PACKS

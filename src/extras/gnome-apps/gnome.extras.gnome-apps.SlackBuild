@@ -21,6 +21,7 @@ gnome-power-manager
 pessulus
 meld
 gnome-phone-manager
+gnome-commander
 "
 
 mkdir -p $TMP/gnome-$GVERSION/extras/gnome-apps
