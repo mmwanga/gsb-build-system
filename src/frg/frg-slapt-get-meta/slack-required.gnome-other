@@ -1,11 +1,10 @@
-frgnome-desktop >= 2.12.0-noarch-1frg
+frgnome-desktop >= 2.14.1-noarch-1frg
 libgphoto2
 gphoto2
 libexif-gtk
 gtkam
 gtkspell
 libburn
-libcoaster
 poppler
 evince
 gDesklets
@@ -38,7 +37,6 @@ libesmtp
 gmime
 mail-notification
 contact-lookup-applet
-bmp
 balsa
 sylpheed
 sylpheed-claws
@@ -47,14 +45,11 @@ gossip
 liferea
 bluefish
 gqview
-gnome-blog
 grip
-gnome-pkgtool
 avidemux
 slapt-get
 gslapt
 istanbul
-smeg
 gdl
 gnome-build
 devhelp
