@@ -1,5 +1,5 @@
-frgnome-platform >= 2.12.0-noarch-1frg
-frgnome-desktop-reqs >= 2.12.0-noarch-1frg
-frgnome-desktop >= 2.12.0-noarch-1frg
-frgnome-office >= 2.12.0-noarch-1frg
-frgnome-themes >= 2.12.0-noarch-1frg
+frgnome-platform >= 2.14.1-noarch-1frg
+frgnome-desktop-reqs >= 2.14.1-noarch-1frg
+frgnome-desktop >= 2.14.1-noarch-1frg
+frgnome-office >= 2.14.1-noarch-1frg
+frgnome-themes >= 2.14.1-noarch-1frg
