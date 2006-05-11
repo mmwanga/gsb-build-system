@@ -330,7 +330,7 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'slapt-get'           => {
-			     'ver' => '0.9.11a',
+			     'ver' => '0.9.11b',
 			     'url' => 'http://software.jaos.org/source/slapt-get/',
 			     'src' => 'tar.gz',
 			    },
