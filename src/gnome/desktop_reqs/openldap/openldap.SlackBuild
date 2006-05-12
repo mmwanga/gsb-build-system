@@ -65,6 +65,7 @@ CFLAGS="$SLKCFLAGS" \
 	    --enable-syslog \
 	    --enable-dynamic \
 	    --with-readline \
+            --with-threads \
 	    --with-tls \
 	    --with-cyrus-sasl \
 	    --with-kerberos \
@@ -77,16 +78,18 @@ CFLAGS="$SLKCFLAGS" \
 	    --enable-slurpd \
 	    --enable-modules \
 	    --enable-passwd=mod \
-       	--enable-phonetic=mod \
+            --enable-phonetic=mod \
 	    --enable-dnssrv=mod \
 	    --enable-ldap \
 	    --enable-meta=mod \
 	    --enable-monitor=mod \
+            --enable-proctitle \
+            --enable-ipv6
 	    --enable-null=mod \
 	    --enable-shell=mod \
 	    --enable-local \
 	    --enable-hdb=mod \
-      $ARCH_CONFIGURE || exit 1
+            $ARCH_CONFIGURE || exit 1
 make depend || exit 1
 make || exit 1
 make install DESTDIR=$PKG
