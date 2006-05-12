@@ -43,7 +43,7 @@ our %desktop_reqs =
                         },
    'openldap'        => {
 			 'url' => 'ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/',
-			 'ver' => '2.2.30',
+			 'ver' => '2.3.20',
 			 'src' => 'tgz',
 			},
    'openobex'        => {

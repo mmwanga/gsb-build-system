@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-openldap
 
-VERSION=2.2.30
+VERSION=2.3.20
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/openldap-$VERSION-$ARCH-$BUILD ]; then
   echo "openldap-$VERSION-$ARCH-$BUILD package already installed"

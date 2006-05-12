@@ -6,7 +6,7 @@ PKG=$TMP/package-ekiga
 
 VERSION=2.0.1
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ -f /var/log/packages/ekiga-$VERSION-$ARCH-$BUILD ]; then
   echo "ekiga-$VERSION-$ARCH-$BUILD package already installed"

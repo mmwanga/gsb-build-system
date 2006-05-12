@@ -6,7 +6,7 @@ PKG=$TMP/package-sylpheed
 
 VERSION=2.2.4
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/sylpheed-$VERSION-$ARCH-$BUILD ]; then
   echo "sylpheed-$VERSION-$ARCH-$BUILD package already installed"
