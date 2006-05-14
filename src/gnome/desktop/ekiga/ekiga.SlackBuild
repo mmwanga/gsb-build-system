@@ -6,7 +6,7 @@ PKG=$TMP/package-ekiga
 
 VERSION=2.0.1
 ARCH=${ARCH:-i486}
-BUILD=4
+BUILD=5
 
 if [ -f /var/log/packages/ekiga-$VERSION-$ARCH-$BUILD ]; then
   echo "ekiga-$VERSION-$ARCH-$BUILD package already installed"
@@ -69,6 +69,8 @@ CFLAGS="$SLKCFLAGS" \
             $ARCH-slackware-linux || exit 1
 make || exit 1
 make install DESTDIR=$PKG
+
+rm -rf $PKG/var/lib/scrollkeeper/*
 
 SCHEMAS=$PKG/etc/gconf/schemas
 for i in $SCHEMAS/*.schemas
