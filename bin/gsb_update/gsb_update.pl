@@ -36,6 +36,7 @@ use GSB::GStreamer;
 use GSB::Office;
 use GSB::Extras;
 use GSB::Mono;
+use GSB::Ruby;
 use GSB::Desktop_Reqs;
 use GSB::DoubleTar;
 use GSB::Themes;
@@ -1284,6 +1285,82 @@ foreach my $mononpackage (keys %mono_diff_naming) {
     push(@bad_downloads, $name);
   }
 }
+
+
+
+
+
+
+
+# ruby 
+foreach my $oruby_pack (keys %ruby) {
+
+  my $name    = $oruby_pack;
+
+  my $sb_file = $name . $sb_ext;
+  my $packurl = $ruby{$name}{url};
+  my $ver     = $ruby{$name}{ver};
+  my $src     = $ruby{$name}{src};
+  my $type    = "other";
+
+  my $tarball = "$name-$ver.$src";
+
+  chdir "$pwd/ruby/$name";
+
+  if ( $download eq "true" ) {
+    my $url = GSB::GSB::gsb_generic_url_make( $packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
+# DOWNLOAD other ruby libs
+#foreach my $rubynpackage (keys %ruby_diff_naming) {
+#
+#  my $name    = $rubynpackage;
+#
+#  my $oname   = $ruby_diff_naming{$rubynpackage}{name};
+#  my $ver     = $ruby_diff_naming{$rubynpackage}{ver};
+#  my $packurl = $ruby_diff_naming{$rubynpackage}{url};
+#  my $src     = $ruby_diff_naming{$rubynpackage}{src};
+#  my $sb_file = $name. $sb_ext;
+#
+#  my $type    = 'other';
+#
+#  chdir "$pwd/ruby/$name";
+#
+#  my $tarball = "$oname-$ver.$src";
+#
+#  if ( $download eq "true" ) {
+#    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+#    GSB::GSB::gsb_tarball_get($oname, $ver, $tarball, $type, $url);
+#  }
+#
+#  if ( $edit eq "true" ) {
+#    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+#  }
+#
+#  if ( $build ne "" ) {
+#    GSB::Edit::gsb_build_release_make($sb_file, $build);
+#  }
+#
+#  if ( ! -f $tarball ) {
+#    push(@bad_downloads, $name);
+#  }
+#}
+
+
 
 # DONE DOWNLOADING
 

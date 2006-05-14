@@ -1,1 +1,3 @@
-openldap
+openldap | openldap-client
+pwlib
+opal

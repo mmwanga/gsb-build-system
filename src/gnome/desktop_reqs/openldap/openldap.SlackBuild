@@ -84,7 +84,7 @@ CFLAGS="$SLKCFLAGS" \
 	    --enable-meta=mod \
 	    --enable-monitor=mod \
             --enable-proctitle \
-            --enable-ipv6
+            --enable-ipv6 \
 	    --enable-null=mod \
 	    --enable-shell=mod \
 	    --enable-local \

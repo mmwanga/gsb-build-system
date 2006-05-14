@@ -1,4 +1,4 @@
-openldap
+openldap | openldap-client
 gconf
 gnome-vfs
 libgnome
