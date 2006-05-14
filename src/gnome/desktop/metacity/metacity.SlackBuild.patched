@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-metacity
 
-VERSION=2.12.1
+VERSION=2.14.3
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -40,7 +40,7 @@ cd $TMP
 tar xjvf $CWD/metacity-$VERSION.tar.bz2
 cd metacity-$VERSION
 
-cat $CWD/metacity-2.12.0-click+placement.diff | patch -p1 --verbose
+cat $CWD/metacity-2.14.3-placement.diff | patch -p1 --verbose
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then

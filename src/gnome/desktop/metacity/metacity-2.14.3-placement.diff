@@ -1,7 +1,7 @@
-diff -ur metacity-2.14.1-orig/src/common.h metacity-2.14.1/src/common.h
---- metacity-2.14.1-orig/src/common.h	2006-01-21 20:15:47.000000000 +0100
-+++ metacity-2.14.1/src/common.h	2006-03-19 19:13:00.000000000 +0100
-@@ -153,6 +153,15 @@
+diff -ur metacity-2.14.3-orig/src/common.h metacity-2.14.3/src/common.h
+--- metacity-2.14.3-orig/src/common.h	2006-04-13 20:32:00.000000000 +0200
++++ metacity-2.14.3/src/common.h	2006-04-15 11:33:54.000000000 +0200
+@@ -159,6 +159,15 @@
  
  typedef enum
  {
@@ -17,10 +17,10 @@ diff -ur metacity-2.14.1-orig/src/common.h metacity-2.14.1/src/common.h
    META_ACTION_DOUBLE_CLICK_TITLEBAR_TOGGLE_SHADE,
    META_ACTION_DOUBLE_CLICK_TITLEBAR_TOGGLE_MAXIMIZE,
    META_ACTION_DOUBLE_CLICK_TITLEBAR_MINIMIZE,
-diff -ur metacity-2.14.1-orig/src/metacity.schemas.in metacity-2.14.1/src/metacity.schemas.in
---- metacity-2.14.1-orig/src/metacity.schemas.in	2006-03-03 19:34:22.000000000 +0100
-+++ metacity-2.14.1/src/metacity.schemas.in	2006-03-19 19:13:00.000000000 +0100
-@@ -1959,6 +1959,29 @@
+diff -ur metacity-2.14.3-orig/src/metacity.schemas.in metacity-2.14.3/src/metacity.schemas.in
+--- metacity-2.14.3-orig/src/metacity.schemas.in	2006-04-13 20:32:00.000000000 +0200
++++ metacity-2.14.3/src/metacity.schemas.in	2006-04-15 11:33:54.000000000 +0200
+@@ -1976,6 +1976,29 @@
        </locale>
      </schema>
  
@@ -50,9 +50,9 @@ diff -ur metacity-2.14.1-orig/src/metacity.schemas.in metacity-2.14.1/src/metaci
  
    </schemalist>  
  </gconfschemafile>
-diff -ur metacity-2.14.1-orig/src/place.c metacity-2.14.1/src/place.c
---- metacity-2.14.1-orig/src/place.c	2006-01-20 22:52:12.000000000 +0100
-+++ metacity-2.14.1/src/place.c	2006-03-19 19:13:00.000000000 +0100
+diff -ur metacity-2.14.3-orig/src/place.c metacity-2.14.3/src/place.c
+--- metacity-2.14.3-orig/src/place.c	2006-01-20 22:52:12.000000000 +0100
++++ metacity-2.14.3/src/place.c	2006-04-15 11:33:54.000000000 +0200
 @@ -694,6 +694,184 @@
    return retval;
  }
@@ -330,35 +330,35 @@ diff -ur metacity-2.14.1-orig/src/place.c metacity-2.14.1/src/place.c
  
    /* This is a special-case origin-cascade so that windows that are
     * too large to fit onto a workspace (and which will be
-diff -ur metacity-2.14.1-orig/src/prefs.c metacity-2.14.1/src/prefs.c
---- metacity-2.14.1-orig/src/prefs.c	2006-03-03 19:34:22.000000000 +0100
-+++ metacity-2.14.1/src/prefs.c	2006-03-19 19:13:00.000000000 +0100
-@@ -42,6 +42,7 @@
-  */
+diff -ur metacity-2.14.3-orig/src/prefs.c metacity-2.14.3/src/prefs.c
+--- metacity-2.14.3-orig/src/prefs.c	2006-04-13 20:32:00.000000000 +0200
++++ metacity-2.14.3/src/prefs.c	2006-04-15 11:36:30.000000000 +0200
+@@ -43,6 +43,7 @@
  #define KEY_MOUSE_BUTTON_MODS "/apps/metacity/general/mouse_button_modifier"
  #define KEY_FOCUS_MODE "/apps/metacity/general/focus_mode"
+ #define KEY_FOCUS_NEW_WINDOWS "/apps/metacity/general/focus_new_windows"
 +#define KEY_PLACEMENT_MODE "/apps/metacity/general/placement_mode"
  #define KEY_RAISE_ON_CLICK "/apps/metacity/general/raise_on_click"
  #define KEY_ACTION_DOUBLE_CLICK_TITLEBAR "/apps/metacity/general/action_double_click_titlebar"
  #define KEY_AUTO_RAISE "/apps/metacity/general/auto_raise"
-@@ -82,6 +83,7 @@
- static PangoFontDescription *titlebar_font = NULL;
+@@ -84,6 +85,7 @@
  static MetaVirtualModifier mouse_button_mods = Mod1Mask;
  static MetaFocusMode focus_mode = META_FOCUS_MODE_CLICK;
+ static MetaFocusNewWindows focus_new_windows = META_FOCUS_NEW_WINDOWS_SMART;
 +static MetaPlacementMode placement_mode = META_PLACEMENT_MODE_FIRST_FIT;
  static gboolean raise_on_click = TRUE;
  static char* current_theme = NULL;
  static int num_workspaces = 4;
-@@ -126,6 +128,7 @@
- static gboolean update_titlebar_font      (const char *value);
+@@ -129,6 +131,7 @@
  static gboolean update_mouse_button_mods  (const char *value);
  static gboolean update_focus_mode         (const char *value);
+ static gboolean update_focus_new_windows  (const char *value);
 +static gboolean update_placement_mode     (const char *value);
  static gboolean update_raise_on_click     (gboolean    value);
  static gboolean update_theme              (const char *value);
  static gboolean update_visual_bell        (gboolean v1, gboolean v2);
-@@ -375,6 +378,12 @@
-   update_focus_mode (str_val);
+@@ -384,6 +387,12 @@
+   update_focus_new_windows (str_val);
    g_free (str_val);  
  
 +  str_val = gconf_client_get_string (default_client, KEY_PLACEMENT_MODE,
@@ -370,7 +370,7 @@ diff -ur metacity-2.14.1-orig/src/prefs.c metacity-2.14.1/src/prefs.c
    if (get_bool (KEY_RAISE_ON_CLICK, &bool_val))
      update_raise_on_click (bool_val);
    
-@@ -599,6 +608,22 @@
+@@ -604,6 +613,22 @@
        if (update_raise_on_click (b))
          queue_changed (META_PREF_RAISE_ON_CLICK);
      }
@@ -393,7 +393,7 @@ diff -ur metacity-2.14.1-orig/src/prefs.c metacity-2.14.1/src/prefs.c
    else if (strcmp (key, KEY_THEME) == 0)
      {
        const char *str;
-@@ -1034,6 +1059,49 @@
+@@ -1060,6 +1085,49 @@
  
  #ifdef HAVE_GCONF
  static gboolean
@@ -443,7 +443,7 @@ diff -ur metacity-2.14.1-orig/src/prefs.c metacity-2.14.1/src/prefs.c
  update_theme (const char *value)
  {
    char *old_theme;
-@@ -1087,6 +1155,12 @@
+@@ -1119,6 +1187,12 @@
    return raise_on_click || focus_mode == META_FOCUS_MODE_CLICK;
  }
  
@@ -456,9 +456,9 @@ diff -ur metacity-2.14.1-orig/src/prefs.c metacity-2.14.1/src/prefs.c
  const char*
  meta_prefs_get_theme (void)
  {
-@@ -1573,6 +1647,9 @@
-     case META_PREF_FOCUS_MODE:
-       return "FOCUS_MODE";
+@@ -1608,6 +1682,9 @@
+     case META_PREF_FOCUS_NEW_WINDOWS:
+       return "FOCUS_NEW_WINDOWS";
  
 +    case META_PREF_PLACEMENT_MODE:
 +      return "PLACEMENT_MODE";
@@ -466,24 +466,23 @@ diff -ur metacity-2.14.1-orig/src/prefs.c metacity-2.14.1/src/prefs.c
      case META_PREF_RAISE_ON_CLICK:
        return "RAISE_ON_CLICK";
        
-diff -ur metacity-2.14.1-orig/src/prefs.h metacity-2.14.1/src/prefs.h
---- metacity-2.14.1-orig/src/prefs.h	2006-03-03 19:34:22.000000000 +0100
-+++ metacity-2.14.1/src/prefs.h	2006-03-19 19:13:00.000000000 +0100
-@@ -31,6 +31,7 @@
- {
+diff -ur metacity-2.14.3-orig/src/prefs.h metacity-2.14.3/src/prefs.h
+--- metacity-2.14.3-orig/src/prefs.h	2006-04-13 20:32:00.000000000 +0200
++++ metacity-2.14.3/src/prefs.h	2006-04-15 11:37:09.000000000 +0200
+@@ -32,6 +32,7 @@
    META_PREF_MOUSE_BUTTON_MODS,
    META_PREF_FOCUS_MODE,
+   META_PREF_FOCUS_NEW_WINDOWS,
 +  META_PREF_PLACEMENT_MODE,
    META_PREF_RAISE_ON_CLICK,
    META_PREF_ACTION_DOUBLE_CLICK_TITLEBAR,
    META_PREF_AUTO_RAISE,
-@@ -68,6 +69,7 @@
- 
+@@ -70,6 +71,7 @@
  MetaVirtualModifier         meta_prefs_get_mouse_button_mods  (void);
  MetaFocusMode               meta_prefs_get_focus_mode         (void);
+ MetaFocusNewWindows         meta_prefs_get_focus_new_windows  (void);
 +MetaPlacementMode           meta_prefs_get_placement_mode     (void);
  gboolean                    meta_prefs_get_raise_on_click     (void);
  const char*                 meta_prefs_get_theme              (void);
  /* returns NULL if GTK default should be used */
-
 
