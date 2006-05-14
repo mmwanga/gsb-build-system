@@ -1,0 +1,82 @@
+#!/bin/sh
+#item   ####description                                      ###on off ###
+TMP=/var/log/setup/tmp
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP
+fi
+cat /dev/null > $TMP/SeTnewtag
+dialog --title "SELECTING PACKAGES FROM SERIES GNOME Platform" \
+--checklist "Please select the packages you wish to install \
+from the GNOME Platform series. GNOME Platform contains the base packages \
+needed for the GNOME Desktop Environment. \\n\\n\
+Use the UP/DOWN keys to scroll through the \
+list, and the SPACE key to select the packages you wish to \
+install. Recommended packages have already been selected for \
+you, but you may unselect them if you wish.  Press ENTER \
+when you are done." 22 70 8 \
+"Pyrex" "C interface for Python" "off" \
+"at-spi" "GNOME Assistive Technology Service Provider Interface" "on" \
+"atk" "Accessability Library for GNOME" "on" \
+"audiofile" "Library to handle audio files" "on" \
+"avahi" "Zeroconf local service discovery" "on" \
+"cairo" "Vector Graphics Library" "on" \
+"dbus" "Message Bus System" "on" \
+"desktop-file-utils" "dot desktop file utilities" "on" \
+"esound" "Enlightened Sound Daemon" "on" \
+"frgnome-platform" "slapt-get meta package" "off" \
+"gail" "GNOME Accessibility Interface" "on" \
+"gamin" "File Alteration Monitor" "on" \
+"gconf" "GNOME Configuration Database" "on" \
+"glib2" "C routine library" "on" \
+"glitz" "OpenGL Compositing Library" "on" \
+"gnome-keyring" "Password Manager" "on" \
+"gnome-mime-data" "MIME Type Database" "on" \
+"gnome-vfs" "GNOME Virtual File System" "on" \
+"gtk+2" "GIMP Toolkit" "on" \
+"hal" "Hardware Abstraction Layer" "on" \
+"hicolor-icon-theme" "Freedesktop shared icon theme" "on" \
+"intltool" "International Language source file extractor" "off" \
+"libart_lgpl" "2D Graphics Library" "on" \
+"libbonobo" "CORBA Interface" "on" \
+"libbonoboui" "CORBA Interface" "on" \
+"libcap" "Linux Capabilities" "on" \
+"libdaemon" "UNIX Daemon Library" "on" \
+"libgcrypt" "Crypto library" "on" \
+"libglade" "UI Designer library" "on" \
+"libgnome" "GNOME libraries" "on" \
+"libgnomecanvas" "GNOME Canvas" "on" \
+"libgnomecups" "CUPS integration library" "on" \
+"libgnomeprint" "GNOME Printint library" "on" \
+"libgnomeui" "GNOME User Interface library" "on" \
+"libgpg-error" "Error Code library for GnuPG" "on" \
+"libidl" "CORBA Interface Definition Language" "on" \
+"libsvg" "SVG content parser" "on" \
+"libsvg-cairo" "Cairo SVG Renderer" "on" \
+"libxml2" "XML Parser Library" "on" \
+"libxslt" "XML Transform Library" "on" \
+"orbit2" "CORBA Request Broker" "on" \
+"pango" "Text Layout and Rendering Library" "on" \
+"pkg-config" "Manager compile and link flags" "on" \
+"pycairo" "Python Bindings for Cairo" "on" \
+"pygobject" "Python Bindigs for Glib" "on" \
+"pygtk" "Python Bindings for GTK+" "on" \
+"pyorbit" "Python Bindings for orbit" "on" \
+"shared-mime-info" "Freedesktop Shared Mime Type Database" "on" \
+2> $TMP/SeTpkgs
+if [ $? = 1 -o $? = 255 ]; then
+  rm -f $TMP/SeTpkgs
+  cat /dev/null > $TMP/SeTnewtag
+  for PKG in  Pyrex at-spi atk audiofile avahi cairo dbus desktop-file-utils esound frgnome-platform gail gamin gconf glib2 glitz gnome-keyring gnome-mime-data gnome-vfs gtk+2 hal hicolor-icon-theme intltool libart_lgpl libbonobo libbonoboui libcap libdaemon libgcrypt libglade libgnome libgnomecanvas libgnomecups libgnomeprint libgnomeui libgpg-error libidl libsvg libsvg-cairo libxml2 libxslt orbit2 pango pkg-config pycairo pygobject pygtk pyorbit shared-mime-info ; do
+    echo "$PKG: SKP" >> $TMP/SeTnewtag
+  done
+  exit
+fi
+cat /dev/null > $TMP/SeTnewtag
+for PKG in Pyrex at-spi atk audiofile avahi cairo dbus desktop-file-utils esound frgnome-platform gail gamin gconf glib2 glitz gnome-keyring gnome-mime-data gnome-vfs gtk+2 hal hicolor-icon-theme intltool libart_lgpl libbonobo libbonoboui libcap libdaemon libgcrypt libglade libgnome libgnomecanvas libgnomecups libgnomeprint libgnomeui libgpg-error libidl libsvg libsvg-cairo libxml2 libxslt orbit2 pango pkg-config pycairo pygobject pygtk pyorbit shared-mime-info ; do 
+  if grep \"$PKG\" $TMP/SeTpkgs 1> /dev/null 2> /dev/null ; then
+    echo "$PKG: ADD" >> $TMP/SeTnewtag
+  else
+    echo "$PKG: SKP" >> $TMP/SeTnewtag
+  fi
+done
+rm -f $TMP/SeTpkgs
