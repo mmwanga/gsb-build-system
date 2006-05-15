@@ -40,6 +40,10 @@ cd $TMP
 tar -xjvf $CWD/gst-plugins-bad-$VERSION.tar.bz2
 cd gst-plugins-bad-$VERSION
 
+if [ "$VERSION" = "0.10.3" ]; then
+  cat $CWD/ext-neon.patch | patch -p0 --verbose
+fi
+
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
   echo "Applying patches for $ARCH"
