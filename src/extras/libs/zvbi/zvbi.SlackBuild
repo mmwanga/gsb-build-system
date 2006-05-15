@@ -40,8 +40,6 @@ cd $TMP
 tar -xjvf $CWD/zvbi-$VERSION.tar.bz2
 cd zvbi-$VERSION
 
-libtoolize --force
-
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
   echo "Applying patches for $ARCH"
@@ -64,13 +62,15 @@ CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
             --localstatedir=/var/lib \
-            --disable-static \
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 1
 make || exit 1
 make install DESTDIR=$PKG
 
-chown -R root.bin $PKG/usr/bin
+chown -R root.bin $PKG/usr/bin $PKG/usr/sbin
+
+mkdir -p $PKG/etc/rc.d
+cp $CWD/rc.zvbid $PKG/etc/rc.d/rc.zvbid.new
 
 mkdir -p $PKG/usr/doc/zvbi-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
@@ -89,6 +89,7 @@ gzip -9 $PKG/usr/man/*/*
 gzip -9 $PKG/usr/info/*
 
 mkdir -p $PKG/install
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
 

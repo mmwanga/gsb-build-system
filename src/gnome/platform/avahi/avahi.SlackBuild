@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-avahi
 
-VERSION=0.6.9
+VERSION=0.6.10
 ARCH=${ARCH:-i486}
-BUILD=4
+BUILD=1
 
 if [ -f /var/log/packages/avahi-$VERSION-$ARCH-$BUILD ]; then
   echo "avahi-$VERSION-$ARCH-$BUILD package already installed"

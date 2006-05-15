@@ -81,7 +81,7 @@ our %platform_diff_naming =
 our %platform_reqs =
   (
    'avahi'               => {
-                             'ver' => '0.6.9',
+                             'ver' => '0.6.10',
                              'url' => 'http://www.avahi.org/download/',
                              'src' => 'tar.gz',
                             },
@@ -237,7 +237,7 @@ our %desktop =
    'gnome-user-docs'        => '2.14.2',
    'gnopernicus'            => '1.0.4',
    'gob2'                   => '2.0.14',
-   'gok'                    => '1.0.9',
+   'gok'                    => '1.0.8',
    'goobox'                 => '0.9.93',
    'gpdf'                   => '2.10.0',
    'gtk-engines'            => '2.7.4',

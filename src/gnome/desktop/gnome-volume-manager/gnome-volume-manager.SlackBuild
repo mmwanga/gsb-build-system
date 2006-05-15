@@ -6,7 +6,7 @@ PKG=$TMP/package-gnome-volume-manager
 
 VERSION=1.5.15
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gnome-volume-manager-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-volume-manager-$VERSION-$ARCH-$BUILD package already installed"
@@ -66,6 +66,7 @@ CFLAGS="$SLKCFLAGS" \
 	    --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static \
+            --disable-multiuser \
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 1
 make || exit 1
