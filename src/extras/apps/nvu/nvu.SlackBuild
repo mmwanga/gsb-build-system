@@ -80,3 +80,9 @@ cat $CWD/doinst.sh |sed -re "s#usr/lib#$LIBDIR#" > $PKG/install/doinst.sh
 
 cd $PKG
 makepkg -l y -c n $TMP/nvu-$VERSION-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/nvu-$VERSION
+  rm -rf $PKG
+fi
