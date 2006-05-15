@@ -36,6 +36,8 @@ neon
 libgpod
 libnjb
 gnokii
+zvbi
+libetpan
 "
 
 mkdir -p $TMP/gnome-$GVERSION/extras/libs

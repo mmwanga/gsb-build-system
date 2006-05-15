@@ -106,7 +106,7 @@ ggv
 "
 
 mkdir -p $TMP/gnome-$GVERSION/frgnome/desktop
-mkdir -p $TMP/gnome-$GVERSION/extras/alternatives
+mkdir -p $TMP/gnome-$GVERSION/extras/alternatives/desktop
 
 (
 for i in $BUILD_ORDER
@@ -141,7 +141,7 @@ do
   echo ""
   ./$i.SlackBuild --cleanup
   upgradepkg --install-new $TMP/$i*.tgz
-  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/extras/alternatives
+  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/extras/alternatives/desktop
 )
 done
 # Fork screen output to a log

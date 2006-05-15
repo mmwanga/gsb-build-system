@@ -38,6 +38,7 @@ thoggen
 anjuta
 bmpx
 inkscape
+zapping
 "
 
 ALT_BUILD_ORDER="
@@ -50,7 +51,7 @@ nvu
 "
 
 mkdir -p $TMP/gnome-$GVERSION/extras/apps
-mkdir -p $TMP/gnome-$GVERSION/extras/alternatives
+mkdir -p $TMP/gnome-$GVERSION/extras/alternatives/apps
 
 (
 for i in $BUILD_ORDER
@@ -71,7 +72,7 @@ done
 ) 2>&1 | tee $TMP/gnome.extras.apps.build.log
 
 (
-for i in $BUILD_ORDER
+for i in $ALT_BUILD_ORDER
 do
 (
   cd $i
@@ -82,7 +83,7 @@ do
   echo ""
   ./$i.SlackBuild --cleanup
   upgradepkg --install-new $TMP/$i*.tgz
-  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/extras/alternatives
+  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/extras/alternatives/apps
 )
 done
 # Fork screen output to a log

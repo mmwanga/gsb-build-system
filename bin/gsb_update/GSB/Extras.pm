@@ -95,6 +95,11 @@ our %extras_libs =
 			     'url' => 'http://www.stafford.uklinux.net/libesmtp/',
 			     'src' => 'tar.bz2',
 			    },
+   'libetpan'            => {
+                             'ver' => '0.45',
+                             'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libetpan',
+                             'src' => 'tar.gz',
+                            },
    'libexif-gtk'         => {
 			     'ver' => '0.3.5',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libexif/',
@@ -135,7 +140,7 @@ our %extras_libs =
                              'url' => 'http://releases.chipx86.com/libsexy/libsexy/',
                              'src' => 'tar.gz',
                             },
-   'neon'           => {
+   'neon'                => {
                              'ver' => '0.26.0',
                              'url' => 'http://www.webdav.org/neon/',
                              'src' => 'tar.gz',
@@ -149,6 +154,11 @@ our %extras_libs =
                              'ver' => '2.0.11',
                              'url' => 'http://heanet.dl.sourceforge.net/sourceforge/python-ldap/',
                              'src' => 'tar.gz',
+                            },
+   'zvbi'                => {
+                             'ver' => '0.2.21',
+                             'url' => 'http://heanet.dl.sourceforge.net/sourceforge/zapping/',
+                             'src' => 'tar.bz2',
                             },
   );
 
@@ -364,6 +374,11 @@ our %extras_apps =
 			     'url' => 'http://xchat.org/files/source/2.6/',
 			     'src' => 'tar.bz2',
 			    },
+   'zapping'             => {
+                             'ver' => '0.10cvs4',
+                             'url' => 'http://heanet.dl.sourceforge.net/sourceforge/zapping/',
+                             'src' => 'tar.bz2',
+                            },
   );
 
 
