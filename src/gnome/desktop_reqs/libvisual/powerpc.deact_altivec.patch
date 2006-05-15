@@ -1,60 +1,20 @@
-*** lv_cpu.c_org	2005-07-31 13:33:09.198805976 +0200
---- lv_cpu.c	2005-07-31 13:54:33.685534312 +0200
-***************
-*** 152,156 ****
-  		if (has_vu != 0)
-  			_lv_cpu_caps.hasAltiVec = 1;
-! #else /* !VISUAL_OS_DARWIN */
-  	/* no Darwin, do it the brute-force way */
-  	/* this is borrowed from the libmpeg2 library */
---- 152,156 ----
-  		if (has_vu != 0)
-  			_lv_cpu_caps.hasAltiVec = 1;
-! #else   /* !VISUAL_OS_DARWIN */
-  	/* no Darwin, do it the brute-force way */
-  	/* this is borrowed from the libmpeg2 library */
-***************
-*** 161,174 ****
-  		_lv_powerpc_canjump = 1;
-  
-! 		asm volatile
-  			("mtspr 256, %0\n\t"
-  			 "vand %%v0, %%v0, %%v0"
-  			 :
-! 			 : "r" (-1));
-  
-  		signal (SIGILL, SIG_DFL);
-! 		_lv_cpu_caps.hasAltiVec = 1;
-  	}
-! #endif
-  }
-  #endif
---- 161,174 ----
-  		_lv_powerpc_canjump = 1;
-  
-! 		/*asm volatile
-  			("mtspr 256, %0\n\t"
-  			 "vand %%v0, %%v0, %%v0"
-  			 :
-! 			 : "r" (-1));*/
-  
-  		signal (SIGILL, SIG_DFL);
-! 		_lv_cpu_caps.hasAltiVec = 0;
-  	}
-! #endif 
-  }
-  #endif
-***************
-*** 424,428 ****
-  #endif /* VISUAL_ARCH_X86 */
-  
-! #if VISUAL_ARCH_POWERPC
-  	check_os_altivec_support ();
-  #endif /* VISUAL_ARCH_POWERPC */
---- 424,428 ----
-  #endif /* VISUAL_ARCH_X86 */
-  
-! #if defined(VISUAL_ARCH_POWERPC)
-  	check_os_altivec_support ();
-  #endif /* VISUAL_ARCH_POWERPC */
-
+--- libvisual/lv_cpu.c_org	2006-03-28 20:25:13.000000000 +0200
++++ libvisual/lv_cpu.c	2006-03-28 20:35:40.000000000 +0200
+@@ -163,14 +163,14 @@
+ 	} else {
+ 		__lv_powerpc_canjump = 1;
+ 
+-		asm volatile
++		/* asm volatile
+ 			("mtspr 256, %0\n\t"
+ 			 "vand %%v0, %%v0, %%v0"
+ 			 :
+-			 : "r" (-1));
++			 : "r" (-1)); */
+ 
+ 		signal (SIGILL, SIG_DFL);
+-		__lv_cpu_caps.hasAltiVec = 1;
++		__lv_cpu_caps.hasAltiVec = 0;
+ 	}
+ #endif
+ }

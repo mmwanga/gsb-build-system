@@ -27,7 +27,7 @@ elif [ "$ARCH" = "i486" ]; then
   ARCH_CONFIGURE=""
 elif [ "$ARCH" = "powerpc" ]; then
   SLKCFLAGS="-O2"
-  ARCH_CONFIGURE=""
+  ARCH_CONFIGURE="--with-mjpegtools-includes=/usr/include/mjpegtools --with-mjpegtools-libs=/usr/lib"
 elif [ "$ARCH" = "s390" ]; then
   SLKCFLAGS="-O2"
   ARCH_CONFIGURE=""

@@ -26,7 +26,6 @@ gst-monkeysaudio
 gpgme
 libesmtp
 gmime
-mail-notification
 loudmouth
 gdl
 gnome-build

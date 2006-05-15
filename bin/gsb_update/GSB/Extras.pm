@@ -350,7 +350,7 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'sylpheed-claws'      => {
-			     'ver' => '1.9.99',
+			     'ver' => '2.0.0',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/sylpheed-claws/',
 			     'src' => 'tar.bz2',
 			    },
