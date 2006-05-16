@@ -36,6 +36,11 @@ our %desktop_reqs =
 			 'ver' => '0.7',
 			 'src' => 'tar.gz',
 			},
+   'neon'            => {
+                         'ver' => '0.26.0',
+                         'url' => 'http://www.webdav.org/neon/',
+                         'src' => 'tar.gz',
+                        },
    'opal'            => {
                          'url' => 'http://www.ekiga.org/admin/downloads/latest/sources/sources/',
                          'ver' => '2.2.1',

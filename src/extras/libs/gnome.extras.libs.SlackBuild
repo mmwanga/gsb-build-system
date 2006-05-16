@@ -37,6 +37,7 @@ libnjb
 gnokii
 zvbi
 libetpan
+gnonlin
 "
 
 mkdir -p $TMP/gnome-$GVERSION/extras/libs

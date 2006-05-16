@@ -60,6 +60,11 @@ our %extras_libs =
                              'url' => 'http://www.gnokii.org/download/gnokii/',
                              'src' => 'tar.bz2',
                             },
+   'gnonlin'             => {
+                             'ver' => '0.10.4',
+                             'url' => 'http://gstreamer.freedesktop.org/src/gnonlin/',
+                             'src' => 'tar.bz2',
+                            },
    'gpgme'               => {
 			     'ver' => '1.1.0',
 			     'url' => 'ftp://ftp.gnupg.org/gcrypt/gpgme/',
@@ -329,6 +334,11 @@ our %extras_apps =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/liferea/',
 			     'src' => 'tar.gz',
 			    },
+   'pitivi'              => {
+                             'ver' => '0.10.0',
+                             'url' => 'http://heanet.dl.sourceforge.net/sourceforge/pitivi/',
+                             'src' => 'tar.bz2',
+                            },
    'pstoedit'            => {
 			     'ver' => '3.42',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/pstoedit/',
