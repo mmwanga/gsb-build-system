@@ -178,7 +178,7 @@ our %extras_libs_gnome =
    'devhelp'             => '0.11',
    'gdl'                 => '0.6.1',
    'glade'               => '2.12.1',
-   'gnome-build'         => '0.1.2',
+   'gnome-build'         => '0.1.3',
    'gnome-common'        => '2.12.0',
    'loudmouth'           => '1.0.3',
   );

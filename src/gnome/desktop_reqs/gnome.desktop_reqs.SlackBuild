@@ -74,6 +74,7 @@ opal
 bluez-libs
 bluez-utils
 openobex
+neon
 "
 
 mkdir -p $TMP/gnome-$GVERSION/frgnome/desktop_reqs
