@@ -176,7 +176,7 @@ our %extras_libs_other =
 our %extras_libs_gnome =
   (
    'devhelp'             => '0.11',
-   'gdl'                 => '0.6.0',
+   'gdl'                 => '0.6.1',
    'glade'               => '2.12.1',
    'gnome-build'         => '0.1.2',
    'gnome-common'        => '2.12.0',
@@ -215,7 +215,7 @@ our %extras_gnome_apps =
 our %extras_apps =
   (
    'anjuta'              => {
-			     'ver' => '2.0.1',
+			     'ver' => '2.0.2',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/anjuta/',
 			     'src' => 'tar.gz',
 			    },
