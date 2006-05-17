@@ -58,12 +58,6 @@ elif [ "$ARCH" = "x86_64" ]; then
   #cat $CWD/foo.patch | patch -p0 --verbose
 fi
 
-# arch independent 0.10.6
-if [ "$VERSION" == "0.10.6" ]; then
-  echo "Applying 0.10.6 arch independent patches"
-  zcat $CWD/gstaudioconvert.patch.gz | patch -p0 --verbose
-fi
-
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
