@@ -145,11 +145,6 @@ our %extras_libs =
                              'url' => 'http://releases.chipx86.com/libsexy/libsexy/',
                              'src' => 'tar.gz',
                             },
-   'neon'                => {
-                             'ver' => '0.26.0',
-                             'url' => 'http://www.webdav.org/neon/',
-                             'src' => 'tar.gz',
-                            },
    'notification-daemon' => {
                              'ver' => '0.3.5',
                              'url' => 'http://galago-project.org/files/releases/source/notification-daemon/',
