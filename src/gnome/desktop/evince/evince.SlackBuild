@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-evince
 
-VERSION=0.5.3
+VERSION=0.5.2
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -118,7 +118,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-evince
 
-VERSION=0.5.3
+VERSION=0.5.2
 ARCH=${ARCH:-i486}
 BUILD=1
 

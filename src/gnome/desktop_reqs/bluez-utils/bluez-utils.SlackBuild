@@ -6,7 +6,7 @@ PKG=$TMP/package-bluez-utils
 
 VERSION=2.25
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ -f /var/log/packages/bluez-utils-$VERSION-$ARCH-$BUILD ]; then
   echo "bluez-utils-$VERSION-$ARCH-$BUILD package already installed"
@@ -71,7 +71,7 @@ make install DESTDIR=$PKG
 chown -R root.bin $PKG/usr/bin $PKG/usr/sbin
 
 (
-  cd /etc/bluetooth
+  cd $PKG/etc/bluetooth
   for i in hcid.conf pin rfcomm.conf
   do
      mv $i $i.new
