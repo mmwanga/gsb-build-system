@@ -170,6 +170,11 @@ our %extras_libs_other =
 			     'url' => 'http://www.hpl.hp.com/personal/Hans_Boehm/gc/gc_source/',
 			     'src' => 'tar.gz',
 			    },
+   'slib'                => {
+                             'ver' => '2d6',
+                             'url' => 'http://swissnet.ai.mit.edu/ftpdir/scm/OLD/',
+                             'src' => 'tar.gz',
+                            },
   );
 
 # src/extras/libs
@@ -284,6 +289,11 @@ our %extras_apps =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gnomebaker/',
 			     'src' => 'tar.bz2',
 			    },
+   'gparted'             => {
+                             'ver' => '0.2.5',
+                             'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gparted',
+                             'src' => 'tar.bz2',
+                            },
    'gqview'              => {
 			     'ver' => '2.1.1',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gqview/',

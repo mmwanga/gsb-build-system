@@ -1,0 +1,12 @@
+      |-----handy-ruler------------------------------------------------------|
+g-wrap: g-wrap
+g-wrap:
+g-wrap: G-Wrap is a tool (and Guile library) for generating function
+g-wrap: wrappers for inter-language calls. It currently only supports
+g-wrap: generating Guile wrappers for C functions.
+g-wrap:
+g-wrap:
+g-wrap:
+g-wrap:
+g-wrap:
+g-wrap:

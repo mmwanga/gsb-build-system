@@ -13,16 +13,18 @@ our $VERSION   = 0.03;
 # Config Options
 #
 
-# src tarballs in other locations
-
-# not used anymore, abiword is on ftp.gnome.org also.
 our %office =
   (
    'abiword' => {
-		 'url' => "http://www.abisource.com/downloads/abiword/2.4.4/source/",
+		 'url' => 'http://www.abisource.com/downloads/abiword/2.4.4/source/',
 		 'ver' => '2.4.4',
 		 'src' => 'tar.gz'
 		},
+   'gnucash' => {
+                 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gnucash/',
+                 'ver' => '1.9.6',
+                 'src' => 'tar.gz'
+                },
   );
 
 our %office_libs =
@@ -32,6 +34,11 @@ our %office_libs =
 		   'ver' => '1.2.1',
 		   'src' => 'tar.gz',
 		  },
+   'aqbanking' => {
+                   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/aqbanking/',
+                   'ver' => '2.0.0',
+                   'src' => 'tar.gz',
+                  },
    'enchant'   => {
 		   'url' => 'http://www.abisource.com/downloads/enchant/1.2.0/',
 		   'ver' => '1.2.0',
@@ -47,6 +54,31 @@ our %office_libs =
 		   'ver' => '0.10.7',
 		   'src' => 'tar.gz',
 		  },
+   'g-wrap'       => {
+                   'url' => 'http://savannah.nongnu.org/download/g-wrap/',
+                   'ver' => '1.9.6',
+                   'src' => 'tar.gz',
+                  },
+   'gwenhywfar'    => {
+                   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gwenhywfar/gwenhywfar',
+                   'ver' => '2.2.0',
+                   'src' => 'tar.gz',
+                  },
+   'ktoblzcheck' => {
+                   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/ktoblzcheck/',
+                   'ver' => '1.10',
+                   'src' => 'tar.gz',
+                  },
+   'libchipcard2' => {
+                   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libchipcard/',
+                   'ver' => '2.1.4',
+                   'src' => 'tar.gz',
+                  },
+   'libofx'    => {
+                   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libofx/',
+                   'ver' => '0.8.0',
+                   'src' => 'tar.gz',
+                  },
    'libwmf'    => {
 		   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/wvware/',
 		   'ver' => '0.2.8.4',
@@ -57,6 +89,11 @@ our %office_libs =
 		   'ver' => '0.8.4',
 		   'src' => 'tar.gz',
 		  },
+   'OpenSP'   => {
+                   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/openjade/',
+                   'ver' => '1.5.1',
+                   'src' => 'tar.gz',
+                  },
    'ots'       => {
 		   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libots/',
 		   'ver' => '0.4.2',
@@ -80,7 +117,6 @@ our %office_gnome_libs =
 
 our %office_gnome =
   (
-#   'abiword'   => '2.3.5',
    'gnumeric'  => '1.6.3',
    'dia'       => '0.95',
    'glom'      => '1.0.3',

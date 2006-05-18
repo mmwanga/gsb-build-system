@@ -38,6 +38,7 @@ gnokii
 zvbi
 libetpan
 gnonlin
+slib
 "
 
 mkdir -p $TMP/gnome-$GVERSION/extras/libs

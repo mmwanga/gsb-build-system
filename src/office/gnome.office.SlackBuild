@@ -18,6 +18,7 @@ gnumeric
 planner
 mergeant
 glom
+gnucash
 "
 
 mkdir -p $TMP/gnome-$GVERSION/extras/office
