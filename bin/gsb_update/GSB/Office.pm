@@ -60,7 +60,7 @@ our %office_libs =
                    'src' => 'tar.gz',
                   },
    'gwenhywfar'    => {
-                   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gwenhywfar/gwenhywfar',
+                   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gwenhywfar/',
                    'ver' => '2.2.0',
                    'src' => 'tar.gz',
                   },
