@@ -9,11 +9,7 @@ dialog --title "SELECTING PACKAGES FROM SERIES GNOME Platform" \
 --checklist "Please select the packages you wish to install \
 from the GNOME Platform series. GNOME Platform contains the base packages \
 needed for the GNOME Desktop Environment. \\n\\n\
-Use the UP/DOWN keys to scroll through the \
-list, and the SPACE key to select the packages you wish to \
-install. Recommended packages have already been selected for \
-you, but you may unselect them if you wish.  Press ENTER \
-when you are done." 22 70 8 \
+" 22 70 8 \
 "Pyrex" "C interface for Python" "off" \
 "at-spi" "GNOME Assistive Technology Service Provider Interface" "on" \
 "atk" "Accessability Library for GNOME" "on" \

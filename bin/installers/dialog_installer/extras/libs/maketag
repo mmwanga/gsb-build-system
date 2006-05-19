@@ -1,0 +1,56 @@
+#!/bin/sh
+#item   ####description                                      ###on off ###
+TMP=/var/log/setup/tmp
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP
+fi
+cat /dev/null > $TMP/SeTnewtag
+dialog --title "SELECTING PACKAGES FROM SERIES EXTRAS LIBS" \
+--checklist "Please select the packages you wish to install \
+from the Extras Libs series. This set contains required packages \
+needed for the applications in Extras. \\n\\n\
+" 22 70 8 \
+"Imaging" "" "on" \
+"autogen" "" "on" \
+"devhelp" "" "on" \
+"gc" "" "on" \
+"gdl" "" "on" \
+"glade" "" "on" \
+"gmime" "" "on" \
+"gnokii" "" "on" \
+"gnome-build" "" "on" \
+"gpgme" "" "on" \
+"gphoto2" "" "on" \
+"graphviz" "" "on" \
+"gst-ffmpeg" "" "on" \
+"gtkspell" "" "on" \
+"libburn" "" "on" \
+"libesmtp" "" "on" \
+"libexif-gtk" "" "on" \
+"libgphoto2" "" "on" \
+"libgpod" "" "on" \
+"libnjb" "" "on" \
+"libnotify" "" "on" \
+"libsexy" "" "on" \
+"loudmouth" "" "on" \
+"neon" "" "on" \
+"notification-daemon" "" "on" \
+"python-ldap" "" "on" \
+2> $TMP/SeTpkgs
+if [ $? = 1 -o $? = 255 ]; then
+  rm -f $TMP/SeTpkgs
+  cat /dev/null > $TMP/SeTnewtag
+  for PKG in Imaging autogen devhelp gc gdl glade gmime gnokii gnome-build gpgme gphoto2 graphviz gst-ffmpeg gtkspell libburn libesmtp libexif-gtk libgphoto2 libgpod libnjb libnotify libsexy loudmouth neon notification-daemon python-ldap ; do
+    echo "$PKG: SKP" >> $TMP/SeTnewtag
+  done
+  exit
+fi
+cat /dev/null > $TMP/SeTnewtag
+  for PKG in Imaging autogen devhelp gc gdl glade gmime gnokii gnome-build gpgme gphoto2 graphviz gst-ffmpeg gtkspell libburn libesmtp libexif-gtk libgphoto2 libgpod libnjb libnotify libsexy loudmouth neon notification-daemon python-ldap ; do
+  if grep \"$PKG\" $TMP/SeTpkgs 1> /dev/null 2> /dev/null ; then
+    echo "$PKG: ADD" >> $TMP/SeTnewtag
+  else
+    echo "$PKG: SKP" >> $TMP/SeTnewtag
+  fi
+done
+rm -f $TMP/SeTpkgs

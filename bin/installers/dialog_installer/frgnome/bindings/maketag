@@ -1,0 +1,60 @@
+#!/bin/sh
+#item   ####description                                      ###on off ###
+TMP=/var/log/setup/tmp
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP
+fi
+cat /dev/null > $TMP/SeTnewtag
+dialog --title "SELECTING PACKAGES FROM SERIES GNOME BINDINGS" \
+--checklist "Please select the packages you wish to install \
+from the GNOME Bindings series. This set contains packages \
+that provide language bindings for needed for the GNOME Desktop Environment. \\n\\n\
+" 22 70 8 \
+"ExtUtils-Depends" "" "on" \
+"ExtUtils-PkgConfig" "" "on" \
+"Glib" "" "on" \
+"Gnome2" "" "on" \
+"Gnome2-Canvas" "" "on" \
+"Gnome2-GConf" "" "on" \
+"Gnome2-VFS" "" "on" \
+"Gtk2" "" "on" \
+"Gtk2-GladeXML" "" "on" \
+"bakery" "" "on" \
+"frgnome-bindings" "" "on" \
+"frgnome-bindings-c++" "" "on" \
+"frgnome-bindings-perl" "" "on" \
+"frgnome-bindings-python" "" "on" \
+"gconfmm" "" "on" \
+"glibmm" "" "on" \
+"gnome-python" "" "on" \
+"gnome-python-desktop" "" "on" \
+"gnome-python-extras" "" "on" \
+"gnome-vfsmm" "" "on" \
+"gst-python" "" "on" \
+"gtkmm" "" "on" \
+"libglademm" "" "on" \
+"libgnomecanvasmm" "" "on" \
+"libgnomemm" "" "on" \
+"libgnomeuimm" "" "on" \
+"libsigc++" "" "on" \
+"libxml++" "" "on" \
+"nautilus-python" "" "on" \
+"pyxdg" "" "on" \
+2> $TMP/SeTpkgs
+if [ $? = 1 -o $? = 255 ]; then
+  rm -f $TMP/SeTpkgs
+  cat /dev/null > $TMP/SeTnewtag
+  for PKG in ExtUtils-Depends ExtUtils-PkgConfig Glib Gnome2 Gnome2-Canvas Gnome2-GConf Gnome2-VFS Gtk2 Gtk2-GladeXML bakery frgnome-bindings frgnome-bindings-c++ frgnome-bindings-perl frgnome-bindings-python gconfmm glibmm gnome-python gnome-python-desktop gnome-python-extras gnome-vfsmm gst-python gtkmm libglademm libgnomecanvasmm libgnomemm libgnomeuimm libsigc++ libxml++ nautilus-python pyxdg ; do
+    echo "$PKG: SKP" >> $TMP/SeTnewtag
+  done
+  exit
+fi
+cat /dev/null > $TMP/SeTnewtag
+for PKG in ExtUtils-Depends ExtUtils-PkgConfig Glib Gnome2 Gnome2-Canvas Gnome2-GConf Gnome2-VFS Gtk2 Gtk2-GladeXML bakery frgnome-bindings frgnome-bindings-c++ frgnome-bindings-perl frgnome-bindings-python gconfmm glibmm gnome-python gnome-python-desktop gnome-python-extras gnome-vfsmm gst-python gtkmm libglademm libgnomecanvasmm libgnomemm libgnomeuimm libsigc++ libxml++ nautilus-python pyxdg ; do
+  if grep \"$PKG\" $TMP/SeTpkgs 1> /dev/null 2> /dev/null ; then
+    echo "$PKG: ADD" >> $TMP/SeTnewtag
+  else
+    echo "$PKG: SKP" >> $TMP/SeTnewtag
+  fi
+done
+rm -f $TMP/SeTpkgs

@@ -1,0 +1,84 @@
+#!/bin/sh
+#item   ####description                                      ###on off ###
+TMP=/var/log/setup/tmp
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP
+fi
+cat /dev/null > $TMP/SeTnewtag
+dialog --title "SELECTING PACKAGES FROM SERIES GNOME Desktop Requirements" \
+--checklist "Please select the packages you wish to install \
+from the GNOME Desktop Requirements series. This set contains optional and required packages \
+needed for the GNOME Desktop Environment. \\n\\n\
+Packages that are required have been selected." 22 70 8 \
+"PyXML" "" "on" \
+"a52dec" "" "on" \
+"avifile" "" "on" \
+"bluez-libs" "" "on" \
+"bluez-utils" "" "on" \
+"divx4linux" "" "on" \
+"faac" "" "on" \
+"faad2" "" "on" \
+"ffmpeg" "" "on" \
+"frgnome-desktop-reqs" "" "on" \
+"heimdal" "" "on" \
+"id3lib" "" "on" \
+"iso-codes" "" "on" \
+"lame" "" "on" \
+"libavc1394" "" "on" \
+"libcdaudio" "" "on" \
+"libcddb" "" "on" \
+"libcdio" "" "on" \
+"libdv" "" "on" \
+"libdvbpsi4" "" "on" \
+"libdvdcss" "" "on" \
+"libdvdnav" "" "on" \
+"libdvdplay" "" "on" \
+"libdvdread" "" "on" \
+"libebml" "" "on" \
+"libfame" "" "on" \
+"libiec61883" "" "on" \
+"libmatroska" "" "on" \
+"libmms" "" "on" \
+"libmovtar" "" "on" \
+"libmpcdec" "" "on" \
+"libmusicbrainz" "" "on" \
+"liboil" "" "on" \
+"libquicktime" "" "on" \
+"libraw1394" "" "on" \
+"libsamplerate" "" "on" \
+"libsndfile" "" "on" \
+"libtheora" "" "on" \
+"libvisual" "" "on" \
+"libvisual-plugins" "" "on" \
+"mac" "" "on" \
+"mjpegtools" "" "on" \
+"mpeg2dec" "" "on" \
+"mpeg4ip" "" "on" \
+"opal" "" "on" \
+"openldap" "" "on" \
+"openobex" "" "on" \
+"openslp" "" "on" \
+"polypaudio" "" "on" \
+"poppler" "" "on" \
+"pwlib" "" "on" \
+"swfdec" "" "on" \
+"transcode" "" "on" \
+"xvidcore" "" "on" \
+2> $TMP/SeTpkgs
+if [ $? = 1 -o $? = 255 ]; then
+  rm -f $TMP/SeTpkgs
+  cat /dev/null > $TMP/SeTnewtag
+  for PKG in PyXML a52dec avifile bluez-libs bluez-utils divx4linux faac faad2 ffmpeg frgnome-desktop-reqs heimdal id3lib iso-codes lame libavc1394 libcdaudio libcddb libcdio libdv libdvbpsi4 libdvdcss libdvdnav libdvdplay libdvdread libebml libfame libiec61883 libmatroska libmms libmovtar libmpcdec libmusicbrainz liboil libquicktime libraw1394 libsamplerate libsndfile libtheora libvisual libvisual-plugins mac mjpegtools mpeg2dec mpeg4ip opal openldap openobex openslp polypaudio poppler pwlib swfdec transcode xvidcore ; do 
+    echo "$PKG: SKP" >> $TMP/SeTnewtag
+  done
+  exit
+fi
+cat /dev/null > $TMP/SeTnewtag
+  if grep \"$PKG\" $TMP/SeTpkgs 1> /dev/null 2> /dev/null ; then
+  for PKG in PyXML a52dec avifile bluez-libs bluez-utils divx4linux faac faad2 ffmpeg frgnome-desktop-reqs heimdal id3lib iso-codes lame libavc1394 libcdaudio libcddb libcdio libdv libdvbpsi4 libdvdcss libdvdnav libdvdplay libdvdread libebml libfame libiec61883 libmatroska libmms libmovtar libmpcdec libmusicbrainz liboil libquicktime libraw1394 libsamplerate libsndfile libtheora libvisual libvisual-plugins mac mjpegtools mpeg2dec mpeg4ip opal openldap openobex openslp polypaudio poppler pwlib swfdec transcode xvidcore ; do 
+    echo "$PKG: ADD" >> $TMP/SeTnewtag
+  else
+    echo "$PKG: SKP" >> $TMP/SeTnewtag
+  fi
+done
+rm -f $TMP/SeTpkgs
