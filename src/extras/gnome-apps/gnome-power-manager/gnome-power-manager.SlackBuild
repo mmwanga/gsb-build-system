@@ -7,7 +7,7 @@ PKG=$TMP/package-gnome-power-manager
 
 VERSION=2.14.3
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ -f /var/log/packages/gnome-power-manager-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-power-manager-$VERSION-$ARCH-$BUILD package already installed"
@@ -83,6 +83,11 @@ done
 
 chown -R root.bin $PKG/usr/bin
 chown -R root.bin $PKG/usr/sbin
+
+(
+  cd $PKG/etc/dbus-1/system.d
+  sed -i 's#at_console=\"true\"#group=\"wheel\"#g' gnome-power-manager.conf
+)
 
 mkdir -p $PKG/usr/doc/gnome-power-manager-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \

@@ -6,7 +6,7 @@ PKG=$TMP/package-hal
 
 VERSION=0.5.7
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ -f /var/log/packages/hal-$VERSION-$ARCH-$BUILD ]; then
   echo "hal-$VERSION-$ARCH-$BUILD package already installed"
@@ -48,26 +48,6 @@ cd $TMP
 tar xzvf $CWD/hal-$VERSION.tar.gz
 cd hal-$VERSION
 
-# Apply $ARCH specific patches
-if [ "$ARCH" = "i386" ]; then
-  echo "Applying patches for $ARCH"
-  #cat $CWD/foo.patch | patch -p0 --verbose
-elif [ "$ARCH" = "i486" ]; then
-  echo "Applying patches for $ARCH"
-  #cat $CWD/foo.patch | patch -p0 --verbose
-elif [ "$ARCH" = "s390" ]; then
-  echo "Applying patches for $ARCH"
-  #cat $CWD/foo.patch | patch -p0 --verbose
-elif [ "$ARCH" = "powerpc" ]; then
-  echo "Applying patches for $ARCH"
-  #cat $CWD/foo.patch | patch -p0 --verbose
-elif [ "$ARCH" = "x86_64" ]; then
-  echo "Applying patches for $ARCH"
-  #cat $CWD/foo.patch | patch -p0 --verbose
-fi
-
-cat $CWD/hal-slackware-storage-policy.patch | patch -p1 --verbose
-#cp -f $CWD/DeviceManager.py tools/device-manager
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
@@ -106,6 +86,11 @@ make || exit 1
 make install DESTDIR=$PKG
 
 chown -R root.bin $PKG/usr/bin
+
+(
+  cd $PKG/etc/dbus-1/system.d
+  sed -i 's#at_console=\"true\"#group=\"wheel\"#g' hal.conf
+)
 
 mkdir $PKG/etc/rc.d
 cat $CWD/rc.hal > $PKG/etc/rc.d/rc.hal.new
