@@ -281,6 +281,11 @@ our %desktop_diff_naming =
 
 our %desktop_nongnome =
   (
+   'gnome-mount'  => { 
+                      'ver' => '0.4',
+                      'url' => 'http://people.freedesktop.org/~david/dist/',
+                      'src' => 'tar.gz',
+                     },
    'libgnomesu'   => {
 		      'ver' => '1.0.0',
 		      'url' => 'http://members.chello.nl/~h.lai/libgnomesu/',
@@ -302,7 +307,7 @@ our %bindings_cxx =
   (
    'bakery'            => '2.4.0',
    'gconfmm'           => '2.14.0',
-   'glibmm'            => '2.10.2',
+   'glibmm'            => '2.10.3',
    'gnome-vfsmm'       => '2.14.0',
    'gtkmm'             => '2.8.7',
    'libglademm'        => '2.6.2',

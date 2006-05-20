@@ -1,0 +1,8 @@
+libgnomeui
+hal
+dbus
+gtk+2
+gnome-keyring
+gconf
+libglade
+nautilus

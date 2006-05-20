@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-glibmm
 
-VERSION=2.10.2
+VERSION=2.10.3
 ARCH=${ARCH:-i486}
 BUILD=1
 

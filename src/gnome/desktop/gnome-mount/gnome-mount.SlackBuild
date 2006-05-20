@@ -2,14 +2,14 @@
 
 CWD=`pwd`
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-gnucash
+PKG=$TMP/package-gnome-mount
 
-VERSION=1.9.6
+VERSION=0.4
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
-if [ -f /var/log/packages/gnucash-$VERSION-$ARCH-$BUILD ]; then
-  echo "gnucash-$VERSION-$ARCH-$BUILD package already installed"
+if [ -f /var/log/packages/gnome-mount-$VERSION-$ARCH-$BUILD ]; then
+  echo "gnome-mount-$VERSION-$ARCH-$BUILD package already installed"
   exit 0
 fi
 
@@ -37,8 +37,10 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 cd $TMP
-tar -xzvf $CWD/gnucash-$VERSION.tar.gz
-cd gnucash-$VERSION
+tar -xzvf $CWD/gnome-mount-$VERSION.tar.gz
+cd gnome-mount-$VERSION
+
+cat $CWD/gnome-mount-0.4-hal-mountable.patch | patch -p1 --verbose
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
@@ -63,8 +65,7 @@ CFLAGS="$SLKCFLAGS" \
             --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static \
-            --program-prefix="" \
-            --program-suffix="" \
+            --enable-nautilus-extension \
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 1
 make || exit 1
@@ -85,12 +86,12 @@ done
 
 chown -R root.bin $PKG/usr/bin
 
-rm -f $PKG/usr/info/dir
-
-mkdir -p $PKG/usr/doc
-mv $PKG/usr/share/gnucash/doc $PKG/usr/doc/gnucash-$VERSION
-find $PKG/usr/doc/gnucash-$VERSION/ -type f -exec chmod 644 {} \;
-chown root.root $PKG/usr/doc/gnucash-$VERSION/*
+mkdir -p $PKG/usr/doc/gnome-mount-$VERSION
+cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
+        TODO \
+        $PKG/usr/doc/gnome-mount-$VERSION
+find $PKG/usr/doc/gnome-mount-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/doc/gnome-mount-$VERSION/*
 
 # strip:
 ( cd $PKG
@@ -104,13 +105,12 @@ gzip -9 $PKG/usr/info/*
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc
-cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
-makepkg -l y -c n $TMP/gnucash-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/gnome-mount-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/gnucash-$VERSION
+  rm -rf $TMP/gnome-mount-$VERSION
   rm -rf $PKG
 fi
