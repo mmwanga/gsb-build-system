@@ -6,7 +6,7 @@ PKG=$TMP/package-gnokii
 
 VERSION=0.6.12
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ -f /var/log/packages/gnokii-$VERSION-$ARCH-$BUILD ]; then
   echo "gnokii-$VERSION-$ARCH-$BUILD package already installed"
@@ -68,18 +68,9 @@ CFLAGS="$SLKCFLAGS" \
 make || exit 1
 make install DESTDIR=$PKG
 
-SCHEMAS=$PKG/etc/gconf/schemas
-for i in $SCHEMAS/*.schemas
-do
-GCONF_CONFIG_SOURCE="xml::$PKG/etc/gconf/gconf.xml.defaults" \
-        gconftool-2 --makefile-install-rule $i
-done
-
-(
-  cd $PKG/etc/gconf/gconf.xml.defaults
-  find ./ -type d -exec chmod go+rx {} \;
-  find ./ -type f -exec chmod go+r {} \;
-)
+mkdir -p $PKG/etc
+sed -i -e 's:/usr/local:/usr:' Docs/sample/gnokiirc
+cp Docs/sample/gnokiirc $PKG/etc
 
 chown -R root.bin $PKG/usr/bin
 

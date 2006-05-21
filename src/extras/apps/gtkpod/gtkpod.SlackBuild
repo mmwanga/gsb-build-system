@@ -6,7 +6,7 @@ PKG=$TMP/package-gtkpod
 
 VERSION=0.99.4
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gtkpod-$VERSION-$ARCH-$BUILD ]; then
   echo "gtkpod-$VERSION-$ARCH-$BUILD package already installed"
@@ -70,9 +70,10 @@ mkdir -p $PKG/usr/share/applications
 cp $CWD/gtkpod.desktop $PKG/usr/share/applications
 chmod 644 $PKG/usr/share/applications/gtkpod.desktop
 
-mkdir -p $PKG/usr/share/pixmaps/
-cp $CWD/frg-gtkpod.png $PKG/usr/share/pixmaps/
-chmod 644 $PKG/usr/share/pixmaps/frg-gtkpod.png
+(
+  cd $PKG/usr/share/pixmaps/
+  ln -s ../gtkpod/gtkpod-icon-48x48.png gtkpod.png
+)
 
 chown -R root.bin $PKG/usr/bin
 

@@ -6,7 +6,7 @@ PKG=$TMP/package-avidemux
 
 VERSION=2.1.2
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/avidemux-$VERSION-$ARCH-$BUILD ]; then
   echo "avidemux-$VERSION-$ARCH-$BUILD package already installed"

@@ -6,7 +6,7 @@ PKG=$TMP/package-zapping
 
 VERSION=0.10cvs4
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ -f /var/log/packages/zapping-$VERSION-$ARCH-$BUILD ]; then
   echo "zapping-$VERSION-$ARCH-$BUILD package already installed"
@@ -67,6 +67,13 @@ CFLAGS="$SLKCFLAGS" \
             $ARCH-slackware-linux || exit 1
 make || exit 1
 make install DESTDIR=$PKG
+
+(
+  cd $PKG/usr/share/applications
+  sed -i '#^Icon=#s#zapping\/gnome-television\.png#gnome-television\.png#g' zapping.desktop
+  cd $PKG/usr/share/pixmaps
+  ln -s zapping/gnome-television.png .
+)
 
 SCHEMAS=$PKG/etc/gconf/schemas
 for i in $SCHEMAS/*.schemas
