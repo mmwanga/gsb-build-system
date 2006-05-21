@@ -6,7 +6,7 @@ PKG=$TMP/package-bluez-utils
 
 VERSION=2.25
 ARCH=${ARCH:-i486}
-BUILD=4
+BUILD=5
 
 if [ -f /var/log/packages/bluez-utils-$VERSION-$ARCH-$BUILD ]; then
   echo "bluez-utils-$VERSION-$ARCH-$BUILD package already installed"
@@ -81,6 +81,7 @@ chown -R root.bin $PKG/usr/bin $PKG/usr/sbin
 (
   mkdir -p $PKG/etc/rc.d
   sed -i 's#init\.d#rc\.d#g' scripts/bluetooth.init
+  sed -i 's#^exit 0$##g' scripts/bluetooth.init
   cp scripts/bluetooth.init $PKG/etc/rc.d/rc.bluetooth.new
 )
 
