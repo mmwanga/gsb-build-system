@@ -1,1 +1,1 @@
-usr/bin/guile -c "(use-modules (ice-9 slib)) (require 'new-catalog)" "/"
+usr/bin/guile -c "(use-modules (ice-9 slib)) (require 'new-catalog)" "/${ROOT}"

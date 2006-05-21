@@ -6,7 +6,7 @@ PKG=$TMP/package-gnucash
 
 VERSION=1.9.6
 ARCH=${ARCH:-i486}
-BUILD=3
+BUILD=4
 
 if [ -f /var/log/packages/gnucash-$VERSION-$ARCH-$BUILD ]; then
   echo "gnucash-$VERSION-$ARCH-$BUILD package already installed"
@@ -72,7 +72,7 @@ make install DESTDIR=$PKG
 
 (
   cd $PKG/usr/share/applications
-  sed -i '#^Icon=#s#gnucash\/gnucash-icon\.png#gnucash-icon\.png#g' gnucash.desktop
+  sed -i '/^Icon=/s#gnucash\/gnucash-icon\.png#gnucash-icon\.png#g' gnucash.desktop
   cd $PKG/usr/share/pixmaps
   ln -s ../gnucash/pixmaps/gnucash-icon.png .
 )

@@ -6,7 +6,7 @@ PKG=$TMP/package-zapping
 
 VERSION=0.10cvs4
 ARCH=${ARCH:-i486}
-BUILD=3
+BUILD=4
 
 if [ -f /var/log/packages/zapping-$VERSION-$ARCH-$BUILD ]; then
   echo "zapping-$VERSION-$ARCH-$BUILD package already installed"
@@ -70,7 +70,7 @@ make install DESTDIR=$PKG
 
 (
   cd $PKG/usr/share/applications
-  sed -i '#^Icon=#s#zapping\/gnome-television\.png#gnome-television\.png#g' zapping.desktop
+  sed -i '/^Icon=/s#zapping/gnome-television\.png#gnome-television.png#g' zapping.desktop
   cd $PKG/usr/share/pixmaps
   ln -s zapping/gnome-television.png .
 )
