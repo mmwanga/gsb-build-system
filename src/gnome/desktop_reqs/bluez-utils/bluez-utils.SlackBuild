@@ -87,7 +87,7 @@ chown -R root.bin $PKG/usr/bin $PKG/usr/sbin
 
 (
   cd $PKG/etc/dbus-1/system.d
-  sed -i 's#at_console=\"true\"#group=\"wheel\"#g' bluez-hcid.conf
+  sed -i 's#at_console=\"true\"#group=\"console\"#g' bluez-hcid.conf
 )
 
 mkdir -p $PKG/usr/doc/bluez-utils-$VERSION

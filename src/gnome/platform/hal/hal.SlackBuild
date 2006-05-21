@@ -6,7 +6,7 @@ PKG=$TMP/package-hal
 
 VERSION=0.5.7
 ARCH=${ARCH:-i486}
-BUILD=3
+BUILD=4
 
 if [ -f /var/log/packages/hal-$VERSION-$ARCH-$BUILD ]; then
   echo "hal-$VERSION-$ARCH-$BUILD package already installed"
@@ -89,7 +89,7 @@ chown -R root.bin $PKG/usr/bin
 
 (
   cd $PKG/etc/dbus-1/system.d
-  sed -i 's#at_console=\"true\"#group=\"wheel\"#g' hal.conf
+  sed -i 's#at_console=\"true\"#group=\"console\"#g' hal.conf
 )
 
 mkdir $PKG/etc/rc.d
