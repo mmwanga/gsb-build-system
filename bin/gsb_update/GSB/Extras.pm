@@ -401,7 +401,7 @@ our %extras_apps =
 our %extras_apps_gnome =
   (
    'ghex'                => '2.8.2',
-   'gossip'              => '0.11',
+   'gossip'              => '0.11.1',
   );
 
 
@@ -439,7 +439,7 @@ our %extras_applets =
 our %extras_applets_gnome =
   (
    'quick-lounge-applet'      => '2.12.1',
-   'fast-user-switch-applet'  => '2.14.1',
+   'fast-user-switch-applet'  => '2.14.2',
    'deskbar-applet'           => '2.14.1.1',
   );
 

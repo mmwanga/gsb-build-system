@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gdm
 
-VERSION=2.14.6
+VERSION=2.14.7
 ARCH=${ARCH:-i486}
 BUILD=1
 
