@@ -1,5 +1,5 @@
      |-----handy-ruler------------------------------------------------------|
-gconf: gconf
+gconf: gconf (Configuration Database)
 gconf:
 gconf: GConf is the GNOME Configuration database system.
 gconf:

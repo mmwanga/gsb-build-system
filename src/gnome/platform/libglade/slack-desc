@@ -1,5 +1,5 @@
         |-----handy-ruler------------------------------------------------------|
-libglade: libglade
+libglade: libglade (UI Library)
 libglade:
 libglade: The GLADE library allows loading user interfaces which are stored
 libglade: externally into a program.  This allows the interface to be changed

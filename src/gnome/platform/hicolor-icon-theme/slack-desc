@@ -1,5 +1,5 @@
 		  |-----handy-ruler------------------------------------------------------|
-hicolor-icon-theme: hicolor-icon-theme 
+hicolor-icon-theme: hicolor-icon-theme (shared hicolor icon theme)
 hicolor-icon-theme:
 hicolor-icon-theme: The freedesktop.org project provides a shared high-color desktop icon 
 hicolor-icon-theme: theme shell for use under both KDE and GNOME desktops.

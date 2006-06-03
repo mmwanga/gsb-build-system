@@ -1,5 +1,5 @@
      |-----handy-ruler------------------------------------------------------|
-Pyrex: Pyrex
+Pyrex: Pyrex (C Python Extensions)
 Pyrex:
 Pyrex: Pyrex lets you write code that mixes Python and C data types any way
 Pyrex: you want, and compiles it into a C extension for Python. 

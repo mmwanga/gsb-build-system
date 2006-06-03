@@ -1,5 +1,5 @@
    |-----handy-ruler------------------------------------------------------|
-atk: atk
+atk: atk (accessability library)
 atk:
 atk: atk is a library of accessability functions used by GNOME.
 atk:

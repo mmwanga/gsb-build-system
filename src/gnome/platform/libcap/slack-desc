@@ -1,5 +1,5 @@
       |-----handy-ruler------------------------------------------------------|
-libcap: libcap 
+libcap: libcap (linux capabilities) 
 libcap:
 libcap: Linux Capabilities
 libcap:

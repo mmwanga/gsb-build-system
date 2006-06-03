@@ -1,5 +1,5 @@
 	          |-----handy-ruler------------------------------------------------------|
-desktop-file-utils: desktop-file-utils
+desktop-file-utils: desktop-file-utils (desktop file entry utilities)
 desktop-file-utils:
 desktop-file-utils: Command-line utilities for working with desktop file entries 
 desktop-file-utils:

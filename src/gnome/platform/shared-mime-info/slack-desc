@@ -1,5 +1,5 @@
 		|-----handy-ruler------------------------------------------------------|
-shared-mime-info: shared-mime-info 
+shared-mime-info: shared-mime-info (common mime types)
 shared-mime-info:
 shared-mime-info: This package contains the core database of common types and the
 shared-mime-info: update-mime-database command used to extend it. It requires glib2 to

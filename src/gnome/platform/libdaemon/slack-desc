@@ -1,5 +1,5 @@
          |-----handy-ruler------------------------------------------------------|
-libdaemon: libdaemon
+libdaemon: libdaemon (UNIX daemon library)
 libdaemon:
 libdaemon: libdaemon is a lightweight C library that eases the writing of
 libdaemon: UNIX daemons.

@@ -1,5 +1,5 @@
       |-----handy-ruler------------------------------------------------------|
-orbit2: orbit2
+orbit2: orbit2 (CORBA ORB library)
 orbit2:
 orbit2: ORBit is a high-performance CORBA (Common Object Request Broker
 orbit2: Architecture) ORB (object request broker).  It allows programs to

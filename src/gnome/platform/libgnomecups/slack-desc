@@ -1,5 +1,5 @@
             |-----handy-ruler------------------------------------------------------|
-libgnomecups: libgnomecups 
+libgnomecups: libgnomecups (CUPS GNOME library)
 libgnomecups:
 libgnomecups: GNOME library for CUPS integration
 libgnomecups:

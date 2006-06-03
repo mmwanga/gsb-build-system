@@ -1,5 +1,5 @@
      |-----handy-ruler------------------------------------------------------|
-cairo: cairo
+cairo: cairo (Vector Graphics Library)
 cairo:
 cairo: Cairo is a vector graphics library designed to provide high-quality
 cairo: display and print output.

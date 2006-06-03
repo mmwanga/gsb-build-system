@@ -1,5 +1,5 @@
       |-----handy-ruler------------------------------------------------------|
-libsvg: libsvg
+libsvg: libsvg (SVG parser)
 libsvg:
 libsvg: A parser for SVG content in files or buffers.
 libsvg:

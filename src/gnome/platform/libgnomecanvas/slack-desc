@@ -1,5 +1,5 @@
               |-----handy-ruler------------------------------------------------------|
-libgnomecanvas: libgnomecanvas
+libgnomecanvas: libgnomecanvas (GNOME Canvas Library)
 libgnomecanvas:
 libgnomecanvas: This is the GNOME Canvas Library.
 libgnomecanvas:

@@ -1,5 +1,5 @@
          |-----handy-ruler------------------------------------------------------|
-libbonobo: libbonobo
+libbonobo: libbonobo (CORBA Interface)
 libbonobo:
 libbonobo: The bonobo library supports independant CORBA interfaces for creating
 libbonobo: reusable components.  It provides GNOME with a framework for handling

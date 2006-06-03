@@ -1,5 +1,5 @@
      |-----handy-ruler------------------------------------------------------|
-pygtk: pygtk 
+pygtk: pygtk (Python GTK+ Bindings)
 pygtk:
 pygtk: Python Bindings for the GTK Widget Set.
 pygtk:

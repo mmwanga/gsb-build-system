@@ -1,5 +1,5 @@
        |-----handy-ruler------------------------------------------------------|
-pycairo: pycairo
+pycairo: pycairo (Cairo Python Bindings)
 pycairo:
 pycairo: Python Bindings for Cairo
 pycairo:

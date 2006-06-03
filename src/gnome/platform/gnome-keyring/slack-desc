@@ -1,6 +1,6 @@
 
 	     |-----handy-ruler------------------------------------------------------|
-gnome-keyring: gnome-keyring 
+gnome-keyring: gnome-keyring (Password Manager)
 gnome-keyring:
 gnome-keyring: Gnome Keyring is a program that keeps password and other secrets for
 gnome-keyring: users. It is run as a deamon in the session, similar to ssh-agent,

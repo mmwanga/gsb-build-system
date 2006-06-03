@@ -1,5 +1,5 @@
      |-----handy-ruler------------------------------------------------------|
-glitz: glitz
+glitz: glitz (OpenGL Composting Library)
 glitz:
 glitz: Glitz is an OpenGL image compositing library. Glitz provides
 glitz: Porter/Duff compositing of images and implicit mask generation for

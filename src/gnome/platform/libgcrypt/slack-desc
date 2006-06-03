@@ -1,5 +1,5 @@
          |-----handy-ruler------------------------------------------------------|
-libgcrypt: libgcrypt
+libgcrypt: libgcrypt (Crypto library)
 libgcrypt:
 libgcrypt: This is a general purpose cryptographic library based on the code
 libgcrypt: from GnuPG. It provides functions for all cryptograhic building

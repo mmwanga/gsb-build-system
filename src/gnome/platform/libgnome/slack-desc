@@ -1,5 +1,5 @@
         |-----handy-ruler------------------------------------------------------|
-libgnome: libgnome
+libgnome: libgnome (Misc GNOME Library)
 libgnome:
 libgnome: Libraries needed for GNOME.
 libgnome:
