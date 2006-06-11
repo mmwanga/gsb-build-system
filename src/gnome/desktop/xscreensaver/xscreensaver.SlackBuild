@@ -4,7 +4,7 @@ TMP=${TMP:-/tmp}
 PKG=$TMP/package-xscreensaver
 CWD=`pwd` 
 
-VERSION=4.24
+VERSION=5.00
 ARCH=${ARCH:-i486}
 BUILD=1
 

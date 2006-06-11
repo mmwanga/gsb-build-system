@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gstreamer10
 
-VERSION=0.10.6
+VERSION=0.10.8
 ARCH=${ARCH:-i486}
 BUILD=1
 

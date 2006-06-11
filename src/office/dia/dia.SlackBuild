@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-dia
 
-VERSION=0.95-1
+VERSION=0.95
 PVERSION=`echo $VERSION| sed 's/-/_/'`
 ARCH=${ARCH:-i486}
 BUILD=1

@@ -199,7 +199,7 @@ our %extras_gnome_apps =
    'gnome-phone-manager' => '0.7',
    'gnome-power-manager' => '2.14.3',
    'gthumb'              => '2.7.7',
-   'meld'                => '1.1.3',
+   'meld'                => '1.1.4',
    'pessulus'            => '0.10.1',
    'rhythmbox'           => '0.9.4.1',
    'sabayon'             => '2.12.3',
@@ -401,7 +401,7 @@ our %extras_apps =
 our %extras_apps_gnome =
   (
    'ghex'                => '2.8.2',
-   'gossip'              => '0.11.1',
+   'gossip'              => '0.11.2',
   );
 
 

@@ -41,7 +41,7 @@ our %gst_diff_name =
   (
    'gstreamer10'       => {
                            'name' => 'gstreamer',
-                           'ver'  => '0.10.6',
+                           'ver'  => '0.10.8',
                            'url'  => 'http://gstreamer.freedesktop.org/src/gstreamer/',
                            'src'  => 'tar.bz2',
                           },

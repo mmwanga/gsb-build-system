@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-ekiga
 
-VERSION=2.0.1
+VERSION=2.0.2
 ARCH=${ARCH:-i486}
-BUILD=5
+BUILD=1
 
 if [ -f /var/log/packages/ekiga-$VERSION-$ARCH-$BUILD ]; then
   echo "ekiga-$VERSION-$ARCH-$BUILD package already installed"

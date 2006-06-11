@@ -118,7 +118,7 @@ our %office_gnome_libs =
 our %office_gnome =
   (
    'gnumeric'  => '1.6.3',
-   'dia'       => '0.95-1',
+   'dia'       => '0.95',
    'glom'      => '1.0.4',
    'mergeant'  => '0.62',
    'planner'   => '0.13',
