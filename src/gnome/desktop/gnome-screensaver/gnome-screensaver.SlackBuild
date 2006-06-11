@@ -63,6 +63,9 @@ CFLAGS="$SLKCFLAGS" \
             --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static \
+            --enable-locking \
+            --with-xscreensaverdir=usr/X11R6/share/xscreensaver/ \
+            --with-xscreensaverhackdir=usr/X11R6/libexec/xscreensaver/ \
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 1
 make || exit 1

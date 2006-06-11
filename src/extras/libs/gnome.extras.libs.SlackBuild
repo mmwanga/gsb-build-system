@@ -39,6 +39,7 @@ zvbi
 libetpan
 gnonlin
 slib
+gnome-common
 "
 
 mkdir -p $TMP/gnome-$GVERSION/extras/libs
