@@ -1,5 +1,5 @@
       |-----handy-ruler------------------------------------------------------|
-ffmpeg: ffmpeg 
+ffmpeg: ffmpeg (Record, convert, and stream audio and video)
 ffmpeg:
 ffmpeg: FFmpeg is a complete solution to record, convert and stream audio 
 ffmpeg: and video.

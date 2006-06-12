@@ -1,5 +1,5 @@
    |-----handy-ruler------------------------------------------------------|
-vte: vte
+vte: vte (Terminal Emulator Widget)
 vte:
 vte: VTE is a library (libvte) which implements a terminal emulator widget
 vte: for GTK+. 

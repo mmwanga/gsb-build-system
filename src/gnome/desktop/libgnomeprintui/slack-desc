@@ -1,5 +1,5 @@
                |-----handy-ruler------------------------------------------------------|
-libgnomeprintui: libgnomeprintui
+libgnomeprintui: libgnomeprintui (GUI printing library)
 libgnomeprintui:
 libgnomeprintui: libgnomeprintui is the GUI part of the printing libraries for GNOME
 libgnomeprintui: applications.

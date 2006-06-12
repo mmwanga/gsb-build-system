@@ -1,5 +1,5 @@
 	   |-----handy-ruler------------------------------------------------------|
-libgtk-java: libgtk-java
+libgtk-java: libgtk-java (gtk+ java bindings)
 libgtk-java:
 libgtk-java:
 libgtk-java: Java(tm) bindings for gtk

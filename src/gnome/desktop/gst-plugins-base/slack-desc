@@ -1,7 +1,7 @@
-|-----handy-ruler------------------------------------------------------|
-gst-plugins-base: gst-plugins-base
+                |-----handy-ruler------------------------------------------------------|
+gst-plugins-base: gst-plugins-base (GStreamer Plugins)
 gst-plugins-base:
-gst-plugins-base:
+gst-plugins-base: Base plugins for GStreamer
 gst-plugins-base:
 gst-plugins-base:
 gst-plugins-base:

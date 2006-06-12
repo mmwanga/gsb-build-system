@@ -1,5 +1,5 @@
                 |-----handy-ruler------------------------------------------------------|
-gnome-user-docs: gnome-user-docs
+gnome-user-docs: gnome-user-docs (GNOME User Guide)
 gnome-user-docs:
 gnome-user-docs: This package contains the GNOME User's Guide and other general GNOME
 gnome-user-docs: documentation.

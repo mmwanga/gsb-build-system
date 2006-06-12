@@ -1,5 +1,5 @@
 	|-----handy-ruler------------------------------------------------------|
-libxml++: libxml++
+libxml++: libxml++ (C++ wrapper for libxml2)
 libxml++:
 libxml++: libxml++ is a C++ wrapper for the libxml XML parser library.
 libxml++:

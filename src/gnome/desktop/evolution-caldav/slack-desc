@@ -1,5 +1,5 @@
                 |-----handy-ruler------------------------------------------------------|
-evolution-caldav: evolution-caldav
+evolution-caldav: evolution-caldav (Caldav plugin for Evolution)
 evolution-caldav:
 evolution-caldav: CalDAV provider for evoltuon
 evolution-caldav:

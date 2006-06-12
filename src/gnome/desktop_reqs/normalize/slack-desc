@@ -1,5 +1,5 @@
          |-----handy-ruler------------------------------------------------------|
-normalize: normalize 
+normalize: normalize (adjust volume of audio files)
 normalize: 
 normalize: normalize is a tool for adjusting the volume of audio files to a  
 normalize: standard level. This is useful for things like creating mixed CD's

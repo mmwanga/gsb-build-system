@@ -1,5 +1,5 @@
     |-----handy-ruler------------------------------------------------------|
-Glib: Glib
+Glib: Glib (glib2 perl bindings)
 Glib:
 Glib: Perl wrappers for the GLib utility and Object libraries
 Glib:

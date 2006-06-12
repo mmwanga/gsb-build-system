@@ -1,5 +1,5 @@
        |-----handy-ruler------------------------------------------------------|
-libcddb: libcddb 
+libcddb: libcddb (Access CDDB data on servers)
 libcddb:
 libcddb: Libcddb is a C library to access data on a CDDB server
 libcddb:

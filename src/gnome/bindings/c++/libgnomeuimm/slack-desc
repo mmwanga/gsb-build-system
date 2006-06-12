@@ -1,5 +1,5 @@
 	    |-----handy-ruler------------------------------------------------------|
-libgnomeuimm: libgnomeuimm
+libgnomeuimm: libgnomeuimm (libgnomeui c++ bindings)
 libgnomeuimm:
 libgnomeuimm: C++ bindings for libgnomeui
 libgnomeuimm:

@@ -1,6 +1,5 @@
-
     |-----handy-ruler------------------------------------------------------|
-gpdf: gpdf 
+gpdf: gpdf (GNOME PDF Viewer)
 gpdf:
 gpdf: GNOME pdf viewer
 gpdf:

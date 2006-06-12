@@ -1,5 +1,5 @@
     |-----handy-ruler------------------------------------------------------|
-gob2: gob2 - GObject Builder
+gob2: gob2 - GObject Builder (GObject PreProcessor)
 gob2:
 gob2: GOB (GOB2 anyway) is a preprocessor for making GObjects with inline
 gob2: C code

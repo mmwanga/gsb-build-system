@@ -1,7 +1,7 @@
 	  |-----handy-ruler------------------------------------------------------|
-polypaudio: polypaudio
+polypaudio: polypaudio (sound server)
 polypaudio:
-polypaudio: olypaudio is a sound server for Linux and other Unix like operating
+polypaudio: polypaudio is a sound server for Linux and other Unix like operating
 polypaudio: systems.
 polypaudio:
 polypaudio:

@@ -1,5 +1,5 @@
     |-----handy-ruler------------------------------------------------------|
-neon: neon
+neon: neon (WebDAV client library)
 neon:
 neon: HTTP and WebDAV client library.
 neon:

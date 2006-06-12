@@ -1,5 +1,5 @@
            |-----handy-ruler------------------------------------------------------|
-gtk-engines: gtk-engines (GTK+ themes)
+gtk-engines: gtk-engines (GTK+ theme engines)
 gtk-engines:
 gtk-engines: This package provides theme engines for GTK+:
 gtk-engines:

@@ -1,5 +1,5 @@
 	 |-----handy-ruler------------------------------------------------------|
-libdvdnav: libdvdnav
+libdvdnav: libdvdnav (DVD library)
 libdvdnav:
 libdvdnav: libdvdnav is a library for developers of multimedia applications. It
 libdvdnav: allows easy use of sophisticated DVD navigation features such as DVD

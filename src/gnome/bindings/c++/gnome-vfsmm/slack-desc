@@ -1,5 +1,5 @@
 	   |-----handy-ruler------------------------------------------------------|
-gnome-vfsmm: gnome-vfsmm
+gnome-vfsmm: gnome-vfsmm (GNOME vfs c++ bindings)
 gnome-vfsmm:
 gnome-vfsmm: C++ bindings for gnome-vfs
 gnome-vfsmm:

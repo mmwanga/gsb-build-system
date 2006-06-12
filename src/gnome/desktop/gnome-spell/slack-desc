@@ -1,5 +1,5 @@
            |-----handy-ruler------------------------------------------------------|
-gnome-spell: gnome-spell 
+gnome-spell: gnome-spell (spell checking library)
 gnome-spell:
 gnome-spell: Gnome Spell is GNOME/Bonobo component for spell checking.
 gnome-spell:

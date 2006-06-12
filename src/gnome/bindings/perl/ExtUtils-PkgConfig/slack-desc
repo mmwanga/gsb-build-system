@@ -1,5 +1,5 @@
 		  |-----handy-ruler------------------------------------------------------|
-ExtUtils-PkgConfig: ExtUtils-PkgConfig
+ExtUtils-PkgConfig: ExtUtils-PkgConfig (pkg-config perl bindings)
 ExtUtils-PkgConfig:
 ExtUtils-PkgConfig: simplistic interface to pkg-config
 ExtUtils-PkgConfig:

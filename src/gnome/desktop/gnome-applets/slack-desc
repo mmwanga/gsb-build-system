@@ -1,5 +1,5 @@
              |-----handy-ruler------------------------------------------------------|
-gnome-applets: gnome-applets
+gnome-applets: gnome-applets (Applets for GNOME)
 gnome-applets:
 gnome-applets: This package contains applets for use with the GNOME panel.
 gnome-applets:

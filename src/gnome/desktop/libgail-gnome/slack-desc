@@ -1,5 +1,5 @@
              |-----handy-ruler------------------------------------------------------|
-libgail-gnome: libgail-gnome
+libgail-gnome: libgail-gnome (GNOME Accessibility Interface)
 libgail-gnome:
 libgail-gnome: The GNOME Accessibility Interface library.
 libgail-gnome: For more information about accessibility in GNOME, see:

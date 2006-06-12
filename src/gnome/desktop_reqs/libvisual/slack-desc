@@ -1,5 +1,5 @@
 	 |-----handy-ruler------------------------------------------------------|
-libvisual: libvisual
+libvisual: libvisual (Visualation library)
 libvisual:
 libvisual: Libvisual is an abstraction library that comes between applications
 libvisual: and audio visualisation pluginS.

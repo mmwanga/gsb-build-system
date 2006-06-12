@@ -1,5 +1,5 @@
          |-----handy-ruler------------------------------------------------------|
-libmovtar: libmovtar 
+libmovtar: libmovtar (Tools for Movtar video files)
 libmovtar:
 libmovtar: Support library & tools for the movtar video format
 libmovtar:

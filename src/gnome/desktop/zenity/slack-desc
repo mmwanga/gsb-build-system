@@ -1,6 +1,5 @@
-
       |-----handy-ruler------------------------------------------------------|
-zenity: zenity 
+zenity: zenity (GTK+ dialogs)
 zenity:
 zenity: Displays GTK+ dialogs
 zenity:

@@ -1,5 +1,5 @@
        |-----handy-ruler------------------------------------------------------|
-heimdal: heimdal
+heimdal: heimdal (Kerberos Implementation)
 heimdal:
 heimdal: Heimdal is a freely available implementation of the Kerberos V
 heimdal: protocol.

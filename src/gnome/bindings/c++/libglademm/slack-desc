@@ -1,5 +1,5 @@
 	  |-----handy-ruler------------------------------------------------------|
-libglademm: libglademm
+libglademm: libglademm (Glade c++ bindings)
 libglademm:
 libglademm: C++ bindings for libglade
 libglademm:

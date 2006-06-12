@@ -1,5 +1,5 @@
 	 |-----handy-ruler------------------------------------------------------|
-libtheora: libtheora 
+libtheora: libtheora (Video codec for use within OGG container)
 libtheora:
 libtheora: Theora - video codec intended for use within Ogg multimedia streaming
 libtheora: system.

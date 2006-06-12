@@ -1,5 +1,5 @@
       |-----handy-ruler------------------------------------------------------|
-bakery: bakery
+bakery: bakery (c++ framework for GNOME)
 bakery:
 bakery: Bakery is a C++ Framework for creating  GNOME applications using
 bakery: gtkmm.

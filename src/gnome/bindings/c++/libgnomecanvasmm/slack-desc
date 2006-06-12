@@ -1,5 +1,5 @@
 		|-----handy-ruler------------------------------------------------------|
-libgnomecanvasmm: libgnomecanvasmm
+libgnomecanvasmm: libgnomecanvasmm (libgnomecanvas c++ bindings) 
 libgnomecanvasmm:
 libgnomecanvasmm: C++ bindings for libgnomecanvas
 libgnomecanvasmm:

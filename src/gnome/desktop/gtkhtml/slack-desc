@@ -1,5 +1,5 @@
        |-----handy-ruler------------------------------------------------------|
-gtkhtml: gtkhtml 
+gtkhtml: gtkhtml (lightweight HTML rendering engine)
 gtkhtml:
 gtkhtml: GtkHTML is a lightweight HTML rendering/printing/editing engine. It 
 gtkhtml: was originally based on KHTMLW, part of the KDE project, but is now

@@ -1,5 +1,5 @@
         |-----handy-ruler------------------------------------------------------|
-openobex: openobex
+openobex: openobex (Object Exchange Protocol)
 openobex:
 openobex: The OpenOBEX project provides an open source implementation of the
 openobex: Object Exchange (OBEX) protocol.

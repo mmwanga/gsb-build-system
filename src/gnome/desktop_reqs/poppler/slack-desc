@@ -1,5 +1,5 @@
        |-----handy-ruler------------------------------------------------------|
-poppler: poppler
+poppler: poppler (PDF Rendering Library)
 poppler:
 poppler: Poppler is a PDF rendering library based on the xpdf-3.0 code base.
 poppler:

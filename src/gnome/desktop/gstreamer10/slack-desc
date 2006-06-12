@@ -1,5 +1,5 @@
            |-----handy-ruler------------------------------------------------------|
-gstreamer10: GStreamer 10 (Parallel installable with GStreamer 8)
+gstreamer10: GStreamer (multimedia framework)
 gstreamer10:
 gstreamer10: GStreamer is a library that allows the construction of graphs of
 gstreamer10: media-handling components, ranging from simple Ogg/Vorbis playback

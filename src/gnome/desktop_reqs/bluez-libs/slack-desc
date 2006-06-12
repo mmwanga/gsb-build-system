@@ -1,5 +1,5 @@
           |-----handy-ruler------------------------------------------------------|
-bluez-libs: bluez-libs
+bluez-libs: bluez-libs (linux bluetooth userspace libraries)
 bluez-libs:
 bluez-libs: Linux Bluetooth Userspace Libraries
 bluez-libs:

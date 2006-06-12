@@ -1,5 +1,5 @@
        |-----handy-ruler------------------------------------------------------|
-libsoup: libsoup 
+libsoup: libsoup (HTTP library)
 libsoup:
 libsoup: Libsoup is an HTTP library implementation in C.
 libsoup:

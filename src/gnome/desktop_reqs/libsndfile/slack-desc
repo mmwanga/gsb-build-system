@@ -1,5 +1,5 @@
           |-----handy-ruler------------------------------------------------------|
-libsndfile: libsndfile 
+libsndfile: libsndfile (Read/Write files containing sampled sound)
 libsndfile: 
 libsndfile: Libsndfile is a C library for reading and writing files 
 libsndfile: containing sampled sound 

@@ -1,5 +1,5 @@
             |-----handy-ruler------------------------------------------------------|
-gconf-editor: gconf-editor
+gconf-editor: gconf-editor (GConf database editor)
 gconf-editor:
 gconf-editor: A GNOME utility for manually editing the GConf configuration
 gconf-editor: database.

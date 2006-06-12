@@ -1,7 +1,7 @@
            |-----handy-ruler------------------------------------------------------|
-gnome-mount: gnome-mount
+gnome-mount: gnome-mount (mount/unmount disks)
 gnome-mount:
-gnome-mount: GNOME wrapper for Wrapper for (un)mounting and ejecting disks
+gnome-mount: GNOME wrapper for (un)mounting and ejecting disks
 gnome-mount:
 gnome-mount:
 gnome-mount:

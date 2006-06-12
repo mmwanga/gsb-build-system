@@ -1,7 +1,7 @@
 		   |-----handy-ruler------------------------------------------------------|
-gnome-python-extras: gnome-python-extras
+gnome-python-extras: gnome-python-extras (misc GNOME python bindings)
 gnome-python-extras:
-gnome-python-extras:
+gnome-python-extras: Extra Python bindings for GNOME
 gnome-python-extras:
 gnome-python-extras:
 gnome-python-extras:

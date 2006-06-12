@@ -1,5 +1,5 @@
           |-----handy-ruler------------------------------------------------------|
-gst-python: gst-python
+gst-python: gst-python (GStreamer python bindings)
 gst-python:
 gst-python: Python Bindings for GStreamer
 gst-python:

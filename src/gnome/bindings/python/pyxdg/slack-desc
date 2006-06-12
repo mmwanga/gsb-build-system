@@ -1,5 +1,5 @@
      |-----handy-ruler------------------------------------------------------|
-pyxdg: pyxdg
+pyxdg: pyxdg (freedesktop.org spec python bindings)
 pyxdg:
 pyxdg: PyXDG is a python library to access freedesktop.org standards.
 pyxdg: Currently supported are:

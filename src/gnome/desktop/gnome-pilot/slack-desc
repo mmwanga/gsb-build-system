@@ -1,5 +1,5 @@
            |-----handy-ruler------------------------------------------------------|
-gnome-pilot: gnome-pilot 
+gnome-pilot: gnome-pilot (PDA utilities)
 gnome-pilot:
 gnome-pilot: Gnome-Pilot is a package with a daemon (gpilotd) that monitor for
 gnome-pilot: pilot connects on one or more devices (cradles/XCopilots/xxx). It has
