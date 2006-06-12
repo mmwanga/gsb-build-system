@@ -1,5 +1,5 @@
      |-----handy-ruler------------------------------------------------------|
-glade: glade
+glade: glade (interface designer)
 glade:
 glade: Glade is a GUI builder for GTK+ that quick & easy development of user
 glade: interfaces for the GTK+ toolkit and the Gnome desktop environment. It

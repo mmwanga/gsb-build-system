@@ -1,5 +1,5 @@
    |-----handy-ruler------------------------------------------------------|
-gdl: gdl - Gnome Devtool Libraries
+gdl: gdl - (Gnome Devtool Libraries)
 gdl:
 gdl: components and libraries that are intended to be shared between GNOME
 gdl: development tools, including gnome-debug, gnome-build, and anjuta2.

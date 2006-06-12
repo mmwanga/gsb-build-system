@@ -1,5 +1,5 @@
       |-----handy-ruler------------------------------------------------------|
-dvgrab: dvgrab 
+dvgrab: dvgrab (grab video from DV cameras)
 dvgrab:
 dvgrab: Utility to get video from a DV camera
 dvgrab:

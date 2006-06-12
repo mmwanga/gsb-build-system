@@ -1,7 +1,7 @@
-|-----handy-ruler------------------------------------------------------|
-fast-user-switch-applet: fast-user-switch-applet
+                       |-----handy-ruler------------------------------------------------------|
+fast-user-switch-applet: fast-user-switch-applet (switch logged in users)
 fast-user-switch-applet:
-fast-user-switch-applet:
+fast-user-switch-applet: switch users via GDM
 fast-user-switch-applet:
 fast-user-switch-applet:
 fast-user-switch-applet:

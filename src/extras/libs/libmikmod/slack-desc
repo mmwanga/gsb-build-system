@@ -1,5 +1,5 @@
          |-----handy-ruler------------------------------------------------------|
-libmikmod: libmikmod
+libmikmod: libmikmod (portable sound library)
 libmikmod:
 libmikmod: This is libmikmod, a portable sound library.  This is used by XMMS
 libmikmod: to support some uncommon sound formats.

@@ -1,5 +1,5 @@
        |-----handy-ruler------------------------------------------------------|
-gphoto2: gphoto2 
+gphoto2: gphoto2 (CLI interface to libgphoto2)
 gphoto2:
 gphoto2: gphoto2 is the command line interface to libgphoto2. It allows 
 gphoto2: almost everything that libgphoto2 can do.

@@ -1,5 +1,5 @@
 	|-----handy-ruler------------------------------------------------------|
-pstoedit: pstoedit
+pstoedit: pstoedit (translate ps and pdf file into vector formats)
 pstoedit:
 pstoedit: pstoedit translates PostScript and PDF graphics into other vector
 pstoedit: formats.

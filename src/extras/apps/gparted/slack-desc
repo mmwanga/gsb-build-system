@@ -1,5 +1,5 @@
        |-----handy-ruler------------------------------------------------------|
-gparted: gparted
+gparted: gparted (parted frontend)
 gparted:
 gparted: GNOME frontend to parted partitioner.
 gparted:

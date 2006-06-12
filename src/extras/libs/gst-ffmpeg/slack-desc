@@ -1,5 +1,5 @@
 	  |-----handy-ruler------------------------------------------------------|
-gst-ffmpeg: gst-ffmpeg
+gst-ffmpeg: gst-ffmpeg (GStreamer FFmpeg plugin)
 gst-ffmpeg:
 gst-ffmpeg: FFmpeg plugin for gstreamer.
 gst-ffmpeg:

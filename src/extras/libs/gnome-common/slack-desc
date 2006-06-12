@@ -1,5 +1,5 @@
             |-----handy-ruler------------------------------------------------------|
-gnome-common: gnome-common
+gnome-common: gnome-common (bootstrap GNOME cvs code)
 gnome-common:
 gnome-common: Contains files required to bootstrap various Gnome modules when
 gnome-common: building from CVS.

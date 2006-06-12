@@ -1,5 +1,5 @@
   |-----handy-ruler------------------------------------------------------|
-gc: gc 
+gc: gc (garbage collector)
 gc:
 gc: The Boehm-Demers-Weiser conservative garbage collector can be used as
 gc: a garbage collecting replacement for C malloc or C++ new. It allows

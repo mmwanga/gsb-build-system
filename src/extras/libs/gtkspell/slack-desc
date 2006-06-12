@@ -1,5 +1,5 @@
 	|-----handy-ruler------------------------------------------------------|
-gtkspell: gtkspell 
+gtkspell: gtkspell (GTK spelling widgets)
 gtkspell:
 gtkspell: GtkSpell provides word-processor-style highlighting and replacement of
 gtkspell: misspelled words in a GtkTextView widget. Right-clicking a

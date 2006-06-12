@@ -1,7 +1,7 @@
 		   |-----handy-ruler------------------------------------------------------|
-quick-lounge-applet: quick-lounge-applet
+quick-lounge-applet: quick-lounge-applet (launch applications applet)
 quick-lounge-applet:
-quick-lounge-applet: GNOME 2 Applet to look up contacts in Evolution's Address Book.
+quick-lounge-applet: Application Launcher
 quick-lounge-applet:
 quick-lounge-applet:
 quick-lounge-applet:

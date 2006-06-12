@@ -1,5 +1,5 @@
        |-----handy-ruler------------------------------------------------------|
-devhelp: devhelp
+devhelp: devhelp (API doc browser)
 devhelp:
 devhelp: DevHelp's primary goal is to be an API documentation browser for
 devhelp: GNOME.

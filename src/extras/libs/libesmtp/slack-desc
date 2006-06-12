@@ -1,5 +1,5 @@
         |-----handy-ruler------------------------------------------------------|
-libesmtp: libesmtp
+libesmtp: libesmtp (SMTP library)
 libesmtp:
 libesmtp: libESMTP is a library to manage posting (or submission of) electronic
 libesmtp: mail using SMTP to a preconfigured Mail Transport Agent (MTA) such as

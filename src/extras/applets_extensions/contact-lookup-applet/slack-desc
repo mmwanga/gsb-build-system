@@ -1,5 +1,5 @@
 		     |-----handy-ruler------------------------------------------------------|
-contact-lookup-applet: contact-lookup-applet
+contact-lookup-applet: contact-lookup-applet (evolution contact lookup)
 contact-lookup-applet:
 contact-lookup-applet: GNOME 2 Applet to look up contacts in Evolution's Address Book.
 contact-lookup-applet:

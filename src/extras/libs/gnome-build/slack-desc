@@ -1,5 +1,5 @@
            |-----handy-ruler------------------------------------------------------|
-gnome-build: gnome-build
+gnome-build: gnome-build (gnome build framework)
 gnome-build:
 gnome-build: GNOME Build Framework (GBF).
 gnome-build:

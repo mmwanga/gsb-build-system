@@ -1,5 +1,5 @@
       |-----handy-ruler------------------------------------------------------|
-pitivi: pitivi
+pitivi: pitivi (video editor)
 pitivi:
 pitivi: PiTiVi is an open source video editor, written in Python and based
 pitivi: on GStreamer and GTK+.

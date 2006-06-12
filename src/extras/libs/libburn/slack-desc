@@ -1,5 +1,5 @@
        |-----handy-ruler------------------------------------------------------|
-libburn: libburn
+libburn: libburn (read, master, write optical discs)
 libburn:
 libburn: Libburn is an open-source library for reading, mastering and writing
 libburn: optical discs.

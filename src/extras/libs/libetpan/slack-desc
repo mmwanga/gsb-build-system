@@ -1,5 +1,5 @@
         |-----handy-ruler------------------------------------------------------|
-libetpan: libetpan
+libetpan: libetpan (mail library)
 libetpan:
 libetpan: libEtPan ! is a mail library. It will be used for low-level
 libetpan: mail handling : network protocols (IMAP/NNTP/POP3/SMTP over TCP/IP

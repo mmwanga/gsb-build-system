@@ -1,5 +1,5 @@
       |-----handy-ruler------------------------------------------------------|
-libnjb: libnjb
+libnjb: libnjb (hardware audio player interface)
 libnjb:
 libnjb: libnjb is a C library and API for communicating with the Creative
 libnjb: Nomad JukeBox and Dell DJ digital audio players under BSD, Linux, Mac

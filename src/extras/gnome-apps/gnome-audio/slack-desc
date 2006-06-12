@@ -1,5 +1,5 @@
            |-----handy-ruler------------------------------------------------------|
-gnome-audio: gnome-audio
+gnome-audio: gnome-audio (GNOME action sounds)
 gnome-audio:
 gnome-audio: This package contains extra sound files useful for customizing the
 gnome-audio: sounds that the GNOME desktop environment makes.  If you use the 
