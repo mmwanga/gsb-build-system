@@ -1,5 +1,5 @@
                 |-----handy-ruler------------------------------------------------------|
-frg-firefox-libs: frg-firefox-libs
+frg-firefox-libs: frg-firefox-libs (firefox lib symlinks)
 frg-firefox-libs:
 frg-firefox-libs: Package that creates symlinks in /usr/lib to some libs in 
 frg-firefox-libs: /usr/lib/firefox.
