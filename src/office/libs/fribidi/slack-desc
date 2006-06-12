@@ -1,5 +1,5 @@
        |-----handy-ruler------------------------------------------------------|
-fribidi: fribidi 
+fribidi: fribidi (Unicode Bidirectional Algorithm)
 fribidi:
 fribidi: A Free Implementation of the Unicode Bidirectional Algorithm. It is
 fribidi: needed by Abiword2

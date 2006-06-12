@@ -1,5 +1,5 @@
 	|-----handy-ruler------------------------------------------------------|
-libgdamm: libgdamm
+libgdamm: libgdamm (C++ bindings for libgda)
 libgdamm:
 libgdamm: C++ bindings for libgda.
 libgdamm:

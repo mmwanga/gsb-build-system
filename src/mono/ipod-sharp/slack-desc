@@ -1,5 +1,5 @@
           |-----handy-ruler------------------------------------------------------|
-ipod-sharp: ipod-sharp
+ipod-sharp: ipod-sharp (C# API to access iPods)
 ipod-sharp:
 ipod-sharp: ipod-sharp provies support for high level features of Apple's iPod,
 ipod-sharp: like support for audio content, including reading and writing of the

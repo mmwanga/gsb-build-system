@@ -1,5 +1,5 @@
          |-----handy-ruler----------------------------------------------------|
-gtk-sharp: GTK-Sharp
+gtk-sharp: GTK-Sharp (GTK+ C# bindings)
 gtk-sharp:
 gtk-sharp: Gtk# is a .NET language binding for the GTK+ toolkit
 gtk-sharp: and assorted GNOME libraries.

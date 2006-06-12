@@ -1,5 +1,5 @@
     |-----handy-ruler------------------------------------------------------|
-glom: glom
+glom: glom (database GUI)
 glom:
 glom: Glom is a GUI that allows you to design table definitions and the
 glom: relationships between them. It also allows you to edit and search the

@@ -1,5 +1,5 @@
            |-----handy-ruler------------------------------------------------------|
-avahi-sharp: avahi-sharp
+avahi-sharp: avahi-sharp (Avahi C# bindings)
 avahi-sharp:
 avahi-sharp: Avahi C# bindings.
 avahi-sharp:

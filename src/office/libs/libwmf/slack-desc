@@ -1,5 +1,5 @@
       |-----handy-ruler------------------------------------------------------|
-libwmf: libwmf 
+libwmf: libwmf (convert WMF files)
 libwmf:
 libwmf: Library for converting WMF files
 libwmf:

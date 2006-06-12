@@ -1,5 +1,5 @@
        |-----handy-ruler------------------------------------------------------|
-goffice: GOffice
+goffice: GOffice (document centric objects for glib and gtk+)
 goffice:
 goffice: A glib/gtk set of document centric objects and utilities
 goffice:

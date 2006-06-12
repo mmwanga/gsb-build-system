@@ -1,5 +1,5 @@
           |-----handy-ruler------------------------------------------------------|
-libgdiplus: libgdiplus
+libgdiplus: libgdiplus (GDI+ API implementation)
 libgdiplus:
 libgdiplus: An Open Source implementation of the GDI+ API.
 libgdiplus:

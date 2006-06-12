@@ -1,5 +1,5 @@
           |-----handy-ruler------------------------------------------------------|
-libgnomedb: libgnomedb 
+libgnomedb: libgnomedb (database widget library)
 libgnomedb:
 libgnomedb: Database Widget Library. These widgets are integrated with the
 libgnomedb: latest versions of glade.

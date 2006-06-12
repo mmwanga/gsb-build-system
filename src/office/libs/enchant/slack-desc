@@ -1,7 +1,7 @@
        |-----handy-ruler------------------------------------------------------|
-enchant: enchant
+enchant: enchant (spell checking library)
 enchant:
-enchant: A cross-platform abstract layer to spellchecking.
+enchant: A cross-platform abstract layer to spell checking.
 enchant:
 enchant:
 enchant:

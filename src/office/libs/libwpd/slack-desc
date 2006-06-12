@@ -1,5 +1,5 @@
       |-----handy-ruler------------------------------------------------------|
-libwpd: libwpd 
+libwpd: libwpd (import/export WordPerfect files)
 libwpd:
 libwpd: A library for importing and exporting WordPerfect (tm) documents
 libwpd:
