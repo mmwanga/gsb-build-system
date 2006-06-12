@@ -107,7 +107,7 @@ our %mono_diff_naming =
 		     'src'  => 'tar.gz',
 		    },
    'dbus-sharp'  => {
-		     'ver'  => '0.61',
+		     'ver'  => '0.62',
 		     'name' => 'dbus',
 		     'url'  => 'http://dbus.freedesktop.org/releases/',
 		     'src'  => 'tar.gz',

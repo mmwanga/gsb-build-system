@@ -6,7 +6,7 @@ PKG=$TMP/package-gdm
 
 VERSION=2.14.8
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gdm-$VERSION-$ARCH-$BUILD ]; then
   echo "gdm-$VERSION-$ARCH-$BUILD package already installed"
@@ -96,7 +96,7 @@ chmod 755 $PKG/etc/X11/dm/Sessions/*
 # Use a version of Xsession that supports our session choices:
 # also move gdm.conf to gdm.conf.new so that it doesn't overwrite the old file
 ( cd $PKG/etc/X11/gdm
-  cat $CWD/Xsession > Xsession
+  cat $CWD/Xsession > Xsession.new
 )
 mkdir -p $PKG/usr/doc/gdm-$VERSION
 cp -a ABOUT-NLS AUTHORS COPYING INSTALL NEWS README README.install RELEASENOTES TODO \

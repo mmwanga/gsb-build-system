@@ -19,4 +19,5 @@ config() {
 }
 
 config etc/X11/gdm/custom.conf.new
+config etc/X11/gdm/Xsession.new
 

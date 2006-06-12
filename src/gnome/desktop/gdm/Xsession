@@ -144,10 +144,10 @@ afterstep)
 	exec afterstep
 	;;
 e16)
-	exec e16
+	exec dbus-launch --exit-with-session e16
 	;;
 enlightenment)
-	exec enlightenment
+	exec dbus-launch --exit-with-session enlightenment
 	;;
 dotxsession)
 	exec $HOME/.xsession
