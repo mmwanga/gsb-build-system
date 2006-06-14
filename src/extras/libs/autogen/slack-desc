@@ -1,5 +1,5 @@
        |-----handy-ruler------------------------------------------------------|
-autogen: autogen (sync text)
+autogen: autogen (Synchronize text)
 autogen:
 autogen: AutoGen is a tool designed to simplify the creation and maintenance
 autogen: of programs that contain large amounts of repetitious text. It is

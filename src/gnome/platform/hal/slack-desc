@@ -1,5 +1,5 @@
    |-----handy-ruler------------------------------------------------------|
-hal: hal (hardware abstraction layer)
+hal: hal (Hardware abstraction layer daemon)
 hal:
 hal: HAL is a hardware abstraction layer for GNU/Linux, designed to help
 hal: make hardware "just work".

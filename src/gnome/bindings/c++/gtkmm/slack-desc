@@ -1,5 +1,5 @@
      |-----handy-ruler------------------------------------------------------|
-gtkmm: gtkmm (gtk+ c++ bindings)
+gtkmm: gtkmm (C++ bindings for GTK+)
 gtkmm:
 gtkmm: C++ bindings for gtk+
 gtkmm:

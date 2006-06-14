@@ -1,5 +1,5 @@
    |-----handy-ruler------------------------------------------------------|
-mac: mac (Monkey's Audio Codec)
+mac: mac (Monkey's audio codec)
 mac:
 mac: Monkey's Audio Codec. This is the port of the lossless audio codec
 mac: to non-win32 platforms.

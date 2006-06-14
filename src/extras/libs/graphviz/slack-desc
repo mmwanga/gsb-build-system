@@ -1,5 +1,5 @@
         |-----handy-ruler------------------------------------------------------|
-graphviz: graphviz (graph visualizations)
+graphviz: graphviz (Graph visualizations)
 graphviz:
 graphviz: Graph visualization is a way of representing structural information
 graphviz: as diagrams of abstract graphs and networks. Automatic graph drawing

@@ -1,5 +1,5 @@
        |-----handy-ruler------------------------------------------------------|
-sqlite2: sqlite2 (sql database engine)
+sqlite2: sqlite2 (Lightweight SQL database engine)
 sqlite2:
 sqlite2: SQLite is a small C library that implements a self-contained,
 sqlite2: embeddable, zero-configuration SQL database engine.

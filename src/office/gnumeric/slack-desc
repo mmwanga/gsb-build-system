@@ -1,5 +1,5 @@
         |-----handy-ruler------------------------------------------------------|
-gnumeric: gnumeric (spreadsheet)
+gnumeric: gnumeric (Spreadsheet)
 gnumeric:
 gnumeric: This is Gnumeric, the GNOME spreadsheet program.  It aims to be a
 gnumeric: drop-in replacement for commercial spreadsheets.  It provides import

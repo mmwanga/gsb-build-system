@@ -1,5 +1,5 @@
        	  |-----handy-ruler------------------------------------------------------|
-cyrus-sasl: The Cyrus SASL (Simple Authentication and Security Layer) 
+cyrus-sasl: The Cyrus SASL (The simple authentication and security layer) 
 cyrus-sasl:
 cyrus-sasl: SASL is the Simple Authentication and Security Layer, a method for 
 cyrus-sasl: adding authentication support to connection-based protocols. To use

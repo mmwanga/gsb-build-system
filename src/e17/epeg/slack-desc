@@ -1,5 +1,5 @@
     |-----handy-ruler------------------------------------------------------|
-epeg: epeg - An immensely fast jpeg thumbnailer library API
+epeg: epeg (An immensely fast jpeg thumbnailer library API)
 epeg:
 epeg: It's a convenience library API to using libjpeg to load JPEG images
 epeg: destined to be turned into thumbnails of the original, saving

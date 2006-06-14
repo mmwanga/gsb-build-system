@@ -1,5 +1,5 @@
          |-----handy-ruler------------------------------------------------------|
-pygobject: pygobject (Glib GObject Python Bindings)
+pygobject: pygobject (Glib GObject Python bindings)
 pygobject:
 pygobject: Bindings for the Glib GObject, to be used in Python
 pygobject:

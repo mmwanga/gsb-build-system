@@ -1,5 +1,5 @@
            |-----handy-ruler------------------------------------------------------|
-libexif-gtk: libexif-gtk (exif gtk+ widgets)
+libexif-gtk: libexif-gtk (GTK+ libexif widgets)
 libexif-gtk:
 libexif-gtk: libexif gtk library for use by gtkam.
 libexif-gtk:

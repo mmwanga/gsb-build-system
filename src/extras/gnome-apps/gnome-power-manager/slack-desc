@@ -1,5 +1,5 @@
                    |-----handy-ruler------------------------------------------------------|
-gnome-power-manager: gnome-power-manager (power policy daemon)
+gnome-power-manager: gnome-power-manager (GNOME power policy daemon)
 gnome-power-manager:
 gnome-power-manager: GNOME Power Manager is a GNOME session daemon that acts as a policy
 gnome-power-manager: agent on top of the Project Utopia stack, which includes the kernel,

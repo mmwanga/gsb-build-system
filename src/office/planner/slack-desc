@@ -1,5 +1,5 @@
        |-----handy-ruler------------------------------------------------------|
-planner: planner (plan, schedule, track projects)
+planner: planner (Plan, schedule, track projects)
 planner:
 planner: Planner is a tool for planning, scheduling and tracking projects.
 planner: Planner is an open source project targetting the GNOME Desktop. The

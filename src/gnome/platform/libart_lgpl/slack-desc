@@ -1,5 +1,5 @@
            |-----handy-ruler------------------------------------------------------|
-libart_lgpl: libart_lgpl (2D Graphics library)
+libart_lgpl: libart_lgpl (2D graphics library)
 libart_lgpl:
 libart_lgpl: Libart is a library for high-performance 2D graphics.  It is used by
 libart_lgpl: both KDE and GNOME.  This is the LGPL'd component of the library,

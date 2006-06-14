@@ -1,5 +1,5 @@
          |-----handy-ruler------------------------------------------------------|
-transcode: transcode (Video Stream Processor)
+transcode: transcode (Video stream processor)
 transcode:
 transcode: transcode is a linux text-console utility for video stream
 transcode: processing, running on a platform that supports shared libraries

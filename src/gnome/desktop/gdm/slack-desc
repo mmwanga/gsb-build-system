@@ -1,5 +1,5 @@
    |-----handy-ruler------------------------------------------------------|
-gdm: gdm (display manager for X)
+gdm: gdm (Display manager for X)
 gdm:
 gdm: The Gnome Display Manager is a reimplementation of the well known
 gdm: xdm program.  gdm implements all significant features required for

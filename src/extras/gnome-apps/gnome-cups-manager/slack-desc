@@ -1,5 +1,5 @@
                   |-----handy-ruler------------------------------------------------------|
-gnome-cups-manager: gnome-cups-manager (printer manager)
+gnome-cups-manager: gnome-cups-manager (GNOME printer manager)
 gnome-cups-manager:
 gnome-cups-manager: The GNOME CUPS Manager is a tool for adding new CUPS printers and for
 gnome-cups-manager: managing existing CUPS printers and queues.

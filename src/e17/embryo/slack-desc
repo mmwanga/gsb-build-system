@@ -1,5 +1,5 @@
       |-----handy-ruler------------------------------------------------------|
-embryo: embryo - library to load and control interpreted programs
+embryo: embryo (Library to load and control interpreted programs)
 embryo:
 embryo: Embryo is primarily a shared library that gives you an API to load
 embryo: and control interpreted programs compiled into an abstract machine

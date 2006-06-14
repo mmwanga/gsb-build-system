@@ -1,5 +1,5 @@
      |-----handy-ruler------------------------------------------------------|
-gamin: gamin (File Alteration Monitor)
+gamin: gamin (File alteration monitor)
 gamin:
 gamin: Gamin is a file and directory monitoring system defined to be a
 gamin: subset of the FAM (File Alteration Monitor) system. This is a

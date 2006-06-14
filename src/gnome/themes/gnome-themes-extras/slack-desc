@@ -1,5 +1,5 @@
                    |-----handy-ruler------------------------------------------------------|
-gnome-themes-extras: gnome-themes-extras 
+gnome-themes-extras: gnome-themes-extras (Extra themes for GNOME)
 gnome-themes-extras:
 gnome-themes-extras: a collection of metathemes for the GNOME desktop environment. These
 gnome-themes-extras: themes are using actual SVG files for their icons, not SVG files

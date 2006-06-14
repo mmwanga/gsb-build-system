@@ -1,5 +1,5 @@
 	 |-----handy-ruler------------------------------------------------------|
-loudmouth: loudmouth (jabber protocol interface)
+loudmouth: loudmouth (Jabber protocol interface library)
 loudmouth:
 loudmouth: Loudmouth is a lightweight and easy-to-use C library for programming
 loudmouth: with the Jabber protocol. It's designed to be easy to get started

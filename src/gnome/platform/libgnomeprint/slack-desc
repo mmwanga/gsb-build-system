@@ -1,5 +1,5 @@
              |-----handy-ruler------------------------------------------------------|
-libgnomeprint: libgnomeprint (Non-GUI Printing Library)
+libgnomeprint: libgnomeprint (Non-GUI printing library)
 libgnomeprint:
 libgnomeprint: Libgnomeprint is the non-gui part of the printing libraries for GNOME
 libgnomeprint: applications.

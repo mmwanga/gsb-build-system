@@ -1,5 +1,5 @@
     |-----handy-ruler------------------------------------------------------|
-gail: gail (GNOME Accessibility Interface)
+gail: gail (GNOME accessibility interface)
 gail:
 gail: This directory contains GAIL (GNOME Accessibility Interface) utility
 gail: library.  For more information about accessibility in GNOME, see:

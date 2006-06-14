@@ -1,5 +1,5 @@
         |-----handy-ruler------------------------------------------------------|
-libbtctl: libbtctl (Bluetooth Control)
+libbtctl: libbtctl (Bluetooth control library)
 libbtctl:
 libbtctl: Bluetooth library
 libbtctl:

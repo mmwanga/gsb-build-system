@@ -1,5 +1,5 @@
     |-----handy-ruler------------------------------------------------------|
-gftp: gftp (ftp client)
+gftp: gftp (File transfer client)
 gftp:
 gftp: gFTP is a multithreaded FTP client for X written using GTK+.  It
 gftp: features simultaneous downloads, resuming of interrupted file

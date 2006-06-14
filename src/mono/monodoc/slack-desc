@@ -1,5 +1,5 @@
        |-----handy-ruler------------------------------------------------------|
-monodoc: MonoDoc (documentation for Mono class libraries)
+monodoc: MonoDoc (Documentation for Mono class libraries)
 monodoc:
 monodoc: This is the MonoDoc module.It contains the documentation for
 monodoc: the Mono class libraries, tools to produce and edit the

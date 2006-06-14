@@ -1,5 +1,5 @@
              |-----handy-ruler------------------------------------------------------|
-libipoddevice: libipoddevice (device-specific layer for the Apple iPod)
+libipoddevice: libipoddevice (Device specific layer for the Apple iPod)
 libipoddevice:
 libipoddevice: libipoddevice is a device-specific layer for the Apple iPod.
 libipoddevice: libipoddevice provides iPod-specific HAL event notification to

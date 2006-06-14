@@ -1,5 +1,5 @@
       |-----handy-ruler------------------------------------------------------|
-liboil: liboil (simple optimized functions for various CPUs)
+liboil: liboil (Library of optimized functions for various CPUs)
 liboil:
 liboil: Liboil is a library of simple functions that are optimized for
 liboil: various CPUs.

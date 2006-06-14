@@ -1,5 +1,5 @@
        |-----handy-ruler------------------------------------------------------|
-gconfmm: gconfmm (GConf c++ bindings)
+gconfmm: gconfmm (C++ bindings for GConf)
 gconfmm:
 gconfmm: C++ bindings for gconf
 gconfmm:

@@ -1,5 +1,5 @@
                   |-----handy-ruler------------------------------------------------------|
-nautilus-cd-burner: nautilus-cd-burner (CD Burning extension)
+nautilus-cd-burner: nautilus-cd-burner (CD burning extension for Nautilus)
 nautilus-cd-burner:
 nautilus-cd-burner: nautilus-cd-burner is an extension to Nautilus that makes it easy to
 nautilus-cd-burner: write files to a CD burner.  The user uses Nautilus (or another

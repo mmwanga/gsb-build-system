@@ -1,5 +1,5 @@
        |-----handy-ruler------------------------------------------------------|
-librsvg: librsvg (svg renderer)
+librsvg: librsvg (SVG renderer)
 librsvg:
 librsvg: Library used by Nautilus to handle Scalable Vector Graphics.
 librsvg:

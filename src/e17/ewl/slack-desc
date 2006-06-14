@@ -1,5 +1,5 @@
    |-----handy-ruler------------------------------------------------------|
-ewl: ewl - enlightenment widget library
+ewl: ewl (Enlightenment widget library)
 ewl:
 ewl: The Enlightened Widget Library (EWL) provides a widget abstraction
 ewl: for creating GUI's using Evas and Edje. The use of Edje allows for

@@ -1,5 +1,5 @@
 	     |-----handy-ruler------------------------------------------------------|
-libgconf-java: libgconf-java (GConf java bindings)
+libgconf-java: libgconf-java (Java bindings for GConf)
 libgconf-java:
 libgconf-java: Java(tm) bindings for GConf
 libgconf-java:

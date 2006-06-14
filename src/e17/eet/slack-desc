@@ -1,5 +1,5 @@
    |-----handy-ruler------------------------------------------------------|
-eet: eet - compression library for Enlightenment
+eet: eet (Compression library for Enlightenment)
 eet:
 eet: Eet is a tiny library designed to write an arbitary set of chunks of
 eet: data to a file and optionally compress each chunk (very much like a

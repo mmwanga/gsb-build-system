@@ -1,5 +1,5 @@
 	  |-----handy-ruler------------------------------------------------------|
-libgnomesu: libgnomesu (superuser privileges for GNOME)
+libgnomesu: libgnomesu (Superuser privileges for GNOME)
 libgnomesu:
 libgnomesu: libgnomesu is a library for providing superuser privileges to GNOME
 libgnomesu: applications.

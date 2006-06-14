@@ -1,5 +1,5 @@
          |-----handy-ruler------------------------------------------------------|
-aqbanking: aqbanking (middle layer to online banking interfaces)
+aqbanking: aqbanking (Middle layer to online banking interfaces)
 aqbanking:
 aqbanking: AqBanking provides a middle layer between the program and the various
 aqbanking: Online Banking libraries

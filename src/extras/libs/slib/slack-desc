@@ -1,5 +1,5 @@
     |-----handy-ruler------------------------------------------------------|
-slib: slib (scheme implementations)
+slib: slib (Scheme implementations library)
 slib:
 slib: library providing functions for Scheme implementations.
 slib:

@@ -1,5 +1,5 @@
 		 |-----handy-ruler------------------------------------------------------|
-mail-notification: mail-notification (mail applet)
+mail-notification: mail-notification (Email notification applet)
 mail-notification:
 mail-notification: A GNOME2 applet that alerts you to new mail
 mail-notification:

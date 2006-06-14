@@ -1,5 +1,5 @@
 	    |-----handy-ruler------------------------------------------------------|
-gnome-python: gnome-python (gnome python bindings) 
+gnome-python: gnome-python (Python bindings for GNOME)
 gnome-python:
 gnome-python: Python bindings for gnome
 gnome-python:

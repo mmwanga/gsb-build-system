@@ -1,5 +1,5 @@
                   |-----handy-ruler------------------------------------------------------|
-gnome-extra-themes: gnome-extra-themes
+gnome-extra-themes: gnome-extra-themes (Extra themes for GNOME)
 gnome-extra-themes:
 gnome-extra-themes: A collection of high-quality GNOME themes for Metacity and GTK+.
 gnome-extra-themes:

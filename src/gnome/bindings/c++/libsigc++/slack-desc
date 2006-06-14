@@ -1,5 +1,5 @@
 	 |-----handy-ruler------------------------------------------------------|
-libsigc++: libsigc++ (typesafe callback system for C++) 
+libsigc++: libsigc++ (Typesafe callback system for C++)
 libsigc++:
 libsigc++: libsigc++ implements a typesafe callback system for standard C++. It
 libsigc++: allows you to define signals and to connect those signals to any

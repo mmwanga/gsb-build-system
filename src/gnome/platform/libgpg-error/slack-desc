@@ -1,5 +1,5 @@
             |-----handy-ruler------------------------------------------------------|
-libgpg-error: libgpg-error (GnuPG error codes)
+libgpg-error: libgpg-error (GnuPG error codes library)
 libgpg-error:
 libgpg-error: Libgpg-error  is a small library with error codes and descriptions
 libgpg-error: shared by most GnuPG related software.

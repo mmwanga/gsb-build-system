@@ -1,5 +1,5 @@
                    |-----handy-ruler------------------------------------------------------|
-notification-daemon: notification-daemon (desktop notifications)
+notification-daemon: notification-daemon (Desktop notification daemon)
 notification-daemon:
 notification-daemon: The Desktop Notifications framework provides a standard way of doing
 notification-daemon: passive pop-up notifications on the desktop. These are designed to

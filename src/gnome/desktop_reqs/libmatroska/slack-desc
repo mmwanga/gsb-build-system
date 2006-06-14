@@ -1,5 +1,5 @@
            |-----handy-ruler------------------------------------------------------|
-libmatroska: libmatroska (container format for mka video)
+libmatroska: libmatroska (Library for the mka video format)
 libmatroska:
 libmatroska: A open source container format, needed to play .mka video files.
 libmatroska:

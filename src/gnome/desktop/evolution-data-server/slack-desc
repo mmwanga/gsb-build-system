@@ -1,5 +1,5 @@
 		     |-----handy-ruler------------------------------------------------------|
-evolution-data-server: evolution-data-server (manages calendar and address book info)
+evolution-data-server: evolution-data-server (Evolution calendar and address book manager)
 evolution-data-server:
 evolution-data-server: Evolution component responsible for managing calendar and addressbook
 evolution-data-server: information

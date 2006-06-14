@@ -1,5 +1,5 @@
       |-----handy-ruler------------------------------------------------------|
-glibmm: glibmm (glib c++ bindings) 
+glibmm: glibmm (C++ bindings for Glib)
 glibmm:
 glibmm: C++ bindings for glib
 glibmm:

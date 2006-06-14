@@ -1,5 +1,5 @@
           |-----handy-ruler------------------------------------------------------|
-libgnomeui: libgnomeui (GNOME UI Library)
+libgnomeui: libgnomeui (GNOME UI library)
 libgnomeui:
 libgnomeui: User interface library needed for GNOME.
 libgnomeui:

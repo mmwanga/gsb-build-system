@@ -1,5 +1,5 @@
 		    |-----handy-ruler------------------------------------------------------|
-gnome-volume-manager: gnome-volume-manager (Removable Hardware Manager)
+gnome-volume-manager: gnome-volume-manager (Removable hardware manager)
 gnome-volume-manager:
 gnome-volume-manager: gnome-volume-manager is a desktop-level daemon that enforces 
 gnome-volume-manager: volume-related policy in response to events received from HAL. Its

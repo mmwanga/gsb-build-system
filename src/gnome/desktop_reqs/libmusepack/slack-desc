@@ -1,5 +1,5 @@
 	   |-----handy-ruler------------------------------------------------------|
-libmusepack: libmusepack (Musepack decoder)
+libmusepack: libmusepack (Musepack decoder library)
 libmusepack:
 libmusepack: Portable Musepack decoder library
 libmusepack:

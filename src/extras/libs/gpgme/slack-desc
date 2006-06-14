@@ -1,5 +1,5 @@
      |-----handy-ruler------------------------------------------------------|
-gpgme: gpgme (crypto library)
+gpgme: gpgme (Cryptographics library)
 gpgme:
 gpgme: GPGME  (GnuPG Made Easy) is a C language library that allows to add
 gpgme: support for cryptography to a program. It is designed to make access

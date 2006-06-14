@@ -1,5 +1,5 @@
           |-----handy-ruler------------------------------------------------------|
-pkg-config: pkg-config (manages compile time options)
+pkg-config: pkg-config (Compile time options manager)
 pkg-config:
 pkg-config: pkg-config is a system for managing library compile/link flags
 pkg-config: that works with automake and autoconf.  It replaces the ubiquitous

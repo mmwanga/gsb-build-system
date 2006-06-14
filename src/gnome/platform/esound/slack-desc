@@ -1,5 +1,5 @@
       |-----handy-ruler------------------------------------------------------|
-esound: esound (Enlightened Sound Daemon)
+esound: esound (Enlightened sound daemon)
 esound:
 esound: EsounD, the Enlightened Sound Daemon, is a server process that mixes
 esound: several audio streams for playback by a single audio device. For

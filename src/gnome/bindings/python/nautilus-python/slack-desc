@@ -1,5 +1,5 @@
                |-----handy-ruler------------------------------------------------------|
-nautilus-python: nautilus-python (nautilus extension python bindings)
+nautilus-python: nautilus-python (Python bindings for Nautilus extensions)
 nautilus-python:
 nautilus-python: libnautilus-extension Python bindings
 nautilus-python:

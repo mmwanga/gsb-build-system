@@ -1,5 +1,5 @@
     |-----handy-ruler------------------------------------------------------|
-evas: evas - clean display canvas api
+evas: evas (Clean display canvas api)
 evas:
 evas: Evas is a clean display canvas API for several target display systems
 evas: that can draw anti-aliased text, smooth super and sub-sampled scaled

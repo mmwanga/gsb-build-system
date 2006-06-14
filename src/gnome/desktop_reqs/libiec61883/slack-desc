@@ -1,5 +1,5 @@
            |-----handy-ruler------------------------------------------------------|
-libiec61883: libiec61883 (Media Reception and Transmission)
+libiec61883: libiec61883 (Media reception and transmission library)
 libiec61883:
 libiec61883: This library provides third generation media reception and
 libiec61883: transmission for DV, MPEG2-TS, and AMDTP (audio and music) using

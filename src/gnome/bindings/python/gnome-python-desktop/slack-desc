@@ -1,5 +1,5 @@
                     |-----handy-ruler------------------------------------------------------|
-gnome-python-desktop: gnome-python-desktop (gnome-desktop python bindings)
+gnome-python-desktop: gnome-python-desktop (Python bindings for GHOME desktop)
 gnome-python-desktop:
 gnome-python-desktop: GNOME desktop python bindings
 gnome-python-desktop:

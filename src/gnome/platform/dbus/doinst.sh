@@ -18,7 +18,7 @@ config etc/rc.d/rc.messagebus.new
 if grep "^messagebus:x:" etc/passwd 1> /dev/null 2> /dev/null ; then
   true
 else
-  echo "messagebus:x:60:60:messagebus:/etc/messagebus:" >> etc/passwd
+  echo "messagebus:x:60:60:messagebus:/etc/dbus-1:" >> etc/passwd
 fi
 if grep "^messagebus::" etc/group 1> /dev/null 2> /dev/null ; then
   true

@@ -1,5 +1,5 @@
 	   |-----handy-ruler------------------------------------------------------|
-gnome-menus: gnome-menus (Freedesktop.org Menu Implementation)
+gnome-menus: gnome-menus (Freedesktop.org menu implementation)
 gnome-menus:
 gnome-menus: The package contains an implementation of the draft "Desktop Menu 
 gnome-menus: Specification" from freedesktop.org

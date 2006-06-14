@@ -1,5 +1,5 @@
      |-----handy-ruler------------------------------------------------------|
-avahi: avahi (Zeroconf Networking)
+avahi: avahi (Zeroconf networking)
 avahi:
 avahi: Avahi is a system which facilitates service discovery on a local
 avahi: network. This means that you can plug your laptop or computer into a

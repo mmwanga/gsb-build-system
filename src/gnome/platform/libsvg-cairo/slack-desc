@@ -1,5 +1,5 @@
             |-----handy-ruler------------------------------------------------------|
-libsvg-cairo: libsvg-cairo (cairo svg renderer)
+libsvg-cairo: libsvg-cairo (Cairo SVG renderer)
 libsvg-cairo:
 libsvg-cairo: Render SVG content using cairo
 libsvg-cairo:

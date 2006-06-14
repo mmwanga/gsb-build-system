@@ -1,5 +1,5 @@
            |-----handy-ruler------------------------------------------------------|
-gnome-panel: gnome-panel (GNOME Panel for applets and menus)
+gnome-panel: gnome-panel (GNOME panel for applets and menus)
 gnome-panel:
 gnome-panel: This is the GNOME panel, which houses many applets and menus, and is
 gnome-panel: one of the most visible and easily recognized GNOME components.

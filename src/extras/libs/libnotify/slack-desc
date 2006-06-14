@@ -1,5 +1,5 @@
          |-----handy-ruler------------------------------------------------------|
-libnotify: libnotify (desktop notifications)
+libnotify: libnotify (Desktop notifications library)
 libnotify:
 libnotify: A library for desktop notifications
 libnotify:

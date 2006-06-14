@@ -1,5 +1,5 @@
                     |-----handy-ruler------------------------------------------------------|
-startup-notification: startup-notification (Notifications during application startup)
+startup-notification: startup-notification (Notification of application startup)
 startup-notification:
 startup-notification: Adds support for applications to use "busy" cursors while starting up.
 startup-notification:

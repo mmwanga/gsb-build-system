@@ -1,5 +1,5 @@
 	     |-----handy-ruler------------------------------------------------------|
-libsamplerate: libsamplerate (sample rate converter)
+libsamplerate: libsamplerate (Sample rate converter library)
 libsamplerate:
 libsamplerate: Sample Rate Converter for audio.
 libsamplerate:
