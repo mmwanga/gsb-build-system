@@ -1,2 +1,2 @@
-ruby: REC
-ruby-gnome2-all: REC
+ruby: OPT
+ruby-gnome2-all: OPT
