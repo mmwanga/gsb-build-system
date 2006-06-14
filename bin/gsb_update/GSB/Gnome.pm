@@ -49,8 +49,7 @@ our %platform =
    'pango'               => '1.12.3',
    'pygobject'           => '2.10.1',
    'pygtk'               => '2.8.6',
-   'pyorbit'             => '2.14.0',
-
+   'pyorbit'             => '2.14.1',
   );
 
 our %platform_diff_naming =
@@ -211,7 +210,7 @@ our %desktop =
    'gnome-backgrounds'      => '2.14.2.1',
    'gnome-bluetooth'        => '0.7.0',
    'gnome-desktop'          => '2.14.2',
-   'gnome-doc-utils'        => '0.6.0',
+   'gnome-doc-utils'        => '0.6.1',
    'gnome-games'            => '2.14.2',
    'gnome-icon-theme'       => '2.14.2',
    'gnome-keyring-manager'  => '2.14.0',
@@ -281,6 +280,11 @@ our %desktop_diff_naming =
 
 our %desktop_nongnome =
   (
+   'alacarte'     => {
+                      'ver' => '0.8',
+                      'url' => 'http://dev.realistanew.com/alacarte/releases/0.8/',
+                      'src' => 'tar.gz',
+                     },
    'gnome-mount'  => { 
                       'ver' => '0.4',
                       'url' => 'http://people.freedesktop.org/~david/dist/',
