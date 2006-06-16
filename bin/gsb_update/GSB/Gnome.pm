@@ -310,7 +310,7 @@ our %desktop_nongnome =
 our %bindings_cxx =
   (
    'bakery'            => '2.4.0',
-   'gconfmm'           => '2.14.0',
+   'gconfmm'           => '2.14.2',
    'glibmm'            => '2.10.4',
    'gnome-vfsmm'       => '2.14.0',
    'gtkmm'             => '2.8.8',
