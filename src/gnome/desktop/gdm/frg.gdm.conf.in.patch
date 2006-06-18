@@ -32,7 +32,7 @@
  # key and set GraphicalThemeRand to true.  Otherwise use GraphicalTheme
  # and specify just one theme.
 -#GraphicalTheme=circles
-+GraphicalTheme=circles
++GraphicalTheme=SimplyFree
  #GraphicalThemes=circles/:happygnome
  GraphicalThemeDir=@datadir@/gdm/themes/
  GraphicalThemeRand=false
