@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-frg-artwork
 
-VERSION=1.0.2
+VERSION=2.14.2
 ARCH=${ARCH:-i486}
-BUILD=3
+BUILD=1
 
 if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
@@ -39,12 +39,16 @@ cp $CWD/splash/* \
 	$PKG/usr/share/pixmaps/splash/frg
 
 # Copy default icon theme
-tar zxf $CWD/icons/ICON-BlankOn.tar.gz \
+tar jxf $CWD/icons/ICON-UnofficialTango.tar.bz2 \
 	-C $PKG/usr/share/icons
 
 # copy gdm themes
-cp -r $CWD/gdm/* \
+
+cp -a $CWD/gdm/frg_gdm \
 	$PKG/usr/share/gdm/themes
+
+tar zxf $CWD/gdm/35874-SimplyFree.tar.gz \
+	-C $PKG/usr/share/gdm/themes
 
 (
   cd $PKG/usr/share/gdm/themes

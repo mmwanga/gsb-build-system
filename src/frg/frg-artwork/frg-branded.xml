@@ -71,4 +71,15 @@
    <filename>/usr/share/pixmaps/backgrounds/frg/frg_rock2b.jpg</filename>
    <options>stretched</options>
  </wallpaper>
+
+  <wallpaper deleted="false">
+    <name>FRG Rocks</name>
+    <filename>/usr/share/pixmaps/backgrounds/frg/frg_rocks.png</filename>
+    <options>stretched</options>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>FRG Water Leaves</name>
+    <filename>/usr/share/pixmaps/backgrounds/frg/frg_water_leaves.jpg</filename>
+    <options>stretched</options>
+  </wallpaper>
 </wallpapers>
