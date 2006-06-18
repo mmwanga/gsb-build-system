@@ -1,2 +1,2 @@
-metacity: REC
-totem: REC
+totem: OPT
+metacity: OPT

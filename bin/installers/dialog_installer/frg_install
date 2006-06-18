@@ -1,0 +1,709 @@
+#!/bin/bash
+# frg_install.sh - Dialog based installer for Freerock GNOME.
+# Copyright (c) 2006 Darren 'Tadgy' Austin <darren (at) afterdark.org.uk>
+#
+# This program is free software; you can redistribute it and/or modify it under
+# the terms of the GNU General Public License version 2 as published by the
+# Free Software Foundation at: http://www.gnu.org/copyleft/gpl.html .
+#
+# This program is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+# FOR A PARTICULAR PURPOSE.
+#
+
+# Installer details.
+INSTALLER_VERSION="0.1.0"
+INSTALLER_AUTHOR="Darren 'Tadgy' Austin <darren (at) afterdark.org.uk>"
+
+# The FRG version being installed.
+FRG_VERSION="2.14.2"
+# The Slackware version this FRG release is built/tested for.
+FRG_SLACK_VERSION="10.2"
+# The sub-directories for the base (Minimum) and extras (full) install types.
+# Directories must be in processing order (ie, platform/ before desktop/) and
+# seperated by spaces. 
+FRG_BASE_DIRS="frgnome/platform frgnome/desktop_reqs frgnome/desktop"
+FRG_EXTRA_DIRS="frgnome/bindings extras/libs extras/apps extras/gnome-apps extras/applets_extensions extras/office extras/mono extras/ruby"
+FRG_ALT_DIRS="extras/alternatives/desktop extras/alternatives/apps extras/alternatives/patched"
+FRG_TESTING_DIRS="testing"
+
+# Internal config.
+export ROOT=${ROOT:-/}				# Honour an alternative $ROOT
+TMP=${TMP:-/tmp}
+DIALOG_BACKTITLE="Freerock GNOME $FRG_VERSION Installer"
+
+################################ Functions #####################################
+
+# Welcome to FRG.
+function frg_welcome() {
+  dialog --backtitle "$DIALOG_BACKTITLE" --title " Welcome to Freerock GNOME " \
+    --aspect 50 --yes-label "Continue" --no-label "Exit" --yesno "\n
+This program will guide you through installation of Freerock GNOME.\n
+\n
+The installation process will upgrade some original Slackware packages\n
+to newer versions required by some applications.\n
+\n
+Freerock GNOME $FRG_VERSION is built on and tested with Slackware ${FRG_SLACK_VERSION}.\n
+Installation onto other Slackware versions is not recommended.\n
+\n
+To continue with the installation process press Enter now, otherwise\n
+use the arrow or tab keys to select 'Exit' and hit Enter.\n\n" 0 0 2>/dev/null
+  [ $? -ne 0 ] && return 1
+  return 0
+}
+
+# Display the install log.
+function view_logfile() {
+  dialog --backtitle "$DIALOG_BACKTITLE" --title " Installation log " \
+      --aspect 50 --exit-label "Done" --textbox $TMP/frg_install.log 18 74
+  return 0
+}
+
+# Bye bye.
+function frg_goodbye() {
+  while true
+  do
+    dialog --backtitle "$DIALOG_BACKTITLE" --title " Enjoy Freerock GNOME! " \
+      --aspect 50 --yes-label "Finish" --no-label "View log" --yesno "\
+Installation of Freerock GNOME is now complete!\n
+\n
+Before you can start using GNOME various services and daemons\n
+must be started.  The easiest way to achieve this is to reboot\n
+your system now.\n
+\n
+For help and support with Freerock GNOME please visit:\n
+        http://gsb.sf.net/support/\n
+\n
+An installation logfile is available for inspection.  To view it,\n
+use the arrow or tab keys to select 'View log' and hit Enter.\n
+\n
+Enjoy Slackware and Freerock GNOME :)\n\n" 0 0 2>/dev/null
+    [ $? -eq 1 ] && { view_logfile ; continue ; }
+    break
+  done
+
+  dialog --backtitle "$DIALOG_BACKTITLE" --title " Copyright and Licence " \
+    --aspect 50 --ok-label "Exit" --msgbox "\n
+               Freerock GNOME Installer v$INSTALLER_VERSION\n
+                     Copyright (c) 2006\n
+     ${INSTALLER_AUTHOR}\n
+\n
+This program is free software; you can redistribute it and/or\n
+modify it under the terms of the GNU General Public License\n
+version 2 as published by the Free Software Foundation at:\n
+      http://www.gnu.org/copyleft/gpl.html\n
+\n
+This program is distributed in the hope that it will be useful\n
+but WITHOUT ANY WARRANTY; without even the implied warranty of\n
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n" 0 0 2>/dev/null
+  return 0
+}
+
+# Check for Slackware.
+function slack_check() {
+  if [ ! -e $ROOT/etc/slackware-version ]
+  then
+    if cat $ROOT/etc/slackware-version | grep "Slackware" >/dev/null 2>&1
+    then
+      dialog --backtitle "$DIALOG_BACKTITLE" --title " Error " --aspect 50 \
+	--ok-label "Exit" --msgbox "\n
+Unable to determine whether this is a Slackware installation.\n
+\n
+Installation cannot proceed on unsupported distributions.\n\n" 0 0 2>/dev/null
+      return 1
+    fi
+  fi
+  return 0
+}
+
+# Select automatic or manual package selection.
+function select_auto_manual() {
+  dialog --backtitle "$DIALOG_BACKTITLE" --title " Package selection " \
+    --aspect 50 --ok-label "Continue" --cancel-label "Back" --menu "\n
+The installer can perform a completely automated installation\n
+or prompt for the manual selection of packages to be installed.\n
+\n
+The automated installation (recommended) will install Freerock\n
+GNOME packages based upon the developers recommended defaults.\n
+Manual package selection (for experts only) allows individual\n
+packages to be selected via interactive menus.\n
+\n
+It it highly recommended that automated installation be used by\n
+non-expert users." 0 0 2 \
+    "Auto" "Automated installation based upon defaults" \
+    "Manual" "Manual selection of individual packages" \
+    2>$TMP/frg_install.answer
+  [ $? -ne 0 ] && { rm -f $TMP/frg_install.answer; return 1; }
+  FRG_INST_METHOD="`cat $TMP/frg_install.answer`"
+  rm -f $TMP/frg_install.answer
+  return 0
+}
+
+# Select a full or minimum install.
+function select_full_minimum() {
+  dialog --backtitle "$DIALOG_BACKTITLE" --title " Type of installation " \
+    --aspect 50 --ok-label "Continue" --cancel-label "Back" --menu "\n
+Please choose whether you want to install packages from the\n
+minimum set of GNOME libraries and applications or the full\n
+range of Freerock GNOME software.\n
+\n
+The minimum set of packages provides a basic working GNOME\n
+environment with very few applications.  The full set of\n
+software adds many, many more applications, features and\n
+libraries to the desktop.\n
+\n
+Use the arrow keys to select the software set required and\n
+hit Enter.  The default is a full installation.\n" 0 0 2 \
+    "Full" "GNOME desktop with all applications and features" \
+    "Minimum" "Minimum GNOME desktop with basic features" \
+    2>$TMP/frg_install.answer
+  [ $? -ne 0 ] && { rm -f $TMP/frg_install.answer; return 1; }
+  FRG_INST_TYPE="`cat $TMP/frg_install.answer`"
+  rm -f $TMP/frg_install.answer
+  return 0
+}
+
+# Given a package name, extension and an optional specific directory to search,
+# return the full path to the matched file.
+function locate_file() {
+  # $1 = Package name to search for
+  # $2 = Extension of file to match (eg, tgz or txt)
+  # $3 = Directory to search [optional]
+
+  [ -z "$1" -o -z "$2" ] && { echo ""; return 1; }
+
+  local PKG="`echo $1 | sed -e 's:+:\\\\+:g'`"
+  local DIR=${3:-.}
+  local FILE="`find $DIR -regex ^.*/${PKG}-[^-]*-[^-]*-[^-]*.${2}$`"
+  [ -z "$FILE" ] && { echo ""; return 1; }
+
+  echo "$FILE"
+  return 0
+}
+
+# Process the tagfiles into lists of packages to be installed.
+function process_tagfiles() {
+  # $1 = The directories to process tagfiles from.
+
+  local SIFS=$IFS
+  local DIRSTACK="$1"
+  local DIR PKGLIST SELECTED LINE PKG PRI TXTFILE DESC DIRSTACKDONE
+
+  # Clean up any old package lists.
+  rm -f $TMP/frg_pkglist.*
+
+  # Check that tagfiles exist in every package set.   The whole install process
+  # is based on accurate tagfiles so there is no point going on without them.
+  for DIR in $DIRSTACK
+  do
+    if [ ! -e $DIR/tagfile ]
+    then
+      dialog --backtitle "$DIALOG_BACKTITLE" --title " Error " --aspect 50 \
+	--ok-label "Exit" --msgbox "\n
+Unable to find a tagfile for the $DIR directory.\n
+\n
+Unable to continue with installation.\n\n" 0 0 2>/dev/null
+      rm -f $TMP/frg_pkglist.* $TMP/tempscript.sh
+      exit 1
+    fi
+  done
+
+  # Process tagfiles and produce package lists to be installed.
+  while true
+  do
+    IFS=' '
+    for DIR in $DIRSTACK
+    do
+      # The package list for this directory.
+      PKGLIST="$TMP/frg_pkglist.`echo \"$DIR\" | tr '/' '-'`"
+
+      if [ "$FRG_INST_METHOD" = "Manual" ]
+      then
+	while true
+	do
+	  # Make sure the user knows what is going on.
+	  dialog --backtitle "$DIALOG_BACKTITLE" \
+	    --title " Preparing package list " --aspect 50 --infobox "
+Preparing the package list.\n
+\n
+      Please wait..." 0 0 2>/dev/null
+
+	  # For each directory a package selection menu is generated and a
+	  # custom package list created.
+	  cat <<EOF >$TMP/tempscript.sh
+dialog --backtitle "$DIALOG_BACKTITLE" \\
+  --title " Package selection: \Zb\Z1${DIR}\Zn " --aspect 50 --help-button \\
+`[ -n "\`echo $DIRSTACKDONE\`" ] && echo "--extra-button"` \\
+  --ok-label "Continue" --extra-label "Back" --cancel-label "Restart" \\
+  --help-label "Package Info" --help-status --separate-output --colors \\
+  --default-item "$SELECTED" --checklist "\\n
+Select the packages to be installed from this set.\\n
+Note: Selectivly changing the defaults may prevent GNOME starting,\\n
+cause instability or prevent applications from working.\\n
+\\n
+Use the arrow keys to highlight packages and the space key to toggle\\n
+the selection on/off.  Selecting the 'Package Info' button on a\\n
+highlighted package will show the full package description." 0 0 6 \\
+EOF
+	  # Generate data for the checklist.
+	  IFS=$'\n'
+	  for LINE in `cat $DIR/tagfile | egrep -v "^#|^$" | tr -d ' '`
+	  do
+	    # Get the package and priority from the tagfile.
+	    PKG="`echo $LINE | cut -d: -f1`"
+	    PRI="`echo $LINE | cut -d: -f2 | tr '[:lower:]' '[:upper:]'`"
+
+	    # Extract a description from the .txt file.
+	    TXTFILE="`locate_file \"$PKG\" \"txt\" \"$DIR\"`"
+	    if [ $? -ne 0 ] || [ -z "$TXTFILE" ]
+	    then
+	      DESC="$PKG"
+	    else
+	      DESC="`cat $TXTFILE | grep -m1 \"^${PKG}:\" | cut -d':' -f2- | cut -d' ' -f2- | cut -d'(' -f2- | cut -d')' -f1`"
+	    fi
+
+	    # Set the package checklist item to be on or off.  How this works:
+	    # The first time through the checklist is generated using the
+	    # tagfiles in the package directories.  Any packages listed with a
+	    # priory of ADD or REC have their option turned "on".  All others
+	    # are "off".  If the user chooses to see extended info on the
+	    # package via the checkbox a temporary package list is saved which
+	    # contains only the packages set to "on" at that time.  When the
+	    # checklist is re-generated any changes made to the selection list
+	    # are restored by compairing the original tagfile priorities to the
+	    # packages in the temporary list.  The appropriate status is set by
+	    # the presence or absence from the temporary list.    Phew! :)
+	    if [ "$PRI" = "ADD" ] || [ "$PRI" = "REC" ]
+	    then
+	      if [ -e $PKGLIST ]
+	      then
+		# If the package *is not* listed in the temporary package list
+		# the user deactivated it in the checkbox - so keep it off.
+		if ! egrep "^${PKG}$" $PKGLIST >/dev/null 2>&1
+		then
+		  PRI="off"
+		else
+		  PRI="on"
+		fi
+	      else
+		PRI="on"
+	      fi
+	    else
+	      if [ -e $PKGLIST ]
+	      then
+		# If the package *is* listed in the temporary package list the
+		# user activated it in the checkbox - so keep it on.
+		if egrep "^${PKG}$" $PKGLIST >/dev/null 2>&1
+		then
+		  PRI="on"
+		else
+		  PRI="off"
+		fi
+	      else
+		PRI="off"
+	      fi
+	    fi
+	    echo "\"$PKG\" \"$DESC\" \"$PRI\" \\" >>$TMP/tempscript.sh
+	  done
+	  echo "2>$PKGLIST ; exit \$?" >>$TMP/tempscript.sh
+	  sh $TMP/tempscript.sh
+	  case "$?" in
+	    '0')
+	      # Take this directory off one stack and put it on the other.
+	      DIRSTACKDONE=`echo -n $DIR $DIRSTACKDONE | tr -s ' '`
+	      DIRSTACK=`echo -n "$DIRSTACK " | tr -s ' ' | cut -d' ' -f2-`
+
+	      # Continue onto the next set.
+	      rm -f $TMP/tempscript.sh
+	      break
+	      ;;
+	    '2')
+	      # If the user requested further package info, locate the .txt file
+	      # and display it.
+	      SELECTED="`fgrep \"HELP\" $PKGLIST | cut -d' ' -f2-`"
+	      TXTFILE="`locate_file \"$SELECTED\" \"txt\" \"$DIR\"`"
+	      dialog --backtitle "$DIALOG_BACKTITLE" \
+		--title " Package information: $SELECTED " --aspect 50 \
+		--ok-label "Back" --cr-wrap --msgbox "\n
+`cat $TXTFILE | fgrep \"${SELECTED}:\" | cut -d':' -f2-| uniq`\n\n" \
+		0 0 2>/dev/null
+	      rm -f $TMP/tempscript.sh
+	      continue
+	      ;;
+	    '3')
+	      # Put the last processed directory back onto the stack.
+	      DIRSTACK="`echo -n $DIRSTACKDONE | tr -s ' ' | cut -d' ' -f1` $DIRSTACK"
+	      DIRSTACKDONE=`echo -n "$DIRSTACKDONE " | tr -s ' ' | cut -d' ' -f2-`
+
+	      # Go back to the last list.
+	      continue 3
+	      ;;
+	    *)
+	      rm -f $TMP/frg_pkglist.* $TMP/tempscript.sh
+	      return 1
+	      ;;
+	  esac
+	done
+      else
+	# Make sure the user knows what is going on.
+	dialog --backtitle "$DIALOG_BACKTITLE" \
+	  --title " Generating package lists " --aspect 50 --infobox "
+Creating the package lists.\n
+\n
+      Please wait..." 0 0 2>/dev/null
+
+	# Create the package list based upon the default tagfiles.  Anything
+	# which is marked as ADD or REC is installed; SKP and OPT are not.
+	for LINE in `cat $DIR/tagfile | egrep -v "^#|^$" | tr -d ' '`
+	do
+	  if echo "$LINE" | cut -d':' -f2 | egrep -i "ADD|REC" >/dev/null 2>&1
+	  then
+	    echo "$LINE" | cut -d':' -f1 >>$PKGLIST
+	  fi
+	done
+      fi
+    done
+    break
+  done
+
+  IFS=$SIFS
+  return 0
+}
+
+# Last chance to make changes..
+function install_ready() {
+  dialog --backtitle "$DIALOG_BACKTITLE" --title " Ready to install " \
+    --aspect 50 --yes-label "Continue" --no-label "Restart" --yesno "\n
+All pre-installation configuration is complete.\n
+\n
+To continue with installation press Enter.\n
+\n
+To go back to make changes or to give up on\n
+installation, use the arrow or tab keys to\n
+select 'Restart' and hit Enter.\n\n" 0 0 2>/dev/null
+  [ $? -ne 0 ] && return 1
+  return 0
+}
+
+# Stuff to do *before* installing any FRG packages.
+function pre_install() {
+  # Tell the user what is going on.
+  dialog --backtitle "$DIALOG_BACKTITLE" --title " Preparing for install " \
+    --aspect 50 --infobox "
+Performing pre-installation tasks.\n
+\n
+          Please wait..." 0 0 2>/dev/null
+
+  # An newer pkg-config package is installed by FRG so remove this one.
+  removepkg pkgconfig >>$TMP/frg_install.log 2>&1
+
+  # These are packages from previous FRG release which aren't needed now.
+  removepkg ximian-connector >>$TMP/frg_install.log 2>&1
+  removepkg gnomemeeting >>$TMP/frg_install.log 2>&1
+  removepkg gnome2-user-docs >>$TMP/frg_install.log 2>&1
+
+  # Slackware current users will need to remove this (not done by default).
+  # removepkg openldap-client >>$TMP/frg_install.log 2>&1
+
+  return 0
+}
+
+function do_install() {
+  # $1 = Directories to install packages from.
+
+  local SIFS=$IFS
+  local PKGSTOTAL="`cat $TMP/frg_pkglist.* | wc -l`"
+  local PKGSDONE=0
+  local DIR PKGLIST PKG PKGFILE
+
+  # Check for some directories to process.
+  if [ -z "$1" ]
+  then
+    dialog --backtitle "$DIALOG_BACKTITLE"  --title " Error " --aspect 50 \
+      --ok-label "Exit" --msgbox "\n
+No directories specified to install packages from!
+\n
+Unable to continue with installation.\n\n" 0 0 2>/dev/null
+    return 1
+  fi
+
+  # Reset the packages installed count.
+  echo "$PKGSDONE" >$TMP/frg_pkglist.count
+
+  IFS=' '
+  for DIR in $1
+  do
+    # The package list for this directory.
+    PKGLIST="$TMP/frg_pkglist.`echo \"$DIR\" | tr '/' '-'`"
+
+    # If there is no frg_pkglist.* file (or it's empty) then no packages from 
+    # this directory need to be installed.
+    [ ! -s $PKGLIST ] && continue
+
+    # Initialise the package install count from the running counter.
+    PKGSDONE="`cat $TMP/frg_pkglist.count`"
+
+    # Do the installation, giving a progress dialog.
+    IFS=$'\n'
+    { for PKG in `cat $PKGLIST`
+      do
+      PKGFILE="`locate_file \"$PKG\" \"tgz\" \"$DIR\"`"
+      [ -z "$PKGFILE" ] && { echo "Package file not found for package \"$PKG\"" >$TMP/frg_install.error; break; }
+      echo "$(( ($PKGSDONE*100) / $PKGSTOTAL ))"
+      echo -e "XXX\nInstalling package:\n        `basename $PKGFILE`\nXXX"
+#      upgradepkg --install-new --reinstall $PKGFILE >>$TMP/frg_install.log 2>&1
+      [ $? -ne 0 ] && { echo "Installation of package \"$PKG\" failed." >$TMP/frg_install.error; break; }
+      PKGSDONE="$(( $PKGSDONE + 1 ))"
+      echo "$PKGSDONE" >$TMP/frg_pkglist.count
+      done } | dialog --backtitle "$DIALOG_BACKTITLE" --title " Installing " \
+		 --aspect 50 --gauge "" 7 65
+
+    # Stop if there were any errors installing.
+    if [ -e $TMP/frg_install.error ]
+    then
+      while true
+      do
+	dialog --backtitle "$DIALOG_BACKTITLE" --title " Error " --aspect 50 \
+	  --yes-label "View log" --no-label "Exit" --yesno "\n
+`cat $TMP/frg_install.error`\n
+\n
+Unable to continue with installation.\n
+\n
+To view the installation log file hit Enter.\n
+To exit the installer use the arrow or tab\n
+keys to select 'Exit' and hit Enter.\n\n" 0 0 2>/dev/null
+	[ $? -eq 0 ] && { view_logfile ; continue ; }
+        return 1
+      done
+    fi
+  done
+  IFS=$SIFS
+  return 0
+}
+
+function install_alternatives() {
+  while true
+  do
+    # For manual package selection, ask the user if they want to go through
+    # the process or not.  For auto pacakge selection, the defaults from the
+    # tagfiles are used.
+    if [ "$FRG_INST_METHOD" = "Manual" ]
+    then
+      dialog --backtitle "$DIALOG_BACKTITLE" --title " Alternative packages " \
+        --aspect 50 --yes-label "Continue" --no-label "Skip" --yesno "\n
+Included as part of Freerock GNOME are a number of additional packages\n
+which can compliment the GNOME applications already installed.\n
+However, some of the applications duplicate functionallity of packages\n
+already installed as standard - which may over-complicate the GNOME\n
+desktop for some users.\n
+\n
+Also included as part of the alternatives set are a number of 'patched'\n
+applications which provide different or more advanced features.\n
+\n
+To select packages from the alternatives sets hit Enter now.  To skip\n
+installation of all alternatives packages, use the arrow/tab keys to\n
+highlight the 'Skip' button and press Enter.\n\n" 0 0 2>/dev/null
+      [ $? -ne 0 ] && return 0
+    else
+      # Let the user know we are onto a new section.
+      dialog --backtitle "$DIALOG_BACKTITLE" --title " Continueing install " \
+	--aspect 50 --sleep 5 --infobox "
+  Main installation complete.\n
+\n
+Installing additional packages..." 0 0 2>/dev/null
+    fi
+
+    process_tagfiles "$FRG_ALT_DIRS" || continue
+    do_install "$FRG_ALT_DIRS" || return 1
+    break
+  done
+  return 0
+}
+
+function install_testing() {
+  # For manual package selection, ask the user if they want to go through
+  # the process or not.  No test packages are installed in Auto mode.
+  if [ "$FRG_INST_METHOD" = "Manual" ]
+  then
+    while true
+    do
+      dialog --backtitle "$DIALOG_BACKTITLE" --title " Test packages " \
+        --aspect 50 --yes-label "Continue" --no-label "Skip" --yesno "\n
+Also included in Freerock GNOME are some additional 'test' packages\n
+which may not be stable enough for installation by default.\n
+\n
+These test pacakges are not required for the GNOME desktop to function\n
+correctly but may be beneficial if installed.\n
+\n
+It is recommended that you do not install these packages unless you\n
+specifically know they are required or what effect they will have on\n
+your installation.\n
+\n
+To select packages from the test packages set hit Enter now.  To skip\n
+installation of all alternatives packages, use the arrow/tab keys to\n
+highlight the 'Skip' button and press Enter.\n\n" 0 0 2>/dev/null
+      [ $? -ne 0 ] && return 0
+
+      process_tagfiles "$FRG_TESTING_DIRS" || continue
+      do_install "$FRG_TESTING_DIRS" || return 1
+      break
+    done
+  fi
+  return 0
+}
+
+function post_install() {
+  # Tell the user what is going on.
+  dialog --backtitle "$DIALOG_BACKTITLE" --title " Finishing installation " \
+    --aspect 50 --infobox "
+Performing post-installation tasks.\n
+\n
+           Please wait..." 0 0 2>/dev/null
+
+  # Update cache files.
+  { chroot $ROOT usr/bin/gdk-pixbuf-query-loaders >etc/gtk-2.0/gdk-pixbuf.loaders; } >>$TMP/frg_install.log 2>&1
+  { chroot $ROOT usr/bin/gtk-query-immodules-2.0 >etc/gtk-2.0/gtk.immodules ; } >>$TMP/frg_install.log 2>&1
+  { chroot $ROOT usr/bin/update-mime-database usr/share/mime ; } >>$TMP/frg_install.log 2>&1
+  { chroot $ROOT usr/bin/update-desktop-database ; } >>$TMP/frg_install.log 2>&1
+  { chroot $ROOT usr/bin/scrollkeeper-update -p var/lib/scrollkeeper ; } >>$TMP/frg_install.log 2>&1
+
+  # Rebuild icon caches.
+  ( cd $ROOT
+    for DIR in usr/share/icons/*
+    do
+      [ -e $DIR/icon-theme.cache ] && rm -f $DIR/icon-theme.cache
+      [ -d $DIR ] && chroot . usr/bin/gtk-update-icon-cache -q --ignore-theme-index $DIR
+    done ) >>$TMP/frg_install.log 2>&1
+
+  # Set keyboard auto repeat settings.
+  { cdroot $ROOT usr/bin/gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type bool --set /desktop/gnome/peripherals/keyboard/repeat true ; } >>$TMP/frg_install.log 2>&1
+  { chroot $ROOT usr/bin/gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type integer --set /desktop/gnome/peripherals/keyboard/delay 550 ; } >>$TMP/frg_install.log 2>&1
+  { chroot $ROOT usr/bin/gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type integer --set /desktop/gnome/peripherals/keyboard/rate 25 ; } >>$TMP/frg_install.log 2>&1
+
+  return 0
+}
+
+function configure_services() {
+  local SERVICES
+
+  if [ "$FRG_INST_METHOD" = "Manual" ]
+  then
+    while true
+    do
+      # Generate a checklist of services/daemons to activate.
+      cat <<EOF >$TMP/tempscript.sh
+dialog --backtitle "$DIALOG_BACKTITLE" --title " Services activation " \\
+  --aspect 50 --help-button --ok-label "Continue" --no-cancel \\
+  --separate-output --checklist "\\n
+Some features of Freerock GNOME require installed services to\\n
+be started at boot time.  In order to activate these services\\n
+the init script for each service must be made executable.\\n
+
+The list below allows selection of services/daemons which can\\n
+started at boot time.  Items which are checked 'on' will be\\n
+automatically started.  Unless you are an expert it is highly\\n
+recommended that you do not make changes to the defaults.\\n
+
+Use the arrow keys to highlight the services and the space key\\n
+to toggle the selection on/off.  Hit Enter when complete." 0 0 6 \\
+EOF
+      [ -e $ROOT/etc/rc.d/rc.avahidaemon ] && \
+	echo "\"rc.avahidaemon\" \"Zeroconf networking daemon\" \"on\" \\" >>$TMP/tempscript.sh
+      [ -e $ROOT/etc/rc.d/rc.avahidnsconfd ] && \
+	echo "\"rc.avahidnsconfd\" \"Zeroconf networking configuration daemon\" \"on\" \\" >>$TMP/tempscript.sh
+      [ -e $ROOT/etc/rc.d/rc.bluetooth ] && \
+	echo "\"rc.bluetooth\" \"Linux bluetooth service\" \"on\" \\" >>$TMP/tempscript.sh
+      [ -e $ROOT/etc/rc.d/rc.hal ] && \
+	echo "\"rc.hal\" \"Dynamic hardware support system\" \"on\" \\" >>$TMP/tempscript.sh
+      [ -e $ROOT/etc/rc.d/rc.messagebus ] && \
+	echo "\"rc.messagebus\" \"Inter-application messageing system\" \"on\" \\" >>$TMP/tempscript.sh
+      [ -e $ROOT/etc/rc.d/rc.openldap ] && \
+	echo "\"rc.openldap\" \"OpenLDAP directory service\" \"off\" \\" >>$TMP/tempscript.sh
+      [ -e $ROOT/etc/rc.d/rc.udev ] && \
+	echo "\"rc.udev\" \"Userland dynamic /dev device manager\" \"on\" \\" >>$TMP/tempscript.sh
+      [ -e $ROOT/etc/rc.d/rc.zvbid ] && \
+	echo "\"rc.zvbid\" \"VBI proxy daemon\" \"off\" \\" >>$TMP/tempscript.sh
+      echo "2>$TMP/frg_install.services" >>$TMP/tempscript.sh
+      sh $TMP/tempscript.sh
+      [ $? -ne 0 ] && { rm -f $TMP/tempscript.sh ; continue ; }
+      break
+    done
+    SERVICES="`cat $TMP/frg_install.services | tr '\n' ' '`"
+  else
+    # Specifically set the services to start (space seporated list).
+    SERVICES="rc.avahidaemon rc.avahidnsconfd rc.bluetooth rc.hal rc.messagebus rc.udev"
+  fi
+
+  # Make the files executable.
+  [ -n "$SERVICES" ] && { cd $ROOT/etc/rc.d ; chmod 755 $SERVICES ; }
+
+  return 0
+}
+
+################################################################################
+
+while true
+do
+  # Introduction to Freerock GNOME.
+  frg_welcome || exit 0
+
+  # Optional: Check for Slackware.
+  # slack_check || exit 1
+
+  while true
+  do
+    # Clear up any gubbins from a previous run.
+    rm -f $TMP/frg_pkglist.* $TMP/frg_install.* $TMP/tempscript.sh
+
+    # Manual or automatic package selection.
+    select_auto_manual || break
+
+    while true
+    do
+      # Select full/minimum install.
+      select_full_minimum || break 1
+
+      # Create the list of directories to process.
+      if [ "$FRG_INST_TYPE" = "Minimum" ]
+      then
+	FRG_DIRS="$FRG_BASE_DIRS"
+      else
+	FRG_DIRS="$FRG_BASE_DIRS $FRG_EXTRA_DIRS"
+      fi
+
+      while true
+      do
+	# Create the package lists.
+	process_tagfiles "$FRG_DIRS" || break 2
+
+	# Last chance to bail out..
+	install_ready || break 3
+
+	# Done with the pre-install config.
+	break 4
+      done
+    done
+  done
+done
+
+# Do any pre-installation work.
+pre_install
+
+# Install the packages.
+do_install "$FRG_DIRS" || exit 1
+
+# Install alternatives and testing packages in Full install mode.
+if [ "$FRG_INST_TYPE" != "Minimum" ]
+then
+  [ -n "$FRG_ALT_DIRS" ] && { install_alternatives || exit 1 ; }
+  [ -n "$FRG_TESTING_DIRS" ] && { install_testing || exit 1 ; }
+fi
+
+# Run post install jobs.
+post_install
+
+# Activate services.
+configure_services
+
+# Display final info and copyright
+frg_goodbye
