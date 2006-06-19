@@ -49,6 +49,7 @@ cp -a $CWD/gdm/frg_gdm \
 
 tar zxf $CWD/gdm/35874-SimplyFree.tar.gz \
 	-C $PKG/usr/share/gdm/themes
+sed -i 's/Linux Desktop/Freerock GNOME/' $PKG/usr/share/gdm/themes/SimplyFree/SimplyFree.xml
 
 (
   cd $PKG/usr/share/gdm/themes
