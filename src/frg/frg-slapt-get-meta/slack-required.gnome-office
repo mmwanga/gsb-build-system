@@ -1,4 +1,4 @@
-frgnome-desktop >= 2.14.1-noarch-1frg
+frgnome-desktop >= 2.14.2-noarch-1frg
 aiksaurus
 ots
 libwmf
@@ -10,7 +10,15 @@ libgda
 libgnomedb
 goffice
 present
+g-wrap
+OpenSP
+libofx
+gwenhywfar
+ktoblzcheck
+libchipcard2
+aqbanking
 abiword
 dia
 gnumeric
 planner
+gnucash

@@ -1,5 +1,5 @@
                        |-----handy-ruler------------------------------------------------------|
-frgnome-bindings-python: frgnome-bindings-python - GNOME bindings for Python meta package
+frgnome-bindings-python: frgnome-bindings-python - (GNOME bindings for Python meta package)
 frgnome-bindings-python:
 frgnome-bindings-python: This package provides GNOME Python bindings.
 frgnome-bindings-python:

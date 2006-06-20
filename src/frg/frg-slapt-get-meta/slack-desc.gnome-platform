@@ -1,5 +1,5 @@
                 |-----handy-ruler------------------------------------------------------|
-frgnome-platform: frgnome-platform - GNOME Platform metapackage
+frgnome-platform: frgnome-platform - (GNOME Platform metapackage)
 frgnome-platform:
 frgnome-platform: This package provides the needed libraries for the GNOME platform.
 frgnome-platform:

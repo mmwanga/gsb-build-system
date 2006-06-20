@@ -1,7 +1,7 @@
                     |-----handy-ruler------------------------------------------------------|
-frgnome-bindings-c++: frgnome-bindings-c++ - GNOME bindings for C++ meta package
+frgnome-bindings-c++: frgnome-bindings-c++ - (GNOME bindings for C++ meta package)
 frgnome-bindings-c++:
-frgnome-bindings-c++: This package provides all GNOME C++ bindings.
+frgnome-bindings-c++: This package provides GNOME C++ bindings.
 frgnome-bindings-c++:
 frgnome-bindings-c++:
 frgnome-bindings-c++:

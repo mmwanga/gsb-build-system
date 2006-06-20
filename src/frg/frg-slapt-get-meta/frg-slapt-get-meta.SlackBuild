@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-frg-slapt-get-meta
 
-FRG_VERSION=2.14.1
+FRG_VERSION=2.14.2
 ARCH=${ARCH:-i486}
 BUILD=1frg
 
@@ -17,7 +17,6 @@ mkdir -p $PKG
 
 META_PACKS="
 gnome-office
-gnome-other
 gnome-bindings
 gnome-bindings-c++
 gnome-bindings-perl
@@ -28,6 +27,11 @@ gnome
 gnome-platform
 gnome-themes
 gnome-mono
+gnome-apps
+gnome-libs
+gnome-gnome-apps
+gnome-ruby
+gnome-applets_extensions
 "
 
 for i in $META_PACKS

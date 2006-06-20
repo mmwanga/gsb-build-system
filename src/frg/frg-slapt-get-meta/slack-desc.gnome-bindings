@@ -1,5 +1,5 @@
                 |-----handy-ruler------------------------------------------------------|
-frgnome-bindings: frg-gnome-bindings - GNOME bindings meta package
+frgnome-bindings: frg-gnome-bindings - (GNOME bindings meta package)
 frgnome-bindings:
 frgnome-bindings: This package provides all GNOME bindings.
 frgnome-bindings:
