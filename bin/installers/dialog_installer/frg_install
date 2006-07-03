@@ -451,7 +451,7 @@ Unable to continue with installation.\n\n" 0 0 2>/dev/null
       [ -z "$PKGFILE" ] && { echo "Package file not found for package \"$PKG\"" >$TMP/frg_install.error; break; }
       echo "$(( ($PKGSDONE*100) / $PKGSTOTAL ))"
       echo -e "XXX\nInstalling package:\n        `basename $PKGFILE`\nXXX"
-#      upgradepkg --install-new --reinstall $PKGFILE >>$TMP/frg_install.log 2>&1
+      upgradepkg --install-new --reinstall $PKGFILE >>$TMP/frg_install.log 2>&1
       [ $? -ne 0 ] && { echo "Installation of package \"$PKG\" failed." >$TMP/frg_install.error; break; }
       PKGSDONE="$(( $PKGSDONE + 1 ))"
       echo "$PKGSDONE" >$TMP/frg_pkglist.count
