@@ -1,4 +1,4 @@
-for i in BlankOn 
+for i in Tango
 do
     if [ -e usr/share/icons/$i/icon-theme.cache ]; then
         rm -f usr/share/icons/$i/icon-theme.cache

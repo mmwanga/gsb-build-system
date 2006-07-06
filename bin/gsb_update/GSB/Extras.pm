@@ -185,7 +185,7 @@ our %extras_libs_gnome =
    'glade'               => '2.12.1',
    'gnome-build'         => '0.1.3',
    'gnome-common'        => '2.12.0',
-   'loudmouth'           => '1.0.3',
+   'loudmouth'           => '1.0.4',
   );
 
 
@@ -330,12 +330,12 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'inkscape'            => {
-			     'ver' => '0.43',
+			     'ver' => '0.44',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/inkscape/',
 			     'src' => 'tar.bz2',
 			    },
    'liferea'             => {
-			     'ver' => '1.0.10',
+			     'ver' => '1.0.16',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/liferea/',
 			     'src' => 'tar.gz',
 			    },
@@ -401,7 +401,7 @@ our %extras_apps =
 our %extras_apps_gnome =
   (
    'ghex'                => '2.8.2',
-   'gossip'              => '0.11.2',
+   'gossip'              => '0.12',
   );
 
 
@@ -424,7 +424,7 @@ our %extras_applets =
 			     'src' => 'tar.gz',
 			    },
    'mail-notification'   => {
-			     'ver' => '2.0',
+			     'ver' => '3.0',
 			     'url' => 'http://savannah.nongnu.org/download/mailnotify/',
 			     'src' => 'tar.gz',
 			    },

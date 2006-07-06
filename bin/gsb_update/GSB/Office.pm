@@ -121,7 +121,7 @@ our %office_gnome =
    'dia'       => '0.95',
    'glom'      => '1.0.4',
    'mergeant'  => '0.62',
-   'planner'   => '0.13',
+   'planner'   => '0.14',
   );
 
 #

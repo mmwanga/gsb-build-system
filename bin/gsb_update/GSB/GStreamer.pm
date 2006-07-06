@@ -16,7 +16,7 @@ our $VERSION   = 0.03;
 our %gstreamer =
   (
    'gst-plugins-base'  => {
-                           'ver' => '0.10.7',
+                           'ver' => '0.10.8',
                            'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-base/',
                            'src' => 'tar.bz2',
                           },
