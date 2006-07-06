@@ -3,7 +3,6 @@ gDesklets: OPT
 gaim: OPT
 gftp: OPT
 ghex: OPT
-gnomebaker: OPT
 dvgrab: OPT
 kino: OPT
 gtkpod: OPT
@@ -23,7 +22,6 @@ bluefish: OPT
 avidemux: OPT
 slapt-get: OPT
 gslapt: OPT
-thoggen: OPT
 anjuta: OPT
 bmpx: OPT
 inkscape: OPT

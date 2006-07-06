@@ -73,7 +73,6 @@ gnome-volume-manager: ADD
 gal2: ADD
 evolution: ADD
 evolution-webcal: ADD
-evolution-caldav: ADD
 ekiga: ADD
 totem: ADD
 sound-juicer: ADD

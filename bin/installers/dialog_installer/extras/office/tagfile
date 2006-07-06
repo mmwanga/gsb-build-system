@@ -7,7 +7,6 @@ fribidi: OPT
 enchant: OPT
 libgda: OPT
 libgnomedb: OPT
-libgdamm: OPT
 goffice: OPT
 present: OPT
 g-wrap: OPT
@@ -17,3 +16,8 @@ gwenhywfar: OPT
 ktoblzcheck: OPT
 libchipcard2: OPT
 aqbanking: OPT
+abiword: OPT
+dia: OPT
+gnumeric: OPT
+planner: OPT
+gnucash: OPT
