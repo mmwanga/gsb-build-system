@@ -1,2 +1,2 @@
-gnome-themes-extras
-gnome-extra-themes
+gnome-themes-extras: REC
+gnome-extra-themes: OPT

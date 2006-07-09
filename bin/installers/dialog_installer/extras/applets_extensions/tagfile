@@ -1,7 +1,7 @@
 mail-notification: OPT
-contact-lookup-applet: OPT
+contact-lookup-applet: REC
 istanbul: OPT
-nautilus-open-terminal: OPT
+nautilus-open-terminal: REC
 lock-keys-applet: OPT
-fast-user-switch-applet: OPT
-deskbar-applet: OPT
+fast-user-switch-applet: REC 
+deskbar-applet: REC

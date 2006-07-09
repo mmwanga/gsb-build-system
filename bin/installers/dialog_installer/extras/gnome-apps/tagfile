@@ -1,9 +1,9 @@
 gnome-cups-manager: OPT
-gthumb: OPT
-rhythmbox: OPT
+gthumb: REC
+rhythmbox: REC
 gnome-audio: OPT
 sabayon: OPT
-gnome-power-manager: OPT
+gnome-power-manager: REC
 pessulus: OPT
 meld: OPT
 gnome-phone-manager: OPT
