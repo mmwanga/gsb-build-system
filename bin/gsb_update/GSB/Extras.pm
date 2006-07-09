@@ -205,16 +205,6 @@ our %extras_gnome_apps =
    'sabayon'             => '2.12.3',
   );
 
-# src/extras/gnome-apps
-#our %extras_gnome_other_apps =
-#  (
-#   'gnome-power-manager'       => {
-#                             'ver' => '0.3.4',
-#                             'url' => 'http://internap.dl.sourceforge.net/sourceforge/gnome-power/',
-#                             'src' => 'tar.gz',
-#                            },
-#  );
-
 
 # src/extras/apps
 our %extras_apps =
@@ -244,6 +234,11 @@ our %extras_apps =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/beepmp/',
 			     'src' => 'tar.gz',
 			    },
+   'bonfire'              => {
+                             'ver' => '0.3.91',
+                             'url' => 'http://heanet.dl.sourceforge.net/sourceforge/bonfire/',
+                             'src' => 'tar.bz2',
+                            },
    'drivel'              => {
 			     'ver' => '2.0.2',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/drivel/',
@@ -385,7 +380,7 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'xchat'               => {
-			     'ver' => '2.6.2',
+			     'ver' => '2.6.4',
 			     'url' => 'http://xchat.org/files/source/2.6/',
 			     'src' => 'tar.bz2',
 			    },
