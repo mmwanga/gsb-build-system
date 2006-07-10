@@ -42,6 +42,7 @@ zapping
 pitivi
 gparted
 bonfire
+pulseaudio-tools
 "
 
 ALT_BUILD_ORDER="
