@@ -71,7 +71,7 @@ our %extras_libs =
 			     'src' => 'tar.gz',
 			    },
    'gphoto2'             => {
-			     'ver' => '2.1.99',
+			     'ver' => '2.2.0',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto/',
 			     'src' => 'tar.gz',
 			    },
@@ -111,7 +111,7 @@ our %extras_libs =
 			     'src' => 'tar.bz2',
 			    },
    'libgphoto2'          => {
-			     'ver' => '2.1.99',
+			     'ver' => '2.2.0',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto/',
 			     'src' => 'tar.gz',
 			    },
@@ -201,7 +201,7 @@ our %extras_gnome_apps =
    'gthumb'              => '2.7.7',
    'meld'                => '1.1.4',
    'pessulus'            => '0.10.1',
-   'rhythmbox'           => '0.9.4.1',
+   'rhythmbox'           => '0.9.5',
    'sabayon'             => '2.12.3',
   );
 
@@ -409,8 +409,8 @@ our %extras_applets =
 			       'src' => 'tar.gz',
 			      },
    'istanbul'            => {
-			     'ver' => '0.1.1',
-			     'url' => 'http://live.hujjat.org',
+			     'ver' => '0.1.2',
+			     'url' => 'http://zaheer.merali.org/',
 			     'src' => 'tar.bz2',
 			    },
    'lock-keys-applet'    => {

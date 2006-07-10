@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-rhythmbox
 
-VERSION=0.9.4.1
+VERSION=0.9.5
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/rhythmbox-$VERSION-$ARCH-$BUILD ]; then
   echo "rhythmbox-$VERSION-$ARCH-$BUILD package already installed"
@@ -69,7 +69,6 @@ CFLAGS="$SLKCFLAGS" \
             --disable-static \
 	    --enable-ipod \
 	    --enable-nautilus-menu \
-            --disable-libnotify \
             $ARCH_CONFIGURE \
 	    $ARCH-slackware-linux || exit 1
 make || exit 1
