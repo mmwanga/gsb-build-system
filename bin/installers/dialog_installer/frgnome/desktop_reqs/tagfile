@@ -34,7 +34,7 @@ mpeg2dec: ADD
 mpeg4ip: ADD
 libmpcdec: ADD
 openslp: ADD
-polypaudio: ADD
+pulseaudio: ADD
 swfdec: ADD
 libtheora: ADD
 xvidcore: ADD

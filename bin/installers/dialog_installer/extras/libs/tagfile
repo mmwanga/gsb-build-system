@@ -28,3 +28,6 @@ libetpan: REC
 gnonlin: REC
 slib: REC
 gnome-common: REC
+xmms-pulse: REC
+gst-pulse: REC
+libao-pulse: OPT

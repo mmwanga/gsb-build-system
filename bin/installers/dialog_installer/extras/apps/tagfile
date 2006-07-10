@@ -28,3 +28,5 @@ inkscape: OPT
 zapping: OPT
 pitivi: REC
 gparted: OPT
+bonfire: REC
+pulseaudio-tools: REC
