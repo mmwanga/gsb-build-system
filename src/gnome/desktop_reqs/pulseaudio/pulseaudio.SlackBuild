@@ -69,6 +69,14 @@ make install DESTDIR=$PKG
 
 chown -R root.bin $PKG/usr/bin
 
+(
+  cd $PKG/etc/pulse
+  for i in client.conf  daemon.conf  default.pa
+  do
+      mv $i $i.new
+  done
+)
+
 mkdir -p $PKG/usr/doc/pulseaudio-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
         TODO \
