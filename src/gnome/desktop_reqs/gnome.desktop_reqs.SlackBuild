@@ -57,7 +57,7 @@ mpeg2dec
 mpeg4ip
 libmpcdec
 openslp
-polypaudio
+pulseaudio
 swfdec
 libtheora
 xvidcore
