@@ -40,6 +40,9 @@ libetpan
 gnonlin
 slib
 gnome-common
+xmms-pulse
+gst-pulse
+libao-pulse
 "
 
 mkdir -p $TMP/gnome-$GVERSION/extras/libs
