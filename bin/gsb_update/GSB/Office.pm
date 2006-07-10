@@ -16,8 +16,8 @@ our $VERSION   = 0.03;
 our %office =
   (
    'abiword' => {
-		 'url' => 'http://www.abisource.com/downloads/abiword/2.4.4/source/',
-		 'ver' => '2.4.4',
+		 'url' => 'http://www.abisource.com/downloads/abiword/2.4.5/source/',
+		 'ver' => '2.4.5',
 		 'src' => 'tar.gz'
 		},
    'gnucash' => {
