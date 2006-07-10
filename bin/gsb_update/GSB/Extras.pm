@@ -80,6 +80,11 @@ our %extras_libs =
                              'url' => 'http://www.graphviz.org/pub/graphviz/ARCHIVE/',
                              'src' => 'tar.gz',
                             },
+   'gst-pulse'          => {
+                             'ver' => '0.9.2',
+                             'url' => 'http://0pointer.de/lennart/projects/gst-pulse/',
+                             'src' => 'tar.gz',
+                            },
    'gtkspell'            => {
 			     'ver' => '2.0.11',
 			     'url' => 'http://gtkspell.sourceforge.net/download/',
@@ -90,6 +95,11 @@ our %extras_libs =
 			     'url' => 'http://effbot.org/downloads/',
 			     'src' => 'tar.gz',
 			    },
+   'libao-pulse'          => {
+                             'ver' => '0.9.2',
+                             'url' => 'http://0pointer.de/lennart/projects/libao-pulse/',
+                             'src' => 'tar.gz',
+                            },
    'libburn'             => {
 			     'ver' => '0.2',
 			     'url' => 'http://icculus.org/burn/releases/',
@@ -153,6 +163,11 @@ our %extras_libs =
    'python-ldap'         => {
                              'ver' => '2.0.11',
                              'url' => 'http://heanet.dl.sourceforge.net/sourceforge/python-ldap/',
+                             'src' => 'tar.gz',
+                            },
+   'xmms-pulse'          => {
+                             'ver' => '0.9.2',
+                             'url' => 'http://0pointer.de/lennart/projects/xmms-pulse/',
                              'src' => 'tar.gz',
                             },
    'zvbi'                => {
