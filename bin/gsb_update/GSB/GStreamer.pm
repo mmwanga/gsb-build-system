@@ -263,9 +263,9 @@ our %gst_libs =
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/openslp/',
 			   'src' => 'tar.gz',
 			  },
-   'polypaudio'        => {
-			   'ver' => '0.8',
-			   'url' => 'http://0pointer.de/lennart/projects/polypaudio/',
+   'pulseaudio'        => {
+			   'ver' => '0.9.2',
+			   'url' => 'http://0pointer.de/lennart/projects/pulseaudio/',
 			   'src' => 'tar.gz',
 			  },
    'swfdec'            => {
