@@ -6,7 +6,7 @@ PKG=$TMP/package-gimp
 
 VERSION=2.2.12
 ARCH=${ARCH:-i486}
-BUILD=1frg
+BUILD=1
 
 if [ -f /var/log/packages/gimp-$VERSION-$ARCH-$BUILD ]; then
   echo "gimp-$VERSION-$ARCH-$BUILD package already installed"
