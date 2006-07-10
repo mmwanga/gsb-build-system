@@ -1,0 +1,22 @@
+--- include/constant.h.orig	2006-06-30 12:15:40.732020500 +1000
++++ include/constant.h	2006-06-30 12:17:48.187986000 +1000
+@@ -13,9 +13,16 @@
+ #else
+ const Char charMax = Char(-1);
+ #endif
+-const WideChar wideCharMax = WideChar(-1);
+-const UnivChar univCharMax = UnivChar(-1);
+-const SyntaxChar syntaxCharMax = SyntaxChar(-1);
++
++#if UINT_MAX >= 0xffffffffL /* 2^32 - 1 */
++# define wideCharMax UINT_MAX
++# define univCharMax UINT_MAX
++# define syntaxCharMax UINT_MAX
++#else
++# define wideCharMax ULONG_MAX
++# define univCharMax ULONG_MAX
++# define syntaxCharMax ULONG_MAX
++#endif 
+ 
+ #ifdef SP_NAMESPACE
+ }

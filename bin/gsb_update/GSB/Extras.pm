@@ -385,7 +385,7 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'zapping'             => {
-                             'ver' => '0.10cvs4',
+                             'ver' => '0.10cvs6',
                              'url' => 'http://heanet.dl.sourceforge.net/sourceforge/zapping/',
                              'src' => 'tar.bz2',
                             },

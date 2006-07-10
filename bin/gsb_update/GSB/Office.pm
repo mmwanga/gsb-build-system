@@ -61,7 +61,7 @@ our %office_libs =
                   },
    'gwenhywfar'    => {
                    'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gwenhywfar/',
-                   'ver' => '2.2.0',
+                   'ver' => '2.3.0',
                    'src' => 'tar.gz',
                   },
    'ktoblzcheck' => {

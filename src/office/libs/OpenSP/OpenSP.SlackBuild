@@ -56,6 +56,8 @@ elif [ "$ARCH" = "powerpc" ]; then
 elif [ "$ARCH" = "x86_64" ]; then
   echo "Applying patches for $ARCH"
   #cat $CWD/foo.patch | patch -p0 --verbose
+  cat $CWD/x86_64.include.RangeMap_cxx.patch | patch -p0 --verbose
+  cat $CWD/x86_64.include.constant_h.patch | patch -p0 --verbose
 fi
 
 CFLAGS="$SLKCFLAGS" \
