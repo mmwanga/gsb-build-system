@@ -23,7 +23,7 @@ FRG_SLACK_VERSION="10.2"
 # Directories must be in processing order (ie, platform/ before desktop/) and
 # seperated by spaces. 
 FRG_BASE_DIRS="frgnome/platform frgnome/desktop_reqs frgnome/desktop"
-FRG_EXTRA_DIRS="frgnome/bindings extras/libs extras/apps extras/gnome-apps extras/applets_extensions extras/office extras/mono extras/ruby"
+FRG_EXTRA_DIRS="frgnome/themes frgnome/bindings extras/libs extras/apps extras/gnome-apps extras/applets_extensions extras/office extras/mono extras/ruby"
 FRG_ALT_DIRS="extras/alternatives/desktop extras/alternatives/apps extras/alternatives/patched"
 FRG_TESTING_DIRS="testing"
 
