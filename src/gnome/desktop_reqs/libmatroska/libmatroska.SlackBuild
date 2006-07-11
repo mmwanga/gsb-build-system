@@ -6,7 +6,7 @@ PKG=$TMP/package-libmatroska
 
 VERSION=0.8.0
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/libmatroska-$VERSION-$ARCH-$BUILD ]; then
   echo "libmatroska-$VERSION-$ARCH-$BUILD package already installed"
@@ -58,18 +58,18 @@ elif [ "$ARCH" = "x86_64" ]; then
   #cat $CWD/foo.patch | patch -p0 --verbose
 fi
 
-(
-  cd make/linux
-  cp Makefile Makefile.orig
-  sed -e 's#prefix=/usr/local#prefix=/usr#g' < Makefile.orig > Makefile
-  if [ "$ARCH" = "x86_64" ]; then
-    sed -i -re "s/^(libdir.*)$/\164/" Makefile
-  fi
-  $SLKCFLAGS make || exit 1
-  cp -f Makefile Makefile.orig
-  sed -e "s#prefix=/usr#prefix=$PKG/usr#g" < Makefile.orig > Makefile
-  make install
-)
+
+cd make/linux
+cp Makefile Makefile.orig
+sed -e 's#prefix=/usr/local#prefix=/usr#g' < Makefile.orig > Makefile
+if [ "$ARCH" = "x86_64" ]; then
+  sed -i -re "s/^(libdir.*)$/\164/" Makefile
+fi
+CFLAGS="$SLKCFLAGS" make || exit 1
+cp -f Makefile Makefile.orig
+sed -e "s#prefix=/usr#prefix=$PKG/usr#g" < Makefile.orig > Makefile
+make install
+cd -
 
 mkdir -p $PKG/usr/doc/libmatroska-$VERSION
 cp -a LICENSE.GPL LICENSE.QPL \
