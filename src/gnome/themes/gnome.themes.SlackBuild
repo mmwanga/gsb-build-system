@@ -8,9 +8,10 @@ if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
  
-BUILD_ORDER="gnome-extra-themes
+BUILD_ORDER="
+gnome-extra-themes
 gnome-themes-extras
-clearlooks"
+"
 
 mkdir -p $TMP/gnome-$GVERSION/frgnome/themes
 
