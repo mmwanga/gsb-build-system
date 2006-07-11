@@ -189,7 +189,7 @@ our %desktop =
    'eog'                    => '2.14.2',
    'epiphany'               => '2.14.2.1',
    'epiphany-extensions'    => '2.14.1.1',
-   'evince'                 => '0.5.2',
+   'evince'                 => '0.5.4',
    'evolution'              => '2.6.2',
    'evolution-data-server'  => '1.6.2',
    'evolution-exchange'     => '2.6.2',
@@ -208,7 +208,7 @@ our %desktop =
    'gnome-games'            => '2.14.2.1',
    'gnome-icon-theme'       => '2.14.2',
    'gnome-keyring-manager'  => '2.14.0',
-   'gnome-mag'              => '0.12.5',
+   'gnome-mag'              => '0.12.6',
    'gnome-media'            => '2.14.2',
    'gnome-menus'            => '2.14.0',
    'gnome-netstatus'        => '2.12.0',
@@ -332,7 +332,7 @@ our %bindings_python =
   (
    'gnome-python'         => '2.12.4',
    'gnome-python-desktop' => '2.14.0',
-   'gnome-python-extras'  => '2.14.0',
+   'gnome-python-extras'  => '2.14.1',
    'nautilus-python'      => '0.4.3',
    'pyphany'              => '0.1.4',
   );
