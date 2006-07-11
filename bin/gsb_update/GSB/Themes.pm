@@ -18,14 +18,14 @@ our %gnome_themes =
    'gnome-themes-extras'  => '0.9.0',
   );
 
-our %other_themes =
-  (
-   'clearlooks'           => {
-			      'ver' => '0.6.2',
-			      'url' => 'http://heanet.dl.sourceforge.net/sourceforge/clearlooks/',
-			      'src' => 'tar.bz2',
-			     },
-  );
+#our %other_themes =
+#  (
+#   'clearlooks'           => {
+#			      'ver' => '0.6.2',
+#			      'url' => 'http://heanet.dl.sourceforge.net/sourceforge/clearlooks/',
+#			      'src' => 'tar.bz2',
+#			     },
+# );
 
 our %gtk_extra_themes =
   (
