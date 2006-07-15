@@ -424,7 +424,7 @@ our %extras_applets =
 			       'src' => 'tar.gz',
 			      },
    'istanbul'            => {
-			     'ver' => '0.1.2',
+			     'ver' => '0.2.0',
 			     'url' => 'http://zaheer.merali.org/',
 			     'src' => 'tar.bz2',
 			    },
