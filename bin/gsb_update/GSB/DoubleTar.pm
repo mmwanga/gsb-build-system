@@ -84,13 +84,6 @@ our %double_tarballs =
 # iso-codes isn't a double tarball but its here temporarily because of how its named.
 our %double_tarballs_url =
   (
-   'clearlooks-metacity'       => {
-				   'ver' => '0.6',
-				   'dir' => 'gnome/themes/clearlooks',
-				   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/clearlooks/',
-				   'tar' => 'clearlooks-metacity-0.6.tar.gz',
-				   'var' => 'MVERSION',
-				  },
    'iso-codes'                 => {
 				   'ver' => '0.49',
 				   'dir' => 'gnome/desktop_reqs/iso-codes',

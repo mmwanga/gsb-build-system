@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gnucash
 
-VERSION=1.9.7
+VERSION=2.0.0
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/gnucash-$VERSION-$ARCH-$BUILD ]; then
   echo "gnucash-$VERSION-$ARCH-$BUILD package already installed"

@@ -6,7 +6,7 @@ PKG=$TMP/package-abiword
 
 VERSION=2.4.5
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/abiword-$VERSION-$ARCH-$BUILD ]; then
   echo "abiword-$VERSION-$ARCH-$BUILD package already installed"
