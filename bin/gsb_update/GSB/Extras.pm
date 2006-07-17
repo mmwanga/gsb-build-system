@@ -215,7 +215,7 @@ our %extras_gnome_apps =
    'gnome-power-manager' => '2.14.3',
    'gthumb'              => '2.7.7',
    'meld'                => '1.1.4',
-   'pessulus'            => '0.10.1',
+   'pessulus'            => '0.10.4',
    'rhythmbox'           => '0.9.5',
    'sabayon'             => '2.12.3',
   );

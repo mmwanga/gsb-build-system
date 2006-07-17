@@ -6,7 +6,7 @@ PKG=$TMP/package-gimp
 
 VERSION=2.2.12
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gimp-$VERSION-$ARCH-$BUILD ]; then
   echo "gimp-$VERSION-$ARCH-$BUILD package already installed"
@@ -94,6 +94,8 @@ rm -f $PKG/usr/man/man?/*.?
   cd $PKG/usr/share/pixmaps/
   ln -s ../icons/hicolor/48x48/apps/gimp.png
 )
+
+sed -i 's/\$\{datarootdir\}/\/usr\/share/' $PKG/usr/share/gimp/2.0/misc/gimp.desktop
 
 mkdir -p $PKG/usr/doc/gimp-$VERSION
 cp -a \
