@@ -96,6 +96,7 @@ chown root.root $PKG/usr/doc/istanbul-$VERSION/*
   find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
 )
 
+gzip -9 $PKG/usr/man/*/*
 
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required

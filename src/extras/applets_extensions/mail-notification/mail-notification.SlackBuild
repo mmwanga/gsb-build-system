@@ -6,9 +6,9 @@ PKG=$TMP/package-mail-notification
 
 VERSION=3.0
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
-EVO_VAR=2.4.1
+EVO_VAR=2.6.2
 
 if [ -f /var/log/packages/mail-notification-$VERSION-$ARCH-$BUILD ]; then
   echo "mail-notification-$VERSION-$ARCH-$BUILD package already installed"
@@ -44,10 +44,6 @@ tar -xjvf $CWD/evolution-$EVO_VAR.tar.bz2 || exit 1
 tar -xzvf $CWD/mail-notification-$VERSION.tar.gz || exit 1
 cd mail-notification-$VERSION
 
-cat $CWD/mail-notification-2.0-gmail-properties-fix.diff | patch -p0 --verbose
-cat $CWD/mail-notification-2.0-evolution-2.4.diff | patch -p0 --verbose
-cat $CWD/mail-notification-2.0-buildfix.diff | patch -p0 --verbose
-
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
   echo "Applying patches for $ARCH"
@@ -78,12 +74,6 @@ CFLAGS="$SLKCFLAGS" \
             $ARCH-slackware-linux || exit 1
 make || exit 1
 make install DESTDIR=$PKG
-
-(
-  mkdir -p $PKG/usr/share/applications
-  cd $PKG/usr/share/applications
-  ln -sf ../control-center-2.0/capplets/database-properties.desktop
-)
 
 SCHEMAS=$PKG/etc/gconf/schemas
 for i in $SCHEMAS/*.schemas

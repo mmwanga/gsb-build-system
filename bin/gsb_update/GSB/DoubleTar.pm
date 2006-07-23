@@ -41,7 +41,7 @@ our %double_tarballs =
 			  'var' => 'TVERSION',
 			 },
    'evolution' => {
-                           'ver' => '2.4.1',
+                           'ver' => '2.6.2',
                            'dir' => 'extras/applets_extensions/mail-notification',
                            'url' => 'http://ftp.gnome.org/pub/GNOME/sources/evolution/2.4/',
                            'src' => 'tar.bz2',

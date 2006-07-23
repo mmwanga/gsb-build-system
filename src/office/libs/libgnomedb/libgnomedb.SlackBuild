@@ -6,7 +6,7 @@ PKG=$TMP/package-libgnomedb
 
 VERSION=1.9.102
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/libgnomedb-$VERSION-$ARCH-$BUILD ]; then
   echo "libgnomedb-$VERSION-$ARCH-$BUILD package already installed"
@@ -68,12 +68,6 @@ CFLAGS="$SLKCFLAGS" \
             $ARCH-slackware-linux || exit 1
 make || exit 1
 make install DESTDIR=$PKG
-
-(
-  mkdir -p $PKG/usr/share/applications
-  cd $PKG/usr/share/applications
-  ln -sf ../control-center-2.0/capplets/database-properties.desktop
-)
 
 mkdir -p $PKG/usr/doc/libgnomedb-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
