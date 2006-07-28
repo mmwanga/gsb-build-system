@@ -43,7 +43,7 @@ our %double_tarballs =
    'evolution' => {
                            'ver' => '2.6.2',
                            'dir' => 'extras/applets_extensions/mail-notification',
-                           'url' => 'http://ftp.gnome.org/pub/GNOME/sources/evolution/2.4/',
+                           'url' => 'http://ftp.gnome.org/pub/GNOME/sources/evolution/2.6/',
                            'src' => 'tar.bz2',
                            'var' => 'EVO_VER',
                           },
@@ -85,10 +85,10 @@ our %double_tarballs =
 our %double_tarballs_url =
   (
    'iso-codes'                 => {
-				   'ver' => '0.49',
+				   'ver' => '0.52',
 				   'dir' => 'gnome/desktop_reqs/iso-codes',
 				   'url' => 'http://http.us.debian.org/debian/pool/main/i/iso-codes/',
-				   'tar' => 'iso-codes_0.49.orig.tar.gz',
+				   'tar' => 'iso-codes_0.52.orig.tar.gz',
 				   'var' => 'VERSION',
 				  },
    'nvu'                 => {

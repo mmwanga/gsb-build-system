@@ -56,7 +56,7 @@ our %extras_libs =
 			     'src' => 'tar.gz',
 			    },
    'gnokii'              => {
-                             'ver' => '0.6.12',
+                             'ver' => '0.6.13',
                              'url' => 'http://www.gnokii.org/download/gnokii/',
                              'src' => 'tar.bz2',
                             },

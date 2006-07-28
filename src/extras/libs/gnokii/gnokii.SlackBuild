@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gnokii
 
-VERSION=0.6.12
+VERSION=0.6.13
 ARCH=${ARCH:-i486}
-BUILD=3
+BUILD=1
 
 if [ -f /var/log/packages/gnokii-$VERSION-$ARCH-$BUILD ]; then
   echo "gnokii-$VERSION-$ARCH-$BUILD package already installed"
