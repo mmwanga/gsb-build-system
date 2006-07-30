@@ -55,7 +55,7 @@ our %platform =
 our %platform_diff_naming =
   (
    'orbit2' => {
-		'ver'  => '2.14.0',
+		'ver'  => '2.14.2',
 		'name' => 'ORBit2',
 	       },
    'gconf'  => {
@@ -95,7 +95,7 @@ our %platform_reqs =
 			     'src' => 'tar.gz',
 			    },
    'desktop-file-utils'  => {
-			     'ver' => '0.10',
+			     'ver' => '0.11',
 			     'url' => 'http://freedesktop.org/software/desktop-file-utils/releases/',
 			     'src' => 'tar.gz',
 			    },
@@ -111,7 +111,7 @@ our %platform_reqs =
 			    },
    'hal'                 => {
 			     'url' => 'http://freedesktop.org/~david/dist/',
-			     'ver' => '0.5.7',
+			     'ver' => '0.5.7.1',
 			     'src' => 'tar.gz',
 			    },
    'libdaemon'           => {
@@ -150,13 +150,13 @@ our %platform_reqs =
                              'src' => 'tar.gz',
                             },
    'shared-mime-info'    => {
-			     'url' => 'http://freedesktop.org/~jrb/',
-			     'ver' => '0.16',
+			     'url' => 'http://freedesktop.org/~hadess/',
+			     'ver' => '0.18',
 			     'src' => 'tar.gz',
 			    },
    'hicolor-icon-theme'  => {
 			     'url' => 'http://icon-theme.freedesktop.org/releases/',
-			     'ver' => '0.8',
+			     'ver' => '0.9',
 			     'src' => 'tar.gz',
 			    },
 
@@ -183,7 +183,7 @@ our %desktop =
    'alacarte'               => '0.9.1',
    'bug-buddy'              => '2.14.0',
    'control-center'         => '2.14.2',
-   'dasher'                 => '4.0.2',
+   'dasher'                 => '4.0.3',
    'eel'                    => '2.14.1',
    'ekiga'                  => '2.0.2',
    'eog'                    => '2.14.2',
@@ -195,7 +195,7 @@ our %desktop =
    'evolution-exchange'     => '2.6.2',
    'evolution-webcal'       => '2.6.0',
    'file-roller'            => '2.14.3',
-   'gcalctool'              => '5.8.17',
+   'gcalctool'              => '5.8.19',
    'gconf-editor'           => '2.14.0',
    'gdm'                    => '2.14.8',
    'gedit'                  => '2.14.3',
@@ -236,7 +236,7 @@ our %desktop =
    'gpdf'                   => '2.10.0',
    'gtk-engines'            => '2.7.4',
    'gtkhtml'                => '3.10.2',
-   'gtksourceview'          => '1.6.1',
+   'gtksourceview'          => '1.6.2',
    'gucharmap'              => '1.6.0',
    'libbtctl'               => '0.6.0',
    'libcroco'               => '0.6.1',
@@ -244,9 +244,9 @@ our %desktop =
    'libgnomeprintui'        => '2.12.1',
    'libgsf'                 => '1.14.1',
    'libgtkhtml'             => '2.11.0',
-   'libgtop'                => '2.14.1',
+   'libgtop'                => '2.14.2',
    'librsvg'                => '2.14.4',
-   'libsoup'                => '2.2.95',
+   'libsoup'                => '2.2.96',
    'libwnck'                => '2.14.2',
    'metacity'               => '2.14.5',
    'nautilus'               => '2.14.1',
@@ -254,14 +254,14 @@ our %desktop =
    'nautilus-media'         => '0.8.1',
    'nautilus-sendto'        => '0.5',
    'scrollkeeper'           => '0.3.14',
-   'sound-juicer'           => '2.14.4',
+   'sound-juicer'           => '2.14.5',
    'startup-notification'   => '0.8',
    'system-tools-backends'  => '1.4.2',
    'totem'                  => '1.4.3',
    'vino'                   => '2.13.5',
    'vte'                    => '0.12.2',
    'yelp'                   => '2.14.2',
-   'zenity'                 => '2.14.2',
+   'zenity'                 => '2.14.3',
    );
 
 our %desktop_diff_naming =
@@ -340,7 +340,7 @@ our %bindings_python =
 our %bindings_python_other =
     (
      'gst-python' => {
-	              'ver' => '0.10.4',
+	              'ver' => '0.10.5',
 		      'url' => 'http://gstreamer.freedesktop.org/src/gst-python/',
 		      'src' => 'tar.bz2',
 		     },

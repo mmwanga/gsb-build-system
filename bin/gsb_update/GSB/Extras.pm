@@ -61,7 +61,7 @@ our %extras_libs =
                              'src' => 'tar.bz2',
                             },
    'gnonlin'             => {
-                             'ver' => '0.10.4',
+                             'ver' => '0.10.5',
                              'url' => 'http://gstreamer.freedesktop.org/src/gnonlin/',
                              'src' => 'tar.bz2',
                             },
@@ -195,7 +195,7 @@ our %extras_libs_other =
 # src/extras/libs
 our %extras_libs_gnome =
   (
-   'devhelp'             => '0.11',
+   'devhelp'             => '0.12',
    'gdl'                 => '0.6.1',
    'glade'               => '2.12.1',
    'gnome-build'         => '0.1.3',
@@ -213,11 +213,11 @@ our %extras_gnome_apps =
    'gnome-cups-manager'  => '0.30',
    'gnome-phone-manager' => '0.7',
    'gnome-power-manager' => '2.14.3',
-   'gthumb'              => '2.7.7',
+   'gthumb'              => '2.7.8',
    'meld'                => '1.1.4',
    'pessulus'            => '0.10.4',
    'rhythmbox'           => '0.9.5',
-   'sabayon'             => '2.12.3',
+   'sabayon'             => '2.12.4',
   );
 
 
@@ -424,7 +424,7 @@ our %extras_applets =
 			       'src' => 'tar.gz',
 			      },
    'istanbul'            => {
-			     'ver' => '0.2.0',
+			     'ver' => '0.2.1',
 			     'url' => 'http://zaheer.merali.org/',
 			     'src' => 'tar.bz2',
 			    },

@@ -16,7 +16,7 @@ our $VERSION   = 0.03;
 our %gstreamer =
   (
    'gst-plugins-base'  => {
-                           'ver' => '0.10.8',
+                           'ver' => '0.10.9',
                            'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-base/',
                            'src' => 'tar.bz2',
                           },
@@ -41,7 +41,7 @@ our %gst_diff_name =
   (
    'gstreamer10'       => {
                            'name' => 'gstreamer',
-                           'ver'  => '0.10.8',
+                           'ver'  => '0.10.9',
                            'url'  => 'http://gstreamer.freedesktop.org/src/gstreamer/',
                            'src'  => 'tar.bz2',
                           },
@@ -189,7 +189,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'liboil'            => {
-			   'ver' => '0.3.8',
+			   'ver' => '0.3.9',
 			   'url' => 'http://liboil.freedesktop.org/download/',
 			   'src' => 'tar.gz',
 			  },
