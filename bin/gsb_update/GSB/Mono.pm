@@ -21,7 +21,7 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'banshee'                => {
-				'ver' => '0.10.10',
+				'ver' => '0.10.11',
 				'url' => 'http://banshee-project.org/files/banshee/',
 				'src' => 'tar.gz',
 			       },
