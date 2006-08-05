@@ -411,7 +411,7 @@ our %extras_apps =
 our %extras_apps_gnome =
   (
    'ghex'                => '2.8.2',
-   'gossip'              => '0.12',
+   'gossip'              => '0.14',
   );
 
 
