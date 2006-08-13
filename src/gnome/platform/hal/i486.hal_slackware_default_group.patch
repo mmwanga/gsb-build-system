@@ -1,0 +1,16 @@
+--- hal.conf.orig	2006-07-31 04:13:25.000000000 +0200
++++ hal.conf	2006-08-06 14:33:28.000000000 +0200
+@@ -49,5 +49,13 @@
+     <allow send_interface="org.freedesktop.Hal.Device.Volume.Crypto"/>
+   </policy>
+ 
++  <!-- Users who want/need HAL must be added to the "halusers" group -->
++  <policy group="62">
++    <allow send_interface="org.freedesktop.Hal.Device.SystemPowerManagement"/>
++    <allow send_interface="org.freedesktop.Hal.Device.LaptopPanel"/>
++    <allow send_interface="org.freedesktop.Hal.Device.Volume"/>
++    <allow send_interface="org.freedesktop.Hal.Device.Volume.Crypto"/>
++  </policy>
++
+ </busconfig>
+ 

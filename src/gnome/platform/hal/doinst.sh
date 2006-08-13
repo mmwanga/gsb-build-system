@@ -29,6 +29,13 @@ else
   echo "haldaemon:*:9797:0:::::" >> etc/shadow
 fi
 
+# If the halusers group doesn't exist, add it:
+if grep "^halusers::" etc/group 1> /dev/null 2> /dev/null ; then
+  true
+else
+  echo "halusers::62:" >> etc/group
+fi
+
 # most of this is taken from dropline's hal package
 # the patches for hal are also from dropline's sources
 

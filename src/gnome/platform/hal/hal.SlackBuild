@@ -6,7 +6,7 @@ PKG=$TMP/package-hal
 
 VERSION=0.5.7.1
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/hal-$VERSION-$ARCH-$BUILD ]; then
   echo "hal-$VERSION-$ARCH-$BUILD package already installed"
@@ -55,7 +55,7 @@ if [ "$ARCH" = "i386" ]; then
   #cat $CWD/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "i486" ]; then
   echo "Applying patches for $ARCH"
-  #cat $CWD/foo.patch | patch -p0 --verbose
+  cat $CWD/i486.hal_slackware_default_group.patch | patch -p0 --verbose
 elif [ "$ARCH" = "powerpc" ]; then
   SLKCFLAGS="-O2"
   ARCH_CONFIGURE=""
