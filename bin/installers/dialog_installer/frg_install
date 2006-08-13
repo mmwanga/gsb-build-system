@@ -402,6 +402,7 @@ Performing pre-installation tasks.\n
   removepkg gnomemeeting >>$TMP/frg_install.log 2>&1
   removepkg gnome2-user-docs >>$TMP/frg_install.log 2>&1
   removepkg howl >>$TMP/frg_install.log 2>&1
+  removepkg smeg >>$TMP/frg_install.log 2>&1
   removepkg evolution-caldav >>$TMP/frg_install.log 2>&1
 
   # Slackware current users will need to remove this (not done by default).
