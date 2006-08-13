@@ -194,7 +194,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libquicktime'      => {
-			   'ver' => '0.9.8',
+			   'ver' => '0.9.9',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libquicktime/',
 			   'src' => 'tar.gz',
 			  },
@@ -209,12 +209,12 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libsndfile'        => {
-			   'ver' => '1.0.14',
+			   'ver' => '1.0.16',
 			   'url' => 'http://www.mega-nerd.com/libsndfile/',
 			   'src' => 'tar.gz',
 			  },
    'libtheora'         => {
-			   'ver' => '1.0alpha5',
+			   'ver' => '1.0alpha7',
 			   'url' => 'http://downloads.xiph.org/releases/theora/',
 			   'src' => 'tar.gz',
 			  },

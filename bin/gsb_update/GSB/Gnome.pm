@@ -80,7 +80,7 @@ our %platform_diff_naming =
 our %platform_reqs =
   (
    'avahi'               => {
-                             'ver' => '0.6.10',
+                             'ver' => '0.6.12',
                              'url' => 'http://www.avahi.org/download/',
                              'src' => 'tar.gz',
                             },
@@ -180,22 +180,22 @@ our %platform_reqs =
 
 our %desktop =
   (
-   'alacarte'               => '0.9.1',
+   'alacarte'               => '0.9.2',
    'bug-buddy'              => '2.14.0',
    'control-center'         => '2.14.2',
    'dasher'                 => '4.0.4',
    'eel'                    => '2.14.3',
    'ekiga'                  => '2.0.2',
    'eog'                    => '2.14.3',
-   'epiphany'               => '2.14.3',
+   'epiphany'               => '2.14.2.1',
    'epiphany-extensions'    => '2.14.1.1',
-   'evince'                 => '0.5.4',
+   'evince'                 => '0.5.5',
    'evolution'              => '2.6.3',
    'evolution-data-server'  => '1.6.3',
    'evolution-exchange'     => '2.6.3',
    'evolution-webcal'       => '2.6.0',
    'file-roller'            => '2.14.4',
-   'gcalctool'              => '5.8.19',
+   'gcalctool'              => '5.8.20',
    'gconf-editor'           => '2.14.0',
    'gdm'                    => '2.14.10',
    'gedit'                  => '2.14.3',
@@ -219,7 +219,7 @@ our %desktop =
    'gnome-pilot-conduits'   => '2.0.13',
    'gnome-screensaver'      => '2.14.3',
    'gnome-session'          => '2.14.3',
-   'gnome-speech'           => '0.4.2',
+   'gnome-speech'           => '0.4.3',
    'gnome-spell'            => '1.0.7',
    'gnome-system-monitor'   => '2.14.5',
    'gnome-system-tools'     => '2.14.0',
@@ -257,7 +257,7 @@ our %desktop =
    'sound-juicer'           => '2.14.5',
    'startup-notification'   => '0.8',
    'system-tools-backends'  => '1.4.2',
-   'totem'                  => '1.4.3',
+   'totem'                  => '1.4.4',
    'vino'                   => '2.13.5',
    'vte'                    => '0.12.2',
    'yelp'                   => '2.14.3',
@@ -274,11 +274,6 @@ our %desktop_diff_naming =
 
 our %desktop_nongnome =
   (
-   'alacarte'     => {
-                      'ver' => '0.8',
-                      'url' => 'http://dev.realistanew.com/alacarte/releases/0.8/',
-                      'src' => 'tar.gz',
-                     },
    'gnome-mount'  => { 
                       'ver' => '0.4',
                       'url' => 'http://people.freedesktop.org/~david/dist/',
@@ -305,7 +300,7 @@ our %bindings_cxx =
   (
    'bakery'            => '2.4.0',
    'gconfmm'           => '2.14.2',
-   'glibmm'            => '2.10.4',
+   'glibmm'            => '2.10.5',
    'gnome-vfsmm'       => '2.14.0',
    'gtkmm'             => '2.8.8',
    'libglademm'        => '2.6.2',

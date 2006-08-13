@@ -9,3 +9,4 @@ gnome-vfs
 gtk+2
 libsoup
 libxml2
+cyrus-sasl

@@ -22,7 +22,7 @@ our %office =
 		},
    'gnucash' => {
                  'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gnucash/',
-                 'ver' => '2.0.0',
+                 'ver' => '2.0.1',
                  'src' => 'tar.gz'
                 },
   );

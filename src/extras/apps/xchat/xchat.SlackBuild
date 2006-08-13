@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-xchat
 
-VERSION=2.6.4
+VERSION=2.6.6
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -40,6 +40,8 @@ cd $TMP
 rm -rf xchat-$VERSION
 tar xjvf $CWD/xchat-$VERSION.tar.bz2
 cd xchat-$VERSION
+
+cat $CWD/xc266-fix-fi.diff | patch -p1 --verbose
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then

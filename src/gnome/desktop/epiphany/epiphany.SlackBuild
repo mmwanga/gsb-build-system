@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-epiphany
 
-VERSION=2.14.3
+VERSION=2.14.2.1
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -67,7 +67,7 @@ CFLAGS="$SLKCFLAGS" \
 	    --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static \
-	        --disable-rpath \
+	    --disable-rpath \
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 1
 make || exit 1

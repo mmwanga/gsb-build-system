@@ -66,8 +66,8 @@ our %extras_libs =
                              'src' => 'tar.bz2',
                             },
    'gpgme'               => {
-			     'ver' => '1.1.0',
-			     'url' => 'ftp://ftp.gnupg.org/gcrypt/gpgme/',
+			     'ver' => '1.1.2',
+			     'url' => 'http://mirrors.rootmode.com/ftp.gnupg.org/gpgme/',
 			     'src' => 'tar.gz',
 			    },
    'gphoto2'             => {
@@ -96,7 +96,7 @@ our %extras_libs =
 			     'src' => 'tar.gz',
 			    },
    'libao-pulse'          => {
-                             'ver' => '0.9.2',
+                             'ver' => '0.9.3',
                              'url' => 'http://0pointer.de/lennart/projects/libao-pulse/',
                              'src' => 'tar.gz',
                             },
@@ -245,8 +245,8 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'bmpx'                 => {
-			     'ver' => '0.14.4',
-			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/beepmp/',
+			     'ver' => '0.20.3',
+			     'url' => 'http://files.beep-media-player.org/releases/0.20/',
 			     'src' => 'tar.gz',
 			    },
    'bonfire'              => {
@@ -310,7 +310,7 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'graveman'            => {
-			     'ver' => '0.3.12-4',
+			     'ver' => '0.3.12-5',
 			     'url' => 'http://graveman.tuxfamily.org/sources/',
 			     'src' => 'tar.bz2',
 			    },
@@ -345,12 +345,12 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'liferea'             => {
-			     'ver' => '1.0.16',
+			     'ver' => '1.0.20',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/liferea/',
 			     'src' => 'tar.gz',
 			    },
    'pitivi'              => {
-                             'ver' => '0.10.0',
+                             'ver' => '0.10.1',
                              'url' => 'http://heanet.dl.sourceforge.net/sourceforge/pitivi/',
                              'src' => 'tar.bz2',
                             },
@@ -380,7 +380,7 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'sylpheed'            => {
-			     'ver' => '2.2.4',
+			     'ver' => '2.2.7',
 			     'url' => 'http://sylpheed.good-day.net/sylpheed/v2.2/',
 			     'src' => 'tar.bz2',
 			    },
@@ -395,7 +395,7 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'xchat'               => {
-			     'ver' => '2.6.4',
+			     'ver' => '2.6.6',
 			     'url' => 'http://xchat.org/files/source/2.6/',
 			     'src' => 'tar.bz2',
 			    },

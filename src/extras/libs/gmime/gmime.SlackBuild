@@ -6,7 +6,7 @@ PKG=$TMP/package-gmime
 
 VERSION=2.2.1
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gmime-$VERSION-$ARCH-$BUILD ]; then
   echo "gmime-$VERSION-$ARCH-$BUILD package already installed"
@@ -93,6 +93,8 @@ gzip -9 $PKG/usr/man/*/*
 gzip -9 $PKG/usr/info/*
 
 mkdir -p $PKG/install
+cat $CWD/slack-required > $PKG/install/slack-required
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG

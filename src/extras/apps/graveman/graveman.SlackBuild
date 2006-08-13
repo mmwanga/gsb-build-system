@@ -4,10 +4,10 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-graveman
 
-VERSION=0.3.12-4
+VERSION=0.3.12-5
 PVERSION=${VERSION/-/_}
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/graveman-$PVERSION-$ARCH-$BUILD ]; then
   echo "graveman-$VERSION-$ARCH-$BUILD package already installed"
