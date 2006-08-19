@@ -4,9 +4,9 @@ hal:
 hal: HAL is a hardware abstraction layer for GNU/Linux, designed to help
 hal: make hardware "just work".
 hal:
+hal: !!!!!!!!!!!!!!!
+hal: IMPORTANT NOTE:
+hal: !!!!!!!!!!!!!!!
 hal:
-hal:
-hal:
-hal:
-hal:
-hal:
+hal: To make hardware "just work" for non-root users as well, you must
+hal: add these users to the "halusers" group (group id "62" by default)!
