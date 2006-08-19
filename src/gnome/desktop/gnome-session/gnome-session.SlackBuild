@@ -6,7 +6,7 @@ PKG=$TMP/package-gnome-session
 
 VERSION=2.14.3
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gnome-session-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-session-$VERSION-$ARCH-$BUILD package already installed"
@@ -59,7 +59,7 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 cat $CWD/frg.gnome-session.splash.image.patch | patch -p1 --verbose
-cat $CWD/frg.default.session.patch | patch -p0 --verbose
+
 chown -R root.root .
 find . -perm 666 -exec chmod 644 {} \;
 find . -perm 664 -exec chmod 644 {} \;
