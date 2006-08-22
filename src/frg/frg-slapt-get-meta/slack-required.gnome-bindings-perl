@@ -1,4 +1,4 @@
-frgnome-desktop >= 2.14.1-noarch-1frg
+frgnome-desktop >= 2.14.3
 perl
 ExtUtils-PkgConfig
 ExtUtils-Depends
