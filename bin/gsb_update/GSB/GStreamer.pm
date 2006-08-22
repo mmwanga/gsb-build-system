@@ -184,8 +184,8 @@ our %gst_libs =
 			   'src' => 'tar.bz2',
 			  },
    'libmusicbrainz'    => {
-			   'ver' => '2.1.2',
-			   'url' => 'http://musicbrainz.org/ftpmirror/pub/musicbrainz/',
+			   'ver' => '2.1.3',
+         'url' => 'http://ftp.musicbrainz.org/pub/musicbrainz/',
 			   'src' => 'tar.gz',
 			  },
    'liboil'            => {
