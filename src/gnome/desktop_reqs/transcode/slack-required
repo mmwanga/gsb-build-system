@@ -2,3 +2,5 @@ lame
 libdvdread
 x11
 zlib
+imagemagick
+lcms
