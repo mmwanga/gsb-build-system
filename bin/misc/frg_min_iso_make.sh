@@ -1,6 +1,6 @@
 #!/bin/sh
 
-FRG=2.12.1
+FRG=2.14.3
 
 ISO_NAME="frg-min-${FRG}.iso"
 
@@ -12,16 +12,17 @@ FRG_ROOT=/home/storage/pub/frg/
     -A "Freerock GNOME ${FRG}" \
     -x $FRG_ROOT/frg-$FRG/frgnome/bindings \
     -x $FRG_ROOT/frg-$FRG/extras/office \
-    -x $FRG_ROOT/frg-$FRG/extras/other \
+    -x $FRG_ROOT/frg-$FRG/extras/applets_extensions \
+    -x $FRG_ROOT/frg-$FRG/extras/apps \
+    -x $FRG_ROOT/frg-$FRG/extras/gnome-apps \
+    -x $FRG_ROOT/frg-$FRG/extras/libs \
     -x $FRG_ROOT/frg-$FRG/extras/mono \
+    -x $FRG_ROOT/frg-$FRG/extras/ruby \
     -x $FRG_ROOT/frg-$FRG/testing \
     -x $FRG_ROOT/frg-$FRG/extras/themes \
     -x $FRG_ROOT/frg-$FRG/pasture \
     -x $FRG_ROOT/frg-$FRG/patches \
-    -x $FRG_ROOT/frg-$FRG/install_scripts/frg_full_dups_install.sh \
-    -x $FRG_ROOT/frg-$FRG/install_scripts/frg_full_install.sh \
-    -m $FRG_ROOT/frg-$FRG/extras/alternatives/'sylpheed*' \
-    -m $FRG_ROOT/frg-$FRG/extras/alternatives/'gimp*' \
+    -m $FRG_ROOT/frg-$FRG/extras/alternatives/apps \
     $FRG_ROOT/frg-$FRG/
 
 

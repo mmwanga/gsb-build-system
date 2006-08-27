@@ -1,6 +1,6 @@
 #!/bin/sh
 
-FRG=2.12.1
+FRG=2.14.3
 
 ISO_NAME="frg-${FRG}.iso"
 
