@@ -39,7 +39,7 @@ xvidcore
 transcode
 avifile
 mac
-openldap
+openldap || openldap-client
 PyXML
 iso-codes
 heimdal
