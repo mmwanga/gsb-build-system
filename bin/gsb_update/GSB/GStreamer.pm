@@ -59,6 +59,11 @@ our %gst_other =
 			   'url' => 'http://gstreamer.freedesktop.org/src/gst-monkeysaudio/',
 			   'src' => 'tar.bz2',
 			  },
+   'gst-fluendo-mp3'  => {
+			   'ver' => '0.10.2',
+         'url' => 'http://core.fluendo.com/gstreamer/src/gst-fluendo-mp3/',
+			   'src' => 'tar.bz2',
+			  },
   );
 
 our %gst_libs =
