@@ -23,6 +23,7 @@ Imaging
 gc
 gst-ffmpeg
 gst-monkeysaudio
+gst-fluendo-mp3
 gpgme
 libesmtp
 gmime
