@@ -5,9 +5,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gnome-power-manager
 
-VERSION=2.14.3
+VERSION=2.16.0
 ARCH=${ARCH:-i486}
-BUILD=4
+BUILD=1
 
 if [ -f /var/log/packages/gnome-power-manager-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-power-manager-$VERSION-$ARCH-$BUILD package already installed"

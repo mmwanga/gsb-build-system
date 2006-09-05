@@ -26,12 +26,12 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'beagle'                 => {
-				'ver' => '0.2.7',
+				'ver' => '0.2.9',
 				'url' => 'http://ftp.gnome.org/pub/GNOME/sources/beagle/0.2/',
 				'src' => 'tar.bz2',
 			       },
    'f-spot'                 => {
-                                'ver' => '0.1.11',
+                                'ver' => '0.2.0',
                                 'url' => 'http://ftp.gnome.org/pub/GNOME/sources/f-spot/0.1/',
                                 'src' => 'tar.bz2',
                                },

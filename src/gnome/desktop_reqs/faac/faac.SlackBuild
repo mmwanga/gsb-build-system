@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-faac
 
-VERSION=1.24
+VERSION=1.25
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/faac-$VERSION-$ARCH-$BUILD ]; then
   echo "faac-$VERSION-$ARCH-$BUILD package already installed"

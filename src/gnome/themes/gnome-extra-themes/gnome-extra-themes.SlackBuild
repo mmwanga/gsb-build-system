@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gnome-extra-themes
 
-VERSION=2.14.2
+VERSION=2.14.3
 ARCH=noarch
 BUILD=1
 

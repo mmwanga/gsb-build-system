@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gnome-icon-theme
 
-VERSION=2.14.2
+VERSION=2.16.0
 ARCH=${ARCH:-i486}
 BUILD=1
 

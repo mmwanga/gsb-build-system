@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-ekiga
 
-VERSION=2.0.2
+VERSION=2.0.3
 ARCH=${ARCH:-i486}
 BUILD=1
 

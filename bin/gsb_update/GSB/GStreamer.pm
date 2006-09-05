@@ -21,7 +21,7 @@ our %gstreamer =
                            'src' => 'tar.bz2',
                           },
    'gst-plugins-good'  => {
-                           'ver' => '0.10.3',
+                           'ver' => '0.10.4',
                            'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-good/',
                            'src' => 'tar.bz2',
                           },
@@ -31,7 +31,7 @@ our %gstreamer =
                            'src' => 'tar.bz2',
                           },
    'gst-plugins-ugly'  => {
-                           'ver' => '0.10.3',
+                           'ver' => '0.10.4',
                            'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-ugly/',
                            'src' => 'tar.bz2',
                           },
@@ -79,12 +79,12 @@ our %gst_libs =
 			   'src' => 'tar.bz2',
 			  },
    'faac'              => {
-			   'ver' => '1.24',
+			   'ver' => '1.25',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/faac/',
 			   'src' => 'tar.gz',
 			  },
    'faad2'             => {
-			   'ver' => '2.0',
+			   'ver' => '2.5',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/faac/',
 			   'src' => 'zip',
 			  },
@@ -199,7 +199,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'libquicktime'      => {
-			   'ver' => '0.9.9',
+			   'ver' => '0.9.10',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libquicktime/',
 			   'src' => 'tar.gz',
 			  },
@@ -254,7 +254,7 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'mpeg4ip'           => {
-			   'ver' => '1.4.1',
+			   'ver' => '1.5.0.1',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mpeg4ip/',
 			   'src' => 'tar.gz',
 			  },

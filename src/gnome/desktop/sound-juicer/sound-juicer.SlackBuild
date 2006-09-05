@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-sound-juicer
 
-VERSION=2.14.5
+VERSION=2.16.0
 ARCH=${ARCH:-i486}
 BUILD=1
 
