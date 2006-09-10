@@ -1,4 +1,4 @@
-frgnome-desktop >= 2.14.3
+frgnome-desktop >= 2.16.0
 perl
 ExtUtils-PkgConfig
 ExtUtils-Depends

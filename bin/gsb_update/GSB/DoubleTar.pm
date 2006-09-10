@@ -48,7 +48,7 @@ our %double_tarballs =
                            'var' => 'EVO_VER',
                           },
     'pavucontrol'       => {
-                          'ver' => '0.9.2',
+                          'ver' => '0.9.4',
                           'dir' => 'extras/apps/pulseaudio-tools',
                           'url' => 'http://0pointer.de/lennart/projects/pavucontrol/',
                           'src' => 'tar.gz',
@@ -62,20 +62,26 @@ our %double_tarballs =
                           'var' => 'PA_VU_METER',
                          },
     'padevchooser'       => {
-                          'ver' => '0.9.2',
+                          'ver' => '0.9.3',
                           'dir' => 'extras/apps/pulseaudio-tools',
                           'url' => 'http://0pointer.de/lennart/projects/padevchooser/',
                           'src' => 'tar.gz',
                           'var' => 'PA_DEV_CHOOSER',
                          },
     'paman'       => {
-                          'ver' => '0.9.2',
+                          'ver' => '0.9.3',
                           'dir' => 'extras/apps/pulseaudio-tools',
                           'url' => 'http://0pointer.de/lennart/projects/paman/',
                           'src' => 'tar.gz',
                           'var' => 'PA_MAN',
                          },
-
+     'paprefs'       => {
+                          'ver' => '0.9.5',
+                          'dir' => 'extras/apps/pulseaudio-tools',
+                          'url' => 'http://0pointer.de/lennart/projects/paprefs/',
+                          'src' => 'tar.gz',
+                          'var' => 'PA_PREFS',
+                         },
 
 
   );

@@ -1,4 +1,4 @@
-frgnome-desktop >= 2.14.3
+frgnome-desktop >= 2.16.0
 python-ldap
 libnotify
 libsexy
@@ -29,3 +29,6 @@ libetpan
 gnonlin
 slib
 gnome-common
+gst-pulse
+libao-pulse
+xmms-pulse

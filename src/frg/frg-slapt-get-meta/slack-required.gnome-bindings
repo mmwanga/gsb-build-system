@@ -1,4 +1,4 @@
-frgnome-desktop >= 2.14.3
-frgnome-bindings-c++ >= 2.14.3
-frgnome-bindings-perl >= 2.14.3
-frgnome-bindings-python >= 2.14.3
+frgnome-desktop >= 2.16.0
+frgnome-bindings-c++ >= 2.16.0
+frgnome-bindings-perl >= 2.16.0
+frgnome-bindings-python >= 2.16.0

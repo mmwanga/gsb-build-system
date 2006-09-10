@@ -81,7 +81,7 @@ our %extras_libs =
                              'src' => 'tar.gz',
                             },
    'gst-pulse'          => {
-                             'ver' => '0.9.2',
+                             'ver' => '0.9.3',
                              'url' => 'http://0pointer.de/lennart/projects/gst-pulse/',
                              'src' => 'tar.gz',
                             },
@@ -166,7 +166,7 @@ our %extras_libs =
                              'src' => 'tar.gz',
                             },
    'xmms-pulse'          => {
-                             'ver' => '0.9.2',
+                             'ver' => '0.9.3',
                              'url' => 'http://0pointer.de/lennart/projects/xmms-pulse/',
                              'src' => 'tar.gz',
                             },

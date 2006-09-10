@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-frg-slapt-get-meta
 
-FRG_VERSION=2.14.3
+FRG_VERSION=2.16.0
 ARCH=${ARCH:-i486}
 BUILD=1frg
 

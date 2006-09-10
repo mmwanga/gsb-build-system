@@ -1,4 +1,4 @@
-frgnome-desktop >= 2.14.3
+frgnome-desktop >= 2.16.0
 gtkam
 gDesklets
 gaim
@@ -29,4 +29,5 @@ inkscape
 zapping
 pitivi
 gparted
+pulseaudio-tools
 
