@@ -259,8 +259,8 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'normalize'         => {
-			   'ver' => '0.7.6',
-			   'url' => 'http://www1.cs.columbia.edu/~cvaill/normalize/',
+			   'ver' => '0.7.7',
+			   'url' => 'http://savannah.nongnu.org/download/normalize/',
 			   'src' => 'tar.bz2',
 			  },
    'openslp'           => {

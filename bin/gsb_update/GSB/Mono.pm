@@ -32,7 +32,7 @@ our %mono=
 			       },
    'f-spot'                 => {
                                 'ver' => '0.2.0',
-                                'url' => 'http://ftp.gnome.org/pub/GNOME/sources/f-spot/0.1/',
+                                'url' => 'http://ftp.gnome.org/pub/GNOME/sources/f-spot/0.2/',
                                 'src' => 'tar.bz2',
                                },
    'gecko-sharp-2.0'        => {

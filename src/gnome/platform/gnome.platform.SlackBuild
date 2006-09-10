@@ -45,6 +45,7 @@ hal
 libdaemon
 avahi
 gnome-vfs
+gnome-vfs-monikers
 libgnome
 libart_lgpl
 libgnomecanvas

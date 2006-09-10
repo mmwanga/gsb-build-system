@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-intltool
 
-VERSION=0.35
+VERSION=0.35.0
 ARCH=noarch
 BUILD=1
 
