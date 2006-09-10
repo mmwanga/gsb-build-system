@@ -2,14 +2,14 @@
 
 CWD=`pwd`
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-bonfire
+PKG=$TMP/package-brasero
 
 VERSION=0.3.91
 ARCH=${ARCH:-i486}
 BUILD=1
 
-if [ -f /var/log/packages/bonfire-$VERSION-$ARCH-$BUILD ]; then
-  echo "bonfire-$VERSION-$ARCH-$BUILD package already installed"
+if [ -f /var/log/packages/brasero-$VERSION-$ARCH-$BUILD ]; then
+  echo "brasero-$VERSION-$ARCH-$BUILD package already installed"
   exit 0
 fi
 
@@ -37,8 +37,8 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 cd $TMP
-tar -xjvf $CWD/bonfire-$VERSION.tar.bz2
-cd bonfire-$VERSION
+tar -xjvf $CWD/brasero-$VERSION.tar.bz2
+cd brasero-$VERSION
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
@@ -83,12 +83,12 @@ done
 
 chown -R root.bin $PKG/usr/bin
 
-mkdir -p $PKG/usr/doc/bonfire-$VERSION
+mkdir -p $PKG/usr/doc/brasero-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
         TODO \
-        $PKG/usr/doc/bonfire-$VERSION
-find $PKG/usr/doc/bonfire-$VERSION/ -type f -exec chmod 644 {} \;
-chown root.root $PKG/usr/doc/bonfire-$VERSION/*
+        $PKG/usr/doc/brasero-$VERSION
+find $PKG/usr/doc/brasero-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/doc/brasero-$VERSION/*
 
 # strip:
 ( cd $PKG
@@ -105,10 +105,10 @@ cat $CWD/slack-desc > $PKG/install/slack-desc
 cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
-makepkg -l y -c n $TMP/bonfire-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/brasero-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/bonfire-$VERSION
+  rm -rf $TMP/brasero-$VERSION
   rm -rf $PKG
 fi
