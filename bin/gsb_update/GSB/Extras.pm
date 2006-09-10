@@ -249,8 +249,8 @@ our %extras_apps =
 			     'url' => 'http://files.beep-media-player.org/releases/0.20/',
 			     'src' => 'tar.gz',
 			    },
-   'bonfire'              => {
-                             'ver' => '0.3.91',
+   'brasero'              => {
+                             'ver' => '0.4.4',
                              'url' => 'http://heanet.dl.sourceforge.net/sourceforge/bonfire/',
                              'src' => 'tar.bz2',
                             },
