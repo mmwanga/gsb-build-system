@@ -1,7 +1,7 @@
-|-----handy-ruler------------------------------------------------------|
-dbus-python: dbus-python
+           |-----handy-ruler------------------------------------------------------|
+dbus-python: dbus-python (D-BUS python bindings)
 dbus-python:
-dbus-python:
+dbus-python: Python bindings for D-BUS
 dbus-python:
 dbus-python:
 dbus-python:

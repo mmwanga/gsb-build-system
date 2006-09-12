@@ -6,7 +6,7 @@ PKG=$TMP/package-dbus-glib
 
 VERSION=0.71
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 /etc/rc.d/rc.messagebus start
 
