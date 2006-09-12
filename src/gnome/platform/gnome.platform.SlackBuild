@@ -41,6 +41,8 @@ pycairo
 pygobject
 pygtk
 dbus
+dbus-glib
+dbus-python
 hal
 libdaemon
 avahi

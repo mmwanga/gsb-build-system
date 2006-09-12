@@ -6,7 +6,7 @@ PKG=$TMP/package-hal
 
 VERSION=0.5.7.1
 ARCH=${ARCH:-i486}
-BUILD=3
+BUILD=4
 
 if [ -f /var/log/packages/hal-$VERSION-$ARCH-$BUILD ]; then
   echo "hal-$VERSION-$ARCH-$BUILD package already installed"
@@ -48,6 +48,7 @@ cd $TMP
 tar xzvf $CWD/hal-$VERSION.tar.gz
 cd hal-$VERSION
 
+cat $CWD/dbus-api-change-hal-0.5.7.1.patch | patch -p0 --verbose
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
