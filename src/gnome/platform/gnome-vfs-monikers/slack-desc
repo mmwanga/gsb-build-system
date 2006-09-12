@@ -1,5 +1,5 @@
                   |-----handy-ruler------------------------------------------------------|
-gnome-vfs-monikers: gnome-vfs-monikers
+gnome-vfs-monikers: gnome-vfs-monikers (GNOME VFS Bonobo modules)
 gnome-vfs-monikers:
 gnome-vfs-monikers: Bononbo VFS modules.
 gnome-vfs-monikers:
