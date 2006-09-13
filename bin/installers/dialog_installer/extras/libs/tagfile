@@ -20,8 +20,6 @@ gnome-build: REC
 devhelp: REC
 autogen: REC
 graphviz: REC
-libgpod: REC
-libnjb: REC
 gnokii: REC
 zvbi: REC
 libetpan: REC

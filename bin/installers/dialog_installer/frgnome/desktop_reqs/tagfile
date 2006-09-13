@@ -41,7 +41,6 @@ xvidcore: ADD
 transcode: ADD
 avifile: ADD
 mac: ADD
-openldap: ADD
 PyXML: ADD
 iso-codes: ADD
 heimdal: ADD
