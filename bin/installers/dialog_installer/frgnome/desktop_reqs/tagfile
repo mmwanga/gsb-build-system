@@ -52,3 +52,5 @@ bluez-libs: ADD
 bluez-utils: ADD
 openobex: ADD
 neon: ADD
+XML-Simple: ADD
+icon-naming-utils: ADD

@@ -16,9 +16,9 @@ INSTALLER_VERSION="0.1.0"
 INSTALLER_AUTHOR="Darren 'Tadgy' Austin <darren (at) afterdark.org.uk>"
 
 # The FRG version being installed.
-FRG_VERSION="2.14.2"
+FRG_VERSION="2.16.0"
 # The Slackware version this FRG release is built/tested for.
-FRG_SLACK_VERSION="10.2"
+FRG_SLACK_VERSION="11.0"
 # The sub-directories for the base (Minimum) and extras (full) install types.
 # Directories must be in processing order (ie, platform/ before desktop/) and
 # seperated by spaces. 

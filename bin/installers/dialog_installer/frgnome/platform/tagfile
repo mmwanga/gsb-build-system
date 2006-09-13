@@ -34,6 +34,7 @@ hal: ADD
 libdaemon: ADD
 avahi: ADD
 gnome-vfs: ADD
+gnome-vfs-monikers: ADD
 libgnome: ADD
 libart_lgpl: ADD
 libgnomecanvas: ADD
