@@ -13,7 +13,6 @@ fi
 BUILD_ORDER="
 libbtctl
 gob2
-gnome-bluetooth
 gnome-icon-theme
 libgnomeprintui
 libgnomesu
@@ -30,7 +29,6 @@ libwnck
 libsoup
 evolution-data-server
 gnome-panel
-gnome-session
 vte
 gnome-terminal
 gstreamer10
@@ -45,14 +43,17 @@ metacity
 libgsf
 libcroco
 librsvg
+gnome-bluetooth
 eel
 nautilus
 control-center
+gnome-session
 gtkhtml
 yelp
 bug-buddy
 gtksourceview
 gedit
+gedit-plugins
 eog
 gconf-editor
 gnome-utils
@@ -79,6 +80,7 @@ gnome-games
 gnome-user-docs
 file-roller
 system-tools-backends
+liboobs
 gnome-system-tools
 gnome-nettool
 vino

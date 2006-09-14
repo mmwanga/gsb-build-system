@@ -41,7 +41,6 @@ libfame
 libmatroska
 libmms
 libmovtar
-libmusicbrainz
 liboil
 libraw1394
 libavc1394
@@ -64,7 +63,6 @@ xvidcore
 transcode
 avifile
 mac
-openldap
 PyXML
 iso-codes
 heimdal
@@ -75,6 +73,7 @@ bluez-libs
 bluez-utils
 openobex
 neon
+XML-Simple
 "
 
 mkdir -p $TMP/gnome-$GVERSION/frgnome/desktop_reqs

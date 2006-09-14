@@ -20,9 +20,9 @@ rm -rf $PKG
 mkdir -p $PKG
 
 if [ "$ARCH" = "i386" ]; then
-  SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
+  SLKCFLAGS="-O2 -march=i386 -mtune=i686"
 elif [ "$ARCH" = "i486" ]; then
-  SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
+  SLKCFLAGS="-O2 -march=i486 -mtune=i686"
 elif [ "$ARCH" = "powerpc" ]; then
   SLKCFLAGS="-O2"
   ARCH_CONFIGURE=""

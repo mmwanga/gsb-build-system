@@ -6,7 +6,7 @@ CWD=`pwd`
 
 VERSION=5.00
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/xscreensaver-$VERSION-$ARCH-$BUILD ]; then
   echo "xscreensaver-$VERSION-$ARCH-$BUILD package already installed"
@@ -14,10 +14,10 @@ if [ -f /var/log/packages/xscreensaver-$VERSION-$ARCH-$BUILD ]; then
 fi
 
 if [ "$ARCH" = "i386" ]; then
-  SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
+  SLKCFLAGS="-O2 -march=i386 -mtune=i686"
   ARCH_CONFIGURE=""
 elif [ "$ARCH" = "i486" ]; then
-  SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
+  SLKCFLAGS="-O2 -march=i486 -mtune=i686"
   ARCH_CONFIGURE=""
 elif [ "$ARCH" = "powerpc" ]; then
   SLKCFLAGS="-O2"

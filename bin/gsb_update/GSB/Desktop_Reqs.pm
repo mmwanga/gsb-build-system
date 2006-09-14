@@ -36,14 +36,19 @@ our %desktop_reqs =
 			 'ver' => '0.7',
 			 'src' => 'tar.gz',
 			},
+   'icon-naming-utils' => {
+	                 'url' => 'http://tango-project.org/releases/',
+			 'ver' => '0.8.1',
+			 'src' => 'tar.gz',
+			},
    'neon'            => {
                          'ver' => '0.26.0',
                          'url' => 'http://www.webdav.org/neon/',
                          'src' => 'tar.gz',
                         },
    'opal'            => {
-                         'url' => 'http://www.ekiga.org/admin/downloads/latest/sources/sources/',
-                         'ver' => '2.2.2',
+                         'url' => 'http://seconix.com/misc/ekiga-2.0.3/',
+                         'ver' => '2.2.3',
                          'src' => 'tar.gz',
                         },
    'openldap'        => {
@@ -62,8 +67,8 @@ our %desktop_reqs =
 			 'src' => 'tar.gz',
 			},
    'pwlib'            => {
-                         'url' => 'http://www.ekiga.org/admin/downloads/latest/sources/sources/',
-                         'ver' => '1.10.1',
+                         'url' => 'http://seconix.com/misc/ekiga-2.0.3/',
+                         'ver' => '1.10.2',
                          'src' => 'tar.gz',
                         },
    'PyXML'           => {
@@ -71,6 +76,11 @@ our %desktop_reqs =
 			 'ver' => '0.8.4',
 			 'src' => 'tar.gz',
 			},
+   'XML-Simple'      => {
+	                 'url' => 'http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM/',
+                         'ver' => '2.14',
+                         'src' => 'tar.gz',
+                        },
   );
 
 

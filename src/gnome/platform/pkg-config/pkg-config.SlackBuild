@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-pkg-config
 
-VERSION=0.20
+VERSION=0.21
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -20,10 +20,10 @@ rm -rf $PKG
 mkdir -p $PKG
 
 if [ "$ARCH" = "i386" ]; then
-  SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
+  SLKCFLAGS="-O2 -march=i386 -mtune=i686"
   ARCH_CONFIGURE=""
 elif [ "$ARCH" = "i486" ]; then
-  SLKCFLAGS="-O2 -march=i486 -mcpu=i686"
+  SLKCFLAGS="-O2 -march=i486 -mtune=i686"
   ARCH_CONFIGURE=""
 elif [ "$ARCH" = "powerpc" ]; then
   SLKCFLAGS="-O2"
@@ -64,23 +64,16 @@ CFLAGS="$SLKCFLAGS" \
             --localstatedir=/var/lib \
             --disable-static \
             --with-pc-path=/usr/lib/pkgconfig \
-            $ARCH_CONFIGURE \
+            --mandir=/usr/man \
+	    $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 1
 make || exit 1
 make install DESTDIR=$PKG
 
-SCHEMAS=$PKG/etc/gconf/schemas
-for i in $SCHEMAS/*.schemas
-do
-GCONF_CONFIG_SOURCE="xml::$PKG/etc/gconf/gconf.xml.defaults" \
-        gconftool-2 --makefile-install-rule $i
-done
-
-(
-  cd $PKG/etc/gconf/gconf.xml.defaults
-  find ./ -type d -exec chmod go+rx {} \;
-  find ./ -type f -exec chmod go+r {} \;
-)
+mkdir -p $PKG/etc/profile.d/
+cp -a $CWD/scripts/* $PKG/etc/profile.d
+chown root:root $PKG/etc/profile.d/*
+chmod 755 $PKG/etc/profile.d/*
 
 chown -R root.bin $PKG/usr/bin
 

@@ -81,7 +81,7 @@ our %platform_diff_naming =
 our %platform_reqs =
   (
    'avahi'               => {
-                             'ver' => '0.6.13',
+                             'ver' => '0.6.14',
                              'url' => 'http://www.avahi.org/download/',
                              'src' => 'tar.gz',
                             },
@@ -95,6 +95,16 @@ our %platform_reqs =
 			     'ver' => '0.92',
 			     'src' => 'tar.gz',
 			    },
+   'dbus-glib'           => {
+                             'url' => 'http://dbus.freedesktop.org/releases/dbus-glib/',
+                             'ver' => '0.71',
+                             'src' => 'tar.gz',
+                            },
+   'dbus-python'         => {
+                             'url' => 'http://dbus.freedesktop.org/releases/dbus-python',
+                             'ver' => '0.71',
+                             'src' => 'tar.gz',
+                            },				  
    'desktop-file-utils'  => {
 			     'ver' => '0.11',
 			     'url' => 'http://freedesktop.org/software/desktop-file-utils/releases/',
@@ -112,7 +122,7 @@ our %platform_reqs =
 			    },
    'hal'                 => {
 			     'url' => 'http://freedesktop.org/~david/dist/',
-			     'ver' => '0.5.7.1',
+			     'ver' => '0.5.8',
 			     'src' => 'tar.gz',
 			    },
    'libdaemon'           => {
@@ -167,7 +177,7 @@ our %platform_reqs =
                             },
    'pkg-config'          => {
 			     'url' => 'http://pkgconfig.freedesktop.org/releases/',
-			     'ver' => '0.20',
+			     'ver' => '0.21',
 			     'src' => 'tar.gz',
 			    },
    'Pyrex'               => {
@@ -244,10 +254,11 @@ our %desktop =
    'libgsf'                 => '1.14.1',
    'libgtkhtml'             => '2.11.0',
    'libgtop'                => '2.14.3',
+   'liboobs'                => '0.2.0',
    'librsvg'                => '2.16.0',
    'libsoup'                => '2.2.96',
    'libwnck'                => '2.16.0',
-   'metacity'               => '2.16.0',
+   'metacity'               => '2.16.1',
    'nautilus'               => '2.16.0',
    'nautilus-cd-burner'     => '2.16.0',
    'nautilus-media'         => '0.8.1',

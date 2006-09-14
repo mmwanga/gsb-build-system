@@ -200,7 +200,7 @@ our %extras_libs_gnome =
    'glade'               => '2.12.1',
    'gnome-build'         => '0.1.3',
    'gnome-common'        => '2.12.0',
-   'loudmouth'           => '1.0.4',
+   'loudmouth'           => '1.0.5',
   );
 
 
