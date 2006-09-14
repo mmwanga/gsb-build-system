@@ -30,6 +30,8 @@ pycairo: ADD
 pygobject: ADD
 pygtk: ADD
 dbus: ADD
+dbus-glib: ADD
+dbus-python: ADD
 hal: ADD
 libdaemon: ADD
 avahi: ADD
