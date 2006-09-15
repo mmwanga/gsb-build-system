@@ -12,6 +12,7 @@ BUILD_ORDER="
 libsigc++
 glibmm
 libxml++
+cairomm
 gtkmm
 libgnomemm
 libgnomecanvasmm

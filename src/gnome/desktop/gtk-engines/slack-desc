@@ -1,11 +1,11 @@
            |-----handy-ruler------------------------------------------------------|
 gtk-engines: gtk-engines (GTK+ theme engines)
 gtk-engines:
-gtk-engines: This package provides theme engines for GTK+:
+gtk-engines: This package provides theme engines for GTK+.
 gtk-engines:
-gtk-engines: Pixmap: A generic engine using pixmap rendering.
-gtk-engines: Metal: A metallic looking theme engine.
-gtk-engines: Redmond95: A theme engine that reminds us of Redmond.
+gtk-engines:
+gtk-engines:
+gtk-engines:
 gtk-engines:
 gtk-engines:
 gtk-engines:

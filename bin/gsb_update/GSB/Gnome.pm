@@ -92,7 +92,7 @@ our %platform_reqs =
 			    },
    'dbus'                => {
 			     'url' => 'http://dbus.freedesktop.org/releases/',
-			     'ver' => '0.92',
+			     'ver' => '0.93',
 			     'src' => 'tar.gz',
 			    },
    'dbus-glib'           => {
