@@ -6,7 +6,7 @@ PKG=$TMP/package-sylpheed-claws
 
 VERSION=2.4.0
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/sylpheed-claws-$VERSION-$ARCH-$BUILD ]; then
   echo "sylpheed-claws-$VERSION-$ARCH-$BUILD package already installed"

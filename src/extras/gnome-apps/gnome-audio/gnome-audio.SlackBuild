@@ -6,7 +6,7 @@ PKG=$TMP/package-gnome-audio
 
 VERSION=2.0.0
 ARCH=noarch
-BUILD=2
+BUILD=3
 
 if [ -f /var/log/packages/gnome-audio-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-audio-$VERSION-$ARCH-$BUILD package already installed"

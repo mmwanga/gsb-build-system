@@ -8,7 +8,7 @@ PKG=$TMP/package-gst-fluendo-mp3
 
 VERSION=0.10.2
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gst-fluendo-mp3-$VERSION-$ARCH-$BUILD ]; then
   echo "gst-fluendo-mp3-$VERSION-$ARCH-$BUILD package already installed"

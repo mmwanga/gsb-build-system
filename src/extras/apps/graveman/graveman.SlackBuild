@@ -7,7 +7,7 @@ PKG=$TMP/package-graveman
 VERSION=0.3.12-5
 PVERSION=${VERSION/-/_}
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/graveman-$PVERSION-$ARCH-$BUILD ]; then
   echo "graveman-$VERSION-$ARCH-$BUILD package already installed"

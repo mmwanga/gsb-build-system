@@ -6,7 +6,7 @@ PKG=$TMP/package-Imaging
 
 VERSION=1.1.5
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/Imaging-$VERSION-$ARCH-$BUILD ]; then
   echo "Imaging-$VERSION-$ARCH-$BUILD package already installed"

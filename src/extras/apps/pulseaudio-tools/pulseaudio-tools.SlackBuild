@@ -12,7 +12,7 @@ PA_PREFS=0.9.5
 
 PVERSION=0.9.4
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ -f /var/log/packages/pulseaudio-tools-$PVERSION-$ARCH-$BUILD ]; then
   echo "pulseaudio-tools-$PVERSION-$ARCH-$BUILD package already installed"

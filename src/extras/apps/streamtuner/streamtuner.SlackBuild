@@ -6,7 +6,7 @@ PKG=$TMP/package-streamtuner
 
 VERSION=0.99.99
 ARCH=${ARCH:-i486}
-BUILD=5
+BUILD=6
 
 if [ -f /var/log/packages/streamtuner-$VERSION-$ARCH-$BUILD ]; then
   echo "streamtuner-$VERSION-$ARCH-$BUILD package already installed"

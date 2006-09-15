@@ -6,7 +6,7 @@ PKG=$TMP/package-NetworkManager
 
 VERSION=0.6.2
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/NetworkManager-$VERSION-$ARCH-$BUILD ]; then
   echo "NetworkManager-$VERSION-$ARCH-$BUILD package already installed"

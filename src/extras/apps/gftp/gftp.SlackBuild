@@ -6,7 +6,7 @@ PKG=$TMP/package-gftp
 
 VERSION=2.0.18
 ARCH=${ARCH:-i486}
-BUILD=3
+BUILD=4
 
 if [ -f /var/log/packages/gftp-$VERSION-$ARCH-$BUILD ]; then
   echo "gftp-$VERSION-$ARCH-$BUILD package already installed"

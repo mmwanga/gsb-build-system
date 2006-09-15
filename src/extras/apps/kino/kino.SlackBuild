@@ -6,7 +6,7 @@ PKG=$TMP/package-kino
 
 VERSION=0.8.1
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/kino-$VERSION-$ARCH-$BUILD ]; then
   echo "kino-$VERSION-$ARCH-$BUILD package already installed"

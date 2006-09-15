@@ -5,7 +5,7 @@ PKG=$TMP/package-nvu
 
 VERSION=1.0
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ -f /var/log/packages/nvu-$VERSION-$ARCH-$BUILD ]; then
   echo "nvu-$VERSION-$ARCH-$BUILD package already installed"

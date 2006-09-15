@@ -6,7 +6,7 @@ PKG=$TMP/package-slib
 
 VERSION=2d6
 ARCH=${ARCH:-i486}
-BUILD=3
+BUILD=4
 
 if [ -f /var/log/packages/slib-$VERSION-$ARCH-$BUILD ]; then
   echo "slib-$VERSION-$ARCH-$BUILD package already installed"

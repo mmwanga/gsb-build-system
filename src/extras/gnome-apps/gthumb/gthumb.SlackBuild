@@ -6,7 +6,7 @@ PKG=$TMP/package-gthumb
 
 VERSION=2.7.8
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gthumb-$VERSION-$ARCH-$BUILD ]; then
   echo "gthumb-$VERSION-$ARCH-$BUILD package already installed"

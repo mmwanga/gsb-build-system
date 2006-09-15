@@ -6,7 +6,7 @@ PKG=$TMP/package-pitivi
 
 VERSION=0.10.1
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/pitivi-$VERSION-$ARCH-$BUILD ]; then
   echo "pitivi-$VERSION-$ARCH-$BUILD package already installed"

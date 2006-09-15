@@ -8,7 +8,7 @@ PKG=$TMP/package-gst-ffmpeg
 
 VERSION=0.10.1
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gst-ffmpeg-$VERSION-$ARCH-$BUILD ]; then
   echo "gst-ffmpeg-$VERSION-$ARCH-$BUILD package already installed"

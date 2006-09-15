@@ -6,7 +6,7 @@ PKG=$TMP/package-libao-pulse
 
 VERSION=0.9.3
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/libao-pulse-$VERSION-$ARCH-$BUILD ]; then
   echo "libao-pulse-$VERSION-$ARCH-$BUILD package already installed"

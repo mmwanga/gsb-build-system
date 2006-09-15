@@ -7,7 +7,7 @@ PKG=$TMP/package-lock-keys-applet
 
 VERSION=1.0
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ -f /var/log/packages/lock-keys-applet-$VERSION-$ARCH-$BUILD ]; then
   echo "lock-keys-applet-$VERSION-$ARCH-$BUILD package already installed"

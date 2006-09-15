@@ -6,7 +6,7 @@ PKG=$TMP/package-zvbi
 
 VERSION=0.2.21
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/zvbi-$VERSION-$ARCH-$BUILD ]; then
   echo "zvbi-$VERSION-$ARCH-$BUILD package already installed"

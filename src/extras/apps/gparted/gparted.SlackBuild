@@ -6,7 +6,7 @@ PKG=$TMP/package-gparted
 
 VERSION=0.2.5
 ARCH=${ARCH:-i486}
-BUILD=3
+BUILD=4
 
 if [ -f /var/log/packages/gparted-$VERSION-$ARCH-$BUILD ]; then
   echo "gparted-$VERSION-$ARCH-$BUILD package already installed"

@@ -6,7 +6,7 @@ PKG=$TMP/package-gdl
 
 VERSION=0.6.1
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gdl-$VERSION-$ARCH-$BUILD ]; then
   echo "gdl-$VERSION-$ARCH-$BUILD package already installed"

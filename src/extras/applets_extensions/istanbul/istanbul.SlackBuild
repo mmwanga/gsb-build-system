@@ -6,7 +6,7 @@ PKG=$TMP/package-istanbul
 
 VERSION=0.2.1
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/istanbul-$VERSION-$ARCH-$BUILD ]; then
   echo "istanbul-$VERSION-$ARCH-$BUILD package already installed"

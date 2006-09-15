@@ -6,7 +6,7 @@ PKG=$TMP/package-graphviz
 
 VERSION=2.6
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/graphviz-$VERSION-$ARCH-$BUILD ]; then
   echo "graphviz-$VERSION-$ARCH-$BUILD package already installed"

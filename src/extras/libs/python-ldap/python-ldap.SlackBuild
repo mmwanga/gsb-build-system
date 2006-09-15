@@ -6,7 +6,7 @@ PKG=$TMP/package-python-ldap
 
 VERSION=2.0.11
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/python-ldap-$VERSION-$ARCH-$BUILD ]; then
   echo "python-ldap-$VERSION-$ARCH-$BUILD package already installed"

@@ -6,7 +6,7 @@ PKG=$TMP/package-nautilus-open-terminal
 
 VERSION=0.6
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/nautilus-open-terminal-$VERSION-$ARCH-$BUILD ]; then
   echo "nautilus-open-terminal-$VERSION-$ARCH-$BUILD package already installed"

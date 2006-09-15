@@ -6,7 +6,7 @@ PKG=$TMP/package-gnonlin
 
 VERSION=0.10.5
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gnonlin-$VERSION-$ARCH-$BUILD ]; then
   echo "gnonlin-$VERSION-$ARCH-$BUILD package already installed"

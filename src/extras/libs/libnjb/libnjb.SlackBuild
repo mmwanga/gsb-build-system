@@ -6,7 +6,7 @@ PKG=$TMP/package-libnjb
 
 VERSION=2.2.5
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/libnjb-$VERSION-$ARCH-$BUILD ]; then
   echo "libnjb-$VERSION-$ARCH-$BUILD package already installed"

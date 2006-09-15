@@ -6,7 +6,7 @@ PKG=$TMP/package-gst-pulse
 
 VERSION=0.9.3
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gst-pulse-$VERSION-$ARCH-$BUILD ]; then
   echo "gst-pulse-$VERSION-$ARCH-$BUILD package already installed"

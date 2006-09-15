@@ -6,7 +6,7 @@ PKG=$TMP/package-gphoto2
 
 VERSION=2.2.0
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gphoto2-$VERSION-$ARCH-$BUILD ]; then
   echo "gphoto2-$VERSION-$ARCH-$BUILD package already installed"

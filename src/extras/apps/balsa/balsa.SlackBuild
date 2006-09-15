@@ -6,7 +6,7 @@ PKG=$TMP/package-balsa
 
 VERSION=2.3.12
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/balsa-$VERSION-$ARCH-$BUILD ]; then
   echo "balsa-$VERSION-$ARCH-$BUILD package already installed"

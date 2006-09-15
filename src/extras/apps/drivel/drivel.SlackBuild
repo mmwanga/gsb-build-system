@@ -6,7 +6,7 @@ PKG=$TMP/package-drivel
 
 VERSION=2.0.2
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ -f /var/log/packages/drivel-$VERSION-$ARCH-$BUILD ]; then
   echo "drivel-$VERSION-$ARCH-$BUILD package already installed"

@@ -6,7 +6,7 @@ PKG=$TMP/package-gnokii
 
 VERSION=0.6.14
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gnokii-$VERSION-$ARCH-$BUILD ]; then
   echo "gnokii-$VERSION-$ARCH-$BUILD package already installed"
