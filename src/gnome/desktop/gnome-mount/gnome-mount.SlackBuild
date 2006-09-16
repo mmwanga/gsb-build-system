@@ -6,7 +6,7 @@ PKG=$TMP/package-gnome-mount
 
 VERSION=0.4
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=3
 
 if [ -f /var/log/packages/gnome-mount-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-mount-$VERSION-$ARCH-$BUILD package already installed"

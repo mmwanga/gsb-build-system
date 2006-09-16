@@ -6,7 +6,7 @@ PKG=$TMP/package-present
 
 VERSION=0.0.3
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=3
 
 if [ -f /var/log/packages/present-$VERSION-$ARCH-$BUILD ]; then
   echo "present-$VERSION-$ARCH-$BUILD package already installed"

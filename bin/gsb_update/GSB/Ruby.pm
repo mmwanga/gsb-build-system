@@ -21,7 +21,7 @@ our %ruby=
 				'src' => 'tar.gz',
 			       },
    'ruby-gnome2-all'         => {
-				'ver' => '0.14.1',
+				'ver' => '0.15.0',
 				'url' => 'http://heanet.dl.sourceforge.net/sourceforge/ruby-gnome2/',
 				'src' => 'tar.gz',
 			       },

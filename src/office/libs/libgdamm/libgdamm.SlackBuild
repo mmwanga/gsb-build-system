@@ -6,7 +6,7 @@ PKG=$TMP/package-libgdamm
 
 VERSION=1.3.7
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/libgdamm-$VERSION-$ARCH-$BUILD ]; then
   echo "libgdamm-$VERSION-$ARCH-$BUILD package already installed"

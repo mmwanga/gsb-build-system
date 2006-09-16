@@ -7,7 +7,7 @@ PKG=$TMP/package-mac
 VERSION=3.99-u4-b4
 PVERSION=`echo ${VERSION} | sed 's/-/_/g'`
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ -f /var/log/packages/mac-$PVERSION-$ARCH-$BUILD ]; then
   echo "mac-$PVERSION-$ARCH-$BUILD package already installed"

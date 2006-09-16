@@ -6,7 +6,7 @@ PKG=$TMP/package-libart_lgpl
 
 VERSION=2.3.17
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ -f /var/log/packages/libart_lgpl-$VERSION-$ARCH-$BUILD ]; then
   echo "libart_lgpl-$VERSION-$ARCH-$BUILD package already installed"

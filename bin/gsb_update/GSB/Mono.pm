@@ -95,7 +95,7 @@ our %mono=
 our %mono_diff_naming =
   (
    'avahi-sharp'  => {
-                     'ver'  => '0.6.9',
+                     'ver'  => '0.6.14',
                      'name' => 'avahi',
                      'url'  => 'http://avahi.org/download/',
                      'src'  => 'tar.gz',
@@ -113,7 +113,7 @@ our %mono_diff_naming =
 		     'src'  => 'tar.gz',
 		    },
    'gmime-sharp' => {
-		    'ver'  => '2.2.1',
+		    'ver'  => '2.2.3',
 		    'name' => 'gmime',
 		    'url'  => 'http://spruce.sourceforge.net/gmime/sources/v2.2/',
 		    'src'  => 'tar.gz',

@@ -279,7 +279,8 @@ makepkg -l y -c n $TMP/pulseaudio-tools-$PVERSION-$ARCH-$BUILD.tgz
 if [ "$1" = "--cleanup" ]; then
   rm -rf $TMP/padevchooser-$PA_DEV_CHOOSER
   rm -rf $TMP/paman-$PA_MAN
-  rm -rf $TMP/pavumeter-$
+  rm -rf $TMP/pavumeter-$PA_VU_METER
   rm -rf $TMP/pavucontrol-$PA_VU_CONTROL
+  rm -rf $TMP/paprefs-$PA_PREFS
   rm -rf $PKG
 fi

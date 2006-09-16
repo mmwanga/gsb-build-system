@@ -6,7 +6,7 @@ PKG=$TMP/package-libcddb
 
 VERSION=1.2.1
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ -f /var/log/packages/libcddb-$VERSION-$ARCH-$BUILD ]; then
   echo "libcddb-$VERSION-$ARCH-$BUILD package already installed"

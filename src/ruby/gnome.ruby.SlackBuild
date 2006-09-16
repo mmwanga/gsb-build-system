@@ -9,7 +9,6 @@ if [ ! -d $TMP ]; then
 fi
 
 BUILD_ORDER="
-ruby
 ruby-gnome2-all
 "
 

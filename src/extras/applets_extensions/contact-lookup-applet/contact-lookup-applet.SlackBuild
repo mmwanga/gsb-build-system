@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-contact-lookup-applet
 
-VERSION=0.13
+VERSION=0.14
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/contact-lookup-applet-$VERSION-$ARCH-$BUILD ]; then
   echo "contact-lookup-applet-$VERSION-$ARCH-$BUILD package already installed"

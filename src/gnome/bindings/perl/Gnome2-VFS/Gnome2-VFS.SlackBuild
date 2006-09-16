@@ -6,7 +6,7 @@ PKG=$TMP/package-Gnome2-VFS
 
 VERSION=1.060
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/Gnome2-VFS-$VERSION-$ARCH-$BUILD ]; then
   echo "Gnome2-VFS-$VERSION-$ARCH-$BUILD package already installed"

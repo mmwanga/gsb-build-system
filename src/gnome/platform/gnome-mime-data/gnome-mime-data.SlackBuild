@@ -6,7 +6,7 @@ PKG=$TMP/package-gnome-mime-data
 
 VERSION=2.4.2
 ARCH=${ARCH:-i486}
-BUILD=3
+BUILD=4
 
 if [ -f /var/log/packages/gnome-mime-data-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-mime-data-$VERSION-$ARCH-$BUILD package already installed"

@@ -63,7 +63,7 @@ CFLAGS="$SLKCFLAGS" \
             --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static \
-	    --without-subversion \
+	    --disable-plugin-subversion \
             $ARCH_CONFIGURE \
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 1

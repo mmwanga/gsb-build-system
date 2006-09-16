@@ -6,7 +6,7 @@ PKG=$TMP/package-eps
 
 VERSION=1.5
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=3
 
 if [ -f /var/log/packages/eps-$VERSION-$ARCH-$BUILD ]; then
   echo "eps-$VERSION-$ARCH-$BUILD package already installed"

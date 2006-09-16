@@ -51,7 +51,7 @@ our %extras_libs =
                              'src' => 'tar.bz2',
 			    },
    'gmime'               => {
-			     'ver' => '2.2.1',
+			     'ver' => '2.2.3',
 			     'url' => 'http://spruce.sourceforge.net/gmime/sources/v2.2/',
 			     'src' => 'tar.gz',
 			    },
@@ -121,7 +121,7 @@ our %extras_libs =
 			     'src' => 'tar.bz2',
 			    },
    'libgphoto2'          => {
-			     'ver' => '2.2.0',
+			     'ver' => '2.2.1',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto/',
 			     'src' => 'tar.gz',
 			    },
@@ -235,7 +235,7 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'balsa'               => {
-			     'ver' => '2.3.12',
+			     'ver' => '2.3.13',
 			     'url' => 'http://balsa.gnome.org/',
 			     'src' => 'tar.bz2',
 			    },
@@ -255,7 +255,7 @@ our %extras_apps =
                              'src' => 'tar.bz2',
                             },
    'drivel'              => {
-			     'ver' => '2.0.2',
+			     'ver' => '2.0.3',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/drivel/',
 			     'src' => 'tar.bz2',
 			    },
@@ -419,7 +419,7 @@ our %extras_apps_gnome =
 our %extras_applets =
   (
    'contact-lookup-applet' => {
-			       'ver' => '0.13',
+			       'ver' => '0.14',
 			       'url' => 'http://www.burtonini.com/computing/',
 			       'src' => 'tar.gz',
 			      },

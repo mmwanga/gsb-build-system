@@ -6,7 +6,7 @@ PKG=$TMP/package-neon
 
 VERSION=0.26.0
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/neon-$VERSION-$ARCH-$BUILD ]; then
   echo "neon-$VERSION-$ARCH-$BUILD package already installed"

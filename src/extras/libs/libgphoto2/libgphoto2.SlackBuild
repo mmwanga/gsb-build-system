@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-libgphoto2
 
-VERSION=2.2.0
+VERSION=2.2.1
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/libgphoto2-$VERSION-$ARCH-$BUILD ]; then
   echo "libgphoto2-$VERSION-$ARCH-$BUILD package already installed"
@@ -40,13 +40,14 @@ cd $TMP
 tar xzvf $CWD/libgphoto2-$VERSION.tar.gz
 cd libgphoto2-$VERSION
 
-# Apply $ARCH specific patches
+  zcat $CWD/2.2.2_buildfixes.patch.gz | patch -p1 --verbose
+
+  # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
   echo "Applying patches for $ARCH"
   #cat $CWD/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "i486" ]; then
   echo "Applying patches for $ARCH"
-  #cat $CWD/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "s390" ]; then
   echo "Applying patches for $ARCH"
   #cat $CWD/foo.patch | patch -p0 --verbose
@@ -56,7 +57,6 @@ elif [ "$ARCH" = "powerpc" ]; then
 elif [ "$ARCH" = "x86_64" ]; then
   echo "Applying patches for $ARCH"
   #cat $CWD/foo.patch | patch -p0 --verbose
-  zcat $CWD/2.2.2_buildfixes.patch.gz | patch -p1 --verbose
 fi
 
 CFLAGS="$SLKCFLAGS" \

@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-avahi-sharp
 
-VERSION=0.6.9
+VERSION=0.6.14
 ARCH=${ARCH:-i486}
 BUILD=1
 

@@ -6,7 +6,7 @@ PKG=$TMP/package-g-wrap
 
 VERSION=1.9.6
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/g-wrap-$VERSION-$ARCH-$BUILD ]; then
   echo "g-wrap-$VERSION-$ARCH-$BUILD package already installed"

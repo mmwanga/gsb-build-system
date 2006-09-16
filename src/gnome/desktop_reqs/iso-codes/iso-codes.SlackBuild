@@ -6,7 +6,7 @@ PKG=$TMP/package-iso-codes
 
 VERSION=0.52
 ARCH=noarch
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/iso-codes-$VERSION-$ARCH-$BUILD ]; then
   echo "iso-codes-$VERSION-$ARCH-$BUILD package already installed"

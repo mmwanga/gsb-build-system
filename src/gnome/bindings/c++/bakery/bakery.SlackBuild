@@ -6,7 +6,7 @@ PKG=$TMP/package-bakery
 
 VERSION=2.4.0
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/bakery-$VERSION-$ARCH-$BUILD ]; then
   echo "bakery-$VERSION-$ARCH-$BUILD package already installed"

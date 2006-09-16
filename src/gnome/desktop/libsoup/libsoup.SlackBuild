@@ -6,7 +6,7 @@ PKG=$TMP/package-libsoup
 
 VERSION=2.2.96
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/libsoup-$VERSION-$ARCH-$BUILD ]; then
   echo "libsoup-$VERSION-$ARCH-$BUILD package already installed"

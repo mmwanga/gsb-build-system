@@ -6,7 +6,7 @@ PKG=$TMP/package-libgnomecups
 
 VERSION=0.2.2
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/libgnomecups-$VERSION-$ARCH-$BUILD ]; then
   echo "libgnomecups-$VERSION-$ARCH-$BUILD package already installed"

@@ -16,6 +16,7 @@ nautilus-open-terminal
 lock-keys-applet
 fast-user-switch-applet
 deskbar-applet
+quick-lounge-applet
 "
 
 mkdir -p $TMP/gnome-$GVERSION/extras/applets_extensions

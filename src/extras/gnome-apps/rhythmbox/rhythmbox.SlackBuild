@@ -41,6 +41,8 @@ cd $TMP
 tar xjvf $CWD/rhythmbox-$VERSION.tar.bz2
 cd rhythmbox-$VERSION
 
+cat $CWD/dbus-api-change.patch | patch -p1 --verbose
+
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
   echo "Applying patches for $ARCH"

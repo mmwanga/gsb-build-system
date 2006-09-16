@@ -6,7 +6,7 @@ PKG=$TMP/package-planner
 
 VERSION=0.14
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=3
 
 if [ -f /var/log/packages/planner-$VERSION-$ARCH-$BUILD ]; then
   echo "planner-$VERSION-$ARCH-$BUILD package already installed"
@@ -68,7 +68,7 @@ CFLAGS="$SLKCFLAGS" \
             --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static \
-	    --enable-database=yes \
+	    --enable-database=no \
 	    --enable-python-plugin \
             $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 1

@@ -6,7 +6,7 @@ PKG=$TMP/package-gamin
 
 VERSION=0.1.7
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gamin-$VERSION-$ARCH-$BUILD ]; then
   echo "gamin-$VERSION-$ARCH-$BUILD package already installed"

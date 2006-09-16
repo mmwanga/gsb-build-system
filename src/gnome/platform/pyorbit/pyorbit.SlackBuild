@@ -6,7 +6,7 @@ PKG=$TMP/package-pyorbit
 
 VERSION=2.14.1
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/pyorbit-$VERSION-$ARCH-$BUILD ]; then
   echo "pyorbit-$VERSION-$ARCH-$BUILD package already installed"

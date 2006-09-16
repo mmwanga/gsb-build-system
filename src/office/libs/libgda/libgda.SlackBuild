@@ -6,7 +6,7 @@ PKG=$TMP/package-libgda
 
 VERSION=1.9.103
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=3
 
 if [ -f /var/log/packages/libgda-$VERSION-$ARCH-$BUILD ]; then
   echo "libgda-$VERSION-$ARCH-$BUILD package already installed"

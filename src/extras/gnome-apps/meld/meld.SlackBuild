@@ -40,6 +40,8 @@ cd $TMP
 tar -xjvf $CWD/meld-$VERSION.tar.bz2
 cd meld-$VERSION
 
+cat $CWD/fix-po.patch | patch -p0 --verbose
+
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
   echo "Applying patches for $ARCH"

@@ -6,7 +6,7 @@ PKG=$TMP/package-gnucash
 
 VERSION=2.0.1
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gnucash-$VERSION-$ARCH-$BUILD ]; then
   echo "gnucash-$VERSION-$ARCH-$BUILD package already installed"

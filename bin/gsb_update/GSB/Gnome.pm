@@ -13,6 +13,7 @@ our @EXPORT    = qw(%platform
                     %desktop_other
                     %desktop_nongnome
                     %bindings_cxx
+                    %bindings_cxx_other
                     %bindings_java
                     %bindings_python
                     %bindings_python_other
@@ -47,7 +48,7 @@ our %platform =
    'libgnomeui'          => '2.16.0',
    'libxml2'             => '2.6.26',
    'libxslt'             => '1.1.17',
-   'pango'               => '1.14.3',
+   'pango'               => '1.14.4',
    'pygobject'           => '2.12.1',
    'pygtk'               => '2.10.1',
    'pyorbit'             => '2.14.1',
@@ -236,7 +237,7 @@ our %desktop =
    'gnome-themes'           => '2.16.0',
    'gnome-user-share'       => '0.9',
    'gnome-utils'            => '2.16.0',
-   'gnome-volume-manager'   => '2.15.0',
+   'gnome-volume-manager'   => '1.5.15',
    'gnome-user-docs'        => '2.16.0',
    'gnopernicus'            => '1.1.2',
    'gob2'                   => '2.0.14',
@@ -253,7 +254,7 @@ our %desktop =
    'libgnomeprintui'        => '2.12.1',
    'libgsf'                 => '1.14.1',
    'libgtkhtml'             => '2.11.0',
-   'libgtop'                => '2.14.3',
+   'libgtop'                => '2.14.4',
    'liboobs'                => '0.2.0',
    'librsvg'                => '2.16.0',
    'libsoup'                => '2.2.96',
@@ -319,6 +320,15 @@ our %bindings_cxx =
    'libgnomeuimm'      => '2.16.0',
    'libsigc++'         => '2.0.17',
    'libxml++'          => '2.14.0',
+  );
+
+our %bindings_cxx_other =
+  (
+   'cairomm' => {
+                 'ver' => '1.2.2',
+                 'url' => 'http://cairographics.org/releases/',
+                 'src' => 'tar.gz',
+                },
   );
 
 #    'libgtkhtml-java'  => '2.6.0',

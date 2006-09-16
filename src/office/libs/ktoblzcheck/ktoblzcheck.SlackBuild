@@ -6,7 +6,7 @@ PKG=$TMP/package-ktoblzcheck
 
 VERSION=1.10
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/ktoblzcheck-$VERSION-$ARCH-$BUILD ]; then
   echo "ktoblzcheck-$VERSION-$ARCH-$BUILD package already installed"

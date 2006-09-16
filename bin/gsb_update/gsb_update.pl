@@ -395,6 +395,7 @@ foreach my $ngpackage (keys %desktop_nongnome) {
   }
 }
 
+
 # Download Bindings
 # C++
 foreach my $cbpackage (keys %bindings_cxx) {
@@ -409,6 +410,38 @@ foreach my $cbpackage (keys %bindings_cxx) {
 
   if ( $download eq "true") {
     GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
+# Download non gnome Desktop Packages
+foreach my $bxopackage (keys %bindings_cxx_other) {
+
+  my $name    = $bxopackage;
+  my $sb_file = $name . $sb_ext;
+  my $packurl = $bindings_cxx_other{$name}{url};
+  my $ver     = $bindings_cxx_other{$name}{ver};
+  my $src     = $bindings_cxx_other{$name}{src};
+  my $type    = "other";
+
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+
+  chdir "$pwd/gnome/bindings/c++/$name";
+
+  if ( $download eq "true") {
+    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
   }
 
   if ( $edit eq "true" ) {

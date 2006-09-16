@@ -6,7 +6,7 @@ PKG=$TMP/package-gnome-bluetooth
 
 VERSION=0.7.0
 ARCH=${ARCH:-i486}
-BUILD=5
+BUILD=7
 
 if [ -f /var/log/packages/gnome-bluetooth-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-bluetooth-$VERSION-$ARCH-$BUILD package already installed"

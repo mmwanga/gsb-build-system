@@ -6,7 +6,7 @@ PKG=$TMP/package-libxml2
 
 VERSION=2.6.26
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/libxml2-$VERSION-$ARCH-$BUILD ]; then
   echo "libxml2-$VERSION-$ARCH-$BUILD package already installed"

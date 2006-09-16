@@ -6,7 +6,7 @@ PKG=$TMP/package-bluez-utils
 
 VERSION=2.25
 ARCH=${ARCH:-i486}
-BUILD=5
+BUILD=6
 
 if [ -f /var/log/packages/bluez-utils-$VERSION-$ARCH-$BUILD ]; then
   echo "bluez-utils-$VERSION-$ARCH-$BUILD package already installed"

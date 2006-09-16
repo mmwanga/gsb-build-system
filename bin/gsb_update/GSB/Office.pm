@@ -76,7 +76,7 @@ our %office_libs =
                   },
    'libofx'    => {
                    'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libofx/',
-                   'ver' => '0.8.0',
+                   'ver' => '0.8.2',
                    'src' => 'tar.gz',
                   },
    'libwmf'    => {
@@ -91,7 +91,7 @@ our %office_libs =
 		  },
    'OpenSP'   => {
                    'url' => 'http://heanet.dl.sourceforge.net/sourceforge/openjade/',
-                   'ver' => '1.5.1',
+                   'ver' => '1.5.2',
                    'src' => 'tar.gz',
                   },
    'ots'       => {
@@ -101,7 +101,7 @@ our %office_libs =
 		  },
    'psiconv'   => {
 		   'url' => 'http://software.frodo.looijaard.name/psiconv/files/',
-		   'ver' => '0.9.7',
+		   'ver' => '0.9.8',
 		   'src' => 'tar.gz',
 		  },
   );

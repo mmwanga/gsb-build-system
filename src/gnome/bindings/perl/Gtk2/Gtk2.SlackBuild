@@ -6,7 +6,7 @@ PKG=$TMP/package-Gtk2
 
 VERSION=1.120
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/Gtk2-$VERSION-$ARCH-$BUILD ]; then
   echo "Gtk2-$VERSION-$ARCH-$BUILD package already installed"

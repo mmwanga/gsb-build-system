@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gmime-sharp
 
-VERSION=2.2.1
+VERSION=2.2.3
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -97,6 +97,6 @@ makepkg -l y -c n $TMP/gmime-sharp-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/gmime-sharp-$VERSION
+  rm -rf $TMP/gmime-$VERSION
   rm -rf $PKG
 fi

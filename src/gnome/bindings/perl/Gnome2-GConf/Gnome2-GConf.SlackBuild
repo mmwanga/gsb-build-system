@@ -6,7 +6,7 @@ PKG=$TMP/package-Gnome2-GConf
 
 VERSION=1.021
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/Gnome2-GConf-$VERSION-$ARCH-$BUILD ]; then
   echo "Gnome2-GConf-$VERSION-$ARCH-$BUILD package already installed"

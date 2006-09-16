@@ -6,7 +6,7 @@ PKG=$TMP/package-libdvdread
 
 VERSION=0.9.5
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/libdvdread-$VERSION-$ARCH-$BUILD ]; then
   echo "libdvdread-$VERSION-$ARCH-$BUILD package already installed"

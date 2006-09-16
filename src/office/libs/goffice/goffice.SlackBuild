@@ -6,7 +6,7 @@ PKG=$TMP/package-goffice
 
 VERSION=0.3.0
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=3
 
 if [ -f /var/log/packages/goffice-$VERSION-$ARCH-$BUILD ]; then
   echo "goffice-$VERSION-$ARCH-$BUILD package already installed"

@@ -7,7 +7,7 @@ PKG=$TMP/package-ffmpeg
 VERSION=0.4.9-pre1
 PVERSION=`echo $VERSION |sed 's/-//'`
 ARCH=${ARCH:-i486}
-BUILD=3
+BUILD=4
 
 if [ -f /var/log/packages/ffmpeg-$PVERSION-$ARCH-$BUILD ]; then
   echo "ffmpeg-$VERSION-$ARCH-$BUILD package already installed"

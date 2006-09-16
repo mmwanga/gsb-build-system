@@ -6,7 +6,7 @@ PKG=$TMP/package-gnumeric
 
 VERSION=1.7.0
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=3
 
 if [ -f /var/log/packages/gnumeric-$VERSION-$ARCH-$BUILD ]; then
   echo "gnumeric-$VERSION-$ARCH-$BUILD package already installed"
@@ -67,7 +67,8 @@ CFLAGS="$SLKCFLAGS" \
 	    --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static \
-            $ARCH_CONFIGURE \
+            --without-gda \
+	    $ARCH_CONFIGURE \
             $ARCH-slackware-linux || exit 1
 make || exit 1
 make install DESTDIR=$PKG

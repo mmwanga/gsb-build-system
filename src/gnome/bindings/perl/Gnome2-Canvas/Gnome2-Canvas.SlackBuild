@@ -6,7 +6,7 @@ PKG=$TMP/package-Gnome2-Canvas
 
 VERSION=1.002
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=3
 
 if [ -f /var/log/packages/Gnome2-Canvas-$VERSION-$ARCH-$BUILD ]; then
   echo "Gnome2-Canvas-$VERSION-$ARCH-$BUILD package already installed"

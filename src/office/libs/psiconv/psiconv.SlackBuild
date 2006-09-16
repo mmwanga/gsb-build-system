@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-psiconv
 
-VERSION=0.9.7
+VERSION=0.9.8
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/psiconv-$VERSION-$ARCH-$BUILD ]; then
   echo "psiconv-$VERSION-$ARCH-$BUILD package already installed"
