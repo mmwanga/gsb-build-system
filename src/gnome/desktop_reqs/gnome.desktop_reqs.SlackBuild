@@ -74,6 +74,7 @@ bluez-utils
 openobex
 neon
 XML-Simple
+icon-naming-utils
 "
 
 mkdir -p $TMP/gnome-$GVERSION/frgnome/desktop_reqs
