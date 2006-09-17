@@ -6,7 +6,7 @@ PKG=$TMP/package-banshee
 
 VERSION=0.10.11
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/banshee-$VERSION-$ARCH-$BUILD ]; then
   echo "banshee-$VERSION-$ARCH-$BUILD package already installed"
