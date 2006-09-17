@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gossip
 
-VERSION=0.15
+VERSION=0.16
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/gossip-$VERSION-$ARCH-$BUILD ]; then
   echo "gossip-$VERSION-$ARCH-$BUILD package already installed"
