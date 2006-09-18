@@ -295,9 +295,9 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'gnomebaker'          => {
-			     'ver' => '0.5.1',
+			     'ver' => '0.6.0',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gnomebaker/',
-			     'src' => 'tar.bz2',
+			     'src' => 'tar.gz',
 			    },
    'gparted'             => {
                              'ver' => '0.2.5',

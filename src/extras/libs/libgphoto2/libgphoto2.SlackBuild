@@ -6,7 +6,7 @@ PKG=$TMP/package-libgphoto2
 
 VERSION=2.2.1
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/libgphoto2-$VERSION-$ARCH-$BUILD ]; then
   echo "libgphoto2-$VERSION-$ARCH-$BUILD package already installed"
@@ -41,6 +41,8 @@ tar xzvf $CWD/libgphoto2-$VERSION.tar.gz
 cd libgphoto2-$VERSION
 
   zcat $CWD/2.2.2_buildfixes.patch.gz | patch -p1 --verbose
+
+  cat $CWD/dbus-api-fix.patch | patch -p1 --verbose
 
   # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then

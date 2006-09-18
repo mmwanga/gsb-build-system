@@ -37,8 +37,11 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 cd $TMP
-tar -xzvf $CWD/dbus-$VERSION.tar.gz
-cd dbus-$VERSION
+#tar -xzvf $CWD/dbus-$VERSION.tar.gz
+#cd dbus-$VERSION
+
+git clone git://anongit.freedesktop.org/git/dbus/dbus-mono
+cd dbus-mono
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
@@ -58,6 +61,7 @@ elif [ "$ARCH" = "x86_64" ]; then
   #cat $CWD/foo.patch | patch -p0 --verbose
 fi
 
+./autogen.sh
 CFLAGS="$SLKCFLAGS" \
 ./configure --prefix=/usr \
             $ARCH_CONFIGURE \
@@ -68,7 +72,6 @@ CFLAGS="$SLKCFLAGS" \
             --disable-qt \
             --with-session-socket-dir=/tmp \
             $ARCH-slackware-linux || exit 1
-cd mono
 make || exit 1
 make install DESTDIR=$PKG
 
