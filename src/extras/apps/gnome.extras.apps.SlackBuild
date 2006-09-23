@@ -14,7 +14,6 @@ gDesklets
 gaim
 gftp
 ghex
-gnomebaker
 dvgrab
 kino
 gtkpod
@@ -46,6 +45,7 @@ pulseaudio-tools
 "
 
 ALT_BUILD_ORDER="
+gnomebaker
 sylpheed-claws
 graveman
 gqview

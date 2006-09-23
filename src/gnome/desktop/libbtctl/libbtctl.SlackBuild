@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-libbtctl
 
-VERSION=0.6.0
+VERSION=0.8.0
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/libbtctl-$VERSION-$ARCH-$BUILD ]; then
   echo "libbtctl-$VERSION-$ARCH-$BUILD package already installed"
