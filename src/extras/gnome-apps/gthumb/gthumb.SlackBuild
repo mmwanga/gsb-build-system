@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gthumb
 
-VERSION=2.7.8
+VERSION=2.7.9
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/gthumb-$VERSION-$ARCH-$BUILD ]; then
   echo "gthumb-$VERSION-$ARCH-$BUILD package already installed"

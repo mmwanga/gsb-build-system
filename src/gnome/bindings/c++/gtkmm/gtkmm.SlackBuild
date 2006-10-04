@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-gtkmm
 
-VERSION=2.10.1
+VERSION=2.10.2
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/gtkmm-$VERSION-$ARCH-$BUILD ]; then
   echo "gtkmm-$VERSION-$ARCH-$BUILD package already installed"

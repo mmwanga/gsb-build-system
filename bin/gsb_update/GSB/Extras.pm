@@ -212,11 +212,11 @@ our %extras_gnome_apps =
    'gnome-commander'     => '1.2.0',
    'gnome-cups-manager'  => '0.30',
    'gnome-phone-manager' => '0.7',
-   'gnome-power-manager' => '2.16.0',
-   'gthumb'              => '2.7.8',
+   'gnome-power-manager' => '2.16.1',
+   'gthumb'              => '2.7.9',
    'meld'                => '1.1.4',
-   'pessulus'            => '2.16.0',
-   'rhythmbox'           => '0.9.5',
+   'pessulus'            => '2.16.1',
+   'rhythmbox'           => '0.9.6',
    'sabayon'             => '2.12.4',
   );
 
@@ -290,7 +290,7 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'gimp'                => {
-			     'ver' => '2.2.12',
+			     'ver' => '2.2.13',
 			     'url' => 'ftp://ftp.gimp.org/pub/gimp/v2.2/',
 			     'src' => 'tar.bz2',
 			    },
@@ -411,7 +411,7 @@ our %extras_apps =
 our %extras_apps_gnome =
   (
    'ghex'                => '2.8.2',
-   'gossip'              => '0.16',
+   'gossip'              => '0.17',
   );
 
 

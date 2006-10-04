@@ -6,7 +6,7 @@ PKG=$TMP/package-gnome-volume-manager
 
 VERSION=2.15.0
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gnome-volume-manager-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-volume-manager-$VERSION-$ARCH-$BUILD package already installed"
@@ -39,6 +39,8 @@ fi
 cd $TMP 
 tar xjvf $CWD/gnome-volume-manager-$VERSION.tar.bz2
 cd gnome-volume-manager-$VERSION
+
+cat $CWD/gnome-volume-manager-2.15.0-utmp.diff | patch -p1 --verbose
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then

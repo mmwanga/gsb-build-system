@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-planner
 
-VERSION=0.14
+VERSION=0.14.1
 ARCH=${ARCH:-i486}
-BUILD=3
+BUILD=1
 
 if [ -f /var/log/packages/planner-$VERSION-$ARCH-$BUILD ]; then
   echo "planner-$VERSION-$ARCH-$BUILD package already installed"

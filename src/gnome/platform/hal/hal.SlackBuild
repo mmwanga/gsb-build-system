@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-hal
 
-VERSION=0.5.8
+VERSION=0.5.8.1
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -18,6 +18,7 @@ if [ ! -d $TMP ]; then
 fi
 rm -rf $PKG
 mkdir -p $PKG/media
+mkdir -p $PKG/var/run/console
 
 if [ "$ARCH" = "i386" ]; then
   SLKCFLAGS="-O2 -march=i386 -mtune=i686"
@@ -48,7 +49,6 @@ cd $TMP
 tar xzvf $CWD/hal-$VERSION.tar.gz
 cd hal-$VERSION
 
-cat $CWD/0.5.8-include-header-fix.patch | patch -p1 --verbose
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
@@ -126,3 +126,4 @@ if [ "$1" = "--cleanup" ]; then
   rm -rf $TMP/hal-$VERSION
   rm -rf $PKG
 fi
+

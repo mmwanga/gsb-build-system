@@ -119,9 +119,9 @@ our %office_gnome =
   (
    'gnumeric'  => '1.7.0',
    'dia'       => '0.95',
-   'glom'      => '1.0.5',
+   'glom'      => '1.1.3',
    'mergeant'  => '0.63',
-   'planner'   => '0.14',
+   'planner'   => '0.14.1',
   );
 
 #
