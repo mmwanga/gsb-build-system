@@ -73,7 +73,7 @@ fi
 make || exit 1
 make install DESTDIR=$PKG
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/esound-$VERSION
 cp -a  \

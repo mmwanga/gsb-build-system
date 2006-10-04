@@ -79,7 +79,7 @@ cp gnome-pilot-2.0.pc $PKG/usr/lib/pkgconfig
   ln -sf ../control-center-2.0/capplets/gpilotd-control-applet.desktop
 )
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 SCHEMAS=$PKG/etc/gconf/schemas
 for i in $SCHEMAS/*.schemas

@@ -74,7 +74,7 @@ make install DESTDIR=$PKG
 mkdir -p $PKG/usr/share/hal/fdi/information/20thirdparty/
 cp $CWD/20-njb.fdi $PKG/usr/share/hal/fdi/information/20thirdparty/
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/njb-sharp-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \

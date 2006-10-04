@@ -78,7 +78,7 @@ make install DESTDIR=$PKG
   rm mpeg4ip.h.orig mpeg4ip_config.h.orig
 )
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/mpeg4ip-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \

@@ -75,7 +75,7 @@ chmod 644 $PKG/usr/share/applications/gtkpod.desktop
   ln -s ../gtkpod/gtkpod-icon-48x48.png gtkpod.png
 )
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/gtkpod-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \

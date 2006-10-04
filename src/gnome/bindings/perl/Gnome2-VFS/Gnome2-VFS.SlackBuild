@@ -64,7 +64,7 @@ PERLVERSION=5.8.6
   rmdir $PERLVERSION
 )
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/Gnome2-VFS-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \

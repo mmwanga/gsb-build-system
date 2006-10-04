@@ -76,7 +76,7 @@ make install DESTDIR=$PKG
 
 (cd $PKG/usr/include && ln -s avifile-0.7 avifile)
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/avifile-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \

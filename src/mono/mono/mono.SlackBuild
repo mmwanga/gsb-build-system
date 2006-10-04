@@ -75,7 +75,7 @@ make install DESTDIR=$PKG
 
 sed -i "s:makecert.exe:MakeCert.exe:" $PKG/usr/bin/makecert
 
-chown -R root.bin $PKG/usr/bin $PKG/usr/sbin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin $PKG/usr/sbin
 
 mkdir -p $PKG/usr/doc/mono-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \

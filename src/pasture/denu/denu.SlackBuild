@@ -43,7 +43,7 @@ fi
 
 ./install.sh $PKG
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 mkdir -p $PKG/usr/share/applications
 cp $CWD/denu.desktop $PKG/usr/share/applications
@@ -122,7 +122,7 @@ fi
 
 ./install.sh $PKG
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 mkdir -p $PKG/usr/share/applications
 cp $CWD/denu.desktop $PKG/usr/share/applications

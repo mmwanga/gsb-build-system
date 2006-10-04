@@ -78,7 +78,7 @@ make install DESTDIR=$PKG
 mkdir -p $PKG/usr/lib/pkgconfig
 cp ../dbus-sharp.pc $PKG/usr/lib/pkgconfig
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/dbus-sharp-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \

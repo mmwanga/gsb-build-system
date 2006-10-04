@@ -32,7 +32,7 @@ cp -a extras/run_directory/udev_run_hotplugd $PKG/sbin
 cp -a extras/firmware/firmware_helper $PKG/sbin
 # No thanks, we don't use this
 rmdir $PKG/udev 2> /dev/null
-chown -R root.bin $PKG/sbin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/sbin $PKG/usr/bin
 mv $PKG/usr/share/man $PKG/usr
 rmdir $PKG/usr/share
 ( cd $PKG

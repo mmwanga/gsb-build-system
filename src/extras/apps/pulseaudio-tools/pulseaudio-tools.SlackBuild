@@ -76,7 +76,7 @@ CFLAGS="$SLKCFLAGS" \
 make || exit 1
 make install DESTDIR=$PKG
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/pavucontrol-$PA_VU_CONTROL
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
@@ -119,7 +119,7 @@ CFLAGS="$SLKCFLAGS" \
 make || exit 1
 make install DESTDIR=$PKG
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/pavumeter-$PA_VU_METER
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
@@ -162,7 +162,7 @@ CFLAGS="$SLKCFLAGS" \
 make || exit 1
 make install DESTDIR=$PKG
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/paman-$PA_MAN
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
@@ -205,7 +205,7 @@ CFLAGS="$SLKCFLAGS" \
 make || exit 1
 make install DESTDIR=$PKG
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/padevchooser-$PA_DEV_CHOOSER
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
@@ -248,7 +248,7 @@ CFLAGS="$SLKCFLAGS" \
 make || exit 1
 make install DESTDIR=$PKG
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/paman-$PA_PREFS
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \

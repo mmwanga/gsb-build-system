@@ -46,7 +46,7 @@ python setup.py configure --imaging-include=/usr/include/Imaging/ || exit 1
 python setup.py build || exit 1
 python setup.py install --prefix=/usr --dest-dir=$PKG
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/skencil-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \

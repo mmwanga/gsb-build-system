@@ -75,7 +75,7 @@ cp -a $CWD/scripts/* $PKG/etc/profile.d
 chown root:root $PKG/etc/profile.d/*
 chmod 755 $PKG/etc/profile.d/*
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/pkg-config-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \

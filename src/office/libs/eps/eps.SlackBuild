@@ -64,7 +64,7 @@ CFLAGS="$SLKCFLAGS" \
             $ARCH_CONFIGURE
 make install LIBDIR=$PKG/usr/lib INCDIR=$PKG/usr/include
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 chmod 644 $PKG/usr/include/*.h
 
 mkdir -p $PKG/usr/doc/eps-$VERSION

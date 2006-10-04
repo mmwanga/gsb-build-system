@@ -70,7 +70,7 @@ make install DESTDIR=$PKG
   cat $CWD/rc.howl > $PKG/etc/rc.d/rc.howl.new
 )
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/howl-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \

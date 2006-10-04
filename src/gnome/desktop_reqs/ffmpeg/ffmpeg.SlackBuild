@@ -82,7 +82,7 @@ make install  || exit 1
 	$PKG/usr/include/libpostproc 
 )
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 mkdir -p $PKG/usr/doc/ffmpeg-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
   $PKG/usr/doc/ffmpeg-$VERSION

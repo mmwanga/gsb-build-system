@@ -66,8 +66,8 @@ CFLAGS="$SLKCFLAGS" \
 make || exit 1
 make install DESTDIR=$PKG
 
-chown -R root.bin $PKG/usr/bin
-chown -R root.bin $PKG/usr/sbin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/sbin
 
 mkdir -p $PKG/usr/doc/emotion-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \

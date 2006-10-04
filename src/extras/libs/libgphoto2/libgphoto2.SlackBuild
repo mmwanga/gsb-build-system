@@ -79,7 +79,7 @@ sed -e 's/GROUP=camera/GROUP=video/' \
 	< packaging/linux-hotplug/usbcam.group > $PKG/etc/hotplug/usb/usbcam
 chmod 755 $PKG/etc/hotplug/usb/usbcam
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc
 mv $PKG/usr/share/doc/libgphoto2 $PKG/usr/doc/libgphoto2-$VERSION

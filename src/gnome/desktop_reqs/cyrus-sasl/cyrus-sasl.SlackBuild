@@ -86,7 +86,7 @@ mkdir -p $PKG/var/state/saslauthd
   cat $CWD/rc.saslauthd > $PKG/etc/rc.d/rc.saslauthd.new
 )
 
-chown -R root.bin $PKG/usr/bin $PKG/usr/sbin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin $PKG/usr/sbin
 
 mkdir -p $PKG/usr/doc/cyrus-sasl-$VERSION/html
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \

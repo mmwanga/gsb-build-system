@@ -86,7 +86,7 @@ make install DESTDIR=$PKG
   ln -s ../icons/hicolor/48x48/apps/bmpx.png
 )
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/bmpx-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \

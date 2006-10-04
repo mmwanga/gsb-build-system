@@ -66,7 +66,7 @@ CFLAGS="$SLKCFLAGS" \
 make || exit 1
 make install DESTDIR=$PKG
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/a52dec-$VERSION
 cp -a AUTHORS COPYING ChangeLog HISTORY INSTALL NEWS README TODO \
@@ -75,7 +75,7 @@ chmod 644 $PKG/usr/doc/a52dec-$VERSION/*
 chown root.root $PKG/usr/doc/a52dec-$VERSION/*
 
 find $PKG -type f | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 gzip -9 $PKG/usr/man/*/*
 
 mkdir -p $PKG/install

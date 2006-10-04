@@ -71,7 +71,7 @@ CFLAGS="$SLKCFLAGS" \
 make || exit 1
 make install DESTDIR=$PKG
 
-chown -R root.bin $PKG/usr/bin $PKG/usr/sbin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin $PKG/usr/sbin
 
 mkdir -p $PKG/usr/doc/libbonobo-$VERSION
 cp -a \

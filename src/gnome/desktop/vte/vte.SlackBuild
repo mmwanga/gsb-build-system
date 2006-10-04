@@ -71,7 +71,7 @@ CXXFLAGS="$SLKCFLAGS" \
             $ARCH-slackware-linux || exit 
 make || exit 
 make install DESTDIR=$PKG
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 ( cd $PKG
   find . | xargs file | grep "ELF 32-bit LSB executable" | grep 80386 | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
   find . | xargs file | grep "ELF 32-bit LSB shared object" | grep 80386 | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null

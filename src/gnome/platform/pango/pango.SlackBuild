@@ -73,7 +73,7 @@ make install
 mkdir -p $PKG/etc/pango
 cp -a /etc/pango/* $PKG/etc/pango
 strip $PKG/usr/bin/*
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 ( cd $PKG
   find . -type f | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded
 )

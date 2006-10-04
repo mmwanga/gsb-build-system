@@ -75,7 +75,7 @@ make install DESTDIR=$PKG
   sed -i '/^Categories=/s/Utility/AudioVideo/' graveman.desktop
 )
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/graveman-$VERSION
 cp -a \

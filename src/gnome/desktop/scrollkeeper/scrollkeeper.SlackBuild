@@ -77,7 +77,7 @@ make install DESTDIR=$PKG
   cp /etc/xml/catalog $PKG/etc/xml
 )
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 rm -rf $PKG/var/lib/scrollkeeper/*
 

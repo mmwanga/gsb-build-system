@@ -73,7 +73,7 @@ make install
 mkdir -p $PKG/etc/gtk-2.0
 #cp -a /etc/gtk-2.0/* $PKG/etc/gtk-2.0
 strip $PKG/usr/bin/*
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 ( cd $PKG
   find . | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded
 )

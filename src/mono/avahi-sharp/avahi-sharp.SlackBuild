@@ -88,7 +88,7 @@ make || exit 1
 mkdir -p $PKG/usr/lib/pkgconfig
 cp avahi-sharp.pc $PKG/usr/lib/pkgconfig
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/avahi-sharp-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \

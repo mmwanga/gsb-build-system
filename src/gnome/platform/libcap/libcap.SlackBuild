@@ -60,7 +60,7 @@ CFLAGS="$SLKCFLAGS" \
 make || exit 1
 make install prefix=/usr FAKEROOT=$PKG
 
-chown -R root.bin $PKG/usr/sbin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/sbin
 
 mkdir -p $PKG/usr/doc/libcap-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \

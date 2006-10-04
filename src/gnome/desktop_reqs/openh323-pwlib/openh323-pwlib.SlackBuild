@@ -81,7 +81,7 @@ make install DESTDIR=$PWPKG
   ln -sf ../share/pwlib/make/ptlib-config
 )
 
-chown -R root.bin $PWPKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PWPKG/usr/bin
 
 (
   cd $PWPKG/usr/include/ptclib/

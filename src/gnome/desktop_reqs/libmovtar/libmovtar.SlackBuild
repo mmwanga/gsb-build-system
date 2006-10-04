@@ -95,7 +95,7 @@ CFLAGS="$SLKCFLAGS" \
 make
 make install DESTDIR=$PKG
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/libmovtar-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \

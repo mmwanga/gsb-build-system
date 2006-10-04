@@ -90,7 +90,7 @@ done
   find ./ -type f -exec chmod go+r {} \;
 )
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 rm -f $PKG/usr/info/dir
 

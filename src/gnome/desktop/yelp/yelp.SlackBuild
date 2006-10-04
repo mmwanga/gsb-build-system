@@ -78,7 +78,7 @@ GCONF_CONFIG_SOURCE="xml::$PKG/etc/gconf/gconf.xml.defaults" \
         gconftool-2 --makefile-install-rule $i
 done
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 (
   cd $PKG/etc/gconf/gconf.xml.defaults
@@ -86,7 +86,7 @@ chown -R root.bin $PKG/usr/bin
   find ./ -type f -exec chmod go+r {} \;
 )
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/yelp-$VERSION
 cp -a \

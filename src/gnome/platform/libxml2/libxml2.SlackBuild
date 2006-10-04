@@ -78,7 +78,7 @@ cp -a \
   find . -type f | xargs chmod 644
 )
 gzip -9 $PKG/usr/man/man?/*.?
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 mkdir -p $PKG/install
 cat $CWD/slack-required > $PKG/install/slack-required
 cat $CWD/slack-desc > $PKG/install/slack-desc

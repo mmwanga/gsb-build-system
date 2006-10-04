@@ -97,7 +97,7 @@ make install DESTDIR=$PKG
   mv .k5login.5 k5login.5
 )
 
-chown -R root.bin $PKG/usr/bin $PKG/usr/sbin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin $PKG/usr/sbin
 
 mkdir -p $PKG/usr/doc/krb5-$VERSION
 cp -a README doc/* \

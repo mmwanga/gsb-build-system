@@ -101,7 +101,7 @@ make install DESTDIR=$PKG
 
 cd ..
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 mkdir -p $PKG/usr/share/pixmaps
 mv $PKG/usr/share/icons/abiword_48.png $PKG/usr/share/pixmaps

@@ -72,7 +72,7 @@ mkdir -p $PKG/etc
 sed -i -e 's:/usr/local:/usr:' Docs/sample/gnokiirc
 cp Docs/sample/gnokiirc $PKG/etc
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 mkdir -p $PKG/usr/doc/gnokii-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \

@@ -69,7 +69,7 @@ CFLAGS="$SLKCFLAGS" \
 make || exit 1
 make install DESTDIR=$PKG
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 rm -rf $PKG/usr/doc/gnome-pkgtool
 mkdir -p $PKG/usr/doc/gnome-pkgtool-$VERSION
@@ -171,7 +171,7 @@ CFLAGS="$SLKCFLAGS" \
 make || exit 1
 make install DESTDIR=$PKG
 
-chown -R root.bin $PKG/usr/bin
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 
 rm -rf $PKG/usr/doc/gnome-pkgtool
 mkdir -p $PKG/usr/doc/gnome-pkgtool-$VERSION
