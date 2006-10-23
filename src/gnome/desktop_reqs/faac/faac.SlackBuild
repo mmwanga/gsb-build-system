@@ -40,6 +40,9 @@ cd $TMP
 tar -xzvf $CWD/faac-$VERSION.tar.gz
 cd faac
 
+ex +":set ff=unix" +":wq" bootstrap
+ex +":set ff=unix" +":wq" configure.in
+
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
   echo "Applying patches for $ARCH"
