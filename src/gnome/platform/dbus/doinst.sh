@@ -55,3 +55,5 @@ fi
 EOF
 fi
 
+usr/bin/dbus-uuidgen --ensure
+

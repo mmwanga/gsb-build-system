@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-GConf
 
-VERSION=2.14.0
+VERSION=2.16.0
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/gconf-$VERSION-$ARCH-$BUILD ]; then
   echo "gconf-$VERSION-$ARCH-$BUILD package already installed"

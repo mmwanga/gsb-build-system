@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-deskbar-applet
 
-VERSION=2.16.0
+VERSION=2.16.2
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/deskbar-applet-$VERSION-$ARCH-$BUILD ]; then
   echo "deskbar-applet-$VERSION-$ARCH-$BUILD package already installed"

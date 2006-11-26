@@ -4,9 +4,9 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-libsoup
 
-VERSION=2.2.96
+VERSION=2.2.98
 ARCH=${ARCH:-i486}
-BUILD=2
+BUILD=1
 
 if [ -f /var/log/packages/libsoup-$VERSION-$ARCH-$BUILD ]; then
   echo "libsoup-$VERSION-$ARCH-$BUILD package already installed"

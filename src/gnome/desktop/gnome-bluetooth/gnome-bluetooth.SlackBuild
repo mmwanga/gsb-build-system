@@ -6,7 +6,7 @@ PKG=$TMP/package-gnome-bluetooth
 
 VERSION=0.8.0
 ARCH=${ARCH:-i486}
-BUILD=1
+BUILD=2
 
 if [ -f /var/log/packages/gnome-bluetooth-$VERSION-$ARCH-$BUILD ]; then
   echo "gnome-bluetooth-$VERSION-$ARCH-$BUILD package already installed"
@@ -39,13 +39,6 @@ fi
 cd $TMP
 tar -xjvf $CWD/gnome-bluetooth-$VERSION.tar.bz2
 cd gnome-bluetooth-$VERSION
-
-cat $CWD/gnome-bluetooth_0.7.0-0ubuntu2.diff | patch -p1 --verbose
-
-for i in MenusRevisited.patch fix-icon-location.patch fix-python-Makefile.patch
-do
-  patch -p1 --verbose < debian/patches/${i}
-done
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then

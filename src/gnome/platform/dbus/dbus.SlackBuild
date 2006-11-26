@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-dbus
 
-VERSION=0.93
+VERSION=0.94
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -107,7 +107,7 @@ cat $CWD/slack-desc > $PKG/install/slack-desc
 cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
-makepkg -l y -c n $TMP/dbus-$VERSION-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $TMP/dbus-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
