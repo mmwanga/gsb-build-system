@@ -48,6 +48,9 @@ cd common/mp4v2
 cat $CWD/mp4atom-sliver.patch |patch -p0 --verbose
 )
 
+ex +":set ff=unix" +":wq" bootstrap
+ex +":set ff=unix" +":wq" configure.in
+
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
   echo "Applying patches for $ARCH"

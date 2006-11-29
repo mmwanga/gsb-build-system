@@ -320,7 +320,7 @@ our %extras_apps =
                              'src' => 'tar.gz',
                             },
    'gslapt'             => {
-			     'ver' => '0.3.15',
+			     'ver' => '0.3.16',
 			     'url' => 'http://software.jaos.org/source/gslapt/',
 			     'src' => 'tar.gz',
 			    },
@@ -365,7 +365,7 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'slapt-get'           => {
-			     'ver' => '0.9.11f',
+			     'ver' => '0.9.11g',
 			     'url' => 'http://software.jaos.org/source/slapt-get/',
 			     'src' => 'tar.gz',
 			    },
