@@ -1,2 +1,2 @@
-gnome-themes-extras: REC
-gnome-extra-themes: OPT
+gnome-themes-extras: ADD
+gnome-extra-themes: SKP

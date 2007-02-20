@@ -1,6 +1,6 @@
-galeon: OPT
-gqview: OPT
-graveman: REC
-grip: REC
-nvu: OPT
-sylpheed-claws: OPT
+galeon: SKP
+gqview: SKP
+graveman: ADD
+grip: ADD
+nvu: SKP
+sylpheed-claws: SKP
