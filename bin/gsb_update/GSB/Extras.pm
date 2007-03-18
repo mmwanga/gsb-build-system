@@ -146,17 +146,17 @@ our %extras_libs =
                              'src' => 'tar.gz',
                             },
    'libnotify'           => {
-                             'ver' => '0.4.0',
+                             'ver' => '0.4.4',
                              'url' => 'http://galago-project.org/files/releases/source/libnotify/',
                              'src' => 'tar.gz',
                             },
    'libsexy'             => {
-                             'ver' => '0.1.8',
+                             'ver' => '0.1.10',
                              'url' => 'http://releases.chipx86.com/libsexy/libsexy/',
                              'src' => 'tar.gz',
                             },
    'notification-daemon' => {
-                             'ver' => '0.3.5',
+                             'ver' => '0.3.7',
                              'url' => 'http://galago-project.org/files/releases/source/notification-daemon/',
                              'src' => 'tar.gz',
                             },
@@ -171,7 +171,7 @@ our %extras_libs =
                              'src' => 'tar.gz',
                             },
    'zvbi'                => {
-                             'ver' => '0.2.21',
+                             'ver' => '0.2.25',
                              'url' => 'http://heanet.dl.sourceforge.net/sourceforge/zapping/',
                              'src' => 'tar.bz2',
                             },
@@ -195,9 +195,9 @@ our %extras_libs_other =
 # src/extras/libs
 our %extras_libs_gnome =
   (
-   'devhelp'             => '0.12',
+   'devhelp'             => '0.13',
    'gdl'                 => '0.6.1',
-   'glade'               => '2.12.1',
+   'glade'               => '3.1.5',
    'gnome-build'         => '0.1.3',
    'gnome-common'        => '2.12.0',
    'loudmouth'           => '1.0.5',
@@ -213,10 +213,10 @@ our %extras_gnome_apps =
    'gnome-cups-manager'  => '0.30',
    'gnome-phone-manager' => '0.7',
    'gnome-power-manager' => '2.16.1',
-   'gthumb'              => '2.8.0',
+   'gthumb'              => '2.8.1',
    'meld'                => '1.1.4',
    'pessulus'            => '2.16.1',
-   'rhythmbox'           => '0.9.6',
+   'rhythmbox'           => '0.9.8',
    'sabayon'             => '2.12.4',
   );
 
@@ -225,7 +225,7 @@ our %extras_gnome_apps =
 our %extras_apps =
   (
    'anjuta'              => {
-			     'ver' => '2.0.2',
+			     'ver' => '2.1.1',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/anjuta/',
 			     'src' => 'tar.gz',
 			    },
@@ -300,7 +300,7 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'gparted'             => {
-                             'ver' => '0.2.5',
+                             'ver' => '0.3.3',
                              'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gparted',
                              'src' => 'tar.bz2',
                             },
@@ -320,22 +320,22 @@ our %extras_apps =
                              'src' => 'tar.gz',
                             },
    'gslapt'             => {
-			     'ver' => '0.3.16',
+			     'ver' => '0.3.17',
 			     'url' => 'http://software.jaos.org/source/gslapt/',
 			     'src' => 'tar.gz',
 			    },
    'gtkam'               => {
-			     'ver' => '0.1.13',
+			     'ver' => '0.1.14',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto/',
 			     'src' => 'tar.gz',
 			    },
    'gtkpod'              => {
-			     'ver' => '0.99.4',
+			     'ver' => '0.99.8',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtkpod/',
 			     'src' => 'tar.gz',
 			    },
    'kino'                => {
-			     'ver' => '0.8.1',
+			     'ver' => '1.0.0',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/kino/',
 			     'src' => 'tar.gz',
 			    },
@@ -345,7 +345,7 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'liferea'             => {
-			     'ver' => '1.0.20',
+			     'ver' => '1.2.8',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/liferea/',
 			     'src' => 'tar.gz',
 			    },
@@ -365,7 +365,7 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'slapt-get'           => {
-			     'ver' => '0.9.11g',
+			     'ver' => '0.9.11h',
 			     'url' => 'http://software.jaos.org/source/slapt-get/',
 			     'src' => 'tar.gz',
 			    },
@@ -395,7 +395,7 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'xchat'               => {
-			     'ver' => '2.6.6',
+			     'ver' => '2.8.0',
 			     'url' => 'http://xchat.org/files/source/2.6/',
 			     'src' => 'tar.bz2',
 			    },
@@ -439,7 +439,7 @@ our %extras_applets =
 			     'src' => 'tar.gz',
 			    },
    'nautilus-open-terminal'  => {
-			     'ver' => '0.6',
+			     'ver' => '0.8',
 			     'url' => 'http://manny.cluecoder.org/packages/nautilus-open-terminal/',
 			     'src' => 'tar.gz',
                             },

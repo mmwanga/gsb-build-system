@@ -13,23 +13,23 @@ our $VERSION   = 0.03;
 our %double_tarballs =
   (
    'jpeg-mmx'         => {
-			  'ver' => '0.1.5',
+			  'ver' => '0.1.6',
 			  'dir' => 'gnome/desktop_reqs/libmovtar',
 			  'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mjpeg/',
 			  'src' => 'tar.gz',
 			  'var' => 'JPEGMMXV',
 			 },
    'gaim-encryption'  => {
-			  'ver' => '2.38',
+			  'ver' => '2.39',
 			  'dir' => 'extras/apps/gaim',
 			  'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gaim-encryption/',
 			  'src' => 'tar.gz',
 			  'var' => 'GAIMENC',
 			 },
    'gnome-games-extra-data' => {
-				'ver' => '2.14.0',
+				'ver' => '2.17.90',
 				'dir' => 'gnome/desktop/gnome-games',
-				'url' => 'http://ftp.gnome.org/pub/GNOME/sources/gnome-games-extra-data/2.14/',
+				'url' => 'http://ftp.gnome.org/pub/GNOME/sources/gnome-games-extra-data/2.17/',
 				'src' => 'tar.bz2',
 				'var' => 'EXTRAVERSION',
 			       },
@@ -91,10 +91,10 @@ our %double_tarballs =
 our %double_tarballs_url =
   (
    'iso-codes'                 => {
-				   'ver' => '0.52',
+				   'ver' => '1.0a',
 				   'dir' => 'gnome/desktop_reqs/iso-codes',
 				   'url' => 'http://http.us.debian.org/debian/pool/main/i/iso-codes/',
-				   'tar' => 'iso-codes_0.52.orig.tar.gz',
+				   'tar' => 'iso-codes_1.0a.orig.tar.gz',
 				   'var' => 'VERSION',
 				  },
    'nvu'                 => {

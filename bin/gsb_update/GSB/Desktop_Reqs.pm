@@ -17,12 +17,12 @@ our %desktop_reqs =
   (
 
    'bluez-libs'      => {
-                         'ver' => '2.25',
+                         'ver' => '3.9',
                          'url' => 'http://bluez.sf.net/download/',
                          'src' => 'tar.gz',
                         },
    'bluez-utils'     => {
-                         'ver' => '2.25',
+                         'ver' => '3.9',
                          'url' => 'http://bluez.sf.net/download/',
                          'src' => 'tar.gz',
                         },
@@ -38,11 +38,11 @@ our %desktop_reqs =
 			},
    'icon-naming-utils' => {
 	                 'url' => 'http://tango-project.org/releases/',
-			 'ver' => '0.8.1',
+			 'ver' => '0.8.2',
 			 'src' => 'tar.gz',
 			},
    'neon'            => {
-                         'ver' => '0.26.0',
+                         'ver' => '0.26.3',
                          'url' => 'http://www.webdav.org/neon/',
                          'src' => 'tar.gz',
                         },
@@ -53,17 +53,17 @@ our %desktop_reqs =
                         },
    'openldap'        => {
 			 'url' => 'ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/',
-			 'ver' => '2.3.20',
+			 'ver' => '2.3.34',
 			 'src' => 'tgz',
 			},
    'openobex'        => {
-                         'ver' => '1.0.1',
+                         'ver' => '1.3',
                          'url' => 'http://heanet.dl.sourceforge.net/sourceforge/openobex/',
                          'src' => 'tar.gz',
                         },
    'poppler'         => {
 			 'url' => 'http://poppler.freedesktop.org/',
-			 'ver' => '0.5.3',
+			 'ver' => '0.5.4',
 			 'src' => 'tar.gz',
 			},
    'pwlib'            => {
@@ -78,7 +78,7 @@ our %desktop_reqs =
 			},
    'XML-Simple'      => {
 	                 'url' => 'http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM/',
-                         'ver' => '2.14',
+                         'ver' => '2.16',
                          'src' => 'tar.gz',
                         },
   );

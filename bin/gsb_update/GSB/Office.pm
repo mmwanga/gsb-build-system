@@ -16,13 +16,13 @@ our $VERSION   = 0.03;
 our %office =
   (
    'abiword' => {
-		 'url' => 'http://www.abisource.com/downloads/abiword/2.4.5/source/',
-		 'ver' => '2.4.5',
+		 'url' => 'http://www.abisource.com/downloads/abiword/2.5.1/source/',
+		 'ver' => '2.5.1',
 		 'src' => 'tar.gz'
 		},
    'gnucash' => {
                  'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gnucash/',
-                 'ver' => '2.0.1',
+                 'ver' => '2.0.5',
                  'src' => 'tar.gz'
                 },
   );
@@ -36,7 +36,7 @@ our %office_libs =
 		  },
    'aqbanking' => {
                    'url' => 'http://heanet.dl.sourceforge.net/sourceforge/aqbanking/',
-                   'ver' => '2.0.0',
+                   'ver' => '2.2.9',
                    'src' => 'tar.gz',
                   },
    'enchant'   => {
@@ -56,27 +56,27 @@ our %office_libs =
 		  },
    'g-wrap'       => {
                    'url' => 'http://savannah.nongnu.org/download/g-wrap/',
-                   'ver' => '1.9.6',
+                   'ver' => '1.9.7',
                    'src' => 'tar.gz',
                   },
    'gwenhywfar'    => {
                    'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gwenhywfar/',
-                   'ver' => '2.3.0',
+                   'ver' => '2.5.4',
                    'src' => 'tar.gz',
                   },
    'ktoblzcheck' => {
                    'url' => 'http://heanet.dl.sourceforge.net/sourceforge/ktoblzcheck/',
-                   'ver' => '1.10',
+                   'ver' => '1.13',
                    'src' => 'tar.gz',
                   },
    'libchipcard2' => {
                    'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libchipcard/',
-                   'ver' => '2.1.4',
+                   'ver' => '2.1.9',
                    'src' => 'tar.gz',
                   },
    'libofx'    => {
                    'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libofx/',
-                   'ver' => '0.8.2',
+                   'ver' => '0.8.3',
                    'src' => 'tar.gz',
                   },
    'libwmf'    => {
@@ -86,7 +86,7 @@ our %office_libs =
 		  },
    'libwpd'    => {
 		   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libwpd/',
-		   'ver' => '0.8.4',
+		   'ver' => '0.8.9',
 		   'src' => 'tar.gz',
 		  },
    'OpenSP'   => {
