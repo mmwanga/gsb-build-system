@@ -51,7 +51,7 @@ our %extras_libs =
                              'src' => 'tar.bz2',
 			    },
    'gmime'               => {
-			     'ver' => '2.2.3',
+			     'ver' => '2.2.8',
 			     'url' => 'http://spruce.sourceforge.net/gmime/sources/v2.2/',
 			     'src' => 'tar.gz',
 			    },
@@ -207,16 +207,16 @@ our %extras_libs_gnome =
 # src/extras/gnome-apps
 our %extras_gnome_apps =
   (
-   'NetworkManager'      => '0.6.2',
+   'NetworkManager'      => '0.6.5',
    'gnome-audio'         => '2.0.0',
    'gnome-commander'     => '1.2.1',
    'gnome-cups-manager'  => '0.30',
    'gnome-phone-manager' => '0.7',
-   'gnome-power-manager' => '2.16.1',
-   'gthumb'              => '2.8.1',
+   'gnome-power-manager' => '2.18.2',
+   'gthumb'              => '2.10.2',
    'meld'                => '1.1.4',
    'pessulus'            => '2.16.1',
-   'rhythmbox'           => '0.9.8',
+   'rhythmbox'           => '0.10.0',
    'sabayon'             => '2.12.4',
   );
 
@@ -411,7 +411,7 @@ our %extras_apps =
 our %extras_apps_gnome =
   (
    'ghex'                => '2.8.2',
-   'gossip'              => '0.19',
+   'gossip'              => '0.24',
   );
 
 
@@ -450,7 +450,7 @@ our %extras_applets_gnome =
   (
    'quick-lounge-applet'      => '2.12.1',
    'fast-user-switch-applet'  => '2.16.0',
-   'deskbar-applet'           => '2.16.2',
+   'deskbar-applet'           => '2.18.1',
   );
 
 
