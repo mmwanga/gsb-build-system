@@ -102,7 +102,7 @@ CXXFLAGS="$GSB_CFLAGS" \
             --localstatedir=/var/lib \
             --disable-static --enable-shared \
 		 --enable-bonobo-activation-debug=no \
-            $ARCH-$DISTRO-linux || exit 1
+            --target=$ARCH-$DISTRO-linux || exit 1
 
 
 make -j4 || exit 1
