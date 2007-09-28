@@ -8,17 +8,15 @@ if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 
+## Packages Removed for Gnome 2.20.x
+##
+## atk, glitz, cairo, libsvg, libsvg-cairo
+
 BUILD_ORDER="
 ORBit2
 intltool
 libbonobo
-glitz
-cairo
-libsvg
-libsvg-cairo
-pango
 GConf
-desktop-file-utils
 gnome-mime-data
 gamin
 Pyrex
