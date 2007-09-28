@@ -10,7 +10,9 @@ fi
 
 ## Packages Removed for Gnome 2.20.x
 ## (Most of these are provided by Slackware 12 now)
-## atk, glitz, cairo, libsvg, libsvg-cairo, gamin
+## atk, glitz, cairo, libsvg, libsvg-cairo, gamin, esound
+## dbus, dbus-glib, hal, esound, libart_lgpl, libcap
+## audiofile, libglade
 
 BUILD_ORDER="
 ORBit2
@@ -19,24 +21,20 @@ libbonobo
 GConf
 gnome-mime-data
 pygobject
-libcap
-audiofile
-esound
-libglade
+pyorbit
+pycairo
+pygtk
 pyorbit
 pycairo
 pygobject
 pygtk
-dbus
-dbus-glib
 dbus-python
-hal
 libdaemon
+nss-mdns
 avahi
 gnome-vfs
 gnome-vfs-monikers
 libgnome
-libart_lgpl
 libgnomecanvas
 libbonoboui
 gnome-keyring
