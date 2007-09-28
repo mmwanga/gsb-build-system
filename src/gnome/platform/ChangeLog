@@ -1,0 +1,6 @@
+27-09-2007	* Updated libbonoboui
+26-09-2007 	* Changed partial build order for gnome.platform.SlackBuild.
+		* Changed orbit2 to ORBit2.
+		* Created generic.SlackBuild with fuller package build options, variables
+		  and consolidated several options found in other SlackBuilds.
+		

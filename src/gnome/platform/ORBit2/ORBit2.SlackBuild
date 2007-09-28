@@ -9,7 +9,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-$PKGNAME
 PKG_DEST=/home/packages
-VERSION=${VERSION:-2.20.0}
+VERSION=${VERSION:-2.14.8}
 ARCH=${ARCH:-i686}
 BUILD=${BUILD:-1}
 DISTRO=${DISTRO:-slackware}
@@ -101,7 +101,6 @@ CXXFLAGS="$GSB_CFLAGS" \
 	    --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static --enable-shared \
-		 --enable-bonobo-activation-debug=no \
             $ARCH-$DISTRO-linux || exit 1
 
 

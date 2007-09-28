@@ -9,14 +9,7 @@ if [ ! -d $TMP ]; then
 fi
 
 BUILD_ORDER="
-pkg-config
-libgpg-error
-libgcrypt
-libxml2
-libxslt
-glib2
-libidl
-orbit2
+ORBit2
 intltool
 libbonobo
 glitz
