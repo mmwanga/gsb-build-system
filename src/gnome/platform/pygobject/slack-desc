@@ -1,12 +1,12 @@
          |-----handy-ruler------------------------------------------------------|
 pygobject: pygobject (Glib GObject Python bindings)
 pygobject:
-pygobject: Bindings for the Glib GObject, to be used in Python
+pygobject: Bindings for the Glib GObject, to be used in Python.
 pygobject:
+pygobject: It is a fairly complete set of bindings, it's already rather useful,
+pygobject: and is usable to write moderately complex programs.
 pygobject:
-pygobject:
-pygobject:
-pygobject:
+pygobject: Current maintainer: Johan Dahlin <johan@gnome.org>
 pygobject:
 pygobject:
 pygobject:

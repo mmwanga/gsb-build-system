@@ -9,8 +9,8 @@ if [ ! -d $TMP ]; then
 fi
 
 ## Packages Removed for Gnome 2.20.x
-##
-## atk, glitz, cairo, libsvg, libsvg-cairo
+## (Most of these are provided by Slackware 12 now)
+## atk, glitz, cairo, libsvg, libsvg-cairo, gamin
 
 BUILD_ORDER="
 ORBit2
@@ -18,8 +18,7 @@ intltool
 libbonobo
 GConf
 gnome-mime-data
-gamin
-Pyrex
+pygobject
 libcap
 audiofile
 esound
