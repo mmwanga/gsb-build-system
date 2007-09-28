@@ -1,12 +1,12 @@
        |-----handy-ruler------------------------------------------------------|
-pycairo: pycairo (Cairo Python bindings)
+pycairo: pycairo (Cairo Bindings for Cairo)
 pycairo:
-pycairo: Python Bindings for Cairo
+pycairo: Pycairo is set of Python bindings for the Cairo graphics library.
 pycairo:
-pycairo:
-pycairo:
-pycairo:
-pycairo:
-pycairo:
-pycairo:
+pycairo: Cairo is a 2D graphics library with support for multiple output devices.
+pycairo: Currently supported output targets include the X Window System, Win32,
+pycairo: image buffers, PostScript, PDF, and SVG file output. Cairo is designed
+pycairo: to produce consistent output on all output media while taking advantage
+pycairo: of display hardware acceleration when available (eg. through the X Render
+pycairo: Extension).
 pycairo:
