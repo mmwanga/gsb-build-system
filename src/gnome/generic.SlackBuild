@@ -101,7 +101,7 @@ CXXFLAGS="$GSB_CFLAGS" \
 	    --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static --enable-shared \
-            $ARCH-$DISTRO-linux || exit 1
+            --target=$ARCH-$DISTRO-linux || exit 1
 
 
 make -j4 || exit 1
