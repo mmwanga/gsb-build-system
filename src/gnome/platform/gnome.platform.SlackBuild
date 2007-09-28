@@ -17,10 +17,7 @@ cairo
 libsvg
 libsvg-cairo
 pango
-atk
-shared-mime-info
-gtk+2
-gconf
+GConf
 desktop-file-utils
 gnome-mime-data
 gamin
