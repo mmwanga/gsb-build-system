@@ -163,12 +163,8 @@ if [ -e $CWD/slack-desc ]; then
         cat $CWD/slack-desc > $PKG/install/slack-desc
 fi;
 
-touch $PKG/install/doinst.sh ;
-if [ -e $CWD/schemainst.sh ]; then
-	cat $CWD/schemainst.sh > $PKG/install/doinst.sh
-fi;
 if [ -e $CWD/doinst.sh ]; then
-        cat $CWD/doinst.sh >> $PKG/install/doinst.sh
+        cat $CWD/doinst.sh > $PKG/install/doinst.sh
 fi;
 
 
