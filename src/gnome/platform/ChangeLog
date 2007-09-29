@@ -1,8 +1,10 @@
-29-09-2007	* Updated pygtk, libdaemon, dbus-python, avahi, gnome-vfs
+29-09-2007	* Updated pygtk, libdaemon, dbus-python, avahi, gnome-vfs, intltool.
+		* Few small fixes in generic.SlackBuild.
+		* Fixed build hang with parallel builds in ORBit2.
 28-09-2007	* Updated GConf, gnome-mime-data, pygobject, pyorbit, pycairo
 27-09-2007	* Updated libbonoboui
 26-09-2007 	* Changed partial build order for gnome.platform.SlackBuild.
-		* Changed orbit2 to ORBit2.
+		* Changed orbit2 to ORBit2. 
 		* Created generic.SlackBuild with fuller package build options, variables
 		  and consolidated several options found in other SlackBuilds.
 		* Inital trunk for GSB Gnome2.20.x
