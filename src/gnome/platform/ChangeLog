@@ -1,10 +1,16 @@
-29-09-2007	* Updated pygtk, libdaemon, dbus-python, avahi, gnome-vfs, intltool.
+29-09-2007	* Touched ChangeLog.  Initial gnome.platform GNOME 2.20 ready.
+		* Updated libgnome, libgnomeui, libbonoboui, libgnomecanvas, gnome-keyring.
+		* Updated pygtk, libdaemon, dbus-python, avahi, gnome-vfs, intltool.
 		* Removed gnome-vfs-monikers.
 		* Added scrollkeeper, gtk-engines, gnome-common to gnome.platform.
+		* Added icon-naming-utils to gnome.platform.
 		* Few small fixes in generic.SlackBuild.
 		* Fixed build hang with parallel builds in ORBit2.
+
 28-09-2007	* Updated GConf, gnome-mime-data, pygobject, pyorbit, pycairo
+
 27-09-2007	* Updated libbonoboui
+
 26-09-2007 	* Changed partial build order for gnome.platform.SlackBuild.
 		* Changed orbit2 to ORBit2. 
 		* Created generic.SlackBuild with fuller package build options, variables
