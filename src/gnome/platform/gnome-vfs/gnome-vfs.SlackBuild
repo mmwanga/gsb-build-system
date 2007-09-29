@@ -192,6 +192,7 @@ fi;
 touch $PKG/install/doinst.sh ;
 if [ -e $CWD/schemainst.sh ]; then
 	cat $CWD/schemainst.sh > $PKG/install/doinst.sh
+	rm $CWD/schemainst.sh;
 fi;
 if [ -e $CWD/doinst.sh ]; then
         cat $CWD/doinst.sh >> $PKG/install/doinst.sh
