@@ -5,4 +5,3 @@ do
 	fi
 	usr/bin/gtk-update-icon-cache -f -q --ignore-theme-index usr/share/icons/$i
 done
-

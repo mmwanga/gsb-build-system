@@ -1,8 +1,8 @@
                 |-----handy-ruler------------------------------------------------------|
-gnome-icon-theme: gnome-icon-theme (GHOME icon themes)
+gnome-icon-theme: gnome-icon-theme (GNOME Basic Icon Themes)
 gnome-icon-theme:
-gnome-icon-theme: A set of default icons for GNOME.
-gnome-icon-theme:
+gnome-icon-theme: GNOME Icon Theme package contains an assortment of scalable and 
+gnome-icon-theme: non-scalable icons of different sizes and themes.
 gnome-icon-theme:
 gnome-icon-theme:
 gnome-icon-theme:
