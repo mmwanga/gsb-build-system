@@ -1,0 +1,6 @@
+##
+## External Packages Needed (for Preferrably Required)
+## for GNOME 2.20
+##
+pycairo, http://cairographics.org/releases/, 1.4.0
+dbus-python, http://dbus.freedesktop.org/releases/dbus-python/, 0.82.3
