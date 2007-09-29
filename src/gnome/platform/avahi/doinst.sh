@@ -64,15 +64,15 @@ if [ ! -e etc/rc.d/rc.local ]; then
 fi
 	
 # If rc.avahi is executable, run it on startup
-run=`grep ". /etc/rc.d/rc.avahidaemon" etc/rc.d/rc.local`
+run=`grep ". etc/rc.d/rc.avahidaemon" etc/rc.d/rc.local`
 if [ "${run}" == "" ]; then	
 cat << EOF >> etc/rc.d/rc.local
 
 # To disable avahi, chmod rc.avahidaemon to 644
-if [ -x /etc/rc.d/rc.avahidaemon -a -x /etc/rc.d/rc.avahidnsconfd ]; then
+if [ -x etc/rc.d/rc.avahidaemon -a -x etc/rc.d/rc.avahidnsconfd ]; then
   echo "Starting the Avahi Zeroconf Subsystem: "
-  . /etc/rc.d/rc.avahidaemon start
-  . /etc/rc.d/rc.avahidnsconfd start
+  . etc/rc.d/rc.avahidaemon start
+  . etc/rc.d/rc.avahidnsconfd start
 fi
 EOF
 fi
@@ -87,25 +87,25 @@ fi
 ## 
 ## Complain if dbus somehow was removed, and disable autostart.
 ##
-if [ ! -f /etc/rc.d/rc.messagebus ]; then
+if [ ! -f etc/rc.d/rc.messagebus ]; then
 	echo "Avahi requires dbus.  You appear to be missing /etc/rc.d/rc.messagebus."
 	echo "Perhaps you need to reinstall the dbus package?"
-	chmod -x /etc/rc.d/rc.avahi*
+	chmod -x etc/rc.d/rc.avahi*
 fi;
 
 ## 
 ## Make dbus executable if avahi is installed
 ##
-if [ ! -x /etc/rc.d/rc.messagebus ]; then
-	chmod +x /etc/rc.d/rc.messagebus;
+if [ ! -x etc/rc.d/rc.messagebus ]; then
+	chmod +x etc/rc.d/rc.messagebus;
 fi;
 
 ##
 ## Restart dbus (reload avahi info), and start services
 ##
-if [ -x /etc/rc.d/rc.messagebus ]; then
-	chmod +x /etc/rc.d/rc.avahi*;
-	. /etc/rc.d/rc.messagebus restart;
-	. /etc/rc.d/rc.avahidaemon restart;
-	. /etc/rc.d/rc.avahidnsconfd restart;
+if [ -x etc/rc.d/rc.messagebus ]; then
+	chmod +x etc/rc.d/rc.avahi*;
+	. etc/rc.d/rc.messagebus restart;
+	. etc/rc.d/rc.avahidaemon restart;
+	. etc/rc.d/rc.avahidnsconfd restart;
 fi;
