@@ -1,11 +1,16 @@
 #!/bin/sh
 
+## Load Global Defaults
 . ../../GSB.options
-
+PKG_DEST=${PKG_DEST:-/home/packages}
 TMP=${TMP:-/tmp}
 
+## Build Structure
 if [ ! -d $TMP ]; then
-  mkdir -p $TMP # location to build the source
+  mkdir -p $TMP;
+fi
+if [ ! -d $PKG_DEST ]; then
+  mkdir -p $PKG_DEST;
 fi
 
 ## Packages Removed from Gnome 2.20.x Build Order
@@ -46,9 +51,12 @@ libgnomeui
 gtk-engines
 "
 
-mkdir -p $TMP/gnome-$GVERSION/frgnome/platform
+##
+## Main Build Loop
+##
 
 (
+
 for i in $BUILD_ORDER
 do
 (
@@ -56,13 +64,18 @@ do
   echo ""
   echo ""
   echo "*************************************************"
-  echo "*****         Building $i"
+  echo "            Building $i"
   echo "*************************************************"
   echo ""
   ./$i.SlackBuild --cleanup || exit 1
   upgradepkg --install-new $TMP/$i*.tgz
-  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/frgnome/platform
+  mv $TMP/$i*.tgz $PKG_DEST
 )
 done
-# Fork screen output to a log
+
+
+##
+## Fork to Log
+##
+
 ) 2>&1 | tee $TMP/gnome.platform.build.log
