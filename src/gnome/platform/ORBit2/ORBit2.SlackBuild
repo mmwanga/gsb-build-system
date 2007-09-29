@@ -104,7 +104,7 @@ CXXFLAGS="$GSB_CFLAGS" \
             --target=$ARCH-$DISTRO-linux || exit 1
 
 
-make -j4 || exit 1
+make || exit 1
 make install DESTDIR=$PKG
 
 ## Install Extra Documentation
