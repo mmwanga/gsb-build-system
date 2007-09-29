@@ -1,5 +1,3 @@
-#!/bin/sh
-
 if [ -x usr/bin/scrollkeeper-rebuilddb ]; then
 	echo -n "Creating scrollkeeper database..."
 	usr/bin/scrollkeeper-rebuilddb -q -p var/lib/scrollkeeper

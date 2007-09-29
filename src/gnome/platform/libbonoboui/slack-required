@@ -1,5 +1,7 @@
 libbonobo
 libgnome
 libgnomecanvas
+cairo
+gnome-vfs
 avahi
 openssl-solibs | openssl
