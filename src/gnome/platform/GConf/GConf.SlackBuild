@@ -102,6 +102,7 @@ CXXFLAGS="$GSB_CFLAGS" \
 ./configure --prefix=/usr \
             $ARCH_CONFIGURE \
 	    --sysconfdir=/etc \
+            --libexecdir=/usr/bin \
             --localstatedir=/var/lib \
             --disable-static --enable-shared \
 		 --enable-gtk \
