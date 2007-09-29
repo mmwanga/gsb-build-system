@@ -103,6 +103,7 @@ CXXFLAGS="$GSB_CFLAGS" \
             $ARCH_CONFIGURE \
 	    --sysconfdir=/etc \
             --localstatedir=/var/lib \
+            --libexecdir=/usr/bin \
             --disable-static --enable-shared \
 		 --enable-bonobo-activation-debug=no \
             --target=$ARCH-$DISTRO-linux || exit 1
