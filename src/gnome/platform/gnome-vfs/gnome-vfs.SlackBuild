@@ -114,15 +114,6 @@ CXXFLAGS="$GSB_CFLAGS" \
 make -j4 || exit 1
 make install DESTDIR=$PKG
 
-## 
-## Finish installing modules in doinst.sh
-##
-if [ "$ARCH" == "x86_64" ]; then
-	echo "libtool --finish --silent usr/lib64/gnome-vfs-2.0/modules" > $CWD/doinst.sh;
-else
-	echo "libtool --finish --silent usr/lib/gnome-vfs-2.0/modules" > $CWD/doinst.sh;
-fi;
-
 ## Install Extra Documentation
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
@@ -206,6 +197,14 @@ if [ -e $CWD/doinst.sh ]; then
         cat $CWD/doinst.sh >> $PKG/install/doinst.sh
 fi;
 
+## 
+## Finish installing modules in doinst.sh
+##
+if [ "$ARCH" == "x86_64" ]; then
+	echo "libtool --finish --silent usr/lib64/gnome-vfs-2.0/modules" >> $PKG/install/doinst.sh;
+else
+	echo "libtool --finish --silent usr/lib/gnome-vfs-2.0/modules" > $PKG/install/doinst.sh;
+fi;
 
 ##
 ## Make Slackware Package
