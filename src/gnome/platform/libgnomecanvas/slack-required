@@ -1,2 +1,5 @@
 libart_lgpl
 libglade
+libgnome
+cairo
+pango
