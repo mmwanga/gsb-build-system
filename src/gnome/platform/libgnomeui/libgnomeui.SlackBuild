@@ -104,10 +104,6 @@ CXXFLAGS="$GSB_CFLAGS" \
 	    --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static --enable-shared \
-            --disable-schemas-install \
-            --disable-gtk-doc \
-            --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
-            --with-gconf-schema-file-dir=/etc/gconf/schemas \
             --target=$ARCH-$DISTRO-linux || exit 1
 
 make -j4 || exit 1
@@ -152,31 +148,6 @@ if [ -d $PKG/usr/man ]; then
 fi
 
 ##
-## Create GNOME Schemas doinst.sh
-##
-if [ -d $PKG/etc/gconf/schemas ];
-then
-        echo "Schemas found. Writing installation script."
-        rm -f $CWD/schemainst.sh
-	touch $CWD/schemainst.sh;
-	echo "if [ -x usr/bin/gconftool-2 ]; then" >> $CWD/schemainst.sh
-        ( cd $PKG/etc/gconf/schemas;
-        for i in *;
-        do
-                if [ -z "`grep gconfentry $i`" ]; then
-			## Create GConf Tree
-                        echo "GCONF_CONFIG_SOURCE=\"`usr/bin/gconftool-2 --get-default-source`\" usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/$i 2>&1 > /dev/null" >> $CWD/schemainst.sh
-                else
-			## Load GConf Settings
-                        echo "GCONF_CONFIG_SOURCE=\"`usr/bin/gconftool-2 --get-default-source`\" usr/bin/gconftool-2 --config-source=`/usr/bin/gconftool-2 --get-default-source` --direct --load etc/gconf/schemas/$i" >> $CWD/schemainst.sh
-                fi;
-        done;
-        )
-	echo "fi;" >> $CWD/schemainst.sh
-fi;
-
-
-##
 ## Slackware Package Information
 ##
 mkdir -p $PKG/install
@@ -188,13 +159,8 @@ if [ -e $CWD/slack-desc ]; then
         cat $CWD/slack-desc > $PKG/install/slack-desc
 fi;
 
-touch $PKG/install/doinst.sh ;
-if [ -e $CWD/schemainst.sh ]; then
-	cat $CWD/schemainst.sh > $PKG/install/doinst.sh
-	rm $CWD/schemainst.sh;
-fi;
 if [ -e $CWD/doinst.sh ]; then
-        cat $CWD/doinst.sh >> $PKG/install/doinst.sh
+        cat $CWD/doinst.sh > $PKG/install/doinst.sh
 fi;
 
 
