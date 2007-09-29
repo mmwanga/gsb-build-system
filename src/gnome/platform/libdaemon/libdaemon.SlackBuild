@@ -9,7 +9,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-$PKGNAME
 PKG_DEST=/home/packages
-VERSION=${VERSION:-2.20.0}
+VERSION=${VERSION:-0.12}
 ARCH=${ARCH:-i686}
 BUILD=${BUILD:-1}
 DISTRO=${DISTRO:-slackware}
@@ -153,7 +153,7 @@ make install DESTDIR=$PKG
 ## Install Extra Documentation
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING ChangeLog MAINTAINERS NEWS README \
+  LICENSE README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 
