@@ -1,11 +1,15 @@
 #!/bin/sh
 
+##
 ## Load Global Defaults
+##
 . ../../GSB.options
 PKG_DEST=${PKG_DEST:-/home/packages}
 TMP=${TMP:-/tmp}
 
-## Build Structure
+##
+## Build Directory Structure
+##
 if [ ! -d $TMP ]; then
   mkdir -p $TMP;
 fi
@@ -24,6 +28,10 @@ fi
 ## Official Build Order for Gnome 2.20.x
 ##
 ## http://www.gnome.org/start/2.20/notes/en/rninstallation.html
+
+####
+#### BUILD ORDER
+####
 
 BUILD_ORDER="
 gnome-common
@@ -51,6 +59,42 @@ libgnomeui
 gtk-engines
 "
 
+## 
+## TEST MODE
+##
+## I use the -test switch to prevent package installation,
+## rather, only to run a test configure/build/package.
+## Not to be used for proper package preparations.
+
+usage() {
+cat << EOF
+Usage: `basename $0` [options]
+
+Use this script to run a rolling compile of all the packages listed in BUILD_ORDER.
+
+options:      -test (run a test of configure/compile/link/package, without
+                     installing anything.)
+              -help (this tiny help screen)
+
+Current build order: `for i in $BUILD_ORDER; do echo -n $i" "; done;`
+
+EOF
+}
+
+TESTMODE=no
+while [ 0 ]; do
+  if [ "$1" = "-test" ]; then
+    TESTMODE=yes
+    shift 1
+  elif [ "$1" = "-help" ]; then
+    usage;
+    exit;
+  else
+    break
+  fi
+done
+
+
 ##
 ## Main Build Loop
 ##
@@ -68,8 +112,9 @@ do
   echo "*************************************************"
   echo ""
   ./$i.SlackBuild --cleanup || exit 1
-  upgradepkg --install-new $TMP/$i*.tgz
-  mv $TMP/$i*.tgz $PKG_DEST
+  if [ "$TESTMODE" == "no" ]; then
+	upgradepkg --install-new $PKG_DEST/$i*.tgz
+  fi;
 )
 done
 

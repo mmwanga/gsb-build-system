@@ -112,7 +112,7 @@ make install DESTDIR=$PKG
 ## Install Extra Documentation
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING ChangeLog NEWS README \
+  AUTHORS COPYING* ChangeLog NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 
@@ -159,9 +159,8 @@ if [ -e $CWD/slack-desc ]; then
         cat $CWD/slack-desc > $PKG/install/slack-desc
 fi;
 
-touch $PKG/install/doinst.sh ;
 if [ -e $CWD/doinst.sh ]; then
-        cat $CWD/doinst.sh >> $PKG/install/doinst.sh
+        cat $CWD/doinst.sh > $PKG/install/doinst.sh
 fi;
 
 
