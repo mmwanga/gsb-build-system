@@ -113,7 +113,7 @@ make install DESTDIR=$PKG
 ## Install Extra Documentation
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  LICENSE README \
+  AUTHORS COPYING* ChangeLog NEWS README TODO \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 
