@@ -110,7 +110,6 @@ CXXFLAGS="$GSB_CFLAGS" \
             --with-gconf-schema-file-dir=/etc/gconf/schemas \
             --target=$ARCH-$DISTRO-linux || exit 1
 
-
 make -j4 || exit 1
 make install DESTDIR=$PKG
 

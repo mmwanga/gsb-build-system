@@ -8,5 +8,5 @@ libgnomeui: a window manager for the X Window System. The libgnomeui package
 libgnomeui: includes GUI-related libraries that are needed to run GNOME. 
 libgnomeui:
 libgnomeui: http://www.gnome.org/
-libgnomeui:
+libgnomeui: 
 libgnomeui:
