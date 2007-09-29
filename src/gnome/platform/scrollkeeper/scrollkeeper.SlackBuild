@@ -144,23 +144,16 @@ CXXFLAGS="$GSB_CFLAGS" \
 	    --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static --enable-shared \
-	    --with-omfdirs=/usr/share/omf \
-            --with-partial-db-dir=scrollkeeper \
             --target=$ARCH-$DISTRO-linux || exit 1
 
 
 make -j4 || exit 1
 make install DESTDIR=$PKG
 
-
-## 
-## Keep clean for Scrollkeeper
-##
-rm -fr $PKG/var/lib/scrollkeeper
-
 ## Install Extra Documentation
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a ABOUT-NLS AUTHORS COPYING COPYING-DOCS ChangeLog INSTALL NEWS README \
+cp -a \
+  AUTHORS COPYING ChangeLog MAINTAINERS NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 
