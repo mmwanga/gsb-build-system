@@ -105,6 +105,7 @@ CXXFLAGS="$GSB_CFLAGS" \
             --localstatedir=/var/lib \
             --disable-static --enable-shared \
             --disable-schemas-install \
+            --disable-gtk-doc \
             --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
             --with-gconf-schema-file-dir=/etc/gconf/schemas \
             --target=$ARCH-$DISTRO-linux || exit 1
@@ -116,7 +117,7 @@ make install DESTDIR=$PKG
 ## Install Extra Documentation
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING ChangeLog NEWS README \
+  AUTHORS COPYING* ChangeLog NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 
