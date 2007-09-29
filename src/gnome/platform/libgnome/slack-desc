@@ -1,12 +1,12 @@
         |-----handy-ruler------------------------------------------------------|
-libgnome: libgnome (Misc GNOME routines library)
+libgnome: libgnome (GNOME routines library)
 libgnome:
-libgnome: Libraries needed for GNOME.
+libgnome: libgnome is the library that provides access to the non-X11 dependant 
+libgnome: parts of the GNOME framework. The libraries in this directory do not 
+libgnome: need to link with any GUI library.
 libgnome:
+libgnome: libgnome is one of the core libraries for GNOME 2. It is dependent on 
+libgnome: the new toolkit GTK 2 and the new Object Activation Framework (Bonobo).
 libgnome:
-libgnome:
-libgnome:
-libgnome:
-libgnome:
-libgnome:
+libgnome: http://www.gnome.org/
 libgnome:

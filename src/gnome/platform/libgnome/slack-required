@@ -1,13 +1,14 @@
 libxslt
 gnome-vfs
 audiofile
-esound
-gconf
+GConf
 glib2
-avahi
+gtk+2
 libbonobo
 libxml2
 openssl-solibs | openssl
-orbit2
+ORBit2
 popt
 zlib
+gnome-vfs
+gnome-vfs-monikers

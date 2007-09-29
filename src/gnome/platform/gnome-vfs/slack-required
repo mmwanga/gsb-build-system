@@ -1,4 +1,5 @@
 GConf
+shared-mime-info
 gnome-mime-data
 libbonobo
 libxml2
