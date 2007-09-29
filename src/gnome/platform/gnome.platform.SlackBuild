@@ -28,7 +28,6 @@ dbus-python
 libdaemon
 avahi
 gnome-vfs
-gnome-vfs-monikers
 libgnome
 libgnomecanvas
 libbonoboui
