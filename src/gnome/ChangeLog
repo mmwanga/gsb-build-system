@@ -1,2 +1,3 @@
+29-09-2007	* gnome.platform first draft finished.
 28-09-2007	* Added --target to the configure run.  
 27-09-2007	* Added a generic.SlackBuild as a template for other SlackBuilds.  
