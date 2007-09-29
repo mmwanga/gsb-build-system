@@ -1,10 +1,11 @@
 glib2
+desktop-file-utils
 dbus
 gtk+2
 python
 pygtk
 libcap
-gdbm
+dbus-python
 expat
 libdaemon
 libglade
