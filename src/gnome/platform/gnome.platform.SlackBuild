@@ -8,7 +8,7 @@ if [ ! -d $TMP ]; then
   mkdir -p $TMP # location to build the source
 fi
 
-## Packages Removed for Gnome 2.20.x
+## Packages Removed from Gnome 2.20.x Build Order
 ## (Most of these are provided by Slackware 12 now)
 ## atk, glitz, cairo, libsvg, libsvg-cairo, gamin, esound
 ## dbus, dbus-glib, hal, esound, libart_lgpl, libcap
