@@ -33,6 +33,7 @@ libgnome
 libgnomecanvas
 libbonoboui
 gnome-keyring
+gail
 libgnomeui
 gail
 at-spi

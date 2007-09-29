@@ -1,4 +1,5 @@
 29-09-2007	* Updated pygtk, libdaemon, dbus-python, avahi, gnome-vfs, intltool.
+		* Updated gnome-vfs-monikers.
 		* Few small fixes in generic.SlackBuild.
 		* Fixed build hang with parallel builds in ORBit2.
 28-09-2007	* Updated GConf, gnome-mime-data, pygobject, pyorbit, pycairo

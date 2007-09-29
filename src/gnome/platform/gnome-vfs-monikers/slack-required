@@ -1,6 +1,6 @@
-gconf
+GConf
 glib2
 gnome-vfs
 libbonobo
 libidl
-orbit2
+ORBit2
