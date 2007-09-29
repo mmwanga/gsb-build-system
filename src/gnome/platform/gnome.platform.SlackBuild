@@ -12,7 +12,7 @@ fi
 ## (Most of these are provided by Slackware 12 now)
 ## atk, glitz, cairo, libsvg, libsvg-cairo, gamin, esound
 ## dbus, dbus-glib, hal, esound, libart_lgpl, libcap
-## audiofile, libglade
+## audiofile, libglade, desktop-file-utils
 
 BUILD_ORDER="
 ORBit2
