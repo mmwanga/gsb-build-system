@@ -1,4 +1,4 @@
-gconf
+GConf
 gnome-mime-data
 libbonobo
 libxml2
@@ -8,6 +8,10 @@ glib2
 avahi
 openssl
 openssl-solibs
-orbit2
+ORBit2
 popt
 zlib
+hal
+dbus
+samba
+neon

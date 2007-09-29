@@ -26,7 +26,6 @@ pycairo
 pygtk
 dbus-python
 libdaemon
-nss-mdns
 avahi
 gnome-vfs
 gnome-vfs-monikers
