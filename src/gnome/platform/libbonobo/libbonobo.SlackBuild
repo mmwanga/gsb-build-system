@@ -52,8 +52,8 @@ fi
 
 ## Decompress archive
 cd $TMP 
-tar xjf $CWD/$PACKAGE-$VERSION.tar.bz2
-cd $PACKAGE-$VERSION
+tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2
+cd $PKGNAME-$VERSION
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
@@ -109,17 +109,17 @@ make -j4 || exit 1
 make install DESTDIR=$PKG
 
 ## Install Extra Documentation
-mkdir -p $PKG/usr/doc/$PACKAGE-$VERSION
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
   AUTHORS COPYING ChangeLog MAINTAINERS NEWS README \
-  $PKG/usr/doc/$PACKAGE-$VERSION
-find $PKG/usr/doc/$PACKAGE-$VERSION/ -type f -exec chmod 644 {} \;
+  $PKG/usr/doc/$PKGNAME-$VERSION
+find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 
 ##
 ##  Permissions
 ##
 chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
-chown -R root.root $PKG/usr/doc/$PACKAGE-$VERSION/*
+chown -R root.root $PKG/usr/doc/$PKGNAME-$VERSION/*
 
 ##
 ## Strip Debugging Info
@@ -173,12 +173,12 @@ fi;
 ## Make Slackware Package
 ##
 cd $PKG
-makepkg -l y -c n $PKG_DEST/$PACKAGE-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $PKG_DEST/$PKGNAME-$VERSION-$ARCH-$BUILD.tgz
 
 ##
 ## Cleanup If Wanted
 ##
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/$PACKAGE-$VERSION
+  rm -rf $TMP/$PKGNAME-$VERSION
   rm -rf $PKG
 fi
