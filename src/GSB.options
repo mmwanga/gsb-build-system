@@ -1,5 +1,14 @@
-#some global variables for the generic gnome.*.SlackBuilds
+## Global Variables for Build Process
 
-if [ -z $GVERSION ]; then
-  export GVERSION=2.16.2
-fi
+## Destination of final .tgz packages
+PKG_DEST=/home/packages
+
+## Architecture target
+ARCH=${ARCH:-i686}
+
+## Universal Build Set
+BUILD=${BUILD:-1}
+
+## Distribution Name
+## slackware, slamd64, etc.
+DISTRO=${DISTRO:-slackware}

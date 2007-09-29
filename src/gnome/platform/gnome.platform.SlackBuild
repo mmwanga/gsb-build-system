@@ -24,10 +24,6 @@ pygobject
 pyorbit
 pycairo
 pygtk
-pyorbit
-pycairo
-pygobject
-pygtk
 dbus-python
 libdaemon
 nss-mdns
