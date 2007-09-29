@@ -34,10 +34,10 @@ mkdir -p $PKG
 ##
 
 if [ "$ARCH" = "i386" ]; then
-  GSB_CFLAGS="-O2 -march=i386 -mtune=i686"
+  GSB_CFLAGS="-O2 -march=i386 -mtune=i386"
   ARCH_CONFIGURE=""
 elif [ "$ARCH" = "i486" ]; then
-  GSB_CFLAGS="-O2 -march=i486 -mtune=i686"
+  GSB_CFLAGS="-O2 -march=i486 -mtune=i486"
   ARCH_CONFIGURE=""
 elif [ "$ARCH" = "i686" ]; then
   GSB_CFLAGS="-O3 -march=i686 -mtune=i686 -pipe -fomit-frame-pointer -ffast-math"
@@ -60,6 +60,9 @@ if [ "$ARCH" = "i386" ]; then
   echo "Applying patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "i486" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "i686" ]; then
   echo "Applying patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "s390" ]; then

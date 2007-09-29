@@ -62,6 +62,9 @@ if [ "$ARCH" = "i386" ]; then
 elif [ "$ARCH" = "i486" ]; then
   echo "Applying patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "i686" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "s390" ]; then
   echo "Applying patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
