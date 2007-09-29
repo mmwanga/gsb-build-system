@@ -104,6 +104,7 @@ CXXFLAGS="$GSB_CFLAGS" \
 	    --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static --enable-shared \
+            --disable-schemas-install \
             --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
             --with-gconf-schema-file-dir=/etc/gconf/schemas \
             --target=$ARCH-$DISTRO-linux || exit 1
