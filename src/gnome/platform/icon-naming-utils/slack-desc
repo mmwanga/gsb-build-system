@@ -1,12 +1,12 @@
                  |-----handy-ruler------------------------------------------------------|
-icon-naming-utils: icon-naming-utils (Freedesktop.org Icon naming utilities)
+icon-naming-utils: icon-naming-utils (Tango)
 icon-naming-utils:
-icon-naming-utils: Utilities to help with the transition to the new freedesktop.org
-icon-naming-utils: naming scheme, they will map the new names to the legacy names used
-icon-naming-utils: by the GNOME and KDE desktops
+icon-naming-utils: The icon-naming-utils package contains a Perl script used for 
+icon-naming-utils: maintaining backwards compatibility with current desktop icon themes
+icon-naming-utils: themes, while migrating to the names specified in the Icon Naming
+icon-naming-utils: Specification.
 icon-naming-utils:
-icon-naming-utils:
-icon-naming-utils:
+icon-naming-utils: http://tango.freedesktop.org/Standard_Icon_Naming_Specification
 icon-naming-utils:
 icon-naming-utils:
 icon-naming-utils:
