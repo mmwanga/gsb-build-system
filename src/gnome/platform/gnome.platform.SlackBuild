@@ -14,9 +14,16 @@ fi
 ## dbus, dbus-glib, hal, esound, libart_lgpl, libcap
 ## audiofile, libglade, desktop-file-utils
 
+##
+## Official Build Order for Gnome 2.20.x
+##
+## http://www.gnome.org/start/2.20/notes/en/rninstallation.html
+
 BUILD_ORDER="
-ORBit2
+gnome-common
 intltool
+scrollkeeper
+ORBit2
 libbonobo
 GConf
 gnome-mime-data
@@ -31,14 +38,12 @@ gnome-vfs
 libgnome
 libgnomecanvas
 libbonoboui
-gnome-keyring
-gail
-libgnomeui
-gail
-at-spi
-libgnomecups
-libgnomeprint
 hicolor-icon-theme
+icon-naming-utils
+gnome-icon-theme
+gnome-keyring
+libgnomeui
+gtk-engines
 "
 
 mkdir -p $TMP/gnome-$GVERSION/frgnome/platform
