@@ -1,26 +1,19 @@
 Developers:
-
-	freerock <freerock@gmail.com>
-	chipster <chipster@norlug.org>
-	malloc <woodwardj@jaos.org>
+	See AUTHORS
 
 Webmaster:
-
-	chipster <chipster@norlug.org>
+	chipster <chipster@gnomeslackbuild.org>
 
 Artwork:
-
 	Gpl_Source <fernando.flores.ortiz@gmail.com>
 
-Testers:
-
+Testers Ameritus:
 	Tevfik Yucek <tevfik.yucek@gmail.com>
 	Mark M. Young <mmyoung57@sbcglobal.net>
 	Gpl_Source <on irc>
 	Many others whom I have forgoten to mention here
 
 Contributors:
-
 	Chris Lewis <burn03@bellsouth.net>
 	* GWARE 02/16/2005
 	* rc.howl and krb5 build scripts
