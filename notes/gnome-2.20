@@ -1,6 +1,15 @@
+## (last update: fidesratio, 29-09-2007)
 ##
-## External Packages Needed (for Preferrably Required)
+## External Packages Needed (or Preferrably Required)
 ## for GNOME 2.20
 ##
-pycairo, http://cairographics.org/releases/, 1.4.0
-dbus-python, http://dbus.freedesktop.org/releases/dbus-python/, 0.82.3
+## Below is a little comma seperated matrix of needed files that
+## don't officially belong to the Gnome Project
+## 
+## Package Name, URL, Version, Format, Verify
+##
+##
+pycairo, http://cairographics.org/releases/, 1.4.0, tar.gz, md5
+dbus-python, http://dbus.freedesktop.org/releases/dbus-python/, 0.82.3, tar.gz, asc
+libdaemon, http://0pointer.de/lennart/projects/libdaemon/, 0.12, tar,gz, NONE
+avahi, http://avahi.org/download/, 0.6.21, .tar.gz, NONE
