@@ -1,4 +1,4 @@
-28-09-2007	* Updated GConf
+28-09-2007	* Updated GConf, gnome-mime-data, pygobject, pyorbit, pycairo
 27-09-2007	* Updated libbonoboui
 26-09-2007 	* Changed partial build order for gnome.platform.SlackBuild.
 		* Changed orbit2 to ORBit2.

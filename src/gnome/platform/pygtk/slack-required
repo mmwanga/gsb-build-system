@@ -1,1 +1,7 @@
 python
+pygobject
+pango
+pycairo
+atk
+libglade
+cairo
