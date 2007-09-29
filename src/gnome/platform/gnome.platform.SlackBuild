@@ -17,7 +17,8 @@ fi
 ## (Most of these are provided by Slackware 12 now)
 ## atk, glitz, cairo, libsvg, libsvg-cairo, gamin, esound
 ## dbus, dbus-glib, hal, esound, libart_lgpl, libcap
-## audiofile, libglade, desktop-file-utils
+## audiofile, libglade, desktop-file-utils, 
+## hicolor-icon-theme
 
 ##
 ## Official Build Order for Gnome 2.20.x
@@ -43,7 +44,6 @@ gnome-vfs
 libgnome
 libgnomecanvas
 libbonoboui
-hicolor-icon-theme
 icon-naming-utils
 gnome-icon-theme
 gnome-keyring
