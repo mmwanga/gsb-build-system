@@ -147,12 +147,6 @@ if [ -d $PKG/usr/man ]; then
   )
 fi
 
-## 
-## Check For Any Broken Links
-## 
-echo
-find $PKG -type l | xargs file | grep broken;
-
 ##
 ## Create GNOME Schemas doinst.sh
 ##
