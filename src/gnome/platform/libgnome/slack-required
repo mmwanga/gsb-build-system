@@ -1,5 +1,6 @@
 libxslt
 gnome-vfs
+esound
 audiofile
 GConf
 glib2

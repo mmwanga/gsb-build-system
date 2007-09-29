@@ -105,6 +105,7 @@ CXXFLAGS="$GSB_CFLAGS" \
             --localstatedir=/var/lib \
             --disable-static --enable-shared \
             --disable-schemas-install \
+            --disable-gtk-doc \
             --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
             --with-gconf-schema-file-dir=/etc/gconf/schemas \
             --target=$ARCH-$DISTRO-linux || exit 1
@@ -116,7 +117,7 @@ make install DESTDIR=$PKG
 ## Install Extra Documentation
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING ChangeLog NEWS README \
+  AUTHORS COPYING* ChangeLog NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 
@@ -159,7 +160,7 @@ then
         echo "Schemas found. Writing installation script."
         rm -f $CWD/schemainst.sh
 	touch $CWD/schemainst.sh;
-	echo "if [ -x /usr/bin/gconftool-2 ]; then" >> $CWD/schemainst.sh
+	echo "if [ -x usr/bin/gconftool-2 ]; then" >> $CWD/schemainst.sh
         ( cd $PKG/etc/gconf/schemas;
         for i in *;
         do
@@ -196,6 +197,18 @@ fi;
 if [ -e $CWD/doinst.sh ]; then
         cat $CWD/doinst.sh >> $PKG/install/doinst.sh
 fi;
+
+## 
+## Finish installing libraries in doinst.sh
+##
+if [ "$ARCH" == "x86_64" ]; then
+        echo "libtool --finish --silent usr/lib64" >> $PKG/install/doinst.sh;
+        echo "libtool --finish --silent usr/lib64/bonobo/monikers/" >> $PKG/install/doinst.sh;
+else
+        echo "libtool --finish --silent usr/lib" >> $PKG/install/doinst.sh;
+        echo "libtool --finish --silent usr/lib/bonobo/monikers/" >> $PKG/install/doinst.sh;
+fi;
+
 
 
 ##
