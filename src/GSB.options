@@ -4,11 +4,11 @@
 PKG_DEST=/home/packages
 
 ## Architecture target
-ARCH=${ARCH:-i686}
+ARCH=${ARCH:-x86_64}
 
 ## Universal Build Set
 BUILD=${BUILD:-1}
 
 ## Distribution Name
 ## slackware, slamd64, etc.
-DISTRO=${DISTRO:-slackware}
+DISTRO=${DISTRO:-slamd64}
