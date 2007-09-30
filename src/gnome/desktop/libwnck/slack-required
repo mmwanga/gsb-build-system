@@ -1,2 +1,6 @@
 gtk+2
 startup-notification
+atk
+freetype2
+pango
+cairo
