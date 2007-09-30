@@ -20,9 +20,6 @@ fi
 ## Packages Removed from Gnome 2.20.x Build Order
 ## (Most of these are provided by Slackware 12 now)
 # gnutls, libgcrypt, vte, mozilla.
-####
-#### Does mozilla need to be rebuilt with shared libraries 
-#### for epiphany? (sk)
 
 ##
 ## Official Build Order for Gnome 2.20.x
@@ -46,6 +43,9 @@ libwnck
 libsoup
 evolution-data-server
 gnome-python
+gstreamer
+gst-plugins-base
+gst-plugins-good
 gnome-panel
 gnome-terminal
 libgtop
@@ -55,8 +55,6 @@ libgnomekdb
 libgnomeprintui
 libgnomesu
 libgtkhtml
-gstreamer
-gst-plugins-base
 gucharmap
 system-tools-backends
 metacity
@@ -74,7 +72,6 @@ yelp
 enchant
 bug-buddy
 nautilus-cd-burner
-gst-plugins-good
 gst-plugins-ffmpeg
 gst-plugins-bad
 gst-plugins-ugly

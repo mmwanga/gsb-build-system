@@ -1,1 +1,11 @@
-gstreamer10
+gstreamer
+liboil
+alsa-lib
+libogg
+libvisual
+pango
+libtheora
+libvorbis
+cdparanoia
+ffmpeg
+perl

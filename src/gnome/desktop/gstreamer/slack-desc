@@ -1,12 +1,12 @@
            |-----handy-ruler------------------------------------------------------|
-gstreamer10: GStreamer (Multimedia framework)
-gstreamer10:
-gstreamer10: GStreamer is a library that allows the construction of graphs of
-gstreamer10: media-handling components, ranging from simple Ogg/Vorbis playback
-gstreamer10: to complex audio (mixing) and video (non-linear editing) processing. 
-gstreamer10: Applications can take advantage of advances in codec and filter
-gstreamer10: technology transparently. Developers can add new codecs and filters
-gstreamer10: by writing a simple plugin with a clean, generic interface.
-gstreamer10:
-gstreamer10: GStreamer is released under the LGPL. 
-gstreamer10:
+gstreamer: GStreamer (Multimedia framework)
+gstreamer:
+gstreamer: GStreamer is a library that allows the construction of graphs of
+gstreamer: media-handling components, ranging from simple Ogg/Vorbis playback
+gstreamer: to complex audio (mixing) and video (non-linear editing) processing. 
+gstreamer: Applications can take advantage of advances in codec and filter
+gstreamer: technology transparently. Developers can add new codecs and filters
+gstreamer: by writing a simple plugin with a clean, generic interface.
+gstreamer:
+gstreamer: GStreamer is released under the LGPL. 
+gstreamer:

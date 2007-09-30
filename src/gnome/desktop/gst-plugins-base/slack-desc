@@ -1,12 +1,12 @@
                 |-----handy-ruler------------------------------------------------------|
-gst-plugins-base: gst-plugins-base (GStreamer plugins)
+gst-plugins-base: gst-plugins-base (GStreamer Base Plugins)
 gst-plugins-base:
-gst-plugins-base: Base plugins for GStreamer
-gst-plugins-base:
-gst-plugins-base:
-gst-plugins-base:
-gst-plugins-base:
-gst-plugins-base:
-gst-plugins-base:
-gst-plugins-base:
-gst-plugins-base:
+gst-plugins-base: This package contains a set of reference plugins, base classes for 
+gst-plugins-base: other plugins, and helper libraries. This module is kept up-to-date 
+gst-plugins-base: together with the core developments. This module contains elements for:
+gst-plugins-base:    * device plugins: x(v)imagesink, alsa, v4lsrc, cdparanoia
+gst-plugins-base:    * codecs: vorbis, theora
+gst-plugins-base:    * network: tcp
+gst-plugins-base:    * audio processing: audioconvert, adder, audiorate, audioscale, volume
+gst-plugins-base:    * visualisation: libvisual
+gst-plugins-base:    * video processing: ffmpegcolorspace

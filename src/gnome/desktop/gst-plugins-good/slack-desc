@@ -1,11 +1,11 @@
                 |-----handy-ruler------------------------------------------------------|
-gst-plugins-good: gst-plugins-good (GStreamer plugins)
+gst-plugins-good: gst-plugins-good (GStreamer Good Plugins)
 gst-plugins-good:
-gst-plugins-good: GStreamer Plugins
+gst-plugins-good: GStreamer Good Plug-ins is a set of plug-ins that are considerd to have 
+gst-plugins-good: good quality code, correct functionality, and a preferred license (LGPL 
+gst-plugins-good: for the plug-in code, LGPL or LGPL-compatible for the supporting library).
 gst-plugins-good:
-gst-plugins-good:
-gst-plugins-good:
-gst-plugins-good:
+gst-plugins-good: http://gstreamer.freedesktop.org/modules/gst-plugins-good.html
 gst-plugins-good:
 gst-plugins-good:
 gst-plugins-good:

@@ -21,3 +21,4 @@ glib2
 atk
 libpng
 evolution-data-server
+gstreamer
