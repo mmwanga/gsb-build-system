@@ -1,12 +1,12 @@
        |-----handy-ruler------------------------------------------------------|
 libcddb: libcddb (Access CDDB data on servers)
 libcddb:
-libcddb: Libcddb is a C library to access data on a CDDB server
+libcddb: Libcddb is a library that implements the different protocols (CDDBP, 
+libcddb: HTTP) to access data on a CDDB server (http://freedb.org). It tries 
+libcddb: to be as cross-platform as possible. The initial libary will have a 
+libcddb: C API.
 libcddb:
-libcddb:
-libcddb:
-libcddb:
-libcddb:
+libcddb: http://sourceforge.net/projects/libcddb/
 libcddb:
 libcddb:
 libcddb:
