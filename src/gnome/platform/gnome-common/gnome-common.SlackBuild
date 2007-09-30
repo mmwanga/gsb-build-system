@@ -1,24 +1,105 @@
 #!/bin/sh
+##
+## Version: 1.1 GSB SlackBuild
+##
+## Copyright (c) 2007 Darren Austin <darren (at) afterdark.org.uk>
+## Copyright (c) 2007 Steve Kennedy <sk238 (at) exeter.ac.uk>
+##
+## Licenced under the terms of the GNU General Public Licence version 3.
+## 
+
+## 
+## Package Variables
+##
+BUILD=1
+VERSION=2.20.0
+REQUIRED_PACKAGES="automake"
+
+## 
+## Build Variables
+##
+ARCH=${ARCH:-i586}
+TUNE=${TUNE:-i686}
+DISTRO=${DISTRO:-slackware}
+TMP=${TMP:-/tmp}
+PKG_DEST={$PKG_DEST:-$TMP/package}
 
 ##
 ## Package Variables
 ##
-
-PKGNAME=`basename $0 .SlackBuild`
-CWD=`pwd`
-TMP=${TMP:-/tmp}
+PKGNAME=$(basename $0 .SlackBuild)
+CWD=$(pwd)
 PKG=$TMP/package-$PKGNAME
-PKG_DEST=/home/packages
-VERSION=${VERSION:-2.20.0}
-ARCH=${ARCH:-i686}
-BUILD=${BUILD:-1}
-DISTRO=${DISTRO:-slackware}
 
-## Installation Check
-if [ -f /var/log/packages/${PKGNAME}-${VERSION}-${ARCH}-${BUILD} ]; then
-  echo "${PKGNAME}-${VERSION}-${ARCH}-${BUILD} package already installed"
-  exit 0
-fi
+##
+## Usage
+##
+
+usage() {
+cat << EOF
+Usage: $(basename $0) [options]
+
+Use this script to run a build of $PKGNAME.
+
+options:      -force      (SlackBuild will not run a build if $PKGNAME is already installed.
+                           Use this switch to force a build.)
+              -no-cleanup (SlackBuild will remove the temporary build and package 
+                           directories when finished.  Use this switch to keep
+                           all files after the package is created.)
+              -help       (This help screen.)
+
+EOF
+}
+
+##
+## Default script settings
+##
+CLEANUP=yes
+FORCEBUILD=no
+
+while [ 0 ]; do
+  if [ "$1" = "-no-cleanup" ]; then
+    CLEANUP=no
+    shift 1
+  elif [ "$1" = "-help" ]; then
+    usage;
+    exit;
+  elif [ "$1" = "-force" ]; then
+    FORCEBUILD=yes
+  else
+    break
+  fi
+done
+
+##
+## Package Requirements and Installation Check
+##
+
+## 
+## SlackBuild will not rebuild a package already installed
+## Pass "-force" to the SlackBuild script to force it to 
+## rebuild an already installed package.
+
+if [ "$FORCEBUILD" = "no" ]; then
+
+function check_installed() {
+	ls -1 /var/log/packages | grep "^${1}-[^-]*-[^-]*-[^-]*$" >/dev/null 2>&1
+    	return $?
+}
+
+check_installed "$PKGNAME" && {
+	echo "${0##*/}: Remove installed '$PKGNAME' package before build."; 
+	exit 1
+}
+
+for REQ in $REQUIRED_PACKAGES; 
+	do
+   		check_installed "$REQ" || {
+		echo "${0##*/}: Required package '$REQ' not installed."; 
+		exit 1
+		}
+	done;
+fi;
 
 ##
 ## Temporary Space
@@ -30,24 +111,29 @@ rm -rf $PKG
 mkdir -p $PKG
 
 ##
-## Build Options
+## Compiler and Make Options
 ##
+TUNE_FLAGS="-march=$ARCH -mtune=$TUNE"
+ARCH_CONFIGURE=""
+MAKE_FLAGS=""
 
 if [ "$ARCH" = "i386" ]; then
-  GSB_CFLAGS="-O2 -march=i386 -mtune=i386"
-  ARCH_CONFIGURE=""
+  GSB_CFLAGS="$TUNE_FLAGS -O2"
 elif [ "$ARCH" = "i486" ]; then
-  GSB_CFLAGS="-O2 -march=i486 -mtune=i486"
-  ARCH_CONFIGURE=""
+  GSB_CFLAGS="$TUNE_FLAGS -O2"
+elif [ "$ARCH" = "i586" ]; then
+  GSB_CFLAGS="$TUNE_FLAGS -O3 -pipe -fomit-frame-pointer -ffast-math"
 elif [ "$ARCH" = "i686" ]; then
-  GSB_CFLAGS="-O3 -march=i686 -mtune=i686 -pipe -fomit-frame-pointer -ffast-math"
-  ARCH_CONFIGURE=""
+  GSB_CFLAGS="$TUNE_FLAGS -O3 -pipe -fomit-frame-pointer -ffast-math"
 elif [ "$ARCH" = "powerpc" ]; then
   GSB_CFLAGS="-O2"
-  ARCH_CONFIGURE=""
 elif [ "$ARCH" = "x86_64" ]; then
-  GSB_CFLAGS="-O3 -fPIC -pipe -fomit-frame-pointer -ffast-math"
+  GSB_CFLAGS="$TUNE_FLAGS -O3 -pipe -fomit-frame-pointer -ffast-math -fPIC"
   ARCH_CONFIGURE="--libdir=/usr/lib64"
+  MAKE_FLAGS="-j4"
+else
+  echo "Unknown arch type $ARCH."
+  exit 1
 fi
 
 ## Decompress archive
@@ -104,15 +190,16 @@ CXXFLAGS="$GSB_CFLAGS" \
 	    --sysconfdir=/etc \
             --localstatedir=/var/lib \
             --disable-static --enable-shared \
-            --target=$ARCH-$DISTRO-linux || exit 1
+            --target=$ARCH-$DISTRO-linux \
+           || exit 1
 
-make -j4 || exit 1
+make $MAKE_FLAGS || exit 1
 make install DESTDIR=$PKG
 
 ## Install Extra Documentation
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  COPYING* ChangeLog README \
+  AUTHORS COPYING* ChangeLog NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 
@@ -171,9 +258,9 @@ cd $PKG
 makepkg -l y -c n $PKG_DEST/$PKGNAME-$VERSION-$ARCH-$BUILD.tgz
 
 ##
-## Cleanup If Wanted
+## Cleanup Temporary Files
 ##
-if [ "$1" = "--cleanup" ]; then
+if [ "$CLEANUP" = "yes" ]; then
   rm -rf $TMP/$PKGNAME-$VERSION
   rm -rf $PKG
 fi
