@@ -1,0 +1,8 @@
+--- Makefile.am.old	2007-05-11 16:11:56.000000000 +0100
++++ Makefile.am	2007-05-11 16:12:27.000000000 +0100
+@@ -1,4 +1,4 @@
+-SUBDIRS = libfaad common frontend plugins
++SUBDIRS = libfaad common frontend
+ 
+ EXTRA_DIST = faad2.spec
+ 

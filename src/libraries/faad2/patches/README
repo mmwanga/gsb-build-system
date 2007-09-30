@@ -1,0 +1,1 @@
+The plugins for faad2 are broken.  Makefile.am.diff and configure.in.diff prevents their being built.  Also, the diffs must keep their CR/LF to make the source files properly.
