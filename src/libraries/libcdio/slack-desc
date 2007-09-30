@@ -1,12 +1,12 @@
        |-----handy-ruler------------------------------------------------------|
 libcdio: libcdio (Compact disc input and control library)
 libcdio:
-libcdio: Compact Disc Input and Control Library
-libcdio:
-libcdio:
-libcdio:
-libcdio:
-libcdio:
-libcdio:
-libcdio:
-libcdio:
+libcdio: The Compact Disc Input and Control library (libcdio) contains a 
+libcdio: library for CD-ROM and CD image access. Applications wishing to be 
+libcdio: oblivious of the OS- and device-dependent properties of a CD-ROM or of 
+libcdio: the specific details of various CD-image formats may benefit from 
+libcdio: using this library.  Some support for on-disk CD-image types like 
+libcdio: CDRWIN's BIN/CUE format, cdrdao's TOC format, and Nero's NRG format is 
+libcdio: available.  A library for working with ISO-9660 filesystems (libiso9660) 
+libcdio: is included. A generic interface for issuing MMC (multimedia commands) 
+libcdio: is also part of the libcdio library. 
