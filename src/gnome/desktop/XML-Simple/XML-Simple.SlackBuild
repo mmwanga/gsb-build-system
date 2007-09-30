@@ -1,0 +1,96 @@
+#!/bin/sh
+
+CWD=`pwd`
+TMP=${TMP:-/tmp}
+PKG=$TMP/package-XML-Simple
+
+VERSION=2.14
+ARCH=${ARCH:-i486}
+BUILD=1
+
+if [ -f /var/log/packages/XML-Simple-$VERSION-$ARCH-$BUILD ]; then
+  echo "XML-Simple-$VERSION-$ARCH-$BUILD package already installed"
+  exit 0
+fi
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG
+
+cd $TMP
+tar -xzvf $CWD/XML-Simple-$VERSION.tar.gz
+cd XML-Simple-$VERSION
+
+# Apply $ARCH specific patches
+if [ "$ARCH" = "i386" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "i486" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "s390" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "powerpc" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "x86_64" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/foo.patch | patch -p0 --verbose
+fi
+
+perl Makefile.PL || exit 1
+make || exit 1
+make install DESTDIR=$PKG
+
+# Move man directory into /usr
+(
+  cd $PKG/usr/share
+  mv man ..
+  cd ..
+  rmdir share
+)
+
+# remove perllocal.pod
+PERLVERSION=5.8.6
+(
+  cd $PKG/usr/lib/perl5/$PERLVERSION/$ARCH-linux/
+  rm -f perllocal.pod
+  cd ..
+  rmdir $ARCH-linux
+  cd ..
+  rmdir $PERLVERSION
+)
+
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
+
+mkdir -p $PKG/usr/doc/XML-Simple-$VERSION
+cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
+        TODO \
+        $PKG/usr/doc/XML-Simple-$VERSION
+find $PKG/usr/doc/XML-Simple-$VERSION/ -type f -exec chmod 644 {} \;
+chown root.root $PKG/usr/doc/XML-Simple-$VERSION/*
+
+# strip:
+( cd $PKG
+  find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+  find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+)
+
+gzip -9 $PKG/usr/man/*/*
+gzip -9 $PKG/usr/info/*
+
+mkdir -p $PKG/install
+cat $CWD/slack-required > $PKG/install/slack-required
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG
+makepkg -l y -c n $TMP/XML-Simple-$VERSION-$ARCH-$BUILD.tgz
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $TMP/XML-Simple-$VERSION
+  rm -rf $PKG
+fi
