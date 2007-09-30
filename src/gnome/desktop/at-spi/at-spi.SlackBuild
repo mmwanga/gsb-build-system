@@ -102,10 +102,10 @@ CXXFLAGS="$GSB_CFLAGS" \
 ./configure --prefix=/usr \
             $ARCH_CONFIGURE \
 	    --sysconfdir=/etc \
+            --libexecdir=/usr/bin \
             --localstatedir=/var/lib \
             --disable-static --enable-shared \
             --target=$ARCH-$DISTRO-linux || exit 1
-
 
 make -j4 || exit 1
 make install DESTDIR=$PKG
@@ -113,14 +113,13 @@ make install DESTDIR=$PKG
 ## Install Extra Documentation
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING ChangeLog MAINTAINERS NEWS README \
+  AUTHORS COPYING* ChangeLog NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 
 ##
 ##  Permissions
 ##
-chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 chown -R root.root $PKG/usr/doc/$PKGNAME-$VERSION/*
 
 ##
@@ -147,12 +146,6 @@ if [ -d $PKG/usr/man ]; then
     done
   )
 fi
-
-## 
-## Check For Any Broken Links
-## 
-echo
-find $PKG -type l | xargs file | grep broken;
 
 ##
 ## Slackware Package Information
