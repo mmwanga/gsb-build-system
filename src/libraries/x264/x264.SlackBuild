@@ -71,7 +71,7 @@ elif [ "$ARCH" = "powerpc" ]; then
   ARCH_CONFIGURE=""
 elif [ "$ARCH" = "x86_64" ]; then
   GSB_CFLAGS="-O3 -fPIC -pipe -fomit-frame-pointer -ffast-math"
-  ARCH_CONFIGURE="--libdir=/usr/lib64 --shlibdir=/usr/lib64"
+  ARCH_CONFIGURE="--libdir=/usr/lib64"
 fi
 
 ## Decompress archive
