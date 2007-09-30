@@ -1,0 +1,11 @@
+gtkunique: gtkunique (GTK Single Instance Library)
+gtkunique: 
+gtkunique: GtkUnique allows the creation of single instance application, that is
+gtkunique: applications that can only have a single instance running at any given
+gtkunique: time.  Once launched an instance, each new instance of the application
+gtkunique: should simply exit() or (optionally) send a message to the running
+gtkunique: instance and then exit() depending on the response value returned by
+gtkunique: the running instance.
+gtkunique: 
+gtkunique: 
+gtkunique: 

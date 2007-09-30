@@ -59,6 +59,13 @@ mjpegtools
 libmpcdec
 transcode
 iso-codes
+libexif
+libgphoto2
+libopenraw
+libiptcdata
+gtkunique
+opal
+pwlib
 "
 
 ## 

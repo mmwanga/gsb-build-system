@@ -1,0 +1,11 @@
+libgphoto2: libgphoto2 (GTK+ Digital Camera Library)
+libgphoto2: 
+libgphoto2: gPhoto is a program and library framework that lets users download 
+libgphoto2: pictures from their digital cameras. The libgphoto2 library gives you 
+libgphoto2: access to hundreds of models of digital cameras on several platforms. 
+libgphoto2: Newer libgphoto2 versions also support Media Transfer Protocol (MTP) 
+libgphoto2: based media players since their protocol is based on the Picture 
+libgphoto2: Transfer Protocol (PTP). gPhoto2 supports more than 900 cameras. 
+libgphoto2: 
+libgphoto2: libgphoto2 is freely available and distributed under the terms of 
+libgphoto2: the GNU LGPL.
