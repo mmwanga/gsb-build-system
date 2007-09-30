@@ -81,22 +81,24 @@ done
 ## rebuild an already installed package.
 
 if [ "$FORCEBUILD" = "no" ]; then
-	function check_installed() {
-    		ls -1 /var/log/packages | grep "^${1}-[^-]*-[^-]*-[^-]*$" >/dev/null 2>&1
-    		return $?
-	}
 
-	check_installed "$PKGNAME" && {
-		echo "${0##*/}: Remove installed '$PKGNAME' package before build."; 
+function check_installed() {
+	ls -1 /var/log/packages | grep "^${1}-[^-]*-[^-]*-[^-]*$" >/dev/null 2>&1
+    	return $?
+}
+
+check_installed "$PKGNAME" && {
+	echo "${0##*/}: Remove installed '$PKGNAME' package before build."; 
+	exit 1
+}
+
+for REQ in $REQUIRED_PACKAGES; 
+	do
+   		check_installed "$REQ" || {
+		echo "${0##*/}: Required package '$REQ' not installed."; 
 		exit 1
-	}
-
-	for REQ in $REQUIRED_PACKAGES
-  		do
-    			check_installed "$REQ" || {
-			echo "${0##*/}: Required package '$REQ' not installed."; 
-			exit 1
-    		}
+		}
+	done;
 fi;
 
 ##
