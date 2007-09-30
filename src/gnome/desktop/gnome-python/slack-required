@@ -1,0 +1,10 @@
+python
+glib2
+gtk+2
+libgnome
+libgnomeui
+libbonbobo
+libbonboboui
+libgnomecanvas
+gnome-vfs
+GConf
