@@ -112,14 +112,13 @@ make install DESTDIR=$PKG
 ## Install Extra Documentation
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+  AUTHORS COPYING* ChangeLog NEWS \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 
 ##
 ##  Permissions
 ##
-chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 chown -R root.root $PKG/usr/doc/$PKGNAME-$VERSION/*
 
 ##
