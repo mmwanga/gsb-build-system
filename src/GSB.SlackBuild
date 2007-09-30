@@ -31,7 +31,7 @@ do
 	echo "****************************************************"
 (
   cd $i
-  ./gnome.$i.SlackBuild
+  ./gsb.$i.SlackBuild
 )
 	echo "****************************************************"
         echo "*******      FINISHED BUILDING $i"
