@@ -1,12 +1,12 @@
        |-----handy-ruler------------------------------------------------------|
 libsoup: libsoup (HTTP library)
 libsoup:
-libsoup: Libsoup is an HTTP library implementation in C.
-libsoup:
-libsoup:
-libsoup:
-libsoup:
-libsoup:
+libsoup: libsoup is an HTTP client/server library for GNOME. It uses GObjects 
+libsoup: and the glib main loop, to integrate well with GNOME applications. It 
+libsoup: features both asynchronous and synchronous APIs, SSL Support using GnuTLS, 
+libsoup: proxy support, including authentication and SSL tunneling, client support 
+libsoup: for Digest, NTLM, and Basic authentication, server support for Digest and 
+libsoup: Basic authentication, and basic client-side SOAP and XML-RPC support.
 libsoup:
 libsoup:
 libsoup:
