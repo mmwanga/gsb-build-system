@@ -1,11 +1,11 @@
 gamin
+libglade
 GConf
 gnome-desktop
 gnome-keyring
 gnome-menus
 gnome-vfs
 gtk+2
-avahi
 startup-notification
 libwnck
 scrollkeeper

@@ -1,7 +1,6 @@
 gail
-gconf
+GConf
 gnome-panel
 gnome-vfs
 libgtop
-libxklavier
 scrollkeeper

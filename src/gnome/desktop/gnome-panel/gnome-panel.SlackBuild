@@ -114,6 +114,13 @@ CXXFLAGS="$GSB_CFLAGS" \
 make -j4 || exit 1
 make install DESTDIR=$PKG
 
+##
+## Keep clean for Scrollkeeper
+## Will rebuild database in doinst.sh
+
+rm -fr $PKG/var/lib/scrollkeeper
+rm -fr $PKG/var/lib/log
+
 ## Install Extra Documentation
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \

@@ -17,13 +17,6 @@ if [ ! -d $PKG_DEST ]; then
   mkdir -p $PKG_DEST;
 fi
 
-## Packages Removed from Gnome 2.20.x Build Order
-## (Most of these are provided by Slackware 12 now)
-# gnutls, libgcrypt, vte, mozilla.
-####
-#### Does mozilla need to be rebuilt with shared libraries 
-#### for epiphany? (sk)
-
 ##
 ## Official Build Order for Gnome 2.20.x
 ##
@@ -33,102 +26,19 @@ fi
 #### BUILD ORDER
 ####
 
-## UPDATED TO 2.14, MORE CHANGES COMING
 
 BUILD_ORDER="
-gnome-themes
-gnome-doc-utils
-at-spi
-gail
-gnome-desktop
-gnome-menus
-libwnck
-libsoup
-evolution-data-server
-gnome-python
-gnome-panel
-gnome-terminal
-libgtop
-gnome-applets
-libxklavier
-libgnomekdb
-libgnomeprintui
-libgnomesu
-libgtkhtml
-gstreamer
-gst-plugins-base
-gucharmap
-system-tools-backends
-metacity
-libgsf
-libcroco
-libgnomecups
-libgnomeprint
-libgnomeprintui
-eel
-nautilus
-libnotify
-control-center
-gnome-session
-yelp
-enchant
-bug-buddy
-nautilus-cd-burner
-gst-plugins-good
-gst-plugins-ffmpeg
-gst-plugins-bad
-gst-plugins-ugly
-totem
-gnome-media
-gnome-python-desktop
-gconf-editor
-gnome-utils
-gnome-system-monitor
-gnome-netstatus
-gcalctool
-zenity
-libgail-gnome
-gnome-speech
-gnome-mag
-gnopernicus
-gok
-epiphany
-epiphany-extensions
-gob2
-gnome-games
-gnome-user-docs
-file-roller
-gnome-system-tools
-gnome-nettool
-vino
-gnome-volume-manager
-gnome-backgrounds
+eog
 sound-juicer
-gtkhtml
-evolution
-evolution-webcal
-evolution-exchange
+gedit
+gedit-plugins
 ekiga
 evince
-dasher
-gnome-keyring-manager
-deskbar-applet
-fast-user-switch-applet
-gnome-screensaver
-pessulus
-sabayon
-gtksourceview
-gedit-plugins
-gnome-spell
-gnome-pilot
-gnome-pilot-conduits
-nautilus-sendto
-gnome-mount
-liboobs
-gal2
-gnome-user-share
-gdm
-alacarte
+file-roller
+mozilla
+epiphany
+epiphany-extensions
+totem
 "
 
 ## 

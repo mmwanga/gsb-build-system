@@ -1,6 +1,0 @@
-#!/bin/sh
-#BLURB="Run gst-register (sets up gstreamer plugins)"
-if [ -x usr/bin/gst-register ]; then
-  chroot . /sbin/ldconfig 1> /dev/null 2> /dev/null
-  chroot . /usr/bin/gst-register 1> /dev/null 2> /dev/null
-fi
