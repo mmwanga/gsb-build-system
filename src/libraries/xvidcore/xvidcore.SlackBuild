@@ -111,7 +111,28 @@ CXXFLAGS="$GSB_CFLAGS" \
 make -j4 || exit 1
 make install DESTDIR=$PKG
 
+## 
+## Extra tweaks for Xvid
+##
+if [ "$ARCH" = "x86_64" ]; then
+	(
+	cd $PKG/usr/lib64;
+        rm $PKG/usr/lib64/*.a ;
+        chmod +x $PKG/usr/lib64/*.so.* ;
+        ln -s ./libxvidcore.so.4.1 ./libxvidcore.so;
+	)
+else
+	(
+	cd $PKG/usr/lib;
+        rm $PKG/usr/lib/*.a ;
+        chmod +x $PKG/usr/lib/*.so.* ;
+        ln -s ./libxvidcore.so.4.1 ./libxvidcore.so;
+	)
+fi;
+	
 ## Install Extra Documentation
+
+cd $TMP/$PKGNAME-$VERSION
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
   AUTHORS CodingStyle LICENSE README ChangeLog* \
