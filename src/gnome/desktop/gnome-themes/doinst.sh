@@ -1,6 +1,6 @@
-for i in Crux Flat-Blue Sandy Smokey-Blue Smokey-Red HighContrast \
-	LargePrint LowContrastLargePrint HighContrastLargePrint \
-	LowContrast HighContrastLargePrintInverse HighContrastInverse
+for i in Crux HighContrast HighContrast-SVG HighContrastInverse \
+          HighContrastLargePrintInverse HighContrastLargePrint \
+	LargePrint LowContrast LowContrastLargePrint Mist 
 do
     if [ -e usr/share/icons/$i/icon-theme.cache ]; then
         rm -f usr/share/icons/$i/icon-theme.cache
