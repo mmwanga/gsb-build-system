@@ -1,5 +1,4 @@
 desktop-file-utils
-esound
 gnome-vfs
 libbonoboui
 libgnomeui
@@ -8,10 +7,10 @@ startup-notification
 gnome-keyring
 gnome-vfs
 gtk+2
-avahi
-libart_lgpl
 libgnome
 libgnomecanvas
 libxml2
 openssl-solibs | openssl
-orbit2
+ORBit2
+gail
+gnome-doc-utils
