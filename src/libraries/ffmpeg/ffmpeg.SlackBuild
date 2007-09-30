@@ -12,7 +12,7 @@ cat << EOF
 
 ffmpeg is built from an svn repository.  There are no released tarballs.
 If you would like the latest code for this package, please make sure to
-run `svn update` before compiling.  This build script will not update
+run "svn update" before compiling.  This build script will not update
 the repository automatically (in case specific revisions are wanted.)
 
 ***** Note ************
@@ -32,7 +32,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-$PKGNAME
 PKG_DEST=/home/packages
-SVN_REV=`(cd ffmpeg && svn info 2> /dev/null | grep Revision | cut -d' ' -f2)`
+SVN_REV=`(cd $PKGNAME && svn info 2> /dev/null | grep Revision | cut -d' ' -f2)`
 VERSION=${VERSION:-svn_$SVN_REV}
 ARCH=${ARCH:-i686}
 BUILD=${BUILD:-1}
@@ -71,11 +71,14 @@ elif [ "$ARCH" = "powerpc" ]; then
   ARCH_CONFIGURE=""
 elif [ "$ARCH" = "x86_64" ]; then
   GSB_CFLAGS="-O3 -fPIC -pipe -fomit-frame-pointer -ffast-math"
-  ARCH_CONFIGURE="--libdir=/usr/lib64"
+  ARCH_CONFIGURE="--libdir=/usr/lib64 --shlibdir=/usr/lib64"
 fi
 
 ## Decompress archive
 cd $TMP 
+echo "Cleaning old copy."
+rm -fr $TMP/$PKGNAME-$VERSION
+echo "Copying work repository to build area."
 cp -r $CWD/$PKGNAME $TMP/$PKGNAME-$VERSION
 cd $PKGNAME-$VERSION
 
@@ -121,17 +124,17 @@ find . -perm 555 -exec chmod 755 {} \;
 ##
 ## Add any local configuration options here.
 
+echo "Be patient while configure runs."
 CFLAGS="$GSB_CFLAGS" \
 CXXFLAGS="$GSB_CFLAGS" \
 ./configure --prefix=/usr \
             $ARCH_CONFIGURE \
-            --localstatedir=/var/lib \
             --disable-static --enable-shared \
             --enable-gpl \
             --enable-pp \
-            --target=$ARCH-$DISTRO-linux || exit 1
+	    || exit 1    
 
-make -j4 || exit 1
+make || exit 1
 make install DESTDIR=$PKG
 
 ## Install Extra Documentation
