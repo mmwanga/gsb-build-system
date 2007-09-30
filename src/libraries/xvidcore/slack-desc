@@ -1,12 +1,12 @@
         |-----handy-ruler------------------------------------------------------|
 xvidcore: xvidcore (MPEG-4 compliant video codec)
 xvidcore:
-xvidcore: XviD is an ISO MPEG-4 compliant video codec.
-xvidcore: 
+xvidcore: The Xvid video codec implements MPEG-4 Simple Profile and Advanced 
+xvidcore: Simple Profile standards. It permits compressing and decompressing 
+xvidcore: digital video in order to reduce the required bandwidth of video data 
+xvidcore: for transmission over computer networks or efficient storage on CDs 
+xvidcore: or DVDs. Due to its unrivalled quality Xvid has gained great 
+xvidcore: popularity and is used in many other GPLed applications, like e.g. 
+xvidcore: Transcode, MEncoder, MPlayer, Xine and many more.
 xvidcore:
-xvidcore:
-xvidcore:
-xvidcore:
-xvidcore:
-xvidcore:
-xvidcore:
+xvidcore: http://www.xvid.org
