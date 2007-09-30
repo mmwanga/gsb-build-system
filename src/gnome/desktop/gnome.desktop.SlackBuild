@@ -19,7 +19,7 @@ fi
 
 ## Packages Removed from Gnome 2.20.x Build Order
 ## (Most of these are provided by Slackware 12 now)
-# gnutls, libgcrypt, vte, mozilla.
+## gnutls, libgcrypt, vte, mozilla, gucharmap
 
 ##
 ## Official Build Order for Gnome 2.20.x
@@ -34,6 +34,7 @@ fi
 
 BUILD_ORDER="
 gnome-themes
+tango-icon-theme
 gnome-doc-utils
 at-spi
 gail
@@ -52,10 +53,10 @@ libgtop
 gnome-applets
 libxklavier
 libgnomekdb
+libgnomecups
+libgnomeprint
 libgnomeprintui
-libgnomesu
 libgtkhtml
-gucharmap
 system-tools-backends
 metacity
 libgsf
@@ -75,22 +76,18 @@ nautilus-cd-burner
 gst-plugins-ffmpeg
 gst-plugins-bad
 gst-plugins-ugly
-totem
 gnome-media
 gnome-python-desktop
 gconf-editor
 gnome-utils
 gnome-system-monitor
 gnome-netstatus
-gcalctool
 zenity
 libgail-gnome
 gnome-speech
 gnome-mag
 gnopernicus
 gok
-epiphany
-epiphany-extensions
 gob2
 gnome-games
 gnome-user-docs
@@ -100,7 +97,6 @@ gnome-nettool
 vino
 gnome-volume-manager
 gnome-backgrounds
-sound-juicer
 gtkhtml
 evolution
 evolution-webcal

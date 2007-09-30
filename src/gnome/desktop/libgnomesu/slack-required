@@ -1,5 +1,5 @@
 expat
-gconf
+GConf
 glib2
 gnome-keyring
 gnome-vfs
@@ -14,5 +14,5 @@ libgnomeui
 libpng
 libxml2
 openssl-solibs | openssl
-orbit2
+ORBit2
 popt

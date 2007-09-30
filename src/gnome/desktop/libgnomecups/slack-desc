@@ -1,10 +1,10 @@
             |-----handy-ruler------------------------------------------------------|
 libgnomecups: libgnomecups (CUPS GNOME library)
 libgnomecups:
-libgnomecups: GNOME library for CUPS integration
+libgnomecups: The libgnomecups package contains a library used to wrap the CUPS API 
+libgnomecups: in a GLib fashion, so CUPS code can be cleanly integrated with GLib code.
 libgnomecups:
-libgnomecups:
-libgnomecups:
+libgnomecups: 
 libgnomecups:
 libgnomecups:
 libgnomecups:

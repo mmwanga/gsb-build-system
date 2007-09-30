@@ -1,3 +1,11 @@
 libart_lgpl
 libbonobo
 libgnomecups
+gettext
+freetype2
+glib2
+pango
+fontconfig
+zlib
+libxml2
+openssl

@@ -1,11 +1,11 @@
              |-----handy-ruler------------------------------------------------------|
-libgnomeprint: libgnomeprint (Non-GUI printing library)
+libgnomeprint: libgnomeprint (GNOME Printing Engine)
 libgnomeprint:
-libgnomeprint: Libgnomeprint is the non-gui part of the printing libraries for GNOME
-libgnomeprint: applications.
-libgnomeprint:
-libgnomeprint:
-libgnomeprint:
+libgnomeprint: libgnomeprint is a C API that implements the Postscript imaging model. 
+libgnomeprint: It is part of the GNOME toolkit. It currently contains Postscript, PDF, 
+libgnomeprint: on-screen preview, Metafile and a Generic bitmap driver.
+libgnomeprint: 
+libgnomeprint: http://www.gnome.org/projects/gnome-print/
 libgnomeprint:
 libgnomeprint:
 libgnomeprint:

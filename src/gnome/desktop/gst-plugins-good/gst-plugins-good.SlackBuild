@@ -52,7 +52,7 @@ fi
 
 ## Decompress archive
 cd $TMP 
-tar xjf $CWD/${PKGNAME}-${VERSION}.tar.bz2
+tar xzf $CWD/${PKGNAME}-${VERSION}.tar.gz
 cd $PKGNAME-$VERSION
 
 # Apply $ARCH specific patches
