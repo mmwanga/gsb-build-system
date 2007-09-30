@@ -1,0 +1,8 @@
+##
+## ffmpeg svn
+##
+ffmpeg subdirectory is external SVN link to svn://svn.mplayerhq.hu/ffmpeg/trunk
+
+For more information see http://ffmpeg.mplayerhq.hu/download.html.
+There are no tarballs, and it keep an external definition to mplayer's svn 
+may be the best way to stay up-to-date.
