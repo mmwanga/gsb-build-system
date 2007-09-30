@@ -9,6 +9,6 @@ libgnomecanvas
 libgnomeui
 libxml2
 openssl-solibs | openssl
-orbit2
+ORBit2
 startup-notification
 vte

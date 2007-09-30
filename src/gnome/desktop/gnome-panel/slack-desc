@@ -1,12 +1,12 @@
            |-----handy-ruler------------------------------------------------------|
-gnome-panel: gnome-panel (GNOME panel for applets and menus)
+gnome-panel: gnome-panel (GNOME Panel for Applets and Menus)
 gnome-panel:
-gnome-panel: This is the GNOME panel, which houses many applets and menus, and is
-gnome-panel: one of the most visible and easily recognized GNOME components.
-gnome-panel:
-gnome-panel:
-gnome-panel:
-gnome-panel:
+gnome-panel: The GNOME Panel is an essential part of the GNOME Desktop, providing
+gnome-panel: toolbar-like "panels" which can be attached to the sides of your desktop.
+gnome-panel: They are used to launch applications and embed a number of other
+gnome-panel: functions, such as quick launch icons, the clock, the notification area,
+gnome-panel: volume controls and the battery charge indicator, and utilities ranging
+gnome-panel: from weather forecast to system monitoring.
 gnome-panel:
 gnome-panel:
 gnome-panel:

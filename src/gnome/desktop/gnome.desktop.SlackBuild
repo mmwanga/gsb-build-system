@@ -47,7 +47,6 @@ libsoup
 evolution-data-server
 gnome-python
 gnome-panel
-gnome-session
 gnome-terminal
 libgtop
 libxklavier
@@ -71,6 +70,7 @@ eel
 nautilus
 libnotify
 control-center
+gnome-session
 yelp
 enchant
 bug-buddy
