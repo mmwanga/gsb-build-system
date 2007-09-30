@@ -1,106 +1,204 @@
 #!/bin/sh
 
+##
+## SVN Warning
+##
+
+cat << EOF
+
+*****************
+* Update Notice *
+*****************
+
+ffmpeg is built from an svn repository.  There are no released tarballs.
+If you would like the latest code for this package, please make sure to
+run `svn update` before compiling.  This build script will not update
+the repository automatically (in case specific revisions are wanted.)
+
+***** Note ************
+
+This script is intended to be run from a working svn copy.
+
+***********************
+
+EOF
+
+##
+## Package Variables
+##
+
+PKGNAME=`basename $0 .SlackBuild`
 CWD=`pwd`
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-ffmpeg
+PKG=$TMP/package-$PKGNAME
+PKG_DEST=/home/packages
+SVN_REV=`(cd ffmpeg && svn info 2> /dev/null | grep Revision | cut -d' ' -f2)`
+VERSION=${VERSION:-svn_$SVN_REV}
+ARCH=${ARCH:-i686}
+BUILD=${BUILD:-1}
+DISTRO=${DISTRO:-slackware}
 
-VERSION=0.4.9-pre1
-PVERSION=`echo $VERSION |sed 's/-//'`
-ARCH=${ARCH:-i486}
-BUILD=4
-
-if [ -f /var/log/packages/ffmpeg-$PVERSION-$ARCH-$BUILD ]; then
-  echo "ffmpeg-$VERSION-$ARCH-$BUILD package already installed"
+## Installation Check
+if [ -f /var/log/packages/${PKGNAME}-${VERSION}-${ARCH}-${BUILD} ]; then
+  echo "${PKGNAME}-${VERSION}-${ARCH}-${BUILD} package already installed"
   exit 0
 fi
 
+##
+## Temporary Space
+##
 if [ ! -d $TMP ]; then
-  mkdir -p $TMP # location to build the source
+  mkdir -p $TMP 
 fi
 rm -rf $PKG
-mkdir -p $PKG/usr
+mkdir -p $PKG
+
+##
+## Build Options
+##
 
 if [ "$ARCH" = "i386" ]; then
-  SLKCFLAGS="-O2 -march=i386 -mtune=i686"
-  ARCH_CONFIGUR=""
-elif [ "$ARCH" = "i486" ]; then
-  SLKCFLAGS="-O2 -march=i486 -mtune=i686"
-  ARCH_CONFIGUR=""
-elif [ "$ARCH" = "powerpc" ]; then
-  SLKCFLAGS="-O2"
+  GSB_CFLAGS="-O2 -march=i386 -mtune=i386"
   ARCH_CONFIGURE=""
-elif [ "$ARCH" = "s390" ]; then
-  SLKCFLAGS="-O2"
-  ARCH_CONFIGUR=""
+elif [ "$ARCH" = "i486" ]; then
+  GSB_CFLAGS="-O2 -march=i486 -mtune=i486"
+  ARCH_CONFIGURE=""
+elif [ "$ARCH" = "i686" ]; then
+  GSB_CFLAGS="-O3 -march=i686 -mtune=i686 -pipe -fomit-frame-pointer -ffast-math"
+  ARCH_CONFIGURE=""
+elif [ "$ARCH" = "powerpc" ]; then
+  GSB_CFLAGS="-O2"
+  ARCH_CONFIGURE=""
 elif [ "$ARCH" = "x86_64" ]; then
-  SLKCFLAGS="-O2 -fPIC"
-  ARCH_CONFIGUR="--libdir=/usr/lib64"
+  GSB_CFLAGS="-O3 -fPIC -pipe -fomit-frame-pointer -ffast-math"
+  ARCH_CONFIGURE="--libdir=/usr/lib64"
 fi
 
+## Decompress archive
 cd $TMP 
-tar xzvf $CWD/ffmpeg-$VERSION.tar.gz
-cd ffmpeg-$VERSION
-cat $CWD/frg.ffmpeg.no.imlib2.configure.patch | patch -p1 --verbose
+cp -r $CWD/$PKGNAME $TMP/$PKGNAME-$VERSION
+cd $PKGNAME-$VERSION
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
   echo "Applying patches for $ARCH"
-  #cat $CWD/foo.patch | patch -p0 --verbose
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "i486" ]; then
   echo "Applying patches for $ARCH"
-  #cat $CWD/foo.patch | patch -p0 --verbose
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "i686" ]; then
+  echo "Applying patches for $ARCH"
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "s390" ]; then
   echo "Applying patches for $ARCH"
-  #cat $CWD/foo.patch | patch -p0 --verbose
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "powerpc" ]; then
   echo "Applying patches for $ARCH"
-  #cat $CWD/foo.patch | patch -p0 --verbose
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "x86_64" ]; then
   echo "Applying patches for $ARCH"
-  cat $CWD/x86_64.libpath.patch |patch -p1 --verbose
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
-CFLAGS="$SLKCFLAGS" \
+##
+## Fix permissions for building
+##
+chown -R root.root .
+find . -perm 664 -exec chmod 644 {} \;
+find . -perm 600 -exec chmod 644 {} \;
+find . -perm 444 -exec chmod 644 {} \;
+find . -perm 400 -exec chmod 644 {} \;
+find . -perm 440 -exec chmod 644 {} \;
+find . -perm 777 -exec chmod 755 {} \;
+find . -perm 775 -exec chmod 755 {} \;
+find . -perm 511 -exec chmod 755 {} \;
+find . -perm 711 -exec chmod 755 {} \;
+find . -perm 555 -exec chmod 755 {} \;
+
+
+##
+## Run Configure and Build
+##
+## Add any local configuration options here.
+
+CFLAGS="$GSB_CFLAGS" \
+CXXFLAGS="$GSB_CFLAGS" \
 ./configure --prefix=/usr \
-	    --enable-gpl \
-	    --enable-pp \
-	    --enable-shared \
-      $ARCH_CONFIGURE || exit 1
-make || exit 1
-cp config.mak config.mak.orig
-sed -i "s#=/usr#=${PKG}/usr#g" config.mak
-if [ "$ARCH" = "x86_64" ]; then
-  sed -i "s/LIBPREF=lib$/LIBPREF=lib64/g" config.mak
-fi
-#sed-4 -i 's/prefix=\/usr/prefix=\($PKG)/usr/' config.mak
-make install  || exit 1
+            $ARCH_CONFIGURE \
+            --localstatedir=/var/lib \
+            --disable-static --enable-shared \
+            --enable-gpl \
+            --enable-pp \
+            --target=$ARCH-$DISTRO-linux || exit 1
 
-(
-  mkdir -p $PKG/usr/include/libpostproc
-  cd libavcodec/libpostproc
-  cp postprocess.h postprocess_internal.h mangle.h \
-	$PKG/usr/include/libpostproc 
+make -j4 || exit 1
+make install DESTDIR=$PKG
+
+## Install Extra Documentation
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
+cp -a \
+  CREDITS COPYING* ChangeLog MAINTAINERS README \
+  $PKG/usr/doc/$PKGNAME-$VERSION
+find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
+
+##
+##  Permissions
+##
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
+chown -R root.root $PKG/usr/doc/$PKGNAME-$VERSION/*
+
+##
+## Strip Debugging Info
+##
+( cd $PKG
+  find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+  find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
 )
 
-chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
-mkdir -p $PKG/usr/doc/ffmpeg-$VERSION
-cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
-  $PKG/usr/doc/ffmpeg-$VERSION
-chmod 644 $PKG/usr/doc/ffmpeg-$VERSION/*
-chown root.root $PKG/usr/doc/ffmpeg-$VERSION/*
+##
+## Compress and Link Manpages
+##
+if [ -d $PKG/usr/man ]; then
+  ( cd $PKG/usr/man
+    for manpagedir in $(find . -type d -name "man*") ; do
+      ( cd $manpagedir
+        for eachpage in $( find . -type l -maxdepth 1) ; do
+          ln -s $( readlink $eachpage ).gz $eachpage.gz
+          rm $eachpage
+        done
+        gzip -9 *.?
+      )
+    done
+  )
+fi
 
-find $PKG -type f | xargs file | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded
-gzip -9 $PKG/usr/man/*/*
-
+##
+## Slackware Package Information
+##
 mkdir -p $PKG/install
-cat $CWD/slack-required > $PKG/install/slack-required
-cat $CWD/slack-desc > $PKG/install/slack-desc
+if [ -e $CWD/slack-required ]; then
+        cat $CWD/slack-required > $PKG/install/slack-required
+fi;
 
+if [ -e $CWD/slack-desc ]; then
+        cat $CWD/slack-desc > $PKG/install/slack-desc
+fi;
+
+if [ -e $CWD/doinst.sh ]; then
+        cat $CWD/doinst.sh > $PKG/install/doinst.sh
+fi;
+
+
+##
+## Make Slackware Package
+##
 cd $PKG
-makepkg -l y -c n $TMP/ffmpeg-$PVERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $PKG_DEST/$PKGNAME-$VERSION-$ARCH-$BUILD.tgz
 
-# Clean up the extra stuff:
+##
+## Cleanup If Wanted
+##
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/ffmpeg-$VERSION
+  rm -rf $TMP/$PKGNAME-$VERSION
   rm -rf $PKG
 fi
