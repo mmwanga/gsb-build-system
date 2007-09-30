@@ -1,0 +1,8 @@
+sdl
+a52dec
+xvidcore
+lame
+glib2
+gtk+2
+mpeg2dec
+x264
