@@ -1,8 +1,9 @@
    |-----handy-ruler------------------------------------------------------|
 eel: eel (Extensions library for Nautilus)
 eel:
-eel: The Eazel Extensions Library, used by Nautilus.
-eel:
+eel: The EEL package contains the Eazel Extensions Library. This is a 
+eel: collection of widgets and extensions to the GNOME platform, and used
+eel: by Nautilus, the GNOME Content Manager.
 eel:
 eel:
 eel:

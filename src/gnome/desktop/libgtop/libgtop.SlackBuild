@@ -119,7 +119,6 @@ find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 ##
 ##  Permissions
 ##
-chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
 chown -R root.root $PKG/usr/doc/$PKGNAME-$VERSION/*
 
 ##

@@ -1,4 +1,6 @@
 bzip2
+dbus
+hal
 eel
 gail
 gamin
@@ -22,5 +24,6 @@ libpng
 librsvg
 libxml2
 openssl-solibs | openssl
-orbit2
+ORBit2
 startup-notification
+GConf

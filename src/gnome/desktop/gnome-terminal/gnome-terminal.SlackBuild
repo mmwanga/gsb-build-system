@@ -122,13 +122,6 @@ cp -a \
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 
 ##
-## Keep clean for Scrollkeeper
-## Will rebuild database in doinst.sh
-
-rm -fr $PKG/var/lib/scrollkeeper
-rm -fr $PKG/var/lib/log
-
-##
 ##  Permissions
 ##
 chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
@@ -173,10 +166,10 @@ then
         do
                 if [ -z "`grep gconfentry $i`" ]; then
 			## Create GConf Tree
-                        echo "GCONF_CONFIG_SOURCE=\"`usr/bin/gconftool-2 --get-default-source`\" usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/$i 2>&1 > /dev/null" >> $CWD/schemainst.sh
+                        echo "GCONF_CONFIG_SOURCE=\"\`usr/bin/gconftool-2 --get-default-source\`\" usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/$i 2>&1 > /dev/null" >> $CWD/schemainst.sh
                 else
 			## Load GConf Settings
-                        echo "GCONF_CONFIG_SOURCE=\"`usr/bin/gconftool-2 --get-default-source`\" usr/bin/gconftool-2 --config-source=`/usr/bin/gconftool-2 --get-default-source` --direct --load etc/gconf/schemas/$i" >> $CWD/schemainst.sh
+                        echo "GCONF_CONFIG_SOURCE=\"\`usr/bin/gconftool-2 --get-default-source\`\" usr/bin/gconftool-2 --config-source=\`/usr/bin/gconftool-2 --get-default-source\` --direct --load etc/gconf/schemas/$i" >> $CWD/schemainst.sh
                 fi;
         done;
         )
