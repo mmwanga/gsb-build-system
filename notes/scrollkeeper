@@ -3,7 +3,7 @@ Scrollkeeper 0.3.14
 
 * It should be noted that even though scrollkeeper is on Gnome, it doesn't seem to follow the same format for using md5 as the rest of the gnome packages.  This may cause a slight annoyance when automating downloads/md5sum checking.
 
-* Secondly, for any package that causes an update to scrollkeeper, you should remove the /var/lib/scrollkeeper stuff from the package (leave only the directory), and add this to the install script:
+* For any package that causes an update to scrollkeeper, you should remove the /var/lib/scrollkeeper stuff from the package (leave only the directory), and add this to the install script:
 
 #!/bin/sh
 if [ -x /usr/bin/scrollkeeper-update ]; then
