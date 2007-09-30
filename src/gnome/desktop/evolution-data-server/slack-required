@@ -1,6 +1,12 @@
 openldap | openldap-client
-gconf
+GConf
 gnome-vfs
 libgnome
+libgnomeui
 libsoup
 avahi
+ORBit2
+libbonobo
+libbonoboui
+libidl
+db44
