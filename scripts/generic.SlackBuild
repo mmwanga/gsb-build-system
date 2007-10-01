@@ -16,7 +16,7 @@ ARCH=${ARCH:-i586}
 TUNE=${TUNE:-i686}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
-PKGDEST={$PKGDEST:-$TMP/gsb-packages}
+PKGDEST=${PKGDEST:-$TMP/gsb-packages}
 
 ## Script variables
 PKGNAME=$(basename $0 .SlackBuild)
@@ -92,22 +92,22 @@ cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
-  #echo "${0##*/}: Applying patches for $ARCH"
+  echo "${0##*/}: Applying patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "i486" ]; then
-  #echo "${0##*/}: Applying patches for $ARCH"
+  echo "${0##*/}: Applying patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "i586" ]; then
-  #echo "${0##*/}: Applying patches for $ARCH"
+  echo "${0##*/}: Applying patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "i686" ]; then
-  #echo "${0##*/}: Applying patches for $ARCH"
+  echo "${0##*/}: Applying patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "x86_64" ]; then
-  #echo "${0##*/}: Applying patches for $ARCH"
+  echo "${0##*/}: Applying patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "powerpc" ]; then
-  #echo "${0##*/}: Applying patches for $ARCH"
+  echo "${0##*/}: Applying patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
@@ -164,8 +164,8 @@ make &&
 make DESTDIR=$PKG install || exit 1
 
 ## Strip debugging symbols
-find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
-  cut -d: -f1 | xargs strip --strip-unneeded
+{ find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
+  cut -d: -f1 | xargs strip --strip-unneeded } 2>/dev/null
 
 ## Compress and fix manpage links
 [ -e $PKG/usr/man ] && {
