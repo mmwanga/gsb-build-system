@@ -165,7 +165,7 @@ make DESTDIR=$PKG install || exit 1
 
 ## Strip debugging symbols
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
-  cut -d: -f1 | xargs strip --strip-unneeded } 2>/dev/null
+  cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
 
 ## Compress and fix manpage links
 [ -e $PKG/usr/man ] && {
