@@ -2,9 +2,9 @@
 ## Version: 1.2 GSB SlackBuild
 ## Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
 ## Copyright (c) 2007 Steve Kennedy <sk238 (at) exeter.ac.uk>
+##
 ## Licenced under the terms of the GNU General Public Licence version 3.
 ##
-## PLEASE talk to Tadgy before commiting changes - or you will be spanked!! :)
 
 ## Package variables
 BUILD=0
