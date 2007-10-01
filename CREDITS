@@ -1,55 +1,48 @@
 Developers:
-	See AUTHORS
+  See AUTHORS
 
 Webmaster:
-	chipster <chipster@gnomeslackbuild.org>
+  chipster <chipster (at) gnomeslackbuild.org>
 
 Artwork:
-	Gpl_Source <fernando.flores.ortiz@gmail.com>
-
-Testers Emeritus:
-	Tevfik Yucek <tevfik.yucek@gmail.com>
-	Mark M. Young <mmyoung57@sbcglobal.net>
-	Gpl_Source <on irc>
-	Many others whom I have forgoten to mention here
+  Gpl_Source <fernando.flores.ortiz (at) gmail.com>
 
 Contributors:
-	Chris Lewis <burn03@bellsouth.net>
-	* GWARE 02/16/2005
-	* rc.howl and krb5 build scripts
+  Chris Lewis <burn03 (at) bellsouth.net>
+    * GWARE 02/16/2005
+    * rc.howl and krb5 build scripts
 
-	<Locustfurnace on irc>
-	* screenshots of FRG in action
+  Locustfurnace <IRC>
+    * Screenshots of FRG in action
 
-	Dropline GNOME
-	* hal patches and rc.hal script
-	* dbus rc.dbus script
-	* fix for librsvg doinst.sh to add svg to gdk
+  Dropline GNOME project
+    * HAL patches and rc.hal script
+    * rc.dbus script
+    * Fix for librsvg doinst.sh to add svg to gdk
 
-	Mark M. Young <mmyoung57@sbcglobal.net>
-	* screenshots of FRG in action
+  Mark M. Young <mmyoung57 (at) sbcglobal.net>
+    * Screenshots of FRG in action
 
-	Dan Barber <dan@mutagenix.org>
-	* lots of feedback on scripts
-	* mutagenix maintainer
+  Dan Barber <dan (at) mutagenix.org>
+    * Lots of feedback on scripts
+    * Mutagenix distribution, incorporating GSB
 
-	Thomas "ZlatkO" Zajic   <zlatko@gmx.at>
-	* lots of feedback and bugfixes
+  Thomas "ZlatkO" Zajic <zlatko (at) gmx.at>
+    * Lots of feedback and bugfixes
 
-	Luca Cavalli <loopback@slackit.org>
-	* gnome-pkgtool Slackbuild
-	* jimmac cursors theme SlackBuild
+  Luca Cavalli <loopback (at) slackit.org>
+    * gnome-pkgtool Slackbuild
+    * Jimmac cursors theme SlackBuild
 
-	Eugene Crosser <crosser@average.org>
-	* Lots of suggestions and fixes
+  Eugene Crosser <crosser (at) average.org>
+    * Lots of suggestions and fixes
 
-	Darren Austin <lists@afterdark.org.uk>
-	* bin/misc/gen_metadata.sh
-	    script to generate PACKAGES.TXT and CHECKSUMS.md5
+  Darren 'Tadgy' Austin <tadgy (at) afterdark.org.uk>
+    * Script to generate PACKAGES.TXT and CHECKSUMS.md5 (gen_metadata.sh)
 
-        Jason Woodward <woodwardj@jaos.org>
-        * slapt-get and gslapt
-        * x86_64 port
+  Jason Woodward <woodwardj (at) jaos.org>
+    * slapt-get and gslapt
+    * x86_64 port
 
-        Thorsten Johannvorderbrueggen <thorsten.johannvorderbrueggen@t-online.de>
-        * powerpc port
+  Thorsten Johannvorderbrueggen <thorsten.johannvorderbrueggen (at) t-online.de>
+    * Powerpc port
