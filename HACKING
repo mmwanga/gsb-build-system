@@ -1,24 +1,39 @@
-THIS DOC IS JUST A ROUGH DRAFT, it is subject to change.
+Notes for hackers
+-----------------
 
+* Before starting to hack it's a good idea to stop by #gsb on irc.freenode.net
+  to discuss the changes or work you'd like to make - we do have plans for the
+  future development of the project, so make sure your changes won't conflict
+  with our plans.
 
-Just a small ammount of rules so that we can keep the sources consistent.
+* Unless you have svn commit access we will require an 'svn diff' of your
+  changes to the tree.  Please use 'svn diff' - we cannot work with the
+  output of a simple 'diff'.  Mail the diff to the gsb-dev mailing list.
 
-1) Before running svn diff:
-   run clean_src.sh from the top level dir ( trunk/ ) so that the ARCH variables
-   and BUILD variables are clean. eg:
-       - The ARCH variable should always look like this in SVN:
-             ARCH=${ARCH:-i486}
-       - The BUILD variable should always be free of alpha characters.
+* Before doing the 'svn diff' run this command from the top level dir (trunk/):
+    bin/clean_src.sh
+  This will clean the BUILD, VERSION and ARCH variables in the SlackBuilds.
 
-2) ARCH specific patches:
-   - Any patches that are specific to an ARCH should be named like this:
-        x86_64.patch_to_fix_this.patch
-        powerpc.some_patch_to_fix_this.patch
+* Patches should have descriptive names, eg: fix-broken-something.patch.
+  If a patch is ARCH specific it should include the architecture it is
+  intended for in the filename.  eg: i586.fix-broken-something.patch.
+  If a patch can be used on multiple architectures (like i586, i686 etc)
+  a symlink should be used from the original filename to each of the arch
+  specific names.
 
-3) Commits should be atomic. So when there is a version update in gsb_update, the 
-   corresponding updates in the src/ tree should be commited at the same time.
-   An example commit would be the following:
-     svn ci bin/gsb_update src/
+* Commits and patches should be atomic.  If a version number update is made
+  to the gsb_update system, the corresponding updates in the src/ tree should
+  be done at the same time.
 
-4) Log messages should be somewhat descriptive for anything other than version
-   updates
+* Commit log messages should be descriptive.
+
+* Keep the VERSIONS file up to date.
+
+* Keep the ChangeLog up to date.
+
+* Credit yourself in CREDITS.
+
+* Don't commit changes to generic.SlackBuild without talking to Tadgy first.
+
+* If you add a new package to the build system please use the
+  generic.SlackBuild, doinst.sh and slack-* files in the scripts/ directory.

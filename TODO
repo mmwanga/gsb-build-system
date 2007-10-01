@@ -1,36 +1,10 @@
+To Do
+-----
 
-TODO:
+Package ideas:
+  * Fonts package
+      http://eyegene.ophthy.med.umich.edu/unicode/fontguide/
+  * mozilla-nss libs for people who do not want mozilla installed
 
-GSB:
-
-	* add a HACKING file with instructions on how to edit
-	  and add things to the source tree
-	* add a --debug option to gsb_update.pl
-
-FRG:
-
-	* fonts package
-		http://eyegene.ophthy.med.umich.edu/unicode/fontguide/
-	* mozilla-nss libs for people who do not want mozilla installed
-	* mozilla plugins: add note to README/INSTALL files
-	* frg-current: move around folders and some files, pygtk and 
-	  gnome-python are needed for hal
-	* rc.gsb, should be added to frg-$VERSION package
-	* check hal rc.d scripts (delay)
-
-WEBSITE:
-
-	* Package browser based on PACKAGES.TXT, and have a
-	  PACKAGES.TXT-$FRG_RELEASE_VERSION
-	  ie. PACKAGES.TXT-0.2.0
-	* USER ASSIGNED SOFTWARE. Page that lists which users
-	  have been assiged to certain packages for testing 
-	  purposes. Maybe have a separate page with a check
-	  list to say that they have tested the package
-	* Add svn tarballs to website
-
-MINIROCK GNOME:
-
-	Cut down version of FREEROCK GNOME
-        Will not replace a single official slackware package
-        Dunno when I'll have any time for this
+Website idead:
+  * Package browser based on PACKAGES.TXT.

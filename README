@@ -1,21 +1,32 @@
+GNOME SlackBuild - GSB
+----------------------
 
-GSB - GNOME SlackBuild
-    - run one script -> out come slackware packages for a
-      GNOME release
+GNOME SlackBuild (GSB) is a build system to produce a GNOME desktop environment
+for Slackware Linux.
 
-http://gsb.sf.net
+The majority of the SlackBuild scripts are the official GNOME SlackBuilds that
+shipped with previous versions of Slackware.  SlackBuilds are (slowly) being
+updated and cleaned up.
 
-The majority of the .SlackBuild scripts are just the official gnome
-.build scripts that ship in the official slackware source tree. There
-are also some .SlackBuilds related to gnome from Slackware included here.
-COPYING.slackware reflects the copyright on those scripts.
+For a lot more info about the project, visit:
+  http://www.gnomeslackbuild.org
 
-The rest are under the COPYING license, although currently under the GPL, I'll
-probably change this to a BSD license like the COPYING.slackware file
+Usage
+-----
+FIXME: This needs to be updated
+
+cd bin/gsb_update
+./gsb_update.pl --dl --edit --build=foo
+cd -
+cd src
+./GSB.SlackBuild
 
 
-USAGE INFO:
+Explanation of gsb_update:
 
-Read the USAGE file
-
+--dl:         downloads all the source tarballs into their own dir
+--edit:       edits the VERSION and BUILD variables in the SlackBuilds to
+              match what was downloaded by --dl
+--build=foo   Appends 'foo' to the end of all BUILD variables. This creates
+              packages with this naming convention: gtk+2-2.7.1-i486-1foo.tgz
 
