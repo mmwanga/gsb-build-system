@@ -149,8 +149,8 @@ else
 fi
 
 ## Configure, build and install
-CFLAGS="$TUNE_CFLAGS $MAKE_FLAGS" \
-CXXFLAGS="$TUNE_CFLAGS $MAKE_FLAGS" \
+CFLAGS="$TUNE_CFLAGS" \
+CXXFLAGS="$TUNE_CFLAGS" \
 ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
@@ -159,8 +159,8 @@ CXXFLAGS="$TUNE_CFLAGS $MAKE_FLAGS" \
   #  --disable-schemas-install --disable-gtk-doc
   #  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source`
   #  --with-gconf-schema-file-dir=/etc/gconf/schemas
-  --fubar &&
-make &&
+  || exit 1
+make $MAKE_FLAGS &&
 make DESTDIR=$PKG install || exit 1
 
 ## Strip debugging symbols
