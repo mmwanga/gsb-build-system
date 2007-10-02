@@ -1,0 +1,10 @@
+ChangeLog
+---------
+
+02/10/07	tadgy		Added lib/gsb lib/perl/GSBv2.
+				Moved template files from scripts/ to lib/gsb/.
+				Updated/edited more documentation.
+
+02/10/07	tadgy		Initial ChangeLog entry.  Please add all
+				changes to this file following this format,
+				with the newest entries at the top :)

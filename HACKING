@@ -35,5 +35,5 @@ Notes for hackers
 
 * Don't commit changes to generic.SlackBuild without talking to Tadgy first.
 
-* If you add a new package to the build system please use the
-  generic.SlackBuild, doinst.sh and slack-* files in the scripts/ directory.
+* If you add a new package to the build system please use the template
+  generic.SlackBuild, doinst.sh and slack-* files in the lib/gsb/ directory.

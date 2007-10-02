@@ -1,48 +1,61 @@
-Developers:
-  See AUTHORS
+Developers
+----------
+chipster                        <chipster (at) gnomeslackbuild.org>
+Darren 'Tadgy' Austin           <tadgy (at) gnomeslackbuild.org>
+fidersratio                     <sk238 (at) exeter.ac.uk>
+malloc                          <woodwardj (at) jaos.org>
 
-Webmaster:
-  chipster <chipster (at) gnomeslackbuild.org>
+Developers emeritus
+-------------------
+Freerock                        <freerock (at) gmail.com>
+Gpl_Source                      <fernando.flores.ortiz (at) gmail.com>
+Thorsten Johannvorderbrueggen   <thorsten.johannvorderbrueggen (at) t-online.de>
 
-Artwork:
-  Gpl_Source <fernando.flores.ortiz (at) gmail.com>
+Webmaster
+---------
+chipster 			<chipster (at) gnomeslackbuild.org>
 
-Contributors:
-  Chris Lewis <burn03 (at) bellsouth.net>
-    * GWARE 02/16/2005
-    * rc.howl and krb5 build scripts
+Artwork
+-------
+Gpl_Source			<fernando.flores.ortiz (at) gmail.com>
 
-  Locustfurnace <IRC>
-    * Screenshots of FRG in action
+Contributors
+------------
+Chris Lewis			<burn03 (at) bellsouth.net>
+  * GWARE 02/16/2005
+  * rc.howl and krb5 build scripts
 
-  Dropline GNOME project
-    * HAL patches and rc.hal script
-    * rc.dbus script
-    * Fix for librsvg doinst.sh to add svg to gdk
+Locustfurnace
+  * Screenshots of FRG in action
 
-  Mark M. Young <mmyoung57 (at) sbcglobal.net>
-    * Screenshots of FRG in action
+Dropline GNOME project
+  * HAL patches and rc.hal script
+  * rc.dbus script
+  * Fix for librsvg doinst.sh to add svg to gdk
 
-  Dan Barber <dan (at) mutagenix.org>
-    * Lots of feedback on scripts
-    * Mutagenix distribution, incorporating GSB
+Mark M. Young			<mmyoung57 (at) sbcglobal.net>
+  * Screenshots of FRG in action
 
-  Thomas "ZlatkO" Zajic <zlatko (at) gmx.at>
-    * Lots of feedback and bugfixes
+Dan Barber			<dan (at) mutagenix.org>
+  * Lots of feedback on scripts
+  * Mutagenix distribution, incorporating GSB
 
-  Luca Cavalli <loopback (at) slackit.org>
-    * gnome-pkgtool Slackbuild
-    * Jimmac cursors theme SlackBuild
+Thomas "ZlatkO" Zajic		<zlatko (at) gmx.at>
+  * Lots of feedback and bugfixes
 
-  Eugene Crosser <crosser (at) average.org>
-    * Lots of suggestions and fixes
+Luca Cavalli			<loopback (at) slackit.org>
+  * gnome-pkgtool Slackbuild
+  * Jimmac cursors theme SlackBuild
 
-  Darren 'Tadgy' Austin <tadgy (at) afterdark.org.uk>
-    * Script to generate PACKAGES.TXT and CHECKSUMS.md5 (gen_metadata.sh)
+Eugene Crosser			<crosser (at) average.org>
+  * Lots of suggestions and fixes
 
-  Jason Woodward <woodwardj (at) jaos.org>
-    * slapt-get and gslapt
-    * x86_64 port
+Darren 'Tadgy' Austin		<tadgy (at) afterdark.org.uk>
+  * Script to generate PACKAGES.TXT and CHECKSUMS.md5 (gen_metadata.sh)
 
-  Thorsten Johannvorderbrueggen <thorsten.johannvorderbrueggen (at) t-online.de>
-    * Powerpc port
+Jason Woodward			<woodwardj (at) jaos.org>
+  * slapt-get and gslapt
+  * x86_64 port
+
+Thorsten Johannvorderbrueggen	<thorsten.johannvorderbrueggen (at) t-online.de>
+  * Powerpc port
