@@ -1,0 +1,14 @@
+## Global Variables for Build Process
+
+## Destination of final .tgz packages
+PKG_DEST=/home/packages
+
+## Architecture target
+ARCH=${ARCH:-x86_64}
+
+## Universal Build Set
+BUILD=${BUILD:-1}
+
+## Distribution Name
+## slackware, slamd64, etc.
+DISTRO=${DISTRO:-slamd64}

@@ -1,0 +1,46 @@
+#!/bin/sh
+
+if [ -r ./gsb.options ]; then
+  . ./gsb.options
+fi
+
+TMP=${TMP:-/tmp}
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+
+# make db.h point to db4/db.h
+(
+  cd /usr/include
+  rm -f db.h
+  ln -s db4/db.h db.h
+)
+
+echo "****************************************************"
+echo "*******      BUILDING GNOME-$GVERSION"
+echo "****************************************************"
+
+
+# BUILD GNOME PLATFORM AND DESKTOP
+# mono ruby - not yet
+for i in libraries gnome extras office
+do
+	echo "****************************************************"
+	echo "*******      BUILDING $i"
+	echo "****************************************************"
+(
+  cd $i
+  ./gsb.$i.SlackBuild
+)
+	echo "****************************************************"
+        echo "*******      FINISHED BUILDING $i"
+        echo "****************************************************"
+done
+
+mkdir -p $TMP/gnome-$GVERSION/logs
+mv $TMP/gnome.*.build.log $TMP/gnome-$GVERSION/logs
+
+echo "****************************************************"
+echo "*******      FINISHED BUILDING GNOME-$GVERSION"
+echo "****************************************************"
