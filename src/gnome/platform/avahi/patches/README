@@ -1,0 +1,6 @@
+Patch Summary
+
+avahi.dbus.patch:
+------------------
+http://lists.freedesktop.org/archives/avahi/2007-August/001113.html
+Patch needed to compile avahi 0.6.21 with D-Bus < 1.1.1
