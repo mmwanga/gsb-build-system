@@ -1,43 +1,95 @@
 #!/bin/sh
-#
-# $Id$
 
-if [ -r ../GSB.options ]; then
-  . ../GSB.options
+##
+## Load Global Defaults
+##
+if [ -r ../gsb.options ]; then
+  . ../gsb.options
 fi
-
 TMP=${TMP:-/tmp}
 
+##
+## Build Directory Structure
+##
 if [ ! -d $TMP ]; then
-  mkdir -p $TMP # location to build the source
+  mkdir -p $TMP;
 fi
 
-mkdir -p $TMP/gnome-$GVERSION/frgnome
-mkdir -p $TMP/gnome-$GVERSION/extras
+####
+#### BUILD ORDER
+####
 
-# fork output to file to log the build
-(
+BUILD_ORDER="
+platform 
+desktop_reqs 
+desktop 
+themes 
+bindings
+"
 
-# BUILD GNOME PLATFORM AND DESKTOP
-for i in platform desktop_reqs desktop themes bindings
-do
-	echo "****************************************************"
-	echo "*******      BUILDING $i"
-	echo "****************************************************"
-(
-  cd $i
-  ./gnome.$i.SlackBuild
-)
-	echo "****************************************************"
-        echo "*******      FINISHED BUILDING $i"
-        echo "****************************************************"
-mkdir -p $TMP/gnome-$GVERSION/frgnome/$i
-mv $TMP/*.tgz $TMP/gnome-$GVERSION/frgnome/$i
+## 
+## TEST MODE
+##
+## I use the -test switch to prevent package installation,
+## rather, only to run a test configure/build/package.
+## Not to be used for proper package preparations.
+
+usage() {
+cat << EOF
+Usage: `basename $0` [options]
+
+Use this script to run a rolling compile of all the packages listed in BUILD_ORDER.
+
+options:      -test (run a test of configure/compile/link/package, without
+                     installing anything.)
+              -help (this tiny help screen)
+
+Current build order: `for i in $BUILD_ORDER; do echo -n $i" "; done;`
+
+EOF
+}
+
+TESTMODE=no
+while [ 0 ]; do
+  if [ "$1" = "-test" ]; then
+    TESTMODE=yes
+    shift 1
+  elif [ "$1" = "-help" ]; then
+    usage;
+    exit;
+  else
+    break
+  fi
 done
 
-# redirect screen output to a log
-) 2>&1 | tee $TMP/gnome.$GVERSION.build.log
 
-echo "****************************************************"
-echo "*******      FINISHED BUILDING GNOME $GVERSION"
-echo "****************************************************"
+##
+## Main Build Loop
+##
+
+(
+
+for i in $BUILD_ORDER
+do
+(
+  cd $i
+  echo ""
+  echo ""
+  echo "*************************************************"
+  echo "            Building $i"
+  echo "*************************************************"
+  echo ""
+  if [ "$TESTMODE" == "no" ]; then
+        ./gnome.$i.SlackBuild || exit 1
+  else
+        ./gnome.$i.SlackBuild -test || exit 1
+  fi;
+)
+done
+
+
+##
+## Fork to Log
+##
+
+) 2>&1 | tee $TMP/gnome.build.log
