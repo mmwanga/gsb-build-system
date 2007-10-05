@@ -13,7 +13,6 @@ REQUIRED_PACKAGES=""
 
 ## Build variables
 ARCH=${ARCH:-i586}
-TUNE=${TUNE:-i686}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP/gsb-packages}
@@ -92,22 +91,22 @@ cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
-  echo "${0##*/}: Applying patches for $ARCH"
+  echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "i486" ]; then
-  echo "${0##*/}: Applying patches for $ARCH"
+  echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "i586" ]; then
-  echo "${0##*/}: Applying patches for $ARCH"
+  echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "i686" ]; then
-  echo "${0##*/}: Applying patches for $ARCH"
+  echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "x86_64" ]; then
-  echo "${0##*/}: Applying patches for $ARCH"
+  echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "powerpc" ]; then
-  echo "${0##*/}: Applying patches for $ARCH"
+  echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
@@ -130,36 +129,35 @@ MAKE_FLAGS=""
 CONFIGURE_FLAGS=""
 
 if [ "$TUNE" = "i386" ]; then
-  TUNE_CFLAGS="$TUNE_FLAGS -O2"
+  GSB_CFLAGS="$TUNE_FLAGS -O2"
 elif [ "$TUNE" = "i486" ]; then
-  TUNE_CFLAGS="$TUNE_FLAGS -O2"
+  GSB_CFLAGS="$TUNE_FLAGS -O2"
 elif [ "$TUNE" = "i586" ]; then
-  TUNE_CFLAGS="$TUNE_FLAGS -O3 -pipe -fomit-frame-pointer -ffast-math"
+  GSB_CFLAGS="$TUNE_FLAGS -O3 -pipe -fomit-frame-pointer -ffast-math"
 elif [ "$TUNE" = "i686" ]; then
-  TUNE_CFLAGS="$TUNE_FLAGS -O3 -pipe -fomit-frame-pointer -ffast-math"
-elif [ "$TUNE" = "x86_64" ]; then
-  TUNE_CFLAGS="$TUNE_FLAGS -O3 -pipe -fomit-frame-pointer -ffast-math -fPIC"
+  GSB_CFLAGS="$TUNE_FLAGS -O3 -pipe -fomit-frame-pointer -ffast-math"
+elif [ "$TUNE" = "k8" -o "opteron" -o "athlon64" -o "athlon-fx" ]; then
+  TUNE_FLAGS="-march=$TUNE -mtune=$TUNE"
+  GSB_CFLAGS="$TUNE_FLAGS -O3 -pipe -fomit-frame-pointer -ffast-math -fPIC"
   MAKE_FLAGS="-j4"
   CONFIGURE_FLAGS="--libdir=/usr/lib64"
 elif [ "$TUNE" = "powerpc" ]; then
-  TUNE_CFLAGS="-O2"
+  GSB_CFLAGS="-O2"
 else
-  echo "${0##*/}: Unknown ARCH type: $ARCH"
-  exit 1
+  GSB_CFLAGS="-O2"
 fi
 
 ## Configure, build and install
-CFLAGS="$TUNE_CFLAGS" \
-CXXFLAGS="$TUNE_CFLAGS" \
+CFLAGS="$GSB_CFLAGS" \
+CXXFLAGS="$GSB_CFLAGS" \
 ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
-  # Add local ./configure options here (and remove ALL these comment lines).
-  # These options may be required for builds that install schemas:
-  #  --disable-schemas-install --disable-gtk-doc
-  #  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source`
-  #  --with-gconf-schema-file-dir=/etc/gconf/schemas
+   ## --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
+   ## --with-gconf-schema-file-dir=/etc/gconf/schemas \
   || exit 1
+
+## Make
 make $MAKE_FLAGS &&
 make DESTDIR=$PKG install || exit 1
 
@@ -203,10 +201,10 @@ chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
     for FILE in *; do
       [ -z "$(grep gconfentry $FILE)" ] && {
         # Create gconf tree
-        echo "GCONF_CONFIG_SOURCE=\"\$\(usr/bin/gconftool-2 --get-default-source\)\" usr/bin/gconftool -2 --makefile-install-rule etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
+        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool -2 --makefile-install-rule etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
       } || {
         # Load gconf settings
-        echo "GCONF_CONFIG_SOURCE=\"\$\(usr/bin/gconftool-2 --get-default-source\)\" usr/bin/gconftool -2 --config-source=\$\(usr/bin/gconftool-2 --get-default-source\) --direct --load etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
+        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool -2 --config-source=\$(usr/bin/gconftool-2 --get-default-source) --direct --load etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
       }
     done
   )
