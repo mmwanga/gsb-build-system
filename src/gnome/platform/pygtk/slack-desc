@@ -5,8 +5,8 @@ pygtk: PyGTK lets you easily create applications with a graphical user
 pygtk: interface using the Python programming language. PyGTK uses the GTK+
 pygtk: toolkit to offer a comprehensive set of graphical elements and other
 pygtk: useful programming facilities, like the handling of internationalized
-pygtk: text (bidirectional text or non-latin gliph sets), first class                                                                         
-pygtk: accesibility support through the Gnome Accessibility Framework (ATK                                                                    
-pygtk: library).                                                                                                                              
-pygtk:                                                                                                                                        
-pygtk:                                       
+pygtk: text (bidirectional text or non-latin gliph sets), first class
+pygtk: accesibility support through the Gnome Accessibility Framework (ATK
+pygtk: library).  
+pygtk:
+pygtk:

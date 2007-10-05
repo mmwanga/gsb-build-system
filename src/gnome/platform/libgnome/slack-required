@@ -1,5 +1,4 @@
 libxslt
-intltool
 gnome-vfs
 esound
 audiofile
@@ -10,6 +9,4 @@ libbonobo
 libxml2
 openssl-solibs | openssl
 ORBit2
-popt
-zlib
 gnome-vfs

@@ -7,8 +7,7 @@ bzip2
 gamin
 glib2
 avahi
-openssl
-openssl-solibs
+openssl | openssl-solibs
 ORBit2
 popt
 zlib
