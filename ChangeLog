@@ -1,10 +1,38 @@
 ChangeLog
 ---------
 
+05-10-2007 	fidesratio      Updated all gnome.platform SlackBuilds to 1.2.
+                		Created patch for avahi+dbus < 1.1.1.  See README in directory.
+				Updated a52dec, faac, faad2, ffmpeg, x264, libdvdcss, libcdio, libcddb SlackBuilds.
+				Added yasm (needed by x264).
+
 02/10/07	tadgy		Added lib/gsb lib/perl/GSBv2.
 				Moved template files from scripts/ to lib/gsb/.
 				Updated/edited more documentation.
+				Centralized Changelog. Please follow this format. 
 
-02/10/07	tadgy		Initial ChangeLog entry.  Please add all
-				changes to this file following this format,
-				with the newest entries at the top :)
+30-09-2007      fidesratio	Added gnome.applications, and split from gnome.desktop.
+				Applied changes to generic.SlackBuild from tadgy (rev. generic.SlackBuild 1.2)
+				Updated a52dec, ffmpeg, xvidcore, faac, faad2, lame.
+                		Updated libcdio, vcdimager, libcddb.
+                		Added libexif, libexif-gtk, libopenraw, libiptcdata, gtkunique to gnome.libraries.
+
+29-09-2007      fidesratio	Updated libgnome, libgnomeui, libbonoboui, libgnomecanvas, gnome-keyring.
+                		Updated pygtk, libdaemon, dbus-python, avahi, gnome-vfs, intltool.
+                		Removed gnome-vfs-monikers.
+                		Added scrollkeeper, gtk-engines, gnome-common to gnome.platform.
+                		Added icon-naming-utils to gnome.platform.
+                		Few small fixes in generic.SlackBuild.
+                		Fixed build hang with parallel builds in ORBit2.
+
+28-09-2007      fidesratio	Updated GConf, gnome-mime-data, pygobject, pyorbit, pycairo
+
+27-09-2007      fidesratio	Updated libbonoboui
+				Added a generic.SlackBuild as a template for other SlackBuilds.
+
+26-09-2007      fidesratio	Changed partial build order for gnome.platform.SlackBuild.
+                		Changed orbit2 to ORBit2.
+                		Created generic.SlackBuild with fuller package build options, variables
+                  		     and consolidated several options found in other SlackBuilds.
+                		Inital trunk for GSB Gnome2.20.x
+
