@@ -3,7 +3,9 @@
 ##
 ## Load Global Defaults
 ##
-. ../../GSB.options
+if [ -r ./gsb.options ]; then
+  . ./gsb.options
+fi
 PKG_DEST=${PKG_DEST:-/home/packages}
 TMP=${TMP:-/tmp}
 
@@ -17,17 +19,12 @@ if [ ! -d $PKG_DEST ]; then
   mkdir -p $PKG_DEST;
 fi
 
-## Packages Removed from Gnome 2.20.x Build Order
-## (Most of these are provided by Slackware 12 now)
-## atk, glitz, cairo, libsvg, libsvg-cairo, gamin, esound
-## dbus, dbus-glib, hal, esound, libart_lgpl, libcap
-## audiofile, libglade, desktop-file-utils, 
-## hicolor-icon-theme
-
 ##
-## Official Build Order for Gnome 2.20.x
+## Below are libraries that are used by many GNOME applications
+## although they are not officially associated with the GNOME
+## project. A good portion are various media libraries, however,
+## others are C-routines, graphics, or system libraries.
 ##
-## http://www.gnome.org/start/2.20/notes/en/rninstallation.html
 
 ####
 #### BUILD ORDER
@@ -40,8 +37,9 @@ xvidcore
 faac
 faad2
 lame
-mpeg4ip
+yasm
 x264
+mpeg4ip
 libcddb
 libcdio
 libdvbpsi4
@@ -123,9 +121,11 @@ do
   echo "            Building $i"
   echo "*************************************************"
   echo ""
-  ./$i.SlackBuild --cleanup || exit 1
   if [ "$TESTMODE" == "no" ]; then
-	upgradepkg --install-new $PKG_DEST/$i*.tgz
+        ./$i.SlackBuild || exit 1
+        upgradepkg --install-new $PKG_DEST/$i*.tgz
+  else
+        ./$i.SlackBuild -force || exit 1
   fi;
 )
 done
@@ -135,4 +135,4 @@ done
 ## Fork to Log
 ##
 
-) 2>&1 | tee $TMP/gnome.platform.build.log
+) 2>&1 | tee $TMP/gsb.libraries.build.log
