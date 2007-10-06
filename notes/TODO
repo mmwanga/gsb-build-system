@@ -1,3 +1,11 @@
+Package ideas:
+  * Fonts package
+      http://eyegene.ophthy.med.umich.edu/unicode/fontguide/
+  * mozilla-nss libs for people who do not want mozilla installed
+
+Website idead:
+  * Package browser based on PACKAGES.TXT.
+
 * make sure to change the db.h symlink to db4
 * add --cleanup to GSB.SlackBuild as an arg so that users with limited disk
   space can build GSB without leaving around the package-foo and source dirs
