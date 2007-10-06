@@ -1,6 +1,6 @@
-arts
-glib
-gtk+
+libjpeg
+libdv
+libquicktime
+glib2
+sdl
 libpng
-x11
-zlib

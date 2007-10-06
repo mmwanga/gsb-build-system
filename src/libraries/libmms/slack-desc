@@ -1,11 +1,11 @@
       |-----handy-ruler------------------------------------------------------|
 libmms: libmms (Microsoft streaming protocol parser library)
 libmms:
-libmms: LibMMS aims to be common mms:// and mmsh:// (Microsoft streaming
-libmms: protocols) parsing library, licensed on LGPL, and thus usable by many
-libmms: projects that don't use GPL.
-libmms:
-libmms:
+libmms: LibMMS is common library for parsing mms:// and mmsh:// type network
+libmms: streams. These are commonly used to stream Windows Media Video content
+libmms: over the web. LibMMS itself is only for receiving MMS stream, it
+libmms: doesn't handle sending at all. If you need streaming functionality,
+libmms: look for other protocol, such as RT(S)P.
 libmms:
 libmms:
 libmms:

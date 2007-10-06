@@ -1,36 +1,25 @@
 #!/bin/sh
 
 ##
-## Load Global Defaults
-##
-if [ -r ./gsb.options ]; then
-  . ./gsb.options
-fi
-PKG_DEST=${PKG_DEST:-/home/packages}
-TMP=${TMP:-/tmp}
-
-##
 ## Build Directory Structure
 ##
 if [ ! -d $TMP ]; then
   mkdir -p $TMP;
 fi
-if [ ! -d $PKG_DEST ]; then
-  mkdir -p $PKG_DEST;
-fi
 
 ##
-## Below are libraries that are used by many GNOME applications
-## although they are not officially associated with the GNOME
-## project. A good portion are various media libraries, however,
-## others are C-routines, graphics, or system libraries.
-##
+## Below are libraries and applications that are used by many GNOME applications
+## although they are not officially associated with the GNOME project. A good 
+## portion are various media libraries, however, others are C-routines, graphics, 
+## or system libraries.
 
 ####
 #### BUILD ORDER
 ####
 
 BUILD_ORDER="
+liboil
+libnotify
 a52dec
 ffmpeg
 xvidcore
@@ -39,20 +28,19 @@ faad2
 lame
 yasm
 x264
-mpeg4ip
 libcddb
 libcdio
 libdvbpsi4
 libdvdcss
 libdvdread
-libdvdnav
 libebml
 libmatroska
 libmms
 libsndfile
-libquicktime
 libdv
+libquicktime
 mpeg2dec
+mpeg4ip
 mjpegtools
 libmpcdec
 transcode
@@ -65,8 +53,6 @@ libiptcdata
 gtkunique
 opal
 pwlib
-liboil
-libnotify
 "
 
 ## 

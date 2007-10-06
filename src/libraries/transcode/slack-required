@@ -4,3 +4,10 @@ x11
 zlib
 imagemagick
 lcms
+a52dec
+ffmpeg
+libogg
+libtheora
+libvorbis
+freetype2
+libquicktime

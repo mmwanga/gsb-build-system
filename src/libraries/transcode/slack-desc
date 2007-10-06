@@ -1,12 +1,12 @@
          |-----handy-ruler------------------------------------------------------|
 transcode: transcode (Video stream processor)
 transcode:
-transcode: transcode is a linux text-console utility for video stream
-transcode: processing, running on a platform that supports shared libraries
-transcode: and threads.
+transcode: Transcode is a suite of command line utilities for transcoding video 
+transcode: and audio codecs, and for converting beween different container formats. 
+transcode: Transcode can decode and encode many audio and video formats, e.g.
+transcode:     * MPEG-1/2
+transcode:     * MPEG-4(-part 3) (also DivX and XviD variants)
+transcode:     * Quicktime / MPEG-PS (dvd) (decode only)
+transcode:     * MPEG-1-layer-1/2/3 audio and many others
 transcode:
-transcode:
-transcode:
-transcode:
-transcode:
-transcode:
+transcode: http://www.transcoding.org

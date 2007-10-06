@@ -1,12 +1,12 @@
            |-----handy-ruler------------------------------------------------------|
-libmatroska: libmatroska (Library for the mka video format)
+libmatroska: libmatroska (Library open standard Audio/Video container)
 libmatroska:
-libmatroska: A open source container format, needed to play .mka video files.
+libmatroska: Matroska aims to become THE standard of multimedia container formats. 
+libmatroska: It was derived from a project called MCF, but differentiates from it 
+libmatroska: significantly because it is based on EBML (Extensible Binary Meta 
+libmatroska: Language), a binary derivative of XML. EBML enables the Matroska 
+libmatroska: Development Team to gain significant advantages in terms of future 
+libmatroska: format extensibility, without breaking file support in old parsers.
 libmatroska:
-libmatroska:
-libmatroska:
-libmatroska:
-libmatroska:
-libmatroska:
-libmatroska:
+libmatroska: http://www.matroska.org
 libmatroska:

@@ -1,12 +1,12 @@
             |-----handy-ruler------------------------------------------------------|
 libquicktime: libquicktime (Library for reading/writing quicktime files)
 libquicktime:
-libquicktime: a library for reading and writing quicktime files
-libquicktime:
-libquicktime:
-libquicktime:
-libquicktime:
-libquicktime:
-libquicktime:
-libquicktime:
-libquicktime:
+libquicktime: This is the home of libquicktime, a library for reading and writing
+libquicktime: quicktime/avi/mp4 files. It provides convenient access to quicktime 
+libquicktime: files with a variety of supported codecs.  The goal is to have a 
+libquicktime: simple and stable library, which can create reasonable compatible 
+libquicktime: Quicktime and AVI files either uncompressed (for high-end or production 
+libquicktime: applications) or with decent compression codecs for end user applications. 
+libquicktime: Today, we write Quicktime files with a wide range of uncompressed codecs 
+libquicktime: for professional use. Together with sample accurate seeking, this makes 
+libquicktime: libquicktime the library of choice for editing applications.
