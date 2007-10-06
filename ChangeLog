@@ -412,6 +412,3 @@
 
 	Renamed from gnome.*.SlackBuild -> gsb.*.SlackBuild.  Helps keep things clearer.
 
-;; Local Variables:
-;; coding: utf-8
-;; End:
