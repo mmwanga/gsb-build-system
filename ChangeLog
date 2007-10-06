@@ -41,6 +41,11 @@ ChangeLog
 	             vcdimager, libcddb. 
 				 Added libexif, libexif-gtk, libopenraw, libiptcdata, gtkunique to 
 				 gnome.libraries.
+    * gnome.desktop: gnome-desktop gnome-menus libwnck libsoup 
+                     evolution-data-server gnome-python gstreamer gst-plugins-base 
+                     gst-plugins-good gnome-panel gnome-terminal libgtop gnome-applets 
+                     libxklavier libgnomekdb libgnomecups libgnomeprint libgnomeprintui 
+                     libgtkhtml nautilus
 
 29-09-2007  fidesratio	<sk238(at)ex.ac.uk>
 
@@ -50,6 +55,7 @@ ChangeLog
 					  scrollkeeper, gtk-engines, gnome-common, icon-naming-utils.
                       Fixed build hang with parallel builds in ORBit2.
     * generic.SlackBuild: Few small fixes in generic.SlackBuild.
+    * gnome.desktop: Start revamp for gnome.desktop GNOME 2.20.
 
 28-09-2007  fidesratio	<sk238(at)ex.ac.uk>
 
