@@ -1,1 +1,4 @@
-openldap | openldap-client
+openssl
+expat
+sdl
+openldap

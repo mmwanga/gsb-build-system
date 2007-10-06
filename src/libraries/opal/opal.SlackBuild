@@ -1,113 +1,365 @@
 #!/bin/sh
 
+if [ `whoami` != "root" ]; then
+  echo "Need to run build script as root."
+  exit 1;
+fi;
+
+## Package defines
+PACKAGE=`basename $0 .SlackBuild`
+BUILD=1
+FORM=tar.gz
+ARCH=${ARCH:-x86_64_slamd64}
+BUILT_LOCATION=/home/packages/gnome
+
+## System defines
 CWD=`pwd`
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-opal
+PKG=$TMP/package-$PACKAGE
 
-VERSION=2.2.3
-ARCH=${ARCH:-i486}
-BUILD=1
+# Server stuff
+SERVER_NAME=${SERVER_NAME:-http://www.ekiga.org}
+DIR_PATH=${DIR_PATH:-/admin/downloads/latest/sources/sources/}
+INET_TIMEOUT=5
+WGET_OPTIONS="-c --timeout $INET_TIMEOUT -t 5 -w 10"
 
-if [ -f /var/log/packages/opal-$VERSION-$ARCH-$BUILD ]; then
-  echo "opal-$VERSION-$ARCH-$BUILD package already installed"
-  exit 0
-fi
+# Build script defaults
+MIDPAUSE=yes
+INSTALL_PACKAGE=no
+QUIET=no
+MD5CHECK=yes
+if [ -f $CWD/version -a -s $CWD/version ]; then
+	VERSION=`cat $CWD/version`;
+	SKIPVER=yes
+else
+	SKIPVER=no
+fi;
+LOG=$CWD/$PACKAGE.build.log
 
-if [ ! -d $TMP ]; then
-  mkdir -p $TMP # location to build the source
-fi
-rm -rf $PKG
-mkdir -p $PKG
+# Some basic help
+usage() {
+cat << EOF
+options:      -help (this list)
+              -install (install package after building. default:no )
+	      -quiet (put all configure/make -j4 output to a log)
+	      -nomd5 (use this if there are no md5 checksums available)
+	      -skipver (skip the "LATEST" detect)
+	      -setbuild (set a specific build number)
+              -nopause (do not pause after building.  default: yes
+                        this allows an opportunity to double check the 
+                        install directories before creating the 
+                        package)
 
-if [ "$ARCH" = "i386" ]; then
-  SLKCFLAGS="-O2 -march=i386 -mtune=i686"
-  ARCH_CONFIGURE=""
-elif [ "$ARCH" = "i486" ]; then
-  SLKCFLAGS="-O2 -march=i486 -mtune=i686"
-  ARCH_CONFIGURE=""
-elif [ "$ARCH" = "s390" ]; then
-  SLKCFLAGS="-O2"
-  ARCH_CONFIGURE=""
-elif [ "$ARCH" = "powerpc" ]; then
-  SLKCFLAGS="-O2"
-  ARCH_CONFIGURE=""
-elif [ "$ARCH" = "x86_64" ]; then
-  SLKCFLAGS="-O2 -fPIC"
-  ARCH_CONFIGURE="--libdir=/usr/lib64"
-fi
+EOF
+}
 
-cd $TMP
-tar -xzvf $CWD/opal-$VERSION.tar.gz
-cd opal-$VERSION
-
-# Apply $ARCH specific patches
-if [ "$ARCH" = "i386" ]; then
-  echo "Applying patches for $ARCH"
-  #cat $CWD/foo.patch | patch -p0 --verbose
-elif [ "$ARCH" = "i486" ]; then
-  echo "Applying patches for $ARCH"
-  #cat $CWD/foo.patch | patch -p0 --verbose
-elif [ "$ARCH" = "s390" ]; then
-  echo "Applying patches for $ARCH"
-  #cat $CWD/foo.patch | patch -p0 --verbose
-elif [ "$ARCH" = "powerpc" ]; then
-  echo "Applying patches for $ARCH"
-  #cat $CWD/foo.patch | patch -p0 --verbose
-elif [ "$ARCH" = "x86_64" ]; then
-  echo "Applying patches for $ARCH"
-  #cat $CWD/foo.patch | patch -p0 --verbose
-fi
-
-CFLAGS="$SLKCFLAGS" \
-./configure --prefix=/usr \
-            --sysconfdir=/etc \
-            --localstatedir=/var/lib \
-            --disable-static \
-            $ARCH_CONFIGURE \
-            $ARCH-slackware-linux || exit 1
-make || exit 1
-make install DESTDIR=$PKG
-
-SCHEMAS=$PKG/etc/gconf/schemas
-for i in $SCHEMAS/*.schemas
-do
-GCONF_CONFIG_SOURCE="xml::$PKG/etc/gconf/gconf.xml.defaults" \
-        gconftool-2 --makefile-install-rule $i
+# Check variables
+while [ 0 ]; do
+  if [ "$1" = "-nopause" ]; then
+    MIDPAUSE=no
+    shift 1
+  elif [ "$1" = "-install" ]; then
+    INSTALL_PACKAGE=yes
+    shift 1
+  elif [ "$1" = "-nomd5" ]; then
+    MD5CHECK=no
+    shift 1
+  elif [ "$1" = "-skipver" ]; then
+    SKIPVER="yes"
+    shift 1
+  elif [ "$1" = "-quiet" ]; then
+    QUIET="yes"
+    shift 1
+  elif [ "$1" = "-setbuild" ]; then
+	  shift 1
+	  BUILD=$1
+	  if [ -z $BUILD ]; then
+		  echo "Need to supply a build number."
+		  exit 1;
+          else
+		  echo "Setting build manually to $ARCH-$BUILD."
+	  fi;
+	  shift 1;
+  elif [ "$1" = "-help" ]; then
+    usage;
+    exit;
+  else
+    break
+  fi
 done
 
-(
-  cd $PKG/etc/gconf/gconf.xml.defaults
-  find ./ -type d -exec chmod go+rx {} \;
-  find ./ -type f -exec chmod go+r {} \;
-)
+echo "*************************************************"
+echo "      Building $PACKAGE-$ARCH-$BUILD"
+echo "*************************************************"
+echo "Autoinstall: $INSTALL_PACKAGE"
+echo "Pause: $MIDPAUSE"
+if [ "$QUIET" = "yes" ]; then 
+	echo "Quiet: Logging to $CWD/$PACKAGE.build.log"; 
+fi;
+if [ "$SKIPVER" = "yes" ]; then 
+	echo "Version set manually to $VERSION."; 
+fi;
+if [ "$MD5CHECK" = "no" ]; then 
+	echo "Skipping MD5 Checks."; 
+fi;
 
-chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
+echo
+## Discover latest package
+if [ "$SKIPVER" = "no" ]; then
+	echo -n "Running ncftp to find latest version of $PACKAGE: "
+	LATEST=`ncftpls -t $INET_TIMEOUT ${SERVER_NAME}/${DIR_PATH}/ | grep LATEST | sed -e 's/\@//g' | cut -f3 -d\-`
+	if [ $? != 0 ]; then
+		echo "Problem getting directory listing."
+		exit 1;
+	fi;
+	VERSION=$LATEST
+fi;
 
-mkdir -p $PKG/usr/doc/opal-$VERSION
+if [ -z $LATEST ]; then
+	if [ -z $VERSION ]; then
+		echo "Can't figure out what version to use."
+		echo "You may have to set \$VERSION manually by creating a version file."
+		exit 1;
+	else
+		echo "There is no soft link indicating latest version on the server.  Using version set as $VERSION."
+	fi;
+fi;
+
+echo "Latest version is $VERSION."
+
+if [ "$MD5CHECK" = "no" ]; then
+	if [ -f $CWD/$PACKAGE-$VERSION.${FORM} ]; then
+		echo "We have the latest file."
+	else
+               	echo "Downloading latest source."
+               	wget $WGET_OPTIONS ${SERVER_NAME}${DIR_PATH}${PACKAGE}-${VERSION}.${FORM}
+	fi;
+else
+	if [ -f $CWD/${PACKAGE}-${VERSION}.${FORM} -a -f $CWD/${PACKAGE}-${VERSION}.md5sum ]; then
+		echo "We have the latest version of the source and checksums."
+	else
+               	echo "Downloading latest source and checksums."
+		wget $WGET_OPTIONS ${SERVER_NAME}${DIR_PATH}${PACKAGE}-${VERSION}.${FORM}
+		wget $WGET_OPTIONS ${SERVER_NAME}${DIR_PATH}${PACKAGE}-${VERSION}.md5sum
+	fi;
+fi;
+
+if [ "$MD5CHECK" = "yes" ]; then
+
+	if [ -f $CWD/$PACKAGE-$VERSION.${FORM} -a -f $CWD/$PACKAGE-$VERSION.md5sum ]; then
+        	echo "Running md5sum."
+        	cat  $CWD/$PACKAGE-$VERSION.md5sum | grep bz2 | md5sum -c - 
+        	if [ $? != 0 ]; then
+                	echo "Checksums failed."
+                	exit 1;
+        	fi;
+	else
+		echo "Files are missing."
+		exit 1;
+	fi;        
+fi;
+## Let's start making packages!
+##
+
+if [ -f /var/log/packages/$PACKAGE-$VERSION-$ARCH-$BUILD ]; then
+	echo
+  	echo "$PACKAGE-$VERSION-$ARCH-$BUILD package already installed"
+  	exit 0
+fi
+
+echo "Cleaning temporary space for build."
+mkdir -p $TMP # location to build the source
+rm -rf $PKG
+rm -fr $TMP/$PACKAGE-$VERSION
+mkdir -p $PKG # location for built binaries
+
+cd $TMP 
+echo "Extracing source tarball."
+if [ $FORM = "tar.bz2" ]; then
+        TAR_CMD="xfj"
+elif [ $FORM = "tar.gz" -o $FORM = "tgz" ]; then
+        TAR_CMD="xfz"
+fi; 
+
+tar $TAR_CMD $CWD/$PACKAGE-$VERSION.${FORM}
+if [ $? != 0 ]; then
+	echo "Tar extract failed.  Incomplete file?  Perhaps delete the tarball and try again."
+	exit 1;
+fi;
+
+cd $PACKAGE-$VERSION
+
+echo "Changing ownerships."
+chown -R root.root .
+find . -perm 666 -exec chmod 644 {} \;
+find . -perm 664 -exec chmod 644 {} \;
+
+# prebuild custom scripts
+if [ -x $CWD/prebuild.sh ]; then
+	. $CWD/prebuild.sh
+fi;
+
+run_configure() {
+echo "Running configure."
+CFLAGS="-O3 -fPIC -w" \
+./configure --prefix=/usr \
+            --sysconfdir=/etc \
+            --libdir=/usr/lib64 \
+            --localstatedir=/var/lib \
+	    --enable-shared \
+            --disable-static \
+	    --libexecdir=/usr/bin
+
+if [ $? != 0 ]; then
+	echo "Error running configure."
+	exit 1;
+fi;
+}
+
+
+if [ "$QUIET" = "yes" ]; then
+	run_configure > $LOG
+	## Run make
+	echo "Building."
+	make -j4 2>&1 >> $LOG 
+		if [ $? != 0 ];then
+			echo "Erroring running make."
+			exit 1;
+		fi;
+	make -j4 install DESTDIR=$PKG 2>&1 >> $LOG
+		if [ $? != 0 ];then
+			echo "Erroring running make."
+			exit 1;
+		fi;
+else
+	run_configure;
+	echo "Building."
+	make -j4 
+		if [ $? != 0 ];then
+			echo "Erroring running make."
+			exit 1;
+		fi;
+	make -j4 install DESTDIR=$PKG 
+		if [ $? != 0 ];then
+			echo "Erroring running make."
+			exit 1;
+		fi;
+
+fi;
+
+# Keep clean for scrollkeeper
+echo "Removing var..."
+rm -rf $PKG/var
+
+# Strangely, some install commands forget to set the
+# proper permissions
+echo "Fixing libraries in lib64..."
+chmod 755 $PKG/usr/lib64/*.la*
+chmod 755 $PKG/usr/lib64/*.so*
+
+# Run a custom script if you want for other
+# major tweaks (like fixing broken man pages, etc.
+if [ -x $CWD/custom.sh ]; then
+	echo "Running custom script..."
+	. $CWD/custom.sh
+fi;
+
+# Write schema install script if schemas exist
+# for post install , see below for doinst.sh
+if [ -d $PKG/etc/gconf/schemas ];
+then
+	echo "Schemas found. Writing installation script."
+	rm -f $CWD/schemainst.sh
+	( cd $PKG/etc/gconf/schemas;
+	for i in *;
+	do
+		if [ -z "`grep gconfentry $i`" ]; then
+			echo "echo \"Installing schema: $i\"" >> $CWD/schemainst.sh
+			echo "GCONF_CONFIG_SOURCE=\"\" /usr/bin/gconftool-2 --makefile-install-rule /etc/gconf/schemas/$i 2>&1 > /dev/null" >> $CWD/schemainst.sh
+		else
+			echo "echo \"Loading default schema: $i\"" >> $CWD/schemainst.sh
+			echo "GCONF_CONFIG_SOURCE=\"\" /usr/bin/gconftool-2 --load /etc/gconf/schemas/$i 2>&1 > /dev/null" >> $CWD/schemainst.sh
+		fi;
+	done;
+	)
+fi;
+
+# Some extraneous and generic documentation
+echo "Documentation."
+mkdir -p $PKG/usr/doc/$PACKAGE-$VERSION
 cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README \
-        TODO \
-        $PKG/usr/doc/opal-$VERSION
-find $PKG/usr/doc/opal-$VERSION/ -type f -exec chmod 644 {} \;
-chown root.root $PKG/usr/doc/opal-$VERSION/*
+  $PKG/usr/doc/$PACKAGE-$VERSION > /dev/null
 
-# strip:
+# Proper permissions
+echo "Fixing permissions."
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr
+
+# Compress the man pages
+echo "Compressing man pages."
+if [ -d $PKG/usr/man ]; then 
+  gzip -9 $PKG/usr/man/*/*; 
+fi;
+if [ -d $PKG/usr/share/man ]; then 
+  gzip -9 $PKG/usr/share/man/*/*; 
+fi;
+if [ -d $PKG/usr/info ]; then 
+  gzip -9 $PKG/usr/info/*; 
+fi;
+
+# Strip debugging information
+echo "Stripping debug information."
 ( cd $PKG
   find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
   find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
 )
 
-gzip -9 $PKG/usr/man/*/*
-gzip -9 $PKG/usr/info/*
+echo "Checking for broken soft links..."
+/home/stevek/devel/sk/linkcheck.pl $PKG
 
+# Slackware package info
+echo "Slackware package description and required files."
 mkdir -p $PKG/install
-cat $CWD/slack-required > $PKG/install/slack-required
-cat $CWD/slack-desc > $PKG/install/slack-desc
+if [ -e $CWD/slack-required ]; then
+	cat $CWD/slack-required > $PKG/install/slack-required
+fi;
+if [ -e $CWD/slack-desc ]; then
+	cat $CWD/slack-desc > $PKG/install/slack-desc
+fi;
+if [ -e $CWD/doinst.sh ]; then
+	if [ -f $CWD/schemainst.sh ]; then
+		cat $CWD/schemainst.sh > $PKG/install/doinst.sh
+	fi;
+	cat $CWD/doinst.sh >> $PKG/install/doinst.sh
+fi;
 
+# Any tweaks here
+if [ "$MIDPAUSE" = "yes" ]; then
+	echo
+	echo "PAUSE REQUESTED"
+	echo
+        echo "Make any additions to $PKG before pressing enter to"
+        echo "continue building packages."
+        read
+fi;
+
+# Make package
 cd $PKG
-makepkg -l y -c n $TMP/opal-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/$PACKAGE-$VERSION-$ARCH-$BUILD.tgz
+if [ "$INSTALL_PACKAGE" = "yes" ]; then
+	echo
+	echo "AUTOINSTALL REQUESTED"
+	echo
+	echo
+	upgradepkg --reinstall --install-new $TMP/$PACKAGE-$VERSION-$ARCH-$BUILD.tgz
+fi;
 
-# Clean up the extra stuff:
-if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/opal-$VERSION
-  rm -rf $PKG
-fi
+echo
+echo "**** Moving package to $BUILT_LOCATION. ****"
+echo
+mkdir -p $BUILT_LOCATION
+mv $TMP/$PACKAGE-$VERSION-$ARCH-$BUILD.tgz $BUILT_LOCATION
+
+# Clean up
+echo "Cleaning up."
+rm -fr $TMP/$PACKAGE-$VERSION
+rm -fr $PKG
