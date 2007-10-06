@@ -1,8 +1,72 @@
+2007-10-06  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	poop
+
+2007-10-06  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	maybe this won't work :-/
+
+2007-10-06  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	this is getting old
+
+2007-10-06  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	blah
+
+2007-10-06  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	baz
+
+2007-10-06  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	ph00
+
+2007-10-06  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	*wink*
+
+2007-10-06  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	ChangeLog update
+
+2007-10-06  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	more tests
+
 2007-10-06  tadgy
 
 	Moved the contents of the top level TODO into notes/TODO.
 	Cleaned up ChangeLog.
 	A Couple of changes to HACKING.
+
+2007-10-06  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	test
+
+2007-10-06  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	GNU-ification
+
+2007-10-06  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	ChangeLog_proposed:
+	*  Testing
+
+2007-10-06  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	ChangeLog_Proposed:
+	*  It worked!
+
+2007-10-06  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	ChangeLog_proposed:
+	*  I'm proposing that we simply automate the ChangeLog by using the log
+	   entires when ci'ing code.  By Entering the changes like so, the ChangeLog
+	   will automagically get GNU-ified by my hatckery.
+	Foo:
+	*  This file doesn't exist, it's just a sample change entry to "Foo"
+	*  And so is this.
 
 2007-10-06  fidesratio
 
@@ -63,6 +127,10 @@
 2007-10-06  fidesratio
 
 	Update SlackBuilds 1.3.
+
+2007-10-06  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Guys, read the ChangeLog pls. ;)
 
 2007-10-06  fidesratio
 
@@ -266,7 +334,7 @@
 
 	Split off from desktop some applications into a new gnome/applications directory.
 
-2007-09-30  Chip Cuccio <chipster(???)gnomeslackbuild.org>
+2007-09-30  Chip Cuccio <chipster@gnomeslackbuild.org>
 
 	Sitemap config update
 
@@ -375,40 +443,4 @@
 2007-09-30  fidesratio
 
 	xvidcore slackbuild updates, new slack-desc.
-
-2007-09-30  fidesratio
-
-	Added build x264 build script, desc, and required.
-
-2007-09-30  fidesratio
-
-	Added x264.
-
-2007-09-30  fidesratio
-
-	svn fixes.
-
-2007-09-30  fidesratio
-
-	ffmpeg SlackBuild update
-
-2007-09-30  fidesratio
-
-	Added quick README for svn external definition.
-
-2007-09-30  fidesratio
-
-	Rename.  Too many ffmpegs.
-
-2007-09-30  fidesratio
-
-	ffmpeg externals
-
-2007-09-30  fidesratio
-
-	a52dec new SlackBuild and version bump.
-
-2007-09-30  fidesratio
-
-	Renamed from gnome.*.SlackBuild -> gsb.*.SlackBuild.  Helps keep things clearer.
 
