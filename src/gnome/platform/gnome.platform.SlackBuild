@@ -120,4 +120,4 @@ done
 ## Fork to Log
 ##
 
-) 2>&1 | tee $TMP/gsb.libraries.build.log
+) 2>&1 | tee $TMP/gnome.platform.build.log
