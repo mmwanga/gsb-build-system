@@ -1,0 +1,12 @@
+       |-----handy-ruler------------------------------------------------------|
+liboobs: liboobs (System-Tools Libraries)
+liboobs:
+liboobs: Liboobs is a wrapping library to the System Tools Backends, it will 
+liboobs: provide easy to access GObjects to system configuration details, like 
+liboobs: users, groups and network interfaces, it will handle sessions with 
+liboobs: the backend and data consistency
+liboobs:
+liboobs:
+liboobs:
+liboobs:
+liboobs:

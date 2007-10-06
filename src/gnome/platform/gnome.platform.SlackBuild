@@ -41,6 +41,8 @@ pygtk
 dbus-python
 libdaemon
 avahi
+system-tools-backends
+liboobs
 gnome-vfs
 libgnome
 libgnomecanvas
