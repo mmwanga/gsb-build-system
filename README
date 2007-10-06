@@ -44,12 +44,22 @@ TUNE:      TUNE should be set to : ${TUNE:-i586} in the SlackBuilds.  The defaul
            a specific tuning for the compiler.  It is required for any x86_64 architectures.
            
 GSB_CFLAGS: These are the compiler options for building each package.  
-           The following are the defaults for each platform:
+            The following are the defaults for each platform:
+
+             unknown or undefined: "-O2"
+
+             powerpc: "-O2"
+
              i386: "-O2 -march"
+
              i486: "-O2 -march=i486 -mtune=i486"
+
              i586 (default platform): 
                        "-O3 -pipe -fomit-frame-pointer -ffast-math -march=i586 -mtune=i586"
-             i686: "-O3 -pipe -fomit-frame-pointer -ffast-math -march=i686 -mtune=i686"
+
+             i686: 
+                   "-O3 -pipe -fomit-frame-pointer -ffast-math -march=i686 -mtune=i686"
+
              x86_64: 
                    "-O3 -pipe -fomit-frame-pointer -ffast-math -fPIC -march=$TUNE -mtune=$TUNE"
                    Note: $TUNE must be specified for either an Intel or AMD 64-bit processor.

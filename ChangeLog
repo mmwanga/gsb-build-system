@@ -1,6 +1,9 @@
 ChangeLog
 ---------
 
+06-10-2007	fidesratio	Modified and (improved?) the GSB_CFLAGS/tuning in generic.SlackBuild. (1.3)
+                                Updated all gnome.platform SlackBuilds to 1.3.
+                                
 05-10-2007 	fidesratio      Updated all gnome.platform SlackBuilds to 1.2.
                 		Created patch for avahi+dbus < 1.1.1.  See README in directory.
 				Updated a52dec, faac, faad2, ffmpeg, x264, libdvdcss, libcdio, libcddb SlackBuilds.
