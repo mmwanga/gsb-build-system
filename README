@@ -11,22 +11,100 @@ updated and cleaned up.
 For a lot more info about the project, visit:
   http://www.gnomeslackbuild.org
 
-Usage
------
-FIXME: This needs to be updated
+Downloading the Source Files
+-----------------------------
 
-cd bin/gsb_update
-./gsb_update.pl --dl --edit --build=foo
-cd -
-cd src
-./GSB.SlackBuild
+FIXME: Tadgy needs to insert his stuff here.  :)
+
+Build Options
+-------------
+
+Here are a few environment options you can set if you wish to tweak the 
+build process for GNOME SlackBuild.
+
+TMP:       Temporary directory for unpacking, configuring and building each package.
+           Make sure this directory has sufficient space.  By default, each package will
+           remove any temporary files after the package has been completely built, unless
+           the -no-cleanup option is passed (See below.)  After each package is complete,
+           the build scripts will move them to PKG_DEST (which will be created in TMP, unless
+           otherwise specified.)
+
+PKG_DEST:  Destination of built and ready .tgz Slackware packages.  By default,
+           PKGDEST should be set to: ${PKGDEST:-$TMP/gsb-packages} in the SlackBuilds. 
+           Export it to the environment if you don't like the default.
+
+ARCH:      ARCH should be set to: ${ARCH:-i586} in the SlackBuilds.  The default (i586) 
+           should only be over-ridden by an explicitly set environment variable.  This
+           is the target architecture for GSB.  Other options may be useful for others
+           who are building for other platforms, such as athlon64, k8, i486, etc.  See
+           the gcc manual for more information on -march.
+
+TUNE:      TUNE should be set to : ${TUNE:-i586} in the SlackBuilds.  The default (i586)
+           should only be over-ridden by an explicitlu set environment variable.  This is
+           a specific tuning for the compiler.  It is required for any x86_64 architectures.
+           
+GSB_CFLAGS: These are the compiler options for building each package.  
+           The following are the defaults for each platform:
+             i386: "-O2 -march"
+             i486: "-O2 -march=i486 -mtune=i486"
+             i586 (default platform): 
+                       "-O3 -pipe -fomit-frame-pointer -ffast-math -march=i586 -mtune=i586"
+             i686: "-O3 -pipe -fomit-frame-pointer -ffast-math -march=i686 -mtune=i686"
+             x86_64: 
+                   "-O3 -pipe -fomit-frame-pointer -ffast-math -fPIC -march=$TUNE -mtune=$TUNE"
+                   Note: $TUNE must be specified for either an Intel or AMD 64-bit processor.
+                   See gcc manual for tuning options.  For example, TUNE=athlon64, k8, opteron,
+                   nocona, etc. 
+
+           If you want to set your own specific compiler flags, set the GSB_FLAGS environment
+           variable.  Also, if you want to add to the default GSB_CFLAGS, set the 
+           CFLAGS environment variable, and it will be appeneded to the GSB_CFLAGS.
+
+CFLAGS:    CFLAGS is appended onto the GSB_CFLAGS variable.  ** Note ** Gcc will use 
+           the last argument in the string if multiples of the same argument are passed.
+           For example, gcc -O3 -O1, gcc will only use -O1.  Therefore, if you set the
+           CFLAGS, you can override settings found in GSB_CFLAGS.
+
+DISTRO:    DISTRO should be set to: ${DISTRO:-slackware} in the SlackBuilds. GNOME 
+           SlackBuild is designed to be used with Slackware, however, other 
+           Slackware-based distributions may be able to use GSB to build GNOME for 
+           their platform. Out of the box GSB will build correctly for Slackware 
+           and a 32bit x86 arch.  If you want something else, set the environment 
+           variables. For example, you may want to specify slamd64 if you are building
+           for that slackware-based distribution.
+
+SlackBuild Options
+------------------
+
+Explanation of SlackBuild options.
+
+Options:  -force        The package will not be built if a package of the same
+                        name is already installed, or any of the packages
+                        required to build are missing.  This option over-rides
+                        these checks and attempts a build anyway.
 
 
-Explanation of gsb_update:
+                        * It is generally a bad idea to rebuild a package once it
+                          is already installed, and by default, the SlackBuild script
+                          will not run if it finds a package by the same name already
+                          installed.  Using -force skips these checks and runs the 
+                          build anyway.
 
---dl:         downloads all the source tarballs into their own dir
---edit:       edits the VERSION and BUILD variables in the SlackBuilds to
-              match what was downloaded by --dl
---build=foo   Appends 'foo' to the end of all BUILD variables. This creates
-              packages with this naming convention: gtk+2-2.7.1-i486-1foo.tgz
+          -no-cleanup   By default any temporary source, build and package
+                        directories will be deleted once the package is built.
+                        This option prevents those files from being removed.
+
+                        * This option may be useful for those testing packages.
+ 
+          -test         Run a test of configure/compile/link/package, without installing 
+                        anything.
+
+                        * The rolling builds will install needed package as the build
+                        process proceeds.  This option will skip the installation of 
+                        packages, and may break the build because dependencies will not
+                        be installed.  This is designed for testing of individual packages
+                        and is not designed for proper build production.
+
+          -help         Show this help screen.
+
 
