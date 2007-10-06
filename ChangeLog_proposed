@@ -1,3 +1,13 @@
+2007-10-06  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	ChangeLog_proposed:
+	*  I'm proposing that we simply automate the ChangeLog by using the log
+	   entires when ci'ing code.  By Entering the changes like so, the ChangeLog
+	   will automagically get GNU-ified by my hatckery.
+	Foo:
+	*  This file doesn't exist, it's just a sample change entry to "Foo"
+	*  And so is this.
+
 2007-10-06  fidesratio
 
 	Update.
