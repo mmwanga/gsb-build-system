@@ -16,11 +16,13 @@ if [ ! -d $TMP ]; then
 fi
 
 ##
-## Below are libraries that are used by many GNOME applications
-## although they are not officially associated with the GNOME
-## project. A good portion are various media libraries, however,
-## others are C-routines, graphics, or system libraries.
+## GNOME Platform Files.  
 ##
+## These are packages that are required and make the foundation
+## for the GNOME Desktop packages.
+##
+## http://www.gnome.org/start/2.20/notes/en/index.html#rninstallation
+## 
 
 ####
 #### BUILD ORDER
