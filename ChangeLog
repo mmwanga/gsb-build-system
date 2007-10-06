@@ -1,6 +1,21 @@
 ChangeLog
 ---------
 
+06-10-2007  Chipster <chipster(at)foo.blah>
+
+	* ChangeLog: Provided example of GNU-style ChangeLog Formatting
+	* README: Fixed formatting and nomenclature of URI
+
+06-09-2007 Chipster <chipster(at)foo.blah>
+
+	* Foo: Just an example
+	* Bar: And another one :)  Sometimes change descriptions can be
+	       very. very, very long.  So the wrap should begin on the
+	       next line like so.  Vim has macros that will do this for you.
+
+
+---------------  FIX BELOW TO LOOK LIKE ABOVE ---------------
+
 06-10-2007	fidesratio	Modified and (improved?) the GSB_CFLAGS/tuning in generic.SlackBuild. (1.3)
                                 Updated all gnome.platform SlackBuilds to 1.3.
                                 
