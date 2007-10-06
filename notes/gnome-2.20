@@ -39,3 +39,6 @@ system-tools-backends,http://system-tools-backends.freedesktop.org/downloads/2.4
 liboil,http://liboil.freedesktop.org/download/,0.3.12,tar.gz,NONE
 libexif,http://downloads.sourceforge.net/libexif/,0.6.16,tar.bz2,NONE
 libexif-gtk,http://downloads.sourceforge.net/libexif/,0.3.5,tar.bz2,NONE
+libgphoto2,http://downloads.sourceforge.net/gphoto/,2.4.0,tar.bz2,NONE
+libiptcdata,http://downloads.sourceforge.net/libiptcdata/,1.0.2,tar.gz,NONE
+libopenraw,http://libopenraw.freedesktop.org/download/,0.0.2,tar.gz,NONE
