@@ -1,0 +1,7079 @@
+2007-10-06  fidesratio
+
+	Update.
+
+2007-10-06  fidesratio
+
+	x86_64 tweak for march/mtune.  Defaults set as k8.
+
+2007-10-06  fidesratio
+
+	Update some documentation.
+
+2007-10-06  tadgy
+
+	Final (hopefully!) revisions to generic.SlackBuild.
+
+2007-10-06  fidesratio
+
+	Proper log output.
+
+2007-10-06  fidesratio
+
+	Evince.
+
+2007-10-06  fidesratio
+
+	Moved to platform.
+
+2007-10-06  fidesratio
+
+	Cleanup some old libraries.
+
+2007-10-06  fidesratio
+
+	Gstreamer for Gnome.
+
+2007-10-06  fidesratio
+
+	svn external to gtkunique
+
+2007-10-06  fidesratio
+
+	slack-descs.
+
+2007-10-06  fidesratio
+
+	Format ChangeLog to GNU style.
+
+2007-10-06  fidesratio
+
+	Slightly improved quick_download.sh.
+
+2007-10-06  fidesratio
+
+	Added new downloads to gnome-2.20 notes.
+
+2007-10-06  fidesratio
+
+	Update SlackBuilds 1.3.
+
+2007-10-06  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Guys, read the ChangeLog pls. ;)
+
+2007-10-06  fidesratio
+
+	Added liboobs and system-tools-backends.
+
+2007-10-06  fidesratio
+
+	Update SlackBuild 1.3
+
+2007-10-06  fidesratio
+
+	Added system-tools-backends from freedesktop.org.
+
+2007-10-06  fidesratio
+
+	SlackBuilds 1.3.
+
+2007-10-06  fidesratio
+
+	Added documentation to README.  Changed ChangedLog.  :)
+
+2007-10-06  fidesratio
+
+	SlackBuild 1.3.  Changes made to tuning section re: Tadgy's comments.  See trunk/README.
+
+2007-10-06  fidesratio
+
+	Some documentation for the SlackBuilds.
+
+2007-10-05  tadgy
+
+	gsb.options:
+	  * PKGDEST should be set to: ${PKGDEST:-$TMP/gsb-packages} in the
+	    SlackBuilds - export it to the environment if you don't like the
+	    default.  Plus the variable in gsb.options was wrong anyway - it
+	    was PKG_DEST not PKGTEST.
+	  * ARCH should be set to: ${ARCH:-i586} in the SlackBuilds.  The
+	    default (i586) should only be over-ridden by an explicitly set
+	    environment variable, not an option somewhere hiden from the user.
+	  * BUILD should never be set here.  Over-riding the SlackBuilds is a
+	    very bad idea.  Let the updater do this.
+	  * DISTRO should be set to: ${DISTRO:-slackware} in the SlackBuilds.
+	    We are a GNOME build for *Slackware* not *Slamd64*.  Out of the box
+	    GSB *will* build correctly for Slackware and a 32bit x86 arch.
+	    If you want something else, set the environment variables.
+
+	  Therefore, gsb.options is dead, DEAD, D E A D.  Leave it that way :)
+
+2007-10-05  fidesratio
+
+	Obsolete.
+
+2007-10-05  fidesratio
+
+	Oops.  Package name is properly libdvbpsi4.
+
+2007-10-05  fidesratio
+
+	libdvbpsi4 -> libdvbpsi
+
+2007-10-05  fidesratio
+
+	libdvbpsi4 -> libdvbpsi
+
+2007-10-05  fidesratio
+
+	Centralized ChangeLog into /trunk.
+
+2007-10-05  fidesratio
+
+	Lowercase filenames.
+
+2007-10-05  fidesratio
+
+	Update SlackBuilds to 1.2.
+
+2007-10-05  fidesratio
+
+	yasm needed by x264 (for proper assembly optimization)
+
+2007-10-05  fidesratio
+
+	Removed unnecessary \'s from scheme section.
+
+2007-10-05  fidesratio
+
+	Move ChangeLog (to trunk/).  Update gsb.gnome.SlackBuild.
+
+2007-10-05  fidesratio
+
+	Update SlackBuilds to 1.2.
+
+2007-10-05  fidesratio
+
+	Updated build order.  Minor tweaks to supervisor script.
+
+2007-10-05  fidesratio
+
+	Patch for dbus < 1.1.1.  Updated SlackBuild.
+
+2007-10-05  fidesratio
+
+	Updated slackbuild.
+
+2007-10-02  fidesratio
+
+	Moved MAKE_FLAGS from GSB_CFLAGS to make cmd.
+
+2007-10-01  tadgy
+
+	Added lib/gsb lib/perl/GSBv2.
+	Moved template files from scripts/ to lib/gsb/.
+	Updated/edited more documentation.
+
+2007-10-01  tadgy
+
+	God damned fecking semi-colons.
+
+2007-10-01  tadgy
+
+	generic.SlackBuild fixes.
+
+2007-10-01  tadgy
+
+	Moved GSB perl stuff to lib/perl
+
+2007-10-01  tadgy
+
+	Added:
+	  ChangeLog - USE IT! :)
+	  VERSIONS
+
+	Edited:
+	  README
+	  HACKING
+	  TODO
+
+	Deleted:
+	  USAGE
+	  GNOME
+
+	Re-organised some of the binaries and perl libs stuff.  This is a work
+	in progress and will probably be broken for a little bit (until I edit
+	the individual scripts to corrects paths etc).  Sue me.
+
+2007-10-01  fidesratio
+
+	No more spanking. ;)
+
+2007-10-01  tadgy
+
+	scripts/generic.SlackBuild:
+	  Edited/re-ordered/fixed/cleaned up.
+	  Added gconf schemas detection and notes.
+	scripts/generic-with-schemas.SlackBuild:
+	  Deleted - functionallity now in generic.SlackBuild.
+	scripts/doinst.sh:
+	  Added example doinst.sh.
+	scripts/slack-*:
+	  Added slack-* example files.
+	Documents:
+	  Updated a few documents (spelling, layout etc).
+
+2007-09-30  fidesratio
+
+	More typos fixed.
+
+2007-09-30  fidesratio
+
+	Minor tree fixes.
+
+2007-09-30  fidesratio
+
+2007-09-30  fidesratio
+
+	Stripping fix.
+
+2007-09-30  fidesratio
+
+	Typo in check_install routine.
+
+2007-09-30  fidesratio
+
+	Updated SlackBuilds with Darren's additions.
+
+2007-09-30  fidesratio
+
+	Schemas doinst.sh tweaks;  libgtkhtml in Slackware.
+
+2007-09-30  fidesratio
+
+2007-09-30  fidesratio
+
+	Gstreamer updated.
+
+2007-09-30  fidesratio
+
+	Created gnome.applications, split from gnome.desktop.
+
+2007-09-30  fidesratio
+
+	Split off from desktop some applications into a new gnome/applications directory.
+
+2007-09-30  fidesratio
+
+	Removed README (empty); no chown for /usr/bin (only bindings in lib)
+
+2007-09-30  fidesratio
+
+	Removed unneeded Gconf tweaks.
+
+2007-09-30  fidesratio
+
+	vte and librsvg in Slackware 12.
+
+2007-09-30  fidesratio
+
+	added new python bindings.
+
+2007-09-30  fidesratio
+
+	updated slackbuild.  new slack-desc. version bump.
+
+2007-09-30  fidesratio
+
+	updated slackbuild.  new desc, required.  version bump.
+
+2007-09-30  fidesratio
+
+	Cleanup. Version bump.  New SlackBuild.  New slack-desc, -required.
+
+2007-09-30  fidesratio
+
+	doinst.sh fix. new slack-desc, and required.
+
+2007-09-30  fidesratio
+
+	updated Slackbuild. scrollkeeper fix.  version bump. better slack-required.
+
+2007-09-30  fidesratio
+
+	updated slackbuild, desc, required.  version bump.
+
+2007-09-30  fidesratio
+
+	updated slackbuild, version bump
+
+2007-09-30  fidesratio
+
+	new slackbuild, desc, required.  version bump.
+
+2007-09-30  fidesratio
+
+	New libraries required.
+
+2007-09-30  fidesratio
+
+	version bump.  doinst.sh fixes.  New SlackBuild.
+
+2007-09-30  fidesratio
+
+2007-09-30  fidesratio
+
+	new SlackBuild, desc, and required.
+
+2007-09-30  fidesratio
+
+	vcdimager (for libcdio) added.
+
+2007-09-30  fidesratio
+
+	SlackBuild tweaks, improved desc and required.
+
+2007-09-30  fidesratio
+
+	libcddb Slackbuild and version bump
+
+2007-09-30  fidesratio
+
+	x86_64 tweaks.
+
+2007-09-30  fidesratio
+
+	Removed shlib from configure.
+
+2007-09-30  fidesratio
+
+	requires ncurses
+
+2007-09-30  fidesratio
+
+	LAME slackbuild and desc.
+
+2007-09-30  fidesratio
+
+	proper faad2 patches. new SlackBuild.
+
+2007-09-30  fidesratio
+
+	faac update
+
+2007-09-30  fidesratio
+
+	xvidcore fix for x86_64
+
+2007-09-30  fidesratio
+
+	xvidcore slackbuild updates, new slack-desc.
+
+2007-09-30  fidesratio
+
+	Added build x264 build script, desc, and required.
+
+2007-09-30  fidesratio
+
+	Added x264.
+
+2007-09-30  fidesratio
+
+	svn fixes.
+
+2007-09-30  fidesratio
+
+	ffmpeg SlackBuild update
+
+2007-09-30  fidesratio
+
+	Added quick README for svn external definition.
+
+2007-09-30  fidesratio
+
+	Rename.  Too many ffmpegs.
+
+2007-09-30  fidesratio
+
+	ffmpeg externals
+
+2007-09-30  fidesratio
+
+	a52dec new SlackBuild and version bump.
+
+2007-09-30  fidesratio
+
+	Renamed from gnome.*.SlackBuild -> gsb.*.SlackBuild.  Helps keep things clearer.
+
+2007-09-30  fidesratio
+
+	These libraries are not in Gnome, so should probably not be under Gnome directory.
+
+2007-09-30  fidesratio
+
+	Oops.  Probably better in Bindings (perl/python)
+
+2007-09-30  fidesratio
+
+	Should these be in desktop?
+
+2007-09-30  fidesratio
+
+	Media libraries cleanup.
+
+2007-09-29  fidesratio
+
+	Quick script for download GNOME source tarballs.
+	Only meant for gnome.  :)
+
+2007-09-29  fidesratio
+
+	included in Slackware 12.
+
+2007-09-29  fidesratio
+
+	gnome.platform Draft I finished.
+
+2007-09-29  fidesratio
+
+2007-09-29  fidesratio
+
+	Some build order tweaks
+
+2007-09-29  fidesratio
+
+	Included in Slackware 12
+
+2007-09-29  fidesratio
+
+	Old.
+
+2007-09-29  fidesratio
+
+	Initial gnome.desktop GNOME 2.20 Build
+
+2007-09-29  fidesratio
+
+	build script fixes.
+
+2007-09-29  fidesratio
+
+	gnome.platform GNOME 2.20 Initial Build Ready
+
+2007-09-29  fidesratio
+
+	Moved to gnome.desktop
+
+2007-09-29  fidesratio
+
+	updated SlackBuild. version bump.
+
+2007-09-29  fidesratio
+
+	update SlackBuild.  version bump.
+
+2007-09-29  fidesratio
+
+	moved Tango! Icon theme to gnome.desktop
+
+2007-09-29  fidesratio
+
+	Add Tango! icon theme
+
+2007-09-29  fidesratio
+
+	new slackbuild;  version bump.  fuller slack-required.
+
+2007-09-29  fidesratio
+
+	Removed ownership of bin (none), and README (0-length)
+
+2007-09-29  fidesratio
+
+	Updated SlackBuild.  version bump.
+
+2007-09-29  fidesratio
+
+	new slack-desc;  removed XML-Simple from required.  Should be in Slackware 12.
+
+2007-09-29  fidesratio
+
+	libexec prefix fix.
+
+2007-09-29  fidesratio
+
+	libexec prefix fix.
+
+2007-09-29  fidesratio
+
+	libexec prefix fix.
+
+2007-09-29  fidesratio
+
+	New SlackBuild.  version bump to 0.8.6.
+
+2007-09-29  fidesratio
+
+	COPYING -> COPYING*
+
+2007-09-29  fidesratio
+
+	SlackBuild update.  version bump.
+
+2007-09-29  fidesratio
+
+	removed shell header.
+
+2007-09-29  fidesratio
+
+	libgnomecanvas SlackBuilds, required, desc.  Bumped version.
+
+2007-09-29  fidesratio
+
+	intltool required.
+
+2007-09-29  fidesratio
+
+	esound required.  Small fix for schemas.
+
+2007-09-29  fidesratio
+
+	version bump
+
+2007-09-29  fidesratio
+
+	--disable-schemas-install added to configuration.  This will be done in doinst.sh.
+
+2007-09-29  fidesratio
+
+	Removed MAINTAINERS from documentation.
+
+2007-09-29  fidesratio
+
+	Fix strange quirk with --target builds.
+
+2007-09-29  fidesratio
+
+	doinst.sh fixes for scrollkeeper database rebuild.
+
+2007-09-29  fidesratio
+
+	Some typo fixes.
+
+2007-09-29  fidesratio
+
+	Notes.
+
+2007-09-29  fidesratio
+
+	version bump.
+
+2007-09-29  fidesratio
+
+	Build order changed.
+
+2007-09-29  fidesratio
+
+	Scrollkeeper SlackBuild.  doinst.sh fixed.
+
+2007-09-29  fidesratio
+
+	Updated.
+
+2007-09-29  fidesratio
+
+	Added gnome-common.
+
+2007-09-29  fidesratio
+
+	schemainst.sh cleanups.
+
+2007-09-29  fidesratio
+
+	chroot fixes.
+
+2007-09-29  fidesratio
+
+	doinst.sh tweaks for proper chroot.
+
+2007-09-29  fidesratio
+
+	Move some required files from gnome.desktop to gnome.platform.
+
+2007-09-29  fidesratio
+
+	Removed.  In Slackware 12.
+
+2007-09-29  fidesratio
+
+	Cleanup
+
+2007-09-29  fidesratio
+
+	Rename libraries -> support.  Not really 'GNOME' libraries.
+	Should this be called something else?
+
+2007-09-29  fidesratio
+
+	libmusicbrainz in Slackware 12.
+
+2007-09-29  fidesratio
+
+	cyrus-sasl in Slackware 12.
+
+2007-09-29  fidesratio
+
+	Rename desktop_reqs to libraries.
+
+2007-09-29  fidesratio
+
+	Additional support libraries.
+
+2007-09-29  fidesratio
+
+	doinst fix (for chroot)
+
+2007-09-29  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	fl0rpz
+
+2007-09-29  fidesratio
+
+	libgnome cleanup.  gnome-vfs doinst.
+
+2007-09-29  fidesratio
+
+	Gnome-VFS build fixes.
+
+2007-09-29  fidesratio
+
+2007-09-29  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Fixed spelling
+
+2007-09-29  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Updated 'da folxes!
+
+2007-09-29  fidesratio
+
+	gnome-vfs-monikers SlackBuild.  Version Bump.  doinst.sh.
+
+2007-09-29  fidesratio
+
+	Changelog
+
+2007-09-29  fidesratio
+
+	libtool --finish added to doinst.sh for vfs-modules
+
+2007-09-29  fidesratio
+
+	Accidental line break fixed.
+
+2007-09-29  fidesratio
+
+	openssl added to SlackBuild
+
+2007-09-29  fidesratio
+
+	Removed nss-mdns for now.
+
+2007-09-29  fidesratio
+
+	gnome-vfs SlackBuild, version bump
+
+2007-09-29  fidesratio
+
+	avahi SlackBuild.  Version bump.  Revamped doinst.sh.
+
+2007-09-29  fidesratio
+
+	nss-mdns Addition
+
+2007-09-29  fidesratio
+
+	Documentation and required additions.
+
+2007-09-29  fidesratio
+
+	Documentation updates.
+
+2007-09-29  fidesratio
+
+	Documentation tweaks.
+
+2007-09-29  fidesratio
+
+	desktop-file-utils removed.  In Slackware 12.
+
+2007-09-29  fidesratio
+
+	Glitz removed.  Is this even used anymore?
+
+2007-09-29  fidesratio
+
+	libdaemon SlackBuild.  Pyrex removed.
+
+2007-09-29  fidesratio
+
+	i686 tweaks
+
+2007-09-29  fidesratio
+
+	i686 tweaks
+
+2007-09-29  fidesratio
+
+	added i686 SlackBuild tweaks.
+
+2007-09-29  fidesratio
+
+	Minor updates to py-bindings.
+
+2007-09-29  fidesratio
+
+	Turf the broken link check.
+
+2007-09-29  fidesratio
+
+	Removed -j4.  Parallel builds hang for ORBit2.
+
+2007-09-29  fidesratio
+
+	$PKGNAME typo
+
+2007-09-29  fidesratio
+
+	version Bump
+
+2007-09-29  fidesratio
+
+	at-spi SlackBuild, and version bump
+
+2007-09-29  fidesratio
+
+	Restore at-spi
+
+2007-09-29  fidesratio
+
+	Dbus-Python SlackBuild, version bump.
+
+2007-09-29  fidesratio
+
+	Cleanup old notes. Add new gnome-2.20 notes.
+
+2007-09-29  fidesratio
+
+	GPL v3
+
+2007-09-29  fidesratio
+
+	Dbus-python, some renaming.
+
+2007-09-29  fidesratio
+
+	pygtk.SlackBuild, and version bump
+
+2007-09-28  fidesratio
+
+	pycairo (1.4.0) required for pygtk
+
+2007-09-28  fidesratio
+
+	Removed libcap, libidl (Slackware 12).  Updated build order.
+
+2007-09-28  fidesratio
+
+	Removed schemas test from SlackBuild
+
+2007-09-28  fidesratio
+
+	Remove schema test from generic.SlackBuild
+
+2007-09-28  fidesratio
+
+	pyorbit 2.14.3
+
+2007-09-28  fidesratio
+
+	Branch script.  Update for GNOME Schemas (doinst.sh)
+
+2007-09-28  fidesratio
+
+2007-09-28  fidesratio
+
+	Keep template scripts seperate
+
+2007-09-28  fidesratio
+
+	update for pyGobject 2.12.3
+
+2007-09-28  fidesratio
+
+	Needed by Nautilus, so should be in desktop.  My bad.
+
+2007-09-28  fidesratio
+
+	Move libcroco to platform.
+
+2007-09-28  fidesratio
+
+	2.20.x update
+
+2007-09-28  fidesratio
+
+	librsvg included in Slackware 12.
+
+2007-09-28  fidesratio
+
+	Build order 2.20.x update
+
+2007-09-28  fidesratio
+
+	Update for 2.20.0
+
+2007-09-28  fidesratio
+
+	SlackBuild updates.
+
+2007-09-28  fidesratio
+
+	Capitalization
+
+2007-09-28  fidesratio
+
+	gconf -> GConf (GNOME2 Capitalization)
+
+2007-09-28  fidesratio
+
+	In Slackware 12
+
+2007-09-28  fidesratio
+
+	Remove obsolete pasture items.
+
+2007-09-28  fidesratio
+
+	Merge Branch 2.20.x (r1937) into main trunk.  2.20.0 Development Cycle.
+
+2007-05-05  freerock
+
+	version updates, yes I'm alive :)
+
+2007-03-18  jaos
+
+	updated versions for 2.18 release
+
+2007-02-19  freerock
+
+	update the tagfile to use only ADD or SKP for Darren's installer
+
+2006-11-28  jaos
+
+	bumped slapt-get and gslapt to newest versions
+
+2006-11-26  freerock
+
+	bump to GNOME 2.16.2
+
+2006-11-25  freerock
+
+	GNOME 2.16.2 version updates
+
+2006-10-22  jaos
+
+	make sure the build files are in unix format
+
+2006-10-03  freerock
+
+	version updates. add patch for gnome-volume-manager
+
+2006-10-03  jaos
+
+	updated chown calls for slack 11 compatibility.
+
+2006-10-03  jaos
+
+	gslapt and slapt-get updated for newest releases
+
+2006-10-03  jaos
+
+	gslapt and slapt-get updated for newest releases
+
+2006-09-23  freerock
+
+	version updates
+
+2006-09-17  freerock
+
+	version updates. build fixes
+
+2006-09-17  freerock
+
+	version updates, updates system-tools-backend patch for slackware-11
+
+2006-09-17  freerock
+
+	update dbus-sharp to 0.93, bump BUILD var for banshee,f-spot,beagle to rebuild against updated dbus-sharp
+
+2006-09-17  freerock
+
+	gossip version update, bump BUILD var for gnucash and libcdio
+
+2006-09-16  freerock
+
+	add icon-naming-utils to desktop_reqs slackbuild
+
+2006-09-16  freerock
+
+	Bump BUILD vars, version updates misc fixes
+
+2006-09-14  freerock
+
+	Bump BUILD var up by one since most of these packages will be recompiled on slackware-11 and they already exist in the previous release
+
+2006-09-14  freerock
+
+	add cairomm to c++ bindings, version updates. sync pkg-config with slackware's sources. Fix gtk-engines slack-desc
+
+2006-09-14  freerock
+
+	sed 's/-mcpu/-mtune/g' on all SlackBuild. Added XML-Simple, icon-naming-utils, and liboobs. Version updates, build fixes, etc...
+
+2006-09-13  freerock
+
+	dialog_installer: add dbus-glib, dbus-python to platform tagfile
+
+2006-09-12  freerock
+
+	update dialog_installer for packages that have been removed since they are upstream in slackware
+
+2006-09-12  freerock
+
+	update dialog_installer for GNOME 2.16.0
+
+2006-09-11  freerock
+
+	update slack-desc for Tadgy
+
+2006-09-11  freerock
+
+	update slack-desc for Tadgy and bump BUILD var
+
+2006-09-11  freerock
+
+	added dbus-glib and dbus-python, patched hal so it works with dbus-0.92
+
+2006-09-10  freerock
+
+	version updates, add gnome-vfs-monikers and gedit-plugins
+
+2006-09-10  freerock
+
+	add bonfire to slack-conflicts for brasero
+
+2006-09-10  freerock
+
+	final name change for brasero from bonfire
+
+2006-09-10  freerock
+
+	sed bonfire/brasero
+
+2006-09-10  freerock
+
+	move bonfire to brasero for upstream name change
+
+2006-09-10  freerock
+
+	version updates, misc updates
+
+2006-09-04  freerock
+
+	version updates for GNOME 2.16.0
+
+2006-09-02  jaos
+
+	added gst-fluendo-mp3
+
+2006-09-02  jaos
+
+	added gst-fluendo-mp3
+
+2006-09-01  jaos
+
+	updated python-ldap slack-required to accept openldap-client
+
+2006-08-30  jaos
+
+	allow openldap-client to satisfy openldap requirement
+
+2006-08-27  freerock
+
+	update iso make scripts for 2.14.3 stable release
+
+2006-08-25  jaos
+
+	updated sylpheed-claws to 2.4.0
+
+2006-08-21  jaos
+
+	version bump to 2.14.3
+
+2006-08-21  jaos
+
+	version bump to 2.14.3
+
+2006-08-21  jaos
+
+	added lcms and imagemagick as dependencies for transcode
+
+2006-08-21  jaos
+
+	added patch to libgphoto sources for x86_64 building (maybe needed on other platforms)
+
+2006-08-21  jaos
+
+	added espgs as dependency
+
+2006-08-21  jaos
+
+	removed obsolete xft x86_64 patch
+
+2006-08-21  jaos
+
+	added seamonkey | mozilla-firefox | firefox as dependency
+
+2006-08-21  jaos
+
+	libmusicbrainz version bump
+
+2006-08-21  jaos
+
+	added --with-libavcodec-libs for x86_64
+
+2006-08-21  jaos
+
+	do not use --with-xmms for x86_64
+
+2006-08-21  jaos
+
+	removed duplicate file contents
+
+2006-08-19  freerock
+
+	alacarte: fix build to work with new upstream build system, add patch to xchat. update doinst for gmime to make links to uuencode/uudecode if they don't exist, frg-version version bump
+
+2006-08-19  freerock
+
+	hal: fix default group patch, thanks to Thomas Zajic
+
+2006-08-19  freerock
+
+	gnome-session: remove g-v-m from default.session. This causes bad things, thanks to Thomas Zajic for figuring this out.
+
+2006-08-13  freerock
+
+	removepkg smeg too
+
+2006-08-13  freerock
+
+	gnome-menus: patch to support alacarte 0.9.2
+
+2006-08-12  freerock
+
+	version updates and misc fixes
+
+2006-08-12  freerock
+
+	hal: patch from Thomas Zajic to make hal work better without PAM
+
+2006-08-12  freerock
+
+	dialog_installer: patch from Thomas Zajic to remove howl and evolution-caldav
+
+2006-08-05  freerock
+
+	banshee version update
+
+2006-08-05  freerock
+
+	version updates
+
+2006-07-30  freerock
+
+	version updates
+
+2006-07-30  jaos
+
+	updated slapt-get and gslapt to their newest versions
+
+2006-07-27  jaos
+
+	updated versions for gnokii and iso-codes, and fixed 404 for evolution 2.6.2
+
+2006-07-23  freerock
+
+	remove non existant link in libgnomedb and mail-notification. gzip man pages in istanbul.
+
+2006-07-17  freerock
+
+	version updates, fix Icon declaration in gimp .desktop file
+
+2006-07-15  freerock
+
+	istanbul: version update to 0.2.0
+
+2006-07-14  freerock
+
+	update gnucash version. add enchant to abiword's slack-required
+
+2006-07-11  freerock
+
+	fix slack-required polypaudio should have been pulseaudio, thanks to Luca Cavalli.
+
+2006-07-10  freerock
+
+	remove clearlooks
+
+2006-07-10  freerock
+
+	remove clearlooks from the build, its included in gtk-engines
+
+2006-07-10  freerock
+
+	version updates for evince, poppler, gnome-mag and gnome-python-extras
+
+2006-07-10  freerock
+
+	libmatroska: fix build so that it errors out properly, fix CFLAGS declaration that was causing the build to fail.
+
+2006-07-10  freerock
+
+	add frgnome/themes to frg_install
+
+2006-07-10  freerock
+
+	gimp: remove frg from BUILD var
+
+2006-07-10  freerock
+
+	gimp: restor -fPIC
+
+2006-07-10  freerock
+
+	metacity: try to fix installed schemas problem
+
+2006-07-10  freerock
+
+	add gst-pulse, xmms-pulse, libao-pulse to gsb_update
+
+2006-07-10  freerock
+
+	add pulseaudio-tools to extras apps meta build
+
+2006-07-10  freerock
+
+	dialog_installer: add frg-artwork and x-cursor-theme-jimmac to desktop tagfile
+
+2006-07-10  freerock
+
+	dialog_installer: added pulseaudio and related tools/libs to tagfiles
+
+2006-07-10  freerock
+
+	added xmms, libao, and gstreamer plugins for pulseaudio
+
+2006-07-10  freerock
+
+	version updates for gphoto,libgphoto,istanbul,rhythmbox. change locate of pacakges in themes meta build
+
+2006-07-10  freerock
+
+	update gnome-blog, gnome-speech versions. Add pulseaudio-tools. Fix slack-desc for bonfire. Misc cleanups to gsb_update for apps that have been removed
+
+2006-07-09  freerock
+
+	version update for abiword
+
+2006-07-09  freerock
+
+	make pulseaudio conf files .new
+
+2006-07-09  freerock
+
+	pulseaudio, fix sed typo
+
+2006-07-09  freerock
+
+	change polypaudio to pulseaudio in meta build script
+
+2006-07-09  freerock
+
+	final rename to pulseaudio from polypaudio
+
+2006-07-09  freerock
+
+	rename polypaudio to pulseaudio
+
+2006-07-09  freerock
+
+	patch from Christoph Willing to fix up some x86_64 build issues.
+
+2006-07-09  freerock
+
+	move howl to pasture
+
+2006-07-09  freerock
+
+	update tagfiles in dialog installer
+
+2006-07-09  freerock
+
+	gimp, xchat version updates
+
+2006-07-08  freerock
+
+	added bonfire, a cd/dvd burning app
+
+2006-07-08  freerock
+
+	remove evolution-caldav. This has been merged into evolution-data-server
+
+2006-07-06  freerock
+
+	add unstable installer from Davidson Paulo
+
+2006-07-06  freerock
+
+	dialog_installer: remove --reinstall from upgradepkg line, fixed to tagfiles for packages not in the 2.14.x release
+
+2006-07-05  freerock
+
+	added themes tagfile
+
+2006-07-05  freerock
+
+	version updates, misc fixes
+
+2006-07-05  freerock
+
+	libgnome: fix default icon theme to be tango. fix typo in background patch
+
+2006-07-03  freerock
+
+	dialog_installer: removed commented upgradepkg
+
+2006-06-20  freerock
+
+	update frg-version and frg-slapt-get-meta for 2.14
+
+2006-06-18  freerock
+
+	update frg-artwork
+
+2006-06-18  freerock
+
+	update packages for theme related info
+
+2006-06-18  freerock
+
+	update frg-artwork package for FRG-2.14
+
+2006-06-18  freerock
+
+	added rezlooks and gflat theme engines
+
+2006-06-18  freerock
+
+	add Tadgy's install script, remove useless cruft from dialog installer
+
+2006-06-17  freerock
+
+	add slib to slack-required, bump BUILD var.
+
+2006-06-16  freerock
+
+	gconfmm version update, bump banshee, beagle, f-spot for rebuilds against dbus-0.62
+
+2006-06-14  freerock
+
+	rebuild against new dbus
+
+2006-06-14  freerock
+
+	pyorbit, gnome-doc-utils version updates. Downgrade alacarte to 0.8
+
+2006-06-13  freerock
+
+	update tagfiles for Tadgy
+
+2006-06-13  freerock
+
+	Patch from Darren Austin to clean up slack-desc files
+
+2006-06-12  freerock
+
+	dbus, gnucash version updates. gnopernicus build fix for missing -lX11, add dbus-launch to gdm's Xsession for enlightenment and make Xsessions a .new file.
+
+2006-06-12  freerock
+
+	final slack-desc updates per Tadgy
+
+2006-06-11  freerock
+
+	slack-desc updates
+
+2006-06-11  freerock
+
+	update slack-desc per Tadgy
+
+2006-06-11  freerock
+
+	update slack-desc to fit slackware's spec, thanks to Tadgy.
+
+2006-06-11  freerock
+
+	version updates
+
+2006-06-11  freerock
+
+	add gnome-common to meta build, add xscreensaver configure options to gnome-screensaver
+
+2006-06-02  freerock
+
+	update slack-desc so they are compliant with slackware's. Thanks to Tadgy. Will update the rest tomorrow
+
+2006-05-30  freerock
+
+	2.14.2 version updates.
+
+2006-05-28  jaos
+
+	bumped version to 2.14.1
+
+2006-05-28  jaos
+
+	added CPPFLAGS
+
+2006-05-28  jaos
+
+	rolled back use of braindead pango patch for x86_64
+
+2006-05-28  jaos
+
+	fixed libXau linking issues for x86_64
+
+2006-05-28  jaos
+
+	updated slapt/gslapt versions
+
+2006-05-25  freerock
+
+	add guile to slack-required
+
+2006-05-21  freerock
+
+	source gconf files in notification-daemon
+
+2006-05-21  freerock
+
+	gparted, zapping, slib, and gnucash .desktop cleanups. slib doinst.sh fixed to work with $ROOT
+
+2006-05-21  freerock
+
+	icon and desktop file fixes
+
+2006-05-20  freerock
+
+	change group=wheel to group=console for hal stuff
+
+2006-05-20  freerock
+
+	fix rc.bluetooth from bluez-utils from exiting early
+
+2006-05-20  freerock
+
+	gtkmm version update
+
+2006-05-20  freerock
+
+	add gnome-mount. version updates. fix slib installation with a doinst.sh file. Rebuilt gnucash to fix doinst.sh file
+
+2006-05-19  freerock
+
+	more work on the dialog_installer, mostly ready now
+
+2006-05-19  freerock
+
+	rebuild evolution against new openldap. remove at_console=true from hal conf files, thanks to philipl for the bug report. remove stale hal patches
+
+2006-05-19  freerock
+
+	version updates and cleanups. use --enable-hal with gnome-vfs
+
+2006-05-18  freerock
+
+	add gnucash and its dependencies to office.
+	add gparted, version update for gnome-nettool
+
+2006-05-17  freerock
+
+	downgrade evince to 0.5.2 until poppler makes a new release. rebuild swfdec against new mozilla. version update to gnome-system-monitor. Fix alacarte build. make sure .new files are made in bluez-utils
+
+2006-05-17  freerock
+
+	alacarte: fix tarball extraction. Remove gst-plugins-base and anjuta patch that was fixed upstream. Rebuild monodevelop against new mozilla.
+
+2006-05-16  freerock
+
+	remove neon from extras
+
+2006-05-16  freerock
+
+	add gnonlin and pitivi. Version updates
+
+2006-05-16  freerock
+
+	gnome-build -> 0.1.3. move neon to desktop_reqs for gst-plugins-bad
+
+2006-05-15  freerock
+
+	version updates. fix doinst.sh files.
+
+2006-05-15  freerock
+
+	version updates. downgrade gok to 1.0.8. add rc and doinst file to zvbi.
+
+2006-05-14  freerock
+
+	gst-plugins-bad: patched to fix neon build
+
+2006-05-14  freerock
+
+	added zapping, zvbi, libetpan. version updates and cleanups
+
+2006-05-14  freerock
+
+	add --cleanup to nvu
+
+2006-05-14  freerock
+
+	Thorsten's powerpc patch
+
+2006-05-14  freerock
+
+	initial import of a dialog installer based on slackware's installer. Only platform is completely done. Everything else still needs a maketag file
+
+2006-05-14  freerock
+
+	avahi: fill in slack-desc, bump BUILD var.
+
+2006-05-14  freerock
+
+	gok 1.0.9 build fix patch
+
+2006-05-14  freerock
+
+	update patch for metacity 2.14.3, thanks to Thomas Zajic
+
+2006-05-14  freerock
+
+	ekiga: remove config stuff from doinst, it was causing symlinks to not be made.
+	gnome-phone-manager: fix slack-required typo.
+	version update for gnome-speech.
+
+2006-05-14  freerock
+
+	Add Ruby.pm to gsb_update. add openldap-client to slack-required files that have openldap as an option. version updates
+
+2006-05-12  freerock
+
+	sync openldap.SlackBuild so that it uses the same options as the official slackware SlackBuild
+
+2006-05-11  freerock
+
+	version updates. update openldap version to match slackware-current's openldap-client version. Bump BUILD vars to rebuild for new openldap version
+
+2006-05-10  jaos
+
+	upgraded slapt-get to 0.9.11b
+
+2006-05-09  jaos
+
+	updated all slack-required meta pkgs to require 2.14.1
+
+2006-05-09  jaos
+
+	removed pastured pkgs and updated frgnome requirement
+
+2006-05-08  freerock
+
+	doinst.sh fixes.
+
+2006-05-08  freerock
+
+	add symlink to fix crash in gnome-phone-manager. add gnome-commander to meta build script and add a doinst.sh for it. add gnome-mono to slapt get meta package
+
+2006-05-08  freerock
+
+	add mono to frg slapt get meta
+
+2006-05-07  freerock
+
+	add gnokii for gnome-phone-manager, version updates, misc fixes
+
+2006-05-07  jaos
+
+	arch independent gstaudioconvert patch: http://bugzilla.gnome.org/attachment.cgi?id=64180&action=view
+
+2006-05-06  jaos
+
+	added gmp and guile as deps for autogen
+
+2006-05-06  jaos
+
+	added patch to remove ridiculous ifdef HAVE_EXIF_0_6_12 check
+
+2006-05-06  jaos
+
+	autogen 5.8.4
+
+2006-05-06  jaos
+
+	removed duplicate libgphoto2 from slack-required
+
+2006-05-06  jaos
+
+	f-spot updates for x86_64
+
+2006-05-06  jaos
+
+	added MONO_PATH for x86_64
+
+2006-05-06  jaos
+
+	njb-sharp fix for njb-sharp pkgconfig file
+
+2006-05-05  freerock
+
+	added f-spot and gnome-phone-manager, updated gnome-bluetooth patch. version updates.
+
+2006-05-05  freerock
+
+	remove duplicate avahi
+
+2006-05-05  freerock
+
+	update banshee's slack-required
+
+2006-05-05  freerock
+
+	gnome-bluetooth: fix .desktop file so it shows up in the menu. Added libnjb, njb-sharp, avahi-sharp for banshee. Version updates
+
+2006-05-05  freerock
+
+	gslapt: patch from Lukasz Stelmach to fix the doinst.sh file
+
+2006-05-05  freerock
+
+	remove cruft from gnome-bluetooth's SlackBuild
+
+2006-05-05  freerock
+
+	patches to fix avifile, gnome-bluetooth, and evolution-caldav
+
+2006-05-04  jaos
+
+	disabled helix and enabled gstreamer-0.10 in banshee configure
+
+2006-05-04  jaos
+
+	added avahi to extras/libs
+
+2006-05-04  jaos
+
+	disable python in gedit on x86_64
+
+2006-05-04  jaos
+
+	hacked evolution-caldav to use the 2.6 evolution api
+
+2006-05-04  jaos
+
+	added CPPFLAGS for correct ldap building
+
+2006-05-04  freerock
+
+	scrollkeeper: add linuxdoc-utils as an option in the slack-required file. Update frg slapt-get meta files
+
+2006-05-04  jaos
+
+	help find ldap correctly on slamd64
+
+2006-05-03  freerock
+
+	openldap: add openldap-client to slack-conflicts file
+
+2006-05-03  freerock
+
+	anjuta: fix for runtime problem with anjuta 2.0.1 and GNOME 2.14. Thanks to Georg Nagel for the patch
+
+2006-05-03  freerock
+
+	dvgrab: fix compile with libquicktime
+
+2006-05-03  freerock
+
+	kino and bmpx version updates
+
+2006-05-03  freerock
+
+	SlackBuild cleanups: make $PKG after package installed check, not before. This just makes $TMP cleaner
+
+2006-05-03  freerock
+
+	version updates. Another attempt at fixing the avifile build. update dvgrab's slack-required.
+
+2006-05-03  freerock
+
+	libiec61883: update slack-desc and slack-required
+
+2006-05-03  freerock
+
+	avidemux: fix libs and include for mozilla so they are dynamic instead of hard coded
+
+2006-05-03  freerock
+
+	version updates, misc fixes
+
+2006-04-29  freerock
+
+	remove gconf cruft from libgpod's SlackBuild
+
+2006-04-29  freerock
+
+	version updates. add rc.bluetooth to bluez-utils. Patch gconf-editor-2.14.0. Added libgpod, neon. Added gnome2-user-docs to slack-conflicts for gnome-user-docs
+
+2006-04-27  freerock
+
+	version updates
+
+2006-04-26  jaos
+
+	added x86_64 mjpegtools+libquicktime patch to slackbuild
+
+2006-04-26  jaos
+
+	added fix for mjpegtools compilation against libquicktime
+
+2006-04-23  jaos
+
+	using correct patch level for modules path patch for x86_64
+
+2006-04-23  jaos
+
+	uncompressed version of the modules path patch for x86_64
+
+2006-04-23  jaos
+
+	modules path patch for x86_64
+
+2006-04-23  jaos
+
+	modules path patch for x86_64
+
+2006-04-20  freerock
+
+	version updates
+
+2006-04-19  freerock
+
+	version updates. avahi and ekiga clean ups
+
+2006-04-18  freerock
+
+	clean up meta build scripts, they were being run twice
+
+2006-04-18  freerock
+
+	make sure mail-notification cleans up evolution source dir
+
+2006-04-17  freerock
+
+	version updates and clean ups
+
+2006-04-16  freerock
+
+	gimp version update
+
+2006-04-16  freerock
+
+	version updates. updated gstreamer in slack-required file to gstreamer10 and bump BUILD vars.
+
+2006-04-16  freerock
+
+	Tadgy's script to figure out which packages frg has replaced
+
+2006-04-14  freerock
+
+	version bump to gnome 2.14.1
+
+2006-04-14  freerock
+
+	version updates. add .new files to etc/bluetooth in bluez-utils.
+
+2006-04-14  freerock
+
+	revert BUILD var bump
+
+2006-04-14  freerock
+
+	version updates, bump pygtk BUILD number.
+
+2006-04-12  freerock
+
+	clean up patches for 2.14
+
+2006-04-12  freerock
+
+	version updates, doinst.sh fixes for gstreamer stuff, patch gdm-2.14.1
+
+2006-04-11  freerock
+
+	version updates, BUMP gnome-media BUILD var, thanks luca.
+
+2006-04-11  freerock
+
+	misc fixes
+
+2006-04-11  freerock
+
+	slapt get meta package updates
+
+2006-04-11  freerock
+
+	Partial updates to slack-required meta files.
+
+2006-04-11  freerock
+
+	version updates, added gob2 and libsexy. Clean up some SlackBuilds so taht they don't leave around $PKG dirs if the package isn't being built
+
+2006-04-07  freerock
+
+	add svn:ignore to some dirs.
+
+2006-04-07  freerock
+
+	liboil and libglade-java version updates
+
+2006-04-05  freerock
+
+	version updates
+	add alacarte (replaces smeg)
+
+2006-04-05  freerock
+
+	alacarte: move smeg to alacarte
+
+2006-04-05  freerock
+
+	move smeg to alacarte
+
+2006-04-05  freerock
+
+	platform: add pygtk and dependancies for avahi.
+	desktop_reqs: add openobex and bluetooth libs.
+	desktop: clean up deleting of gstreamer sources after package is built.
+	extras: add gnome-commander
+
+	I haven't tested any of this yet, so hopefully it works(tm).
+
+2006-04-05  freerock
+
+	fix platform build order
+
+2006-04-05  freerock
+
+	xscreensaver: update setuid patch from Pat
+
+2006-03-22  freerock
+
+	dbus: add --program-{suf,pre}fix to slackbuild to fix binary names
+
+2006-03-22  freerock
+
+	libxklavier: fix tarball type, should have been tar.gz
+
+2006-03-20  freerock
+
+	move gstreamer and gst-plugins to pasture/
+
+2006-03-20  freerock
+
+	misc fixes
+
+2006-03-20  freerock
+
+	version updates
+
+2006-03-20  freerock
+
+	compilation fix for gsb_update
+
+2006-03-20  freerock
+
+	add downloading of gstreamer 10 and its plugins packages
+
+2006-03-19  freerock
+
+	add gstreamer10 and plugins to desktop build. replace howl with avahi in slack-required files
+
+2006-03-19  freerock
+
+	add svn:ignore to gst-plugins-* and gstreamer10. Fix gstreamer10.SlackBuild.
+
+2006-03-19  freerock
+
+	only tell the user that src tarballs haven't downloaded when using the --dl option to gsb_update
+
+2006-03-19  freerock
+
+	version updates
+
+2006-03-19  freerock
+
+	add avahi and libdaemon to platform build
+
+2006-03-19  freerock
+
+	bump GNOME version
+
+2006-03-18  freerock
+
+	GNOME 2.14 and misc version updates
+
+2006-03-18  freerock
+
+	gnome-user-docs: s/gnome2-user/gnome-user
+
+2006-03-18  freerock
+
+	move gnome2-user-docs to gnome-user-docs
+
+2006-03-18  freerock
+
+	testing commits mailing list
+
+2006-03-18  freerock
+
+	update GVERSION to 2.14.0, testing commits to SF
+
+2006-02-18  freerock
+
+	version updates
+
+2006-02-18  freerock
+
+	add -f to gtk-update-icon-cache
+
+2006-02-12  freerock
+
+	version updates, gsb cleanups, svn ignore on dirs that were missing it.
+
+2006-02-12  freerock
+
+	version updates
+
+2006-02-05  freerock
+
+	version updates, added some new things (ekiga, opal, some applets)
+
+2006-01-29  freerock
+
+	version updates
+
+2006-01-16  freerock
+
+	fix gconf location for xchat
+
+2006-01-16  freerock
+
+	version updates
+
+2006-01-16  freerock
+
+	version updates
+
+2006-01-15  freerock
+
+	mono updates
+
+2006-01-15  freerock
+
+	version updates, cleanups for icon entries in desktop files
+
+2006-01-15  freerock
+
+	version updates, fixes from Thorsten
+
+2006-01-15  freerock
+
+	version updates, enable stuff in transcode, misc fix ups
+
+2006-01-09  woodwardj
+
+	upgraded slapt-get and gslapt versions
+
+2006-01-07  freerock
+
+	2.13.x updates
+
+2006-01-05  freerock
+
+	zenity update
+
+2006-01-05  freerock
+
+	add avahi and libdaemon to testing
+
+2006-01-05  freerock
+
+	add mac and update gst-monkeysaudion from 2.12.x branch
+
+2006-01-05  freerock
+
+	version updates
+
+2006-01-05  freerock
+
+	bug fixes from Tadgy
+
+2006-01-05  freerock
+
+	trunk: add python-ldap to trunk
+
+2006-01-03  freerock
+
+	added a testing tree, for ... you guessed it, testing :)
+	so far gstreamer-10 is in the tree. I haven't tested any of it but wanted to add it so I could work on it.
+
+2006-01-03  freerock
+
+	version updates, added GNOME file which will hold the version of GNOME the src tree is following
+
+2006-01-02  freerock
+
+	put gtk-query-immodules-2.0 back into the doinst.sh
+
+2006-01-02  freerock
+
+	more 2.13.x updates
+
+2006-01-02  freerock
+
+	trunk: gnome updates for 2.13
+
+2005-12-27  freerock
+
+	trunk: mono updates
+
+2005-12-24  freerock
+
+	extras: put back missing slack-required files. Hopefully this finishes cleaning up of the slack-required files
+
+2005-12-24  freerock
+
+	extras/: set svn:executable bit to ON
+
+2005-12-24  freerock
+
+	extras/libs: add missing slack-required files
+
+2005-12-24  freerock
+
+	libgphoto2: add aalib to slack-required
+
+2005-12-18  freerock
+
+	version updates
+
+2005-12-18  freerock
+
+	trunk: finish cleaning up src/extras duplications, all should be fine now
+
+2005-12-18  freerock
+
+	trunk: somehow src/extras files were duplicated. This revision cleanups up the SlackBuilds
+
+2005-12-18  freerock
+
+	gthumb: add libgphoto2 to slack-required
+
+2005-12-16  freerock
+
+	clean up
+
+2005-12-16  freerock
+
+	ggv: add --enable-pdf-options, thanks to Arkadiusz Pawlik
+
+2005-12-15  freerock
+
+	patch from thorsten
+
+2005-12-14  freerock
+
+	update udev to 077
+
+2005-12-14  freerock
+
+	trunk: GNOME 2.13.3 updates
+
+2005-12-12  woodwardj
+
+	updated gnome-power-manager (and dl mirror) and changed gDesklets download directory
+
+2005-12-11  freerock
+
+	GNOME 2.13 updates
+
+2005-12-11  freerock
+
+	cleanup of src/other into src/extras, misc bin/ cleanups additions
+
+2005-12-03  woodwardj
+
+	removed "frg" from the slapt-update-notifier build id
+
+2005-12-03  woodwardj
+
+	updated slapt-get and gslapt versions
+
+2005-12-03  woodwardj
+
+	added slapt-update-notifier to other/
+
+2005-11-28  woodwardj
+
+	fixed gslapt doinst.sh
+
+2005-11-23  woodwardj
+
+	upgrade mjpegtools to 1.8.0 (thanks Paraskev Todorov)
+
+2005-11-23  woodwardj
+
+	removed x86_64.gplusplus_syntax.patch patch for mjpegtools (1.8.0 doesn't need it)
+
+2005-11-17  freerock
+
+	version updates, doinst.sh cleanups, etc....
+
+2005-11-17  freerock
+
+	update frg_min_iso_make.sh for new mirror layout
+
+2005-11-17  freerock
+
+	update iso build scripts for 2.12.1 release
+
+2005-11-13  freerock
+
+	src: patch from Thomas Zajic to clean up doinst.sh files
+
+2005-11-13  freerock
+
+	gnome-extra-themes: add -p to makepkg
+
+2005-11-13  freerock
+
+	balsa: patch to fix make install
+
+2005-11-13  freerock
+
+	gnome-extra-themes: patch from Thomas Zajic.
+
+2005-11-13  freerock
+
+	more mono shizzle
+
+2005-11-13  freerock
+
+	gdm: add session to start USER's .xsession file
+
+2005-11-12  freerock
+
+	frg_iso_install: bump sylpheed version number
+
+2005-11-12  freerock
+
+	gaim: add gtkspell to slack-required
+
+2005-11-12  freerock
+
+	version updates and SlackBuild cleanups
+
+2005-11-12  freerock
+
+	Patch from Thomas Zajic to clean up bmpx and clearlooks packages
+
+2005-11-12  freerock
+
+	frg_iso_install: UDEV=0.70 -> UDEV=070
+
+2005-11-10  freerock
+
+	fix typo in gnome.mono.SlackBuild
+
+2005-11-09  freerock
+
+	gsb_update: fix up Mono.pm, update sabayon and iso-codes
+
+2005-11-09  freerock
+
+	gtk-sharp: gtk-sharp2->gtk-sharp
+
+2005-11-09  freerock
+
+	mono version updates
+
+2005-11-09  freerock
+
+	mono: version updates and clean ups
+
+2005-11-09  freerock
+
+	bmpx: change xine to xine-lib in slack-required file. Thanks to scriptdaemon.
+
+2005-11-09  freerock
+
+	mail-notification: 2.0, with official patches, thanks to Thomas Zajic
+
+2005-11-09  freerock
+
+	frg_iso_install: bmpx upgradepkg patch from Thomas Zajic.
+
+2005-11-09  freerock
+
+	patch from Thorsten, applied partially
+
+2005-11-08  freerock
+
+	frg-version: frg-2.12.1
+
+2005-11-08  freerock
+
+	frg_iso_install: version 2.12.1
+
+2005-11-08  freerock
+
+	add bmpx, remove bmp to other/
+
+2005-11-08  freerock
+
+	version updates, BUILD var bumps, misc fixes
+
+2005-11-06  freerock
+
+	frg_iso_install: clean up ximian-connector uninstall, thanks to Thomas Zajic
+
+2005-10-25  freerock
+
+	version updates, fix gnome-session patch (Thomas Zajic), and udev installation to frg_install.sh
+
+2005-10-14  freerock
+
+	mail-notification: add gmime to slack-required, bump BUILD
+
+2005-10-13  freerock
+
+	bump BUILD variables for some slackbuilds
+
+2005-10-13  freerock
+
+	frg_iso_install: Patch from Thomas Zajic to clean things up.
+
+2005-10-13  freerock
+
+	gsb_update: version updates
+	pstoedit, inkscape, thoggen: version updates
+	libquicktime: add symlink in /usr/include
+	graveman: bump BUILD var for package naming fix
+
+2005-10-13  freerock
+
+	added a HACKING file and clean_src.sh to clean BUILD and ARCH variables
+
+2005-10-12  freerock
+
+	version updates, use ARCH=i486 for default frg-version
+
+2005-10-12  freerock
+
+	version updates, clean ups
+
+2005-10-12  freerock
+
+	gnome-games: some games do not work setgid
+
+2005-10-12  freerock
+
+	gnome-games: make binaries setgid so they can write to the global high scores files
+
+2005-10-10  woodwardj
+
+	added ximian-connector to evolution-exchange slack-conflicts
+
+2005-10-10  woodwardj
+
+	upgraded goffice to 0.1.0
+
+2005-10-10  woodwardj
+
+	upgrade libgsf to 1.13.2
+
+2005-10-10  freerock
+
+	update version in frg-slapt-get-meta
+
+2005-10-10  freerock
+
+	gnumeric -> 1.6.0
+
+2005-10-10  freerock
+
+	Bump version to gnome-2.12.1
+
+2005-10-10  freerock
+
+	frg_iso_install: patch from Thomas Zajic to remove ximian-connector during a gnome 2.12.0 install
+
+2005-10-10  woodwardj
+
+	removed libdvbpsi4 from gnome-desktop-reqs slack-required
+
+2005-10-10  woodwardj
+
+	changed package naming of graveman to follow slack conventions
+
+2005-10-10  woodwardj
+
+	added patch to fix libjpeg configure detection and linking as well as N_ macro usage in graveman
+
+2005-10-10  woodwardj
+
+	added x86_64 lib patch to skencil
+
+2005-10-10  woodwardj
+
+	re-enabled openldap for evolution-data-server on x86_64
+
+2005-10-10  woodwardj
+
+	removed needless sed addition of -lpixman for pango slackbuild
+
+2005-10-10  freerock
+
+	kino: update to use correct hotplug script dir
+
+2005-10-10  woodwardj
+
+	merged in pkg-config script check for gnome-icon-theme
+
+2005-10-10  woodwardj
+
+	--disable-shared on x86_64 build of libgtop
+
+2005-10-09  woodwardj
+
+	removed patch for gnome-icon-theme pkgconfig support (post fixed gnome-icon-theme) for libgnomeprintui
+
+2005-10-09  woodwardj
+
+	removed patch for gnome-icon-theme pkgconfig support (post fixed gnome-icon-theme) for gtkhtml
+
+2005-10-09  woodwardj
+
+	make sure gnome-icon-theme places its pkg-config script in /usr/lib/pkgconfig
+
+2005-10-09  freerock
+
+	frg-slapt-get-meta: remove libpixman from platfrom
+
+2005-10-09  woodwardj
+
+	removed gnome-icon-theme pkg-config check for gtkhtml
+
+2005-10-09  freerock
+
+	gnome-applets: patch modem applet to call network-admin with gnomesu
+
+2005-10-09  freerock
+
+	gnome-netstatus: patched to call network-admin with gnomesu
+
+2005-10-09  woodwardj
+
+	added patch to remove gnome-icon-theme pkg-config check for libgnomeprintui since the pkg-config script for gnome-icon-theme isn't present
+
+2005-10-09  woodwardj
+
+	added --disable-asm for x86_64 build of libquicktime
+
+2005-10-09  woodwardj
+
+	added --disable-asm for x86_64 build of libdv
+
+2005-10-09  freerock
+
+	frg_iso_install: metacity version update
+
+2005-10-09  freerock
+
+	frg_iso_install: Patches from Thomas Zajic to update and fix some issues
+
+2005-10-09  freerock
+
+	version updates misc cleanups
+
+2005-10-08  freerock
+
+	control-center: --enable-aboutme
+
+2005-10-08  freerock
+
+	remove coaster and libcoaster from gnome.other.SlackBuild, these things are stale
+
+2005-10-08  freerock
+
+	add libnotify and notificaition-daemon to Other.pm
+
+2005-10-08  freerock
+
+	add libnotify and notification-daemon for gnome-power-manager, bump BUILD var for gnome-power-manager
+
+2005-10-08  freerock
+
+	version updates
+
+2005-10-08  freerock
+
+	version updates and fixes for control-center capplets
+
+2005-10-06  freerock
+
+	udev: updated with patch from Eugene Crosser and philipl
+	updated gnome-screensaver and librsvg
+
+2005-10-05  freerock
+
+	gnome-vfs: update to 2.12.1.1, comment samba patch
+
+2005-10-04  freerock
+
+	version updates
+	totem: Fix placement of mozilla plugin, thanks to Lukasz Stelmach for the bug report
+	gnome-vfs: patch to fix samba module build, thanks to Thorsten for the patch
+
+2005-10-04  freerock
+
+	add udev
+
+2005-10-03  freerock
+
+	abiword: version update
+	gnome-applets: fix setuid bit
+	add --ignore-theme-index to doinst.sh files that run gtk-update-icon-cache
+
+2005-10-02  woodwardj
+
+	fixed race condition of $i global var in frg_check_reqs.sh
+
+2005-10-02  freerock
+
+	revert malloc's last commit, bad malloc, no cookie :)
+
+2005-10-02  woodwardj
+
+	update frg_check_reqs.sh
+
+2005-10-02  freerock
+
+	frg_iso_install: patch to fix frg_check_reqs.sh from Mike Reynolds
+
+2005-10-02  woodwardj
+
+	upgraded gslapt and slapt-get to newest upstream releases
+
+2005-10-02  freerock
+
+	version updates: librsvg, epiphany, epiphany-extensions
+	metacity: updated patch, remove older patches
+	gnomemeeting: Bump BUILD var to update slack-required
+
+2005-10-02  freerock
+
+	remove libgdamm from slack-required.gnome-office
+
+2005-10-02  freerock
+
+	frg_iso_install: fix theme creation
+
+2005-10-02  freerock
+
+	libgcrypt: clean up
+
+2005-10-02  freerock
+
+	gdm: update gdm.conf patch to use themed greeter by default
+
+2005-10-02  freerock
+
+	add x-cursor-theme-jimmac to i486 desktop meta
+
+2005-10-02  freerock
+
+	some version updates
+
+2005-09-30  freerock
+
+	version updates
+
+2005-09-29  freerock
+
+	remove libpixman from slack-required files and bump BUILD vars. libpixman was merged into cairo, thanks to philipl for pointing this out.
+
+2005-09-28  freerock
+
+	gsb_update: some version updates.
+	src:
+	  * BUILD var updates for mozilla rebuilds
+	  * VERSION updates
+
+2005-09-27  freerock
+
+	gnome-common: Added to other
+
+2005-09-27  freerock
+
+	openh323-pwlib cvs build fixes
+
+2005-09-27  freerock
+
+	gnome-session: have default xinitrc use dbus, add an xinitrc without dbus
+
+2005-09-25  freerock
+
+	fix up slack-required.gnome-office
+
+2005-09-25  freerock
+
+	revert to older version of nautilus-python, fix up gnomemeeting cvs build
+
+2005-09-25  freerock
+
+	frg-slapt-get-meta: update so that noarch will be replaced by i486
+
+2005-09-23  freerock
+
+	gsb_update: add gnome-common to Other.pm
+
+2005-09-23  freerock
+
+	add cvs snapshot gnomemeeting slackbuild
+
+2005-09-23  freerock
+
+	frg-slapt-get-meta: fix slack-required file
+
+2005-09-23  freerock
+
+	gDesklets: update slack-required, thanks to steelman for the bug report
+
+2005-09-23  freerock
+
+	fix description for python bindings meta package
+
+2005-09-22  freerock
+
+	add evolution-caldav to desktop build
+
+2005-09-22  freerock
+
+	add $ARCH stuff to frg-slapt-get-meta
+
+2005-09-22  freerock
+
+	nautilus-python -> 0.4.1
+
+2005-09-22  freerock
+
+	gnome-panel: patched clock applet to use gnomesu time-admin, instead of just time-admin
+
+2005-09-22  freerock
+
+	update totem xine slackbuild
+
+2005-09-22  freerock
+
+	clean up openh323-pwlib.SlackBuild
+
+2005-09-22  freerock
+
+	system-tools-backends: add patch to fix network-admin su issue
+
+2005-09-22  freerock
+
+	add smeg to gnome desktop slack-required. Remove denu and xscreensaver from other slack-required
+
+2005-09-22  freerock
+
+	gnome-system-tools: fix services.desktop to use gnomesu, thanks to linuxgurlerin for pointing this out.
+
+2005-09-22  freerock
+
+	remove gnome-screensaver from gnome desktop's slack-required
+
+2005-09-22  freerock
+
+	libmovtar: update slack-required file, thanks spiral_architect
+
+2005-09-21  woodwardj
+
+	added e17 slackbuilds
+
+2005-09-21  freerock
+
+	fix desktop-reqs slack-required for the meta packages
+
+2005-09-21  freerock
+
+	update gthumb version and CREDITS
+
+2005-09-20  freerock
+
+	update iso make scripts
+
+2005-09-20  freerock
+
+	update xchat, sound-juicer, and xchat
+
+2005-09-20  freerock
+
+	trunk: update frg_iso_install for gnome 2.12.0
+
+2005-09-20  freerock
+
+	trunk: disable mp4 support in easytag (it wouldn't build), update mono versions
+	fix libwpd slack-required, libwpd shouldn't require libwpd
+
+2005-09-18  freerock
+
+	add thorsten to AUTHORS
+
+2005-09-18  freerock
+
+	trunk: fix starting of dbus from gdm.
+
+2005-09-17  woodwardj
+
+	added patch to change evince .desktop file setting NoDisplay=false instead of true by default
+
+2005-09-17  freerock
+
+	bump BUILD variables for the slack-required changes
+
+2005-09-16  woodwardj
+
+	removed requirements for gcc and g++ incorrectly added in
+
+2005-09-15  freerock
+
+	trunk: Add gconf schemas generation to gnome-power-manager
+
+2005-09-15  freerock
+
+	trunk: patch abiword for gimp plugin runtime error
+
+2005-09-15  freerock
+
+	trunk: have the meta slackbuilds output the standard frgnome tree.
+
+2005-09-15  freerock
+
+	trunk: remove setgid bit from gnome-games.
+
+2005-09-15  freerock
+
+	update gnome-keyring to 0.4.5 and add a openh323-pwlib cvs snapshot slackbuild
+
+2005-09-15  woodwardj
+
+	updated librsvg to 2.12.0
+
+2005-09-15  woodwardj
+
+	added version specifications to the frgnome slack-required files
+
+2005-09-15  freerock
+
+	trunk: update glade to 2.12.0 (gsb_update and src)
+
+2005-09-15  freerock
+
+	trunk:
+	  * other: remove subversion from BUILD_ORDER, update glade version
+	  * bump BUILD on hal and gdm
+
+2005-09-15  woodwardj
+
+	updated versions in various slackbuilds
+
+2005-09-15  woodwardj
+
+	updated gslapt x86_64 required
+
+2005-09-14  freerock
+
+	trunk: update src/frg.
+	  * frg-slapt-get-meta: updated for gnome-2.12.0
+	  * frg-version: updated for 2.12.x
+
+2005-09-14  woodwardj
+
+	updated nvu doinst.sh to point to usr/lib by default and added sed to nvu slackbuild to modify as needed
+
+2005-09-13  freerock
+
+	trunk: version updates
+
+2005-09-13  freerock
+
+	trunk: remove abiword.desktop it comes with the source, fix abiword.SlackBuild so that the .desktop entry is in the package, add mergeant back to office build
+
+2005-09-13  freerock
+
+	trunk: add doinst.sh to gnomebaker to run update-desktop-database, Thanks to Thomas Zajic for the bug report
+
+2005-09-12  freerock
+
+	trunk: fix man directory in xscreensaver
+
+2005-09-12  freerock
+
+	trunk: add system-tools-backends to gnome-system-tools slack-required
+
+2005-09-12  woodwardj
+
+	added nvu for download and build
+
+2005-09-12  woodwardj
+
+	added nvu desktop icon
+
+2005-09-12  woodwardj
+
+	updated abiword.desktop to use the correct icon
+
+2005-09-12  woodwardj
+
+	added abiword.desktop
+
+2005-09-12  woodwardj
+
+	added nvu.desktop file for nvu slackbuild
+
+2005-09-12  woodwardj
+
+	added nvu slackbuild
+
+2005-09-12  woodwardj
+
+	added lock-keys-applet
+
+2005-09-12  woodwardj
+
+	added gnome-power-manager to gnome.other.SlackBuild
+
+2005-09-12  woodwardj
+
+	added gnome-power-manager to other/
+
+2005-09-12  woodwardj
+
+	upgraded gslapt to 0.3.7
+
+2005-09-12  freerock
+
+	trunk: update abiword to 2.3.6 and remove goffice-0.4 patch
+
+2005-09-11  woodwardj
+
+	added new pango patch for abiword
+
+2005-09-11  freerock
+
+	trunk: add pango and goffice-0.4 patch for abiword-2.3.5
+
+2005-09-10  freerock
+
+	trunk: version updates for gsb_update and src
+
+2005-09-10  freerock
+
+	trunk: misc cleanups to SlackBuilds is src/
+
+2005-09-10  freerock
+
+	trunk:
+	  * gsb_update: fix url for gnome-games-extra-data, thanks to Thorsten Johannvorderbrueggen for the patch
+
+2005-09-10  freerock
+
+	trunk: misc cleanups and updates to the meta slackbuilds
+
+2005-09-09  woodwardj
+
+	added --retain-privileges to rc.hal
+
+2005-09-09  woodwardj
+
+	updated pstoedit version to 3.41 and removed ximian-connection from slack-required.gnome-desktop
+
+2005-09-08  woodwardj
+
+	updated some slack-required files, patches, and x86_64 build specific changes
+
+2005-09-08  freerock
+
+	trunk: add powerpc patch for libvisual, thanks to Thorsten Johannvorderbrueggen
+
+2005-09-08  freerock
+
+	trunk: upgrade some versions, this got screwed up with my earlier screw up :)
+
+2005-09-08  woodwardj
+
+	added x86_64 arch specific config option --disable-accel-detect
+
+2005-09-08  freerock
+
+	trunk:
+	  * src: update some versions
+	  * gsb_update: version updates
+
+2005-09-08  woodwardj
+
+	updated openldap slack-required
+
+2005-09-08  woodwardj
+
+	removed heimdal requirement from cyrus-sasl
+
+2005-09-08  freerock
+
+	trunk:
+	  * src: make sure --cleanup works properly, add --cleanup to meta slackbuilds
+
+2005-09-08  woodwardj
+
+	replaced libmusepack with libmpcdec
+
+2005-09-08  woodwardj
+
+	added nautilus-open-terminal to gnome.other slackbuild
+
+2005-09-08  woodwardj
+
+	added nautilus-open-terminal to other/
+
+2005-09-08  woodwardj
+
+	added exit 1 on configure or make failure for mono and libgdiplus slackbuilds
+
+2005-09-08  freerock
+
+	trunk:
+	  * gsb_update: whoops, put back things I accidently deleted from Gnome.pm
+
+2005-09-08  freerock
+
+	trunk: update system-tools-backends with a patch to add support for slackware-10.2
+
+2005-09-08  freerock
+
+	trunk:
+	  * src: fix slack-required for monodevelop, update gnome.mono.SlackBuild
+
+2005-09-08  freerock
+
+	trunk:
+	  * src: fix build order in desktop_reqs, faac needs to be built before faad2
+
+2005-09-08  freerock
+
+	trunk: update gamin in src and gsb_update
+
+2005-09-08  freerock
+
+	trunk:
+	  * src: add --cleanup to atk, gtk+2, and hal
+
+2005-09-08  freerock
+
+	trunk:
+	  * src: don't delete clearlooks from gtk-engines package
+
+2005-09-07  freerock
+
+	trunk: update libxml++ to 2.12.0 for src/ and gsb_update
+
+2005-09-07  woodwardj
+
+	updated dbus to 0.50
+
+2005-09-07  woodwardj
+
+	updated dbus-daemon-1 in gnome-session xinitrc.gnome
+
+2005-09-07  freerock
+
+	trunk:
+	  * src: updating gdm patch
+
+2005-09-07  woodwardj
+
+	new gnome-media upstream version, 2.12.0
+
+2005-09-07  woodwardj
+
+	updated various versions due to new upstream releases
+
+2005-09-07  freerock
+
+	trunk:
+	  * src: gnome-2.12 updates
+	  * gsb_update: gnome-2.12 updates
+	                move gnome-games-extra-data to DoubleTar so its version VARIABLE gets updated
+
+2005-09-07  freerock
+
+	trunk:
+	  * gsb_update: more gnome-2.12 updates
+	  * src:
+	     heimdal: added back, installs to /opt/heimdal
+	     gnome-2.12 updates
+
+2005-09-06  woodwardj
+
+	updated rc.dbus to point to dbus-daemon rather than dbus-daemon-1
+
+2005-09-06  freerock
+
+	trunk:
+	  * src: gnome-2.12 updates
+	  * gsb_update: gnome-2.12 updates
+
+2005-09-06  woodwardj
+
+	gucharmap and gnome-utils new upstream releases
+
+2005-09-06  woodwardj
+
+	more upstream 2.12 releases rolling in
+
+2005-09-06  woodwardj
+
+	fixed broken elif in arch check for frg-version
+
+2005-09-06  woodwardj
+
+	fixed gnome-desktop slackbuild so that it would build correctly.  the --with-gnome-distributor option was breaking the build host detection
+
+2005-09-05  woodwardj
+
+	updated frg-version output for slamd64
+
+2005-09-05  freerock
+
+	trunk:
+	  * src: frg-version add string for powerpc ARCH
+
+2005-09-05  freerock
+
+	trunk:
+	  * src: update ARCH_CONFIGURE for gnome-desktop, use a different string for --with-gnome-distributor
+
+2005-09-05  freerock
+
+	trunk:
+	  * frg_iso_install: Update versions for gnome-2.12.x, add subversion check for installation
+
+2005-09-05  freerock
+
+	trunk:
+	  * src: GNOME-2.12.x updates
+
+2005-09-05  freerock
+
+	trunk:
+	  * gsb_update.pl: Gnome-2.12 updates
+
+2005-09-05  woodwardj
+
+	updated versions for various slackbuilds
+
+2005-09-05  woodwardj
+
+	updated versions of new upstream sources in Gnome.pm
+
+2005-09-05  woodwardj
+
+	updated versions in various slackbuilds
+
+2005-09-05  woodwardj
+
+	updated libxslt and libxml2 versions
+
+2005-09-04  freerock
+
+	trunk:
+	  * src: gnome 2.12 version updates
+
+2005-09-04  freerock
+
+	trunk:
+	  * gsb_update: update versions in Gnome, GStreamer, Other
+
+2005-09-04  woodwardj
+
+	updated liferea version
+
+2005-09-04  woodwardj
+
+	updated versions in various slackbuilds
+
+2005-09-04  woodwardj
+
+	updated pkg-config version to 0.19
+
+2005-09-04  woodwardj
+
+	updated poppler and pyxdg versions
+
+2005-09-03  freerock
+
+	trunk:
+	  * src: version updates gnome bindings
+	         update control-center patches for x86
+	         remove system-tools-backends patch as it was for slackware-10.1
+	         fix package installed checks for libsigc++ and libxml++
+
+2005-09-03  freerock
+
+	trunk:
+	  * gsb_update: version updates
+
+2005-09-03  woodwardj
+
+	updated versions for several slackbuilds
+
+2005-09-03  woodwardj
+
+	initial easytag slack-required
+
+2005-09-03  woodwardj
+
+	added patch to fix variable declaration error in gen_xhtml and gen_html4 for psiconv package
+
+2005-09-03  freerock
+
+	trunk:
+	  * src: remove java bindings from the build order
+
+2005-09-03  freerock
+
+	trunk:
+	  * gsb_update: some version updates in Other
+
+2005-09-03  freerock
+
+	trunk:
+	  * gsb_update: update slapt-get and gslapt versions
+
+2005-09-03  woodwardj
+
+	updated xscreensaver.setuid.diff.gz patch for new xscreensaver upstream version
+
+2005-09-03  woodwardj
+
+	version updates and abiword slackbuild die on configure or make failures while building plugins
+
+2005-09-03  woodwardj
+
+	updated totem slackbuilds
+
+2005-09-03  woodwardj
+
+	removed heimdal from slack-required.gnome-desktop-reqs
+
+2005-09-03  woodwardj
+
+	updated other/ slackbuilds to exit on configure or make error and updated anjuta slack-required
+
+2005-09-03  freerock
+
+	trunk:
+	  * src: remove guile from gnome.other.SlackBuild
+
+2005-09-03  freerock
+
+	trunk:
+	  * gsb_update: add guile to Other
+
+2005-09-03  freerock
+
+	trunk:
+	  * gsb_update: some version updates
+
+2005-09-03  freerock
+
+	trunk:
+	  * src: added evolution-caldav
+
+2005-09-03  woodwardj
+
+	added exit on configure and make in guile slackbuild
+
+2005-09-03  woodwardj
+
+	fixed gnome.other.SlackBuild (had missing subversion, slapt-get, and gslapt)
+
+2005-09-03  woodwardj
+
+	removed the old first anjuta entry in the gnome.other SlackBuild
+
+2005-09-03  woodwardj
+
+	removed unused gconf portions of gtkmm and libxml++ slackbuilds
+
+2005-09-03  woodwardj
+
+	removed commmented out exit line (added while testing)
+
+2005-09-03  woodwardj
+
+	added ARCH_CONFIGURE for gaim-encryption configure
+
+2005-09-03  woodwardj
+
+	VERSION updates, small fixes for etc/gconf work (mkdir first), EXTRAVERSION for gnome-games-extra-data
+
+2005-09-03  freerock
+
+	trunk: fix formating in CREDITS and AUTHORS
+
+2005-09-03  woodwardj
+
+	added malloc/Jason Woodward to AUTHORS and CREDITS
+
+2005-08-30  freerock
+
+	trunk:
+	  * gsb_update: GNOME-2.11.x updates, gthumb update
+
+2005-08-30  freerock
+
+	trunk:
+	  * src: update build order in desktop
+
+2005-08-30  freerock
+
+	trunk:
+	  * src: update desktop_reqs
+	         remove heimdal and cyrus-sasl from the build, heimdal temporarily for cleanup
+	         fix package install checks for some slackbuilds
+	         libvisual-plugins, make sure it can find X headers
+
+2005-08-30  freerock
+
+	trunk:
+	  * src: update boo's slack-required, changed gtksourceview-2.0 to gtksourceview, thanks to Luca Cavalli for the bug report
+
+2005-08-29  freerock
+
+	trunk:
+	  * src: move gnome-icon-theme and libgnomeprintui to desktop
+	  * gsb_update: updated for gnome-icon-theme and libgnomeprintui move
+
+2005-08-29  freerock
+
+	trunk:
+	  * src: version updates
+
+2005-08-29  freerock
+
+	trunk:
+	  * src:
+	    pkg-config: set PKG_CONFIG_PATH explicitly at compile time
+	    cairo: enable pdf and glitz
+
+2005-08-29  freerock
+
+	trunk:
+	  * gsb_update: version updates
+
+2005-08-29  freerock
+
+	trunk:
+	  * src: added libgpg-error to libgcrypt's slack-required
+
+2005-08-29  freerock
+
+	trunk:
+	  * src: add libgcrypt to platform, move libgpg-error from other to platform
+
+2005-08-29  freerock
+
+	trunk:
+	  * gsb_update: 2.11.x version updates, Office and Other updates
+
+2005-08-29  freerock
+
+	trunk:
+	  * src: gnome-2.11.x updates, gnumeric update
+	         Added mono
+	         frg-slapt-get-meta update order for frgnome
+
+2005-08-28  freerock
+
+	move web directory to base of tree from trunk
+
+2005-08-28  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	added SVN WebSVN linky-link
+
+2005-08-28  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	f00?
+
+2005-08-28  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	ph00
+
+2005-08-26  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Added diagram thumb.
+
+2005-08-26  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Updated diagrams
+
+2005-08-26  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	header fix
+
+2005-08-26  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	intro thumb tweak
+
+2005-08-26  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	made logo x-parent
+
+2005-08-25  freerock
+
+	trunk:
+	  * frg-artwork: Add backgrounds from Mahomedalid Ivan.
+
+2005-08-25  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	more cleanups
+
+2005-08-25  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	cleanups
+
+2005-08-25  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+2005-08-25  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+2005-08-25  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+2005-08-25  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+2005-08-25  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+2005-08-25  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+2005-08-25  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+2005-08-25  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	propsets
+
+2005-08-25  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	propsets
+
+2005-08-25  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	header tweaks
+
+2005-08-25  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	moved screenshots to mirror
+
+2005-08-25  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	moved screenshots to mirror
+
+2005-08-25  freerock
+
+	trunk:
+	  * src: frg-firefox-libs: Fixes from Darren Austin.
+
+2005-08-25  woodwardj
+
+	changed tail -1 to tail -n 1 in gen_metadata.sh
+
+2005-08-25  freerock
+
+	trunk:
+	  * bin: update gen_metadata.sh to the latest version from Darren Austin
+
+2005-08-25  freerock
+
+	trunk:
+	  * gsb_update: Move PyXML from Office to Desktop_Reqs
+
+2005-08-25  freerock
+
+	trunk:
+	  * src: add frg-firefox-libs, creates symlinks to libs needed by GNOME that are not in /usr/lib
+
+2005-08-24  freerock
+
+	trunk:
+	  * src: change libdvbpsi3 to libdvbpsi4 in desktop_reqs slack-required
+
+2005-08-24  freerock
+
+	trunk:
+	  * gsb_update: GNOME 2.11.x version updates
+
+2005-08-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+2005-08-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	pwn3d
+
+2005-08-24  freerock
+
+	trunk:
+	  * src: added ARCH specific patches area and a package install check
+
+2005-08-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	random hash tweak
+
+2005-08-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Assigned class to intro screenshot thumb
+
+2005-08-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	heade includes fix and random screenshot thumb hack
+
+2005-08-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	more header tweaks
+
+2005-08-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	header tweak
+
+2005-08-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Sitemap tweaks
+
+2005-08-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	date fix
+
+2005-08-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	* Tweaked <h[1-6]> header tag classes; line-height attribs.
+	* Added news IRT: PB
+
+2005-08-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	scaled screenshots to ~800x600
+
+2005-08-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	package browser config tweak
+
+2005-08-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	sitemap exclusion
+
+2005-08-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	* Added slack ver. to versions func.
+	* Added google-sitemap python prog. to gen /sitemap.xml
+	* Added package browser link to sidebar
+	* Added new "intro" content to landing page - omiitted "about" content
+	* Added new mod_rewrite redir. for package browser
+	* Added new 403 rule in .htaccess to prevent the taversing into 'sitemap-gen'
+
+2005-08-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	new meta-pack name
+
+2005-08-23  freerock
+
+	trunk:
+	  * src: update frg-slapt-get-meta build to have shorter names
+	         update names in slack-required files
+
+2005-08-23  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	"frg-gnome-meta"?
+
+2005-08-23  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	fixed meta-pack name
+
+2005-08-23  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	supports new frg meta-packages
+
+2005-08-23  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	neq dammit! !=
+
+2005-08-23  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	`sudo` not needed any longer
+
+2005-08-23  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	r3wt sanity chex
+
+2005-08-23  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	fixed URL paths
+
+2005-08-23  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	echo fix
+
+2005-08-23  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	hacks
+
+2005-08-23  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	sleep()
+
+2005-08-23  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	added cleanup func.
+
+2005-08-23  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	net-install tweaks
+
+2005-08-23  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	net-install fixes
+
+2005-08-23  woodwardj
+
+	fixed typo in Other.pm
+
+2005-08-23  freerock
+
+	trunk:
+	  * src: Add meta packages for use with slapt-get.
+	         Thanks to Jason Woodward for the slack-* files needed for the meta packages
+
+2005-08-23  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	test
+
+2005-08-23  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	propsets
+
+2005-08-23  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	blah
+
+2005-08-23  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	baz
+
+2005-08-23  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	foo
+
+2005-08-23  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	test
+
+2005-08-23  freerock
+
+	trunk:
+	  * gsb_update: 2.11.x version updates to GNOME
+
+2005-08-22  freerock
+
+	trunk:
+	  * gsb_update: add autogen to Other.pm
+
+2005-08-22  woodwardj
+
+	updated glade slack-required
+
+2005-08-22  woodwardj
+
+	upgraded autogen to 5.7.2
+
+2005-08-22  woodwardj
+
+	misc version updates, required updates, and existing on make or configure errors
+
+2005-08-22  woodwardj
+
+	fixed planner 0.13 issues with libgda
+
+2005-08-22  woodwardj
+
+	added x86_64 patch to fix gailutil linking error in gimp slackbuild
+
+2005-08-22  woodwardj
+
+	added arch patch if/else/fi and a sed to change doinst to use lib64 on x86_64 arch for libgphoto2 slackbuild
+
+2005-08-22  woodwardj
+
+	added x86_64 patch to link against pangoxft-1.0 for control-center
+
+2005-08-22  woodwardj
+
+	added patch for pango-xft support on x86_64 systems so that gnome-applets would build
+
+2005-08-22  woodwardj
+
+	have mpeg4ip call bootstrap before configure
+
+2005-08-22  woodwardj
+
+	updated libavc1394 to version 0.5.1
+
+2005-08-21  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	some formatting fixes/tweaks to installation steps
+
+2005-08-21  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	missing space
+
+2005-08-21  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	typo and grammar fixes in uninstallation clause
+
+2005-08-21  woodwardj
+
+	removed PyXML and iso-codes
+
+2005-08-21  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	will it ever end?
+
+2005-08-21  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	more screenshot cleanups
+
+2005-08-21  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	screenshot tweaks
+
+2005-08-21  woodwardj
+
+	added PyXML to gnome.desktop_reqs slackbuild
+
+2005-08-21  woodwardj
+
+	moved PyXML from office/libs to gnome/desktop_reqs for iso-codes
+
+2005-08-21  woodwardj
+
+	added iso-codes to gnome.desktop_reqs slackbuild
+
+2005-08-21  woodwardj
+
+	moved iso-codes in DoubleTar.pm from office/libs to gnome/desktop_reqs
+
+2005-08-21  woodwardj
+
+	updated desktop/ slackbuild to exit on configure or make error
+
+2005-08-20  woodwardj
+
+	make sure desktop_reqs slackbuilds exit on failure of configure or make
+
+2005-08-20  woodwardj
+
+	make sure polypaudio slackbuild exits if configure or make fail
+
+2005-08-20  woodwardj
+
+	mpeg4ip slackbuild should exit if configure more make fail
+
+2005-08-20  woodwardj
+
+	swfdec exit if configure or make fail
+
+2005-08-20  woodwardj
+
+	updated mpeg2dec slackbuild to exit if configure or make failes
+
+2005-08-20  woodwardj
+
+	removed heimdal as a requirement for gnome-vfs
+
+2005-08-20  freerock
+
+	trunk:
+	  * gsb_update: version updates
+
+2005-08-20  woodwardj
+
+	updated version of libgnomecanvas
+
+2005-08-20  woodwardj
+
+	removed extra gnome-vfs requirement from libgnome slack-required
+
+2005-08-20  woodwardj
+
+	added slack-conflicts for pkg-config, listing pkgconfig as conflict
+
+2005-08-20  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	more screenshot cleanups
+
+2005-08-20  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	screenshot cleanups
+
+2005-08-19  woodwardj
+
+	updated versions for grip and mpeg4ip
+
+2005-08-19  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	favicon
+
+2005-08-19  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	symlinks?
+
+2005-08-19  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	trying to cut down on 404's
+
+2005-08-19  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	yay for stats!
+
+2005-08-19  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	<a> class hacks
+
+2005-08-19  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	moo
+
+2005-08-19  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	huh?
+
+2005-08-19  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	<pre> cleanups
+
+2005-08-19  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	propsets and version func. in package browser
+
+2005-08-18  woodwardj
+
+	bumped VERSION for poppler, loudmouth, anjuta, gimp, gossip, and libxml2
+
+2005-08-18  woodwardj
+
+	added --enable-openssl=yes to evolution slackbuild
+
+2005-08-18  woodwardj
+
+	added patch for incorrect usage of gda library call to config_save_data_source() in planner
+
+2005-08-18  woodwardj
+
+	fixed incorrect slack-required entries for gnome-screensaver, present, and goffice
+
+2005-08-18  woodwardj
+
+	added totem to rhythmbox slack-required
+
+2005-08-18  woodwardj
+
+	added libmng to graveman slack-required
+
+2005-08-18  woodwardj
+
+	commented out patch for metacity setting the default theme to clearlooks... clearlooks is now upstream default
+
+2005-08-18  woodwardj
+
+	updated Other.pm for gimp 2.2.8
+
+2005-08-18  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	global var replacements
+
+2005-08-18  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	project version func. merge/tweaks
+
+2005-08-18  woodwardj
+
+	updated gnome-pkgtool slackbuild to untar gz if bz2 file doesn't exist
+
+2005-08-18  woodwardj
+
+	added x86_64 nspr configure options for evolution-data-server
+
+2005-08-18  freerock
+
+	trunk:
+	  * iso-codes: move to desktop_reqs
+
+2005-08-18  freerock
+
+	trunk:
+	  * iso-codes: move malloc's pkgconfig fix to after make install
+
+2005-08-18  woodwardj
+
+	make sure iso-codes puts its pkgconfig file in /usr/lib/pkgconfig
+
+2005-08-18  woodwardj
+
+	iso-codes is now a requirement for ephiphany
+
+2005-08-18  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	not needed
+
+2005-08-18  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	center screenshot thumbs
+
+2005-08-18  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+2005-08-18  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Modified/tweaked screenshot funcs./page
+
+2005-08-17  woodwardj
+
+	added patch to fix ev-application-service.xml missing target for 0.3.3 evince
+
+2005-08-17  woodwardj
+
+	fixed syntax error in Other.pm closing the array element with ; instead of ,
+
+2005-08-17  woodwardj
+
+	upgrade libxml2 to 2.6.20
+
+2005-08-17  woodwardj
+
+	updated gslapt x86_64 specific slack-required to go into if/else/fi arch check
+
+2005-08-17  woodwardj
+
+	added x86_64 specific slack-required for slapt-get
+
+2005-08-17  woodwardj
+
+	added x86_64 specific slack-required for gslapt
+
+2005-08-17  woodwardj
+
+	updated applying patch using p1 rather than p0 in goobox slackbuild
+
+2005-08-17  woodwardj
+
+	made sure slapt and gslapt slackbuilds set the arch and build portions of the package name
+
+2005-08-17  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+2005-08-17  woodwardj
+
+	updated slapt-get and gslapt build scripts
+
+2005-08-17  woodwardj
+
+	updated gslapt and slapt-get versions in Other.pm
+
+2005-08-17  woodwardj
+
+	fixed more bad merges in libfame.SlackBuild, mjpegtools.SlackBuild, ffmpeg.SlackBuild, and goobox.SlackBuild
+
+2005-08-17  woodwardj
+
+	fixed conflict in last merge of libmovtar.SlackBuild
+
+2005-08-16  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	heading tweak
+
+2005-08-16  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	title tweak
+
+2005-08-16  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	header tweak
+
+2005-08-16  woodwardj
+
+	removed old amd64 patch apply from hal slackbuild since it had been added to arch specific patch section
+
+2005-08-16  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	keywords
+
+2005-08-16  freerock
+
+	trunk:
+	  * gsb_update: Version updates for Other.pm
+
+2005-08-16  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Clarified about bullet
+
+2005-08-16  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	added dia thumb
+
+2005-08-15  freerock
+
+	trunk:
+	  * src: Patch from Darren Austin to fix up doinst.sh files when they run in a different $ROOT
+
+2005-08-15  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	desc. fix
+
+2005-08-15  woodwardj
+
+	updated configure and make calls to exit on failure, fixed a few broken slackbuilds
+
+2005-08-15  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+2005-08-15  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	fixed missing </div>!
+
+2005-08-14  woodwardj
+
+	relocated mpeg4ip back to be built after mpeg2dec
+
+2005-08-14  woodwardj
+
+	added ARCH_CONFIGURE to openh232-pwlib
+
+2005-08-14  woodwardj
+
+	made firefox doinst.sh arch independent
+
+2005-08-14  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	thumb padding fix
+
+2005-08-14  woodwardj
+
+	added thunderbird slackbuild
+
+2005-08-14  woodwardj
+
+	added firefox slackbuild
+
+2005-08-14  woodwardj
+
+	added python as a dependency for bindings/python packages that didn't previously have it
+
+2005-08-14  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	labia?
+
+2005-08-14  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+2005-08-14  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	k00l
+
+2005-08-14  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	whee!
+
+2005-08-14  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	woah!
+
+2005-08-14  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	b4r
+
+2005-08-14  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	ph003y
+
+2005-08-14  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	better decription
+
+2005-08-14  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Title enhancement
+
+2005-08-14  freerock
+
+	trunk:
+	  * src: version updates
+	  * gsb_update: version updates
+
+2005-08-14  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	meta tags
+
+2005-08-14  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	meta tags
+
+2005-08-14  freerock
+
+	trunk:
+	  * gsb_update: Version updates for gnome-2.11.x and for Other.pm
+	  * frg_iso_install: version updates for duplicate packages
+	  * src:
+		libcddb: update tarball type to tar.bz2
+
+2005-08-14  freerock
+
+	gsb: More ARCH_CONFIGURE patches from Jason Woodward.
+
+2005-08-14  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	fixed diagrams
+
+2005-08-14  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	copyright on thr PB
+
+2005-08-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	oops
+
+2005-08-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	labia
+
+2005-08-13  freerock
+
+	gsb: ARCH_CONFIGURE and x86_64 patches from Jason Woodward
+
+2005-08-13  freerock
+
+	added gnome-build, guile, devhelp, graphviz, subversion, autogen, gdl for anjuta2.
+	Update anjuta to 2.0.1
+
+2005-08-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	<pre> tag clean-ups, and addition of mirrors to the download page
+
+2005-08-12  freerock
+
+	gdm: fix post login patch, Bad Darren, no cookie.
+
+2005-08-11  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	clean-ups
+
+2005-08-11  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	f00
+
+2005-08-11  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	deleted extranneous <div>s
+
+2005-08-11  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	monotype changelog dates
+
+2005-08-11  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	fixed bug regarding directrories with underscores
+
+2005-08-11  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+2005-08-11  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+2005-08-11  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	added Slamd64 plug
+
+2005-08-11  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	ignore certain dirs
+
+2005-08-11  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Package browser testing
+
+2005-08-11  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Added class for package browser
+
+2005-08-10  freerock
+
+	gsb: commit patch from Darren Austin to start dbus from gdm's post login, remove dbus from gnome-session patch, and add a .desktop file for aiksaurus.
+
+2005-08-07  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	screenshot thumbnail enhancements
+
+2005-08-07  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	toot toot!
+
+2005-08-07  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	ph00
+
+2005-08-07  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	f00
+
+2005-08-07  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	news engine tweaks
+
+2005-08-06  freerock
+
+	gsb_update: update Desktop_reqs versions
+
+2005-08-06  freerock
+
+	update doinst.sh scripts for cyrus-sasl, dbus, hal, and howl to be ash compatible, thanks to Larhzu for the bug report with the howl doinst.sh file
+
+2005-08-06  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	oops
+
+2005-08-06  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	rounded corners annoyed me :-)
+
+2005-08-06  freerock
+
+	gsb-web: update TODO on development page
+
+2005-08-06  freerock
+
+	gsb-web: Updated Roadmap on development page
+
+2005-08-06  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	whoa!
+
+2005-07-31  freerock
+
+	gsb_update: update versions for gnome-2.11.x and gnome office
+
+2005-07-27  freerock
+
+	gen_metadata.sh: Upstream changes from Darren Austin to fix generation of PACKAGES.TXT
+
+2005-07-26  freerock
+
+	gsb_update: update libdvdcss and libdvbpsi
+
+2005-07-26  freerock
+
+	complete move of libdvbpsi3 to libdvbpsi4
+
+2005-07-26  freerock
+
+	gsb: move libdvbpsi3 to libdvbpsi4
+
+2005-07-26  freerock
+
+	gsb_update: update graveman version in other/
+
+2005-07-25  freerock
+
+	gsb_update: liferea update
+
+2005-07-25  freerock
+
+	gsb_update: update mergeant
+
+2005-07-25  freerock
+
+	gsb_update: some gnome 2.11.x updates
+
+2005-07-25  freerock
+
+	gsb_update: some version updates for GStreamer and Other
+
+2005-07-24  freerock
+
+	bin misc: an updated gen_metadata.sh
+
+2005-07-22  freerock
+
+	gslapt: add gnomesu lines for the doinst.sh file
+
+2005-07-20  freerock
+
+	gsb_update: Some version updates for other/ and desktop_reqs/
+
+2005-07-18  freerock
+
+	gsb web: update stable version info
+
+2005-07-18  freerock
+
+	gsb-web: Update news for 0.2.2 release of FRG
+
+2005-07-17  freerock
+
+	frg_iso_install: make sure variables are quoted in tests
+
+2005-07-17  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Took out .txt filed from deny ACL
+
+2005-07-17  freerock
+
+	gsb web: update 404 link
+
+2005-07-16  freerock
+
+	gdm: Update Xession to use tail -n 1 instead of tail -1. Thanks to Jason Woodward for the bug report
+
+2005-07-16  freerock
+
+	frg_iso_install: reinstall libgnome after all of the minimum install is done
+	update sylpheed-claws version.
+
+2005-07-16  freerock
+
+	frg_iso_install: use relative paths in frg_post_install.sh for people who
+	install to a different $ROOT, thanks to Darren Austin for the suggestion
+
+2005-07-16  freerock
+
+	frg_iso_install: Update scripts to enable dbus and howl in rc.d
+
+2005-07-12  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	css clean-ups
+
+2005-07-12  freerock
+
+	gsb_update: merge revision 754 from gsb-2.10.x branch
+
+2005-07-10  freerock
+
+	evolution-exchange: update from ximian-connector to evolution-exchange
+
+2005-07-10  freerock
+
+	gsb: Initial updatest to trunk for gnome-2.11.x
+
+2005-07-10  freerock
+
+	gsb: Update clearlooks theme, remove clearlooks stuff from gtk-engines, update gdm.
+
+2005-07-10  freerock
+
+	frg_iso_install: fix some errors
+
+2005-07-10  freerock
+
+	frg_iso_install: update sylpheed version, fix checking of multiple packages
+	'[ ];' then should be '[[ ]]; then'
+
+2005-07-10  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	addeed faq clause
+
+2005-07-10  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	added slapt-get/FRG install FAQ
+
+2005-07-10  freerock
+
+	frg_iso_install: update install scripts to check before installing packages with multiple versions
+
+2005-07-09  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	put 'about' on top of landing page to make project a bit more clear.
+
+2005-07-06  freerock
+
+	gsb_update: 2.10.x updated versions
+
+2005-07-06  freerock
+
+	gsb: add smeg, pyxdg
+	update slapt-get and gslapt to latest versions
+
+2005-07-06  freerock
+
+	gsb_update: add pyxdg, smeg, slapt-get, gslapt
+
+2005-07-05  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	changed column layout of screenshots a bit for low-res folks
+
+2005-07-02  freerock
+
+	gsb: add thoggen to other build
+
+2005-07-02  freerock
+
+	gsb_update: some version updates, add gst-python, thoggen, and istanbul.
+	frg_iso_install: some version updates, fix path to gnumeric testing package
+
+2005-07-02  freerock
+
+	gsb: gnome updates for 2.10.1 plus other updates
+	added: pygtk, istanbul
+
+2005-06-29  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	syntax fix
+
+2005-06-29  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	link updates
+
+2005-06-29  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	styling hacks
+
+2005-06-29  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	ChangeLog func. tweaks
+
+2005-06-29  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	more HTTP ENV vars
+
+2005-06-29  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	added friendly HTTP error handling
+
+2005-06-29  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Cleaned up URIs and added more sanity checks to QUERY_STRING vars
+
+2005-06-28  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	consolidated "roadmap" and "help the project" pages into "development" page
+
+2005-06-28  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	URI typo
+
+2005-06-28  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Added images to repo
+
+2005-06-28  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Moved SF.net images locally, since we don't do web VHOSTing with them any longer
+
+2005-06-27  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	* updated faqs
+	* updated SVN repo. link
+	* added -stable version (dynamic) to download page
+	* tightened and streamlined .htaccess access rules
+
+2005-06-27  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	URL change
+
+2005-06-27  freerock
+
+	gsb_update: some version updates
+
+2005-06-26  freerock
+
+	gsb_update: libgnomesu update
+
+2005-06-26  freerock
+
+	gsb_update: fix typo with libpixman
+
+2005-06-26  freerock
+
+	gsb_update: some version updates
+
+2005-06-26  freerock
+
+	gsb_update: update gimp version in Other.pm
+
+2005-06-25  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	cleanups
+
+2005-06-25  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	propset
+
+2005-06-25  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	added ps keywords
+
+2005-06-25  freerock
+
+	gsb: update gimp and sabayon versions
+
+2005-06-25  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	f00 b4r
+
+2005-06-25  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	test
+
+2005-06-25  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	made appropriate changes for new webhost
+
+2005-06-25  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	css hacks
+
+2005-06-25  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	major css cleaning
+
+2005-06-25  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	fixed mod_rewrite rule bug :-/
+
+2005-06-25  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Header and sidebar source cleanups
+
+2005-06-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	f00
+
+2005-06-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	css tweaks...again :)
+
+2005-06-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Menu/css/header tweaks
+
+2005-06-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Verbiage modification on menu
+
+2005-06-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	clean ups
+
+2005-06-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Added easy way to specify latest -stable version
+
+2005-06-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	parsing cleanups
+
+2005-06-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Added the correct changelogs
+
+2005-06-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	SF.net disallows fopen(), so I had to make the changelog routine parse local files
+
+2005-06-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Added changelog functionality to site
+
+2005-06-24  freerock
+
+	gsb: add a frg-version package so people know what version they have
+
+2005-06-22  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Changed DTD to the elite set of XHTML 1.1 plus MathML 2.0 plus SVG 1.1 :-)
+
+2005-06-22  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	mod_rewrite clean-ups/tweaks
+
+2005-06-22  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Ridded non-unicode fonts from CSS
+
+2005-06-22  freerock
+
+	gsb: add libpixman, glitz, and cairo to other
+
+2005-06-22  freerock
+
+	gsb_update: Other: added cairo, glitz, and libpixman
+
+2005-06-22  freerock
+
+	remove package_checksums.sh
+
+2005-06-22  freerock
+
+	frg_iso_install: fix typo
+
+2005-06-22  freerock
+
+	frg_iso_install: logic error, change || to &&
+
+2005-06-22  freerock
+
+	frg_iso_install: make sure when full installation is run, FRG_FULL var is set
+	clean up check requirements script
+
+2005-06-22  freerock
+
+	frg_iso_install: clean up scripts, remove some duplicate packages
+
+2005-06-21  freerock
+
+	frg_iso_install: fix FRGROOT variable
+
+2005-06-21  freerock
+
+	frg_iso_install: fix typo
+
+2005-06-21  freerock
+
+	drivel: fix formatting in doinst.sh
+	gqview, xscreensaver, gaim, avidemux, gthumb, easytag, graveman, evince, galeon: add update scripts to doinst.sh scripts
+
+2005-06-21  freerock
+
+	gthumb, galeon: remove frg from SlackBuild file
+	slapt-get, gslapt: misc clean up, remove log file that should not
+	have been commited
+
+2005-06-21  freerock
+
+	glib2: clean up
+
+2005-06-21  freerock
+
+	frg_iso_install: fix up the dups install files
+
+2005-06-21  freerock
+
+	frg_iso_install: add getopts options to frg_install.sh
+
+2005-06-21  freerock
+
+	gsb: add slapt-get and gslapt to other/
+
+2005-06-21  freerock
+
+	Added Darren Austin to the CREDITS file
+
+2005-06-21  freerock
+
+	gsb: added gen_metadata.sh from Darren Austin
+
+2005-06-17  freerock
+
+	gnome-audio: comment stuff out of the SlackBuild that are not needed
+
+2005-06-17  freerock
+
+	gconf: slack-required gtk+ should be gtk+2, thanks to malloc.
+
+2005-06-15  freerock
+
+	glib2: clean up some if blocks
+
+2005-06-15  freerock
+
+	glib2: add -fPIC to the CFLAGS for x86_64
+
+2005-06-15  freerock
+
+	glib2: echo that package already exists
+
+2005-06-15  freerock
+
+	glib2: add check to see if package already exists
+
+2005-06-15  freerock
+
+	glib2: add ARCH_CONFIGURE and ARCH specific patches to the SlackBuild
+
+2005-06-15  freerock
+
+	gsb_update: update bluefish version
+
+2005-06-12  freerock
+
+	metacity and libwnck: comment out patches by default
+
+2005-06-12  freerock
+
+	gsb_update: some version updates
+
+2005-06-12  freerock
+
+	gsb: update desktop for gnome-2.10.1
+
+2005-06-12  freerock
+
+	gsb: version updates in other/
+
+2005-06-12  freerock
+
+	gsb: some version updates in other/
+
+2005-06-11  freerock
+
+	gsb_update: anjuta update
+
+2005-06-11  freerock
+
+	gsb_update: liferea update
+
+2005-06-11  freerock
+
+	gsb_update: update streamripper
+
+2005-06-11  freerock
+
+	gsb_update: poppler update
+
+2005-06-11  freerock
+
+	gsb_update: update evince
+
+2005-06-11  freerock
+
+	gsb_update: update drivel version
+
+2005-06-11  freerock
+
+	new TODO item to look at
+	gtkam: fix typo in slack-required file
+
+2005-06-07  freerock
+
+	some desktop_reqs version updates
+
+2005-06-07  freerock
+
+	frg_iso_install: remove extra gnome-menus package from install. Update scripts for new directory structure
+
+2005-06-07  freerock
+
+	streamtuner: fix for slack-required, should be curl not libcurl
+
+2005-06-07  freerock
+
+	gnumeric: fix slack-required, was gal should be gal2,
+	thanks to malloc for the fix
+
+2005-06-07  freerock
+
+	gsb_update: some more version updates
+
+2005-06-05  freerock
+
+	platform: updates for gnome-2.10.1
+
+2005-06-04  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Added Datapipe.net sponsorship plug
+
+2005-06-01  freerock
+
+	openldap: fix doinst.sh file so that rc.openldap.new is processed
+
+2005-05-28  freerock
+
+	gsb_update: Some version updates for libs and apps
+
+2005-05-28  freerock
+
+	swfdec, libwmf: run gdk-pixbuf-query-loaders in doinst.sh to add gtk loaders.
+	Thanks to Thomas Zajic for the bug report
+
+2005-05-27  freerock
+
+	web: update news for gnome-2.10.1 initial packages
+
+2005-05-26  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	CSS fix
+
+2005-05-26  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	cleaned up CSS a bit
+
+2005-05-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	added new release
+
+2005-05-20  freerock
+
+	gsb_update: update url for graveman
+
+2005-05-20  freerock
+
+	gsb_update: update some versions
+
+2005-05-16  freerock
+
+	gsb: make db.h point to db4/db.h so openldap can build properly
+
+2005-05-15  freerock
+
+	gnome-vfs: slack-required updated for typo, thanks to Eugene Crosser for the bug report
+
+2005-05-15  freerock
+
+	gsb_update: version update for xscreensaver
+
+2005-05-15  freerock
+
+	xscreensaver: add patch for version 4.21 to fix setuid binaries
+
+2005-05-15  freerock
+
+	gsb_update: fix runtime error with Other.pm
+
+2005-05-15  freerock
+
+	gsb_update: version updates, add gqview to Other
+
+2005-05-12  freerock
+
+	gsb web: update subversion repository link
+
+2005-05-11  freerock
+
+	gsb_update: some version updates
+
+2005-05-11  freerock
+
+	gsb_update: update some urls and versions
+
+2005-05-08  freerock
+
+	gsb_update: some more version updates
+
+2005-05-02  freerock
+
+	gsb_update: more version updates for GNOME 2.10.1
+
+2005-04-30  freerock
+
+	heimdal: update heimdal, and fix slackbuild so that libcom_err is always in the package
+
+2005-04-29  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Fixed bad SVN URI
+
+2005-04-29  freerock
+
+	gsb web: updated dev page for subversion mirror and update version numbers
+
+2005-04-29  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Updated ACL's
+
+2005-04-28  freerock
+
+	more TODO
+
+2005-04-28  freerock
+
+	frg_iso_install: update install scripts for new directory layout
+
+2005-04-28  freerock
+
+	gsb_update: version updates
+
+2005-04-27  freerock
+
+	frg iso scripts: Update version numbers and shorten variable name
+
+2005-04-27  freerock
+
+	added scripts to make iso releases of frg
+
+2005-04-23  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Added more screenshots :-)
+
+2005-04-21  freerock
+
+	gsb_update: fix clearlooks-metacity url in DoubleTar.pm
+
+2005-04-21  freerock
+
+	clearlooks: update slackbuild for change in clearlooks-metacity name
+
+2005-04-21  freerock
+
+	gsb_update: revert clearlooks version update, change url for clearlooks-metacity
+
+2005-04-21  freerock
+
+	gsb_update: Themes.pm Other.pm, update some version variables
+
+2005-04-21  freerock
+
+	gsb_update: gnome 2.10.1 version updates
+
+2005-04-21  freerock
+
+	gsb_update: add gpgme, libgpg-error, libesmtp to other build. Add iso-codes to DoubleTar.pm temporarily
+
+2005-04-21  freerock
+
+	office libs: add PyXML and iso-codes back to the build
+
+2005-04-21  freerock
+
+	office libs: resurrected iso-codes, needed by glom
+
+2005-04-21  freerock
+
+	iso-codes: remove from office libs
+
+2005-04-21  freerock
+
+	gsb_update: update coaster/libcoaster URL, fix downloading of platform tarballs withdifferent names
+
+2005-04-21  freerock
+
+	gsb_update: works again, still needs some cleaning up
+
+2005-04-21  freerock
+
+	clearlooks: added version variable for clearlooks metacity theme
+
+2005-04-20  freerock
+
+	gnome-audio: add md5sum file temporarily for work around with gsb_update.pl
+
+2005-04-18  freerock
+
+	libgnome: fix default cursor patch
+
+2005-04-18  freerock
+
+	libgnome: patched to use jimmac cursor theme
+
+2005-04-18  freerock
+
+	gsb_update: add perl bindings to Gnome.pm and update some media libs in GStreamer.pm
+
+2005-04-16  freerock
+
+	more TODO
+
+2005-04-16  freerock
+
+	more TODO
+
+2005-04-16  freerock
+
+	more TODO
+
+2005-04-16  freerock
+
+	hal: fix up doinst.sh to wait 5 seconds in the background before starting hal
+
+2005-04-16  freerock
+
+	update TODO
+
+2005-04-16  freerock
+
+	move libcap, Pyrex, dbus, hal, howl from desktop_reqs to platform
+
+2005-04-16  freerock
+
+	gaim, sabayon: add update-desktop-database to doinst.sh
+
+2005-04-15  freerock
+
+	hal: update slack-requied
+
+2005-04-14  freerock
+
+	update CREDITS a bit
+
+2005-04-14  freerock
+
+	gaim: rebuilt to fix gaim-encryption dependancy. Run make
+	install so that gaim-encryption isn't a issue
+
+2005-04-14  freerock
+
+	frg-tagfiles added to the repo, you can use these tagfiles to install
+	a minimal slackware system to run Freerock GNOME.
+	Thanks to Darren Austin who did all of the work on this.
+
+2005-04-14  freerock
+
+	libebml, libmatroska: fix build scripts so that they do not use
+	/usr/local as the prefix
+
+2005-04-13  freerock
+
+	gnome-session: add doinst.sh to gnome-session to run update-desktop-database
+
+2005-04-13  freerock
+
+	sabayon: fix typos in mandatory file
+
+2005-04-12  freerock
+
+	scrollkeeper: add md5sum until gsb_update handles it
+
+2005-04-12  freerock
+
+	gnome-spell: add md5sum temporarily for gnome-spell until gsb_update
+	handles it
+
+2005-04-12  freerock
+
+	update version info
+
+2005-04-12  freerock
+
+	gossip: chema's first slack-required patch
+
+2005-04-11  freerock
+
+	dbus and hal: updated rc scripts from dropline
+	gtk+2: rebuilt with xinput enabled
+	evolution: patched to fix calendar issue
+	gnome-session: updated artwork patch
+	goobox: version 0.9.91 and fixed doinst.sh to update mime stuff
+
+2005-04-11  freerock
+
+	frg-artwork: added default theme to frg-artwork package
+
+2005-04-11  freerock
+
+	office: update abiword -> 2.2.7
+	cleaned glom package of mime type cruft
+
+2005-04-11  freerock
+
+	other: added libesmtp, libgpg-error, gpgme, avidemux, gnome-pkgtool
+	updated poppler, contact-lookup-applet, evince, graveman, libmikmod,
+	bmp, balsa, sylpheed
+
+2005-04-10  freerock
+
+	gsb_update: update some versions in the GSB modules
+
+2005-04-10  freerock
+
+	move frg iso install script to their own directory from misc
+
+2005-04-10  freerock
+
+	fix up some install scripts, add a generic install script
+
+2005-04-05  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Cleaned up header sections
+
+2005-04-05  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Keyword propset
+
+2005-04-05  freerock
+
+	dbus: set default tmpdir to /tmp add in dropline's new rc.dbus which
+	handles killing dbus better
+
+2005-04-04  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Added KDE menu issue into FAQ
+
+2005-04-03  freerock
+
+	abiword: -> 2.2.6
+
+2005-04-03  freerock
+
+	web: add more to news for frg-0.1.99.1 release
+
+2005-04-03  freerock
+
+	web: update news.txt for frg-0.1.99.1
+
+2005-04-03  freerock
+
+	web: add support link to help page
+
+2005-04-03  freerock
+
+	web: fix typo on support page
+
+2005-04-02  freerock
+
+	add iso-codes and PyXML to office libs for newer versions of glom
+	not built by default yet
+
+2005-04-02  freerock
+
+	graveman: -> 0.3.9
+	libsigc++: -> 2.0.11
+	bakery: -> 2.3.13
+	xchat: -> 2.4.3
+
+2005-04-02  freerock
+
+	gsb_update: update some version info
+
+2005-04-02  freerock
+
+	frg install scripts: update paths for binaries
+
+2005-04-02  freerock
+
+	frg install scripts: prepend frg_ to min_install.sh and full_install.sh
+
+2005-04-02  freerock
+
+	frg install scripts: added scripts to prompt users to select packages which
+	have multiple versions
+
+2005-03-31  freerock
+
+	web: change version numbers on CHECKSUMS.md5 and Packages.txt
+
+2005-03-31  freerock
+
+	added CHECKSUMS and PACKAGES.TXT to the website
+
+2005-03-31  freerock
+
+	update frg_check_reqs.sh
+
+2005-03-31  freerock
+
+	bin/misc: update some of the simple install scripts
+
+2005-03-31  freerock
+
+	add an frg item to the todo
+
+2005-03-31  freerock
+
+	web: added replaced_slack_packs.txt to uninstall instructions
+
+2005-03-31  freerock
+
+	notes: added replaced_slack_packs.txt
+
+2005-03-31  freerock
+
+	added mozilla-frg and firefox-frg directories, these are there to try and help with running against different versions of mozilla/firefox. Will get to these eventually
+
+2005-03-31  freerock
+
+	web: update dev page TODO
+
+2005-03-31  freerock
+
+	gamin: add slack-required
+
+2005-03-31  freerock
+
+	move gamin to platform build as it required glib
+
+2005-03-31  freerock
+
+	frg_check_reqs.sh: fix broken test, needed quotes around variable to test it
+
+2005-03-31  freerock
+
+	frg_checks_reqs.sh: checks for packages we depend on now, has a bug with the following check:
+	if [ -n $MISSING_PACKAGES ]; then
+
+2005-03-30  freerock
+
+	howl: fix a typo, forgot a -p for the mkdir command
+
+2005-03-30  freerock
+
+	bin/misc: start of some helper scripts for the install to check
+	requirements
+
+2005-03-30  freerock
+
+	src: added TODO file
+	Gnome2: updated -> 1.021
+	libmikmod: added patch
+
+2005-03-30  freerock
+
+	libmikmod: patched to fix some non critical problems
+
+2005-03-30  freerock
+
+	gsb_update: update some versions in GSB modules
+
+2005-03-30  freerock
+
+	Pyrex: needed for dbus python bindings
+	dbus: enable python bindings
+	a52dec: enable shared libraries in the build
+	yelp: rebuild against mozilla-1.7.6
+	epiphany: rebuild against mozilla-1.7.6
+	galeon: update -> 1.2.0
+	xchat: update -> 2.4.2, add patches for 2.4.2
+	sylpheed: update -> 1.9.7
+	gDesklets: remove mimeinfo.cache from package
+
+2005-03-30  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Added FAQ link - changed FAQ layout - added/modifies CSS styles
+
+2005-03-30  freerock
+
+	add gqview to other build
+
+2005-03-30  freerock
+
+	valid xhtml
+
+2005-03-30  freerock
+
+	fix faqs.txt
+
+2005-03-30  freerock
+
+	add entry to faq page
+
+2005-03-30  freerock
+
+	web: update about page
+
+2005-03-30  freerock
+
+	frg_artwork: updated README for new backgrounds
+	updated frg-branded.xml so backgrounds are by default stretched
+
+2005-03-30  freerock
+
+	web: change Freerock's to Freerock
+
+2005-03-29  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+2005-03-29  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+2005-03-29  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Working on FAQ engine. Not complete yet - no touchy!
+
+2005-03-29  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	fixed my linky :)
+
+2005-03-29  freerock
+
+	frg_artwork: more wallpapers from Fred, fixed gdm inclusion so that
+	the .svn directories would not be included in the package
+
+2005-03-29  freerock
+
+	yeah, one day :(
+
+2005-03-29  freerock
+
+	one of these days, I will actually check my html changes before I commit them :)
+
+2005-03-29  freerock
+
+	add Fred's site to the links page
+
+2005-03-28  freerock
+
+	eog: update to 2.10.0
+	gok: update to 1.0.3
+
+2005-03-28  freerock
+
+	libgnome: change default theme to BlankOn
+
+2005-03-28  freerock
+
+	frg-artwork: add a new icon theme to be the default
+
+2005-03-28  freerock
+
+	added sylpheed-claws to the build
+
+2005-03-28  freerock
+
+	fix some slackbuilds that had i486-slackware-linux instead of $ARCH-slackware-linux
+	because of an error in slackbuild_make.pl
+
+2005-03-28  freerock
+
+	remove icon-theme.cache on the system while installing packages that
+	include icon themes
+
+2005-03-28  freerock
+
+	sylpheed: enable ssl
+
+2005-03-28  freerock
+
+	for themes with icons, run gtk-update-icon-cache in the doinst.sh files
+
+2005-03-28  freerock
+
+	Update CREDITS
+
+2005-03-27  freerock
+
+	gsb_update: Fix compliation errors from last commit
+
+2005-03-27  freerock
+
+	gsb_update: more work on cleaning up so that verifying tarballs is easier
+
+2005-03-27  freerock
+
+	krb5: add *.tar to svn:ignore
+
+2005-03-27  freerock
+
+	add *.md5sum to svn:ignore for all directories
+
+2005-03-27  freerock
+
+	GSB: add a reqs directory for platform requirements. Move gamin to reqs dir
+	for gnome-vfs to use
+
+2005-03-27  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Preventing a /. 'ing on my server in advance :)
+
+2005-03-27  freerock
+
+	update screen shots for Freerock's to Freerock change
+
+2005-03-27  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Preventing a ./'ing on my server in advance :)
+
+2005-03-27  freerock
+
+	gsb_update: Verifying of tarballs partially done. Script does not
+	completely work right now
+
+2005-03-27  freerock
+
+	update news for frg-0.1.98 updates
+
+2005-03-26  freerock
+
+	gDesklets: 0.34.3 and add expat to slack-required file
+
+2005-03-26  freerock
+
+	librsvg: use -p with makepkg
+
+2005-03-25  freerock
+
+	gsb_update: Change Desktop_Requirements.pm to Desktop_Reqs.pm to
+	better match the src tree. Update TODO items in gsb_update.pl
+
+2005-03-25  freerock
+
+	gsb_update: initial start on downloading themes, updated versions
+	for sabayon and glom
+
+2005-03-25  freerock
+
+	glom: 0.8.18
+
+2005-03-25  freerock
+
+	clearlooks: update to 0.5. include clearlooks metacity theme also
+
+2005-03-25  freerock
+
+	hal: actually use hal-slackware-storage-policy.patch
+	fix patch to use /mnt instead of /media
+	patch from Tom <topf@users.berlios.de>
+
+2005-03-25  freerock
+
+	sabayon: 0.17
+	gnome-blog: 0.9
+
+2005-03-25  freerock
+
+	frg-artwork: added Photoshop files from Gpl_source, for frg background and
+	splash images
+
+2005-03-25  freerock
+
+	frg-artwork: update BUILD
+
+2005-03-25  freerock
+
+	initial artwork changes. Change Freerock's to Freerock
+
+2005-03-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	fixed header link
+
+2005-03-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	uh oh
+
+2005-03-24  freerock
+
+	gsb_update:
+		* gsb_update.pl: Comments clean up
+		* GSB/Other.pm: upgrade sabayon -> 0.17
+
+2005-03-24  freerock
+
+	add Fred's FRG wallpaper to frg-artwork, thanks fred
+
+2005-03-23  freerock
+
+	misc cleanups to text files and update TODO item in GSB.SlackBuild
+
+2005-03-23  freerock
+
+	gsb_update: Update TODO item in README file
+
+2005-03-23  freerock
+
+	updated dependancies in notes
+
+2005-03-23  freerock
+
+	gnome-games: add commented command to make binaries sgid and group
+	owned by games
+
+2005-03-23  freerock
+
+	gsb_update: fix --build so that successive runs replace the string instead
+	of appending to it
+
+2005-03-23  freerock
+
+	gsb_update: fix urls for some media libraries in GStreamer.pm
+
+2005-03-23  freerock
+
+	gsb_update: fix handling of openh323 and pwlib, it is now automated
+
+2005-03-22  freerock
+
+	galeon: Fix up PVERSION
+
+2005-03-22  freerock
+
+	mpeg2dec: update PVERSION
+
+2005-03-22  freerock
+
+	fix ffmpeg's PVERSION to work with gsb_update
+
+2005-03-22  freerock
+
+	fix avifile's PVERSION so that we can easily update it with gsb_update
+
+2005-03-22  freerock
+
+	remove TODO item from gsb_update README file
+
+2005-03-22  freerock
+
+	gaim: update -> 1.2.0
+	dbus: update -> 0.23.4
+
+2005-03-22  freerock
+
+	remove some TODO items :)
+
+2005-03-22  freerock
+
+	gsb_update: Add DoubleTar.pm for SlackBuilds that require more than 1 src
+	tarball. Added denu to Other.pm. Everything now dowloads and updates correctly
+
+2005-03-22  freerock
+
+	divx4linux works with gsb_update now :)
+
+2005-03-22  freerock
+
+	update divx4linux so it works with gsb_update
+
+2005-03-22  freerock
+
+	add denu menu editor to other build
+
+2005-03-22  freerock
+
+	update news to remove Freerock's reference
+
+2005-03-22  freerock
+
+	Freerock's -> Freerock, thanks malloc for the suggestion
+
+2005-03-22  freerock
+
+	put in the original screenshots for some or MMYoungs screenies
+
+2005-03-22  freerock
+
+	clean up screenshots page a little
+
+2005-03-22  freerock
+
+	fix screenshots page
+
+2005-03-22  freerock
+
+	add FRG screenshots to screenshots.html
+
+2005-03-22  freerock
+
+	thumbnail the FRG screenshots
+
+2005-03-22  freerock
+
+	web: screenshots of default FRG theme and some applications we ship with it
+
+2005-03-21  freerock
+
+	gsb_update: totem update
+
+2005-03-21  freerock
+
+	update totem to 1.0.1
+
+2005-03-21  freerock
+
+	evolution, added patch for version 2.2.1.1 to fix right click menu options
+
+2005-03-21  freerock
+
+	sabayon: fill in slack-required
+
+2005-03-21  freerock
+
+	replace fam with gamin in gsb_update
+
+2005-03-21  freerock
+
+	replace fam, with gamin
+
+2005-03-21  freerock
+
+	fix sabayon to work on slackware, using redhat scheme right now. Works fine,
+	sent patch to sabayon devs for slackware support in configure.ac
+
+2005-03-21  freerock
+
+	patched ffmpeg to not use imlib2
+	rebuilt dbus and avifile so they do not use kde/qt
+
+2005-03-20  freerock
+
+	rebuilt libgnome, gdm, gnome-session
+
+2005-03-20  freerock
+
+	update copyright and license information for frg-artwork, and bumped BUILD number
+
+2005-03-20  freerock
+
+	set frg_gdm as default theme for gdm
+
+2005-03-20  freerock
+
+	added default gdm theme to frg-artwork
+
+2005-03-20  freerock
+
+	set default splash screen in gnome-session
+
+2005-03-20  freerock
+
+	set default icon theme and background in libgnome
+
+2005-03-20  freerock
+
+	added Gpl_Source's artwork to frg-artwork package, thanks Gpl_Source
+
+2005-03-20  freerock
+
+	fix checking if openh323 and pwlib tarballs exist
+
+2005-03-19  freerock
+
+	enable v4l2 in pwlib
+
+2005-03-19  freerock
+
+	add malloc's slapt-get based dropline installer, it doesn't do much yet
+
+2005-03-18  freerock
+
+	add update-desktop-database to {min,full}_install.sh scripts
+
+2005-03-18  freerock
+
+	gnomemeeting: add scrollkeeper support to gnomemeeting's doinst.sh file
+	add --enable-v4l2 and --enable-plugins to gnomemeeting.
+	remove --disable-howl from build
+
+2005-03-18  freerock
+
+	gtkpod: add an icon for gtkpod's .desktop entry
+
+2005-03-18  freerock
+
+	clean up gnome-panel.SlackBuild a bit
+
+2005-03-18  freerock
+
+	update support page
+
+2005-03-18  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	added donation button/link
+
+2005-03-18  freerock
+
+	gsb_update: add sabayon to Other.pm
+
+2005-03-18  freerock
+
+	sabayon -> upgrade to 0.16
+
+2005-03-18  freerock
+
+	remove xscreensaver TODO item. Add some more TODO for the website
+
+2005-03-18  freerock
+
+	update evolution version in Gnome.pm
+
+2005-03-18  freerock
+
+	evolution update to 2.2.1.1
+
+2005-03-18  freerock
+
+	some fixups for frg-0.1.97 release
+
+2005-03-18  freerock
+
+	update news item for frg-0.1.97 release
+
+2005-03-18  freerock
+
+	update news for frg-0.1.97 release.
+
+2005-03-17  freerock
+
+	rebuilt gnome-python-extras and pyphany after fixing build order for the python bindings
+
+2005-03-17  freerock
+
+	gsb_update: added liferea to Other.pm
+
+2005-03-17  freerock
+
+	added liferea to the build
+
+2005-03-17  freerock
+
+	gsb_update: clean up some formatting, upgrade some versions
+	add new packages to other
+
+2005-03-17  freerock
+
+	added gphoto2, easytag, libexif-gtk, anjuta, gnome-blog, gtkam, libgphoto2
+	libgnomesu -> update to 0.9.7
+
+2005-03-17  freerock
+
+	forgot to add sound-juicer to the build, fix up some missing parts
+	of sound-juicer
+
+2005-03-17  freerock
+
+	added loudmouth and gossip to the other build
+	upgraded glom, libgdamm, glade, gmime, poppler
+
+2005-03-17  freerock
+
+	gnome-menus: added patches to get it to work with gnome-menus-editor, these are not used by default
+	updated  evolution and releated libraries
+	updated libgnomeprint and libgnomeprintui
+
+2005-03-17  freerock
+
+	make gstreamer backend default for totem
+
+2005-03-17  freerock
+
+	fixed build order of python bindings.
+	rebuilt gnome-python to fix missing bindings
+	upgraded pygtk
+
+2005-03-17  freerock
+
+	added gossip to Other build
+
+2005-03-17  freerock
+
+	some version updates for packages we will be shipping with 2.10.0
+
+2005-03-17  freerock
+
+	add scrollkeeper foo to totem build, build nautilus and mozilla support
+	into totem
+
+2005-03-17  freerock
+
+	added balsa, bmp, contact-lookup-applet, gmime, mail-notification, sylpheed,
+	and xscreensaver to Other.pm
+	bump version of poppler up to 0.1.2
+
+2005-03-17  freerock
+
+	added xscreensaver to other build, it should be in the desktop build but
+	for now we will use the default xscreensaver shipped with slackware
+
+2005-03-17  freerock
+
+	fix syntax errors with Verify.pm
+
+2005-03-17  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	added direct news link to menu
+
+2005-03-17  freerock
+
+	gsb_update.pl: gah how did that get in there
+
+2005-03-17  freerock
+
+	Fix comments and change some formatting.
+	Add some inital functions for md5 checking.
+	Add some templates to Themes.pm to be filled in.
+
+2005-03-17  freerock
+
+	Fix comment in GSB.options file
+
+2005-03-17  freerock
+
+	split TODO into GSB and WEBSITE
+	add some TODO for the website
+
+2005-03-17  freerock
+
+	update some of the content web pages.
+
+2005-03-17  freerock
+
+	Remove completed items from the TODO list.
+
+2005-03-17  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	added "downloads" mod_rewrite URI (besides "download")
+
+2005-03-17  freerock
+
+	add balsa and sylpheed to build
+
+2005-03-17  freerock
+
+	added bmp, contact-lookup-applet, gmime, mail-notification to other build
+
+2005-03-16  freerock
+
+	added author to news item
+
+2005-03-16  freerock
+
+	updated news with svg fix for frg-0.1.96
+
+2005-03-16  freerock
+
+	drivel: added to other/ build
+
+2005-03-16  freerock
+
+	added doinst.sh file to librsvg to update gdk loaders with the
+	svg loader
+
+2005-03-16  freerock
+
+	add skencil, pstoedit to other build for use with inkscape as extensions.
+	added Imaging for skencil dependancy
+
+2005-03-15  freerock
+
+	rebuilt control-center, nautilus, librsvg
+	fixed gnome-panel doinst.sh to work with $ROOT installs better
+	gnome-menus: do not overwrite xdg config files if they have been changed
+
+2005-03-15  freerock
+
+	fix doinst.sh files for sabayon, fam, cyrus-sasl,
+	rebuilt gnome-themes-extras
+
+2005-03-15  freerock
+
+	redunant gnome-icon-theme removed from desktop build
+
+2005-03-15  freerock
+
+	moved gnome-icon-theme from desktop to platform build
+
+2005-03-15  freerock
+
+	remove libgnomecups from desktop build, it was moved to platform
+
+2005-03-15  freerock
+
+	remove gnome-keyring from desktop build, it was moved to platform build
+
+2005-03-15  freerock
+
+	updated news item for svg bug in frg-0.1.96
+
+2005-03-15  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	improved thumbnail script
+
+2005-03-15  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	fixed screenshot shel script and moved it
+
+2005-03-15  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+2005-03-15  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	oops
+
+2005-03-15  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	crap
+
+2005-03-15  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	added news entry anchors
+
+2005-03-14  freerock
+
+	update planner to verson 0.13
+
+2005-03-14  freerock
+
+	fix news text
+
+2005-03-14  freerock
+
+	update website for frg-0.1.96 release
+
+2005-03-14  freerock
+
+	patch libgnome and metacity to use Clearlooks as the default theme
+	remove stale gdm.conf file from gdm and use the one that ships with it
+
+2005-03-14  freerock
+
+	fix gtkpod.desktop file
+
+2005-03-14  freerock
+
+	added bluefish to the other build.
+	added desktop entry for gtkpod
+	added gst-register to doinst.sh for gst-ffmpeg, gst-monkeysaudio
+	updated versions for evince, gtkmm, glom, bakery, libxml,
+	libxslt, libsoup
+	downgraded version of gnumeric from 1.5.0 to stable 1.4.3
+	updated gsb_update with new versions and added bluefish
+
+2005-03-14  freerock
+
+	move desktop-file-utils from Other.pm into Gnome.pm
+
+2005-03-14  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	* Added mod_rewrite diags.
+	* Added condition to supress "about" section when viewing news entires
+
+2005-03-14  freerock
+
+	fix date and add author to latest news item
+
+2005-03-14  freerock
+
+	update news for frg-0.1.95 release
+
+2005-03-14  freerock
+
+	some bug fix versions of some libs apps that should go into the FRG-0.2.0 release
+
+2005-03-13  freerock
+
+	added people to CREDITS
+	added streamripper and streamtuner to other build
+
+2005-03-13  freerock
+
+	remove <> around links on news page
+
+2005-03-13  freerock
+
+	fix updated news item
+
+2005-03-13  freerock
+
+	update news item
+
+2005-03-13  freerock
+
+	add doinst.sh file to desktop-file-utils, to run update-desktop-database on installation
+
+2005-03-13  freerock
+
+	move desktop-file-utils into gnome/platform where it really belongs
+
+2005-03-13  freerock
+
+	updated news item
+
+2005-03-13  freerock
+
+	upated version in Other.pm, add ipod and nautilus support to rhythmbox
+
+2005-03-13  freerock
+
+	added note about using mailing list when not subscribed
+
+2005-03-12  freerock
+
+	update news item
+
+2005-03-12  freerock
+
+	fixed ending li tag in news.txt
+
+2005-03-12  freerock
+
+	update news for frg-0.1.94 release
+
+2005-03-12  freerock
+
+	fix typo in gstreamer and gst-plugins that caused the doinst.sh file to
+	not be included in the package
+
+2005-03-11  freerock
+
+	update gsb_update tarball versions, fixed openh323-pwlib hashes
+	added Verify.pm template for src tarball checking
+
+2005-03-11  freerock
+
+	disable xine plugin for gst-plugins
+
+2005-03-11  freerock
+
+	added portpkg link
+
+2005-03-11  freerock
+
+	updated news
+
+2005-03-11  freerock
+
+	added glom and libgdamm
+	added planner, glom and libgdamm to build
+
+2005-03-11  freerock
+
+	added libgda, libgnomedb to office libs
+
+2005-03-11  freerock
+
+	update min_install.sh for GNOME-2.10
+
+2005-03-11  freerock
+
+	update gok slackbuild to remove scrollkeeper files from package
+
+2005-03-11  freerock
+
+	update gsb README
+
+2005-03-11  freerock
+
+	sabayon: add more meat to slack-desc, added doinst.sh file to add sabayon
+	user and process some gconf default config files, added default gconf files
+	to SlackBuild
+
+2005-03-11  freerock
+
+	updated version of gtkpod theme
+
+2005-03-11  freerock
+
+	updated version of clearlooks theme
+
+2005-03-10  freerock
+
+	update news and about for new version of frg
+
+2005-03-10  freerock
+
+	update news
+
+2005-03-10  freerock
+
+	update web content pages
+
+2005-03-10  freerock
+
+	added gnome/gtk perl bindings to the build
+
+2005-03-10  freerock
+
+	remove dupe file from gucharmap package
+
+2005-03-10  freerock
+
+	added sabayon to other build
+
+2005-03-10  freerock
+
+	add gimp to other build. add desktop entry for gnome-cups-manager
+
+2005-03-10  freerock
+
+	add xchat and gimp to the other build
+
+2005-03-10  freerock
+
+	update ximian-connector slack-desc
+
+2005-03-10  freerock
+
+	remove redundant parts of xchat build
+
+2005-03-10  freerock
+
+	added ximian-connector to the build
+
+2005-03-10  freerock
+
+	updated gnome-utils to use gnomesu
+
+2005-03-10  freerock
+
+	fix dasher's slack-desc
+
+2005-03-10  freerock
+
+	add --without-javadocs to java bindings build
+
+2005-03-10  freerock
+
+	update gthumb version
+
+2005-03-10  freerock
+
+	fix typo for bindings build log
+
+2005-03-10  freerock
+
+	cleanup gnopernicus, remove scrollkeeper stuff
+
+2005-03-10  freerock
+
+	clean up zenity build, remove scrollkeeper stuff from package
+
+2005-03-10  freerock
+
+	add schemas to yelp
+
+2005-03-10  freerock
+
+	add schemas to gconf-editor
+
+2005-03-10  freerock
+
+	actually build extensions for epiphany-extensions
+
+2005-03-10  freerock
+
+	update abiword build for new tarball type
+
+2005-03-10  freerock
+
+	updated gnome-themes-extras build
+
+2005-03-10  freerock
+
+	fix gaim encryption build, gzip all man pages for gaim slackbuild
+
+2005-03-10  freerock
+
+	update openh323 VERSION
+
+2005-03-10  freerock
+
+	remove gconf schemas generation from java bindings
+
+2005-03-10  freerock
+
+	fix gaim build of encryption module
+
+2005-03-10  freerock
+
+	fixed SLKCFLAGS and add gnomesu to gdmsetup desktop file
+
+2005-03-10  freerock
+
+	updated openh323 and pwlib for new versions
+	added slack-required files for each package
+
+2005-03-10  freerock
+
+	remove perl bindings slackbuild from TODO
+
+2005-03-10  freerock
+
+	update GVERSION to 2.10.0 in GSB.options
+
+2005-03-10  freerock
+
+	fixed type in java bindings slackbuild
+
+2005-03-10  freerock
+
+	updated perl bindings build order
+
+2005-03-10  freerock
+
+	fix c++ bindings build order
+
+2005-03-10  freerock
+
+	added openldap, heimdal, cyrus-sasl to gsb_update
+
+2005-03-10  freerock
+
+	updated cyrus-sasl doinst.sh to get rid of usr/local prefix
+
+2005-03-10  freerock
+
+	updated perl bindings order
+
+2005-03-09  freerock
+
+	update usage function for gsb_update
+
+2005-03-09  freerock
+
+	update dbus version, fix divx4linux version in GSB::GStreamer.pm
+
+2005-03-09  freerock
+
+	updates to gsb_update
+
+2005-03-09  freerock
+
+	add svn:ignore to fam
+
+2005-03-09  freerock
+
+	update platform and desktop SlackBuilds
+
+2005-03-09  freerock
+
+	update build order for desktop_reqs
+
+2005-03-09  freerock
+
+	fix openslp build
+
+2005-03-09  freerock
+
+	update libmovtar build
+
+2005-03-09  freerock
+
+	update libdvdread slack-required
+
+2005-03-09  freerock
+
+	remove info dir file from libcdio package
+
+2005-03-09  freerock
+
+	update slack-required for libavc1394
+
+2005-03-09  freerock
+
+	fixup hal build
+
+2005-03-09  freerock
+
+	updated faad2 slack-required
+
+2005-03-09  freerock
+
+	fix divx4linux build
+
+2005-03-09  freerock
+
+	moved gnome-icon-theme to platform build
+
+2005-03-09  freerock
+
+	updated slack-required for libgnomeprintui
+
+2005-03-09  freerock
+
+	move gnome-keyring and libgnomecups to platform hashes in gsb_update
+
+2005-03-09  freerock
+
+	update TODO on dev page
+
+2005-03-09  freerock
+
+	moved gnome-keyring to platform build from desktop build
+
+2005-03-09  freerock
+
+	add --build option to append strings to BUILD variables
+
+2005-03-09  freerock
+
+	update slack-required files for llibgnomeui, at-spi, and libgnomeprint
+
+2005-03-09  freerock
+
+	moved libgnomecups to platform build
+	updated BUILD_ORDER in gnome.platform.SlackBuild
+
+2005-03-09  freerock
+
+	update BUILD variable for gaim.SlackBuild
+
+2005-03-09  freerock
+
+	replaced krb5 with heimdal in desktop_reqs
+
+2005-03-09  freerock
+
+	put divx4linux back into the gsb_update
+
+2005-03-09  freerock
+
+	update divx4linux build to fix VERSION info
+
+2005-03-09  freerock
+
+	src version updates for gnome-2.10.0 build
+
+2005-03-09  freerock
+
+	updates for avifile, new version and src tarball format
+
+2005-03-09  freerock
+
+	some more gnome-2.10.0 updates
+
+2005-03-09  freerock
+
+	add poppler to gsb_update Other.pm
+
+2005-03-09  freerock
+
+	added poppler (xpdf lib) to the build, evince depends on it
+
+2005-03-09  freerock
+
+	updated TODO for gsb_update on dev page
+
+2005-03-09  freerock
+
+	remove divx4linux from auto update temporarily
+
+2005-03-09  freerock
+
+	update SlackBuilds for GNOME 2.10, thanks gsb_update :)
+
+2005-03-09  freerock
+
+	remove TODO item from gsb_update. Remove some print debug statements from Edit.pm
+
+2005-03-09  freerock
+
+	remove print debug statement
+
+2005-03-09  freerock
+
+	some more updates for 2.10, fix up Edit.pm and gsb_update.pl so that it updates
+	the BUILD variable correctly
+
+2005-03-08  freerock
+
+	updated system-tools-backends VERSION variable to test gsb_update
+
+2005-03-08  freerock
+
+	Edit.pm now does something, testing it now
+
+2005-03-08  freerock
+
+	added patch to system-tools-backends to support slackware-10.1.0
+
+2005-03-08  freerock
+
+	templates for scripts to make releases
+
+2005-03-08  freerock
+
+	some more 2.10.0 updates
+
+2005-03-08  freerock
+
+	download double lib for single slackbuild for some GSTreamer libs
+
+2005-03-07  freerock
+
+	More gsb_update updates. Fixed regex for shortened version number
+	added gnome-games-extra-data to downloads
+
+2005-03-07  freerock
+
+	add gnome-games-extra-data to gnome-games SlackBuild
+
+2005-03-07  freerock
+
+	more 2.10.0 updates for GNOME.pm
+
+2005-03-07  freerock
+
+	remove item from dev TODO
+
+2005-03-07  freerock
+
+	remove last remnants of prefix /usr/local
+
+2005-03-07  freerock
+
+	remove log file from openldap dir
+
+2005-03-07  freerock
+
+	update gsb_update some more
+
+2005-03-07  freerock
+
+	updated TODO on dev page
+
+2005-03-07  freerock
+
+	update TODO on development page
+
+2005-03-07  freerock
+
+	remove TODO item from development page
+
+2005-03-07  freerock
+
+	use $SLKCFLAGS and $ARCH in slackbuilds
+
+2005-03-07  freerock
+
+	updated CFLAGS for SLKFLAGS
+
+2005-03-07  freerock
+
+	initial move to $SLKCFLAGS and $ARCH for slackbuilds
+
+2005-03-07  freerock
+
+	remove requirements from GSB.SlackBuild
+
+2005-03-07  freerock
+
+	added svn:ignore to system-tools-backends
+
+2005-03-07  freerock
+
+	remove ximian-artwork build from themes
+
+2005-03-07  freerock
+
+	removed Requirements.pm from gsb_update. Some updates for 2.10
+
+2005-03-07  freerock
+
+	remove gstremer folder from build as it was moved into other directories
+
+2005-03-07  freerock
+
+	move gst-ffmpeg and gst-monkeysaudio to other/
+
+2005-03-05  freerock
+
+	some version updates for Gnome.pm
+
+2005-03-05  freerock
+
+	update development TODO
+
+2005-03-05  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	* Cleaned up screenshot thumb rendering
+
+2005-03-04  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	* Removed extraneous colons from news.txt
+
+2005-03-04  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	* fixed filenames
+
+2005-03-04  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	* Added more of MMYoungs screenshots.
+	* Added "make-thumbs.sh" script to easily create thumbnails.
+
+2005-03-04  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	* Fixed misspelling
+
+2005-03-04  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	* Fixed CSS syntax error (oops :)
+
+2005-03-04  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	*  Deleted old/redundant index body include.
+	*  Structual <h*> changes (for the better) - totally transparent.
+	*  Side link titles are now section headings to improve structural layout.
+	*  Side link CSS mods - nicer CSS rollovers and padding.
+
+2005-03-04  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Cleaned up footer a bit
+
+2005-03-03  freerock
+
+	update TODO
+
+2005-03-03  freerock
+
+	update TODO on development page
+
+2005-03-03  freerock
+
+	update TODO
+
+2005-03-03  freerock
+
+	added gaim slackbuild from slackware source tree
+	added fam to desktop_reqs build for nautilus
+	added clearlooks theme to build
+
+2005-03-03  freerock
+
+	add rc.howl to rc.local from howl's doinst.sh
+
+2005-03-03  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Made main logo CSS-only for text agents - logo replaced with H1 tag when in non-css view.
+
+2005-03-03  freerock
+
+	more gsb_updates
+
+2005-03-02  freerock
+
+	update for gsb_update: office, office libs, other
+
+2005-03-02  freerock
+
+	almost done with downloading part for gsb_update
+
+2005-03-02  freerock
+
+	Office apps now download, added gsb_gnome_generic_url_make, added
+	progress bar option to wget
+
+2005-03-02  freerock
+
+	fixed typo that was causing a warning
+
+2005-03-02  freerock
+
+	downloading of desktop tarballs works fine
+
+2005-03-02  freerock
+
+	gsb_update works. It will download only tarballs for the platform directory
+
+2005-03-02  freerock
+
+	some more updates to gsb_update, it actually downloads now
+
+2005-03-02  freerock
+
+	gsb_update: okay, downloading works, modules work, editing needs to be done
+	and -- options need to be added and checked in main script
+
+2005-03-01  freerock
+
+	some more updates, still don't work :)
+
+2005-03-01  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	cleaned up and commented htaccess rules
+
+2005-03-01  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	tweaked regexp URL func. to better parse URLs. now it properly ignores pre-anchored URLs.
+
+2005-02-28  freerock
+
+	some more filler for gsb_update, still doesn't do anything, it will soon though
+
+2005-02-28  freerock
+
+	some more updates for gsb_update, does not work yet
+
+2005-02-28  freerock
+
+	more slack-required work for slapt-get compliance
+
+2005-02-27  freerock
+
+	another fix for gnome-panel issues, hopefully this fixes it
+
+2005-02-27  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	fixed invalid id tags :)
+
+2005-02-27  freerock
+
+	some more slack required work
+
+2005-02-27  freerock
+
+	updated recent news item
+
+2005-02-26  freerock
+
+	another typo, I should probably setup a staging site too :)
+
+2005-02-26  freerock
+
+	fixed typo
+
+2005-02-26  freerock
+
+	add to content
+
+2005-02-26  freerock
+
+	initial work for the slack-required files
+
+2005-02-26  freerock
+
+	more build order fixes
+
+2005-02-26  freerock
+
+	update build order for desktop_reqs build, remove old files
+
+2005-02-26  freerock
+
+	more organization of requirements
+
+2005-02-26  freerock
+
+	move requirements into gnome dir
+
+2005-02-26  freerock
+
+	some more changes to the build order
+
+2005-02-26  freerock
+
+	changing of the build order for gstreamer and releated libs
+
+2005-02-26  freerock
+
+	initial build order clean up
+
+2005-02-26  freerock
+
+	minor news fixes
+
+2005-02-26  freerock
+
+	updated news for wrong build order info
+
+2005-02-25  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	testing
+
+2005-02-25  freerock
+
+	should be final test of auto update web site hook script
+
+2005-02-25  freerock
+
+	another post-commit test
+
+2005-02-25  freerock
+
+	remove please from news.txt, this is mostly to test hook script for updating web page
+
+2005-02-25  freerock
+
+	update development page on web site
+
+2005-02-25  freerock
+
+	make doinst.sh $ROOT safe
+
+2005-02-25  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	cleaned up screenshot layout a bit
+
+2005-02-24  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	css cleanups
+
+2005-02-23  freerock
+
+	make doinst.sh scripts $ROOT safe mostly for scrollkeeper
+	also remove generates scrollkeeper stuff from packages
+
+2005-02-23  freerock
+
+	forgot the slack-required files for openldap and cyrus-sasl
+
+2005-02-22  freerock
+
+	add scrollkeeper stuff back to gnome-panel's doinst.sh
+
+2005-02-22  freerock
+
+	add openldap and cyrus-sasl to desktop_requirements for evolution
+
+2005-02-22  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	css cleanups
+
+2005-02-22  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	added news anchor in href
+
+2005-02-22  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	css fixes
+
+2005-02-22  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	fixed emphasis on logical structure of pages
+
+2005-02-22  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	fixed code formatting in news
+
+2005-02-21  freerock
+
+	update web news for kde menus fix
+
+2005-02-21  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	ridded period at end of bollerplate
+
+2005-02-21  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	added screenshot rows :) Thanks for the inspiration, freerock :)
+
+2005-02-21  freerock
+
+	added screenshots from Mark Young
+
+2005-02-21  freerock
+
+	added gc and inkscape to other build
+
+2005-02-20  freerock
+
+	update some of the content
+
+2005-02-20  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	more tag fixes
+
+2005-02-20  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	fixed invalid tag nesting
+
+2005-02-20  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	combined dev and todo content
+
+2005-02-20  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	css mods, link <h2> fix
+
+2005-02-20  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	screenshots index mods
+
+2005-02-20  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	not needed
+
+2005-02-20  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	entire site spit up
+
+2005-02-20  freerock
+
+	make doinst.sh for gnome-panel $ROOT safe
+
+2005-02-20  freerock
+
+	added slackbuild for gnome/desktop_requirements
+	added slack-required to krb5
+
+2005-02-20  freerock
+
+	removed items from TODO list
+
+2005-02-20  freerock
+
+	set svn:ignore on krb5
+
+2005-02-20  freerock
+
+	fix graveman's .desktop entry to use the correct icon
+
+2005-02-20  freerock
+
+	updated gnome-panel
+
+	* gnome-panel/doinst.sh
+	    removed scrollkeeper update, its already in the package
+
+	* gnome-panel/gnome-panel.SlackBuild
+	    incremented BUILD
+
+2005-02-20  freerock
+
+	adding split files for content, this is just so I can add content,
+	but not have it published at the moment
+
+2005-02-20  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	added screenshots section
+
+2005-02-20  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	fixed header style bug
+
+2005-02-20  freerock
+
+	remembered the irc nick
+
+2005-02-19  freerock
+
+	added kerberos build to desktop_requirements so ximian_connector can build
+
+2005-02-19  freerock
+
+	updated CREDITS
+
+2005-02-19  freerock
+
+	added rc.howl from burn@gware, updated rc.dbus and dbus.SlackBuild
+	so pid would work fine on restart
+
+2005-02-19  freerock
+
+	added screenshots and updated TODO list on webpage
+
+2005-02-19  freerock
+
+	added system-tools-backends and gnome-system-tools builds
+
+2005-02-19  freerock
+
+	added TODO item for HACKING instructions
+
+2005-02-19  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Major news formatting fixes - css included
+
+2005-02-19  freerock
+
+	fix date on webpage
+
+2005-02-19  freerock
+
+	more formatting fixes
+
+2005-02-19  freerock
+
+	fix formatting
+
+2005-02-19  freerock
+
+	news item for 0.0.2.2 release iso
+
+2005-02-18  freerock
+
+	updated install scripts, should be cleaner this way
+
+2005-02-18  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	added sanity checks to news func.
+
+2005-02-18  freerock
+
+	added missing quote to hal's doinst.sh file
+
+2005-02-18  freerock
+
+	make sure gdm.conf isn't overwritten by new package
+
+2005-02-18  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	blah
+
+2005-02-18  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	changed "max_items" news $var to display 3 entries
+
+2005-02-18  freerock
+
+	updated news
+
+2005-02-18  freerock
+
+	disable imagemagick plugin for abiword. It causes abiword to seg
+
+2005-02-18  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	/me updated iso link to iso root
+
+2005-02-18  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	updated news
+
+2005-02-17  freerock
+
+	add more todo
+
+2005-02-17  freerock
+
+	add shared-mime-info to TODO list
+
+2005-02-17  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	More news link formatting fixes :/
+
+2005-02-17  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	News link formatting fixes
+
+2005-02-17  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Added missing breaking-space in news file
+
+2005-02-17  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Updated news file with screenshot linky-link
+
+2005-02-16  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	news link cleanup (no...it *never* ends :)
+
+2005-02-16  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	security and func. cleanups
+
+2005-02-16  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Completely hacked news function; Now auto-parses URLs in entires and linkifys. Also changed text news file from html format. Also changes news item separator - much simpler.
+
+2005-02-16  freerock
+
+	give dropline some credits
+
+2005-02-16  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	added missing id anchors
+
+2005-02-16  freerock
+
+	updated TODO, split out Testers from AUTHORS, and put them in credits
+
+2005-02-16  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	added missing "top" link in about sec.
+
+2005-02-16  freerock
+
+	added a TODO item and fixed some of my spelling errors
+
+2005-02-16  freerock
+
+	add howl to min_install.sh
+	have full_install.sh call min_install.sh first and then install the rest
+
+2005-02-16  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	more css fixes
+
+2005-02-16  freerock
+
+	use our own rc.messagebus for use with dbus
+
+2005-02-16  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	fixed css misspelling :)
+
+2005-02-16  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	better degradable fall-back fonts declared in CSS
+
+2005-02-15  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	oops...forgot logo PNG :)
+
+2005-02-15  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Edited news. Tried to fix bad odd transparency on logo in Safari-based browsers :(
+
+2005-02-15  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	fixed css bug
+
+2005-02-15  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Streamlined links a bit. Fixed SF logo req. as per <https://sourceforge.net/docman/display_doc.php?docid=790&group_id=1>. Modded CSS so image links don't have any hover effect.
+
+2005-02-15  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	More formatting fixes in news func. Changes news func's `split()`
+	to `explode()` for better efficiency on poor SF.net's servers :)
+
+2005-02-15  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	formatted code/command blocks in "installation" section
+
+2005-02-15  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	added news entry for today
+
+2005-02-15  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	* Added mod_rewrite rules to .htaccess
+	* changed relative paths in links to absolte paths
+	* modified news function to take advantage of mod_rewrite
+
+2005-02-15  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	cleaned source formatting in news function output...again :-/
+
+2005-02-15  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	fixed footer auto-URI generators
+
+2005-02-15  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	added 'top of page' linkage - included approprate css for ToP links
+
+2005-02-15  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	ins/del tags in TODOs (web-related)
+
+2005-02-15  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	fixed roadmap linkification
+
+2005-02-15  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Added about linkage and anchors
+
+2005-02-14  freerock
+
+	updated authors, added credits for TESTERS
+
+2005-02-14  freerock
+
+	added some more TODO courtesy of yucek
+
+2005-02-14  freerock
+
+	made a desktop_requirements dir in gnome, moved so requirements to it
+	since some requirements require packages in gnome/platform to build, mainly glib
+
+2005-02-14  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	even better news formatting :)
+
+2005-02-14  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Improved news formatting
+
+2005-02-14  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	deleted TODO file in webroot now that there is a SF subproj. setup
+
+2005-02-14  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	using --delete arg.
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	omitted "important" from news title
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	testing news function (I swear, the staging site will be up this week :)
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	clarified about statement title
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Updated logos and logo GIMP source file
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	fixed crappy vars.
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	damn vim linewrapping!
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	testing encoding
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	~
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Set ident keywords
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	x-platform friendly
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	killed extreaneous linebreak
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	blah
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Added .htaccess file
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	dammit!
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	had to omit XML doctyp declaration due to SF.net's mime-type encoding ingnorance :(
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	OK - sf.net sucks. had to hack the 'content-type' header due to SF's bad apache mime encoding types/maps.
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	fixed some font entires in CSS - made it more multi-platform degradeable
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Clarifed "help" section title a bit :)
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Fixed missing <h1> tag :)
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Added new logo - updated header file
+
+2005-02-13  freerock
+
+	added item to web/TODO to make distinction between GSB and FRG
+
+2005-02-13  freerock
+
+	set chipster's sf username in update_web.sh so he doesn't have to worry about changing it
+
+2005-02-13  freerock
+
+	updated update_web.sh
+
+2005-02-13  freerock
+
+	no need for an index.html file, thanks chipster
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Added <del> tags to some (in-progress/completed) TODO/Help items
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Added TODO
+	Fixed index.php linebreak
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Fixed linebreak
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	Added ident keywords
+
+2005-02-13  Chip Cuccio <chipster@gnomeslackbuild.org>
+
+	* Initial new site commit
+	  Chip Cuccio <chipster@norlug.org>
+
+2005-02-13  freerock
+
+	added scratch area for notes
+
+2005-02-13  freerock
+
+	update website, add script to auto update the sourceforge htdocs
+
+2005-02-12  freerock
+
+	moved configuration files into their own perl modules,
+	removed old conf files
+
+2005-02-12  freerock
+
+	added xchat to other and planner, not built in scripts yet
+
+2005-02-11  freerock
+
+	merged revision 35 from pre-slapt-get branch, added install scripts for iso
+	updated gsb_update conf files, web page and README. Added COPYING files
+
+2005-02-10  freerock
+
+	moved libgsf into gnome.conf for gsb_update and added libcroco
+	to requirements.conf, updated gnome.conf for 2.9.91
+
+2005-02-10  freerock
+
+	merged 2.9.91 updates from pre-slaptget branch (r32)
+
+2005-02-09  freerock
+
+	merged changes from revsion 29 on gsb-0.0.x-pre-slaptget branch
+	  * updated control-center version
+
+2005-02-09  freerock
+
+	moved libgsf into requirements and added libcroco to requirements
+
+2005-02-09  freerock
+
+	add links to web page and finish up last of gsb_update conf files
+
+2005-02-09  freerock
+
+	added blank slack-required files to each directory with a SlackBuild
+
+2005-02-09  freerock
+
+	added slack-required to all the SlackBuilds for use with slapt-get
+
+2005-02-09  freerock
+
+	added irc name to webpage
+
+2005-02-09  freerock
+
+	update website, add some more flesh to gsb_update conf files
+
+2005-02-09  freerock
+
+	fix gnomemeeting doinst.sh script
+
+2005-02-09  freerock
+
+	some gnome updates for the desktop and themes builds for 2.9.91
+
+2005-02-09  freerock
+
+	other build ready for gnome-2.9.91
+
+2005-02-09  freerock
+
+	reverted indlinux-hindi to IndLinux-Hindi
+
+2005-02-09  freerock
+
+	Office build is ready for 2.9.91
+
+2005-02-09  freerock
+
+	move IndLinux to indlinux-hindi
+
+2005-02-09  freerock
+
+	update gsb_update some more, doesn't do anything yet
+
+2005-02-09  freerock
+
+	requirements and gstreamer builds ready for gnome-2.9.91
+
+2005-02-08  freerock
+
+	updated divx4linux: rename divx to divx4linux
+
+2005-02-08  freerock
+
+	move divx to divx4linux in gstreamer/libs
+
+2005-02-08  freerock
+
+	edit xvidcore: change xvid to xvidcore
+
+2005-02-08  freerock
+
+	moved xvid to xvidcore
+
+2005-02-08  freerock
+
+	update versions for various build script on our way to GNOME-2.9.91
+
+2005-02-08  freerock
+
+	add email address to web page
+	fill up versions for tarballs in gsb_update conf files
+
+2005-02-08  freerock
+
+	added libgsf in office/libs, abiword and gnumeric depend on it
+
+2005-02-07  freerock
+
+	pyphanny added to python bindings, updated python bindings SlackBuild
+
+2005-02-07  freerock
+
+	added TODO list
+
+2005-02-07  freerock
+
+	Set svn:ignore on directories so that they will ignore source tarballs
+
+2005-02-07  freerock
+
+	fixed perl bang line, added usage function and conf options, doesn't do
+	anything useful yet.
+
+2005-02-07  freerock
+
+	Initial import of GSB (GNOME SlackBuild)
+
+;; Local Variables:
+;; coding: utf-8
+;; End:
