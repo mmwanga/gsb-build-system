@@ -187,6 +187,7 @@ sub gsb_gnome_tarball_get {
   my $verify = "";
   $verify = GSB::Verify::gsb_md5_verify($name, $ver, $type);
 
+  if ( -f $md5_file ) {
   if ( $verify ne "" ) {
     if ( $verify eq "bad" ) {
       unlink $tarball;
@@ -199,7 +200,7 @@ sub gsb_gnome_tarball_get {
     else {
       print "\n\n DEBUG: md5 not checked\n\n\n";
     }
-  }
+  }}
 }
 
 # End Functions
