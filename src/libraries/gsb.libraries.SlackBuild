@@ -1,124 +1,109 @@
-#!/bin/sh
+#!/bin/bash
 
-##
-## Build Directory Structure
-##
-if [ ! -d $TMP ]; then
-  mkdir -p $TMP;
-fi
+# Usage.
+function usage() {
+  cat << EOF
+Usage: ${0##*/} [options]
 
-##
-## Below are libraries and applications that are used by many GNOME applications
-## although they are not officially associated with the GNOME project. A good 
-## portion are various media libraries, however, others are C-routines, graphics, 
-## or system libraries.
+Options:  -force	The package will not be built if a package of the same
+			name is already installed, or any of the packages
+			required to build are missing.  This option over-rides
+			these checks and attempts a build anyway.
+	  -no-cleanup	By default any temporary source, build and package
+			directories will be deleted once the package is built.
+			This option prevents those files from being removed.
+	  -no-install	Build the packages but don't install them.  This should
+			only be used for testing individual SlackBuilds as it
+			WILL cause serious problems - some package builds may
+			rely on another package being auto installed first.
+	  -help		Show this help screen.
 
-####
-#### BUILD ORDER
-####
-
-BUILD_ORDER="
-liboil
-libnotify
-a52dec
-ffmpeg
-xvidcore
-faac
-faad2
-lame
-yasm
-x264
-libcddb
-libcdio
-libdvbpsi4
-libdvdcss
-libdvdread
-libebml
-libmatroska
-libmms
-libsndfile
-libdv
-libquicktime
-mpeg2dec
-mpeg4ip
-mjpegtools
-libmpcdec
-transcode
-iso-codes
-libexif
-libexif-gtk
-libgphoto2
-libopenraw
-libiptcdata
-gtkunique
-opal
-pwlib
-"
-
-## 
-## TEST MODE
-##
-## I use the -test switch to prevent package installation,
-## rather, only to run a test configure/build/package.
-## Not to be used for proper package preparations.
-
-usage() {
-cat << EOF
-Usage: `basename $0` [options]
-
-Use this script to run a rolling compile of all the packages listed in BUILD_ORDER.
-
-options:      -test (run a test of configure/compile/link/package, without
-                     installing anything.)
-              -help (this tiny help screen)
-
-Current build order: `for i in $BUILD_ORDER; do echo -n $i" "; done;`
-
+	Options are passed down to the next level SlackBuild where appropriate.
 EOF
 }
 
-TESTMODE=no
-while [ 0 ]; do
-  if [ "$1" = "-test" ]; then
-    TESTMODE=yes
-    shift 1
+# If the user created an options file, read it if it's not been read already.
+[ "$OPTIONSREAD" != "1" -a -r ../gsb.options ] && {
+  . ../gsb.options
+  export OPTIONSREAD=1
+}
+
+# Environment.
+export TMP=${TMP:-/tmp}
+export LOGSDIR=${GSB_LOGSDIR:-$TMP/gsb-buildlogs}
+
+# Parse command line arguments.
+while [ $# -gt 0 ]; do
+  if [ "$1" = "-force" ]; then
+    SLACKBUILD_ARGS="$SLACKBUILD_ARGS -force"
+    shift
+  elif [ "$1" = "-no-cleanup" ]; then
+    SLACKBUILD_ARGS="$SLACKBUILD_ARGS -no-cleanup"
+    shift
+  elif [ "$1" = "-no-install" ]; then
+    NOINSTALL=1
+    shift
   elif [ "$1" = "-help" ]; then
-    usage;
-    exit;
+    usage
+    exit 0
   else
-    break
+    echo "${0##*/}: Unknown option: $1"
+    exit 1
   fi
 done
 
+# Temporary space and log file storage.
+mkdir -p $TMP
+mkdir -p $LOGSDIR
 
-##
-## Main Build Loop
-##
+# Packages must be listed here in the order they should be built.
+BUILD_ORDER="	liboil
+		libnotify
+		a52dec
+		ffmpeg
+		xvidcore
+		faac
+		faad2
+		lame
+		yasm
+		x264
+		libcddb
+		libcdio
+		libdvbpsi4
+		libdvdcss
+		libdvdread
+		libebml
+		libmatroska
+		libmms
+		libsndfile
+		libdv
+		libquicktime
+		mpeg2dec
+		mpeg4ip
+		mjpegtools
+		libmpcdec
+		transcode
+		iso-codes
+		libexif
+		libexif-gtk
+		libgphoto2
+		libopenraw
+		libiptcdata
+		gtkunique
+		opal
+		pwlib"
 
-(
-
-for i in $BUILD_ORDER
-do
-(
-  cd $i
-  echo ""
-  echo ""
-  echo "*************************************************"
-  echo "            Building $i"
-  echo "*************************************************"
-  echo ""
-  if [ "$TESTMODE" == "no" ]; then
-        ./$i.SlackBuild || exit 1
-        upgradepkg --install-new $PKG_DEST/$i*.tgz
-  else
-        ./$i.SlackBuild -force || exit 1
-  fi;
-)
-done
-
-
-##
-## Fork to Log
-##
-
-) 2>&1 | tee $TMP/gsb.libraries.build.log
+# Build packages (and log output).
+( for PACKAGE in $BUILD_ORDER
+  do
+    echo
+    echo "*************************************************"
+    echo "****** Building package: $PACKAGE"
+    echo "*************************************************"
+    ( cd $PACKAGE ; ./$PACKAGE.SlackBuild "$SLACKBUILD_ARGS" ) || exit 1
+    [ "$NOINSTALL" != "1" ] && {
+      upgradepkg --install-new \
+        ${PKGDEST:-$TMP/gsb-packages}/$PACKAGE-*.tgz || exit 1
+    }
+  done
+) 2>&1 | tee $LOGSDIR/$(basename $0 .SlackBuild)-$(date +%Y%m%d-%H%M%S).log
