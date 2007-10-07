@@ -68,7 +68,7 @@ sub gsb_gnome_md5_verify {
 
 # get md5sum of downloaded tarball
   open(my $tfh, "$tarball")
-    or die "Could not open $tarball: $!";
+    or warn "Could not open $tarball: $!";
   binmode($tfh);
   my $tar_md5 = Digest::MD5->new->addfile(*$tfh)->hexdigest;
 
@@ -76,7 +76,7 @@ sub gsb_gnome_md5_verify {
 
 # get the verified md5sum from the file
   open(my $ffh, "$md5_file")
-    or die "Could not open $md5_file: $!";
+    or warn "Could not open $md5_file: $!";
 
   my @real_md5 = "";
   foreach my $line (<$ffh>) {
