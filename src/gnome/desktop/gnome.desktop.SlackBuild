@@ -67,7 +67,7 @@ libgnomeprintui
 eel
 nautilus
 libnotify
-control-center
+gnome-control-center
 gnome-session
 yelp
 enchant

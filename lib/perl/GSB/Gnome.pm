@@ -192,7 +192,7 @@ our %desktop =
   (
    'alacarte'               => '0.11.3',
    'bug-buddy'              => '2.20.1',
-   'control-center'         => '2.18.1',
+   'gnome-control-center'   => '2.20.0.1',
    'dasher'                 => '4.6.0',
    'eel'                    => '2.20.0',
    'ekiga'                  => '2.0.11',
