@@ -28,6 +28,8 @@
 use strict;
 use warnings;
 
+use lib '../lib/perl/';
+
 # GSB Modules
 use GSB::Edit;
 use GSB::GSB;
@@ -56,7 +58,7 @@ my $build    = "";
 
 my $sb_ext = '.SlackBuild';
 
-my $gsb_root_sources = "../../src";
+my $gsb_root_sources = "../src";
 
 my @bad_downloads;
 
