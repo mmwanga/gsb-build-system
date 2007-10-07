@@ -251,6 +251,7 @@ our %desktop =
    'libbtctl'               => '0.9.0',
    'libcroco'               => '0.6.1',
    'libgail-gnome'          => '1.20.0',
+   'libgnomekbd'            => '2.20.0',
    'libgnomeprintui'        => '2.18.1',
    'libgsf'                 => '1.14.7',
    'libgtkhtml'             => '2.11.0',
