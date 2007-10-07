@@ -2,14 +2,14 @@
 
 CWD=`pwd`
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-control-center
+PKG=$TMP/package-gnome-control-center
 
 VERSION=2.16.2
 ARCH=${ARCH:-i486}
 BUILD=1
 
-if [ -f /var/log/packages/control-center-$VERSION-$ARCH-$BUILD ]; then
-  echo "control-center-$VERSION-$ARCH-$BUILD package already installed"
+if [ -f /var/log/packages/gnome-control-center-$VERSION-$ARCH-$BUILD ]; then
+  echo "gnome-control-center-$VERSION-$ARCH-$BUILD package already installed"
   exit 0
 fi
 
@@ -37,8 +37,8 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 cd $TMP 
-tar xjvf $CWD/control-center-$VERSION.tar.bz2
-cd control-center-$VERSION
+tar xjvf $CWD/gnome-control-center-$VERSION.tar.bz2
+cd gnome-control-center-$VERSION
 
 # Apply $ARCH specific patches
 if [ "$ARCH" = "i386" ]; then
@@ -90,12 +90,12 @@ chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/bin
   find ./ -type f -exec chmod go+r {} \;
 )
 
-mkdir -p $PKG/usr/doc/control-center-$VERSION
+mkdir -p $PKG/usr/doc/gnome-control-center-$VERSION
 cp -a \
   AUTHORS BUGS COPYING HACKING MAINTAINERS NEWS README \
-  $PKG/usr/doc/control-center-$VERSION
-find $PKG/usr/doc/control-center-$VERSION/ -type f -exec chmod 644 {} \;
-chown -R root.root $PKG/usr/doc/control-center-$VERSION/*
+  $PKG/usr/doc/gnome-control-center-$VERSION
+find $PKG/usr/doc/gnome-control-center-$VERSION/ -type f -exec chmod 644 {} \;
+chown -R root.root $PKG/usr/doc/gnome-control-center-$VERSION/*
 
 # strip:
 ( cd $PKG
@@ -111,10 +111,10 @@ cat $CWD/slack-desc > $PKG/install/slack-desc
 cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
-makepkg -l y -c n $TMP/control-center-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n $TMP/gnome-control-center-$VERSION-$ARCH-$BUILD.tgz
 
 # Clean up the extra stuff:
 if [ "$1" = "--cleanup" ]; then
-  rm -rf $TMP/control-center-$VERSION
+  rm -rf $TMP/gnome-control-center-$VERSION
   rm -rf $PKG
 fi

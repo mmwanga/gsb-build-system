@@ -1,12 +1,12 @@
               |-----handy-ruler------------------------------------------------------|
-control-center: control-center (Configuration tools for GNOME)
-control-center:
-control-center: The GNOME control center.  Control-center is a configuration tool for
-control-center: easily setting up your GNOME environment.
-control-center:
-control-center:
-control-center:
-control-center:
-control-center:
-control-center:
-control-center:
+gnome-control-center: gnome-control-center (Configuration tools for GNOME)
+gnome-control-center:
+gnome-control-center: The GNOME control center.  Control-center is a configuration tool for
+gnome-control-center: easily setting up your GNOME environment.
+gnome-control-center:
+gnome-control-center:
+gnome-control-center:
+gnome-control-center:
+gnome-control-center:
+gnome-control-center:
+gnome-control-center:
