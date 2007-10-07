@@ -108,20 +108,20 @@ our %office_libs =
 
 our %office_gnome_libs =
   (
-   'goffice'     => '0.4.0',
-   'libgda'      => '3.0.0',
-   'libgnomedb'  => '3.0.0',
+   'goffice'     => '0.5.0',
+   'libgda'      => '3.1.1',
+   'libgnomedb'  => '3.1.1',
    'libgdamm'    => '1.3.7',
    'present'     => '0.0.3',
   );
 
 our %office_gnome =
   (
-   'gnumeric'  => '1.7.10',
-   'dia'       => '0.95',
-   'glom'      => '1.1.3',
-   'mergeant'  => '0.63',
-   'planner'   => '0.14.1',
+   'gnumeric'  => '1.7.12',
+   'dia'       => '0.96.1',
+   'glom'      => '1.6.1',
+   'mergeant'  => '0.66',
+   'planner'   => '0.14.2',
   );
 
 #

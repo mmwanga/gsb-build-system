@@ -16,12 +16,12 @@ our $VERSION   = 0.03;
 our %gstreamer =
   (
    'gst-plugins-base'  => {
-                           'ver' => '0.10.12',
+                           'ver' => '0.10.14',
                            'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-base/',
                            'src' => 'tar.bz2',
                           },
    'gst-plugins-good'  => {
-                           'ver' => '0.10.5',
+                           'ver' => '0.10.6',
                            'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-good/',
                            'src' => 'tar.bz2',
                           },
@@ -41,7 +41,7 @@ our %gst_diff_name =
   (
    'gstreamer10'       => {
                            'name' => 'gstreamer',
-                           'ver'  => '0.10.12',
+                           'ver'  => '0.10.14',
                            'url'  => 'http://gstreamer.freedesktop.org/src/gstreamer/',
                            'src'  => 'tar.bz2',
                           },

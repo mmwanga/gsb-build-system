@@ -51,7 +51,7 @@ our %extras_libs =
                              'src' => 'tar.bz2',
 			    },
    'gmime'               => {
-			     'ver' => '2.2.8',
+			     'ver' => '2.2.10',
 			     'url' => 'http://spruce.sourceforge.net/gmime/sources/v2.2/',
 			     'src' => 'tar.gz',
 			    },
@@ -196,11 +196,11 @@ our %extras_libs_other =
 our %extras_libs_gnome =
   (
    'devhelp'             => '0.13',
-   'gdl'                 => '0.6.1',
+   'gdl'                 => '0.7.7',
    'glade'               => '3.1.5',
    'gnome-build'         => '0.1.3',
-   'gnome-common'        => '2.12.0',
-   'loudmouth'           => '1.0.5',
+   'gnome-common'        => '2.20.0',
+   'loudmouth'           => '1.2.3',
   );
 
 
@@ -209,15 +209,15 @@ our %extras_gnome_apps =
   (
    'NetworkManager'      => '0.6.5',
    'gnome-audio'         => '2.0.0',
-   'gnome-commander'     => '1.2.1',
+   'gnome-commander'     => '1.2.4',
    'gnome-cups-manager'  => '0.30',
-   'gnome-phone-manager' => '0.7',
-   'gnome-power-manager' => '2.18.2',
-   'gthumb'              => '2.10.2',
-   'meld'                => '1.1.4',
-   'pessulus'            => '2.16.1',
-   'rhythmbox'           => '0.10.0',
-   'sabayon'             => '2.12.4',
+   'gnome-phone-manager' => '0.10',
+   'gnome-power-manager' => '2.20.0',
+   'gthumb'              => '2.10.6',
+   'meld'                => '1.1.5.1',
+   'pessulus'            => '2.16.3',
+   'rhythmbox'           => '0.11.2',
+   'sabayon'             => '2.20.1',
   );
 
 
@@ -225,7 +225,7 @@ our %extras_gnome_apps =
 our %extras_apps =
   (
    'anjuta'              => {
-			     'ver' => '2.1.1',
+			     'ver' => '2.2.1',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/anjuta/',
 			     'src' => 'tar.gz',
 			    },
@@ -350,7 +350,7 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'pitivi'              => {
-                             'ver' => '0.10.1',
+                             'ver' => '0.10.3',
                              'url' => 'http://heanet.dl.sourceforge.net/sourceforge/pitivi/',
                              'src' => 'tar.bz2',
                             },
@@ -410,8 +410,8 @@ our %extras_apps =
 # src/extras/apps
 our %extras_apps_gnome =
   (
-   'ghex'                => '2.8.2',
-   'gossip'              => '0.24',
+   'ghex'                => '2.20.0',
+   'gossip'              => '0.27',
   );
 
 
@@ -438,19 +438,15 @@ our %extras_applets =
 			     'url' => 'http://savannah.nongnu.org/download/mailnotify/',
 			     'src' => 'tar.gz',
 			    },
-   'nautilus-open-terminal'  => {
-			     'ver' => '0.8',
-			     'url' => 'http://manny.cluecoder.org/packages/nautilus-open-terminal/',
-			     'src' => 'tar.gz',
-                            },
   );
 
 # src/extras/applets_extensions
 our %extras_applets_gnome =
   (
-   'quick-lounge-applet'      => '2.12.1',
-   'fast-user-switch-applet'  => '2.16.0',
-   'deskbar-applet'           => '2.18.1',
+   'quick-lounge-applet'      => '2.12.4',
+   'fast-user-switch-applet'  => '2.20.0',
+   'deskbar-applet'           => '2.20.0',
+   'nautilus-open-terminal'   => '0.8',
   );
 
 

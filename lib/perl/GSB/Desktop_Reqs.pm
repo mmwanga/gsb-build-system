@@ -48,7 +48,7 @@ our %desktop_reqs =
                         },
    'opal'            => {
                          'url' => 'http://seconix.com/misc/ekiga-2.0.3/',
-                         'ver' => '2.2.3',
+                         'ver' => '2.2.11',
                          'src' => 'tar.gz',
                         },
    'openldap'        => {
@@ -68,7 +68,7 @@ our %desktop_reqs =
 			},
    'pwlib'            => {
                          'url' => 'http://seconix.com/misc/ekiga-2.0.3/',
-                         'ver' => '1.10.2',
+                         'ver' => '1.10.10',
                          'src' => 'tar.gz',
                         },
    'PyXML'           => {
