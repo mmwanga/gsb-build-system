@@ -1,5 +1,5 @@
 #!/bin/bash
-## Version: 1.3 GSB SlackBuild
+## Version: 1.4 GSB SlackBuild.
 ## Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
 ## Copyright (c) 2007 Steve Kennedy <sk238 (at) exeter.ac.uk>
 ##
@@ -12,24 +12,23 @@ VERSION=0.3
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-
 REQUIRED_PACKAGES="glib2"
 
-## Build variables
+## Build variables.
 ARCH=${ARCH:-i586}
 TUNE=${TUNE:-i586}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP/gsb-packages}
 
-## Script variables
+## Script variables.
 PKGNAME=$(basename $0 .SlackBuild)
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
 FORCEBUILD=0
 
-## Usage
+## Usage.
 function usage() {
   cat << EOF
 Usage: ${0##*/} [options]
@@ -45,7 +44,7 @@ Options:  -force        The package will not be built if a package of the same
 EOF
 }
 
-## Parse command line arguments
+## Parse command line arguments.
 while [ $# -gt 0 ]; do
   if [ "$1" = "-force" ]; then
     FORCEBUILD=1
@@ -62,7 +61,7 @@ while [ $# -gt 0 ]; do
   fi
 done
 
-## Package requirements and installation checks
+## Package requirements and installation checks.
 [ "$FORCEBUILD" = "0" ] && {
   function check_installed() {
     ls -1 /var/log/packages | grep "^${1}-[^-]*-[^-]*-[^-]*$" >/dev/null 2>&1
@@ -82,19 +81,19 @@ done
   done
 }
 
-## Temporary space and package storage
+## Temporary space and package storage.
 mkdir -p $TMP
 rm -rf $PKG
 mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
-## Decompress archive
+## Decompress archive.
 cd $TMP &&
-tar xzf $CWD/${PKGNAME}-${VERSION}.tar.gz &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
-# Apply ARCH specific patches
+# Apply ARCH specific patches.
 if [ "$ARCH" = "i386" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
@@ -115,7 +114,7 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
-## Fix permissions for building
+## Fix permissions for building.
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
 find . -perm 600 -exec chmod 644 {} \;
@@ -128,71 +127,54 @@ find . -perm 511 -exec chmod 755 {} \;
 find . -perm 711 -exec chmod 755 {} \;
 find . -perm 555 -exec chmod 755 {} \;
 
-##
-## Configure, Tuning and Make options
-##
-## Options for Make.  If you have a SMP system or dual cores
-## you may want to insert -j4 to allow paralell builds.
-MAKE_FLAGS=""
-
-## Any additional flags to pass to the configure scripts.
-CONFIGURE_FLAGS=""
-
+## Configure, Tuning, GCC and Make options.
+CONFIGURE_FLAGS=${GSB_CONFIGURE_FLAGS:-""}
 if [ "$ARCH" = "i386" ]; then
-  GSB_CFLAGS=${GSB_CFLAGS:-"-O2 -march=$ARCH -mtune=i386"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE"}
 elif [ "$ARCH" = "i486" ]; then
-  GSB_CFLAGS=${GSB_CFLAGS:-"-O2 -march=$ARCH -mtune=i486"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE"}
 elif [ "$ARCH" = "i586" ]; then
-  GSB_CFLAGS=${GSB_CFLAGS:-"-O3 -pipe -fomit-frame-pointer -ffast-math -march=$ARCH -mtune=$TUNE"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer -ffast-math"}
 elif [ "$ARCH" = "i686" ]; then
-  TUNE=${TUNE:-i686}
-  GSB_CFLAGS=${GSB_CFLAGS:-"-O3 -pipe -fomit-frame-pointer -ffast-math -march=$ARCH -mtune=$TUNE"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer -ffast-math"}
 elif [ "$ARCH" = "x86_64" ]; then
-  if [ "$TUNE" = "" -o "$TUNE" = "i586" ]; then
-        echo "You must specify a specific tune with $ARCH. See gcc manual for tuning options." ;
-        exit 1
+  if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
+    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -ffast-math -fPIC"}
   else
-        GSB_CFLAGS=${GSB_CFLAGS:-"-O3 -pipe -fomit-frame-pointer -ffast-math -fPIC -march=$TUNE -mtune=$TUNE"}
-        MAKE_FLAGS=${MAKE_FLAGS:-"-j4"}
-        CONFIGURE_FLAGS="$CONFIGURE_FLAGS --libdir=/usr/lib64"
-  fi;
+    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -ffast-math -fPIC"}
+  fi
+  [ -z "$CONFIGURE_FLAGS" ] && {
+    CONFIGURE_FLAGS="--libdir=/usr/lib64"
+  }
 elif [ "$ARCH" = "powerpc" ]; then
-  GSB_CFLAGS=${GSB_CFLAGS:-"-O2"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
 else
-  GSB_CFLAGS=${GSB_CFLAGS:-"-O2"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2"}
 fi
+EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
+MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-## Configure, build and install
-##
-## The default SlackBuild is with shared libraries, static disabled. (See below)
-## For some other GNOME packages, however, these options may be necessary:
-##
-## For packages with GNOME Schemas, please add:
-##
-## --disable-schemas-install --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
-##       --with-gconf-schema-file-dir=/etc/gconf/schemas \
-##
-## For more specific information about what the configure script may take,
-## you will need to consult each individual package.
-
-CFLAGS="$GSB_CFLAGS $CFLAGS" \
-CXXFLAGS="$GSB_CFLAGS $CFLAGS" \
-./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+## Configure.
+## The default is to build shared libraries, no static libraries, install into
+## /usr and use /etc as the config directory.
+## For packages with GNOME Schemas, additional options are required:
+##  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
+##  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
+CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   || exit 1
 
-##
-## Make
-##
+## Build and install.
 make $MAKE_FLAGS &&
-make DESTDIR=$PKG install || exit 1
+make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-## Strip debugging symbols
+## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
 
-## Compress and fix manpage links
+## Compress and fix manpage links.
 [ -e $PKG/usr/man ] && {
   find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
   find $PKG/usr/man -type l -name \*.? -printf \
@@ -200,13 +182,13 @@ make DESTDIR=$PKG install || exit 1
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }
 
-## Deal with .info files
+## Deal with .info files.
 [ -e $PKG/usr/info ] && {
   rm -f $PKG/usr/info/dir
   gzip -9 $PKG/usr/info/*.info
 }
 
-## Copy extra documentation into package
+## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
   AUTHORS COPYING* ChangeLog NEWS README \
@@ -215,7 +197,7 @@ find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 ## Package meta files
-for FILE in slack-desc slack-required slack-conflicts slack-suggests doinst.sh
+for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
 do
   [ -e $CWD/$FILE ] && {
     cat $CWD/$FILE >>$PKG/install/$FILE
@@ -224,7 +206,7 @@ done
 
 ## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-$VERSION-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {

@@ -1,4 +1,0 @@
- $Id: README 218 2005-01-21 19:09:26Z freerock $
-
-edit the doinst.sh script and change the media group to sys or
-to whatever group you want.

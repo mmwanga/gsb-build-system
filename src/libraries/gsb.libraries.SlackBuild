@@ -90,8 +90,13 @@ BUILD_ORDER="	liboil
 		libopenraw
 		libiptcdata
 		gtkunique
+        libraw1394
+        libavc1394
+        libiec61883
+        libvisual
+		pwlib
 		opal
-		pwlib"
+        "
 
 # Build packages (and log output).
 ( for PACKAGE in $BUILD_ORDER
