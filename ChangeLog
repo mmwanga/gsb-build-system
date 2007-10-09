@@ -1,6 +1,11 @@
 ChangeLog
 ---------
 
+09-10-2007	fidesratio <sk238(at)ex.ac.uk>
+    * gnome.platform: SlackBuilds updated to 1.4
+	* gsb.libraries: Some cleanup.  SlackBuilds updated to 1.4. 
+	                 Some build order change.  1394 support added.
+
 06-10-2007	Tadgy <tadgy(at)gnomeslackbuild.org>
 	* generic.SlackBuild: Updated to version 1.4.  We finally have an
 	  agreed base for all SlackBuilds! :)

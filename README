@@ -29,7 +29,7 @@ TMP:       Temporary directory for unpacking, configuring and building each pack
            the build scripts will move them to PKG_DEST (which will be created in TMP, unless
            otherwise specified.)
 
-PKG_DEST:  Destination of built and ready .tgz Slackware packages.  By default,
+PKGDEST:   Destination of built and ready .tgz Slackware packages.  By default,
            PKGDEST should be set to: ${PKGDEST:-$TMP/gsb-packages} in the SlackBuilds. 
            Export it to the environment if you don't like the default.
 

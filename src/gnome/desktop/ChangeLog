@@ -1,7 +1,0 @@
-30-09-2007	* Updated gnome-themes tango-icon-theme gnome-doc-utils at-spi gail 
-		gnome-desktop gnome-menus libwnck libsoup evolution-data-server gnome-python 
-		gstreamer gst-plugins-base gst-plugins-good gnome-panel gnome-terminal 
-		libgtop gnome-applets libxklavier libgnomekdb libgnomecups libgnomeprint 
-		libgnomeprintui libgtkhtml nautilus
-
-29-09-2007	* Start revamp of gnome.desktop for GNOME 2.20

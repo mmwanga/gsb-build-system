@@ -17,7 +17,7 @@ mpeg4ip,http://downloads.sourceforge.net/sourceforge/mpeg4ip/,1.6,tar.gz,NONE
 libcddb,http://downloads.sourceforge.net/libcddb/,1.3.0,tar.bz2,NONE
 libdvdcss,http://download.videolan.org/pub/libdvdcss/1.2.9/,1.2.9,tar.bz2,NONE
 libdvdread,http://www.dtek.chalmers.se/groups/dvd/dist/,0.9.7,tar.gz,NONE
-libcdio,http://ftp.gnu.org/gnu/libcdio/,0.78.2,tar,gz,NONE
+libcdio,http://ftp.gnu.org/gnu/libcdio/,0.78.2,tar.gz,NONE
 libdvbpsi4,http://download.videolan.org/pub/libdvbpsi/0.1.5/,0.1.5,tar.bz2,NONE
 libebml,http://dl.matroska.org/downloads/libebml/,0.7.7,tar.bz2,NONE
 libmatroska,http://dl.matroska.org/downloads/libmatroska/,0.8.1,tar.bz2,NONE
@@ -42,3 +42,11 @@ libexif-gtk,http://downloads.sourceforge.net/libexif/,0.3.5,tar.bz2,NONE
 libgphoto2,http://downloads.sourceforge.net/gphoto/,2.4.0,tar.bz2,NONE
 libiptcdata,http://downloads.sourceforge.net/libiptcdata/,1.0.2,tar.gz,NONE
 libopenraw,http://libopenraw.freedesktop.org/download/,0.0.2,tar.gz,NONE
+pwlib,http://www.ekiga.org/admin/downloads/latest/sources/sources/,1.10.10,tar.gz,NONE
+opal,http://www.ekiga.org/admin/downloads/latest/sources/sources/,2.2.10,tar.gz,NONE
+libavc1394,http://downloads.sourceforge.net/libavc1394/,0.5.3,tar.gz,NONE
+libraw1394,http://www.linux1394.org/dl/,1.2.1,tar.gz,NONE
+libiec61883,http://www.linux1394.org/dl/,1.1.0,tar.gz,NONE
+libvisual,http://downloads.sourceforge.net/libvisual/,0.4.0,tar.bz2,NONE
+libpri,http://downloads.digium.com/pub/libpri/,1.4.1,tar.gz,NONE
+openh323,http://downloads.sourceforge.net/openh323/,v1_19_0_1-src,tar.gz,NONE
