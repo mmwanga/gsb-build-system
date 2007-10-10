@@ -1,0 +1,38 @@
+--- gdm-2.14.1/config/gdm.conf.in.orig	2006-04-12 17:23:01.000000000 -0400
++++ gdm-2.14.1/config/gdm.conf.in	2006-04-12 17:24:58.000000000 -0400
+@@ -61,7 +61,7 @@
+ 
+ # The greeter for local (non-xdmcp) logins.  Change gdmlogin to gdmgreeter to
+ # get the new graphical greeter.
+-#Greeter=@libexecdir@/gdmlogin
++Greeter=@libexecdir@/gdmgreeter
+ 
+ # The greeter for xdmcp logins, usually you want a less graphically intensive
+ # greeter here so it's better to leave this with gdmlogin
+@@ -286,7 +286,7 @@
+ #GtkRC=@datadir@/themes/Default/gtk-2.0/gtkrc
+ 
+ # The GTK+ theme to use for the GUI.
+-#GtkTheme=Default
++GtkTheme=Clearlooks
+ # If to allow changing the GTK+ (widget) theme from the greeter.  Currently
+ # this only affects the standard greeter as the graphical greeter does not yet
+ # have this ability.
+@@ -362,7 +362,7 @@
+ #ChooserButtonLogo=@pixmapdir@/gdm-foot-logo.png
+ # The standard greeter should shake if a user entered the wrong username or
+ # password.  Kind of cool looking
+-#Quiver=true
++Quiver=true
+ 
+ # The Actions menu (formerly system menu) is shown in the greeter, this is the
+ # menu that contains reboot, shutdown, suspend, config and chooser.  None of
+@@ -440,7 +440,7 @@
+ # list then provide a list that is delimited by /: to the GraphicalThemes
+ # key and set GraphicalThemeRand to true.  Otherwise use GraphicalTheme
+ # and specify just one theme.
+-#GraphicalTheme=circles
++GraphicalTheme=SimplyFree
+ #GraphicalThemes=circles/:happygnome
+ GraphicalThemeDir=@datadir@/gdm/themes/
+ GraphicalThemeRand=false
