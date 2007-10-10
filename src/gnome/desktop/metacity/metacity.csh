@@ -1,1 +1,0 @@
-setenv WINDOW_MANAGER metacity
