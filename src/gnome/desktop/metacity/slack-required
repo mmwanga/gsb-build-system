@@ -1,6 +1,14 @@
-gconf
+GConf
 glib2
 gtk+2
-orbit2
+ORBit2
 startup-notification
-x11
+libgnome
+libgnomeui
+gnome-menu
+libXrender
+libXrandr
+libXinerama
+libXcursor
+pango
+cairo
