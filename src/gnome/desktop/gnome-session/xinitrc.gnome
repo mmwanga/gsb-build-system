@@ -1,5 +1,4 @@
 #!/bin/sh
-# $XConsortium: xinitrc.cpp,v 1.4 91/08/22 11:41:34 rws Exp $
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
@@ -23,9 +22,6 @@ fi
 if [ -f $usermodmap ]; then
     xmodmap $usermodmap
 fi
-
-# This nag screen isn't going to save anybody.
-export NAUTILUS_OK_TO_RUN_AS_ROOT=1
 
 # Start the window manager:
 exec dbus-launch --exit-with-session gnome-session
