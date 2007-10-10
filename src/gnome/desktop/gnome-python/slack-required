@@ -1,4 +1,6 @@
 python
+pygtk
+pyorbit
 glib2
 gtk+2
 libgnome

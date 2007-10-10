@@ -60,8 +60,8 @@ mkdir -p $LOGSDIR
 ##
 ## GNOME Desktop Files.  
 ##
-## These are packages that are required and make the foundation
-## for the GNOME Desktop packages.
+## These are packages that are required and make the bare
+## GNOME Desktop.
 ##
 ## http://www.gnome.org/start/2.20/notes/en/index.html#rninstallation
 ## 
@@ -107,6 +107,9 @@ gnome-control-center
 gnome-session
 yelp
 enchant
+##
+## FIX ME----- probably after this should be in applications --
+##
 bug-buddy
 nautilus-cd-burner
 gst-plugins-ffmpeg
