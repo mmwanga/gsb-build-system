@@ -12,7 +12,7 @@ VERSION=1.10.10
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="openssl expat sdl openldap libraw1394 libavc1394 libiec61883 libdv"
+REQUIRED_PACKAGES="cyrus-sasl openssl expat sdl libraw1394 libavc1394 libiec61883 libdv"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
