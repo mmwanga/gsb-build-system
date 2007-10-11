@@ -107,7 +107,7 @@ bug-buddy
 gnome-python-desktop
 gconf-editor
 gnome-keyring-manager
-gtkhtml
+gtkhml
 "
 
 # Build packages (and log output).
