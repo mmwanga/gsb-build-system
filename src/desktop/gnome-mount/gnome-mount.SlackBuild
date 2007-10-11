@@ -90,7 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -158,12 +158,12 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 ## The default is to build shared libraries, no static libraries, install into
 ## /usr and use /etc as the config directory.
 ## For packages with GNOME Schemas, additional options are required:
-##  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
-##  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
+  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
+  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
   || exit 1
 
 ## Build and install.
