@@ -90,7 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -144,7 +144,7 @@ elif [ "$ARCH" = "x86_64" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -ffast-math -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS="--libdir=/usr/lib64"
+    CONFIGURE_FLAGS="--libdir=/usr/lib64 --enable-elf64"
   }
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
@@ -163,12 +163,12 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
+  --disable-static --enable-shared --enable-gnu-names --enable-compat \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+make $MAKE_FLAGS instroot=$PKG install-compat install || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
