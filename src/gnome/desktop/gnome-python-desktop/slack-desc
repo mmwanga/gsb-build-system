@@ -1,4 +1,12 @@
                     |-----handy-ruler------------------------------------------------------|
 gnome-python-desktop: gnome-python-desktop (Python modules for GNOME Desktop Libraries)
 gnome-python-desktop: 
-gnome-python-desktop: Python modules that allow python binding to GNOME libraries.  This package includes gnomeapplet gnomeprint, gnomeprint.ui gtksourceview wnck gtop nautilusburn mediaprofiles
+gnome-python-desktop: Python modules that allow python binding to GNOME libraries.  This 
+gnome-python-desktop: package includes gnomeapplet, gnomeprint, gnomeprint.ui, gtksourceview, 
+gnome-python-desktop: wnck, gtop, nautilusburn and mediaprofiles.
+gnome-python-desktop: 
+gnome-python-desktop: 
+gnome-python-desktop: 
+gnome-python-desktop: 
+gnome-python-desktop: 
+gnome-python-desktop: 

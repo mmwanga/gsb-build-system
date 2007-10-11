@@ -98,20 +98,21 @@ libgnomesu
 metacity
 eel
 nautilus
+nautilus-cd-burner
 gnome-control-center
 gnome-session
-yelp
-enchant
 bug-buddy
 gnome-python-desktop
 gconf-editor
 ##
 ## FIX ME----- probably after this should be in applications --
 ##
+mozilla
+yelp
+enchant
 gst-plugins-ffmpeg
 gst-plugins-bad
 gst-plugins-ugly
-nautilus-cd-burner
 gnome-media
 libcroco
 libgsf
