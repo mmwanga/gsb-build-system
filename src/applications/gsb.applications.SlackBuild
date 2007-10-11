@@ -63,6 +63,8 @@ mkdir -p $LOGSDIR
 
 # Packages must be listed here in the order they should be built.
 BUILD_ORDER="	 
+       mozilla
+       yelp
        eog
        sound-juicer
        file-roller
@@ -70,8 +72,6 @@ BUILD_ORDER="
        epiphany
        epiphany-extensions
        totem
-       mozilla
-       yelp
        enchant
        gnome-media
        libcroco
