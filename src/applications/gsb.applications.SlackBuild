@@ -68,7 +68,6 @@ BUILD_ORDER="
        eog
        sound-juicer
        file-roller
-       mozilla
        epiphany
        epiphany-extensions
        totem

@@ -1,2 +1,9 @@
 nautilus
 gnome-vfs
+bzip2
+tar
+gzip
+GConf
+libgnome
+libgnomeui
+cdrtools

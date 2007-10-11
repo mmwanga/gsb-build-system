@@ -1,3 +1,21 @@
 libgnomeui
-mozilla | mozilla-firefox | firefox
 iso-codes
+dbus
+python
+pygtk
+gnome-python-desktop
+gtk+2
+glib2
+gnome-desktop
+libgnomeprintui
+startup-notification
+which
+pango
+cairo
+fontconfig
+freetype2
+nss
+zlib
+atk
+popt
+GConf

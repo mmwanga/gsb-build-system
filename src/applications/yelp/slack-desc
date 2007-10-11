@@ -1,12 +1,12 @@
     |-----handy-ruler------------------------------------------------------|
-yelp: yelp (GNOME help browser)
+yelp: yelp (GNOME Help Browser)
 yelp:
-yelp: Yelp is the GNOME help browser.
+yelp: Yelp is the help viewer in Gnome. It's what happens when you hit F1. 
+yelp: Together with gnome-doc-utils, Yelp serves as a DocBook viewer, a man 
+yelp: page viewer, and an info page viewer. For the content that goes into 
+yelp: Yelp, see the GNOME Documentation Project.
 yelp:
-yelp:
-yelp:
-yelp:
-yelp:
+yelp: http://live.gnome.org/DocumentationProject
 yelp:
 yelp:
 yelp:

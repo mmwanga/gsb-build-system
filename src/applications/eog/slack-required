@@ -1,9 +1,11 @@
 eel
-gconf
+GConf
 libbonoboui
 libgnomeprintui
-librsvg
 gnome-keyring
 gnome-vfs
 libgnomecanvas
 libgnomeui
+libjpeg
+libexif
+lcms

@@ -1,7 +1,5 @@
 bzip2
-cxxlibs
-mozilla | mozilla-firefox | firefox
-gconf
+GConf
 gnome-keyring
 gnome-vfs
 gtk+2

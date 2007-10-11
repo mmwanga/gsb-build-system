@@ -1,12 +1,12 @@
             |-----handy-ruler------------------------------------------------------|
-sound-juicer: sound-juicer (CD ripping tool)
-sound-juicer:
-sound-juicer: Sound Juicer is a CD-Ripping tool that aims to provide a clean 
-sound-juicer: interface and automatic file tagging.
+sound-juicer: sound-juicer (GNOME CD Ripping Tool)
 sound-juicer: 
-sound-juicer: 
-sound-juicer: 
-sound-juicer: 
-sound-juicer: 
-sound-juicer:
-sound-juicer:
+sound-juicer: Sound Juicer is a CD ripping tool. It extracts audio from compact 
+sound-juicer: discs and converts it into audio files that a personal computer or 
+sound-juicer: digital audio player can understand and play. It supports ripping to 
+sound-juicer: any audio codec supported by a GStreamer plugin, such as mp3, Ogg 
+sound-juicer: Vorbis, FLAC and uncompressed PCM formats.  Sound Juicer is designed 
+sound-juicer: to be easy to use and to work with little user intervention. For 
+sound-juicer: example, if your computer is connected to the Internet, it will 
+sound-juicer: automatically attempt to retrieve track information from the freely-
+sound-juicer: available MusicBrainz service.
