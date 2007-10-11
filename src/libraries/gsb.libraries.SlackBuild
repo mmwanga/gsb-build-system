@@ -1,4 +1,9 @@
 #!/bin/bash
+# Version: 1.0 GSB.
+# Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
+#
+# Licenced under the terms of the GNU General Public Licence version 3.
+#
 
 # Usage.
 function usage() {
@@ -90,13 +95,13 @@ BUILD_ORDER="	liboil
 		libopenraw
 		libiptcdata
 		gtkunique
-        libraw1394
-        libavc1394
-        libiec61883
-        libvisual
+		libraw1394
+		libavc1394
+		libiec61883
+		libvisual
 		pwlib
 		opal
-        "
+"
 
 # Build packages (and log output).
 ( for PACKAGE in $BUILD_ORDER

@@ -1,4 +1,9 @@
 #!/bin/bash
+# Version: 1.0 GSB.
+# Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
+#
+# Licenced under the terms of the GNU General Public Licence version 3.
+#
 
 # Usage.
 function usage() {
