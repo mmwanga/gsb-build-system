@@ -63,6 +63,7 @@ mkdir -p $LOGSDIR
 
 # Packages must be listed here in the order they should be built.
 BUILD_ORDER=" liboil
+        libelf
         libnotify
         a52dec
         ffmpeg
