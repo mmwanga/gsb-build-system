@@ -116,8 +116,8 @@ fi
 
 ## See patches/README
 if [ -x `which pkg-config` ]; then
-   pkg-config --atleast-version="2.12" gtk+2-2.0;
-   if [ $? -ne 0 ]; then
+   pkg-config --atleast-version="2.12" gtk+-2.0;
+   if [ $? -eq 0 ]; then
      echo "You have gtk+2 greater or equal to 2.12. A patch is required."
      (cd $TMP/$PKGNAME-$VERSION/utils/gtk;
       patch -p0 < $CWD/patches/lqt_gtk.glib-2.12.patch;
