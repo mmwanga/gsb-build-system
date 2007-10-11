@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=3.20.0
+VERSION=1.40
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES=""
+REQUIRED_PACKAGES="bluez-libs"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

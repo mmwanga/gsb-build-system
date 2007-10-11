@@ -1,12 +1,12 @@
           |-----handy-ruler------------------------------------------------------|
-bluez-libs: bluez-libs (Linux Bluetooth userspace libraries)
+bluez-libs: bluez-libs (BlueZ Linux Bluetooth Libraries)
 bluez-libs:
-bluez-libs: Linux Bluetooth Userspace Libraries
+bluez-libs: BlueZ is official Linux Bluetooth protocol stack. It is an Open Source 
+bluez-libs: project distributed under GNU General Public License (GPL).
+bluez-libs: 
+bluez-libs: This package contains the userspace libraries for BlueZ.
 bluez-libs:
-bluez-libs:
-bluez-libs:
-bluez-libs:
-bluez-libs:
+bluez-libs: For more information, please see http://www.bluez.org
 bluez-libs:
 bluez-libs:
 bluez-libs:

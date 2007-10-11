@@ -86,6 +86,10 @@ dbus-python
 libdaemon
 avahi
 system-tools-backends
+bluez-libs
+bluez-utils
+bluez-firmware
+bluez-hcidump
 liboobs
 gnome-vfs
 libgnome
