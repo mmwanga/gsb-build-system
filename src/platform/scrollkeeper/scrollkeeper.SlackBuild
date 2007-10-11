@@ -175,12 +175,13 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make $MAKE_FLAGS ;
 make DESTDIR=$PKG install ;
 
-## Scrollkeeper fix
-##
-## Scrollkeeper has a strange quirk that when it is configured with a specific
+## scrollkeeper fix.
+## scrollkeeper has a strange quirk that when it is configured with a specific
 ## target, it prefaces all its binary files to reflect the configured target.
 ## This step quickly renames them.
-for i in `find $PKG -name ${ARCH}*`; do mv $i `echo $i | sed "s/$ARCH-$DISTRO-linux-//g"`; done;
+for FILE in $(find $PKG -name ${ARCH}*); do
+  mv $FILE $(echo "$FILE" | sed "s/$ARCH-$DISTRO-linux-//g")
+done
 
 ##
 ## Keep clean for Scrollkeeper
