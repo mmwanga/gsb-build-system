@@ -1,0 +1,8 @@
+dbus
+e2fsprogs
+gnome-desktop
+gnome-panel
+gnome-vfs
+gtk+2
+hal
+startup-notification
