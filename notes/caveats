@@ -1,0 +1,1 @@
+* libdvdcss: With tetex installed, building may stall on the documentation on Slackware 12; it faults with some unicode problems.  

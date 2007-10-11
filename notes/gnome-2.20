@@ -56,3 +56,4 @@ bluez-libs,http://bluez.sf.net/download/,3.20,tar.gz,NONE
 bluez-utils,http://bluez.sf.net/download/,3.20,tar.gz,NONE
 bluez-firmware,http://bluez.sf.net/download/,1.2,tar.gz,NONE
 bluez-hcidump,http://bluez.sf.net/download/,1.40,tar.gz,NONE
+nss,http://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_11_7_RTM/src/,3.11.7-with-nspr-4.6.7,tar.gz,NONE
