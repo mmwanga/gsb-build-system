@@ -1,35 +1,69 @@
-#!/bin/sh
+#!/bin/bash
+# Version: 1.0 GSB.
+# Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
+#
+# Licenced under the terms of the GNU General Public Licence version 3.
+#
 
-##
-## Load Global Defaults
-##
-. ../../GSB.options
-PKG_DEST=${PKG_DEST:-/home/packages}
-TMP=${TMP:-/tmp}
+# Usage.
+function usage() {
+  cat << EOF
+Usage: ${0##*/} [options]
 
-##
-## Build Directory Structure
-##
-if [ ! -d $TMP ]; then
-  mkdir -p $TMP;
-fi
-if [ ! -d $PKG_DEST ]; then
-  mkdir -p $PKG_DEST;
-fi
+Options:  -force	The package will not be built if a package of the same
+			name is already installed, or any of the packages
+			required to build are missing.  This option over-rides
+			these checks and attempts a build anyway.
+	  -no-cleanup	By default any temporary source, build and package
+			directories will be deleted once the package is built.
+			This option prevents those files from being removed.
+	  -no-install	Build the packages but don't install them.  This should
+			only be used for testing individual SlackBuilds as it
+			WILL cause serious problems - some package builds may
+			rely on another package being auto installed first.
+	  -help		Show this help screen.
 
-##
-## Official Build Order for Gnome 2.20.x
-##
-## http://www.gnome.org/start/2.20/notes/en/rninstallation.html
+	Options are passed down to the next level SlackBuild where appropriate.
+EOF
+}
 
-####
-#### BUILD ORDER
-####
+# If the user created an options file, read it if it's not been read already.
+[ "$OPTIONSREAD" != "1" -a -r ../gsb.options ] && {
+  . ../gsb.options
+  export OPTIONSREAD=1
+}
 
+# Environment.
+export TMP=${TMP:-/tmp}
+export LOGSDIR=${GSB_LOGSDIR:-$TMP/gsb-buildlogs}
 
-BUILD_ORDER="
-eog
-sound-juicer
+# Parse command line arguments.
+while [ $# -gt 0 ]; do
+  if [ "$1" = "-force" ]; then
+    SLACKBUILD_ARGS="$SLACKBUILD_ARGS -force"
+    shift
+  elif [ "$1" = "-no-cleanup" ]; then
+    SLACKBUILD_ARGS="$SLACKBUILD_ARGS -no-cleanup"
+    shift
+  elif [ "$1" = "-no-install" ]; then
+    NOINSTALL=1
+    shift
+  elif [ "$1" = "-help" ]; then
+    usage
+    exit 0
+  else
+    echo "${0##*/}: Unknown option: $1"
+    exit 1
+  fi
+done
+
+# Temporary space and log file storage.
+mkdir -p $TMP
+mkdir -p $LOGSDIR
+
+# Packages must be listed here in the order they should be built.
+BUILD_ORDER=" eog
+              sound-juicer
 file-roller
 mozilla
 epiphany
@@ -83,67 +117,17 @@ gdm
 alacarte
 "
 
-## 
-## TEST MODE
-##
-## I use the -test switch to prevent package installation,
-## rather, only to run a test configure/build/package.
-## Not to be used for proper package preparations.
-
-usage() {
-cat << EOF
-Usage: `basename $0` [options]
-
-Use this script to run a rolling compile of all the packages listed in BUILD_ORDER.
-
-options:      -test (run a test of configure/compile/link/package, without
-                     installing anything.)
-              -help (this tiny help screen)
-
-Current build order: `for i in $BUILD_ORDER; do echo -n $i" "; done;`
-
-EOF
-}
-TESTMODE=no
-while [ 0 ]; do
-  if [ "$1" = "-test" ]; then
-    TESTMODE=yes
-    shift 1
-  elif [ "$1" = "-help" ]; then
-    usage;
-    exit;
-  else
-    break
-  fi
-done
-
-
-##
-## Main Build Loop
-##
-
-(
-
-for i in $BUILD_ORDER
-do
-(
-  cd $i
-  echo ""
-  echo ""
-  echo "*************************************************"
-  echo "            Building $i"
-  echo "*************************************************"
-  echo ""
-  ./$i.SlackBuild --cleanup || exit 1
-  if [ "$TESTMODE" == "no" ]; then
-	upgradepkg --install-new $PKG_DEST/$i*.tgz
-  fi;
-)
-done
-
-
-##
-## Fork to Log
-##
-
-) 2>&1 | tee $TMP/gnome.platform.build.log
+# Build packages (and log output).
+( for PACKAGE in $BUILD_ORDER
+  do
+    echo
+    echo "*************************************************"
+    echo "****** Building package: $PACKAGE"
+    echo "*************************************************"
+    ( cd $PACKAGE ; ./$PACKAGE.SlackBuild "$SLACKBUILD_ARGS" ) || exit 1
+    [ "$NOINSTALL" != "1" ] && {
+      upgradepkg --install-new \
+        ${PKGDEST:-$TMP/gsb-packages}/$PACKAGE-*.tgz || exit 1
+    }
+  done
+) 2>&1 | tee $LOGSDIR/$(basename $0 .SlackBuild)-$(date +%Y%m%d-%H%M%S).log
