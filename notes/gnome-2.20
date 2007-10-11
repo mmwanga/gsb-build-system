@@ -1,4 +1,7 @@
 ##
+## This file holds a list of libraries and external
+## dependencies which GNOME 2.20 uses/requires.
+##
 ##PackageName,URL,Version,Format,Verify
 ##
 pycairo,http://cairographics.org/releases/,1.4.0,tar.gz,md5

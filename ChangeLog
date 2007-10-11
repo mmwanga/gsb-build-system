@@ -2,9 +2,14 @@ ChangeLog
 ---------
 
 11-10-2007  fidesratio <sk238(at)ex.ac.uk>	
-	* trunk: Partial restructure of src tree.  
-	* libraries: Fixes to target tweaks.
-	* desktop: SlackBuilds updated to 1.4
+	* trunk: Partial restructure of src tree (gnome -> src)
+	* libraries: Fixes to target tweaks. Added nss.
+	             Removed mp4v2 support from faad (breaks mpeg4ip)
+				 pkg-config fix for libquicktime (for glib patch)
+				 Added libelf (for bug-buddy)
+	* accessibility: split accessibility items from desktop.
+	* desktop: SlackBuilds updated to 1.4. Various gconf fixes.
+	           doinst.sh added for gnome-control-panel.
 	* platform: Added Bluetooth Support. 
 	* ChangeLog: Furiously mangled. :^)
 
