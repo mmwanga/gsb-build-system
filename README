@@ -1,5 +1,5 @@
-GNOME SlackBuild - GSB
-----------------------
+About GNOME SlackBuild (GSB)
+----------------------------
 
 GNOME SlackBuild (GSB) is a build system to produce a GNOME desktop environment
 for Slackware Linux.
@@ -11,110 +11,258 @@ updated and cleaned up.
 For a lot more info about the project, visit:
   <http://gnomeslackbuild.org>
 
-Downloading the Source Files
------------------------------
 
-FIXME: Tadgy needs to insert his stuff here.  :)
+Quick start
+-----------
 
-Build Options
--------------
+You must be root in order to build GSB.
 
-Here are a few environment options you can set if you wish to tweak the 
-build process for GNOME SlackBuild.
+The GNOME etc source files are not distributed with GSB - part of the build
+process will download the source files for you.  Obviously you need an (active)
+internet connection to download the sources.
 
-TMP:       Temporary directory for unpacking, configuring and building each package.
-           Make sure this directory has sufficient space.  By default, each package will
-           remove any temporary files after the package has been completely built, unless
-           the -no-cleanup option is passed (See below.)  After each package is complete,
-           the build scripts will move them to PKG_DEST (which will be created in TMP, unless
-           otherwise specified.)
+Here's what to do:
+  $ ./bin/gsb_update.pl
+  $ cd src/
+  $ ./gsb.SlackBuild
 
-PKGDEST:   Destination of built and ready .tgz Slackware packages.  By default,
-           PKGDEST should be set to: ${PKGDEST:-$TMP/gsb-packages} in the SlackBuilds. 
-           Export it to the environment if you don't like the default.
+Downloading the sources (gsb_update.pl) may take a while depending on the speed
+of your internet connection.  Don't be surprised if it takes a few hours :)
 
-ARCH:      ARCH should be set to: ${ARCH:-i586} in the SlackBuilds.  The default (i586) 
-           should only be over-ridden by an explicitly set environment variable.  This
-           is the target architecture for GSB.  Other options may be useful for others
-           who are building for other platforms, such as athlon64, k8, i486, etc.  See
-           the gcc manual for more information on -march.
+Building GSB will take a very long time unless you have some top-notch hardware
+or small cluster system.  I'd expect it to take at least 1-2 days for a full
+build of GSB, assuming modest hardware or a desktop system in everyday use.
 
-TUNE:      TUNE should be set to : ${TUNE:-i586} in the SlackBuilds.  The default (i586)
-           should only be over-ridden by an explicitlu set environment variable.  This is
-           a specific tuning for the compiler.  It is required for any x86_64 architectures.
-           
-GSB_CFLAGS: These are the compiler options for building each package.  
-            The following are the defaults for each platform:
+At the end of the build process (assuming there were no errors) you should have
+a full copy of GSB installed on your system ready to go, and a copy of the
+completed Slackware packages will be in /tmp/gsb-packages (see below for ways
+to change where these packages will end up).
 
-             unknown or undefined: "-O2"
+Starting the GSB GNOME environment will depend on how you start your current X
+Window environment.  Both techniques are described below.
 
-             powerpc: "-O2"
+If you login to your system at the text console and use 'startx' or similar,
+you should log in as your usual (not root!) user and run:
+  $ xwmconfig
+... and select the GNOME option from the menu.
+You can also repeat the above as root to set the default for system as a whole.
 
-             i386: "-O2 -march"
+Secondly, if you login to your system via a graphical login manager (such as
+kdm, xdm or other) you will need to exit the graphical login manager in order
+to allow gdm (the GNOME graphical login manager) to take over.
 
-             i486: "-O2 -march=i486 -mtune=i486"
+To get gdm up and running you need to be at a text console [yes, an Xterm
+will work but you'll have to re-login after X Windows exits; it's just easier
+to do it this way, trust me]:  hold down Ctl and Alt and press F6 once.
+You should now see a text based "login" prompt.
 
-             i586 (default platform): 
-                       "-O3 -pipe -fomit-frame-pointer -ffast-math -march=i586 -mtune=i586"
+At the text "login" prompt, login to your system as root and then run:
+  $ init 3
+... and wait for the system to close all of the X Window processes and return
+you to the usual prompt.  It may take up to 30 seconds to do this, and try
+hitting Enter a couple of times to see when it's done.
 
-             i686: 
-                   "-O3 -pipe -fomit-frame-pointer -ffast-math -march=i686 -mtune=i686"
+Once back to the prompt, run:
+  $ init 4
+... and wait for the new gdm graphical login manager to appear.
 
-             x86_64: 
-                   "-O3 -pipe -fomit-frame-pointer -ffast-math -fPIC -march=$TUNE -mtune=$TUNE"
-                   Note: $TUNE must be specified for either an Intel or AMD 64-bit processor.
-                   See gcc manual for tuning options.  For example, TUNE=athlon64, k8, opteron,
-                   nocona, etc. 
+You can no login to your new GSB system.  Make sure you select "GNOME" from
+the session selection menu, if it is not already the default.
 
-           If you want to set your own specific compiler flags, set the GSB_FLAGS environment
-           variable.  Also, if you want to add to the default GSB_CFLAGS, set the 
-           CFLAGS environment variable, and it will be appeneded to the GSB_CFLAGS.
+If you are returned to the prompt or your display keeps going on and off
+repeatidly, the gdm application has not started sucessfully and there is a
+problem.  You will need to return your system to the text based state in order
+to debug the problem - use the same "init 3" command as detailed above.
 
-CFLAGS:    CFLAGS is appended onto the GSB_CFLAGS variable.  ** Note ** Gcc will use 
-           the last argument in the string if multiples of the same argument are passed.
-           For example, gcc -O3 -O1, gcc will only use -O1.  Therefore, if you set the
-           CFLAGS, you can override settings found in GSB_CFLAGS.
+If you do have a problem like this or cannot figure out what the issue is,
+please visit us on the IRC channel for help - details are on the website.
 
-DISTRO:    DISTRO should be set to: ${DISTRO:-slackware} in the SlackBuilds. GNOME 
-           SlackBuild is designed to be used with Slackware, however, other 
-           Slackware-based distributions may be able to use GSB to build GNOME for 
-           their platform. Out of the box GSB will build correctly for Slackware 
-           and a 32bit x86 arch.  If you want something else, set the environment 
-           variables. For example, you may want to specify slamd64 if you are building
-           for that slackware-based distribution.
 
-SlackBuild Options
+Environment options
+-------------------
+
+When building GSB, there are several environment variables which can be used to
+tweak and customise the build process.  GSB supports two methods of setting
+these environment variables, described below.
+
+The first option is to use the bash builtin "export" to manually set the option
+and export it to all sub-processes.  This can be done with a command like:
+      export VAR="VAL"
+... which can be repeated for as many environment options as you want to set.
+
+You must remember to set these options every time you begin a build process as
+they will not be saved accross multiple builds.
+
+The second option is to create a "gsb.options" file in the src/ directory.
+The gsb.options file is read at the begining of every build process, and the
+options specified in this file will be saved accross multiple builds.
+Using the gsb.options file is especially useful for repeat builds or for
+developers who want to set specific options when testing.
+
+The gsb.options file should contain exactly the same "export" commands which
+would be used manually on the command line (see above).  The advantage of
+putting them into the gsb.options file is that the options will always be read,
+no matter whether you remember to manually export them on the command line.
+
+Here are the common environment variables which can be set to effect, tweak
+or customise the build process:
+
+ARCH
+  Setting the ARCH allows you to over-ride the default base architecture type
+  for GSB.  You can use this environment option to build GSB for, say, x86_64
+  or the powerpc architecture type.  The architecture type set when building
+  GSB determines the absolute minimum processor type required to run the
+  produced binaries.  In other words, if you set ARCH=i686 the resulting code
+  will NOT work on an i586 or earlier CPU.
+  These ARCH types are currently recognised by the GSB SlackBuild scripts:
+    i386, i486, i586, i686, x86_64 and powerpc.
+  The default is "i586".
+	
+TUNE
+  This option is very similar to the ARCH environment option except that the
+  resulting binaries are scheduler-tuned to the given processor type.  This
+  means that the binaries will be tuned to run with better performance on the
+  CPU type specified with TUNE, but will still work without problems on CPU
+  types going back to the value specified for ARCH.
+  TUNE can be set to any valid CPU type within the architecture type specified
+  with ARCH.  For example, if ARCH=i586, TUNE could be set to i686.
+  For an ARCH type of x86_64, TUNE must be set to one of the 64 bit processor
+  types, currently: k8, opteron, athlon64 and athlon-fx.
+  The default is "i586", except for an ARCH type of x86_64 where it is "k8".
+
+DISTRO
+  Setting DISTRO to anything other than "slackware" allows GSB to be built on
+  different (Slackware based) distributions.  For example, this can be set to
+  slamd64 when building GSB on the 64 bit Slackware based distro Slamd64.
+  The default is "slackware", and should not be over-ridden unless you are
+  specifically building for another distribution.
+
+TMP
+  During the package builds, temporary data will need to be stored on disk.
+  This option specifies the directory where that temporary data can be written.
+  Make sure the default (or any directory you specify) has enough free space
+  for the build process, plus the complete packages and logs.
+  The default is "/tmp".
+
+PKGDEST
+  Once the package has been built it will be stored in the directory specified
+  with this option.  The default for this option is affected by the value of
+  the TMP environment option detailed above (referred to as $TMP below).
+  The default is "$TMP/gsb-packages".
+
+LOGSDIR
+  As the GSB build process proceeds, a log of the output from each package
+  build is logged for later debugging.  This environment option specifies the
+  directory where these log files will be stored.
+  This option is not used by individual package SlackBuilds but is used by the
+  top-level SlackBuilds which control the build processes.  The default for
+  this option is affected by the value of the TMP environment option detailed
+  above (referred to as $TMP below).
+  The default is "$TMP/gsb-buildlogs".
+
+The following options are less common but allow highly specific customisation
+of the build process.  You should not set these options unless you know exactly
+what needs to be set for each.
+  
+GSB_CONFIGURE_FLAGS
+  Any options specified in this environment variable are ADDED to the package
+  specific options passed to the ./configure command in the SlackBuilds.
+  If this option is set globally (ie, set with export or in gsb.options) it
+  sets the additional options passed to ./configure for EVERY SlackBuild in
+  GSB.  Therefore, mkae sure that any setting given in this environment option
+  is valid for EVERY ./configure used in GSB.
+  When ARCH=x86_64, ./configure is automatically passed "--libdir=/usr/lib64".
+
+GSB_TUNE_CFLAGS
+  This environment option allows you to set the specific tuning options gcc
+  should use when compiling/linking the binaries in packages.  There are many,
+  many gcc options which can be set to optimise/tune the binaries - see the gcc
+  man page for full details.  Setting this option over-rides the default tuning
+  options specified in the SlackBuild files - these options are NOT added to
+  the default ones.  Make sure you add any of the default options from the
+  SlackBuilds back to this environment option if you choose to use it.
+  Tuning is specific to each ARCH, with the defaults being:
+    i386, i486: -O3 -march=$ARCH -mtune=$TUNE
+    i586, i686: -O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer \
+                -ffast-math
+    x86_64, with default TUNE: -O3 -march=k8 -mtune=k8 -pipe \
+                               -fomit-frame-pointer -ffast-math -fPIC
+    x86_64, with custom TUNE: -O3 -march=$TUNE -mtune=$TUNE -pipe \
+                              -fomit-frame-pointer -ffast-math -fPIC
+    powerpc: -O2 -march=$ARCH
+
+GSB_EXTRA_CFLAGS
+  This setting is used to add custom/additional gcc options to be used during
+  the compiling/linking phase.  As with the above, there are many options which
+  can be used with gcc and the best place to look for these is the man page.
+  Setting this option over-rides the default extra options specified in the
+  SlackBuild files - these options are NOT added to the default ones.  Make
+  sure you add any of the default options from the SlackBuilds back to this
+  environment option if you choose to use it.
+  There is no default for this option.
+
+GSB_MAKE_FLAGS
+  Using this environment option allows additional command line arguments and/or
+  options to be given to the "make" command when building the sources.  This
+  option may be useful for people with multi core/processor machines which can
+  perform parallel builds using an option such as "-j2" or "-j4".  See the man
+  page for make for full details of command line arguments and options.
+  Setting this option over-rides the default make arguments specified in the
+  SlackBuild files - these options are NOT added to the default ones.  Make
+  sure you add any of the default arguments from the SlackBuilds back to this
+  environment option if you choose to use it.
+  There is no default for this option.
+
+
+SlackBuild arguments
+--------------------
+
+There are several options which can be passed to gsb.SlackBuild when begining
+the build process.  Options given to a top-level SlackBuild will be passed
+down to the individual package Slackbuilds as a the build process continues.
+
+The following options are recognised:
+  -help		Show the help page/usage for the SlackBuild.
+
+  -force	A package will not be built if a package of the same name is
+		already installed on the system, or any of the packages
+		required to build it are missing.  This option over-rides these
+		checks and attempts a build anyway, although it's very likely
+		it will fail.
+
+  -no-cleanup	By default any temporary source, build and package directories
+		will be deleted once the package is built.  This option
+		prevents all temporary files from being removed.
+
+  -no-install	Build the packages but don't install them afterwards.  This
+		option should only be used for testing individual SlackBuilds
+		as it WILL cause serious problems - some package builds rely
+		on another package being auto installed first, and may refuse
+		to build or crash out at some point during the process.
+		This is not used by individual package SlackBuilds, it is used
+		by the top-level SlackBuilds to stop the auto install process
+		which usually takes place during a GSB build.
+
+
+Future development
 ------------------
 
-Explanation of SlackBuild options.
+I (Tadgy) am currently in the process of re-writing a lot of the gsb_update
+system to be easier for non-developers to use and update with new versions and
+packages.  Once my re-write reaches a half-decent stage of development I will
+integrate it into the current GSB system for testing/debugging.
 
-Options:  -force        The package will not be built if a package of the same
-                        name is already installed, or any of the packages
-                        required to build are missing.  This option over-rides
-                        these checks and attempts a build anyway.
+In addition to the above, i'm hoping to move the build process over to a "make"
+type system, where targets or individual packages can be specified.  For
+example, doing a "make gsb" would build the whole GSB system as it currently
+does; but using a "make platform" would build all the packages which are part
+of the GNOME platform specifiecation.  It will also be possible to build a
+specific individual package from the top level Makefile, making it far easier
+than the current system.
 
+Obviously these developments take time, so stay tuned for updates!
 
-                        * It is generally a bad idea to rebuild a package once it
-                          is already installed, and by default, the SlackBuild script
-                          will not run if it finds a package by the same name already
-                          installed.  Using -force skips these checks and runs the 
-                          build anyway.
-
-          -no-cleanup   By default any temporary source, build and package
-                        directories will be deleted once the package is built.
-                        This option prevents those files from being removed.
-
-                        * This option may be useful for those testing packages.
- 
-          -test         Run a test of configure/compile/link/package, without installing 
-                        anything.
-
-                        * The rolling builds will install needed package as the build
-                        process proceeds.  This option will skip the installation of 
-                        packages, and may break the build because dependencies will not
-                        be installed.  This is designed for testing of individual packages
-                        and is not designed for proper build production.
-
-          -help         Show this help screen.
-
+If you are able to offer any development help and support for these updates and
+changes, please feel free to give me a shout on IRC - information on the
+channel and server are on the website.
 
