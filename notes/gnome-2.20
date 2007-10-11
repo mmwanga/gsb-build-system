@@ -51,3 +51,8 @@ libvisual,http://downloads.sourceforge.net/libvisual/,0.4.0,tar.bz2,NONE
 libpri,http://downloads.digium.com/pub/libpri/,1.4.1,tar.gz,NONE
 openh323,http://www.openh323.org/bin/,1.12.1,tar.gz,NONE
 gnome-mount,http://people.freedesktop.org/~david/dist/,0.6,tar.gz,NONE
+libelf,http://www.mr511.de/software/,0.8.10,tar.gz,NONE
+bluez-libs,http://bluez.sf.net/download/,3.20,tar.gz,NONE
+bluez-utils,http://bluez.sf.net/download/,3.20,tar.gz,NONE
+bluez-firmware,http://bluez.sf.net/download/,1.2,tar.gz,NONE
+bluez-hcidump,http://bluez.sf.net/download/,1.40,tar.gz,NONE

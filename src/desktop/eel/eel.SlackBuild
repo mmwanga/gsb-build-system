@@ -12,7 +12,7 @@ VERSION=2.20.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gail gamin gconf gnome-vfs libgnomeui gnome-desktop gnome-keyring gnome-menus gtk+2 libart_lgpl libglade startup-notification" 
+REQUIRED_PACKAGES="gail gamin gconf gnome-vfs libgnomeui gnome-desktop gnome-keyring gnome-menus gtk+2 libart_lgpl libglade startup-notification atk" 
 
 ## Build variables.
 ARCH=${ARCH:-i586}

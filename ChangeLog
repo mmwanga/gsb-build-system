@@ -5,6 +5,8 @@ ChangeLog
 	* trunk: Partial restructure of src tree.  
 	* libraries: Fixes to target tweaks.
 	* desktop: SlackBuilds updated to 1.4
+	* platform: Added Bluetooth Support. 
+	* ChangeLog: Furiously mangled. :^)
 
 11-10-2007	Tadgy <tadgy(at)gnomeslackbuild.org>
 	* Massive update to the README.  Read it! Comments/corrections

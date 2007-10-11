@@ -12,7 +12,7 @@ VERSION=2.20.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gnome-menus gnome-vfs libglade libgnomeui gamin gnome-desktop gnome-keyring libgnomecanvas startup-notification" 
+REQUIRED_PACKAGES="gnome-menus gnome-vfs libglade libgnomeui gamin gnome-desktop gnome-keyring libgnomecanvas startup-notification libelf" 
 
 ## Build variables.
 ARCH=${ARCH:-i586}
