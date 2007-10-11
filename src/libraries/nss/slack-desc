@@ -1,0 +1,11 @@
+nss: nss (Network Security Services Libraries)
+nss:
+nss: The Network Security Services (NSS) package is a set of
+nss: libraries designed to support cross-platform development
+nss: of security-enabled client and server applications.
+nss: Applications built with NSS can support SSL v2 and v3, TLS,
+nss: PKCS #5, PKCS #7, PKCS #11, PKCS #12, S/MIME, X.509 v3
+nss: certificates, and other security standards. This is useful
+nss: for implementing SSL and S/MIME or other Internet security
+nss: standards into an application.
+nss:

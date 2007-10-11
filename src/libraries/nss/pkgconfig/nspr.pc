@@ -1,0 +1,10 @@
+prefix=/usr
+exec_prefix=/usr
+libdir=/usr/GSB_LIBRARY_PATH
+includedir=/usr/include
+
+Name: NSPR
+Description: The Netscape Portable Runtime
+Version: 4.6.7
+Libs: -L${libdir} -lplds4 -lplc4 -lnspr4 -lpthread -ldl
+Cflags: -I${includedir}/nspr
