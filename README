@@ -22,7 +22,7 @@ process will download the source files for you.  Obviously you need an (active)
 internet connection to download the sources.
 
 Here's what to do:
-  $ ./bin/gsb_update.pl
+  $ ./bin/gsb_update.pl --dl --edit --build=gsb
   $ cd src/
   $ ./gsb.SlackBuild
 
