@@ -43,10 +43,11 @@ libgphoto2,http://downloads.sourceforge.net/gphoto/,2.4.0,tar.bz2,NONE
 libiptcdata,http://downloads.sourceforge.net/libiptcdata/,1.0.2,tar.gz,NONE
 libopenraw,http://libopenraw.freedesktop.org/download/,0.0.2,tar.gz,NONE
 pwlib,http://www.ekiga.org/admin/downloads/latest/sources/sources/,1.10.10,tar.gz,NONE
-opal,http://www.ekiga.org/admin/downloads/latest/sources/sources/,2.2.10,tar.gz,NONE
+opal,http://www.ekiga.org/admin/downloads/latest/sources/sources/,2.2.11,tar.gz,NONE
 libavc1394,http://downloads.sourceforge.net/libavc1394/,0.5.3,tar.gz,NONE
 libraw1394,http://www.linux1394.org/dl/,1.2.1,tar.gz,NONE
 libiec61883,http://www.linux1394.org/dl/,1.1.0,tar.gz,NONE
 libvisual,http://downloads.sourceforge.net/libvisual/,0.4.0,tar.bz2,NONE
 libpri,http://downloads.digium.com/pub/libpri/,1.4.1,tar.gz,NONE
-openh323,http://downloads.sourceforge.net/openh323/,v1_19_0_1-src,tar.gz,NONE
+openh323,http://www.openh323.org/bin/,1.12.1,tar.gz,NONE
+gnome-mount,http://people.freedesktop.org/~david/dist/,0.6,tar.gz,NONE

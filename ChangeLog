@@ -1,12 +1,18 @@
 ChangeLog
 ---------
 
+11-10-2007  fidesratio <sk238(at)ex.ac.uk>	
+	* trunk: Partial restructure of src tree.  
+	* libraries: Fixes to target tweaks.
+	* desktop: SlackBuilds updated to 1.4
+
 11-10-2007	Tadgy <tadgy(at)gnomeslackbuild.org>
 	* Massive update to the README.  Read it! Comments/corrections
 	  welcome. :)
 
 09-10-2007	fidesratio <sk238(at)ex.ac.uk>
     * gnome.platform: SlackBuilds updated to 1.4
+	* gnome.desktop: Change to build order, more splits into applications.
 	* gsb.libraries: Some cleanup.  SlackBuilds updated to 1.4. 
 	                 Some build order change.  1394 support added.
 
