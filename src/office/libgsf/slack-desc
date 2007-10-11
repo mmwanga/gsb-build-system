@@ -1,0 +1,12 @@
+      |-----handy-ruler------------------------------------------------------|
+libgsf: libgsf (API for structured file formats)
+libgsf:
+libgsf: libgsf aims to provide an efficient extensible i/o abstraction for
+libgsf: dealing with different structured file formats.
+libgsf:
+libgsf: libgsf is used by AbiWord, Gnumeric, and KWord.
+libgsf:
+libgsf:
+libgsf:
+libgsf:
+libgsf:
