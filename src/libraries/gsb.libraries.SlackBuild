@@ -62,46 +62,46 @@ mkdir -p $TMP
 mkdir -p $LOGSDIR
 
 # Packages must be listed here in the order they should be built.
-BUILD_ORDER="	liboil
-		libnotify
-		a52dec
-		ffmpeg
-		xvidcore
-		faac
-		faad2
-		lame
-		yasm
-		x264
-		libcddb
-		libcdio
-		libdvbpsi4
-		libdvdcss
-		libdvdread
-		libebml
-		libmatroska
-		libmms
-		libsndfile
-		libdv
-		libquicktime
-		mpeg2dec
-		mpeg4ip
-		mjpegtools
-		libmpcdec
-		transcode
-		iso-codes
-		libexif
-		libexif-gtk
-		libgphoto2
-		libopenraw
-		libiptcdata
-		gtkunique
-		libraw1394
-		libavc1394
-		libiec61883
-		libvisual
-		pwlib
-		opal
-"
+BUILD_ORDER=" liboil
+        libnotify
+        a52dec
+        ffmpeg
+        xvidcore
+        faac
+        faad2
+        lame
+        yasm
+        x264
+        libcddb
+        libcdio
+        libdvbpsi4
+        libdvdcss
+        libdvdread
+        libebml
+        libmatroska
+        libmms
+        libsndfile
+        libdv
+        libquicktime
+        mpeg2dec
+        mpeg4ip
+        mjpegtools
+        libmpcdec
+        transcode
+        iso-codes
+        libexif
+        libexif-gtk
+        libgphoto2
+        libopenraw
+        libiptcdata
+        gtkunique
+        libraw1394
+        libavc1394
+        libiec61883
+        libvisual
+        pwlib
+        opal	
+		"
 
 # Build packages (and log output).
 ( for PACKAGE in $BUILD_ORDER
@@ -110,7 +110,7 @@ BUILD_ORDER="	liboil
     echo "*************************************************"
     echo "****** Building package: $PACKAGE"
     echo "*************************************************"
-    ( cd $PACKAGE ; ./$PACKAGE.SlackBuild "$SLACKBUILD_ARGS" ) || exit 1
+    ( cd $PACKAGE ; ./$PACKAGE.SlackBuild $SLACKBUILD_ARGS ) || exit 1
     [ "$NOINSTALL" != "1" ] && {
       upgradepkg --install-new \
         ${PKGDEST:-$TMP/gsb-packages}/$PACKAGE-*.tgz || exit 1
