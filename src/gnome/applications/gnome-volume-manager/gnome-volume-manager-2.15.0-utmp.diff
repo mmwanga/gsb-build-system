@@ -1,0 +1,14 @@
+diff -ur gnome-volume-manager-2.15.0-orig/src/manager.c gnome-volume-manager-2.15.0/src/manager.c
+--- gnome-volume-manager-2.15.0-orig/src/manager.c	2006-07-31 22:37:36.000000000 +0200
++++ gnome-volume-manager-2.15.0/src/manager.c	2006-08-22 15:27:07.000000000 +0200
+@@ -3099,7 +3099,8 @@
+ 			continue;
+ 		
+ 		/* only accept local X sessions */
+-		local = utmp->ut_line[0] == ':' && utmp->ut_line[1] >= '0' && utmp->ut_line[1] <= '9';
++		local = (utmp->ut_line[0] == ':' && utmp->ut_line[1] >= '0' && utmp->ut_line[1] <= '9') ||
++		        (utmp->ut_line[0] == 't' && utmp->ut_line[1] == 't' && utmp->ut_line[2] == 'y' && utmp->ut_line[3] >= '0' && utmp->ut_line[3] <= '9');
+ 	}
+ 	
+ 	endutent ();
+
