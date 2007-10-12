@@ -8,8 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=3.11.7
-WITH_NSPR="with-nspr-4.6.7"
+VERSION=1.2beta2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -90,9 +89,8 @@ mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
 ## Decompress archive.
-rm -fr $PKGNAME-$VERSION;
 cd $TMP &&
-tar xzf $CWD/$PKGNAME-$VERSION-$WITH_NSPR.tar.gz &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -139,10 +137,7 @@ elif [ "$ARCH" = "i586" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer -ffast-math"}
 elif [ "$ARCH" = "i686" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer -ffast-math"}
-
 elif [ "$ARCH" = "x86_64" ]; then
-
-
   if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -ffast-math -fPIC"}
   else
@@ -159,78 +154,21 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-##
-## Build and Install
-##
-(
-
-cd mozilla;
-
-## This variable is set because many of the commands are dependent on knowing 
-## the full path of certain directories. WORKINGDIR establishes a known path 
-## so that all others can be determined relative to this.
-WORKINGDIR=$PWD;
-echo "Working from $WORKINGDIR."
-
-
-## This variable is set so that the build is performed with no debugging symbols 
-## built into the binaries and that the default compiler optimizations are used.
-BUILD_OPT=1;
-
-## Default to lib on x86 platforms, but lib64 on x86_64
-if [ "$ARCH" = "x86_64" ]; then
-    NSSLIBDIR=lib64
-    ##
-    ## Required Make Flags for x86_64
-    ##
-    MAKE_FLAGS="USE_64=1"
-    echo $MAKE_FLAGS;
-else
-    NSSLIBDIR=lib;
-fi;
-
-cd security/nss ;
+## Configure.
+## The default is to build shared libraries, no static libraries, install into
+## /usr and use /etc as the config directory.
+## For packages with GNOME Schemas, additional options are required:
+##  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
+##  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
+CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --disable-static --enable-shared \
+  || exit 1
 
 ## Build and install.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-    make $MAKE_FLAGS nss_build_all ;
-
-cd ../../;
-
-NSS_LINUXDIR=`basename $(ls -d $WORKINGDIR/dist/Linux*) 1`;
-
-echo "Installing from $NSS_LINUXDIR."
-
-mkdir -p $PKG/usr/bin
-mkdir -p $PKG/usr/include
-
-install -v -m755 -d $PKG/usr/$NSSLIBDIR/pkgconfig ;
-
-sed -e "s/GSB_LIBRARY_PATH/$NSSLIBDIR/g" $CWD/pkgconfig/nspr.pc > \
-       $PKG/usr/$NSSLIBDIR/pkgconfig/nspr.pc
-
-sed -e "s/GSB_LIBRARY_PATH/$NSSLIBDIR/g" $CWD/pkgconfig/nss.pc > \
-       $PKG/usr/$NSSLIBDIR/pkgconfig/nss.pc 
-
-chmod 644 $PKG/usr/$NSSLIBDIR/pkgconfig/nspr.pc
-chmod 644 $PKG/usr/$NSSLIBDIR/pkgconfig/nss.pc
-chown root:root $PKG/usr/$NSSLIBDIR/pkgconfig/nspr.pc
-chown root:root $PKG/usr/$NSSLIBDIR/pkgconfig/nss.pc
-
-cd dist ;
-
-install -v -m755 $NSS_LINUXDIR/lib/*.so $PKG/usr/$NSSLIBDIR ;
-
-install -v -m644 $NSS_LINUXDIR/lib/{*.chk,libcrmf.a} /usr/$NSSLIBDIR ;
-
-install -v -m755 -d $PKG/usr/include/{nss,nspr} ;
-
-install -v -m644 {public,private}/nss/* $PKG/usr/include/nss ;
-
-cp -v -RL $NSS_LINUXDIR/include/* $PKG/usr/include/nspr ;
-chmod -v 644 /usr/include/nspr/prvrsion.h;
-
-) ## End of Build and Install;
+make $MAKE_FLAGS &&
+make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -242,6 +180,44 @@ chmod -v 644 /usr/include/nspr/prvrsion.h;
   find $PKG/usr/man -type l -name \*.? -printf \
     "( cd '%h'; [ -e '%l.gz' ] &&
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
+}
+
+## Deal with .info files.
+[ -e $PKG/usr/info ] && {
+  rm -f $PKG/usr/info/dir
+  gzip -9 $PKG/usr/info/*.info
+}
+
+## Correct permissions.
+## Doing these chown's will remove any s{u,g}id bits that may have been set on
+## the installed files, which is not usually what we want.  Only uncomment/use
+## these chown's if necessary.  ~Tadgy.
+# chown -R $(stat --format "%u:%g" /usr/bin) $PKG/usr/bin
+# chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/sbin
+
+## Copy extra documentation into package.
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
+cp -a \
+  AUTHORS COPYING* ChangeLog NEWS README \
+  $PKG/usr/doc/$PKGNAME-$VERSION
+find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
+chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
+
+## Add schemas install to the doinst.sh if schemas are found.
+[ -d $PKG/etc/gconf/schemas ] && {
+  echo "if [ -x usr/bin/gconftool-2 ]; then" >>$PKG/install/doinst.sh
+  ( cd $PKG/etc/gconf/schemas
+    for FILE in *; do
+      [ -z "$(grep gconfentry $FILE)" ] && {
+        # Create gconf tree
+        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool -2 --makefile-install-rule etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
+      } || {
+        # Load gconf settings
+        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool -2 --config-source=\$(usr/bin/gconftool-2 --get-default-source) --direct --load etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
+      }
+    done
+  )
+  echo "fi" >>$PKG/install/doinst.sh
 }
 
 ## Package meta files
