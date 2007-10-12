@@ -1,12 +1,10 @@
         |-----handy-ruler------------------------------------------------------|
 libcroco: libcroco (CSS2 parsing library)
 libcroco:
-libcroco: Libcroco is a standalone CSS2 parsing and manipulation library that
-libcroco: provides a CSS2 selection engine and an experimental XML/CSS
-libcroco: rendering engine.
+libcroco: The Libcroco project is an effort to build a generic Cascading Style 
+libcroco: Sheet (CSS) parsing and manipulation toolkit that can be used by GNOME 
+libcroco: applications in need of CSS support.
 libcroco:
-libcroco:
-libcroco:
-libcroco:
+libcroco: http://www.freespiders.org/projects/libcroco/
 libcroco:
 libcroco:

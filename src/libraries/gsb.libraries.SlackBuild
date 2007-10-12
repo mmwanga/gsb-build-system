@@ -105,6 +105,7 @@ BUILD_ORDER=" liboil
         speex
         nss
         libsexy
+        libcroco
 		"
 
 # Build packages (and log output).
