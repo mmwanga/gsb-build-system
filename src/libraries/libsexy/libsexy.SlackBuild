@@ -6,13 +6,13 @@
 ## Licenced under the terms of the GNU General Public Licence version 3.
 ##
 
-## Package variables
+## Package variables.
 BUILD=1
-VERSION=1.6.1
+VERSION=0.1.11
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="sdl a52dec xvidcore lame glib2 gtk+2 mpeg2dec x264"
+REQUIRED_PACKAGES="pango glib2 gtk+2 libxml2 iso-codes perl"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -87,7 +87,6 @@ rm -rf $PKG
 mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
-mkdir -p $PKGDEST/usr/local/lib
 
 ## Decompress archive.
 cd $TMP &&
@@ -161,14 +160,15 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 ## For packages with GNOME Schemas, additional options are required:
 ##  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
 ##  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
-
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./cvs_bootstrap --prefix=/usr $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --disable-static --enable-shared \
   || exit 1
 
 ## Build and install.
-make &&
-make DESTDIR=$PKG install || exit 1
+make $MAKE_FLAGS &&
+make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

@@ -102,6 +102,9 @@ BUILD_ORDER=" liboil
         libvisual
         pwlib
         opal	
+        speex
+        nss
+        libsexy
 		"
 
 # Build packages (and log output).
