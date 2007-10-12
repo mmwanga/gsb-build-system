@@ -163,7 +163,7 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 ##  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
 
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./cvs_bootstrap --prefix=/usr $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  ./cvs_bootstrap \
   || exit 1
 
 ## Build and install.

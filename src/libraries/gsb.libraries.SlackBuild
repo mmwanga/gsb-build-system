@@ -82,6 +82,7 @@ BUILD_ORDER=" liboil
         libmatroska
         libmms
         libsndfile
+        twolame
         libdv
         libquicktime
         mpeg2dec
