@@ -86,16 +86,16 @@ BUILD_ORDER="
        gnome-backgrounds
        gnome-pilot
        gnome-pilot-conduits
+       gnome-bluetooth
        gnome-spell
        gmime
        evolution
        evolution-webcal
        evolution-exchange
        ekiga
+       alacarte
        evince
        gnome-screensaver
-       pessulus
-       sabayon
        gtksourceview
        gedit
        gedit-plugins
@@ -103,7 +103,8 @@ BUILD_ORDER="
        gal2
        gnome-user-share
        gdm
-       alacarte"
+       pessulus
+       sabayon"
 
 # Build packages (and log output).
 ( for PACKAGE in $BUILD_ORDER
