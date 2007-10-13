@@ -94,17 +94,20 @@ BUILD_ORDER="
        evolution-exchange
        ekiga
        alacarte
+       gnome-commander
+       gthumb
+       rhythmbox
        evince
-       gnome-screensaver
        gtksourceview
        gedit
        gedit-plugins
        nautilus-sendto
-       gal2
        gnome-user-share
        gdm
        pessulus
-       sabayon"
+       sabayon
+       gnome-screensaver
+"
 
 # Build packages (and log output).
 ( for PACKAGE in $BUILD_ORDER

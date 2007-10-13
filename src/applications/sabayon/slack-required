@@ -1,6 +1,4 @@
 gamin
-gconf
+GConf
 gdm
 python
-python-ldap
-x11-xnest

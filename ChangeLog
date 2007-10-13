@@ -2,6 +2,17 @@ ChangeLog
 ---------
 
 13-10-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * libraries: Fixed mpeg4ip build.  gsb.libraries should now be
+	             fully working.
+    * platform: Added NetworkManager.
+	* applications: Add sabayon, pessulus, rhythmbox, gnome-power-manager.
+	                Removed nautilus-media.
+					Updated evolution-exchange ekiga alacarte gnome-commander 
+                    gthumb rhythmbox evince gtksourceview gedit gedit-plugins 
+                    nautilus-sendto gnome-user-share gdm pessulus sabayon 
+                    gnome-screensaver 
+
+12-10-2007  fidesratio <sk238(at)ex.ac.uk>	
 	* libraries: Added twolame, libsexy, libcroco, heimdal, speex.
 	             Fixed nss, now builds properly.
 				 Mpeg4ip still has some problems building. Grr.

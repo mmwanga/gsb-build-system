@@ -1,12 +1,12 @@
      |-----handy-ruler------------------------------------------------------|
-ekiga: ekiga (Video and VoIP conferencing application)
+ekiga: ekiga (GNOME Ekiga Voice Conferencing)
 ekiga:
-ekiga: Video Conferencing application with full SIP an H.323 support.
-ekiga:
-ekiga: This was formerly called gnomemeeting
-ekiga:
-ekiga:
-ekiga:
-ekiga:
-ekiga:
+ekiga: Ekiga is an H.323 and SIP compatible videoconferencing and 
+ekiga: VOIP/IP-Telephony application that allows you to make audio 
+ekiga: and video calls to remote users with H.323 hardware or software 
+ekiga: (such as Microsoft Netmeeting) and SIP compatible software. It 
+ekiga: supports all modern videoconferencing features, such as 
+ekiga: registering to an ILS directory, gatekeeper support, making 
+ekiga: multi-user conference calls using an external MCU, using modern 
+ekiga: Quicknet telephony cards, and making PC-To-Phone calls.
 ekiga:

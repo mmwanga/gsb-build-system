@@ -1,3 +1,7 @@
 libgnomeui
 libgnomeprintui
 libgphoto2
+libexif
+libiptcdata
+gphoto2
+gtkunique

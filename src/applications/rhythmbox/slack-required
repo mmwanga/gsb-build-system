@@ -1,5 +1,8 @@
 libbonoboui
 gst-plugins-base
+gstreamer
+gst-plugins-good
 totem
 libnotify
 libgpod
+libgnomeui

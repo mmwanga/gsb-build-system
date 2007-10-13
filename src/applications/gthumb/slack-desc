@@ -1,12 +1,11 @@
       |-----handy-ruler------------------------------------------------------|
-gthumb: gthumb (GNOME image viewer)
+gthumb: gthumb (GNOME Thumbnail Image Viewer)
 gthumb:
-gthumb: gThumb is an image viewing program that supports thumbnail views and
-gthumb: slideshows.
+gthumb: gThumb is an image viewer and browser for the GNOME Desktop that 
+gthumb: supports thumbnail views and slideshows.  It has loads of features, 
+gthumb: including red-eye removal, photo print sizes, remote image display,
+gthumb: EXIF support, photo and image organization, image editing,
+gthumb: and support for a wide variety of images, BMP, JPEG, GIF, 
+gthumb: PNG, TIFF, ICO, and XPM.
 gthumb:
-gthumb:
-gthumb:
-gthumb:
-gthumb:
-gthumb:
-gthumb:
+gthumb: gthumb was written by Paolo Bacchilega. 
