@@ -42,6 +42,7 @@ libxklavier,http://downloads.sourceforge.net/sourceforge/gswitchit/,3.3,tar.gz
 system-tools-backends,http://system-tools-backends.freedesktop.org/downloads/2.4/,2.4.1,tar.gz,NONE
 liboil,http://liboil.freedesktop.org/download/,0.3.12,tar.gz,NONE
 libexif,http://downloads.sourceforge.net/libexif/,0.6.16,tar.bz2,NONE
+liferea,http://downloads.sourceforge.net/liferea/,1.4.5b,tar.gz,NONE
 libexif-gtk,http://downloads.sourceforge.net/libexif/,0.3.5,tar.bz2,NONE
 libgphoto2,http://downloads.sourceforge.net/gphoto/,2.4.0,tar.bz2,NONE
 libiptcdata,http://downloads.sourceforge.net/libiptcdata/,1.0.2,tar.gz,NONE
