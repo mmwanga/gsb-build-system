@@ -108,6 +108,7 @@ BUILD_ORDER=" liboil
         libsexy
         libcroco
         libsoup
+        heimdal
 		"
 
 # Build packages (and log output).
