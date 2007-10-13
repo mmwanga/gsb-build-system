@@ -71,36 +71,37 @@ mkdir -p $LOGSDIR
 ####
 
 BUILD_ORDER="
-gnome-common
-intltool
-scrollkeeper
-ORBit2
-libbonobo
-GConf
-gnome-mime-data
-pygobject
-pyorbit
-pycairo
-pygtk
-dbus-python
-libdaemon
-avahi
-system-tools-backends
-bluez-libs
-bluez-utils
-bluez-firmware
-bluez-hcidump
-liboobs
-gnome-vfs
-libgnome
-libgnomecanvas
-libbonoboui
-icon-naming-utils
-gnome-icon-theme
-gnome-keyring
-libgnomeui
-gtk-engines
-"
+     gnome-common
+     intltool
+     scrollkeeper
+     ORBit2
+     libbonobo
+     GConf
+     gnome-mime-data
+     pygobject
+     pyorbit
+     pycairo
+     pygtk
+     dbus-python
+     libdaemon
+     avahi
+     system-tools-backends
+     bluez-libs
+     bluez-utils
+     bluez-firmware
+     bluez-hcidump
+     libtctl
+     liboobs
+     gnome-vfs
+     libgnome
+     libgnomecanvas
+     libbonoboui
+     icon-naming-utils
+     gnome-icon-theme
+     gnome-keyring
+     libgnomeui
+     gtk-engines
+     libsoup"
 
 # Build packages (and log output).
 ( for PACKAGE in $BUILD_ORDER
