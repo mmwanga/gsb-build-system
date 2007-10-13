@@ -1,6 +1,5 @@
 libnl
 wpa_supplicant
-gnome-desktop
 dbus
 hal
 gtk+2
