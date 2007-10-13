@@ -1,6 +1,23 @@
 ChangeLog
 ---------
 
+13-10-2007  fidesratio <sk238(at)ex.ac.uk>	
+	* libraries: Added twolame, libsexy, libcroco, heimdal, speex.
+	             Fixed nss, now builds properly.
+				 Mpeg4ip still has some problems building. Grr.
+                 Libraries is almost ready for testing.
+	* platform: Added libtctl for bluetooth.
+	* desktop: Fixed various gconf build oversights/neglects.
+               Desktop should be ready for testing.  :^)
+	* applications: Updated mozilla-firefox yelp eog sound-juicer file-roller 
+                    epiphany epiphany-extensions totem gnome-media gnome-utils 
+                    gnome-system-monitor gnome-netstatus zenity gob2 gnome-games 
+                    gnome-user-docs gnome-system-tools gnome-nettool vino 
+                    gnome-volume-manager gnome-backgrounds gnome-pilot 
+                    gnome-pilot-conduits gnome-bluetooth gnome-spell gmime evolution 
+                    evolution-webcal.  (SlackBuild 1.4)
+	* office: Added enchant.
+
 11-10-2007  fidesratio <sk238(at)ex.ac.uk>	
 	* trunk: Partial restructure of src tree (gnome -> src)
 	* libraries: Fixes to target tweaks. Added nss.
@@ -8,7 +25,7 @@ ChangeLog
 				 pkg-config fix for libquicktime (for glib patch)
 				 Added libelf (for bug-buddy)
 	* accessibility: split accessibility items from desktop.
-	* desktop: SlackBuilds updated to 1.4. Various gconf fixes.
+	* desktop: SlackBuilds updated to 1.4. Various gconf build fixes.
 	           doinst.sh added for gnome-control-panel.
 	* platform: Added Bluetooth Support. 
 	* ChangeLog: Furiously mangled. :^)
@@ -28,7 +45,7 @@ ChangeLog
 	  agreed base for all SlackBuilds! :)
 	* Updated documentation for new environment variables in SlackBuilds.
 
-06-10-2007 Chipster <chipster(???)gnomeslackbuild.org>
+06-10-2007 Chipster <chipster(at)gnomeslackbuild.org>
 	* ChangeLog: Provided example of GNU-style ChangeLog Formatting
 	* README: Fixed formatting and nomenclature of URI
 
@@ -72,25 +89,25 @@ ChangeLog
 
 29-09-2007	fidesratio <sk238(at)ex.ac.uk>
 	* gnome.platform: Updated libgnome, libgnomeui, libbonoboui,
-	  libgnomecanvas, gnome-keyring, pygtk, libdaemon, dbus-python, avahi, 
-	  gnome-vfs, intltool. Removed gnome-vfs-monikers.
-	* Added scrollkeeper, gtk-engines, gnome-common, icon-naming-utils.
-	* Fixed build hang with parallel builds in ORBit2.
+	                  libgnomecanvas, gnome-keyring, pygtk, libdaemon, 
+					  dbus-python, avahi, gnome-vfs, intltool.
+					  Removed gnome-vfs-monikers.
+	                  Added scrollkeeper, gtk-engines, gnome-common, 
+					  icon-naming-utils.
+	                  Fixed build hang with parallel builds in ORBit2.
 	* generic.SlackBuild: Few small fixes in generic.SlackBuild.
 	* gnome.desktop: Start revamp for gnome.desktop GNOME 2.20.
 
 28-09-2007	fidesratio <sk238(at)ex.ac.uk>
 	* gnome.platform: Updated GConf, gnome-mime-data, pygobject, pyorbit,
-	  pycairo.
+	                  pycairo.
 
 27-09-2007	fidesratio <sk238(at)ex.ac.uk>
 	* gnome.platform: Updated libbonoboui.
-	* Added a generic.SlackBuild as a template for other SlackBuilds.
+	* lib/gsb: Added a generic.SlackBuild as a template for other SlackBuilds.
 
 26-09-2007	fidesratio <sk238(at)ex.ac.uk>
-	* gnome.platform: Changed partial build order for
-	  gnome.platform.SlackBuild.
-	* Changed orbit2 to ORBit2.
-	* Created generic.SlackBuild with fuller package build options,
-	  variables and consolidated several options found in other SlackBuilds.
-	* Inital trunk for GSB Gnome2.20.x
+	* gnome.platform: Changed partial build order. Changed orbit2 to ORBit2.
+	* lib/gsb: Created generic.SlackBuild with fuller package build options,
+	           variables and consolidated several options found in other SlackBuilds.
+	* trunk/gnome-2.16.x: Branched old 2.16.x.  Trunk now 2.20.x development.
