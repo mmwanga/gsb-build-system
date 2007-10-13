@@ -1,0 +1,12 @@
+       |-----handy-ruler------------------------------------------------------|
+twolame: twolame (TwoLAME MPEG Audio Layer-2 Encoder)
+twolame:
+twolame: TwoLAME is an optimised MPEG Audio Layer 2 (MP2) encoder based on 
+twolame: tooLAME by Mike Cheng, which in turn is based upon the ISO dist10 
+twolame: code and portions of LAME. Encoding is performed by the libtwolame 
+twolame: library backend.
+twolame:
+twolame: http://www.twolame.org/
+twolame:
+twolame:
+twolame:
