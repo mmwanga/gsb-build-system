@@ -1,0 +1,14 @@
+libnl
+wpa_supplicant
+gnome-desktop
+dbus
+hal
+gtk+2
+libglade
+gnome-keyring
+dhcdbd
+libgnomeui
+gnome-keyring
+wireless-tools
+glib2
+iproute2
