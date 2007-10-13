@@ -63,7 +63,7 @@ mkdir -p $LOGSDIR
 
 # Packages must be listed here in the order they should be built.
 BUILD_ORDER="	 
-       mozilla
+       mozilla-firefox
        yelp
        eog
        sound-juicer
@@ -87,6 +87,7 @@ BUILD_ORDER="
        gnome-pilot
        gnome-pilot-conduits
        gnome-spell
+       gmime
        evolution
        evolution-webcal
        evolution-exchange
