@@ -108,7 +108,6 @@ BUILD_ORDER=" liboil
         libsexy
         libcroco
         libsoup
-        libtctl
 		"
 
 # Build packages (and log output).
