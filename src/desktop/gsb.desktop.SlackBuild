@@ -71,43 +71,41 @@ mkdir -p $LOGSDIR
 ####
 
 BUILD_ORDER="
-gnome-themes
-tango-icon-theme
-gnome-doc-utils
-at-spi
-gail
-gnome-desktop
-gnome-menus
-libwnck
-libsoup
-evolution-data-server
-gnome-python
-gstreamer
-gst-plugins-base
-gst-plugins-good
-gst-plugins-ugly
-gnome-panel
-gnome-terminal
-libgtop
-gnome-applets
-libxklavier
-libgnomekbd
-libgnomecups
-libgnomeprint
-libgnomeprintui
-libgnomesu
-metacity
-eel
-nautilus
-nautilus-cd-burner
-gnome-mount
-gnome-control-center
-gnome-session
-bug-buddy
-gnome-python-desktop
-gconf-editor
-gnome-keyring-manager
-gtkhml
+      gnome-themes
+      tango-icon-theme
+      gnome-doc-utils
+      at-spi
+      gail
+      gnome-desktop
+      gnome-menus
+      libwnck
+      evolution-data-server
+      gnome-python
+      gstreamer
+      gst-plugins-base
+      gst-plugins-good
+      gst-plugins-ugly
+      gnome-panel
+      gnome-terminal
+      libgtop
+      gnome-applets
+      libxklavier
+      libgnomekbd
+      libgnomecups
+      libgnomeprint
+      libgnomeprintui
+      metacity
+      eel
+      nautilus
+      nautilus-cd-burner
+      gnome-mount
+      gnome-control-center
+      gnome-session
+      bug-buddy
+      gnome-python-desktop
+      gconf-editor
+      gnome-keyring-manager
+      gtkhml
 "
 
 # Build packages (and log output).
