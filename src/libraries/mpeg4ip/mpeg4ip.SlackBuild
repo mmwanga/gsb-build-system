@@ -12,7 +12,7 @@ VERSION=1.6.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="sdl a52dec xvidcore lame glib2 gtk+2 mpeg2dec x264"
+REQUIRED_PACKAGES="sdl a52dec xvidcore lame glib2 gtk+2 mpeg2dec x264 twolame"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
