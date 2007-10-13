@@ -1,8 +1,9 @@
            |-----handy-ruler------------------------------------------------------|
-gnome-utils: gnome-utils (Misc GNOME utilities)
+gnome-utils: gnome-utils (GNOME Desktop Utilities)
 gnome-utils:
 gnome-utils: This package will install some GNOME utilities, such as the search
-gnome-utils: tool and system information overview tool.
+gnome-utils: tool and system information overview tool, and other small applications 
+gnome-utils: designed to make your life a little easier.
 gnome-utils:
 gnome-utils:
 gnome-utils:

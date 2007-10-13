@@ -71,46 +71,34 @@ BUILD_ORDER="
        epiphany
        epiphany-extensions
        totem
-       enchant
        gnome-media
-       libcroco
-       libgsf
        gnome-utils
        gnome-system-monitor
        gnome-netstatus
        zenity
-       libgail-gnome
-       gnome-speech
-       gnome-mag
-       gnopernicus
-       gok
        gob2
        gnome-games
        gnome-user-docs
-       file-roller
        gnome-system-tools
        gnome-nettool
        vino
        gnome-volume-manager
        gnome-backgrounds
-       gtkhtml
+       gnome-pilot
+       gnome-pilot-conduits
+       gnome-spell
        evolution
        evolution-webcal
        evolution-exchange
        ekiga
        evince
-       dasher
        gnome-screensaver
        pessulus
        sabayon
        gtksourceview
+       gedit
        gedit-plugins
-       gnome-spell
-       gnome-pilot
-       gnome-pilot-conduits
        nautilus-sendto
-       gnome-mount
-       liboobs
        gal2
        gnome-user-share
        gdm

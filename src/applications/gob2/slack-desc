@@ -1,12 +1,12 @@
     |-----handy-ruler------------------------------------------------------|
-gob2: GObject Builder (GObject pre-processor)
+gob2: gob2 (GObject Builder) 
 gob2:
-gob2: GOB (GOB2 anyway) is a preprocessor for making GObjects with inline
-gob2: C code
+gob2: GObject Builder is a simple preprocessor for easily creating GObject 
+gob2: objects. It does not parse any C code and ignores any C errors. It is 
+gob2: in spirit similar to things like lex or yacc. In some ways it also 
+gob2: resembles java. But it is really just a simple preprocessor for creating 
+gob2: GObjects for use in C or C++ and it is not a programming language. 
 gob2:
-gob2:
-gob2:
-gob2:
-gob2:
+gob2: http://www.5z.com/jirka/gob.html
 gob2:
 gob2:

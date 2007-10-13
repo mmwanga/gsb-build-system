@@ -6,3 +6,5 @@ gnome-vfs
 gtk+2
 hal
 startup-notification
+libgnome
+libgnomeprintui

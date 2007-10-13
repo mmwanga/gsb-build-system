@@ -1,12 +1,12 @@
-		    |-----handy-ruler------------------------------------------------------|
-gnome-volume-manager: gnome-volume-manager (Removable hardware manager)
-gnome-volume-manager:
-gnome-volume-manager: gnome-volume-manager is a desktop-level daemon that enforces 
-gnome-volume-manager: volume-related policy in response to events received from HAL. Its
-gnome-volume-manager: goal is to implement all functionality as a state-machine in response
-gnome-volume-manager: to asynchronous events from HAL.
-gnome-volume-manager:
-gnome-volume-manager:
-gnome-volume-manager:
-gnome-volume-manager:
-gnome-volume-manager:
+                    |-----handy-ruler------------------------------------------------------|
+gnome-volume-manager: gnome-volume-manager (GNOME Volume Manager)
+gnome-volume-manager: 
+gnome-volume-manager: The gnome-volume-manager package contains a volume manager for 
+gnome-volume-manager: GNOME. It is a desktop-level daemon that enforces volume-related 
+gnome-volume-manager: policy in response to events received from HAL. This is useful for 
+gnome-volume-manager: automatic mounting of floppy diskettes, CDROMs and removable storage 
+gnome-volume-manager: devices. It can also be used to automatically run a program in response 
+gnome-volume-manager: to other hotplug events such as plugging in USB printers or cameras, 
+gnome-volume-manager: or inserting DVDs and music CDs. The goal of gnome-volume-manager is 
+gnome-volume-manager: to implement all functionality as a state-machine in response to 
+gnome-volume-manager: asynchronous events from HAL. 

@@ -1,10 +1,10 @@
-		 |-----handy-ruler------------------------------------------------------|
-gnome-backgrounds: gnome-backgrounds (GNOME backgrounds)
+                 |-----handy-ruler------------------------------------------------------|
+gnome-backgrounds: gnome-backgrounds (GNOME Backgrounds)
 gnome-backgrounds:
-gnome-backgrounds: A Collection of gnome background images
-gnome-backgrounds:
-gnome-backgrounds:
-gnome-backgrounds:
+gnome-backgrounds: The gnome-backgrounds package contains a collection of graphics files 
+gnome-backgrounds: which can be used as backgrounds in the GNOME desktop environment. 
+gnome-backgrounds: Additionally, the package creates the proper framework and directory 
+gnome-backgrounds: structure so that you can add your own files to the collection.
 gnome-backgrounds:
 gnome-backgrounds:
 gnome-backgrounds:

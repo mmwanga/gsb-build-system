@@ -10,4 +10,15 @@ gtk+2
 libsoup
 libxml2
 cyrus-sasl
-seamonkey | mozilla-firefox | firefox
+mozilla-firefox | seamonkey
+gnome-pilot
+libgnomeui
+libgnome
+ORBit2
+GConf
+libbonobo
+libbonoboui
+libgnomeprintui
+libsoup
+libnotify
+gstreamer >= 0.10

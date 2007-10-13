@@ -1,12 +1,12 @@
            |-----handy-ruler------------------------------------------------------|
-gnome-pilot: gnome-pilot (PDA utilities)
+gnome-pilot: gnome-pilot (GNOME Pilot Manager)
 gnome-pilot:
 gnome-pilot: Gnome-Pilot is a package with a daemon (gpilotd) that monitor for
 gnome-pilot: pilot connects on one or more devices (cradles/XCopilots/xxx). It has
-gnome-pilot: a conduit system, and is accompanied by a few conduits, basically for
-gnome-pilot: installing files and backing up db's from the pilot.
-gnome-pilot:
-gnome-pilot:
-gnome-pilot:
-gnome-pilot:
-gnome-pilot:
+gnome-pilot: an API for creating conduits as well as a couple of default conduits,
+gnome-pilot: including one for backing up files, and one for installing files.
+gnome-pilot: 
+gnome-pilot: Other packages exist that provide additional conduits, most notably
+gnome-pilot: gnome-pilot-conduits, and the Evolution mail/calendar/memo PIM
+gnome-pilot: application suite.
+

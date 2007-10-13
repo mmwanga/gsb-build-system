@@ -1,3 +1,6 @@
-dbus
-gtk+2
+libnotify
+nautilus
+libgnomeui
+gnome-desktop
 hal
+dbus

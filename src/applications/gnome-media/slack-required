@@ -1,7 +1,15 @@
 dbus
 gail
 gst-plugins-base
-gstreamer10
+gst-plugins-good
+gstreamer
 gtk+2
 hal
 nautilus-cd-burner
+GConf
+libgnome
+libgnomeui
+libbonobo
+libcdio
+libxml2
+esound

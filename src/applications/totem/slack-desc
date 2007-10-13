@@ -1,12 +1,12 @@
      |-----handy-ruler------------------------------------------------------|
-totem: totem (Multimedia player - GStreamer backend)
+totem: totem (GNOME Movie Player)
 totem:
-totem: A movie player for the Gnome Desktop
-totem:
-totem:
-totem:
-totem:
-totem:
-totem:
-totem:
-totem:
+totem: The Totem package contains the official movie player of the GNOME 
+totem: Desktop Environment based on GStreamer. It features a playlist, 
+totem: a full-screen mode, seek and volume controls, as well as keyboard 
+totem: navigation. This is useful for playing any GStreamer supported file, 
+totem: DVD, VCD or digital CD.
+totem: 
+totem: 
+totem: 
+totem: 
