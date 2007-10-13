@@ -1,0 +1,11 @@
+enchant: enchant (Enchant Dictionary Library)
+enchant: 
+enchant: On the surface, Enchant appears to be a generic spell checking 
+enchant: library. You can request dictionaries from it, ask if a word is 
+enchant: correctly spelled, get corrections for a misspelled word, and so 
+enchant: on. But beneath the surface, Enchant is a whole lot more - and 
+enchant: less - than that. You'll see that Enchant isn't really a spell 
+enchant: checking library at all. Enchant steps in to provide uniformity 
+enchant: and conformity on top of other spelling libraries, and implement 
+enchant: certain features that may be lacking in any individual provider 
+enchant: library.
