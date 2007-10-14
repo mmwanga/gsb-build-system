@@ -11,7 +11,7 @@ VERSION=1.0.4
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="lame libdvdread x11 zlib imagemagick lcms a52dec ffmpeg libogg libtheora libvorbis freetype2 libquicktime"
+REQUIRED_PACKAGES="lame libdvdread zlib imagemagick lcms a52dec ffmpeg libogg libtheora libvorbis freetype2 libquicktime"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
