@@ -175,7 +175,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-imagemagick \
   --enable-gtk \
   --enable-freetype2 \
-  --enable-lzo --enable-libquicktime \
+  --enable-lzo --with-lzo-includes=/usr/include/lzo \
+  --enable-libquicktime \
   || exit 1
 
 ## Build and install.
