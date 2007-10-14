@@ -12,7 +12,7 @@ VERSION=1.4.5b
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glib2 gtk+2 GConf"
+REQUIRED_PACKAGES="glib2 gtk+2 GConf gnutls libnotify dbus"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -90,7 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.

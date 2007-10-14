@@ -68,3 +68,4 @@ libsexy,http://releases.chipx86.com/libsexy/libsexy/,0.1.11,tar.gz,NONE
 twolame,http://www.ecs.soton.ac.uk/~njh/twolame/,0.3.10,tar.gz,NONE
 firefox,ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.7/source,2.0.0.7,tar.bz2,asc
 heimdal,http://ftp.pdc.kth.se/pub/heimdal/src/,1.0.1,tar.gz,NONE
+lua,http://www.lua.org/ftp/,5.1.2,tar.gz,NONE
