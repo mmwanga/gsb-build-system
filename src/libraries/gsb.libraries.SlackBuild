@@ -110,6 +110,7 @@ BUILD_ORDER=" liboil
         libsoup
         heimdal
         libgpod
+        libnl
 		"
 
 # Build packages (and log output).
