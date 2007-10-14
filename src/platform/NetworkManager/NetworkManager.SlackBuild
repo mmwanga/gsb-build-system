@@ -12,7 +12,7 @@ VERSION=0.6.5
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libnl wpa_supplicant gnome-desktop dbus hal gtk+2 libglade gnome-keyring dhcdbd libgnomeui gnome-keyring wireless-tools glib2 iproute2"
+REQUIRED_PACKAGES="libnl wpa_supplicant gnome-desktop dbus hal gtk+2 libglade gnome-keyring dhcdbd libgnomeui gnome-keyring wireless-tools glib2 iproute2 GConf"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

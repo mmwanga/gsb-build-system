@@ -1,0 +1,12 @@
+      |-----handy-ruler------------------------------------------------------|
+dhcdbd: dhcdbd (DHCP Binding for D-Bus)
+dhcdbd:
+dhcdbd: dhcdbd provides a D-Bus interface to dhclient, the DHCP client from 
+dhcdbd: ISC, so applications such as NetworkManager can query and control 
+dhcdbd: dhclient. This allows an application-neutral interface for such 
+dhcdbd: network operations.
+dhcdbd:
+dhcdbd: http://dcantrel.fedorapeople.org/dhcdbd/
+dhcdbd:
+dhcdbd:
+dhcdbd:

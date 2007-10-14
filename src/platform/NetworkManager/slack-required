@@ -11,3 +11,4 @@ gnome-keyring
 wireless-tools
 glib2
 iproute2
+GConf

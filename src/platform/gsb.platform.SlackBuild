@@ -101,7 +101,8 @@ BUILD_ORDER="
      gnome-keyring
      libgnomeui
      gtk-engines
-     libsoup"
+     libsoup
+     NetworkManager"
 
 # Build packages (and log output).
 ( for PACKAGE in $BUILD_ORDER

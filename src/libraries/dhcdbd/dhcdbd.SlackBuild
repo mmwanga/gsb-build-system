@@ -8,12 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=0.3.5
+VERSION=3.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-
-REQUIRED_PACKAGES="libexif gtk+2 pkgconfig"
+REQUIRED_PACKAGES="dbus"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -115,19 +114,23 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
+##
+## Fix dbus_service for dbus < 1.1.1
+##
 ## See patches/README
 if [ -x `which pkg-config` ]; then
-   pkg-config --atleast-version="2.12" gtk+2-2.0;
+   pkg-config --atleast-version="1.1.1" dbus-1
    if [ $? -ne 0 ]; then
-     echo "You do not have gtk+2 greater or equal to 2.12. A patch is required."
-     (cd $TMP/$PKGNAME-$VERSION/libexif-gtk;
-      patch -p0 < $CWD/patches/gtk-exif-browser.c.gtk-2.12-patch;
-     );
+     echo "You have dbus less than 1.1.1.  A patch is required."
+    (cd $TMP/$PKGNAME-$VERSION/src;
+    cat $CWD/patches/dbus_service.c.patch | patch -p0 ;
+    );
    fi;
 else
    echo "Need pkg-config in order to build this package.";
    exit 1;
 fi;
+
 
 ## Fix permissions for building.
 chown -R root.root .
@@ -170,21 +173,7 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
-## The default is to build shared libraries, no static libraries, install into
-## /usr and use /etc as the config directory.
-## For packages with GNOME Schemas, additional options are required:
-##  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
-##  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
-
-## Fix for configure script to properly detect libexif.
-sed -i 's|exif-mem.h|libexif/exif-mem.h|g' configure;
-chmod +x configure;
-
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
-  || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
@@ -211,27 +200,10 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+  COPYING* ChangeLog README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
-
-## Add schemas install to the doinst.sh if schemas are found.
-[ -d $PKG/etc/gconf/schemas ] && {
-  echo "if [ -x usr/bin/gconftool-2 ]; then" >>$PKG/install/doinst.sh
-  ( cd $PKG/etc/gconf/schemas
-    for FILE in *; do
-      [ -z "$(grep gconfentry $FILE)" ] && {
-        # Create gconf tree
-        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool -2 --makefile-install-rule etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
-      } || {
-        # Load gconf settings
-        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool -2 --config-source=\$(usr/bin/gconftool-2 --get-default-source) --direct --load etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
-      }
-    done
-  )
-  echo "fi" >>$PKG/install/doinst.sh
-}
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests

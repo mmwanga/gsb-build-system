@@ -1,0 +1,6 @@
+Patch Summary
+
+dbus_service.c.patch
+------------------
+There is a API Change in D-Bus > 1.0.1.
+This patch is needed to compile dhcdbd 3.0 with D-Bus < 1.1.1

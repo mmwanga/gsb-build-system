@@ -111,6 +111,7 @@ BUILD_ORDER=" liboil
         heimdal
         libgpod
         libnl
+        dhcdbd
 		"
 
 # Build packages (and log output).
