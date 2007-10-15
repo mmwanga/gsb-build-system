@@ -71,7 +71,7 @@ echo
 echo "*************************************************"
 echo "** Building GSB"
 echo "*************************************************"
-for SECTION in libraries gnome extras office #mono ruby frg
+for SECTION in libraries platform desktop applications accessibility office #mono ruby frg
 do
   echo
   echo "*************************************************"

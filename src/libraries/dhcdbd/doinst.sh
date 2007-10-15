@@ -21,7 +21,7 @@ function install_file() {
   fi
 }
 
-install_file etc/dbus-1/system.d/dhcdbd.conf
+install_file etc/dbus-1/system.d/dhcdbd.conf.new
 
 ##  
 ## Make dbus executable if dhcdbd is installed
