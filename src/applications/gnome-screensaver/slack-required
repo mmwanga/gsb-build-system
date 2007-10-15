@@ -1,9 +1,9 @@
+libexif
+xscreensaver
+libxslt
+gdm
 dbus
-gconf
-gdk-pixbuf
-glib2
-gnome-vfs
-gtk+2
-libglade
+libgnomekdb
 libgnomeui
-libxml2
+gnome-menus
+shadow

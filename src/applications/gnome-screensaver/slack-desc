@@ -1,12 +1,12 @@
                  |-----handy-ruler------------------------------------------------------|
-gnome-screensaver: gnome-screensaver (Screensaver and locker for GNOME)
-gnome-screensaver:
-gnome-screensaver: gnome-screensaver is a screen saver and locker that aims to have
-gnome-screensaver: simple, sane, secure defaults and be well integrated with the desktop.
-gnome-screensaver:
-gnome-screensaver:
-gnome-screensaver:
-gnome-screensaver:
-gnome-screensaver:
-gnome-screensaver:
-gnome-screensaver:
+gnome-screensaver: gnome-screensaver (GNOME Screen Saver)
+gnome-screensaver: 
+gnome-screensaver: The gnome-screensaver package contains a screen saver and locker 
+gnome-screensaver: designed to have simple, sane, secure defaults and be well integrated 
+gnome-screensaver: with the desktop. It supports locking down of configuration settings, has 
+gnome-screensaver: translations into many languages and convenient user switching.
+gnome-screensaver: 
+gnome-screensaver: 
+gnome-screensaver: 
+gnome-screensaver: 
+gnome-screensaver: 

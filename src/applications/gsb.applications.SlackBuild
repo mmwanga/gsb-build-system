@@ -103,9 +103,9 @@ BUILD_ORDER="
        gedit-plugins
        nautilus-sendto
        gnome-user-share
-       gdm
        pessulus
        sabayon
+       gdm
        gnome-screensaver
 "
 

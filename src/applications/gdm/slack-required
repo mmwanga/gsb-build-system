@@ -1,2 +1,13 @@
-libgnomeui
-librsvg
+zenity
+gnome-doc-utils
+openssh
+which
+libgnomecanvas
+pango
+cairo
+glib2
+gtk+2
+dbus
+zenity
+libglade
+GConf
