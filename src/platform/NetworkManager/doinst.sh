@@ -1,6 +1,4 @@
 # Version: 0.1.1
-# Example doinst.sh for GSB.
-# Remove/edit any parts that are not required for each package.
 
 ldconfig -r .
 
@@ -24,6 +22,8 @@ function install_file() {
 }
 
 install_file etc/rc.d/rc.networkmanager.new
+install_file etc/rc.d/rc.networkmanager-dispatcher.new
+install_file etc/dbus-1/system.d/NetworkManager.conf.new
 
 # if rc.local doesn't exist, create it
 if [ ! -e etc/rc.d/rc.local ]; then
@@ -43,3 +43,19 @@ if [ -x /etc/rc.d/rc.networkmanager ]; then
 fi
 EOF
 fi
+
+## 
+## Make dbus executable if NetworkManager is installed
+##
+if [ ! -x etc/rc.d/rc.messagebus ]; then
+    chmod +x etc/rc.d/rc.messagebus;
+fi;
+  
+##
+## Restart dbus (reload NetworkManager info), and start services
+##
+if [ -x etc/rc.d/rc.messagebus ]; then
+    chmod +x etc/rc.d/rc.networkmanager*;
+    . etc/rc.d/rc.messagebus restart;
+    . etc/rc.d/rc.networkmanager restart;
+fi;

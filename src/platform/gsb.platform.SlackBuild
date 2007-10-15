@@ -86,10 +86,6 @@ BUILD_ORDER="
      libdaemon
      avahi
      system-tools-backends
-     bluez-libs
-     bluez-utils
-     bluez-firmware
-     bluez-hcidump
      libtctl
      liboobs
      gnome-vfs
