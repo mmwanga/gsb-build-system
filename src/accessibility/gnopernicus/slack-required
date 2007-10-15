@@ -1,3 +1,9 @@
 at-spi
-gail
+GConf
 gtk+2
+libglade
+libgnome
+libgnomeui
+libxml
+gnome-speech
+gnome-mag

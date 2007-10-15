@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=4.6.1
+VERSION=2.20.0.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="at-spi gnome-speech libbonoboui"
+REQUIRED_PACKAGES=""
 
 ## Build variables.
 ARCH=${ARCH:-i586}
