@@ -94,6 +94,7 @@ BUILD_ORDER=" liboil
         libexif
         libexif-gtk
         libgphoto2
+        boost
         libopenraw
         libiptcdata
         gtkunique

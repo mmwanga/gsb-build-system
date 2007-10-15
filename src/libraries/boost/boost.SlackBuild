@@ -6,13 +6,14 @@
 ## Licenced under the terms of the GNU General Public Licence version 3.
 ##
 
+
 ## Package variables.
 BUILD=1
-VERSION=0.0.2
+VERSION=1_34_1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glib2 boost"
+REQUIRED_PACKAGES=""
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -20,6 +21,23 @@ TUNE=${TUNE:-i586}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP/gsb-packages}
+
+BUILD_ARCH=$(arch)
+if [ "$ARCH" != "$BUILD_ARCH" ]; then
+    cat << EOF
+    *********
+     Warning
+    *********
+
+    Boost can only be built with a target that matches the host architecture.
+    This package will be built for $BUILD_ARCH.
+
+    ********
+
+EOF
+
+fi;
+
 
 ## Script variables.
 PKGNAME=$(basename $0 .SlackBuild)
@@ -90,8 +108,8 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
-cd $PKGNAME-$VERSION || exit 1
+tar xjf $CWD/${PKGNAME}_${VERSION}.tar.bz2 &&
+cd ${PKGNAME}_${VERSION} || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i386" ]; then
@@ -144,7 +162,7 @@ elif [ "$ARCH" = "x86_64" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -ffast-math -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS="--libdir=/usr/lib64"
+    CONFIGURE_FLAGS="--libdir=$PKG/usr/lib64"
   }
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
@@ -155,20 +173,19 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
-## The default is to build shared libraries, no static libraries, install into
-## /usr and use /etc as the config directory.
-## For packages with GNOME Schemas, additional options are required:
-##  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
-##  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
+  ./configure --prefix=$PKG/usr \
+  --exec-prefix=$PKG/usr \
+  $CONFIGURE_FLAGS \
+  --with-toolset=gcc \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+make $MAKE_FLAGS install || exit 1
+
+## Remove static libraries
+find $PKG/usr -type f -name \*.a -exec rm -f {} \;
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
