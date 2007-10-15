@@ -1,48 +1,70 @@
 ChangeLog
 ---------
 
+15-10-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * platform: Removed bluez (in Slackware 12).
+	  Fixed some .new install_file sections in system-backend-tools
+	  and NetworkManager.
+	  Added rarian, which will be the replacement for scrollkeeper.
+	  This will require a quick switch from scrollkeeper -> rarian in 
+	  all the doinst.sh scripts and slack-required files.
+	* libraries: Added boost. Used by some python programs. Might be handy
+	  for other things as well. 
+	  Libraries ready for testing.  :^)
+	* applications: Updated pessulus, sabayon, gdm, gnome-screensaver.
+	  Added some scripts for gnome-screensaver integration.
+	  Moved gal2 -> gal.
+	  gnome-pilot-conduits version change.
+	  Start initial build tests for Applications.  
+      Moved gnomebaker/brasero to applications.
+	* accessibility: Add Orca.  Update all accessibility to SlackBuild 1.4.
+	  Added a gsb.accessibility.
+	* extras: General cleanup of old stuff.  Moved good stuff to applications
+	  or office.
+	* src: Modified build order of gsb.SlackBuild.
+
 14-10-2007  fidesratio <sk238(at)ex.ac.uk>	
 	* libraries: Added dhcdbd, libnl (for NetworkManager).  See README.
-	             NetworkManager 0.7, to be released soon, will deprecate
-				 dhcdbd, and it touted as a major step forward.  However,
-				 we have to stick with 0.6.5 until 0.7 is released. 
-	             Minor lzo fix for transcode.
+	  NetworkManager 0.7, to be released soon, will deprecate
+      dhcdbd, and it touted as a major step forward.  However,
+      we have to stick with 0.6.5 until 0.7 is released. 
+	  Minor lzo fix for transcode.
 
 13-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * libraries: Fixed mpeg4ip build.
     * platform: Added NetworkManager.
 	* applications: Add sabayon, pessulus, rhythmbox, gnome-power-manager.
-	                Removed nautilus-media.
-					Updated evolution-exchange ekiga alacarte gnome-commander 
-                    gthumb rhythmbox evince gtksourceview gedit gedit-plugins 
-                    nautilus-sendto 
+	  Removed nautilus-media.
+      Updated evolution-exchange ekiga alacarte gnome-commander 
+      gthumb rhythmbox evince gtksourceview gedit gedit-plugins 
+      nautilus-sendto 
 
 12-10-2007  fidesratio <sk238(at)ex.ac.uk>	
 	* libraries: Added twolame, libsexy, libcroco, heimdal, speex.
-	             Fixed nss, now builds properly.
-				 Mpeg4ip still has some problems building. Grr.
-                 Libraries is almost ready for testing.
+	  Fixed nss, now builds properly.
+	  Mpeg4ip still has some problems building. Grr.
+      Libraries is almost ready for testing.
 	* platform: Added libtctl for bluetooth.
 	* desktop: Fixed various gconf build oversights/neglects.
-               Desktop should be ready for testing.  :^)
+      Desktop should be ready for testing.  :^)
 	* applications: Updated mozilla-firefox yelp eog sound-juicer file-roller 
-                    epiphany epiphany-extensions totem gnome-media gnome-utils 
-                    gnome-system-monitor gnome-netstatus zenity gob2 gnome-games 
-                    gnome-user-docs gnome-system-tools gnome-nettool vino 
-                    gnome-volume-manager gnome-backgrounds gnome-pilot 
-                    gnome-pilot-conduits gnome-bluetooth gnome-spell gmime 
-					evolution evolution-webcal.  (SlackBuild 1.4)
+      epiphany epiphany-extensions totem gnome-media gnome-utils 
+      gnome-system-monitor gnome-netstatus zenity gob2 gnome-games 
+      gnome-user-docs gnome-system-tools gnome-nettool vino 
+      gnome-volume-manager gnome-backgrounds gnome-pilot 
+      gnome-pilot-conduits gnome-bluetooth gnome-spell gmime 
+	  evolution evolution-webcal.  (SlackBuild 1.4)
 	* office: Added enchant.
 
 11-10-2007  fidesratio <sk238(at)ex.ac.uk>	
 	* trunk: Partial restructure of src tree (gnome -> src)
 	* libraries: Fixes to target tweaks. Added nss.
-	             Removed mp4v2 support from faad (breaks mpeg4ip)
-				 pkg-config fix for libquicktime (for glib patch)
-				 Added libelf (for bug-buddy)
+	  Removed mp4v2 support from faad (breaks mpeg4ip)
+      pkg-config fix for libquicktime (for glib patch)
+      Added libelf (for bug-buddy)
 	* accessibility: split accessibility items from desktop.
 	* desktop: SlackBuilds updated to 1.4. Various gconf build fixes.
-	           doinst.sh added for gnome-control-panel.
+	  doinst.sh added for gnome-control-panel.
 	* platform: Added Bluetooth Support. 
 	* ChangeLog: Furiously mangled. :^)
 
@@ -54,7 +76,7 @@ ChangeLog
     * gnome.platform: SlackBuilds updated to 1.4
 	* gnome.desktop: Change to build order, more splits into applications.
 	* gsb.libraries: Some cleanup.  SlackBuilds updated to 1.4. 
-	                 Some build order change.  1394 support added.
+	  Some build order change.  1394 support added.
 
 06-10-2007	Tadgy <tadgy(at)gnomeslackbuild.org>
 	* generic.SlackBuild: Updated to version 1.4.  We finally have an
@@ -105,18 +127,18 @@ ChangeLog
 
 29-09-2007	fidesratio <sk238(at)ex.ac.uk>
 	* gnome.platform: Updated libgnome, libgnomeui, libbonoboui,
-	                  libgnomecanvas, gnome-keyring, pygtk, libdaemon, 
-					  dbus-python, avahi, gnome-vfs, intltool.
-					  Removed gnome-vfs-monikers.
-	                  Added scrollkeeper, gtk-engines, gnome-common, 
-					  icon-naming-utils.
-	                  Fixed build hang with parallel builds in ORBit2.
+	  libgnomecanvas, gnome-keyring, pygtk, libdaemon, 
+	  dbus-python, avahi, gnome-vfs, intltool.
+      Removed gnome-vfs-monikers.
+	  Added scrollkeeper, gtk-engines, gnome-common, 
+	  icon-naming-utils.
+	  Fixed build hang with parallel builds in ORBit2.
 	* generic.SlackBuild: Few small fixes in generic.SlackBuild.
 	* gnome.desktop: Start revamp for gnome.desktop GNOME 2.20.
 
 28-09-2007	fidesratio <sk238(at)ex.ac.uk>
 	* gnome.platform: Updated GConf, gnome-mime-data, pygobject, pyorbit,
-	                  pycairo.
+	  pycairo.
 
 27-09-2007	fidesratio <sk238(at)ex.ac.uk>
 	* gnome.platform: Updated libbonoboui.
@@ -125,5 +147,5 @@ ChangeLog
 26-09-2007	fidesratio <sk238(at)ex.ac.uk>
 	* gnome.platform: Changed partial build order. Changed orbit2 to ORBit2.
 	* lib/gsb: Created generic.SlackBuild with fuller package build options,
-	           variables and consolidated several options found in other SlackBuilds.
+	  variables and consolidated several options found in other SlackBuilds.
 	* trunk/gnome-2.16.x: Branched old 2.16.x.  Trunk now 2.20.x development.
