@@ -71,3 +71,4 @@ heimdal,http://ftp.pdc.kth.se/pub/heimdal/src/,1.0.1,tar.gz,NONE
 lua,http://www.lua.org/ftp/,5.1.2,tar.gz,NONE
 libnl,http://people.suug.ch/~tgr/libnl/files/,1.0-pre6,tar.gz,NONE
 dhcdbd,http://dcantrel.fedorapeople.org/dhcdbd/,3.0,tar.bz2,NONE
+boost,http://downloads.sourceforge.net/boost/,1_34_1,tar.bz2,NONE
