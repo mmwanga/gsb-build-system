@@ -1,0 +1,11 @@
+frgnome-desktop >= 2.16.0
+perl
+ExtUtils-PkgConfig
+ExtUtils-Depends
+Glib
+Gtk2
+Gnome2-Canvas
+Gnome2-GConf
+Gnome2-VFS
+Gnome2
+Gtk2-GladeXML

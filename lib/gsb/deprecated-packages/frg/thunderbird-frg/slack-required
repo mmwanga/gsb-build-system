@@ -1,0 +1,9 @@
+atk
+cxxlibs
+expat
+glib2
+gtk+2
+libidl
+pango
+x11
+zlib

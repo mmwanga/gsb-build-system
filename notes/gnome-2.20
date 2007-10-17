@@ -58,10 +58,6 @@ libpri,http://downloads.digium.com/pub/libpri/,1.4.1,tar.gz,NONE
 openh323,http://www.openh323.org/bin/,1.12.1,tar.gz,NONE
 gnome-mount,http://people.freedesktop.org/~david/dist/,0.6,tar.gz,NONE
 libelf,http://www.mr511.de/software/,0.8.10,tar.gz,NONE
-bluez-libs,http://bluez.sf.net/download/,3.20,tar.gz,NONE
-bluez-utils,http://bluez.sf.net/download/,3.20,tar.gz,NONE
-bluez-firmware,http://bluez.sf.net/download/,1.2,tar.gz,NONE
-bluez-hcidump,http://bluez.sf.net/download/,1.40,tar.gz,NONE
 nss,http://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_11_7_RTM/src/,3.11.7-with-nspr-4.6.7,tar.gz,NONE
 speex,http://downloads.us.xiph.org/releases/speex/,1.2beta2,tar.gz,NONE
 libsexy,http://releases.chipx86.com/libsexy/libsexy/,0.1.11,tar.gz,NONE
@@ -72,3 +68,5 @@ lua,http://www.lua.org/ftp/,5.1.2,tar.gz,NONE
 libnl,http://people.suug.ch/~tgr/libnl/files/,1.0-pre6,tar.gz,NONE
 dhcdbd,http://dcantrel.fedorapeople.org/dhcdbd/,3.0,tar.bz2,NONE
 boost,http://downloads.sourceforge.net/boost/,1_34_1,tar.bz2,NONE
+gnomebaker,http://downloads.sourceforge.net/gnomebaker/,0.6.2,tar.bz2,NONE
+pidgin,http://downloads.sourceforge.net/pidgin/,2.2.1,tar.bz2,NONE

@@ -1,0 +1,94 @@
+#!/bin/sh
+CWD=`pwd`
+TMP=${TMP:-/tmp}
+PKG=$TMP/package-thunderbird
+
+VERSION=1.0.6
+ARCH=${ARCH:-i486}
+BUILD=1
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP
+fi
+rm -rf $PKG
+mkdir -p $PKG
+
+if [ "$ARCH" = "i386" ]; then
+  SLKCFLAGS="-O2 -march=i386 -mtune=i686"
+  LIBDIR="/usr/lib"
+  ARCH_CONFIGURE=""
+elif [ "$ARCH" = "i486" ]; then
+  SLKCFLAGS="-O2 -march=i486 -mtune=i686"
+  LIBDIR="/usr/lib"
+  ARCH_CONFIGURE=""
+elif [ "$ARCH" = "s390" ]; then
+  SLKCFLAGS="-O2"
+  LIBDIR="/usr/lib"
+  ARCH_CONFIGURE=""
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2 -fPIC"
+  LIBDIR="/usr/lib64"
+  ARCH_CONFIGURE="--libdir=$LIBDIR"
+fi
+
+cd $TMP
+tar xjf $CWD/thunderbird-$VERSION-source.tar.bz2
+if [ -d thunderbird-$VERSION ]; then
+	rm -rf thunderbird-$VERSION
+fi
+mv mozilla thunderbird-$VERSION
+cd thunderbird-$VERSION
+#cp $CWD/default.xpm ./widget/src/gtk2/default.xpm
+
+BUILD_OFFICIAL=1 MOZILLA_OFFICIAL=1 MOZ_THUNDERBIRD=1 CFLAGS="$SLKCFLAGS" \
+	./configure --prefix=/usr --enable-optimize="-pipe -w -O2" \
+    --with-default-mozilla-five-home=$LIBDIR/thunderbird \
+    --enable-default-toolkit=gtk2 --without-system-nspr --enable-crypto \
+    --disable-mathml --disable-installer --disable-activex \
+    --disable-activex-scripting --disable-tests --disable-oji \
+    --disable-ldap --disable-necko-disk-cache --disable-debug \
+    --enable-strip --enable-single-profile --disable-profilesharing \
+    --enable-extensions=wallet,spellcheck,xmlextras,typeaheadfind,inspector,webservices,pref \
+    --enable-necko-protocols=http,file,jar,viewsource,res,data \
+    --enable-image-decoders=default,-xbm --enable-xft --disable-freetype2 \
+    $ARCH_CONFIGURE || exit 1
+
+make || exit 1
+# build separate extensions
+make -C mail/extensions/offline || exit 1
+make -C mail/extensions/inspector || exit 1
+make -C extensions/inspector || exit 1
+make -C extensions/typeaheadfind || exit 1
+#make -C other-licenses/libical  || exit 1
+
+make DESTDIR=$PKG install || exit 1
+
+# install separate extensions
+# offline
+make -C mail/extensions/offline install DESTDIR=$PKG
+# inspector
+make -C extensions/inspector install DESTDIR=$PKG
+make -C mail/extensions/inspector install DESTDIR=$PKG
+# typeaheadfind
+make -C extensions/typeaheadfind install DESTDIR=$PKG
+# calendar
+#  make -C other-licenses/libical install DESTDIR=$PKG
+#  make -C calendar install DESTDIR=$PKG
+
+
+find $PKG/ -name '*.so' | xargs chmod -x
+chmod -x ${PKG}${LIBDIR}/thunderbird/components/*.js
+
+mkdir -p $PKG/usr/share/applications
+cat $CWD/thunderbird.desktop > $PKG/usr/share/applications/thunderbird.desktop
+mkdir -p $PKG/usr/share/pixmaps
+cat $CWD/thunderbird.png > $PKG/usr/share/pixmaps/thunderbird.png
+mkdir $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/slack-required > $PKG/install/slack-required
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
+(cd ${PKG}${LIBDIR}/thunderbird; ln -s mozilla-xremote-client mozilla-thunderbird-xremote-client)
+(cd ${PKG}${LIBDIR}/thunderbird; ln -sf mozilla-xremote-client thunderbird-xremote-client)
+
+cd $PKG
+makepkg -l y -c n $TMP/thunderbird-$VERSION-$ARCH-$BUILD.tgz

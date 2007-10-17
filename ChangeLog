@@ -1,6 +1,21 @@
 ChangeLog
 ---------
 
+17-10-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * extras: Moved from apps -> src/extras.  Added a gsb.extras.SlackBuild.
+	  Lots of cleanup.
+	* applications: Removed gossip, added pidgin.
+	* desktop: Added seahorse.
+	* libraries: Package tweak to boost.  Speex added to opal. Minor
+	  build order change.
+	* mono: Added tomboy.
+	* office: Clean up.
+	* frg: Moved to deprecated.  Had old meta packages and firefox/thunderbird. 
+	* bin/misc: Added makemd5.sh and makepackages.sh scripts to generate
+	  PACKAGES.TXT and CHECKSUMS.md5.  I think they are very close to Tadgy's
+	  gen_metadata.sh script.  I can't remember where I found them.  Might be
+	  useful to scavenge.  
+
 15-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * platform: Removed bluez (in Slackware 12).
 	  Fixed some .new install_file sections in system-backend-tools

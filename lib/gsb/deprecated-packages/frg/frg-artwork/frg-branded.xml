@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
+<wallpapers>
+  <wallpaper deleted="false">
+    <name>FRG Bright</name>
+    <filename>/usr/share/pixmaps/backgrounds/frg/frg_bright.png</filename>
+    <options>stretched</options>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>FRG Dark I</name>
+    <filename>/usr/share/pixmaps/backgrounds/frg/frg_darkerI.png</filename>
+    <options>stretched</options>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>FRG Dark II</name>
+    <filename>/usr/share/pixmaps/backgrounds/frg/frg_darkerII.png</filename>
+    <options>stretched</options>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>FRG Dark III</name>
+    <filename>/usr/share/pixmaps/backgrounds/frg/frg_darkerIII.png</filename>
+    <options>stretched</options>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>FRG Spiral</name>
+    <filename>/usr/share/pixmaps/backgrounds/frg/frg_spiral.png</filename>
+    <options>stretched</options>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>FRG Waves</name>
+    <filename>/usr/share/pixmaps/backgrounds/frg/frg_waves.png</filename>
+    <options>stretched</options>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>FRG Rockstar B</name>
+    <filename>/usr/share/pixmaps/backgrounds/frg/frg_rockstar_blue.png</filename>
+    <options>stretched</options>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>FRG Rockstar R</name>
+    <filename>/usr/share/pixmaps/backgrounds/frg/frg_rockstar_red.png</filename>
+    <options>stretched</options>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>FRG Rockstar Y</name>
+    <filename>/usr/share/pixmaps/backgrounds/frg/frg_rockstar_yellow.png</filename>
+    <options>stretched</options>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>FRG Sunset</name>
+    <filename>/usr/share/pixmaps/backgrounds/frg/frg_sunset.png</filename>
+    <options>stretched</options>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>FRG Stripes</name>
+    <filename>/usr/share/pixmaps/backgrounds/frg/frg_stripes.png</filename>
+    <options>stretched</options>
+  </wallpaper>
+  <wallpaper deleted="false">
+   <name>FRG Rock 1 (photo by Michelle Sabatier)</name>
+   <filename>/usr/share/pixmaps/backgrounds/frg/frg_rock1.jpg</filename>
+   <options>stretched</options>
+ </wallpaper>
+ <wallpaper deleted="false">
+   <name>FRG Rock 2 White</name>
+   <filename>/usr/share/pixmaps/backgrounds/frg/frg_rock2w.jpg</filename>
+   <options>stretched</options>
+ </wallpaper>
+ <wallpaper deleted="false">
+   <name>FRG Rock 2 Blue</name>
+   <filename>/usr/share/pixmaps/backgrounds/frg/frg_rock2b.jpg</filename>
+   <options>stretched</options>
+ </wallpaper>
+
+  <wallpaper deleted="false">
+    <name>FRG Rocks</name>
+    <filename>/usr/share/pixmaps/backgrounds/frg/frg_rocks.png</filename>
+    <options>stretched</options>
+  </wallpaper>
+  <wallpaper deleted="false">
+    <name>FRG Water Leaves</name>
+    <filename>/usr/share/pixmaps/backgrounds/frg/frg_water_leaves.jpg</filename>
+    <options>stretched</options>
+  </wallpaper>
+</wallpapers>

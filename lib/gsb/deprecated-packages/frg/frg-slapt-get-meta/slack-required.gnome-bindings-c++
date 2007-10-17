@@ -1,0 +1,13 @@
+frgnome-desktop >= 2.16.0
+cxxlibs
+libsigc++
+glibmm
+libxml++
+gtkmm
+libgnomemm
+libgnomecanvasmm
+libglademm
+gnome-vfsmm
+gconfmm
+libgnomeuimm
+bakery

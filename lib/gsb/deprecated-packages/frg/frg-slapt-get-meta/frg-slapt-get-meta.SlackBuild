@@ -1,0 +1,74 @@
+#!/bin/sh
+
+CWD=`pwd`
+TMP=${TMP:-/tmp}
+PKG=$TMP/package-frg-slapt-get-meta
+
+FRG_VERSION=2.16.0
+ARCH=${ARCH:-i486}
+BUILD=1frg
+
+if [ ! -d $TMP ]; then
+  mkdir -p $TMP # location to build the source
+fi
+rm -rf $PKG
+mkdir -p $PKG
+
+
+META_PACKS="
+gnome-office
+gnome-bindings
+gnome-bindings-c++
+gnome-bindings-perl
+gnome-bindings-python
+gnome-desktop
+gnome-desktop-reqs
+gnome
+gnome-platform
+gnome-themes
+gnome-mono
+gnome-apps
+gnome-libs
+gnome-gnome-apps
+gnome-ruby
+gnome-applets_extensions
+"
+
+for i in $META_PACKS
+do
+mkdir -p $PKG/$i/install
+done
+
+for i in $META_PACKS
+do
+  if [ -f $CWD/slack-desc.$i ]; then
+      cat $CWD/slack-desc.$i > $PKG/$i/install/slack-desc
+  fi
+
+  if [ -f $CWD/slack-required.$i ]; then
+      cat $CWD/slack-required.$i > $PKG/$i/install/slack-required
+      if [ "$ARCH" = "i486" ]; then
+	  sed -i 's/noarch/i486/g' $PKG/$i/install/slack-required
+      fi
+  fi
+
+  if [ -f $CWD/slack-suggests.$i ]; then
+      cat $CWD/slack-suggests.$i > $PKG/$i/install/slack-suggests
+  fi
+done
+
+#if [ "$ARCH" = "i486" ]; then
+#   echo "frg-artwork" >> $PKG/gnome-desktop/install/slack-required
+#   echo "x-cursor-theme-jimmac" >> $PKG/gnome-desktop/install/slack-required
+#fi 
+
+for i in $META_PACKS
+do
+  cd $PKG/$i
+  makepkg -l y -c n $TMP/fr"$i"-$FRG_VERSION-$ARCH-$BUILD.tgz
+done
+
+# Clean up the extra stuff:
+if [ "$1" = "--cleanup" ]; then
+  rm -rf $PKG
+fi

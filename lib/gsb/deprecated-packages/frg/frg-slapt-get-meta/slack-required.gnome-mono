@@ -1,0 +1,22 @@
+frgnome-desktop >= 2.16.0
+libgdiplus
+mono
+monodoc
+gtk-sharp
+gtk-sharp2
+gtksourceview-sharp-2.0
+gecko-sharp-2.0
+boo
+ikvm
+monodevelop
+sqlite2
+sqlite3
+dbus-sharp
+gmime-sharp
+libipoddevice
+ipod-sharp
+avahi-sharp
+njb-sharp
+banshee
+beagle
+f-spot

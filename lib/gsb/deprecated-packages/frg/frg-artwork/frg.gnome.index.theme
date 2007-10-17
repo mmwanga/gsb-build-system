@@ -1,0 +1,33 @@
+# FRG metatheme
+
+[Desktop Entry]
+Name=FRG
+Name[az]=FRG
+Name[ca]=FRG
+Name[da]=FRG
+Name[de]=FRG
+Name[el]=FRG
+Name[en_CA]=FRG
+Name[en_GB]=FRG
+Name[es]=FRG
+Name[fr]=FRG
+Name[it]=FRG
+Name[ko]=FRG
+Name[lt]=FRG
+Name[nl]=FRG
+Name[no]=FRG
+Name[pl]=FRG
+Name[sq]=FRG
+Name[sv]=FRG
+Name[zh_TW]=FRG
+Type=X-GNOME-Metatheme
+Comment=Freerock GNOME default theme
+Comment[en_CA]=Freerock GNOME default theme
+Comment[en_GB]=Freerock GNOME default theme
+Comment[sq]=Freerock GNOME default theme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Clearlooks
+MetacityTheme=Clearlooks
+IconTheme=Tango
