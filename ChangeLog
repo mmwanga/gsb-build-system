@@ -7,7 +7,7 @@ ChangeLog
 	* applications: Removed gossip, added pidgin.
 	* desktop: Added seahorse.
 	* libraries: Package tweak to boost.  Speex added to opal. Minor
-	  build order change.
+	  build order change. Minor fix to heimdal, libsexy and mpeg4ip.
 	* mono: Added tomboy.
 	* office: Clean up.
 	* frg: Moved to deprecated.  Had old meta packages and firefox/thunderbird. 
