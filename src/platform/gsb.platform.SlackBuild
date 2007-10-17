@@ -73,7 +73,7 @@ mkdir -p $LOGSDIR
 BUILD_ORDER="
      gnome-common
      intltool
-     scrollkeeper
+     rarian
      ORBit2
      libbonobo
      GConf
