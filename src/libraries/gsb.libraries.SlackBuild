@@ -102,9 +102,9 @@ BUILD_ORDER=" liboil
         libavc1394
         libiec61883
         libvisual
+        speex
         pwlib
         opal	
-        speex
         nss
         libsexy
         libcroco
