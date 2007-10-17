@@ -106,6 +106,7 @@ BUILD_ORDER="
       gconf-editor
       gnome-keyring-manager
       gtkhml
+      seahorse
 "
 
 # Build packages (and log output).
