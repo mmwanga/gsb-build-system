@@ -108,7 +108,6 @@ BUILD_ORDER=" liboil
         nss
         libsexy
         libcroco
-        libsoup
         heimdal
         libgpod
         libnl
