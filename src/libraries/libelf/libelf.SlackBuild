@@ -168,7 +168,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 
 ## Build and install.
 make $MAKE_FLAGS &&
-make $MAKE_FLAGS instroot=$PKG install-compat install || exit 1
+make instroot=$PKG install-compat install || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
