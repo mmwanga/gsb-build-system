@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.20.0
+VERSION=2.2.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="bzip2 GConf gnome-keyring gnome-vfs gtk+2 libglade libgnome libgnomecanvas libgnomeui libgpg-error"
+REQUIRED_PACKAGES=""
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -158,6 +158,8 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 ## The default is to build shared libraries, no static libraries, install into
 ## /usr and use /etc as the config directory.
 ## For packages with GNOME Schemas, additional options are required:
+##  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
+##  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
@@ -168,7 +170,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 
 ## Build and install.
 make $MAKE_FLAGS &&
-make DESTDIR=$PKG install || exit 1
+make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

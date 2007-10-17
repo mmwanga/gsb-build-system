@@ -1,5 +1,10 @@
-dbus
-gtk+2
-hal
-libwnck
 libnotify
+hal
+dbus
+glib2
+libgnomeui
+GConf
+gtkunique
+atk
+libwnck
+gnome-panel

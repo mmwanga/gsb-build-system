@@ -1,5 +1,11 @@
 bzip2
 GConf
+gnome-doc-utils
+libxml2
+libxslt
+startup-notification
+dbus
+dbus-glib
 gnome-keyring
 gnome-vfs
 gtk+2
@@ -8,3 +14,4 @@ libgnome
 libgnomecanvas
 libgnomeui
 libgpg-error
+rarian

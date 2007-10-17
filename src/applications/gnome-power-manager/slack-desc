@@ -1,12 +1,12 @@
                    |-----handy-ruler------------------------------------------------------|
-gnome-power-manager: gnome-power-manager (GNOME power policy daemon)
-gnome-power-manager:
-gnome-power-manager: GNOME Power Manager is a GNOME session daemon that acts as a policy
-gnome-power-manager: agent on top of the Project Utopia stack, which includes the kernel,
-gnome-power-manager: hotplug, udev, and HAL. GNOME Power Manager listens for HAL events
-gnome-power-manager: and responds with user-configurable reactions.  Currently it supports 
-gnome-power-manager: UPS's, laptop batteries and AC adapters. Its goal is to be
-gnome-power-manager: architecture neutral and free of polling and other hacks.
-gnome-power-manager:
-gnome-power-manager:
-gnome-power-manager:
+gnome-power-manager: gnome-power-manager (GNOME Power Manager)
+gnome-power-manager: 
+gnome-power-manager: GNOME Power Manager is a session daemon for the GNOME 
+gnome-power-manager: Desktop environment that makes it easy to manage your laptop 
+gnome-power-manager: or desktop system's power usage.  It requires HAL, and supports
+gnome-power-manager: suspending, hibernating, power notifications, cpu frequencies, 
+gnome-power-manager: hard drive spin-down, and display dimming. 
+gnome-power-manager: 
+gnome-power-manager: 
+gnome-power-manager: 
+gnome-power-manager: 

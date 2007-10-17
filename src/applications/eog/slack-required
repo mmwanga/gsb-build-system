@@ -9,3 +9,10 @@ libgnomeui
 libjpeg
 libexif
 lcms
+gtk+2
+glib2
+libart_lgpl
+gnome-icon-theme
+share-mime-info
+dbus-glib
+libglade
