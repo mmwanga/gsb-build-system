@@ -12,7 +12,7 @@ VERSION=2.2.11
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="pwlib"
+REQUIRED_PACKAGES="pwlib speex"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
