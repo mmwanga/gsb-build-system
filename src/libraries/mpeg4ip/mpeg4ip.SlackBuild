@@ -86,8 +86,8 @@ mkdir -p $TMP
 rm -rf $PKG
 mkdir -p $PKG
 mkdir -p $PKG/install
-mkdir -p $PKGDEST
-mkdir -p $PKGDEST/usr/local/lib
+mkdir -p $PKG
+mkdir -p $PKG/usr/local/lib
 
 ## Decompress archive.
 cd $TMP &&
