@@ -1,0 +1,73 @@
+#!/bin/sh
+#
+# system-tools-backends:   System-tools-backends DBUS Interface
+#
+# description: The backends provide an common DBus interface to 
+# all platforms to modify or read the system configuration in a 
+# distro independent fashion. 
+#
+# processname: system-tools-backends
+# pidfile: /var/run/stb.pid
+
+# This is a modified version of the rc.messagebus script distributed with the
+# dbus sources.  It has been modified for system-tools-backends. (Steve)
+# 
+
+
+PIDFILE=/var/run/stb.pid
+
+start() {
+  if ! ps axc | grep -w dbus-daemon ; then
+     echo "D-Bus needs to be running.  Not starting system-tools-backends."
+     exit 1;
+  fi;
+
+  if ! ps axc | grep -w system-tools-backends ; then
+    rm -f $PIDFILE
+    if [ -x /usr/bin/system-tools-backends ] ; then
+      echo "Starting system-tools-backends DBUS Interface:  /usr/bin/system-tools-backends "
+      /usr/bin/system-tools-backends;
+    fi
+  fi
+}
+
+stop() {
+  if [ -e "$PIDFILE" ]; then
+    echo "Stopping system-tools-backends message bus..."
+    pid=$(cat $PIDFILE)
+    kill $pid 1> /dev/null 2> /dev/null
+    # Just in case:
+    killall system-tools-backends 1> /dev/null 2> /dev/null
+    rm -f $PIDFILE
+  fi
+}
+
+reload() {
+  echo "Reloading system-tools-backends message bus configuration..."
+  if [ -e "$PIDFILE" ]; then
+    pid=$(cat $PIDFILE)
+    kill -HUP $pid
+  else
+    killall -HUP system-tools-backends
+  fi
+}
+
+# See how we were called.
+case "$1" in
+  start)
+    start
+    ;;
+  stop)
+    stop
+    ;;
+  restart)
+    stop
+    start
+    ;;
+  reload)
+    reload
+    ;;
+  *)
+    echo $"Usage: $0 {start|stop|restart|reload}"
+    ;;
+esac

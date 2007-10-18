@@ -4,19 +4,33 @@
 ## Configuration Preservation
 ##
 
-config() {
-  NEW="$1"
-  OLD="`dirname $NEW`/`basename $NEW .new`"
-  # If there's no config file by that name, mv it over:
-  if [ ! -r $OLD ]; then
-    mv $NEW $OLD
-  elif [ "`cat $OLD | md5sum`" = "`cat $NEW | md5sum`" ]; then # toss the redundant copy
-    rm $NEW
+##
+## Configuration Preservation
+##
+
+ldconfig -r .
+
+function install_file() {
+  # $1 = File to process
+
+  FILE="$(dirname "$1")/$(basename "$1" .new)"
+  if [ ! -e "$FILE" ]
+  then
+    mv "$FILE.new" "$FILE"
+  elif [ "$(cat "$FILE" | md5sum)" != "$(cat "$FILE.new" | md5sum)" ]
+  then
+    #     |--------|--------------------------------------------------|
+    echo "WARNING: $FILE has been customised."
+    echo "         Examine the $FILE.new file"
+    echo "         and integrate any changes into the custom file."
+    echo
+  else
+    rm -f "$FILE.new"
   fi
-  # Otherwise, we leave the .new copy for the admin to consider...
 }
 
-config etc/dbus-1/system.d/system-tools-backends.conf.new
+install_file etc/dbus-1/system.d/system-tools-backends.conf.new
+install_file etc/rc.d/rc.stb.new
 
 ##
 ## If the stb-admin group don't exist, add them:
