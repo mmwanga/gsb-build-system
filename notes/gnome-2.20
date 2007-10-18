@@ -70,3 +70,4 @@ dhcdbd,http://dcantrel.fedorapeople.org/dhcdbd/,3.0,tar.bz2,NONE
 boost,http://downloads.sourceforge.net/boost/,1_34_1,tar.bz2,NONE
 gnomebaker,http://downloads.sourceforge.net/gnomebaker/,0.6.2,tar.bz2,NONE
 pidgin,http://downloads.sourceforge.net/pidgin/,2.2.1,tar.bz2,NONE
+XML-Twig,http://xmltwig.com/xmltwig/,3.29,tar.gz,NONE

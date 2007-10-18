@@ -1,6 +1,18 @@
 ChangeLog
 ---------
 
+18-10-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * platform: rarian install script fixes (switch to rarian style).
+      scrollkeeper sidelined. 
+      avahi doinst updated.  
+	  system-tools-backends rc.stb added.  doinst updated.
+	  XML-Twig added as dependency for stb.
+
+      Tested: gnome-common intltool rarian ORBit2 libbonobo GConf gnome-mime-data
+      pygobject pyorbit pycairo pygtk dbus-python libdaemon
+
+    * libraries: pkgconfig logic fix for libquicktime.
+
 17-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * extras: Moved from apps -> src/extras.  Added a gsb.extras.SlackBuild.
 	  Lots of cleanup.
@@ -8,6 +20,7 @@ ChangeLog
 	* desktop: Added seahorse.
 	* libraries: Package tweak to boost.  Speex added to opal. Minor
 	  build order change. Minor fix to heimdal, libsexy and mpeg4ip.
+      Tested: All gsb.libraries.  Beta stage.
 	* mono: Added tomboy.
 	* office: Clean up.
 	* frg: Moved to deprecated.  Had old meta packages and firefox/thunderbird. 
