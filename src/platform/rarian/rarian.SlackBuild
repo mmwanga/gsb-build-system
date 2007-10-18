@@ -6,14 +6,13 @@
 ## Licenced under the terms of the GNU General Public Licence version 3.
 ##
 
-## Package variables
+## Package variables.
 BUILD=1
-VERSION=2.20.0
+VERSION=0.6.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-
-REQUIRED_PACKAGES="automake"
+REQUIRED_PACKAGES="libxml2 libxslt zlib linuxdoc-tools" 
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -162,7 +161,7 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 ##  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
 ##  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   || exit 1
@@ -192,7 +191,7 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  COPYING* ChangeLog README \
+  AUTHORS COPYING* ChangeLog NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
