@@ -17,17 +17,20 @@
 PIDFILE=/var/run/stb.pid
 
 start() {
-  if ! ps axc | grep -w dbus-daemon ; then
+  if ! ps axc | grep -qw dbus-daemon ; then
      echo "D-Bus needs to be running.  Not starting system-tools-backends."
      exit 1;
   fi;
 
-  if ! ps axc | grep -w system-tools-backends ; then
+  if ! ps axc | grep -qw system-tools-ba ; then
     rm -f $PIDFILE
     if [ -x /usr/bin/system-tools-backends ] ; then
       echo "Starting system-tools-backends DBUS Interface:  /usr/bin/system-tools-backends "
       /usr/bin/system-tools-backends;
+     pidof system-tools-backends > $PIDFILE
     fi
+  else
+    echo "System-tools-backends already started."
   fi
 }
 
