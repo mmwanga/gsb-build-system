@@ -56,9 +56,12 @@ if [ ! -x etc/rc.d/rc.messagebus ]; then
 	chmod +x etc/rc.d/rc.messagebus;
 fi;
 
+chmod +x etc/rc.d/rc.stb
+
 ##
 ## Restart dbus (reload system-tools-backends info), and start services
 ##
 if [ -x etc/rc.d/rc.messagebus ]; then
 	. etc/rc.d/rc.messagebus restart;
+    . etc/rc.d/rc.stb start;
 fi;
