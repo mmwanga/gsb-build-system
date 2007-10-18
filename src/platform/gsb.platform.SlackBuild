@@ -86,7 +86,7 @@ BUILD_ORDER="
      libdaemon
      avahi
      system-tools-backends
-     libtctl
+     libbtctl
      liboobs
      gnome-vfs
      libgnome
