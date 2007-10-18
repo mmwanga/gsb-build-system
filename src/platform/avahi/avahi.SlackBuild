@@ -114,8 +114,20 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
+
 ## See patches/README
-patch -p0 < $CWD/patches/avahi.dbus.patch
+if [ -x `which pkg-config` ]; then
+   pkg-config --atleast-version="1.1.1" dbus-1
+   if [ $? -ne 0 ]; then
+     echo "You do not have dbus greater or equal to 1.1.1. A patch is required."
+     (cd $TMP/$PKGNAME-$VERSION;
+      patch -p0 < $CWD/patches/avahi.dbus.patch
+     );
+   fi;
+else
+   echo "Need pkg-config in order to build this package.";
+   exit 1;
+fi;
 
 ## Fix permissions for building.
 chown -R root.root .
@@ -192,6 +204,7 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
     mv rc.$i rc.$i.new
   done
 )
+mv $PKG/etc/dbus-1/system.d/avahi-dbus.conf $PKG/etc/dbus-1/system.d/avahi-dbus.conf.new
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
