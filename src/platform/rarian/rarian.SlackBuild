@@ -86,6 +86,7 @@ mkdir -p $TMP
 rm -rf $PKG
 mkdir -p $PKG
 mkdir -p $PKG/install
+mkdir -p $PKG/usr/share/omf
 mkdir -p $PKGDEST
 
 ## Decompress archive.
