@@ -90,6 +90,7 @@ BUILD_ORDER="
      liboobs
      gnome-vfs
      libgnome
+     gail
      libgnomecanvas
      libbonoboui
      icon-naming-utils
