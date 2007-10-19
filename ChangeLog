@@ -7,9 +7,10 @@ ChangeLog
       avahi doinst updated.  
 	  system-tools-backends rc.stb added.  doinst updated.
 	  XML-Twig added as dependency for stb.
+	  XML-Simple added as dependency for icon-renaming-utils.
+	  Gail moved back to platform as dependency for libgnomecanvas.
 
-      Tested: gnome-common intltool rarian ORBit2 libbonobo GConf gnome-mime-data
-      pygobject pyorbit pycairo pygtk dbus-python libdaemon
+      Tested: Full gsb.platform.  Now in Beta.
 
     * libraries: pkgconfig logic fix for libquicktime.
 
