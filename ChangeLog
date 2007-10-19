@@ -9,8 +9,9 @@ ChangeLog
 	  XML-Twig added as dependency for stb.
 	  XML-Simple added as dependency for icon-renaming-utils.
 	  Gail moved back to platform as dependency for libgnomecanvas.
-
-      Tested: Full gsb.platform.  Now in Beta.
+	  Added glib2 2.14.2.  Forced to upgrade standard Slackware package, and 
+	  Added gtk+2 2.12.1.  Forced to upgrade standard Slackware package,
+	  no way around it.
 
     * libraries: pkgconfig logic fix for libquicktime.
 
