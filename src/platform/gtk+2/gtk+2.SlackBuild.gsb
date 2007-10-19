@@ -12,7 +12,7 @@ VERSION=2.12.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glib2"
+REQUIRED_PACKAGES="pango cairo glib2 libpng libjpeg libtiff"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -70,8 +70,8 @@ done
     return $?
   }
 
-  check_installed "$PKGNAME" && {
-    echo "${0##*/}: Remove installed '$PKGNAME' package before build."
+  check_installed "$GSBPKGNAME" && {
+    echo "${0##*/}: Remove installed '$GSBPKGNAME' package before build."
     exit 1
   }
 

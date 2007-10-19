@@ -73,6 +73,9 @@ mkdir -p $LOGSDIR
 BUILD_ORDER="
      gnome-common
      intltool
+     glib2
+     pango
+     gtk+2
      rarian
      ORBit2
      libbonobo
@@ -98,8 +101,6 @@ BUILD_ORDER="
      icon-naming-utils
      gnome-icon-theme
      gnome-keyring
-     glib2
-     gtk+2
      libgnomeui
      gtk-engines
      libsoup
