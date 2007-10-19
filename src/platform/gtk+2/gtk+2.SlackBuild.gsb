@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.14.2
+VERSION=2.12.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES=""
+REQUIRED_PACKAGES="glib2"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -22,9 +22,8 @@ TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP/gsb-packages}
 
 ## Script variables.
-PKGNAME=glib
+PKGNAME="gtk+"
 
-## For the proper package name
 GSBPKGNAME="$(basename $0 .SlackBuild)"
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
@@ -162,11 +161,24 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
+  --with-xinput=yes \
   || exit 1
 
 ## Build and install.
-make $MAKE_FLAGS &&
+make $MAKE_FLAGS ;
+
+# I'm spamming your root partition because /etc/gtk-2.0 won't install to $DESTDIR
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+mkdir -p $PKG/etc/gtk-2.0
+cp -a /etc/gtk-2.0/* $PKG/etc/gtk-2.0
+
+# I'm almost inclined to think this stuff is obsolete, but I don't know for sure.
+# I do know that leaving it in doesn't hurt (aside from a few wasted bytes, but
+# probably less than the comments here waste ;-)
+# (from Pat's SlackBuild)
+mkdir -p $PKG/etc/profile.d
+cp -a $CWD/profile.d/* $PKG/etc/profile.d
+chmod 755 $PKG/etc/profile.d/*
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
