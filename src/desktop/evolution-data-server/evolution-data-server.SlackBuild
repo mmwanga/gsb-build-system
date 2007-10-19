@@ -159,6 +159,7 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 ##
 ## Enable use of Heimdal libraries over MIT KRB5
 ##
+echo "Using heimdal for Krb5."
 sed -i "s/\$mitlibs/\$heimlibs/g" $TMP/$PKGNAME-$VERSION/configure
 
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
