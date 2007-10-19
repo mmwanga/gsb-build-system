@@ -12,7 +12,7 @@ VERSION=1.12.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="openldap-client GConf gnome-vfs libgnome libgnomeui libsoup avahi ORBit2 libbonobo libbonoboui libidl db44 nss gnome-keyring"
+REQUIRED_PACKAGES="openldap-client GConf gnome-vfs libgnome libgnomeui libsoup avahi ORBit2 libbonobo libbonoboui libidl db44 nss gnome-keyring glib2"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -176,6 +176,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-nntp=yes \
   --enable-purify=no \
   --with-openldap=yes \
+  --with-krb5=/usr \
   || exit 1
 
 ## Build and install.
