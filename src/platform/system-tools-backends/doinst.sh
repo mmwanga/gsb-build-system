@@ -41,6 +41,18 @@ else
   echo "stb-admin::86:" >> etc/group
 fi
 
+# if rc.stb is executable, run it on startup
+run=`grep ". /etc/rc.d/rc.stb" etc/rc.d/rc.local`
+if [[ "${run}" == "" ]]; then
+cat << EOF >>etc/rc.d/rc.local
+
+# To disable system-tools-backends, chmod rc.stb to 644
+if [ -x /etc/rc.d/rc.stb ]; then
+  . /etc/rc.d/rc.stb start
+fi
+EOF
+fi
+
 ## 
 ## Complain if dbus somehow was removed, and disable autostart.
 ##
