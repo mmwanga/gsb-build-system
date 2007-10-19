@@ -10,3 +10,5 @@ libbonobo
 libbonoboui
 libidl
 db44
+nss
+gnome-keyring
