@@ -167,10 +167,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## Build and install.
 make $MAKE_FLAGS ;
 
-# I'm spamming your root partition because /etc/gtk-2.0 won't install to $DESTDIR
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-mkdir -p $PKG/etc/gtk-2.0
-cp -a /etc/gtk-2.0/* $PKG/etc/gtk-2.0
 
 # I'm almost inclined to think this stuff is obsolete, but I don't know for sure.
 # I do know that leaving it in doesn't hurt (aside from a few wasted bytes, but
