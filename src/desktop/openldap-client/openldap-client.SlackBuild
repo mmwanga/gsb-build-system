@@ -115,6 +115,12 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
+##
+## NTML Patch
+##
+echo "Patching openldap for NTML Support."
+patch -p0 < $CWD/patches/openldap-ntlm.patch
+
 ## Fix permissions for building.
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
@@ -165,7 +171,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --with-tls \
   --with-readline \
   --with-threads \
-  --enable-debug \
+  --disable-debug \
   --enable-syslog \
   --enable-dynamic \
   --enable-local \
