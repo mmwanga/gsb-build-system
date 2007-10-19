@@ -12,7 +12,7 @@ VERSION=1.20.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 libgnomecanvas libbonobo atk ORBit2 glib2 popt libidl"
+REQUIRED_PACKAGES="gtk+2 libgnomecanvas libbonobo atk ORBit2 glib2 popt libidl python"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

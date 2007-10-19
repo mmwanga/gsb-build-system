@@ -75,7 +75,6 @@ BUILD_ORDER="
       tango-icon-theme
       gnome-doc-utils
       at-spi
-      gail
       gnome-desktop
       gnome-menus
       libwnck
