@@ -1,6 +1,18 @@
 ChangeLog
 ---------
 
+19-10-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * platform: Added pango 1.18.3.  Needed by gtk+2 2.12.1.
+	            Forced to upgrade standard Slackware package.
+				Major fixes for NetworkManager for GNOME 2.20.
+				Fix for rc.stb (Added to rc.local)
+				(Patch for deprecated Druid).  See NetworkManager.SlackBuild.
+				Platform test build run.  Beta status now.  :^)
+	* desktop: patches/openldap-ntlm.patch. Added openldap NTML for evolution.
+	           krb5 via heimdal added to evolution-data-server.
+			   Minor req/tweaks for gnome-themes tango-icon-theme gnome-doc-utils 
+			   at-spi gail gnome-desktop gnome-menus libwnck.
+
 18-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * platform: rarian install script fixes (switch to rarian style).
       scrollkeeper sidelined. 
@@ -9,10 +21,9 @@ ChangeLog
 	  XML-Twig added as dependency for stb.
 	  XML-Simple added as dependency for icon-renaming-utils.
 	  Gail moved back to platform as dependency for libgnomecanvas.
-	  Added glib2 2.14.2.  Forced to upgrade standard Slackware package, and 
-	  Added gtk+2 2.12.1.  Forced to upgrade standard Slackware package,
-	  no way around it.
-
+	  Added glib2 2.14.2.  Forced to upgrade standard Slackware package.
+	  Added gtk+2 2.12.1.  Forced to upgrade standard Slackware package.
+	  Gtk+2 2.12.1 (Gdk-pixbuf > 2.10.1) needed by libgnomeui.
     * libraries: pkgconfig logic fix for libquicktime.
 
 17-10-2007  fidesratio <sk238(at)ex.ac.uk>	
