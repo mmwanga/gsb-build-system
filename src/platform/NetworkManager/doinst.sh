@@ -31,6 +31,15 @@ if [ ! -e etc/rc.d/rc.local ]; then
     chmod 755 etc/rc.d/rc.local
 fi
 
+##
+## If the netdev group don't exist, add them:
+## 
+if grep "^netdev::" etc/group 1> /dev/null 2> /dev/null ; then
+  true
+else
+  echo "netdev::87:avahi" >> etc/group
+fi
+
 # if rc.networkmanager is executable, run it on startup
 run=`grep ". /etc/rc.d/rc.networkmanager" etc/rc.d/rc.local`
 if [[ "${run}" == "" ]]; then
@@ -59,3 +68,13 @@ if [ -x etc/rc.d/rc.messagebus ]; then
     . etc/rc.d/rc.messagebus restart;
     . etc/rc.d/rc.networkmanager restart;
 fi;
+
+cat << EOF
+
+Note:
+-----
+To allow users to connect to the NetworkManager daemon they have to be in the
+group "netdev". If you want to add a user to group "netdev" use the command
+"adduser username netdev".
+
+EOF

@@ -1,0 +1,3 @@
+To allow users to connect to the NetworkManager daemon they have to be in the
+group "netdev". If you want to add a user to group "netdev" use the command
+"adduser username netdev".

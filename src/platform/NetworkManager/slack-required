@@ -1,4 +1,5 @@
 libnl
+libgcrypt
 wpa_supplicant
 dbus
 hal
