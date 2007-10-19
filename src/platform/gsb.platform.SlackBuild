@@ -85,6 +85,7 @@ BUILD_ORDER="
      dbus-python
      libdaemon
      avahi
+     XML-Twig
      system-tools-backends
      libbtctl
      liboobs
@@ -93,6 +94,7 @@ BUILD_ORDER="
      gail
      libgnomecanvas
      libbonoboui
+     XML-Simple
      icon-naming-utils
      gnome-icon-theme
      gnome-keyring
