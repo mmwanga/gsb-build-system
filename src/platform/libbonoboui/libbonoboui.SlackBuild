@@ -156,11 +156,14 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
-## The default is to build shared libraries, no static libraries, install into
-## /usr and use /etc as the config directory.
-## For packages with GNOME Schemas, additional options are required:
-##  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
-##  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
+
+##
+## Disable libbonoboui tests
+##
+
+sed -i "s/tests//g" $TMP/$PKGNAME-$VERSION/Makefile.in
+
+## Run the configure script
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
