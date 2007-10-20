@@ -77,4 +77,4 @@ openldap,ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/,2.3.38,tgz,NONE
 wavpack,http://www.wavpack.com/,4.41.0,tar.bz2,NONE
 libshout,http://downloads.us.xiph.org/releases/libshout/,2.2.2,tar.gz,NONE
 tracker,http://www.gnome.org/~jamiemcc/tracker/,0.6.3,tar.bz2,NONE
-sqlite3,http://www.sqlite.org/,3.5.1,tar.gz,NONE
+sqlite,http://www.sqlite.org/,3.5.1,tar.gz,NONE
