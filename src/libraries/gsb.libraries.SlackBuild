@@ -104,6 +104,7 @@ BUILD_ORDER=" liboil
         libiec61883
         speex
         libshout
+        sqlite3
         pwlib
         opal	
         nss
