@@ -12,7 +12,7 @@ VERSION=2.20.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="dbus eel gail gamin gnome-desktop gnome-menus gtk+2 hal nautilus startup-notification"
+REQUIRED_PACKAGES="dbus eel gail gamin gnome-desktop gnome-menus gtk+2 hal nautilus startup-notification gnome-mount"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

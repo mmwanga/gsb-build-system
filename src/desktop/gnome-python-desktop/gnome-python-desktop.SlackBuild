@@ -12,7 +12,7 @@ VERSION=2.20.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES=""
+REQUIRED_PACKAGES="gnome-python gtksourceview gnome-applets libgnome libgnomeprint libgnomeprintui libwnck libgtop nautilus-cd-burner librsvg gnome-keyring gnome-desktop bug-buddy glib2 gtk+2 libart_lgpl libpng pango cairo pygtk pycairo pygobject"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
