@@ -106,9 +106,7 @@ BUILD_ORDER="
       gnome-python-desktop
       deskbar-applet
       gnome-keyring-manager
-      tracker
       gtkhml
-      seahorse
 "
 
 # Build packages (and log output).

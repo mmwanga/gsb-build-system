@@ -1,27 +1,45 @@
 #!/bin/sh
+##
+## GNOME xinitrc
+##
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/usr/X11R6/lib/X11/xinit/.Xresources
 sysmodmap=/usr/X11R6/lib/X11/xinit/.Xmodmap
 
-# merge in defaults and keymaps
+## Default Session Settings
+GNOME_SESSION_SETTINGS=""
 
+# Merge in defaults and keymaps
 if [ -f $sysresources ]; then
     xrdb -merge $sysresources
 fi
-
 if [ -f $sysmodmap ]; then
     xmodmap $sysmodmap
 fi
-
 if [ -f $userresources ]; then
     xrdb -merge $userresources
 fi
-
 if [ -f $usermodmap ]; then
     xmodmap $usermodmap
 fi
 
-# Start the window manager:
-exec dbus-launch --exit-with-session gnome-session
+## Use ssh-agent if available
+if [ -x /usr/bin/ssh-agent ]; then
+  GNOME_SESSION_SETTINGS="$GNOME_SESSION_SETTINGS ssh-agent"
+fi;
+
+## Use dbus if available
+if [ -x /usr/bin/dbus-launch ]; then
+  GNOME_SESSION_SETTINGS="$GNOME_SESSION_SETTINGS/usr/bin/dbus-launch --exit-with-session"
+fi;
+
+## Use Seahorse if available
+## For more information, please see http://live.gnome.org/Seahorse/SessionIntegration
+if [ -x /usr/bin/seahorse-agent ]; then
+  GNOME_SESSION_SETTINGS="$GNOME_SESSION_SETTINGS /usr/bin/seahorse-agent --execute"
+fi;
+
+# Start the window manager
+exec $GNOME_SESSION gnome-session
