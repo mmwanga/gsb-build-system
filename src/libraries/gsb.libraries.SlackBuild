@@ -101,7 +101,6 @@ BUILD_ORDER=" liboil
         libraw1394
         libavc1394
         libiec61883
-        libvisual
         speex
         pwlib
         opal	
