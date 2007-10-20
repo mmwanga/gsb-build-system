@@ -1,6 +1,11 @@
 ChangeLog
 ---------
 
+20-10-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * desktop: Added ntlm to openldap version (for clarity).
+	* lirbaries: Added gssapi_generic.h ln in heimdal for MIT krb5 compat.
+	             Added wavpack codec.
+
 19-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * platform: Added pango 1.18.3.  Needed by gtk+2 2.12.1.
 	            Forced to upgrade standard Slackware package.

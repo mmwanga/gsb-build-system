@@ -74,3 +74,4 @@ XML-Twig,http://xmltwig.com/xmltwig/,3.29,tar.gz,NONE
 XML-Simple,http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM/,2.18,tar.gz,NONE
 krb5,http://web.mit.edu/kerberos/dist/krb5/1.6/,1.6.2-signed,tar,NONE
 openldap,ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/,2.3.38,tgz,NONE
+wavpack,http://www.wavpack.com/wavpack,4.41.0,tar.bz2,NONE
