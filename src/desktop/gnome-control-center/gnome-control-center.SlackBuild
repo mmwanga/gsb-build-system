@@ -12,7 +12,7 @@ VERSION=2.20.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gnome-doc-utils GConf metacity gnome-menu libgnomeui libgnome libbonobo libbonoboui ORBit2 gstreamer gst-plugins-base gst-plugins-good libgnomekbd libxklavier openssl dbus xscreensaver evolution-data-server alsa-lib libgnomecups"
+REQUIRED_PACKAGES="gnome-doc-utils GConf metacity gnome-menus libgnomeui libgnome libbonobo libbonoboui ORBit2 gstreamer gst-plugins-base gst-plugins-good libgnomekbd libxklavier openssl dbus xscreensaver evolution-data-server alsa-lib libgnomecups"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
