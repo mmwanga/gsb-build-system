@@ -1,3 +1,5 @@
+## Doinst
+
 ldconfig -r .
 
 function install_file() {
@@ -21,8 +23,8 @@ function install_file() {
 
 install_file etc/xdg/menus/gnomecc.menu
 
-if [ -x usr/bin/scrollkeeper-update ]; then
-  usr/bin/scrollkeeper-update -p var/lib/scrollkeeper 1> /dev/null 2> /dev/null
+if [ -x usr/bin/rarian-sk-update ]; then
+  usr/bin/rarian-sk-update 1> /dev/null 2> /dev/null
 fi
 
 if [ -x usr/bin/update-desktop-database ]; then
