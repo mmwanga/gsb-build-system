@@ -1,4 +1,4 @@
-## Doinst
+## Doinst for gnome-control-panel
 
 ldconfig -r .
 
@@ -21,7 +21,7 @@ function install_file() {
   fi
 }
 
-install_file etc/xdg/menus/gnomecc.menu
+install_file etc/xdg/menus/gnomecc.menu.new
 
 if [ -x usr/bin/rarian-sk-update ]; then
   usr/bin/rarian-sk-update 1> /dev/null 2> /dev/null

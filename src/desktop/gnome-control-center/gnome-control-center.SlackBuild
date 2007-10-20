@@ -167,6 +167,9 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
+## Preserve menu settings
+mv $PKG/etc/xdg/menus/gnomecc.menu $PKG/etc/xdg/menus/gnomecc.menu.new
+
 ##
 ## Keep clean for Scrollkeeper
 ## Will rebuild database in doinst.sh
