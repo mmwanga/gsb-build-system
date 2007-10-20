@@ -118,8 +118,14 @@ fi
 ##
 ## NTML Patch
 ##
-echo "Patching openldap for NTML Support."
+echo
 patch -p0 < $CWD/patches/openldap-ntlm.patch
+
+echo
+echo
+echo "This version of openldap is patched to support NTLM."
+echo
+echo
 
 ## Fix permissions for building.
 chown -R root.root .
