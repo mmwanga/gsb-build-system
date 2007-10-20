@@ -8,7 +8,7 @@ gnome-vfs
 gtk+2
 startup-notification
 libwnck
-scrollkeeper
+rarian
 libgnomecanvas
 libxml2
 libgnome

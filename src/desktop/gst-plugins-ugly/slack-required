@@ -21,10 +21,8 @@ zlib
 taglib
 esound
 a52dec
-libsid
 mpeg2dec
 libmad
 taglib
-libdvdnav
 libdvdread
 libid3tag
