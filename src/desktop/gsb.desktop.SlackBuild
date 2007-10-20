@@ -90,7 +90,6 @@ BUILD_ORDER="
       libgtop
       libxklavier
       libgnomekbd
-      gnome-applets
       libgnomecups
       libgnomeprint
       libgnomeprintui
@@ -101,6 +100,7 @@ BUILD_ORDER="
       gnome-mount
       gnome-control-center
       gnome-session
+      gnome-applets
       bug-buddy
       gnome-python-desktop
       gnome-keyring-manager

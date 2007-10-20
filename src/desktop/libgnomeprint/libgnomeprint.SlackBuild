@@ -12,7 +12,7 @@ VERSION=2.18.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libart_lgpl libbonobo libgnomecups gettext freetype2 glib2 pango fontconfig zlib libxml2 openssl"
+REQUIRED_PACKAGES="libart_lgpl libbonobo libgnomecups gettext freetype glib2 pango fontconfig zlib libxml2 openssl"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

@@ -5,3 +5,12 @@ gnome-vfs
 libgtop
 gstreamer
 rarian
+system-tools-backends
+gnome-desktop
+libwnck
+libnotify
+hal
+dbus
+libxml2
+pygtk
+libgnomekbd

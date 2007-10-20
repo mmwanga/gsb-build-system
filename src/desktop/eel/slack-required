@@ -1,7 +1,7 @@
 gail
 atk
 gamin
-gconf
+GConf
 gnome-vfs
 libgnomeui
 gnome-desktop

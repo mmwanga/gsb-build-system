@@ -12,7 +12,7 @@ VERSION=2.20.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gail GConf gnome-panel gnome-vfs libgtop rarian gstreamer"
+REQUIRED_PACKAGES="gail GConf gnome-panel gnome-vfs libgtop gstreamer rarian system-tools-backends gnome-desktop libwnck libnotify hal dbus libxml2 pygtk libgnomekbd" 
 
 ## Build variables.
 ARCH=${ARCH:-i586}

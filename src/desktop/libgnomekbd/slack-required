@@ -6,5 +6,5 @@ pango
 libbonoboui
 libgnome
 cairo
-freetype2
+freetype
 glib2

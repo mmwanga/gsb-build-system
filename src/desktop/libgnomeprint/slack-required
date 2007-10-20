@@ -2,7 +2,7 @@ libart_lgpl
 libbonobo
 libgnomecups
 gettext
-freetype2
+freetype
 glib2
 pango
 fontconfig

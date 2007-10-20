@@ -12,7 +12,7 @@ VERSION=3.3
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libxml2 zlib"
+REQUIRED_PACKAGES="libxml2 zlib glib2"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

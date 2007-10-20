@@ -1,5 +1,5 @@
 gnome-control-center
-gconf
+GConf
 gnome-keyring
 gnome-vfs
 gtk+2
