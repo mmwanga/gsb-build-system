@@ -12,7 +12,7 @@ VERSION=2.2.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libogg libmad libvorbis libtheora"
+REQUIRED_PACKAGES="libogg libmad libvorbis libtheora speex"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
