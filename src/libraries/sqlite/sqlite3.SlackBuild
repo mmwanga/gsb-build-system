@@ -22,7 +22,8 @@ TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP/gsb-packages}
 
 ## Script variables.
-PKGNAME=$(basename $0 .SlackBuild)
+PKGNAME=sqlite
+GSBPKGNAME=$(basename $0 .SlackBuild)
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
@@ -68,8 +69,8 @@ done
     return $?
   }
 
-  check_installed "$PKGNAME" && {
-    echo "${0##*/}: Remove installed '$PKGNAME' package before build."
+  check_installed "$GSBPKGNAME" && {
+    echo "${0##*/}: Remove installed '$GSBPKGNAME' package before build."
     exit 1
   }
 
@@ -204,7 +205,7 @@ done
 
 ## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/$GSBPKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
