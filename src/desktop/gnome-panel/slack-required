@@ -14,7 +14,7 @@ libxml2
 libgnome
 libgnomeui
 dbus
-freetype2
+freetype
 pango
 gtk+2
 glib2

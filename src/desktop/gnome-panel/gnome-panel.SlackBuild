@@ -12,7 +12,7 @@ VERSION=2.20.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gamin libglade GConf gnome-desktop gnome-keyring gnome-menus gnome-vfs gtk+2 startup-notification libwnck rarian libgnomecanvas libxml2 libgnome libgnomeui dbus freetype2 pango gtk+2 glib2 atk libpng evolution-data-server gstreamer" 
+REQUIRED_PACKAGES="gamin libglade GConf gnome-desktop gnome-keyring gnome-menus gnome-vfs gtk+2 startup-notification libwnck rarian libgnomecanvas libxml2 libgnome libgnomeui dbus freetype pango gtk+2 glib2 atk libpng evolution-data-server gstreamer" 
 
 ## Build variables.
 ARCH=${ARCH:-i586}
