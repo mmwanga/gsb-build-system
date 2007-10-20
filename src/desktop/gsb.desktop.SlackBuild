@@ -78,8 +78,6 @@ BUILD_ORDER="
       gnome-desktop
       gnome-menus
       libwnck
-      openldap-client
-      heimdal
       evolution-data-server
       gnome-python
       gstreamer
