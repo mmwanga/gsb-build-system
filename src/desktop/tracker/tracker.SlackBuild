@@ -12,7 +12,7 @@ VERSION=0.6.3
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libxml2 gstreamer xine-lib sqlite3 gamin gnome-vfs gnome-desktop glib2 gtk+2 libglade poppler libexif libgsf zlib pango cairo dbus libpng gmime"
+REQUIRED_PACKAGES="libxml2 gstreamer sqlite3 gamin gnome-vfs gnome-desktop glib2 gtk+2 libglade poppler libexif libgsf zlib pango cairo dbus libpng gmime"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -164,6 +164,10 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
+  --disable-unac \
+  --enable-file-monitoring=fam \
+  --enable-video-extractor=gstreamer \
+  --disable-xmp \
   || exit 1
 
 ## Build and install.
@@ -187,13 +191,6 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
   rm -f $PKG/usr/info/dir
   gzip -9 $PKG/usr/info/*.info
 }
-
-## Correct permissions.
-## Doing these chown's will remove any s{u,g}id bits that may have been set on
-## the installed files, which is not usually what we want.  Only uncomment/use
-## these chown's if necessary.  ~Tadgy.
-# chown -R $(stat --format "%u:%g" /usr/bin) $PKG/usr/bin
-# chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/sbin
 
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
