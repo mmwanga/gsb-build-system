@@ -89,6 +89,7 @@ BUILD_ORDER=" liboil
         mpeg4ip
         mjpegtools
         libmpcdec
+        wavpack
         transcode
         iso-codes
         libexif
