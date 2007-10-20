@@ -171,8 +171,8 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 ## Add xinitrc script for Gnome
 ##
 mkdir -p $PKG/etc/X11/xinit
-cat $CWD/xinitrc.gnome > $PKG/etc/X11/xinit/xinitrc.gnome
-chmod 755 $PKG/etc/X11/xinit/xinitrc.gnome 
+cat $CWD/xinitrc.gnome > $PKG/etc/X11/xinit/xinitrc.gnome.new
+chmod 755 $PKG/etc/X11/xinit/xinitrc.gnome.new
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
