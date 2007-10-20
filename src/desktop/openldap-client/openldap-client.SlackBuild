@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.3.382.3.38
+VERSION=2.3.38
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -91,7 +91,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xzf $CWD/$PKGNAME-$VERSION.tgz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -253,7 +253,7 @@ done
 
 ## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$GSBPKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/$GSBPKGNAME-${VERSION//-/_}-ntlm-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
