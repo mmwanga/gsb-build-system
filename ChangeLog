@@ -3,6 +3,11 @@ ChangeLog
 
 20-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * desktop: Added ntlm to openldap version (for clarity).
+	           Major gconf cleanup and schema fixes.
+			   Added tracker.  
+	* platform: Major gconf schemas cleanup.
+	            Schema install fixes for gnome-vfs and libgnome.
+				Moved heimdal and openldap-client to libraries (needed by gnome-vfs)
 	* libraries: Added gssapi_generic.h ln in heimdal for MIT krb5 compat.
 	             Added wavpack codec and libshout library.
 				 Removed libvisual (in Slackware 12)
