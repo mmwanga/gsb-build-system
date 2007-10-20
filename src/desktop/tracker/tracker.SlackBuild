@@ -12,7 +12,7 @@ VERSION=0.6.3
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES=""
+REQUIRED_PACKAGES="libxml2 gstreamer xine sqlite3 gamin gnome-vfs gnome-desktop glib2 gtk+2 libglade poppler libexif libgsf zlib pango cairo dbus libpng gmime"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
