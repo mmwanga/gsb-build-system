@@ -88,9 +88,9 @@ BUILD_ORDER="
       gconf-editor
       gnome-terminal
       libgtop
-      gnome-applets
       libxklavier
       libgnomekbd
+      gnome-applets
       libgnomecups
       libgnomeprint
       libgnomeprintui
