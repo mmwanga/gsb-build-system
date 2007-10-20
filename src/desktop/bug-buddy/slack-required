@@ -1,5 +1,4 @@
 gnome-menus
-libelf
 gnome-vfs
 libglade
 libgnomeui
@@ -8,3 +7,4 @@ gnome-desktop
 gnome-keyring
 libgnomecanvas
 startup-notification
+libelf
