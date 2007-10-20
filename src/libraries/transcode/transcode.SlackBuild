@@ -154,11 +154,6 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
-## The default is to build shared libraries, no static libraries, install into
-## /usr and use /etc as the config directory.
-## For packages with GNOME Schemas, additional options are required:
-##  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
-##  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
 
 ## Slackware 12 has lzo2.
 sed -i "s/llzo/llzo2/g" $TMP/$PKGNAME-$VERSION/configure;

@@ -110,6 +110,7 @@ BUILD_ORDER=" liboil
         libsexy
         libcroco
         libgpod
+        lua
         libnl
         dhcdbd
 		"
