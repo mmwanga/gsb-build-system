@@ -12,7 +12,7 @@ VERSION=0.10.14
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glib2 libxml2"
+REQUIRED_PACKAGES="glib2 libxml2 gstreamer"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -159,6 +159,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
+  --without-check \
   || exit 1
 
 ## Build and install.

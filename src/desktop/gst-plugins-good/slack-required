@@ -20,3 +20,8 @@ libshout
 zlib
 taglib
 esound
+speex
+taglib
+wavpack
+libavc1394
+flac
