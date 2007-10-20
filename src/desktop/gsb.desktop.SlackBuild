@@ -85,6 +85,7 @@ BUILD_ORDER="
       gst-plugins-good
       gst-plugins-ugly
       gnome-panel
+      deskbar-applet
       gconf-editor
       gnome-terminal
       libgtop
@@ -95,12 +96,13 @@ BUILD_ORDER="
       libgnomeprintui
       metacity
       eel
+      gnome-session
+      tracker
       nautilus
       nautilus-cd-burner
       gnome-mount
-      gnome-control-center
-      gnome-session
       gnome-applets
+      gnome-control-center
       bug-buddy
       gnome-python-desktop
       gnome-keyring-manager
