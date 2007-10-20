@@ -1,12 +1,12 @@
         |-----handy-ruler------------------------------------------------------|
 metacity: metacity (GNOME Window Manager)
 metacity:
-metacity: Metacity (rhymes with "capacity") is a compositing window manager used 
-metacity: by default in the GNOME desktop environment. The development of Metacity 
+metacity: Metacity (rhymes with "capacity") is a window manager used by default 
+metacity: in the GNOME desktop environment. The development of Metacity 
 metacity: was started by Havoc Pennington and it is released under the GNU General 
 metacity: Public License.
 metacity: 
 metacity: Although Metacity is part of the GNOME project and designed to integrate 
 metacity: into the GNOME desktop, it does not require GNOME to run, and GNOME can be 
-metacity: used with different window managers. Metacity is implemented in GTK+, which 
-metacity: makes it themeable and makes it blend in with other GTK+ applications.
+metacity: used with different window managers. 
+metacity: 
