@@ -103,6 +103,7 @@ BUILD_ORDER=" liboil
         libavc1394
         libiec61883
         speex
+        libshout
         pwlib
         opal	
         nss
