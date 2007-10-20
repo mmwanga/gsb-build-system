@@ -90,7 +90,12 @@ mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
 ## Decompress archive.
+
+## We should also clean up any previous versions in order to prevent
+## the patch failing (on any reiterated builds). 
+
 cd $TMP &&
+rm -fr $PKGNAME-$VERSION &&
 tar xzf $CWD/$PKGNAME-$VERSION.tgz &&
 cd $PKGNAME-$VERSION || exit 1
 
@@ -259,7 +264,7 @@ done
 
 ## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$GSBPKGNAME-${VERSION//-/_}-ntlm-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/$GSBPKGNAME-${VERSION//-/_}_ntlm-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
