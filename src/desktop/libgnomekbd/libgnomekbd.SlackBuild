@@ -12,7 +12,7 @@ VERSION=2.20.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libxklavier dbus GConf ORBit2 pango libbonoboui libgnome cairo freetype glib2"
+REQUIRED_PACKAGES="libxklavier dbus GConf ORBit2 pango libbonoboui libgnome cairo freetype glib2 gtk+2 libglade libgnomeui"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
