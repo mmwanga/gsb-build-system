@@ -6,7 +6,9 @@ ChangeLog
 	* libraries: Added gssapi_generic.h ln in heimdal for MIT krb5 compat.
 	             Added wavpack codec and libshout library.
 				 Removed libvisual (in Slackware 12)
+				 Removed unneccessary schema stuff from SlackBuilds.
 	* applications: Removed pidgin (in Slackware 12)
+	* lib/gsb: Minor fix to generic.SlackBuild for schemas (accidental blank space)
 
 19-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * platform: Added pango 1.18.3.  Needed by gtk+2 2.12.1.
