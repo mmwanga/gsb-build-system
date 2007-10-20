@@ -1,6 +1,6 @@
 libxml2
 gstreamer
-xine
+xine-lib
 sqlite3
 gamin
 gnome-vfs
