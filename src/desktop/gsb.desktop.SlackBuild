@@ -98,10 +98,11 @@ BUILD_ORDER="
       nautilus
       gnome-mount
       nautilus-cd-burner
-      gnome-applets
       gnome-control-center
       gnome-session
+      gnome-applets
       bug-buddy
+      gtksourceview
       gnome-python-desktop
       deskbar-applet
       gnome-keyring-manager
