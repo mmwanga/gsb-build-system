@@ -12,7 +12,7 @@ VERSION=2.20.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="python glib2 gtk+2 pygtk pyorbit libgnome libgnomeui libbonbobo libbonboboui libgnomecanvas gnome-vfs GConf"
+REQUIRED_PACKAGES="python glib2 gtk+2 pygtk pyorbit libgnome libgnomeui libbonobo libbonoboui libgnomecanvas gnome-vfs GConf"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

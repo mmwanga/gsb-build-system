@@ -5,8 +5,8 @@ glib2
 gtk+2
 libgnome
 libgnomeui
-libbonbobo
-libbonboboui
+libbonobo
+libbonoboui
 libgnomecanvas
 gnome-vfs
 GConf
