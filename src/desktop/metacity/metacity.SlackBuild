@@ -12,7 +12,7 @@ VERSION=2.20.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="GConf glib2 gtk+2 ORBit2 startup-notification libgnome libgnomeui gnome-menu libX11 libXrender libXrandr libXinerama libXcursor pango cairo"
+REQUIRED_PACKAGES="GConf glib2 gtk+2 ORBit2 startup-notification libgnome libgnomeui gnome-menus libX11 libXrender libXrandr libXinerama libXcursor pango cairo"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

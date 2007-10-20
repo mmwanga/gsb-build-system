@@ -5,10 +5,10 @@ ORBit2
 startup-notification
 libgnome
 libgnomeui
-gnome-menu
 libXrender
 libXrandr
 libXinerama
 libXcursor
 pango
 cairo
+gnome-menus

@@ -12,7 +12,7 @@ VERSION=2.18.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gnome-icon-theme gtk+2 libgnomecanvas libgnomeprint libgnomecups"
+REQUIRED_PACKAGES="gnome-icon-theme gtk+2 libgnomecanvas libgnomeprint libgnomecups libglade"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
