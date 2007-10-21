@@ -92,7 +92,6 @@ BUILD_ORDER=" liboil
         wavpack
         transcode
         iso-codes
-        libexif
         libexif-gtk
         libgphoto2
         boost
