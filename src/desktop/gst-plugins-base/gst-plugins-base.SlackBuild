@@ -155,11 +155,20 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
+##
+## Make sure not to build videotestsrc, audioresample, videoscale as 
+## they are broken.
+##
+
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --disable-valgrind \
+  --with-plugins=alsa,cdparanoia,gnomevfs,libvisual,ogg,\
+    pango,theora,video4linux,vorbis,ximagesink,xvimagesink,\
+    volume,playback,typefind,gdp,ffmpegcolorspace,audiorate,\
+    audioconvert,adder
   || exit 1
 
 ## Build and install.
