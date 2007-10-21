@@ -89,6 +89,7 @@ BUILD_ORDER="
        gnome-bluetooth
        gnome-spell
        gtkam
+       brasero
        gcalctool
        gnome-phone-manager
        gmime
