@@ -2,30 +2,35 @@ ChangeLog
 ---------
 
 20-10-2007  fidesratio <sk238(at)ex.ac.uk>	
-    * desktop: Added ntlm to openldap version (for clarity).
-	           Major gconf cleanup and schema fixes.
-			   Added tracker.  Added sqlite3 (for tracker).
+    * desktop: Added ntlm to openldap version in package name (for clarity).
+	  Major gconf cleanup and schema fixes.
+	  Added deskbar-applet.
+	  Many minor fixes, and build order tweaks.
+	  Modified xinitrc.gnome, adding seahorse, ssh-agent, and dbus support.
 	* platform: Major gconf schemas cleanup.
-	            Schema install fixes for gnome-vfs and libgnome.
-				Moved heimdal and openldap-client to libraries (needed by gnome-vfs)
+	  Schema install fixes for gnome-vfs and libgnome.
+      Moved heimdal and openldap-client to libraries (needed by gnome-vfs)
 	* libraries: Added gssapi_generic.h ln in heimdal for MIT krb5 compat.
-	             Added wavpack codec and libshout library.
-				 Removed libvisual (in Slackware 12)
-				 Removed unneccessary schema stuff from SlackBuilds.
-	* applications: Removed pidgin (in Slackware 12)
+	  Added wavpack codec and libshout library.
+	  Removed libvisual (in Slackware 12)
+      Added sqlite3 (for tracker).
+	  Removed unneccessary schema stuff from SlackBuilds.
 	* lib/gsb: Minor fix to generic.SlackBuild for schemas (accidental blank space)
+	* office: Added tracker.  Removed xine dependency.
+	* applications: Removed pidgin (in Slackware 12).
+	  Moved seahorse from desktop to applications (due to mozilla dependency).
 
 19-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * platform: Added pango 1.18.3.  Needed by gtk+2 2.12.1.
-	            Forced to upgrade standard Slackware package.
-				Major fixes for NetworkManager for GNOME 2.20.
-				Fix for rc.stb (Added to rc.local)
-				(Patch for deprecated Druid).  See NetworkManager.SlackBuild.
-				Platform test build run.  Beta status now.  :^)
+	  Forced to upgrade standard Slackware gtk+2/glib/pango package.
+      Major fixes for NetworkManager for GNOME 2.20.
+	  Fix for rc.stb (Added to rc.local)
+	  Patch for deprecated Druid.  See NetworkManager.SlackBuild.
+      Platform test build run.  Beta status now.  :^)
 	* desktop: patches/openldap-ntlm.patch. Added openldap NTML for evolution.
-	           krb5 via heimdal added to evolution-data-server.
-			   Minor req/tweaks for gnome-themes tango-icon-theme gnome-doc-utils 
-			   at-spi gail gnome-desktop gnome-menus libwnck.
+	  krb5 via heimdal added to evolution-data-server.
+      Minor req/tweaks for gnome-themes tango-icon-theme gnome-doc-utils 
+      at-spi gail gnome-desktop gnome-menus libwnck.
 
 18-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * platform: rarian install script fixes (switch to rarian style).
@@ -166,15 +171,14 @@ ChangeLog
 	* Updated/edited more documentation.
 
 30-09-2007	fidesratio <sk238(at)ex.ac.uk>
-	* gnome.applications: Added gnome.applications, and split from
+	* gsb.applications: Added gnome.applications, and split from
 	  gnome.desktop.
 	* generic.SlackBuild: Applied changes to generic.SlackBuild from tadgy
 	  (rev. generic.SlackBuild 1.2)
-	* Libraries: Updated a52dec, ffmpeg, xvidcore, faac, faad2, lame,
-	  libcdio, vcdimager, libcddb.
-	* Added libexif, libexif-gtk, libopenraw, libiptcdata, gtkunique to 
-	  gnome.libraries.
-	* gnome.desktop: gnome-desktop gnome-menus libwnck libsoup 
+	* gsb.libraries: Updated a52dec, ffmpeg, xvidcore, faac, faad2, lame
+      libcdio, vcdimager, libcddb libexif, libexif-gtk, 
+	  libopenraw, libiptcdata, gtkunique. 
+	* gsb.desktop: Added gnome-desktop gnome-menus libwnck libsoup 
 	  evolution-data-server gnome-python gstreamer gst-plugins-base 
 	  gst-plugins-good gnome-panel gnome-terminal libgtop gnome-applets 
 	  libxklavier libgnomekdb libgnomecups libgnomeprint libgnomeprintui 
