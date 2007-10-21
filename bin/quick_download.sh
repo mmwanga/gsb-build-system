@@ -10,7 +10,7 @@
 SLACKBUILD=`ls ./*.SlackBuild`
 PACKAGENAME=`basename $SLACKBUILD .SlackBuild`
 
-MIRROR=$(grep $PACKAGENAME\, /home/stevek/devel/gsb/trunk/notes/gnome-2.20 | cut -d\, -f2)
+MIRROR=$(grep ^$PACKAGENAME\, /home/stevek/devel/gsb/trunk/notes/gnome-2.20 | cut -d\, -f2)
 
 if [ "$MIRROR" = "" ]; then
 	MIRROR="ftp.gnome.org/pub/gnome/sources"
@@ -23,9 +23,9 @@ if [ "$MIRROR" = "" ]; then
 		echo "WARNNIG: md5 failed."
 	fi;
 else
-	VERSION=$(grep $PACKAGENAME\, /home/stevek/devel/gsb/trunk/notes/gnome-2.20 | cut -d\, -f3)
-	FORMAT=$(grep $PACKAGENAME\, /home/stevek/devel/gsb/trunk/notes/gnome-2.20 | cut -d\, -f4)
-	VERIFY=$(grep $PACKAGENAME\, /home/stevek/devel/gsb/trunk/notes/gnome-2.20 | cut -d\, -f5)
+	VERSION=$(grep ^$PACKAGENAME\, /home/stevek/devel/gsb/trunk/notes/gnome-2.20 | cut -d\, -f3)
+	FORMAT=$(grep ^$PACKAGENAME\, /home/stevek/devel/gsb/trunk/notes/gnome-2.20 | cut -d\, -f4)
+	VERIFY=$(grep ^$PACKAGENAME\, /home/stevek/devel/gsb/trunk/notes/gnome-2.20 | cut -d\, -f5)
         echo version:$VERSION format:$FORMAT verify:$VERIFY
 	wget -c ${MIRROR}${PACKAGENAME}\-${VERSION}.${FORMAT}
 	if [ "$VERIFY" = "md5" ]; then
