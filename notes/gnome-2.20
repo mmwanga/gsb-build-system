@@ -5,6 +5,7 @@
 ##PackageName,URL,Version,Format,Verify
 ##
 pycairo,http://cairographics.org/releases/,1.4.0,tar.gz,md5
+cairo,http://cairographics.org/releases/,1.4.10,tar.gz,NONE
 dbus-python,http://dbus.freedesktop.org/releases/dbus-python/,0.82.3,tar.gz,asc
 libdaemon,http://0pointer.de/lennart/projects/libdaemon/,0.12,tar.gz,NONE
 avahi,http://avahi.org/download/,0.6.21,tar.gz,NONE
@@ -26,6 +27,7 @@ libmatroska,http://dl.matroska.org/downloads/libmatroska/,0.8.1,tar.bz2,NONE
 libmms,http://downloads.sourceforge.net/libmms/,0.3,tar.gz,NONE
 libquicktime,http://downloads.sourceforge.net/libquicktime/,1.0.0,tar.gz,NONE
 libdv,http://downloads.sourceforge.net/libdv/,1.0.0,tar.gz,NONE
+gtkam,http://downloads.sourceforge.net/gphoto/,0.1.14,tar.bz2,NONE
 mpeg2dec,http://libmpeg2.sourceforge.net/files/,0.4.1,tar.gz,NONE
 mjpegtools,http://downloads.sourceforge.net/mjpeg/,1.9.0rc2,tar.gz,NONE
 libmpcdec,http://files.musepack.net/source/,1.2.6,tar.bz2,NONE

@@ -1,6 +1,13 @@
 ChangeLog
 ---------
 
+21-10-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * desktop: Fix gst-plugins-base by removing videotestsrc, audioresample, 
+	  videoscale (segfault). Basic GNOME 2.20 Desktop working.  :^)
+	* applications: Switch doinst.sh's over from scrollkeeper to rarian.
+	  Major cleanup of schemas installations.
+	  Added gcalctool, gtkam, gnome-phone-manager.  Removed gal.
+
 20-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * desktop: Added ntlm to openldap version in package name (for clarity).
 	  Major gconf cleanup and schema fixes.
