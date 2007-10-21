@@ -88,6 +88,9 @@ BUILD_ORDER="
        gnome-pilot-conduits
        gnome-bluetooth
        gnome-spell
+       gtkam
+       gcalctool
+       gnome-phone-manager
        gmime
        evolution
        evolution-webcal
@@ -98,7 +101,6 @@ BUILD_ORDER="
        gthumb
        rhythmbox
        evince
-       gtksourceview
        gedit
        gedit-plugins
        nautilus-sendto

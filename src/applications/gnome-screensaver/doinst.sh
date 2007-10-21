@@ -1,7 +1,5 @@
 # Version: 0.1.1
 
-ldconfig -r .
-
 function install_file() {
   # $1 = File to process
 
@@ -24,8 +22,8 @@ function install_file() {
 install_file etc/xdg/menus/gnome-screensavers.menu.new
 
 ## Update Scrollkeeper
-if [ -x usr/bin/scrollkeeper-update ]; then
-  usr/bin/scrollkeeper-update -p var/lib/scrollkeeper 1> /dev/null 2> /dev/null
+if [ -x usr/bin/rarian-sk-update ]; then
+  usr/bin/rarian-sk-update 1> /dev/null 2> /dev/null
 fi
 
 ## Update .desktop Files

@@ -1,23 +1,29 @@
-if [ -x usr/bin/scrollkeeper-update ]; then
-  usr/bin/scrollkeeper-update -p var/lib/scrollkeeper 1> /dev/null 2> /dev/null
+if [ -x usr/bin/rarian-sk-update ]; then
+  usr/bin/rarian-sk-update -p var/lib/scrollkeeper 1> /dev/null 2> /dev/null
 fi
 
 if [ -x usr/bin/update-desktop-database ]; then
   usr/bin/update-desktop-database 1> /dev/null 2> /dev/null
 fi
 
-config() {
-  NEW="$1"
-  OLD="`dirname $NEW`/`basename $NEW .new`"
-  # If there's no config file by that name, mv it over:
-  if [ ! -r $OLD ]; then
-    mv $NEW $OLD
-  elif [ "`cat $OLD | md5sum`" = "`cat $NEW | md5sum`" ]; then # toss the redundant copy
-    rm $NEW
+function install_file() {
+  # $1 = File to process
+
+  FILE="$(dirname "$1")/$(basename "$1" .new)"
+  if [ ! -e "$FILE" ]
+  then
+    mv "$FILE.new" "$FILE"
+  elif [ "$(cat "$FILE" | md5sum)" != "$(cat "$FILE.new" | md5sum)" ]
+  then
+    #     |--------|--------------------------------------------------|
+    echo "WARNING: $FILE has been customised."
+    echo "         Examine the $FILE.new file"
+    echo "         and integrate any changes into the custom file."
+    echo
+  else
+    rm -f "$FILE.new"
   fi
-  # Otherwise, we leave the .new copy for the admin to consider...
 }
 
-config etc/X11/gdm/custom.conf.new
-config etc/X11/gdm/Xsession.new
-
+install_file etc/X11/gdm/custom.conf.new
+install_file etc/X11/gdm/Xsession.new

@@ -4,7 +4,6 @@ gst-plugins-good
 libcdio
 cdparanoia
 libcddb
-vcdimager
 taglib
 gnome-media
 libmusicbrainz
