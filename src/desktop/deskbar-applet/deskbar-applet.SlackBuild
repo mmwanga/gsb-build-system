@@ -12,7 +12,7 @@ VERSION=2.20.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomeui gnome-python-desktop gnome-panel gnome-applets dbus evolution-data-server"
+REQUIRED_PACKAGES="libgnomeui gnome-python-desktop gnome-panel gnome-applets dbus evolution-data-server pygtk gnome-python"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

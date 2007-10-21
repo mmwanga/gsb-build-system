@@ -4,3 +4,5 @@ gnome-panel
 gnome-applets
 dbus
 evolution-data-server
+pygtk
+gnome-python
