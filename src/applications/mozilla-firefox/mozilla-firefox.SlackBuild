@@ -167,6 +167,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-optimize="$CFLAGS -freorder-blocks -fno-reorder-functions -gstabs+" \
   --enable-default-toolkit=gtk2 --disable-freetype2 --enable-xft \
   --enable-svg --enable-canvas \
+  --enable-system-cairo \
   || exit 1
 
 ## Build and install.
