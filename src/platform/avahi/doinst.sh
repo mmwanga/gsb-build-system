@@ -74,13 +74,12 @@ if [ ! -e etc/rc.d/rc.local ]; then
 fi
 	
 # If rc.avahi is executable, run it on startup
-run=`grep ". etc/rc.d/rc.avahidaemon" etc/rc.d/rc.local`
+run=`grep ". /etc/rc.d/rc.avahidaemon" etc/rc.d/rc.local`
 if [ "${run}" == "" ]; then	
 cat << EOF >> etc/rc.d/rc.local
 
 # To disable avahi, chmod rc.avahidaemon to 644
-if [ -x /etc/rc.d/rc.avahidaemon -a -x etc/rc.d/rc.avahidnsconfd ]; then
-  echo "Starting the Avahi Zeroconf Subsystem: "
+if [ -x /etc/rc.d/rc.avahidaemon -a -x /etc/rc.d/rc.avahidnsconfd ]; then
   . /etc/rc.d/rc.avahidaemon start
   . /etc/rc.d/rc.avahidnsconfd start
 fi

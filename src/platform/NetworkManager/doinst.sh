@@ -47,7 +47,6 @@ cat << EOF >>etc/rc.d/rc.local
 
 # To disable networkmanager, chmod rc.networkmanager to 644
 if [ -x /etc/rc.d/rc.networkmanager ]; then
-  echo "Starting NetworkManager:"
   . /etc/rc.d/rc.networkmanager start
 fi
 EOF
@@ -74,7 +73,6 @@ cat << EOF
 Note:
 -----
 To allow users to connect to the NetworkManager daemon they have to be in the
-group "netdev". If you want to add a user to group "netdev" use the command
-"adduser username netdev".
+group "netdev". 
 
 EOF
