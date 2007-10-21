@@ -3,10 +3,15 @@ ChangeLog
 
 21-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * desktop: Fix gst-plugins-base by removing videotestsrc, audioresample, 
-	  videoscale (segfault). Basic GNOME 2.20 Desktop working.  :^)
+	  videoscale (segfault). 
+	  Basic GNOME 2.20 Desktop now working.  :^)
+	* platform: Fixes for avahi and NetworkManager doinst.sh (for rc.* installs)
 	* applications: Switch doinst.sh's over from scrollkeeper to rarian.
 	  Major cleanup of schemas installations.
 	  Added gcalctool, gtkam, gnome-phone-manager.  Removed gal.
+	  Force Mozilla Firefox to use system cairo
+	  (Bug http://live.gnome.org/JhbuildIssues/mozilla#head-65db9063bcddde7c04521924fcdecd6393972a5f)
+	* libraries: Removed libexif. (In Slackware 12).  Freerock pointed this out.  :)
 
 20-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * desktop: Added ntlm to openldap version in package name (for clarity).
@@ -17,13 +22,14 @@ ChangeLog
 	* platform: Major gconf schemas cleanup.
 	  Schema install fixes for gnome-vfs and libgnome.
       Moved heimdal and openldap-client to libraries (needed by gnome-vfs)
-	* libraries: Added gssapi_generic.h ln in heimdal for MIT krb5 compat.
-	  Added wavpack codec and libshout library.
+	* libraries: Added gssapi_generic.h link in heimdal for MIT krb5 compat.
+	  Added wavpack codec and libshout library (for gstreamer).
 	  Removed libvisual (in Slackware 12)
       Added sqlite3 (for tracker).
 	  Removed unneccessary schema stuff from SlackBuilds.
 	* lib/gsb: Minor fix to generic.SlackBuild for schemas (accidental blank space)
-	* office: Added tracker.  Removed xine dependency.
+	* office: Added tracker (thanks to psychicist for pointing it out)
+	  Removed xine dependency from tracker (uses gstreamer now)
 	* applications: Removed pidgin (in Slackware 12).
 	  Moved seahorse from desktop to applications (due to mozilla dependency).
 
