@@ -61,7 +61,20 @@ done
 mkdir -p $TMP
 mkdir -p $LOGSDIR
 
-# Packages must be listed here in the order they should be built.
+##
+## External Dependencies
+##
+## These packages are not apart of the official GNOME distribution
+## but are used by many GNOME applications.  They include C Libraries,
+## media codecs, script languages, and networking libraries.
+## 
+
+####
+#### BUILD ORDER
+####
+
+## Packages must be listed here in the order they should be built.
+
 BUILD_ORDER=" liboil
         libelf
         libnotify
