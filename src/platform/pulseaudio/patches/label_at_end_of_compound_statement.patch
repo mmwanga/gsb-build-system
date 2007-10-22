@@ -1,5 +1,5 @@
---- a/src/pulsecore/core-util.c 2007-05-25 22:35:33.000000000 +0200
-+++ b/src/pulsecore/core-util.c 2007-10-03 23:02:35.000000000 +0200
+--- ./src/pulsecore/core-util.c 2007-05-25 22:35:33.000000000 +0200
++++ ./src/pulsecore/core-util.c.new 2007-10-03 23:02:35.000000000 +0200
 @@ -535,7 +535,7 @@
          pa_log_info("Successfully gained high priority class.");
  #endif
