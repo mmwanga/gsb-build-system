@@ -12,7 +12,7 @@ VERSION=0.10.14
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glib2 libxml2 gstreamer"
+REQUIRED_PACKAGES="glib2 libxml2"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
