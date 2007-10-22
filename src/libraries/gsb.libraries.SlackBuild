@@ -79,6 +79,7 @@ BUILD_ORDER=" liboil
         libelf
         libnotify
         libsamplerate
+        libatomic_ops
         a52dec
         ffmpeg
         xvidcore

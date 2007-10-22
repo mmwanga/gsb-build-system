@@ -1,0 +1,12 @@
+             |-----handy-ruler------------------------------------------------------|
+libatomic_ops: libatomic_ops (Library for Atomic Memory Operations)
+libatomic_ops: 
+libatomic_ops: libatomic_ops provides implementations for atomic memory update 
+libatomic_ops: operations on a number of architectures. This allows direct use of these 
+libatomic_ops: in reasonably portable code. It explicitly considers memory barrier 
+libatomic_ops: semantics, and allows the construction of code that involves minimum 
+libatomic_ops: overhead across a variety of architectures.
+libatomic_ops: 
+libatomic_ops: For more information, please see:
+libatomic_ops:       http://www.hpl.hp.com/research/linux/atomic_ops/index.php4
+libatomic_ops: 
