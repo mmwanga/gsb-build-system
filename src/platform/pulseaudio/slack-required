@@ -4,3 +4,4 @@ hal
 avahi
 glib2
 libsamplerate
+libatomic_ops

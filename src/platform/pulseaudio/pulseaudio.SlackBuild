@@ -12,7 +12,7 @@ VERSION=0.9.6
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libsndfile pkg-config GConf hal avahi glib2 libsamplerate" 
+REQUIRED_PACKAGES="libsndfile pkg-config GConf hal avahi glib2 libsamplerate libatomic_ops" 
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -159,6 +159,12 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
+  --enable-avahi \
+  --enable-hal \
+  --enable-gconf \
+  --enable-glib2 \
+  --enable-alsa \
+  --enable-oss \
   || exit 1
 
 ## Build and install.
