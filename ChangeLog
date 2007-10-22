@@ -2,8 +2,9 @@ ChangeLog
 ---------
 
 22-10-2007  fidesratio <sk238(at)ex.ac.uk>	
-	* libraries: Added libsamplerate.
+	* libraries: Added libsamplerate, libatomic_ops and exempi.
     * platform: Added pulseaudio.
+	  Added patch for pulseaudio for gcc > 4.0.  See http://pulseaudio.org/ticket/134.
 
 21-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * desktop: Fix gst-plugins-base by removing videotestsrc, audioresample, 
