@@ -12,7 +12,6 @@ gnome-desktop
 iso-codes
 gst-plugins-good
 gst-plugins-base
-gst-plugins-ugly
 gstreamer
 nautilus
 dbus
