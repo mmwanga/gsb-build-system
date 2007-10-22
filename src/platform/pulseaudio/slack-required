@@ -1,0 +1,6 @@
+libsndfile
+pkgconfig
+GConf
+hal
+avahi
+glib2

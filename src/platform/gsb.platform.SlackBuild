@@ -101,6 +101,7 @@ BUILD_ORDER="
      icon-naming-utils
      gnome-icon-theme
      gnome-keyring
+     pulse-audio
      libgnomeui
      gtk-engines
      libsoup
