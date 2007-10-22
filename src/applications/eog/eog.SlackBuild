@@ -12,7 +12,7 @@ VERSION=2.20.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="eel GConf libbonoboui libgnomeprintui gnome-keyring gnome-vfs libgnomecanvas libgnomeui libjpeg libexif lcms"
+REQUIRED_PACKAGES="eel GConf libbonoboui libgnomeprintui gnome-keyring gnome-vfs libgnomecanvas libgnomeui libjpeg libexif lcms exempi"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
