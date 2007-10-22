@@ -4,6 +4,7 @@ ChangeLog
 22-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * libraries: Removed CFLAGS from liboil and rebuilt. Excessive optimization
 	  was causing it to segault.  This fixes the gstreamer problem.
+	  Added libgalago.
 	* desktop: Restore plugins to gstreamer.
 	* applications: Restore grecord to gnome-media.
 	  Added shared-mime-info 0.22 (needed by totem)
