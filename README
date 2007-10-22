@@ -45,29 +45,30 @@ If you login to your system at the text console and use 'startx' or similar,
 you should log in as your usual (not root!) user and run:
   $ xwmconfig
 ... and select the GNOME option from the menu.
-You can also repeat the above as root to set the default for system as a whole.
+You can also repeat the above as root to set the default for system as a whole,
+but using root as your every day login user is a *really* *stupid* *idea*.
 
 Secondly, if you login to your system via a graphical login manager (such as
 kdm, xdm or other) you will need to exit the graphical login manager in order
 to allow gdm (the GNOME graphical login manager) to take over.
 
 To get gdm up and running you need to be at a text console [yes, an Xterm
-will work but you'll have to re-login after X Windows exits; it's just easier
+will work but you'll have to re-login after X Windows exits - it's just easier
 to do it this way, trust me]:  hold down Ctl and Alt and press F6 once.
-You should now see a text based "login" prompt.
+After a couple of seconds you should see a text based "login" prompt.
 
 At the text "login" prompt, login to your system as root and then run:
   $ init 3
 ... and wait for the system to close all of the X Window processes and return
-you to the usual prompt.  It may take up to 30 seconds to do this, and try
+you to the usual prompt.  It may take up to a minute to do this, and try
 hitting Enter a couple of times to see when it's done.
 
 Once back to the prompt, run:
   $ init 4
 ... and wait for the new gdm graphical login manager to appear.
 
-You can no login to your new GSB system.  Make sure you select "GNOME" from
-the session selection menu, if it is not already the default.
+You can now login to your new GSB GNOME desktop.  Make sure you select "GNOME"
+from the session selection menu, if it is not already the default.
 
 If you are returned to the prompt or your display keeps going on and off
 repeatidly, the gdm application has not started sucessfully and there is a
@@ -133,7 +134,7 @@ TUNE
 DISTRO
   Setting DISTRO to anything other than "slackware" allows GSB to be built on
   different (Slackware based) distributions.  For example, this can be set to
-  slamd64 when building GSB on the 64 bit Slackware based distro Slamd64.
+  "slamd64" when building GSB on the 64 bit Slackware based distro Slamd64.
   The default is "slackware", and should not be over-ridden unless you are
   specifically building for another distribution.
 
@@ -141,11 +142,11 @@ TMP
   During the package builds, temporary data will need to be stored on disk.
   This option specifies the directory where that temporary data can be written.
   Make sure the default (or any directory you specify) has enough free space
-  for the build process, plus the complete packages and logs.
+  for the build process, plus the completed packages and logs.
   The default is "/tmp".
 
 PKGDEST
-  Once the package has been built it will be stored in the directory specified
+  Once a package has been built it will be stored in the directory specified
   with this option.  The default for this option is affected by the value of
   the TMP environment option detailed above (referred to as $TMP below).
   The default is "$TMP/gsb-packages".

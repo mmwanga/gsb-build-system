@@ -36,5 +36,8 @@ Notes for hackers
 * Don't commit changes to generic.SlackBuild without talking to Tadgy or Steve
   (fidesratio) first.
 
+* Don't add any src/gsb.options you may have on your system to SVN.  We do not
+  need your customisation options in the main repo.
+
 * If you add a new package to the build system please use the template
   generic.SlackBuild, doinst.sh and slack-* files in the lib/gsb/ directory.
