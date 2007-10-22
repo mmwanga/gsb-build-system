@@ -62,57 +62,6 @@ my $gsb_root_sources = "../src";
 
 my @bad_downloads;
 
-# THESE VARIABLES ARE NOT USED YET
-# these are here to make the main code below less repetative eventually, still
-# needs some changes
-#
-# Group similar hashes together
-my %gnome_packages =
-  (
-   '%platform'             => 'gnome/platform',
-   '%desktop'              => 'gnome/desktop',
-   '%themes'               => 'gnome/themes',
-   '%office_gnome'         => 'office',
-   '%office_gnome_libs'    => 'office/libs',
-   '%gstreamer'            => 'gnome/desktop',
-  );
-
-my %gnome_bindings =
-  (
-   '%bindings_cxx'     => {
-			   'type' => 'c++',
-			   'dir'  => 'gnome/bindings/c++',
-			  },
-   '%bindings_java'    => {
-			   'type' => 'java',
-			   'dir'  => 'gnome/bindings/java',
-		          },
-   '%bindings_python'  => {
-			   'type' => 'python',
-			   'dir'  => 'gnome/bindings/python',
-			  },
-   '%bindings_perl'    => {
-			   'type' => 'perl',
-			   'dir'  => 'gnome/bindings/perl',
-			  },
-
-  );
-
-my %gnome_other =
-  (
-   '%office'        => 'office',
-   '%office_libs'   => 'office/libs',
-   '%desktop_reqs'  => 'gnome/desktop_reqs',
-   '%gst_libs'      => 'requirements',
-   '%gst_other'     => 'other',
-   '%mono'          => 'mono',
-   '%other'         => 'other',,
-  );
-
-#
-#
-################################################################################
-
 ################################################################################
 #
 # main()
@@ -153,6 +102,141 @@ my $pwd = getcwd();
 ################################################################################
 #
 # Download and Edit
+
+
+# More extra tarballs.
+foreach my $dtu (keys %double_tarballs_url) {
+
+  my $name    = $dtu;
+
+  my $dir     = $double_tarballs_url{$dtu}{dir};
+  my $var     = $double_tarballs_url{$dtu}{var};
+  my $ver     = $double_tarballs_url{$dtu}{ver};
+  my $tarball = $double_tarballs_url{$dtu}{tar};
+  my $packurl = $double_tarballs_url{$dtu}{url};
+  my $type    = 'other';
+
+  chdir "$pwd/$dir";
+
+  my @tmp = split(/\//, $dir);
+  my $sb  = pop(@tmp);
+
+  my $sb_file = $sb . $sb_ext;
+
+  if ( $download eq "true") {
+    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_double_edit($sb_file, $ver, $var);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
+
+# Download Desktop Reqs
+foreach my $drpackage (keys %desktop_reqs) {
+
+  my $name    = $drpackage;
+
+  my $sb_file = $name . $sb_ext;
+  my $packurl = $desktop_reqs{$name}{url};
+  my $ver     = $desktop_reqs{$name}{ver};
+  my $src     = $desktop_reqs{$name}{src};
+  my $type    = "other";
+
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+
+  chdir "$pwd/libraries/$name";
+
+  if ( $download eq "true") {
+    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
+# Download GSTREAMER libs
+foreach my $gst_libs_pack (keys %gst_libs) {
+
+  my $name    = $gst_libs_pack;
+
+
+  my $sb_file = $name . $sb_ext;
+  my $packurl = $gst_libs{$gst_libs_pack}{url};
+  my $ver     = $gst_libs{$gst_libs_pack}{ver};
+  my $src     = $gst_libs{$gst_libs_pack}{src};
+  my $type    = 'other';
+
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+
+  chdir "$pwd/libraries/$name";
+
+  if ( $download eq "true" ) {
+    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
+
+
+# DONE DOWNLOADING
+
+if ( $download eq "true" ) {
+    if ( ! @bad_downloads eq "" ) {
+	print "\nThe following packages could not be downloaded:\n\n";
+
+	foreach my $bad_pack (@bad_downloads) {
+	    print "$bad_pack\n";
+	}
+	print "\n";
+    }else {
+	print "\nEverything downloaded successfully!\n\n";
+    }
+}
+
+exit(0);
+
+
+
+
+
+
+
+
+
+
 
 # DOWNLOAD Platform
 foreach my $ppackage (keys %platform) {
@@ -226,39 +310,6 @@ foreach my $fdopackage (keys %platform_reqs) {
   my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
 
   chdir "$pwd/gnome/platform/$name";
-
-  if ( $download eq "true") {
-    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
-    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
-}
-
-# Download Desktop Reqs
-foreach my $drpackage (keys %desktop_reqs) {
-
-  my $name    = $drpackage;
-
-  my $sb_file = $name . $sb_ext;
-  my $packurl = $desktop_reqs{$name}{url};
-  my $ver     = $desktop_reqs{$name}{ver};
-  my $src     = $desktop_reqs{$name}{src};
-  my $type    = "other";
-
-  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
-
-  chdir "$pwd/gnome/desktop_reqs/$name";
 
   if ( $download eq "true") {
     my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
@@ -1107,117 +1158,8 @@ foreach my $gnpackage (keys %gst_diff_name) {
 }
 
 
-# Download GSTREAMER libs
-foreach my $gst_libs_pack (keys %gst_libs) {
-
-  my $name    = $gst_libs_pack;
 
 
-  my $sb_file = $name . $sb_ext;
-  my $packurl = $gst_libs{$gst_libs_pack}{url};
-  my $ver     = $gst_libs{$gst_libs_pack}{ver};
-  my $src     = $gst_libs{$gst_libs_pack}{src};
-  my $type    = 'other';
-
-  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
-
-  chdir "$pwd/gnome/desktop_reqs/$name";
-
-  if ( $download eq "true" ) {
-    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
-    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
-}
-
-# Download extra tarballs for certain slackbuilds
-foreach my $dlibs (keys %double_tarballs) {
-
-  my $name    = $dlibs;
-
-  my $dir     = $double_tarballs{$dlibs}{dir};
-  my $packurl = $double_tarballs{$dlibs}{url};
-  my $ver     = $double_tarballs{$dlibs}{ver};
-  my $src     = $double_tarballs{$dlibs}{src};
-  my $var     = $double_tarballs{$dlibs}{var};
-  my $type    = 'other';
-
-
- chdir "$pwd/$dir";
-
-  my @tmp = split(/\//, $dir);
-  my $sb  = pop(@tmp);
-
-  my $sb_file = $sb . $sb_ext;
-
-  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
-
-  if ( $download eq "true") {
-    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
-    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_double_edit($sb_file, $ver, $var);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
-}
-
-# More extra tarballs.
-foreach my $dtu (keys %double_tarballs_url) {
-
-  my $name    = $dtu;
-
-  my $dir     = $double_tarballs_url{$dtu}{dir};
-  my $var     = $double_tarballs_url{$dtu}{var};
-  my $ver     = $double_tarballs_url{$dtu}{ver};
-  my $tarball = $double_tarballs_url{$dtu}{tar};
-  my $packurl = $double_tarballs_url{$dtu}{url};
-  my $type    = 'other';
-
-  chdir "$pwd/$dir";
-
-  my @tmp = split(/\//, $dir);
-  my $sb  = pop(@tmp);
-
-  my $sb_file = $sb . $sb_ext;
-
-  if ( $download eq "true") {
-    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
-    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_double_edit($sb_file, $ver, $var);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
-}
 
 # Download extra GSTREAMER plugins
 foreach my $gst_plugins_pack (keys %gst_other) {
@@ -1360,6 +1302,49 @@ foreach my $oruby_pack (keys %ruby) {
   }
 }
 
+
+# Download extra tarballs for certain slackbuilds
+#foreach my $dlibs (keys %double_tarballs) {
+#
+#  my $name    = $dlibs;
+#
+#  my $dir     = $double_tarballs{$dlibs}{dir};
+#  my $packurl = $double_tarballs{$dlibs}{url};
+#  my $ver     = $double_tarballs{$dlibs}{ver};
+#  my $src     = $double_tarballs{$dlibs}{src};
+#  my $var     = $double_tarballs{$dlibs}{var};
+#  my $type    = 'other';
+#
+#
+# chdir "$pwd/$dir";
+#
+#  my @tmp = split(/\//, $dir);
+#  my $sb  = pop(@tmp);
+#
+#  my $sb_file = $sb . $sb_ext;
+#
+#  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+#
+#  if ( $download eq "true") {
+#    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+#    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
+#  }
+
+#  if ( $edit eq "true" ) {
+#    GSB::Edit::gsb_sb_double_edit($sb_file, $ver, $var);
+#  }
+#
+#  if ( $build ne "" ) {
+#   GSB::Edit::gsb_build_release_make($sb_file, $build);
+#  }
+#
+#
+#  if ( ! -f $tarball ) {
+#   push(@bad_downloads, $name);
+#  }
+#}
+
+
 # DOWNLOAD other ruby libs
 #foreach my $rubynpackage (keys %ruby_diff_naming) {
 #
@@ -1397,18 +1382,6 @@ foreach my $oruby_pack (keys %ruby) {
 
 
 
-# DONE DOWNLOADING
-
-if ( $download eq "true" ) {
-    if ( ! @bad_downloads eq "" ) {
-	print "\nThe following packages could not be downloaded:\n\n";
-
-	foreach my $bad_pack (@bad_downloads) {
-	    print "$bad_pack\n";
-	}
-	print "\n";
-    }
-}
 # end main()
 #
 ################################################################################

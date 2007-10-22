@@ -13,74 +13,71 @@ our $VERSION   = 0.03;
 # Desktop Requirements Config Options
 #
 
+
 our %desktop_reqs =
   (
 
-   'bluez-libs'      => {
-                         'ver' => '3.9',
-                         'url' => 'http://bluez.sf.net/download/',
-                         'src' => 'tar.gz',
-                        },
-   'bluez-utils'     => {
-                         'ver' => '3.9',
-                         'url' => 'http://bluez.sf.net/download/',
-                         'src' => 'tar.gz',
-                        },
-   'cyrus-sasl'      => {
-			 'url' => 'ftp://ftp.andrew.cmu.edu/pub/cyrus-mail/',
-			 'ver' => '2.1.21',
-			 'src' => 'tar.gz',
-                        },
+   'dhcdbd'          => {
+			 'url' => 'http://dcantrel.fedorapeople.org/dhcdbd/',
+			 'ver' => '3.0',
+			 'src' => 'tar.bz2',
+			},
    'heimdal'         => {
 			 'url' => 'ftp://ftp.sunet.se/pub/unix/admin/mirror-pdc/heimdal/src/',
-			 'ver' => '0.7',
+			 'ver' => '1.0.1',
 			 'src' => 'tar.gz',
+		        },
+   'iso-codes'       => {
+			 'url' => 'ftp://pkg-isocodes.alioth.debian.org/pub/pkg-isocodes/',
+			 'ver' => '1.5',
+			 'src' => 'tar.bz2',
+		        },
+   'libcroco'        => {
+                         'ver' => '0.6.1',
+			 'url' => 'http://ftp.gnome.org/pub/GNOME/sources/libcroco/0.6/',
+			 'src' => 'tar.bz2',
 			},
-   'icon-naming-utils' => {
-	                 'url' => 'http://tango-project.org/releases/',
-			 'ver' => '0.8.2',
-			 'src' => 'tar.gz',
-			},
-   'neon'            => {
-                         'ver' => '0.26.3',
-                         'url' => 'http://www.webdav.org/neon/',
-                         'src' => 'tar.gz',
-                        },
+   'libiptcdata'       => {
+                           'ver' => '1.0.2',
+                           'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libiptcdata',
+                           'src' => 'tar.gz',
+                          },
+   'libnl'           => {
+			   'ver' => '1.0-pre6',
+			   'url' => 'http://people.suug.ch/~tgr/libnl/files/',
+			   'src' => 'tar.gz',
+			  },
+   'libnotify'         => {
+                             'ver' => '0.4.4',
+                             'url' => 'http://galago-project.org/files/releases/source/libnotify/',
+                             'src' => 'tar.gz',
+			  },
+   'libsexy'             => {
+                             'ver' => '0.1.11',
+                             'url' => 'http://releases.chipx86.com/libsexy/libsexy/',
+                             'src' => 'tar.gz',
+                            },
+   'lua'             => {
+			   'ver' => '5.1.2',
+			   'url' => 'http://www.lua.org/ftp/',
+			   'src' => 'tar.gz',
+		        },
    'opal'            => {
-                         'url' => 'http://seconix.com/misc/ekiga-2.0.3/',
+                         'url' => 'http://www.ekiga.org/admin/downloads/latest/sources/sources/',
                          'ver' => '2.2.11',
                          'src' => 'tar.gz',
                         },
-   'openldap'        => {
-			 'url' => 'ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/',
-			 'ver' => '2.3.34',
-			 'src' => 'tgz',
-			},
-   'openobex'        => {
-                         'ver' => '1.3',
-                         'url' => 'http://heanet.dl.sourceforge.net/sourceforge/openobex/',
-                         'src' => 'tar.gz',
-                        },
-   'poppler'         => {
-			 'url' => 'http://poppler.freedesktop.org/',
-			 'ver' => '0.5.4',
-			 'src' => 'tar.gz',
-			},
    'pwlib'            => {
-                         'url' => 'http://seconix.com/misc/ekiga-2.0.3/',
+                         'url' => 'http://www.ekiga.org/admin/downloads/latest/sources/sources/',
                          'ver' => '1.10.10',
                          'src' => 'tar.gz',
                         },
-   'PyXML'           => {
-			 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/pyxml/',
-			 'ver' => '0.8.4',
-			 'src' => 'tar.gz',
-			},
-   'XML-Simple'      => {
-	                 'url' => 'http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM/',
-                         'ver' => '2.16',
+   'speex'            => {
+                         'url' => 'http://downloads.us.xiph.org/releases/speex/',
+                         'ver' => '1.2beta2',
                          'src' => 'tar.gz',
                         },
+
   );
 
 

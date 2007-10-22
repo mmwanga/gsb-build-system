@@ -61,7 +61,7 @@ our %gst_other =
 			  },
    'gst-fluendo-mp3'  => {
 			   'ver' => '0.10.5',
-         'url' => 'http://core.fluendo.com/gstreamer/src/gst-fluendo-mp3/',
+			   'url' => 'http://core.fluendo.com/gstreamer/src/gst-fluendo-mp3/',
 			   'src' => 'tar.bz2',
 			  },
   );
@@ -73,11 +73,6 @@ our %gst_libs =
 			   'url' => 'http://liba52.sourceforge.net/files/',
 			   'src' => 'tar.gz',
 			  },
-   'avifile'           => {
-			   'ver' => '0.7-0.7.45',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/avifile/',
-			   'src' => 'tar.bz2',
-			  },
    'faac'              => {
 			   'ver' => '1.25',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/faac/',
@@ -87,16 +82,6 @@ our %gst_libs =
 			   'ver' => '2.5',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/faac/',
 			   'src' => 'zip',
-			  },
-   'ffmpeg'            => {
-			   'ver' => '0.4.9-pre1',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/ffmpeg/',
-			   'src' => 'tar.gz',
-			  },
-   'id3lib'            => {
-			   'ver' => '3.8.3',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/id3lib/',
-			   'src' => 'tar.gz',
 			  },
    'lame'              => {
 			   'ver' => '3.97',
@@ -108,23 +93,18 @@ our %gst_libs =
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libavc1394/',
 			   'src' => 'tar.gz',
 			  },
-   'libcdaudio'        => {
-			   'ver' => '0.99.12p2',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libcdaudio/',
-			   'src' => 'tar.gz',
-			  },
    'libcddb'           => {
-			   'ver' => '1.2.1',
+			   'ver' => '1.3.0',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libcddb/',
 			   'src' => 'tar.bz2',
 			  },
    'libcdio'           => {
-			   'ver' => '0.77',
+			   'ver' => '0.78.2',
 			   'url' => 'http://ftp.gnu.org/gnu/libcdio/',
 			   'src' => 'tar.gz',
 			  },
    'libdv'             => {
-			   'ver' => '0.104',
+			   'ver' => '1.0.0',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libdv/',
 			   'src' => 'tar.gz',
 			  },
@@ -138,68 +118,68 @@ our %gst_libs =
 			   'url' => 'http://download.videolan.org/pub/libdvdcss/1.2.9/',
 			   'src' => 'tar.bz2',
 			  },
-   'libdvdnav'         => {
-			   'ver' => '0.1.10',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/dvd/',
-			   'src' => 'tar.gz',
-			  },
-   'libdvdplay'        => {
-			   'ver' => '1.0.1',
-			   'url' => 'http://download.videolan.org/pub/libdvdplay/1.0.1/',
-			   'src' => 'tar.bz2',
-			  },
    'libdvdread'        => {
-			   'ver' => '0.9.5',
+			   'ver' => '0.9.7',
 			   'url' => 'http://www.dtek.chalmers.se/groups/dvd/dist/',
 			   'src' => 'tar.gz',
 			  },
    'libebml'           => {
-			   'ver' => '0.7.6',
+			   'ver' => '0.7.7',
 			   'url' => 'http://dl.matroska.org/downloads/libebml/',
 			   'src' => 'tar.bz2',
 			  },
-   'libfame'           => {
-			   'ver' => '0.9.1',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/fame/',
+   'libelf'            => {
+			   'ver' => '0.8.10',
+			   'url' => 'http://www.mr511.de/software/',
 			   'src' => 'tar.gz',
-                          },
+			  },
+   'libexif-gtk'         => {
+			     'ver' => '0.3.5',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libexif/',
+			     'src' => 'tar.bz2',
+			    },
+   'libgphoto2'          => {
+			     'ver' => '2.4.0',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto/',
+			     'src' => 'tar.gz',
+			    },
+   'libgpod'              => {
+                             'ver' => '0.5.2',
+                             'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtkpod/',
+                             'src' => 'tar.gz',
+                            },
    'libiec61883'       => {
-                           'ver' => '1.0.0',
+                           'ver' => '1.1.0',
                            'url' => 'http://www.linux1394.org/dl/',
                            'src' => 'tar.gz',
                           },
    'libmatroska'       => {
-			   'ver' => '0.8.0',
+			   'ver' => '0.8.1',
 			   'url' => 'http://dl.matroska.org/downloads/libmatroska/',
 			   'src' => 'tar.bz2',
 			  },
    'libmms'            => {
-			   'ver' => '0.2',
+			   'ver' => '0.3',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libmms/',
 			   'src' => 'tar.gz',
 			  },
-   'libmovtar'         => {
-			   'ver' => '0.1.3',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mjpeg/',
-			   'src' => 'tar.gz',
-			  },
    'libmpcdec'       => {
-			   'ver' => '1.2.2',
+			   'ver' => '1.2.6',
 			   'url' => 'http://files.musepack.net/source/',
 			   'src' => 'tar.bz2',
 			  },
-   'libmusicbrainz'    => {
-			   'ver' => '2.1.3',
-         'url' => 'http://ftp.musicbrainz.org/pub/musicbrainz/',
-			   'src' => 'tar.gz',
-			  },
    'liboil'            => {
-			   'ver' => '0.3.9',
+			   'ver' => '0.3.12',
 			   'url' => 'http://liboil.freedesktop.org/download/',
 			   'src' => 'tar.gz',
 			  },
+   'libopenraw'        => {
+			   'ver' => '0.0.2',
+			   'url' => 'http://libopenraw.freedesktop.org/download/',
+			   'src' => 'tar.gz',
+			  },
    'libquicktime'      => {
-			   'ver' => '0.9.10',
+			   'ver' => '1.0.0',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libquicktime/',
 			   'src' => 'tar.gz',
 			  },
@@ -208,43 +188,18 @@ our %gst_libs =
 			   'url' => 'http://www.linux1394.org/dl/',
 			   'src' => 'tar.gz',
 			  },
-   'libsamplerate'     => {
-			   'ver' => '0.1.2',
-			   'url' => 'http://www.mega-nerd.com/SRC/',
+   'libshout'        => {
+			   'ver' => '2.2.2',
+			   'url' => 'http://downloads.us.xiph.org/releases/libshout/',
 			   'src' => 'tar.gz',
 			  },
    'libsndfile'        => {
-			   'ver' => '1.0.16',
+			   'ver' => '1.0.17',
 			   'url' => 'http://www.mega-nerd.com/libsndfile/',
 			   'src' => 'tar.gz',
 			  },
-   'libtheora'         => {
-			   'ver' => '1.0alpha7',
-			   'url' => 'http://downloads.xiph.org/releases/theora/',
-			   'src' => 'tar.gz',
-			  },
-   'libvisual'         => {
-			   'ver' => '0.4.0',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libvisual/',
-			   'src' => 'tar.gz',
-			  },
-   'libvisual-nebulus' => {
-			   'ver' => '0.1.4',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libvisual/',
-			   'src' => 'tar.gz',
-			  },
-   'libvisual-plugins' => {
-			   'ver' => '0.4.0',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libvisual/',
-			   'src' => 'tar.gz',
-			  },
-   'mac'               => {
-                           'ver' => '3.99-u4-b4',
-                           'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mac-port/',
-                           'src' => 'tar.gz',
-                          },
    'mjpegtools'        => {
-			   'ver' => '1.8.0',
+			   'ver' => '1.9.0rc2',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mjpeg/',
 			   'src' => 'tar.gz',
 			  },
@@ -254,39 +209,34 @@ our %gst_libs =
 			   'src' => 'tar.gz',
 			  },
    'mpeg4ip'           => {
-			   'ver' => '1.5.0.1',
+			   'ver' => '1.6.1',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mpeg4ip/',
 			   'src' => 'tar.gz',
 			  },
-   'normalize'         => {
-			   'ver' => '0.7.7',
-			   'url' => 'http://savannah.nongnu.org/download/normalize/',
-			   'src' => 'tar.bz2',
-			  },
-   'openslp'           => {
-			   'ver' => '1.3.0',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/openslp/',
-			   'src' => 'tar.gz',
-			  },
-   'pulseaudio'        => {
-			   'ver' => '0.9.5',
-			   'url' => 'http://0pointer.de/lennart/projects/pulseaudio/',
-			   'src' => 'tar.gz',
-			  },
-   'swfdec'            => {
-			   'ver' => '0.3.6',
-			   'url' => 'http://www.schleef.org/swfdec/download/',
-			   'src' => 'tar.gz',
-			  },
    'transcode'         => {
-			   'ver' => '1.0.2',
+			   'ver' => '1.0.4',
 			   'url' => 'http://www.jakemsr.com/transcode/',
 			   'src' => 'tar.gz',
 			  },
+   'twolame'           => {
+			   'ver' => '0.3.10',
+			   'url' => 'http://www.ecs.soton.ac.uk/~njh/twolame/',
+			   'src' => 'tar.gz',
+			  },
+   'wavpack'           => {
+			   'ver' => '4.41.0',
+			   'url' => 'http://www.wavpack.com/',
+			   'src' => 'tar.bz2',
+			  },
    'xvidcore'          => {
-			   'ver' => '1.1.0',
+			   'ver' => '1.1.3',
 			   'url' => 'http://downloads.xvid.org/downloads/',
 			   'src' => 'tar.bz2',
+			  },
+   'yasm'           => {
+			   'ver' => '0.6.2',
+			   'url' => 'http://www.tortall.net/projects/yasm/releases/',
+			   'src' => 'tar.gz',
 			  },
   );
 

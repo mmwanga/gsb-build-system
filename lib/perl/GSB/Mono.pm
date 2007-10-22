@@ -125,7 +125,7 @@ our %mono_diff_naming =
 		     'src'  => 'tar.gz',
 		    },
    'sqlite3'     => {
-		     'ver'  => '3.3.5',
+		     'ver'  => '3.5.1',
 		     'name' => 'sqlite',
 		     'url'  => 'http://sqlite.org/',
 		     'src'  => 'tar.gz',

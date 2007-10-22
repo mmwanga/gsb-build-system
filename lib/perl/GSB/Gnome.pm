@@ -126,6 +126,11 @@ our %platform_reqs =
 			     'ver' => '0.5.8.1',
 			     'src' => 'tar.gz',
 			    },
+   'icon-naming-utils' => {
+	                 'url' => 'http://tango-project.org/releases/',
+			 'ver' => '0.8.2',
+			 'src' => 'tar.gz',
+			},
    'libdaemon'           => {
                              'ver' => '0.10',
                              'url' => 'http://0pointer.de/lennart/projects/libdaemon/',

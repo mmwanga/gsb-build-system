@@ -10,98 +10,36 @@ our @EXPORT_OK = qw();
 our $VERSION   = 0.03;
 
 
-our %double_tarballs =
-  (
-   'jpeg-mmx'         => {
-			  'ver' => '0.1.6',
-			  'dir' => 'gnome/desktop_reqs/libmovtar',
-			  'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mjpeg/',
-			  'src' => 'tar.gz',
-			  'var' => 'JPEGMMXV',
-			 },
-   'gaim-encryption'  => {
-			  'ver' => '2.39',
-			  'dir' => 'extras/apps/gaim',
-			  'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gaim-encryption/',
-			  'src' => 'tar.gz',
-			  'var' => 'GAIMENC',
-			 },
-   'gnome-games-extra-data' => {
-				'ver' => '2.20.0',
-				'dir' => 'gnome/desktop/gnome-games',
-				'url' => 'http://ftp.gnome.org/pub/GNOME/sources/gnome-games-extra-data/2.17/',
-				'src' => 'tar.bz2',
-				'var' => 'EXTRAVERSION',
-			       },
-   'divx4linux'       => {
-			  'ver' => 'std-20030428',
-			  'dir' => 'gnome/desktop_reqs/divx4linux',
-			  'url' => 'http://download.divx.com/divx/',
-			  'src' => 'tar.gz',
-			  'var' => 'TVERSION',
-			 },
-   'evolution' => {
-                           'ver' => '2.6.2',
-                           'dir' => 'extras/applets_extensions/mail-notification',
-                           'url' => 'http://ftp.gnome.org/pub/GNOME/sources/evolution/2.6/',
-                           'src' => 'tar.bz2',
-                           'var' => 'EVO_VER',
-                          },
-    'pavucontrol'       => {
-                          'ver' => '0.9.4',
-                          'dir' => 'extras/apps/pulseaudio-tools',
-                          'url' => 'http://0pointer.de/lennart/projects/pavucontrol/',
-                          'src' => 'tar.gz',
-                          'var' => 'PA_VU_CONTROL',
-                         },
-    'pavumeter'       => {
-                          'ver' => '0.9.2',
-                          'dir' => 'extras/apps/pulseaudio-tools',
-                          'url' => 'http://0pointer.de/lennart/projects/pavumeter/',
-                          'src' => 'tar.gz',
-                          'var' => 'PA_VU_METER',
-                         },
-    'padevchooser'       => {
-                          'ver' => '0.9.3',
-                          'dir' => 'extras/apps/pulseaudio-tools',
-                          'url' => 'http://0pointer.de/lennart/projects/padevchooser/',
-                          'src' => 'tar.gz',
-                          'var' => 'PA_DEV_CHOOSER',
-                         },
-    'paman'       => {
-                          'ver' => '0.9.3',
-                          'dir' => 'extras/apps/pulseaudio-tools',
-                          'url' => 'http://0pointer.de/lennart/projects/paman/',
-                          'src' => 'tar.gz',
-                          'var' => 'PA_MAN',
-                         },
-     'paprefs'       => {
-                          'ver' => '0.9.5',
-                          'dir' => 'extras/apps/pulseaudio-tools',
-                          'url' => 'http://0pointer.de/lennart/projects/paprefs/',
-                          'src' => 'tar.gz',
-                          'var' => 'PA_PREFS',
-                         },
-
-
-  );
-
 
 # iso-codes isn't a double tarball but its here temporarily because of how its named.
 our %double_tarballs_url =
   (
-   'iso-codes'                 => {
-				   'ver' => '1.0a',
-				   'dir' => 'gnome/desktop_reqs/iso-codes',
-				   'url' => 'http://http.us.debian.org/debian/pool/main/i/iso-codes/',
-				   'tar' => 'iso-codes_1.0a.orig.tar.gz',
+   'boost'            => {
+                         'url' => 'http://heanet.dl.sourceforge.net/sourceforge/boost/',
+                         'ver' => '1_34_1',
+			 'dir' => 'libraries/boost',
+			 'tar' => 'boost_1_34_1.tar.bz2',
+                         'var' => 'VERSION',
+                        },
+   'nss'               => {
+				   'ver' => '3.11.7',
+				   'dir' => 'libraries/nss',
+				   'url' => 'http://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_11_7_RTM/src/',
+				   'tar' => 'nss-3.11.7-with-nspr-4.6.7.tar.gz',
 				   'var' => 'VERSION',
 				  },
-   'nvu'                 => {
-				   'ver' => '1.0',
-				   'dir' => 'extras/apps/nvu',
-				   'url' => 'http://cvs.nvu.com/download/',
-				   'tar' => 'nvu-1.0-sources.tar.bz2',
+   'openldap-client'     => {
+				   'ver' => '2.3.38',
+				   'dir' => 'libraries/openldap-client',
+				   'url' => 'ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/',
+				   'tar' => 'openldap-2.3.38.tgz',
+				   'var' => 'VERSION',
+				  },
+   'sqlite3'             => {
+				   'ver' => '3.5.1',
+				   'dir' => 'libraries/sqlite3',
+				   'url' => 'http://www.sqlite.org/',
+				   'tar' => 'sqlite-3.5.1.tar.gz',
 				   'var' => 'VERSION',
 				  },
   );

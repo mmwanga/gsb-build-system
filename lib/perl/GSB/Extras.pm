@@ -115,39 +115,14 @@ our %extras_libs =
                              'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libetpan',
                              'src' => 'tar.gz',
                             },
-   'libexif-gtk'         => {
-			     'ver' => '0.3.5',
-			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libexif/',
-			     'src' => 'tar.bz2',
-			    },
-   'libgphoto2'          => {
-			     'ver' => '2.2.1',
-			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto/',
-			     'src' => 'tar.gz',
-			    },
-   'libgpod'              => {
-                             'ver' => '0.3.2',
-                             'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtkpod/',
-                             'src' => 'tar.gz',
-                            },
    'libmikmod'           => {
 			     'ver' => '3.1.11',
 			     'url' => 'http://mikmod.raphnet.net/files/',
 			     'src' => 'tar.gz',
 			    },
-   'libexif-gtk'         => {
-                             'ver' => '0.3.5',
-                             'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libexif/',
-                             'src' => 'tar.bz2',
-                            },
    'libnjb'              => {
                              'ver' => '2.2.5',
                              'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libnjb/',
-                             'src' => 'tar.gz',
-                            },
-   'libnotify'           => {
-                             'ver' => '0.4.4',
-                             'url' => 'http://galago-project.org/files/releases/source/libnotify/',
                              'src' => 'tar.gz',
                             },
    'libsexy'             => {
