@@ -26,3 +26,4 @@ libmad
 taglib
 libdvdread
 libid3tag
+gst-plugins-base

@@ -12,7 +12,7 @@ VERSION=0.10.6
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gstreamer liboil alsa-lib libogg libvisual pango libtheora libvorbis cdparanoia ffmpeg hal libjpeg libcdio cairo flac GConf libdv libpng libshout zlib taglib esound a52dec mpeg2dec libmad taglib libdvdread libid3tag"
+REQUIRED_PACKAGES="gstreamer liboil alsa-lib libogg libvisual pango libtheora libvorbis cdparanoia ffmpeg hal libjpeg libcdio cairo flac GConf libdv libpng libshout zlib taglib esound a52dec mpeg2dec libmad taglib libdvdread libid3tag gst-plugins-base"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
