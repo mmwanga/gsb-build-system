@@ -111,6 +111,7 @@ BUILD_ORDER=" liboil
         libgphoto2
         boost
         libopenraw
+        exempi
         libiptcdata
         gtkunique
         libraw1394
