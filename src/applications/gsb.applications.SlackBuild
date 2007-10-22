@@ -71,6 +71,7 @@ BUILD_ORDER="
        file-roller
        epiphany
        epiphany-extensions
+       shared-mime-info
        totem
        gnome-utils
        gnome-system-monitor
