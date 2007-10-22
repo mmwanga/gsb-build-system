@@ -82,3 +82,4 @@ tracker,http://www.gnome.org/~jamiemcc/tracker/,0.6.3,tar.bz2,NONE
 sqlite3,http://www.sqlite.org/,3.5.1,tar.gz,NONE
 pulseaudio,http://0pointer.de/lennart/projects/pulseaudio/,0.9.6,tar.gz,NONE
 libsamplerate,http://www.mega-nerd.com/SRC/,0.1.2,tar.gz,NONE
+libatomic_ops,http://www.hpl.hp.com/research/linux/atomic_ops/download/,1.1,tar.gz,NONE
