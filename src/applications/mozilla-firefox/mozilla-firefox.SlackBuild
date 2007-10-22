@@ -117,6 +117,7 @@ elif [ "$ARCH" = "powerpc" ]; then
 fi
 
 ## Fix permissions for building.
+echo "Setting file permissions for building..."
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
 find . -perm 600 -exec chmod 644 {} \;
@@ -162,12 +163,24 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --disable-tests \
-  --enable-application=browser --enable-update-channel=release \
-  --enable-update-packaging --enable-official-branding --disable-debug \
+  --enable-application=browser \
+  --enable-update-channel=release \
+  --enable-update-packaging \
+  --enable-official-branding --disable-debug \
   --enable-optimize="$CFLAGS -freorder-blocks -fno-reorder-functions -gstabs+" \
-  --enable-default-toolkit=gtk2 --disable-freetype2 --enable-xft \
-  --enable-svg --enable-canvas \
+  --enable-default-toolkit=gtk2 \
+  --disable-freetype2 \
+  --enable-xft \
+  --enable-svg \ 
+  --disable-canvas \
   --enable-system-cairo \
+  --with-pthreads \
+  --with-system-zlib \
+  --with-system-png \
+  --with-system-jpeg \
+  --disable-installer \
+  --enable-strip \
+  --disable-mailnews \
   || exit 1
 
 ## Build and install.
