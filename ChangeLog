@@ -2,6 +2,7 @@ ChangeLog
 ---------
 
 22-10-2007  fidesratio <sk238(at)ex.ac.uk>	
+	* libraries: Added libsamplerate.
     * platform: Added pulseaudio.
 
 21-10-2007  fidesratio <sk238(at)ex.ac.uk>	

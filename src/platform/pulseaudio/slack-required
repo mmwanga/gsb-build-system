@@ -4,3 +4,4 @@ GConf
 hal
 avahi
 glib2
+libsamplerate
