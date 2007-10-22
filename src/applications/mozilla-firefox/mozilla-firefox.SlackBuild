@@ -12,7 +12,7 @@ VERSION=2.0.0.8
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 glib2 cairo pango"
+REQUIRED_PACKAGES="gtk+2 glib2 cairo pango libgnomeui gnome-vfs nss"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -161,26 +161,32 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
-  --disable-tests \
-  --enable-application=browser \
-  --enable-update-channel=release \
-  --enable-update-packaging \
-  --enable-official-branding --disable-debug \
-  --enable-optimize="$CFLAGS -freorder-blocks -fno-reorder-functions -gstabs+" \
-  --enable-default-toolkit=gtk2 \
-  --disable-freetype2 \
-  --enable-xft \
-  --enable-svg \ 
-  --disable-canvas \
-  --enable-system-cairo \
-  --with-pthreads \
-  --with-system-zlib \
-  --with-system-png \
-  --with-system-jpeg \
-  --disable-installer \
-  --enable-strip \
-  --disable-mailnews \
+  --disable-static --enable-shared \ 
+  --disable-tests  \
+   --enable-application=browser  \
+   --disable-debug   \
+   --enable-optimize="$CFLAGS -freorder-blocks -fno-reorder-functions -gstabs+"  \
+   --enable-default-toolkit=gtk2 \
+   --enable-svg \
+   --disable-mailnews \
+   --enable-system-cairo \
+   --with-pthreads  \
+   --with-system-zlib \
+   --with-system-png \
+   --with-system-jpeg \
+   --disable-installer  \
+   --enable-pango  \
+   --enable-strip  \
+   --disable-canvas  \
+   --enable-xft  \
+   --with-x  \
+   --with-system-nss \
+   --with-system-nspr \
+   --disable-ldap \
+   --enable-gnomevfs \
+   --enable-gnomeui \
+   --disable-composer \
+   --enable-safe-browsing \
   || exit 1
 
 ## Build and install.

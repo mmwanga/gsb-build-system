@@ -2,3 +2,6 @@ gtk+2
 glib2
 cairo
 pango
+gnome-vfs
+libgnomeui
+nss
