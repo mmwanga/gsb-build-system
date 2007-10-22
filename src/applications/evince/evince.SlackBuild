@@ -12,7 +12,7 @@ VERSION=2.20.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gnome-vfs gtk+2 libgnomeui poppler avahi gnome-vfs glib2 poppler gnome-keyring atk freetype2 GConf libpng nautilus dbus libtiff gnome-doc-utils shared-mime-info t1lib espgs libgnomeprint libgnomeprintui cairo pango libbonobo libbonoboui"
+REQUIRED_PACKAGES="gnome-vfs gtk+2 libgnomeui poppler avahi gnome-vfs glib2 poppler gnome-keyring atk freetype GConf libpng nautilus dbus libtiff gnome-doc-utils shared-mime-info t1lib espgs libgnomeprint libgnomeprintui cairo pango libbonobo libbonoboui"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

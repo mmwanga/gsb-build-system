@@ -8,7 +8,7 @@ glib2
 poppler
 gnome-keyring
 atk
-freetype2
+freetype
 GConf
 libpng
 nautilus

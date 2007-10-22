@@ -66,12 +66,12 @@ BUILD_ORDER="
        mozilla-firefox
        yelp
        eog
+       gnome-media
        sound-juicer
        file-roller
        epiphany
        epiphany-extensions
        totem
-       gnome-media
        gnome-utils
        gnome-system-monitor
        gnome-netstatus
