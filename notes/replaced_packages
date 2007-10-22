@@ -1,6 +1,7 @@
-gnome-icon-theme
-glib2
-pango
-gtk+2
-openldap-client
-mozilla-firefox
+gnome-icon-theme (gnome-desktop)
+glib2 (gtk+2 2.12)
+pango (gtk+2 2.12)
+gtk+2 (libgnomeui 2.20)
+openldap-client (ntlm patch for evolution-data-server)
+mozilla-firefox (rebuild needed by epiphany/yelp)
+shared-mime-info ( >= 0.22 needed by totem)

@@ -84,3 +84,4 @@ pulseaudio,http://0pointer.de/lennart/projects/pulseaudio/,0.9.6,tar.gz,NONE
 libsamplerate,http://www.mega-nerd.com/SRC/,0.1.2,tar.gz,NONE
 libatomic_ops,http://www.hpl.hp.com/research/linux/atomic_ops/download/,1.2,tar.gz,NONE
 exempi,http://libopenraw.freedesktop.org/download/,1.99.4,tar.gz,NONE
+shared-mime-info,http://freedesktop.org/~hadess/,0.22,tar.bz2,NONE

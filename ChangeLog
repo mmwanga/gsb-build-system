@@ -2,9 +2,21 @@ ChangeLog
 ---------
 
 22-10-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * libraries: Removed CFLAGS from liboil and rebuilt. Excessive optimization
+	  was causing it to segault.  This fixes the gstreamer problem.
+	* desktop: Restore plugins to gstreamer.
+	* applications: Restore grecord to gnome-media.
+	  Added shared-mime-info 0.22 (needed by totem)
+
+22-10-2007  fidesratio <sk238(at)ex.ac.uk>	
 	* libraries: Added libsamplerate, libatomic_ops and exempi.
     * platform: Added pulseaudio.
 	  Added patch for pulseaudio for gcc > 4.0.  See http://pulseaudio.org/ticket/134.
+	* desktop: Fixes requirement in gstreamer.  Add in gst-plugins-ugly.
+	* applications: Mozilla now builds, however, without canvas support.  :(
+	  Minor build order changes.
+	  Removed grecord from GNOME Media package (gstaudiotestsrc segaults). See notes/broken.
+      Tested: mozilla-firefox yelp eog gnome-media sound-juicer 
 
 21-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * desktop: Fix gst-plugins-base by removing videotestsrc, audioresample, 
