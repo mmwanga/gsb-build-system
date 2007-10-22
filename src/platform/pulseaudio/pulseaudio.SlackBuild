@@ -12,7 +12,7 @@ VERSION=0.9.6
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libsndfile pkg-config GConf hal avahi glib2 libsamplerate libatomic_ops" 
+REQUIRED_PACKAGES="libsndfile pkg-config GConf hal avahi glib2 libsamplerate libatomic_ops liboil" 
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -113,6 +113,22 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
+
+## 
+## Compilation fails with gcc 4.1.2 if HAVE_SYS_CAPABILITY_H is not defined. 
+## The compîler stops with "label at end of compound statement" error.
+## See http://pulseaudio.org/ticket/134
+
+echo
+echo "Patching for gcc 4."
+echo
+
+(
+cd $TMP/$PKGNAME-$VERSION; 
+patch -p0 < $CWD/patches/label_at_end_of_compound_statement.patch;
+)
+
+echo
 
 ## Fix permissions for building.
 chown -R root.root .

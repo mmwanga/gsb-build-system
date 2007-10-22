@@ -1,0 +1,5 @@
+label_at_end_of_compound_statement.patch
+
+Compilation fails with gcc 4.1.2 if HAVE_SYS_CAPABILITY_H is not defined. The compîler stops with "label at end of compound statement" error.
+
+For more information see http://pulseaudio.org/ticket/134
