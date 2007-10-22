@@ -1,5 +1,4 @@
 libsndfile
-pkgconfig
 GConf
 hal
 avahi
