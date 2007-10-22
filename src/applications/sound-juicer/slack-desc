@@ -6,7 +6,7 @@ sound-juicer: discs and converts it into audio files that a personal computer or
 sound-juicer: digital audio player can understand and play. It supports ripping to 
 sound-juicer: any audio codec supported by a GStreamer plugin, such as mp3, Ogg 
 sound-juicer: Vorbis, FLAC and uncompressed PCM formats.  Sound Juicer is designed 
-sound-juicer: to be easy to use and to work with little user intervention. For 
-sound-juicer: example, if your computer is connected to the Internet, it will 
-sound-juicer: automatically attempt to retrieve track information from the freely-
-sound-juicer: available MusicBrainz service.
+sound-juicer: to be easy to use and to work with little user intervention. 
+sound-juicer: 
+sound-juicer: 
+sound-juicer: 
