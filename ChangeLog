@@ -1,6 +1,9 @@
 ChangeLog
 ---------
 
+22-10-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * platform: Added pulseaudio.
+
 21-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * desktop: Fix gst-plugins-base by removing videotestsrc, audioresample, 
 	  videoscale (segfault). 
