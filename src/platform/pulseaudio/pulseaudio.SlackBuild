@@ -187,6 +187,12 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
+## Preserve settings
+(
+mv $PKG/etc/pulse/daemon.conf $PKG/etc/pulse/daemon.conf.new;
+mv $PKG/etc/pulse/client.conf $PKG/etc/pulse/client.conf.new;
+)
+
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
@@ -208,7 +214,7 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+  GPL LICENSE README $CWD/docs/system_wide_daemon.txt \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
