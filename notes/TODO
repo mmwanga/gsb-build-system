@@ -1,7 +1,8 @@
 Package ideas:
   * Fonts package
       http://eyegene.ophthy.med.umich.edu/unicode/fontguide/
-  * mozilla-nss libs for people who do not want mozilla installed
+
+  * mozilla-nss libs for people who do not want mozilla installed - done!
 
 Website idead:
   * Package browser based on PACKAGES.TXT.
