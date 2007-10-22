@@ -7,6 +7,6 @@ libquicktime: files with a variety of supported codecs.  The goal is to have a
 libquicktime: simple and stable library, which can create reasonable compatible 
 libquicktime: Quicktime and AVI files either uncompressed (for high-end or production 
 libquicktime: applications) or with decent compression codecs for end user applications. 
-libquicktime: Today, we write Quicktime files with a wide range of uncompressed codecs 
-libquicktime: for professional use. Together with sample accurate seeking, this makes 
-libquicktime: libquicktime the library of choice for editing applications.
+libquicktime:
+libquicktime:
+libquicktime:

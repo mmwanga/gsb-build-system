@@ -78,6 +78,7 @@ mkdir -p $LOGSDIR
 BUILD_ORDER=" liboil
         libelf
         libnotify
+        libsamplerate
         a52dec
         ffmpeg
         xvidcore
