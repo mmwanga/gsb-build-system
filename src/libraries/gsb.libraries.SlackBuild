@@ -131,6 +131,7 @@ BUILD_ORDER=" liboil
         dhcdbd
         openldap-client
         heimdal
+        libgalago
 		"
 
 # Build packages (and log output).
