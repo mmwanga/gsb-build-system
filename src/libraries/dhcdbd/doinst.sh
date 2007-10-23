@@ -25,6 +25,7 @@ install_file etc/dbus-1/system.d/dhcdbd.conf.new
 install_file etc/dhclient-enter-hooks.new
 install_file etc/dhclient-exit-hooks.new
 install_file etc/rc.d/rc.dhcdbd.new
+install_file etc/dhclient-enter-hooks.d/00dbus_hooks.sh.new
 
 chmod +x etc/rc.d/rc.dhcdbd;
 
