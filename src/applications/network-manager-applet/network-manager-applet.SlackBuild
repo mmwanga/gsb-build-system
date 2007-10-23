@@ -91,6 +91,7 @@ mkdir -p $PKGDEST
 ## Decompress archive.
 cd $TMP &&
 tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+mv nm-applet-$VERSION $PKGNAME-$VERSION &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
