@@ -132,6 +132,7 @@ BUILD_ORDER=" liboil
         openldap-client
         heimdal
         libgalago
+        libsigc++
 		"
 
 # Build packages (and log output).
