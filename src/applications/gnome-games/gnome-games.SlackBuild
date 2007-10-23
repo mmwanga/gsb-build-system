@@ -44,7 +44,8 @@ Options:  -force        The package will not be built if a package of the same
 EOF
 }
 
-## Parse command line arguments.  while [ $# -gt 0 ]; do
+## Parse command line arguments.  
+while [ $# -gt 0 ]; do
   if [ "$1" = "-force" ]; then
     FORCEBUILD=1
     shift
