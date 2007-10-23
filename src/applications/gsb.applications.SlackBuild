@@ -76,6 +76,7 @@ BUILD_ORDER="
        network-manager-applet
        gnome-utils
        glibmm
+       cairomm
        gtkmm
        gnome-system-monitor
        gnome-netstatus

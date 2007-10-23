@@ -6,6 +6,7 @@
 ##
 pycairo,http://cairographics.org/releases/,1.4.0,tar.gz,md5
 cairo,http://cairographics.org/releases/,1.4.10,tar.gz,NONE
+cairomm,http://cairographics.org/releases/,1.4.4,tar.gz,NONE
 dbus-python,http://dbus.freedesktop.org/releases/dbus-python/,0.82.3,tar.gz,asc
 libdaemon,http://0pointer.de/lennart/projects/libdaemon/,0.12,tar.gz,NONE
 avahi,http://avahi.org/download/,0.6.21,tar.gz,NONE

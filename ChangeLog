@@ -1,13 +1,25 @@
 ChangeLog
 ---------
 
+23-10-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * libraries: Added libsigc++ (glibmm/gnome-system-monitor)
+    * applications: Fixed typo in network-manager-applet. 
+	  Updated slack-reqs for gnome-utils.
+	  Added glibmm/gtkmm (for gnome-system-monitor) to applications.
+	  Added cairomm to applications (for gtkmm).
+
+	  Tested gnome-utils glibmm cairomm gtkmm gnome-system-monitor.
+
 22-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * libraries: Removed CFLAGS from liboil and rebuilt. Excessive optimization
 	  was causing it to segault.  This fixes the gstreamer problem.
 	  Added libgalago.
 	* desktop: Restore plugins to gstreamer.
 	* applications: Restore grecord to gnome-media.
+	  Added network-manager-applet.
 	  Added shared-mime-info 0.22 (needed by totem)
+
+	  Tested: file-roller epiphany epiphany-extensions shared-mime-info totem
 
 22-10-2007  fidesratio <sk238(at)ex.ac.uk>	
 	* libraries: Added libsamplerate, libatomic_ops and exempi.
@@ -16,7 +28,9 @@ ChangeLog
 	* desktop: Fixes requirement in gstreamer.  Add in gst-plugins-ugly.
 	* applications: Mozilla now builds, however, without canvas support.  :(
 	  Minor build order changes.
-	  Removed grecord from GNOME Media package (gstaudiotestsrc segaults). See notes/broken.
+	  Removed grecord from GNOME Media package (gstaudiotestsrc segaults). 
+	  See notes/broken.
+
       Tested: mozilla-firefox yelp eog gnome-media sound-juicer 
 
 21-10-2007  fidesratio <sk238(at)ex.ac.uk>	
