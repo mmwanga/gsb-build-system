@@ -10,7 +10,7 @@ gtk+2
 libsoup
 libxml2
 cyrus-sasl
-mozilla-firefox | seamonkey
+mozilla-firefox 
 gnome-pilot
 libgnomeui
 libgnome
@@ -22,3 +22,4 @@ libgnomeprintui
 libsoup
 libnotify
 gstreamer >= 0.10
+libgalago
