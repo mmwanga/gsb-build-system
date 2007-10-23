@@ -12,7 +12,7 @@ VERSION=2.20.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 startup-notification gksu libgnomesu libgnome libgnomeui libwnck gnome-vfs libgtop" 
+REQUIRED_PACKAGES="gtk+2 startup-notification libgnome libgnomeui libwnck gnome-vfs libgtop gnome-icon-theme gtkmm libxml2 GConf glib2"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

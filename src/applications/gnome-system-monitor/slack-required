@@ -1,9 +1,12 @@
 gtk+2
 startup-notification
-gksu
-libgnomesu
 libgnome
 libgnomeui
 libwnck
 gnome-vfs
 libgtop
+gnome-icon-theme
+gtkmm
+libxml2
+GConf
+glib2
