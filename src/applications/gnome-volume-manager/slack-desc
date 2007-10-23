@@ -7,6 +7,6 @@ gnome-volume-manager: policy in response to events received from HAL. This is us
 gnome-volume-manager: automatic mounting of floppy diskettes, CDROMs and removable storage 
 gnome-volume-manager: devices. It can also be used to automatically run a program in response 
 gnome-volume-manager: to other hotplug events such as plugging in USB printers or cameras, 
-gnome-volume-manager: or inserting DVDs and music CDs. The goal of gnome-volume-manager is 
-gnome-volume-manager: to implement all functionality as a state-machine in response to 
-gnome-volume-manager: asynchronous events from HAL. 
+gnome-volume-manager: or inserting DVDs and music CDs. 
+gnome-volume-manager: 
+gnome-volume-manager: 
