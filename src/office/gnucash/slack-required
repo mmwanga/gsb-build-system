@@ -1,4 +1,2 @@
-guile
-aqbanking
-g-wrap
-slib
+glib2
+gtk+2

@@ -1,57 +1,104 @@
-#!/bin/sh
+#!/bin/bash
 
-. ../GSB.options
+# Usage.
+function usage() {
+  cat << EOF
+Usage: ${0##*/} [options]
 
-TMP=${TMP:-/tmp}
+Options:  -force	The package will not be built if a package of the same
+			name is already installed, or any of the packages
+			required to build are missing.  This option over-rides
+			these checks and attempts a build anyway.
+	  -no-cleanup	By default any temporary source, build and package
+			directories will be deleted once the package is built.
+			This option prevents those files from being removed.
+	  -no-install	Build the packages but don't install them.  This should
+			only be used for testing individual SlackBuilds as it
+			WILL cause serious problems - some package builds may
+			rely on another package being auto installed first.
+	  -help		Show this help screen.
 
-if [ ! -d $TMP ]; then
-  mkdir -p $TMP # location to build the source
-fi
+	Options are passed down to the next level SlackBuild where appropriate.
+EOF
+}
 
+# If the user created an options file, read it if it's not been read already.
+[ "$OPTIONSREAD" != "1" -a -r ../gsb.options ] && {
+  . ../gsb.options
+  export OPTIONSREAD=1
+}
 
-# mergeant not included yet
-# glom taken out, depends on packages in gnome 2.11.x
+# Environment.
+export TMP=${TMP:-/tmp}
+export LOGSDIR=${GSB_LOGSDIR:-$TMP/gsb-buildlogs}
+
+# Parse command line arguments.
+while [ $# -gt 0 ]; do
+  if [ "$1" = "-force" ]; then
+    SLACKBUILD_ARGS="$SLACKBUILD_ARGS -force"
+    shift
+  elif [ "$1" = "-no-cleanup" ]; then
+    SLACKBUILD_ARGS="$SLACKBUILD_ARGS -no-cleanup"
+    shift
+  elif [ "$1" = "-no-install" ]; then
+    NOINSTALL=1
+    shift
+  elif [ "$1" = "-help" ]; then
+    usage
+    exit 0
+  else
+    echo "${0##*/}: Unknown option: $1"
+    exit 1
+  fi
+done
+
+# Temporary space and log file storage.
+mkdir -p $TMP
+mkdir -p $LOGSDIR
+
+# Packages must be listed here in the order they should be built.
+##
+## GNOME Office Package
+##
+## These are packages that are for a full GNOME Office environment.
+##
+## 
+
+####
+#### BUILD ORDER
+####
+
 BUILD_ORDER="
-abiword
-dia
-gnumeric
-planner
-mergeant
-glom
-gnucash
-"
+     enchant
+     fribidi
+     abiword
+     anjuta
+     bluefish
+     dia
+     gnucash
+     libgda
+     goffice
+     gnumeric
+     inkscape
+     istanbul
+     kino
+     liferea
+     mergeant
+     planner
+     tracker
+     "
 
-mkdir -p $TMP/gnome-$GVERSION/extras/office
-
-(
-
-for i in libs
-do
-(
-  cd $i
-  echo ""
-  echo "*************************************************"
-  echo "*****   Building $i"
-  echo "*************************************************"
-  echo ""
-  ./gnome.office.$i.SlackBuild
-)
-done
-
-for i in $BUILD_ORDER
-do
-(
-  cd $i
-  echo ""
-  echo "*************************************************"
-  echo "*****   Building $i"
-  echo "*************************************************"
-  echo ""
-  ./$i.SlackBuild --cleanup
-  upgradepkg --install-new $TMP/$i*.tgz
-  mv $TMP/$i*.tgz $TMP/gnome-$GVERSION/extras/office
-)
-done
-# Fork screen output to a log
-) 2>&1 | tee $TMP/gnome.office.build.log
-
+# Build packages (and log output).
+( for PACKAGE in $BUILD_ORDER
+  do
+    echo
+    echo "*************************************************"
+    echo "****** Building package: $PACKAGE"
+    echo "*************************************************"
+    ( cd $PACKAGE ; ./$PACKAGE.SlackBuild "$SLACKBUILD_ARGS" ) || exit 1
+    [ "$NOINSTALL" != "1" ] && {
+      upgradepkg --install-new \
+        ${PKGDEST:-$TMP/gsb-packages}/$PACKAGE-*.tgz || exit 1
+    }
+  done
+) 2>&1 | tee $LOGSDIR/$(basename $0 .SlackBuild)-$(date +%Y%m%d-%H%M%S).log

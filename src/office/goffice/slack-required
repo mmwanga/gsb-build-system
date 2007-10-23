@@ -1,5 +1,5 @@
 cairo
-gconf
+GConf
 glib2
 gtk+2
 intltool

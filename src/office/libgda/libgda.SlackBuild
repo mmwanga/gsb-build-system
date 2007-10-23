@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=1.0.7
+VERSION=3.0.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gnome-vfs gtk+2 pcre aspell"
+REQUIRED_PACKAGES="libxml2 db44 glib2"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

@@ -2,3 +2,7 @@ fribidi
 gucharmap
 nautilus
 enchant
+libxml2
+libpng
+popt
+libjpeg

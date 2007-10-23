@@ -1,0 +1,12 @@
+       |-----handy-ruler------------------------------------------------------|
+libgda: libgda (GNU Data Access)
+libgda: 
+libgda: libgda is an attempt to provide uniform access to different kinds of data 
+libgda: sources (databases, information servers, mail spools, etc).  It is a 
+libgda: complete architecture that provides all you need to access your data. It is 
+libgda: defined by a set of plugin APIs as generic as possible (but very powerful at 
+libgda: the same time) so that any kind of data source can be accessed through them.
+libgda: 
+libgda: 
+libgda: 
+libgda: 
