@@ -73,6 +73,7 @@ BUILD_ORDER="
        epiphany-extensions
        shared-mime-info
        totem
+       network-manager-applet
        gnome-utils
        gnome-system-monitor
        gnome-netstatus
