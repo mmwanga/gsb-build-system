@@ -26,3 +26,10 @@ fi
 if [ -x usr/bin/update-desktop-database ]; then
   usr/bin/update-desktop-database 1> /dev/null 2> /dev/null
 fi
+
+##
+## Restart dbus (reload NetworkManager applet info)
+##
+if [ -x etc/rc.d/rc.messagebus ]; then
+    . etc/rc.d/rc.messagebus restart;
+fi;
