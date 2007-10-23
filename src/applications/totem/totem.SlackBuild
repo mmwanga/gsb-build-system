@@ -12,7 +12,7 @@ VERSION=2.20.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="alsa-lib audiofile dbus esound gnome-vfs gtk+2 hal nautilus-cd-burner startup-notification gnome-icon-theme gnome-desktop iso-codes gst-plugins-good gst-plugins-base gstreamer nautilus dbus libdvdcss"
+REQUIRED_PACKAGES="alsa-lib audiofile dbus esound gnome-vfs gtk+2 hal nautilus-cd-burner startup-notification gnome-icon-theme gnome-desktop iso-codes gst-plugins-good gst-plugins-base gstreamer nautilus dbus libdvdcss libgalago"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
