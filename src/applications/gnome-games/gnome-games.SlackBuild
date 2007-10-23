@@ -12,7 +12,7 @@ VERSION=2.20.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomui gob2"
+REQUIRED_PACKAGES="libgnomeui gob2"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -44,8 +44,7 @@ Options:  -force        The package will not be built if a package of the same
 EOF
 }
 
-## Parse command line arguments.
-while [ $# -gt 0 ]; do
+## Parse command line arguments.  while [ $# -gt 0 ]; do
   if [ "$1" = "-force" ]; then
     FORCEBUILD=1
     shift
