@@ -8,3 +8,8 @@ hal
 startup-notification
 libgnome
 libgnomeprintui
+bonobo
+freetype
+GConf
+cairo
+pango

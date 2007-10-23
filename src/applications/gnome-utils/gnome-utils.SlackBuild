@@ -12,7 +12,7 @@ VERSION=2.20.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="dbus e2fsprogs gnome-desktop gnome-panel gnome-vfs gtk+2 hal startup-notification libgnome libgnomeprintui"
+REQUIRED_PACKAGES="dbus e2fsprogs gnome-desktop gnome-panel gnome-vfs gtk+2 hal startup-notification libgnome libgnomeprintui bonobo freetype GConf cairo pango"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
