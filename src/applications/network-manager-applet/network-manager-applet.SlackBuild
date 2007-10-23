@@ -12,7 +12,7 @@ VERSION=0.6.5
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gnome-panel NetworkManager"
+REQUIRED_PACKAGES="gnome-panel NetworkManager glib2 gtk+2 libglade GConf gnome-keyring libnotify libgnomeui wireless-tools" 
 
 ## Build variables.
 ARCH=${ARCH:-i586}
