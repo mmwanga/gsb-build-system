@@ -2,4 +2,4 @@ bluez-libs
 bluez-tools
 bluez-hcidump
 bluez-firmware
-libtctl
+libbtctl

@@ -12,7 +12,7 @@ VERSION=0.9.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="bluez-libs bluez-utils libtctl"
+REQUIRED_PACKAGES="bluez-libs bluez-utils libbtctl"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
