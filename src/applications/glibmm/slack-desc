@@ -1,12 +1,12 @@
       |-----handy-ruler------------------------------------------------------|
-glibmm: glibmm (C++ bindings for Glib)
-glibmm:
-glibmm: C++ bindings for glib
-glibmm:
-glibmm:
-glibmm:
-glibmm:
-glibmm:
-glibmm:
-glibmm:
-glibmm:
+glibmm: glibmm (C++ Bindings for GLib)
+glibmm: 
+glibmm: glibmm is the official C++ interface for the popular GUI library GLib. 
+glibmm: Highlights include typesafe callbacks, and a comprehensive set of 
+glibmm: widgets that are easily extensible via inheritance. You can create user 
+glibmm: interfaces either in code or with the Glade User Interface designer, 
+glibmm: using libglademm. There's extensive documentation, including API 
+glibmm: reference and a tutorial.  glibmm is free software distributed under LGPL.
+glibmm: 
+glibmm: 
+glibmm: 
