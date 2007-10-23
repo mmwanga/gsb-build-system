@@ -113,8 +113,8 @@ BUILD_ORDER="
        gnome-user-share
        pessulus
        sabayon
-       gdm
        gnome-screensaver
+       gdm
 "
 
 # Build packages (and log output).
