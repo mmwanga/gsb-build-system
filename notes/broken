@@ -1,8 +1,9 @@
 mozilla-firefox 2.0.0.8 doesn't seem to want to build with canvas support. 
 
-gst-plugins-base audiotestsrc plugin segfaults.  gst-plugins is therefore built without it.
-As a result the sound-record in GNOME Media doesn't build.
+liboil cannot be build with hyper-optimization, else the resulting library can 
+cause segfaults. (Noticed with gstreamer plugins)
 
-libdvdcss: With tetex installed, building may stall on the documentation on Slackware 12; it faults with some unicode problems.  
+libdvdcss: With tetex installed, building may stall on the documentation on 
+Slackware 12; it stalls with some unicode problems.  
 
 NetworkManager 0.7 (due soon as of October 14,2007) obsoletes dhcddb.
