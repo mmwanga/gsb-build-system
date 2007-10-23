@@ -1,0 +1,12 @@
+# This is here so that we can hopefully not break anything, still have our dbus
+# hooks so that NetworkManager can work, and people can still deploy their own
+# local stuff like ddnsclient hooks.
+for enter_hook in /etc/dhclient-enter-hooks.d/*.sh; do
+	if [ -x $enter_hook ]; then
+		. $enter_hook
+		if [ $exit_status -ne 0 ]; then
+			break
+		fi
+	fi
+done
+unset enter_hook
