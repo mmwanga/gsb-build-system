@@ -75,6 +75,8 @@ BUILD_ORDER="
        totem
        network-manager-applet
        gnome-utils
+       glibmm
+       gtkmm
        gnome-system-monitor
        gnome-netstatus
        zenity
