@@ -22,6 +22,8 @@ function install_file() {
 }
 
 install_file etc/dbus-1/system.d/dhcdbd.conf.new
+install_file etc/dhclient-enter-hooks.new
+install_file etc/dhclient-exit-hooks.new
 install_file etc/rc.d/rc.dhcdbd.new
 
 chmod +x etc/rc.d/rc.dhcdbd;

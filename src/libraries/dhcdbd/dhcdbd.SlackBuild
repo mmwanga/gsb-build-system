@@ -180,7 +180,7 @@ make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Preserve previous configurations
-cp $CWD/rc.dhcdbd $PKG/etc/rc.d/rc.dhcdbd.new
+cp -r $CWD/etc $PKG/etc
 mv $PKG/etc/dbus-1/system.d/dhcdbd.conf $PKG/etc/dbus-1/system.d/dhcdbd.conf.new
 
 ## Strip debugging symbols.
