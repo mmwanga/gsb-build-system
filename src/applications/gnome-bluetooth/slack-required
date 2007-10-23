@@ -3,3 +3,10 @@ bluez-tools
 bluez-hcidump
 bluez-firmware
 libbtctl
+gob2
+libgnomeui
+libbonoboui
+python
+gnome-keyring
+gnome-vfs
+pygtk

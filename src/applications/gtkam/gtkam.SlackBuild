@@ -12,7 +12,7 @@ VERSION=0.1.14
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 libgphoto2 libexif-gtk"
+REQUIRED_PACKAGES="gtk+2 libgphoto2 libexif-gtk gimp"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

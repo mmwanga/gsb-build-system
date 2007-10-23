@@ -72,7 +72,6 @@ libnl,http://people.suug.ch/~tgr/libnl/files/,1.0-pre6,tar.gz,NONE
 dhcdbd,http://dcantrel.fedorapeople.org/dhcdbd/,3.0,tar.bz2,NONE
 boost,http://downloads.sourceforge.net/boost/,1_34_1,tar.bz2,NONE
 gnomebaker,http://downloads.sourceforge.net/gnomebaker/,0.6.2,tar.bz2,NONE
-pidgin,http://downloads.sourceforge.net/pidgin/,2.2.1,tar.bz2,NONE
 XML-Twig,http://xmltwig.com/xmltwig/,3.29,tar.gz,NONE
 XML-Simple,http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM/,2.18,tar.gz,NONE
 krb5,http://web.mit.edu/kerberos/dist/krb5/1.6/,1.6.2-signed,tar,NONE
@@ -87,3 +86,8 @@ libatomic_ops,http://www.hpl.hp.com/research/linux/atomic_ops/download/,1.2,tar.
 exempi,http://libopenraw.freedesktop.org/download/,1.99.4,tar.gz,NONE
 shared-mime-info,http://freedesktop.org/~hadess/,0.22,tar.bz2,NONE
 libgalago,http://www.galago-project.org/files/releases/source/libgalago/,0.5.2,tar.bz2,NONE
+abiword,http://www.abisource.com/downloads/abiword/2.4.6/source/,2.4.6,tar.gz,NONE
+enchant,http://www.abisource.com/downloads/enchant/1.3.0/,1.3.0,tar.gz,NONE
+fribidi,http://fribidi.org/download/,0.10.9,tar.gz,NONE
+bluefish,http://downloads.sourceforge.net/bluefish/,1.0.7,tar.bz2,NONE
+gnucash,http://www.gnucash.org/pub/gnucash/sources/stable/,2.2.1,tar.bz2,NONE

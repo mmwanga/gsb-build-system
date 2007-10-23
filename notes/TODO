@@ -1,3 +1,24 @@
+##
+##
+## Some Notes to Add to Website Perhaps? FAQ?
+##
+
+To get proper scoring working with gnome-games, you have to add user name
+to group "games"
+
+
+------------------------
+
+##
+## Some Things to Consider
+## 
+
+Pulseaudio.  Should we be adding the system-wide groups?  Or should
+we leave the user to do so if he/she chooses to implement the daemon
+in that fashion?
+
+
+
 Package ideas:
   * Fonts package
       http://eyegene.ophthy.med.umich.edu/unicode/fontguide/

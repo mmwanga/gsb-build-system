@@ -12,7 +12,7 @@ VERSION=0.9.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="bluez-libs bluez-utils libbtctl"
+REQUIRED_PACKAGES="bluez-libs bluez-tools bluez-hcidump bluez-firmware libbtctl gob2 libgnomeui libbonoboui python gnome-keyring gnome-vfs pygtk"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
