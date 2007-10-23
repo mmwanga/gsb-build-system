@@ -22,6 +22,9 @@ function install_file() {
 }
 
 install_file etc/dbus-1/system.d/dhcdbd.conf.new
+install_file etc/rc.d/rc.dhcdbd.new
+
+chmod +x etc/rc.d/rc.dhcdbd;
 
 ##  
 ## Make dbus executable if dhcdbd is installed
@@ -30,10 +33,11 @@ if [ ! -x etc/rc.d/rc.messagebus ]; then
     chmod +x etc/rc.d/rc.messagebus;
 fi;
 
+
 ##
 ## Restart dbus (reload dhcdbd info), and start services
 ##
 if [ -x etc/rc.d/rc.messagebus ]; then
     . etc/rc.d/rc.messagebus restart;
+    . etc/rc.d/rc.dhcdbd start;
 fi;
-
