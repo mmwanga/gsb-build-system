@@ -5,11 +5,13 @@ ChangeLog
     * libraries: Tweaks to dhcdbd doinst.sh script.
 	* platform: NetworkManager tweaks.  Now NetworkManager works! woo!  :^)
 	* applications: Fixed schema install for gcalctool. 
+	  Removed some old scrollkeeper cruft.
 	  Removed gmime (in Slackware 12).
 	  Added gnokii (for gnome-phone-manager).
 	  Fixed evolution SlackBuild (and added heimdal krb5 support).
 	  Fixed schema install for gnome-phone-manager.
 	  Added gnome-power-manager and seahorse to gsb.applications.
+	  Fixed schema install for brasero, gnomebaker, ekiga.
 
 	* Tested: gcalctool gnokii gnome-phone-manager gtkam evolution
 	  gnome-power-manager
