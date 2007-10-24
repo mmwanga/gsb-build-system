@@ -64,7 +64,6 @@ mkdir -p $LOGSDIR
 # Packages must be listed here in the order they should be built.
 BUILD_ORDER="	 
        mozilla-firefox
-       seahorse
        yelp
        eog
        gnome-media
@@ -114,6 +113,7 @@ BUILD_ORDER="
        gedit
        gedit-plugins
        nautilus-sendto
+       seahorse
        gnome-user-share
        pessulus
        sabayon

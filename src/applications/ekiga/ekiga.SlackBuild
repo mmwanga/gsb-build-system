@@ -12,7 +12,7 @@ VERSION=2.0.11
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="scrollkeeper esound evolution-data-server pwlib openldap-client opal gnome-doc-utils sdl dbus avahi pango cairo glib2 gtk+2 gnome-vfs libart_lgpl gnome-keyring atk libbonobo libbonoboui ORBit2 GConf"
+REQUIRED_PACKAGES="rarian esound evolution-data-server pwlib openldap-client opal gnome-doc-utils sdl dbus avahi pango cairo glib2 gtk+2 gnome-vfs libart_lgpl gnome-keyring atk libbonobo libbonoboui ORBit2 GConf"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
