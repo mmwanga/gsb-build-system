@@ -1,11 +1,11 @@
                    |-----handy-ruler------------------------------------------------------|
 gnome-power-manager: gnome-power-manager (GNOME Power Manager)
 gnome-power-manager: 
-gnome-power-manager: GNOME Power Manager is a session daemon for the GNOME 
-gnome-power-manager: Desktop environment that makes it easy to manage your laptop 
-gnome-power-manager: or desktop system's power usage.  It requires HAL, and supports
-gnome-power-manager: suspending, hibernating, power notifications, cpu frequencies, 
-gnome-power-manager: hard drive spin-down, and display dimming. 
+gnome-power-manager: GNOME Power Manager is a session daemon for the GNOME Desktop environment 
+gnome-power-manager: that makes it easy to manage your laptop or desktop system's power 
+gnome-power-manager: usage.  It requires HAL, and supports suspending, hibernating, power 
+gnome-power-manager: notifications, cpu frequencies, hard drive spin-down, and display 
+gnome-power-manager: dimming. 
 gnome-power-manager: 
 gnome-power-manager: 
 gnome-power-manager: 

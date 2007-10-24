@@ -64,6 +64,7 @@ mkdir -p $LOGSDIR
 # Packages must be listed here in the order they should be built.
 BUILD_ORDER="	 
        mozilla-firefox
+       seahorse
        yelp
        eog
        gnome-media
@@ -78,6 +79,7 @@ BUILD_ORDER="
        glibmm
        cairomm
        gtkmm
+       gnomebaker
        gnome-system-monitor
        gnome-netstatus
        zenity
@@ -95,9 +97,11 @@ BUILD_ORDER="
        gnome-spell
        gtkam
        brasero
+       gnomebaker
        gcalctool
        gnokii
        gnome-phone-manager
+       gnome-power-manager
        evolution
        evolution-webcal
        evolution-exchange
