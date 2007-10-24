@@ -7,9 +7,12 @@ ChangeLog
 	* applications: Fixed schema install for gcalctool. 
 	  Removed gmime (in Slackware 12).
 	  Added gnokii (for gnome-phone-manager).
-	  Fixed evolution SlackBuild (and added krb5 support).
+	  Fixed evolution SlackBuild (and added heimdal krb5 support).
+	  Fixed schema install for gnome-phone-manager.
+	  Added gnome-power-manager and seahorse to gsb.applications.
 
-	* Tested: gcalctool gnome-phone-manager
+	* Tested: gcalctool gnokii gnome-phone-manager gtkam evolution
+	  gnome-power-manager
 
 23-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * libraries: Added libsigc++ (glibmm/gnome-system-monitor)
@@ -40,7 +43,7 @@ ChangeLog
 	  gnome-netstatus zenity gob2 gnome-games gnome-user-docs 
 	  gnome-system-tools gnome-nettool vino gnome-volume-manager
 	  gnome-backgrounds gnome-pilot gnome-pilot-conduits gnome-bluetooth
-	  gnome-spell gtkam brasero
+	  gnome-spell brasero
 
 22-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * libraries: Removed CFLAGS from liboil and rebuilt. Excessive optimization

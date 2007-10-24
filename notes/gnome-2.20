@@ -71,7 +71,7 @@ lua,http://www.lua.org/ftp/,5.1.2,tar.gz,NONE
 libnl,http://people.suug.ch/~tgr/libnl/files/,1.0-pre6,tar.gz,NONE
 dhcdbd,http://dcantrel.fedorapeople.org/dhcdbd/,3.0,tar.bz2,NONE
 boost,http://downloads.sourceforge.net/boost/,1_34_1,tar.bz2,NONE
-gnomebaker,http://downloads.sourceforge.net/gnomebaker/,0.6.2,tar.bz2,NONE
+gnomebaker,http://downloads.sourceforge.net/gnomebaker/,0.6.2,tar.gz,NONE
 XML-Twig,http://xmltwig.com/xmltwig/,3.29,tar.gz,NONE
 XML-Simple,http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM/,2.18,tar.gz,NONE
 krb5,http://web.mit.edu/kerberos/dist/krb5/1.6/,1.6.2-signed,tar,NONE
