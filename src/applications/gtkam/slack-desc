@@ -1,10 +1,10 @@
      |-----handy-ruler------------------------------------------------------|
-gtkam: gtkam (Digital camera access application)
+gtkam: gtkam (GTK+2/GNOME Camera Utility)
 gtkam:
-gtkam: gtkam is the official GTK2 GUI for libgphoto2.
-gtkam:
-gtkam:
-gtkam:
+gtkam: gtkam is a lightweight Gtk+2 application for viewing pictures on a
+gtkam: digital cameria, and is the official GTK2 GUI for libgphoto2. Its 
+gtkam: purpose it to provide a standard client for libgphoto2 aimed at GNOME 
+gtkam: users.  
 gtkam:
 gtkam:
 gtkam:

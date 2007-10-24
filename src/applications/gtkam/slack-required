@@ -2,3 +2,6 @@ libexif-gtk
 libgphoto2
 gtk+2
 gimp
+libexif
+libgnomui
+libbonoboui
