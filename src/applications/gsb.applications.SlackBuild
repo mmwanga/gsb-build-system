@@ -96,8 +96,8 @@ BUILD_ORDER="
        gtkam
        brasero
        gcalctool
+       gnokii
        gnome-phone-manager
-       gmime
        evolution
        evolution-webcal
        evolution-exchange

@@ -1,13 +1,31 @@
 ChangeLog
 ---------
 
+24-10-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * libraries: Tweaks to dhcdbd doinst.sh script.
+	* platform: NetworkManager tweaks.  Now NetworkManager works! woo!  :^)
+	* applications: Fixed schema install for gcalctool. 
+	  Removed gmime (in Slackware 12).
+	  Added gnokii (for gnome-phone-manager).
+	  Fixed evolution SlackBuild (and added krb5 support).
+
+	* Tested: gcalctool gnome-phone-manager
+
 23-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * libraries: Added libsigc++ (glibmm/gnome-system-monitor)
+	  Add rc.dhcdbd to dhcdbd.  Added hooks for dhcdbd.  
+	  See http://osdir.com/ml/network.networkmanager.devel/2005-07/msg00040.html
+	  and http://linuxreviews.org/man/dhclient-script/
+	  and Dropline Gnome forums.  Sneaky solution.  Borrowed it.  ;^)
 	* office: Start work on office. Might as well as I'm waiting
 	  for applications to finish building.  :^)
 	  Updated abiword fribidi enchant bluefish dia anjuta gnucash
 	  libgda goffice.
+	* desktop: Fix for NetworkManager to use netdev group on non-PAM system.
+	  http://lists.freedesktop.org/archives/dbus/2007-January/006880.html
     * applications: Fixed typo in network-manager-applet. 
+	  Fix for network-manager applet to use netdev group.
+	  http://lists.freedesktop.org/archives/dbus/2007-January/006880.html
 	  Updated slack-reqs for gnome-utils.
 	  Added glibmm/gtkmm (for gnome-system-monitor) to applications.
 	  Added cairomm to applications (for gtkmm).
