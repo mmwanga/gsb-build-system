@@ -7,4 +7,6 @@ GConf
 gtkunique
 atk
 libwnck
+gstreamer
+gtk+2
 gnome-panel
