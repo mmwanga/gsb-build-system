@@ -1,4 +1,5 @@
 evolution-data-server
+heimdal
 gnome-pilot-conduits
 gnome-spell
 gtkhtml
@@ -21,5 +22,5 @@ libbonoboui
 libgnomeprintui
 libsoup
 libnotify
-gstreamer >= 0.10
+gstreamer
 libgalago
