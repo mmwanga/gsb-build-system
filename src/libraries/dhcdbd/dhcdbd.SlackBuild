@@ -184,6 +184,8 @@ mkdir -p $PKG/etc/rc.d
 mkdir -p $PKG/etc/dhclient-exit-hooks.d
 mkdir -p $PKG/etc/dhclient-enter-hooks.d
 cp $CWD/etc/dhclient-enter-hooks.d/00dbus_hooks.sh $PKG/etc/dhclient-enter-hooks.d/00dbus_hooks.sh.new
+cp $CWD/etc/dhclient-enter-hooks.new $PKG/etc
+cp $CWD/etc/dhclient-exit-hooks.new $PKG/etc
 cp $CWD/etc/rc.d/rc.dhcdbd $PKG/etc/rc.d/rc.dhcdbd.new
 mv $PKG/etc/dbus-1/system.d/dhcdbd.conf $PKG/etc/dbus-1/system.d/dhcdbd.conf.new
 

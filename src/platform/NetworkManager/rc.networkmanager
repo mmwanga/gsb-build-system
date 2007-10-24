@@ -25,33 +25,33 @@ PIDFILE=/var/run/NetworkManager.pid
 
 nm_start()
 {
-	if [ "`pgrep dbus-daemon`" = "" ]; then
+if [ "`pgrep dbus-daemon`" = "" ]; then
     echo "D-BUS must be running to start NetworkManager"
     return
-	fi
+fi
   
-	if [ "`pgrep hald`" = "" ]; then
-	 echo "HAL must be running to start NetworkManager"
-	 return
-	fi
+if [ "`pgrep hald`" = "" ]; then
+ echo "HAL must be running to start NetworkManager"
+ return
+fi
 
-	if [ "`pgrep dhcdbd`" = "" ]; then
-	 echo "Dhcdbd must be running to start NetworkManager"
-     if [ -x /etc/rc.d/rc.dhcdbd ]; then
-       . /etc/rc.d/rc.dhcdbd ;
-       return;
-     else
-       echo "Cannot start dhcdbd.";
-       exit 1;
-     fi;
-    fi;
-  # Just in case the pidfile is still there, we may need to nuke it.
-  if [ -e "$PIDFILE" ]; then
-    rm -f $PIDFILE
-  fi
+if [ "`pgrep dhcdbd`" = "" ]; then
+ if [ -x /etc/rc.d/rc.dhcdbd ]; then
+  . /etc/rc.d/rc.dhcdbd start;
+  else
+   echo "Cannot start dhcdbd.";
+   exit 1;
+ fi;
+fi;
+  
+# Just in case the pidfile is still there, we may need to nuke it.
+if [ -e "$PIDFILE" ]; then
+  rm -f $PIDFILE
+fi
 
-  echo "Starting NetworkManager daemon:  $NETWORKMANAGER_BIN --pid-file $PIDFILE"
-  $NETWORKMANAGER_BIN --pid-file $PIDFILE
+echo "Starting NetworkManager daemon:  $NETWORKMANAGER_BIN --pid-file $PIDFILE"
+$NETWORKMANAGER_BIN --pid-file $PIDFILE
+
 }
 
 nm_status()
@@ -75,6 +75,16 @@ nm_stop()
     rm -f $PIDFILE &>/dev/null
 	fi
   echo "stopped";
+
+if [ "`pgrep dhcdbd`" != "" ]; then
+ if [ -x /etc/rc.d/rc.dhcdbd ]; then
+  . /etc/rc.d/rc.dhcdbd stop;
+  else
+   echo "Cannot stop dhcdbd.";
+   exit 1;
+ fi;
+fi;
+  
 }
 
 nm_restart()

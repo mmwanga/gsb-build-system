@@ -178,7 +178,8 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Preserve previous configurations
 mkdir -p $PKG/etc/rc.d
-cp -r $PKG/rc.networkmanager $PKG/etc/rc.d/rc.networkmanager.new
+rm $PKG/etc/rc.d/rc.networkmanager
+cp $CWD/rc.networkmanager $PKG/etc/rc.d/rc.networkmanager.new
 mv $PKG/etc/rc.d/rc.networkmanager-dispatcher $PKG/etc/rc.d/rc.networkmanager-dispatcher.new
 mv $PKG/etc/dbus-1/system.d/NetworkManager.conf $PKG/etc/dbus-1/system.d/NetworkManager.conf.new
 
