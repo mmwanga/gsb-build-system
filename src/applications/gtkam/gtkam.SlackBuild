@@ -12,7 +12,7 @@ VERSION=0.1.14
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libexif-gtk libgphoto2 gtk+2 gimp libexif libgnomui libbonoboui"
+REQUIRED_PACKAGES="libexif-gtk libgphoto2 gtk+2 gimp libexif libgnomeui libbonoboui"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
