@@ -155,6 +155,14 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
+##
+## Enable use of Heimdal libraries over MIT KRB5
+##
+echo
+echo "Using heimdal for Krb5."
+sed -i "s/\$mitlibs/\$heimlibs/g" $TMP/$PKGNAME-$VERSION/configure
+echo
+
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
@@ -163,14 +171,15 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-nntp=yes \
   --enable-pilot-conduits=yes \
   --with-openldap=yes \
-  --enable-openssl=yes
-  --enable-test-components=no 
+  --enable-openssl=yes \
+  --enable-test-components=no \
   --enable-smime=yes \
   --enable-exchange=yes \
   --enable-plugins=base \
   --enable-profiling=no \
   --enable-mono=no \
   --disable-gtk-doc \
+  --with-krb5=/usr \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
   || exit 1
