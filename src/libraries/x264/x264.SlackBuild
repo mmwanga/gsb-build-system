@@ -34,7 +34,7 @@ BUILD=1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2"
+REQUIRED_PACKAGES="gtk+2 libvisual subversion"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -50,13 +50,14 @@ CWD=$(pwd)
 NOCLEANUP=0
 FORCEBUILD=0
 SVN_REV=$(cd $PKGNAME && svn info 2> /dev/null | grep Revision | cut -d' ' -f2)
-echo "Building SVN_REV $SVN_REV"
-VERSION=${VERSION:-svn_$SVN_REV}
 
-if [ "$SVN_REV" = "" ] then
+if [ "$SVN_REV" = "" ]; then
   echo "Unable to properly check svn version. Please check your svn setup and try again."
   exit 1;
 fi;
+
+echo "Building SVN_REV $SVN_REV"
+VERSION=${VERSION:-svn_$SVN_REV}
 
 ## Usage.
 function usage() {

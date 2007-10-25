@@ -230,5 +230,5 @@ makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/$PKGNAME-$VERSION
+  rm -rf $PKG $TMP/${PKGNAME}_${VERSION}
 }

@@ -12,7 +12,7 @@ VERSION=1.25
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES=""
+REQUIRED_PACKAGES="vim"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

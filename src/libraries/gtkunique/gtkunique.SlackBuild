@@ -30,11 +30,11 @@ This script is intended to be run from a working svn copy.
 EOF
 
 ## Package variables.
-BUILD=0
+BUILD=1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="dbus gtk+2 glib2 libX11 dbus-glib"
+REQUIRED_PACKAGES="dbus gtk+2 glib2 libX11 dbus-glib subversion"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -50,6 +50,12 @@ CWD=$(pwd)
 NOCLEANUP=0
 FORCEBUILD=0
 SVN_REV=$(cd $PKGNAME && svn info 2> /dev/null | grep Revision | cut -d' ' -f2)
+
+if [ "$SVN_REV" = "" ]; then
+  echo "Unable to properly check svn version. Please check your svn setup and try again."
+  exit 1;
+fi;
+
 echo "Building SVN_REV $SVN_REV"
 VERSION=${VERSION:-svn_$SVN_REV}
 

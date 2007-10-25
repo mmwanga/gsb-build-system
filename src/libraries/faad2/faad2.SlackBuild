@@ -92,6 +92,7 @@ mkdir -p $PKGDEST
 cd $TMP &&
 rm -fr $PKGNAME-$VERSION &&
 tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
+rm -fr $PKGNAME-$VERSION &&
 mv $PKGNAME $PKGNAME-$VERSION &&
 cd $PKGNAME-$VERSION || exit 1
 

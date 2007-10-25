@@ -13,7 +13,7 @@ VERSION=0.3.5
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
 
-REQUIRED_PACKAGES="libexif gtk+2 pkg-config"
+REQUIRED_PACKAGES="libexif gtk+2 pkgconfig"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -119,7 +119,7 @@ fi
 if [ -x `which pkg-config` ]; then
    pkg-config --atleast-version="2.12" gtk+2-2.0;
    if [ $? -ne 0 ]; then
-     echo "You do not have gtk+2 greater or equal to 2.12. A patch is required."
+     echo "You have gtk+2 greater or equal to 2.12. A patch is required."
      (cd $TMP/$PKGNAME-$VERSION/libexif-gtk;
       patch -p0 < $CWD/patches/gtk-exif-browser.c.gtk-2.12-patch;
      );

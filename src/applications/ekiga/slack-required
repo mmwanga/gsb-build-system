@@ -1,10 +1,8 @@
 rarian
 esound
-evolution-data-server
 pwlib
-openldap
 opal
-gnome-doc-utils
+evolution-data-server
 sdl
 dbus
 avahi
@@ -13,10 +11,10 @@ cairo
 glib2
 gtk+2
 gnome-vfs
-libart_lgpl
 gnome-keyring
 atk
 libbonobo
 libbonoboui
 ORBit2
 GConf
+libgnomui

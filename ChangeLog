@@ -1,6 +1,19 @@
 ChangeLog
 ---------
 
+25-10-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * libraries: Correct unix ff for faac.
+	  Correct cleanup for boost.
+	  Add svn detection for ffmpeg, x264, gtkunique (subversion now required to build)
+	  Remove binaries from heimdal (just keep krb5 libraries/includes)
+	    Anyone who wants a full krb5 server can build it themselves. :^)
+      Heimdal now installs as heimdal-libraries.  Also fixed doinst.sh.
+	  Updated packages that depend on heimdal-libraries.
+	  Move openldap up in build order.
+	  Move libsample rate after libsndfile (and added as prereq).
+	  Added libvisual requirement for x264.
+	* mirror: University of Exeter (www.ex.ac.uk) may offer mirroring for GSB.  Woo!  
+ 
 24-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * libraries: Tweaks to dhcdbd doinst.sh script.
 	* platform: NetworkManager tweaks.  Now NetworkManager works! woo!  :^)
