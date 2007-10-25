@@ -1,0 +1,5 @@
+Download libnotify.bz2 rather than gz
+Download faad2.tar.gz rather than zip
+
+Add exempi, libatomic_ops, libsigc++ libgalago to Desktop_Reqs
+
