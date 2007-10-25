@@ -1,0 +1,12 @@
+       |-----handy-ruler------------------------------------------------------|
+poppler: poppler (a library for rendering PDF documents)
+poppler:
+poppler: Poppler is a library based on the xpdf PDF viewer developed by Derek
+poppler: Noonburg of Glyph and Cog, LLC.  Since xpdf does not provide a shared
+poppler: library, whenever a flaw was found potentially dozens of applications
+poppler: incorporating code from xpdf would have to be patched.  By providing
+poppler: a centralized PDF library this duplicated effort will be eliminated.
+poppler:
+poppler:
+poppler:
+poppler:

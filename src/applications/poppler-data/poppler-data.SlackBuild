@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.20.0
+VERSION=0.1.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gnome-vfs gtk+2 libgnomeui glib2 poppler poppler-data atk freetype GConf libpng nautilus libtiff t1lib espgs libgnomecups libgnomeprint libgnomeprintui cairo pango libbonobo libbonoboui dbus"
+REQUIRED_PACKAGES="poppler"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -90,7 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -127,57 +127,8 @@ find . -perm 511 -exec chmod 755 {} \;
 find . -perm 711 -exec chmod 755 {} \;
 find . -perm 555 -exec chmod 755 {} \;
 
-## Configure, Tuning, GCC and Make options.
-CONFIGURE_FLAGS=${GSB_CONFIGURE_FLAGS:-""}
-if [ "$ARCH" = "i386" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE"}
-elif [ "$ARCH" = "i486" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE"}
-elif [ "$ARCH" = "i586" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer -ffast-math"}
-elif [ "$ARCH" = "i686" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer -ffast-math"}
-elif [ "$ARCH" = "x86_64" ]; then
-  if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
-    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -ffast-math -fPIC"}
-  else
-    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -ffast-math -fPIC"}
-  fi
-  [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS="--libdir=/usr/lib64"
-  }
-elif [ "$ARCH" = "powerpc" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
-else
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2"}
-fi
-EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
-MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
-
-## Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
-  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
-  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
-  --enable-nautilus \
-  --enable-pdf \
-  --enable-tiff \
-  --enable-djvu \
-  --enable-dvi \
-  --enable-pixbuf \
-  --enable-comics \
-  --enable-impress \
-  --with-print=gnome \
-  --with-libgnome \
-  --disable-gtk-doc \
-  --disable-scrollkeeper \
-  || exit 1
-
 ## Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+make $MAKE_FLAGS datadir=/usr/share DESTDIR=$PKG install || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -197,31 +148,6 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
   gzip -9 $PKG/usr/info/*.info
 }
 
-## Copy extra documentation into package.
-mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
-  $PKG/usr/doc/$PKGNAME-$VERSION
-find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
-chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
-
-## Add schemas install to the doinst.sh if schemas are found.
-[ -d $PKG/etc/gconf/schemas ] && {
-  echo "if [ -x usr/bin/gconftool-2 ]; then" >>$PKG/install/doinst.sh
-  ( cd $PKG/etc/gconf/schemas
-    for FILE in *; do
-      [ -z "$(grep gconfentry $FILE)" ] && {
-        # Create gconf tree
-        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
-      } || {
-        # Load gconf settings
-        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --config-source=\$(usr/bin/gconftool-2 --get-default-source) --direct --load etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
-      }
-    done
-  )
-  echo "fi" >>$PKG/install/doinst.sh
-}
-
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
 do
@@ -232,7 +158,7 @@ done
 
 ## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-noarch-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {

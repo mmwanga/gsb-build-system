@@ -1,21 +1,15 @@
 gnome-vfs
 gtk+2
 libgnomeui
-poppler
-avahi
-gnome-vfs
 glib2
 poppler
-gnome-keyring
+poppler-data
 atk
 freetype
 GConf
 libpng
 nautilus
-dbus
 libtiff
-gnome-doc-utils
-shared-mime-info
 t1lib
 espgs
 libgnomeprint
@@ -24,3 +18,4 @@ cairo
 pango
 libbonobo
 libbonoboui
+dbus

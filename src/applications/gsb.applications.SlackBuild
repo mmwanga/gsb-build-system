@@ -100,8 +100,11 @@ BUILD_ORDER="
        gcalctool
        gnokii
        gnome-phone-manager
-       gnome-power-manager
        evolution
+       gnome-power-manager
+       poppler
+       poppler-data
+       evince
        evolution-webcal
        evolution-exchange
        ekiga
@@ -109,7 +112,6 @@ BUILD_ORDER="
        gnome-commander
        gthumb
        rhythmbox
-       evince
        gedit
        gedit-plugins
        nautilus-sendto
