@@ -12,9 +12,12 @@ ChangeLog
 	  Fixed schema install for gnome-phone-manager.
 	  Added gnome-power-manager and seahorse to gsb.applications.
 	  Fixed schema install for brasero, gnomebaker, ekiga.
+	  Added poppler 0.6.1 (for evince 2.20).
+	  Added poppler-data 0.1.1 (for poppler).
+	  Added gnome print support, comics, pixbuf, djvu to evince.
 
 	* Tested: gcalctool gnokii gnome-phone-manager gtkam evolution
-	  gnome-power-manager
+	  gnome-power-manager brasero poppler poppler-data evince
 
 23-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * libraries: Added libsigc++ (glibmm/gnome-system-monitor)

@@ -92,3 +92,5 @@ fribidi,http://fribidi.org/download/,0.10.9,tar.gz,NONE
 bluefish,http://downloads.sourceforge.net/bluefish/,1.0.7,tar.bz2,NONE
 gnucash,http://www.gnucash.org/pub/gnucash/sources/stable/,2.2.1,tar.bz2,NONE
 gnokii,http://www.gnokii.org/download/gnokii/,0.6.19,tar.bz2,NONE
+poppler,http://poppler.freedesktop.org/,0.6.1,tar.gz,NONE
+poppler-data,http://poppler.freedesktop.org/,0.1.1,tar.gz,NONE
