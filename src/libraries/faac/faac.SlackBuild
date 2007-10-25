@@ -91,6 +91,7 @@ mkdir -p $PKGDEST
 ## Decompress archive.
 cd $TMP &&
 tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
+rm -fr $PKG-$VERSION &&
 mv $PKGNAME $PKGNAME-$VERSION &&
 cd $PKGNAME-$VERSION || exit 1
 
@@ -157,8 +158,9 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
 
-ex +":set ff=unix" +":wq" bootstrap
-ex +":set ff=unix" +":wq" configure.in
+vim -e +":set ff=unix" +":wq" bootstrap
+vim -e +":set ff=unix" +":wq" configure.in
+
 sh ./bootstrap;
 
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
