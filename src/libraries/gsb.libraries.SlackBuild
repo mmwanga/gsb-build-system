@@ -78,8 +78,8 @@ mkdir -p $LOGSDIR
 BUILD_ORDER=" liboil
         libelf
         libnotify
-        libsamplerate
         libatomic_ops
+        openldap-client
         a52dec
         ffmpeg
         xvidcore
@@ -97,6 +97,7 @@ BUILD_ORDER=" liboil
         libmatroska
         libmms
         libsndfile
+        libsamplerate
         twolame
         libdv
         libquicktime
@@ -129,7 +130,6 @@ BUILD_ORDER=" liboil
         lua
         libnl
         dhcdbd
-        openldap-client
         heimdal
         libgalago
         libsigc++
