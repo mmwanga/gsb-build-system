@@ -71,16 +71,6 @@ mkdir -p $LOGSDIR
 ####
 
 BUILD_ORDER="
-      gnome-themes
-      tango-icon-theme
-      gnome-doc-utils
-      at-spi
-      gnome-desktop
-      gnome-menus
-      libwnck
-      evolution-data-server
-      gnome-python
-      gstreamer
       gst-plugins-base
       gst-plugins-good
       gst-plugins-ugly

@@ -11,3 +11,4 @@ dbus
 zenity
 libglade
 GConf
+gnome-session

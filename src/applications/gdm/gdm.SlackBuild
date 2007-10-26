@@ -12,7 +12,7 @@ VERSION=2.20.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="zenity gnome-doc-utils openssh which libgnomecanvas pango cairo glib2 gtk+2 dbus zenity libglade GConf"
+REQUIRED_PACKAGES="zenity gnome-doc-utils openssh which libgnomecanvas pango cairo glib2 gtk+2 dbus zenity libglade GConf gnome-session"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
