@@ -165,6 +165,13 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
+## libcroco has a strange quirk that when it is configured with a specific
+## target, it prefaces all its binary files to reflect the configured target.
+## This step quickly renames them.
+for FILE in $(find $PKG -name ${ARCH}*); do
+  mv $FILE $(echo "$FILE" | sed "s/$ARCH-$DISTRO-linux-//g")
+done
+
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
