@@ -12,7 +12,7 @@ VERSION=0.9.6
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libsndfile pkg-config GConf hal avahi glib2 libsamplerate libatomic_ops liboil" 
+REQUIRED_PACKAGES="libsndfile pkgconfig GConf hal avahi glib2 libsamplerate libatomic_ops liboil" 
 
 ## Build variables.
 ARCH=${ARCH:-i586}

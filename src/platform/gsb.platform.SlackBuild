@@ -80,6 +80,7 @@ BUILD_ORDER="
      ORBit2
      libbonobo
      GConf
+     shared-mime-info
      gnome-mime-data
      pygobject
      pyorbit
@@ -101,7 +102,7 @@ BUILD_ORDER="
      icon-naming-utils
      gnome-icon-theme
      gnome-keyring
-     pulse-audio
+     pulseaudio
      libgnomeui
      gtk-engines
      libsoup
@@ -114,7 +115,7 @@ BUILD_ORDER="
     echo "*************************************************"
     echo "****** Building package: $PACKAGE"
     echo "*************************************************"
-    ( cd $PACKAGE ; ./$PACKAGE.SlackBuild "$SLACKBUILD_ARGS" ) || exit 1
+    ( cd $PACKAGE ; ./$PACKAGE.SlackBuild $SLACKBUILD_ARGS ) || exit 1
     [ "$NOINSTALL" != "1" ] && {
       upgradepkg --install-new \
         ${PKGDEST:-$TMP/gsb-packages}/$PACKAGE-*.tgz || exit 1
