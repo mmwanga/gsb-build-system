@@ -155,6 +155,15 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
+
+##
+## Configure to use System-Tools-Backends > 2
+##
+echo
+echo "Configuring with system-tools-backends > 2.0"
+sed -i "s/tools\-backends/tools\-backends\-2\.0/g" $TMP/$PKGNAME-$VERSION/configure
+echo
+
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
