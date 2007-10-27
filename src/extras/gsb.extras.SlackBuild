@@ -69,6 +69,9 @@ mkdir -p $LOGSDIR
 ####
 
 BUILD_ORDER="
+     python-ldap
+     pessulus
+     sabayon
      balsa
      brasero
      drivel

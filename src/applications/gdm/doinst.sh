@@ -25,5 +25,8 @@ function install_file() {
   fi
 }
 
-install_file etc/X11/gdm/custom.conf.new
+## Preserve any previous customizations
 install_file etc/X11/gdm/Xsession.new
+install_file etc/X11/gdm/custom.conf.new
+install_file etc/X11/gdm/PreSession/Default.new
+install_file etc/X11/gdm/PostLogin/Default.new

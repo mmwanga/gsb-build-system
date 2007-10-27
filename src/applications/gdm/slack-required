@@ -10,5 +10,5 @@ gtk+2
 dbus
 zenity
 libglade
-GConf
 gnome-session
+libdaemon

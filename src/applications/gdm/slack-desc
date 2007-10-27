@@ -1,5 +1,5 @@
    |-----handy-ruler------------------------------------------------------|
-gdm: gdm (GNOME Display manager for X)
+gdm: gdm (GNOME Display Manager)
 gdm:
 gdm: GDM (the GNOME Display Manager) provides an alternate display manager
 gdm: for the X Window System. The X Window System by default uses the XDM 

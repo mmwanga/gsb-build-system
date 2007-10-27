@@ -1,8 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Name=FVWM95
-Comment=The fvwm95 window manager
-Exec=/etc/X11/xdm/Xsession fvwm95
-# no icon yet, only the top three are currently used
-Icon=
-Type=Application

@@ -117,8 +117,6 @@ BUILD_ORDER="
        nautilus-sendto
        seahorse
        gnome-user-share
-       pessulus
-       sabayon
        gnome-screensaver
        gdm
 "
