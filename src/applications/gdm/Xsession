@@ -8,8 +8,8 @@
 # Patched to give priority to $HOME/.xsession, 10-Oct-1999 volkerdi
 # Merged changes into upstream (XFree86-4.0.2) version, 17-Feb-2001 volkerdi
 # Fixes for $PATH (from Jim Diamond), GDM/KDM/XDM, 2003-02-07 volkerdi
-# Patched for bizzare GDM $1, 2003-09-23 volkerdi
-# Modified for Slackware 12 GSB Gnome, 2007-10-28 stevek
+# Use absolute paths until $PATH is set, 2006-01-11 (Al's 100th :-) volkerdi
+
 
 # redirect errors to a file in user's home directory if we can
 for errfile in "$HOME/.xsession-errors" "${TMPDIR-/tmp}/xses-$USER" "/tmp/xses-$USER"
@@ -22,8 +22,6 @@ do
 	fi
 done
 
-SESSION=`echo $1 | cut -f 2 -d ' '`
-
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/usr/lib/X11/xinit/.Xresources
@@ -32,22 +30,23 @@ sysmodmap=/usr/lib/X11/xinit/.Xmodmap
 # merge in defaults and keymaps
 
 if [ -r $sysresources ]; then
-	xrdb -merge $sysresources
+	/usr/bin/xrdb -merge $sysresources
 fi
 
 if [ -r $sysmodmap ]; then
-	xmodmap $sysmodmap
+	/usr/bin/xmodmap $sysmodmap
 fi
 
 if [ -r $userresources ]; then
-	xrdb -merge $userresources
+	/usr/bin/xrdb -merge $userresources
 fi
 
 if [ -r $usermodmap ]; then
-	xmodmap $usermodmap
+	/usr/bin/xmodmap $usermodmap
 fi
 
-# Since xdm doesn't run a bash -login shell (or any other login shell) # we should source these files to set up the user's environment.
+# Since xdm doesn't run a bash -login shell (or any other login shell)
+# we should source these files to set up the user's environment.
 profile=/etc/profile
 userprofile=~/.profile
 
@@ -61,16 +60,16 @@ fi
 # Set the $PATH through the user's preferred shell.
 case `basename "$SHELL"` in
 bash|sh|ash)
-	PATH="`( echo 'echo $PATH' | bash --login ) | tail -n 1`"
+	PATH="`( echo 'echo $PATH' | bash --login ) | tail -1`"
 	;;
 csh|tcsh)
-	PATH="`( echo 'echo $PATH' | tcsh -l ) | tail -n 1`"
+	PATH="`( echo 'echo $PATH' | tcsh -l ) | tail -1`"
 	;;
 ksh)
-	PATH="`( cat /etc/profile ; echo 'echo $PATH' ) | ksh | tail -n 1`"
+	PATH="`( cat /etc/profile ; echo 'echo $PATH' ) | ksh | tail -1`"
 	;;
 zsh)
-	PATH="`( echo 'echo $PATH' | zsh -l ) | tail -n 1`"
+	PATH="`( echo 'echo $PATH' | zsh -l ) | tail -1`"
     	;;
 *)
 	# We don't know your shell, so we'll set up reasonable defaults.
@@ -95,15 +94,15 @@ if [ -r ~/.xprofile ]; then
 fi
 
 # Some people say that an .xsession file should always be given priority, even if a
-# different window manager was requested in $SESSION.  If you want that behavior, uncomment
+# different window manager was requested in $1.  If you want that behavior, uncomment
 # the lines below.  This is not recommended (nor, in general, is the use of an
 # .xsession file as a default... it should be left for the advanced users).
 #if [ -x $HOME/.xsession ]; then
 #        exec $HOME/.xsession $@
 #fi
 
-# If a particular session type was requested in $SESSION, start that session:
-case "$SESSION" in
+# If a particular session type was requested in $1, start that session:
+case "$1" in
 failsafe)
 	xsetroot -solid SteelBlue
 	exec xterm -geometry 80x24-0-0
@@ -112,10 +111,25 @@ kde)
 	exec startkde
 	;;
 gnome)
-	exec /etc/X11/xinit/xinitrc.gnome
-	;;
-gnome_nodbus)
-	exec gnome-session
+    ## Use ssh-agent if available
+    if [ -x /usr/bin/ssh-agent ]; then
+        GNOME_SESSION_SETTINGS="$GNOME_SESSION_SETTINGS ssh-agent"
+    fi;
+
+    ## Use dbus if available
+    if [ -x /usr/bin/dbus-launch ]; then
+        GNOME_SESSION_SETTINGS="$GNOME_SESSION_SETTINGS/usr/bin/dbus-launch --exit-with-session"
+    fi;
+
+    ## Use Seahorse if available
+    ## For more information, please see http://live.gnome.org/Seahorse/SessionIntegration
+    if [ -x /usr/bin/seahorse-agent ]; then
+        GNOME_SESSION_SETTINGS="$GNOME_SESSION_SETTINGS /usr/bin/seahorse-agent --execute"
+    fi;
+
+    # Start the window manager
+    exec $GNOME_SESSION gnome-session
+
 	;;
 openwin)
 	exec olvwm
@@ -143,14 +157,8 @@ windowmaker)
 afterstep)
 	exec afterstep
 	;;
-e16)
-	exec dbus-launch --exit-with-session e16
-	;;
 enlightenment)
-	exec dbus-launch --exit-with-session enlightenment
-	;;
-dotxsession)
-	exec $HOME/.xsession
+	exec enlightenment
 	;;
 twm)
 	#xclock -geometry 50x50-1+1 &
@@ -170,7 +178,7 @@ if [ -x $HOME/.xsession ]; then
 fi
 
 # If the user doesn't have their own xsession and none was specified in
-# $SESSION, then run the system default session type:
+# $1, then run the system default session type:
 if [ -r /etc/X11/xinit/xinitrc ]; then
 	exec /etc/X11/xinit/xinitrc
 fi
@@ -181,7 +189,7 @@ if [ -s "$startup" -a -x "$startup" ]; then
 	exec "$startup"
 else
 	if [ -r "$resources" ]; then
-		xrdb -load "$resources"
+		/usr/bin/xrdb -load "$resources"
 	fi
 	# Run xsm as a failsafe.
 	exec xsm

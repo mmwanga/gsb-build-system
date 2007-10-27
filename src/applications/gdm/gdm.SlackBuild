@@ -12,7 +12,7 @@ VERSION=2.20.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="zenity gnome-doc-utils openssh which libgnomecanvas pango cairo glib2 gtk+2 dbus zenity libglade gnome-session libdaemon"
+REQUIRED_PACKAGES="zenity gnome-doc-utils openssh which libgnomecanvas pango cairo glib2 gtk+2 dbus zenity libglade gnome-session gtk-engines gnome-icon-theme gnome-backgrounds"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -165,7 +165,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-secureremote=yes \
   --with-xdmcp=yes \
   --with-sysconfsubdir=X11/gdm \
-  --with-dmconfdir=/etc/X11/gdm/Sessions \
+  --with-dmconfdir=/usr/share/xsessions \
   --with-log-dir=/var/log/gdm \
   --with-atspi-dir=/usr/libexec \
   --with-pid-file=/var/run/gdm.pid \
@@ -182,17 +182,17 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 )
 
 for file in $CWD/sessions/* ; do
-  cp $file $PKG/etc/X11/gdm/Sessions; 
+  cp $file $PKG/usr/share/xsessions ;
+  chmod 755 $PKG/usr/share/xsessions/$file ;
 done
-chown -R root.root $PKG/etc/X11/gdm;
-chmod 755 $PKG/etc/X11/gdm/*;
-rm -fr $PKG/var/lib ;
 
 ## Preserve Files
-mv $PKG/etc/X11/gdm/Xsession $PKG/etc/X11/gdm/Xsession.new
-mv $PKG/etc/X11/gdm/custom.conf $PKG/etc/X11/gdm/custom.conf.new
+mv $PKG/etc/X11/gdm/Xsession $PKG/etc/X11/xdm/Xsession.new
+mv $CWD/custom.conf $PKG/etc/X11/gdm/custom.conf.new
 mv $PKG/etc/X11/gdm/PreSession/Default $PKG/etc/X11/gdm/PreSession/Default.new
 mv $PKG/etc/X11/gdm/PostLogin/Default.sample $PKG/etc/X11/gdm/PostLogin/Default.new
+chown -R root:root $PKG/etc/X11/gdm;
+chown -R root:root $PKG/usr/share/xsessions/*;
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

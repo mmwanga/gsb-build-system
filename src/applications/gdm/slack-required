@@ -11,4 +11,6 @@ dbus
 zenity
 libglade
 gnome-session
-libdaemon
+gtk-engines
+gnome-icon-theme
+gnome-backgrounds

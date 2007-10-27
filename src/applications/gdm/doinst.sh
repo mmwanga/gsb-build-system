@@ -26,7 +26,30 @@ function install_file() {
 }
 
 ## Preserve any previous customizations
-install_file etc/X11/gdm/Xsession.new
+install_file etc/X11/xdm/Xsession.new
 install_file etc/X11/gdm/custom.conf.new
 install_file etc/X11/gdm/PreSession/Default.new
 install_file etc/X11/gdm/PostLogin/Default.new
+
+##
+## If the gdm user don't exist, add them:
+##
+if grep "^gdm:x:" etc/passwd 1> /dev/null 2> /dev/null ; then
+  true
+else
+  echo "gdm:x:95:95:gdm:/etc/X11/gdm:" >> etc/passwd
+fi
+if grep "^gdm:" etc/shadow 1> /dev/null 2> /dev/null ; then
+  true
+else
+  echo "gdm:*:95:0:::::" >> etc/shadow
+fi
+
+##
+## If the gdm group don't exist, add them:
+##
+if grep "^gdm::" etc/group 1> /dev/null 2> /dev/null ; then
+  true
+else
+  echo "gdm::95:gdm" >> etc/group
+fi
