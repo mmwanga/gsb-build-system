@@ -58,12 +58,10 @@ mkdir -p $LOGSDIR
 
 # Packages must be listed here in the order they should be built.
 ##
-## GNOME Platform Files.  
+## GNOME Extras
 ##
-## These are packages that are required and make the foundation
-## for the GNOME Desktop packages.
-##
-## http://www.gnome.org/start/2.20/notes/en/index.html#rninstallation
+## These packages are "extra". Some users may prefer them to other
+## standard GNOME packages. 
 ## 
 
 ####
@@ -71,19 +69,14 @@ mkdir -p $LOGSDIR
 ####
 
 BUILD_ORDER="
-     avidemux
      balsa
      drivel
-     dvgrab
      easytag
      gDesklets
-     ghex
      gparted
-     gqview
      gtkpod
      pitivi
      pstoedit
-     skencil
      streamripper
      sylpheed
      thoggen

@@ -1,0 +1,10 @@
+glib2
+gtk+2
+libgnome
+libgnomeui
+gnome-vfs
+gstreamer
+gst-plugins-base
+nautilus-cd-burner
+libxml2
+libnotify

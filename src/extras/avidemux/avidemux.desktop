@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=AVIDemux
-Comment=Video Editing Tool
-Exec=avidemux2
-Terminal=0
-Icon=avidemux.png
-Type=Application
-Categories=Application;AudioVideo;
