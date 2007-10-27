@@ -12,7 +12,7 @@ VERSION=2.12.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomeui evolution-data-server evolution pkgconfig"
+REQUIRED_PACKAGES="libgnomeui evolution-data-server evolution pkg-config"
 
 if [ ! -x /usr/bin/pkg-config ]; then
   echo "This package requried pkg-config."
