@@ -1,0 +1,12 @@
+    |-----handy-ruler------------------------------------------------------|
+gksu: gksu (GkSU Sudo Frontend)
+gksu: 
+gksu: gksu uses the Gtk+2 library to show the dialog asking for the target 
+gksu: user's password when needed. The application using the library is able 
+gksu: to modify the message, the icon and the title of the window GKSu will use.
+gksu: 
+gksu: http://www.nongnu.org/gksu/
+gksu: 
+gksu: 
+gksu: 
+gksu: 

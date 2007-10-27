@@ -53,3 +53,14 @@ if grep "^gdm::" etc/group 1> /dev/null 2> /dev/null ; then
 else
   echo "gdm::95:gdm" >> etc/group
 fi
+
+cat << EOF
+
+Note: GDM will start at runlevel 4.  If you would like to have GDM run
+when the computer boots, please change your /etc/inittab to default to 
+runlevel 4 at boot time. For example, 
+
+# Default runlevel. 
+id:4:initdefault:
+
+EOF

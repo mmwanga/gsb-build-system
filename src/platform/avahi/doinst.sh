@@ -44,7 +44,7 @@ fi
 if grep "^avahi:" etc/shadow 1> /dev/null 2> /dev/null ; then
   true
 else
-  echo "avahi:*:9797:0:::::" >> etc/shadow
+  echo "avahi:*:86:0:::::" >> etc/shadow
 fi
 
 ##
