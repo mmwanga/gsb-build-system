@@ -12,7 +12,7 @@ VERSION=0.6.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libnotify"
+REQUIRED_PACKAGES="libnotify gtk+2 gstreamer libgnomeui libglade cdrtools"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -161,6 +161,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static --enable-shared \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
+  --enable-libnotify \
   || exit 1
 
 ## Build and install.

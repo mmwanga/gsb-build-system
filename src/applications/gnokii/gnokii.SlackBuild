@@ -12,7 +12,7 @@ VERSION=0.6.19
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="bluez-libs libusb gtk+2"
+REQUIRED_PACKAGES="bluez-libs libusb gtk+2 cairo"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -162,8 +162,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   || exit 1
 
 ## Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+make $MAKE_FLAGS ;
+make $MAKE_FLAGS install DESTDIR=$PKG || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

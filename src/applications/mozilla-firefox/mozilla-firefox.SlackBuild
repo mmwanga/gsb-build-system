@@ -89,10 +89,21 @@ mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
+cat << EOF
+
+Building Mozilla Firefox can take a long time.  Please be patient.
+
+EOF
+
 ## Decompress archive.
-cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION-source.tar.bz2 &&
-mv mozilla $PKGNAME-$VERSION &&
+cd $TMP ;
+echo -n "Cleaning temporary space..."
+rm -fr $PKGNAME-$VERSION ;
+echo "done."
+echo -n "Extracting source files..."
+tar xjf $CWD/$PKGNAME-$VERSION-source.tar.bz2 ;
+echo "done."
+mv mozilla $PKGNAME-$VERSION ;
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -117,18 +128,29 @@ elif [ "$ARCH" = "powerpc" ]; then
 fi
 
 ## Fix permissions for building.
-echo "Setting file permissions for building..."
+echo "Please be patient.  This may take a while."
+echo -n "Setting file permissions for building..."
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
+echo -n .
 find . -perm 600 -exec chmod 644 {} \;
+echo -n .
 find . -perm 444 -exec chmod 644 {} \;
+echo -n .
 find . -perm 400 -exec chmod 644 {} \;
+echo -n .
 find . -perm 440 -exec chmod 644 {} \;
+echo -n .
 find . -perm 777 -exec chmod 755 {} \;
+echo -n .
 find . -perm 775 -exec chmod 755 {} \;
+echo -n .
 find . -perm 511 -exec chmod 755 {} \;
+echo -n .
 find . -perm 711 -exec chmod 755 {} \;
+echo -n .
 find . -perm 555 -exec chmod 755 {} \;
+echo "done."
 
 ## Configure, Tuning, GCC and Make options.
 CONFIGURE_FLAGS=${GSB_CONFIGURE_FLAGS:-""}
@@ -158,12 +180,15 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
+echo "Running configure...."
+echo
+
 ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \ 
-  --disable-tests  \
-  --enable-application=browser  \
-  --disable-debug   \
+  --disable-static --enable-shared \
+  --disable-tests \
+  --enable-application=browser \
+  --disable-debug \
   --enable-optimize="-O2 -freorder-blocks -fno-reorder-functions -gstabs+"  \
   --enable-default-toolkit=gtk2 \
   --enable-svg \
@@ -241,5 +266,6 @@ makepkg -p -l y -c n $PKGDEST/$GSBPKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
+  echo "Cleaning up..."
   rm -rf $PKG $TMP/$PKGNAME-$VERSION
 }

@@ -1,3 +1,4 @@
 bluez-libs
 libusb
 gtk+2
+cairo
