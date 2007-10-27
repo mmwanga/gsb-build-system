@@ -70,6 +70,7 @@ mkdir -p $LOGSDIR
 
 BUILD_ORDER="
      balsa
+     brasero
      drivel
      easytag
      gDesklets
@@ -77,6 +78,7 @@ BUILD_ORDER="
      gtkpod
      pitivi
      pstoedit
+     slapt-update-notifier
      streamripper
      sylpheed
      thoggen

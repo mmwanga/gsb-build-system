@@ -84,6 +84,7 @@ BUILD_ORDER="
      gnumeric
      inkscape
      istanbul
+     dvgrab
      kino
      liferea
      tracker

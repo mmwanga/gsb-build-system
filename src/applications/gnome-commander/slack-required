@@ -3,3 +3,8 @@ glib2
 libgnome
 libgnomeui
 gnome-vfs
+libexif
+libiptcdata
+lcms
+libgsf
+python

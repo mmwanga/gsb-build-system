@@ -1,18 +1,69 @@
 ChangeLog
 ---------
 
+27-10-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * applications: Improved reqs for gnome-phone-manager.
+	  Removed duplicate gnomebaker from gsb.application build.
+	  slack-required correction for gnome-bluetooth.
+	  Added pybackpack.
+      Prettier evolution-exchange slack-desc.
+	  Added libsoup to evo-webdal and fixed schema install.
+	* office: Removed a slew of old packages.
+	  Added dvgrab (moved from extras)
+	* extras: Removed Gqview (in Slackware 12)
+	  Removed old and unmaintained packages.
+
+	* Tested: mozilla-firefox yelp eog gnome-media sound-juicer file-roller 
+      epiphany epiphany-extensions totem network-manager-applet gnome-utils 
+      glibmm cairomm gtkmm gnomebaker gnome-system-monitor gnome-netstatus 
+      zenity gob2 gnome-games gnome-user-docs gnome-system-tools gnome-nettool 
+      vino gnome-volume-manager gnome-backgrounds gnome-pilot gnome-pilot-conduits 
+      gnome-bluetooth gnome-spell gtkam gcalctool gnokii gnome-phone-manager 
+      evolution gnome-power-manager poppler poppler-data evince pybackpack 
+      evolution-webcal evolution-exchange ekiga alacarte gnome-commander
+      gthumb rhythmbox
+
+26-10-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * platform: Removed parallel builds from libbtctl (breaks).
+	  Removed extraneous quotes from gsb.platform.SlackBuild.
+	  Minor build order fixes.
+	  Moved shared-mime-info to platform (required for gnome-mime-info)
+	* desktop: Add check build to gstreamer (for gst-plugins-good)
+	  Add 64-bit paths to gnome-session.
+	* applications: Tweak gdm Xsession for Slackware 12.
+	  Add tweak to gnome-applets to build modemlights with stb > 2.
+	  Fix extraneous space on mozilla-firefox.
+	  Moved brasero to extras.  Using gnomebaker as standard burning tool.
+	  Also, added libnotify support to gnomebaker. Improved reqs.
+	  Fixed minor spelling error in gnome-applets slack-reqs.
+	  Minor slack-required fixes for gnokii.
+	* office: Added graphviz and goocanvas (for libgnomedb)
+	  Removed mergeant (as currently unstable)
+	  Improved a few slack-desc files.  
+	  Updated to SlackBuild 1.4.
+	* mono: Updated gsb.mono.
+	  Improved a few slack-desc files.
+	  Updated libgdiplus and mono to SlackBuild 1.4.
+
+	* Tested: Full platform build run.  Everything seems to work.  0:)
+	  Platform can be marked as beta.  
+
 25-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * libraries: Correct unix ff for faac.
-	  Correct cleanup for boost.
+	  Correct cleanup for boost (change a dash to an underscore).  Stupid name conventions.
 	  Add svn detection for ffmpeg, x264, gtkunique (subversion now required to build)
 	  Remove binaries from heimdal (just keep krb5 libraries/includes)
 	    Anyone who wants a full krb5 server can build it themselves. :^)
       Heimdal now installs as heimdal-libraries.  Also fixed doinst.sh.
-	  Updated packages that depend on heimdal-libraries.
-	  Move openldap up in build order.
+	  Updated packages that depend on heimdal-libraries (evolution-related packages)
+	  Move openldap up in build order (for svn, as we're replacing the package)
 	  Move libsample rate after libsndfile (and added as prereq).
 	  Added libvisual requirement for x264.
+	  Fixes binary name quirks for libcroco, libsamplerate, libdv and twolame.
 	* mirror: University of Exeter (www.ex.ac.uk) may offer mirroring for GSB.  Woo!  
+
+	* Tested: Full library build.  Everything seems to work.  0:)
+	  Libraries can be marked as beta.
  
 24-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * libraries: Tweaks to dhcdbd doinst.sh script.
@@ -218,7 +269,7 @@ ChangeLog
 	* trunk: Partial restructure of src tree (gnome -> src)
 	* libraries: Fixes to target tweaks. Added nss.
 	  Removed mp4v2 support from faad (breaks mpeg4ip)
-      pkg-config fix for libquicktime (for glib patch)
+      pkgconfig fix for libquicktime (for glib patch)
       Added libelf (for bug-buddy)
 	* accessibility: split accessibility items from desktop.
 	* desktop: SlackBuilds updated to 1.4. Various gconf build fixes.

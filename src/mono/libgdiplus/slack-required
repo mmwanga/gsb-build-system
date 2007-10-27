@@ -1,6 +1,7 @@
-glib2
-glitz
-libjpeg
+fontconfig
+freetype22
+libexif
 libpng
-libungif
 libtiff
+libjpeg
+cairo

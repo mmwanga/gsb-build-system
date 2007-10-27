@@ -65,7 +65,7 @@ nss,http://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_11_7_RTM/
 speex,http://downloads.us.xiph.org/releases/speex/,1.2beta2,tar.gz,NONE
 libsexy,http://releases.chipx86.com/libsexy/libsexy/,0.1.11,tar.gz,NONE
 twolame,http://www.ecs.soton.ac.uk/~njh/twolame/,0.3.10,tar.gz,NONE
-firefox,ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.8/source,2.0.0.8,tar.bz2,asc
+mozilla-firefox,ftp://ftp.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.8/source,2.0.0.8,tar.bz2,asc
 heimdal,http://ftp.pdc.kth.se/pub/heimdal/src/,1.0.1,tar.gz,NONE
 lua,http://www.lua.org/ftp/,5.1.2,tar.gz,NONE
 libnl,http://people.suug.ch/~tgr/libnl/files/,1.0-pre6,tar.gz,NONE
@@ -94,3 +94,10 @@ gnucash,http://www.gnucash.org/pub/gnucash/sources/stable/,2.2.1,tar.bz2,NONE
 gnokii,http://www.gnokii.org/download/gnokii/,0.6.19,tar.bz2,NONE
 poppler,http://poppler.freedesktop.org/,0.6.1,tar.gz,NONE
 poppler-data,http://poppler.freedesktop.org/,0.1.1,tar.gz,NONE
+inkscape,http://downloads.sourceforge.net/inkscape/,0.45.1,tar.gz,NONE
+goocanvas,http://downloads.sourceforge.net/goocanvas/,0.9,tar.gz,NONE
+graphviz,http://www.graphviz.org/pub/graphviz/ARCHIVE/,2.14.1,tar.gz,NONE
+istanbul,http://zaheer.merali.org/,0.2.2,tar.bz2,NONE
+dvgrab,http://prdownloads.sourceforge.net/kino/,3.0,tar.gz,NONE
+kino,http://downloads.sourceforge.net/kino/,1.1.1,.tar.gz,NONE
+pybackpack,http://andrewprice.me.uk/projects/pybackpack/download/,0.5.1,tar.gz,NONE

@@ -7,3 +7,5 @@ libdvdcss: With tetex installed, building may stall on the documentation on
 Slackware 12; it stalls with some unicode problems.  
 
 NetworkManager 0.7 (due soon as of October 14,2007) obsoletes dhcddb.
+
+atk on slamd64 broken.  libtool files incorrectly point to lib rather than lib64.

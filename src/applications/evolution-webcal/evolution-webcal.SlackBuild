@@ -12,7 +12,12 @@ VERSION=2.12.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomeui evolution-data-server evolution"
+REQUIRED_PACKAGES="libgnomeui evolution-data-server evolution pkgconfig"
+
+if [ ! -x /usr/bin/pkg-config ]; then
+  echo "This package requried pkg-config."
+  exit 1;
+fi;
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -155,10 +160,21 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
+
+##
+## Fix for libsoup-2.2
+##
+sed -i "s/libsoup\-2\.4/libsoup\-2\.2/g" $TMP/$PKGNAME-$VERSION/configure
+sed -i "s/\=2\.4/\=2\.2/g" $TMP/$PKGNAME-$VERSION/configure
+
+LIBSOUP_CFLAGS=`/usr/bin/pkg-config --cflags libsoup-2.2` \
+LIBSOUP_LIBS=`/usr/bin/pkg-config --libs libsoup-2.2` \
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
+  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
+  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
   || exit 1
 
 ## Build and install.
@@ -182,6 +198,24 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
   rm -f $PKG/usr/info/dir
   gzip -9 $PKG/usr/info/*.info
 }
+
+## Add schemas install to the doinst.sh if schemas are found.
+[ -d $PKG/etc/gconf/schemas ] && {
+  echo "if [ -x usr/bin/gconftool-2 ]; then" >>$PKG/install/doinst.sh
+  ( cd $PKG/etc/gconf/schemas
+    for FILE in *; do
+      [ -z "$(grep gconfentry $FILE)" ] && {
+        # Create gconf tree
+        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
+      } || {
+        # Load gconf settings
+        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --config-source=\$(usr/bin/gconftool-2 --get-default-source) --direct --load etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
+      }
+    done
+  )
+  echo "fi" >>$PKG/install/doinst.sh
+}
+
 
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
