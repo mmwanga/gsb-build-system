@@ -1,12 +1,12 @@
                     |-----handy-ruler------------------------------------------------------|
-gnome-control-center: gnome-control-center (Configuration tools for GNOME)
+gnome-control-center: gnome-control-center (GNOME Control Panel)
 gnome-control-center:
-gnome-control-center: The GNOME control center.  gnome-control-center is a configuration tool for
-gnome-control-center: easily setting up your GNOME environment.
+gnome-control-center: The GNOME Control Center is a configuration tool for easily setting
+gnome-control-center: your GNOME environment.  It allows you to configure various parts of 
+gnome-control-center: your system using a collection of tools called "capplets". These 
+gnome-control-center: capplets may be associated with the core set of GNOME applications or 
+gnome-control-center: other applications for which the developers have written capplets.
 gnome-control-center:
-gnome-control-center: The Gnome Control Center allows you to configure various parts of your 
-gnome-control-center: system using a collection of tools called "capplets". These capplets may 
-gnome-control-center: be associated with the core set of Gnome applications or other applications 
-gnome-control-center: for which the developers have written capplets.
-gnome-control-center:
+gnome-control-center: 
+gnome-control-center: 
 gnome-control-center: 
