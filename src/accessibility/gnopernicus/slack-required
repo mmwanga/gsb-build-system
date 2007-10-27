@@ -4,6 +4,6 @@ gtk+2
 libglade
 libgnome
 libgnomeui
-libxml
+libxml2
 gnome-speech
 gnome-mag

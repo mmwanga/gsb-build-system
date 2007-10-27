@@ -12,7 +12,7 @@ VERSION=4.6.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="at-spi gnome-speech libbonoboui"
+REQUIRED_PACKAGES="at-spi libbonoboui glib2 gtk+2 GConf libgnomeui cairo libglade"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

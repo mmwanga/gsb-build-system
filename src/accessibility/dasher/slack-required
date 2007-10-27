@@ -1,3 +1,8 @@
 at-spi
-gnome-speech
 libbonoboui
+glib2
+gtk+2
+GConf
+libgnomeui
+cairo
+libglade

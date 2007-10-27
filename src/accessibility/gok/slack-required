@@ -1,3 +1,5 @@
 at-spi
 gtk+2
-startup-notification
+libwnck
+rarian
+GConf

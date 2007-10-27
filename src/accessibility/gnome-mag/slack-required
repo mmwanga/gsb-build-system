@@ -4,6 +4,4 @@ gail
 gtk+2
 ORBit2
 libbonoboui
-python
-libgnome
-gnome-python
+libgnomeui

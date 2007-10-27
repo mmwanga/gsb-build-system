@@ -61,7 +61,8 @@ mkdir -p $LOGSDIR
 ## GNOME Accessibility Files.  
 ##
 ## These are packages that form the accessibility section 
-## for the GNOME Desktop packages.
+## for the GNOME Desktop packages. They provide utilities for
+## people who are visually impaired.
 ##
 ## http://www.gnome.org/start/2.20/notes/en/index.html#rninstallation
 ## 

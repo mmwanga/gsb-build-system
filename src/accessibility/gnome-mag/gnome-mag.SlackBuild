@@ -12,7 +12,7 @@ VERSION=0.14.10
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="at-spi expat gail gtk+2 libbonoboui"
+REQUIRED_PACKAGES="at-spi expat gail gtk+2 ORBit2 libbonoboui libgnomeui"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
