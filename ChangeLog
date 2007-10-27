@@ -20,6 +20,7 @@ ChangeLog
 	  gnome-user-docs sound-juicer evince gthumb epiphany-extensions gnome-games 
 	  gnome-media gnome-spell gnome-utils epiphany evolution-exchange evolution 
 	  gnome-system-monitor. Rebuilt.
+	  Added libgksu and gksu.
 	* office: Removed a slew of old packages.
 	  Added dvgrab (moved from extras)
 	* platform: Bump minor version numbers for gtk-engines, libbonobo, libgnomecanvas
