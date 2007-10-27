@@ -1,12 +1,12 @@
-       |-----handy-ruler------------------------------------------------------|
-pyldap: pyldap (Python Bindings for LDAP)
-pyldap: 
-pyldap: pyLDAP provides an LDAP client API for Python, C wrapper module around 
-pyldap: OpenLDAP 2.x with an object-oriented API, several additional modules 
-pyldap: for processing LDIF, LDAP URLs and LDAP schema information.
-pyldap: 
-pyldap: 
-pyldap: 
-pyldap: 
-pyldap: 
-pyldap: 
+           |-----handy-ruler------------------------------------------------------|
+python-ldap: python-ldap (Python Bindings for LDAP)
+python-ldap: 
+python-ldap: python-ldap provides an LDAP client API for Python, C wrapper module 
+python-ldap: around OpenLDAP 2.x with an object-oriented API, several additional 
+python-ldap: modules for processing LDIF, LDAP URLs and LDAP schema information.
+python-ldap: 
+python-ldap: 
+python-ldap: 
+python-ldap: 
+python-ldap: 
+python-ldap: 

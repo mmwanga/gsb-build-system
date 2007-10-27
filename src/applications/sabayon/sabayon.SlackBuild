@@ -12,7 +12,7 @@ VERSION=2.20.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gamin GConf python xorg-server-xnest pygtk"
+REQUIRED_PACKAGES="gamin GConf python xorg-server-xnest pygtk python-ldap"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

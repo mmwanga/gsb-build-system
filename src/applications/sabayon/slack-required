@@ -3,4 +3,4 @@ GConf
 python
 xorg-server-xnest
 pygtk
-pyldap
+python-ldap
