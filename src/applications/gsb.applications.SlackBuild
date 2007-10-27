@@ -117,9 +117,11 @@ BUILD_ORDER="
        nautilus-sendto
        seahorse
        gnome-user-share
-       gnome-screensaver
        gdm
 "
+# gnome-screensaver not in build order yet.
+# Doesn't seem to pick up the xscreensaver hacks yet.  
+# Needs a little investigation
 
 # Build packages (and log output).
 ( for PACKAGE in $BUILD_ORDER
