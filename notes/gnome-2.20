@@ -101,3 +101,4 @@ istanbul,http://zaheer.merali.org/,0.2.2,tar.bz2,NONE
 dvgrab,http://prdownloads.sourceforge.net/kino/,3.0,tar.gz,NONE
 kino,http://downloads.sourceforge.net/kino/,1.1.1,.tar.gz,NONE
 pybackpack,http://andrewprice.me.uk/projects/pybackpack/download/,0.5.1,tar.gz,NONE
+python-ldap,http://downloads.sourceforge.net/python-ldap/,2.3.1,tar.gz,NONE

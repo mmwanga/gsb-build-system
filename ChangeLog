@@ -6,10 +6,28 @@ ChangeLog
 	  Removed duplicate gnomebaker from gsb.application build.
 	  slack-required correction for gnome-bluetooth.
 	  Added pybackpack.
+	  Added pygtksourceview for gedit.
+	  Fixed python paths for X86_64 Platform for gedit and plugins.
+	  Improved requirements for nautlis-sendto.
       Prettier evolution-exchange slack-desc.
 	  Added libsoup to evo-webdal and fixed schema install.
+	  Added schemas install to gnome-user-share.
+	  Added pyldap for sabayon.
+	  Moved enchant from office to applications (needed by gedit)
+	  Moved pessulus/sabayon/python-ldap to extras.  Not really needed for regular
+	   desktop.
+	  Major fixes to gdm.
+	  Bumped version numbers for eog gdm vino file-roller gedit gnome-user-docs 
+	   sound-juicer evince gthumb epiphany-extensions gnome-games gnome-media 
+	   gnome-spell gnome-utils epiphany evolution-exchange evolution 
+	   gnome-system-monitor 
 	* office: Removed a slew of old packages.
 	  Added dvgrab (moved from extras)
+	* platform: Bump version numbers for gtk-engines, libbonobo, libgnomecanvas
+	  libgnomeui libsoup and pygtk
+	* desktop: Bump version numbers for gnome-session libwnck gnome-themes at-spi 
+	  bug-buddy evolution-data-server gtkhtml gnome-menus gnome-panel gtksourceview 
+	  gnome-control-center gnome-desktop 
 	* extras: Removed Gqview (in Slackware 12)
 	  Removed old and unmaintained packages.
 
@@ -21,7 +39,8 @@ ChangeLog
       gnome-bluetooth gnome-spell gtkam gcalctool gnokii gnome-phone-manager 
       evolution gnome-power-manager poppler poppler-data evince pybackpack 
       evolution-webcal evolution-exchange ekiga alacarte gnome-commander
-      gthumb rhythmbox
+      gthumb rhythmbox enchant gedit gedit-plugins nautilus-sendto seahorse
+	  gnome-user-share pessulus
 
 26-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * platform: Removed parallel builds from libbtctl (breaks).
@@ -45,8 +64,8 @@ ChangeLog
 	  Improved a few slack-desc files.
 	  Updated libgdiplus and mono to SlackBuild 1.4.
 
-	* Tested: Full platform build run.  Everything seems to work.  0:)
-	  Platform can be marked as beta.  
+	* Tested: Full platform and desktop build run.  Everything seems to work.  0:)
+	  Platform and desktop can be marked as beta.  
 
 25-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * libraries: Correct unix ff for faac.
@@ -175,7 +194,6 @@ ChangeLog
       Major fixes for NetworkManager for GNOME 2.20.
 	  Fix for rc.stb (Added to rc.local)
 	  Patch for deprecated Druid.  See NetworkManager.SlackBuild.
-      Platform test build run.  Beta status now.  :^)
 	* desktop: patches/openldap-ntlm.patch. Added openldap NTML for evolution.
 	  krb5 via heimdal added to evolution-data-server.
       Minor req/tweaks for gnome-themes tango-icon-theme gnome-doc-utils 
@@ -201,7 +219,7 @@ ChangeLog
 	* desktop: Added seahorse.
 	* libraries: Package tweak to boost.  Speex added to opal. Minor
 	  build order change. Minor fix to heimdal, libsexy and mpeg4ip.
-      Tested: All gsb.libraries.  Beta stage.
+      Tested: All gsb.libraries with quick run through.
 	* mono: Added tomboy.
 	* office: Clean up.
 	* frg: Moved to deprecated.  Had old meta packages and firefox/thunderbird. 
@@ -235,12 +253,12 @@ ChangeLog
 14-10-2007  fidesratio <sk238(at)ex.ac.uk>	
 	* libraries: Added dhcdbd, libnl (for NetworkManager).  See README.
 	  NetworkManager 0.7, to be released soon, will deprecate
-      dhcdbd, and it touted as a major step forward.  However,
+      dhcdbd, and is touted as a major step forward.  However,
       we have to stick with 0.6.5 until 0.7 is released. 
 	  Minor lzo fix for transcode.
 
 13-10-2007  fidesratio <sk238(at)ex.ac.uk>	
-    * libraries: Fixed mpeg4ip build.
+    * libraries: Fixed mpeg4ip build (again).
     * platform: Added NetworkManager.
 	* applications: Add sabayon, pessulus, rhythmbox, gnome-power-manager.
 	  Removed nautilus-media.
@@ -305,7 +323,7 @@ ChangeLog
 	  yasm, libcddb, libcdio, libdvbpsi4, libdvdcss, libdvdread, libebml
 	  libmatroska libmms libsndfile libdv libquicktime, mpeg2dec mpeg4ip
 	  mjpegtools libmpcdec transcode iso-codes.
-	* ChangeLog: Formatted entries to conform to GNU.  :)
+	* ChangeLog: Now formatting my entries to conform to GNU.  :)
                                 
 05-10-2007	fidesratio <sk238(at)ex.ac.uk>
   	* SlackBuilds: Updated all gnome.platform SlackBuilds to 1.2.
