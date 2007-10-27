@@ -69,7 +69,6 @@ mkdir -p $LOGSDIR
 ####
 
 BUILD_ORDER="
-     enchant
      fribidi
      abiword
      anjuta
@@ -97,7 +96,7 @@ BUILD_ORDER="
     echo "*************************************************"
     echo "****** Building package: $PACKAGE"
     echo "*************************************************"
-    ( cd $PACKAGE ; ./$PACKAGE.SlackBuild "$SLACKBUILD_ARGS" ) || exit 1
+    ( cd $PACKAGE ; ./$PACKAGE.SlackBuild $SLACKBUILD_ARGS ) || exit 1
     [ "$NOINSTALL" != "1" ] && {
       upgradepkg --install-new \
         ${PKGDEST:-$TMP/gsb-packages}/$PACKAGE-*.tgz || exit 1
