@@ -208,11 +208,6 @@ our %gst_libs =
 			   'url' => 'http://libmpeg2.sourceforge.net/files/',
 			   'src' => 'tar.gz',
 			  },
-   'mpeg4ip'           => {
-			   'ver' => '1.6.1',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mpeg4ip/',
-			   'src' => 'tar.gz',
-			  },
    'transcode'         => {
 			   'ver' => '1.0.4',
 			   'url' => 'http://www.jakemsr.com/transcode/',
