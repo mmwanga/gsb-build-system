@@ -110,6 +110,8 @@ BUILD_ORDER="
        gnome-commander
        gthumb
        rhythmbox
+       enchant
+       pygtksourceview
        gedit
        gedit-plugins
        nautilus-sendto

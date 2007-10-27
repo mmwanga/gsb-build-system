@@ -12,7 +12,7 @@ VERSION=2.20.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="aspell eel gtksourceview libglade libgnomeprintui libgnomeui gail gamin gnome-desktop gnome-keyring gnome-menus gnome-vfs libgnomecanvas startup-notification gnome-python-desktop pygtk gnome-python ORBit2 glib2 gtk+2 libglade libbonobo libxml2 pyorbit aspell which gnome-doc-utils"
+REQUIRED_PACKAGES="aspell eel gtksourceview libglade libgnomeprintui libgnomeui gail gamin gnome-desktop gnome-keyring gnome-menus gnome-vfs libgnomecanvas startup-notification gnome-python-desktop pygtk gnome-python ORBit2 glib2 gtk+2 libglade libbonobo libxml2 pyorbit aspell which gnome-doc-utils pygtksourceview"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -155,17 +155,31 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
+
+## Gedit's configure script has usr/lib hardcoded in the configure
+## scripts, and will not detect python in usr/lib64 on X86_64 systems.
+## Build with python is recommended for plugins, and ther gedit features.
+##
+if [ "$ARCH" = "x86_64" ]; then
+  echo
+  echo "Modifying configure paths for x86_64 platform."
+  sed -i "s/lib\/python/lib64\/python/g" $TMP/$PKGNAME-$VERSION/configure
+  echo
+fi;
+
+# Run Configure
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
+  --enable-python \
   || exit 1
 
 ## Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+make &&
+make DESTDIR=$PKG install || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

@@ -1,4 +1,6 @@
 gamin
 GConf
-gdm
 python
+xorg-server-xnest
+pygtk
+pyldap

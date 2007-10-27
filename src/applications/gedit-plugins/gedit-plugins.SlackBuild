@@ -155,6 +155,18 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
+
+## Gedit plugins' configure script has usr/lib hardcoded in the configure
+## scripts, and will not detect python in usr/lib64 on X86_64 systems.
+## Build with python is recommended for plugins, and ther gedit features.
+##
+if [ "$ARCH" = "x86_64" ]; then
+  echo
+  echo "Modifying configure paths for x86_64 platform."
+  sed -i "s/lib\/python/lib64\/python/g" $TMP/$PKGNAME-$VERSION/configure
+  echo
+fi;
+
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
