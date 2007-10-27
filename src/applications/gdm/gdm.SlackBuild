@@ -188,7 +188,8 @@ done
 
 ## Preserve Files
 mv $PKG/etc/X11/gdm/Xsession $PKG/etc/X11/gdm/Xsession.new
-mv $CWD/custom.conf $PKG/etc/X11/gdm/custom.conf.new
+rm -fr $PKG/etc/X11/gdm/custom.conf
+cp $CWD/custom.conf $PKG/etc/X11/gdm/custom.conf.new
 mv $PKG/etc/X11/gdm/PreSession/Default $PKG/etc/X11/gdm/PreSession/Default.new
 mv $PKG/etc/X11/gdm/PostLogin/Default.sample $PKG/etc/X11/gdm/PostLogin/Default.new
 chown -R root:root $PKG/etc/X11/gdm;
