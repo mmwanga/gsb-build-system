@@ -171,7 +171,15 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 ## Add xinitrc script for Gnome
 ##
 mkdir -p $PKG/etc/X11/xinit
-cat $CWD/xinitrc.gnome > $PKG/etc/X11/xinit/xinitrc.gnome.new
+
+if [ "$ARCH" = "x86_64" ]; then
+  # Change paths for lib64 on 64-bit systems
+  cat $CWD/xinitrc.gnome | sed -e "s/lib\//lib64\//g" > $PKG/etc/X11/xinit/xinitrc.gnome.new
+else
+  cat $CWD/xinitrc.gnome > $PKG/etc/X11/xinit/xinitrc.gnome.new
+fi;
+
+# Make new xinitrc executable
 chmod 755 $PKG/etc/X11/xinit/xinitrc.gnome.new
 
 ## Strip debugging symbols.
