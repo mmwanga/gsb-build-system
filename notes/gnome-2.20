@@ -99,7 +99,7 @@ goocanvas,http://downloads.sourceforge.net/goocanvas/,0.9,tar.gz,NONE
 graphviz,http://www.graphviz.org/pub/graphviz/ARCHIVE/,2.14.1,tar.gz,NONE
 istanbul,http://zaheer.merali.org/,0.2.2,tar.bz2,NONE
 dvgrab,http://prdownloads.sourceforge.net/kino/,3.0,tar.gz,NONE
-kino,http://downloads.sourceforge.net/kino/,1.1.1,.tar.gz,NONE
+kino,http://downloads.sourceforge.net/kino/,1.1.1,tar.gz,NONE
 pybackpack,http://andrewprice.me.uk/projects/pybackpack/download/,0.5.1,tar.gz,NONE
 python-ldap,http://downloads.sourceforge.net/python-ldap/,2.3.1,tar.gz,NONE
 libgksu,http://people.debian.org/~kov/gksu/,2.0.5,tar.gz,NONE

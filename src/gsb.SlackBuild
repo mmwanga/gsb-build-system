@@ -71,13 +71,13 @@ echo
 echo "*************************************************"
 echo "** Building GSB"
 echo "*************************************************"
-for SECTION in libraries platform desktop applications accessibility office #mono ruby frg
+for SECTION in libraries platform desktop applications accessibility # office mono extras themes
 do
   echo
   echo "*************************************************"
   echo "**** Building section: $SECTION"
   echo "*************************************************"
-  ( cd $SECTION ; ./gsb.$SECTION.SlackBuild "$SLACKBUILD_ARGS" )
+  ( cd $SECTION ; ./gsb.$SECTION.SlackBuild $SLACKBUILD_ARGS )
 done
 
 echo

@@ -69,7 +69,6 @@ mkdir -p $LOGSDIR
 ####
 
 BUILD_ORDER="
-     fribidi
      abiword
      anjuta
      bluefish

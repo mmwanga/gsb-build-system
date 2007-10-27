@@ -12,7 +12,7 @@ VERSION=2.4.6
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="fribidi gucharmap nautilus enchant libxml2 libpng popt libjpeg"
+REQUIRED_PACKAGES="gtk+2 glib2 zlib libpng libiconv fribidi expat libxml2 popt aspell enchant fontconfig libglade perl libjpeg gucharmap libbonoboui libgnomeui ORBit2 gnome-vfs freetype libgnomeprintui pango cairo"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -90,7 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -155,15 +155,28 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
+
+cd abi; 
+
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
-  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
-  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
+  --enable-scripting \
+  --enable-extra-optimization \
+  --enable-enchant \
+  --enable-gnome \
+  --enable-enable-threads \
+  --enable-gucharmap \
   || exit 1
 
 ## Build and install.
+
+( 
+cd $TMP/$PKG-$VERSION/wv ;
+make || exit 1;
+)
+
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 

@@ -30,6 +30,9 @@ ChangeLog
 	  gnome-control-center gnome-desktop. Rebuilt.
 	* extras: Removed Gqview (in Slackware 12)
 	  Removed old and unmaintained packages.
+	* accessibility: Removed schema install from orca.  
+	  Updated dasher gnome-mag gnome-speech gnopericus gok.
+	  Test build successful.  :^)  Marked as beta.
 
 	* Tested: mozilla-firefox yelp eog gnome-media sound-juicer file-roller 
       epiphany epiphany-extensions totem network-manager-applet gnome-utils 
