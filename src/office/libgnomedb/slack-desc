@@ -1,8 +1,7 @@
-          |-----handy-ruler------------------------------------------------------|
-libgnomedb: libgnomedb (Database widget library)
+libgnomedb: libgnomedb (GNOME Database Bindings)
 libgnomedb:
-libgnomedb: Database Widget Library. These widgets are integrated with the
-libgnomedb: latest versions of glade.
+libgnomedb: libgnomedb provides data-bound UI widgets, using GTK+ and libgda for 
+libgnomedb: the GNOME Desktop Environment.
 libgnomedb:
 libgnomedb:
 libgnomedb:

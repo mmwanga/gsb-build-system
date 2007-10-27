@@ -77,14 +77,15 @@ BUILD_ORDER="
      dia
      gnucash
      libgda
+     goocanvas
+     graphviz
+     libgnomedb
      goffice
      gnumeric
      inkscape
      istanbul
      kino
      liferea
-     mergeant
-     planner
      tracker
      "
 

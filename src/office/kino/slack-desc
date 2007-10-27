@@ -1,10 +1,10 @@
     |-----handy-ruler------------------------------------------------------|
-kino: kino (Digital video editor)
+kino: kino (Digital Video Editor)
 kino:
-kino: Kino is a non-linear DV editor for GNU/Linux.
-kino:
-kino:
-kino:
+kino: Kino is a non-linear DV editor for GNU/Linux. It features excellent 
+kino: integration with IEEE-1394 for capture, VTR control, and recording 
+kino: back to the camera. It captures video to disk in Raw DV and AVI format, 
+kino: in both type-1 DV and type-2 DV (separate audio stream) encodings.
 kino:
 kino:
 kino:

@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Thesaurus
-Comment=Lookup words in the Thesaurus
-Exec=/usr/bin/gaiksaurus
-Icon=gdict
-Terminal=false
-StartupNotify=true
-Type=Application
-Categories=GNOME;Application;Utility;

@@ -1,4 +1,9 @@
-gnome-vfs
-libgda
-libglade
-libgnomeui
+GConf
+goocanvas
+graphviz
+lua
+gtk+2
+glib2
+libgnome
+rarian
+gtksourceview

@@ -1,5 +1,5 @@
-gstreamer10
+gstreamer
 gst-plugins-base
-gst-plugins-good
 pygtk
-gst-python
+gnome-python-desktop
+gnome-python-extas
