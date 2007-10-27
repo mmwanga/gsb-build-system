@@ -14,20 +14,19 @@ ChangeLog
 	  Added schemas install to gnome-user-share.
 	  Added pyldap for sabayon.
 	  Moved enchant from office to applications (needed by gedit)
-	  Moved pessulus/sabayon/python-ldap to extras.  Not really needed for regular
-	   desktop.
+	  Moved pessulus/sabayon/python-ldap to extras.  Not needed for regular desktop.
 	  Major fixes to gdm.
-	  Bumped version numbers for eog gdm vino file-roller gedit gnome-user-docs 
-	   sound-juicer evince gthumb epiphany-extensions gnome-games gnome-media 
-	   gnome-spell gnome-utils epiphany evolution-exchange evolution 
-	   gnome-system-monitor 
+	  Bumped minor version numbers to 2.20.1 for eog gdm vino file-roller gedit 
+	  gnome-user-docs sound-juicer evince gthumb epiphany-extensions gnome-games 
+	  gnome-media gnome-spell gnome-utils epiphany evolution-exchange evolution 
+	  gnome-system-monitor. Rebuilt.
 	* office: Removed a slew of old packages.
 	  Added dvgrab (moved from extras)
-	* platform: Bump version numbers for gtk-engines, libbonobo, libgnomecanvas
-	  libgnomeui libsoup and pygtk
-	* desktop: Bump version numbers for gnome-session libwnck gnome-themes at-spi 
+	* platform: Bump minor version numbers for gtk-engines, libbonobo, libgnomecanvas
+	  libgnomeui libsoup and pygtk. Rebuilt.
+	* desktop: Bump minor version numbers for gnome-session libwnck gnome-themes at-spi 
 	  bug-buddy evolution-data-server gtkhtml gnome-menus gnome-panel gtksourceview 
-	  gnome-control-center gnome-desktop 
+	  gnome-control-center gnome-desktop. Rebuilt.
 	* extras: Removed Gqview (in Slackware 12)
 	  Removed old and unmaintained packages.
 
@@ -40,7 +39,7 @@ ChangeLog
       evolution gnome-power-manager poppler poppler-data evince pybackpack 
       evolution-webcal evolution-exchange ekiga alacarte gnome-commander
       gthumb rhythmbox enchant gedit gedit-plugins nautilus-sendto seahorse
-	  gnome-user-share pessulus
+	  gnome-user-share pessulus sabayon gdm.  
 
 26-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * platform: Removed parallel builds from libbtctl (breaks).
