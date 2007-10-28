@@ -104,6 +104,7 @@ BUILD_ORDER="
        evince
        pybackpack
        gst-python
+       gst-plugins-bad
        evolution-webcal
        evolution-exchange
        ekiga
