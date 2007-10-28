@@ -12,7 +12,7 @@ VERSION=2.4.6
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 glib2 zlib libpng libiconv fribidi expat libxml2 popt aspell enchant fontconfig libglade perl libjpeg gucharmap libbonoboui libgnomeui ORBit2 gnome-vfs freetype libgnomeprintui pango cairo"
+REQUIRED_PACKAGES="gtk+2 glib2 zlib libpng fribidi expat libxml2 popt aspell enchant fontconfig libglade perl libjpeg gucharmap libbonoboui libgnomeui ORBit2 gnome-vfs freetype libgnomeprintui pango cairo"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
