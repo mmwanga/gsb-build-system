@@ -156,8 +156,9 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
 
+## Configure AbiWord
+(
 cd abi; 
-
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
@@ -168,17 +169,53 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-gnome \
   --enable-enable-threads \
   --enable-gucharmap \
+  --with-png=/usr \
+  --with-libxml2 \
+  --with-libwmf=/usr \
+  --with-libjpeg-prefix=/usr \
+  --with-popt=/usr \
   || exit 1
+)
 
-## Build and install.
+## Re-configure and Build AbiWord Support Libraries
+(
+cd wv;
+CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --enable-shared \
+  --disable-static \
+  --with-png=/usr \
+  --with-libxml2=/usr \
+  --with-glib=/usr \
+  --with-libwmf=/usr \
+  || exit 1;
 
-( 
-cd $TMP/$PKG-$VERSION/wv ;
 make || exit 1;
 )
 
+## Build and install AbiWord
+(
+cd abi;
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+)
+
+## Build and install AbiWord Plugins
+(
+cd abiword-plugins;
+CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --enable-all \
+  --enable-gnome \
+  --enable-shared \
+  --disable-static \
+  || exit 1
+
+make $MAKE_FLAGS &&
+make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+)
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -205,23 +242,6 @@ cp -a \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
-
-## Add schemas install to the doinst.sh if schemas are found.
-[ -d $PKG/etc/gconf/schemas ] && {
-  echo "if [ -x usr/bin/gconftool-2 ]; then" >>$PKG/install/doinst.sh
-  ( cd $PKG/etc/gconf/schemas
-    for FILE in *; do
-      [ -z "$(grep gconfentry $FILE)" ] && {
-        # Create gconf tree
-        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
-      } || {
-        # Load gconf settings
-        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --config-source=\$(usr/bin/gconftool-2 --get-default-source) --direct --load etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
-      }
-    done
-  )
-  echo "fi" >>$PKG/install/doinst.sh
-}
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
