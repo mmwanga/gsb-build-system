@@ -25,3 +25,4 @@ pango
 cairo
 libxml2
 libmusicbrainz
+libmtp
