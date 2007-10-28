@@ -84,6 +84,7 @@ BUILD_ORDER="
       gst-plugins-base
       gst-plugins-good
       gst-plugins-ugly
+      gst-fluendo-mp3
       gnome-panel
       gconf-editor
       gnome-terminal
