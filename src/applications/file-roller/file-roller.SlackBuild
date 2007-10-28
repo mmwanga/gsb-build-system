@@ -167,6 +167,13 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
+## The icons are improperly placed in a package subdirectory, rather than
+## the main GNOME Icon Set. This moves them over so the application has
+## access to its icons.  
+mkdir -p $PKG/usr/share/icons/gnome
+mv $PKG/usr/share/$PKGNAME/icons/hicolor/* $PKG/usr/share/icons/gnome
+rm -fr $PKG/usr/share/$PKGNAME/icons
+
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null

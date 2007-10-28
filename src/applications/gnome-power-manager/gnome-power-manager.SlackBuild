@@ -12,7 +12,7 @@ VERSION=2.20.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libnotify hal dbus glib2 libgnomeui GConf gtkunique atk libwnck gstreamer gtk+2 gnome-panel"
+REQUIRED_PACKAGES="libnotify hal dbus glib2 libgnomeui GConf gtkunique atk libwnck gstreamer gtk+2 gnome-panel gnome-icon-theme"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -166,6 +166,13 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+## The icons are improperly placed in a package subdirectory, rather than
+## the main GNOME Icon Set. This moves them over so the application has
+## access to its icons.  
+mkdir -p $PKG/usr/share/icons/gnome
+mv $PKG/usr/share/$PKGNAME/icons/hicolor/* $PKG/usr/share/icons/gnome
+rm -fr $PKG/usr/share/$PKGNAME/icons
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
