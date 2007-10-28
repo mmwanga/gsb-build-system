@@ -103,6 +103,7 @@ BUILD_ORDER="
        poppler-data
        evince
        pybackpack
+       gst-python
        evolution-webcal
        evolution-exchange
        ekiga
