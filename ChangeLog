@@ -1,6 +1,18 @@
 ChangeLog
 ---------
 
+28-10-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * applications: Fixed improper icon installation for eog, epiphany,
+	  gnome-power-manager, file-roller, evince, rhythmbox, phone-manager,
+	  and brasero.
+	  Minor fixes for libgksu and gksu.
+	* desktop: Added slack-conflicts (control-center) for gnome-control-center.
+	  Added gst-fluendo-mp3 for MP3 gstreamer support.
+	  Added gst-python for python bindings.
+	  Added gst-plugins-bad.
+	* office: Updated abiword (fix libole2 build error in wv)
+	  Added abiword-plugins to abiword build.
+
 27-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * applications: Improved reqs for gnome-phone-manager.
 	  Removed duplicate gnomebaker from gsb.application build.

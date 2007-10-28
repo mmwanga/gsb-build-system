@@ -41,6 +41,9 @@ gstreamer,http://gstreamer.freedesktop.org/src/gstreamer/,0.10.14,tar.gz,md5
 gst-plugins-base,http://gstreamer.freedesktop.org/src/gst-plugins-base/,0.10.14,tar.bz2,md5
 gst-plugins-ugly,http://gstreamer.freedesktop.org/src/gst-plugins-ugly/,0.10.6,tar.bz2,NONE
 gst-plugins-good,http://gstreamer.freedesktop.org/src/gst-plugins-good/,0.10.6,tar.bz2,NONE
+gst-plugins-bad,http://gstreamer.freedesktop.org/src/gst-plugins-bad/,0.10.5,tar.bz2,NONE
+gst-fluendo-mp3,http://core.fluendo.com/gstreamer/src/gst-fluendo-mp3/,0.10.6,tar.bz2,NONE
+gst-python,http://gstreamer.freedesktop.org/src/gst-python/,0.10.8,tar.bz2,NONE
 libxklavier,http://downloads.sourceforge.net/sourceforge/gswitchit/,3.3,tar.gz
 system-tools-backends,http://system-tools-backends.freedesktop.org/downloads/2.4/,2.4.1,tar.gz,NONE
 liboil,http://liboil.freedesktop.org/download/,0.3.12,tar.gz,NONE
