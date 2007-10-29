@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.2.2
+VERSION=0.16.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 pcre libgnome libglade gdl"
+REQUIRED_PACKAGES="mozilla-firefox python yelp zlib glib2 libwnck libglade gtk+2 GConf"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -155,26 +155,12 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
-
-##
-## Enable GtkSourceView Plugin
-## For some reason, Anjuta assumes a very old GtkSourceView.
-##
-sed -i "s/sourceview\-1\.0/sourceview\-2\.0/g" -i $TMP/$PKGNAME-$VERSION/configure
-
-# Run Configure
-
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
-  --enable-graphviz \
-  --disable-plugin-sourceview \
-  --enable-plugin-subversion \
-  --enable-plugin-devhelp \
-  --enable-plugin-glade \
   || exit 1
 
 ## Build and install.

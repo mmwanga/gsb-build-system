@@ -70,22 +70,26 @@ mkdir -p $LOGSDIR
 
 BUILD_ORDER="
      abiword
+     gdl
+     autogen
+     gnome-build
+     devhelp
+     graphviz
      anjuta
      bluefish
      dia
-     gnucash
+     inkscape
      libgda
      goocanvas
-     graphviz
      libgnomedb
      goffice
      gnumeric
-     inkscape
      istanbul
      dvgrab
      kino
      liferea
      tracker
+     gnucash
      "
 
 # Build packages (and log output).

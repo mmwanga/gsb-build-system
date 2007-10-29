@@ -1,0 +1,12 @@
+       |-----handy-ruler------------------------------------------------------|
+devhelp: devhelp (GNOME Development Documentation Viewer)
+devhelp:
+devhelp: Devhelp's primary goal is to be an API documentation browser for GNOME. 
+devhelp: When you build (or install) a GNOME library, it will build an API 
+devhelp: reference for you and install it into /usr/share/gtk-doc/html. Along 
+devhelp: with the HTML files, a .devhelp and/or .devhelp2 index file is also 
+devhelp: generated automatically. Thus Devhelp can simply scan that folder for 
+devhelp: those index files and display the books they represent.
+devhelp:
+devhelp:
+devhelp:

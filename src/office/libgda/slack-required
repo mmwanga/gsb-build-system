@@ -1,2 +1,8 @@
 libxml2
 glib2
+sqlite3
+gamin
+db44
+openldap-client
+mysql
+sqlite3
