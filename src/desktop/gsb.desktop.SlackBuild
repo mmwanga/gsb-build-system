@@ -103,7 +103,7 @@ BUILD_ORDER="
       gnome-session
       gnome-applets
       bug-buddy
-      gtksourceview
+      gtksourceview2
       gnome-keyring-manager
       gtkhtml
 "
