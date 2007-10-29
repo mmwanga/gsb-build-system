@@ -108,3 +108,7 @@ python-ldap,http://downloads.sourceforge.net/python-ldap/,2.3.1,tar.gz,NONE
 libgksu,http://people.debian.org/~kov/gksu/,2.0.5,tar.gz,NONE
 gksu,http://people.debian.org/~kov/gksu/,2.0.0,tar.gz,NONE
 autogen,http://downloads.sourceforge.net/autogen/,5.9.3,tar.bz2,NONE
+blender,http://download.blender.org/source/,2.45,tar.gz,MD5
+psiconv,http://software.frodo.looijaard.name/psiconv/files/,0.9.8,tar.gz,NONE
+dblatex,http://downloads.sourceforge.net/dblatex/,0.2.7,tar.bz2,NONE
+drivel,http://downloads.sourceforge.net/drivel/,2.0.3,tar.bz2,NONE

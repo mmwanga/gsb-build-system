@@ -1,9 +1,9 @@
        |-----handy-ruler------------------------------------------------------|
-goffice: GOffice (Document centric objects for glib and gtk+)
+goffice: GOffice (GNOME Document Objects and Widgets)
 goffice:
-goffice: A glib/gtk set of document centric objects and utilities
-goffice:
-goffice:
+goffice: goffice is a library of document-centric objects and utilities which
+goffice: provides a standard set of GTK widgets and objects for use in many GNOME
+goffice: office applications, like Gnumeric.
 goffice:
 goffice:
 goffice:

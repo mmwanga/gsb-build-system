@@ -83,8 +83,10 @@ BUILD_ORDER="
      goocanvas
      libgnomedb
      goffice
+     psiconv
      gnumeric
      istanbul
+     drivel
      dvgrab
      kino
      liferea

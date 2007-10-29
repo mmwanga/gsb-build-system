@@ -3,8 +3,12 @@ ChangeLog
 
 29-10-2007  fidesratio <sk238(at)ex.ac.uk>	
 	* office: Added slib (for gnucash)
-	  Updated libgda.
+	  Updated libgda. Version bump.
 	  Minor fixes for inkscape.
+	  Added psiconv (for gnumeric).
+	  Moved drivel from extras to office.
+	  Moved gnome-python-extras to office.
+	* desktop: Moved deskbar-applet and gnome-python-desktop to applications.
 
 28-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * applications: Fixed improper icon installation for eog, epiphany,

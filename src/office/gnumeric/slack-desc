@@ -1,10 +1,10 @@
         |-----handy-ruler------------------------------------------------------|
 gnumeric: gnumeric (GNOME Spreadsheet)
 gnumeric:
-gnumeric: This is Gnumeric, the GNOME spreadsheet program.  It aims to be a
-gnumeric: drop-in replacement for commercial spreadsheets.  It provides import
-gnumeric: and export from Microsoft Excel files and many other formats (csv, latex,
-gnumeric: xbase, applix).
+gnumeric: Gnumeric is a spreadsheet application for the GNOME Desktop. It supports
+gnumeric: Microsoft Excel files, and can import Lotus 1-2-3, Applix, Sylk, XBase, 
+gnumeric: Open Office, Quattro Pro, Dif, Plan Perfect, and Oleo files. It is 
+gnumeric: licensed under the GPL.
 gnumeric:
 gnumeric:
 gnumeric:

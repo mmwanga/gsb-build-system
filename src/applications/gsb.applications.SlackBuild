@@ -113,6 +113,8 @@ BUILD_ORDER="
        gthumb
        rhythmbox
        enchant
+       gnome-python-desktop
+       deskbar-applet
        pygtksourceview
        gedit
        gedit-plugins

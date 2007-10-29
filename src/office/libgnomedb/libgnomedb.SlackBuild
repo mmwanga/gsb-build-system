@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=0
-VERSION=0.0.0
+BUILD=1
+VERSION=3.1.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES=""
+REQUIRED_PACKAGES="GConf goocanvas graphviz lua gtk+2 glib2 libgnome rarian gtksourceview libgda libgnomecanvas libglade" 
 
 ## Build variables.
 ARCH=${ARCH:-i586}

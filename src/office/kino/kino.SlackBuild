@@ -12,7 +12,7 @@ VERSION=1.1.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libglade gtk+2 libxml2 libdv libsamplerate ffmpeg libraw1394 libiec61883 libavc1394 lame vorbis-tools sox"
+REQUIRED_PACKAGES="libglade gtk+2 libxml2 libdv libsamplerate ffmpeg libraw1394 libiec61883 libavc1394 lame vorbis-tools sox kino"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

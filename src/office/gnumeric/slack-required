@@ -1,4 +1,3 @@
-gal2
 libbonoboui
 libgsf
 goffice
@@ -10,7 +9,9 @@ cairo
 libgnome
 libgnomeui
 python
+perl
 pygtk
 libgnomedb
 libglade
-libgnomeprint
+libgnomeprintui
+ORBit2

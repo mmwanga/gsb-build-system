@@ -2,4 +2,6 @@ gstreamer
 gst-plugins-base
 pygtk
 gnome-python-desktop
-gnome-python-extas
+libgnomeui
+libvorbis
+libogg

@@ -104,8 +104,6 @@ BUILD_ORDER="
       gnome-applets
       bug-buddy
       gtksourceview
-      gnome-python-desktop
-      deskbar-applet
       gnome-keyring-manager
       gtkhtml
 "
