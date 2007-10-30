@@ -5,3 +5,5 @@ gnome-python-desktop
 libgnomeui
 libvorbis
 libogg
+gnome-python-extras
+python-xlib

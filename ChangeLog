@@ -4,11 +4,17 @@ ChangeLog
 29-10-2007  fidesratio <sk238(at)ex.ac.uk>	
 	* office: Added slib (for gnucash)
 	  Updated libgda. Version bump.
+	  Updated libgnomedb.  Version bump.
 	  Minor fixes for inkscape.
 	  Added psiconv (for gnumeric).
 	  Moved drivel from extras to office.
 	  Moved gnome-python-extras to office.
+	  Added python-xlib (for istanbul)
+	  Added gtkspell (for gnome-python-extras and drivel)
 	* desktop: Moved deskbar-applet and gnome-python-desktop to applications.
+	  Changed gtksourceview -> gtksourceview2 to allow for older API (in 1.x)
+	* applications: Bumped version for gnome-phone-manager.
+	  Build order changes.
 
 28-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * applications: Fixed improper icon installation for eog, epiphany,

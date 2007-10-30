@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=0.20
+VERSION=0.30
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glib2 gtk+2 bluez-libs gnokii"
+REQUIRED_PACKAGES="glib2 gtk+2 bluez-libs gnokii dbus"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

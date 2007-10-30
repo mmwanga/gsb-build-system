@@ -96,9 +96,9 @@ BUILD_ORDER="
        gtkam
        gcalctool
        gnokii
-       gnome-phone-manager
        evolution
        gnome-power-manager
+       gnome-phone-manager
        poppler
        poppler-data
        evince

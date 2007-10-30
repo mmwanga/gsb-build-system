@@ -5,5 +5,7 @@ gtk+2
 gnome-python
 gtkhtml
 libgda
-gksu
+libgksu
 libgnomeui
+mozilla-firefox
+libgtkhtml

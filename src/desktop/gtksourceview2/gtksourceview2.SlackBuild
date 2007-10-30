@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.0.3
+VERSION=2.0.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomeui gtkspell aspell curl dbus"
+REQUIRED_PACKAGES="glib2 gtk+2 libgnomeprint libxml2 pcre gnome-vfs" 
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -22,7 +22,8 @@ TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP/gsb-packages}
 
 ## Script variables.
-PKGNAME=$(basename $0 .SlackBuild)
+PKGNAME=gtksourceview
+GSBPKGNAME=$(basename $0 .SlackBuild)
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
@@ -69,7 +70,7 @@ done
   }
 
   check_installed "$PKGNAME" && {
-    echo "${0##*/}: Remove installed '$PKGNAME' package before build."
+    echo "${0##*/}: Remove installed '$GSBPKGNAME' package before build."
     exit 1
   }
 
@@ -155,19 +156,12 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
-
-##
-## Update to GtkSourceView 2
-##
-sed -i "s/GTKSOURCEVIEW_REQUIRED=1/GTKSOURCEVIEW_REQUIRED=2/g" $TMP/$PKGNAME-$VERSION/configure
-sed -i "s/gtksourceview-1/gtksourceview-2/g" $TMP/$PKGNAME-$VERSION/configure
-
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
-  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
-  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
+  --with-system-pcre \
+  --disable-build-tests \
   || exit 1
 
 ## Build and install.
@@ -200,23 +194,6 @@ cp -a \
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
-## Add schemas install to the doinst.sh if schemas are found.
-[ -d $PKG/etc/gconf/schemas ] && {
-  echo "if [ -x usr/bin/gconftool-2 ]; then" >>$PKG/install/doinst.sh
-  ( cd $PKG/etc/gconf/schemas
-    for FILE in *; do
-      [ -z "$(grep gconfentry $FILE)" ] && {
-        # Create gconf tree
-        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
-      } || {
-        # Load gconf settings
-        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --config-source=\$(usr/bin/gconftool-2 --get-default-source) --direct --load etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
-      }
-    done
-  )
-  echo "fi" >>$PKG/install/doinst.sh
-}
-
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
 do
@@ -227,7 +204,7 @@ done
 
 ## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/${GSBPKGNAME}-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {

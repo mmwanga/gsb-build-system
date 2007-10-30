@@ -85,6 +85,9 @@ BUILD_ORDER="
      goffice
      psiconv
      gnumeric
+     gtkspell
+     gnome-python-extras
+     python-xlib
      istanbul
      drivel
      dvgrab
