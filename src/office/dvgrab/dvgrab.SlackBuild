@@ -12,7 +12,7 @@ VERSION=3.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libavc1394 libraw1394 libiec61883"
+REQUIRED_PACKAGES="libavc1394 libraw1394 libiec61883 libquicktime libdv libjpeg"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

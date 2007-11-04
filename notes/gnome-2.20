@@ -42,6 +42,7 @@ gst-plugins-base,http://gstreamer.freedesktop.org/src/gst-plugins-base/,0.10.14,
 gst-plugins-ugly,http://gstreamer.freedesktop.org/src/gst-plugins-ugly/,0.10.6,tar.bz2,NONE
 gst-plugins-good,http://gstreamer.freedesktop.org/src/gst-plugins-good/,0.10.6,tar.bz2,NONE
 gst-plugins-bad,http://gstreamer.freedesktop.org/src/gst-plugins-bad/,0.10.5,tar.bz2,NONE
+gst-ffmpeg,http://gstreamer.freedesktop.org/src/gst-ffmpeg/,0.10.2,tar.bz2,NONE
 gst-fluendo-mp3,http://core.fluendo.com/gstreamer/src/gst-fluendo-mp3/,0.10.6,tar.bz2,NONE
 gst-python,http://gstreamer.freedesktop.org/src/gst-python/,0.10.8,tar.bz2,NONE
 libxklavier,http://downloads.sourceforge.net/sourceforge/gswitchit/,3.3,tar.gz
@@ -113,3 +114,4 @@ psiconv,http://software.frodo.looijaard.name/psiconv/files/,0.9.8,tar.gz,NONE
 drivel,http://downloads.sourceforge.net/drivel/,2.0.3,tar.bz2,NONE
 python-xlib,http://downloads.sourceforge.net/python-xlib/,0.14,tar.gz,NONE
 gtkspell,http://gtkspell.sourceforge.net/download/,2.0.11,tar.gz,NONE
+gimp,ftp://ftp.gimp.org/pub/gimp/v2.4/,2.4.1,tar,bz2,md5

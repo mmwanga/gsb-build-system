@@ -1,6 +1,21 @@
 ChangeLog
 ---------
 
+04-11-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * Steve: Back from Paris. :^)
+	* extras: Added gimp 2.4.1 in case anybody wants an upgrade.
+	* platform: Fix group ids for stb and avahi.
+	  Bump libsoup version.
+	  Added gtksourceview 1.8.5 (for compatibility).
+	* office: Drivel requires gtksource 1.8.5.
+	  Improved reqs for dvgrab.
+	  Fix kino.SlackBuild and preserve udev kino.rules in package doinst.sh.
+	  Improved liferea and tracker SlackBuilds.
+      Added tracker doinst.sh.
+	  
+30-10-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * Steve: Left for Paris.  :^)
+
 29-10-2007  fidesratio <sk238(at)ex.ac.uk>	
 	* office: Added slib (for gnucash)
 	  Updated libgda. Version bump.

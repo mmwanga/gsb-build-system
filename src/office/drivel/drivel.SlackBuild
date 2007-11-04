@@ -155,13 +155,6 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
-
-##
-## Update to GtkSourceView 2
-##
-sed -i "s/GTKSOURCEVIEW_REQUIRED=1/GTKSOURCEVIEW_REQUIRED=2/g" $TMP/$PKGNAME-$VERSION/configure
-sed -i "s/gtksourceview-1/gtksourceview-2/g" $TMP/$PKGNAME-$VERSION/configure
-
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \

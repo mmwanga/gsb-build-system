@@ -1,9 +1,15 @@
-gnome-icon-theme (gnome-desktop)
-glib2 (gtk+2 2.12)
-pango (gtk+2 2.12)
-gtk+2 (libgnomeui 2.20)
-openldap-client (ntlm patch for evolution-data-server)
-mozilla-firefox (rebuild needed by epiphany/yelp)
+-- Required Updates
+
+gnome-icon-theme ( >= 2.20 for gnome-desktop 2.20)
+glib2 ( > 2.14 required by gtk+2 2.12)
+pango ( > 1.18 required by gtk+2 2.12)
+gtk+2 ( >= 2.12 required for libgnomeui 2.20)
+
+-- Optional Updates (for optional applications)
+
+openldap-client (ntlm patch for evolution-data-server 1.18 for exchange support)
+mozilla-firefox (rebuild for shared libraries needed by epiphany/yelp)
 shared-mime-info ( >= 0.22 needed by totem)
-poppler
-poppler-data
+poppler ( >= 0.6.1 for evince 2.20)
+poppler-data (for poppler >= 0.6.1)
+gimp (2.2 in Slackware 12, however, 2.4.1 is latest GIMP Stable Series)

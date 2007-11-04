@@ -16,3 +16,6 @@ cairo
 dbus
 libpng
 gmime
+deskbar-applet
+libpng
+libgnomeui

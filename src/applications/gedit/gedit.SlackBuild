@@ -12,7 +12,7 @@ VERSION=2.20.3
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="aspell eel gtksourceview libglade libgnomeprintui libgnomeui gail gamin gnome-desktop gnome-keyring gnome-menus gnome-vfs libgnomecanvas startup-notification gnome-python-desktop pygtk gnome-python ORBit2 glib2 gtk+2 libglade libbonobo libxml2 pyorbit aspell which gnome-doc-utils pygtksourceview"
+REQUIRED_PACKAGES="aspell eel gtksourceview2 libglade libgnomeprintui libgnomeui gail gamin gnome-desktop gnome-keyring gnome-menus gnome-vfs libgnomecanvas startup-notification gnome-python-desktop pygtk gnome-python ORBit2 glib2 gtk+2 libglade libbonobo libxml2 pyorbit aspell which gnome-doc-utils pygtksourceview"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
