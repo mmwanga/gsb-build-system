@@ -38,7 +38,7 @@ install_file etc/rc.d/rc.stb.new
 if grep "^stb-admin::" etc/group 1> /dev/null 2> /dev/null ; then
   true
 else
-  echo "stb-admin::86:" >> etc/group
+  echo "stb-admin::87:" >> etc/group
 fi
 
 # if rc.stb is executable, run it on startup
