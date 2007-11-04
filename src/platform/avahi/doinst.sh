@@ -62,7 +62,7 @@ fi
 if grep "^netdev::" etc/group 1> /dev/null 2> /dev/null ; then
   true
 else
-  echo "netdev::87:avahi" >> etc/group
+  echo "netdev::85:avahi" >> etc/group
 fi
 
 ##
