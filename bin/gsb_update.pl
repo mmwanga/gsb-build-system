@@ -33,16 +33,22 @@ use lib '../lib/perl/';
 # GSB Modules
 use GSB::Edit;
 use GSB::GSB;
-use GSB::Gnome;
+use GSB::DoubleTar;
+use GSB::Libraries;
+use GSB::Platform;
+use GSB::Desktop;
+use GSB::Applications;
+use GSB::Accessibility;
+
+use GSB::Desktop_Reqs;
 use GSB::GStreamer;
+use GSB::Gnome;
 use GSB::Office;
 use GSB::Extras;
 use GSB::Mono;
 use GSB::Ruby;
-use GSB::Desktop_Reqs;
-use GSB::DoubleTar;
 use GSB::Themes;
-#use GSB::Verify;
+use GSB::Verify;
 
 use Cwd;
 
@@ -141,16 +147,15 @@ foreach my $dtu (keys %double_tarballs_url) {
   }
 }
 
-
-# Download Desktop Reqs
-foreach my $drpackage (keys %desktop_reqs) {
+# src/libraries: download src libraries
+foreach my $drpackage (keys %libraries) {
 
   my $name    = $drpackage;
-
+  
   my $sb_file = $name . $sb_ext;
-  my $packurl = $desktop_reqs{$name}{url};
-  my $ver     = $desktop_reqs{$name}{ver};
-  my $src     = $desktop_reqs{$name}{src};
+  my $packurl = $libraries{$name}{url};
+  my $ver     = $libraries{$name}{ver};
+  my $src     = $libraries{$name}{src};
   my $type    = "other";
 
   my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
@@ -175,25 +180,288 @@ foreach my $drpackage (keys %desktop_reqs) {
   }
 }
 
-# Download GSTREAMER libs
-foreach my $gst_libs_pack (keys %gst_libs) {
+# src/libraries: download src tarballs from gnome ftp
+foreach my $ppackage (keys %libraries_gnome) {
 
-  my $name    = $gst_libs_pack;
-
+  my $name = $ppackage;
+  my $ver  = $libraries_gnome{$name};
 
   my $sb_file = $name . $sb_ext;
-  my $packurl = $gst_libs{$gst_libs_pack}{url};
-  my $ver     = $gst_libs{$gst_libs_pack}{ver};
-  my $src     = $gst_libs{$gst_libs_pack}{src};
-  my $type    = 'other';
-
-  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
 
   chdir "$pwd/libraries/$name";
 
   if ( $download eq "true" ) {
+    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name );
+  }
+}
+
+# src/platform gnome ftp src tarballs
+foreach my $ppackage (keys %platform) {
+
+  my $name = $ppackage;
+  my $ver  = $platform{$name};
+
+  my $sb_file = $name . $sb_ext;
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
+
+  chdir "$pwd/platform/$name";
+
+  if ( $download eq "true" ) {
+    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name );
+  }
+}
+
+# src/platform packages that have different names compared to their src tarball name
+foreach my $pnpackage (keys %platform_diff_naming) {
+
+  my $name    = $pnpackage;
+
+  my $oname   = $platform_diff_naming{$pnpackage}{name};
+  my $ver     = $platform_diff_naming{$pnpackage}{ver};
+  my $sb_file = $name. $sb_ext;
+
+  chdir "$pwd/platform/$name";
+
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($oname, $ver);
+
+  if ( $download eq "true" ) {
+    GSB::GSB::gsb_gnome_tarball_get($oname, $ver, $tarball);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
+# src/libraries: misc src tarballs
+foreach my $fdopackage (keys %platform_reqs) {
+
+  my $name    = $fdopackage;
+
+  my $sb_file = $name . $sb_ext;
+  my $packurl = $platform_reqs{$name}{url};
+  my $ver     = $platform_reqs{$name}{ver};
+  my $src     = $platform_reqs{$name}{src};
+  my $type    = "fdo";
+
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+
+  chdir "$pwd/platform/$name";
+
+  if ( $download eq "true") {
     my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
     GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
+
+# src/desktop: gnome src tarballs
+foreach my $dpackage (keys %desktop) {
+
+  my $name    = $dpackage;
+  my $ver     = $desktop{$name};
+
+  my $sb_file = $name . $sb_ext;
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
+
+  chdir "$pwd/desktop/$name";
+
+  if ( $download eq "true" ) {
+    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
+# src/desktop: gnome packages with different naming conventions
+foreach my $dnpackage (keys %desktop_diff_naming) {
+
+  my $pack    = $dnpackage;
+  my $sb_file = $pack . $sb_ext;
+  my $name    = $desktop_diff_naming{$pack}{name};
+  my $ver     = $desktop_diff_naming{$pack}{ver};
+
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
+
+  chdir "$pwd/desktop/$pack";
+
+  if ( $download eq "true" ) {
+    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $pack);
+  }
+}
+
+# Download non gnome Desktop Packages
+foreach my $ngpackage (keys %desktop_nongnome) {
+
+  my $name    = $ngpackage;
+  my $sb_file = $name . $sb_ext;
+  my $packurl = $desktop_nongnome{$name}{url};
+  my $ver     = $desktop_nongnome{$name}{ver};
+  my $src     = $desktop_nongnome{$name}{src};
+  my $type    = "other";
+
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+
+  chdir "$pwd/desktop/$name";
+
+  if ( $download eq "true") {
+    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
+# src/applications: gnome src tarballs
+foreach my $apackage (keys %applications_gnome) {
+
+  my $name    = $apackage;
+  my $ver     = $applications_gnome{$name};
+
+  my $sb_file = $name . $sb_ext;
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
+
+  chdir "$pwd/applications/$name";
+
+  if ( $download eq "true" ) {
+    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
+# src/applications: non-gnome src tarballs
+foreach my $angpackage (keys %applications) {
+
+  my $name    = $angpackage;
+  my $sb_file = $name . $sb_ext;
+  my $packurl = $applications{$name}{url};
+  my $ver     = $applications{$name}{ver};
+  my $src     = $applications{$name}{src};
+  my $type    = "other";
+
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+
+  chdir "$pwd/applications/$name";
+
+  if ( $download eq "true") {
+    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
+# src/accessibility: gnome src tarballs
+foreach my $acpackage (keys %accessibility_gnome) {
+
+  my $name    = $acpackage;
+  my $ver     = $accessibility_gnome{$name};
+
+  my $sb_file = $name . $sb_ext;
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
+
+  chdir "$pwd/accessibility/$name";
+
+  if ( $download eq "true" ) {
+    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
   }
 
   if ( $edit eq "true" ) {
@@ -238,215 +506,6 @@ exit(0);
 
 
 
-# DOWNLOAD Platform
-foreach my $ppackage (keys %platform) {
-
-  my $name = $ppackage;
-  my $ver  = $platform{$name};
-
-  my $sb_file = $name . $sb_ext;
-  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
-
-  chdir "$pwd/gnome/platform/$name";
-
-  if ( $download eq "true" ) {
-    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name );
-  }
-}
-
-# DOWNLOAD other platform libs
-foreach my $pnpackage (keys %platform_diff_naming) {
-
-  my $name    = $pnpackage;
-
-  my $oname   = $platform_diff_naming{$pnpackage}{name};
-  my $ver     = $platform_diff_naming{$pnpackage}{ver};
-  my $sb_file = $name. $sb_ext;
-
-  chdir "$pwd/gnome/platform/$name";
-
-  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($oname, $ver);
-
-  if ( $download eq "true" ) {
-    GSB::GSB::gsb_gnome_tarball_get($oname, $ver, $tarball);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
-}
-
-# DOWNLOAD freedesktop.org platform libs
-foreach my $fdopackage (keys %platform_reqs) {
-
-  my $name    = $fdopackage;
-
-  my $sb_file = $name . $sb_ext;
-  my $packurl = $platform_reqs{$name}{url};
-  my $ver     = $platform_reqs{$name}{ver};
-  my $src     = $platform_reqs{$name}{src};
-  my $type    = "fdo";
-
-  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
-
-  chdir "$pwd/gnome/platform/$name";
-
-  if ( $download eq "true") {
-    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
-    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
-}
-
-# Download Desktop Packages
-foreach my $dpackage (keys %desktop) {
-
-  my $name    = $dpackage;
-  my $ver     = $desktop{$name};
-
-  my $sb_file = $name . $sb_ext;
-  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
-
-  chdir "$pwd/gnome/desktop/$name";
-
-  if ( $download eq "true" ) {
-    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
-}
-
-# DOWNLOAD other desktop tarballs
-foreach my $dnpackage (keys %desktop_diff_naming) {
-
-  my $pack    = $dnpackage;
-  my $sb_file = $pack . $sb_ext;
-  my $name    = $desktop_diff_naming{$pack}{name};
-  my $ver     = $desktop_diff_naming{$pack}{ver};
-
-  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
-
-  chdir "$pwd/gnome/desktop/$pack";
-
-  if ( $download eq "true" ) {
-    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $pack);
-  }
-}
-
-# DOWNLOAD some other desktop tarballs
-foreach my $dopackage (keys %desktop_other) {
-
-  my $name = $dopackage;
-  my $ver  = $desktop_other{$name}{ver};
-  my $sb_file = $desktop_other{$name}{dir} . $sb_ext;
-
-  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
-
-  chdir "$pwd/gnome/desktop/$desktop_other{$name}{dir}";
-
-  print "********** $tarball\n";
-
-  if ( $download eq "true" ) {
-    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
-  }
-
-# What to do about VERSION var here?
-# maybe store the VARIABLE to edit in the hash somewhere?
-# currently only gnome-games-extra-data
-#  if ( $edit eq "true" ) {
-#    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-#  }
-
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
-}
-
-# Download non gnome Desktop Packages
-foreach my $ngpackage (keys %desktop_nongnome) {
-
-  my $name    = $ngpackage;
-  my $sb_file = $name . $sb_ext;
-  my $packurl = $desktop_nongnome{$name}{url};
-  my $ver     = $desktop_nongnome{$name}{ver};
-  my $src     = $desktop_nongnome{$name}{src};
-  my $type    = "other";
-
-  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
-
-  chdir "$pwd/gnome/desktop/$name";
-
-  if ( $download eq "true") {
-    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
-    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
-}
 
 
 # Download Bindings

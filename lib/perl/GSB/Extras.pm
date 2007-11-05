@@ -125,11 +125,6 @@ our %extras_libs =
                              'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libnjb/',
                              'src' => 'tar.gz',
                             },
-   'libsexy'             => {
-                             'ver' => '0.1.10',
-                             'url' => 'http://releases.chipx86.com/libsexy/libsexy/',
-                             'src' => 'tar.gz',
-                            },
    'notification-daemon' => {
                              'ver' => '0.3.7',
                              'url' => 'http://galago-project.org/files/releases/source/notification-daemon/',

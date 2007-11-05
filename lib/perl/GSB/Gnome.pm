@@ -5,13 +5,13 @@ use warnings;
 use strict;
 
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw(%platform
-                    %platform_diff_naming
-                    %platform_reqs
-                    %desktop
-                    %desktop_diff_naming
-                    %desktop_other
-                    %desktop_nongnome
+our @EXPORT    = qw(%o_platform
+                    %o_platform_diff_naming
+                    %o_platform_reqs
+                    %o_desktop
+                    %o_desktop_diff_naming
+                    %o_desktop_other
+                    %o_desktop_nongnome
                     %bindings_cxx
                     %bindings_cxx_other
                     %bindings_java
@@ -25,7 +25,7 @@ our $VERSION   = 0.03;
 # Config Options for GNOME
 #
 
-our %platform =
+our %o_platform =
   (
    'at-spi'              => '1.20.0',
    'atk'                 => '1.20.0',
@@ -54,7 +54,7 @@ our %platform =
    'pyorbit'             => '2.14.3',
   );
 
-our %platform_diff_naming =
+our %o_platform_diff_naming =
   (
    'orbit2' => {
 		'ver'  => '2.14.9',
@@ -79,7 +79,7 @@ our %platform_diff_naming =
   );
 
 # these are packages from freedesktop.org
-our %platform_reqs =
+our %o_platform_reqs =
   (
    'avahi'               => {
                              'ver' => '0.6.17',
@@ -191,9 +191,14 @@ our %platform_reqs =
 			     'ver' => '0.9.5.1a',
 			     'src' => 'tar.gz',
 			    },
+   'XML-Simple'      => {
+	                 'url' => 'http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM/',
+                         'ver' => '2.16',
+                         'src' => 'tar.gz',
+                        },
   );
 
-our %desktop =
+our %o_desktop =
   (
    'alacarte'               => '0.11.3',
    'bug-buddy'              => '2.20.1',
@@ -254,7 +259,6 @@ our %desktop =
    'gtksourceview'          => '2.0.0',
    'gucharmap'              => '1.10.1',
    'libbtctl'               => '0.9.0',
-   'libcroco'               => '0.6.1',
    'libgail-gnome'          => '1.20.0',
    'libgnomekbd'            => '2.20.0',
    'libgnomeprintui'        => '2.18.1',
@@ -283,7 +287,7 @@ our %desktop =
    'zenity'                 => '2.20.0',
    );
 
-our %desktop_diff_naming =
+our %o_desktop_diff_naming =
   (
    'gal2'  => {
               'ver'  => '2.5.3',
@@ -291,7 +295,7 @@ our %desktop_diff_naming =
               },
    );
 
-our %desktop_nongnome =
+our %o_desktop_nongnome =
   (
    'gnome-mount'  => { 
                       'ver' => '0.5',
@@ -310,7 +314,7 @@ our %desktop_nongnome =
 		     },
   );
 
-our %bindings_cxx =
+our %o_bindings_cxx =
   (
    'bakery'            => '2.4.2',
    'gconfmm'           => '2.20.0',
@@ -321,11 +325,10 @@ our %bindings_cxx =
    'libgnomecanvasmm'  => '2.20.0',
    'libgnomemm'        => '2.20.0',
    'libgnomeuimm'      => '2.20.0',
-   'libsigc++'         => '2.0.18',
    'libxml++'          => '2.20.0',
   );
 
-our %bindings_cxx_other =
+our %o_bindings_cxx_other =
   (
    'cairomm' => {
                  'ver' => '1.2.4',
@@ -337,7 +340,7 @@ our %bindings_cxx_other =
 #    'libgtkhtml-java'  => '2.6.0',
 #    'libgtkmozembed-java' => '1.7.0',
 #    'libvte-java' => '0.12.1',
-our %bindings_java =
+our %o_bindings_java =
   (
    'glib-java'        => '0.4.2',
    'libgconf-java'    => '2.12.6',
@@ -347,16 +350,15 @@ our %bindings_java =
 
   );
 
-our %bindings_python =
+our %o_bindings_python =
   (
-   'gnome-python'         => '2.20.0',
    'gnome-python-desktop' => '2.20.0',
    'gnome-python-extras'  => '2.14.3',
    'nautilus-python'      => '0.4.3',
    'pyphany'              => '0.1.4',
   );
 
-our %bindings_python_other =
+our %o_bindings_python_other =
     (
      'gst-python' => {
 	              'ver' => '0.10.5',
@@ -371,7 +373,7 @@ our %bindings_python_other =
      );
 
 
-our %bindings_perl =
+our %o_bindings_perl =
   (
    'ExtUtils-Depends'    => {
 			     'ver' => '0.205',

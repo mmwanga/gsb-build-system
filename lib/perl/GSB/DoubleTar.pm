@@ -21,6 +21,13 @@ our %double_tarballs_url =
 			 'tar' => 'boost_1_34_1.tar.bz2',
                          'var' => 'VERSION',
                         },
+   'mozilla-firefox'  => {
+			 'ver' => '2.0.0.8',
+			 'dir' => 'applications/mozilla-firefox',
+			 'url' => 'http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.8/source/',
+			 'tar' => 'firefox-2.0.0.8-source.tar.bz2',
+			 'var' => 'VERSION',
+			 },
    'nss'               => {
 				   'ver' => '3.11.7',
 				   'dir' => 'libraries/nss',
