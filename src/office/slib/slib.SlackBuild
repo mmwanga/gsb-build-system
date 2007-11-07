@@ -155,8 +155,30 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Build and install.
-make infoz &&
+
+## Fix build prefix
+mkdir -p $PKG/usr/man;
+echo "Fixing prefix."
+sed -i "s:\/usr\/local:$PKG\/usr:" $TMP/$PKGNAME-$VERSION/Makefile ;
+
+SLIB_LIB=lib
+if [ "$ARCH" = "x86_64" ]; then
+  echo "Fixing library path."
+  sed -i "s:)lib\/:)lib64\/:" $TMP/$PKGNAME-$VERSION/Makefile ;
+  SLIB_LIB=lib64
+fi;
+
+make infoz ;
 make DESTDIR=$PKG install || exit 1
+
+## Fixes for install paths
+echo '#! /bin/sh' > $PKG/usr/bin/slib
+echo SCHEME_LIBRARY_PATH=/usr/$SLIB_LIB  >> $PKG/usr/bin/slib
+echo export SCHEME_LIBRARY_PATH >> $PKG/usr/bin/slib
+echo VERSION=$(VERSION) >> $PKG/usr/bin/slib
+echo "S48_VICINITY=\"$(S48LIB)\";export S48_VICINITY" >> $PKG/usr/bin/slib
+cat $TMP/$PKGNAME-$VERSION/slib.sh  >> $PKG/usr/bin/slib
+chmod +x $PKG/usr/bin/slib
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -179,7 +201,7 @@ make DESTDIR=$PKG install || exit 1
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+  COPYING* ChangeLog README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION

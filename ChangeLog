@@ -4,14 +4,17 @@ ChangeLog
 04-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * Steve: Back from Paris. :^)
 	* extras: Added gimp 2.4.1 in case anybody wants an upgrade.
+	* libraries: Fix for udev paths in libghoto2.
 	* platform: Fix group ids for stb and avahi.
 	  Bump libsoup version.
 	  Added gtksourceview 1.8.5 (for compatibility).
+	  Bump pygtk to 2.12.0 (thanks freerock)
 	* office: Drivel requires gtksource 1.8.5.
 	  Improved reqs for dvgrab.
 	  Fix kino.SlackBuild and preserve udev kino.rules in package doinst.sh.
 	  Improved liferea and tracker SlackBuilds.
       Added tracker doinst.sh.
+	  Fix for liferea arch prefix quirk.
 	  
 30-10-2007  fidesratio <sk238(at)ex.ac.uk>	
     * Steve: Left for Paris.  :^)
