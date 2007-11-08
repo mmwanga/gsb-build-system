@@ -1,8 +1,8 @@
-	    |-----handy-ruler------------------------------------------------------|
+	        |-----handy-ruler------------------------------------------------------|
 libgnomeuimm: libgnomeuimm (C++ bindings for libgnomeui)
 libgnomeuimm:
-libgnomeuimm: C++ bindings for libgnomeui
-libgnomeuimm:
+libgnomeuimm: This package provides C++ bindings for the GNOME User Interface
+libgnomeuimm: libraries. 
 libgnomeuimm:
 libgnomeuimm:
 libgnomeuimm:

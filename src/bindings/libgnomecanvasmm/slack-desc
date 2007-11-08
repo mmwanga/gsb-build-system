@@ -1,7 +1,7 @@
-		|-----handy-ruler------------------------------------------------------|
+		        |-----handy-ruler------------------------------------------------------|
 libgnomecanvasmm: libgnomecanvasmm (C++ bindings for libgnomecanvas)
 libgnomecanvasmm:
-libgnomecanvasmm: C++ bindings for libgnomecanvas
+libgnomecanvasmm: This package provides C++ bindings for libgnomecanvas.
 libgnomecanvasmm:
 libgnomecanvasmm:
 libgnomecanvasmm:

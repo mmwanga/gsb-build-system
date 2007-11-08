@@ -1,9 +1,9 @@
-	  |-----handy-ruler------------------------------------------------------|
+	      |-----handy-ruler------------------------------------------------------|
 libglademm: libglademm (C++ bindings for Glade)
 libglademm:
-libglademm: C++ bindings for libglade
-libglademm:
-libglademm:
+libglademm: Libglademm is an extension to glade and glade-2 (the GTK+ Builder) to 
+libglademm: create C++ sources for gtkmm or skeletons for libglademm based 
+libglademm: programs.
 libglademm:
 libglademm:
 libglademm:

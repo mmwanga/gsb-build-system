@@ -1,8 +1,8 @@
        |-----handy-ruler------------------------------------------------------|
 gconfmm: gconfmm (C++ bindings for GConf)
 gconfmm:
-gconfmm: C++ bindings for gconf
-gconfmm:
+gconfmm: Gconfmm provides C++ wrappers for GConf, for use with the Gtkmm 
+gconfmm: library. 
 gconfmm:
 gconfmm:
 gconfmm:

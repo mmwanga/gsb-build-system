@@ -1,8 +1,8 @@
-	  |-----handy-ruler------------------------------------------------------|
-libgnomemm: libgnomemm (C++ bindings for libgnome)
+	      |-----handy-ruler------------------------------------------------------|
+libgnomemm: libgnomemm (C++ bindings for GNOME)
 libgnomemm:
-libgnomemm: libgnome c++ bindings
-libgnomemm:
+libgnomemm: This package provides C++ bindings for the standard GNOME
+libgnomemm: libraries.
 libgnomemm:
 libgnomemm:
 libgnomemm:

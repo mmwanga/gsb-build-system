@@ -1,8 +1,8 @@
 	   |-----handy-ruler------------------------------------------------------|
-gnome-vfsmm: gnome-vfsmm (C++ bindings for GNOME VFS)
+gnome-vfsmm: gnome-vfsmm (C++ bindings for GNOME Virtual File System)
 gnome-vfsmm:
-gnome-vfsmm: C++ bindings for gnome-vfs
-gnome-vfsmm:
+gnome-vfsmm: This package provides C++ bindings for gnome-vfs, and is a part
+gnome-vfsmm: of the gnomemm project.
 gnome-vfsmm:
 gnome-vfsmm:
 gnome-vfsmm:

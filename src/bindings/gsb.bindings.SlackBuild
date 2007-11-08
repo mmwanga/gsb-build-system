@@ -61,10 +61,8 @@ mkdir -p $LOGSDIR
 ## GNOME Bindings for C++
 ##
 ## These are packages that are required and make the foundation
-## for the GNOME Developement in C++ and other languages.
+## for the GNOME Developement Platform in C++ and other languages.
 ##
-## http://www.gnome.org/start/2.20/notes/en/index.html#rninstallation
-## 
 
 ####
 #### BUILD ORDER
@@ -73,9 +71,9 @@ mkdir -p $LOGSDIR
 BUILD_ORDER="
        libxml++
        gconfmm
+       libglademm
        gnomevfs-mm
        bakery
-       libglademm
        libgnomecanvasmm
        libgnomemm
        libgnomeuimm
