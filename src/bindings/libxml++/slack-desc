@@ -1,10 +1,10 @@
-	|-----handy-ruler------------------------------------------------------|
-libxml++: libxml++ (C++ wrapper for libxml2)
+        |-----handy-ruler------------------------------------------------------|
+libxml++: libxml++ (C++ Bindings for XML Parser Library)
 libxml++:
-libxml++: libxml++ is a C++ wrapper for the libxml XML parser library.
-libxml++:
-libxml++:
-libxml++:
+libxml++: Libxml++ is a C++ wrapper for the libxml XML parser library. It has 
+libxml++: SAX and DOM-like APIs, but does not attempt to conform exactly to the DOM 
+libxml++: specifications because they are not aimed at C++. Its API is much simpler 
+libxml++: than the underlying libxml C API.
 libxml++:
 libxml++:
 libxml++:

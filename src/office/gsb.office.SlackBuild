@@ -89,6 +89,7 @@ BUILD_ORDER="
      gnome-python-extras
      python-xlib
      istanbul
+     gtksourceview
      drivel
      dvgrab
      kino
@@ -97,7 +98,9 @@ BUILD_ORDER="
      gwenhywfar
      libofx
      aqbanking
+     slib
      gnucash
+     glom
      "
 
 # Build packages (and log output).

@@ -1,10 +1,10 @@
       |-----handy-ruler------------------------------------------------------|
-bakery: bakery (C++ framework for GNOME)
+bakery: bakery (C++ Framework for GNOME)
 bakery:
-bakery: Bakery is a C++ Framework for creating  GNOME applications using
-bakery: gtkmm.
-bakery:
-bakery:
+bakery: Bakery is a C++ Framework for creating  GNOME applications using 
+bakery: gtkmm.  It provides a library for a Document/View architecture, XML 
+bakery: as a Document storage format, an easy to start developing GNOME 
+bakery: applications, and contains a few utility classes.
 bakery:
 bakery:
 bakery:

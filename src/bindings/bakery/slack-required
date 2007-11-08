@@ -1,2 +1,5 @@
-expat
-x11
+gtkmm
+gconfmm
+libglademm
+libxml++
+gnome-vfsmm

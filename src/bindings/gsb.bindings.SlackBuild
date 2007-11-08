@@ -1,9 +1,4 @@
 #!/bin/bash
-# Version: 1.0 GSB.
-# Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
-#
-# Licenced under the terms of the GNU General Public Licence version 3.
-#
 
 # Usage.
 function usage() {
@@ -27,9 +22,9 @@ Options:  -force	The package will not be built if a package of the same
 EOF
 }
 
-# If the user created an options file, read it.
-[ -r ./gsb.options ] && {
-  . ./gsb.options
+# If the user created an options file, read it if it's not been read already.
+[ "$OPTIONSREAD" != "1" -a -r ../gsb.options ] && {
+  . ../gsb.options
   export OPTIONSREAD=1
 }
 
@@ -46,7 +41,7 @@ while [ $# -gt 0 ]; do
     SLACKBUILD_ARGS="$SLACKBUILD_ARGS -no-cleanup"
     shift
   elif [ "$1" = "-no-install" ]; then
-    SLACKBUILD_ARGS="$SLACKBUILD_ARGS -no-install"
+    NOINSTALL=1
     shift
   elif [ "$1" = "-help" ]; then
     usage
@@ -61,26 +56,42 @@ done
 mkdir -p $TMP
 mkdir -p $LOGSDIR
 
-# Make sure /usr/include/db.h points to the db4 header.
-( cd /usr/include
-  rm -f db.h
-  ln -s db4/db.h db.h )
+# Packages must be listed here in the order they should be built.
+##
+## GNOME Bindings for C++
+##
+## These are packages that are required and make the foundation
+## for the GNOME Developement in C++ and other languages.
+##
+## http://www.gnome.org/start/2.20/notes/en/index.html#rninstallation
+## 
 
-# Do the build.
-echo
-echo "*************************************************"
-echo "** Building GSB"
-echo "*************************************************"
-for SECTION in libraries platform desktop applications accessibility office # mono extras themes
-do
-  echo
-  echo "*************************************************"
-  echo "**** Building section: $SECTION"
-  echo "*************************************************"
-  ( cd $SECTION ; ./gsb.$SECTION.SlackBuild $SLACKBUILD_ARGS )
-done
+####
+#### BUILD ORDER
+####
 
-echo
-echo "*************************************************"
-echo "** Finished building GSB"
-echo "*************************************************"
+BUILD_ORDER="
+       libxml++
+       gconfmm
+       gnomevfs-mm
+       bakery
+       libglademm
+       libgnomecanvasmm
+       libgnomemm
+       libgnomeuimm
+"
+
+# Build packages (and log output).
+( for PACKAGE in $BUILD_ORDER
+  do
+    echo
+    echo "*************************************************"
+    echo "****** Building package: $PACKAGE"
+    echo "*************************************************"
+    ( cd $PACKAGE ; ./$PACKAGE.SlackBuild $SLACKBUILD_ARGS ) || exit 1
+    [ "$NOINSTALL" != "1" ] && {
+      upgradepkg --install-new \
+        ${PKGDEST:-$TMP/gsb-packages}/$PACKAGE-*.tgz || exit 1
+    }
+  done
+) 2>&1 | tee $LOGSDIR/$(basename $0 .SlackBuild)-$(date +%Y%m%d-%H%M%S).log
