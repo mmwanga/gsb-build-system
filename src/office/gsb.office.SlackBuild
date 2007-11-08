@@ -94,6 +94,9 @@ BUILD_ORDER="
      kino
      liferea
      tracker
+     gwenhywfar
+     libofx
+     aqbanking
      gnucash
      "
 

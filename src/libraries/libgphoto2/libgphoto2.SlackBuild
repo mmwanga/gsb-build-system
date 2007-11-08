@@ -167,7 +167,11 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Fix for udev paths
 mkdir -p $PKG/lib
-mv $PKG/usr/lib/udev $PKG/lib
+if [ "$ARCH" = "x86_64" ]; then
+   mv $PKG/usr/lib64/udev $PKG/lib
+else
+   mv $PKG/usr/lib/udev $PKG/lib
+fi;
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

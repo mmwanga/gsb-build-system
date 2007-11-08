@@ -115,3 +115,6 @@ drivel,http://downloads.sourceforge.net/drivel/,2.0.3,tar.bz2,NONE
 python-xlib,http://downloads.sourceforge.net/python-xlib/,0.14,tar.gz,NONE
 gtkspell,http://gtkspell.sourceforge.net/download/,2.0.11,tar.gz,NONE
 gimp,ftp://ftp.gimp.org/pub/gimp/v2.4/,2.4.1,tar,bz2,md5
+aqbanking,http://downloads.sourceforge.net/aqbanking/,2.3.3,tar.gz,NONE
+gwenhywfar,http://downloads.sourceforge.net/gwenhywfar/,2.6.2,tar.gz,NONE
+libofx,http://downloads.sourceforge.net/libofx/,0.8.3,tar.gz,NONE

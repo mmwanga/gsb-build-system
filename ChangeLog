@@ -1,6 +1,16 @@
 ChangeLog
 ---------
 
+08-11-2007  fidesratio <sk238(at)ex.ac.uk>	
+	* desktop: Fix strange version quirk for gtkhtml.  
+    * office: Fix library path for slib.
+	  Slib schema fix for guile 1.8. Grr.
+	  Downgraded goffice from 0.5.1 (devel) to 0.4.3 (stable)
+	  Added gwenhywfar, aqbanking, libxml++, and libofx for Gnucash.
+	  Gnucash now builds. Whether it all works properly... ;)
+	  Some minor updates to version numbers in Perl GSB.
+	  Office seems complete. :)
+
 04-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * Steve: Back from Paris. :^)
 	* extras: Added gimp 2.4.1 in case anybody wants an upgrade.

@@ -305,17 +305,17 @@ our %extras_apps =
 			     'src' => 'tar.gz',
 			    },
    'kino'                => {
-			     'ver' => '1.0.0',
+			     'ver' => '1.1.1',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/kino/',
 			     'src' => 'tar.gz',
 			    },
    'inkscape'            => {
-			     'ver' => '0.44',
+			     'ver' => '0.45.1',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/inkscape/',
-			     'src' => 'tar.bz2',
+			     'src' => 'tar.gz',
 			    },
    'liferea'             => {
-			     'ver' => '1.2.8',
+			     'ver' => '1.4.5b',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/liferea/',
 			     'src' => 'tar.gz',
 			    },

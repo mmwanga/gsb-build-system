@@ -12,7 +12,7 @@ VERSION=2.2.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glib2 gtk+2"
+REQUIRED_PACKAGES="glib2 gtk+2 guile slib libofx ORBit2 libgnomeui libbonoboui pango cairo libgnomecanvas gnome-vfs libglade goffice gail GConf gtkhtml libgnomeprintui atk"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -155,6 +155,11 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
+
+## Use gtkhtml 3.16
+##
+sed -i "s/3\.14/3\.16/g" $TMP/$PKGNAME-$VERSION/configure ;
+
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \

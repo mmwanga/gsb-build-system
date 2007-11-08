@@ -6,6 +6,7 @@ gnome-vfs
 gtk+2
 avahi
 libglade
+libbonobo
 libgnome
 libgnomecanvas
 libgnomeprint

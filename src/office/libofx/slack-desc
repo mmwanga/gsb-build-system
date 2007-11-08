@@ -1,0 +1,12 @@
+       |-----handy-ruler------------------------------------------------------|
+libofx: libofx (Open Financial eXchange Library)
+libofx:
+libofx: LibOFX is an implementation of the OFX (Open Financial eXchange) 
+libofx: specification on the client side. It is a parser and an API designed to 
+libofx: allow applications to very easily support OFX command responses, usually 
+libofx: provided by financial institutions for statement downloads.
+libofx:
+libofx:
+libofx:
+libofx:
+libofx:

@@ -36,7 +36,7 @@ our %office_libs =
 		  },
    'aqbanking' => {
                    'url' => 'http://heanet.dl.sourceforge.net/sourceforge/aqbanking/',
-                   'ver' => '2.2.9',
+                   'ver' => '2.3.3',
                    'src' => 'tar.gz',
                   },
    'enchant'   => {
@@ -61,7 +61,7 @@ our %office_libs =
                   },
    'gwenhywfar'    => {
                    'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gwenhywfar/',
-                   'ver' => '2.5.4',
+                   'ver' => '2.6.2',
                    'src' => 'tar.gz',
                   },
    'ktoblzcheck' => {
@@ -108,7 +108,7 @@ our %office_libs =
 
 our %office_gnome_libs =
   (
-   'goffice'     => '0.5.0',
+   'goffice'     => '0.4.3',
    'libgda'      => '3.1.1',
    'libgnomedb'  => '3.1.1',
    'libgdamm'    => '1.3.7',
