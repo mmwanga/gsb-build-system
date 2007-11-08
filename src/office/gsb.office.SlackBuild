@@ -100,6 +100,7 @@ BUILD_ORDER="
      aqbanking
      slib
      gnucash
+     libgdamm
      glom
      "
 

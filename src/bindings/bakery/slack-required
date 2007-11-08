@@ -1,4 +1,5 @@
 gtkmm
+glibmm
 gconfmm
 libglademm
 libxml++

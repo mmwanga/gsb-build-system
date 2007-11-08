@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=1.8.5
+VERSION=2.9.8
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glib2 gtk+2 libgnomeprint libxml2 pcre gnome-vfs" 
+REQUIRED_PACKAGES="glibmm libgda"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -22,8 +22,7 @@ TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP/gsb-packages}
 
 ## Script variables.
-PKGNAME=gtksourceview
-GSBPKGNAME=$(basename $0 .SlackBuild)
+PKGNAME=$(basename $0 .SlackBuild)
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
@@ -70,7 +69,7 @@ done
   }
 
   check_installed "$PKGNAME" && {
-    echo "${0##*/}: Remove installed '$GSBPKGNAME' package before build."
+    echo "${0##*/}: Remove installed '$PKGNAME' package before build."
     exit 1
   }
 
@@ -160,8 +159,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
-  --with-system-pcre \
-  --disable-build-tests \
   || exit 1
 
 ## Build and install.
@@ -204,7 +201,7 @@ done
 
 ## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/${GSBPKGNAME}-${VERSION//-/_}-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {

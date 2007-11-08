@@ -12,7 +12,7 @@ VERSION=2.4.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtkmm gconfmm libglademm libxml++ gnome-vfsmm intltool" 
+REQUIRED_PACKAGES="gtkmm gconfmm libglademm libxml++ gnome-vfsmm intltool glibmm" 
 
 ## Build variables.
 ARCH=${ARCH:-i586}
