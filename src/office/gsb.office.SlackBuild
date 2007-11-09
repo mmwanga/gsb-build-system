@@ -90,7 +90,6 @@ BUILD_ORDER="
      gnome-python-extras
      python-xlib
      istanbul
-     gtksourceview
      drivel
      dvgrab
      kino

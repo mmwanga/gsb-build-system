@@ -72,7 +72,7 @@ BUILD_ORDER="
        libxml++
        gconfmm
        libglademm
-       gnomevfs-mm
+       gnome-vfsmm
        bakery
        libgnomecanvasmm
        libgnomemm
