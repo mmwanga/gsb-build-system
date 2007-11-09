@@ -73,7 +73,16 @@ mkdir -p $LOGSDIR
 BUILD_ORDER="
    libgdiplus
    mono
+   monodoc
    gtk-sharp
+   gmime-sharp
+   gecko-sharp
+   gnome-sharp
+   evolution-sharp
+   galago-sharp
+   beagle
+   tomboy
+   f-spot
    "
 
 # Build packages (and log output).

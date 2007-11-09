@@ -1,5 +1,5 @@
          |-----handy-ruler------------------------------------------------------|
-gtk-sharp: gtk-sharp (Mono C# Gtk+2 Bindings)
+gtk-sharp: gtk-sharp (Mono C# GTK+2 Bindings)
 gtk-sharp:
 gtk-sharp: The Mono Project is an open development initiative sponsored by Novell to 
 gtk-sharp: develop an open source, UNIX version of the Microsoft .NET development 
