@@ -226,6 +226,12 @@ else
   (cd /usr/lib; ln -sf $PKGNAME-$VERSION $PKGNAME);
 fi;
 
+## For GNOME
+mkdir -p $PKG/usr/share/applications
+cp -a $CWD/gnome/mozilla-firefox.desktop $PKG/usr/share/applications
+mkdir -p $PKG/usr/share/pixmaps
+cp -a $CWD/gnome/mozilla-firefox.png $PKG/usr/share/pixmaps
+
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null

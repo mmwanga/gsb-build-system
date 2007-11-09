@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Firefox
+Comment=Web Browser
+Exec=/usr/bin/firefox
+Icon=/usr/share/pixmaps/firefox-icon.png
+Terminal=0
+Type=Application
+Categories=Application;Network;
