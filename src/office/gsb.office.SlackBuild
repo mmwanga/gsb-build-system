@@ -79,6 +79,7 @@ BUILD_ORDER="
      bluefish
      dia
      inkscape
+     postgresql
      libgda
      goocanvas
      libgnomedb
@@ -101,7 +102,6 @@ BUILD_ORDER="
      slib
      gnucash
      libgdamm
-     postgresql
      glom
      "
 

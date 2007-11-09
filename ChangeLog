@@ -11,7 +11,7 @@ ChangeLog
       and libgnomemm libgnomeuimm.
 	  Added libgtksourceviewmm.
 	  Added bakery (for glom)
-	  Updated build order. 
+	  Updated build order.  Bindings done.  :)
     * office: Fix library path for slib.
 	  Slib schema fix for guile 1.8. Grr.
 	  Downgraded goffice from 0.5.1 (devel) to 0.4.3 (stable)
@@ -22,6 +22,7 @@ ChangeLog
 	  Added libgdamm (for glom).
 	  Added postgresql (for glom).
 	  Updated glom. Added glom to build sequence.
+	  Office done.  :)
 
 04-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * Steve: Back from Paris. :^)
