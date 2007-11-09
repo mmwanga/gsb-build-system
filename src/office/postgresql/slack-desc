@@ -1,0 +1,12 @@
+          |-----handy-ruler------------------------------------------------------|
+postgresql: postgresql (PostgreSQL Database System)
+postgresql: 
+postgresql: PostgreSQL is a powerful, open source relational database system, which 
+postgresql: has a proven architecture that has earned it a strong reputation for 
+postgresql: reliability, data integrity, and correctness. It is fully ACID compliant, 
+postgresql: has full support for foreign keys, joins, views, triggers, and stored 
+postgresql: procedures (in multiple languages). It includes most SQL92 and SQL99 
+postgresql: data types, including INTEGER, NUMERIC, BOOLEAN, CHAR, VARCHAR, DATE, 
+postgresql: INTERVAL, and TIMESTAMP. It also supports storage of binary large 
+postgresql: objects, including pictures, sounds, or video.
+postgresql: 
