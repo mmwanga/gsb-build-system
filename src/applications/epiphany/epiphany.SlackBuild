@@ -164,7 +164,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
   --with-engine=mozilla \
   --with-gecko=firefox \
-  --enable-network-manager \
+  --disable-network-manager \
   --enable-python \
   --enable-gtk-doc=no \
   || exit 1
