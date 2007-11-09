@@ -1,3 +1,5 @@
 Slackware 12 provides a mozilla-firefox, however it is the binary build from mozilla.org.  This causes problems building for Epiphany/Yelp, and any other programs which requires the gecko engine.  This package rebuilds the mozilla-firefox package using shared libraries.
 
 Note: firefox-2.0.0.8 is the naming convention of mozilla, however, Slackware calls this package mozilla-firefox.
+
+This package also supplies a pretty GNOME icon.  :)
