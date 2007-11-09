@@ -61,9 +61,9 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'libgdiplus'             => {
-				'ver' => '1.1.15',
+				'ver' => '1.2.5',
 				'url' => 'http://go-mono.com/sources/libgdiplus/',
-				'src' => 'tar.gz',
+				'src' => 'tar.bz2',
 			       },
    'libipoddevice'          => {
 				'ver' => '0.4.5',
@@ -71,9 +71,9 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'mono'                   => {
-				'ver' => '1.1.15',
+				'ver' => '1.2.5.2',
 				'url' => 'http://go-mono.com/sources/mono/',
-				'src' => 'tar.gz',
+				'src' => 'tar.bz2',
 			       },
    'monodevelop'            => {
 				'ver' => '0.10',
@@ -101,10 +101,10 @@ our %mono_diff_naming =
                      'src'  => 'tar.gz',
                     },
    'gtk-sharp2'  => {
-		     'ver'  => '2.8.2',
+		     'ver'  => '2.10.2',
 		     'name' => 'gtk-sharp',
-		     'url'  => 'http://go-mono.com/sources/gtk-sharp-2.8/',
-		     'src'  => 'tar.gz',
+		     'url'  => 'http://go-mono.com/sources/gtk-sharp210/',
+		     'src'  => 'tar.bz2',
 		    },
    'dbus-sharp'  => {
 		     'ver'  => '0.93',

@@ -101,6 +101,7 @@ BUILD_ORDER="
      slib
      gnucash
      libgdamm
+     postgresql
      glom
      "
 

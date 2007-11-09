@@ -168,7 +168,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 
 ## Build and install.
 make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install-stip || exit 1
+make $MAKE_FLAGS DESTDIR=$PKG install-strip || exit 1
 
 make DESTDIR=$PKG install-strip || exit 1
 

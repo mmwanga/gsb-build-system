@@ -5,6 +5,7 @@
 # database files in /var/lib/pgsql. For example, (as root)
 #   $ postgres -c "initdb -D /var/lib/pgsql/data"
 #
+# Based on rc.postgresql from SlackBuilds.org
 
 LOGFILE=/var/log/postgresql
 DATADIR=/var/lib/pgsql/data

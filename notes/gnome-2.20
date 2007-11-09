@@ -118,3 +118,4 @@ gimp,ftp://ftp.gimp.org/pub/gimp/v2.4/,2.4.1,tar,bz2,md5
 aqbanking,http://downloads.sourceforge.net/aqbanking/,2.3.3,tar.gz,NONE
 gwenhywfar,http://downloads.sourceforge.net/gwenhywfar/,2.6.2,tar.gz,NONE
 libofx,http://downloads.sourceforge.net/libofx/,0.8.3,tar.gz,NONE
+postgresql,http://ftp2.uk.postgresql.org/sites/ftp.postgresql.org/source/v8.2.5/,8.2.5,tar.bz2,NONE

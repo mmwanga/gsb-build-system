@@ -1,12 +1,12 @@
-	           |-----handy-ruler------------------------------------------------------|
-gtksourceviewmm: gtksourceviewmm (C++ Bindings for GTK Source Code Widgets)
-gtksourceviewmm:
-gtksourceviewmm: Gtksourceview is a text widget that extends the standard gtk+ text
-gtksourceviewmm: widget. It improves GtkTextviewmm by implementing syntax highlighting
-gtksourceviewmm: and other features typical of a source editor.
-gtksourceviewmm:
-gtksourceviewmm: This package offers C++ Bindings for the GTK Source Code Widgets.
-gtksourceviewmm:
-gtksourceviewmm:
-gtksourceviewmm:
-gtksourceviewmm:
+	              |-----handy-ruler------------------------------------------------------|
+libgtksourceviewmm: libgtksourceviewmm (C++ Bindings for GTK Source Code Widgets)
+libgtksourceviewmm:
+libgtksourceviewmm: Gtksourceview is a text widget that extends the standard gtk+ text
+libgtksourceviewmm: widget. It improves GtkTextviewmm by implementing syntax highlighting
+libgtksourceviewmm: and other features typical of a source editor.
+libgtksourceviewmm:
+libgtksourceviewmm: This package offers C++ Bindings for the GTK Source Code Widgets.
+libgtksourceviewmm:
+libgtksourceviewmm:
+libgtksourceviewmm:
+libgtksourceviewmm:

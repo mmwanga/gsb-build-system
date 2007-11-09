@@ -46,7 +46,7 @@ sub gsb_extras_libs_other_url_make {
 our %extras_libs =
   (
    'autogen'             => {
-                             'ver' => '5.8.4',
+                             'ver' => '5.9.3',
                              'url' => 'http://heanet.dl.sourceforge.net/sourceforge/autogen/',
                              'src' => 'tar.bz2',
 			    },
@@ -195,9 +195,9 @@ our %extras_gnome_apps =
 our %extras_apps =
   (
    'anjuta'              => {
-			     'ver' => '2.2.1',
+			     'ver' => '2.2.2',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/anjuta/',
-			     'src' => 'tar.gz',
+			     'src' => 'tar.bz2',
 			    },
    'avidemux'            => {
 			     'ver' => '2.1.2',
@@ -210,8 +210,8 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'bluefish'            => {
-			     'ver' => '1.0.5',
-			     'url' => 'http://pkedu.fbt.eitn.wau.nl/~olivier/downloads/',
+			     'ver' => '1.0.7',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/bluefish/',
 			     'src' => 'tar.bz2',
 			    },
    'bmpx'                 => {
@@ -230,7 +230,7 @@ our %extras_apps =
 			     'src' => 'tar.bz2',
 			    },
    'dvgrab'              => {
-			     'ver' => '2.0',
+			     'ver' => '3.0',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/kino/',
 			     'src' => 'tar.gz',
 			    },

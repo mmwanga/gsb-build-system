@@ -3,13 +3,25 @@ ChangeLog
 
 08-11-2007  fidesratio <sk238(at)ex.ac.uk>	
 	* desktop: Fix strange version quirk for gtkhtml.  
+	  Cleaned up extraneous gtksourceview (moved to office)
+	* mono: Update libgdiplus.
+	* bindings: Major updates and cleanup.
+	  Removed ruby (in Slackware 12)
+	  Update gconfmm libglademm gnomevfs-mm bakery libgnomecanvasmm 
+      and libgnomemm libgnomeuimm.
+	  Added libgtksourceviewmm.
+	  Added bakery (for glom)
+	  Updated build order. 
     * office: Fix library path for slib.
 	  Slib schema fix for guile 1.8. Grr.
 	  Downgraded goffice from 0.5.1 (devel) to 0.4.3 (stable)
 	  Added gwenhywfar, aqbanking, libxml++, and libofx for Gnucash.
+	  Added schema support for gnucash.
 	  Gnucash now builds. Whether it all works properly... ;)
 	  Some minor updates to version numbers in Perl GSB.
-	  Office seems complete. :)
+	  Added libgdamm (for glom).
+	  Added postgresql (for glom).
+	  Updated glom. Added glom to build sequence.
 
 04-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * Steve: Back from Paris. :^)

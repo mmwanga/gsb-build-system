@@ -17,7 +17,7 @@ our %office =
   (
    'abiword' => {
 		 'url' => 'http://www.abisource.com/downloads/abiword/2.5.1/source/',
-		 'ver' => '2.5.1',
+		 'ver' => '2.4.6',
 		 'src' => 'tar.gz'
 		},
    'gnucash' => {
