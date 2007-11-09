@@ -170,7 +170,8 @@ make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Disable autostart of tracker, the user can do this if they want.
-rm $PKG/etc/xdg/autostart/trackerd.desktop
+mkdir -p $PKG/usr/share/applications
+mv $PKG/etc/xdg/autostart/trackerd.desktop $PKG/usr/share/applications
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

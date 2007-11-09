@@ -119,3 +119,11 @@ aqbanking,http://downloads.sourceforge.net/aqbanking/,2.3.3,tar.gz,NONE
 gwenhywfar,http://downloads.sourceforge.net/gwenhywfar/,2.6.2,tar.gz,NONE
 libofx,http://downloads.sourceforge.net/libofx/,0.8.3,tar.gz,NONE
 postgresql,http://ftp2.uk.postgresql.org/sites/ftp.postgresql.org/source/v8.2.5/,8.2.5,tar.bz2,NONE
+libgdiplus,http://go-mono.com/sources/libgdiplus/,1.2.5,tar.bz2,NONE
+mono,http://go-mono.com/sources/mono/,1.2.5.2,tar.bz2,NONE
+gtk-sharp,http://go-mono.com/sources/gtk-sharp210/,2.10.2,tar.bz2,NONE
+gnome-sharp,http://go-mono.com/sources/gnome-sharp2/,2.16.0,tar.gz,NONE
+gecko-sharp,http://go-mono.com/sources/gecko-sharp2/,2.0-0.12,tar.gz,NONE
+gtksourceview-sharp,http://go-mono.com/sources/gtksourceview-sharp2/,2.0-0.11,tar.bz2,NONE
+monodoc,http://go-mono.com/sources/monodoc/,1.2.5,zip,NONE
+galago-sharp,http://www.galago-project.org/files/releases/source/galago-sharp/,0.5.0,tar.bz2,NONE

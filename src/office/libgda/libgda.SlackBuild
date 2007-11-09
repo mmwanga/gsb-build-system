@@ -12,7 +12,7 @@ VERSION=3.1.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libxml2 glib2 sqlite3 gamin db44 openldap-client mysql sqlite3 postgresql"
+REQUIRED_PACKAGES="libxml2 glib2 sqlite3 gamin db44 openldap-client mysql postgresql"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -159,7 +159,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
-  --with-mysql=/usr \
+  --with-mysql=/usr/bin \
+  --with-postgres=/usr/bin \
   || exit 1
 
 ## Build and install.

@@ -163,14 +163,14 @@ our %libraries =
 			     'src' => 'tar.bz2',
 			    },
    'libgpod'              => {
-                             'ver' => '0.5.2',
-                             'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtkpod/',
-                             'src' => 'tar.gz',
+                 'ver' => '0.5.2',
+                 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtkpod/',
+                 'src' => 'tar.gz',
                             },
    'libiec61883'       => {
-                           'ver' => '1.1.0',
-                           'url' => 'http://www.linux1394.org/dl/',
-                           'src' => 'tar.gz',
+                'ver' => '1.1.0',
+                'url' => 'http://www.linux1394.org/dl/',
+                'src' => 'tar.gz',
                           },
    'libmatroska'       => {
 			   'ver' => '0.8.1',
