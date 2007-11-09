@@ -4,9 +4,9 @@ mono:
 mono: The Mono Project is an open development initiative sponsored by Novell 
 mono: to develop an open source, UNIX version of the Microsoft .NET development 
 mono: platform. Its objective is to enable UNIX developers to build and deploy 
-mono: cross-platform .NET Applications. The project implements various 
-mono: technologies developed by Microsoft that have now been submitted to 
-mono: the ECMA for standardization.
+mono: cross-platform .NET Applications. 
 mono:
-mono:       For more information, please see http://www.mono-project.com
+mono:   For more information, please see http://www.mono-project.com
+mono:
+mono:
 mono:
