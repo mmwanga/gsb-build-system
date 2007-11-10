@@ -2,6 +2,8 @@ ChangeLog
 ---------
 
 09-11-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * extras: Added compiz.
+	* libraries: Added libgc for inkscape.
     * bindings: Downgraded libgtksourceviewmm to 0.3.2.
 	* office: Fix parallel build for glom. 
 	  Recompile libgdamm to support postgresql (for glom).

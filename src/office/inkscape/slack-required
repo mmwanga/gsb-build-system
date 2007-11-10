@@ -9,3 +9,4 @@ lcms
 popt
 libXft
 openssl
+libgc

@@ -127,3 +127,5 @@ gecko-sharp,http://go-mono.com/sources/gecko-sharp2/,2.0-0.12,tar.gz,NONE
 gtksourceview-sharp,http://go-mono.com/sources/gtksourceview-sharp2/,2.0-0.11,tar.bz2,NONE
 monodoc,http://go-mono.com/sources/monodoc/,1.2.5,zip,NONE
 galago-sharp,http://www.galago-project.org/files/releases/source/galago-sharp/,0.5.0,tar.bz2,NONE
+compiz,http://xorg.freedesktop.org/archive/individual/app/,0.5.2,tar.gz,NONE
+libgz,http://www.hpl.hp.com/personal/Hans_Boehm/gc/gc_source/,7.0,tar.gz,NONE

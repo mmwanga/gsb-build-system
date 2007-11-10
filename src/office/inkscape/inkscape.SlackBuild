@@ -12,7 +12,7 @@ VERSION=0.45.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 glib2 libjpeg libpng gnome-vfs pango cairo lcms popt libXft openssl"
+REQUIRED_PACKAGES="gtk+2 glib2 libjpeg libpng gnome-vfs pango cairo lcms popt libXft openssl libgc"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
