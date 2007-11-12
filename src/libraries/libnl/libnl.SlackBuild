@@ -8,7 +8,8 @@
 
 ## Package variables.
 BUILD=1
-VERSION=1.0-pre6
+VERSION=1.0_pre6
+LIBNL_VERSION=1.0-pre6
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -90,8 +91,8 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
-cd $PKGNAME-$VERSION || exit 1
+tar xzf $CWD/$PKGNAME-$LIBNL_VERSION.tar.gz &&
+cd $PKGNAME-$LIBNL_VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i386" ]; then
@@ -184,12 +185,12 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 }
 
 ## Copy extra documentation into package.
-mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
+mkdir -p $PKG/usr/doc/$PKGNAME-$LIBNL_VERSION
 cp -a \
   COPYING* ChangeLog \
-  $PKG/usr/doc/$PKGNAME-$VERSION
-find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
-chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
+  $PKG/usr/doc/$PKGNAME-$LIBNL_VERSION
+find $PKG/usr/doc/$PKGNAME-$LIBNL_VERSION/ -type f -exec chmod 644 {} \;
+chown -R root:root $PKG/usr/doc/$PKGNAME-$LIBNL_VERSION
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
@@ -205,5 +206,5 @@ makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/$PKGNAME-$VERSION
+  rm -rf $PKG $TMP/$PKGNAME-$LIBNL_VERSION
 }
