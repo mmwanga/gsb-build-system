@@ -92,6 +92,11 @@ our %libraries =
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/faac/',
 			   'src' => 'tar.gz',
 			  },
+   'gc'                  => {
+                             'ver' => '7.0',
+		             'url' => 'http://www.hpl.hp.com/personal/Hans_Boehm/gc/gc_source/',
+                             'src' => 'tar.gz',
+			},			
    'lame'              => {
 			   'ver' => '3.97',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/lame/',

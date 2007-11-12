@@ -86,7 +86,7 @@ our %applications =
                    'src' => 'tar.gz',
                   },
    'gnokii'    => {
-                   'ver' => '0.6.20',
+                   'ver' => '0.6.21',
                    'url' => 'http://www.gnokii.org/download/gnokii/',
                    'src' => 'tar.bz2',
                   },
