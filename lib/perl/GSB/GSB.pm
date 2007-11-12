@@ -20,8 +20,8 @@ my %gnome =
   (
    'version'  => '2.10.0',
    'release'  => '2.10',
-   'mirror'   => 'http://ftp.gnome.org',
-   'srcroot'  => '/pub/GNOME',
+   'mirror'   => 'http://ftp.belnet.be/mirror/ftp.gnome.org/',
+   'srcroot'  => '',
    'platform' => '/platform',
    'desktop'  => '/desktop',
    'bindings' => '/bindings',

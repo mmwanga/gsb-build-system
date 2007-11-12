@@ -222,6 +222,12 @@ our %libraries =
 			   'url' => 'http://www.mega-nerd.com/libsndfile/',
 			   'src' => 'tar.gz',
 			  },
+
+   'libsamplerate'        => {
+                           'ver' => '0.1.2',
+                           'url' => 'http://www.mega-nerd.com/SRC/',
+                           'src' => 'tar.gz',
+			  },
    'mjpegtools'        => {
 			   'ver' => '1.9.0rc2',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mjpeg/',

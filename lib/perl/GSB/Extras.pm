@@ -183,6 +183,7 @@ our %extras_gnome_apps =
    'gnome-cups-manager'  => '0.30',
    'gnome-phone-manager' => '0.10',
    'gnome-power-manager' => '2.20.0',
+   'gnome-screensaver'   => '2.20.0',
    'gthumb'              => '2.10.6',
    'meld'                => '1.1.5.1',
    'pessulus'            => '2.16.3',
