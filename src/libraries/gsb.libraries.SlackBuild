@@ -21,6 +21,7 @@
 ##
 export TMP=${TMP:-/tmp}
 export LOGSDIR=${GSB_LOGSDIR:-$TMP/gsb-buildlogs}
+export PKGDEST=${PKGDEST:-$TMP/gsb-packages}
 
 ## 
 ## Functions 
@@ -79,13 +80,6 @@ Options are passed down to the next level SlackBuild where appropriate.
 EOF
 }
 
-# Checks the standard /var/log/packages for existence of 
-# package already installed.  Return 0 if package is installed.
-function check_installed() {
-    ls -1 /var/log/packages | grep "^${1}-[^-]*-[^-]*-[^-]*$" >/dev/null 2>&1
-    return $?
-}
-
 # Runs the SlackBuild in the directory.
 # $1 is the package name, $2 is the SLACKBUILD_ARGS
 function build_package() {
@@ -93,7 +87,7 @@ function build_package() {
     echo "*************************************************"
     echo "****** Building package: ${1}"
     echo "*************************************************"
-    ( cd ${1} ; ./${1}.SlackBuild ${2} ) ;
+    ( cd ${1} ; ./$(echo $1).SlackBuild ${2} ) ;
     return $?
 }
 
@@ -203,7 +197,7 @@ BUILD_ORDER="
         libshout
         sqlite3
         pwlib
-        opal	
+        opal    
         nss
         libsexy
         libcroco
@@ -227,10 +221,10 @@ BUILD_ORDER="
 
 ## Force rebuild and install of all packages if asked.
 if [ "$FORCE" = "1" ]; then
-   build_package "$PACKAGE $SLACKBUILD_ARGS"
+   build_package $PACKAGE $SLACKBUILD_ARGS
    [ "$NOINSTALL" != "1" ] && {
      upgradepkg --install-new \
-       ${PKGDEST:-$TMP/gsb-packages}/$PACKAGE-*.tgz || exit 1
+      $(ls -1 ${PKGDEST}/${PACKAGE}-[0-9]*.tgz | tail -n 1) || exit 1
    }
     
 ## Below is the default behavior; it is to skip packages if they are already 
@@ -285,17 +279,29 @@ else
      if [ "$INSTALLED_PACKAGE_NAME" = "$PACKAGE" -a "$GSB_VERSION" != "$INSTALLED_PACKAGE_VERSION" ]; then
         echo "${0##*/}: $PACKAGE requires upgrading."
 
+        echo "${0##*/}: Removing old $PACKAGE." 
         removepkg $PACKAGE >/dev/null 2>&1 ;
-        build_package "$PACKAGE $SLACKBUILD_ARGS" ;
+        build_package $PACKAGE $SLACKBUILD_ARGS
 
         [ "$NOINSTALL" != "1" ] && {
           upgradepkg --install-new \
-            ${PKGDEST:-$TMP/gsb-packages}/$PACKAGE-*.tgz || exit 1
+            $(ls -1 ${PKGDEST}/${PACKAGE}-[0-9]*.tgz | tail -n 1) || exit 1
          }
       fi; ## If versions differ
+
     fi; ## SVN check
+
    fi; ## If Upgrade wanted
-  fi; ## If Package Installed
+
+  else ## If Package is not installed
+        build_package $PACKAGE $SLACKBUILD_ARGS
+
+        [ "$NOINSTALL" != "1" ] && {
+          upgradepkg --install-new \
+            $(ls -1 ${PKGDEST}/${PACKAGE}-[0-9]*.tgz | tail -n 1) || exit 1
+         }
+   fi; ## Build if not installed.
+
 fi; ## If not Forced
 
 done;

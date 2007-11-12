@@ -159,18 +159,12 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
+  --program-prefix="" \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-## libdv has a strange quirk that when it is configured with a specific
-## target, it prefaces all its binary files to reflect the configured target.
-## This step quickly renames them.
-for FILE in $(find $PKG -name ${ARCH}*); do
-  mv $FILE $(echo "$FILE" | sed "s/$ARCH-$DISTRO-linux-//g")
-done
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
