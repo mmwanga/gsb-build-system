@@ -1,9 +1,9 @@
       |-----handy-ruler------------------------------------------------------|
-gtkpod: gtkpod (Application to manage Apple iPods)
+gtkpod: gtkpod (GTK+2 Application to Manage Apple iPods)
 gtkpod:
-gtkpod: Application to sync your Apple iPod
-gtkpod:
-gtkpod:
+gtkpod: gtkpod is a platform independent Graphical User Interface for Apple's 
+gtkpod: iPod using GTK2. It supports the first to fifth Generation including 
+gtkpod: the iPod mini, iPod Photo, iPod Shuffle, iPod nano, and iPod Video.
 gtkpod:
 gtkpod:
 gtkpod:
