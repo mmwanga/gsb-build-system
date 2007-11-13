@@ -235,7 +235,7 @@ our %libraries =
 			  },
    'transcode'         => {
 			   'ver' => '1.0.4',
-			   'url' => 'http://www.jakemsr.com/transcode/',
+			   'url' => 'http://transcode.kabewm.com/',
 			   'src' => 'tar.bz2',
 			  },
    'twolame'           => {
