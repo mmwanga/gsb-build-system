@@ -56,5 +56,11 @@ our %double_tarballs_url =
 				   'tar' => 'gc-7.0.tar.gz',
 				   'var' => 'VERSION',
 				  },
-
+   'hemidal-libraries'         => {
+				   'ver' => '1.0.1',
+				   'dir' => 'libraries/heimdal-libraries',
+				   'url' => 'ftp://ftp.sunet.se/pub/unix/admin/mirror-pdc/heimdal/src/',
+				   'tar' => 'heimdal-1.0.1.tar.gz',
+				   'var' => 'VERSION',
+				  },
   );

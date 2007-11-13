@@ -27,11 +27,6 @@ our %libraries =
 			 'ver' => '3.0',
 			 'src' => 'tar.bz2',
 			},
-   'heimdal'         => {
-			 'url' => 'ftp://ftp.sunet.se/pub/unix/admin/mirror-pdc/heimdal/src/',
-			 'ver' => '1.0.1',
-			 'src' => 'tar.gz',
-		        },
    'iso-codes'       => {
 			 'url' => 'ftp://pkg-isocodes.alioth.debian.org/pub/pkg-isocodes/',
 			 'ver' => '1.5',
@@ -90,6 +85,11 @@ our %libraries =
    'faad2'             => {
 			   'ver' => '2.5',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/faac/',
+			   'src' => 'tar.gz',
+			  },
+   'id3lib'            => {
+			   'ver' => '3.8.3',
+			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/id3lib/',
 			   'src' => 'tar.gz',
 			  },
    'lame'              => {
