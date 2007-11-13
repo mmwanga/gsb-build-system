@@ -59,7 +59,7 @@ our %platform_reqs =
    'icon-naming-utils' => {
 	                 'url' => 'http://tango-project.org/releases/',
 			 'ver' => '0.8.6',
-			 'src' => 'tar.gz',
+			 'src' => 'tar.bz2',
 			},
    'libdaemon'           => {
                              'ver' => '0.12',
