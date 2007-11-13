@@ -5,3 +5,4 @@ Download libgphoto2 bz2 rather than gz - done
 
 Add exempi, libatomic_ops, libsigc++ libgalago to Desktop_Reqs - done
 
+add ffmpeg, gtkunique, mpeg4ip, x264 to gsb_update so that --build=foo updates these scripts
