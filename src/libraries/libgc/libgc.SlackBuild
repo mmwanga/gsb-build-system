@@ -90,7 +90,8 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
+tar xzf $CWD/gc-$VERSION.tar.gz &&
+mv gc-$VERSION $PKGNAME-$VERSION &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -201,7 +202,7 @@ done
 
 ## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/lib${PKGNAME}-${VERSION//-/_}-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/${PKGNAME}-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {

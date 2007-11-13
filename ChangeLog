@@ -11,6 +11,7 @@ ChangeLog
 	  work with new gsb.section scripts.
 	  Change program prefix in configure scripts for libsndfile, 
 	    libsamplerate, mjpegtools, libdv, libdv, libcroco.
+	  Renamed gc to libgc (outside of package, rather than inside)
 	* platform: Removed label_end patch from pulseaudio with verion 0.9.7.
 	  Removed scrollkeeper (finally)
 	* gsb.sections: Improved gsb.section scripts for more

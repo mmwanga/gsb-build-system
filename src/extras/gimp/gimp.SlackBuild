@@ -12,7 +12,7 @@ VERSION=2.4.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 glib2"
+REQUIRED_PACKAGES="gtk+2 glib2 libexif libjpeg libtiff libpng librsvg poppler libwmf lcms zlib libart_lgpl pango cairo freetype dbus hal pygtk libxml2 libxslt libgnomeui gnome-keyring alsa-lib"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

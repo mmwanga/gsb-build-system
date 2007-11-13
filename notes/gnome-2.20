@@ -128,8 +128,8 @@ gtksourceview-sharp,http://go-mono.com/sources/gtksourceview-sharp2/,2.0-0.11,ta
 monodoc,http://go-mono.com/sources/monodoc/,1.2.5,zip,NONE
 galago-sharp,http://www.galago-project.org/files/releases/source/galago-sharp/,0.5.0,tar.bz2,NONE
 compiz,http://xorg.freedesktop.org/archive/individual/app/,0.5.2,tar.gz,NONE
-gc,http://www.hpl.hp.com/personal/Hans_Boehm/gc/gc_source/,7.0,tar.gz,NONE
+libgc,http://www.hpl.hp.com/personal/Hans_Boehm/gc/gc_source/,7.0,tar.gz,NONE
 openvpn-admin,http://downloads.sourceforge.net/openvpn-admin/,1.9.3,tar.gz,NONE
 balsa,http://balsa.gnome.org/,2.3.20,tar.bz2,NONE
-esmtp,http://downloads.sourceforge.net/esmtp/,0.6.0,tar.bz2,NONE
 libesmtp,http://www.stafford.uklinux.net/libesmtp/,1.0.4,tar.bz2,NONE
+easytag,http://downloads.sourceforge.net/easytag/,2.1,tar.bz2,NONE

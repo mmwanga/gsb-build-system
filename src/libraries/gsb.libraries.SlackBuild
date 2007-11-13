@@ -150,7 +150,7 @@ BUILD_ORDER="
         glib2
         gtk+2
         liboil
-        gc
+        libgc
         libelf
         libnotify
         libatomic_ops
