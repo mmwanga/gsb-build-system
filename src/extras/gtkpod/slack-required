@@ -1,2 +1,10 @@
 mpeg4ip
 libgpod
+curl
+gnome-vfs
+hal
+dbus
+flac
+libvorbis
+glib2
+gtk+2
