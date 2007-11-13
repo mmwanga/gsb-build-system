@@ -8,8 +8,8 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.3.38_ntlm
-OPENLDAP_VERSION=2.3.38
+VERSION=2.3.38
+OPENLDAP_VERSION=2.3.38_ntlm
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -96,9 +96,9 @@ mkdir -p $PKGDEST
 ## the patch failing (on any reiterated builds). 
 
 cd $TMP &&
-rm -fr $PKGNAME-$OPENLDAP_VERSION &&
-tar xzf $CWD/$PKGNAME-$OPENLDAP_VERSION.tgz &&
-cd $PKGNAME-$OPENLDAP_VERSION || exit 1
+rm -fr $PKGNAME-$VERSION &&
+tar xzf $CWD/$PKGNAME-$VERSION.tgz &&
+cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i386" ]; then
@@ -214,10 +214,10 @@ TLS_REQCERT allow
 
 EOF
 
-mkdir -p $PKG/usr/doc/openldap-$OPENLDAP_VERSION
+mkdir -p $PKG/usr/doc/openldap-$VERSION
 cp -a \
   ANNOUNCEMENT CHANGES COPYRIGHT LICENSE README \
-  $PKG/usr/doc/openldap-$OPENLDAP_VERSION
+  $PKG/usr/doc/openldap-$VERSION
 
 # Remove man pages for the servers (not currently supported or shipped...
 # do they even work properly without the evil PAM?)
@@ -248,12 +248,12 @@ find $PKG/usr/man -type d -empty -exec rmdir {} \;
 }
 
 ## Copy extra documentation into package.
-mkdir -p $PKG/usr/doc/$PKGNAME-$OPENLDAP_VERSION
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
   AUTHORS COPYING* ChangeLog NEWS README \
-  $PKG/usr/doc/$PKGNAME-$OPENLDAP_VERSION
-find $PKG/usr/doc/$PKGNAME-$OPENLDAP_VERSION/ -type f -exec chmod 644 {} \;
-chown -R root:root $PKG/usr/doc/$PKGNAME-$OPENLDAP_VERSION
+  $PKG/usr/doc/$PKGNAME-$VERSION
+find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
+chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
@@ -265,9 +265,9 @@ done
 
 ## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$GSBPKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/$GSBPKGNAME-${OPENLDAP_VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/$PKGNAME-$OPENLDAP_VERSION
+  rm -rf $PKG $TMP/$PKGNAME-$VERSION
 }
