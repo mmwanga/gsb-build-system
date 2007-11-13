@@ -1,3 +1,7 @@
 flac
 libogg
-faad2 | mpeg4ip
+gtk+2
+faad2
+wavpack
+faac
+libmad
