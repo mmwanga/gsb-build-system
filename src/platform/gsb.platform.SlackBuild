@@ -150,7 +150,6 @@ mkdir -p $LOGSDIR
 BUILD_ORDER=" 
      gnome-common
      intltool
-     pango
      rarian
      ORBit2
      libbonobo
