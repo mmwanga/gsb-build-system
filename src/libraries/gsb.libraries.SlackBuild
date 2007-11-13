@@ -273,13 +273,13 @@ else
       INSTALLED_PACKAGE_VERSION="`echo $INSTALLED_PACKAGE | cut -f $INSTALLED_PACKAGE_VERSION -d -`"
      fi;
      
-     if [ "$(echo $GSB_VERSION | grep SVN)" != "" ]; then
+     if [ "$(echo $GSB_VERSION | grep -i svn)" != "" ]; then
         echo "${0##*/}: $PACKAGE is an svn copy.  Skipping version check."
      else
      
      ## Packages are different versions.  Remove old package, rebuild
      ## and reinstall.
-     if [ "$INSTALLED_PACKAGE_NAME" = "$PACKAGE" -a "$GSB_VERSION" != "$INSTALLED_PACKAGE_VERSION" ]; then
+     if [ "$INSTALLED_PACKAGE_NAME" = "$PACKAGE" -a "${GSB_VERSION//-/_}" != "$INSTALLED_PACKAGE_VERSION" ]; then
         echo "${0##*/}: $PACKAGE requires upgrading."
 
         echo "${0##*/}: Removing old $PACKAGE." 
