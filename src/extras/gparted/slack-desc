@@ -1,12 +1,12 @@
        |-----handy-ruler------------------------------------------------------|
-gparted: gparted (Graphical partitioning tool)
+gparted: gparted (GNOME Partition Editor)
 gparted:
-gparted: GNOME frontend to parted partitioner.
-gparted:
-gparted:
-gparted:
-gparted:
-gparted:
-gparted:
-gparted:
-gparted:
+gparted: GParted is an industrial-strength package for creating, destroying, 
+gparted: resizing, moving, checking and copying partitions, and the 
+gparted: filesystems on them. This is useful for creating space for new 
+gparted: operating systems, reorganizing disk usage, copying data residing on 
+gparted: hard disks and mirroring one partition with another (disk imaging).
+gparted: 
+gparted: GParted uses GNU libparted to detect and manipulate devices and 
+gparted: partitiontables.
+gparted: 

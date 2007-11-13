@@ -5,3 +5,6 @@ faad2
 wavpack
 faac
 libmad
+id3lib
+libvorbis
+mpeg4ip

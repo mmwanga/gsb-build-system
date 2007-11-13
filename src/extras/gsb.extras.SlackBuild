@@ -153,7 +153,7 @@ BUILD_ORDER="
      brasero
      gimp
      easytag
-     gDesklets
+     parted
      gparted
      gtkpod
      pitivi
@@ -167,6 +167,7 @@ BUILD_ORDER="
      Mplayer
      devede
      compiz
+     gDesklets
 		"
 
 ##
