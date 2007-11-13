@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw(%libraries %libraries_gnome);
+our @EXPORT    = qw(%libraries %libraries_gnome %libraries_diff_naming);
 our @EXPORT_OK = qw();
 our $VERSION   = 0.03;
 
@@ -92,11 +92,6 @@ our %libraries =
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/faac/',
 			   'src' => 'tar.gz',
 			  },
-   'gc'                  => {
-                             'ver' => '7.0',
-		             'url' => 'http://www.hpl.hp.com/personal/Hans_Boehm/gc/gc_source/',
-                             'src' => 'tar.gz',
-			},			
    'lame'              => {
 			   'ver' => '3.97',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/lame/',
@@ -271,6 +266,19 @@ our %libraries_gnome =
    'libcroco'          => '0.6.1',
    'libsigc++'         => '2.0.18',
   );
+
+our %libraries_diff_naming =
+  (
+   'glib2'  => {
+		'ver'  => '2.14.2',
+		'name' => 'glib',
+	       },
+   'gtk+2'  => {
+		'ver'  => '2.12.1',
+		'name' => 'gtk+',
+	       },
+  );
+
 
 #
 # End Config Options

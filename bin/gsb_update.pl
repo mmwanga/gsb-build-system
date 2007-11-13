@@ -208,6 +208,36 @@ foreach my $ppackage (keys %libraries_gnome) {
   }
 }
 
+# src/platform packages that have different names compared to their src tarball name
+foreach my $pnpackage (keys %libraries_diff_naming) {
+
+  my $name    = $pnpackage;
+
+  my $oname   = $libraries_diff_naming{$pnpackage}{name};
+  my $ver     = $libraries_diff_naming{$pnpackage}{ver};
+  my $sb_file = $name. $sb_ext;
+
+  chdir "$pwd/libraries/$name";
+
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($oname, $ver);
+
+  if ( $download eq "true" ) {
+    GSB::GSB::gsb_gnome_tarball_get($oname, $ver, $tarball);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
 # src/platform gnome ftp src tarballs
 foreach my $ppackage (keys %platform) {
 
@@ -236,37 +266,7 @@ foreach my $ppackage (keys %platform) {
   }
 }
 
-# src/platform packages that have different names compared to their src tarball name
-foreach my $pnpackage (keys %platform_diff_naming) {
-
-  my $name    = $pnpackage;
-
-  my $oname   = $platform_diff_naming{$pnpackage}{name};
-  my $ver     = $platform_diff_naming{$pnpackage}{ver};
-  my $sb_file = $name. $sb_ext;
-
-  chdir "$pwd/platform/$name";
-
-  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($oname, $ver);
-
-  if ( $download eq "true" ) {
-    GSB::GSB::gsb_gnome_tarball_get($oname, $ver, $tarball);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
-}
-
-# src/libraries: misc src tarballs
+# src/platform: misc src tarballs
 foreach my $fdopackage (keys %platform_reqs) {
 
   my $name    = $fdopackage;
@@ -298,7 +298,6 @@ foreach my $fdopackage (keys %platform_reqs) {
     push(@bad_downloads, $name);
   }
 }
-
 
 # src/desktop: gnome src tarballs
 foreach my $dpackage (keys %desktop) {

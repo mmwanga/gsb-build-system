@@ -6,7 +6,6 @@ use strict;
 
 our @ISA       = qw(Exporter);
 our @EXPORT    = qw(%platform
-                    %platform_diff_naming
                     %platform_reqs);
 our @EXPORT_OK = qw();
 our $VERSION   = 0.03;
@@ -44,17 +43,6 @@ our %platform =
    'system-tools-backends'  => '2.4.1',
   );
 
-our %platform_diff_naming =
-  (
-   'glib2'  => {
-		'ver'  => '2.14.2',
-		'name' => 'glib',
-	       },
-   'gtk+2'  => {
-		'ver'  => '2.12.1',
-		'name' => 'gtk+',
-	       },
-  );
 
 # these are packages from freedesktop.org
 our %platform_reqs =

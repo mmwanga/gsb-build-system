@@ -49,4 +49,12 @@ our %double_tarballs_url =
 				   'tar' => 'sqlite-3.5.1.tar.gz',
 				   'var' => 'VERSION',
 				  },
+   'libgc'             => {
+				   'ver' => '7.0',
+				   'dir' => 'libraries/libgc',
+				   'url' => 'http://www.hpl.hp.com/personal/Hans_Boehm/gc/gc_source/',
+				   'tar' => 'gc-7.0.tar.gz',
+				   'var' => 'VERSION',
+				  },
+
   );
