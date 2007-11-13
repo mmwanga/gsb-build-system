@@ -39,7 +39,6 @@ our %platform =
    'pygobject'           => '2.14.0',
    'pygtk'               => '2.12.0',
    'pyorbit'             => '2.14.3',
-   'scrollkeeper'        => '0.3.14',
    'system-tools-backends'  => '2.4.1',
   );
 
