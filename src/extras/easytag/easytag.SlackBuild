@@ -114,6 +114,17 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
+## Patch for >= mpeg-1.6 
+## This is required to build gtkpod against mpeg4ip 1.6 and higher.
+## Disable this patch if you are building against mpeg4ip 1.5.
+( 
+cd $TMP/$PKGNAME-$VERSION/src ;
+echo
+echo "Patching against mpeg4ip 1.6."
+patch -p0 < $CWD/patches/mpeg4ip-1.6.patch ;
+echo
+)
+
 ## Fix permissions for building.
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
@@ -159,7 +170,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
-  --disable-mp4 \
   || exit 1
 
 ## Build and install.

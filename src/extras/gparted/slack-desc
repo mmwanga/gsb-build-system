@@ -8,5 +8,5 @@ gparted: operating systems, reorganizing disk usage, copying data residing on
 gparted: hard disks and mirroring one partition with another (disk imaging).
 gparted: 
 gparted: GParted uses GNU libparted to detect and manipulate devices and 
-gparted: partitiontables.
+gparted: partition tables.
 gparted: 

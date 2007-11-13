@@ -1,5 +1,5 @@
       |-----handy-ruler------------------------------------------------------|
-id3lib: id3lib (MP3 id3 Tagging Library)#
+id3lib: id3lib (id3 Tagging Library)
 id3lib:
 id3lib: id3lib is an open-source, cross-platform software development library 
 id3lib: for reading, writing, and manipulating ID3v1 and ID3v2 tags. It is an 

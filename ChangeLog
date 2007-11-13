@@ -1,6 +1,23 @@
 ChangeLog
 ---------
 
+13-11-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * libraries: Finagle some version formatting in libnl, openldap, heimdal
+	  to allow GSB perl and section scripts to properly check and update VERSIONS.  
+	  Rename heimdal to heimdal-libraries.
+	  Added id3tag for easytag (MP3 tagging)
+	  See http://osdir.com/ml/audio.easytag.general/2006-07/msg00006.html.
+	  Might be useful to have both id3lib and taglib.
+	  Update build order.
+	* gsb.sections: Minor update to catch package name or version customization
+	  e.g., openldap_ntlm, or heimdal-libraries, etc.
+	* extras: Added parted. 
+	  Updated gparted, gtkpod, gtkpod.
+	  Added patch for easytag to build against mpeg4ip >= 1.6.
+	  Added patch for gtkpod to build against mpeg4ip >= 1.6.
+	  See http://www.nabble.com/Patch:-Build-with-libmp4v2-version-1.6-t4623808.html
+	  Updated pstoedit.
+
 12-11-2007  fidesratio <sk238(at)ex.ac.uk>	
 	* extras: Removed unneeded schemas from pessulus.
 	  Added esmtp (for balsa)

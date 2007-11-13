@@ -1,11 +1,11 @@
 	|-----handy-ruler------------------------------------------------------|
-pstoedit: pstoedit (Translate PostScript and PDF file into vector formats)
+pstoedit: pstoedit (Convert PostScript and PDF to Vector Formats)
 pstoedit:
-pstoedit: pstoedit translates PostScript and PDF graphics into other vector
-pstoedit: formats.
-pstoedit:
-pstoedit:
-pstoedit:
+pstoedit: pstoedit converts Postscript and PDF files to other vector graphic
+pstoedit: formats so that they can be edited graphically. The architecture 
+pstoedit: of pstoedit consists of a PostScript frontend which needs to call 
+pstoedit: a PostScript interpreter like Ghostscript and the individual 
+pstoedit: backends which are plugged into a kind of framework.
 pstoedit:
 pstoedit:
 pstoedit:

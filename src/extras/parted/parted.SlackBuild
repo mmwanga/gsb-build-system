@@ -160,7 +160,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --enable-device-mapper \
-  --with-readline \
+  --without-readline \
   || exit 1
 
 ## Build and install.

@@ -34,10 +34,10 @@ Usage: ${0##*/} [options]
 
 The default behaviour of the build script is to skip any previously 
 installed package, and continue building the next package in the 
-build order.  This is to avoid accidently upgrading and removing
+build order.  This is to avoid accidently updating and removing
 of any customized, prebuilt, or Slackware default packages. 
 
-You will need to pass the -upgrade switch to build GSB packages that 
+You will need to pass the -update switch to build GSB packages that 
 replace any default Slackware package.
 
 Options:  -force   
@@ -47,9 +47,9 @@ Options:  -force
             required to build are missing.  This option over-rides
             these checks and attempts a build anyway. 
 
-            It cannot be used with the -upgrade switch.
+            It cannot be used with the -update switch.
 
-          -upgrade 
+          -update 
 
             This switch will make the build script test each package
             version as defined in the SlackBuild script against the
@@ -96,8 +96,8 @@ function build_package() {
 ##
 while [ $# -gt 0 ]; do
   if [ "$1" = "-force" ]; then
-    if [ "$UPGRADE" = "1" ]; then
-       echo "${0##*/}: The switches -force and -upgrade are mutually exclusive."
+    if [ "$UPDATE" = "1" ]; then
+       echo "${0##*/}: The switches -force and -update are mutually exclusive."
        exit 1;
     fi;
     FORCE=1
@@ -109,12 +109,12 @@ while [ $# -gt 0 ]; do
   elif [ "$1" = "-no-install" ]; then
     NOINSTALL=1
     shift
-  elif [ "$1" = "-upgrade" ]; then
+  elif [ "$1" = "-update" ]; then
     if [ "$FORCE" = "1" ]; then
-       echo "${0##*/}: The switches -force and -upgrade are mutually exclusive."
+       echo "${0##*/}: The switches -force and -update are mutually exclusive."
        exit 1;
     fi;
-    UPGRADE=1
+    UPDATE=1
     shift
   elif [ "$1" = "-help" ]; then
     usage
@@ -227,7 +227,7 @@ if [ "$FORCE" = "1" ]; then
    }
     
 ## Below is the default behavior; it is to skip packages if they are already 
-## installed, unless -upgrade is passed. 
+## installed, unless -update is passed. 
 
 else
 
@@ -238,10 +238,10 @@ else
    # Package is installed. Let's skip.
    echo "${0##*/}: $PACKAGE already installed."
 
-  # If -upgrade switch passed, then we should remove the package, rebuild, 
+  # If -update switch passed, then we should remove the package, rebuild, 
   # and reinstall. However, only if the versions are different between the 
   # SlackBuild and the installed package.
-  if [ "$UPGRADE" = "1" ]; then
+  if [ "$UPDATE" = "1" ]; then
      # Grab the version from the package SlackBuild 
      if [ -r $(pwd)/${PACKAGE}/${PACKAGE}.SlackBuild ]; then
        # Check for special version
@@ -281,7 +281,7 @@ else
      ## Packages are different versions.  Remove old package, rebuild
      ## and reinstall.
      if [ "$INSTALLED_PACKAGE_NAME" = "$PACKAGE" -a "${GSB_VERSION//-/_}" != "$INSTALLED_PACKAGE_VERSION" ]; then
-        echo "${0##*/}: $PACKAGE requires upgrading."
+        echo "${0##*/}: $PACKAGE requires updating."
 
         echo "${0##*/}: Removing old $PACKAGE." 
         removepkg $PACKAGE >/dev/null 2>&1 ;

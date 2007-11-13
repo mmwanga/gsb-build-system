@@ -54,6 +54,7 @@ libexif-gtk,http://downloads.sourceforge.net/libexif/,0.3.5,tar.bz2,NONE
 libgphoto2,http://downloads.sourceforge.net/gphoto/,2.4.0,tar.bz2,NONE
 libiptcdata,http://downloads.sourceforge.net/libiptcdata/,1.0.2,tar.gz,NONE
 libgpod,http://downloads.sourceforge.net/gtkpod/,0.5.2,tar.gz,NONE
+gtkpod,http://downloads.sourceforge.net/gtkpod/,0.99.10,tar.gz,NONE
 libopenraw,http://libopenraw.freedesktop.org/download/,0.0.2,tar.gz,NONE
 pwlib,http://www.ekiga.org/admin/downloads/latest/sources/sources/,1.10.10,tar.gz,NONE
 opal,http://www.ekiga.org/admin/downloads/latest/sources/sources/,2.2.11,tar.gz,NONE
@@ -133,3 +134,7 @@ openvpn-admin,http://downloads.sourceforge.net/openvpn-admin/,1.9.3,tar.gz,NONE
 balsa,http://balsa.gnome.org/,2.3.20,tar.bz2,NONE
 libesmtp,http://www.stafford.uklinux.net/libesmtp/,1.0.4,tar.bz2,NONE
 easytag,http://downloads.sourceforge.net/easytag/,2.1,tar.bz2,NONE
+id3lib,http://downloads.sourceforge.net/id3lib/,3.8.3,tar.gz,NONE
+parted,http://ftp.gnu.org/gnu/parted/,1.8.8,tar.bz2,NONE
+gparted,http://downloads.sourceforge.net/gparted/,0.3.3,tar.bz2,NONE
+pstoedit,http://downloads.sourceforge.net/pstoedit/,3.45,tar.gz,NONE
