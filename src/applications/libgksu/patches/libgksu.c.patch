@@ -1,0 +1,29 @@
+--- libgksu.c.old	2007-08-21 16:37:24.000000000 +0000
++++ libgksu.c	2007-08-21 16:37:52.000000000 +0000
+@@ -2053,7 +2053,7 @@
+ 	{
+ 	  int retval = 0;
+ 
+-	  if (!strncmp (buf, "su", 2))
++	  if (!strncmp (buf, "Sorry", 5))
+ 	    {
+ 	      gchar **strings;
+ 
+@@ -2063,9 +2063,6 @@
+ 		  unset_gnome_keyring_password (context);
+ 		}
+ 
+-	      strings = g_strsplit (buf, ":", 2);
+-	      if (strings[1] && !strncmp (strings[1], " Authentication failure", 23))
+-		{
+ 		  if (used_gnome_keyring)
+ 		    g_set_error (error, gksu_quark,
+ 				 GKSU_ERROR_WRONGAUTOPASS,
+@@ -2074,7 +2071,6 @@
+ 		    g_set_error (error, gksu_quark,
+ 				 GKSU_ERROR_WRONGPASS,
+ 				 _("Wrong password."));
+-		}
+ 	      g_strfreev (strings);
+ 
+ 	      if (context->debug)
