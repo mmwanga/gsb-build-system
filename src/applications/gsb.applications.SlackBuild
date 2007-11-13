@@ -244,7 +244,12 @@ else
   if [ "$UPGRADE" = "1" ]; then
      # Grab the version from the package SlackBuild 
      if [ -r $(pwd)/${PACKAGE}/${PACKAGE}.SlackBuild ]; then
-       GSB_VERSION=$(grep ^VERSION= $(pwd)/${PACKAGE}/${PACKAGE}.SlackBuild | cut -f2 -d\=)
+       # Check for special version
+       GSB_VERSION=$(grep -i ^${PACKAGE//-/_}_VERSION= $(pwd)/${PACKAGE}/${PACKAGE}.SlackBuild | cut -f2 -d\=)
+       if [ "$GSB_VERSION" = "" ]; then
+         # Check for usual versioning
+         GSB_VERSION=$(grep ^VERSION= $(pwd)/${PACKAGE}/${PACKAGE}.SlackBuild | cut -f2 -d\=)
+       fi;
      else
        echo "${0##*/}: Cannot find $PACKAGE SlackBuild."
        exit 1;
