@@ -1,0 +1,12 @@
+   |-----handy-ruler------------------------------------------------------|
+tre: tre (TRE Advanced Regular Expression Matching Library)
+tre:
+tre: TRE is a lightweight, robust, and efficient POSIX compliant regexp 
+tre: matching library with some exciting features such as approximate 
+tre: (fuzzy) matching. It includes features such as approximate matching, 
+tre: conforms to strict standard conformance, has predictable matching 
+tre: speed, thread safe, binary pattern and data support, and small memory 
+tre: usage.
+tre:
+tre:
+tre:

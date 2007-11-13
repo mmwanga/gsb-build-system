@@ -157,7 +157,7 @@ BUILD_ORDER="
      gparted
      gtkpod
      pstoedit
-     slapt-update-notifier
+     tre
      streamripper
      sylpheed
      thoggen
@@ -167,6 +167,7 @@ BUILD_ORDER="
      devede
      compiz
      gDesklets
+     slapt-update-notifier
 		"
 
 ##
