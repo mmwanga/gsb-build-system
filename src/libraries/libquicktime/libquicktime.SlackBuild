@@ -12,7 +12,7 @@ VERSION=1.0.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="alsa-lib glib2 gtk+2 lame libogg libpng libvorbis ffmpeg faad2 libjpeg libdv pkgconfig"
+REQUIRED_PACKAGES="alsa-lib glib2 gtk+2 lame libogg libpng libvorbis ffmpeg faad2 libjpeg libdv pkg-config"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
