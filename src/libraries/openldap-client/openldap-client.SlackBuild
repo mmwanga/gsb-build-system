@@ -9,7 +9,7 @@
 ## Package variables.
 BUILD=1
 VERSION=2.3.38
-OPENLDAP_VERSION=2.3.38_ntlm
+OPENLDAP_CLIENT_VERSION=2.3.38_ntlm
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -265,7 +265,7 @@ done
 
 ## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$GSBPKGNAME-${OPENLDAP_VERSION//-/_}-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/$GSBPKGNAME-${OPENLDAP_CLIENT_VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
