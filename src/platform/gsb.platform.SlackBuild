@@ -194,7 +194,7 @@ BUILD_ORDER="
 
 ## Force rebuild and install of all packages if asked.
 if [ "$FORCE" = "1" ]; then
-   build_package $PACKAGE $SLACKBUILD_ARGS
+   build_package $PACKAGE $SLACKBUILD_ARGS || exit 1
    [ "$NOINSTALL" != "1" ] && {
      upgradepkg --install-new \
       $(ls -1 ${PKGDEST}/${PACKAGE}-[0-9]*.tgz | tail -n 1) || exit 1
@@ -259,7 +259,7 @@ else
 
         echo "${0##*/}: Removing old $PACKAGE." 
         removepkg $PACKAGE >/dev/null 2>&1 ;
-        build_package $PACKAGE $SLACKBUILD_ARGS
+        build_package $PACKAGE $SLACKBUILD_ARGS || exit 1
 
         [ "$NOINSTALL" != "1" ] && {
           upgradepkg --install-new \
@@ -272,7 +272,7 @@ else
    fi; ## If Upgrade wanted
 
   else ## If Package is not installed
-        build_package $PACKAGE $SLACKBUILD_ARGS
+        build_package $PACKAGE $SLACKBUILD_ARGS || exit 1
 
         [ "$NOINSTALL" != "1" ] && {
           upgradepkg --install-new \
