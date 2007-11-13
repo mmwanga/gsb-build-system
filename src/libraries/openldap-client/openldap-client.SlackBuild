@@ -269,5 +269,5 @@ makepkg -p -l y -c n $PKGDEST/$GSBPKGNAME-${OPENLDAP_CLIENT_VERSION//-/_}-$ARCH-
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/$PKGNAME-$VERSION
+  rm -rf $PKG $TMP/$GSBPKGNAME-$VERSION
 }

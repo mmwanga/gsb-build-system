@@ -205,7 +205,7 @@ BUILD_ORDER="
         lua
         libnl
         dhcdbd
-        heimdal
+        heimdal-libraries
         libgalago
         libsigc++
 		"
