@@ -1,13 +1,29 @@
 ChangeLog
 ---------
 
+12-11-2007  fidesratio <sk238(at)ex.ac.uk>	
+	* extras: Removed unneeded schemas from pessulus.
+	  Added esmtp (for balsa)
+	  Updated balsa.
+	* mono: Change program prefix for mono, gtk-sharp, beagle, monodoc, gnome-sharp.
+    * libraries: Moved gtk+2 glib2 to libraries.
+	  Updated libnl and openldap for versioning changes to
+	  work with new gsb.section scripts.
+	  Change program prefix in configure scripts for libsndfile, 
+	    libsamplerate, mjpegtools, libdv, libdv, libcroco.
+	* platform: Removed label_end patch from pulseaudio with verion 0.9.7.
+	  Removed scrollkeeper (finally)
+	* gsb.sections: Improved gsb.section scripts for more
+	  convenient building. Thanks to freerock for the handy
+	  suggestions. :^)
+
 09-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * extras: Added compiz.
 	* libraries: Added libgc for inkscape.
     * bindings: Downgraded libgtksourceviewmm to 0.3.2.
 	* office: Fix parallel build for glom. 
 	  Recompile libgdamm to support postgresql (for glom).
-	  Move tracker autostart to share/applications (disable autostart)
+	  Move tracker autostart to share/applications (ie, disable autostart)
 	* applications: Add GNOME Icon for mozilla-firefox.
 	  Bumped gtkmm version.
 	  Bumped rhythmbox version.

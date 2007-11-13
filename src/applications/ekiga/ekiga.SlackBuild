@@ -161,6 +161,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static --enable-shared \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
+  --program-prefix="" \
   --enable-dbus \
   --enable-gnome \
   || exit 1
@@ -168,13 +169,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-## Ekiga has a quirk that when it is configured with a specific
-## target, it prefaces all its binary files to reflect the configured target.
-## This step quickly renames them.
-for FILE in $(find $PKG -name ${ARCH}*); do
-  mv $FILE $(echo "$FILE" | sed "s/$ARCH-$DISTRO-linux-//g")
-done
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

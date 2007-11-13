@@ -84,7 +84,7 @@ wavpack,http://www.wavpack.com/,4.41.0,tar.bz2,NONE
 libshout,http://downloads.us.xiph.org/releases/libshout/,2.2.2,tar.gz,NONE
 tracker,http://www.gnome.org/~jamiemcc/tracker/,0.6.3,tar.bz2,NONE
 sqlite3,http://www.sqlite.org/,3.5.1,tar.gz,NONE
-pulseaudio,http://0pointer.de/lennart/projects/pulseaudio/,0.9.6,tar.gz,NONE
+pulseaudio,http://0pointer.de/lennart/projects/pulseaudio/,0.9.7,tar.gz,NONE
 libsamplerate,http://www.mega-nerd.com/SRC/,0.1.2,tar.gz,NONE
 libatomic_ops,http://www.hpl.hp.com/research/linux/atomic_ops/download/,1.2,tar.gz,NONE
 exempi,http://libopenraw.freedesktop.org/download/,1.99.4,tar.gz,NONE
@@ -114,7 +114,7 @@ psiconv,http://software.frodo.looijaard.name/psiconv/files/,0.9.8,tar.gz,NONE
 drivel,http://downloads.sourceforge.net/drivel/,2.0.3,tar.bz2,NONE
 python-xlib,http://downloads.sourceforge.net/python-xlib/,0.14,tar.gz,NONE
 gtkspell,http://gtkspell.sourceforge.net/download/,2.0.11,tar.gz,NONE
-gimp,ftp://ftp.gimp.org/pub/gimp/v2.4/,2.4.1,tar,bz2,md5
+gimp,ftp://ftp.gimp.org/pub/gimp/v2.4/,2.4.1,tar.bz2,md5
 aqbanking,http://downloads.sourceforge.net/aqbanking/,2.3.3,tar.gz,NONE
 gwenhywfar,http://downloads.sourceforge.net/gwenhywfar/,2.6.2,tar.gz,NONE
 libofx,http://downloads.sourceforge.net/libofx/,0.8.3,tar.gz,NONE
@@ -129,3 +129,7 @@ monodoc,http://go-mono.com/sources/monodoc/,1.2.5,zip,NONE
 galago-sharp,http://www.galago-project.org/files/releases/source/galago-sharp/,0.5.0,tar.bz2,NONE
 compiz,http://xorg.freedesktop.org/archive/individual/app/,0.5.2,tar.gz,NONE
 gc,http://www.hpl.hp.com/personal/Hans_Boehm/gc/gc_source/,7.0,tar.gz,NONE
+openvpn-admin,http://downloads.sourceforge.net/openvpn-admin/,1.9.3,tar.gz,NONE
+balsa,http://balsa.gnome.org/,2.3.20,tar.bz2,NONE
+esmtp,http://downloads.sourceforge.net/esmtp/,0.6.0,tar.bz2,NONE
+libesmtp,http://www.stafford.uklinux.net/libesmtp/,1.0.4,tar.bz2,NONE
