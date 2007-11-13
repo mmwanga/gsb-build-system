@@ -208,6 +208,7 @@ BUILD_ORDER="
         heimdal-libraries
         libgalago
         libsigc++
+        id3lib
 		"
 
 ##
