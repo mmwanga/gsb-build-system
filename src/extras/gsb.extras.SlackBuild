@@ -160,15 +160,12 @@ BUILD_ORDER="
      tre
      streamripper
      sylpheed
-     thoggen
-     zapping
      deluge
      Mplayer
      devede
      compiz
      gDesklets
-     slapt-update-notifier
-		"
+     "
 
 ##
 ## MAIN BUILD 
