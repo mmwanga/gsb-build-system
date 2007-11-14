@@ -90,6 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
+rm -fr $PKGNAME-$VERSION &&
 tar xfz $CWD/$PKGNAME-$VERSION.tar.gz &&
 mv $PKGNAME-torrent-$VERSION $PKGNAME-$VERSION &&
 cd $PKGNAME-$VERSION || exit 1
@@ -161,7 +162,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   || exit 1
 
 ## Build and install.
-python ./setup.py install --prefix=$PKG/usr
+python ./setup.py install --prefix=$PKG/usr || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -181,17 +182,10 @@ python ./setup.py install --prefix=$PKG/usr
   gzip -9 $PKG/usr/info/*.info
 }
 
-## Correct permissions.
-## Doing these chown's will remove any s{u,g}id bits that may have been set on
-## the installed files, which is not usually what we want.  Only uncomment/use
-## these chown's if necessary.  ~Tadgy.
-# chown -R $(stat --format "%u:%g" /usr/bin) $PKG/usr/bin
-# chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/sbin
-
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+  ChangeLog README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
