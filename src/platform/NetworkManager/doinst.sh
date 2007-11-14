@@ -62,17 +62,20 @@ fi;
 ##
 ## Restart dbus (reload NetworkManager info), and start services
 ##
-if [ -x etc/rc.d/rc.messagebus ]; then
-    chmod +x etc/rc.d/rc.networkmanager*;
-    . etc/rc.d/rc.messagebus restart;
-    . etc/rc.d/rc.networkmanager restart;
-fi;
+#if [ -x etc/rc.d/rc.messagebus ]; then
+    #chmod +x etc/rc.d/rc.networkmanager*;
+    #. etc/rc.d/rc.messagebus restart;
+    #. etc/rc.d/rc.networkmanager restart;
+#fi;
+
+# By default, disable NetworkManager.  Users must enable if they wish.
+chmod -x etc/rc.d/rc.networkmanager*;
 
 cat << EOF
 
 Note:
 -----
-To allow users to connect to the NetworkManager daemon they have to be in the
+To allow users to connect to the NetworkManager daemon, they have to be in the
 group "netdev". 
 
 EOF
