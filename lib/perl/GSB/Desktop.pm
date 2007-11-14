@@ -34,6 +34,7 @@ our %desktop =
    'gnome-terminal'         => '2.18.2',
    'gnome-themes'           => '2.20.1',
    'gtkhtml'                => '3.16.1',
+   'gtksourceview'          => '1.8.5',
    'libgnomecups'           => '0.2.2',
    'libgnomekbd'            => '2.20.0',
    'libgnomeprint'          => '2.18.2',
