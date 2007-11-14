@@ -213,6 +213,8 @@ BUILD_ORDER="
         libgalago
         libsigc++
         id3lib
+        openal
+        freealut
 		"
 
 #
