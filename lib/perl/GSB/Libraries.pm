@@ -265,6 +265,7 @@ our %libraries_gnome =
   (
    'libcroco'          => '0.6.1',
    'libsigc++'         => '2.0.18',
+   'pango'             => '1.18.3',
   );
 
 our %libraries_diff_naming =

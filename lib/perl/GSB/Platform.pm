@@ -35,7 +35,6 @@ our %platform =
    'libsoup'             => '2.2.103',
    'NetworkManager'      => '0.6.5',
    'ORBit2'              => '2.14.9',
-   'pango'               => '1.18.3',
    'pygobject'           => '2.14.0',
    'pygtk'               => '2.12.0',
    'pyorbit'             => '2.14.3',
