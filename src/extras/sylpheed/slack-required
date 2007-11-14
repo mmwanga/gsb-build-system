@@ -1,1 +1,6 @@
 openldap | openldap-client
+gtk+2
+glib2
+gpgme
+gtkspell
+openssl-solibs
