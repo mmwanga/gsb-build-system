@@ -1,0 +1,12 @@
+      |-----handy-ruler------------------------------------------------------|
+dvdrip: dvdrip (dvd::rip DVD Ripper)
+dvdrip:
+dvdrip: dvd::rip is a full featured DVD copy program written in Perl. It provides an
+dvdrip: easy to use but feature-rich Gtk+ GUI to control almost all aspects of the
+dvdrip: ripping and transcoding process. It uses the widely known video processing
+dvdrip: swissknife transcode and many other Open Source tools. dvd::rip itself is
+dvdrip: licensed under GPL / Perl Artistic License.
+dvdrip:
+dvdrip:
+dvdrip:
+dvdrip:

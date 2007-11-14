@@ -138,3 +138,13 @@ id3lib,http://downloads.sourceforge.net/id3lib/,3.8.3,tar.gz,NONE
 parted,http://ftp.gnu.org/gnu/parted/,1.8.8,tar.bz2,NONE
 gparted,http://downloads.sourceforge.net/gparted/,0.3.3,tar.bz2,NONE
 pstoedit,http://downloads.sourceforge.net/pstoedit/,3.45,tar.gz,NONE
+streamripper,http://downloads.sourceforge.net/streamripper/,1.62.0,tar.gz,NONE
+tre,http://laurikari.net/tre/,0.7.5,tar.bz2,NONE
+sylpheed,http://sylpheed.sraoss.jp/sylpheed/v2.4/,2.4.7,tar.bz2,NONE
+deluge,http://download.deluge-torrent.org/tarball/0.5.6.2/,0.5.6.2,tar.gz,NONE
+dvdrip,http://www.exit1.org/dvdrip/dist/,0.98.8,tar.gz,NONE
+openexr,http://download.savannah.nongnu.org/releases/openexr/,1.6.1,tar.gz,NONE
+ilmbase,http://download.savannah.nongnu.org/releases/openexr/,1.0.1,tar.gz,NONE
+freeglut,http://downloads.sourceforge.net/freeglut/,2.4.0,tar.gz,NONE
+openal,http://www.openal.org/openal_webstf/downloads/,0.0.8,tar.gz,NONE
+freealut,http://www.openal.org/openal_webstf/downloads/,1.1.0,tar.gz

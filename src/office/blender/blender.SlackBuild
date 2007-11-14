@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=0.9.1
+VERSION=2.45
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gnome-sharp mono gtk-sharp"
+REQUIRED_PACKAGES="gtk+2 glib2 python libjpeg libpng zlib openal sdl mozilla-firefox nss mesa openexr ilmbase openal freealut"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -90,7 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xfz $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -154,18 +154,22 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-## Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
-  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
-  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
-  || exit 1
+## Configuration
+##
+## No configuration really exists.  However, we need to make some customizations
+## to the definitions in order to build properly on Slackware.
 
-## Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+## Slackware uses python 2.5
+sed -i "s/2\.3/2\.5/g" $PKG/source/nan_definitions.mk
+
+## Update library paths for x86_64
+#if [ "$ARCH" = "x86_64" ]; then
+  #sed -i "s/lib\//lib64\//g" $CWD/source/nan_definitions.mk
+#fi;
+
+## Build and install. (Cannot use parallel builds)
+make &&
+make DESTDIR=$PKG install || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -200,10 +204,10 @@ chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
     for FILE in *; do
       [ -z "$(grep gconfentry $FILE)" ] && {
         # Create gconf tree
-        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool -2 --makefile-install-rule etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
+        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
       } || {
         # Load gconf settings
-        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool -2 --config-source=\$(usr/bin/gconftool-2 --get-default-source) --direct --load etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
+        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --config-source=\$(usr/bin/gconftool-2 --get-default-source) --direct --load etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
       }
     done
   )

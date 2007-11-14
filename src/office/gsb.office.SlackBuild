@@ -178,6 +178,9 @@ BUILD_ORDER="
      gnucash
      libgdamm
      glom
+     ilmbase
+     openexr
+     blender
 		"
 
 ##

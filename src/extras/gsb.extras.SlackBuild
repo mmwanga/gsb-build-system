@@ -161,10 +161,11 @@ BUILD_ORDER="
      streamripper
      sylpheed
      deluge
-     Mplayer
-     devede
      compiz
+     dvdrip
+     devede
      gDesklets
+     Mplayer
      "
 
 ##

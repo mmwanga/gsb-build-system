@@ -1,6 +1,20 @@
 ChangeLog
 ---------
 
+14-11-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * extras: Update sylpheed and add gnome icon.
+	  Remove thoggen.  Outdated, and still beta. Added dvd::rip instead. 
+	  Updated compiz.  Added deluge. Removed zapping (old).
+	* platform: Disable autostart of avahi, networkmanager, and s-t-b.
+	* office: Added blender. 
+	  Added openexr, freeglut and ilmbase.
+	  Bumped version for gnumeric.
+	* libraries: Added openal and freealut (for blender).  These libraries
+	  are also used by other 3D applications and may be useful for other things.
+	* web: Added an svn copy of some new web material.  
+	* mono: Bumped tomboy version. 
+	* applications: Bumped versions for cairomm, eog.
+
 13-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * libraries: Finagle some version formatting in libnl, openldap, heimdal
 	  to allow GSB perl and section scripts to properly check and update VERSIONS.  
@@ -9,14 +23,15 @@ ChangeLog
 	  See http://osdir.com/ml/audio.easytag.general/2006-07/msg00006.html.
 	  Might be useful to have both id3lib and taglib.
 	  Update build order.
-	* gsb.sections: Minor update to catch package name or version customization
-	  e.g., openldap_ntlm, or heimdal-libraries, etc.
+	* gsb.sections: Major updates.  To Tadgy for examination.  :)
 	* extras: Added parted. 
 	  Updated gparted, gtkpod, gtkpod.
 	  Added patch for easytag to build against mpeg4ip >= 1.6.
 	  Added patch for gtkpod to build against mpeg4ip >= 1.6.
 	  See http://www.nabble.com/Patch:-Build-with-libmp4v2-version-1.6-t4623808.html
 	  Updated pstoedit.
+	  Added tre for streamripper.
+	  Updated streamripper.
 
 12-11-2007  fidesratio <sk238(at)ex.ac.uk>	
 	* extras: Removed unneeded schemas from pessulus.
