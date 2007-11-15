@@ -12,7 +12,7 @@ VERSION=2.45
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 glib2 python libjpeg libpng zlib openal sdl mozilla-firefox nss mesa openexr ilmbase openal freealut"
+REQUIRED_PACKAGES="gtk+2 glib2 python libjpeg libpng zlib openal sdl mozilla-firefox nss mesa openexr ilmbase openal freealut scons"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -154,22 +154,9 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-## Configuration
-##
-## No configuration really exists.  However, we need to make some customizations
-## to the definitions in order to build properly on Slackware.
-
-## Slackware uses python 2.5
-sed -i "s/2\.3/2\.5/g" $PKG/source/nan_definitions.mk
-
-## Update library paths for x86_64
-#if [ "$ARCH" = "x86_64" ]; then
-  #sed -i "s/lib\//lib64\//g" $CWD/source/nan_definitions.mk
-#fi;
-
 ## Build and install. (Cannot use parallel builds)
-make &&
-make DESTDIR=$PKG install || exit 1
+scons && 
+scons install DESTDIR=$PKG || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
