@@ -13,7 +13,10 @@ ChangeLog
 	  are also used by other 3D applications and may be useful for other things.
 	* web: Added an svn copy of some new web material.  
 	* mono: Bumped tomboy version. 
-	* applications: Bumped versions for cairomm, eog.
+	* applications: Bumped versions for cairomm, eog, gnome-power-manager.
+	* tools: Added a scons package for blender.  Simplifies build over
+	  the NaN system. Also, might be useful for other other packages 
+	  later on (or maybe users might want it?)
 
 13-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * libraries: Finagle some version formatting in libnl, openldap, heimdal
