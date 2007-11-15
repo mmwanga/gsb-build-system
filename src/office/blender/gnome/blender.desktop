@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Blender
+GenericName=3D Content Creation Suite
+Comment=Blender 3D Content Creation Suite
+Exec=blender
+Icon=/usr/share/pixmaps/blender.png
+Terminal=false
+Type=Application
+Categories=GNOME;GTK;Office;Graphics;
