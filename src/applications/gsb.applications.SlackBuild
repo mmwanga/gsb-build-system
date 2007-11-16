@@ -207,6 +207,8 @@ BUILD_ORDER="
        seahorse
        gnome-user-share
        gdm
+       libgksu
+       gksu
 		"
 
 ##

@@ -114,6 +114,23 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
+# libgksu designed for debian's su? Not sure why the 
+# default package doesn't properly handle the su output
+(
+echo
+echo "Patching for Slackware compatibility."
+cd $TMP/$PKGNAME-$VERSION/libgksu ;
+patch -p0 < $CWD/patches/libgksu.c.patch ;
+)
+
+# This is necessary for the hardcoded paths on x86_64 lib64.
+if [ "$ARCH" = "x86_64" ]; then
+  echo "Fixing libgksu.c for lib64 paths."
+  sed -i "s/\/lib\//\/lib64\//g" $TMP/$PKGNAME-$VERSION/libgksu/libgksu.c
+fi;
+
+echo
+
 ## Fix permissions for building.
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
@@ -158,6 +175,7 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --libexecdir=/usr/bin \
   --disable-static --enable-shared \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
