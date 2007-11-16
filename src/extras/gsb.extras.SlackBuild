@@ -164,8 +164,7 @@ BUILD_ORDER="
      compiz
      dvdrip
      devede
-     gDesklets
-     Mplayer
+     gnome-cups-manager
      "
 
 ##
