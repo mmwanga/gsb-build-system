@@ -5,12 +5,14 @@ ChangeLog
     * applications: Disable autostart for nm-applet; icon fixes.
 	  Added libgksu (with patch) and gksu.
 	  Add gnomesu link to gksu.
+	  Gtkhtml 3.16 fix for evolution.
 	* platform: smalls tweaks to gnome-icon install.
 	* desktop: Add gconf setting for user apps in gnome-control-panel.
 	  Add gnome link for gnome-session (used by sabayon and others)
     * libraries: proper ownership for gtk+2 profile.d
 	* extras: Added gnome-cups-manager.
 	  Fix for dvdrip icon.
+	* web: Add a few new screenshots.  
 
 15-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * mono: Add switch to unzip on monodoc.
