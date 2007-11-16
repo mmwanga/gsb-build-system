@@ -163,6 +163,9 @@ echo "Using heimdal for Krb5."
 sed -i "s/\$mitlibs/\$heimlibs/g" $TMP/$PKGNAME-$VERSION/configure
 echo
 
+## Fix for gtkhtml 3.16
+sed -i "s/3\.14/3\.16/g" $TMP/$PKGNAME-$VERSION/configure
+
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
