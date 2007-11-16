@@ -161,6 +161,17 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static --enable-shared \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
+  --with-cd-burning \
+  --with-database=tree \
+  --with-gnome-keyring  \
+  --with-mtp \
+  --with-ipod \
+  --with-hal \
+  --disable-vala \
+  --enable-libnotify \
+  --enable-musicbrainz \
+  --enable-python \
+  --enable-fm-radio \
   || exit 1
 
 ## Build and install.
