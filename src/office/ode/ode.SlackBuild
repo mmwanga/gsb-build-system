@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.45
+VERSION=0.9
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 glib2 python libjpeg libpng zlib openal sdl mozilla-firefox nss mesa openexr ilmbase openal freealut scons"
+REQUIRED_PACKAGES="mesa"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -90,7 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xfz $CWD/$PKGNAME-$VERSION.tar.gz &&
+unzip -o -qq $CWD/$PKGNAME-src-$VERSION.zip &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -138,7 +138,6 @@ elif [ "$ARCH" = "i586" ]; then
 elif [ "$ARCH" = "i686" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer -ffast-math"}
 elif [ "$ARCH" = "x86_64" ]; then
-  GSB_LIBDIR="lib64"
   if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -ffast-math -fPIC"}
   else
@@ -155,55 +154,33 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-## Set lib for non x86_64 platforms
-GSB_LIBDIR=${GSB_LIBDIR:-"lib"}
+## Configure.
+CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --disable-static --enable-shared \
+  --disable-demos \
+  --with-arch=$TUNE \
+  --enable-release \
+  --disable-debug \
+  --program-prefix="" \
+  || exit 1
 
-## Build 
-scons ${MAKE_FLAGS} BF_DEBUG=0 \
-      WITH_BF_VERSE=0 \
-      BF_INSTALLDIR=$PKG/usr/blender \
-      || exit 1
-
-## Set up Package Directories
-mkdir -p $PKG/usr/bin ;
-mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION ;
-mkdir -p $PKG/usr/share/applications ;
-mkdir -p $PKG/usr/share/pixmaps ;
-mkdir -p $PKG/usr/${GSB_LIBDIR}/blender/sequence ;
-mkdir -p $PKG/usr/${GSB_LIBDIR}/blender/texture ;
-
-## Install
-mv $PKG/usr/blender/blender $PKG/usr/blender/blenderplayer $PKG/usr/bin ;
-mv $PKG/usr/blender/.blender $PKG/usr/share ;
-mv $PKG/usr/share/.blender $PKG/usr/share/blender ;
-mv $PKG/usr/share/blender/locale $PKG/usr/share ;
-mv $PKG/usr/blender/*.txt $PKG/usr/doc/$PKGNAME-$VERSION ;
-mv $PKG/usr/blender/*.pdf $PKG/usr/doc/$PKGNAME-$VERSION ;
-mv $PKG/usr/blender/*.html $PKG/usr/doc/$PKGNAME-$VERSION ;
-
-## Compile some plugins
-echo 
-echo "Compiling plugins..."
-echo 
-(
-cd $PKG/usr/blender/plugins/ ;
-cp $TMP/${PKGNAME}-${VERSION}/source/blender/blenpluginapi/*.h . ;
-chmod +x ./bmake ;
-make ;
-cp -a $PKG/usr/blender/plugins/sequence/*.so $PKG/usr/${GSB_LIBDIR}/blender/sequence ;
-cp -a $PKG/usr/blender/plugins/texture/*.so $PKG/usr/${GSB_LIBDIR}/blender/texture ;
-rm -fr $PKG/usr/blender ;
-)
-
-## Gnome Icon
-mkdir -p $PKG/usr/share/applications
-mkdir -p $PKG/usr/share/pixmaps
-cp -a $CWD/gnome/blender.desktop $PKG/usr/share/applications
-cp -a $CWD/gnome/blender.png $PKG/usr/share/pixmaps
+## Build and install.
+make $MAKE_FLAGS &&
+make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
+
+## Compress and fix manpage links.
+[ -e $PKG/usr/man ] && {
+  find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
+  find $PKG/usr/man -type l -name \*.? -printf \
+    "( cd '%h'; [ -e '%l.gz' ] &&
+     { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
+}
 
 ## Deal with .info files.
 [ -e $PKG/usr/info ] && {
@@ -211,7 +188,11 @@ cp -a $CWD/gnome/blender.png $PKG/usr/share/pixmaps
   gzip -9 $PKG/usr/info/*.info
 }
 
-## Documentation Permissions
+## Copy extra documentation into package.
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
+cp -a \
+  AUTHORS COPYING* ChangeLog NEWS README \
+  $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
@@ -229,5 +210,5 @@ makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/$PKGNAME-$VERSION $TMP/build $TMP/install $TMP/lib
+  rm -rf $PKG $TMP/$PKGNAME-$VERSION
 }

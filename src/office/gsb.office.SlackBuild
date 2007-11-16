@@ -180,6 +180,7 @@ BUILD_ORDER="
      glom
      ilmbase
      openexr
+     ode
      blender
 		"
 

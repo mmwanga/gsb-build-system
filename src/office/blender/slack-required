@@ -13,3 +13,5 @@ openexr
 ilmbase
 openal
 freealut
+ffmpeg
+libtiff
