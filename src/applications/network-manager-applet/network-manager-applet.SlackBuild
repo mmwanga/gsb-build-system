@@ -168,12 +168,14 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Preserve settings
 mv $PKG/etc/dbus-1/system.d/nm-applet.conf $PKG/etc/dbus-1/system.d/nm-applet.conf.new
+mkdir -p $PKG/usr/share/applications
+# Disable nm-applet autostart
+mv $PKG/usr/share/gnome/autostart/nm-applet.desktop $PKG/usr/share/applications
 
 ## Fix for Slackware non-PAM system.
 ##
 ## Users now can add themselves to the "netdev" group to use networkmanager.
 ##
-
 sed -i "s/at_console=\"true\"/group=\"netdev\"/g" $PKG/etc/dbus-1/system.d/nm-applet.conf.new
 
 ## Strip debugging symbols.
