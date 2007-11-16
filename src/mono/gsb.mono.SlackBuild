@@ -151,11 +151,9 @@ BUILD_ORDER="
    mono
    monodoc
    gtk-sharp
-   gmime-sharp
    gecko-sharp
    gnome-sharp
    evolution-sharp
-   galago-sharp
    beagle
    tomboy
    f-spot

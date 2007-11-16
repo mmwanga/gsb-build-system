@@ -91,7 +91,7 @@ mkdir -p $PKGDEST
 ## Decompress archive.
 cd $TMP &&
 echo "Please wait. Extracting..." &&
-unzip -qq $CWD/$PKGNAME-$VERSION.zip &&
+unzip -o -qq $CWD/$PKGNAME-$VERSION.zip &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
