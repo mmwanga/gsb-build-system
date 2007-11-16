@@ -1,6 +1,14 @@
 ChangeLog
 ---------
 
+15-11-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * mono: Add switch to unzip on monodoc.
+	  Minor fixes to build order.
+	* office: Add ode for blender.
+	  Fix blender slackbuild for proper package installation.
+	* themes: General cleanup.
+	  Add gnome-themes-extras.
+
 14-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * extras: Update sylpheed and add gnome icon.
 	  Remove thoggen.  Outdated, and still beta. Added dvd::rip instead. 

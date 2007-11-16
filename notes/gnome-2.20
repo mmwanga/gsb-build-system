@@ -149,3 +149,4 @@ freeglut,http://downloads.sourceforge.net/freeglut/,2.4.0,tar.gz,NONE
 openal,http://www.openal.org/openal_webstf/downloads/,0.0.8,tar.gz,NONE
 freealut,http://www.openal.org/openal_webstf/downloads/,1.1.0,tar.gz
 scons,http://downloads.sourceforge.net/scons/,0.97,tar.gz,NONE
+ode,http://downloads.sourceforge.net/opende/,0.9,.zip,NONE
