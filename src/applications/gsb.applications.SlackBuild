@@ -154,6 +154,7 @@ BUILD_ORDER="
        gnome-media
        sound-juicer
        file-roller
+       gnome-python-desktop
        epiphany
        epiphany-extensions
        totem
@@ -198,7 +199,6 @@ BUILD_ORDER="
        gthumb
        rhythmbox
        enchant
-       gnome-python-desktop
        deskbar-applet
        pygtksourceview
        gedit
