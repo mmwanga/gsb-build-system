@@ -1,6 +1,17 @@
 ChangeLog
 ---------
 
+16-11-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * applications: Disable autostart for nm-applet; icon fixes.
+	  Added libgksu (with patch) and gksu.
+	  Add gnomesu link to gksu.
+	* platform: smalls tweaks to gnome-icon install.
+	* desktop: Add gconf setting for user apps in gnome-control-panel.
+	  Add gnome link for gnome-session (used by sabayon and others)
+    * libraries: proper ownership for gtk+2 profile.d
+	* extras: Added gnome-cups-manager.
+	  Fix for dvdrip icon.
+
 15-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * mono: Add switch to unzip on monodoc.
 	  Minor fixes to build order.
