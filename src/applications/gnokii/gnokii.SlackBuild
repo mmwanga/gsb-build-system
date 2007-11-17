@@ -170,6 +170,11 @@ make $MAKE_FLAGS &&
 make $MAKE_FLAGS install DESTDIR=$PKG &&
 make $MAKE_FLAGS install-devel DESTDIR=$PKG || exit 1
 
+# Properly name the gnokii.pc
+if [ -f $PKG/usr/${GSB_LIBDIR:-lib}/pkgconfig/xgnokii.pc ]; then
+  mv $PKG/usr/${GSB_LIBDIR:-lib}/pkgconfig/xgnokii.pc $PKG/usr/${GSB_LIBDIR:-lib}/pkgconfig/gnokii.pc || exit 1
+fi;
+
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
