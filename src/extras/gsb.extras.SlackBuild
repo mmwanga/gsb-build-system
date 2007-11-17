@@ -152,6 +152,7 @@ BUILD_ORDER="
      balsa
      brasero
      gimp
+     gtkam
      easytag
      parted
      gparted

@@ -179,7 +179,6 @@ BUILD_ORDER="
        gnome-pilot-conduits
        gnome-bluetooth
        gnome-spell
-       gtkam
        gcalctool
        gnokii
        evolution

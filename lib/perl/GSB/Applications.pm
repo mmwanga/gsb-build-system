@@ -109,11 +109,6 @@ our %applications =
 		      'url' => 'http://gstreamer.freedesktop.org/src/gst-python/',
 		      'src' => 'tar.bz2',
 		     },
-   'gtkam'               => {
-			     'ver' => '0.1.14',
-			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto/',
-			     'src' => 'tar.gz',
-			    },
    'libgksu'   => {
                    'ver' => '2.0.5',
                    'url' => 'http://people.debian.org/~kov/gksu/',
