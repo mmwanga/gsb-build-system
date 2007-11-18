@@ -149,6 +149,7 @@ BUILD_ORDER="
      python-ldap
      pessulus
      sabayon
+     libesmtp
      balsa
      brasero
      gimp
