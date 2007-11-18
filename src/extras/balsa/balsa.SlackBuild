@@ -12,7 +12,7 @@ VERSION=2.3.20
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 glib2 gmime esmtp openssl sqlite3 libnotify openldap-client gpgme libgnomeui gtkspell gtkhtml gtksourceview2 libesmtp"
+REQUIRED_PACKAGES="gtk+2 glib2 gmime openssl sqlite3 libnotify openldap-client gpgme libgnomeui gtkspell gtkhtml gtksourceview2 libesmtp"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

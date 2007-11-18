@@ -1,7 +1,6 @@
 gtk+2
 glib2
 gmime
-esmtp
 openssl
 sqlite3
 libnotify
