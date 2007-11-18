@@ -1,0 +1,11 @@
+--- mp4_tag.c.old	2007-11-13 12:34:26.000000000 +0000
++++ mp4_tag.c	2007-11-13 12:34:38.000000000 +0000
+@@ -185,7 +185,7 @@
+      * Picture *
+      ***********/
+     // There is only one picture!
+-    if ( MP4GetMetadataCoverArt( mp4file, &coverArt, &coverSize ) )
++    if ( MP4GetMetadataCoverArt( mp4file, &coverArt, &coverSize,0) )
+     {
+         Picture *pic = Picture_Allocate();
+         pic->size = coverSize;
