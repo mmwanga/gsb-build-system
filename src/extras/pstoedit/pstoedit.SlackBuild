@@ -12,7 +12,7 @@ VERSION=3.45
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="espgs ImageMagick"
+REQUIRED_PACKAGES="espgs imagemagick"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
