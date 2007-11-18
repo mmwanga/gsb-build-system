@@ -12,7 +12,7 @@ our @EXPORT    = qw(%o_platform
                     %o_desktop_diff_naming
                     %o_desktop_other
                     %o_desktop_nongnome
-                    %bindings_cxx
+                    %o_bindings_cxx
                     %bindings_cxx_other
                     %bindings_java
                     %bindings_python

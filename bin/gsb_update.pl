@@ -39,6 +39,7 @@ use GSB::Platform;
 use GSB::Desktop;
 use GSB::Applications;
 use GSB::Accessibility;
+use GSB::Bindings;
 
 use GSB::Desktop_Reqs;
 use GSB::GStreamer;
@@ -476,6 +477,34 @@ foreach my $acpackage (keys %accessibility_gnome) {
   }
 }
 
+# Download Bindings
+# C++
+foreach my $cbpackage (keys %bindings_cxx) {
+
+  my $name    = $cbpackage;
+  my $ver     = $bindings_cxx{$name};
+  my $sb_file = $name . $sb_ext;
+
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
+
+  chdir "$pwd/bindings/$name";
+
+  if ( $download eq "true") {
+    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
 
 
 # DONE DOWNLOADING
@@ -507,34 +536,6 @@ exit(0);
 
 
 
-# Download Bindings
-# C++
-foreach my $cbpackage (keys %bindings_cxx) {
-
-  my $name    = $cbpackage;
-  my $ver     = $bindings_cxx{$name};
-  my $sb_file = $name . $sb_ext;
-
-  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
-
-  chdir "$pwd/gnome/bindings/c++/$name";
-
-  if ( $download eq "true") {
-    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
-}
 
 # Download non gnome Desktop Packages
 foreach my $bxopackage (keys %bindings_cxx_other) {
