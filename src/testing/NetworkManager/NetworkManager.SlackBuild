@@ -6,13 +6,35 @@
 ## Licenced under the terms of the GNU General Public Licence version 3.
 ##
 
+##
+## SVN Warning
+##
+
+cat << EOF
+
+*****************
+* Update Notice *
+*****************
+
+NetworkManager is built from an svn repository.  There are no released tarballs.
+If you would like the latest code for this package, please make sure to
+run "svn update" before compiling.  This build script will not update
+the repository automatically (in case specific revisions are wanted.)
+
+***** Note ************
+
+This script is intended to be run from a working svn copy.
+
+***********************
+
+EOF
+
 ## Package variables.
 BUILD=1
-VERSION=0.5.6.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="python pygtk gtk+2 glib2"
+REQUIRED_PACKAGES="libnl wpa_supplicant libgcrypt dbus hal gtk+2 libglade gnome-keyring libgnomeui gnome-keyring wireless-tools glib2 iproute2 GConf"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -27,6 +49,15 @@ PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
 FORCEBUILD=0
+SVN_REV=$(cd $PKGNAME && svn info 2> /dev/null | grep Revision | cut -d' ' -f2)
+
+if [ "$SVN_REV" = "" ]; then
+  echo "Unable to properly check svn version. Please check your svn setup and try again."
+  exit 1;
+fi;
+
+echo "Building SVN_REV $SVN_REV"
+VERSION=${VERSION:-svn_$SVN_REV}
 
 ## Usage.
 function usage() {
@@ -88,11 +119,10 @@ mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
-## Decompress archive.
+## Copy SVN working copy to temporary space
+rm -fr $TMP/$PKGNAME-$VERSION ;
 cd $TMP &&
-rm -fr $PKGNAME-$VERSION &&
-tar xfz $CWD/$PKGNAME-$VERSION.tar.gz &&
-mv $PKGNAME-torrent-$VERSION $PKGNAME-$VERSION &&
+cp -ra $CWD/$PKGNAME ./$PKGNAME-$VERSION &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -146,7 +176,7 @@ elif [ "$ARCH" = "x86_64" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -ffast-math -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS="--libdir=/usr/lib64"
+    CONFIGURE_FLAGS=""
   }
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
@@ -156,21 +186,34 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-## Configure and Build
+## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  python ./setup.py build \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --disable-static --enable-shared \
+  --with-distro=slackware \
+  --enable-notification-icon \
   || exit 1
 
 ## Build and install.
-python ./setup.py install --prefix=$PKG/usr || exit 1
+make $MAKE_FLAGS &&
+make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-## The icons are improperly placed in a package subdirectory, rather than
-## the main GNOME Icon Set. This moves them over so the application has
-## access to its icons.  It is better to have them in the default gnome
-## icon directory.
-mkdir -p $PKG/usr/share/icons/gnome
-mv $PKG/usr/share/$PKGNAME/icons/hicolor/* $PKG/usr/share/icons/gnome
-rm -fr $PKG/usr/share/$PKGNAME/icons
+## Preserve previous settings
+mv $PKG/etc/rc.d/rc.networkmanager-dispatcher $PKG/etc/rc.d/rc.networkmanager-dispatcher.new
+mv $PKG/etc/dbus-1/system.d/NetworkManager.conf $PKG/etc/dbus-1/system.d/NetworkManager.conf.new
+
+## Fix for Slackware non-PAM system.
+## Users now can add themselves to the "netdev" group to use networkmanager.
+sed -i "s/at_console=\"true\"/group=\"netdev\"/g" $PKG/etc/dbus-1/system.d/NetworkManager.conf.new
+
+## Tweaks for x86_64 platforms 
+if [ "$ARCH" = "x86_64" ]; then
+    mv $PKG/usr/lib $PKG/usr/lib64;
+    for i in $PKG/usr/lib64/*.la ; do
+      sed -i "s/\/lib\/\/lib64\//g" $i; 
+    done;
+fi;
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -188,31 +231,6 @@ rm -fr $PKG/usr/share/$PKGNAME/icons
 [ -e $PKG/usr/info ] && {
   rm -f $PKG/usr/info/dir
   gzip -9 $PKG/usr/info/*.info
-}
-
-## Copy extra documentation into package.
-mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a \
-  ChangeLog README \
-  $PKG/usr/doc/$PKGNAME-$VERSION
-find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
-chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
-
-## Add schemas install to the doinst.sh if schemas are found.
-[ -d $PKG/etc/gconf/schemas ] && {
-  echo "if [ -x usr/bin/gconftool-2 ]; then" >>$PKG/install/doinst.sh
-  ( cd $PKG/etc/gconf/schemas
-    for FILE in *; do
-      [ -z "$(grep gconfentry $FILE)" ] && {
-        # Create gconf tree
-        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
-      } || {
-        # Load gconf settings
-        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --config-source=\$(usr/bin/gconftool-2 --get-default-source) --direct --load etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
-      }
-    done
-  )
-  echo "fi" >>$PKG/install/doinst.sh
 }
 
 ## Package meta files

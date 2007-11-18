@@ -114,6 +114,17 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
+## Patches for goffice >= 0.5
+(
+echo
+echo "Patching for goffice >= 0.5."
+cd $TMP/$PKGNAME-$VERSION ;
+patch -p0 < $CWD/patches/configure.in.patch
+cd src/gnome-utils ;
+patch -p0 < $CWD/patches/gnc-html-graph-gog.c.patch ;
+echo
+)
+
 ## Fix permissions for building.
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
@@ -157,8 +168,9 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 ## Configure.
 
 ## Use gtkhtml 3.16
-##
 sed -i "s/3\.14/3\.16/g" $TMP/$PKGNAME-$VERSION/configure ;
+## Bump configure versions to use libgoffice >= 0.5
+sed -i "s/libgoffice\-0\.4/libgoffice\-0\.5/g"  $TMP/$PKGNAME-$VERSION/configure ;
 
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
