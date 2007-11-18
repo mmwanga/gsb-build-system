@@ -19,7 +19,7 @@ our %applications_gnome =
    'alacarte'               => '0.11.3',
    'deskbar-applet'         => '2.20.1',
    'ekiga'                  => '2.0.11',
-   'eog'                    => '2.20.1',
+   'eog'                    => '2.20.2',
    'epiphany'               => '2.20.1',
    'epiphany-extensions'    => '2.20.1',
    'evince'                 => '2.20.1',
@@ -42,7 +42,7 @@ our %applications_gnome =
    'gnome-phone-manager'    => '0.30',
    'gnome-pilot'            => '2.0.15',
    'gnome-pilot-conduits'   => '2.0.15',
-   'gnome-power-manager'    => '2.20.0',
+   'gnome-power-manager'    => '2.20.1',
    'gnome-python-desktop'   => '2.20.0',
    'gnome-spell'            => '1.0.8',
    'gnome-system-monitor'   => '2.20.1',
@@ -70,7 +70,7 @@ our %applications_gnome =
 our %applications =
   (
    'cairomm' => {
-                 'ver' => '1.4.4',
+                 'ver' => '1.4.6',
                  'url' => 'http://cairographics.org/releases/',
                  'src' => 'tar.gz',
                 },
