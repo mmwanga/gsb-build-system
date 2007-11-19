@@ -188,7 +188,7 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --with-distro=slackware \
@@ -196,33 +196,38 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   || exit 1
 
 ## Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+make &&
+make DESTDIR=$PKG install || exit 1
+
+## Tweaks for library paths on x86_64 platforms 
+if [ "$ARCH" = "x86_64" ]; then
+    mv $PKG/usr/lib $PKG/usr/lib64;
+    for i in $PKG/usr/lib64/*.la ; do
+      sed -i "s:\/lib\/:\/lib64\/:g" $i;
+    done;
+    for i in $PKG/usr/lib64/pkgconfig/*.pc ; do
+      sed -i "/^libdir/s/\/lib/\/lib64/g" $i;
+    done;
+fi;
 
 ## Preserve previous settings
+mv $PKG/etc/rc.d/rc.networkmanager $PKG/etc/rc.d/rc.networkmanager.new
 mv $PKG/etc/rc.d/rc.networkmanager-dispatcher $PKG/etc/rc.d/rc.networkmanager-dispatcher.new
 mv $PKG/etc/dbus-1/system.d/NetworkManager.conf $PKG/etc/dbus-1/system.d/NetworkManager.conf.new
+mv $PKG/etc/dbus-1/system.d/nm-dhcp-client.conf $PKG/etc/dbus-1/system.d/nm-dhcp-client.conf.new
 
 ## Fix for Slackware non-PAM system.
 ## Users now can add themselves to the "netdev" group to use networkmanager.
 sed -i "s/at_console=\"true\"/group=\"netdev\"/g" $PKG/etc/dbus-1/system.d/NetworkManager.conf.new
-
-## Tweaks for x86_64 platforms 
-if [ "$ARCH" = "x86_64" ]; then
-    mv $PKG/usr/lib $PKG/usr/lib64;
-    for i in $PKG/usr/lib64/*.la ; do
-      sed -i "s/\/lib\/\/lib64\//g" $i; 
-    done;
-fi;
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
 
 ## Compress and fix manpage links.
-[ -e $PKG/usr/man ] && {
-  find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
-  find $PKG/usr/man -type l -name \*.? -printf \
+[ -e $PKG/usr/share/man ] && {
+  find $PKG/usr/share/man -type f -name \*.? -exec gzip -9f {} \;
+  find $PKG/usr/share/man -type l -name \*.? -printf \
     "( cd '%h'; [ -e '%l.gz' ] &&
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }
@@ -241,9 +246,9 @@ do
   }
 done
 
-## Create the package
+## Create full package with vpn support
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-0.7_${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {

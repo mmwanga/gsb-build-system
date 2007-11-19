@@ -22,6 +22,7 @@ function install_file() {
 install_file etc/rc.d/rc.networkmanager.new
 install_file etc/rc.d/rc.networkmanager-dispatcher.new
 install_file etc/dbus-1/system.d/NetworkManager.conf.new
+install_file etc/dbus-1/system.d/nm-dhcp-client.conf
 
 # if rc.local doesn't exist, create it
 if [ ! -e etc/rc.d/rc.local ]; then
@@ -70,10 +71,12 @@ fi;
 chmod -x etc/rc.d/rc.networkmanager*;
 
 cat << EOF
-
 Note:
 -----
 To allow users to connect to the NetworkManager daemon, they have to be in the
 group "netdev". 
 
+By default, NetworkManager is disabled.  In order to enable it, you will need to 
+restart the dbus message system to load the new NetworkManager settings, and make
+the /etc/rc.d/rc.networkmanager executable.
 EOF
