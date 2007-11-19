@@ -118,18 +118,6 @@ our %mono_diff_naming =
 		    'url'  => 'http://spruce.sourceforge.net/gmime/sources/v2.2/',
 		    'src'  => 'tar.gz',
 		   },
-   'sqlite2'     => {
-		     'ver'  => '2.8.17',
-		     'name' => 'sqlite',
-		     'url'  => 'http://sqlite.org/',
-		     'src'  => 'tar.gz',
-		    },
-   'sqlite3'     => {
-		     'ver'  => '3.5.1',
-		     'name' => 'sqlite',
-		     'url'  => 'http://sqlite.org/',
-		     'src'  => 'tar.gz',
-		    },
   );
 
 #

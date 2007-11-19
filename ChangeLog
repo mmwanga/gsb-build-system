@@ -1,17 +1,41 @@
 ChangeLog
 ---------
 
+18-11-2007  fidesratio <sk238(at)ex.ac.uk>	
+	* extras: Added libesmtp to build order.
+	  Update balsa reqs.
+	  Add easytag patches for mpeg4ip to svn (forgot)
+	  Fixed typo in pstoedit reqs.
+	  Added boost to reqs for deluge.
+	* libraries: Remove duplicate libraries from boost build.
+	* applications: Add python path fix for x86_64 in rhythmbox.
+	* testing: Add NetworkManager 0.7 svn.
+	  Add network-manager-applet 0.7 svn.
+	  Still need to add vpnc and openvpn to NetworkManager build.
+	* web: Add some new web content for GSB About.
+
+17-11-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * office: Add patches for gnucash to use goffice >= 0.5.
+	* applications: Fix icons for epiphany-extensions.
+	  Fix gnokii.pc, and add rules for udev and sample gnokiirc.
+	* mono: Fix icons for f-spot.
+	* extras: Fix icons for deluge.
+
 16-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * applications: Disable autostart for nm-applet; icon fixes.
 	  Added libgksu (with patch) and gksu.
 	  Add gnomesu link to gksu.
 	  Gtkhtml 3.16 fix for evolution.
+	  Improve rhythmbox configuration line.
+	  Fix python paths for x86_64 platform.
 	* platform: smalls tweaks to gnome-icon install.
 	* desktop: Add gconf setting for user apps in gnome-control-panel.
 	  Add gnome link for gnome-session (used by sabayon and others)
     * libraries: proper ownership for gtk+2 profile.d
+	* office: add glib to dvgrab reqs
 	* extras: Added gnome-cups-manager.
 	  Fix for dvdrip icon.
+	  Disable parllel builds for dvdrip.
 	* web: Add a few new screenshots.  
 
 15-11-2007  fidesratio <sk238(at)ex.ac.uk>	
