@@ -42,7 +42,7 @@ our %desktop =
    'libgtop'                => '2.20.0',
    'libwnck'                => '2.20.1',
    'libxklavier'            => '3.3',
-   'metacity'               => '2.20.0',
+   'metacity'               => '2.20.1',
    'nautilus'               => '2.20.0',
    'nautilus-cd-burner'     => '2.20.0',
    );
@@ -55,7 +55,7 @@ our %desktop_nongnome =
                       'src' => 'tar.gz',
                      },
    'gstreamer'   => {
-                           'ver' => '0.10.14',
+                           'ver' => '0.10.15',
                            'url' => 'http://gstreamer.freedesktop.org/src/gstreamer/',
                            'src' => 'tar.bz2',
                           },
@@ -65,7 +65,7 @@ our %desktop_nongnome =
 			   'src' => 'tar.bz2',
 			  },
    'gst-plugins-base'  => {
-                           'ver' => '0.10.14',
+                           'ver' => '0.10.15',
                            'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-base/',
                            'src' => 'tar.bz2',
                           },
