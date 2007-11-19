@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw(%mono %mono_diff_naming);
+our @EXPORT    = qw(%mono %mono_gnome %mono_diff_naming);
 our @EXPORT_OK = qw();
 our $VERSION   = 0.01;
 
@@ -13,62 +13,40 @@ our $VERSION   = 0.01;
 # Config Options for Mono
 #
 
+our %mono_gnome =
+  (
+   'beagle'          => '0.2.18',
+   'evolution-sharp' => '0.14.0.1',
+   'f-spot'          => '0.4.0',
+   'tomboy'          => '0.9.1',
+   );
+
 our %mono=
   (
-   'boo'                    => {
-				'ver' => '0.7.5.2013',
-				'url' => 'http://go-mono.com/sources/boo/',
-				'src' => 'tar.gz',
-			       },
-   'banshee'                => {
-				'ver' => '0.10.11',
-				'url' => 'http://banshee-project.org/files/banshee/',
-				'src' => 'tar.gz',
-			       },
-   'beagle'                 => {
-				'ver' => '0.2.18',
-				'url' => 'http://ftp.gnome.org/pub/GNOME/sources/beagle/0.2/',
-				'src' => 'tar.bz2',
-			       },
-   'f-spot'                 => {
-                                'ver' => '0.4.0',
-                                'url' => 'http://ftp.gnome.org/pub/GNOME/sources/f-spot/0.2/',
-                                'src' => 'tar.bz2',
-                               },
-   'gecko-sharp-2.0'        => {
-				'ver' => '0.11',
+   'gecko-sharp'        => {
+				'ver' => '2.0-0.12',
 				'url' => 'http://go-mono.com/sources/gecko-sharp-2.0/',
+				'src' => 'tar.gz',
+			    },
+   'gnome-sharp'        => {
+				'ver' => '2.16.0',
+				'url' => 'http://go-mono.com/sources/gnome-sharp2/',
 				'src' => 'tar.gz',
 			       },
    'gtk-sharp'              => {
-				'ver' => '1.0.10',
-				'url' => 'http://go-mono.com/sources/gtk-sharp/',
-				'src' => 'tar.gz',
+				'ver' => '2.10.2',
+				'url' => 'http://go-mono.com/sources/gtk-sharp210/',
+				'src' => 'tar.bz2',
 			       },
    'gtksourceview-sharp-2.0' => {
-				 'ver' => '0.10',
+				 'ver' => '0.11',
 				 'url' => 'http://go-mono.com/sources/gtksourceview-sharp-2.0/',
-				 'src' => 'tar.gz',
+				 'src' => 'tar.bz2',
 				},
-   'ikvm'                   => {
-				'ver' => '0.22',
-				'url' => 'http://go-mono.com/sources/ikvm',
-				'src' => 'tar.gz',
-			       },
-   'ipod-sharp'             => {
-				'ver' => '0.5.15',
-				'url' => 'http://banshee-project.org/files/ipod-sharp/',
-				'src' => 'tar.gz',
-			       },
    'libgdiplus'             => {
 				'ver' => '1.2.5',
 				'url' => 'http://go-mono.com/sources/libgdiplus/',
 				'src' => 'tar.bz2',
-			       },
-   'libipoddevice'          => {
-				'ver' => '0.4.5',
-				'url' => 'http://banshee-project.org/files/libipoddevice/',
-				'src' => 'tar.gz',
 			       },
    'mono'                   => {
 				'ver' => '1.2.5.2',
@@ -76,20 +54,15 @@ our %mono=
 				'src' => 'tar.bz2',
 			       },
    'monodevelop'            => {
-				'ver' => '0.10',
+				'ver' => '0.17',
 				'url' => 'http://go-mono.com/sources/monodevelop/',
-				'src' => 'tar.gz',
+				'src' => 'tar.bz2',
 			       },
    'monodoc'                => {
-				'ver' => '1.1.13',
+				'ver' => '1.2.5',
 				'url' => 'http://go-mono.com/sources/monodoc',
-				'src' => 'tar.gz',
+				'src' => 'zip',
 			       },
-   'njb-sharp'              => {
-                                'ver' => '0.3.0',
-                                'url' => 'http://banshee-project.org/files/njb-sharp/',
-                                'src' => 'tar.gz',
-                               },
   );
 
 our %mono_diff_naming =

@@ -45,11 +45,6 @@ sub gsb_extras_libs_other_url_make {
 # src/extras/libs
 our %extras_libs =
   (
-   'autogen'             => {
-                             'ver' => '5.9.3',
-                             'url' => 'http://heanet.dl.sourceforge.net/sourceforge/autogen/',
-                             'src' => 'tar.bz2',
-			    },
    'gmime'               => {
 			     'ver' => '2.2.10',
 			     'url' => 'http://spruce.sourceforge.net/gmime/sources/v2.2/',
@@ -75,21 +70,11 @@ our %extras_libs =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto/',
 			     'src' => 'tar.gz',
 			    },
-   'graphviz'            => {
-                             'ver' => '2.6',
-                             'url' => 'http://www.graphviz.org/pub/graphviz/ARCHIVE/',
-                             'src' => 'tar.gz',
-                            },
    'gst-pulse'          => {
                              'ver' => '0.9.3',
                              'url' => 'http://0pointer.de/lennart/projects/gst-pulse/',
                              'src' => 'tar.gz',
                             },
-   'gtkspell'            => {
-			     'ver' => '2.0.11',
-			     'url' => 'http://gtkspell.sourceforge.net/download/',
-			     'src' => 'tar.gz',
-			    },
    'Imaging'             => {
 			     'ver' => '1.1.5',
 			     'url' => 'http://effbot.org/downloads/',
@@ -165,10 +150,7 @@ our %extras_libs_other =
 # src/extras/libs
 our %extras_libs_gnome =
   (
-   'devhelp'             => '0.16.1',
-   'gdl'                 => '0.7.7',
    'glade'               => '3.1.5',
-   'gnome-build'         => '0.1.3',
    'gnome-common'        => '2.20.0',
    'loudmouth'           => '1.2.3',
   );
@@ -195,11 +177,6 @@ our %extras_gnome_apps =
 # src/extras/apps
 our %extras_apps =
   (
-   'anjuta'              => {
-			     'ver' => '2.2.2',
-			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/anjuta/',
-			     'src' => 'tar.bz2',
-			    },
    'avidemux'            => {
 			     'ver' => '2.1.2',
 			     'url' => 'http://download.berlios.de/avidemux/',
@@ -208,11 +185,6 @@ our %extras_apps =
    'balsa'               => {
 			     'ver' => '2.3.13',
 			     'url' => 'http://balsa.gnome.org/',
-			     'src' => 'tar.bz2',
-			    },
-   'bluefish'            => {
-			     'ver' => '1.0.7',
-			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/bluefish/',
 			     'src' => 'tar.bz2',
 			    },
    'bmpx'                 => {
@@ -225,16 +197,6 @@ our %extras_apps =
                              'url' => 'http://heanet.dl.sourceforge.net/sourceforge/bonfire/',
                              'src' => 'tar.bz2',
                             },
-   'drivel'              => {
-			     'ver' => '2.0.3',
-			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/drivel/',
-			     'src' => 'tar.bz2',
-			    },
-   'dvgrab'              => {
-			     'ver' => '3.0',
-			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/kino/',
-			     'src' => 'tar.gz',
-			    },
    'easytag'             => {
 			     'ver' => '1.99.12',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/easytag/',

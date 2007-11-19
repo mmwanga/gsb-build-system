@@ -63,4 +63,11 @@ our %double_tarballs_url =
 				   'tar' => 'heimdal-1.0.1.tar.gz',
 				   'var' => 'VERSION',
 				  },
+   'ode'            => {
+                         'url' => 'http://heanet.dl.sourceforge.net/sourceforge/opende/',
+                         'ver' => '0.9',
+			 'dir' => 'office/ode',
+			 'tar' => 'ode-src-0.9.zip',
+                         'var' => 'VERSION',
+                        },
   );
