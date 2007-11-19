@@ -27,51 +27,6 @@ our %libraries =
 			 'ver' => '3.0',
 			 'src' => 'tar.bz2',
 			},
-   'iso-codes'       => {
-			 'url' => 'ftp://pkg-isocodes.alioth.debian.org/pub/pkg-isocodes/',
-			 'ver' => '1.5',
-			 'src' => 'tar.bz2',
-		        },
-   'libiptcdata'       => {
-                           'ver' => '1.0.2',
-                           'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libiptcdata',
-                           'src' => 'tar.gz',
-                          },
-   'libnl'           => {
-			   'ver' => '1.0-pre6',
-			   'url' => 'http://people.suug.ch/~tgr/libnl/files/',
-			   'src' => 'tar.gz',
-			  },
-   'libnotify'         => {
-                             'ver' => '0.4.4',
-                             'url' => 'http://galago-project.org/files/releases/source/libnotify/',
-                             'src' => 'tar.bz2',
-			  },
-   'libsexy'             => {
-                             'ver' => '0.1.11',
-                             'url' => 'http://releases.chipx86.com/libsexy/libsexy/',
-                             'src' => 'tar.gz',
-                            },
-   'lua'             => {
-			   'ver' => '5.1.2',
-			   'url' => 'http://www.lua.org/ftp/',
-			   'src' => 'tar.gz',
-		        },
-   'opal'            => {
-                         'url' => 'http://www.ekiga.org/admin/downloads/latest/sources/sources/',
-                         'ver' => '2.2.11',
-                         'src' => 'tar.gz',
-                        },
-   'pwlib'            => {
-                         'url' => 'http://www.ekiga.org/admin/downloads/latest/sources/sources/',
-                         'ver' => '1.10.10',
-                         'src' => 'tar.gz',
-                        },
-   'speex'            => {
-                         'url' => 'http://downloads.us.xiph.org/releases/speex/',
-                         'ver' => '1.2beta2',
-                         'src' => 'tar.gz',
-                        },
    'exempi'              => {
 			   'ver' => '1.99.4',
 			   'url' => 'http://libopenraw.freedesktop.org/download/',
@@ -87,11 +42,21 @@ our %libraries =
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/faac/',
 			   'src' => 'tar.gz',
 			  },
+   'freealut'          => {
+                         'url' => 'http://www.openal.org/openal_webstf/downloads/',
+                         'ver' => '1.1.0',
+                         'src' => 'tar.gz',
+                        },
    'id3lib'            => {
 			   'ver' => '3.8.3',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/id3lib/',
 			   'src' => 'tar.gz',
 			  },
+   'iso-codes'       => {
+			 'url' => 'ftp://pkg-isocodes.alioth.debian.org/pub/pkg-isocodes/',
+			 'ver' => '1.5',
+			 'src' => 'tar.bz2',
+		        },
    'lame'              => {
 			   'ver' => '3.97',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/lame/',
@@ -172,6 +137,11 @@ our %libraries =
                 'url' => 'http://www.linux1394.org/dl/',
                 'src' => 'tar.gz',
                           },
+   'libiptcdata'       => {
+                           'ver' => '1.0.2',
+                           'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libiptcdata',
+                           'src' => 'tar.gz',
+                          },
    'libmatroska'       => {
 			   'ver' => '0.8.1',
 			   'url' => 'http://dl.matroska.org/downloads/libmatroska/',
@@ -186,6 +156,16 @@ our %libraries =
 			   'ver' => '1.2.6',
 			   'url' => 'http://files.musepack.net/source/',
 			   'src' => 'tar.bz2',
+			  },
+   'libnl'           => {
+			   'ver' => '1.0-pre6',
+			   'url' => 'http://people.suug.ch/~tgr/libnl/files/',
+			   'src' => 'tar.gz',
+			  },
+   'libnotify'         => {
+                             'ver' => '0.4.4',
+                             'url' => 'http://galago-project.org/files/releases/source/libnotify/',
+                             'src' => 'tar.bz2',
 			  },
    'liboil'            => {
 			   'ver' => '0.3.12',
@@ -223,6 +203,16 @@ our %libraries =
                            'url' => 'http://www.mega-nerd.com/SRC/',
                            'src' => 'tar.gz',
 			  },
+   'libsexy'             => {
+                             'ver' => '0.1.11',
+                             'url' => 'http://releases.chipx86.com/libsexy/libsexy/',
+                             'src' => 'tar.gz',
+                            },
+   'lua'             => {
+			   'ver' => '5.1.2',
+			   'url' => 'http://www.lua.org/ftp/',
+			   'src' => 'tar.gz',
+		        },
    'mjpegtools'        => {
 			   'ver' => '1.9.0rc2',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mjpeg/',
@@ -233,6 +223,26 @@ our %libraries =
 			   'url' => 'http://libmpeg2.sourceforge.net/files/',
 			   'src' => 'tar.gz',
 			  },
+   'opal'            => {
+                         'url' => 'http://www.ekiga.org/admin/downloads/latest/sources/sources/',
+                         'ver' => '2.2.11',
+                         'src' => 'tar.gz',
+                        },
+   'openal'          => {
+                         'url' => 'http://www.openal.org/openal_webstf/downloads/',
+                         'ver' => '0.0.8',
+                         'src' => 'tar.gz',
+                        },
+   'pwlib'            => {
+                         'url' => 'http://www.ekiga.org/admin/downloads/latest/sources/sources/',
+                         'ver' => '1.10.10',
+                         'src' => 'tar.gz',
+                        },
+   'speex'            => {
+                         'url' => 'http://downloads.us.xiph.org/releases/speex/',
+                         'ver' => '1.2beta2',
+                         'src' => 'tar.gz',
+                        },
    'transcode'         => {
 			   'ver' => '1.0.4',
 			   'url' => 'http://transcode.kabewm.com/',
