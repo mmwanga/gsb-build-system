@@ -156,6 +156,7 @@ elif [ "$ARCH" = "i586" ]; then
 elif [ "$ARCH" = "i686" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer -ffast-math"}
 elif [ "$ARCH" = "x86_64" ]; then
+  GSB_LIBDIR=lib64
   if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -ffast-math -fPIC"}
   else
@@ -184,8 +185,30 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS install || exit 1
 
-## Remove static libraries
+## Remove static, debug, and duplicate libraries
 find $PKG/usr -type f -name \*.a -exec rm -f {} \;
+find $PKG/usr -name "libboost_*-d-*" -exec rm -f {} \;
+find $PKG/usr -name "libboost_*-d.so" -exec rm -f {} \;
+find $PKG/usr -name "libboost_*-mt-d*" -exec rm -f {} \;
+find $PKG/usr -name "libboost_*gcc??.so" -exec rm -f {} \;
+
+## Add some library softlinks
+GSB_LIBDIR=${GSB_LIBDIR:-"lib"}
+(
+cd $PKG/usr/${GSB_LIBDIR} ;
+for i in $(find . -name "libboost_*-mt-*.${VERSION//_/.}")
+do
+   ## For library basenames
+   ln -sf $i $(echo $i | cut -d\- -f1).so ;
+   ln -sf $i $(echo $i | cut -d\- -f1)-mt.so ;
+done;
+
+for i in $(find . -name "libboost_*-gcc??-mt.so")
+do
+   ### Overwrite duplicate copies of libraries with softlinks
+   ln -sf $(basename $i .so)-${VERSION}.so.${VERSION//_/.} $i ;
+done;
+)
 
 ## Add boost include directory.
 (cd $PKG/usr/include;  ln -sf ${PKGNAME}-${VERSION}/boost boost);
@@ -211,7 +234,7 @@ find $PKG/usr -type f -name \*.a -exec rm -f {} \;
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+  README LICENSE_1_0.txt \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
