@@ -167,6 +167,12 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make &&
 make DESTDIR=$PKG install || exit 1
 
+## Preserve settings
+mv $PKG/etc/mono/1.0/machine.config $PKG/etc/mono/1.0/machine.config.new
+mv $PKG/etc/mono/2.0/web.config $PKG/etc/mono/2.0/web.config.new
+mv $PKG/etc/mono/2.0/machine.config $PKG/etc/mono/2.0/machine.config.new
+mv $PKG/etc/mono/config $PKG/etc/mono/config.new
+
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null

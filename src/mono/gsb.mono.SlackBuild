@@ -153,6 +153,9 @@ BUILD_ORDER="
    gtk-sharp
    gecko-sharp
    gnome-sharp
+   gtksourceview-sharp
+   mono-tools
+   monodevelop
    evolution-sharp
    beagle
    tomboy

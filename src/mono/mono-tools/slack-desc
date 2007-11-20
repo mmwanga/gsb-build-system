@@ -1,0 +1,12 @@
+          |-----handy-ruler------------------------------------------------------|
+mono-tools: mono-tools (Tools for Mono C# Development)
+mono-tools:
+mono-tools: The mono-tools Project is an open development initiative sponsored by Novell 
+mono-tools: to develop an open source, UNIX version of the Microsoft .NET development 
+mono-tools: platform. Its objective is to enable UNIX developers to build and deploy 
+mono-tools: cross-platform .NET Applications. 
+mono-tools:
+mono-tools: This package contains useful tools for Mono developement like
+mono-tools: API Document Browsers and map tools.
+mono-tools:
+mono-tools:
