@@ -162,8 +162,14 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   || exit 1
 
 ## Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+make &&
+make DESTDIR=$PKG install || exit 1
+
+## Move pkgconfig file into proper x86_64 
+if [ "$ARCH" = "x86_64" ]; then
+  mkdir -p $PKG/usr/lib64/pkgconfig/ ;
+  ( cd $PKG/usr/lib64/pkgconfig ; ln -sf ../../lib/pkgconfig/* ./ );
+fi;
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
