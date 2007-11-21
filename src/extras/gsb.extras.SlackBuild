@@ -166,7 +166,7 @@ BUILD_ORDER="
      compiz
      dvdrip
      vcdimager
-     mplayer
+     MPlayer
      dvdauthor
      devede
      gnome-cups-manager

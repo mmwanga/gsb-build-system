@@ -164,6 +164,9 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## Build and install.
 python ./setup.py install --prefix=$PKG/usr || exit 1
 
+## Fix deluge with proper paths for plugins
+find $PKG/usr -name common.py -exec sed -i "s:$PKG::g" {} \;
+
 ## The icons are improperly placed in a package subdirectory, rather than
 ## the main GNOME Icon Set. This moves them over so the application has
 ## access to its icons.  It is better to have them in the default gnome

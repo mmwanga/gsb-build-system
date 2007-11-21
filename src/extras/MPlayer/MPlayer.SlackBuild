@@ -6,35 +6,13 @@
 ## Licenced under the terms of the GNU General Public Licence version 3.
 ##
 
-##
-## SVN Warning
-##
-
-cat << EOF
-
-*****************
-* Update Notice *
-*****************
-
-mplayer is built from an svn repository.  There are no released tarballs.
-If you would like the latest code for this package, please make sure to
-run "svn update" before compiling.  This build script will not update
-the repository automatically (in case specific revisions are wanted.)
-
-***** Note ************
-
-This script is intended to be run from a working svn copy.
-
-***********************
-
-EOF
-
 ## Package variables.
 BUILD=1
+VERSION=1.0rc2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libpng libjpeg libogg xvidcore a52dec ffmpeg faac faad2 lame mpeg4ip x264 libcddb libcdio libdvbpsi4 libdvdcss libdvdread libdvdnav libebml libmatroska libmms libsndfile libquicktime mpeg2dec libmpcdec libmad freetype sdl alsa-lib subversion glib2 gtk+2"
+REQUIRED_PACKAGES="libpng libjpeg libogg xvidcore a52dec ffmpeg faac faad2 lame mpeg4ip x264 libcddb libcdio libdvbpsi4 libdvdcss libdvdread libebml libmatroska libmms libsndfile libquicktime mpeg2dec libmpcdec libmad freetype sdl alsa-lib glib2 gtk+2"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -49,15 +27,6 @@ PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
 FORCEBUILD=0
-SVN_REV=$(cd $PKGNAME && svn info 2> /dev/null | grep Revision | cut -d' ' -f2)
-
-if [ "$SVN_REV" = "" ]; then
-  echo "Unable to properly check svn version. Please check your svn setup and try again."
-  exit 1;
-fi;
-
-echo "Building SVN_REV $SVN_REV"
-VERSION=${VERSION:-svn_$SVN_REV}
 
 ## Usage.
 function usage() {
@@ -119,10 +88,9 @@ mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
-## Copy SVN working copy to temporary space
-rm -fr $TMP/$PKGNAME-$VERSION ;
+## Decompress archive.
 cd $TMP &&
-cp -ra $CWD/$PKGNAME ./$PKGNAME-$VERSION &&
+tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -187,24 +155,17 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
-./configure --prefix=/usr \
-  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --confdir=/etc/mplayer \
-  --disable-static \
+CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+  ./configure --prefix=/usr --confdir=/etc \
+  $CONFIGURE_FLAGS \
   --enable-gui \
   --enable-largefiles \
-  --enable-xvid \
-  --enable-x264 \
-  --enable-liblzo \
-  --enable-faac \
-  --enable-faad-external \
-  --enable-twolame \
-  --enable-musepack \
+  --enable-runtime-cpudetection \
   || exit 1
 
 ## Build and install.
 make &&
-make install DESTDIR=$PKG || exit 1
+make DESTDIR=$PKG install || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -223,6 +184,14 @@ make install DESTDIR=$PKG || exit 1
   rm -f $PKG/usr/info/dir
   gzip -9 $PKG/usr/info/*.info
 }
+
+## Copy extra documentation into package.
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
+cp -a \
+  AUTHORS COPYING* ChangeLog NEWS README \
+  $PKG/usr/doc/$PKGNAME-$VERSION
+find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
+chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
