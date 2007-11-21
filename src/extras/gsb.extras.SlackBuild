@@ -165,6 +165,9 @@ BUILD_ORDER="
      deluge
      compiz
      dvdrip
+     vcdimager
+     mplayer
+     dvdauthor
      devede
      gnome-cups-manager
      "
