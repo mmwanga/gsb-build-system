@@ -1,6 +1,20 @@
 ChangeLog
 ---------
 
+20-11-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * mono: Minor fixes to mono-tools.  Add doinst.sh.
+	  Add file preserves for mono.
+	  Update build order.
+	  Update monodevelop.
+	* extras: Add grip.
+	  Add mplayer, devede, vcdimager, dvdauthor.
+
+19-11-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * mono: Add proper pkgconfig links for gecko-sharp.
+	  Update gtksourceview-sharp and monodevelop.
+	  Add mono-tools
+	  Add gtksourceview-sharp and monodevelop to build order.
+
 18-11-2007  fidesratio <sk238(at)ex.ac.uk>	
 	* extras: Added libesmtp to build order.
 	  Update balsa reqs.

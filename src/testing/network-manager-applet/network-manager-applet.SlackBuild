@@ -34,7 +34,7 @@ BUILD=1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libnl wpa_supplicant libgcrypt dbus hal gtk+2 libglade gnome-keyring libgnomeui gnome-keyring wireless-tools glib2 iproute2 GConf"
+REQUIRED_PACKAGES="gnome-panel NetworkManager glib2 gtk+2 libglade GConf gnome-keyring libnotify libgnomeui wireless-tools"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

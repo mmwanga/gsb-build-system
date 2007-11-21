@@ -27,7 +27,7 @@ install_file etc/dhclient-exit-hooks.new
 install_file etc/rc.d/rc.dhcdbd.new
 install_file etc/dhclient-enter-hooks.d/00dbus_hooks.sh.new
 
-chmod +x etc/rc.d/rc.dhcdbd;
+#chmod +x etc/rc.d/rc.dhcdbd;
 
 ##  
 ## Make dbus executable if dhcdbd is installed
@@ -40,7 +40,7 @@ fi;
 ##
 ## Restart dbus (reload dhcdbd info), and start services
 ##
-if [ -x etc/rc.d/rc.messagebus ]; then
-    . etc/rc.d/rc.messagebus restart;
-    . etc/rc.d/rc.dhcdbd start;
-fi;
+#if [ -x etc/rc.d/rc.messagebus ]; then
+    #. etc/rc.d/rc.messagebus restart;
+    #. etc/rc.d/rc.dhcdbd start;
+#fi;

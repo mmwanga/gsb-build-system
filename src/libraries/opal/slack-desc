@@ -8,5 +8,5 @@ opal: a major rewrite. OPAL is designed to be an infrastructure for any
 opal: protocol, not just H.323. It enables normalized interfaces so an 
 opal: application can quickly use a range of "call protocols", be it H.323, 
 opal: SIP, PSTN hardware, PC sound cards, MGCP or whatever proprietary 
-opal: protocol might exist. OPAL is under Mozilla Public License (MPL). A 
-opal: prototype SIP implementation is also included.
+opal: protocol might exist. OPAL is under Mozilla Public License (MPL).
+opal:

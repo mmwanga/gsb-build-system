@@ -35,7 +35,6 @@ libmpcdec,http://files.musepack.net/source/,1.2.6,tar.bz2,NONE
 libsndfile,http://www.mega-nerd.com/libsndfile/,1.0.17,tar.gz,NONE
 iso-codes,ftp://pkg-isocodes.alioth.debian.org/pub/pkg-isocodes/,1.5,tar.bz2,NONE
 transcode,http://fromani.exit1.org/,1.0.4,tar.bz2,md5
-vcdimager,ftp://ftp.gnu.org/gnu/vcdimager/,0.7.23,tar.gz,NONE
 libnotify,http://www.galago-project.org/files/releases/source/libnotify/,0.4.4,tar.bz2,NONE
 gstreamer,http://gstreamer.freedesktop.org/src/gstreamer/,0.10.14,tar.gz,md5
 gst-plugins-base,http://gstreamer.freedesktop.org/src/gst-plugins-base/,0.10.14,tar.bz2,md5
@@ -149,4 +148,8 @@ freeglut,http://downloads.sourceforge.net/freeglut/,2.4.0,tar.gz,NONE
 openal,http://www.openal.org/openal_webstf/downloads/,0.0.8,tar.gz,NONE
 freealut,http://www.openal.org/openal_webstf/downloads/,1.1.0,tar.gz
 scons,http://downloads.sourceforge.net/scons/,0.97,tar.gz,NONE
-ode,http://downloads.sourceforge.net/opende/,0.9,.zip,NONE
+ode,http://downloads.sourceforge.net/opende/,0.9,zip,NONE
+grip,http://downloads.sourceforge.net/grip/,3.3.1,tar.gz,NONE
+dvdauthor,http://downloads.sourceforge.net/dvdauthor/,0.6.14,tar.gz,NONE
+vcdimager,http://mirrors.kernel.org/gnu/vcdimager/,0.7.23,tar.gz,NONE
+devede,http://www.rastersoft.com/descargas/,3.3,tar.bz2,NONE
