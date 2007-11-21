@@ -43,10 +43,10 @@ our %double_tarballs_url =
 				   'var' => 'VERSION',
 				  },
    'sqlite3'             => {
-				   'ver' => '3.5.1',
+				   'ver' => '3.5.2',
 				   'dir' => 'libraries/sqlite3',
 				   'url' => 'http://www.sqlite.org/',
-				   'tar' => 'sqlite-3.5.1.tar.gz',
+				   'tar' => 'sqlite-3.5.2.tar.gz',
 				   'var' => 'VERSION',
 				  },
    'libgc'             => {
