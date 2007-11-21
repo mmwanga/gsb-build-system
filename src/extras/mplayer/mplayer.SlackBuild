@@ -187,11 +187,19 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr \
+./configure --prefix=/usr \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --confdir=/etc/mplayer \
   --disable-static \
   --enable-gui \
+  --enable-largefiles \
+  --enable-xvid \
+  --enable-x264 \
+  --enable-liblzo \
+  --enable-faac \
+  --enable-faad-external \
+  --enable-twolame \
+  --enable-musepack \
   || exit 1
 
 ## Build and install.
