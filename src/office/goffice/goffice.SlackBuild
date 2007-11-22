@@ -12,7 +12,7 @@ VERSION=0.5.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="cairo GConf glib2 gtk+2 intltool libart_lgpl libglade libgnomeprint libgnomeui libgsf libxml2 pango libgsf"
+REQUIRED_PACKAGES="cairo glib2 gtk+2 intltool libart_lgpl libglade libgnomeprint libgnomeui libgsf libxml2 pango libgsf"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
