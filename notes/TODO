@@ -31,9 +31,9 @@ Website idead:
   space can build GSB without leaving around the package-foo and source dirs
 * slack-required files:
 	- suggested by malloc
-		ldd /usr/sbin/slapt-get |grep \
-        '=>'|awk '{print $3}'|sed  \
-        "s/^\///"|xargs -i grep -l {} \
-        /var/log/packages/*|xargs -i basename {}|sed -re \
-        "s/(.*{1,})\\-(.*[\\.\\-].*[\\.\\-].*)/\1 >= \2/"
+        ldd /usr/sbin/slapt-get |grep \
+          '=>'|awk '{print $3}'|sed  \
+          "s/^\///"|xargs -i grep -l {} \
+          /var/log/packages/*|xargs -i basename {}|sed -re \
+          "s/(.*{1,})\\-(.*[\\.\\-].*[\\.\\-].*)/\1 >= \2/"
 
