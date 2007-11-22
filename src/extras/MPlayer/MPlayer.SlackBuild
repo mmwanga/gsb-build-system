@@ -172,6 +172,14 @@ mkdir -p $PKG/etc/mplayer ;
 mkdir -p $PKG/usr/share/mplayer ;
 mkdir -p $PKG/usr/share/pixmaps ;
 mkdir -p $PKG/usr/share/mplayer/skins ;
+# Install skin
+mkdir -p $PKG/usr/share/mplayer/skins/default ;
+(
+cd $PKG/usr/share/mplayer/skins ;
+tar xfj $CWD/skins/Blue-1.7.tar.bz2 ;
+chown -R root.root . ;
+ln -s Blue default ;
+)
 # Copy custom configs over
 cp -a $CWD/etc/mplayer/config $PKG/etc/mplayer/config.new ;
 cp -a $CWD/etc/mplayer/input.conf $PKG/etc/mplayer/input.conf.new ;
