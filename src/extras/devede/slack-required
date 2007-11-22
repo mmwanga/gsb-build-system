@@ -1,6 +1,6 @@
 python
 pygtk
 vcdimager
-mkisofs
-mplayer
+cdrtools
+MPlayer
 dvdauthor
