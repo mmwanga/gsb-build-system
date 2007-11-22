@@ -2,6 +2,13 @@ ChangeLog
 ---------
 
 20-11-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * extras: Fix common.py install path for deluge.
+	  Removed mplayer svn and switched to MPlayer-rc2.  Added custom configs
+	    and subfont.
+	* web: Update about web page.
+	* office: Add binreloc to libgnomedb.
+
+20-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * mono: Minor fixes to mono-tools.  Add doinst.sh.
 	  Add file preserves for mono.
 	  Update build order.
