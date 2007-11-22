@@ -153,4 +153,5 @@ grip,http://downloads.sourceforge.net/grip/,3.3.1,tar.gz,NONE
 dvdauthor,http://downloads.sourceforge.net/dvdauthor/,0.6.14,tar.gz,NONE
 vcdimager,http://mirrors.kernel.org/gnu/vcdimager/,0.7.23,tar.gz,NONE
 devede,http://www.rastersoft.com/descargas/,3.3,tar.bz2,NONE
-MPlayer,http://www1.mplayerhq.hu/MPlayer/releases/,1.0-rc2,tar.bz2,NONE
+MPlayer,http://www1.mplayerhq.hu/MPlayer/releases/,1.0rc2,tar.bz2,NONE
+gDesklets,http://www.gdesklets.de/files/,0.35.4,tar.bz2,NONE
