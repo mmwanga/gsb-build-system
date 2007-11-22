@@ -173,7 +173,6 @@ mkdir -p $PKG/usr/share/mplayer ;
 mkdir -p $PKG/usr/share/pixmaps ;
 mkdir -p $PKG/usr/share/mplayer/skins ;
 # Install skin
-mkdir -p $PKG/usr/share/mplayer/skins/default ;
 (
 cd $PKG/usr/share/mplayer/skins ;
 tar xfj $CWD/skins/Blue-1.7.tar.bz2 ;
