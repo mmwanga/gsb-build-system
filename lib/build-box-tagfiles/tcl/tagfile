@@ -1,6 +1,6 @@
 expect: ADD
 hfsutils: SKP
-tcl: SKP
+tcl: ADD
 tclx: SKP
 tix: SKP
 tk: SKP
