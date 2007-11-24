@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.14.4
+VERSION=1.3.33
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -22,10 +22,7 @@ TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP/gsb-packages}
 
 ## Script variables.
-PKGNAME=glib
-
-## For the proper package name
-GSBPKGNAME="$(basename $0 .SlackBuild)"
+PKGNAME=$(basename $0 .SlackBuild)
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
@@ -71,8 +68,8 @@ done
     return $?
   }
 
-  check_installed "$GSBPKGNAME" && {
-    echo "${0##*/}: Remove installed '$GSBPKGNAME' package before build."
+  check_installed "$PKGNAME" && {
+    echo "${0##*/}: Remove installed '$PKGNAME' package before build."
     exit 1
   }
 
@@ -93,7 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -204,7 +201,7 @@ done
 
 ## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$GSBPKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {

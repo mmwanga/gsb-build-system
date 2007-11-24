@@ -1,0 +1,12 @@
+    |-----handy-ruler------------------------------------------------------|
+swig: swig (Simplified Wrapper and Interface Generator)
+swig:
+swig: SWIG is a software development tool that connects programs written in 
+swig: C and C++ with a variety of high-level programming languages. SWIG is 
+swig: used with different types of languages including common scripting 
+swig: languages such as Perl, PHP, Python, Tcl and Ruby. SWIG is most 
+swig: commonly used to create high-level interpreted or compiled programming 
+swig: environments, user interfaces, and as a tool for testing and prototyping 
+swig: C/C++ software. SWIG can also export its parse tree in the form of 
+swig: XML and Lisp s-expressions. 
+swig:

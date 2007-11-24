@@ -4,7 +4,6 @@ librsvg
 expat
 pyorbit
 pygtk
-gdk-pixbuf
 glib2
 gtk+2
 libgnomeui

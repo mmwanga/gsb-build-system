@@ -176,6 +176,7 @@ BUILD_ORDER="
      libofx
      aqbanking
      slib
+     swig
      gnucash
      libgdamm
      glom
