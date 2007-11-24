@@ -10,7 +10,7 @@ gkrellm: SKP
 gnuchess: SKP
 gnuplot: SKP
 gqview: SKP
-gucharmap: SKP
+gucharmap: ADD
 gv: SKP
 gxine: SKP
 imagemagick: ADD
