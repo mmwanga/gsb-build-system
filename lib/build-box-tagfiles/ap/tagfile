@@ -37,7 +37,7 @@ man-pages: ADD
 mc: SKP
 most: SKP
 mpg321: SKP
-mysql: SKP
+mysql: ADD
 nano: SKP
 normalize: ADD
 rexima: SKP
