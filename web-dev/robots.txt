@@ -1,4 +1,0 @@
-User-Agent: *
-Disallow: /changelog/
-
-Sitemap: http://gnomeslackbuild.org/sitemap.xml
