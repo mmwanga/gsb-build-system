@@ -2,7 +2,7 @@
 
 #$Id: make-GSB-thumbs.sh,v 1.3 2007/09/23 21:42:59 chipster Exp $
 
-MAIN_PATH="/home/chipster/webs/stage.gnomeslackbuild.org/web"
+MAIN_PATH="/home/chipster/webs/stage.gnomeslackbuild.org/web-dev"
 HTML_FILE="$MAIN_PATH/common/screenshots_inc.html"
 #MIRROR_PATH="http://mirror.datapipe.net/norlug/frg-screenies"
 HTML_IMAGE_PATH="/screenies"
