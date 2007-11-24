@@ -1,3 +1,4 @@
+<?php if($show_software != true) { ?>
     <h2 id="about">
       About the GNOME SlackBuild (GSB) Project
     </h2>
@@ -11,17 +12,62 @@
       suite.
     </p>
 
-    <h3 id="about-incl-sw"
-        style="color:#147;text-decoration:underline;cursor:pointer;"
-        onclick="Effect.toggle($('incl_software'),'blind');">
-      <span class="hilite str" style="text-decoration:underline;">
-        See what software is included...
+    <h3>
+      <span class="str hilite">
+        <a href="/about/software/">See some of the software included with
+        GSB...</a>
       </span>
     </h3>
 
-    <div id="incl_software"
-      style="display:none;border:1px dotted #999;
-      padding:0 10px;margin:10px;">
+    <h2 id="about-tech">
+      Technical Info
+    </h2>
+
+    <p>
+      GSB is comprised of two projects;
+    </p>
+
+    <ol>
+      <li>
+        <p>
+          A complete GNOME distribution for Slackware Linux. Encompasses
+          all needed packages for a complete, clean installation of GNOME
+          for Slackware. This is the core of the GSB project.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          The GSB source code (the actual Build System) - a collection of
+          scripts that build a GNOME release on Slackware Linux. These
+          scripts are used to build GSB.
+        </p>
+      </li>
+    </ol>
+
+    <p>
+      The goal of #2, is to run one script: <strong>GSB.SlackBuild</strong>
+      and have it output Slackware packages for a GNOME release.
+      <br />
+    </p>
+
+    <ul>
+      <li>The latest (forthcoming) stable version of the GSB binary distro is
+      <span class="version"><?php echo($gsb_bin_stable_ver); ?></span>
+      </li>
+
+      <li>The current (forthcoming) version of the GSB source code is
+      <span class="version"><?php echo($gsb_source_ver); ?></span>. It builds
+      GNOME <span class="version"><?php echo($gsb_bin_stable_ver); ?></span> (this is
+      a beta version, if you are unsure wait until stable is released).
+      </li>
+    </ul>
+
+<?php } else { ?>
+
+    <h2 id="about">
+      Software Included
+    </h2>
 
     <h3 id="about-gnome">
       The GNOME Desktop
@@ -30,16 +76,16 @@
     <p>
       <img src="/images/app-icons/gnome-logo-icon-transparent.png"
          class="listimg-l"
-         alt="" /> GNOME <?php echo($frg_ver); ?> is the latest version of
+         alt="" /> GNOME <?php echo($gsb_bin_stable_ver); ?> is the latest version of
          the GNOME Desktop. There have been a lot of improvements in GNOME
-         <?php echo($frg_ver); ?>, which include better desktop searching,
+         <?php echo($gsb_bin_stable_ver); ?>, which include better desktop searching,
          a more organized Evolution email and calendar client, enhanced
          image browsing, simplified control panel, efficient power
          management, and powerful desktop tools, as well as a great new
          documentation web site. For a complete summary of what is new to
-         the GNOME <?php echo($frg_ver); ?> Desktop, please refer to the
+         the GNOME <?php echo($gsb_bin_stable_ver); ?> Desktop, please refer to the
          <a href=
-         "http://www.gnome.org/start/<?php echo($frg_ver); ?>/notes/en/">
+         "http://www.gnome.org/start/<?php echo($gsb_bin_stable_ver); ?>/notes/en/">
       release notes</a>. GNOME SlackBuild is designed to bring the greatest
       features of GNOME to Slackware, integrating seamlessly into a
       standard install. It uses the standard Slackware package system, and
@@ -168,7 +214,7 @@
     </h3>
 
     <p>
-      GNOME 2.20 features many improvements in its connectivity and
+      GNOME <?php echo($gsb_bin_stable_ver); ?> features many improvements in its connectivity and
       networking suite. GNOME&#39;s email and groupware client, Evolution,
       has several new features. Users of Microsoft Exchange will welcome
       improvements to Evolution&#39;s Exchange support. GNOME&#39;s
@@ -565,49 +611,4 @@
          <a href="http://gthumb.sourceforge.net/">home page</a>.
     </p>
 
-    </div>
-
-    <h2 id="about-tech">
-      Technical Info
-    </h2>
-
-    <p>
-      GSB is comprised of two projects;
-    </p>
-
-    <ol>
-      <li>
-        <p>
-          A complete GNOME distribution for Slackware Linux. Encompasses
-          all needed packages for a complete, clean installation of GNOME
-          for Slackware. This is the core of the GSB project.
-        </p>
-      </li>
-
-      <li>
-        <p>
-          The GSB source code (the actual Build System) - a collection of
-          scripts that build a GNOME release on Slackware Linux. These
-          scripts are used to build GSB.
-        </p>
-      </li>
-    </ol>
-
-    <p>
-      The goal of #2, is to run one script: <strong>GSB.SlackBuild</strong>
-      and have it output Slackware packages for a GNOME release.
-      <br />
-    </p>
-
-    <ul>
-      <li>The latest (forthcoming) stable version of the GSB distro is
-      <span class="version"><?php echo($frg_ver); ?></span>
-      </li>
-
-      <li>The current (forthcoming) version of the GSB source code is
-      <span class="version"><?php echo($gsb_ver); ?></span>. It builds
-      GNOME <span class="version"><?php echo($frg_ver); ?></span> (this is
-      a beta version, if you are unsure wait until stable is released).
-      </li>
-    </ul>
-
+<?php } ?>
