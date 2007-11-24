@@ -1,0 +1,8 @@
+1.0 : 2.20 : 12.0 : 12.0 : 2.20 : 2.20 : 2.20.1
+
+* Order;
+  
+  GSB source, GSB binary (stable), Slack-stable, Slack-unstable,
+  GSB-bin-64, GSB-current, GSB-unstable
+  
+  (delimeter is "space-colon-space") 

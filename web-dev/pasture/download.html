@@ -1,0 +1,112 @@
+<?php if ($ports == true) { ?>
+  <h2 id="ports">Available GSB Ports:</h2>
+  <dl>
+    <dt><a href=
+    "http://mirror.datapipe.net/norlug/frg64/">frg64</a></dt>
+    <dd>This is an entire GSB distribution ported for the x86_64 architecture.
+    This port is specifically built for <a href=
+    "http://www.slamd64.com">Slamd64 Linux</a>.</dd>
+    <dd>Official frg64-<?php echo $frg64_ver; ?> (stable) slapt-get source:
+    <blockquote><pre>SOURCE=http://mirror.datapipe.net/norlug/frg64/frg64-<?php echo $frg64_ver; ?>/
+</pre></blockquote>
+    </dd>
+    <dd>Official frg64-current (development) slapt-get source:
+    <blockquote><pre>SOURCE=http://mirror.datapipe.net/norlug/frg64/frg64-current/
+</pre></blockquote>
+    </dd>
+    <dd>LinuxPackages.net frg64 mirrors:
+    <blockquote><div><a
+href="http://www.linuxpackages.net/download.php?id=7529">&lt;http://www.linuxpackages.net/download.php?id=7529&gt;</a></div></blockquote>
+    </dd>
+
+    <dt><a href="http://workaround.ch/pub/contrib/thorsten/">frgPPC</a></dt>
+    <dd>This is an entire GSB distribution ported for the PPC architecture.
+    This port is specifically built for <a href=
+    "http://workaround.ch">Slackintosh Linux</a></dd>
+  </dl>
+<?php } else{ ?>
+  <h2 id="download">Download</h2>
+
+  <p>Latest GSB GNOME version: <span class=
+  "version"><?php echo($frg_ver); ?></span></p>
+
+  <p>Latest GNOME.SlackBuild (GSB Build System) version: <span class=
+  "version"><?php echo($gsb_ver); ?></span></p>
+
+  <hr />
+
+  <p>Note that all listed GSB packages/download sources are for x86
+    architectures. For GSB packages built for other architectures, see 
+    the <strong><a href="/download/ports/">Ports section</a></strong>.
+  </p>
+
+  <h4 id="mirrors">Download GSB via Mirrors:</h4>
+
+  <blockquote>
+    <p>These mirrors are known to work with both <a href=
+    "http://software.jaos.org/#slapt-get"><tt>slapt-get</tt>/<tt>GSlapt</tt></a>
+    and <a href=
+    "http://swaret.sourceforge.net"><tt>SWareT</tt></a>.</p>
+
+    <p><small>(Side note: the GSB developers recommend using <a href=
+    "http://software.jaos.org/#slapt-get"><tt>slapt-get</tt>/<tt>GSlapt</tt></a>
+    for the installation/upgrade of GSB.)</small></p>
+
+    <ul>
+
+      <li><strong>LinuxPackages.net Worldwide Mirrors:</strong>
+
+       <ul>
+          <li><a
+href="http://www.linuxpackages.net/download.php?id=7528">&lt;http://www.linuxpackages.net/download.php?id=7528&gt;</a></li>
+       </ul>
+      </li>
+
+      <li><strong>North America:</strong>
+
+        <ul>
+          <li>HTTP: <a href=
+          "http://mirror.datapipe.net/norlug/frg/">&lt;http://mirror.datapipe.net/norlug/frg/&gt;</a>
+          (USA primary</li>
+
+          <li>FTP: <a href=
+          "ftp://mirror.datapipe.net/norlug/frg/">&lt;ftp://mirror.datapipe.net/norlug/frg/&gt;</a>
+          (USA primary)</li>
+
+          <li>FTP: <a href=
+          "ftp://ftp.brownjava.org/pub/frg/">&lt;ftp://ftp.brownjava.org/pub/frg/&gt;</a>
+          (USA secondary)</li>
+        </ul>
+      </li>
+
+      <li><strong>Russia:</strong>
+
+        <ul>
+          <li>HTTP: <a href=
+          "http://slackware.rol.ru/frg/">&lt;http://slackware.rol.ru/frg/&gt;</a></li>
+        </ul>
+      </li>
+    </ul>
+  </blockquote>
+
+  <h4>Download GSB via SourceForge:</h4>
+
+  <blockquote>
+    <p>Releases are available in the <a href=
+    "http://sourceforge.net/project/showfiles.php?group_id=130126">Files
+    Section</a> of the <a href=
+    "http://sf.net/projects/gsb">Sourceforge Project Page</a>.
+    Source tarballs and isos available for download.</p>
+
+    <ul>
+      <li><a href=
+      "http://sourceforge.net/project/showfiles.php?group_id=130126&amp;package_id=142651">
+      GSB</a>: GSB Build System, used to build GSB 
+      Gnome packages.</li>
+
+      <li><a href=
+      "http://sourceforge.net/project/showfiles.php?group_id=130126&amp;package_id=143903">
+      GSB ISO</a>: iso file of GSB GNOME</li>
+    </ul>
+  </blockquote>
+<?php } ?>

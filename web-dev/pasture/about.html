@@ -1,0 +1,613 @@
+    <h2 id="about">
+      About the GNOME SlackBuild (GSB) Project
+    </h2>
+
+    <p>
+      GNOME SlackBuild is a complete GNOME Desktop Environment for
+      Slackware Linux, encompassing all the needed packages for a full,
+      clean installation of GNOME for Slackware. It aims to provide a fully
+      functional desktop, including a wide range of multimedia, graphics,
+      and development tools, as well as a complete networking and office
+      suite.
+    </p>
+
+    <h3 id="about-incl-sw"
+        style="color:#147;text-decoration:underline;cursor:pointer;"
+        onclick="Effect.toggle($('incl_software'),'blind');">
+      <span class="hilite str" style="text-decoration:underline;">
+        See what software is included...
+      </span>
+    </h3>
+
+    <div id="incl_software"
+      style="display:none;border:1px dotted #999;
+      padding:0 10px;margin:10px;">
+
+    <h3 id="about-gnome">
+      The GNOME Desktop
+    </h3>
+
+    <p>
+      <img src="/images/app-icons/gnome-logo-icon-transparent.png"
+         class="listimg-l"
+         alt="" /> GNOME <?php echo($frg_ver); ?> is the latest version of
+         the GNOME Desktop. There have been a lot of improvements in GNOME
+         <?php echo($frg_ver); ?>, which include better desktop searching,
+         a more organized Evolution email and calendar client, enhanced
+         image browsing, simplified control panel, efficient power
+         management, and powerful desktop tools, as well as a great new
+         documentation web site. For a complete summary of what is new to
+         the GNOME <?php echo($frg_ver); ?> Desktop, please refer to the
+         <a href=
+         "http://www.gnome.org/start/<?php echo($frg_ver); ?>/notes/en/">
+      release notes</a>. GNOME SlackBuild is designed to bring the greatest
+      features of GNOME to Slackware, integrating seamlessly into a
+      standard install. It uses the standard Slackware package system, and
+      aims to replace as few packages as possible. For a list of packages
+      that require updating, please see the <a href=
+      "http://svn.gnomeslackbuild.org/viewvc/viewvc.cgi/trunk/notes/replaced_packages?revision=HEAD&amp;root=gsb">
+      replaced packages file</a>.
+    </p>
+
+    <hr />
+
+    <h3 id="about-multimedia">
+      Mulitmedia
+    </h3>
+
+    <p>
+      GNOME SlackBuild provides a wide assortment of multimedia programs
+      based on the <a href="http://gstreamer.freedesktop.org">GStreamer
+      framework</a>, so users are able to play back a wide variety of media
+      types (sound and video files, streaming network audio/video, DVDs,
+      CD-ROMs, and more.)
+    </p>
+
+    <h4 id="about-totem">
+      Totem
+    </h4>
+
+    <p>
+      <img src="/images/app-icons/totem.png"
+         class="listimg-l"
+         alt="" /> Totem is the official movie player of the GNOME desktop
+         environment based GStreamer. It features a playlist, a full-screen
+         mode, seek and volume controls, as well as keyboard navigation,
+         and comes with a video thumbnailer for the Nautilus file manager,
+         and plugins for Mozilla Firefox. For more information, see
+         Totem&#39;s <a href="http://www.gnome.org/projects/totem/">home
+         page</a>.
+    </p>
+
+    <h4 id="about-rhythmbox">
+      Rhythmbox
+    </h4>
+
+    <p>
+      <img src="/images/app-icons/rhythmbox.png"
+         class="listimg-l"
+         alt="" /> Rhythmbox is an integrated music management application,
+         similar to Apple&#39;s iTunes. It is free software, designed to
+         work well under the GNOME Desktop, and based on the powerful
+         GStreamer media framework. It includes such features as a music
+         browser, searching and sorting, internet radio, audio
+         visualizations, iPod, MTP and USB Music Player support, album art,
+         CD ripping, podcasts and support for Magnatune and Jamendo. For
+         more information, see Rhythmbox&#39;s <a href=
+         "http://www.gnome.org/projects/rhythmbox/">home page</a>.
+    </p>
+
+    <h4 id="about-soundjuicer">
+      Sound Juicer
+    </h4>
+
+    <p>
+      <img src="/images/app-icons/sound-juicer.png"
+         class="listimg-l"
+         alt="" /> Sound Juicer is a CD player and ripping tool. It
+         extracts audio from compact discs and converts it into audio files
+         that a personal computer or digital audio player can understand
+         and play. It supports ripping to any audio codec supported by a
+         GStreamer plugin, such as MP3, Ogg Vorbis, FLAC and uncompressed
+         PCM formats. Sound Juicer is designed to be easy to use and to
+         work with little user intervention. For more information, see
+         Sound Juicer&#39;s <a href=
+         "http://live.gnome.org/SoundJuicer">home page</a>.
+    </p>
+
+    <h4 id="about-brassero">
+      Brasero
+    </h4>
+
+    <p>
+      <img src="/images/app-icons/brasero.png"
+         class="listimg-l"
+         alt="" /> Brasero is a application to burn CD/DVD for the Gnome
+         Desktop. It is designed to be as simple as possible and has some
+         unique features to enable users to create their discs easily and
+         quickly. It supports ISO imaging, burning, and copying of audio
+         CDs, data CDs and DVDs. For more information, see Brasero&#39;s
+         <a href="http://www.gnome.org/projects/brasero/">home page</a>.
+    </p>
+
+    <h4 id="about-dvdrip">
+      Dvd::rip
+    </h4>
+
+    <p>
+      <img src="/images/app-icons/dvdrip.png"
+         class="listimg-l"
+         alt="" /> dvd::rip is a full featured DVD copy program written in
+         Perl. It provides an easy to use but feature-rich Gtk+ GUI to
+         control almost all aspects of the ripping and transcoding process.
+         It uses the widely known video processing swissknife transcode and
+         many other Open Source tools. For more information, see
+         dvd::rip&#39;s <a href="http://www.exit1.org/dvdrip/">home
+         page</a>.
+    </p>
+
+    <h4 id="about-kino">
+      Kino
+    </h4>
+
+    <p>
+      <img src="/images/app-icons/kino.png"
+         class="listimg-l"
+         alt="" /> Kino is a non-linear DV editor for GNU/Linux. It
+         features excellent integration with IEEE-1394 for capture, VTR
+         control, and recording back to the camera. It captures video to
+         disk in Raw DV and AVI format, in both type-1 DV and type-2 DV
+         (separate audio stream) encodings. For more information,see
+         Kino&#39;s <a href="http://www.kinodv.org/">home page</a>.
+    </p>
+
+    <hr />
+
+    <h3 id="about-netowkring">
+      Internet and Networking
+    </h3>
+
+    <p>
+      GNOME 2.20 features many improvements in its connectivity and
+      networking suite. GNOME&#39;s email and groupware client, Evolution,
+      has several new features. Users of Microsoft Exchange will welcome
+      improvements to Evolution&#39;s Exchange support. GNOME&#39;s
+      integrated web browser, Epiphany, has been subtly but significantly
+      improved. GNOME SlackBuild also features a number of other networking
+      applications.
+    </p>
+
+    <h4 id="about-evo">
+      Evolution
+    </h4>
+
+    <p>
+      <img src="/images/app-icons/evolution.png"
+         class="listimg-l"
+         alt="" /> Evolution provides integrated mail, addressbook and
+         calendaring functionality to users of the GNOME desktop. It
+         features intelligent junk mail control, foldering searching,
+         integrated security, GNOME Desktop integration, mail filters, web
+         calendars, collaboration server support, and multiple account
+         management. For more information, see Evolution&#39;s <a href=
+         "http://www.gnome.org/projects/evolution/">home page</a>.
+    </p>
+
+    <h4 id="about-epiphany">
+      Epiphany
+    </h4>
+
+    <p>
+      <img src="/images/app-icons/epiphany.png"
+         class="listimg-l"
+         alt="" /> Epiphany is the web browser for the GNOME desktop. Its
+         goal is to be simple and easy to use. Epiphany ties together many
+         GNOME components in order to let you focus on the Web content,
+         instead of the browser application. As part of the GNOME project,
+         Epiphany is Free Software. Powered by the Gecko engine, Epiphany
+         displays webpages with the same speed and accuracy as Mozilla
+         Firefox. In addition, it provides an elegant, responsive and
+         uncomplicated user interface that fits in perfectly with GNOME.
+         For more information, see Epiphany&#39;s&#39;s <a href=
+         "http://www.gnome.org/projects/epiphany/">home page</a>.
+    </p>
+
+    <h4 id="about-deluge">
+      Deluge
+    </h4>
+
+    <p>
+      <img src="/images/app-icons/deluge.png"
+         class="listimg-l"
+         alt="" /> Deluge is a full-featured BitTorrent client for Linux.
+         It uses libtorrent in it&#39;s backend and PyGTK for it&#39;s user
+         interface. Deluge features a rich plugin collection (in fact, most
+         of Deluge&#39;s functionality is available in the form of
+         plugins). Deluge was created with the intention of being
+         lightweight and unobtrusive, and is Free Software and licensed
+         under the GNU General Public License. For more information, see
+         Deluge&#39;s <a href="http://deluge-torrent.org/News:Portal">home
+         page</a>.
+    </p>
+
+    <h4 id="about-ekiga">
+      Ekiga
+    </h4>
+
+    <p>
+      <img src="/images/app-icons/ekiga.png"
+         class="listimg-l"
+         alt="" /> Ekiga is an open source VoIP and video conferencing
+         application for GNOME. Ekiga uses both the H.323 and SIP
+         protocols. It supports many audio and video codecs, and is
+         interoperable with other SIP compliant software and also with
+         Microsoft NetMeeting. For more information, see Ekiga&#39;s
+         <a href="http://ekiga.org/">home page</a>.
+    </p>
+
+    <h4 id="about-drivel">
+      Drivel
+    </h4>
+
+    <p>
+      <img src="/images/app-icons/drivel.png"
+         class="listimg-l"
+         alt="" /> Drivel is a GNOME client for working with online
+         journals or blogs. It retains a simple and elegant design while
+         providing many powerful features, including support for
+         LiveJournal, Blogger, MovableType, Advogato, and Atom journals
+         (systems based off these are also supported, including WordPress
+         and Drupal); the ability to post, edit, delete, and view recent
+         entries, integrated spellchecking and HTML syntax highlighting,
+         offline composition and editing, automatic recovery in the event
+         of a crash, and journal system extensions, including LiveJournal
+         security groups and MovableType categories. For more information,
+         see Drivel&#39;s <a href="http://www.dropline.net/drivel/">home
+         page</a>.
+    </p>
+
+    <h4 id="about-liferea">
+      Liferea
+    </h4>
+
+    <p>
+      <img src="/images/app-icons/liferea.png"
+         class="listimg-l"
+         alt="" /> Liferea is a news aggregator for online news feeds,
+         fast, easy to use, easy to install and integrates beautifully into
+         the GNOME Desktop. For more information, see Liferea&#39;s <a href=
+         "http://liferea.sourceforge.net/">home page</a>.
+    </p>
+
+    <hr />
+
+    <h3 id="about-office">
+      Office
+    </h3>
+
+    <p>
+      GNOME SlackBuild includes a full office suite, including a multiple
+      format document viewer, a fully feature word processor, a personal
+      database management program, document search tools, a
+      flowcart/diagram tool, and a accurate and fast spreadsheet program.
+    </p>
+
+    <h4 id="about-tracker">
+      Tracker
+    </h4>
+
+    <p>
+      <img src="/images/app-icons/tracker.png"
+         class="listimg-l"
+         alt="" /> Tracker is a tool designed to extract information and
+         metadata about your personal data so that it can be searched
+         easily and quickly. By using Tracker, you no longer have to
+         remember where you&#39;ve left your files. To locate a file you
+         only need to remember something about it, such as a word in the
+         document or the artist of the song. This is because as well as
+         searching for files in the traditional way, by name and location,
+         Tracker searches files&#39; contents and metadata. For more
+         information see Tracker&#39;s <a href=
+         "http://www.gnome.org/projects/tracker/">home page</a>.
+    </p>
+
+    <h4 id="about-abiword">
+      Abiword
+    </h4>
+
+    <p>
+      <img src="/images/app-icons/abiword.png"
+         class="listimg-l"
+         alt="" /> AbiWord is a lean and fast full-featured word processor,
+         with lots of features useful for your daily work, personal needs,
+         or for just some good old typing fun. AbiWord is able to read and
+         write all industry standard document types, such as OpenOffice.org
+         documents, Microsoft Word documents, WordPerfect documents, Rich
+         Text Format documents, HTML web pages and many more. It also
+         supports page layouts, internationalization, mail merge, and has
+         an assortment of plugins. For more information, see Abiword&#39;s
+         <a href="http://www.abisource.com/">home page</a>.
+    </p>
+
+    <h4 id="about-gnumeric">
+      Gnumeric
+    </h4>
+
+    <p>
+      <img src="/images/app-icons/gnumeric.png"
+         class="listimg-l"
+         alt="" /> Gnumeric is a spreadsheet application for the GNOME
+         Desktop. Gnumeric has the ability to import and export data in
+         several file formats, including CSV, Microsoft Excel, HTML, LaTeX,
+         Lotus 1-2-3, OpenDocument and Quattro Pro; its native format is
+         the Gnumeric file format, an XML file compressed with gzip. It
+         includes all of the spreadsheet functions of the North American
+         edition of Microsoft Excel and many functions unique to Gnumeric.
+         For more information, see Gnumeric&#39;s <a href=
+         "http://www.gnome.org/projects/gnumeric/">home page</a>.
+    </p>
+
+    <h4 id="about-glom">
+      Glom
+    </h4>
+
+    <p>
+      <img src="/images/app-icons/glom.png"
+         class="listimg-l"
+         alt="" /> Glom is a database design tool, loosely based on
+         FileMaker Pro, but with a separate database server. Its simple
+         framework should be enough to implement most database
+         applications. Glom has high-level features such as relationships,
+         lookups, related fields, related records, calculated fields,
+         drop-down choices, searching, reports, users and groups. Glom uses
+         the PostgreSQL database backend. Glom is open source software,
+         released under the GPL License. For more information, see
+         Glom&#39;s <a href="http://www.glom.org/">home page</a>.
+    </p>
+
+    <h4 id="about-dia">
+      Dia
+    </h4>
+
+    <p>
+      <img src="/images/app-icons/dia.png"
+         class="listimg-l"
+         alt="" /> Dia is a diagram creation program, similar to Visio,
+         though more geared towards informal diagrams for casual use. It
+         can be used to draw many different kinds of diagrams. It currently
+         has special objects to help draw entity relationship diagrams, UML
+         diagrams, flowcharts, network diagrams, and many other diagrams.
+         It can load and save diagrams to a custom XML format, can export
+         diagrams to a number of formats, including EPS, SVG, XFIG, WMF and
+         PNG, and can print diagrams, including ones that span multiple
+         pages. For more information, see Dia&#39;s <a href=
+         "http://www.gnome.org/projects/dia/">home page</a>.
+    </p>
+
+    <h4 id="about-evince">
+      Evince
+    </h4>
+
+    <p>
+      <img src="/images/app-icons/evince.png"
+         class="listimg-l"
+         alt="" /> Evince is a document viewer for multiple document
+         formats. It currently supports pdf, postscript, djvu, tiff and
+         dvi. The goal of evince is to replace the multiple document
+         viewers that exist on the GNOME Desktop with a single simple
+         application. It features integrated search displaying the number
+         of results found and highlights the results on the page,
+         thumbnails of pages show quick reference for where you&#39;d like
+         to go in a document, support for index information which will be
+         displayed in a tree format, and using the GNOME printing framework
+         Evince can print any document it can open, and lastly, Evince can
+         open PDF documents that have been encrypted. For more information
+         see Evince&#39;s <a href=
+         "http://www.gnome.org/projects/evince/">home page</a>.
+    </p>
+
+    <hr />
+
+    <h3 id="about-devtools">
+      Development Tools
+    </h3>
+
+    <p>
+      GNOME SlackBuild also provides an intergrated development environment
+      for C/C++, HTML, and Mono.
+    </p>
+
+    <h4 id="about-anjuta">
+      Anjuta
+    </h4>
+
+    <p>
+      <img src="/images/app-icons/anjuta.png"
+         class="listimg-l"
+         alt="" /> Anjuta is a versatile Integrated Development Environment
+         (IDE) for C and C++ on GNU/Linux. It has been written for
+         GTK/GNOME and features a number of advanced programming
+         facilities. These include project management, application wizards,
+         an on-board interactive debugger, and a powerful source editor
+         with source browsing and syntax highlighting. For more
+         information, see Anjuta&#39;s <a href=
+         "http://anjuta.sourceforge.net/">home page</a>.
+    </p>
+
+    <h4 id="about-bluefish">
+      Bluefish
+    </h4>
+
+    <p>
+      <img src="/images/app-icons/bluefish.png"
+         class="listimg-l"
+         alt="" /> Bluefish is a powerful editor targeted towards
+         programmers and webdesigners, with many options to write websites,
+         scripts and programming code. Bluefish supports many programming
+         and markup languages, and it focuses on editing dynamic and
+         interactive websites. Bluefish is an open source development
+         project, released under the GNU GPL licence. For more information,
+         see &#39;s <a href="http://bluefish.openoffice.nl/">home page</a>.
+    </p>
+
+    <h4 id="about-monodev">
+      MonoDevelop
+    </h4>
+
+    <p>
+      <img src="/images/app-icons/monodevelop.png"
+         class="listimg-l"
+         alt="" /> Mono Project is an open development initiative sponsored
+         by Novell to develop an open source, UNIX version of the Microsoft
+         .NET development platform. Its objective is to enable UNIX
+         developers to build and deploy cross-platform .NET Applications.
+         MonoDevelop is a free GNOME IDE primarily designed for C# and
+         other .NET languages. The main features of MonoDevelop are code
+         completion, class management, and project support. For more
+         information, see MonoDevelop&#39;s <a href=
+         "http://www.monodevelop.com/Main_Page">home page</a>.
+    </p>
+
+    <hr />
+
+    <h3 id="about-graphics">
+      Graphics
+    </h3>
+
+    <h4 id="about-gimp">
+      Gimp
+    </h4>
+
+    <p>
+      <img src="/images/app-icons/gimp.png"
+         class="listimg-l"
+         alt="" /> The GIMP is a powerful tool for the preparation and
+         manipulation of digital images. The GIMP provides the user with a
+         wide variety of image manipulation, painting, processing, and
+         rendering tools. The GIMP&#39;s open design and extensible
+         architecture make for a very powerful end product for photo and
+         image retouching, web graphics design, or digital illustration.
+         For more information, see Gimp&#39;s <a href=
+         "http://gimp.org/">home page</a>.
+    </p>
+
+    <h4 id="about-eog">
+      Eye of Gnome
+    </h4>
+
+    <p>
+      <img src="/images/app-icons/eog.png"
+         class="listimg-l"
+         alt="" /> The Eye of GNOME image viewer is the official image
+         viewer for the GNOME Desktop environment. With it, you can view
+         single image files, as well as large image collections. The Eye of
+         GNOME supports a variety of image file formats. The GdkPixbuf
+         library determines which file formats Eye of GNOME can load and
+         save. If the appropriate plugins are installed on your system,
+         Image Viewer will be able to open more image formats. By default,
+         it supports ANI, BMP, GIF, ICO, JPEG, PCX, PNG, PNM, RAS, SVG,
+         TGA, TIFF, WBMP, XBM, and XPM. For more information, see Eye of
+         Gnome&#39;s <a href="http://www.gnome.org/projects/eog/">home
+         page</a>.
+    </p>
+
+    <h4 id="about-blender">
+      Blender
+    </h4>
+
+    <p>
+      <img src="/images/app-icons/blender.png"
+         class="listimg-l"
+         alt="" /> Blender is an integrated suite of tools enabling the
+         creation of a broad range of 3D content with the singular benefits
+         of cross-platform interoperability. It can be used to create 3D
+         visualizations, stills as well as broadcast and cinema quality
+         video. It features fully integrated creation suite, offering a
+         broad range of essential tools for the creation of 3D content,
+         including modeling, uv-mapping, texturing, rigging, weighting,
+         animation, particle and other simulation, scripting, rendering,
+         compositing, post-production, and game creation. For more
+         information, see Blender&#39;s <a href=
+         "http://www.blender.org/">home page</a>.
+    </p>
+
+    <h4 id="about-inkscpe">
+      Inkscape
+    </h4>
+
+    <p>
+      <img src="/images/app-icons/inkscape.png"
+         class="listimg-l"
+         alt="" /> Inkscape is an Open Source vector graphics editor, with
+         capabilities similar to Illustrator, CorelDraw, or Xara X, using
+         the W3C standard Scalable Vector Graphics (SVG) file format.
+         Inkscape supports many advanced SVG features (markers, clones,
+         alpha blending, etc.) and great care is taken in designing a
+         streamlined interface. It is very easy to edit nodes, perform
+         complex path operations, trace bitmaps and much more. For more
+         information, see Inkscape&#39;s <a href=
+         "http://www.inkscape.org/">home page</a>.
+    </p>
+
+    <h4 id="about-gthumb">
+      Gthumb
+    </h4>
+
+    <p>
+      <img src="/images/app-icons/gthumb.png"
+         class="listimg-l"
+         alt="" /> gThumb is an image viewer and browser for the GNOME
+         Desktop. It acts as an image viewer, browser, and organizer. It
+         also features an image editor, can import images from a digital
+         camera, and can be used to make slide shows, creates index image,
+         create web albums, convert image formats, find duplicated images,
+         or write images to CD/DVD. For more information, see gThumb&#39;s
+         <a href="http://gthumb.sourceforge.net/">home page</a>.
+    </p>
+
+    </div>
+
+    <h2 id="about-tech">
+      Technical Info
+    </h2>
+
+    <p>
+      GSB is comprised of two projects;
+    </p>
+
+    <ol>
+      <li>
+        <p>
+          A complete GNOME distribution for Slackware Linux. Encompasses
+          all needed packages for a complete, clean installation of GNOME
+          for Slackware. This is the core of the GSB project.
+        </p>
+      </li>
+
+      <li>
+        <p>
+          The GSB source code (the actual Build System) - a collection of
+          scripts that build a GNOME release on Slackware Linux. These
+          scripts are used to build GSB.
+        </p>
+      </li>
+    </ol>
+
+    <p>
+      The goal of #2, is to run one script: <strong>GSB.SlackBuild</strong>
+      and have it output Slackware packages for a GNOME release.
+      <br />
+    </p>
+
+    <ul>
+      <li>The latest (forthcoming) stable version of the GSB distro is
+      <span class="version"><?php echo($frg_ver); ?></span>
+      </li>
+
+      <li>The current (forthcoming) version of the GSB source code is
+      <span class="version"><?php echo($gsb_ver); ?></span>. It builds
+      GNOME <span class="version"><?php echo($frg_ver); ?></span> (this is
+      a beta version, if you are unsure wait until stable is released).
+      </li>
+    </ul>
+

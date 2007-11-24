@@ -1,0 +1,76 @@
+How to update content on this website
+-------------------------------------
+
+1) Intro:
+
+There are essentially only two things that change on this site:
+
+  * Version numbers
+  * News and announcements
+
+Facilities have been implemented to update the aforementioned
+items quite easily...
+
+---
+
+2) Version Numbers:
+
+Version numbers are referenced in many sections/places within the site.  But
+they only need to be changed in one file...
+
+	web/versions.txt
+
+The legend for the version numbers is explained in the header of that file.
+
+To reference version mumbers in the site templates "web/content/foo.html":
+
+    <?php echo $gsb_bin_stable_ver; ?>
+      References the GSB actual stable binary release (tracks GNOME ver.)
+      
+    <?php echo $gsb_source_ver; ?>
+      References the GSB source release.
+      
+    ...and so on (see web/common/versions_inc.php for all variables)
+
+---
+
+3) News and Announcements:
+
+News is displayed on the site in reverse-chronological order (newest entry
+first).  It's very simple to edit/add news; by editing one small file:
+
+	web/news.txt
+
+The file is a specially-formatted text file, and is parsed by some PHP
+functions to display nice and cleanly on the site.
+
+The format of the news.txt file is as follows:
+
+	###
+	date
+	Title of news entry
+	Body of news entry
+
+The "###" text, is actually a separator, so that the PHP news function knows to
+parse that as one entire "article".  The body section of the news entry accepts
+HTML, but that is the only place HTML is used.  URI's are automatically made as
+links.  To reference an internal URI, one must use the following format:
+
+	<a href="/foo/">See the foo section</a>
+
+Hint:  Internal URIs /never/ use "http://" - ever.  Reference them to the
+base/root of the site, as shown in the above example.
+
+Just open the web/news.txt file for live examples. Or, point a browser to:
+<http://gnomeslackbuild.org/news.txt> - which is the actual, raw news file used
+on the website.
+
+3a) News Article Style Guide:
+
+It is important to note, that news areticles are  automatically enclosed within
+HTML block-level elements.  HOWEVER, do not wrap the very first paragraph of a
+news article in any block-level elements...ever.  For subsequent paargraphs
+(after the 1st), you must enclose the paragraph in block-level elements
+(mainly, "<p>").  If a news article is only one short blurb/paragraph, don't
+enclose it in anything at all.  The site engine will handle it all for you.
+

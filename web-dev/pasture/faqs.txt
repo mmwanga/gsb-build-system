@@ -1,0 +1,75 @@
+###
+2005-07-10-12:13-CST
+chipster
+How can I intall FRG using <tt>slapt-get</tt>?
+  <p>First, make certain you have the FRG package respository in
+  your <tt>/etc/slapt-get/slapt-getrc</tt>;</p>
+
+  <ol>
+    <li>
+      <pre>
+SOURCE=&lt;full-path-to-the-mirror-of-your-choice&gt;/frg-&lt;version&gt;
+</pre>
+
+      <p>See the <strong><a href="/downloads/#mirrors">Downloads section</a>
+      </strong> for a list of avaliable mirrors.</p>
+
+      <p><small>(don't forget to run <code>`slapt-get --update`</code>
+      after adding new respositories!)</small></p>
+    </li>
+
+    <li>
+      Then run the following command and grab a cup of coffee;
+
+      <pre>
+$ slapt-get --search [0-9]frg$|awk '{print $1}'|xargs \
+    -r slapt-get --install -y
+</pre>
+
+      <p>Then, enjoy your new GNOME-enabled Slackware machine :)</p>
+    </li>
+  </ol>
+###
+2005-06-27-14:02-CST
+chipster
+After installing FRB/GSB, my keyboard does not repeat keys any longer. How is that fixed?
+From GNOME Menu Bar, choose "Desktop -&gt; Preferences -&gt; Keyboard", then
+check the "Repeat Keys" box.
+###
+2005-04-04-13-13-CST
+chipster
+My KDE Menus are all messed up after installing FRG/GSB! How do I fix them?
+<p>The KDE menus might be changed if you install FRG because of the
+gnome-menus package, The gnome-menus package implements the freedesktop.org
+desktop menu specification. There is a simple fix for this. Just add the
+following near the top of the startkde script:</p>
+<blockquote><div>
+ <pre>$ export XDG_CONFIG_DIRS=/opt/kde/etc/xdg</pre>
+</div></blockquote>
+<p>If the improper menus persist, run kbuildsycoca from Konsole after you have
+logged into KDE. Thanks to Jim Philips and Locustfurnace for pointing 
+it out.</p>
+
+###
+2005-03-30-16-00-EST
+freerock
+My Mime Types/File Associations are all screwed up. What do I do?
+<p>Run the following commands as root:</p>
+<blockquote><div>
+<pre>$ /usr/bin/update-mime-database /usr/share/mime
+$ /usr/bin/update-desktop-database</pre>
+</div></blockquote>
+
+###
+2005-03-29-15-47-CST
+chipster
+Is GSB/FRG 1337?
+You betcha!
+
+###
+2005-03-27-11-00-EST
+freerock
+Does GSB/FRG require the Linux 2.6 kernel?
+No. GSB/FRG does not require the 2.6 kernel. However, to take advantage
+of GNOME Volume Manager, the 2.6 kernel is needed.
+

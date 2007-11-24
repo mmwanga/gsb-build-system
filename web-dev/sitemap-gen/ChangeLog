@@ -1,0 +1,5 @@
+Wed Jun 01 01:00:00 2005  Google Inc. <opensource@google.com>
+
+	* sitemap_gen: initial release:
+	  This directory contains Python utilities for creating
+	  Sitemaps.

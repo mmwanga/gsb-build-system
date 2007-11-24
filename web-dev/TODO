@@ -1,0 +1,38 @@
+Website TODO - $Id: TODO 1284 2005-09-25 01:48:20Z chipster $
+
+  +--------------------------------------------------+
+  |  Legend:                                         |
+  |  -------                                         |
+  |  X = done                                        |
+  |  - = not-done                                    |
+  |  - .... [XX] = [XX] working on it, not finished. |
+  +--------------------------------------------------+
+
+    Freerock Suggests:
+    ------------------
+        - Package browser based on PACKAGES.TXT, and have a
+          PACKAGES.TXT-$FRG_RELEASE_VERSION
+          ie. PACKAGES.TXT-0.2.0
+
+        - USER ASSIGNED SOFTWARE. Page that lists which users
+          have been assiged to certain packages for testing 
+          purposes. Maybe have a separate page with a check
+          list to say that they have tested the package.
+
+        - Add svn tarballs to website.
+
+    Malloc Suggests:
+    ----------------
+        X fix "How can I intall FRG using slapt-get" spelling
+        
+        X Add slapt-get sources to frg64 port section
+
+        X slapt-get install instructions should now use the meta
+          package, and would be "slapt-get --install frgnome"
+        
+        X slapt-get remove instructions would be the same as the
+          current xargs version of the install instructions
+          slapt-get --search 'frg$'|awk '{print $1}'| \
+               xargs -r slapt-get --remove -y 
+
+

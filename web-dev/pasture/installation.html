@@ -1,0 +1,79 @@
+  <h2 id="instrux">Installation Instructions</h2>
+
+  <p>GSB can be installed a number of ways:</p>
+
+  <ul>
+    <li><a href="#slapt-get">slapt-get</a></li>
+
+    <li><a href="#iso">ISO install</a></li>
+
+    <li><a href="#livecd">Live CD (Mutagenix)</a></li>
+  </ul>
+  <hr />
+
+  <h3 id="slapt-get">Installation via <tt>`slapt-get`</tt></h3>
+
+  <ol>
+    <li>
+      <p>First, make certain you have the GSB package repository in
+      your <tt>/etc/slapt-get/slapt-getrc</tt> (as well as a
+      Slackware source);</p>
+      <pre>SOURCE=&lt;full-path-to-GSB-mirror-of-your-choice&gt;/frg-&lt;version&gt;
+</pre>
+
+      <p>See the <strong><a href="/download/#mirrors">Download
+      section</a></strong> for a list of available mirrors.</p>
+
+      <p><small>(don't forget to run <code>`slapt-get
+      --update`</code> after adding new repositories!)</small></p>
+    </li>
+
+    <li>Then run the following command;
+      <pre>$ slapt-get --upgrade
+$ slapt-get --install frgnome
+</pre>
+    </li>
+  </ol>
+  <hr />
+
+  <h3 id="iso">Installation via ISO:</h3>
+
+  <ol>
+    <li>Download the iso and md5 sum file: <a href=
+    "http://sourceforge.net/project/showfiles.php?group_id=130126&amp;package_id=143903">
+      GSB ISO</a>, then check the iso;
+      <pre>$ md5sum -c file.iso.md5
+</pre>
+    </li>
+
+    <li>mount the iso;
+      <pre>$ mkdir /mnt/iso
+$ mount -t iso9660 file.iso /mnt/iso -o loop
+$ cd /mnt/iso
+</pre>
+    </li>
+
+    <li>Then run either;
+
+      <ul>
+        <li>
+          <pre>$ ./min_install.sh
+</pre>
+        </li>
+
+        <li>
+          <pre>$ ./full_install.sh
+</pre>
+        </li>
+      </ul>or manually use;
+      <pre>$ upgradepkg --install-new
+</pre>
+    </li>
+  </ol>
+  <hr />
+
+  <h3 id="livecd">LiveCD (Mutagenix)</h3>
+
+  <p>The <a href="http://mutagenix.org/">Mutagenix Slackware Linux
+  LiveCDs</a> ship with GSB pre-installed, enabling users to try
+  GSB before they install it.</p>

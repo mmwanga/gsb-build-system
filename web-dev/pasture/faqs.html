@@ -1,0 +1,214 @@
+        <h2 id="FAQs">GNOME SlackBuild FAQs</h2>
+
+        <dl>
+
+          <dt class="faqhead"
+              id="faq_id-0"><q>I've just installed GSB. How do I make
+              it my default desktop environment? And how do I start
+              it?</q></dt>
+
+          <dd class="faqentry">
+            <p>Execute the following command <strong>as
+            root</strong>:</p>
+            <pre>cd /etc/X11/xinit ; ln -f  xinitrc.gnome xinitrc
+</pre>
+
+            <p>Then, using <strong>your own user account</strong>,
+            execute the following command:</p>
+
+            <pre>rm ~/.xinitrc
+</pre>
+
+            <p>To start GSB/GNOME:</p>
+            <pre>startx
+</pre>
+
+            <p>You may also want to consider setting your
+            <tt>initab</tt> to <tt>init 4</tt>, to start the
+            graphical environment automatically.</p>
+
+          </dd>
+
+          <dt class="faqhead"
+              id="faq_id-1"><q>What's the difference between GSB
+              and Dropline GNOME?</q></dt>
+
+          <dd class="faqentry"><br />
+          Not a whole lot, actually. Dropline GNOME is a similar
+          project, and has been around longer. It's simply another
+          choice/alternative of a GNOME distribution for Slackware.
+          GSB does not "compete" with Dropline. Matter of fact, the
+          Dropline and GSB teams often collaborate together. Some
+          folks do, however, appreciate that GSB does not add
+          <a href=
+          "http://en.wikipedia.org/wiki/Pluggable_Authentication_Modules">
+          PAM</a> to Slackware, and that GSB does not replace the
+          X11 windowing system. Both of these are things <a href=
+          "http://en.wikipedia.org/wiki/Patrick_Volkerding">Pat
+          Volkerding</a> has publicly opposed.
+          <br />
+
+          <br /></dd>
+
+          <dt class="faqhead"
+              id="faq_id-2"><q>I tried to install GSB '-current'
+              via slapt-get/net-install, and it fails, saying that
+              I have 'unmet dependencies.' Why?</q></dt>
+
+          <dd class="faqentry"><br />
+          Note that the "-current" branch is under constant
+          development, and may have bugs. If you encounter any, it
+          would be appreciated if you reported them using the
+          facilities mentioned in the <a href=
+          "/support/">support section</a>.
+          <br />
+          <br /></dd>
+
+          <dt class="faqhead"
+              id="faq_id-3"><q>How do I uninstall GSB?</q></dt>
+
+          <dd class="faqentry">
+            <p>Please note that when uninstalling, you will have to
+            reinstall some packages from the "<tt>l</tt>" disk set
+            on your Slackware CD-ROM. Please refer to <a href=
+            "http://svn.gnomeslackbuild.org/viewvc/viewvc.cgi/trunk/notes/replaced_packages?revision=HEAD&amp;root=gsb">"replaced packages" file</a>
+            for more information.</p>
+
+            <p>slapt-get method:</p>
+
+            <div>
+              <pre>$ slapt-get --search 'gsb$'|awk '{print $1}'| \
+    xargs -r slapt-get --remove -y
+</pre>
+            </div>
+
+            <p>manual method:</p>
+
+            <div>
+              <pre>$ cd /var/log/packages
+$ ls -1| grep gsb$| xargs -n 1 removepkg
+</pre>
+            </div>
+          </dd>
+
+          <dt class="faqhead"
+              id="faq_id-4"><q>How can I install GSB using
+              <tt>slapt-get</tt>?</q></dt>
+
+          <dd class="faqentry">
+            <p>First, make certain you have the GSB package
+            respository in your
+            <tt>/etc/slapt-get/slapt-getrc</tt>;</p>
+
+            <ol>
+              <li>
+                <pre>SOURCE=&lt;full-path-to-the-mirror-of-your-choice&gt;/gsb-&lt;version&gt;
+</pre>
+
+                <p>See the <strong><a href=
+                "/download/">Download section</a></strong> for
+                a list of avaliable mirrors.</p>
+
+                <p><small>(don't forget to run <code>`slapt-get
+                --update`</code> after adding new
+                respositories!)</small></p>
+              </li>
+
+              <li>Then run the following command;
+                <pre>$ slapt-get --install gsb-gnome
+</pre>
+              </li>
+
+            </ol>
+          </dd>
+
+          <dt class="faqhead"
+              id="faq_id-5"><q>After installing GSB, my keyboard
+              does not repeat keys any longer. How is that
+              fixed?</q></dt>
+
+          <dd class="faqentry"><br />
+          From GNOME Menu Bar, choose "Desktop -&gt; Preferences
+          -&gt; Keyboard", then check the "Repeat Keys" box.
+          <br />
+
+          <br /></dd>
+
+          <dt class="faqhead"
+              id="faq_id-6"><q>My KDE Menus are all messed up after
+              installing GSB! How do I fix them?</q></dt>
+
+          <dd class="faqentry">
+            <p>The KDE menus might be changed if you install GSB
+            because of the gnome-menus package, The gnome-menus
+            package implements the freedesktop.org desktop menu
+            specification. There is a simple fix for this. Just add
+            the following near the top of the startkde script:</p>
+
+            <div>
+              <pre>$ export XDG_CONFIG_DIRS=/etc/kde/xdg
+</pre>
+            </div>
+
+            <p>If the improper menus persist, run kbuildsycoca from
+            Konsole after you have logged into KDE. Thanks to Jim
+            Philips and Locustfurnace for pointing it out.</p>
+          </dd>
+
+          <dt class="faqhead"
+              id="faq_id-7"><q>My Mime Types/File Associations are
+              all screwed up after I installed GSB. What do I do to
+              fix that?</q></dt>
+
+          <dd class="faqentry">
+
+            <p>Run the following commands as root:</p>
+
+            <div>
+              <pre>$ /usr/bin/update-mime-database \
+     /usr/share/mime
+$ /usr/bin/update-desktop-database
+</pre>
+            </div>
+          </dd>
+
+          <dt class="faqhead"
+              id="faq_id-9"><q>Does GSB require the Linux 2.6
+              kernel?</q></dt>
+
+          <dd class="faqentry"><br />
+          As of Slackware 12.0, yes - it does.
+          <br />
+          <br /></dd>
+
+          <dt class="faqhead"
+              id="faq_id-10"><q>Why do you use Google Groups for
+              your mailing lists?</q></dt>
+
+          <dd class="faqentry">
+            <br />
+
+            <ul>
+              <li>Mailman sucks</li>
+
+              <li>Google Groups has archives that you can
+              search(!)</li>
+
+              <li>Google Groups has RSS feeds for mailing
+              lists/groups</li>
+
+              <li>Google Groups has nice options for users, and is
+              very configurable.</li>
+
+              <li>Google Groups has email *and* web
+              lists/archives/message boards. Better for users to
+              have choices.</li>
+
+              <li>There are no ads in email list messages when
+              using google groups.</li>
+
+              <li>Google Groups blocks spam.</li>
+            </ul>
+          </dd>
+        </dl>
+
