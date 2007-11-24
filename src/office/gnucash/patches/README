@@ -1,7 +1,0 @@
-Patches
--------
-configure.in.patch
-gnc-html-graph-gog.c.patch
-
-These two patches add support for goffice >= 0.5 (svn changeset 16590)
-http://svn.gnucash.org/trac/changeset/16590
