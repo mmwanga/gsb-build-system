@@ -6,13 +6,35 @@
 ## Licenced under the terms of the GNU General Public Licence version 3.
 ##
 
+##
+## SVN Warning
+##
+
+cat << EOF
+
+*****************
+* Update Notice *
+*****************
+
+gnucash is built from an svn repository.  There are no released tarballs.
+If you would like the latest code for this package, please make sure to
+run "svn update" before compiling.  This build script will not update
+the repository automatically (in case specific revisions are wanted.)
+
+***** Note ************
+
+This script is intended to be run from a working svn copy.
+
+***********************
+
+EOF
+
 ## Package variables.
 BUILD=1
-VERSION=2.2.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glib2 gtk+2 guile slib libofx ORBit2 libgnomeui libbonoboui pango cairo libgnomecanvas gnome-vfs libglade goffice gail GConf gtkhtml libgnomeprintui atk"
+REQUIRED_PACKAGES="glib2 gtk+2 guile slib libofx ORBit2 libgnomeui libbonoboui pango cairo libgnomecanvas gnome-vfs libglade goffice gail GConf gtkhtml libgnomeprintui atk swig"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -27,6 +49,15 @@ PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
 FORCEBUILD=0
+SVN_REV=$(cd $PKGNAME && svn info 2> /dev/null | grep Revision | cut -d' ' -f2)
+
+if [ "$SVN_REV" = "" ]; then
+  echo "Unable to properly check svn version. Please check your svn setup and try again."
+  exit 1;
+fi;
+
+echo "Building SVN_REV $SVN_REV"
+VERSION=${VERSION:-svn_$SVN_REV}
 
 ## Usage.
 function usage() {
@@ -88,9 +119,10 @@ mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
-## Decompress archive.
+## Copy SVN working copy to temporary space
+rm -fr $TMP/$PKGNAME-$VERSION ;
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+cp -ra $CWD/$PKGNAME ./$PKGNAME-$VERSION &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -113,17 +145,6 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
-
-## Patches for goffice >= 0.5
-(
-echo
-echo "Patching for goffice >= 0.5."
-cd $TMP/$PKGNAME-$VERSION ;
-patch -p0 < $CWD/patches/configure.in.patch
-cd src/gnome-utils ;
-patch -p0 < $CWD/patches/gnc-html-graph-gog.c.patch ;
-echo
-)
 
 ## Fix permissions for building.
 chown -R root.root .
@@ -166,11 +187,10 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
+./autogen.sh --prefix=/usr || exit 1 ;
 
 ## Use gtkhtml 3.16
 sed -i "s/3\.14/3\.16/g" $TMP/$PKGNAME-$VERSION/configure ;
-## Bump configure versions to use libgoffice >= 0.5
-sed -i "s/libgoffice\-0\.4/libgoffice\-0\.5/g"  $TMP/$PKGNAME-$VERSION/configure ;
 
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
@@ -188,23 +208,12 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make $MAKE_FLAGS &&
 make DESTDIR=$PKG install || exit 1
 
+## Preserve files
+mv $PKG/etc/gnucash/config $PKG/etc/gnucash/config.new
+
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
-
-## Compress and fix manpage links.
-[ -e $PKG/usr/man ] && {
-  find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
-  find $PKG/usr/man -type l -name \*.? -printf \
-    "( cd '%h'; [ -e '%l.gz' ] &&
-     { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
-}
-
-## Deal with .info files.
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
-}
 
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
@@ -231,6 +240,19 @@ chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
   echo "fi" >>$PKG/install/doinst.sh
 }
 
+## Compress and fix manpage links.
+[ -e $PKG/usr/man ] && {
+  find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
+  find $PKG/usr/man -type l -name \*.? -printf \
+    "( cd '%h'; [ -e '%l.gz' ] &&
+     { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
+}
+
+## Deal with .info files.
+[ -e $PKG/usr/info ] && {
+  rm -f $PKG/usr/info/dir
+  gzip -9 $PKG/usr/info/*.info
+}
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
@@ -242,7 +264,7 @@ done
 
 ## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}_stable-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
