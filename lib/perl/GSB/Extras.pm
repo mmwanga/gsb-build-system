@@ -20,6 +20,7 @@ our $VERSION   = 0.03;
 # src/extras
 our %extras_gnome =
   (
+   'brasero'             => '0.6.1',
    'pessulus'            => '2.16.3',
    'sabayon'             => '2.20.1',
    'gnome-cups-manager'  => '0.31',
@@ -34,11 +35,6 @@ our %extras =
 			     'url' => 'http://balsa.gnome.org',
 			     'src' => 'tar.bz2',
 			    },
-   'brasero'              => {
-                 'ver' => '0.6.1',
-                 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/bonfire',
-                 'src' => 'tar.bz2',
-                            },
    'compiz'              => {
                  'ver' => '0.5.2',
                  'url' => 'http://xorg.freedesktop.org/archive/individual/app',
@@ -71,12 +67,12 @@ our %extras =
 			    },
    'gDesklets'           => {
 			     'ver' => '0.35.4',
-			     'url' => 'http://www.gdesklets.org/downloads',
+			     'url' => 'http://www.gdesklets.de/files/',
 			     'src' => 'tar.bz2',
 			    },
    'gimp'                => {
 			     'ver' => '2.4.1',
-			     'url' => 'ftp://ftp.gimp.org/pub/gimp/v2.2',
+			     'url' => 'ftp://ftp.gimp.org/pub/gimp/v2.4',
 			     'src' => 'tar.bz2',
 			    },
    'gnonlin'             => {
