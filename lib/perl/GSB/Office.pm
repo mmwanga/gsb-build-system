@@ -76,11 +76,6 @@ our %office =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/freeglut/',
 			     'src' => 'tar.gz',
 			    },
-   'gnucash' => {
-                 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gnucash/',
-                 'ver' => '2.2.1',
-                 'src' => 'tar.gz'
-                },
    'goocanvas'              => {
 			     'ver' => '0.9',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/goocanvas/',
