@@ -22,8 +22,11 @@ Package ideas:
 
 Website ideas:
   * Package browser based on PACKAGES.TXT
-  * Include Enclose "replaced_packages" in code block, like TODO (where?).
+  * Include/Enclose "replaced_packages" in code block, like TODO (where?).
   * Write website dev/admin documentation (in progress)
+  * Make ViewVC link more prominent in dev. section.
+  * Need more screeshots!!!
+  * Rewrite download/install page when ready.
 
 Misc: ideas (?):
   * make sure to change the db.h symlink to db4
