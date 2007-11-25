@@ -151,6 +151,11 @@ our %office =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/python-xlib/',
 			     'src' => 'tar.gz',
 			    },
+   'swig'             => {
+			     'ver' => '1.3.33',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/swig/',
+			     'src' => 'tar.gz',
+			    },
    'tracker'             => {
 			     'ver' => '0.6.3',
 			     'url' => 'http://www.gnome.org/~jamiemcc/tracker/',
