@@ -4,3 +4,5 @@ gst-plugins-base
 gst-plugins-good
 gst-plugins-ugly
 gst-plugins-bad
+python
+pygtk
