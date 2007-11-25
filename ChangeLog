@@ -1,10 +1,26 @@
 ChangeLog
 ---------
 
+24-11-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * mono: Fix gtksourviewsharp-mono in svn commits. (thanks to RadioHead) 
+	* office: Add swig (needed for building svn gnucash, but not a runtime
+	   requirement)
+	  Changed gnucash to 2.2 (stable) svn branch. (external fetch); many
+	    improvements to gnucash since 2.2.1 release in svn branch (notably
+		goffice >= 0.5.2 support).  This is easier than creating a svn
+		changeset patch for the release tarball.
+	* libraries: glib2 version bump to 2.14.4.
+	* extras: Add gdesklets.
+
+22-11-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * office: Removed GConf from goffice reqs.
+
 20-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * extras: Fix common.py install path for deluge.
 	  Removed mplayer svn and switched to MPlayer-rc2.  Added custom configs
 	    and subfont.
+	  Added default skin to mplayer.
+	  Update devede SlackBuild.
 	* web: Update about web page.
 	* office: Add binreloc to libgnomedb.
 
