@@ -202,6 +202,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --with-ofx-prefix=/usr \
   --enable-hbci \
   --with-aqbanking-dir=/usr \
+  --disable-error-on-warning \
   || exit 1
 
 ## Build and install.
