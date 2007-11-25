@@ -1,14 +1,14 @@
 #!/bin/bash
-## Version: 1.1 GSB Section Build Script
-## Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
-## Copyright (c) 2007 Steve Kennedy <sk238 (at) exeter.ac.uk>
-##
-## Package name routine partially borrowed from the Slackware upgradepkg tool.
-## Copyright 1999  Patrick Volkerding, Moorhead, Minnesota, USA.
-## Copyright 2001, 2002, 2003  Slackware Linux, Inc., Concord, California, USA
-##
-## Licenced under the terms of the GNU General Public Licence version 3.
-##
+# Version: 1.2 GSB Section Build Script
+# Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
+# Copyright (c) 2007 Steve Kennedy <sk238 (at) exeter.ac.uk>
+#
+# Package name routine partially borrowed from the Slackware upgradepkg tool.
+# Copyright 1999  Patrick Volkerding, Moorhead, Minnesota, USA.
+# Copyright 2001, 2002, 2003  Slackware Linux, Inc., Concord, California, USA
+#
+# Licenced under the terms of the GNU General Public Licence version 3.
+#
 
 # If the user created an options file, read it if it's not been read already.
 [ "$OPTIONSREAD" != "1" -a -r ../gsb.options ] && {
@@ -16,21 +16,24 @@
   export OPTIONSREAD=1
 }
 
-##
-## Environment Variables
-##
+#
+# Environment Variables
+#
 export TMP=${TMP:-/tmp}
 export LOGSDIR=${GSB_LOGSDIR:-$TMP/gsb-buildlogs}
 export PKGDEST=${PKGDEST:-$TMP/gsb-packages}
 
-## 
-## Functions 
-##
+# Section Name
+SECTION=libraries
+
+# 
+# Functions 
+#
 
 # Prints usage and help 
 function usage() {
   cat << EOF
-Usage: ${0##*/} [options]
+Usage: ${0#*/} [options]
 
 The default behaviour of the build script is to skip any previously 
 installed package, and continue building the next package in the 
@@ -91,13 +94,13 @@ function build_package() {
     return $?
 }
 
-##
-## Command Line Parsing
-##
+#
+# Command Line Parsing
+#
 while [ $# -gt 0 ]; do
   if [ "$1" = "-force" ]; then
     if [ "$UPDATE" = "1" ]; then
-       echo "${0##*/}: The switches -force and -update are mutually exclusive."
+       echo "${0#*/}: The switches -force and -update are mutually exclusive."
        exit 1;
     fi;
     FORCE=1
@@ -111,7 +114,7 @@ while [ $# -gt 0 ]; do
     shift
   elif [ "$1" = "-update" ]; then
     if [ "$FORCE" = "1" ]; then
-       echo "${0##*/}: The switches -force and -update are mutually exclusive."
+       echo "${0#*/}: The switches -force and -update are mutually exclusive."
        exit 1;
     fi;
     UPDATE=1
@@ -120,33 +123,32 @@ while [ $# -gt 0 ]; do
     usage
     exit 0
   else
-    echo "${0##*/}: Unknown option: $1"
+    echo "${0#*/}: Unknown option: $1"
     exit 1
   fi
 done
 
 
-##
-## Create Temporary Space
-##
+#
+# Create Temporary Space
+#
 mkdir -p $TMP
 mkdir -p $LOGSDIR
 
-##
-## GNOME Desktop Files.  
-##
-## These are packages that are required and make the bare
-## GNOME Desktop.
-##
-## http://www.gnome.org/start/2.20/notes/en/index.html#rninstallation
-## 
+#
+# GNOME Desktop Files.  
+#
+# These are packages that are required and make the bare
+# GNOME Desktop.
+#
+# http://www.gnome.org/start/2.20/notes/en/index.html#rninstallation
+# 
 
+#
+# BUILD ORDER
+#
 
-####
-#### BUILD ORDER
-####
-
-## Packages must be listed here in the order they should be built.
+# Packages must be listed here in the order they should be built.
 
 BUILD_ORDER=" 
       gnome-themes
@@ -184,56 +186,69 @@ BUILD_ORDER="
       gtksourceview
       gtksourceview2
       gnome-keyring-manager
-      gtkhtml
+      gtkhtml 
 		"
 
-##
-## MAIN BUILD 
-##
+#
+# MAIN BUILD 
+#
 
 # Build packages (and log output). This is the main loop through
 # all the packages listed above.
 ( for PACKAGE in $BUILD_ORDER
-  do
 
-## Force rebuild and install of all packages if asked.
+do
+
+# Grab the version from the package SlackBuild 
+if [ -r $(pwd)/${PACKAGE}/${PACKAGE}.SlackBuild ]; then
+
+  # For customized version numbers
+  GSB_VERSION=$(grep -i ^${PACKAGE//-/_}_VERSION= $(pwd)/${PACKAGE}/${PACKAGE}.SlackBuild | cut -f2 -d\=)
+
+  # For regular version numbers
+  if [ "$GSB_VERSION" = "" ]; then
+    GSB_VERSION=$(grep ^VERSION= $(pwd)/${PACKAGE}/${PACKAGE}.SlackBuild | cut -f2 -d\=)
+  fi;
+     
+  # For SVN numbers
+  if [ "$(echo $GSB_VERSION | grep -i svn)" != "" ]; then
+     GSB_VERSION=svn
+  fi;
+
+else
+  echo "${0#*/}: Cannot find $PACKAGE SlackBuild."
+  exit 1;
+fi;
+
+# Force rebuild and install of all packages if asked.
 if [ "$FORCE" = "1" ]; then
    build_package $PACKAGE $SLACKBUILD_ARGS || exit 1
    [ "$NOINSTALL" != "1" ] && {
-     upgradepkg --install-new \
-      $(ls -1 ${PKGDEST}/${PACKAGE}-[0-9]*.tgz | tail -n 1) || exit 1
+     # For SVN repositories, we may not get the desired effects.  
+     # If more than one svn version exists, upgradepkg will update through them
+     # all to the latest one.  Should we bother doing through the svn info version
+     # check for svn packages forced? SVN packages are skipped below in "update".
+     #
+     upgradepkg --install-new ${PKGDEST}/${PACKAGE}-${GSB_VERSION}*.tgz || exit 1 
    }
     
-## Below is the default behavior; it is to skip packages if they are already 
-## installed, unless -update is passed. 
+# Below is the default behavior; it is to skip packages if they are already 
+# installed, unless -update is passed. 
 
 else
 
- ## Check if package is already installed.
- INSTALLED_PACKAGE=$(ls -1 /var/log/packages | grep "^${PACKAGE}-[^-]*-[^-]*-[^-]*$")
+# Check if package is already installed.
+INSTALLED_PACKAGE=$(ls -1 /var/log/packages | grep "^${PACKAGE}-[^-]*-[^-]*-[^-]*$")
 
- if [ $? = 0 ]; then
-   # Package is installed. Let's skip.
-   echo "${0##*/}: $PACKAGE already installed."
+if [ $? = 0 ]; then
+  # Package is installed. Let's skip.
+  echo "${0#*/}: $PACKAGE already installed."
 
   # If -update switch passed, then we should remove the package, rebuild, 
   # and reinstall. However, only if the versions are different between the 
   # SlackBuild and the installed package.
   if [ "$UPDATE" = "1" ]; then
-     # Grab the version from the package SlackBuild 
-     if [ -r $(pwd)/${PACKAGE}/${PACKAGE}.SlackBuild ]; then
-       # Check for special version
-       GSB_VERSION=$(grep -i ^${PACKAGE//-/_}_VERSION= $(pwd)/${PACKAGE}/${PACKAGE}.SlackBuild | cut -f2 -d\=)
-       if [ "$GSB_VERSION" = "" ]; then
-         # Check for usual versioning
-         GSB_VERSION=$(grep ^VERSION= $(pwd)/${PACKAGE}/${PACKAGE}.SlackBuild | cut -f2 -d\=)
-       fi;
-     else
-       echo "${0##*/}: Cannot find $PACKAGE SlackBuild."
-       exit 1;
-     fi;
-
-     ## Check installed package version.
+     # Check installed package version.
      INDEX=1
      while [ ! "`echo $INSTALLED_PACKAGE | cut -f $INDEX -d -`" = "" ]; do
        INDEX=`expr $INDEX + 1`
@@ -243,53 +258,59 @@ else
      if [ "$INDEX" = "2" -o "$INDEX" = "3" ]; then
        echo $INSTALLED_PACKAGE
      else # we have four or more segments, so we'll consider this a new-style name:
-      ##
-      ## Grab our installed package name and version
-      ##
+      #
+      # Grab our installed package name and version
+      #
       INSTALLED_PACKAGE_NAME=`expr $INDEX - 3`
       INSTALLED_PACKAGE_NAME="`echo $INSTALLED_PACKAGE | cut -f 1-$INSTALLED_PACKAGE_NAME -d -`"
       INSTALLED_PACKAGE_VERSION=`expr $INDEX - 2`
       INSTALLED_PACKAGE_VERSION="`echo $INSTALLED_PACKAGE | cut -f $INSTALLED_PACKAGE_VERSION -d -`"
      fi;
      
-     if [ "$(echo $GSB_VERSION | grep -i svn)" != "" ]; then
-        echo "${0##*/}: $PACKAGE is an svn copy.  Skipping version check."
+     if [ "${GSB_VERSION}" = "svn" ]; then
+        # SVN versions are too volatile.  Better to manually update them.
+        echo "${0#*/}: $PACKAGE is an svn copy.  Skipping update."
      else
      
-     ## Packages are different versions.  Remove old package, rebuild
-     ## and reinstall.
+     # Packages are different versions.  Remove old package, rebuild
+     # and reinstall.
      if [ "$INSTALLED_PACKAGE_NAME" = "$PACKAGE" -a "${GSB_VERSION//-/_}" != "$INSTALLED_PACKAGE_VERSION" ]; then
-        echo "${0##*/}: $PACKAGE requires updating."
+        echo "${0#*/}: $PACKAGE requires updating."
 
-        echo "${0##*/}: Removing old $PACKAGE." 
+        echo "${0#*/}: Removing old $PACKAGE." 
         removepkg $PACKAGE >/dev/null 2>&1 ;
         build_package $PACKAGE $SLACKBUILD_ARGS || exit 1
 
         [ "$NOINSTALL" != "1" ] && {
-          upgradepkg --install-new \
-            $(ls -1 ${PKGDEST}/${PACKAGE}-[0-9]*.tgz | tail -n 1) || exit 1
+          upgradepkg --install-new ${PKGDEST}/${PACKAGE}-${GSB_VERSION}*.tgz || exit 1
          }
-      fi; ## If versions differ
+      fi; # If versions differ
 
-    fi; ## SVN check
+    fi; # SVN check
 
-   fi; ## If Upgrade wanted
+   fi; # If Upgrade wanted
 
-  else ## If Package is not installed
+  else # If Package is not installed
+
         build_package $PACKAGE $SLACKBUILD_ARGS || exit 1
 
         [ "$NOINSTALL" != "1" ] && {
-          upgradepkg --install-new \
-            $(ls -1 ${PKGDEST}/${PACKAGE}-[0-9]*.tgz | tail -n 1) || exit 1
+          # See above in the forced section.  May not have the desired effect for SVN packages
+          # when more than one exists.  
+          upgradepkg --install-new ${PKGDEST}/${PACKAGE}-${GSB_VERSION}*.tgz || exit 1
          }
-   fi; ## Build if not installed.
+   fi; # Build if not installed.
 
-fi; ## If not Forced
+fi; # If not Forced
+
+# Seperate package into appropriate section
+mkdir -p $PKGDEST/$SECTION
+mv -f $PKGDEST/${PACKAGE}-${GSB_VERSION}*.tgz $PKGDEST/$SECTION > /dev/null 2>&1 ;
 
 done;
-## Main loop
+# Main loop
 
-##
-## Log Output
-##
+#
+# Log Output
+#
 ) 2>&1 | tee $LOGSDIR/$(basename $0 .SlackBuild)-$(date +%Y%m%d-%H%M%S).log

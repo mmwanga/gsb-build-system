@@ -136,9 +136,10 @@ mkdir -p $TMP
 mkdir -p $LOGSDIR
 
 #
-# Gnome Themes
+# Extra Themes for GNOME
 #
-# Extra themes, icons, and backgrounds for GSB
+# These packages add extra themes, backgrounds, mouse cursors,
+# and icons to the GNOME Desktop Environment
 # 
 
 #

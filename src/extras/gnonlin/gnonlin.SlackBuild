@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=0.6.22
+VERSION=0.10.9
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="bluez-libs libusb gtk+2 cairo"
+REQUIRED_PACKAGES="gstreamer gst-plugins-base"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -145,7 +145,6 @@ elif [ "$ARCH" = "x86_64" ]; then
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
     CONFIGURE_FLAGS="--libdir=/usr/lib64"
-    GSB_LIBDIR="lib64"
   }
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
@@ -160,20 +159,13 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
+  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
+  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
   || exit 1
-
-# Make sure we have a pkgconfig directory
-mkdir -p $PKG/usr/${GSB_LIBDIR:-lib}/pkgconfig || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
-make $MAKE_FLAGS install DESTDIR=$PKG &&
-make $MAKE_FLAGS install-devel DESTDIR=$PKG || exit 1
-
-# Properly name the gnokii.pc
-if [ -f $PKG/usr/${GSB_LIBDIR:-lib}/pkgconfig/xgnokii.pc ]; then
-  mv $PKG/usr/${GSB_LIBDIR:-lib}/pkgconfig/xgnokii.pc $PKG/usr/${GSB_LIBDIR:-lib}/pkgconfig/gnokii.pc || exit 1
-fi;
+make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -196,10 +188,27 @@ fi;
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  COPYING* ChangeLog \
+  AUTHORS COPYING* ChangeLog NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
+
+## Add schemas install to the doinst.sh if schemas are found.
+[ -d $PKG/etc/gconf/schemas ] && {
+  echo "if [ -x usr/bin/gconftool-2 ]; then" >>$PKG/install/doinst.sh
+  ( cd $PKG/etc/gconf/schemas
+    for FILE in *; do
+      [ -z "$(grep gconfentry $FILE)" ] && {
+        # Create gconf tree
+        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
+      } || {
+        # Load gconf settings
+        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --config-source=\$(usr/bin/gconftool-2 --get-default-source) --direct --load etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
+      }
+    done
+  )
+  echo "fi" >>$PKG/install/doinst.sh
+}
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests

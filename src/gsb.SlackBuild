@@ -72,7 +72,7 @@ echo "*************************************************"
 echo "** Building GSB"
 echo "*************************************************"
 for SECTION in tools libraries platform desktop applications accessibility \
-                 bindings office mono # extras themes
+                 bindings office mono extras themes
 do
   echo
   echo "*************************************************"
