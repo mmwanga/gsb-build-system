@@ -44,11 +44,11 @@ use GSB::Accessibility;
 use GSB::Bindings;
 use GSB::Mono;
 use GSB::Office;
+use GSB::Extras;
 
 use GSB::Desktop_Reqs;
 use GSB::GStreamer;
 use GSB::Gnome;
-use GSB::Extras;
 use GSB::Ruby;
 use GSB::Themes;
 
@@ -629,7 +629,67 @@ foreach my $gmono_pack (keys %mono_gnome) {
   }
 }
 
+# Extra Applications found on GNOME Source Tree
 
+foreach my $other_pack (keys %extras_gnome) {
+
+  my $name = $other_pack;
+  my $ver  = $extras_gnome{$name};
+
+  my $sb_file = $name . $sb_ext;
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
+
+  chdir "$pwd/extras/$name";
+
+  if ( $download eq "true" ) {
+    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
+# Extra applications for GSB GNOME Desktop
+# found outside the regular GNOME Tree
+
+foreach my $opackage (keys %extras) {
+
+  chdir "$pwd/extras/$opackage";
+  my $name    = $opackage;
+  my $sb_file = $name . $sb_ext;
+  my $packurl = $extras{$name}{url};
+  my $ver     = $extras{$name}{ver};
+  my $src     = $extras{$name}{src};
+  my $type    = "other";
+
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+
+  if ( $download eq "true") {
+      my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+      GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $src, $url);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
 
 
 # DONE DOWNLOADING
@@ -719,279 +779,6 @@ foreach my $otheme (keys %other_themes) {
 
   if ( ! -f $tarball ) {
     push(@bad_downloads, $name );
-  }
-}
-
-
-# Extras libs
-foreach my $opackage (keys %extras_libs) {
-
-  chdir "$pwd/extras/libs/$opackage";
-  my $name    = $opackage;
-  my $sb_file = $name . $sb_ext;
-  my $packurl = $extras_libs{$name}{url};
-  my $ver     = $extras_libs{$name}{ver};
-  my $src     = $extras_libs{$name}{src};
-  my $type    = "other";
-
-  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
-
-  if ( $download eq "true") {
-      my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
-      GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $src, $url);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
-}
-
-
-# Extra libs gnome
-foreach my $other_pack (keys %extras_libs_gnome) {
-
-  my $name = $other_pack;
-  my $ver  = $extras_libs_gnome{$name};
-
-  my $sb_file = $name . $sb_ext;
-  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
-
-  chdir "$pwd/extras/libs/$name";
-
-  if ( $download eq "true" ) {
-    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
-}
-
-# Extras libs other
-foreach my $oother_pack (keys %extras_libs_other) {
-
-  my $name    = $oother_pack;
-
-  my $sb_file = $name . $sb_ext;
-  my $packurl = $extras_libs_other{$name}{url};
-  my $ver     = $extras_libs_other{$name}{ver};
-  my $src     = $extras_libs_other{$name}{src};
-  my $type    = 'other';
-
-  my $tarball = "$name$ver.$src";
-
-  chdir "$pwd/extras/libs/$name";
-
-  if ( $download eq "true" ) {
-    my $url = GSB::Extras::gsb_extras_libs_other_url_make($name, $packurl, $ver, $src);
-    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
-}
-
-# Other gnome apps
-foreach my $other_pack (keys %extras_gnome_apps) {
-
-  my $name = $other_pack;
-  my $ver  = $extras_gnome_apps{$name};
-
-  my $sb_file = $name . $sb_ext;
-  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
-
-  chdir "$pwd/extras/gnome-apps/$name";
-
-  if ( $download eq "true" ) {
-    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
-}
-
-# Extras libs
-foreach my $package (keys %extras_gnome_other_apps) {
-
-  chdir "$pwd/extras/gnome-apps/$package";
-  my $name    = $package;
-  my $sb_file = $name . $sb_ext;
-  my $packurl = $extras_gnome_other_apps{$name}{url};
-  my $ver     = $extras_gnome_other_apps{$name}{ver};
-  my $src     = $extras_gnome_other_apps{$name}{src};
-  my $type    = "other";
-
-  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
-
-  if ( $download eq "true") {
-      my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
-      GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $src, $url);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
-}
-
-# Extra apps
-
-foreach my $opackage (keys %extras_apps) {
-
-  chdir "$pwd/extras/apps/$opackage";
-  my $name    = $opackage;
-  my $sb_file = $name . $sb_ext;
-  my $packurl = $extras_apps{$name}{url};
-  my $ver     = $extras_apps{$name}{ver};
-  my $src     = $extras_apps{$name}{src};
-  my $type    = "other";
-
-  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
-
-  if ( $download eq "true") {
-      my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
-      GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $src, $url);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
-}
-
-# Extra apps gnome
-foreach my $other_pack (keys %extras_apps_gnome) {
-
-  my $name = $other_pack;
-  my $ver  = $extras_apps_gnome{$name};
-
-  my $sb_file = $name . $sb_ext;
-  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
-
-  chdir "$pwd/extras/apps/$name";
-
-  if ( $download eq "true" ) {
-    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
-}
-
-# Extra applets and extensions
-
-foreach my $opackage (keys %extras_applets) {
-
-  chdir "$pwd/extras/applets_extensions/$opackage";
-  my $name    = $opackage;
-  my $sb_file = $name . $sb_ext;
-  my $packurl = $extras_applets{$name}{url};
-  my $ver     = $extras_applets{$name}{ver};
-  my $src     = $extras_applets{$name}{src};
-  my $type    = "other";
-
-  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
-
-  if ( $download eq "true") {
-      my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
-      GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $src, $url);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
-}
-
-# Extra applets gnome
-foreach my $other_pack (keys %extras_applets_gnome) {
-
-  my $name = $other_pack;
-  my $ver  = $extras_applets_gnome{$name};
-
-  my $sb_file = $name . $sb_ext;
-  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
-
-  chdir "$pwd/extras/applets_extensions/$name";
-
-  if ( $download eq "true" ) {
-    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
   }
 }
 
