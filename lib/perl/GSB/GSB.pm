@@ -20,7 +20,7 @@ my %gnome =
   (
    'version'  => '2.20.1',
    'release'  => '2.20',
-   'mirror'   => 'http://ftp.belnet.be/mirror/ftp.gnome.org/',
+   'mirror'   => 'ftp://ftp.gnome.org/pub/gnome',
    'srcroot'  => '',
    'platform' => '/platform',
    'desktop'  => '/desktop',
@@ -35,7 +35,7 @@ my $dfiledir = $gfiledir . $gnome{desktop}  . $grelease;
 my $bfiledir = $gfiledir . $gnome{bindings} . $grelease;
 my $gsrcdir  = $gfiledir . '/sources';
 
-my $wget_options = "--cache=on --passive-ftp --progress=bar:force --timeout=30 --tries=3";
+my $wget_options = "--continue --cache=on --passive-ftp --progress=bar:force --timeout=30 --tries=3";
 
 my $gnome_md5_file = "md5sum";
 
