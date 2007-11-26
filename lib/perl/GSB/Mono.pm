@@ -38,8 +38,8 @@ our %mono=
 				'url' => 'http://go-mono.com/sources/gtk-sharp210/',
 				'src' => 'tar.bz2',
 			       },
-   'gtksourceview-sharp-2.0' => {
-				 'ver' => '0.11',
+   'gtksourceview-sharp' => {
+				 'ver' => '2.0-0.11',
 				 'url' => 'http://go-mono.com/sources/gtksourceview-sharp-2.0/',
 				 'src' => 'tar.bz2',
 				},
