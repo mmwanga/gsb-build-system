@@ -1,6 +1,13 @@
 ChangeLog
 ---------
 
+26-11-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * web: Update about page.
+	* applications: Bumped version for eog, zenity, deskbar-applet
+	  Regressed verion for gnome-phone-manager to 0.3 
+	   until I can figure out why the compile breaks with the latest gnokii
+	* mono: Regressed version of tomboy to stable 0.8.2.
+
 25-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * sections: Update (temporarily) to my "1.2" GSB section builds.
 	    This is just for my own convenience and testing, and updating.

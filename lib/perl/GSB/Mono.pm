@@ -18,7 +18,7 @@ our %mono_gnome =
    'beagle'          => '0.2.18',
    'evolution-sharp' => '0.14.0.1',
    'f-spot'          => '0.4.0',
-   'tomboy'          => '0.9.1',
+   'tomboy'          => '0.8.2',
    );
 
 our %mono=

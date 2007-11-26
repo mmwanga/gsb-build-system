@@ -17,9 +17,9 @@ our $VERSION   = 0.03;
 our %applications_gnome =
   (
    'alacarte'               => '0.11.3',
-   'deskbar-applet'         => '2.20.1',
+   'deskbar-applet'         => '2.20.2',
    'ekiga'                  => '2.0.11',
-   'eog'                    => '2.20.2',
+   'eog'                    => '2.20.3',
    'epiphany'               => '2.20.1',
    'epiphany-extensions'    => '2.20.1',
    'evince'                 => '2.20.1',
@@ -63,7 +63,7 @@ our %applications_gnome =
    'totem'                  => '2.20.1',
    'vino'                   => '2.20.1',
    'yelp'                   => '2.20.0',
-   'zenity'                 => '2.20.0',
+   'zenity'                 => '2.20.1',
    );
 
 
