@@ -1,6 +1,17 @@
 ChangeLog
 ---------
 
+25-11-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * sections: Update (temporarily) to my "1.2" GSB section builds.
+	    This is just for my own convenience and testing, and updating.
+		Still waiting for Tadgy's new and improved section builds.  :^)
+	* applications: Bump gnokii version.
+	  Bump gnome-keyring version to 2.20.2
+	* office: Fix for slib non-x86_64 paths
+    * perl: Update Extras.pm (general cleanup, and version/URL updates)
+	  Update gsb_update.pl to grab extras.
+	* extras: Bump to brasero 0.6.90
+
 24-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * mono: Fix gtksourviewsharp-mono in svn commits. (thanks to RadioHead) 
 	* office: Add swig (needed for building svn gnucash, but not a runtime

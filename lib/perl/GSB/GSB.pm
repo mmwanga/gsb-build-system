@@ -18,8 +18,8 @@ use GSB::Verify;
 
 my %gnome =
   (
-   'version'  => '2.10.0',
-   'release'  => '2.10',
+   'version'  => '2.20.1',
+   'release'  => '2.20',
    'mirror'   => 'http://ftp.belnet.be/mirror/ftp.gnome.org/',
    'srcroot'  => '',
    'platform' => '/platform',
