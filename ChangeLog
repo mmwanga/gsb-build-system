@@ -7,6 +7,8 @@ ChangeLog
 	  Regressed verion for gnome-phone-manager to 0.3 
 	   until I can figure out why the compile breaks with the latest gnokii
 	* mono: Regressed version of tomboy to stable 0.8.2.
+	* sections: Small fix for version which include a "-"
+	* libraries: Bump gtk+2 version to 2.12.2
 
 25-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * sections: Update (temporarily) to my "1.2" GSB section builds.

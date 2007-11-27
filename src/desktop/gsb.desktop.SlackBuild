@@ -229,7 +229,7 @@ if [ "$FORCE" = "1" ]; then
      # all to the latest one.  Should we bother doing through the svn info version
      # check for svn packages forced? SVN packages are skipped below in "update".
      #
-     upgradepkg --install-new ${PKGDEST}/${PACKAGE}-${GSB_VERSION}*.tgz || exit 1 
+     upgradepkg --install-new ${PKGDEST}/${PACKAGE}-${GSB_VERSION//-/_}*.tgz || exit 1 
    }
     
 # Below is the default behavior; it is to skip packages if they are already 
@@ -282,7 +282,7 @@ if [ $? = 0 ]; then
         build_package $PACKAGE $SLACKBUILD_ARGS || exit 1
 
         [ "$NOINSTALL" != "1" ] && {
-          upgradepkg --install-new ${PKGDEST}/${PACKAGE}-${GSB_VERSION}*.tgz || exit 1
+          upgradepkg --install-new ${PKGDEST}/${PACKAGE}-${GSB_VERSION//-/_}*.tgz || exit 1
          }
       fi; # If versions differ
 
@@ -297,7 +297,7 @@ if [ $? = 0 ]; then
         [ "$NOINSTALL" != "1" ] && {
           # See above in the forced section.  May not have the desired effect for SVN packages
           # when more than one exists.  
-          upgradepkg --install-new ${PKGDEST}/${PACKAGE}-${GSB_VERSION}*.tgz || exit 1
+          upgradepkg --install-new ${PKGDEST}/${PACKAGE}-${GSB_VERSION//-/_}*.tgz || exit 1
          }
    fi; # Build if not installed.
 

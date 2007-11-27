@@ -285,7 +285,7 @@ our %libraries_diff_naming =
 		'name' => 'glib',
 	       },
    'gtk+2'  => {
-		'ver'  => '2.12.1',
+		'ver'  => '2.12.2',
 		'name' => 'gtk+',
 	       },
   );
