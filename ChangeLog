@@ -1,6 +1,10 @@
 ChangeLog
 ---------
 
+27-11-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * extras: Update compiz reqs.
+	  Added fuse for compiz.
+
 26-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * web: Update about page.
 	* applications: Bumped version for eog, zenity, deskbar-applet

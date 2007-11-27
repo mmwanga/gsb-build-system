@@ -65,6 +65,11 @@ our %extras =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/easytag',
 			     'src' => 'tar.bz2',
 			    },
+   'fuse'              => {
+                 'ver' => '2.7.1',
+                 'url' => 'http://downloads.sourceforge.net/fuse',
+                 'src' => 'tar.gz',
+                            },
    'gDesklets'           => {
 			     'ver' => '0.35.4',
 			     'url' => 'http://www.gdesklets.de/files/',
