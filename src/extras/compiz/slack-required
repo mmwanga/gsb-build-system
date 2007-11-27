@@ -1,0 +1,13 @@
+dbus
+libnotify
+GConf
+libpng
+glib2
+gtk+2
+librsvg
+libxslt
+mesa
+metacity
+libgnomeui
+libwnck
+renderproto
