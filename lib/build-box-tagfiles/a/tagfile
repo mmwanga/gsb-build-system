@@ -14,7 +14,7 @@ cryptsetup: SKP
 cups: ADD
 cxxlibs: ADD
 dcron: ADD
-device-mapper: SKP
+device-mapper: ADD
 devs: ADD
 dialog: ADD
 dosfstools: SKP

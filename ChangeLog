@@ -3,6 +3,11 @@ ChangeLog
 
 28-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * office: Downgraded to stable libgda 3.0.1 and libgnomedb 3.0.0
+	* libraries: Updated gtk+2 requirements
+	  Small fix for doinst.sh in pango.
+	  Fix for ffmpeg configuration in SlackBuild (for fPIC on x86_64)
+	* sections: Minor fixes to section builds to properly segment
+	  packages.
 
 27-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * extras: Update compiz reqs.

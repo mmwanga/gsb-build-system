@@ -176,7 +176,7 @@ elif [ "$ARCH" = "x86_64" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -ffast-math -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS="--libdir=/usr/lib64 --shlibdir=/usr/lib64 --enable-pthreads"
+    CONFIGURE_FLAGS="--libdir=/usr/lib64 --shlibdir=/usr/lib64 --enable-pthreads --disable-mmx"
   }
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
@@ -191,7 +191,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ./configure --prefix=/usr \
   $CONFIGURE_FLAGS --arch=$ARCH --cpu=$TUNE \
   --target-os=linux \
-  --disable-static --enable-shared \
+  --enable-shared \
+  --disable-static \
   --enable-gpl \
   --enable-pp \
   || exit 1

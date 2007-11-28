@@ -24,7 +24,7 @@ export LOGSDIR=${GSB_LOGSDIR:-$TMP/gsb-buildlogs}
 export PKGDEST=${PKGDEST:-$TMP/gsb-packages}
 
 # Section Name
-SECTION=libraries
+SECTION=themes
 
 # 
 # Functions 
@@ -90,7 +90,7 @@ function build_package() {
     echo "*************************************************"
     echo "****** Building package: ${1}"
     echo "*************************************************"
-    ( cd ${1} ; ./$(echo $1).SlackBuild ${2} ) ;
+    ( cd ${1} ; ./$(echo $1).SlackBuild ${2} || exit 1) ;
     return $?
 }
 

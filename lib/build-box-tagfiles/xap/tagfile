@@ -14,16 +14,16 @@ gucharmap: ADD
 gv: SKP
 gxine: SKP
 imagemagick: ADD
-mozilla-firefox: ADD
+mozilla-firefox: SKP
 mozilla-thunderbird: SKP
 pan: SKP
 pidgin: ADD
 rdesktop: SKP
 rxvt: SKP
 sane: ADD
-seamonkey: ADD
+seamonkey: SKP
 seyon: SKP
-vim-gvim: ADD
+vim-gvim: SKP
 windowmaker: SKP
 x3270: SKP
 xchat: SKP
@@ -38,4 +38,4 @@ xpdf: SKP
 xsane: ADD
 xscreensaver: ADD
 xv: SKP
-xxgdb: ADD
+xxgdb: SKP
