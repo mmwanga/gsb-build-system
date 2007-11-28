@@ -23,9 +23,9 @@ our %office_gnome =
    'gnome-build' => '0.2.0',
    'gnome-python-extras'  => '2.19.1',
    'goffice'   => '0.5.3',
-   'libgda'    => '3.1.2',
+   'libgda'    => '3.0.1',
    'libgdamm'  => '2.9.81',
-   'libgnomedb' => '3.1.2',
+   'libgnomedb' => '3.0.0',
    'libgsf'    => '1.14.7',
   );
 

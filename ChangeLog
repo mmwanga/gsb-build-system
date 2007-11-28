@@ -1,9 +1,13 @@
 ChangeLog
 ---------
 
+28-11-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * office: Downgraded to stable libgda 3.0.1 and libgnomedb 3.0.0
+
 27-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * extras: Update compiz reqs.
 	  Added fuse for compiz.
+	* applications: Bump evince, gdm, gnome-games to 2.20.2.
 
 26-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * web: Update about page.
