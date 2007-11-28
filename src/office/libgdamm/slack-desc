@@ -5,7 +5,7 @@ libgdamm: libgda is an attempt to provide uniform access to different kinds of
 libgdamm: data sources (databases, information servers, mail spools, etc).  It 
 libgdamm: is a complete architecture that provides all you need to access your 
 libgdamm: data. It is defined by a set of plugin APIs as generic as possible 
-libgdamm: (but very powerful at the same time) so that any kind of data source 
+libgdamm: (but very powerful at the same time.)
 libgdamm:
 libgdamm: libgdamm provides C++ wrappers for libgda for use with gtkmm. 
 libgdamm:
