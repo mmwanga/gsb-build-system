@@ -12,7 +12,7 @@ VERSION=2.12.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="pango cairo glib2 libpng libjpeg libtiff libXrender xproto renderproto libX11 kbproto libXau libXdmcp libxcb libpthread-stubs libXext cups inputproto libXi"
+REQUIRED_PACKAGES="pango cairo glib2 libpng libjpeg libtiff libXrender xproto renderproto libX11 kbproto libXau libXdmcp libxcb libpthread-stubs libXext cups inputproto libXi libXinerama libXrandr"
  
 ## Build variables.
 ARCH=${ARCH:-i586}

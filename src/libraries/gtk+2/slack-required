@@ -15,5 +15,5 @@ libxcb
 libpthread-stubs
 libXext
 libXi
-cups
-inputproto
+libXinerama
+libXrandr

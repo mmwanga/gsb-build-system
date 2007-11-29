@@ -1,3 +1,13 @@
 cairo
 glib2
 fontconfig
+libXft
+freetype
+libXrender
+libX11
+libXau
+libXdmcp
+libxcb
+libpthread-stubs
+libXext
+libXi

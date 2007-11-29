@@ -34,7 +34,7 @@ BUILD=1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 libvisual subversion"
+REQUIRED_PACKAGES="gtk+2 libvisual subversion yasm"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
