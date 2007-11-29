@@ -78,7 +78,7 @@ do
   echo "*************************************************"
   echo "**** Building section: $SECTION"
   echo "*************************************************"
-  ( cd $SECTION ; ./gsb.$SECTION.SlackBuild $SLACKBUILD_ARGS || exit 1)
+  ( cd $SECTION ; ./gsb.$SECTION.SlackBuild $SLACKBUILD_ARGS || exit 1) || exit 1
 done
 
 echo
