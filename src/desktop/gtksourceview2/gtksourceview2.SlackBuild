@@ -69,7 +69,7 @@ done
     return $?
   }
 
-  check_installed "$PKGNAME" && {
+  check_installed "$GSBPKGNAME" && {
     echo "${0##*/}: Remove installed '$GSBPKGNAME' package before build."
     exit 1
   }
