@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.20.1
+VERSION=2.20.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -162,8 +162,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   || exit 1
 
 ## Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+make &&
+make DESTDIR=$PKG install || exit 1
 
 ##
 ## Keep clean for Scrollkeeper

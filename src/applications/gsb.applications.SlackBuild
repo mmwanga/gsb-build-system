@@ -329,7 +329,7 @@ fi; # If not Forced
 
 # Seperate package into appropriate section
 mkdir -p $PKGDEST/$SECTION
-mv -f $PKGDEST/${PACKAGE}-${GSB_VERSION}*.tgz $PKGDEST/$SECTION > /dev/null 2>&1 ;
+mv -f $PKGDEST/${PACKAGE}-${GSB_VERSION//-/_}*.tgz $PKGDEST/$SECTION > /dev/null 2>&1 ;
 
 done;
 # Main loop

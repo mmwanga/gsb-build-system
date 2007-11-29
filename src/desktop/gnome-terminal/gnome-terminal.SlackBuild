@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.18.2
+VERSION=2.18.3
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glib2 gnome-keyring gnome-vfs gtk+2 avahi libglade libgnome libgnomecanvas libgnomeui libxml2 openssl ORBit2 startup-notification vte" 
+REQUIRED_PACKAGES="glib2 gnome-keyring gnome-vfs gtk+2 avahi libglade libgnome libgnomecanvas libgnomeui libxml2 openssl ORBit2 startup-notification vte libXft fontconfig" 
 
 ## Build variables.
 ARCH=${ARCH:-i586}

@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.0.0.8
+VERSION=2.0.0.9
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -201,7 +201,6 @@ echo
   --disable-installer  \
   --enable-pango  \
   --enable-strip  \
-  --disable-canvas  \
   --enable-xft  \
   --with-x  \
   --with-system-nss \

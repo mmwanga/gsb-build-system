@@ -12,3 +12,5 @@ openssl-solibs | openssl
 ORBit2
 startup-notification
 vte
+libXft
+fontconfig
