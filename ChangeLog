@@ -2,7 +2,28 @@ ChangeLog
 ---------
 
 28-11-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * libraries: Requirement updates for gtk+2 and pango (for Xft
+      support, required by gnome-terminal)
+	  Fix for openal binary prefix.
+	  Fix for openldap cleanup routine.
+	  Added libtool finish routine for transcode plugins.
+	  Added yasm to x264 build requirements.
+	* gsb: GNOME 2.20.2 version updates.
+	* desktop: Downgraded gst-plugins-good to 0.10.5 (libmusicbrainz error)
+	  Bumped versions for gnome-panel, gnome-desktop, gnome-python,
+	  gnome-themes, evolution-data-server, gnome-terminal, gnome-menus,
+	  libwnck, gtkhtml
+	  Fix for gtksourceview2 slackbuild.
+	* platform: Updated gail and libsoup versions.
+	* applications: Version updates for evolution, gob2, gedit, 
+	  mozilla-firefox, evolution-exchange, epiphany, file-roller
+	* accessibility: Version updates for gok
+	
+28-11-2007  fidesratio <sk238(at)ex.ac.uk>	
+	* tagfiles: Small fixes for tagfiles.
+	* src: Added gsb.options.sample (for convenience)
     * office: Downgraded to stable libgda 3.0.1 and libgnomedb 3.0.0
+	* applications: Bump mozilla-firefox to 2.0.0.9
 	* libraries: Updated gtk+2 requirements
 	  Small fix for doinst.sh in pango.
 	  Fix for ffmpeg configuration in SlackBuild (for fPIC on x86_64)

@@ -22,10 +22,10 @@ our %double_tarballs_url =
                          'var' => 'VERSION',
                         },
    'mozilla-firefox'  => {
-			 'ver' => '2.0.0.8',
+			 'ver' => '2.0.0.9',
 			 'dir' => 'applications/mozilla-firefox',
-			 'url' => 'http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.8/source/',
-			 'tar' => 'firefox-2.0.0.8-source.tar.bz2',
+			 'url' => 'http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.9/source/',
+			 'tar' => 'firefox-2.0.0.9-source.tar.bz2',
 			 'var' => 'VERSION',
 			 },
    'nss'               => {

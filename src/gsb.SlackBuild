@@ -1,5 +1,5 @@
 #!/bin/bash
-# Version: 1.0 GSB.
+# Version: 1.1 GSB.
 # Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
 #
 # Licenced under the terms of the GNU General Public Licence version 3.
@@ -21,6 +21,11 @@ Options:  -force	The package will not be built if a package of the same
 			only be used for testing individual SlackBuilds as it
 			WILL cause serious problems - some package builds may
 			rely on another package being auto installed first.
+          -update       This switch will make the build script test each package
+                        version as defined in the SlackBuild script against the
+                        currently installed package.  If there is a difference,
+                        the script will remove, rebuild, and reinstall the 
+                        package. It cannot be used with the -force switch.
 	  -help		Show this help screen.
 
 	Options are passed down to the next level SlackBuild where appropriate.
@@ -40,6 +45,11 @@ export LOGSDIR=${GSB_LOGSDIR:-$TMP/gsb-buildlogs}
 # Parse command line arguments.
 while [ $# -gt 0 ]; do
   if [ "$1" = "-force" ]; then
+    if [ "$UPDATE" = "1" ]; then
+       echo "${0#*/}: The switches -force and -update are mutually exclusive."
+       exit 1;
+    fi;
+    FORCE=1
     SLACKBUILD_ARGS="$SLACKBUILD_ARGS -force"
     shift
   elif [ "$1" = "-no-cleanup" ]; then
@@ -47,6 +57,14 @@ while [ $# -gt 0 ]; do
     shift
   elif [ "$1" = "-no-install" ]; then
     SLACKBUILD_ARGS="$SLACKBUILD_ARGS -no-install"
+    shift
+  elif [ "$1" = "-update" ]; then
+    if [ "$FORCE" = "1" ]; then
+       echo "${0#*/}: The switches -force and -update are mutually exclusive."
+       exit 1;
+    fi;
+    UPDATE=1
+    SLACKBUILD_ARGS="$SLACKBUILD_ARGS -update"
     shift
   elif [ "$1" = "-help" ]; then
     usage
@@ -71,14 +89,22 @@ echo
 echo "*************************************************"
 echo "** Building GSB"
 echo "*************************************************"
+GSB_PWD=$(pwd)
 for SECTION in tools libraries platform desktop applications accessibility \
                  bindings office mono extras themes
 do
+  cd $GSB_PWD || exit 1
   echo
   echo "*************************************************"
   echo "**** Building section: $SECTION"
   echo "*************************************************"
-  ( cd $SECTION ; ./gsb.$SECTION.SlackBuild $SLACKBUILD_ARGS || exit 1) || exit 1
+  if [ ! -d $SECTION ]; then
+     echo "Cannot find section $SECTION.";
+     exit 1;
+  else
+   cd ${GSB_PWD}/${SECTION} && \
+  ./gsb.$SECTION.SlackBuild $SLACKBUILD_ARGS || exit 1
+  fi;
 done
 
 echo

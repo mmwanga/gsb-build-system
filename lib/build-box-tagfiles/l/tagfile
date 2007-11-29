@@ -44,7 +44,7 @@ libart_lgpl: ADD
 libcaca: ADD
 libexif: ADD
 libglade: ADD
-libgpod: ADD
+libgpod: SKP
 libgsf: ADD
 libgtkhtml: ADD
 libid3tag: ADD

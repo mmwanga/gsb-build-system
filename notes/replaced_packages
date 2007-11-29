@@ -7,6 +7,7 @@ gtk+2 ( >= 2.12 required for libgnomeui 2.20)
 
 -- Optional Updates (for optional applications)
 
+libgpod (a much older version supplied with Slackware; rhythmbox wants a newer version)
 openldap-client (ntlm patch for evolution-data-server 1.18 for exchange support)
 mozilla-firefox (rebuild for shared libraries needed by epiphany/yelp)
 shared-mime-info ( >= 0.22 needed by totem)

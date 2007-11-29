@@ -200,6 +200,7 @@ echo
   --with-system-jpeg \
   --disable-installer  \
   --enable-pango  \
+  --disable-canvas \
   --enable-strip  \
   --enable-xft  \
   --with-x  \

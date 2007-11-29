@@ -19,7 +19,7 @@ our %accessibility_gnome =
    'gnome-mag'              => '0.14.10',
    'gnome-speech'           => '0.4.16',
    'gnopernicus'            => '1.1.2',
-   'gok'                    => '1.3.4',
+   'gok'                    => '1.3.7',
    'orca'                   => '2.20.2',
    );
 

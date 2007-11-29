@@ -21,7 +21,7 @@ our %gstreamer =
                            'src' => 'tar.bz2',
                           },
    'gst-plugins-good'  => {
-                           'ver' => '0.10.6',
+                           'ver' => '0.10.5',
                            'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-good/',
                            'src' => 'tar.bz2',
                           },

@@ -16,7 +16,7 @@ our $VERSION   = 0.03;
 
 our %platform =
   (
-   'gail'                => '1.20.1',
+   'gail'                => '1.20.2',
    'GConf'               => '2.20.0',
    'gnome-common'        => '2.20.0',
    'gnome-icon-theme'    => '2.20.0',
@@ -32,7 +32,7 @@ our %platform =
    'libgnomecanvas'      => '2.20.1.1',
    'libgnomeui'          => '2.20.1.1',
    'liboobs'             => '2.20.0',
-   'libsoup'             => '2.2.103',
+   'libsoup'             => '2.2.104',
    'NetworkManager'      => '0.6.5',
    'ORBit2'              => '2.14.9',
    'pygobject'           => '2.14.0',

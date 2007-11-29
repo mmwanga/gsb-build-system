@@ -155,6 +155,12 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
+
+if [ "$ARCH" = "x86_64" ]; then
+  echo "Changing python paths for x86_64."
+  sed -i "s/lib\/python/lib64\/python/g" $TMP/$PKGNAME-$VERSION/configure ;
+fi; 
+
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
