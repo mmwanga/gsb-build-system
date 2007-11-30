@@ -2,7 +2,7 @@
 Name=Firefox
 Comment=Web Browser
 Exec=/usr/bin/firefox
-Icon=/usr/share/pixmaps/firefox-icon.png
+Icon=/usr/share/pixmaps/mozilla-firefox.png
 Terminal=0
 Type=Application
 Categories=Application;Network;
