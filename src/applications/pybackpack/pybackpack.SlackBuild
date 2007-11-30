@@ -12,7 +12,7 @@ VERSION=0.5.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="pygtk gnome-python-desktop python"
+REQUIRED_PACKAGES="pygtk gnome-python-desktop python librsync rdiff-backup"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

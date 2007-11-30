@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=1.7.14
+VERSION=0.6.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libbonoboui libgsf goffice gtk+2 glib2 libgda pango cairo libgnome libgnomeui python perl pygtk libgnomedb libglade libgnomeprintui ORBit2 libgail-gnome"
+REQUIRED_PACKAGES="compiz"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -161,11 +161,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static --enable-shared \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
-  --with-python \
-  --with-perl \
-  --with-psiconv \
-  --with-gb \
-  --with-gda \
   || exit 1
 
 ## Build and install.

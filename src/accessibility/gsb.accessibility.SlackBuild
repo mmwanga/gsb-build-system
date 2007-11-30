@@ -158,6 +158,7 @@ BUILD_ORDER="
      gok
      gnopernicus
      orca
+     libgail-gnome
 		"
 
 #

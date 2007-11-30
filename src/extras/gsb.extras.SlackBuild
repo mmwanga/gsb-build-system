@@ -169,8 +169,6 @@ BUILD_ORDER="
      streamripper
      sylpheed
      deluge
-     fuse
-     compiz
      dvdrip
      vcdimager
      MPlayer

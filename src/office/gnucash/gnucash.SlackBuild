@@ -21,9 +21,11 @@ If you would like the latest code for this package, please make sure to
 run "svn update" before compiling.  This build script will not update
 the repository automatically (in case specific revisions are wanted.)
 
-***** Note ************
+***** Notes ************
 
-This script is intended to be run from a working svn copy.
+* This script is intended to be run from a working svn copy.
+
+* You must be connected to the internet and able to reach svn.gnucash.org.
 
 ***********************
 
@@ -34,7 +36,7 @@ BUILD=1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glib2 gtk+2 guile slib libofx ORBit2 libgnomeui libbonoboui pango cairo libgnomecanvas gnome-vfs libglade goffice gail GConf gtkhtml libgnomeprintui atk swig"
+REQUIRED_PACKAGES="glib2 gtk+2 guile slib libofx ORBit2 libgnomeui libbonoboui pango cairo libgnomecanvas gnome-vfs libglade goffice gail GConf gtkhtml libgnomeprintui atk swig texinfo"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

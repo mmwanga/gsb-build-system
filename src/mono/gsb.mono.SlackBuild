@@ -159,6 +159,7 @@ BUILD_ORDER="
    mono-tools
    monodevelop
    evolution-sharp
+   gmime-sharp
    beagle
    tomboy
    f-spot

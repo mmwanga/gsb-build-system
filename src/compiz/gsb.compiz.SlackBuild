@@ -24,7 +24,7 @@ export LOGSDIR=${GSB_LOGSDIR:-$TMP/gsb-buildlogs}
 export PKGDEST=${PKGDEST:-$TMP/gsb-packages}
 
 # Section Name
-SECTION=applications
+SECTION=compiz
 
 # 
 # Functions 
@@ -136,12 +136,10 @@ mkdir -p $TMP
 mkdir -p $LOGSDIR
 
 #
-# GNOME Applications
+# Compiz
 #
-# These are packages are what give the GNOME Desktop
-# wider and fuller functionality. 
-#
-# http://www.gnome.org/start/2.20/notes/en/index.html#rninstallation
+# These packages provide a compositing window manager and fancy effects
+# for your GNOME desktop.
 # 
 
 #
@@ -151,69 +149,13 @@ mkdir -p $LOGSDIR
 # Packages must be listed here in the order they should be built.
 
 BUILD_ORDER=" 
-       mozilla-firefox
-       yelp
-       eog
-       gnome-media
-       sound-juicer
-       file-roller
-       gnome-python-desktop
-       epiphany
-       epiphany-extensions
-       totem
-       network-manager-applet
-       gnome-utils
-       glibmm
-       cairomm
-       gtkmm
-       gnomebaker
-       gnome-system-monitor
-       gnome-netstatus
-       zenity
-       gob2
-       gnome-games
-       gnome-user-docs
-       gnome-system-tools
-       gnome-nettool
-       vino
-       gnome-volume-manager
-       gnome-backgrounds
-       gnome-pilot
-       gnome-pilot-conduits
-       gnome-bluetooth
-       gnome-spell
-       gcalctool
-       gnokii
-       evolution
-       gnome-power-manager
-       gnome-phone-manager
-       poppler
-       poppler-data
-       evince
-       librsync
-       rdiff-backup
-       pybackpack
-       gst-python
-       gst-plugins-bad
-       evolution-webcal
-       evolution-exchange
-       ekiga
-       alacarte
-       gnome-commander
-       gthumb
-       rhythmbox
-       enchant
-       deskbar-applet
-       pygtksourceview
-       gedit
-       gedit-plugins
-       nautilus-sendto
-       seahorse
-       gnome-user-share
-       gdm
-       libgksu
-       gksu
-		"
+    fuse
+    compiz
+    compiz-bcop
+    libcompizconfig
+    compiz-fusion-plugins-main
+    compiz-manager
+"
 
 #
 # MAIN BUILD 

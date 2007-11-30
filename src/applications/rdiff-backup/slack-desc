@@ -1,0 +1,12 @@
+            |-----handy-ruler------------------------------------------------------|
+rdiff-backup: rdiff-backup (Remote Incremental Backup)
+rdiff-backup: 
+rdiff-backup: rdiff-backup backs up one directory to another, even over a network,  
+rdiff-backup: combining the best features of a mirror and an incremental backup. 
+rdiff-backup: rdiff-backup also preserves subdirectories, hard links, dev files, 
+rdiff-backup: permissions, uid/gid ownership, modification times, extended 
+rdiff-backup: attributes, acls, and resource forks. You can use rdiff-backup and ssh 
+rdiff-backup: to securely back a hard drive up to a remote location, and only the 
+rdiff-backup: differences will be transmitted. rdiff-backup is easy to use and the
+rdiff-backup: settings have sensical defaults.
+rdiff-backup: 
