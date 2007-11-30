@@ -175,6 +175,17 @@ if [ -f $PKG/usr/${GSB_LIBDIR:-lib}/pkgconfig/xgnokii.pc ]; then
   mv $PKG/usr/${GSB_LIBDIR:-lib}/pkgconfig/xgnokii.pc $PKG/usr/${GSB_LIBDIR:-lib}/pkgconfig/gnokii.pc || exit 1
 fi;
 
+# Install rc
+mkdir -p $PKG/etc/udev/rules.d
+cp $TMP/$PKGNAME-$VERSION/Docs/sample/gnokiirc $PKG/etc/gnokiirc.new
+cp $TMP/$PKGNAME-$VERSION/Docs/sample/45-nokiadku2.rules $PKG/etc/udev/rules.d/45-nokiadku2.rules.new
+
+# Install gnome icon
+mkdir -p $PKG/usr/share/applications
+mkdir -p $PKG/usr/share/pixmaps
+cp -a $CWD/gnome/gnokii.png $PKG/usr/share/pixmaps
+cp -a $CWD/gnome/xgnokii.desktop $PKG/usr/share/applications
+
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
