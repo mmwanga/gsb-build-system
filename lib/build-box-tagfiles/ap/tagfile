@@ -49,7 +49,7 @@ seejpeg: ADD
 sox: ADD
 sudo: ADD
 sysstat: SKP
-texinfo: SKP
+texinfo: ADD
 vim: ADD
 vorbis-tools: ADD
 workbone: SKP
