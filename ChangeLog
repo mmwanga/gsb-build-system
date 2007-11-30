@@ -1,90 +1,105 @@
 ChangeLog
 ---------
 
-28-11-2007  fidesratio <sk238(at)ex.ac.uk>	
+30-11-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * applications: Updated mozilla-firefox to 2.0.0.10. 
+      (Security fixes for MFSA2007-39, MFSA2007-38, MFSA2007-37.)  
+      See http://www.mozilla.org/projects/security/known-vulnerabilities.html.
+	  Fix for gnokii, adding nice gnome icon and proper udev rules.
+	  Add rdiff-backup for pybackpack.
+	  Add librsync for rdiff-backup.
+	* mono: Added gmime-sharp for beagle (Slackware 12 gmime doesn't 
+	   come with bindings) This package only builds the mono bindings, 
+	   and does not need to replace the whole Slackware gmime.
+	* compiz: Move extras/compiz to compiz, and added a whole 
+	  compiz-fusion suite.
+	  Added new Compiz.pm for download scripts, and updated gsb_update.pl 
+	  accordingly.
+	
+29-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * libraries: Requirement updates for gtk+2 and pango (for Xft
       support, required by gnome-terminal)
-	  Fix for openal binary prefix.
-	  Fix for openldap cleanup routine.
-	  Added libtool finish routine for transcode plugins.
-	  Added yasm to x264 build requirements.
-	* gsb: GNOME 2.20.2 version updates.
-	* desktop: Downgraded gst-plugins-good to 0.10.5 (libmusicbrainz error)
-	  Bumped versions for gnome-panel, gnome-desktop, gnome-python,
-	  gnome-themes, evolution-data-server, gnome-terminal, gnome-menus,
-	  libwnck, gtkhtml
-	  Fix for gtksourceview2 slackbuild.
-	* platform: Updated gail and libsoup versions.
-	* applications: Version updates for evolution, gob2, gedit, 
-	  mozilla-firefox, evolution-exchange, epiphany, file-roller
-	* accessibility: Version updates for gok
+      Fix for openal binary prefix.
+      Fix for openldap cleanup routine.
+      Added libtool finish routine for transcode plugins.
+      Added yasm to x264 build requirements.
+    * gsb: GNOME 2.20.2 version updates.
+    * desktop: Downgraded gst-plugins-good to 0.10.5 (libmusicbrainz error)
+      Bumped versions for gnome-panel, gnome-desktop, gnome-python,
+      gnome-themes, evolution-data-server, gnome-terminal, gnome-menus,
+      libwnck, gtkhtml
+      Fix for gtksourceview2 slackbuild.
+    * platform: Updated gail and libsoup versions.
+    * applications: Version updates for evolution, gob2, gedit, 
+      mozilla-firefox, evolution-exchange, epiphany, file-roller
+    * accessibility: Version updates for gok
 	
 28-11-2007  fidesratio <sk238(at)ex.ac.uk>	
-	* tagfiles: Small fixes for tagfiles.
-	* src: Added gsb.options.sample (for convenience)
+    * tagfiles: Small fixes for tagfiles.
+    * src: Added gsb.options.sample (for convenience)
     * office: Downgraded to stable libgda 3.0.1 and libgnomedb 3.0.0
-	* applications: Bump mozilla-firefox to 2.0.0.9
-	* libraries: Updated gtk+2 requirements
-	  Small fix for doinst.sh in pango.
-	  Fix for ffmpeg configuration in SlackBuild (for fPIC on x86_64)
-	* sections: Minor fixes to section builds to properly segment
-	  packages.
+    * applications: Bump mozilla-firefox to 2.0.0.9
+    * libraries: Updated gtk+2 requirements
+      Small fix for doinst.sh in pango.
+      Fix for ffmpeg configuration in SlackBuild (for fPIC on x86_64)
+    * sections: Minor fixes to section builds to properly segment
+      packages.
 
 27-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * extras: Update compiz reqs.
-	  Added fuse for compiz.
-	* applications: Bump evince, gdm, gnome-games to 2.20.2.
+    Added fuse for compiz.
+    * applications: Bump evince, gdm, gnome-games to 2.20.2.
 
 26-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * web: Update about page.
-	* applications: Bumped version for eog, zenity, deskbar-applet
-	  Regressed verion for gnome-phone-manager to 0.3 
-	   until I can figure out why the compile breaks with the latest gnokii
-	* mono: Regressed version of tomboy to stable 0.8.2.
-	* sections: Small fix for version which include a "-"
-	* libraries: Bump gtk+2 version to 2.12.2
+    * applications: Bumped version for eog, zenity, deskbar-applet
+      Regressed verion for gnome-phone-manager to 0.3 
+      until I can figure out why the compile breaks with the latest gnokii
+    * mono: Regressed version of tomboy to stable 0.8.2.
+    * sections: Small fix for version which include a "-"
+    * libraries: Bump gtk+2 version to 2.12.2
 
 25-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * sections: Update (temporarily) to my "1.2" GSB section builds.
-	    This is just for my own convenience and testing, and updating.
-		Still waiting for Tadgy's new and improved section builds.  :^)
-	* applications: Bump gnokii version.
-	  Bump gnome-keyring version to 2.20.2
-	* office: Fix for slib non-x86_64 paths
+      This is just for my own convenience and testing, and updating.
+      Still waiting for Tadgy's new and improved section builds.  :^)
+    * applications: Bump gnokii version.
+      Bump gnome-keyring version to 2.20.2
+    * office: Fix for slib non-x86_64 paths
     * perl: Update Extras.pm (general cleanup, and version/URL updates)
-	  Update gsb_update.pl to grab extras.
-	* extras: Bump to brasero 0.6.90
+      Update gsb_update.pl to grab extras.
+    * extras: Bump to brasero 0.6.90
 
 24-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * mono: Fix gtksourviewsharp-mono in svn commits. (thanks to RadioHead) 
-	* office: Add swig (needed for building svn gnucash, but not a runtime
-	   requirement)
-	  Changed gnucash to 2.2 (stable) svn branch. (external fetch); many
-	    improvements to gnucash since 2.2.1 release in svn branch (notably
-		goffice >= 0.5.2 support).  This is easier than creating a svn
-		changeset patch for the release tarball.
-	* libraries: glib2 version bump to 2.14.4.
-	* extras: Add gdesklets.
+    * office: Add swig (needed for building svn gnucash, but not a runtime
+      requirement)
+      Changed gnucash to 2.2 (stable) svn branch. (external fetch); many
+      improvements to gnucash since 2.2.1 release in svn branch (notably
+      goffice >= 0.5.2 support).  This is easier than creating a svn
+      changeset patch for the release tarball.
+    * libraries: glib2 version bump to 2.14.4.
+    * extras: Add gdesklets.
 
 22-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * office: Removed GConf from goffice reqs.
 
 20-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * extras: Fix common.py install path for deluge.
-	  Removed mplayer svn and switched to MPlayer-rc2.  Added custom configs
-	    and subfont.
-	  Added default skin to mplayer.
-	  Update devede SlackBuild.
-	* web: Update about web page.
-	* office: Add binreloc to libgnomedb.
+      Removed mplayer svn and switched to MPlayer-rc2.  Added custom configs
+      and subfont.
+      Added default skin to mplayer.
+      Update devede SlackBuild.
+    * web: Update about web page.
+    * office: Add binreloc to libgnomedb.
 
 20-11-2007  fidesratio <sk238(at)ex.ac.uk>	
-    * mono: Minor fixes to mono-tools.  Add doinst.sh.
-	  Add file preserves for mono.
-	  Update build order.
-	  Update monodevelop.
-	* extras: Add grip.
-	  Add mplayer, devede, vcdimager, dvdauthor.
+* mono: Minor fixes to mono-tools.  Add doinst.sh.
+  Add file preserves for mono.
+  Update build order.
+  Update monodevelop.
+* extras: Add grip.
+  Add mplayer, devede, vcdimager, dvdauthor.
 
 19-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * mono: Add proper pkgconfig links for gecko-sharp.

@@ -1,4 +1,4 @@
-mozilla-firefox 2.0.0.8 doesn't seem to want to build with canvas support. 
+mozilla-firefox 2.0.0.10 doesn't seem to want to build with canvas support. 
 
 liboil cannot be build with hyper-optimization, else the resulting library can 
 cause segfaults. (Noticed with gstreamer plugins)
@@ -7,5 +7,3 @@ libdvdcss: With tetex installed, building may stall on the documentation on
 Slackware 12; it stalls with some unicode problems.  
 
 NetworkManager 0.7 (due soon as of October 14,2007) obsoletes dhcddb.
-
-atk on slamd64 broken.  libtool files incorrectly point to lib rather than lib64.

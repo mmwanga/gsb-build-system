@@ -129,6 +129,16 @@ our %applications =
 			 'ver' => '0.5.1',
 			 'src' => 'tar.gz',
 			},
+   'rdiff-backup'         => {
+			 'url' => 'http://savannah.nongnu.org/download/rdiff-backup',
+			 'ver' => '1.0.5',
+			 'src' => 'tar.gz',
+			},
+   'librsync'         => {
+			 'url' => 'http://downloads.sourceforge.net/librsync',
+			 'ver' => '0.9.7',
+			 'src' => 'tar.gz',
+			},
   );
 
 

@@ -35,11 +35,6 @@ our %extras =
 			     'url' => 'http://balsa.gnome.org',
 			     'src' => 'tar.bz2',
 			    },
-   'compiz'              => {
-                 'ver' => '0.5.2',
-                 'url' => 'http://xorg.freedesktop.org/archive/individual/app',
-                 'src' => 'tar.gz',
-                            },
    'deluge'              => {
                  'ver' => '0.5.6.2',
                  'url' => 'http://download.deluge-torrent.org/tarball/0.5.6.2',
@@ -65,11 +60,6 @@ our %extras =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/easytag',
 			     'src' => 'tar.bz2',
 			    },
-   'fuse'              => {
-                 'ver' => '2.7.1',
-                 'url' => 'http://downloads.sourceforge.net/fuse',
-                 'src' => 'tar.gz',
-                            },
    'gDesklets'           => {
 			     'ver' => '0.35.4',
 			     'url' => 'http://www.gdesklets.de/files/',
@@ -98,7 +88,7 @@ our %extras =
    'gtkam'               => {
 			     'ver' => '0.1.14',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto',
-			     'src' => 'tar.gz',
+			     'src' => 'tar.bz2',
 			    },
    'gtkpod'              => {
 			     'ver' => '0.99.10',

@@ -22,10 +22,10 @@ our %double_tarballs_url =
                          'var' => 'VERSION',
                         },
    'mozilla-firefox'  => {
-			 'ver' => '2.0.0.9',
+			 'ver' => '2.0.0.10',
 			 'dir' => 'applications/mozilla-firefox',
-			 'url' => 'http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.9/source/',
-			 'tar' => 'firefox-2.0.0.9-source.tar.bz2',
+			 'url' => 'http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.10/source/',
+			 'tar' => 'firefox-2.0.0.10-source.tar.bz2',
 			 'var' => 'VERSION',
 			 },
    'nss'               => {
@@ -75,6 +75,13 @@ our %double_tarballs_url =
                          'ver' => '0.97',
 			 'dir' => 'tools/scons',
 			 'tar' => 'scons-0.97.tar.gz',
+                         'var' => 'VERSION',
+                        },
+   'gmime-sharp'            => {
+                         'url' => 'ftp://ftp.gnome.org/pub/GNOME/sources/gmime/2.2',
+                         'ver' => '2.2.9',
+			 'dir' => 'mono/gmime-sharp',
+			 'tar' => 'gmime-2.2.9.tar.bz2',
                          'var' => 'VERSION',
                         },
   );

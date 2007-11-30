@@ -21,6 +21,7 @@ our %accessibility_gnome =
    'gnopernicus'            => '1.1.2',
    'gok'                    => '1.3.7',
    'orca'                   => '2.20.2',
+   'libgail-gnome'          => '1.20.0',
    );
 
 #

@@ -35,6 +35,7 @@ use GSB::Edit;
 use GSB::GSB;
 use GSB::Verify;
 
+# GSB Source Tarballs
 use GSB::DoubleTar;
 use GSB::Libraries;
 use GSB::Platform;
@@ -45,6 +46,7 @@ use GSB::Bindings;
 use GSB::Mono;
 use GSB::Office;
 use GSB::Extras;
+use GSB::Compiz;
 
 use GSB::Desktop_Reqs;
 use GSB::GStreamer;
@@ -601,34 +603,6 @@ foreach my $omono_pack (keys %mono) {
   }
 }
 
-# GNOME Office
-foreach my $gmono_pack (keys %mono_gnome) {
-
-  my $name    = $gmono_pack;
-  my $ver     = $mono_gnome{$name};
-
-  my $sb_file = $name . $sb_ext;
-  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
-
-  chdir "$pwd/mono/$name";
-
-  if ( $download eq "true" ) {
-    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name,);
-  }
-}
-
 # Extra Applications found on GNOME Source Tree
 
 foreach my $other_pack (keys %extras_gnome) {
@@ -660,7 +634,6 @@ foreach my $other_pack (keys %extras_gnome) {
 
 # Extra applications for GSB GNOME Desktop
 # found outside the regular GNOME Tree
-
 foreach my $opackage (keys %extras) {
 
   chdir "$pwd/extras/$opackage";
@@ -691,6 +664,36 @@ foreach my $opackage (keys %extras) {
   }
 }
 
+# Compiz modules 
+foreach my $cpackage (keys %compiz) {
+
+  chdir "$pwd/compiz/$cpackage";
+  my $name    = $cpackage;
+  my $sb_file = $name . $sb_ext;
+  my $packurl = $compiz{$name}{url};
+  my $ver     = $compiz{$name}{ver};
+  my $src     = $compiz{$name}{src};
+  my $type    = "other";
+
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+  
+  if ( $download eq "true") {
+      my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+      GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $src, $url);
+  }
+  
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+  
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+  
+  if ( ! -f $tarball ) { 
+    push(@bad_downloads, $name);
+  }
+}
 
 # DONE DOWNLOADING
 

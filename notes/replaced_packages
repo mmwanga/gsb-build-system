@@ -1,17 +1,33 @@
--- Required Updates
+#
+# The following is a list of packages that can replace
+# official Slackware packages.
+#
+# Packages listed under 'Required' must be upgraded in order
+# to use GNOME 2.20 on Slackware 12.  Reasons for their upgrade
+# are given within brackets.
+#
+# Packages listed under 'Optional' are packages which replace 
+# official Slackware packages, but are only necessary for added
+# functionality, or optional GNOME applications.  Notes are
+# provided in brackets.
+#
+# List last updated: November 30, 2007 (stevek)
 
-gnome-icon-theme ( >= 2.20 for gnome-desktop 2.20)
-glib2 ( > 2.14 required by gtk+2 2.12)
-pango ( > 1.18 required by gtk+2 2.12)
-gtk+2 ( >= 2.12 required for libgnomeui 2.20)
+-- Required Updates for GNOME 2.20 --
 
--- Optional Updates (for optional applications)
+gnome-icon-theme: ( >= 2.20 for gnome-desktop 2.20)
+glib2:            ( > 2.14 required by gtk+2 2.12)
+pango:            ( > 1.18 required by gtk+2 2.12)
+gtk+2:            ( >= 2.12 required for libgnomeui 2.20.0)
 
-libgpod (a much older version supplied with Slackware; rhythmbox wants a newer version)
-openldap-client (ntlm patch for evolution-data-server 1.18 for exchange support)
-mozilla-firefox (rebuild for shared libraries needed by epiphany/yelp)
-shared-mime-info ( >= 0.22 needed by totem)
-poppler ( >= 0.6.1 for evince 2.20)
-poppler-data (for poppler >= 0.6.1)
-gimp (2.2 in Slackware 12, however, 2.4.1 is latest GIMP Stable Series)
-libgsf (for goffice-0.5, and gnumeric-1.7)
+-- Optional Updates (for optional applications) 
+
+libgpod:          (A much older version supplied with Slackware; Rhythmbox wants a newer version)
+openldap-client:  (NTLM patch for evolution-data-server 1.12 for Microsoft Exchange support)
+mozilla-firefox:  (Rebuild for shared libraries needed by Epiphany/Yelp)
+shared-mime-info: (Totem requires version >= 0.22)
+poppler:          ( >= 0.6.1 for evince 2.20)
+poppler-data:     (For poppler >= 0.6.1)
+gimp:             (2.2 comes in Slackware 12; however, 2.4.1 is latest GIMP Stable Series)
+compiz:           (0.4.1 with Slackware 12, latest developement version if 0.6.0 for compiz-fusion)
+libgsf:           (Updated version needed for Goffice, and Gnumeric)
