@@ -1,6 +1,9 @@
 ChangeLog
 ---------
 
+31-11-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * applications: Son of a.  Update to mozilla-firefox to 2.0.0.11.
+
 30-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * applications: Updated mozilla-firefox to 2.0.0.10. 
       (Security fixes for MFSA2007-39, MFSA2007-38, MFSA2007-37.)  
