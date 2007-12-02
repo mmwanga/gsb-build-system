@@ -167,6 +167,7 @@ BUILD_ORDER="
      psiconv
      gnumeric
      gtkspell
+     glade3
      gnome-python-extras
      python-xlib
      istanbul

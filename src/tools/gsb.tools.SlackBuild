@@ -147,6 +147,7 @@ mkdir -p $LOGSDIR
 
 BUILD_ORDER=" 
         scons
+        cabextract
 		"
 
 #

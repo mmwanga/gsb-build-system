@@ -5,7 +5,6 @@
 #
 # TODO:
 #
-#   - Themes.pm: themes for gnome-extra-themes need to be auto downloaded
 #   - Verify.pm: add md5 and gpg checking of src tarballs
 #   - add perl bindings to auto download
 #   - add a --option to remove build string
@@ -47,12 +46,9 @@ use GSB::Mono;
 use GSB::Office;
 use GSB::Extras;
 use GSB::Compiz;
-
-use GSB::Desktop_Reqs;
-use GSB::GStreamer;
-use GSB::Gnome;
-use GSB::Ruby;
+use GSB::Fonts;
 use GSB::Themes;
+use GSB::Tools;
 
 use Cwd;
 
@@ -124,6 +120,81 @@ foreach my $dtu (keys %double_tarballs_url) {
   my $ver     = $double_tarballs_url{$dtu}{ver};
   my $tarball = $double_tarballs_url{$dtu}{tar};
   my $packurl = $double_tarballs_url{$dtu}{url};
+  my $type    = 'other';
+
+  chdir "$pwd/$dir";
+
+  my @tmp = split(/\//, $dir);
+  my $sb  = pop(@tmp);
+
+  my $sb_file = $sb . $sb_ext;
+
+  if ( $download eq "true") {
+    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_double_edit($sb_file, $ver, $var);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
+# Download Tools
+foreach my $tool (keys %tools) {
+
+  my $name    = $tool;
+
+  my $dir     = $tools{$tool}{dir};
+  my $var     = $tools{$tool}{var};
+  my $ver     = $tools{$tool}{ver};
+  my $tarball = $tools{$tool}{tar};
+  my $packurl = $tools{$tool}{url};
+  my $type    = 'other';
+
+  chdir "$pwd/$dir";
+
+  my @tmp = split(/\//, $dir);
+  my $sb  = pop(@tmp);
+
+  my $sb_file = $sb . $sb_ext;
+
+  if ( $download eq "true") {
+    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_double_edit($sb_file, $ver, $var);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
+
+# Download Microsoft TrueType core fonts
+foreach my $font (keys %fonts) {
+
+  my $name    = $font;
+
+  my $dir     = $fonts{$font}{dir};
+  my $var     = $fonts{$font}{var};
+  my $ver     = $fonts{$font}{ver};
+  my $tarball = $fonts{$font}{tar};
+  my $packurl = $fonts{$font}{url};
   my $type    = 'other';
 
   chdir "$pwd/$dir";
@@ -695,36 +766,40 @@ foreach my $cpackage (keys %compiz) {
   }
 }
 
-# DONE DOWNLOADING
+# Download other themes
+foreach my $otheme (keys %other_themes) {
 
-if ( $download eq "true" ) {
-    if ( ! @bad_downloads eq "" ) {
-	print "\nThe following packages could not be downloaded:\n\n";
+  my $name = $otheme;
 
-	foreach my $bad_pack (@bad_downloads) {
-	    print "$bad_pack\n";
-	}
-	print "\n";
-    }else {
-	print "\nEverything downloaded successfully!\n\n";
-    }
+  my $sb_file = $name . $sb_ext;
+  my $packurl = $other_themes{$name}{url};
+  my $ver     = $other_themes{$name}{ver};
+  my $src     = $other_themes{$name}{src};
+  my $type    = "other";
+
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+
+  chdir "$pwd/themes/$name";
+
+  if ( $download eq "true" ) {
+    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name );
+  }
 }
 
-exit(0);
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Download themes from ftp.gnome.org
+# Download themes from GNOME
 foreach my $gtheme (keys %gnome_themes) {
 
   my $name = $gtheme;
@@ -733,7 +808,7 @@ foreach my $gtheme (keys %gnome_themes) {
   my $sb_file = $name . $sb_ext;
   my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
 
-  chdir "$pwd/gnome/themes/$name";
+  chdir "$pwd/themes/$name";
 
   if ( $download eq "true" ) {
     GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
@@ -752,55 +827,24 @@ foreach my $gtheme (keys %gnome_themes) {
   }
 }
 
-# Download other themes
-foreach my $otheme (keys %other_themes) {
+# Download themes with unconventional names
+foreach my $dttheme (keys %double_tarballs_themes) {
 
-  my $name = $otheme;
+  my $name    = $dttheme;
 
-  my $sb_file = $name . $sb_ext;
-  my $packurl = $other_themes{$name}{url};
-  my $ver     = $other_themes{$name}{ver};
-  my $src     = $other_themes{$name}{src};
-  my $type    = "other";
-
-  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
-
-  chdir "$pwd/gnome/themes/$name";
-
-  if ( $download eq "true" ) {
-    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
-    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name );
-  }
-}
-
-
-# Download GSTREAMER stuff
-foreach my $gst (keys %gstreamer) {
-
-  my $name    = $gst;
-
-  my $sb_file = $gst . $sb_ext;
-  my $packurl = $gstreamer{$gst}{url};
-  my $ver     = $gstreamer{$gst}{ver};
-  my $src     = $gstreamer{$gst}{src};
+  my $dir     = $double_tarballs_themes{$dttheme}{dir};
+  my $var     = $double_tarballs_themes{$dttheme}{var};
+  my $ver     = $double_tarballs_themes{$dttheme}{ver};
+  my $tarball = $double_tarballs_themes{$dttheme}{tar};
+  my $packurl = $double_tarballs_themes{$dttheme}{url};
   my $type    = 'other';
 
-  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+  chdir "$pwd/$dir";
 
-  chdir "$pwd/gnome/desktop/$gst";
+  my @tmp = split(/\//, $dir);
+  my $sb  = pop(@tmp);
 
+  my $sb_file = $sb . $sb_ext;
 
   if ( $download eq "true") {
     my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
@@ -808,115 +852,7 @@ foreach my $gst (keys %gstreamer) {
   }
 
   if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
-}
-
-# DOWNLOAD other platform libs
-foreach my $gnpackage (keys %gst_diff_name) {
-
-  my $name    = $gnpackage;
-
-  my $oname   = $gst_diff_name{$gnpackage}{name};
-  my $ver     = $gst_diff_name{$gnpackage}{ver};
-  my $src     = $gst_diff_name{$gnpackage}{src};
-  my $packurl = $gst_diff_name{$gnpackage}{url};
-  my $sb_file = $name. $sb_ext;
-  my $type    = 'other';
-
-  chdir "$pwd/gnome/desktop/$name";
-
-  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($oname, $ver, $src);
-
-  if ( $download eq "true" ) {
-    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
-    GSB::GSB::gsb_tarball_get($oname, $ver, $tarball, $type, $url);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $oname);
-  }
-}
-
-
-
-
-
-# Download extra GSTREAMER plugins
-foreach my $gst_plugins_pack (keys %gst_other) {
-
-  my $name    = $gst_plugins_pack;
-
-  my $sb_file = $gst_plugins_pack . $sb_ext;
-  my $packurl = $gst_other{$gst_plugins_pack}{url};
-  my $ver     = $gst_other{$gst_plugins_pack}{ver};
-  my $src     = $gst_other{$gst_plugins_pack}{src};
-  my $type    = 'other';
-
-  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
-
-  chdir "$pwd/extras/libs/$gst_plugins_pack";
-
-
-  if ( $download eq "true") {
-    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
-    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
-}
-
-
-# DOWNLOAD other mono libs
-foreach my $mononpackage (keys %mono_diff_naming) {
-
-  my $name    = $mononpackage;
-
-  my $oname   = $mono_diff_naming{$mononpackage}{name};
-  my $ver     = $mono_diff_naming{$mononpackage}{ver};
-  my $packurl = $mono_diff_naming{$mononpackage}{url};
-  my $src     = $mono_diff_naming{$mononpackage}{src};
-  my $sb_file = $name. $sb_ext;
-
-  my $type    = 'other';
-
-  chdir "$pwd/mono/$name";
-
-  my $tarball = "$oname-$ver.$src";
-
-  if ( $download eq "true" ) {
-    my $url = GSB::Mono::gsb_mono_url_make($oname, $packurl, $ver, $src);
-    GSB::GSB::gsb_tarball_get($oname, $ver, $tarball, $type, $url);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+    GSB::Edit::gsb_sb_double_edit($sb_file, $ver, $var);
   }
 
   if ( $build ne "" ) {
@@ -930,123 +866,22 @@ foreach my $mononpackage (keys %mono_diff_naming) {
 
 
 
+# DONE DOWNLOADING
 
+if ( $download eq "true" ) {
+    if ( ! @bad_downloads eq "" ) {
+	print "\nThe following packages could not be downloaded:\n\n";
 
-
-
-# ruby 
-foreach my $oruby_pack (keys %ruby) {
-
-  my $name    = $oruby_pack;
-
-  my $sb_file = $name . $sb_ext;
-  my $packurl = $ruby{$name}{url};
-  my $ver     = $ruby{$name}{ver};
-  my $src     = $ruby{$name}{src};
-  my $type    = "other";
-
-  my $tarball = "$name-$ver.$src";
-
-  chdir "$pwd/ruby/$name";
-
-  if ( $download eq "true" ) {
-    my $url = GSB::GSB::gsb_generic_url_make( $packurl, $tarball);
-    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
+	foreach my $bad_pack (@bad_downloads) {
+	    print "$bad_pack\n";
+	}
+	print "\n";
+    }else {
+	print "\nEverything downloaded successfully!\n\n";
+    }
 }
 
+exit(0);
 
-# Download extra tarballs for certain slackbuilds
-#foreach my $dlibs (keys %double_tarballs) {
-#
-#  my $name    = $dlibs;
-#
-#  my $dir     = $double_tarballs{$dlibs}{dir};
-#  my $packurl = $double_tarballs{$dlibs}{url};
-#  my $ver     = $double_tarballs{$dlibs}{ver};
-#  my $src     = $double_tarballs{$dlibs}{src};
-#  my $var     = $double_tarballs{$dlibs}{var};
-#  my $type    = 'other';
-#
-#
-# chdir "$pwd/$dir";
-#
-#  my @tmp = split(/\//, $dir);
-#  my $sb  = pop(@tmp);
-#
-#  my $sb_file = $sb . $sb_ext;
-#
-#  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
-#
-#  if ( $download eq "true") {
-#    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
-#    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
-#  }
-
-#  if ( $edit eq "true" ) {
-#    GSB::Edit::gsb_sb_double_edit($sb_file, $ver, $var);
-#  }
-#
-#  if ( $build ne "" ) {
-#   GSB::Edit::gsb_build_release_make($sb_file, $build);
-#  }
-#
-#
-#  if ( ! -f $tarball ) {
-#   push(@bad_downloads, $name);
-#  }
-#}
-
-
-# DOWNLOAD other ruby libs
-#foreach my $rubynpackage (keys %ruby_diff_naming) {
-#
-#  my $name    = $rubynpackage;
-#
-#  my $oname   = $ruby_diff_naming{$rubynpackage}{name};
-#  my $ver     = $ruby_diff_naming{$rubynpackage}{ver};
-#  my $packurl = $ruby_diff_naming{$rubynpackage}{url};
-#  my $src     = $ruby_diff_naming{$rubynpackage}{src};
-#  my $sb_file = $name. $sb_ext;
-#
-#  my $type    = 'other';
-#
-#  chdir "$pwd/ruby/$name";
-#
-#  my $tarball = "$oname-$ver.$src";
-#
-#  if ( $download eq "true" ) {
-#    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
-#    GSB::GSB::gsb_tarball_get($oname, $ver, $tarball, $type, $url);
-#  }
-#
-#  if ( $edit eq "true" ) {
-#    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-#  }
-#
-#  if ( $build ne "" ) {
-#    GSB::Edit::gsb_build_release_make($sb_file, $build);
-#  }
-#
-#  if ( ! -f $tarball ) {
-#    push(@bad_downloads, $name);
-#  }
-#}
-
-
-
-# end main()
 #
 ################################################################################

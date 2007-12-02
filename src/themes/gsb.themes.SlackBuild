@@ -149,7 +149,14 @@ mkdir -p $LOGSDIR
 # Packages must be listed here in the order they should be built.
 
 BUILD_ORDER=" 
-        gnome-themes-extras
+    gnome-themes-extras
+    murrine-engine
+    murrine-themes
+    nmc
+    candido-engine
+    candido-themes
+    msttcorefonts
+    mac4lin-theme
 		"
 
 #

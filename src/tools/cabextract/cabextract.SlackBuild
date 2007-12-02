@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=3.0.1
+VERSION=1.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libxml2 glib2 sqlite3 gamin db44 openldap-client mysql postgresql"
+REQUIRED_PACKAGES=""
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -90,7 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -159,16 +159,12 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
-  --with-mysql=/usr/bin \
-  --with-postgres=/usr/bin \
+  --enable-largefile \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-## Preserve files
-mv $PKG/etc/libgda-3.0/config $PKG/etc/libgda-3.0/config.new
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

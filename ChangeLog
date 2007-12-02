@@ -1,6 +1,17 @@
 ChangeLog
 ---------
 
+02-12-2007  fidesratio <sk238(at)ex.ac.uk>	
+	* tools: Added cabextract for msttcorefonts.
+	* extras: Added simdock and wxGTK.
+    * themes: Added candido engines/themes with nuoveXT icons.
+	  Added murrine engine/themes.
+	  Added mac4lin themes/icons.
+	  Added msttcorefonts for mac4lin (and others probably)
+	* office: Added glade3 development environment.
+	  Preserve config for libgda.
+	* perl: Updated links and downloads for themes.
+
 31-11-2007  fidesratio <sk238(at)ex.ac.uk>	
     * applications: Son of a.  Update to mozilla-firefox to 2.0.0.11.
 

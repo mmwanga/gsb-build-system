@@ -177,7 +177,9 @@ BUILD_ORDER="
      gnome-cups-manager
      gnonlin
      jokosher
-		"
+     wxGTK
+     simdock
+"
 
 #
 # MAIN BUILD 

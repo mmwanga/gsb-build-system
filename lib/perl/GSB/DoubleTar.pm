@@ -5,21 +5,21 @@ use strict;
 use warnings;
 
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw(%double_tarballs %double_tarballs_url);
+our @EXPORT    = qw(%double_tarballs_url);
 our @EXPORT_OK = qw();
 our $VERSION   = 0.03;
 
 
 
-# iso-codes isn't a double tarball but its here temporarily because of how its named.
+# Strangely named source tarballs can be found here.
 our %double_tarballs_url =
   (
    'boost'            => {
-                         'url' => 'http://heanet.dl.sourceforge.net/sourceforge/boost/',
-                         'ver' => '1_34_1',
+             'url' => 'http://heanet.dl.sourceforge.net/sourceforge/boost/',
+             'ver' => '1_34_1',
 			 'dir' => 'libraries/boost',
 			 'tar' => 'boost_1_34_1.tar.bz2',
-                         'var' => 'VERSION',
+             'var' => 'VERSION',
                         },
    'mozilla-firefox'  => {
 			 'ver' => '2.0.0.11',
@@ -29,59 +29,66 @@ our %double_tarballs_url =
 			 'var' => 'VERSION',
 			 },
    'nss'               => {
-				   'ver' => '3.11.7',
-				   'dir' => 'libraries/nss',
-				   'url' => 'http://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_11_7_RTM/src/',
-				   'tar' => 'nss-3.11.7-with-nspr-4.6.7.tar.gz',
-				   'var' => 'VERSION',
+			 'ver' => '3.11.7',
+			 'dir' => 'libraries/nss',
+			 'url' => 'http://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_11_7_RTM/src/',
+			 'tar' => 'nss-3.11.7-with-nspr-4.6.7.tar.gz',
+			 'var' => 'VERSION',
 				  },
    'openldap-client'     => {
-				   'ver' => '2.3.38',
-				   'dir' => 'libraries/openldap-client',
-				   'url' => 'ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/',
-				   'tar' => 'openldap-2.3.38.tgz',
-				   'var' => 'VERSION',
+			 'ver' => '2.3.38',
+			 'dir' => 'libraries/openldap-client',
+			 'url' => 'ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/',
+			 'tar' => 'openldap-2.3.38.tgz',
+			 'var' => 'VERSION',
 				  },
    'sqlite3'             => {
-				   'ver' => '3.5.2',
-				   'dir' => 'libraries/sqlite3',
-				   'url' => 'http://www.sqlite.org/',
-				   'tar' => 'sqlite-3.5.2.tar.gz',
-				   'var' => 'VERSION',
+			 'ver' => '3.5.2',
+			 'dir' => 'libraries/sqlite3',
+			 'url' => 'http://www.sqlite.org/',
+			 'tar' => 'sqlite-3.5.2.tar.gz',
+			 'var' => 'VERSION',
 				  },
    'libgc'             => {
-				   'ver' => '7.0',
-				   'dir' => 'libraries/libgc',
-				   'url' => 'http://www.hpl.hp.com/personal/Hans_Boehm/gc/gc_source/',
-				   'tar' => 'gc-7.0.tar.gz',
-				   'var' => 'VERSION',
+			 'ver' => '7.0',
+			 'dir' => 'libraries/libgc',
+			 'url' => 'http://www.hpl.hp.com/personal/Hans_Boehm/gc/gc_source/',
+			 'tar' => 'gc-7.0.tar.gz',
+			 'var' => 'VERSION',
 				  },
    'hemidal-libraries'         => {
-				   'ver' => '1.0.1',
-				   'dir' => 'libraries/heimdal-libraries',
-				   'url' => 'ftp://ftp.sunet.se/pub/unix/admin/mirror-pdc/heimdal/src/',
-				   'tar' => 'heimdal-1.0.1.tar.gz',
-				   'var' => 'VERSION',
+			 'ver' => '1.0.1',
+			 'dir' => 'libraries/heimdal-libraries',
+			 'url' => 'ftp://ftp.sunet.se/pub/unix/admin/mirror-pdc/heimdal/src/',
+			 'tar' => 'heimdal-1.0.1.tar.gz',
+			 'var' => 'VERSION',
 				  },
    'ode'            => {
-                         'url' => 'http://heanet.dl.sourceforge.net/sourceforge/opende/',
-                         'ver' => '0.9',
+             'url' => 'http://heanet.dl.sourceforge.net/sourceforge/opende',
+             'ver' => '0.9',
 			 'dir' => 'office/ode',
 			 'tar' => 'ode-src-0.9.zip',
-                         'var' => 'VERSION',
+             'var' => 'VERSION',
                         },
-   'scons'            => {
-                         'url' => 'http://heanet.dl.sourceforge.net/sourceforge/scons/',
-                         'ver' => '0.97',
+   'simdock'    => {
+             'url' => 'http://heanet.dl.sourceforge.net/sourceforge/simdock',
+             'ver' => '1.2',
+			 'dir' => 'extras/simdock',
+			 'tar' => 'simdock_1.2.tar.gz',
+             'var' => 'VERSION',
+                  },
+   'scons'    => {
+             'url' => 'http://heanet.dl.sourceforge.net/sourceforge/scons',
+             'ver' => '0.97',
 			 'dir' => 'tools/scons',
 			 'tar' => 'scons-0.97.tar.gz',
-                         'var' => 'VERSION',
-                        },
+             'var' => 'VERSION',
+                  },
    'gmime-sharp'            => {
-                         'url' => 'ftp://ftp.gnome.org/pub/GNOME/sources/gmime/2.2',
-                         'ver' => '2.2.9',
+             'url' => 'ftp://ftp.gnome.org/pub/GNOME/sources/gmime/2.2',
+             'ver' => '2.2.9',
 			 'dir' => 'mono/gmime-sharp',
 			 'tar' => 'gmime-2.2.9.tar.bz2',
-                         'var' => 'VERSION',
-                        },
+             'var' => 'VERSION',
+                  },
   );

@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=3.0.1
+VERSION=2.8.7
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libxml2 glib2 sqlite3 gamin db44 openldap-client mysql postgresql"
+REQUIRED_PACKAGES="gnome-vfs gnome-mime-data libgnomeprint libgnomeprintui pango cairo glib2 libpng libjpeg libtiff mesa zlib sdl expat libgnomecanvasui libgnomeui ORBit2 GConf gstreamer libxml2"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -90,7 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -159,16 +159,23 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
-  --with-mysql=/usr/bin \
-  --with-postgres=/usr/bin \
+  --with-gtk \
+  --with-gnomeprint \
+  --with-opengl \
+  --enable-geometry \
+  --enable-graphics_ctx \
+  --enable-sound \
+  --with-sdl \
+  --enable-mediactrl \
+  --enable-display \
+  --disable-debugreport  \
+  --enable-unicode \
+  --enable-regex \
   || exit 1
 
 ## Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-## Preserve files
-mv $PKG/etc/libgda-3.0/config $PKG/etc/libgda-3.0/config.new
+make &&
+make DESTDIR=$PKG install || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -187,14 +194,6 @@ mv $PKG/etc/libgda-3.0/config $PKG/etc/libgda-3.0/config.new
   rm -f $PKG/usr/info/dir
   gzip -9 $PKG/usr/info/*.info
 }
-
-## Copy extra documentation into package.
-mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
-  $PKG/usr/doc/$PKGNAME-$VERSION
-find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
-chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests

@@ -160,6 +160,11 @@ our %extras =
 			     'url' => 'http://mirrors.kernel.org/gnu/vcdimager',
 			     'src' => 'tar.gz',
 			    },
+   'wxGTK'            => {
+			     'ver' => '2.8.7',
+			     'url' => 'http://downloads.sourceforge.net/wxwindows',
+			     'src' => 'tar.gz',
+			    },
   );
 
 
