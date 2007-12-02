@@ -45,7 +45,7 @@ libcaca: ADD
 libexif: ADD
 libglade: ADD
 libgpod: SKP
-libgsf: ADD
+libgsf: SKP
 libgtkhtml: ADD
 libid3tag: ADD
 libidl: ADD
