@@ -60,8 +60,8 @@ our %compiz =
                  'src' => 'tar.bz2',
                             },
    'compizconfig-python'              => {
-                 'ver' => '0.6.0',
-                 'url' => 'http://releases.compiz-fusion.org/0.6.0',
+                 'ver' => '0.6.0.1',
+                 'url' => 'http://releases.compiz-fusion.org/0.6.0.1',
                  'src' => 'tar.bz2',
                             },
    'libcompizconfig'              => {
@@ -69,6 +69,16 @@ our %compiz =
                  'url' => 'http://releases.compiz-fusion.org/0.6.0',
                  'src' => 'tar.bz2',
                             },
+   'sexy-python'              => {
+                 'ver' => '0.1.9',
+                 'url' => 'http://releases.chipx86.com/libsexy/sexy-python',
+                 'src' => 'tar.gz',
+                 },
+   'Pyrex'              => {
+                 'ver' => '0.9.6.4',
+                 'url' => 'http://www.cosc.canterbury.ac.nz/greg.ewing/python/Pyrex',
+                 'src' => 'tar.gz',
+                 },
   );
 
 
