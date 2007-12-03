@@ -641,7 +641,35 @@ foreach my $office_pack (keys %office_gnome) {
   }
 }
 
-# mono
+# GNOME Mono
+foreach my $gnome_mono_pack (keys %mono_gnome) {
+
+  my $name    = $gnome_mono_pack;
+  my $ver     = $mono_gnome{$name};
+
+  my $sb_file = $name . $sb_ext;
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
+
+  chdir "$pwd/mono/$name";
+
+  if ( $download eq "true" ) {
+    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name,);
+  }
+}
+
+# MONO
 foreach my $omono_pack (keys %mono) {
 
   my $name    = $omono_pack;

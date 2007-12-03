@@ -155,6 +155,11 @@ BUILD_ORDER="
     libcompizconfig
     compiz-fusion-plugins-main
     compiz-manager
+    sexy-python
+    Pyrex
+    compizconfig-python
+    compizconfig-backend-gconf
+    ccsm
 "
 
 #

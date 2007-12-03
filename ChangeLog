@@ -1,6 +1,12 @@
 ChangeLog
 ---------
 
+03-12-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * office: Bumper Anjuta version.
+	* mono: Bump beagle version.
+	* platform: Fix for libbtctl on x86_64 platforms.
+	* compiz: Added Pyrex and compizconfig-python for ccsm.
+
 02-12-2007  fidesratio <sk238(at)ex.ac.uk>	
 	* tools: Added cabextract for msttcorefonts.
 	* extras: Added simdock and wxGTK.

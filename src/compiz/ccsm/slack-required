@@ -3,3 +3,6 @@ python
 pygtk
 libsexy
 sexy-python
+compizconfig-python
+Pyrex
+compizconfig-backend-gconf

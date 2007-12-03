@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=0
-VERSION=0.0.0
+BUILD=1
+VERSION=0.6.0.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES=""
+REQUIRED_PACKAGES="python pygtk compiz libcompizconfig"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -155,11 +155,6 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
-## The default is to build shared libraries, no static libraries, install into
-## /usr and use /etc as the config directory.
-## For packages with GNOME Schemas, additional options are required:
-##  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
-##  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
@@ -188,13 +183,6 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
   gzip -9 $PKG/usr/info/*.info
 }
 
-## Correct permissions.
-## Doing these chown's will remove any s{u,g}id bits that may have been set on
-## the installed files, which is not usually what we want.  Only uncomment/use
-## these chown's if necessary.  ~Tadgy.
-# chown -R $(stat --format "%u:%g" /usr/bin) $PKG/usr/bin
-# chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/sbin
-
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
@@ -202,23 +190,6 @@ cp -a \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
-
-## Add schemas install to the doinst.sh if schemas are found.
-[ -d $PKG/etc/gconf/schemas ] && {
-  echo "if [ -x usr/bin/gconftool-2 ]; then" >>$PKG/install/doinst.sh
-  ( cd $PKG/etc/gconf/schemas
-    for FILE in *; do
-      [ -z "$(grep gconfentry $FILE)" ] && {
-        # Create gconf tree
-        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
-      } || {
-        # Load gconf settings
-        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --config-source=\$(usr/bin/gconftool-2 --get-default-source) --direct --load etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
-      }
-    done
-  )
-  echo "fi" >>$PKG/install/doinst.sh
-}
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
