@@ -160,11 +160,20 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --disable-sdptest \
+  --disable-mono \
   || exit 1
 
 ## Build and install.
 make &&
 make DESTDIR=$PKG install || exit 1
+
+# Correct python installation quirk on x86_64 platforms.
+if [ "$ARCH" = "x86_64" ]; then
+   if [ -d $PKG/usr/lib/python* ]; then
+      mkdir -p $PKG/usr/lib64 ;
+      mv $PKG/usr/lib/python* $PKG/usr/lib64 ;
+   fi;
+fi;
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -187,7 +196,7 @@ make DESTDIR=$PKG install || exit 1
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+  AUTHORS ChangeLog NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
