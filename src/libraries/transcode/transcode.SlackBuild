@@ -18,7 +18,7 @@ ARCH=${ARCH:-i586}
 TUNE=${TUNE:-i586}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
-PKGDEST=${PKGDEST:-$TMP/gsb-packages}
+PKGDEST=${PKGDEST:-$TMP/gsb-tree/packages}
 
 ## Script variables.
 PKGNAME=$(basename $0 .SlackBuild)

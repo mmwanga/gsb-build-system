@@ -20,7 +20,7 @@ ARCH=${ARCH:-i586}
 TUNE=${TUNE:-i586}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
-PKGDEST=${PKGDEST:-$TMP/gsb-packages}
+PKGDEST=${PKGDEST:-$TMP/gsb-tree/packages}
 
 BUILD_ARCH=$(arch)
 if [ "$ARCH" != "$BUILD_ARCH" ]; then

@@ -21,7 +21,7 @@
 #
 export TMP=${TMP:-/tmp}
 export LOGSDIR=${GSB_LOGSDIR:-$TMP/gsb-buildlogs}
-export PKGDEST=${PKGDEST:-$TMP/gsb-packages}
+export PKGDEST=${PKGDEST:-$TMP/gsb-tree/packages}
 
 # Section Name
 SECTION=mono

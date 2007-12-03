@@ -35,8 +35,8 @@ build of GSB, assuming modest hardware or a desktop system in everyday use.
 
 At the end of the build process (assuming there were no errors) you should have
 a full copy of GSB installed on your system ready to go, and a copy of the
-completed Slackware packages will be in /tmp/gsb-packages (see below for ways
-to change where these packages will end up).
+completed GSB package tree in /tmp/gsb-tree (see below for ways to change where
+these packages will end up).
 
 Starting the GSB GNOME environment will depend on how you start your current X
 Window environment.  Both techniques are described below.
@@ -149,7 +149,7 @@ PKGDEST
   Once a package has been built it will be stored in the directory specified
   with this option.  The default for this option is affected by the value of
   the TMP environment option detailed above (referred to as $TMP below).
-  The default is "$TMP/gsb-packages".
+  The default is "$TMP/gsb-tree/packages".
 
 LOGSDIR
   As the GSB build process proceeds, a log of the output from each package
