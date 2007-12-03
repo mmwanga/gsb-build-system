@@ -38,7 +38,7 @@ our %office =
 		 'src' => 'tar.gz'
 		},
    'anjuta'              => {
-			     'ver' => '2.2.2',
+			     'ver' => '2.2.3',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/anjuta/',
 			     'src' => 'tar.bz2',
 			    },
