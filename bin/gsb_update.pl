@@ -49,6 +49,7 @@ use GSB::Compiz;
 use GSB::Fonts;
 use GSB::Themes;
 use GSB::Tools;
+use GSB::Testing;
 
 use Cwd;
 
@@ -893,6 +894,42 @@ foreach my $dttheme (keys %double_tarballs_themes) {
 }
 
 
+# Download Testing Packages
+foreach my $testpkg (keys %testing_packages) {
+
+  my $name    = $testpkg;
+
+  my $dir     = $testing_packages{$testpkg}{dir};
+  my $var     = $testing_packages{$testpkg}{var};
+  my $ver     = $testing_packages{$testpkg}{ver};
+  my $tarball = $testing_packages{$testpkg}{tar};
+  my $packurl = $testing_packages{$testpkg}{url};
+  my $type    = 'other';
+
+  chdir "$pwd/$dir";
+
+  my @tmp = split(/\//, $dir);
+  my $sb  = pop(@tmp);
+
+  my $sb_file = $sb . $sb_ext;
+
+  if ( $download eq "true") {
+    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_double_edit($sb_file, $ver, $var);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
 
 # DONE DOWNLOADING
 

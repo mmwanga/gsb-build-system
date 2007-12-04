@@ -13,7 +13,7 @@ db42: ADD
 db44: ADD
 dbus: ADD
 dbus-glib: ADD
-dbus-qt3: ADD
+dbus-qt3: SKP
 desktop-file-utils: ADD
 esound: ADD
 expat: ADD
@@ -90,7 +90,7 @@ poppler-data: SKP
 popt: ADD
 qca: ADD
 qca-tls: ADD
-qt: ADD
+qt: SKP
 readline: ADD
 sdl: ADD
 shared-mime-info: SKP

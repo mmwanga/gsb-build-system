@@ -3,6 +3,7 @@ ChangeLog
 
 04-12-2007  fidesratio <sk238(at)ex.ac.uk>	
     * desktop: Fix for gtkhtml html-editor component.
+	* testing: Woo! Got networkmanager/applet 0.7svn working with Slackware.  :)
 
 03-12-2007  fidesratio <sk238(at)ex.ac.uk>	
     * office: Bumper Anjuta version.

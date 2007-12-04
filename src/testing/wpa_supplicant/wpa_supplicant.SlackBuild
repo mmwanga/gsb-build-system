@@ -3,38 +3,18 @@
 ## Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
 ## Copyright (c) 2007 Steve Kennedy <sk238 (at) exeter.ac.uk>
 ##
+## Some parts Copyright (c) 2006,2007 Eric Hameleers <alien@slackware.com>
+##
 ## Licenced under the terms of the GNU General Public Licence version 3.
 ##
 
-##
-## SVN Warning
-##
-
-cat << EOF
-
-*****************
-* Update Notice *
-*****************
-
-NetworkManager is built from an svn repository.  There are no released tarballs.
-If you would like the latest code for this package, please make sure to
-run "svn update" before compiling.  This build script will not update
-the repository automatically (in case specific revisions are wanted.)
-
-***** Note ************
-
-This script is intended to be run from a working svn copy.
-
-***********************
-
-EOF
-
 ## Package variables.
 BUILD=1
+VERSION=0.5.9
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libnl wpa_supplicant libgcrypt dbus hal gtk+2 libglade gnome-keyring libgnomeui gnome-keyring wireless-tools glib2 iproute2 GConf gnome-common ppp"
+REQUIRED_PACKAGES=""
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -49,15 +29,6 @@ PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
 FORCEBUILD=0
-SVN_REV=$(cd $PKGNAME && svn info 2> /dev/null | grep Revision | cut -d' ' -f2)
-
-if [ "$SVN_REV" = "" ]; then
-  echo "Unable to properly check svn version. Please check your svn setup and try again."
-  exit 1;
-fi;
-
-echo "Building SVN_REV $SVN_REV"
-VERSION=${VERSION:-svn_$SVN_REV}
 
 ## Usage.
 function usage() {
@@ -119,10 +90,9 @@ mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
-## Copy SVN working copy to temporary space
-rm -fr $TMP/$PKGNAME-$VERSION ;
+## Decompress archive.
 cd $TMP &&
-cp -ra $CWD/$PKGNAME ./$PKGNAME-$VERSION &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -176,7 +146,7 @@ elif [ "$ARCH" = "x86_64" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -ffast-math -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS=""
+    CONFIGURE_FLAGS="--libdir=/usr/lib64"
   }
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
@@ -186,57 +156,95 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-## Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
-  --with-distro=slackware \
-  --with-mdns-provider=avahi \
-  --with-ip=/sbin/ip \
-  --with-dbus-sys=/etc/dbus-1/system.d \
-  --enable-notification-icon \
-  || exit 1
+## Configure 
+
+# Some of the following is based on Eric Hameleers <alien@slackware.com>
+# SlackBuild script for the official wpa_supplicant Slackware package.
+# 
+# Change these *_INCLUDES variables to where _your_ driver include directory
+# is located. If any of these directories is found, support for the driver
+# will be added to wpa_supplicant.
+# Madwifi package for Slackware installs the headers here:
+MADWIFI_INCLUDES="/usr/include/madwifi"
+HERMES_INCLUDES="" 
+BROADCOM_INCLUDES="" 
+# Standard dbus includes for Slackware 
+DBUS_INCLUDES="/usr/include/dbus-1.0/dbus"
+
+cp defconfig .config ;
+
+if [ ! -z "$MADWIFI_INCLUDES" -a -d "$MADWIFI_INCLUDES" ]; then
+  echo "Adding madwifi driver (Atheros) support"
+    echo CONFIG_DRIVER_MADWIFI=y >> .config 
+    echo CFLAGS += -I${MADWIFI_INCLUDES} >> .config 
+fi
+
+if [ ! -z "$HERMES_INCLUDES" -a -d "$HERMES_INCLUDES" ]; then
+  echo "Adding hermes driver (Agere) support"
+    echo CONFIG_DRIVER_HERMES=y >> .config 
+    echo CFLAGS += -I${HERMES_INCLUDES} >> .config 
+fi
+
+if [ ! -z "$BROADCOM_INCLUDES" -a -d "$BROADCOM_INCLUDES" ]; then
+  echo "Adding broadcom driver support"
+    echo CONFIG_DRIVER_BROADCOM=y >> .config 
+    echo CFLAGS += -I${BROADCOM_INCLUDES} >> .config 
+fi
+
+if [ ! -z "$DBUS_INCLUDES" -a -d "$DBUS_INCLUDES" ]; then
+  echo "Adding dbus interface support"
+    echo CONFIG_CTRL_IFACE_DBUS=y >> .config 
+    echo CFLAGS += -I${DBUS_INCLUDES} >> .config
+fi
+
+chown -R root:root .
+chmod -R u+w,go+r-w,a-s .
 
 ## Build and install.
-make &&
-make DESTDIR=$PKG install || exit 1
+make $MAKE_FLAGS || exit 1
+# Build the GUI client
+# This required QT
+# make wpa_gui
+# Make man pages if needed
+pushd doc/docbook
+if ! ls *.? >/dev/null 2>&1 ; then
+  make man
+fi
+popd
 
-# Install dbus services
-mkdir -p $PKG/usr/share/dbus-1/services ;
-cp -a $CWD/dbus/* $PKG/usr/share/dbus-1/services ;
+# Install
+cp wpa_supplicant.conf wpa_supplicant.conf.sample
 
-## Tweaks for library paths on x86_64 platforms 
-if [ "$ARCH" = "x86_64" ]; then
-    mv $PKG/usr/lib $PKG/usr/lib64;
-    for i in $PKG/usr/lib64/*.la ; do
-      sed -i "s:\/lib\/:\/lib64\/:g" $i;
-    done;
-    for i in $PKG/usr/lib64/pkgconfig/*.pc ; do
-      sed -i "/^libdir/s/\/lib/\/lib64/g" $i;
-    done;
-fi;
+# Install binaries
+mkdir -p $PKG/usr/sbin
+#cp wpa_supplicant wpa_passphrase wpa_cli wpa_gui/wpa_gui $PKG/usr/sbin/
+cp wpa_supplicant wpa_passphrase wpa_cli $PKG/usr/sbin/
 
-## Preserve previous settings
-rm $PKG/etc/rc.d/rc.networkmanager
-cp $CWD/rc.networkmanager $PKG/etc/rc.d/rc.networkmanager.new
-mv $PKG/etc/rc.d/rc.networkmanager-dispatcher $PKG/etc/rc.d/rc.networkmanager-dispatcher.new
-mv $PKG/etc/dbus-1/system.d/NetworkManager.conf $PKG/etc/dbus-1/system.d/NetworkManager.conf.new
-mv $PKG/etc/dbus-1/system.d/nm-dhcp-client.conf $PKG/etc/dbus-1/system.d/nm-dhcp-client.conf.new
-mv $PKG/etc/dbus-1/system.d/nm-system-settings.conf $PKG/etc/dbus-1/system.d/nm-system-settings.conf.new
+# Install man pages
+for m in 5 8; do
+  mkdir -p $PKG/usr/man/man${m}
+  cp doc/docbook/*.${m} $PKG/usr/man/man${m}/
+done
+
+# Install configuration file
+mkdir -p $PKG/etc
+mkdir -p $PKG/etc/dbus-1/system.d
+cp $TMP/$PKGNAME-$VERSION/dbus-wpa_supplicant.conf $PKG/etc/dbus-1/system.d/dbus-wpa_supplicant.conf.new 
+cp $CWD/wpa_supplicant.conf $PKG/etc/wpa_supplicant.conf.new
+chmod 600 $PKG/etc/wpa_supplicant.conf.new
 
 ## Fix for Slackware non-PAM system.
-## Users now can add themselves to the "netdev" group to use networkmanager.
-sed -i "s/at_console=\"true\"/group=\"netdev\"/g" $PKG/etc/dbus-1/system.d/NetworkManager.conf.new
+## Users now can add themselves to the "netdev" group to use wpa dbus
+sed -i "s/at_console=\"true\"/group=\"netdev\"/g" $PKG/etc/dbus-1/system.d/wpa_supplicant.conf.new
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
 
 ## Compress and fix manpage links.
-[ -e $PKG/usr/share/man ] && {
-  find $PKG/usr/share/man -type f -name \*.? -exec gzip -9f {} \;
-  find $PKG/usr/share/man -type l -name \*.? -printf \
+[ -e $PKG/usr/man ] && {
+  find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
+  find $PKG/usr/man -type l -name \*.? -printf \
     "( cd '%h'; [ -e '%l.gz' ] &&
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }
@@ -247,6 +255,14 @@ sed -i "s/at_console=\"true\"/group=\"netdev\"/g" $PKG/etc/dbus-1/system.d/Netwo
   gzip -9 $PKG/usr/info/*.info
 }
 
+## Copy extra documentation into package.
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
+cp -a \
+  ChangeLog COPYING README* examples wpa_supplicant.conf.sample \
+  $PKG/usr/doc/$PKGNAME-$VERSION
+find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
+chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
+
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
 do
@@ -255,9 +271,9 @@ do
   }
 done
 
-## Create full package with vpn support
+## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-0.7_${VERSION//-/_}-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {

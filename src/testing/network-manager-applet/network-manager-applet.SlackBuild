@@ -198,21 +198,14 @@ make &&
 make DESTDIR=$PKG install || exit 1
 
 ## Preserve previous settings
+mv $PKG/etc/dbus-1/system.d/nm-applet.conf $PKG/etc/dbus-1/system.d/nm-applet.conf.new
+mkdir -p $PKG/usr/share/applications
+# Disable nm-applet autostart
+mv $PKG/etc/xdg/autostart/nm-applet.desktop $PKG/usr/share/applications
 
 ## Fix for Slackware non-PAM system.
 ## Users now can add themselves to the "netdev" group to use networkmanager.
-sed -i "s/at_console=\"true\"/group=\"netdev\"/g" $PKG/etc/dbus-1/system.d/NetworkManager.conf.new
-
-## Tweaks for library paths on x86_64 platforms 
-if [ "$ARCH" = "x86_64" ]; then
-    mv $PKG/usr/lib $PKG/usr/lib64;
-    for i in $PKG/usr/lib64/*.la ; do
-      sed -i "s:\/lib\/:\/lib64\/:g" $i;
-    done;
-    for i in $PKG/usr/lib64/pkgconfig/*.pc ; do
-      sed -i "/^libdir/s/\/lib/\/lib64/g" $i;
-    done;
-fi;
+sed -i "s/at_console=\"true\"/group=\"netdev\"/g" $PKG/etc/dbus-1/system.d/nm-applet.conf.new
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -242,7 +235,7 @@ done
 
 ## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-0.7_${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {

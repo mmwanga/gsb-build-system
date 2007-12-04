@@ -22,7 +22,8 @@ function install_file() {
 install_file etc/rc.d/rc.networkmanager.new
 install_file etc/rc.d/rc.networkmanager-dispatcher.new
 install_file etc/dbus-1/system.d/NetworkManager.conf.new
-install_file etc/dbus-1/system.d/nm-dhcp-client.conf
+install_file etc/dbus-1/system.d/nm-dhcp-client.conf.new
+install_file etc/dbus-1/system.d/nm-system-settings.conf.new
 
 # if rc.local doesn't exist, create it
 if [ ! -e etc/rc.d/rc.local ]; then
@@ -71,7 +72,8 @@ fi;
 chmod -x etc/rc.d/rc.networkmanager*;
 
 cat << EOF
-Note:
+
+Note for Slackware Users:
 -----
 To allow users to connect to the NetworkManager daemon, they have to be in the
 group "netdev". 

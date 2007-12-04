@@ -27,13 +27,10 @@ if [ -x usr/bin/update-desktop-database ]; then
   usr/bin/update-desktop-database 1> /dev/null 2> /dev/null
 fi
 
-for i in hicolor
-do
-    if [ -e usr/share/icons/$i/icon-theme.cache ]; then
-        rm -f usr/share/icons/$i/icon-theme.cache
-    fi
-    usr/bin/gtk-update-icon-cache -f -q usr/share/icons/$i
-done
+if [ -e usr/share/icons/hicolor/icon-theme.cache ]; then
+    rm -f usr/share/icons/hicolor/icon-theme.cache
+fi
+usr/bin/gtk-update-icon-cache -f -q usr/share/icons/hicolor
 
 ##
 ## Restart dbus (reload NetworkManager applet info)
@@ -43,6 +40,7 @@ done
 #fi;
 
 cat << EOF
+
 You will need to restart the dbus message system in order to load the new
 network-manager-applet settings.
 EOF
