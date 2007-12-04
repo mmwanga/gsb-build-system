@@ -83,7 +83,7 @@ pine: SKP
 pinentry: ADD
 popa3d: SKP
 portmap: ADD
-ppp: SKP
+ppp: ADD
 procmail: SKP
 proftpd: SKP
 pssh: ADD
