@@ -1,6 +1,9 @@
 ChangeLog
 ---------
 
+04-12-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * desktop: Fix for gtkhtml html-editor component.
+
 03-12-2007  fidesratio <sk238(at)ex.ac.uk>	
     * office: Bumper Anjuta version.
 	* mono: Bump beagle version.

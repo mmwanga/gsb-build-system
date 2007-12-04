@@ -157,13 +157,17 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 ## Configure.
 
 ## Why doesn't the configure script have the proper gtkhtml version?
-##
 echo "Fixing gtkhtml version numbers."
 sed -i "s/3\.14/3\.16/g" $TMP/$PKGNAME-$VERSION/configure ;
+sed -i "s/3\.14/3\.16/g" $TMP/$PKGNAME-$VERSION/configure.in ;
 sed -i "s/3\.14/3\.16/g" $TMP/$PKGNAME-$VERSION/src/Makefile.am ;
-sed -i "s/3\.14/3\.16/g" $TMP/$PKGNAME-$VERSION/src/Makefile.in ;
 sed -i "s/3\_14/3\_16/g" $TMP/$PKGNAME-$VERSION/src/Makefile.am ;
+sed -i "s/3\.14/3\.16/g" $TMP/$PKGNAME-$VERSION/src/Makefile.in ;
 sed -i "s/3\_14/3\_16/g" $TMP/$PKGNAME-$VERSION/src/Makefile.in ;
+sed -i "s/3\.14/3\.16/g" $TMP/$PKGNAME-$VERSION/components/html-editor/Makefile.in ;
+sed -i "s/3\_14/3\_16/g" $TMP/$PKGNAME-$VERSION/components/html-editor/Makefile.in ;
+sed -i "s/3\.14/3\.16/g" $TMP/$PKGNAME-$VERSION/components/html-editor/Makefile.am ;
+sed -i "s/3\_14/3\_16/g" $TMP/$PKGNAME-$VERSION/components/html-editor/Makefile.am ;
 
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
