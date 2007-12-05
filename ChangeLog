@@ -1,9 +1,15 @@
 ChangeLog
 ---------
 
+05-12-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * testing: Added NetworkManager-vpn bindings for openvpn and vpnc.
+	   Currently pptp breaks.
+	* applications: Fix for yelp: ensures does not build against beagle.
+
 04-12-2007  fidesratio <sk238(at)ex.ac.uk>	
     * desktop: Fix for gtkhtml html-editor component.
 	* testing: Woo! Got networkmanager/applet 0.7svn working with Slackware.  :)
+	  wpa_supplicant needs to be rebuild with dbus interface.
 
 03-12-2007  fidesratio <sk238(at)ex.ac.uk>	
     * office: Bumper Anjuta version.

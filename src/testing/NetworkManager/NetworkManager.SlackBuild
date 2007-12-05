@@ -187,6 +187,15 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
+
+# Disable any "warning as error" ;  this is svn, of course there will
+# be warnings.  We still want to build anyway.
+echo "Disabling warning as error compiler option."
+for i in configure.in ;
+do 
+  sed -i "s:-Werror::g" $i; 
+done;
+
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
@@ -202,12 +211,14 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make &&
 make DESTDIR=$PKG install || exit 1
 
-
 ## Tweaks for library paths on x86_64 platforms 
+# These are needed to correct the annoying "library has moved" warnings.
+# on x86_64 platforms.
 if [ "$ARCH" = "x86_64" ]; then
     mv $PKG/usr/lib $PKG/usr/lib64;
     for i in $PKG/usr/lib64/*.la ; do
       sed -i "s:\/lib\/:\/lib64\/:g" $i;
+      sed -i "s:usr/lib':usr/lib64':g" $i ;
     done;
     for i in $PKG/usr/lib64/pkgconfig/*.pc ; do
       sed -i "/^libdir/s/\/lib/\/lib64/g" $i;

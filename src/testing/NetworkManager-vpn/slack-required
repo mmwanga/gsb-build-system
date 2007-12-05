@@ -1,0 +1,17 @@
+NetworkManager
+libnl
+libgcrypt
+wpa_supplicant
+dbus
+hal
+gtk+2
+libglade
+gnome-keyring
+libgnomeui
+libgnomeui
+gnome-keyring
+wireless-tools
+glib2
+iproute2
+GConf
+ppp
