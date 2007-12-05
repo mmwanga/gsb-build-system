@@ -5,6 +5,7 @@ ChangeLog
     * testing: Added NetworkManager-vpn bindings for openvpn and vpnc.
 	   Currently pptp breaks.
 	* applications: Fix for yelp: ensures does not build against beagle.
+	* libraries: Bumped gtk+2 version.
 
 04-12-2007  fidesratio <sk238(at)ex.ac.uk>	
     * desktop: Fix for gtkhtml html-editor component.
