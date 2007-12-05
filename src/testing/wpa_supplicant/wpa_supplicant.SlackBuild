@@ -226,6 +226,10 @@ for m in 5 8; do
   cp doc/docbook/*.${m} $PKG/usr/man/man${m}/
 done
 
+# Install dbus services (not needed for dbus < 1.1.2) but
+# included anyway in case user updates.
+mkdir -p $PKG/usr/share/dbus-1/services ;
+cp -a $CWD/dbus/* $PKG/usr/share/dbus-1/services ;
 # Install configuration file
 mkdir -p $PKG/etc
 mkdir -p $PKG/etc/dbus-1/system.d
