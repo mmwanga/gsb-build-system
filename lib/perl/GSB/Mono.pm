@@ -63,6 +63,11 @@ our %mono=
 				'url' => 'http://go-mono.com/sources/monodoc',
 				'src' => 'zip',
 			       },
+   'mono-tools'                => {
+				'ver' => '1.2.4',
+				'url' => 'http://go-mono.com/sources/mono-tools',
+				'src' => 'tar.bz2',
+			       },
   );
 
 our %mono_diff_naming =
