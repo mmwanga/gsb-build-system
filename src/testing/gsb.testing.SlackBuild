@@ -150,6 +150,7 @@ BUILD_ORDER="
         wpa_supplicant
         NetworkManager
         network-manager-applet
+        NetworkManager-vpn
 		"
 
 #

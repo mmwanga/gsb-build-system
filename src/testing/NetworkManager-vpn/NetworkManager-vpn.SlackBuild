@@ -35,7 +35,7 @@ BUILD=1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="NetworkManager libnl wpa_supplicant libgcrypt dbus hal gtk+2 libglade gnome-keyring libgnomeui gnome-keyring wireless-tools glib2 iproute2 GConf gnome-common ppp"
+REQUIRED_PACKAGES="NetworkManager libnl wpa_supplicant libgcrypt dbus hal gtk+2 libglade gnome-keyring libgnomeui gnome-keyring wireless-tools glib2 iproute2 GConf gnome-common ppp network-manager-applet"
 
 if [ ! -d ../NetworkManager/NetworkManager ]; then
   echo "NetworkManager directory not found.  Are you building this script"
@@ -237,7 +237,7 @@ mkdir -p $PKG/usr/share/applications ;
 mkdir -p $PKG/usr/share/icons/gnome/48x48/mimetypes ;
 mkdir -p $PKG/usr/share/doc/$PKGNAME-$VERSION/$i
 
-cp nm-$i-service.conf $PKG/etc/dbus-1/system.d/nm-$i-service.conf.new ;
+mv $PKG/etc/dbus-1/system.d/nm-$i-service.conf $PKG/etc/dbus-1/system.d/nm-$i-service.conf.new ;
 cp nm-$i-service.name $PKG/etc/NetworkManager/VPN ;
 cp nm-$i.desktop $PKG/usr/share/applications ;
 cp gnome-mime-application-x-$i-settings.png $PKG/usr/share/icons/gnome/48x48/mimetypes ;
