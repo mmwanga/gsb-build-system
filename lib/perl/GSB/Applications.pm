@@ -126,7 +126,7 @@ our %applications =
 			},
    'pybackpack'         => {
 			 'url' => 'http://andrewprice.me.uk/projects/pybackpack/download/',
-			 'ver' => '0.5.1',
+			 'ver' => '0.5.2',
 			 'src' => 'tar.gz',
 			},
    'rdiff-backup'         => {
