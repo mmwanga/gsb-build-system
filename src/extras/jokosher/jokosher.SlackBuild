@@ -12,7 +12,7 @@ VERSION=0.9
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gstreamer gnonlin gst-plugins-base gst-plugins-good gst-plugins-ugly gst-plugins-bad" 
+REQUIRED_PACKAGES="gstreamer gnonlin gst-plugins-base gst-plugins-good gst-plugins-ugly gst-plugins-bad setuptools" 
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -156,7 +156,10 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Build and Install
 python ./setup.py build || exit 1
-python ./setup.py install --prefix=$PKG/usr || exit 1
+python ./setup.py install --prefix=/usr --root=$PKG/ || exit 1
+
+## Small fix for gnome menus
+sed -i "s/Editing//g" $PKG/usr/share/applications/jokosher.desktop
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

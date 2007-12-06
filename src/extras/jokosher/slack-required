@@ -1,4 +1,5 @@
 gstreamer
+setuptools
 gnonlin
 gst-plugins-base
 gst-plugins-good

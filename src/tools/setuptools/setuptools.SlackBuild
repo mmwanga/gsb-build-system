@@ -8,12 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=3.11.7
-WITH_NSPR="with-nspr-4.6.7"
+VERSION=0.6c7
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES=""
+REQUIRED_PACKAGES="python"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -90,9 +89,8 @@ mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
 ## Decompress archive.
-rm -fr $PKGNAME-$VERSION;
 cd $TMP &&
-tar xzf $CWD/$PKGNAME-$VERSION-$WITH_NSPR.tar.gz &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -139,10 +137,7 @@ elif [ "$ARCH" = "i586" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer -ffast-math"}
 elif [ "$ARCH" = "i686" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer -ffast-math"}
-
 elif [ "$ARCH" = "x86_64" ]; then
-
-
   if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -ffast-math -fPIC"}
   else
@@ -159,78 +154,9 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-##
-## Build and Install
-##
-(
-
-cd mozilla;
-
-## This variable is set because many of the commands are dependent on knowing 
-## the full path of certain directories. WORKINGDIR establishes a known path 
-## so that all others can be determined relative to this.
-WORKINGDIR=$PWD;
-echo "Working from $WORKINGDIR."
-
-
-## This variable is set so that the build is performed with no debugging symbols 
-## built into the binaries and that the default compiler optimizations are used.
-BUILD_OPT=1;
-
-## Default to lib on x86 platforms, but lib64 on x86_64
-if [ "$ARCH" = "x86_64" ]; then
-    NSSLIBDIR=lib64
-    ##
-    ## Required Make Flags for x86_64
-    ##
-    MAKE_FLAGS="USE_64=1"
-    echo $MAKE_FLAGS;
-else
-    NSSLIBDIR=lib;
-fi;
-
-cd security/nss ;
-
 ## Build and install.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-    make nss_build_all ;
-
-cd ../../;
-
-NSS_LINUXDIR=`basename $(ls -d $WORKINGDIR/dist/Linux*) 1`;
-
-echo "Installing from $NSS_LINUXDIR."
-
-mkdir -p $PKG/usr/bin
-mkdir -p $PKG/usr/include
-
-install -v -m755 -d $PKG/usr/$NSSLIBDIR/pkgconfig ;
-
-sed -e "s/GSB_LIBRARY_PATH/$NSSLIBDIR/g" $CWD/pkgconfig/nspr.pc > \
-       $PKG/usr/$NSSLIBDIR/pkgconfig/nspr.pc
-
-sed -e "s/GSB_LIBRARY_PATH/$NSSLIBDIR/g" $CWD/pkgconfig/nss.pc > \
-       $PKG/usr/$NSSLIBDIR/pkgconfig/nss.pc 
-
-chmod 644 $PKG/usr/$NSSLIBDIR/pkgconfig/nspr.pc
-chmod 644 $PKG/usr/$NSSLIBDIR/pkgconfig/nss.pc
-chown root:root $PKG/usr/$NSSLIBDIR/pkgconfig/nspr.pc
-chown root:root $PKG/usr/$NSSLIBDIR/pkgconfig/nss.pc
-
-cd dist ;
-
-install -v -m755 $NSS_LINUXDIR/lib/*.so $PKG/usr/$NSSLIBDIR ;
-
-install -v -m644 $NSS_LINUXDIR/lib/{*.chk,libcrmf.a} /usr/$NSSLIBDIR ;
-
-install -v -m755 -d $PKG/usr/include/{nss,nspr} ;
-
-install -v -m644 {public,private}/nss/* $PKG/usr/include/nss ;
-
-cp -v -RL $NSS_LINUXDIR/include/* $PKG/usr/include/nspr ;
-chmod -v 644 /usr/include/nspr/prvrsion.h;
-
-) ## End of Build and Install;
+python setup.py build &&
+python setup.py install --prefix=/usr --root=$PKG/ || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -243,6 +169,20 @@ chmod -v 644 /usr/include/nspr/prvrsion.h;
     "( cd '%h'; [ -e '%l.gz' ] &&
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }
+
+## Deal with .info files.
+[ -e $PKG/usr/info ] && {
+  rm -f $PKG/usr/info/dir
+  gzip -9 $PKG/usr/info/*.info
+}
+
+## Copy extra documentation into package.
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
+cp -a \
+  AUTHORS COPYING* ChangeLog NEWS README \
+  $PKG/usr/doc/$PKGNAME-$VERSION
+find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
+chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests

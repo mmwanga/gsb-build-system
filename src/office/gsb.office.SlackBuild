@@ -154,7 +154,6 @@ BUILD_ORDER="
      gnome-build
      devhelp
      graphviz
-     anjuta
      bluefish
      dia
      inkscape
@@ -168,6 +167,7 @@ BUILD_ORDER="
      gnumeric
      gtkspell
      glade3
+     anjuta
      gnome-python-extras
      python-xlib
      istanbul
