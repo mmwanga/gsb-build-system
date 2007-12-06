@@ -182,7 +182,6 @@ BUILD_ORDER="
      libgnomeui
      gtk-engines
      libsoup
-     NetworkManager
 		"
 
 #

@@ -208,7 +208,6 @@ BUILD_ORDER="
         libgpod
         lua
         libnl
-        dhcdbd
         heimdal-libraries
         libgalago
         libsigc++
