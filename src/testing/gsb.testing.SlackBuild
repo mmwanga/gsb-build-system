@@ -24,7 +24,7 @@ export LOGSDIR=${GSB_LOGSDIR:-$TMP/gsb-buildlogs}
 export PKGDEST=${PKGDEST:-$TMP/gsb-tree/packages}
 
 # Section Name
-SECTION=libraries
+SECTION=testing
 
 # 
 # Functions 
