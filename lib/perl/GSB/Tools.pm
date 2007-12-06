@@ -29,4 +29,12 @@ our %tools =
 			 'src' => 'tar.gz',
              'var' => 'VERSION',
 			     },
+   'setuptools'           => {
+			 'ver' => '0.6c7',
+			 'url' => 'http://pypi.python.org/packages/source/s/setuptools',
+			 'dir' => 'tools/setuptools',
+			 'tar' => 'setuptools-0.6c7.tar.gz',
+			 'src' => 'tar.gz',
+             'var' => 'VERSION',
+			     },
   );

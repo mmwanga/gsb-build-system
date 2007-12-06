@@ -1,6 +1,19 @@
 ChangeLog
 ---------
 
+06-12-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * applications: Bump pybackpack
+	  Disable parallel builds for gnome-user-docs (breaks)
+	* libraries: Disable parallel builds for nss (breaks higher than -j4)
+	* office: Move anjuta to after glade3 in build order (adds glade3
+      plugins to anjuta)  
+	  Disable fast-math and O3 optimization on gnumeric.
+	* extras: Fix jokosher (needs setuptools for python)
+	* tools: Add setuptools for python (needed by jokosher, and many other python apps)
+	* web: Updated build and devel pages.
+
+	Thanks to Sandro Vitenti for pointing out some of the above problems.  :)
+
 05-12-2007  fidesratio <sk238(at)ex.ac.uk>	
     * testing: Added NetworkManager-vpn bindings for openvpn and vpnc.
 	   Currently pptp breaks.
