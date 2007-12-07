@@ -1,2 +1,0 @@
-To allow users to connect to the NetworkManager daemon they have to be in the
-group "netdev". 

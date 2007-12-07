@@ -1,0 +1,12 @@
+           |-----handy-ruler------------------------------------------------------|
+avahi-sharp: avahi-sharp (Mono Bindings for Zeroconf Networking)
+avahi-sharp:
+avahi-sharp: avahi is a system which facilitates service discovery on a local
+avahi-sharp: network. This means that you can plug your laptop or computer into a
+avahi-sharp: network and instantly be able to view other people who you can chat
+avahi-sharp: with, find printers to print to or find files being shared.
+avahi-sharp:
+avahi-sharp: This packages contains Avahi bindings for Mono.
+avahi-sharp:
+avahi-sharp:
+avahi-sharp:

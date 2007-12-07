@@ -1,0 +1,12 @@
+         |-----handy-ruler------------------------------------------------------|
+njb-sharp: njb-sharp (Nomad Jukebox Bindings for Mono)
+njb-sharp:
+njb-sharp: The Mono Project is an open development initiative sponsored by Novell 
+njb-sharp: to develop an open source, UNIX version of the Microsoft .NET development 
+njb-sharp: platform. Its objective is to enable UNIX developers to build and deploy 
+njb-sharp: cross-platform .NET Applications. 
+njb-sharp:
+njb-sharp: This package contains Mono Bindings to access Nomad Jukeboxes
+njb-sharp: through the libnjb library.
+njb-sharp:
+njb-sharp:

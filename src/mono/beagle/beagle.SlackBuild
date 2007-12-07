@@ -12,7 +12,7 @@ VERSION=0.3.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="mono gtk-sharp libgnomeui"
+REQUIRED_PACKAGES="mono gtk+2 libgnomeui sqlite3 gtk-sharp gnome-sharp libexif libgalago python gnome-vfs libxml2 nautilus evolution-data-server libnotify evolution-sharp taglib"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -171,8 +171,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   || exit 1
 
 ## Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+make &&
+make DESTDIR=$PKG install || exit 1
 
 ## Disable Autostart
 mkdir -p $PKG/usr/share/applications ;

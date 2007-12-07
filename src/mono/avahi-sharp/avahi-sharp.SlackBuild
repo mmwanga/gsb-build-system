@@ -6,13 +6,14 @@
 ## Licenced under the terms of the GNU General Public Licence version 3.
 ##
 
-## Package variables.
+## Package variables
 BUILD=1
-VERSION=0.6.5
+VERSION=0.6.21
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libnl wpa_supplicant libgcrypt dbus hal gtk+2 libglade gnome-keyring dhcdbd libgnomeui gnome-keyring wireless-tools glib2 iproute2 GConf"
+
+REQUIRED_PACKAGES="glib2 desktop-file-utils dbus gtk+2 python pygtk dbus-python expat libdaemon libglade"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -22,7 +23,8 @@ TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP/gsb-tree/packages}
 
 ## Script variables.
-PKGNAME=$(basename $0 .SlackBuild)
+PKGNAME=avahi
+GSBPKGNAME=$(basename $0 .SlackBuild)
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
@@ -68,8 +70,8 @@ done
     return $?
   }
 
-  check_installed "$PKGNAME" && {
-    echo "${0##*/}: Remove installed '$PKGNAME' package before build."
+  check_installed "$GSBPKGNAME" && {
+    echo "${0##*/}: Remove installed '$GSBPKGNAME' package before build."
     exit 1
   }
 
@@ -90,7 +92,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -113,6 +115,20 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
+
+## See patches/README
+if [ -x `which pkg-config` ]; then
+   pkg-config --atleast-version="1.1.1" dbus-1
+   if [ $? -ne 0 ]; then
+     echo "You do not have dbus greater or equal to 1.1.1. A patch is required."
+     (cd $TMP/$PKGNAME-$VERSION;
+      patch -p0 < $CWD/patches/avahi.dbus.patch
+     );
+   fi;
+else
+   echo "Need pkg-config in order to build this package.";
+   exit 1;
+fi;
 
 ## Fix permissions for building.
 chown -R root.root .
@@ -144,7 +160,7 @@ elif [ "$ARCH" = "x86_64" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -ffast-math -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS="--libdir=/usr/lib64"
+    CONFIGURE_FLAGS="--libdir=/usr/lib"
   }
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
@@ -155,66 +171,44 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
-
-## Enable GNOME Deprecated for NetworkManager (Druid Removed in Gnome 2.20)
-## For more information see:
-## http://www.ohloh.net/projects/7949/contributors/39656/commits/13249941
-##
-
-echo "Enabling GNOME Deprecated for vpn-properties."
-sed -i "s/-DGNOME_DISABLE_DEPRECATED//g" $TMP/$PKGNAME-$VERSION/gnome/vpn-properties/Makefile.in
-
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
+  --with-dbus-system-address=unix:path=/var/run/dbus/system_bus_socket \
+  --disable-doxygen-doc \
+  --disable-xmltoman \
+  --disable-manpages \
+  --disable-qt3 \
+  --disable-qt4 \
+  --enable-mono \
+  --enable-monodoc \
   --with-distro=slackware \
-  --enable-notification-icon \
   || exit 1
 
 ## Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+make $MAKE_FLAGS || exit 1;
+(
+cd avahi-sharp ;
+make install DESTDIR=$PKG || exit 1;
+)
 
-## Preserve previous configurations
-mkdir -p $PKG/etc/rc.d
-rm $PKG/etc/rc.d/rc.networkmanager
-cp $CWD/rc.networkmanager $PKG/etc/rc.d/rc.networkmanager.new
-mv $PKG/etc/rc.d/rc.networkmanager-dispatcher $PKG/etc/rc.d/rc.networkmanager-dispatcher.new
-mv $PKG/etc/dbus-1/system.d/NetworkManager.conf $PKG/etc/dbus-1/system.d/NetworkManager.conf.new
+# Install pkg-config information
+if [ "$ARCH" = "x86_64" ]; then
+  mkdir -p $PKG/usr/lib64/pkgconfig ;
+  cp $TMP/$PKGNAME-$VERSION/avahi-sharp.pc $PKG/usr/lib64/pkgconfig ;
+  cp $TMP/$PKGNAME-$VERSION/avahi-ui-sharp.pc $PKG/usr/lib64/pkgconfig ;
+else
+  mkdir -p $PKG/usr/lib/pkgconfig ;
+  cp $TMP/$PKGNAME-$VERSION/avahi-sharp.pc $PKG/usr/lib/pkgconfig ;
+  cp $TMP/$PKGNAME-$VERSION/avahi-ui-sharp.pc $PKG/usr/lib/pkgconfig ;
+fi ;
 
-## Fix for Slackware non-PAM system.
-##
-## Users now can add themselves to the "netdev" group to use networkmanager.
-##
-
-sed -i "s/at_console=\"true\"/group=\"netdev\"/g" $PKG/etc/dbus-1/system.d/NetworkManager.conf.new
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
-
-## Compress and fix manpage links.
-[ -e $PKG/usr/man ] && {
-  find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
-  find $PKG/usr/man -type l -name \*.? -printf \
-    "( cd '%h'; [ -e '%l.gz' ] &&
-     { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
-}
-
-## Deal with .info files.
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
-}
-
-## Copy extra documentation into package.
-mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
-  $PKG/usr/doc/$PKGNAME-$VERSION
-find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
-chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
@@ -226,7 +220,7 @@ done
 
 ## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/$GSBPKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {

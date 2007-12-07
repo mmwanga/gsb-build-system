@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=1.2.4
+VERSION=1.25
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="mono monodoc gtk-sharp gecko-sharp"
+REQUIRED_PACKAGES=""
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -90,7 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xzf $CWD/$PKGNAME-$VERSION.tgz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -159,20 +159,11 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
-  --program-prefix="" \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-# Fix for pkgconfig files on x86_64 platforms
-if [ "$ARCH" = "x86_64" ]; then
-  if [ -d $PKG/usr/lib/pkgconfig ]; then
-     mkdir -p $PKG/usr/lib64 ;
-     mv $PKG/usr/lib/pkgconfig $PKG/usr/lib64 ;
-  fi;
-fi ;
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -199,6 +190,23 @@ cp -a \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
+
+## Add schemas install to the doinst.sh if schemas are found.
+[ -d $PKG/etc/gconf/schemas ] && {
+  echo "if [ -x usr/bin/gconftool-2 ]; then" >>$PKG/install/doinst.sh
+  ( cd $PKG/etc/gconf/schemas
+    for FILE in *; do
+      [ -z "$(grep gconfentry $FILE)" ] && {
+        # Create gconf tree
+        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
+      } || {
+        # Load gconf settings
+        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --config-source=\$(usr/bin/gconftool-2 --get-default-source) --direct --load etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
+      }
+    done
+  )
+  echo "fi" >>$PKG/install/doinst.sh
+}
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests

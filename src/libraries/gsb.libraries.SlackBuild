@@ -214,6 +214,9 @@ BUILD_ORDER="
         id3lib
         openal
         freealut
+        sg3_utils
+        libipoddevice
+        libnjb
 		"
 
 #

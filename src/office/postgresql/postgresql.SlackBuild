@@ -189,6 +189,9 @@ cp -a $CWD/rc.postgresql $PKG/etc/rc.d/rc.postgresql.new
 mkdir -p $PKG/etc/logrotate.d
 cp -a $CWD/postgresql.logrotate $PKG/etc/logrotate.d/postgresql.new
 
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr
+chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/etc
+
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null

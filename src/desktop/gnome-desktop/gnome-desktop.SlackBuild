@@ -166,10 +166,14 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make &&
 make DESTDIR=$PKG install || exit 1
 
+# Install our splash screen
+mkdir -p $PKG/usr/share/pixmaps/backgrounds
+cp $CWD/gsb-background.png $PKG/usr/share/pixmaps/backgrounds
+chown root.root $PKG/usr/share/pixmaps/backgrounds/gsb-background.png
+
 ##
 ## Keep clean for Scrollkeeper
 ## Will rebuild database in doinst.sh
-
 rm -fr $PKG/var/lib/scrollkeeper
 rm -fr $PKG/var/lib/log
 

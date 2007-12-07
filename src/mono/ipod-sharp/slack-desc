@@ -1,0 +1,12 @@
+          |-----handy-ruler------------------------------------------------------|
+ipod-sharp: ipod-sharp (iPod Bindings for Mono)
+ipod-sharp:
+ipod-sharp: The Mono Project is an open development initiative sponsored by Novell 
+ipod-sharp: to develop an open source, UNIX version of the Microsoft .NET development 
+ipod-sharp: platform. Its objective is to enable UNIX developers to build and deploy 
+ipod-sharp: cross-platform .NET Applications. 
+ipod-sharp:
+ipod-sharp: ipod-sharp is a library that allows manipulation of the iTunesDB used in
+ipod-sharp: Apple iPod devices.  Currently it supports adding/removing songs and
+ipod-sharp: manipulating playlists.
+ipod-sharp:

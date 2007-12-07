@@ -163,6 +163,12 @@ BUILD_ORDER="
    beagle
    tomboy
    f-spot
+   ipod-sharp
+   njb-sharp
+   avahi-sharp
+   libgphoto2-sharp
+   karma-sharp 
+   banshee
 		"
 
 #

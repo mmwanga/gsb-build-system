@@ -1,0 +1,12 @@
+             |-----handy-ruler------------------------------------------------------|
+libipoddevice: libipoddevice (Low-level iPod Library)
+libipoddevice: 
+libipoddevice: libipoddevice provides basic low level device information about iPod 
+libipoddevice: devices.  The library makes it easy to detect, mount and eject iPods. It 
+libipoddevice: can provide basic metadata about mount points, device path, model, name, 
+libipoddevice: and disk space. 
+libipoddevice: 
+libipoddevice: 
+libipoddevice: 
+libipoddevice: 
+libipoddevice: 

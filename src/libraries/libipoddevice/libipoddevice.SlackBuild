@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=1.2.4
+VERSION=0.5.3
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="mono monodoc gtk-sharp gecko-sharp"
+REQUIRED_PACKAGES="sg3_utils hal glib2"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -90,7 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -159,20 +159,11 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
-  --program-prefix="" \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-# Fix for pkgconfig files on x86_64 platforms
-if [ "$ARCH" = "x86_64" ]; then
-  if [ -d $PKG/usr/lib/pkgconfig ]; then
-     mkdir -p $PKG/usr/lib64 ;
-     mv $PKG/usr/lib/pkgconfig $PKG/usr/lib64 ;
-  fi;
-fi ;
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

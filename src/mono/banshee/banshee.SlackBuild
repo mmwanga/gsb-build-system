@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=3.0
+VERSION=0.13.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="dbus"
+REQUIRED_PACKAGES="mono gtk-sharp gstreamer libmusicbrainz nautilus-cd-burner sqlite3 gtk+2 hal ipod-sharp libipoddevice njb-sharp libmtp avahi avahi-sharp karma-sharp gnome-sharp"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -114,24 +114,6 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
-##
-## Fix dbus_service for dbus < 1.1.1
-##
-## See patches/README
-if [ -x `which pkg-config` ]; then
-   pkg-config --atleast-version="1.1.1" dbus-1
-   if [ $? -ne 0 ]; then
-     echo "You have dbus less than 1.1.1.  A patch is required."
-    (cd $TMP/$PKGNAME-$VERSION/src;
-    cat $CWD/patches/dbus_service.c.patch | patch -p0 ;
-    );
-   fi;
-else
-   echo "Need pkg-config in order to build this package.";
-   exit 1;
-fi;
-
-
 ## Fix permissions for building.
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
@@ -162,7 +144,7 @@ elif [ "$ARCH" = "x86_64" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -ffast-math -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS="--libdir=/usr/lib64"
+    CONFIGURE_FLAGS="--libdir=/usr/lib"
   }
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
@@ -174,20 +156,31 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --disable-static --enable-shared \
+  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
+  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
+  --enable-ipod \
+  --enable-njb \
+  --enable-mtp \
+  --enable-karma \
+  --enable-avahi \
+  --disable-docs \
+  --program-prefix="" \
+  || exit 1
 
 ## Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+make &&
+make DESTDIR=$PKG install || exit 1
 
-## Preserve previous configurations
-mkdir -p $PKG/etc/rc.d
-mkdir -p $PKG/etc/dhclient-exit-hooks.d
-mkdir -p $PKG/etc/dhclient-enter-hooks.d
-cp $CWD/etc/dhclient-enter-hooks.d/00dbus_hooks.sh $PKG/etc/dhclient-enter-hooks.d/00dbus_hooks.sh.new
-cp $CWD/etc/dhclient-enter-hooks.new $PKG/etc
-cp $CWD/etc/dhclient-exit-hooks.new $PKG/etc
-cp $CWD/etc/rc.d/rc.dhcdbd $PKG/etc/rc.d/rc.dhcdbd.new
-mv $PKG/etc/dbus-1/system.d/dhcdbd.conf $PKG/etc/dbus-1/system.d/dhcdbd.conf.new
+# Fix for pkgconfig files on x86_64 platforms
+if [ "$ARCH" = "x86_64" ]; then
+  if [ -d $PKG/usr/lib/pkgconfig ]; then
+     mkdir -p $PKG/usr/lib64 ;
+     mv $PKG/usr/lib/pkgconfig $PKG/usr/lib64 ;
+  fi;
+fi ;
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -210,10 +203,27 @@ mv $PKG/etc/dbus-1/system.d/dhcdbd.conf $PKG/etc/dbus-1/system.d/dhcdbd.conf.new
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  COPYING* ChangeLog README \
+  AUTHORS COPYING* ChangeLog NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
+
+## Add schemas install to the doinst.sh if schemas are found.
+[ -d $PKG/etc/gconf/schemas ] && {
+  echo "if [ -x usr/bin/gconftool-2 ]; then" >>$PKG/install/doinst.sh
+  ( cd $PKG/etc/gconf/schemas
+    for FILE in *; do
+      [ -z "$(grep gconfentry $FILE)" ] && {
+        # Create gconf tree
+        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
+      } || {
+        # Load gconf settings
+        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --config-source=\$(usr/bin/gconftool-2 --get-default-source) --direct --load etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
+      }
+    done
+  )
+  echo "fi" >>$PKG/install/doinst.sh
+}
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
