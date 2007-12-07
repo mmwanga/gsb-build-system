@@ -6,6 +6,7 @@ ChangeLog
 	* compiz: ccsm and Pyrex have --root added to configure
 	* extras: python-ldap, deluge, jokosher have --root added
 	  to configure
+	  Deluge version bumped to 0.5.7.1
 	* office: python-xlib has --root added to configure
 	* applications: pybackback and rdiff-backup have --root
 	  added to configure.

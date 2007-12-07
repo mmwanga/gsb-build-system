@@ -36,8 +36,8 @@ our %extras =
 			     'src' => 'tar.bz2',
 			    },
    'deluge'              => {
-                 'ver' => '0.5.6.2',
-                 'url' => 'http://download.deluge-torrent.org/tarball/0.5.6.2',
+                 'ver' => '0.5.7.1',
+                 'url' => 'http://download.deluge-torrent.org/tarball/0.5.7.1',
                  'src' => 'tar.gz',
                             },
    'devede'              => {
