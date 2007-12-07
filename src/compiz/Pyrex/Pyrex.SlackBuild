@@ -156,7 +156,7 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Build and install.
 python setup.py build &&
-python setup.py install --prefix=$PKG/usr || exit 1;
+python setup.py install --prefix=/usr --root=$PKG || exit 1;
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

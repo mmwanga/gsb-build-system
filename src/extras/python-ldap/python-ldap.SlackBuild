@@ -155,8 +155,8 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Build and Install
-/usr/bin/python setup.py build
-/usr/bin/python setup.py install --prefix=$PKG/usr
+/usr/bin/python setup.py build || exit 1
+/usr/bin/python setup.py install --prefix=/usr --root=$PKG || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

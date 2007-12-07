@@ -158,14 +158,10 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure and Build
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  python ./setup.py build \
-  || exit 1
+  python ./setup.py build || exit 1
 
 ## Build and install.
-python ./setup.py install --prefix=$PKG/usr || exit 1
-
-## Fix deluge with proper paths for plugins
-find $PKG/usr -name common.py -exec sed -i "s:$PKG::g" {} \;
+python ./setup.py install --prefix=/usr --root=$PKG || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
