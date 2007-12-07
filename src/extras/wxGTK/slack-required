@@ -12,7 +12,7 @@ mesa
 zlib
 sdl
 expat
-libgnomecanvasui
+libgnomecanvas
 libgnomeui
 ORBit2
 GConf
