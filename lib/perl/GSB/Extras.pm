@@ -95,11 +95,6 @@ our %extras =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtkpod',
 			     'src' => 'tar.gz',
 			    },
-   'inkscape'            => {
-			     'ver' => '0.45.1',
-			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/inkscape',
-			     'src' => 'tar.gz',
-			    },
    'istanbul'            => {
 			     'ver' => '0.2.1',
 			     'url' => 'http://zaheer.merali.org',
@@ -124,6 +119,11 @@ our %extras =
 			     'ver' => '1.4.5b',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/liferea',
 			     'src' => 'tar.gz',
+			    },
+   'MPlayer'            => {
+			     'ver' => '1.0rc2',
+			     'url' => 'http://www1.mplayerhq.hu/MPlayer/releases',
+			     'src' => 'tar.bz2',
 			    },
    'parted'             => {
 			     'ver' => '1.8.8',

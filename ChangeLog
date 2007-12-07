@@ -1,6 +1,19 @@
 ChangeLog
 ---------
 
+07-12-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * tools: scons and setuptools have --root added to configure
+	* compiz: ccsm and Pyrex have --root added to configure
+	* extras: python-ldap, deluge, jokosher have --root added
+	  to configure
+	* office: python-xlib has --root added to configure
+	* applications: pybackback and rdiff-backup have --root
+	  added to configure.
+	* desktop: Added pyxdg for freedesktop.org stuff for python.
+	   Needed by a few python apps, including deluge.
+
+	Thanks to Sandro Vitenti for pointing out some of the above problems.  :)
+
 06-12-2007  fidesratio <sk238(at)ex.ac.uk>	
     * applications: Bump pybackpack
 	  Disable parallel builds for gnome-user-docs (breaks)
@@ -9,7 +22,9 @@ ChangeLog
       plugins to anjuta)  
 	  Disable fast-math and O3 optimization on gnumeric.
 	* extras: Fix jokosher (needs setuptools for python)
-	* tools: Add setuptools for python (needed by jokosher, and many other python apps)
+	* tools: Add setuptools for python (needed by jokosher, 
+	and many other python apps)
+	* mono: f-spot version bump.
 	* web: Updated build and devel pages.
 
 	Thanks to Sandro Vitenti for pointing out some of the above problems.  :)

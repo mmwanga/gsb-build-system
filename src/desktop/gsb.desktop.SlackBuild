@@ -187,6 +187,7 @@ BUILD_ORDER="
       gtksourceview2
       gnome-keyring-manager
       gtkhtml 
+      pyxdg
 		"
 
 #

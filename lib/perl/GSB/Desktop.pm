@@ -79,6 +79,11 @@ our %desktop_nongnome =
                            'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-ugly/',
                            'src' => 'tar.bz2',
                           },
+   'pyxdg'  => {
+                           'ver' => '0.15',
+                           'url' => 'http://www.freedesktop.org/~lanius',
+                           'src' => 'tar.gz',
+                          },
    'tango-icon-theme'  => {
                            'ver' => '0.8.1',
                            'url' => 'http://tango-project.org/releases/',
