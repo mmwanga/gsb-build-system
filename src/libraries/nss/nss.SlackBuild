@@ -162,7 +162,6 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 ##
 ## Build and Install
 ##
-(
 
 cd mozilla;
 
@@ -183,7 +182,8 @@ if [ "$ARCH" = "x86_64" ]; then
     ##
     ## Required Make Flags for x86_64
     ##
-    MAKE_FLAGS="USE_64=1"
+    export USE_64=1
+    export MAKE_FLAGS="USE_64=1"
     echo $MAKE_FLAGS;
 else
     NSSLIBDIR=lib;
@@ -193,7 +193,7 @@ cd security/nss ;
 
 ## Build and install.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-    make nss_build_all ;
+   make nss_build_all || exit 1;
 
 cd ../../;
 
@@ -230,7 +230,7 @@ install -v -m644 {public,private}/nss/* $PKG/usr/include/nss ;
 cp -v -RL $NSS_LINUXDIR/include/* $PKG/usr/include/nspr ;
 chmod -v 644 /usr/include/nspr/prvrsion.h;
 
-) ## End of Build and Install;
+## End of Build and Install;
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
