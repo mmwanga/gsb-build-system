@@ -79,6 +79,11 @@ our %desktop_nongnome =
                            'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-ugly/',
                            'src' => 'tar.bz2',
                           },
+   'libipoddevice'       => {
+                'ver' => '0.5.3',
+                'url' => 'http://banshee-project.org/files/libipoddevice',
+                'src' => 'tar.gz',
+                          },
    'pyxdg'  => {
                            'ver' => '0.15',
                            'url' => 'http://www.freedesktop.org/~lanius',

@@ -12,7 +12,7 @@ VERSION=0.5.3
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="sg3_utils hal glib2"
+REQUIRED_PACKAGES="sg3_utils hal glib2 libgtop"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
