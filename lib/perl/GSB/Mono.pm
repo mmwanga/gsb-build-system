@@ -23,6 +23,11 @@ our %mono_gnome =
 
 our %mono=
   (
+   'banshee'        => {
+				'ver' => '0.13.1',
+				'url' => 'http://banshee-project.org/files/banshee',
+				'src' => 'tar.bz2',
+			    },
    'gecko-sharp'        => {
 				'ver' => '2.0-0.12',
 				'url' => 'http://go-mono.com/sources/gecko-sharp-2.0/',
@@ -48,6 +53,16 @@ our %mono=
 				'url' => 'http://go-mono.com/sources/libgdiplus/',
 				'src' => 'tar.bz2',
 			       },
+   'libgphoto2-sharp' => {
+		    'ver'  => '2.3.0',
+		    'url'  => 'http://downloads.sourceforge.net/gphoto',
+		    'src'  => 'tar.bz2',
+		   },
+   'ipod-sharp'             => {
+				'ver' => '0.6.3',
+				'url' => 'http://banshee-project.org/files/ipod-sharp',
+				'src' => 'tar.gz',
+			       },
    'mono'                   => {
 				'ver' => '1.2.5.2',
 				'url' => 'http://go-mono.com/sources/mono/',
@@ -68,33 +83,35 @@ our %mono=
 				'url' => 'http://go-mono.com/sources/mono-tools',
 				'src' => 'tar.bz2',
 			       },
+   'njb-sharp'                => {
+				'ver' => '0.3.0',
+				'url' => 'http://banshee-project.org/files/njb-sharp',
+				'src' => 'tar.gz',
+			       },
   );
 
 our %mono_diff_naming =
   (
    'avahi-sharp'  => {
-                     'ver'  => '0.6.14',
-                     'name' => 'avahi',
-                     'url'  => 'http://avahi.org/download/',
-                     'src'  => 'tar.gz',
-                    },
-   'gtk-sharp2'  => {
-		     'ver'  => '2.10.2',
-		     'name' => 'gtk-sharp',
-		     'url'  => 'http://go-mono.com/sources/gtk-sharp210/',
-		     'src'  => 'tar.bz2',
-		    },
-   'dbus-sharp'  => {
-		     'ver'  => '0.93',
-		     'name' => 'dbus',
-		     'url'  => 'http://dbus.freedesktop.org/releases/',
-		     'src'  => 'tar.gz',
-		    },
+             'url' => 'http://avahi.org/download',
+             'ver' => '0.6.21',
+             'dir' => 'mono/avahi-sharp',
+             'tar' => 'avahi-0.6.21.tar.gz',
+             'var' => 'VERSION',
+                        },
    'gmime-sharp' => {
-		    'ver'  => '2.2.3',
-		    'name' => 'gmime',
-		    'url'  => 'http://spruce.sourceforge.net/gmime/sources/v2.2/',
-		    'src'  => 'tar.gz',
+		    'url'  => 'ftp://ftp.gnome.org/pub/gnome/sources/gmime/2.2',
+		    'ver'  => '2.2.9',
+            'dir' => 'mono/gmime-sharp',
+            'tar' => 'gmime-2.2.9.tar.bz2',
+            'var' => 'VERSION',
+		   },
+   'libkarma-sharp' => {
+		    'url'  => 'http://www.freakysoft.de/libkarma',
+		    'ver'  => '0.1.0',
+            'dir' => 'mono/karma-sharp',
+            'tar' => 'libkarma-0.1.0.tar.gz',
+            'var' => 'VERSION',
 		   },
   );
 
@@ -109,8 +126,7 @@ our %mono_diff_naming =
 sub gsb_mono_url_make {
 
   my $name = shift;
-  my $url  = shift;
-  my $ver  = shift;
+  my $url  = shift; my $ver  = shift;
   my $src  = shift;
 
   my $thisurl = "$url/$name-$ver.$src";

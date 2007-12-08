@@ -9,6 +9,9 @@
   Manager running properly.  There is a brief note in the doinst.sh for the 
   package, but they might miss it.  Should be made clear in a FAQ.
 
+* gnome-volume-control will whine about "No Audio Device" if the user is
+  not in the group "audio"
+
 * network-manager-applet, beagle, tracker, etc, are all disabled by default.
   (Well, according to us, anyways...  :)   Users can either globally re-enable
   them by copying nm-applet.desktop, beagle-search-autostart.desktop, 

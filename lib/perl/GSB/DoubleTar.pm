@@ -84,11 +84,4 @@ our %double_tarballs_url =
 			 'tar' => 'scons-0.97.tar.gz',
              'var' => 'VERSION',
                   },
-   'gmime-sharp'            => {
-             'url' => 'ftp://ftp.gnome.org/pub/GNOME/sources/gmime/2.2',
-             'ver' => '2.2.9',
-			 'dir' => 'mono/gmime-sharp',
-			 'tar' => 'gmime-2.2.9.tar.bz2',
-             'var' => 'VERSION',
-                  },
   );

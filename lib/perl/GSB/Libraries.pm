@@ -22,11 +22,6 @@ our %libraries =
 			   'url' => 'http://liba52.sourceforge.net/files/',
 			   'src' => 'tar.gz',
 			  },
-   'dhcdbd'          => {
-			 'url' => 'http://dcantrel.fedorapeople.org/dhcdbd/',
-			 'ver' => '3.0',
-			 'src' => 'tar.bz2',
-			},
    'exempi'              => {
 			   'ver' => '1.99.4',
 			   'url' => 'http://libopenraw.freedesktop.org/download/',
@@ -137,6 +132,11 @@ our %libraries =
                 'url' => 'http://www.linux1394.org/dl/',
                 'src' => 'tar.gz',
                           },
+   'libipoddevice'       => {
+                'ver' => '0.5.3',
+                'url' => 'http://banshee-project.org/files/libipoddevice',
+                'src' => 'tar.gz',
+                          },
    'libiptcdata'       => {
                            'ver' => '1.0.2',
                            'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libiptcdata',
@@ -237,6 +237,11 @@ our %libraries =
                          'url' => 'http://www.ekiga.org/admin/downloads/latest/sources/sources/',
                          'ver' => '1.10.10',
                          'src' => 'tar.gz',
+                        },
+   'sg3_utils'            => {
+                         'url' => 'http://sg.torque.net/sg/p',
+                         'ver' => '1.25',
+                         'src' => 'tgz',
                         },
    'speex'            => {
                          'url' => 'http://downloads.us.xiph.org/releases/speex/',

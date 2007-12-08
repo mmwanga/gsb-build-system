@@ -33,7 +33,6 @@ our %platform =
    'libgnomeui'          => '2.20.1.1',
    'liboobs'             => '2.20.0',
    'libsoup'             => '2.2.104',
-   'NetworkManager'      => '0.6.5',
    'ORBit2'              => '2.14.9',
    'pygobject'           => '2.14.0',
    'pygtk'               => '2.12.0',

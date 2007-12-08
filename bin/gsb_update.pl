@@ -703,6 +703,43 @@ foreach my $omono_pack (keys %mono) {
   }
 }
 
+# More extra tarballs.
+foreach my $dtu (keys %mono_diff_naming) {
+
+  my $name    = $dtu;
+
+  my $dir     = $mono_diff_naming{$dtu}{dir};
+  my $var     = $mono_diff_naming{$dtu}{var};
+  my $ver     = $mono_diff_naming{$dtu}{ver};
+  my $tarball = $mono_diff_naming{$dtu}{tar};
+  my $packurl = $mono_diff_naming{$dtu}{url};
+  my $type    = 'other';
+
+  chdir "$pwd/$dir";
+
+  my @tmp = split(/\//, $dir);
+  my $sb  = pop(@tmp);
+  
+  my $sb_file = $sb . $sb_ext;
+
+  if ( $download eq "true") {
+    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
+  }
+  
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_double_edit($sb_file, $ver, $var);
+  }
+    
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  } 
+  
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+} 
+
 # Extra Applications found on GNOME Source Tree
 
 foreach my $other_pack (keys %extras_gnome) {

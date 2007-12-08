@@ -1,6 +1,11 @@
 ChangeLog
 ---------
 
+08-12-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * perl: Updated download scripts
+	* desktop: Moved libipoddevice to desktop, gtop required. (Thanks
+	   to Frank J for pointing this out)
+
 07-12-2007  fidesratio <sk238(at)ex.ac.uk>	
     * tools: scons and setuptools have --root added to configure
 	* compiz: ccsm and Pyrex have --root added to configure
@@ -12,6 +17,11 @@ ChangeLog
 	  added to configure.
 	* desktop: Added pyxdg for freedesktop.org stuff for python.
 	   Needed by a few python apps, including deluge.
+	* mono: Update pkgconfigs for a bunch of packages. 
+	  Added karma-sharp, ipod-sharp, njb-sharp for banshee.
+	  Added banshee.  
+	* desktop: Added chipster's new Background/Splash for GSB to 
+	   gnome-session and gnome-desktop.
 
 	Thanks to Sandro Vitenti for pointing out some of the above problems.  :)
 
@@ -24,7 +34,7 @@ ChangeLog
 	  Disable fast-math and O3 optimization on gnumeric.
 	* extras: Fix jokosher (needs setuptools for python)
 	* tools: Add setuptools for python (needed by jokosher, 
-	and many other python apps)
+	  and many other python apps)
 	* mono: f-spot version bump.
 	* web: Updated build and devel pages.
 
