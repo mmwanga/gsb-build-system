@@ -90,6 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
+rm -rf $PKGNAME-$VERSION &&
 tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
@@ -154,24 +155,19 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-## Configure.
-
-(
-  cd make/linux
-  cp Makefile Makefile.orig
-  sed -e "s#prefix=/usr/local#prefix=$PKG/usr#g" < Makefile.orig > Makefile
+## Configure and make.
+( cd make/linux &&
+  cp Makefile Makefile.orig &&
+  sed -i Makefile -e "s:prefix=/usr/local:prefix=$PKG/usr:g" &&
   CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  make $MAKE_FLAGS depend sharedlib;
-  make $MAKE_FLAGS install_sharedlib install_headers;
-) || exit 1;
+    make $MAKE_FLAGS depend sharedlib &&
+  make $MAKE_FLAGS install_sharedlib install_headers || exit 1
+) || exit 1
 
-## 
 ## Extra tweaks for libraries
-##
-if [ "$ARCH" = "x86_64" ]; then
-        mv $PKG/usr/lib $PKG/usr/lib64;
-fi;
-
+[ "$ARCH" = "x86_64" ] && {
+  mv $PKG/usr/lib $PKG/usr/lib64
+}
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

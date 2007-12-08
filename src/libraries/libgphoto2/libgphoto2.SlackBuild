@@ -90,6 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
+rm -rf $PKGNAME-$VERSION &&
 tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
@@ -167,11 +168,11 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Fix for udev paths
 mkdir -p $PKG/lib
-if [ "$ARCH" = "x86_64" ]; then
+[ "$ARCH" = "x86_64" ] && {
    mv $PKG/usr/lib64/udev $PKG/lib
-else
+} || {
    mv $PKG/usr/lib/udev $PKG/lib
-fi;
+}
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

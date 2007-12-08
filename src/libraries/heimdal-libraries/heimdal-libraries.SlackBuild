@@ -22,8 +22,8 @@ TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP/gsb-tree/packages}
 
 ## Script variables.
-PKGNAME=heimdal
-GSBPKGNAME=$(basename $0 .SlackBuild)
+PKGNAME=$(basename $0 .SlackBuild)
+SRCNAME=heimdal
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
@@ -69,8 +69,8 @@ done
     return $?
   }
 
-  check_installed "$GSBPKGNAME" && {
-    echo "${0##*/}: Remove installed '$GSBPKGNAME' package before build."
+  check_installed "$PKGNAME" && {
+    echo "${0##*/}: Remove installed '$PKGNAME' package before build."
     exit 1
   }
 
@@ -91,8 +91,9 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
-cd $PKGNAME-$VERSION || exit 1
+rm -rf $SRCNAME-$VERSION &&
+tar xzf $CWD/$SRCNAME-$VERSION.tar.gz &&
+cd $SRCNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i386" ]; then
@@ -193,12 +194,12 @@ rm -fr $PKG/usr/share
 }
 
 ## Copy extra documentation into package.
-mkdir -p $PKG/usr/doc/$GSBPKGNAME-$VERSION
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
   AUTHORS COPYING* ChangeLog NEWS README \
-  $PKG/usr/doc/$GSBPKGNAME-$VERSION
-find $PKG/usr/doc/$GSBPKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
-chown -R root:root $PKG/usr/doc/$GSBPKGNAME-$VERSION
+  $PKG/usr/doc/$PKGNAME-$VERSION
+find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
+chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
@@ -210,9 +211,9 @@ done
 
 ## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/${GSBPKGNAME}-${VERSION//-/_}-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/${PKGNAME}-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/$PKGNAME-$VERSION
+  rm -rf $PKG $TMP/$SRCNAME-$VERSION
 }

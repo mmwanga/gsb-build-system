@@ -12,7 +12,6 @@ VERSION=0.3.5
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-
 REQUIRED_PACKAGES="libexif gtk+2 pkg-config"
 
 ## Build variables.
@@ -91,6 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
+rm -rf $PKGNAME-$VERSION &&
 tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
@@ -116,18 +116,12 @@ elif [ "$ARCH" = "powerpc" ]; then
 fi
 
 ## See patches/README
-if [ -x `which pkg-config` ]; then
-   pkg-config --atleast-version="2.12" gtk+2-2.0;
-   if [ $? -ne 0 ]; then
-     echo "You have gtk+2 greater or equal to 2.12. A patch is required."
-     (cd $TMP/$PKGNAME-$VERSION/libexif-gtk;
-      patch -p0 < $CWD/patches/gtk-exif-browser.c.gtk-2.12-patch;
-     );
-   fi;
-else
-   echo "Need pkg-config in order to build this package.";
-   exit 1;
-fi;
+pkg-config --atleast-version="2.12" gtk+2-2.0 || {
+  echo "Patching for gtk+2 => 2.12."
+  ( cd $TMP/$PKGNAME-$VERSION/libexif-gtk &&
+    patch -p0 <$CWD/patches/gtk-exif-browser.c.gtk-2.12-patch || exit 1 ) \
+    || exit 1
+}
 
 ## Fix permissions for building.
 chown -R root.root .
@@ -169,12 +163,11 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-## Configure.
-
 ## Fix for configure script to properly detect libexif.
-sed -i 's|exif-mem.h|libexif/exif-mem.h|g' configure;
-chmod +x configure;
+sed -i 's:exif-mem.h:libexif/exif-mem.h:g' configure &&
+chmod +x configure || exit 1
 
+## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \

@@ -90,9 +90,8 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-rm -fr $PKGNAME-$VERSION &&
+rm -rf $PKGNAME $PKGNAME-$VERSION &&
 tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
-rm -fr $PKGNAME-$VERSION &&
 mv $PKGNAME $PKGNAME-$VERSION &&
 cd $PKGNAME-$VERSION || exit 1
 
@@ -118,8 +117,8 @@ elif [ "$ARCH" = "powerpc" ]; then
 fi
 
 ## See README in patches/
-patch -p0 < $CWD/patches/Makefile.am.diff
-patch -p0 < $CWD/patches/configure.in.diff
+patch -p0 < $CWD/patches/Makefile.am.diff &&
+patch -p0 < $CWD/patches/configure.in.diff || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .
@@ -162,9 +161,7 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
-
-autoreconf -if;
-
+autoreconf -if &&
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \

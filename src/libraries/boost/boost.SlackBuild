@@ -6,7 +6,6 @@
 ## Licenced under the terms of the GNU General Public Licence version 3.
 ##
 
-
 ## Package variables.
 BUILD=1
 VERSION=1_34_1
@@ -24,20 +23,15 @@ PKGDEST=${PKGDEST:-$TMP/gsb-tree/packages}
 
 BUILD_ARCH=$(arch)
 if [ "$ARCH" != "$BUILD_ARCH" ]; then
-    cat << EOF
-    *********
-     Warning
-    *********
-
-    Boost can only be built with a target that matches the host architecture.
-    This package will be built for $BUILD_ARCH.
-
-    ********
-
+  cat << EOF
+***********************************************************
+*** Warning:
+*** Boost can only be built with a target that matches the
+*** host architecture.
+*** This package will be built for $BUILD_ARCH.
+***********************************************************
 EOF
-
-fi;
-
+fi
 
 ## Script variables.
 PKGNAME=$(basename $0 .SlackBuild)
@@ -108,6 +102,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
+rm -rf ${PKGNAME}_${VERSION} &&
 tar xjf $CWD/${PKGNAME}_${VERSION}.tar.bz2 &&
 cd ${PKGNAME}_${VERSION} || exit 1
 
@@ -156,7 +151,6 @@ elif [ "$ARCH" = "i586" ]; then
 elif [ "$ARCH" = "i686" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer -ffast-math"}
 elif [ "$ARCH" = "x86_64" ]; then
-  GSB_LIBDIR=lib64
   if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -ffast-math -fPIC"}
   else
@@ -165,6 +159,7 @@ elif [ "$ARCH" = "x86_64" ]; then
   [ -z "$CONFIGURE_FLAGS" ] && {
     CONFIGURE_FLAGS="--libdir=$PKG/usr/lib64"
   }
+  GSB_LIBDIR=lib64
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
 else
@@ -186,32 +181,30 @@ make $MAKE_FLAGS &&
 make $MAKE_FLAGS install || exit 1
 
 ## Remove static, debug, and duplicate libraries
-find $PKG/usr -type f -name \*.a -exec rm -f {} \;
-find $PKG/usr -name "libboost_*-d-*" -exec rm -f {} \;
-find $PKG/usr -name "libboost_*-d.so" -exec rm -f {} \;
-find $PKG/usr -name "libboost_*-mt-d*" -exec rm -f {} \;
-find $PKG/usr -name "libboost_*gcc??.so" -exec rm -f {} \;
+find $PKG/usr -type f -name \*.a -exec rm -f {} \; &&
+find $PKG/usr -name "libboost_*-d-*" -exec rm -f {} \; &&
+find $PKG/usr -name "libboost_*-d.so" -exec rm -f {} \; &&
+find $PKG/usr -name "libboost_*-mt-d*" -exec rm -f {} \; &&
+find $PKG/usr -name "libboost_*gcc??.so" -exec rm -f {} \; || exit 1
 
 ## Add some library softlinks
 GSB_LIBDIR=${GSB_LIBDIR:-"lib"}
-(
-cd $PKG/usr/${GSB_LIBDIR} ;
-for i in $(find . -name "libboost_*-mt-*.${VERSION//_/.}")
-do
-   ## For library basenames
-   ln -sf $i $(echo $i | cut -d\- -f1).so ;
-   ln -sf $i $(echo $i | cut -d\- -f1)-mt.so ;
-done;
+( cd $PKG/usr/${GSB_LIBDIR}
+  for i in $(find . -name "libboost_*-mt-*.${VERSION//_/.}")
+  do
+    ## For library basenames
+    ln -sf $i $(echo $i | cut -d\- -f1).so &&
+    ln -sf $i $(echo $i | cut -d\- -f1)-mt.so || exit 1
+  done
 
-for i in $(find . -name "libboost_*-gcc??-mt.so")
-do
-   ### Overwrite duplicate copies of libraries with softlinks
-   ln -sf $(basename $i .so)-${VERSION}.so.${VERSION//_/.} $i ;
-done;
-)
+  for i in $(find . -name "libboost_*-gcc??-mt.so")
+  do
+    ## Overwrite duplicate copies of libraries with softlinks
+    ln -sf $(basename $i .so)-${VERSION}.so.${VERSION//_/.} $i || exit 1
+  done ) || exit 1
 
 ## Add boost include directory.
-(cd $PKG/usr/include;  ln -sf ${PKGNAME}-${VERSION}/boost boost);
+(cd $PKG/usr/include && ln -sf ${PKGNAME}-${VERSION}/boost boost) || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

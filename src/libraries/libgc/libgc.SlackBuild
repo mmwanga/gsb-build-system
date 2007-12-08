@@ -23,6 +23,7 @@ PKGDEST=${PKGDEST:-$TMP/gsb-tree/packages}
 
 ## Script variables.
 PKGNAME=$(basename $0 .SlackBuild)
+SRCNAME=gc
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
@@ -90,9 +91,9 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xzf $CWD/gc-$VERSION.tar.gz &&
-mv gc-$VERSION $PKGNAME-$VERSION &&
-cd $PKGNAME-$VERSION || exit 1
+rm -rf $SRCNAME-$VERSION &&
+tar xzf $CWD/$SRCNAME-$VERSION.tar.gz &&
+cd $SRCNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i386" ]; then
@@ -206,5 +207,5 @@ makepkg -p -l y -c n $PKGDEST/${PKGNAME}-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/$PKGNAME-$VERSION
+  rm -rf $PKG $TMP/$SRCNAME-$VERSION
 }

@@ -90,6 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
+rm -rf $PKGNAME-$VERSION &&
 tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
@@ -155,34 +156,27 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
-## This package contains no configure build script, and so
-## the Makefiles need to be modified in order to build for
-## a Slackware-based system.
+## This package contains no configure script - the Makefiles need to be
+## modified in order to build for a Slackware-based system.
+( cd make/linux &&
+  cp -f Makefile Makefile.orig &&
+  sed -i Makefile -e 's:prefix=/usr/local:prefix=/usr:g' || exit 1
+  [ "$ARCH" = "x86_64" ] && {
+    sed -i -re "s/^(libdir.*)$/\164/" Makefile || exit 1
+  }
 
-(
-cd make/linux
-cp -f Makefile Makefile.orig
+  CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+    make $MAKE_FLAGS || exit 1
 
-# Modify Makefile for /usr 
-sed -e 's#prefix=/usr/local#prefix=/usr#g' < Makefile.orig > Makefile
-if [ "$ARCH" = "x86_64" ]; then
-  # Modify library paths for x86_64
-  sed -i -re "s/^(libdir.*)$/\164/" Makefile
-fi
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-make $MAKE_FLAGS || exit 1
+  sed -i Makefile -e "s:prefix=/usr:prefix=$PKG/usr:g" &&
+  make install || exit 1
+) || exit 1
 
-## Modify for $PKG root.
-cp -f Makefile Makefile.orig
-sed -e "s#prefix=/usr#prefix=$PKG/usr#g" < Makefile.orig > Makefile
-make install
-)
-
-if [ "$ARCH" = "x86_64" ]; then
-  rm -f $PKG/usr/lib64/*.a;
-else
-  rm -f $PKG/usr/lib/*.a;
-fi;
+[ "$ARCH" = "x86_64" ] && {
+  rm -f $PKG/usr/lib64/*.a || exit 1
+} || {
+  rm -f $PKG/usr/lib/*.a || exit 1
+}
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

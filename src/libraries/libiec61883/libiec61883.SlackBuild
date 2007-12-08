@@ -90,6 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
+rm -rf $PKGNAME-$VERSION &&
 tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
@@ -182,13 +183,6 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
   rm -f $PKG/usr/info/dir
   gzip -9 $PKG/usr/info/*.info
 }
-
-## Correct permissions.
-## Doing these chown's will remove any s{u,g}id bits that may have been set on
-## the installed files, which is not usually what we want.  Only uncomment/use
-## these chown's if necessary.  ~Tadgy.
-# chown -R $(stat --format "%u:%g" /usr/bin) $PKG/usr/bin
-# chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/sbin
 
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
