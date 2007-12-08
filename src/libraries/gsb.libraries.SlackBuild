@@ -215,8 +215,6 @@ BUILD_ORDER="
         openal
         freealut
         sg3_utils
-        libipoddevice
-        libnjb
 		"
 
 #
