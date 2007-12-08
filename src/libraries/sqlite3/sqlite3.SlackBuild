@@ -169,6 +169,13 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
+# Library links
+if [ "$ARCH" = "x86_64" ]; then
+  (cd $PKG/usr/lib64 ; ln -s libsqlite3.so libsqlite3.so.0 );
+else
+  (cd $PKG/usr/lib ; ln -s libsqlite3.so libsqlite3.so.0 );
+fi;
+  
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
