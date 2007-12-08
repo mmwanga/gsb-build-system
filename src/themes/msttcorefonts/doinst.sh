@@ -13,10 +13,10 @@ else
 fi
 
 # Update X font indexes and the font cache:
-if [ -x .$XPREF/bin/mkfontdir ]; then
+if [ -x $XPREF/bin/mkfontdir ]; then
   chroot . $XPREF/bin/mkfontscale $FONTDIR
   chroot . $XPREF/bin/mkfontdir $FONTDIR
 fi
-if [ -x .$XPREF/bin/fc-cache ]; then
+if [ -x $XPREF/bin/fc-cache ]; then
   chroot . $XPREF/bin/fc-cache $FONTDIR
 fi
