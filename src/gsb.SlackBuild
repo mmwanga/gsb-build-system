@@ -102,8 +102,8 @@ do
      echo "Cannot find section $SECTION.";
      exit 1;
   else
-   cd ${GSB_PWD}/${SECTION} && \
-  ./gsb.$SECTION.SlackBuild $SLACKBUILD_ARGS || exit 1
+   cd ${GSB_PWD}/${SECTION} || break 
+  ./gsb.$SECTION.SlackBuild $SLACKBUILD_ARGS || break
   fi;
 done
 

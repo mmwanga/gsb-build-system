@@ -7,4 +7,15 @@ if [ -x usr/bin/update-desktop-database ]; then
 fi
 
 # Set GSB background as default
-usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type string --set /desktop/gnome/background/picture_filename backgrounds/gsb-background.png
+usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type string --set /desktop/gnome/background/picture_filename /usr/share/pixmaps/backgrounds/gsb-background.png
+usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type string --set /desktop/gnome/background/picture_options zoom
+usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type string --set  /desktop/gnome/peripherals/mouse/cursor_theme whiteglass
+usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type integer --set /desktop/gnome/peripherals/mouse/cursor_size 16
+
+for i in gnome hicolor
+do
+	if [ -e usr/share/icons/$i/icon-theme.cache ]; then
+		rm -f usr/share/icons/$i/icon-theme.cache
+	fi
+	usr/bin/gtk-update-icon-cache -f -q usr/share/icons/$i
+done

@@ -161,7 +161,6 @@ BUILD_ORDER="
        epiphany
        epiphany-extensions
        totem
-       network-manager-applet
        gnome-utils
        glibmm
        cairomm
