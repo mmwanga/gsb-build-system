@@ -161,7 +161,6 @@ BUILD_ORDER="
      libgda
      goocanvas
      libgnomedb
-     libgsf
      goffice
      psiconv
      gnumeric

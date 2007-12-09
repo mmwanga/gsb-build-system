@@ -28,6 +28,6 @@ fi;
 ##
 ## Restart dbus (reload tracker info), and start services
 ## 
-if [ -x etc/rc.d/rc.messagebus ]; then
-    . etc/rc.d/rc.messagebus restart;
-fi;
+#if [ -x etc/rc.d/rc.messagebus ]; then
+#   . etc/rc.d/rc.messagebus restart;
+#i;
