@@ -202,6 +202,8 @@ mv $PKG/etc/dbus-1/system.d/nm-applet.conf $PKG/etc/dbus-1/system.d/nm-applet.co
 mkdir -p $PKG/usr/share/applications
 # Disable nm-applet autostart
 mv $PKG/etc/xdg/autostart/nm-applet.desktop $PKG/usr/share/applications
+# Place it in the networking menu
+echo "Categories=Network" >> $PKG/usr/share/applications/nm-applet.desktop 
 
 ## Fix for Slackware non-PAM system.
 ## Users now can add themselves to the "netdev" group to use networkmanager.
