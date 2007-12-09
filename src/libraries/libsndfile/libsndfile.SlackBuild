@@ -90,6 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
+rm -rf $PKGNAME-$VERSION &&
 tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 

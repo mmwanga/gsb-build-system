@@ -90,6 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
+rm -rf $PKGNAME-$VERSION &&
 tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
@@ -155,14 +156,15 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
+CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   || exit 1
 
 ## Build and install.
-make &&
-make DESTDIR=$PKG install || exit 1
+make $MAKE_FLAGS &&
+make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

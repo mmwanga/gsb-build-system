@@ -8,8 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.3.38
-OPENLDAP_CLIENT_VERSION=2.3.38_ntlm
+VERSION=2.3.38_ntlm
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -23,8 +22,9 @@ TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP/gsb-tree/packages}
 
 ## Script variables.
-PKGNAME=openldap
-GSBPKGNAME=$(basename $0 .SlackBuild)
+PKGNAME=$(basename $0 .SlackBuild)
+SRCNAME=openldap
+SRCVERSION=$( echo $VERSION | cut -d_ -f1 )
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
@@ -70,8 +70,8 @@ done
     return $?
   }
 
-  check_installed "$GSBPKGNAME" && {
-    echo "${0##*/}: Remove installed '$GSBPKGNAME' package before build."
+  check_installed "$PKGNAME" && {
+    echo "${0##*/}: Remove installed '$PKGNAME' package before build."
     exit 1
   }
 
@@ -91,14 +91,10 @@ mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
 ## Decompress archive.
-
-## We should also clean up any previous versions in order to prevent
-## the patch failing (on any reiterated builds). 
-
 cd $TMP &&
-rm -fr $PKGNAME-$VERSION &&
-tar xzf $CWD/$PKGNAME-$VERSION.tgz &&
-cd $PKGNAME-$VERSION || exit 1
+rm -rf $ARCNAME-$SRCVERSION &&
+tar xzf $CWD/$SRCNAME-$SRCVERSION.tgz &&
+cd $SRCNAME-$SRCVERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i386" ]; then
@@ -121,17 +117,9 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
-##
 ## NTML Patch
-##
-echo
-patch -p0 < $CWD/patches/openldap-ntlm.patch
-
-echo
-echo
-echo "This version of openldap is patched to support NTLM."
-echo
-echo
+echo "Patching to support HTLM."
+patch -p0 <$CWD/patches/openldap-ntlm.patch || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .
@@ -174,7 +162,6 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
-
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
@@ -199,35 +186,19 @@ make depend &&
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-#####
-##### Below Taken From Pat's SlackBuild
-#####
-
-rm -f $PKG/etc/openldap/ldap.conf.default
-mv $PKG/etc/openldap/ldap.conf $PKG/etc/openldap/ldap.conf.new
-cat << EOF >> $PKG/etc/openldap/ldap.conf.new
+cat $PKG/etc/openldap/ldap.conf >$PKG/etc/openldap/ldap.conf.new &&
+cat <<EOF >>$PKG/etc/openldap/ldap.conf.new || exit 1
 
 # In order to avoid problems with self-signed certificates using TLS:
 # "TLS certificate verification: Error, self signed certificate"
 # See also 'man ldap.conf' or http://www.openldap.org/doc/admin/tls.html
 TLS_REQCERT allow
-
 EOF
 
-mkdir -p $PKG/usr/doc/openldap-$VERSION
-cp -a \
-  ANNOUNCEMENT CHANGES COPYRIGHT LICENSE README \
-  $PKG/usr/doc/openldap-$VERSION
-
-# Remove man pages for the servers (not currently supported or shipped...
-# do they even work properly without the evil PAM?)
+# Remove man pages for the servers.
 find $PKG/usr/man -name slap* -exec rm -f {} \;
 find $PKG/usr/man -name slurp* -exec rm -f {} \;
 find $PKG/usr/man -type d -empty -exec rmdir {} \;
-
-#####
-##### Above Taken from Pat's SlackBuld
-#####
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -250,6 +221,7 @@ find $PKG/usr/man -type d -empty -exec rmdir {} \;
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
+  ANNOUNCEMENT CHANGES COPYRIGHT LICENSE README \
   AUTHORS COPYING* ChangeLog NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
@@ -265,9 +237,9 @@ done
 
 ## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$GSBPKGNAME-${OPENLDAP_CLIENT_VERSION//-/_}-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/$PKGNAME-$VERSION
+  rm -rf $PKG $TMP/$SRCNAME-$SRCVERSION
 }

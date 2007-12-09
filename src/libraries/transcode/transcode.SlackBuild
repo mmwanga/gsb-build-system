@@ -89,6 +89,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
+rm -rf $PKGNAME-$VERSION &&
 tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
@@ -153,11 +154,10 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-## Configure.
-
 ## Slackware 12 has lzo2.
-sed -i "s/llzo/llzo2/g" $TMP/$PKGNAME-$VERSION/configure;
+sed -i configure -e 's/llzo/llzo2/g' || exit 1
 
+## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
