@@ -163,8 +163,9 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   || exit 1
 
 ## Build and install.
-make &&
-make DESTDIR=$PKG install || exit 1
+## Note: Force a non-parallel build (-j1) for this package.
+make $MAKE_FLAGS -j1 &&
+make $MAKE_FLAGS -j1 DESTDIR=$PKG install || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
