@@ -55,7 +55,6 @@ our %applications_gnome =
    'gthumb'                 => '2.10.7',
    'gtkmm'                  => '2.12.3',
    'nautilus-sendto'        => '0.12',
-   'network-manager-applet' => '0.6.5',
    'pygtksourceview'        => '2.0.0',
    'rhythmbox'              => '0.11.3',
    'seahorse'               => '2.20.1',

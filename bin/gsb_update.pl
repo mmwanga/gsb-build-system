@@ -27,7 +27,9 @@
 use strict;
 use warnings;
 
-use lib '../lib/perl/';
+# Add our lib dir to @INC
+use FindBin qw($Bin);
+use lib "$Bin/../lib/perl/"; 
 
 # GSB Modules
 use GSB::Edit;
@@ -65,7 +67,7 @@ my $build    = "";
 
 my $sb_ext = '.SlackBuild';
 
-my $gsb_root_sources = "../src";
+my $gsb_root_sources = "$Bin/../src";
 
 my @bad_downloads;
 

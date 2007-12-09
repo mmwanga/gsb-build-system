@@ -14,6 +14,13 @@ our $VERSION   = 0.03;
 # Building tools
 our %testing_packages =
   (
+   'gslapt'    => {
+             'url' => 'http://software.jaos.org/source/gslapt',
+             'ver' => '0.3.19',
+			 'dir' => 'testing/gslapt',
+			 'tar' => 'gslapt-0.3.19.tar.gz',
+             'var' => 'VERSION',
+                  },
    'wpa_supplicant'    => {
              'url' => 'http://hostap.epitest.fi/releases',
              'ver' => '0.5.9',

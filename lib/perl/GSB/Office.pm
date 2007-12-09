@@ -27,7 +27,6 @@ our %office_gnome =
    'libgda'    => '3.0.1',
    'libgdamm'  => '2.9.81',
    'libgnomedb' => '3.0.0',
-   'libgsf'    => '1.14.7',
   );
 
 our %office =
