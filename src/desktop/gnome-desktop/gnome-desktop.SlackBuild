@@ -12,7 +12,7 @@ VERSION=2.20.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="desktop-file-utils gnome-vfs libbonoboui libgnomeui rarian startup-notification gnome-keyring gnome-vfs gtk+2 libgnome libgnomecanvas libxml2 openssl ORBit2 gail gnome-doc-utils"
+REQUIRED_PACKAGES="desktop-file-utils gnome-vfs libbonoboui libgnomeui rarian startup-notification gnome-keyring gnome-vfs gtk+2 libgnome libgnomecanvas libxml2 openssl ORBit2 gail gnome-doc-utils xcursor-themes tango-icon-theme"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

@@ -24,4 +24,4 @@ if [ -x usr/bin/update-desktop-database ]; then
 fi
 
 # Set GSB splash screen as default
-usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type string --set /apps/gnome-session/options/splash_image splash/gsb-splash.png
+usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type string --set /apps/gnome-session/options/splash_image splash/gsb-splash.png 1> /dev/null 2> /dev/null

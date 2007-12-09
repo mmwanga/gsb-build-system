@@ -14,3 +14,5 @@ openssl-solibs | openssl
 ORBit2
 gail
 gnome-doc-utils
+xcursor-themes
+tango-icon-theme
