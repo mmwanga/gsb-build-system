@@ -1,1 +1,0 @@
-** Build note: x264 cannot be built for a target platform.  Only host can be defined, and so the final package will be only for platforms similar to the one on which it was built.

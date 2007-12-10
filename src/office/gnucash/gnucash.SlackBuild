@@ -32,7 +32,7 @@ the repository automatically (in case specific revisions are wanted.)
 EOF
 
 ## Package variables.
-BUILD=1
+BUILD=2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.

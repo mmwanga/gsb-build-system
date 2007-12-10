@@ -20,3 +20,5 @@ openssl-solibs | openssl
 pango
 slapt-get
 zlib
+gksu
+libgksu

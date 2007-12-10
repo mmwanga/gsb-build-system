@@ -31,6 +31,7 @@
 #	28/07/05	DA	Create compressed versions of PACKAGES.TXT and
 #				CHECKSUMS.md5 as well as the uncompressed ones.
 #				Requested by malloc for slapt-get support.
+#   10/12/07    SK  Updated for GSB SlackBuild
 #
 
 # If you have a package mirror site, specifying it here will result in the
@@ -43,7 +44,7 @@
 METAEXT="txt"
 
 # The sub-directories to process.
-SUBDIRS="extras frgnome patches testing"
+SUBDIRS="accessibility applications bindings compiz desktop extras libraries mono office platform testing themes tools"
 
 # Generate package metadata.
 function gen_pkg_meta() {

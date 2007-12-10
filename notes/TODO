@@ -20,6 +20,13 @@
   ~/.config/autostart directory.  (They will need to make it if it doesn't exist
   already)
 
+* Administrative utilities, like time-date-admin, shares-admin, sabayon, etc
+  etc, will only complain that the user doesn't have the proper rights to change
+  the settings.  If you use these applications enough on a regular basis
+  to warrant keeping them in the menu, and you would like a prompt for a root
+  password, edit the menu entry (using Alacarte, right click on the GNOME
+  menu, then right click on properties), and append "gksu" to the command.
+
 * compiz:  Doesn't have an xinitrc written for it yet. Will have to do that.  
   Also, will need to write a gdm session file.  If they want compiz to autostart
   they can put "compiz-manager" in their session startup (through GNOME Control

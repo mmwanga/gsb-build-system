@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.0.0.11
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 glib2 cairo pango libgnomeui gnome-vfs nss"
+REQUIRED_PACKAGES="gtk+2 glib2 cairo pango libgnomeui gnome-vfs nss pkg-config"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -180,27 +180,32 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
+# Keep sane optimization standards.  Mozilla easily breaks with 
+# too much tweaking.  Also, we need to add in cairo-xlib and render
+# cflags for canvas support.  This is inelegant, but doesn't
+# require patching any source.  :)  (stevek)
 echo "Running configure...."
-echo
-
+CFLAGS="$(pkg-config --cflags --libs cairo-xlib cairo-xlib-xrender)" \
 ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --disable-tests \
   --enable-application=browser \
   --disable-debug \
-  --enable-optimize="-O2 -freorder-blocks -fno-reorder-functions -gstabs+"  \
+  --enable-optimize="-O2 -freorder-blocks -fno-reorder-functions -gstabs+ $(pkg-config --cflags --libs cairo-xlib cairo-xlib-xrender)"  \
   --enable-default-toolkit=gtk2 \
   --enable-svg \
   --disable-mailnews \
   --enable-system-cairo \
+  --enable-svg-renderer=cairo \
   --with-pthreads  \
+  --with-libIDL-prefix=/usr \
   --with-system-zlib \
   --with-system-png \
   --with-system-jpeg \
   --disable-installer  \
   --enable-pango  \
-  --disable-canvas \
+  --enable-canvas \
   --enable-strip  \
   --enable-xft  \
   --with-x  \
@@ -221,9 +226,9 @@ make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 if [ "$ARCH" = "x86_64" ]; then
-  (cd /usr/lib64; ln -sf $PKGNAME-$VERSION $PKGNAME);
+  (cd $PKG/usr/lib64; ln -sf $PKGNAME-$VERSION $PKGNAME);
 else
-  (cd /usr/lib; ln -sf $PKGNAME-$VERSION $PKGNAME);
+  (cd $PKG/usr/lib; ln -sf $PKGNAME-$VERSION $PKGNAME);
 fi;
 
 ## For GNOME

@@ -1,6 +1,12 @@
 ChangeLog
 ---------
 
+10-12-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * applications: Fix for canvas support in mozilla.  Icons/mime still broken?
+	* office: remove fast-math from gnucash.
+	* desktop: Fix for gnome-desktop/gnome-sesion backgrounds.
+	* libraries: Fix for gtk+2 to refresh svg loaders.
+
 08-12-2007  fidesratio <sk238(at)ex.ac.uk>	
     * perl: Updated download scripts
 	* desktop: Moved libipoddevice to desktop, gtop required. (Thanks
