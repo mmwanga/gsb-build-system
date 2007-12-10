@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=1.2.9
 
 ## List any packages here that are required to build this package.
@@ -115,6 +115,10 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
+# Patch to fix building documentation with newer doxygen
+# On all platforms.  No change to actual library source.
+(cd doc && patch -u < $CWD/patches/doxygen.documents.patch) || exit 1
+
 ## Fix permissions for building.
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
@@ -185,7 +189,8 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 }
 
 ## Copy extra documentation into package.
-mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION ;
+cp -r $TMP/$PKGNAME-$VERSION/doc/html $PKG/usr/doc/$PKGNAME-$VERSION ;
 cp -a \
   AUTHORS COPYING* ChangeLog NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
