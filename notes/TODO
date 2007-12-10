@@ -31,15 +31,15 @@
 ## Some Things to Consider
 ## 
 
-Pulseaudio.  Should we be adding the system-wide groups?  Or should
-we leave the user to do so if he/she chooses to implement the daemon
-in that fashion?
+* Pulseaudio.  Should we be adding the system-wide groups?  Or should
+  we leave the user to do so if he/she chooses to implement the daemon
+  in that fashion?
 
-System-backend-tools.  Is this really necessary for Slackware systems?
-Will look into it some more.  Major configurations are always best done
-by hand.  :)  Currently, stb is installed, and the daemon is setup to start
-up (Nautilus looks for it), but is largely unconfigured.  This is the 
-next major task.  :)
+* System-backend-tools.  Is this really necessary for Slackware systems?
+  Will look into it some more.  Major configurations are always best done
+  by hand.  :)  Currently, stb is installed, and the daemon is setup to start
+  up (Nautilus looks for it), but is largely unconfigured.  This is the 
+  next major task.  :)
 
 ### 
 ### Package Ideas 
@@ -52,6 +52,7 @@ next major task.  :)
 ### Website Ideas
 ###
 * Package browser based on PACKAGES.TXT
+  --> This is a huge undertaking...and task is up for grabs :)
 * Include/Enclose "replaced_packages" in code block, like TODO (where?).
 * Write website dev/admin documentation (in progress)
 * Make ViewVC link more prominent in dev. section.
@@ -75,3 +76,4 @@ next major task.  :)
           "s/(.*{1,})\\-(.*[\\.\\-].*[\\.\\-].*)/\1 >= \2/"
      --> this is a nifty idea, but perhaps manual control over slack-desc is
          better for the moment.  :)
+
