@@ -61,10 +61,13 @@
 * Package browser based on PACKAGES.TXT
   --> This is a huge undertaking...and task is up for grabs :)
 * Include/Enclose "replaced_packages" in code block, like TODO (where?).
-* Write website dev/admin documentation (in progress)
+* Write website dev/admin documentation
+  --> Done
 * Make ViewVC link more prominent in dev. section.
+  --> Done
 * Need more screeshots!!!
 * Rewrite download/install page when ready.
+  - System Req. section in proposed download/install page
 
 ###
 ### Misc
