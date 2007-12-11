@@ -1,0 +1,12 @@
+         |-----handy-ruler------------------------------------------------------|
+libnotify: libnotify (Galago Desktop Notification Library)
+libnotify:
+libnotify: libnotify is a part of a desktop presence framework, designed to 
+libnotify: transmit presence information between programs. To put it in simpler 
+libnotify: terms, it takes information on who is online and their away/idle states 
+libnotify: from an instant messenger (such as gaim) or other similar programs and 
+libnotify: lets other programs (such as Ximian's Evolution) to make use of it.
+libnotify: 
+libnotify: The advantage of such a framework is that it brings your programs closer 
+libnotify: together. When you receive an e-mail from a friend who is in your buddy 
+libnotify: list, you'll be able to immediately tell their online status, for example. 

@@ -1,0 +1,4 @@
+Makefile.am.diff and configure.in.diff
+----------------------------------------
+The plugins for faad2 are broken, and these patches prevent their being built.  
+Note: The diffs must keep their CR/LF to patch the source files properly.

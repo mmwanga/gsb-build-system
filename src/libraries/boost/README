@@ -1,0 +1,2 @@
+Boost does not take a target in the configure script, and so will only
+be built for the platform on which it is built.

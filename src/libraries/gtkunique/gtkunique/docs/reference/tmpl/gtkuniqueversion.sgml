@@ -1,0 +1,59 @@
+<!-- ##### SECTION Title ##### -->
+gtkuniqueversion
+
+<!-- ##### SECTION Short_Description ##### -->
+Version checking macros
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### MACRO GTK_UNIQUE_MAJOR_VERSION ##### -->
+<para>
+GtkUnique major version
+</para>
+
+
+
+<!-- ##### MACRO GTK_UNIQUE_MINOR_VERSION ##### -->
+<para>
+GtkUnique minor version
+</para>
+
+
+
+<!-- ##### MACRO GTK_UNIQUE_MICRO_VERSION ##### -->
+<para>
+GtkUnique micro version
+</para>
+
+
+
+<!-- ##### MACRO GTK_UNIQUE_API_VERSION ##### -->
+<para>
+GtkUnique API version
+</para>
+
+
+
+<!-- ##### MACRO GTK_UNIQUE_CHECK_VERSION ##### -->
+<para>
+Checks the version at compile time. You should use this macro if you want to
+use a function or any other part of the GtkUnique API and make sure you are
+using the right version of GtkUnique.
+</para>
+
+@major: the minimum major version
+@minor: the minimum micro version
+@micro: the minimum minor version
+
+

@@ -1,0 +1,12 @@
+      |-----handy-ruler------------------------------------------------------|
+liboil: liboil (Library of optimized functions for various CPUs)
+liboil: 
+liboil: Liboil is a library of simple functions that are optimized for various 
+liboil: CPUs. These functions are generally loops implementing simple 
+liboil: algorithms, such as converting an array of N integers to floating-point
+liboil: numbers or multiplying and summing an array of N numbers. Such functions 
+liboil: are candidates for significant optimization using various techniques, 
+liboil: especially by using extended instructions provided by modern CPUs 
+liboil: (Altivec, MMX, SSE, etc.).
+liboil:
+liboil: http://liboil.freedesktop.org

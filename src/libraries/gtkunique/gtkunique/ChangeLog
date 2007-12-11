@@ -1,0 +1,399 @@
+2006-11-14  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* gtkunique/gtkuniqueapp.c: Update the api documentation.
+
+2006-11-08  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* gtkunique/gtkuniqueapp.h:
+	* gtkunique/gtkuniqueapp.c: Add a GdkScreen argument to the
+	GtkUniqueAppClass::message signal; this will get you the screen
+	used by the instance sending a message.
+
+	* gtkunique/gtkuniqueinternals.h: Update the signal emitter
+	signature.
+
+	* gtkunique/gtkuniquemarshal.list: Update the signal marshaller
+	function signature.
+
+	* gtkunique/gtkuniqueappobject.c: Allow passing NULL as
+	the screen in gtk_unique_app_object_set_screen(), meaning
+	use the default screen.
+
+	* gtkunique/bacon/gtkuniqueapp-bacon.c:
+	* gtkunique/bacon/gtkuniquefactory-bacon.c:
+	* gtkunique/dbus/gtkuniqueapp-dbus.c:
+	* gtkunique/dbus/gtkuniquefactory-dbus.c:
+	* gtkunique/xlibs/gtkuniqueapp-xlibs.c:
+	* gtkunique/xlibs/gtkuniqueutils-xlibs.h: Update backends.
+
+	* tests/test-subclass.c:
+	* tests/test-unique.c: Update tests.
+
+2006-11-06  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* configure.ac: Post release bump to 0.9.0.
+
+2006-11-06  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* README:
+	* NEWS: Release 0.7.0.
+
+2006-11-06  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* gtkunique/Makefile.am: Remove GtkUniqueAppObject from the
+	public API: you can't implement an out-of-tree backend anyway.
+
+	* gtkunique/gtkuniqueapp.c:
+	* gtkunique/gtkuniqueapp.h: Add the "screen" and "workspace"
+	constructor properties; remove the left-over of the vfuncs
+	fro GtkUniqueAppClass.
+
+	* gtkunique/dbus/gtkuniqueapp-dbus.c:
+	* gtkunique/xlibs/gtkuniqueapp-xlibs.c: Clean up.
+
+2006-11-05  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* gtkunique/gtkuniqueapp.c:
+	* gtkunique/gtkuniqueapp.h: Hide the implementation of
+	the IPC mechanism behind a private object; add a
+	"name" and a "startup-id" property; remove the various
+	vfuncs from GtkUniqueAppClass; move the constructor
+	code inside GtkUniqueApp.
+
+	* gtkunique/gtkuniqueappobject.c:
+	* gtkunique/gtkuniqueappobject.h: Move the base class
+	for IPC implementations here and do not subclass from
+	GtkUniqueApp; keep a pointer to the GtkUniqueApp object
+	for the backends to use to send the GtkUniqueApp::message
+	signal; move here all the vfuncs inside GtkUniqueAppObjectClass.
+
+	* gtkunique/bacon/gtkuniqueapp-bacon.c:
+	* gtkunique/dbus/gtkuniqueapp-dbus.c:
+	* gtkunique/dbus/gtkuniquefactory-dbus.c:
+	* gtkunique/xlibs/gtluniqueapp-xlibs.c: Update backends
+	with the new GtkUniqueAppObject code.
+
+	* tests/Makefile.am:
+	* tests/test-subclass.c: Add a test case for subclassing
+	GtkUniqueApp.
+
+2006-11-02  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* configure.ac: Post release bump to 0.7.0
+
+2006-11-02  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* configure.ac:
+	* README: Release 0.5.0.
+
+2006-11-02  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* gtkunique/bacon/gtkuniqueapp-bacon.c
+	(_gtk_unique_app_bacon_add_window),
+	(_gtk_unique_app_bacon_remove_window),
+	(_gtk_unique_app_list_windows): Implement these vfuncs.
+
+2006-11-02  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* TODO: Update.
+
+2006-11-02  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* configure.ac: Rename the values of the debug level variable;
+	now they are set as "no, minimum, maximum".
+
+	* gtkunique/bacon/Makefile.am: Add gtkuniquefactory-bacon.[ch] to
+	the build.
+
+	* gtkunique/bacon/gtkuniqueapp-bacon.c:
+	* gtkunique/bacon/gtkuniquefactory-bacon.c:
+	* gtkunique/bacon/gtkuniquefactory-bacon.h: Finish the implementation
+	of the libbacon-like IPC, by giving back sanity to the socket
+	code; now all three backends build and can be used.
+
+	* tests/test-unique.c: Update the test code, add an --activate|-a
+	command line argument for testing the GTK_UNIQUE_ACTIVATE command;
+	launching test-unique without arguments will exercise the
+	GTK_UNIQUE_CUSTOM code path.
+
+2006-10-22  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* configure.ac: Post-release bump to 0.5.0.
+
+2006-10-22  Emmanuele Bassi  <ebassi@gnome.org>
+
+	A gtkunique/gtkuniqueappobject.h
+	A gtkunique/gtkuniqueappobject.c
+
+	* configure.ac: Bump to 0.3.0
+
+	* gtkunique/gtkuniqueappobject.h:
+	* gtkunique/gtkuniqueappobject.c:
+	* gtkunique/gtkuniqueapp.c:
+	* gtkunique/gtkuniqueinternals.h: Move out GtkUniqueAppObject
+	from gtkuniqueapp.c into its own file and make it semi-public.
+	GtkUniqueAppObject is the base class for backend implementations.
+
+	* gtkunique/xlibs/gtkuniqueapp-xlibs.c:
+	* gtkunique/dbus/gtkuniqueapp-dbus.c:
+	* gtkunique/bacon/gtkuniqueapp-bacon.c: Update the backends.
+
+	* gtkunique/Makefile.am: Add gtkuniqueappobject.[ch] to
+	the build.
+
+2006-10-21  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* configure.ac: Post-release bump to 0.3.0.
+
+2006-10-21  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* configure.ac: Bump to 0.2.0.
+
+2006-10-21  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* gtkunique/xlibs/gtkuniqueutils-xlibs.h:
+	* gtkunique/xlibs/gtkuniqueapp-xlibs.c: Add the selection
+	lock atom to the list of atoms we create at init time.
+
+2006-10-21  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* gtkunique/xlibs/gtkuniqueapp-xlibs.c: Add another wrapper
+	for safely stealing a property, and use it to retrieve the
+	message details. Now all calls to XGetWindowProperty() are
+	safely behind the GDK error trap.
+
+	* tests/test-unique.c: Add command-line support for sending
+	a message.
+
+2006-10-21  Emmanuele Bassi  <ebassi@gnome.org>
+
+	A gtkuniqe/bacon/gtkuniquefactory-bacon.c
+	A gtkuniqe/bacon/gtkuniquefactory-bacon.h
+
+	* gtkunique/bacon/gtkuniqueapp-bacon.c:
+	* gtkunique/bacon/gtkuniquefactory-bacon.[ch]: Add a factory
+	object to the bacon backend, to separate the object receiving
+	the message on the wire from the GtkUniqueAppBacon object. The
+	UniqueAppBacon object creates the socket file and listens for
+	connections, while the UniqueFactoryBacon receives the data on
+	the wire, parses it, sends the message and relays the response
+	from the wire. The bacon backend is still broken, but at least
+	the design is saner.
+
+	* gtkunique/xlibs/gtkuniqueutils-xlibs.h:
+	* gtkunique/xlibs/gtkuniqueapp-xlibs.c: Abstract and validate
+	the XGetWindowProperty() call; Use the _NET_CLIENT_LIST atom
+	to get the list of top-level windows from the X server and
+	fall back on XQueryTree() only if that fails; add multihead
+	support to the find_window() call; sync and flush the X server
+	before Ungrab(), to make sure that the changes we made are
+	propagated. (based on a patch by Matthew Allum)
+
+2006-10-19  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* gtkunique/gtkuniqueapp.c: Include glib/gi18n.h for l10n.
+
+	* gtkunique/dbus/gtkuniqueapp-dbus.c: Fix vfuncs names.
+
+	* gtkunique/Makefile.am: Build fixes to pass make distcheck.
+
+2006-10-19  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* gtkunique/bacon/gtkuniqueapp-bacon.h:
+	* gtkunique/bacon/gtkuniqueapp-bacon.c: Begin implementing
+	the libbacon-like backend; it does not build yet, so don't
+	try using it unless you wish to fix it before I do.
+
+	* gtkunique/dbus/gtkuniqueapp-dbus.c: Implement the missing
+	virtual methods of GtkUniqueAppClass for holding the toplevel
+	windows.
+
+	* README:
+	* TODO: Update.
+
+2006-10-19  Emmanuele Bassi  <ebassi@gnome.org>
+
+	A gtkunique/dbus/gtkuniquefactory-dbus.h
+	A gtkunique/dbus/gtkuniquefactory-dbus.c
+
+	* gtkunique/dbus/gtkuniquefactory-dbus.[ch]: Add the factory
+	object for the D-Bus implementation.
+
+	* gtkunique/dbus/gtkuniqueapp-dbus.c:
+	* gtkunique/dbus/gtkuniqueapp-dbus.h:
+	* gtkunique/dbus/gtkuniqueapp-dbus.xml: D-Bus implementation
+	of the GtkUniqueApp object.
+
+	* gtkunique/Makefile.am:
+	* gtkunique/dbus/Makefile.am: Add D-Bus CFLAGS and LIBS
+	to the corresponding sections of the build file.
+
+	* tests/test-unique.c: Update test application.
+
+2006-10-18  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* gtkunique/gtkuniquemarshal.list:
+	* gtkunique/gtkuniqueapp.c:
+	* gtkunique/gtkuniqueapp.h: Remove GTK_UNIQUE_QUIT from the
+	GtkUniqueCommand enum; implement the return value for the
+	GtkUniqueApp::message signal; add an accumulator function
+	for the message signal, blocking the emission if a signal
+	handler on the chain returns something different than
+	GTK_UNIQUE_RESPONSE_OK.
+
+	* gtkunique/gtkuniqueinternals.h: Add the enum<->string
+	conversion functions for GtkUniqueResponse.
+
+	* xlibs/gtkuniqueappxlibs.c: Implement the response code
+	sending.
+
+	(find_window), (hold_selection): Add a lock when finding the
+	right window using a selection lock.
+
+	* tests/test-unique.c: Test the response relaying code.
+
+2006-10-16  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* gtkunique/xlibs/gtkuniqueapp-xlibs.c: Clean up; add a check
+	on the _GTK_UNIQUE_VERSION property instead of just checking
+	for the name; we should check on a XA_CARDINAL type property
+	to allow protocol backward/forward compatibility.
+
+2006-10-16  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* gtkunique/gtkunique.h:
+	* gtkunique/gtkuniqueversion.h.in:
+	* gtkunique/xlibs/gtkuniqueapp-xlibs.c:
+	* gtkunique/xlibs/gtkuniqueapp-xlibs.h:
+	* gtkunique/xlibs/gtkuniqueutils-xlibs.h:
+	* tests/test-unique.c: Add copyright and license notice.
+
+2006-10-15  Emmanuele Bassi  <ebassi@gnome.org>
+
+	A docs/reference/ChangeLog
+
+	* gtkunique/gtkuniqueapp.c: Add gtkdoc for the message signal.
+
+	* gtkunique/xlibs/gtkuniqueutils-xlibs.c:
+	* gtkunique/xlibs/gtkuniqueapp-xlibs.c: Implement the rest
+	of the Xlibs-based IPC protocol: pass the _GTK_UNIQUE_STARTUP_ID
+	and _GTK_UNIQUE_WORKSPACE properties from the caller to the
+	running instance and use those values inside the message
+	signal emitter.
+
+	(realize_cb), (_gtk_unique_app_xlibs_add_window): Add the
+	_GTK_UNIQUE_NAME property when the window is realized, and
+	don't force the realize ourselves.
+
+2006-10-15  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* docs/reference/*: Add gtk-doc stuff for generating
+	the API reference.
+
+	* gtkunique/gtkuniqueapp.c: Add gtk-doc API reference.
+
+2006-10-15  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* gtkunique/dbus/gtkuniqueapp-dbus.xml: Initial XML description
+	of the org.gtk.UniqueApp interface.
+
+2006-10-15  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* gtkunique/Makefile.am: Fix build.
+
+2006-10-15  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* tests/test-unique.c: Change the name of the instance.
+
+2006-10-15  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* gtkunique/Makefile.am:
+	* gtkunique/gtkunique.h:
+	* gtkunique/gtkuniqueapp.h:
+	* gtkunique/gtkuniqueapp.c:
+	* gtkunique/gtkuniqueinternals.h: Use glib-mkenums to generate
+	the enum types automagically at build time; remove the handwritten
+	enum registration stuff.
+
+2006-10-15  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* gtkunique/bacon/gtkuniqueapp-bacon.c:
+	* gtkunique/xlibs/gtkuniqueapp-xlibs.c: Clean up.
+
+	* gtkunique/dbus/gtkuniqueapp-dbus.h:
+	* gtkunique/dbus/gtkuniqueapp-dbus.c: Begin implementing
+	the D-Bus backend for GtkUniqueApp.
+
+2006-10-15  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* gtkunique/xlibs/gtkuniqueutils-xlibs.h: Remove some cruft
+
+	* gtkunique/xlibs/gtkuniqueapp-xlibs.c: Remove some cruft;
+	Implement the command parameter passing.
+
+	* tests/test-unique.c: Test command parameter passing.
+
+2006-10-14  Emmanuele Bassi  <ebassi@gnome.org>
+
+	A gtkunique/xlibs/gtkuniqueutils-xlibs.h
+
+	* gtkunique/xlibs/Makefile.am:
+	* gtkunique/xlibs/gtkuniqueutils-xlibs.h: Add some utility
+	code.
+
+	* gtkunique/xlibs/gtkuniqueapp-xlibs.c: Implement the xlib
+	based IPC protocol for GtkUniqueApp.
+
+	* gtkunique/gtkuniqueapp.h:
+	* gtkunique/gtkuniqueapp.c:
+	* gtkunique/gtkuniqueinternals.h: Hide the GtkUniqueApp
+	details behind a GtkUniqueAppObject private object visible
+	only to the backend implementations.  Add the enum for a (future)
+	response code.  Add methods for keeping track of the GtkWindow
+	objects that a GtkUniqueApp should spawn: gtk_unique_app_add_window(),
+	gtk_unique_app_remove_window() and gtk_unique_app_list_windows():
+	these are needed by the xlibs backend, mostly, but turn out
+	to be useful as a base for a window factory object.
+
+	* tests/test-unique.c: Add call to gtk_unique_app_add_window().
+
+2006-10-12  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* configre.ac:
+	* Makefile.am: Fix build.
+
+	* gtkunique/bacon/gtkuniqueapp-bacon.c:
+	* gtkunique/bacon/gtkuniqueapp-bacon.h: Add skeleton implementation
+	of the bacon-based backend; hide the class definitions.
+
+	* gtkunique/xlibs/gtkuniqueapp-xlibs.c:
+	* gtkunique/xlibs/gtkuniqueapp-xlibs.h: Add skeleton implementation
+	of the xlibs-based backend
+
+	* gtkunique/gtkuniqueapp.c: Call the implementation's class
+	vfuncs directly inside the main GtkUniqueApp object instead of
+	reimplementing the call inside each backend like we do with
+	the constructor.
+
+	* gtkunique/gtkuniqueinternals.h: Include the gtkuniqueapp.h header.
+
+	* tests/Makefile.am:
+	* tests/test-unique.c: Add a test unit for the main GtkUniqueApp
+	object.
+
+2006-10-12  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* gtkunique/gtkuniqueapp.h:
+	* gtkunique/gtkuniqueapp.c: Fix build.
+
+2006-10-11  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* gtkunique/Makefile.am:
+	* gtkunique/gtkunique.h:
+	* gtkunique/gtkuniqueversion.h.in: Add the version header.
+
+	* docs/reference/version.xml.in: Fix the gtk-doc version entity.
+
+2006-10-11  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* *: Initial import.

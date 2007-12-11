@@ -1,0 +1,12 @@
+          |-----handy-ruler------------------------------------------------------|
+libraw1394: libraw1394 (Direct acces to IEEE 1394 bus)
+libraw1394:
+libraw1394: libraw1394 provides direct access to the IEEE 1394 bus through the
+libraw1394: Linux 1394 subsystem's raw1394 user space interface.
+libraw1394:
+libraw1394: http://www.linux1394.org/
+libraw1394:
+libraw1394:
+libraw1394:
+libraw1394:
+libraw1394:

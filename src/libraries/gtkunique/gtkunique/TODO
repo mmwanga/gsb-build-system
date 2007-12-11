@@ -1,0 +1,9 @@
+TODO before 1.0
+
+[x] Fix the bacon backend
+[-] Add more documentation for the D-Bus backend
+[-] Add more documentation for the sockets backend
+[x] Add perl bindings
+[-] Add python bindings
+
+$ Last updated: Mon,  6 Nov 2006 01:18:12 +0000

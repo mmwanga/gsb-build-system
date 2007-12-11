@@ -1,0 +1,18 @@
+mpeg4ip Note
+---------------
+
+mpeg4ip 1.6.1 is the latest version of mpeg4ip, however, all the provided
+source tarballs are broken.  This has been taken note of, and
+comments have been made to the author on the Sourceforge forums, but 
+the author has not responded.  Further, as of 9/28/07, development is stopped.
+
+The archive in this directory (mpeg4ip-1.6.1.tar.bz2) is a unmodified 
+copy of the latest CVS archives.
+
+mpeg4ip
+--------
+http://sourceforge.net/projects/mpeg4ip/
+cvs -d:pserver:anonymous@mpeg4ip.cvs.sourceforge.net:/cvsroot/mpeg4ip login
+cvs -z3 -d:pserver:anonymous@mpeg4ip.cvs.sourceforge.net:/cvsroot/mpeg4ip co -P mpeg4ip
+
+   - Steve 

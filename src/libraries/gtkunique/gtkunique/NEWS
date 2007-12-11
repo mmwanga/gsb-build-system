@@ -1,0 +1,49 @@
+Overview of changes from GtkUnique 0.7.0 to 0.9.1
+
+* Add a GdkScreen argument to the GtkUniqueApp::message signal;
+  this allows moving a running instance to the screen of the
+  new instance the user requested.  This also breaks the API -
+  but we don't really care at this point.
+
+Overview of changes from GtkUnique 0.5.0 to 0.7.0
+=================================================
+
+* Revert the exposing of GtkUniqueAppObject: you really can't
+  implement an out-of-tree backend so there's no point in having
+  the object and its API out there.
+* Hide the implementation deeper, and finally allow subclassing
+  the GtkUniqueApp object; also, provide an example.
+* Complete API documentation coverage.
+
+Overview of changes from GtkUnique 0.3.0 to 0.5.0
+=================================================
+
+* Finish the libbacon-like, Unix socket based backend.
+* Expose the GtkUniqueAppObject class; this class is the base
+  class for implementing backends: each backend should subclass
+  GtkUniqueAppObject and set name, startup-id and workspace.
+  The subclassing is still a bit of a mess - I'll clean it
+  up between 0.5.0 and 0.7.0.
+
+Overview of changes from GtkUnique 0.1.0 to 0.3.0
+=================================================
+
+* Fixes and performance improvements in the Xlibs backend,
+  thanks to Matthew Allum
+ - Trap every XGetWindowProperty() call with the GDK error
+   trap;
+ - Use the _NET_CLIENT_LIST property of the root window
+   to get the list of top-level windows, and use XQueryTree()
+   as a fallback;
+ - Sync the X server before removing the grab, to make sure that
+   the changes are applied;
+
+* Begin implementing the libbacon-like Unix socket based
+  backend
+ - The backend it's still broken and does not build, at
+   the moment.
+
+* Documentation fixes
+ - Add a per-backend documentation section
+ - Add a spec prototype for the Xlibs backend protocol
+

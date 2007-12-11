@@ -1,0 +1,1 @@
+This patch adds NTML support to openldap.  This will allow evolution to connect to Microsoft Exchange Servers.

@@ -1,0 +1,3 @@
+#include <gtkunique/gtkunique.h>
+
+gtk_unique_app_get_type

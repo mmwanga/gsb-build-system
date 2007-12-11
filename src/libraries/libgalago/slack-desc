@@ -1,0 +1,12 @@
+         |-----handy-ruler------------------------------------------------------|
+libgalago: libgalago (Galago Presence Framework)
+libgalago:
+libgalago: Galago is a desktop presence framework, designed to transmit presence 
+libgalago: information between programs. To put it in simpler terms, it takes 
+libgalago: information on who is online and their away/idle states from an instant 
+libgalago: messenger (such as pidgin) or other similar programs and lets other 
+libgalago: programs (such as Evolution) to make use of it.  The advantage of such 
+libgalago: a framework is that it brings your programs closer together. When you 
+libgalago: receive an e-mail from a friend who is in your buddy list, you'll be 
+libgalago: able to immediately tell their online status, for example. 
+libgalago:

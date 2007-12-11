@@ -1,0 +1,40 @@
+2006-11-14  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* gtkunique.types: Add type generation mojo-jojo.
+
+	* tmpl/gtkuniqueapp.sgml: Add signal and properties.
+
+2006-11-14  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* tmpl/gtkuniqueapp.sgml: Update the example code.
+
+2006-11-06  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* Makefile.am:
+	* gtkunique-docs.sgml:
+	* gtkunique-sections.txt: Update build and coverage.
+
+	* tmpl/gtkunique.sgml:
+	* tmpl/gtkuniqueapp.sgml:
+	* tmpl/gtkuniqueversion.sgml: Update templates.
+
+2006-10-21  Emmanuele Bassi  <ebassi@gnome.org>
+
+	A backend-bacon.sgml
+	A backend-dbus.sgml
+	A backend-xlibs.sgml
+
+	* Makefile.am:
+	* gtkunique-docs.sgml:
+	* backend-*.sgml: Add backend-specific documentation.
+
+	* tmpl/gtkuniqueapp.sgml: Update template.
+
+2006-10-15  Emmanuele Bassi  <ebassi@gnome.org>
+
+	* Makefile.am: Update the IGNORE_HFILES list.
+
+	* gtkunique-docs.sgml: Add an anchor for the versioning macros.
+
+	* tmpl/gtkuniqueapp.sgml:
+	* gtkunique-sections.txt: Add GtkUniqueAppClass

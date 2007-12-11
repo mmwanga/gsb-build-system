@@ -1,0 +1,12 @@
+     |-----handy-ruler------------------------------------------------------|
+pwlib: pwlib (Portable Windows Library)
+pwlib:
+pwlib: PWLib is a moderately large C++ class library that originated many 
+pwlib: years ago as a method to produce applications that run on both 
+pwlib: Microsoft Windows and Unix X-Windows systems. The OpenH323 project 
+pwlib: is the primary user of the library, which has lead to an emphasised 
+pwlib: focus on its networking, I/O portability, multi-threading and 
+pwlib: portability. Mostly, the library is used to create high performance 
+pwlib: and highly portable network-centric applications.
+pwlib:
+pwlib: This version of pwlib is used by Ekiga (http://ekiga.org)
