@@ -152,7 +152,7 @@ our %office =
 			     'src' => 'tar.gz',
 			    },
    'tracker'             => {
-			     'ver' => '0.6.3',
+			     'ver' => '0.6.4',
 			     'url' => 'http://www.gnome.org/~jamiemcc/tracker/',
 			     'src' => 'tar.bz2',
 			    },

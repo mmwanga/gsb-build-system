@@ -1,6 +1,10 @@
 ChangeLog
 ---------
 
+11-12-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * office: Bump tracker to 0.6.4
+	* mono: Bump beagle to 0.3.1
+
 10-12-2007  fidesratio <sk238(at)ex.ac.uk>	
     * applications: Fix for canvas support in mozilla.  Icons/mime still broken?
 	* office: remove fast-math from gnucash.
