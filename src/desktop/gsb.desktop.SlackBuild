@@ -177,7 +177,6 @@ BUILD_ORDER="
       libipoddevice
       metacity
       eel
-      libgsf
       nautilus
       gnome-mount
       nautilus-cd-burner

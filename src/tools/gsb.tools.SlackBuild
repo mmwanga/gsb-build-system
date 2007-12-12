@@ -170,6 +170,7 @@ if [ -r $(pwd)/${PACKAGE}/${PACKAGE}.SlackBuild ]; then
   # For regular version numbers
   if [ "$GSB_VERSION" = "" ]; then
     GSB_VERSION=$(grep ^VERSION= $(pwd)/${PACKAGE}/${PACKAGE}.SlackBuild | cut -f2 -d\=)
+    GSB_BUILD=$(grep ^BUILD= $(pwd)/${PACKAGE}/${PACKAGE}.SlackBuild | cut -f2 -d\=)
   fi;
      
   # For SVN numbers
@@ -227,6 +228,8 @@ if [ $? = 0 ]; then
       INSTALLED_PACKAGE_NAME="`echo $INSTALLED_PACKAGE | cut -f 1-$INSTALLED_PACKAGE_NAME -d -`"
       INSTALLED_PACKAGE_VERSION=`expr $INDEX - 2`
       INSTALLED_PACKAGE_VERSION="`echo $INSTALLED_PACKAGE | cut -f $INSTALLED_PACKAGE_VERSION -d -`"
+      INSTALLED_PACKAGE_BUILD=`expr $INDEX - 0`
+      INSTALLED_PACKAGE_BUILD="`echo $INSTALLED_PACKAGE | cut -f $INSTALLED_PACKAGE_BUILD -d -`"
      fi;
      
      if [ "${GSB_VERSION}" = "svn" ]; then
@@ -236,7 +239,7 @@ if [ $? = 0 ]; then
      
      # Packages are different versions.  Remove old package, rebuild
      # and reinstall.
-     if [ "$INSTALLED_PACKAGE_NAME" = "$PACKAGE" -a "${GSB_VERSION//-/_}" != "$INSTALLED_PACKAGE_VERSION" ]; then
+     if [ "$INSTALLED_PACKAGE_NAME" = "$PACKAGE" -a "${GSB_VERSION//-/_}" != "$INSTALLED_PACKAGE_VERSION" -o "$GSB_BUILD" != "$INSTALLED_PACKAGE_BUILD" ]; then
         echo "${0#*/}: $PACKAGE requires updating."
 
         echo "${0#*/}: Removing old $PACKAGE." 

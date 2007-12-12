@@ -5,6 +5,7 @@ do
 done;
 
 ## Create loaders in etc
+mkdir -p etc/gtk-2.0
 if [ -x usr/bin/gdk-pixbuf-query-loaders ]; then
    usr/bin/gdk-pixbuf-query-loaders > etc/gtk-2.0/gdk-pixbuf.loaders;
 fi;
