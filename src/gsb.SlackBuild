@@ -103,7 +103,7 @@ do
      exit 1;
   else
    cd ${GSB_PWD}/${SECTION} || break 
-  ./gsb.$SECTION.SlackBuild $SLACKBUILD_ARGS || break
+  ./gsb.$SECTION.SlackBuild $SLACKBUILD_ARGS || exit 1
   fi;
 done
 
