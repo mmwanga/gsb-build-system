@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 # Version: 1.2 GSB Section Build Script
 # Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
 # Copyright (c) 2007 Steve Kennedy <sk238 (at) exeter.ac.uk>
