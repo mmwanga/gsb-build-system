@@ -28,12 +28,12 @@ fi
 
 ## Use ssh-agent if available
 if [ -x /usr/bin/ssh-agent ]; then
-  GNOME_SESSION_SETTINGS="$GNOME_SESSION_SETTINGS ssh-agent"
+  GNOME_SESSION_SETTINGS="$GNOME_SESSION_SETTINGS /usr/bin/ssh-agent"
 fi;
 
 ## Use dbus if available
 if [ -x /usr/bin/dbus-launch ]; then
-  GNOME_SESSION_SETTINGS="$GNOME_SESSION_SETTINGS/usr/bin/dbus-launch --exit-with-session"
+  GNOME_SESSION_SETTINGS="$GNOME_SESSION_SETTINGS /usr/bin/dbus-launch --exit-with-session"
 fi;
 
 ## Use Seahorse if available
