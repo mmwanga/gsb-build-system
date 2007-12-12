@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=0.6.4
 
 ## List any packages here that are required to build this package.
@@ -171,7 +171,7 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Disable autostart of tracker, the user can do this if they want.
 mkdir -p $PKG/usr/share/applications
-mv $PKG/etc/xdg/autostart/trackerd.desktop $PKG/usr/share/applications
+mv $PKG/etc/xdg/autostart/*.desktop $PKG/usr/share/applications
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

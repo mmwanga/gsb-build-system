@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 # Version: 1.2 GSB Section Build Script
 # Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
 # Copyright (c) 2007 Steve Kennedy <sk238 (at) exeter.ac.uk>
@@ -267,7 +267,9 @@ fi; # If not Forced
 
 # Seperate package into appropriate section
 mkdir -p $PKGDEST/$SECTION
-mv -f $PKGDEST/${PACKAGE}-${GSB_VERSION//-/_}*.tgz $PKGDEST/$SECTION > /dev/null 2>&1 ;
+if [ -f $PKGDEST/${PACKAGE}-${GSB_VERSION//-/_}*.tgz ]; then
+   mv -f $PKGDEST/${PACKAGE}-${GSB_VERSION//-/_}*.tgz $PKGDEST/$SECTION > /dev/null 2>&1 ;
+fi; 
 
 done;
 # Main loop
