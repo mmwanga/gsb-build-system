@@ -262,7 +262,6 @@ our %o_desktop =
    'libgail-gnome'          => '1.20.0',
    'libgnomekbd'            => '2.20.0',
    'libgnomeprintui'        => '2.18.1',
-   'libgsf'                 => '1.14.7',
    'libgtkhtml'             => '2.11.0',
    'libgtop'                => '2.20.0',
    'liboobs'                => '2.20.0',
