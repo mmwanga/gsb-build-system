@@ -77,11 +77,4 @@ our %double_tarballs_url =
 			 'tar' => 'simdock_1.2.tar.gz',
              'var' => 'VERSION',
                   },
-   'scons'    => {
-             'url' => 'http://heanet.dl.sourceforge.net/sourceforge/scons',
-             'ver' => '0.97',
-			 'dir' => 'tools/scons',
-			 'tar' => 'scons-0.97.tar.gz',
-             'var' => 'VERSION',
-                  },
   );
