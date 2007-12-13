@@ -1,10 +1,12 @@
-## ## Random Notes: Jotted here for a later web site page? FAQ?  :) ##
+##
+## Random Notes: Jotted here for a later web site page? FAQ?  :)
+##
 
 *  To get proper scoring working with gnome-games, you have to add user name
    to group "games".
 
 *  Users need to add themselves to the "netdev" group in order to get Network
-   Manager running properly.  There is a brief note in the doinst.sh for the 
+   Manager running properly.  There is a brief note in the doinst.sh for the
    package, but they might miss it.  Should be made clear in a FAQ.
 
 *  gnome-volume-control will whine about "No Audio Device" if the user is
@@ -12,11 +14,11 @@
 
 *  network-manager-applet, beagle, tracker, etc, are all disabled by default.
    (Well, according to us, anyways...  :)   Users can either globally re-enable
-   them by copying nm-applet.desktop, beagle-search-autostart.desktop, 
-   beagled-autostart.desktop, trackerd.desktop, etc to the /usr/share/gnome/autostart
-   directory, or else on a user-level by copying the .desktop files into their
-   ~/.config/autostart directory.  (They will need to make it if it doesn't exist
-   already)
+   them by copying nm-applet.desktop, beagle-search-autostart.desktop,
+   beagled-autostart.desktop, trackerd.desktop, etc to the
+   /usr/share/gnome/autostart directory, or else on a user-level by copying the
+   .desktop files into their ~/.config/autostart directory.  (They will need to
+   make it if it doesn't exist already)
 
 *  Administrative utilities, like time-date-admin, shares-admin, sabayon, etc
    etc, will only complain that the user doesn't have the proper rights to change
@@ -52,10 +54,10 @@
 
 *  Fonts package: <http://eyegene.ophthy.med.umich.edu/unicode/fontguide/>
 
-
 ###
 ### Website Ideas
 ###
+
 *  Package browser based on PACKAGES.TXT
     --> This is a huge undertaking...and task is up for grabs :)
 *  Include/Enclose "replaced_packages" in code block, like TODO (where?).
@@ -72,6 +74,7 @@
 ###
 ### Misc
 ###
+
 *  make sure to change the db.h symlink to db4
     -->  is this step needed anymore with Slackware 12?
 *  add --cleanup to gsb.SlackBuild as an arg so that users with limited disk
