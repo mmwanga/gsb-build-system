@@ -189,6 +189,15 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
+
+# There is an incomplete aclocal autoconfiguration
+# info for pilot-link.  The autogen will fail if
+# we don't move this out of the way first.
+
+if [ -f /usr/share/aclocal/pilot-link.m4 ]; then
+  mv -f /usr/share/aclocal/pilot-link.m4 /usr/share/aclocal/pilot-link.m4.old
+fi;
+
 ./autogen.sh --prefix=/usr || exit 1 ;
 
 ## Use gtkhtml 3.16
@@ -210,6 +219,11 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## Build and install.
 make $MAKE_FLAGS &&
 make DESTDIR=$PKG install || exit 1
+
+# Restore pilot-link.m4
+if [ -f /usr/share/aclocal/pilot-link.m4.old ]; then
+  mv /usr/share/aclocal/pilot-link.m4.old /usr/share/aclocal/pilot-link.m4
+fi;
 
 ## Preserve files
 mv $PKG/etc/gnucash/config $PKG/etc/gnucash/config.new
