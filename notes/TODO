@@ -1,6 +1,4 @@
-##
-## Random Notes: Jotted here for a later web site page? FAQ?  :)
-##
+## ## Random Notes: Jotted here for a later web site page? FAQ?  :) ##
 
 * To get proper scoring working with gnome-games, you have to add user name
   to group "games".
@@ -68,6 +66,8 @@
 * Need more screeshots!!!
 * Rewrite download/install page when ready.
   - System Req. section in proposed download/install page
+* Convert entire site from en_US en_GB...
+  As of now, it's inconsistent; and en_GB is more understood by non-EN folks.
 
 ###
 ### Misc
