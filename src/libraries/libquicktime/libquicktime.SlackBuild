@@ -118,7 +118,7 @@ fi
 ## See patches/README
 pkg-config --atleast-version="2.12" gtk+-2.0 || {
   echo "Patching for gtk+2 => 2.12."
-  ( cd $TMP/$PKGNAME-$VERSION/libexif-gtk &&
+  ( cd $TMP/$PKGNAME-$VERSION/utils/gtk &&
     patch -p0 <$CWD/patches/lqt_gtk.glib-2.12.patch || exit 1 ) || exit 1
 }
 
