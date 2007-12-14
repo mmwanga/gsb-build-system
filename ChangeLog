@@ -1,6 +1,11 @@
 ChangeLog
 ---------
 
+14-12-2007  Tadgy <tadgy(at)gnomeslackbuild.org>
+	* Updated gen_metadata.sh for new GSB layout etc.
+	  Note: gen_metadata.sh must be run from the GSB binary tree root,
+		which is probably /tmp/gsb-tree/ (unless you moved it :P).
+
 11-12-2007  fidesratio <sk238(at)ex.ac.uk>	
     * office: Bump tracker to 0.6.4
 	* mono: Bump beagle to 0.3.1
