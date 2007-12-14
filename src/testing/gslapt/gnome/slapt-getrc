@@ -1,0 +1,6 @@
+WORKINGDIR=/var/slapt-get
+EXCLUDE=^kernel-.*,^alsa-.*,^glibc.*,.*-[0-9]+dl$,^devs$,^udev$,aaa_elflibs,x86_64
+SOURCE=ftp://ftp.slackware.com/pub/slackware/slackware-12.0/
+#SOURCE=http://software.jaos.org/slackpacks/12.0/
+#SOURCE=ftp://anorien.warwick.ac.uk/slamd64/slamd64-12.0/
+SOURCE=ftp://ftp.slackware.org.uk/gsbPLATFORM/gsb-stable/
