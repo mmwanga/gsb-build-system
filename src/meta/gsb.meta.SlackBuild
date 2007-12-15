@@ -175,6 +175,11 @@ BUILD_ORDER="
 # MAIN BUILD 
 #
 
+# Build packages (and log output). This is the main loop through
+# all the packages listed above.
+( for PACKAGE in $BUILD_ORDER
+
+do
 
 # This check is for more useful as a reminder than a strict warning here
 # but it's best left in.  Metapackages are only really useful for 
@@ -187,8 +192,8 @@ BUILD_ORDER="
     return $?
   }
 
-  check_installed "$PKGNAME" && {
-    echo "${0##*/}: Remove installed '$PKGNAME' package before build."
+  check_installed "$PACKAGE" && {
+    echo "${0##*/}: Remove installed '$PACKAGE' package before build."
     exit 1
   }
   
@@ -200,39 +205,30 @@ BUILD_ORDER="
   done
 }
 
-# Build packages (and log output). This is the main loop through
-# all the packages listed above.
-( for PACKAGE in $BUILD_ORDER
-
-do
-
 if [ -f $CWD/slack-desc.$PACKAGE -a -f $CWD/slack-required.$PACKAGE ]; then
 
-  mkdir -p $PKG/$PACKAGE/install 
+  mkdir -p $TMP/$PACKAGE-$VERSION/install 
 
-  echo
-  echo "*************************************************"
-  echo "****** Compiling metapackage: ${PACKAGE}"
-  echo "*************************************************"
+  echo "* Compiling metapackage: ${PACKAGE}"
 
   # Install metapackage description
   if [ -f $CWD/slack-desc.$PACKAGE ]; then
-    cat $CWD/slack-desc.$PACKAGE > $PKG/$PACKAGE/install/slack-desc || exit 1
+    cat $CWD/slack-desc.$PACKAGE > $TMP/$PACKAGE-$VERSION/install/slack-desc || exit 1
   fi;
 
   # Install metapackage package list
   if [ -f $CWD/slack-required.$PACKAGE ]; then
-    cat $CWD/slack-required.$PACKAGE > $PKG/$PACKAGE/install/slack-required || exit 1
+    cat $CWD/slack-required.$PACKAGE > $TMP/$PACKAGE-$VERSION/install/slack-required || exit 1
   fi;
 
   # Install metapackage suggested (if exists)
   if [ -f $CWD/slack-suggests.$PACKAGE ]; then
-    cat $CWD/slack-suggests.$PACKAGE > $PKG/$PACKAGE/install/slack-suggests || exit 1
+    cat $CWD/slack-suggests.$PACKAGE > $TMP/$PACKAGE-$VERSION/install/slack-suggests || exit 1
   fi;
 
   # Create the package
-  cd $PKG/$PACKAGE
-  makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
+  cd $TMP/$PACKAGE-$VERSION
+  makepkg -p -l y -c n $PKGDEST/$PACKAGE-${VERSION//-/_}-$ARCH-$BUILD.tgz 2> /dev/null 1> /dev/null || exit 1
 
   # Seperate package into appropriate section
   mkdir -p $PKGDEST/$SECTION
@@ -242,7 +238,7 @@ if [ -f $CWD/slack-desc.$PACKAGE -a -f $CWD/slack-required.$PACKAGE ]; then
 
   ## Cleanup
   [ "$NOCLEANUP" = "0" ] && {
-    rm -rf $PKG $TMP/$PKGNAME-$VERSION
+    rm -rf $PKG $TMP/$PACKAGE-$VERSION
     }
 
 else
