@@ -1,0 +1,11 @@
+          |-----handy-ruler------------------------------------------------------|
+gsb-office: gsb-office (GNOME SlackBuild Office Package)
+gsb-office: 
+gsb-office: GNOME SlackBuild is a complete GNOME Desktop Environment for Slackware 
+gsb-office: Linux, encompassing all the needed packages for a full, clean 
+gsb-office: installation of GNOME for Slackware, or Slackware based systems.
+gsb-office: 
+gsb-office: This package is a metapackage for a full GNOME Office suite provided
+gsb-office: by the GNOME SlackBuild Project. For more details, please see 
+gsb-office: http://gnomeslackbuild.org/software/
+gsb-office: 

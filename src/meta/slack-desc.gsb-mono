@@ -1,0 +1,12 @@
+        |-----handy-ruler------------------------------------------------------|
+gsb-mono: gsb-mono (GNOME SlackBuild Mono/C# Package)
+gsb-mono: 
+gsb-mono: GNOME SlackBuild is a complete GNOME Desktop Environment for Slackware 
+gsb-mono: Linux, encompassing all the needed packages for a full, clean 
+gsb-mono: installation of GNOME for Slackware, or Slackware based systems.
+gsb-mono: 
+gsb-mono: This package is a metapackage for a Mono/C# development tools, and
+gsb-mono: run-time environment for GNOME provided by the GNOME SlackBuild Project. 
+gsb-mono: For more details, please see http://gnomeslackbuild.org/software/
+gsb-mono: 
+gsb-mono: 
