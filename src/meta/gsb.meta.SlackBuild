@@ -160,6 +160,7 @@ mkdir -p $LOGSDIR
 # Package build list.  Order doesn't matter.
 
 BUILD_ORDER=" 
+     gsb-accessibility
      gsb-administration
      gsb-desktop
      gsb-office

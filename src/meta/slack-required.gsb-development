@@ -1,0 +1,60 @@
+# Package version checking can be done using  =  >=  =<  <  >  operators, but
+# Packages should be listed one per line and are case sensitive. If multiple
+# Required packages are those that are specifically needed for this particular
+# Version: 0.1.0
+# package to operate correctly. eg, 'spamassassin' requires the 'perl' package.
+# packages can satisfy the requirement (such as 'openssl' or 'openssl-solibs')
+# the packages should be listed as: <pkg1> | <pkg2> [...]
+# versions must be the full Slackware version string. eg, 1.2.3-i486-1 .
+GConf
+ORBit2
+anjuta
+apr
+autogen
+bakery
+cairomm
+devhelp
+gal2
+gconfmm
+gdl
+glade3
+glib2
+glibmm
+gnome-build
+gnome-vfs
+gnome-vfsmm
+gnomemm
+graphviz
+gtk+2
+gtkmm
+gtksourceview2
+intltool
+libbonobo
+libglade
+libglademm
+libgnome
+libgnomecanvas
+libgnomecanvasmm
+libgnomemm
+libgnomeprintui
+libgnomeui
+libgnomeuimm
+libgtksourceviewmm
+libsigc++
+libwnck
+libxml++
+libxml2
+libxslt
+mozilla-firefox
+neon
+oaf
+pango
+pcre
+perl
+python
+scons
+setuptools
+subversion
+vte
+yelp
+zlib

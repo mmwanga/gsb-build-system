@@ -1,0 +1,23 @@
+# Package version checking can be done using  =  >=  =<  <  >  operators, but
+# Packages should be listed one per line and are case sensitive. If multiple
+# Required packages are those that are specifically needed for this particular
+# Version: 0.1.0
+# package to operate correctly. eg, 'spamassassin' requires the 'perl' package.
+# packages can satisfy the requirement (such as 'openssl' or 'openssl-solibs')
+# the packages should be listed as: <pkg1> | <pkg2> [...]
+# versions must be the full Slackware version string. eg, 1.2.3-i486-1 .
+cabextract
+candido-engine
+candido-themes
+gnome-icon-theme
+gnome-themes-extras
+gtk+2
+gtk-engines
+icon-naming-utils
+mac4lin-theme
+msttcorefonts
+murrine
+murrine-engine
+murrine-themes
+nmc
+simdock
