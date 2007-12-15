@@ -233,9 +233,12 @@ fi;
 
 ## For GNOME
 mkdir -p $PKG/usr/share/applications
-cp -a $CWD/gnome/mozilla-firefox.desktop $PKG/usr/share/applications
+cp $CWD/gnome/mozilla-firefox.desktop $PKG/usr/share/applications
 mkdir -p $PKG/usr/share/pixmaps
-cp -a $CWD/gnome/mozilla-firefox.png $PKG/usr/share/pixmaps
+cp $CWD/gnome/mozilla-firefox.png $PKG/usr/share/pixmaps
+cp $CWD/gnome/firefox.png $PKG/usr/share/pixmaps
+
+chown -R root.root $PKG/usr/share
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
