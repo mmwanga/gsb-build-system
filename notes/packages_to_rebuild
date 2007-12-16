@@ -1,8 +1,19 @@
--- Only slack-required changes --
+-- Slack-required Package Changes --
+
 glom to build 2  (change avahi-glib -> avahi in required)
 eog to build 2 (change share-mime-info -> shared-mime-info)
+ffmpeg to build 2 (change freetype2 -> freetype)
+dvdauthor to build 2 (change freetype2 -> freetype)   
 
--- The following need to actually be rebuilt --
+-- Minor Package Changes --
+
+XML-Twig  (build 2)
+XML-Simple  (build 2)
+XML-Twig and XML-Simple packages need to have their perllocal.pod removed. 
+(Updated the SlackBuilds to do this.)
+
+-- SVN Packages to Rebuild --
+
 gnucash to latest fixed svn rev and naming convention - bumped to build 3
 networkmanager to latest fixed svn rev and naming convention - bumped to build 2
 networkmanager-vpn to latest fixed svn rev and naming convention - bumped to build 2
