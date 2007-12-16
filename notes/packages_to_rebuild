@@ -1,6 +1,8 @@
 -- New Packages --
 
 gDesklets - forgot to add to build order.  build 1.
+grip - forgot to add to build order.  build 1.  
+gst-ffmpeg - forgot to add to build order.  build 1.
 
 -- Slack-required Package Changes --
 
