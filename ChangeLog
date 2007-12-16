@@ -1,6 +1,11 @@
 ChangeLog
 ---------
 
+16-12-2007  fidesratio <sk238(at)ex.ac.uk>	
+    * Fix svn external revisions now that we're close to 
+	  release time.
+	* Update metapackage slack-requireds.
+
 16-12-2007  Tadgy <tadgy(at)gnomeslackbuild.org>
 	* Fixed a logic bug in generic.SlackBuild. This bug could never
 		actually happen during the build, but it's better to correct
