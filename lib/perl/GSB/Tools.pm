@@ -37,4 +37,12 @@ our %tools =
 			 'src' => 'tar.gz',
              'var' => 'VERSION',
 			     },
-  );
+    'slapt-get'           => {
+			 'ver' => '0.9.12c',
+			 'url' => 'http://software.jaos.org/source/slapt-get/',
+			 'dir' => 'tools/slapt-get',
+			 'tar' => 'slapt-get-0.9.12c.tar.gz',
+			 'src' => 'tar.gz',
+             'var' => 'VERSION',
+			     },
+ );
