@@ -252,7 +252,6 @@ libavc1394
 libbonobo
 libbonoboui
 libbtctl
-libcap
 libcddb
 libcdio
 libcompizconfig
