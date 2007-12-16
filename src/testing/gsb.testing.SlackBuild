@@ -43,38 +43,38 @@ of any customized, prebuilt, or Slackware default packages.
 You will need to pass the -update switch to build GSB packages that 
 replace any default Slackware package.
 
-Options:  -force   
+Options:  --force   
  
             The package will not be built if a package of the same
             name is already installed, or any of the packages
             required to build are missing.  This option over-rides
             these checks and attempts a build anyway. 
 
-            It cannot be used with the -update switch.
+            It cannot be used with the --update switch.
 
-          -update 
+          --update 
 
             This switch will make the build script test each package
             version as defined in the SlackBuild script against the
             currently installed package.  If there is a difference,
             the script will remove, rebuild, and reinstall the package.
 
-            It cannot be used with the -force switch.
+            It cannot be used with the --force switch.
 
-          -no-cleanup   
+          --no-cleanup   
             
             By default any temporary source, build and package
             directories will be deleted once the package is built.
             This option prevents those files from being removed.
 
-          -no-install 
+          --no-install 
             
             Build the packages but don't install them.  This should
             only be used for testing individual SlackBuilds. It may
             cause the section build to fail when required packages
             are not installed and the dependency checks fail.
 
-          -help     
+          --help     
  
             Show this help screen.
 
@@ -98,28 +98,28 @@ function build_package() {
 # Command Line Parsing
 #
 while [ $# -gt 0 ]; do
-  if [ "$1" = "-force" ]; then
+  if [ "$1" = "-force" ] || [ "$1" = "--force" ]; then
     if [ "$UPDATE" = "1" ]; then
-       echo "${0#*/}: The switches -force and -update are mutually exclusive."
+       echo "${0#*/}: The switches --force and --update are mutually exclusive."
        exit 1;
     fi;
     FORCE=1
-    SLACKBUILD_ARGS="$SLACKBUILD_ARGS -force"
+    SLACKBUILD_ARGS="$SLACKBUILD_ARGS --force"
     shift
-  elif [ "$1" = "-no-cleanup" ]; then
-    SLACKBUILD_ARGS="$SLACKBUILD_ARGS -no-cleanup"
+  elif [ "$1" = "-no-cleanup" ] || [ "$1" = "--no-cleanup" ]; then
+    SLACKBUILD_ARGS="$SLACKBUILD_ARGS --no-cleanup"
     shift
-  elif [ "$1" = "-no-install" ]; then
+  elif [ "$1" = "-no-install" ] || [ "$1" = "--no-install" ]; then
     NOINSTALL=1
     shift
-  elif [ "$1" = "-update" ]; then
+  elif [ "$1" = "-update" ] || [ "$1" = "--update" ]; then
     if [ "$FORCE" = "1" ]; then
-       echo "${0#*/}: The switches -force and -update are mutually exclusive."
+       echo "${0#*/}: The switches --force and --update are mutually exclusive."
        exit 1;
     fi;
     UPDATE=1
     shift
-  elif [ "$1" = "-help" ]; then
+  elif [ "$1" = "-help" ] || [ "$1" = "--help" ]; then
     usage
     exit 0
   else

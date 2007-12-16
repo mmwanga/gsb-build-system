@@ -68,7 +68,7 @@ internet connection to download the sources.
 Here's what to do:
   $ ./bin/gsb_update.pl --dl --edit --build=gsb
   $ cd src/
-  $ ./gsb.SlackBuild -update
+  $ ./gsb.SlackBuild --update
 
 Downloading the sources (gsb_update.pl) may take a while depending on the speed
 of your internet connection.  Don't be surprised if it takes a few hours :)
@@ -82,7 +82,7 @@ Finally, '--build=gsb' provides a build tag for the packages.  You can specify
 any build tag you wish for your packages - we use 'gsb' to mark ours.
 
 The build is started by running './gsb.SlackBuild' in the src/ directory.
-The option '-update' tells the SlackBuilds to build and update any Slackware
+The option '--update' tells the SlackBuilds to build and update any Slackware
 packages with newer versions from GSB.  This is required because packages
 such as GTK+2 and Glib2 in Slackware are too old for GSB to use - they must
 be upgraded as part of the build process otherwise your build will fail.
@@ -92,7 +92,7 @@ or small cluster system.  It took 2-3 days to perform a full build of GSB on
 my build box (2.5GHz CPU, 2GB RAM) - you have been warned.
 
 If the build fails for some reason, you can correct the error and re-run the
-'./gsb.SlackBuild -update' command - the build system will continue from where
+'./gsb.SlackBuild --update' command - the build system will continue from where
 it failed, not restart the whole process again.
 
 At the end of the build process you will have a full copy of GSB installed on
@@ -288,19 +288,19 @@ the build process.  Options given to a top-level SlackBuild will be passed
 down to the individual package Slackbuilds as a the build process continues.
 
 The following options are recognised:
-  -help		Show the help page/usage for the SlackBuild.
+  --help	Show the help page/usage for the SlackBuild.
 
-  -force	A package will not be built if a package of the same name is
+  --force	A package will not be built if a package of the same name is
 		already installed on the system, or any of the packages
 		required to build it are missing.  This option over-rides these
 		checks and attempts a build anyway, although it's very likely
 		it will fail.
 
-  -no-cleanup	By default any temporary source, build and package directories
+  --no-cleanup	By default any temporary source, build and package directories
 		will be deleted once the package is built.  This option
 		prevents all temporary files from being removed.
 
-  -no-install	Build the packages but don't install them afterwards.  This
+  --no-install	Build the packages but don't install them afterwards.  This
 		option should only be used for testing individual SlackBuilds
 		as it WILL cause serious problems - some package builds rely
 		on another package being auto installed first, and may refuse

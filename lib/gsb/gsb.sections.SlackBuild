@@ -10,18 +10,18 @@ function usage() {
   cat << EOF
 Usage: ${0##*/} [options]
 
-Options:  -force	The package will not be built if a package of the same
+Options:  --force	The package will not be built if a package of the same
 			name is already installed, or any of the packages
 			required to build are missing.  This option over-rides
 			these checks and attempts a build anyway.
-	  -no-cleanup	By default any temporary source, build and package
+	  --no-cleanup	By default any temporary source, build and package
 			directories will be deleted once the package is built.
 			This option prevents those files from being removed.
-	  -no-install	Build the packages but don't install them.  This should
+	  --no-install	Build the packages but don't install them.  This should
 			only be used for testing individual SlackBuilds as it
 			WILL cause serious problems - some package builds may
 			rely on another package being auto installed first.
-	  -help		Show this help screen.
+	  --help	Show this help screen.
 
 	Options are passed down to the next level SlackBuild where appropriate.
 EOF
@@ -39,16 +39,16 @@ export LOGSDIR=${GSB_LOGSDIR:-$TMP/gsb-buildlogs}
 
 # Parse command line arguments.
 while [ $# -gt 0 ]; do
-  if [ "$1" = "-force" ]; then
-    SLACKBUILD_ARGS="$SLACKBUILD_ARGS -force"
+  if [ "$1" = "-force" ] || [ "$1" = "--force" ]; then
+    SLACKBUILD_ARGS="$SLACKBUILD_ARGS --force"
     shift
-  elif [ "$1" = "-no-cleanup" ]; then
-    SLACKBUILD_ARGS="$SLACKBUILD_ARGS -no-cleanup"
+  elif [ "$1" = "-no-cleanup" ] || [ "$1" = "--no-cleanup" ]; then
+    SLACKBUILD_ARGS="$SLACKBUILD_ARGS --no-cleanup"
     shift
-  elif [ "$1" = "-no-install" ]; then
+  elif [ "$1" = "-no-install" ] || [ "$1" = "--no-install" ]; then
     NOINSTALL=1
     shift
-  elif [ "$1" = "-help" ]; then
+  elif [ "$1" = "-help" ] || [ "$1" = "--help" ]; then
     usage
     exit 0
   else
