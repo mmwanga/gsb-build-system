@@ -121,7 +121,6 @@ libxklavier
 libxml2
 libxslt
 metacity
-mozilla-firefox
 mozilla-firefox 
 mpeg2dec
 nautilus
@@ -129,7 +128,6 @@ network-manager-applet
 nss
 openldap | openldap-client
 openssh
-openssl
 openssl-solibs | openssl
 pango
 pcre

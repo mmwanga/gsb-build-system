@@ -275,13 +275,11 @@ libgnomecanvasmm
 libgnomecups
 libgnomedb
 libgnomekbd
-libgnomekdb
 libgnomemm
 libgnomeprint
 libgnomeprintui
 libgnomeui
 libgnomeuimm
-libgnomui
 libgpg-error
 libgphoto2
 libgphoto2-sharp
@@ -333,7 +331,6 @@ libwmf
 libwnck
 libxcb
 libxklavier
-libxml
 libxml++
 libxml2
 libxslt
@@ -348,12 +345,10 @@ mono
 mono-tools
 monodevelop
 monodoc
-mozilla-firefox
 mozilla-firefox 
 mpeg2dec
 mpeg4ip
 msttcorefonts
-murrine
 murrine-engine
 murrine-themes
 mysql
@@ -372,15 +367,9 @@ ode
 opal
 openal
 openexr
-openldap
 openldap | openldap-client
-openldap-client
-openldap-client | openldap
 openssh
-openssl
 openssl | openssl-solibs
-openssl-solibs
-openssl-solibs | openssl
 orca
 pango
 parted
@@ -389,7 +378,7 @@ perl
 pessulus
 pidgin
 pilot-link
-pkgconfig
+pkg-config
 poppler
 poppler-data
 popt
@@ -460,7 +449,6 @@ wavpack
 which
 wireless-tools
 wpa_supplicant
-wpa_supplicant 
 wxGTK
 x264
 xcursor-themes
