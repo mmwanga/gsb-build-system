@@ -20,7 +20,6 @@ audiofile
 autogen
 automake
 avahi
-avahi-glib
 avahi-sharp
 bakery
 balsa
@@ -48,7 +47,6 @@ cdparanoia
 cdrtools
 compiz
 compiz-bcop
-compiz-fusion-plugins-extra
 compiz-fusion-plugins-main
 compiz-manager
 compizconfig-backend-gconf
@@ -121,7 +119,6 @@ gimp
 gksu
 glade3
 glib2
-glib2 
 glibmm
 glom
 gmime
