@@ -194,6 +194,7 @@ BUILD_ORDER="
        pybackpack
        gst-python
        gst-plugins-bad
+       gst-ffmpeg
        evolution-webcal
        evolution-exchange
        ekiga
