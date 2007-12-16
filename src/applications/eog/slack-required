@@ -13,7 +13,7 @@ gtk+2
 glib2
 libart_lgpl
 gnome-icon-theme
-share-mime-info
+shared-mime-info
 dbus-glib
 libglade
 exempi
