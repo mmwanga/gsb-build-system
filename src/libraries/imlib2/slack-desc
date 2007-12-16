@@ -1,12 +1,11 @@
-      |-----handy-ruler------------------------------------------------------|
-imlib2: imlib2 (2nd gen replacement for libXpm)
+       |-----handy-ruler------------------------------------------------------|
+imlib2: imlib2 (Imlib 2 Graphics Library)
 imlib2:
-imlib2: Imlib 2 is the successor to Imlib. It is NOT a newer version -- it 
-imlib2: is a completely new library. Imlib 2 can be installed alongside
-imlib2: Imlib 1.x without any problems since they are effectively different
-imlib2: libraries which have very similar functionality. Please see the
-imlib2: homepage for the long description of the differences:
-imlib2: 
-imlib2: <http://enlightenment.org/>
+imlib2: Imlib 2 is the successor to Imlib. It is a completely new library. 
+imlib2: Imlib 2 can be installed alongside Imlib 1.x without any problems 
+imlib2: since they are effectively different libraries which have very 
+imlib2: similar functionality. 
+imlib2:
+imlib2: Imlib 2 was written by Carsten Haitzler.
 imlib2:
 imlib2:
