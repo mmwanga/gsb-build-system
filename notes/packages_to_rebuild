@@ -1,0 +1,8 @@
+-- Only slack-required changes --
+glom to build 2  (change avahi-glib -> avahi in required)
+
+-- The following need to actually be rebuilt --
+gnucash to latest fixed svn rev and naming convention - bumped to build 3
+networkmanager to latest fixed svn rev and naming convention - bumped to build 2
+networkmanager-vpn to latest fixed svn rev and naming convention - bumped to build 2
+network-manager-applet to latest fixed svn rev and naming convention - bumped to build 2
