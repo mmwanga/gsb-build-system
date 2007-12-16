@@ -1,5 +1,6 @@
 -- Only slack-required changes --
 glom to build 2  (change avahi-glib -> avahi in required)
+eog to build 2 (change share-mime-info -> shared-mime-info)
 
 -- The following need to actually be rebuilt --
 gnucash to latest fixed svn rev and naming convention - bumped to build 3
