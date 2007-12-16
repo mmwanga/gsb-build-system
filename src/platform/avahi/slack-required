@@ -4,7 +4,6 @@ dbus
 gtk+2
 python
 pygtk
-libcap
 dbus-python
 expat
 libdaemon
