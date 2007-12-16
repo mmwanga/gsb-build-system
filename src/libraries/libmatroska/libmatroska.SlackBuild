@@ -1,5 +1,5 @@
 #!/bin/bash
-## Version: 1.5 GSB SlackBuild.
+## Version: 1.6 GSB SlackBuild.
 ## Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
 ## Copyright (c) 2007 Steve Kennedy <sk238 (at) exeter.ac.uk>
 ##
@@ -172,11 +172,11 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
   make install || exit 1
 ) || exit 1
 
-[ "$ARCH" = "x86_64" ] && {
+if [ "$ARCH" = "x86_64" ]; then
   rm -f $PKG/usr/lib64/*.a || exit 1
-} || {
+else
   rm -f $PKG/usr/lib/*.a || exit 1
-}
+fi
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

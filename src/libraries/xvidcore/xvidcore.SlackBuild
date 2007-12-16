@@ -1,5 +1,5 @@
 #!/bin/bash
-## Version: 1.5 GSB SlackBuild.
+## Version: 1.6 GSB SlackBuild.
 ## Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
 ## Copyright (c) 2007 Steve Kennedy <sk238 (at) exeter.ac.uk>
 ##
@@ -168,17 +168,17 @@ make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Extra tweaks for Xvid libraries
-[ "$ARCH" = "x86_64" ] && {
+if [ "$ARCH" = "x86_64" ]; then
   ( cd $PKG/usr/lib64 &&
     rm $PKG/usr/lib64/*.a &&
     chmod +x $PKG/usr/lib64/*.so.* &&
     ln -s ./libxvidcore.so.4.1 ./libxvidcore.so || exit 1 ) || exit 1
-} || {
+else
   ( cd $PKG/usr/lib &&
     rm $PKG/usr/lib/*.a &&
     chmod +x $PKG/usr/lib/*.so.* &&
     ln -s ./libxvidcore.so.4.1 ./libxvidcore.so || exit 1 ) || exit 1
-}
+fi
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

@@ -1,6 +1,16 @@
 ChangeLog
 ---------
 
+16-12-2007  Tadgy <tadgy(at)gnomeslackbuild.org>
+	* Fixed a logic bug in generic.SlackBuild. This bug could never
+		actually happen during the build, but it's better to correct
+		it anyway.
+	* Updated generic.SlackBuild version to 1.6.
+	* Corrected all effected SlackBuilds with the bug fixed in generic.SB.
+	* Updated version of every SB to 1.6, just so they are all current.
+	* Moved build-box-tagfiles into lib/gsb/tagfiles/build-box and added a
+		directory for installer (for the comming installer tagfiles).
+
 14-12-2007  Tadgy <tadgy(at)gnomeslackbuild.org>
 	* Updated gen_metadata.sh for new GSB layout etc.
 	  Note: gen_metadata.sh must be run from the GSB binary tree root,
