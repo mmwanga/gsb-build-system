@@ -6,7 +6,6 @@ autogen
 bakery
 cairomm
 devhelp
-gal2
 gconfmm
 gdl
 glade3
@@ -39,7 +38,6 @@ libxml2
 libxslt
 mozilla-firefox
 neon
-oaf
 pango
 pcre
 perl
