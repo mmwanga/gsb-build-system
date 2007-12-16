@@ -30,7 +30,7 @@ This script is intended to be run from a working svn copy.
 EOF
 
 ## Package variables.
-BUILD=1
+BUILD=2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -237,7 +237,7 @@ done
 
 ## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}_0.7-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {

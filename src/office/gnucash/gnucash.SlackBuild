@@ -32,7 +32,7 @@ the repository automatically (in case specific revisions are wanted.)
 EOF
 
 ## Package variables.
-BUILD=2
+BUILD=3
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -284,7 +284,7 @@ done
 
 ## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}_stable-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
