@@ -1,11 +1,13 @@
 glib2
+gtk-sharp
 desktop-file-utils
 dbus
 gtk+2
 python
 pygtk
-libcap
 dbus-python
 expat
 libdaemon
 libglade
+mono
+monodoc
