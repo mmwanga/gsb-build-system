@@ -180,6 +180,7 @@ BUILD_ORDER="
      wxGTK
      simdock
      gDesklets
+     grip
 "
 
 #

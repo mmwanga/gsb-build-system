@@ -14,7 +14,6 @@ glibmm
 gnome-build
 gnome-vfs
 gnome-vfsmm
-gnomemm
 graphviz
 gtk+2
 gtkmm
