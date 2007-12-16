@@ -1,9 +1,14 @@
+-- New Packages --
+
+gDesklets - forgot to add to build order.  build 1.
+
 -- Slack-required Package Changes --
 
 glom to build 2  (change avahi-glib -> avahi in required)
 eog to build 2 (change share-mime-info -> shared-mime-info)
 ffmpeg to build 2 (change freetype2 -> freetype)
 dvdauthor to build 2 (change freetype2 -> freetype)   
+gnome-build to build 2 (change oaf -> intltool, remove gal2)
 
 -- Minor Package Changes --
 
