@@ -1,15 +1,56 @@
 About GNOME SlackBuild (GSB)
 ----------------------------
 
-GNOME SlackBuild (GSB) is a build system to produce a GNOME desktop environment
-for Slackware Linux.
+GNOME SlackBuild (GSB) has two components; a full and complete built system to
+build Slackware compliant packages from GNOME sources, and a binary
+distribution of those pre-built packages for Slackware.
 
-The majority of the SlackBuild scripts are the official GNOME SlackBuilds that
-shipped with previous versions of Slackware.  SlackBuilds are (slowly) being
-updated and cleaned up.
+This README provides information on using the GSB build system to produce
+your own Slackware packages of GNOME.  Included in the GSB build system are
+all the SlackBuilds and required files to build a package, an automatic source
+downloader (we do not distribute the GNOME sources with GSB) and several other
+tools which can be used to create a binary tree of GSB.
 
-For a lot more info about the project, visit:
+For detailed information on the build process, or how to obtain the pre-built
+GSB Slackware packages (which, in most cases, is far far easier than trying
+to build GSB yourself), please see the website at:
   <http://gnomeslackbuild.org>
+
+
+Before you begin
+----------------
+
+This version of GSB is designed to build packages on a Slackware 12.0 based
+system.  If you are trying to build GSB on a Slackware version earlier than
+12.0 you *will* encounter problems during the build.
+
+We cannot offer any form of support to users trying to build GSB on earlier 
+versions of Slackware.  However, if you *do* manage to get GSB built on older
+versions, please let us know what modifications you had to make to the build
+system in order to do so - if those changes can be integrated into our build
+system, you may find previous versions of Slackware supported out of the box
+in future releases.
+
+The developers use a strictly controled instalation of Slackware to build the
+binary packages for the project - we only install the minimum packages
+required to perform a build.  We work from a set of 'tagfiles' which specify
+exactly which Slackware packages get installed into our build environment.
+We have included our tagfiles set in the lib/gsb/tagfiles/ directory.
+
+When it comes to building your own packages it is doubtfull your build will
+succeed if you do not have every package marked with an "ADD" in our tagfiles
+installed on your system.  Those packages marked "ADD" form the basis of our
+build requirements - any missing packages from your system will likely cause
+the build to fail.  If you have a full installation of Slackware you should
+not have any problem doing a build, but the resulting packages may have more
+dependancies than indicated in our slack-required files (because many sources
+will find extra libraries when being configured and automatically link against
+them).
+
+Unless you really know what you are doing with Slackware, understand what
+tagfiles and dependancies are all about, and really feel the need to "roll
+your own", it would be a far far better choice for you to download the
+pre-built binaries and install those.
 
 
 Quick start
@@ -17,26 +58,50 @@ Quick start
 
 You must be root in order to build GSB.
 
-The GNOME etc source files are not distributed with GSB - part of the build
+You must be running Slackware 12.0 and have all the required dependancies
+installed (see above) to build GSB.
+
+The GNOME (etc) source files are not distributed with GSB - part of the build
 process will download the source files for you.  Obviously you need an (active)
 internet connection to download the sources.
 
 Here's what to do:
   $ ./bin/gsb_update.pl --dl --edit --build=gsb
   $ cd src/
-  $ ./gsb.SlackBuild
+  $ ./gsb.SlackBuild -update
 
 Downloading the sources (gsb_update.pl) may take a while depending on the speed
 of your internet connection.  Don't be surprised if it takes a few hours :)
 
-Building GSB will take a very long time unless you have some top-notch hardware
-or small cluster system.  I'd expect it to take at least 1-2 days for a full
-build of GSB, assuming modest hardware or a desktop system in everyday use.
+The '--dl' option tells gsb_update to download the required sources.  Without
+this option nothing will be downloaded.  You can stop and start the process
+as much as you like - gsb_update will not re-download sources it downloaded
+previously.  The '--edit' tells gsb_update to edit the SlackBuild files with
+the version information from the source file downloaded - you want this.
+Finally, '--build=gsb' provides a build tag for the packages.  You can specify
+any build tag you wish for your packages - we use 'gsb' to mark ours.
 
-At the end of the build process (assuming there were no errors) you should have
-a full copy of GSB installed on your system ready to go, and a copy of the
-completed GSB package tree in /tmp/gsb-tree (see below for ways to change where
-these packages will end up).
+The build is started by running './gsb.SlackBuild' in the src/ directory.
+The option '-update' tells the SlackBuilds to build and update any Slackware
+packages with newer versions from GSB.  This is required because packages
+such as GTK+2 and Glib2 in Slackware are too old for GSB to use - they must
+be upgraded as part of the build process otherwise your build will fail.
+
+Building GSB will take a very long time unless you have some top-notch hardware
+or small cluster system.  It took 2-3 days to perform a full build of GSB on
+my build box (2.5GHz CPU, 2GB RAM) - you have been warned.
+
+If the build fails for some reason, you can correct the error and re-run the
+'./gsb.SlackBuild -update' command - the build system will continue from where
+it failed, not restart the whole process again.
+
+At the end of the build process you will have a full copy of GSB installed on
+your system ready to go, and a copy of the completed GSB binary package tree
+in /tmp/gsb-tree/ (see below for how to change this).
+
+
+Starting GSB/GNOME
+------------------
 
 Starting the GSB GNOME environment will depend on how you start your current X
 Window environment.  Both techniques are described below.
@@ -244,26 +309,5 @@ The following options are recognised:
 		by the top-level SlackBuilds to stop the auto install process
 		which usually takes place during a GSB build.
 
-
-Future development
-------------------
-
-I (Tadgy) am currently in the process of re-writing a lot of the gsb_update
-system to be easier for non-developers to use and update with new versions and
-packages.  Once my re-write reaches a half-decent stage of development I will
-integrate it into the current GSB system for testing/debugging.
-
-In addition to the above, i'm hoping to move the build process over to a "make"
-type system, where targets or individual packages can be specified.  For
-example, doing a "make gsb" would build the whole GSB system as it currently
-does; but using a "make platform" would build all the packages which are part
-of the GNOME platform specifiecation.  It will also be possible to build a
-specific individual package from the top level Makefile, making it far easier
-than the current system.
-
-Obviously these developments take time, so stay tuned for updates!
-
-If you are able to offer any development help and support for these updates and
-changes, please feel free to give me a shout on IRC - information on the
-channel and server are on the website.
-
+--
+Darren 'Tadgy' Austin	<tadgy(at)gnomeslackbuild.org>

@@ -10,6 +10,7 @@ ChangeLog
 	* Updated version of every SB to 1.6, just so they are all current.
 	* Moved build-box-tagfiles into lib/gsb/tagfiles/build-box and added a
 		directory for installer (for the comming installer tagfiles).
+	* Updated VERSIONS and README.
 
 14-12-2007  Tadgy <tadgy(at)gnomeslackbuild.org>
 	* Updated gen_metadata.sh for new GSB layout etc.
