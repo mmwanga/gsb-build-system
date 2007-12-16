@@ -154,6 +154,7 @@ BUILD_ORDER="
      	pango
         libgsf
 	    gtk+2
+        imlib2
         liboil
         libgc
         libelf

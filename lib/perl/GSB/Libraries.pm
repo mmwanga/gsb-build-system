@@ -47,6 +47,12 @@ our %libraries =
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/id3lib/',
 			   'src' => 'tar.gz',
 			  },
+   'imlib2'            => {
+			   'ver' => '1.4.0',
+			   'url' => 'http://superb-east.dl.sourceforge.net/sourceforge/enlightenment/',
+			   'src' => 'tar.gz',
+			  },
+
    'iso-codes'       => {
 			 'url' => 'ftp://pkg-isocodes.alioth.debian.org/pub/pkg-isocodes/',
 			 'ver' => '1.5',
