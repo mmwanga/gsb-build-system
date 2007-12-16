@@ -179,6 +179,7 @@ BUILD_ORDER="
      jokosher
      wxGTK
      simdock
+     gDesklets
 "
 
 #
