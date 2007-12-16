@@ -12,6 +12,10 @@ ffmpeg to build 2 (change freetype2 -> freetype)
 dvdauthor to build 2 (change freetype2 -> freetype)   
 gnome-build to build 2 (change oaf -> intltool, remove gal2)
 gnome-cups-manager to build 2 (change libgnomecupsui -> libgnomecups)
+ekiga to build 2 (change libgnomui -> libgnomeui )
+vcdimager to build 2 (change libxml -> libxml2)
+murrine-themes to build 2 (change murrine -> murrine-engine)
+libsndfile to build 2 (change pkgconfig -> pkg-config)
 
 -- Minor Package Changes --
 
