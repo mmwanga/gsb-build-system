@@ -11,6 +11,7 @@ eog to build 2 (change share-mime-info -> shared-mime-info)
 ffmpeg to build 2 (change freetype2 -> freetype)
 dvdauthor to build 2 (change freetype2 -> freetype)   
 gnome-build to build 2 (change oaf -> intltool, remove gal2)
+gnome-cups-manager to build 2 (change libgnomecupsui -> libgnomecups)
 
 -- Minor Package Changes --
 
