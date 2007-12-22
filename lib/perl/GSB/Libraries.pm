@@ -281,7 +281,6 @@ our %libraries_gnome =
   (
    'libcroco'          => '0.6.1',
    'libsigc++'         => '2.0.18',
-   'libgsf'            => '1.14.7',
    'pango'             => '1.18.3',
   );
 

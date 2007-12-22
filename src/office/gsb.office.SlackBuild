@@ -163,6 +163,7 @@ BUILD_ORDER="
      libgnomedb
      goffice
      psiconv
+     libgsf
      gnumeric
      gtkspell
      glade3

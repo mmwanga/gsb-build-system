@@ -152,8 +152,7 @@ mkdir -p $LOGSDIR
 BUILD_ORDER=" 
         glib2
      	pango
-        libgsf
-	    gtk+2
+	gtk+2
         imlib2
         liboil
         libgc
