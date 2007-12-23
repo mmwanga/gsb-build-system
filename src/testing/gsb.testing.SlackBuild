@@ -10,10 +10,7 @@ PACKAGES="	wpa_supplicant
 		NetworkManager
 		network-manager-applet
 		NetworkManager-vpn
-		gslapt
-		gnome-screensaver
-		slapt-update-notifier
-		wifi-radar	"
+		gslapt		"
 
 # Section name.
 # This should not need to be changed unless the auto detection fails.

@@ -11,13 +11,11 @@ PACKAGES="	fuse
 		compiz-bcop
 		libcompizconfig
 		compiz-fusion-plugins-main
-		compiz-fusion-plugins-extra
 		compiz-manager
 		sexy-python
 		Pyrex
 		compizconfig-python
 		compizconfig-backend-gconf
-		avant-window-navigator
 		ccsm		"
 
 # Section name.
