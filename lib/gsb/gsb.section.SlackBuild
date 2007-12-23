@@ -6,44 +6,9 @@
 #
 
 # The list of packages in this section, in the order they should be built.
-PACKAGES="	gnome-themes
-		tango-icon-theme
-		gnome-doc-utils
-		at-spi
-		gnome-desktop
-		gnome-menus
-		libwnck
-		evolution-data-server
-		gnome-python
-		gstreamer
-		gst-plugins-base
-		gst-plugins-good
-		gst-plugins-ugly
-		gst-fluendo-mp3
-		gnome-panel
-		gconf-editor
-		gnome-terminal
-		libgtop
-		libxklavier
-		libgnomekbd
-		libgnomecups
-		libgnomeprint
-		libgnomeprintui
-		libipoddevice
-		metacity
-		eel
-		nautilus
-		gnome-mount
-		nautilus-cd-burner
-		gnome-control-center
-		gnome-session
-		gnome-applets
-		bug-buddy
-		gtksourceview
-		gtksourceview2
-		gnome-keyring-manager
-		gtkhtml
-		pyxdg		"
+PACKAGES="	xxx
+		xxx
+		xxx	"
 
 # Section name.
 # This should not need to be changed unless the auto detection fails.

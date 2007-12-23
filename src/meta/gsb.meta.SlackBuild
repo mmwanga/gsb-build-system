@@ -31,7 +31,7 @@ ARCH=noarch
 DISTRO=${DISTRO:-slackware}
 
 ## Package variables.  Version is GNOME release version.
-BUILD=1gsb
+BUILD=1
 VERSION=2.20.2
 
 ## List any packages here that are required to build this package.

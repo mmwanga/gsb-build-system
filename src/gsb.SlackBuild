@@ -1,36 +1,12 @@
 #!/bin/bash
-# Version: 1.1 GSB.
+# Version: 1.3 GSB SlackBuild.
 # Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
 #
 # Licenced under the terms of the GNU General Public Licence version 3.
 #
 
-# Usage.
-function usage() {
-  cat << EOF
-Usage: ${0##*/} [options]
-
-Options:  --force	The package will not be built if a package of the same
-			name is already installed, or any of the packages
-			required to build are missing.  This option over-rides
-			these checks and attempts a build anyway.
-	  --no-cleanup	By default any temporary source, build and package
-			directories will be deleted once the package is built.
-			This option prevents those files from being removed.
-	  --no-install	Build the packages but don't install them.  This should
-			only be used for testing individual SlackBuilds as it
-			WILL cause serious problems - some package builds may
-			rely on another package being auto installed first.
-          --update      This switch will make the build script test each package
-                        version as defined in the SlackBuild script against the
-                        currently installed package.  If there is a difference,
-                        the script will remove, rebuild, and reinstall the 
-                        package. It cannot be used with the -force switch.
-	  --help	Show this help screen.
-
-	Options are passed down to the next level SlackBuild where appropriate.
-EOF
-}
+# Make sure we are in the right directory (you can never trust users..)
+cd $( cd ${BASH_SOURCE%/*} ; pwd )
 
 # If the user created an options file, read it.
 [ -r ./gsb.options ] && {
@@ -38,76 +14,179 @@ EOF
   export OPTIONSREAD=1
 }
 
+# The default list of GSB sections, in the order they should be processed.
+SECTIONS="${SECTIONS:-	tools
+			libraries
+			platform
+			desktop
+			applications
+			accessibility
+			bindings
+			office
+			mono
+			extras
+			themes
+			compiz
+			testing	}"
+
+# Usage.
+function usage() {
+  cat << EOF
+Usage: ${0##*/} [options]
+
+Options:
+  -help			Show this help screen.
+
+  -list			For each of the GSB sections, list the packages which
+			will be built.  When the SECTIONS environment variable
+			is set (see README) only those sections are displayed.
+
+  -force		A package will not be built if a package of the same
+			name is already installed, or any of the pre-requisite
+			packages are not installed.  This option over-rides
+			the checks and attempts a build (which will probably
+			fail) anyway.
+
+  -no-skip		During the build process, packages that are up to date
+			(ie, the package version and build numbers match the
+			coresponding SlackBuild) will not be rebuilt.  This
+			option forces packages to be rebuilt regardless of the
+			version and build numbers.  This does not affect the
+			pre-build checks for installed packages (see -force).
+
+  -no-metafiles		Do not create the .txt and .md5 files for each package
+			which would usually be produced during a build.
+
+  -no-prune		Normally, when a package is built and copied to the
+			destination directory, any previous package(s) of the
+			same name are deleted - it is assumed the new package
+			is to replace any which were built previously.
+			This option prevents previous packages being deleted
+			from the destination directory, possibly leaving more
+			than one package of the same name (but with different
+			version or build numbers) laying around.
+
+  -no-cleanup		By default, any source, temporary build and package
+			directories will be deleted once the package is built.
+			This option prevents those files from being removed.
+
+  -no-install		Build packages but don't install them.  This should
+			only be used for testing individual SlackBuilds as it
+			WILL cause serious problems - some package builds may
+			rely on another package being auto installed first.
+
+  Options are passed down to the next level SlackBuild where appropriate.
+EOF
+}
+
+function list_packages() {
+  echo "The sections and packages below (listed in processing order) will be built."
+  for SECTION in $SECTIONS
+  do
+    echo
+    echo "  $SECTION:"
+    echo "$( $SECTION/gsb.$SECTION.SlackBuild --list | cut -d$'\n' -f2- )"
+  done
+}
+
+function runtime() {
+  # $1 = Number of seconds to convert to readable text
+
+  local D=$(( $1 / 86400 ))
+  local H=$(( ($1 - ($D * 86400)) / 3600 ))
+  local M=$(( ($1 - ($D * 86400) - ($H * 3600)) / 60 ))
+  local S=$(( $1 - ($D * 86400) - ($H * 3600) - ($M * 60) ))
+
+  if [ $D -gt 0 ]; then
+    echo -n "${D}d, ${H}h ${M}m ${S}s"
+  else
+    echo -n "${H}h, ${M}m ${S}s"
+  fi
+  return 0
+}
+
 # Environment.
 export TMP=${TMP:-/tmp}
-export LOGSDIR=${GSB_LOGSDIR:-$TMP/gsb-buildlogs}
+export PKGDEST=${PKGDEST:-$TMP/gsb-tree/packages}
+export LOGSDIR=${LOGSDIR:-$TMP/gsb-buildlogs}
 
 # Parse command line arguments.
 while [ $# -gt 0 ]; do
-  if [ "$1" = "-force" ] || [ "$1" = "--force" ]; then
-    if [ "$UPDATE" = "1" ]; then
-       echo "${0#*/}: The switches --force and --update are mutually exclusive."
-       exit 1;
-    fi;
-    FORCE=1
-    SLACKBUILD_ARGS="$SLACKBUILD_ARGS --force"
-    shift
-  elif [ "$1" = "-no-cleanup" ] || [ "$1" = "--no-cleanup" ]; then
-    SLACKBUILD_ARGS="$SLACKBUILD_ARGS --no-cleanup"
-    shift
-  elif [ "$1" = "-no-install" ] || [ "$1" = "--no-install" ]; then
-    SLACKBUILD_ARGS="$SLACKBUILD_ARGS --no-install"
-    shift
-  elif [ "$1" = "-update" ] || [ "$1" = "--update" ]; then
-    if [ "$FORCE" = "1" ]; then
-       echo "${0#*/}: The switches --force and --update are mutually exclusive."
-       exit 1;
-    fi;
-    UPDATE=1
-    SLACKBUILD_ARGS="$SLACKBUILD_ARGS --update"
-    shift
-  elif [ "$1" = "-help" ] || [ "$1" = "--help" ]; then
+  if [ "$1" = "-help" ] || [ "$1" = "--help" ]; then
     usage
     exit 0
+  elif [ "$1" = "-list" ] || [ "$1" = "--list" ]; then
+    list_packages
+    exit 0
+  elif [ "$1" = "-force" ] || [ "$1" = "--force" ]; then
+    SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}-force"
+    shift
+  elif [ "$1" = "-no-skip" ] || [ "$1" = "--no-skip" ]; then
+    SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}-no-skip"
+    shift
+  elif [ "$1" = "-no-metafiles" ] || [ "$1" = "--no-metafiles" ]; then
+    SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}-no-metafiles"
+    shift
+  elif [ "$1" = "-no-prune" ] || [ "$1" = "--no-prune" ]; then
+    SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}-no-prune"
+    shift
+  elif [ "$1" = "-no-cleanup" ] || [ "$1" = "--no-cleanup" ]; then
+    SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}-no-cleanup"
+    shift
+  elif [ "$1" = "-no-install" ] || [ "$1" = "--no-install" ]; then
+    SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}-no-install"
+    shift
   else
     echo "${0##*/}: Unknown option: $1"
+    echo "Try: $0 -help"
     exit 1
   fi
 done
 
-# Temporary space and log file storage.
+# Temporary space, package and log file storage.
 mkdir -p $TMP
+mkdir -p $PKGDEST
 mkdir -p $LOGSDIR
 
 # Make sure /usr/include/db.h points to the db4 header.
-( cd /usr/include
-  rm -f db.h
-  ln -s db4/db.h db.h )
+( cd /usr/include ; rm -f db.h ; ln -s db4/db.h db.h ) || {
+  echo "${0##*/}: Could not set db.h header"
+  exit 1
+}
 
 # Do the build.
-echo
-echo "*************************************************"
-echo "** Building GSB"
-echo "*************************************************"
-GSB_PWD=$(pwd)
-for SECTION in tools libraries platform desktop applications accessibility \
-                 bindings office mono extras themes compiz testing
-do
-  cd $GSB_PWD || exit 1
-  echo
-  echo "*************************************************"
-  echo "**** Building section: $SECTION"
-  echo "*************************************************"
-  if [ ! -d $SECTION ]; then
-     echo "Cannot find section $SECTION.";
-     exit 1;
-  else
-   cd ${GSB_PWD}/${SECTION} || break 
-  ./gsb.$SECTION.SlackBuild $SLACKBUILD_ARGS || exit 1
-  fi;
-done
+( echo
+  echo "*********************************************************************"
+  echo "* Building GSB - this may take a while..."
+  echo "*********************************************************************"
 
-echo
-echo "*************************************************"
-echo "** Finished building GSB"
-echo "*************************************************"
+  for SECTION in $SECTIONS
+  do
+    ( cd $SECTION && ./gsb.$SECTION.SlackBuild $SLACKBUILD_ARGS 2>&1 ) || {
+      echo
+      echo "*********************************************************************"
+      echo "* Build aborted: error building in section '$SECTION'."
+      echo "* Check the build logs in '$LOGSDIR' and try again."
+      echo "*********************************************************************"
+      echo "* Build failed after $( runtime $SECONDS )."
+      echo "*********************************************************************"
+      exit 1
+    }
+  done
+
+  echo
+  echo "*********************************************************************"
+  echo "* Finished building GSB!"
+  echo "* GSB was sucessfully built and installed on the system."
+  echo "* See the README file for details on how to start GNOME."
+  echo "*********************************************************************"
+  echo "* A copy of all GSB packages can be found in '$PKGDEST'."
+  echo "* Build logs can be found in '$LOGSDIR'."
+  echo "* Package files and build logs can be deleted if not required."
+  echo "*********************************************************************"
+  echo "* Complete build time was $( runtime $SECONDS )."
+  echo "*********************************************************************"
+) 2>&1 | tee $LOGSDIR/$( basename $0 .SlackBuild )-$( date +%Y%m%d-%H%M%S ).log
+
+# Return the exit status from the sub-shell, not the tee command.
+exit ${PIPESTATUS[0]}

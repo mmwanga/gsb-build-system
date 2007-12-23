@@ -1,6 +1,12 @@
 ChangeLog
 ---------
 
+22-12-2007  Tadgy <tadgy(at)gnomeslackbuild.org>
+	* Updated src/gsb.SlackBuild to 1.3.
+	  Note: Command line options have changed.  README will be
+		updated shortly.
+	* Updated src/*/gsb.*.SlackBuild to 1.3.
+
 16-12-2007  fidesratio <sk238(at)ex.ac.uk>	
     * Fix svn external revisions now that we're close to 
 	  release time.
