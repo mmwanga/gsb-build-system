@@ -407,6 +407,17 @@ echo "*********************************************************************"
       echo "*********************************************************************"
     fi
   done
+
+  echo
+  echo "*********************************************************************"
+  echo "** Finished building section '$SECTION'."
+  echo "*********************************************************************"
+  echo "** This sections packages can be found in '$PKGDEST/$SECTION'."
+  echo "** Individual build logs can be found in '$LOGSDIR/$SECTION'."
+  echo "** Package files and build logs can be deleted if not required."
+  echo "*********************************************************************"
+  echo "** Section build time was $( runtime $SECONDS )."
+  echo "*********************************************************************"
 ) 2>&1 | tee $LOGSDIR/$SECTION-$(date +%Y%m%d-%H%M%S).log
 
 # Return the exit status from the sub-shell, not the tee command.
