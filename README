@@ -56,6 +56,20 @@ pre-built binaries and install those.
 Quick start
 -----------
 
+*** PLEASE NOTE ***
+
+These instructions are currently out of date as new SlackBuilds have been added
+to SVN for testing.  Once those SB's have been tested and any bugs fixed I will
+update these instructions.
+
+If you attempt to build from this SVN source now you should *really* know what
+you are doing.  Don't come asking for help if you get stuck - unless you are
+a developer you are better off waiting a couple of weeks for a binary release.
+
+You have been warned - wrath will incurred if you bother us about this.
+
+*******************
+
 You must be root in order to build GSB.
 
 You must be running Slackware 12.0 and have all the required dependancies

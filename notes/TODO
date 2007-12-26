@@ -2,37 +2,39 @@
 ## Random Notes: Jotted here for a later web site page? FAQ?  :)
 ##
 
-*  To get proper scoring working with gnome-games, you have to add user name
-   to group "games".
+*  To get proper scoring working with gnome-games, you have to be a member
+   of group "games".  Add a FAQ about this?
 
-*  Users need to add themselves to the "netdev" group in order to get Network
-   Manager running properly.  There is a brief note in the doinst.sh for the
-   package, but they might miss it.  Should be made clear in a FAQ.
+*  Users need to be members of group "netdev" in order to get Network Manager
+   running properly.  There is a brief note in the doinst.sh for the package,
+   but most people will miss it during an install.  Add a FAQ about this?
 
-*  gnome-volume-control will whine about "No Audio Device" if the user is
-   not in the group "audio"
+*  gnome-volume-control will give an error such as "No Audio Device" if the
+   user is not a member of group "audio".  Add a FAQ about this?
 
-*  network-manager-applet, beagle, tracker, etc, are all disabled by default.
-   (Well, according to us, anyways...  :)   Users can either globally re-enable
-   them by copying nm-applet.desktop, beagle-search-autostart.desktop,
+*  network-manager-applet, beagle, tracker, etc, are all disabled by default in
+   GSB.  Any/all of these applications can be enabled globally by copying
+   nm-applet.desktop, beagle-search-autostart.desktop,
    beagled-autostart.desktop, trackerd.desktop, etc to the
-   /usr/share/gnome/autostart directory, or else on a user-level by copying the
-   .desktop files into their ~/.config/autostart directory.  (They will need to
-   make it if it doesn't exist already)
+   /usr/share/gnome/autostart directory.  Alternatively individual users can
+   enable them by copying the above files into their ~/.config/autostart
+   directory (which will need to be created if it doesn't exist already).
+   Add a FAQ about this?
 
 *  Administrative utilities, like time-date-admin, shares-admin, sabayon, etc
-   etc, will only complain that the user doesn't have the proper rights to change
+   etc, will complain that the user doesn't have the proper rights to change
    the settings.  If you use these applications enough on a regular basis
    to warrant keeping them in the menu, and you would like a prompt for a root
    password, edit the menu entry (using Alacarte, right click on the GNOME
    menu, then right click on properties), and append "gksu" to the command.
 
-*  compiz:  Doesn't have an xinitrc written for it yet. Will have to do that.  
-   Also, will need to write a gdm session file.  If they want compiz to autostart
-   they can put "compiz-manager" in their session startup (through GNOME Control
-   Panel), or else within the .config/autostart directory, ln -s /usr/bin/compiz-manager
+*  compiz doesn't have an xinitrc written for it yet - needs to be done in time
+   for stable release.  Also, will need to write a gdm session file.
+   If you want compiz to autostart, put "compiz-manager" in the session startup
+   (through GNOME Control Panel), or add it to the autostart directory:
+     $ (mkdir -p .config/autostart ; cd .config/autostart ; \
+        ln -s /usr/bin/compiz-manager . )
 
-------------------------
 
 ##
 ## Some Things to Consider
@@ -48,11 +50,13 @@
    up (Nautilus looks for it), but is largely unconfigured.  This is the 
    next major task.  :)
 
+
 ### 
 ### Package Ideas 
 ###
 
 *  Fonts package: <http://eyegene.ophthy.med.umich.edu/unicode/fontguide/>
+
 
 ###
 ### Website Ideas
@@ -73,12 +77,14 @@
 *  On Build page:  add some tyoe of "requirements" section, and note that
    some packages actually require a net connection to build, etc.
 
+
 ###
 ### Misc
 ###
 
 *  make sure to change the db.h symlink to db4
-    -->  is this step needed anymore with Slackware 12?
+    -->  Is this step needed anymore with Slackware 12?
+    -->  No, it's not; but gsb.SlackBuild makes sure the link is correct. ~DA.
 *  add --cleanup to gsb.SlackBuild as an arg so that users with limited disk
    space can build GSB without leaving around the package-foo and source dirs
     -->  done, cleans up by default.  need to specify --no-cleanup to prevent.
@@ -91,4 +97,3 @@
           "s/(.*{1,})\\-(.*[\\.\\-].*[\\.\\-].*)/\1 >= \2/"
       --> this is a nifty idea, but perhaps manual control over slack-desc is
           better for the moment.  :)
-
