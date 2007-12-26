@@ -30,8 +30,10 @@ sub gsb_sb_edit {
   if ( $new_ver eq $sb_version ) {
     #my $new_build_num = $sb_build + 1;
     #@fh = gsb_build_edit($new_build_num, @fh);
-  }else {
-    @fh = gsb_version_edit($new_ver, @fh);
+  } else {
+    if ( $new_ver ne "svn" ) {
+      @fh = gsb_version_edit($new_ver, @fh);
+    }
     @fh = gsb_build_edit("1", @fh);
   }
 

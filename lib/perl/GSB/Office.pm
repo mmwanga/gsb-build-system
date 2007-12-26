@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw(%office %office_gnome);
+our @EXPORT    = qw(%office %office_gnome %office_svn);
 our @EXPORT_OK = qw();
 our $VERSION   = 0.03;
 
@@ -160,7 +160,10 @@ our %office =
 
   );
 
-
+our %office_svn =
+  (
+   'gnucash' => 'svn',
+  );
 
 #
 # End Config Options

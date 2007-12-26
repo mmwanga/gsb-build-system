@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw(%testing_packages);
+our @EXPORT    = qw(%testing_packages %testing_svn);
 our @EXPORT_OK = qw();
 our $VERSION   = 0.03;
 
@@ -28,4 +28,10 @@ our %testing_packages =
 			 'tar' => 'wpa_supplicant-0.5.9.tar.gz',
              'var' => 'VERSION',
                   },
+  );
+
+our %testing_svn =
+  (
+   'NetworkManager' => 'svn' ,
+   'network-manager-applet' => 'svn',
   );

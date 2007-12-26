@@ -286,6 +286,25 @@ foreach my $ppackage (keys %libraries_gnome) {
   }
 }
 
+# src/libraries packages that are from SVN.
+# Note: this only edits the SlackBuilds to set BUILD.
+foreach my $libsvnpackage (keys %libraries_svn) {
+
+  my $name    = $libsvnpackage;
+  my $sb_file = $name . $sb_ext;
+  my $ver     = $libraries_svn{$name};
+
+  chdir "$pwd/libraries/$name";
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+}
+
 # src/platform packages that have different names compared to their src tarball name
 foreach my $pnpackage (keys %libraries_diff_naming) {
 
@@ -644,6 +663,25 @@ foreach my $office_pack (keys %office_gnome) {
   }
 }
 
+# src/office packages that are from SVN.
+# Note: this only edits the SlackBuilds to set BUILD.
+foreach my $officesvnpackage (keys %office_svn) {
+
+  my $name    = $officesvnpackage;
+  my $sb_file = $name . $sb_ext;
+  my $ver     = $office_svn{$name};
+
+  chdir "$pwd/office/$name";
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+}
+
 # GNOME Mono
 foreach my $gnome_mono_pack (keys %mono_gnome) {
 
@@ -967,6 +1005,25 @@ foreach my $testpkg (keys %testing_packages) {
 
   if ( ! -f $tarball ) {
     push(@bad_downloads, $name);
+  }
+}
+
+# src/testing packages that are from SVN.
+# Note: this only edits the SlackBuilds to set BUILD.
+foreach my $testingsvnpackage (keys %testing_svn) {
+
+  my $name    = $testingsvnpackage;
+  my $sb_file = $name . $sb_ext;
+  my $ver     = $testing_svn{$name};
+
+  chdir "$pwd/testing/$name";
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
   }
 }
 

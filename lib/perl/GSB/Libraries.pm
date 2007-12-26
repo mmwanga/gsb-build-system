@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw(%libraries %libraries_gnome %libraries_diff_naming);
+our @EXPORT    = qw(%libraries %libraries_gnome %libraries_diff_naming %libraries_svn);
 our @EXPORT_OK = qw();
 our $VERSION   = 0.03;
 
@@ -296,6 +296,13 @@ our %libraries_diff_naming =
 	       },
   );
 
+# libraries which we get from SVN sources
+our %libraries_svn =
+  (
+   'gtkunique' => 'svn',
+   'ffmpeg' => 'svn',
+   'x264' => 'svn',
+  );
 
 #
 # End Config Options
