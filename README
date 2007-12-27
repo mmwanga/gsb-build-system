@@ -56,20 +56,6 @@ pre-built binaries and install those.
 Quick start
 -----------
 
-*** PLEASE NOTE ***
-
-These instructions are currently out of date as new SlackBuilds have been added
-to SVN for testing.  Once those SB's have been tested and any bugs fixed I will
-update these instructions.
-
-If you attempt to build from this SVN source now you should *really* know what
-you are doing.  Don't come asking for help if you get stuck - unless you are
-a developer you are better off waiting a couple of weeks for a binary release.
-
-You have been warned - wrath will be incurred if you bother us about this.
-
-*******************
-
 You must be root in order to build GSB.
 
 You must be running Slackware 12.0 and have all the required dependancies
@@ -82,32 +68,43 @@ internet connection to download the sources.
 Here's what to do:
   $ ./bin/gsb_update.pl --dl --edit --build=gsb
   $ cd src/
-  $ ./gsb.SlackBuild --update
+  $ ./gsb.SlackBuild
 
 Downloading the sources (gsb_update.pl) may take a while depending on the speed
 of your internet connection.  Don't be surprised if it takes a few hours :)
 
-The '--dl' option tells gsb_update to download the required sources.  Without
-this option nothing will be downloaded.  You can stop and start the process
-as much as you like - gsb_update will not re-download sources it downloaded
-previously.  The '--edit' tells gsb_update to edit the SlackBuild files with
-the version information from the source file downloaded - you want this.
+The '--dl' option to gsb_update tells it to download the required sources.
+Without this option nothing will be downloaded.  You can stop and start the
+process as much as you like - gsb_update will not re-download sources it has
+downloaded previously.  With '--edit', gsb_update will edit the SlackBuild
+files with the version information from the source downloaded - you want this.
 Finally, '--build=gsb' provides a build tag for the packages.  You can specify
-any build tag you wish for your packages - we use 'gsb' to mark ours.
+any build tag you wish for your packages - we use 'gsb' to mark ours.  If no
+'--build' option is given, no tag is added to the BUILD and the built packages
+will be named just as standard Slackware packages are (and thus very difficult
+to remove once installed).
 
-The build is started by running './gsb.SlackBuild' in the src/ directory.
-The option '--update' tells the SlackBuilds to build and update any Slackware
-packages with newer versions from GSB.  This is required because packages
-such as GTK+2 and Glib2 in Slackware are too old for GSB to use - they must
-be upgraded as part of the build process otherwise your build will fail.
+The build is started by running './gsb.SlackBuild' in the src/ directory.  The
+gsb.SlackBuild script has several options which effect the whole build process.
+Normally, however, none of those options are required for a build; and you are
+advised *not* to use them unless you are a developer.  The options are
+explained in detail further down in this README.
+
+GSB requires that some standard Slackware packages be upgraded to newer
+versions in order for other packages to compile and work correctly.  As part of
+the GSB build process, gsb.SlackBuild (and section SlackBuilds) will remove
+(using removepkg) any Slackware packages which need to be updated.  The new
+(updated) package from GSB will then be built and installed.
 
 Building GSB will take a very long time unless you have some top-notch hardware
 or small cluster system.  It took 2-3 days to perform a full build of GSB on
 my build box (2.5GHz CPU, 2GB RAM) - you have been warned.
 
 If the build fails for some reason, you can correct the error and re-run the
-'./gsb.SlackBuild --update' command - the build system will continue from where
-it failed, not restart the whole process again.
+'./gsb.SlackBuild' command - the build system will continue from where it
+failed, not restart the whole process again.  However, the process will
+removepkg all previously installed GSB packages and re-install them (to refresh
+the system from known good packages) - don't worry about that process.
 
 At the end of the build process you will have a full copy of GSB installed on
 your system ready to go, and a copy of the completed GSB binary package tree
@@ -152,7 +149,7 @@ from the session selection menu, if it is not already the default.
 If you are returned to the prompt or your display keeps going on and off
 repeatidly, the gdm application has not started sucessfully and there is a
 problem.  You will need to return your system to the text based state in order
-to debug the problem - use the same "init 3" command as detailed above.
+to debug the problem - use the same 'init 3' command as detailed above.
 
 If you do have a problem like this or cannot figure out what the issue is,
 please visit us on the IRC channel for help - details are on the website.
@@ -165,21 +162,21 @@ When building GSB, there are several environment variables which can be used to
 tweak and customise the build process.  GSB supports two methods of setting
 these environment variables, described below.
 
-The first option is to use the bash builtin "export" to manually set the option
+The first option is to use the bash builtin 'export' to manually set the option
 and export it to all sub-processes.  This can be done with a command like:
-      export VAR="VAL"
+  $ export VAR="VAL"
 ... which can be repeated for as many environment options as you want to set.
 
 You must remember to set these options every time you begin a build process as
 they will not be saved accross multiple builds.
 
-The second option is to create a "gsb.options" file in the src/ directory.
+The second option is to create a 'gsb.options' file in the src/ directory.
 The gsb.options file is read at the begining of every build process, and the
 options specified in this file will be saved accross multiple builds.
 Using the gsb.options file is especially useful for repeat builds or for
 developers who want to set specific options when testing.
 
-The gsb.options file should contain exactly the same "export" commands which
+The gsb.options file should contain exactly the same 'export' commands which
 would be used manually on the command line (see above).  The advantage of
 putting them into the gsb.options file is that the options will always be read,
 no matter whether you remember to manually export them on the command line.
@@ -243,6 +240,15 @@ LOGSDIR
 The following options are less common but allow highly specific customisation
 of the build process.  You should not set these options unless you know exactly
 what needs to be set for each.
+
+GSB_SECTIONS
+  This environment option can be used to specify exactly what GSB sections
+  should be processed.  This option should contain a space separated list of
+  (valid) GSB sections (available using the '--list' option to gsb.SlackBuild),
+  in the order they should be processed.  Care should be taken to insure the
+  processing order is correct - packages in some sections will rely on packages
+  previously built in others.
+  The default is to process all GSB sections (in the correct order).
   
 GSB_CONFIGURE_FLAGS
   Any options specified in this environment variable are ADDED to the package
@@ -302,26 +308,46 @@ the build process.  Options given to a top-level SlackBuild will be passed
 down to the individual package Slackbuilds as a the build process continues.
 
 The following options are recognised:
-  --help	Show the help page/usage for the SlackBuild.
+  --help                Show this help screen.
 
-  --force	A package will not be built if a package of the same name is
-		already installed on the system, or any of the packages
-		required to build it are missing.  This option over-rides these
-		checks and attempts a build anyway, although it's very likely
-		it will fail.
+  --list                For each of the sections in GSB, list all the packages
+                        which will be built.  When GSB_SECTIONS is set (either
+                        in the environment or in the gsb.options file - see the
+                        README file) only those sections are displayed.
 
-  --no-cleanup	By default any temporary source, build and package directories
-		will be deleted once the package is built.  This option
-		prevents all temporary files from being removed.
+  --force               A package will not be built if a package of the same
+                        name is already installed, or any of the pre-requisite
+                        packages are not installed.  This option over-rides
+                        the checks and attempts a build (which will probably
+                        fail) anyway.
 
-  --no-install	Build the packages but don't install them afterwards.  This
-		option should only be used for testing individual SlackBuilds
-		as it WILL cause serious problems - some package builds rely
-		on another package being auto installed first, and may refuse
-		to build or crash out at some point during the process.
-		This is not used by individual package SlackBuilds, it is used
-		by the top-level SlackBuilds to stop the auto install process
-		which usually takes place during a GSB build.
+  --no-skip             During the build process, packages that are up to date
+                        (ie, the package version and build numbers match the
+                        coresponding SlackBuild) will not be rebuilt.  This
+                        option forces packages to be rebuilt regardless of the
+                        version and build numbers.  This does not affect the
+                        pre-build checks for installed packages (see --force).
+
+  --no-metafiles        Do not create the .txt and .md5 files for each package
+                        which would usually be produced during a build.
+
+  --no-prune            Normally, when a package is built and copied to the
+                        destination directory, any previous package(s) of the
+                        same name are deleted - it is assumed the new package
+                        is to replace any which were built previously.
+                        This option prevents previous packages being deleted
+                        from the destination directory, possibly leaving more
+                        than one package of the same name (but with different
+                        version or build numbers) laying around.
+
+  --no-cleanup          By default, any source, temporary build and package
+                        directories will be deleted once the package is built.
+                        This option prevents those files from being removed.
+
+  --no-install          Build packages but don't install them.  This should
+                        only be used for testing individual SlackBuilds as it
+                        WILL cause serious problems - some package builds may
+                        rely on another package being auto installed first.
 
 --
 Darren 'Tadgy' Austin	<tadgy(at)gnomeslackbuild.org>

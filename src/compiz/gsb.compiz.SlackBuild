@@ -95,7 +95,9 @@ function find_package_files() {
 }
 
 function runtime() {
-  # $1 = Number of seconds to convert to readable text
+  # $1 = Number of seconds to convert to readable text [required]
+
+  [ -z "$1" ] && return 1
 
   local D=$(( $1 / 86400 ))
   local H=$(( ($1 - ($D * 86400)) / 3600 ))

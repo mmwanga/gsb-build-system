@@ -15,19 +15,19 @@ cd $( cd ${BASH_SOURCE%/*} ; pwd )
 }
 
 # The default list of GSB sections, in the order they should be processed.
-SECTIONS="${SECTIONS:-	tools
-			libraries
-			platform
-			desktop
-			applications
-			accessibility
-			bindings
-			office
-			mono
-			extras
-			themes
-			compiz
-			testing	}"
+SECTIONS="${GSB_SECTIONS:-	tools
+				libraries
+				platform
+				desktop
+				applications
+				accessibility
+				bindings
+				office
+				mono
+				extras
+				themes
+				compiz
+				testing	}"
 
 # Usage.
 function usage() {
@@ -35,29 +35,30 @@ function usage() {
 Usage: ${0##*/} [options]
 
 Options:
-  -help			Show this help screen.
+  --help		Show this help screen.
 
-  -list			For each of the GSB sections, list the packages which
-			will be built.  When the SECTIONS environment variable
-			is set (see README) only those sections are displayed.
+  --list		For each of the sections in GSB, list all the packages
+			which will be built.  When GSB_SECTIONS is set (either
+			in the environment or in the gsb.options file - see the
+			README file) only those sections are displayed.
 
-  -force		A package will not be built if a package of the same
+  --force		A package will not be built if a package of the same
 			name is already installed, or any of the pre-requisite
 			packages are not installed.  This option over-rides
 			the checks and attempts a build (which will probably
 			fail) anyway.
 
-  -no-skip		During the build process, packages that are up to date
+  --no-skip		During the build process, packages that are up to date
 			(ie, the package version and build numbers match the
 			coresponding SlackBuild) will not be rebuilt.  This
 			option forces packages to be rebuilt regardless of the
 			version and build numbers.  This does not affect the
-			pre-build checks for installed packages (see -force).
+			pre-build checks for installed packages (see --force).
 
-  -no-metafiles		Do not create the .txt and .md5 files for each package
+  --no-metafiles	Do not create the .txt and .md5 files for each package
 			which would usually be produced during a build.
 
-  -no-prune		Normally, when a package is built and copied to the
+  --no-prune		Normally, when a package is built and copied to the
 			destination directory, any previous package(s) of the
 			same name are deleted - it is assumed the new package
 			is to replace any which were built previously.
@@ -66,11 +67,11 @@ Options:
 			than one package of the same name (but with different
 			version or build numbers) laying around.
 
-  -no-cleanup		By default, any source, temporary build and package
+  --no-cleanup		By default, any source, temporary build and package
 			directories will be deleted once the package is built.
 			This option prevents those files from being removed.
 
-  -no-install		Build packages but don't install them.  This should
+  --no-install		Build packages but don't install them.  This should
 			only be used for testing individual SlackBuilds as it
 			WILL cause serious problems - some package builds may
 			rely on another package being auto installed first.
@@ -90,7 +91,9 @@ function list_packages() {
 }
 
 function runtime() {
-  # $1 = Number of seconds to convert to readable text
+  # $1 = Number of seconds to convert to readable text [required]
+
+  [ -z "$1" ] && return 1
 
   local D=$(( $1 / 86400 ))
   local H=$(( ($1 - ($D * 86400)) / 3600 ))
@@ -119,26 +122,26 @@ while [ $# -gt 0 ]; do
     list_packages
     exit 0
   elif [ "$1" = "-force" ] || [ "$1" = "--force" ]; then
-    SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}-force"
+    SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}--force"
     shift
   elif [ "$1" = "-no-skip" ] || [ "$1" = "--no-skip" ]; then
-    SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}-no-skip"
+    SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}--no-skip"
     shift
   elif [ "$1" = "-no-metafiles" ] || [ "$1" = "--no-metafiles" ]; then
-    SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}-no-metafiles"
+    SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}--no-metafiles"
     shift
   elif [ "$1" = "-no-prune" ] || [ "$1" = "--no-prune" ]; then
-    SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}-no-prune"
+    SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}--no-prune"
     shift
   elif [ "$1" = "-no-cleanup" ] || [ "$1" = "--no-cleanup" ]; then
-    SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}-no-cleanup"
+    SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}--no-cleanup"
     shift
   elif [ "$1" = "-no-install" ] || [ "$1" = "--no-install" ]; then
-    SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}-no-install"
+    SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}--no-install"
     shift
   else
     echo "${0##*/}: Unknown option: $1"
-    echo "Try: $0 -help"
+    echo "Try: $0 --help"
     exit 1
   fi
 done
@@ -149,7 +152,7 @@ mkdir -p $PKGDEST
 mkdir -p $LOGSDIR
 
 # Make sure /usr/include/db.h points to the db4 header.
-( cd /usr/include ; rm -f db.h ; ln -s db4/db.h db.h ) || {
+( cd /usr/include && rm -f db.h && ln -s db4/db.h db.h ) || {
   echo "${0##*/}: Could not set db.h header"
   exit 1
 }

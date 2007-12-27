@@ -2,6 +2,13 @@ ChangeLog
 ---------
 
 22-12-2007  Tadgy <tadgy(at)gnomeslackbuild.org>
+	* Added svn packages to gsb_update.
+	* Reworked svn package SB's to allow gsb_update to set VERSION and
+	  BUILD.
+	* Cleaned up some randon bits that have been annoying me for a while.
+	* Corrected README - it's now up to date for the new section SB's.
+
+22-12-2007  Tadgy <tadgy(at)gnomeslackbuild.org>
 	* Updated src/gsb.SlackBuild to 1.3.
 	  Note: Command line options have changed.  README will be
 		updated shortly.
