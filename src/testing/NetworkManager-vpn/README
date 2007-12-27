@@ -1,2 +1,11 @@
-This build uses svn, and relies on a fully checked out NetworkManager tree in ../NetworkManager.
-Current pptp bindings are not built.  (Broken)
+The NetworkManager/ subdirectory is a symlink to the external SVN link in
+../NetworkManager/NetworkManager/
+
+The svn link is maintaned at a fixed revision so that daily changes to their
+sources do not effect the stability of our builds.  We will only bump the svn
+version during a development phase or because of a security issue.
+
+*** IMPORTANT ***
+When the svn sources are updated to a newer revision, lib/perl/GSB/Testing.pm
+MUST be updated with the new revision number (at the bottom of the file).
+*****************

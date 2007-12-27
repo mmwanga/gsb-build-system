@@ -1,5 +1,5 @@
-The NetworkManager/ subdirectory is external SVN link to
-	svn://svn.gnome.org/svn/NetworkManager/trunk
+The gtkunique subdirectory is external SVN link to
+	http://svn.gnome.org/svn/gtkunique/trunk
 at a fixed revision.
 
 The svn link is maintaned at a fixed revision so that daily changes to their
@@ -7,6 +7,6 @@ sources do not effect the stability of our builds.  We will only bump the svn
 version during a development phase or because of a security issue.
 
 *** IMPORTANT ***
-When the svn sources are updated to a newer revision, lib/perl/GSB/Testing.pm
+When the svn sources are updated to a newer revision, lib/perl/GSB/Libraries.pm
 MUST be updated with the new revision number (at the bottom of the file).
 *****************

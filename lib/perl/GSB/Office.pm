@@ -162,7 +162,7 @@ our %office =
 
 our %office_svn =
   (
-   'gnucash' => 'svn',
+   'gnucash' => 'svn_16663',
   );
 
 #

@@ -1,10 +1,12 @@
-##
-## ffmpeg svn
-##
-ffmpeg subdirectory is external SVN link to svn://svn.mplayerhq.hu/ffmpeg/trunk
+The ffmpeg subdirectory is external SVN link to
+	svn://svn.mplayerhq.hu/ffmpeg/trunk
+at a fixed revision.
 
-For more information see http://ffmpeg.mplayerhq.hu/download.html.
-There are no tarballs, and it keep an external definition to mplayer's svn 
-may be the best way to stay up-to-date.
+The svn link is maintaned at a fixed revision so that daily changes to their
+sources do not effect the stability of our builds.  We will only bump the svn
+version during a development phase or because of a security issue.
 
-05-10-2007 fidesratio
+*** IMPORTANT ***
+When the svn sources are updated to a newer revision, lib/perl/GSB/Libraries.pm
+MUST be updated with the new revision number (at the bottom of the file).
+*****************

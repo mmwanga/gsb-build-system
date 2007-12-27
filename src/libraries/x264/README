@@ -1,1 +1,18 @@
-** Build note: x264 cannot be built for a target platform.  Only host can be defined, and so the final package will be only for platforms similar to the one on which it was built.
+The x264 subdirectory is external SVN link to
+	svn://svn.videolan.org/x264/trunk
+at a fixed revision.
+
+The svn link is maintaned at a fixed revision so that daily changes to their
+sources do not effect the stability of our builds.  We will only bump the svn
+version during a development phase or because of a security issue.
+
+*** IMPORTANT ***
+When the svn sources are updated to a newer revision, lib/perl/GSB/Libraries.pm
+MUST be updated with the new revision number (at the bottom of the file).
+*****************
+
+*** WARNING ***
+x264 cannot be built for a target ARCH or be TUNE'ed to a specific CPU type.
+The final package will only work on platforms similar to the one on which it
+was built.
+***************

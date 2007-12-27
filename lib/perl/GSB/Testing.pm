@@ -32,7 +32,7 @@ our %testing_packages =
 
 our %testing_svn =
   (
-   'NetworkManager' => 'svn' ,
-   'NetworkManager-vpn' => 'svn',
-   'network-manager-applet' => 'svn',
+   'NetworkManager'         => 'svn_3173',
+   'NetworkManager-vpn'     => 'svn_3173',
+   'network-manager-applet' => 'svn_404',
   );

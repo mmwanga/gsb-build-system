@@ -299,9 +299,9 @@ our %libraries_diff_naming =
 # libraries which we get from SVN sources
 our %libraries_svn =
   (
-   'gtkunique' => 'svn',
-   'ffmpeg' => 'svn',
-   'x264' => 'svn',
+   'gtkunique' => 'svn_13',
+   'ffmpeg'    => 'svn_11228',
+   'x264'      => 'svn_712',
   );
 
 #

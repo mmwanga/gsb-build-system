@@ -8,10 +8,11 @@
 
 ## Package variables.
 BUILD=1
+VERSION=svn_712
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 libvisual subversion yasm"
+REQUIRED_PACKAGES="gtk+2 libvisual yasm"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -80,28 +81,11 @@ done
   done
 }
 
-## SVN Warning
-cat << EOF
-***********************************************************
-*** Warning:
-*** This package is built from an svn repository - there
-*** are no released tarballs.  If you would like the latest
-*** code for this package, please make sure to run
-*** "svn update" before compiling.  This build script will
-*** not automatically update the repository (in case
-*** specific revisions are required).
-***
-*** This script must be run from a working svn copy.
-***********************************************************
-EOF
-
-SVN_REV=$(cd $PKGNAME && svn info 2>/dev/null | grep Revision | cut -d' ' -f2)
-[ "$SVN_REV" = "" ] && {
-  echo "Could not get svn revision information.  Check svn sources and try again."
-  exit 1
-}
-
-VERSION="svn_$SVN_REV"
+## SVN warning
+echo
+echo "*********************************************************************"
+echo "*** Warning: This package is built from a fixed svn source revision."
+echo "*********************************************************************"
 
 ## Temporary space and package storage.
 mkdir -p $TMP
@@ -110,10 +94,10 @@ mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
-## Copy SVN working copy to temporary space
+## Copy SVN sources to temporary space
 cd $TMP &&
-rm -fr $PKGNAME-$VERSION &&
-cp -ra $CWD/$PKGNAME $PKGNAME-$VERSION &&
+rm -rf $PKGNAME-$VERSION &&
+cp -ar $CWD/$PKGNAME $PKGNAME-$VERSION &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.

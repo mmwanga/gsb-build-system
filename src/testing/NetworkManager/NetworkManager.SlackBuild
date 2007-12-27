@@ -6,31 +6,9 @@
 ## Licenced under the terms of the GNU General Public Licence version 3.
 ##
 
-##
-## SVN Warning
-##
-
-cat << EOF
-
-*****************
-* Update Notice *
-*****************
-
-NetworkManager is built from an svn repository.  There are no released tarballs.
-If you would like the latest code for this package, please make sure to
-run "svn update" before compiling.  This build script will not update
-the repository automatically (in case specific revisions are wanted.)
-
-***** Note ************
-
-This script is intended to be run from a working svn copy.
-
-***********************
-
-EOF
-
 ## Package variables.
 BUILD=2
+VERSION=svn_3173
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -49,15 +27,6 @@ PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
 FORCEBUILD=0
-SVN_REV=$(cd $PKGNAME && svn info 2> /dev/null | grep Revision | cut -d' ' -f2)
-
-if [ "$SVN_REV" = "" ]; then
-  echo "Unable to properly check svn version. Please check your svn setup and try again."
-  exit 1;
-fi;
-
-echo "Building SVN_REV $SVN_REV"
-VERSION=${VERSION:-svn_$SVN_REV}
 
 ## Usage.
 function usage() {
@@ -112,6 +81,12 @@ done
   done
 }
 
+## SVN warning
+echo
+echo "*********************************************************************"
+echo "*** Warning: This package is built from a fixed svn source revision."
+echo "*********************************************************************"
+
 ## Temporary space and package storage.
 mkdir -p $TMP
 rm -rf $PKG
@@ -119,10 +94,10 @@ mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
-## Copy SVN working copy to temporary space
-rm -fr $TMP/$PKGNAME-$VERSION ;
+## Copy SVN sources to temporary space
 cd $TMP &&
-cp -ra $CWD/$PKGNAME ./$PKGNAME-$VERSION &&
+rm -rf $PKGNAME-$VERSION &&
+cp -ar $CWD/$PKGNAME $PKGNAME-$VERSION &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -186,16 +161,11 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
+## Disable -Werror from any gcc options.
+## As this is svn sources there will be warnings, but the build shouldn't fail.
+sed -i configure.in -e 's/-Werror//g" || exit 1
+
 ## Configure.
-
-# Disable any "warning as error" ;  this is svn, of course there will
-# be warnings.  We still want to build anyway.
-echo "Disabling warning as error compiler option."
-for i in configure.in ;
-do 
-  sed -i "s:-Werror::g" $i; 
-done;
-
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \

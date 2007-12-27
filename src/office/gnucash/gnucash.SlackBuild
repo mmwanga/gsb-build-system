@@ -6,33 +6,9 @@
 ## Licenced under the terms of the GNU General Public Licence version 3.
 ##
 
-##
-## SVN Warning
-##
-
-cat << EOF
-
-*****************
-* Update Notice *
-*****************
-
-gnucash is built from an svn repository.  There are no released tarballs.
-If you would like the latest code for this package, please make sure to
-run "svn update" before compiling.  This build script will not update
-the repository automatically (in case specific revisions are wanted.)
-
-***** Notes ************
-
-* This script is intended to be run from a working svn copy.
-
-* You must be connected to the internet and able to reach svn.gnucash.org.
-
-***********************
-
-EOF
-
 ## Package variables.
 BUILD=3
+VERSION=svn_16663
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -51,15 +27,6 @@ PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
 FORCEBUILD=0
-SVN_REV=$(cd $PKGNAME && svn info 2> /dev/null | grep Revision | cut -d' ' -f2)
-
-if [ "$SVN_REV" = "" ]; then
-  echo "Unable to properly check svn version. Please check your svn setup and try again."
-  exit 1;
-fi;
-
-echo "Building SVN_REV $SVN_REV"
-VERSION=${VERSION:-svn_$SVN_REV}
 
 ## Usage.
 function usage() {
@@ -114,6 +81,12 @@ done
   done
 }
 
+## SVN warning
+echo
+echo "*********************************************************************"
+echo "*** Warning: This package is built from a fixed svn source revision."
+echo "*********************************************************************"
+
 ## Temporary space and package storage.
 mkdir -p $TMP
 rm -rf $PKG
@@ -121,10 +94,10 @@ mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
-## Copy SVN working copy to temporary space
-rm -fr $TMP/$PKGNAME-$VERSION ;
+## Copy SVN sources to temporary space
 cd $TMP &&
-cp -ra $CWD/$PKGNAME ./$PKGNAME-$VERSION &&
+rm -rf $PKGNAME-$VERSION &&
+cp -ar $CWD/$PKGNAME $PKGNAME-$VERSION &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -188,21 +161,18 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-## Configure.
-
-# There is an incomplete aclocal autoconfiguration
-# info for pilot-link.  The autogen will fail if
-# we don't move this out of the way first.
-
-if [ -f /usr/share/aclocal/pilot-link.m4 ]; then
+## There is an incomplete aclocal autoconfiguration info for pilot-link.
+## The autogen will fail if we don't move this out of the way first.
+[ -f /usr/share/aclocal/pilot-link.m4 ] && {
   mv -f /usr/share/aclocal/pilot-link.m4 /usr/share/aclocal/pilot-link.m4.old
-fi;
+}
 
-./autogen.sh --prefix=/usr || exit 1 ;
+./autogen.sh --prefix=/usr || exit 1
 
 ## Use gtkhtml 3.16
-sed -i "s/3\.14/3\.16/g" $TMP/$PKGNAME-$VERSION/configure ;
+sed -i $TMP/$PKGNAME-$VERSION/configure -e 's/3\.14/3\.16/g' || exit 1
 
+## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
@@ -220,16 +190,16 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make $MAKE_FLAGS &&
 make DESTDIR=$PKG install || exit 1
 
-# Restore pilot-link.m4
-if [ -f /usr/share/aclocal/pilot-link.m4.old ]; then
+## Restore pilot-link.m4
+[ -f /usr/share/aclocal/pilot-link.m4.old ] && {
   mv /usr/share/aclocal/pilot-link.m4.old /usr/share/aclocal/pilot-link.m4
-fi;
+}
 
 ## Preserve files
 mv $PKG/etc/gnucash/config $PKG/etc/gnucash/config.new
 
 ## GNOME Icon
-(cd $PKG/usr/share/pixmaps ; ln -s gnucash-icon-32x32.png gnucash-icon.png ) ;
+( cd $PKG/usr/share/pixmaps && ln -s gnucash-icon-32x32.png gnucash-icon.png )
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

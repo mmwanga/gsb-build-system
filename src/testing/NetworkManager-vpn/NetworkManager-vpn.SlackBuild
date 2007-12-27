@@ -6,48 +6,13 @@
 ## Licenced under the terms of the GNU General Public Licence version 3.
 ##
 
-##
-## SVN Warning
-##
-
-cat << EOF
-
-*****************
-* Update Notice *
-*****************
-
-NetworkManager-vpn is built from the Networkmanager svn repository.  
-There are no released tarballs yet.  If you would like the latest code 
-for this package, please make sure to run "svn update" in the NetworkMager
-directory before compiling.  This build script will not update
-the repository automatically (in case specific revisions are wanted.)
-
-***** Note ************
-
-This script is intended to be run from a working svn copy.
-
-***********************
-
-EOF
-
 ## Package variables.
 BUILD=2
+VERSION=svn_11228
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
 REQUIRED_PACKAGES="NetworkManager libnl wpa_supplicant libgcrypt dbus hal gtk+2 libglade gnome-keyring libgnomeui gnome-keyring wireless-tools glib2 iproute2 GConf gnome-common ppp network-manager-applet"
-
-if [ ! -d ../NetworkManager/NetworkManager ]; then
-  echo "NetworkManager directory not found.  Are you building this script"
-  echo "within the GSB svn tree?"
-else
-  SVN_REV=$(cd ../NetworkManager/NetworkManager && svn info 2> /dev/null | grep Revision | cut -d' ' -f2)
-  if [ $? -ne 0 ]; then
-     echo "Cound not find svn information for NetworkManager.  Are you building"
-     echo "within the svn tree?"
-  fi;
-fi;
-  
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -62,14 +27,6 @@ PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
 FORCEBUILD=0
-
-if [ "$SVN_REV" = "" ]; then
-  echo "Unable to properly check svn version. Please check your svn setup and try again."
-  exit 1;
-fi;
-
-echo "Building SVN_REV $SVN_REV"
-VERSION=${VERSION:-svn_$SVN_REV}
 
 ## Usage.
 function usage() {
@@ -124,6 +81,12 @@ done
   done
 }
 
+## SVN warning
+echo
+echo "*********************************************************************"
+echo "*** Warning: This package is built from a fixed svn source revision."
+echo "*********************************************************************"
+
 ## Temporary space and package storage.
 mkdir -p $TMP
 rm -rf $PKG
@@ -131,10 +94,10 @@ mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
-## Copy SVN working copy to temporary space
-rm -fr $TMP/$PKGNAME-$VERSION ;
+## Copy SVN sources to temporary space
 cd $TMP &&
-cp -ra $CWD/../NetworkManager/NetworkManager $PKGNAME-$VERSION &&
+rm -rf $PKGNAME-$VERSION &&
+cp -ar $CWD/$PKGNAME $PKGNAME-$VERSION &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.

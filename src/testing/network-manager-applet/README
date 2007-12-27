@@ -1,5 +1,5 @@
-The NetworkManager/ subdirectory is external SVN link to
-	svn://svn.gnome.org/svn/NetworkManager/trunk
+The network-manager-applet/ subdirectory is external SVN link to
+	svn://svn.gnome.org/svn/network-manager-applet/trunk
 at a fixed revision.
 
 The svn link is maintaned at a fixed revision so that daily changes to their
