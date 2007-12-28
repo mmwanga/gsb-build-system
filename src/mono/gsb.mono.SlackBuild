@@ -244,7 +244,7 @@ echo "*********************************************************************"
     declare PACKAGE_$( egrep -m 1 "^BUILD=.*" $PACKAGE/$PACKAGE.SlackBuild )
 
     # Check that we got a version and build.
-    [ -z "$PACKAGE_VERSION" ] || [ -z "$PACKAGE_BUILD" ] && {
+    [ -z "${PACKAGE_VERSION//-/_}" ] || [ -z "$PACKAGE_BUILD" ] && {
       echo
       echo "*********************************************************************"
       echo "*** Error: failed to get VERSION or BUILD from '$PACKAGE.SlackBuild'"
@@ -255,7 +255,7 @@ echo "*********************************************************************"
     # Check if the package has been built previously.
     SKIP_BUILD=0
     find_package_files "$PKGDEST/$SECTION" "${PACKAGE//+/\+}" \
-      "$PACKAGE_VERSION" "" "$PACKAGE_BUILD" "\.tgz" >/dev/null && {
+      "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" >/dev/null && {
       if [ "$NOSKIP" = "0" ]; then
         # The package is up to date, no need to rebuild it.
         SKIP_BUILD=1
@@ -265,7 +265,7 @@ echo "*********************************************************************"
         echo "*** Removing '$PACKAGE' package files from tree..."
         echo "*********************************************************************"
         rm -f $( find_package_files "$PKGDEST/$SECTION" "${PACKAGE//+/\+}" \
-          "$PACKAGE_VERSION" "" "$PACKAGE_BUILD" "\.tgz|\.txt|\.tgz\.md5" | \
+          "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz|\.txt|\.tgz\.md5" | \
           tr '\n' ' ' )
       fi
     }
@@ -308,7 +308,7 @@ echo "*********************************************************************"
 
     PRUNE_FILES="$( find_package_files "$PKGDEST/$SECTION" "${PACKAGE//+/\+}" \
       "" "" "" "\.tgz|\.txt|\.tgz\.md5" | grep -v "$( find_package_files \
-      "$PKGDEST/$SECTION" "${PACKAGE//+/\+}" "$PACKAGE_VERSION" "" \
+      "$PKGDEST/$SECTION" "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" \
       "$PACKAGE_BUILD" "\.tgz" )" | tr '\n' ' ' )"
     [ ! -z "$PRUNE_FILES" ] && {
       if [ "$NOPRUNE" = "0" ]; then
@@ -331,9 +331,9 @@ echo "*********************************************************************"
       echo "*** Creating metafiles for '$PACKAGE'..."
       echo "*********************************************************************"
       gen_pkg_txt "$( find_package_files "$PKGDEST/$SECTION" "${PACKAGE//+/\+}" \
-        "$PACKAGE_VERSION" "" "$PACKAGE_BUILD" "\.tgz" )" &&
+        "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" )" &&
       gen_pkg_md5 "$( find_package_files "$PKGDEST/$SECTION" "${PACKAGE//+/\+}" \
-        "$PACKAGE_VERSION" "" "$PACKAGE_BUILD" "\.tgz" )" || {
+        "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" )" || {
         echo
         echo "*********************************************************************"
         echo "*** Error: failed to create metafiles for '$PACKAGE'."
@@ -353,7 +353,7 @@ echo "*********************************************************************"
       echo "*** Installing '$PACKAGE'..."
       echo "*********************************************************************"
       upgradepkg --install-new $( find_package_files $PKGDEST/$SECTION \
-        "${PACKAGE//+/\+}" "$PACKAGE_VERSION" "" "$PACKAGE_BUILD" "\.tgz" ) || {
+        "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" ) || {
         echo
         echo "*********************************************************************"
         echo "*** Error: failed to install '$PACKAGE'."
