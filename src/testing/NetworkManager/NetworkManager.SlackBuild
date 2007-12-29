@@ -163,7 +163,7 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Disable -Werror from any gcc options.
 ## As this is svn sources there will be warnings, but the build shouldn't fail.
-sed -i configure.in -e 's/-Werror//g" || exit 1
+sed -i configure.in -e 's/-Werror//g' || exit 1
 
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \

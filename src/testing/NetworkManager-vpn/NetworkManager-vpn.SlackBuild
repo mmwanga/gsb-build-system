@@ -97,7 +97,7 @@ mkdir -p $PKGDEST
 ## Copy SVN sources to temporary space
 cd $TMP &&
 rm -rf $PKGNAME-$VERSION &&
-cp -ar $CWD/$PKGNAME $PKGNAME-$VERSION &&
+cp -Hr $CWD/$PKGNAME $PKGNAME-$VERSION &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
