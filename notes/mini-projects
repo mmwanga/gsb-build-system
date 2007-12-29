@@ -2,7 +2,6 @@ These are some "mini" projects that (I think) need to be done for GSB.
 
 Scripts:
   Edit BUILD var in SlackBuilds
-  Verifier/checker for slack-desc files
   Combi installer (local, net, cd)
   Upload script (to rsync tree to server)
 
