@@ -1,0 +1,19 @@
+These are some "mini" projects that (I think) need to be done for GSB.
+
+Scripts:
+  Edit BUILD var in SlackBuilds
+  Verifier/checker for slack-desc files
+  Combi installer (local, net, cd)
+  Upload script (to rsync tree to server)
+
+Packages:
+  cpan-modules - All the perl modules required to use GSB, in one package.
+  gsb - A collection of config scripts, settings etc for GSB.
+
+gsb_update:
+  A lot of this needs to be re-written and standardised, as well as features
+  being added.
+  Ideas:
+    Ability to delete old sources from the source dirs
+    A way to reset the BUILD var back to 1 (per package or for all)
+    Ability to increment BUILD var by given number (per package or for all)

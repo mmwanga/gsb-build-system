@@ -32,76 +32,67 @@
 #				Requested by malloc for slapt-get support.
 #	10/12/07	SK	Updated for GSB.
 #	14/12/07	DA	Major updates to structure for GSB.
+#	29/12/07	DA	Don't create package .txt files - this is now
+#				done by the section SB's.  Re worked creating
+#				other meta files too.
 #
 
 # The sub-directories to process.
 SUBDIRS="packages"
 
 
-# Generate the package's .txt file.
-function gen_pkg_txt() {
-  # Arguments:		$1 = The sub directory to process.
-  # Returns:		 0 = At least one .txt file was created.
-  #			 1 = No files were created (everything up to date).
-
-  local RET=1
-  for FILE in $( find ./$1 -type f -name \*.tgz )
-  do
-    METAFILE=${FILE%tgz}txt
-    [ ! -e  $METAFILE ] && {
-      # No metadata file exists for this package, so its new.
-      echo -n "    -> Creating $( basename $METAFILE ) ... "
-      SIZES="$( gunzip -l $FILE | tail -n 1 | tr -s ' ' )"
-      echo "PACKAGE NAME:  $( echo $FILE | rev | cut -d/ -f1 | rev )" >$METAFILE
-      echo "PACKAGE LOCATION:  $( echo $FILE | rev | cut -d/ -f2- | rev )" >>$METAFILE
-      echo "PACKAGE SIZE (compressed):  $(( $( echo \"$SIZES\" | cut -d' ' -f2 ) / 1024 )) K" >>$METAFILE
-      echo "PACKAGE SIZE (uncompressed):  $(( $( echo \"$SIZES\" | cut -d' ' -f3 ) / 1024 )) K" >>$METAFILE
-      echo "PACKAGE REQUIRED:  $( tar zxOf $FILE install/slack-required 2>/dev/null | tr '\n' ',' | sed -e 's/,$//' )" >>$METAFILE
-      echo "PACKAGE CONFLICTS:  $( tar zxOf $FILE install/slack-conflicts 2>/dev/null | tr '\n' ',' | sed -e 's/,$//' )" >>$METAFILE
-      echo "PACKAGE SUGGESTS:  $( tar zxOf $FILE install/slack-suggests 2>/dev/null | tr '\n' ' ' )" >>$METAFILE
-      echo "PACKAGE DESCRIPTION:" >>$METAFILE
-      tar xzOf $FILE install/slack-desc 2>/dev/null | grep -v "^#" | egrep "[[:alnum:]\+]+\:" >>$METAFILE
-      echo "done."
-      RET=0
-    }
-  done
-  return $RET
-}
-
 # Generate a PACKAGES.TXT file.
 function gen_packages_txt() {
-  # Arguments:		$1 = The sub directory to process, or empty.
+  # $1 = The sub directory to process, or empty for current.
 
   echo -n "  -> Generating PACKAGES.TXT ... "
-  echo -e "PACKAGES.TXT; $( date )\n\n" >./$1/PACKAGES.TXT
-  for FILE in $( find ./$1 -type f -name \*.txt | rev | cut -d/ -f1 | rev | sort -f )
-  do
-    find ./$1 -type f -name $FILE -exec cat {} \; >>./$1/PACKAGES.TXT
-    echo >>./$1/PACKAGES.TXT
-  done
-  cat ./$1/PACKAGES.TXT | gzip -9c >./$1/PACKAGES.TXT.gz
+  ( cd ${1:-.}/
+    echo -e "PACKAGES.TXT; $( date )\n\n" >>PACKAGES.TXT
+    for FILE in $( find . -type f -name \*.tgz -printf "%f %p\n" | \
+      sort -k1 -f | cut -d' ' -f2 )
+    do
+      SIZES="$( gunzip -l $FILE | tail -n 1 | tr -s ' ' )"
+      echo "PACKAGE NAME:  $( echo $FILE | rev | cut -d/ -f1 | rev )" >>PACKAGES.TXT
+      echo "PACKAGE LOCATION:  $( echo $FILE | rev | cut -d/ -f2- | rev )" >>PACKAGES.TXT
+      echo "PACKAGE SIZE (compressed):  $(( $( echo \"$SIZES\" | cut -d' ' -f2 ) / 1024 )) K" >>PACKAGES.TXT
+      echo "PACKAGE SIZE (uncompressed):  $(( $( echo \"$SIZES\" | cut -d' ' -f3 ) / 1024 )) K" >>PACKAGES.TXT
+      echo "PACKAGE REQUIRED:  $( tar zxOf $FILE install/slack-required 2>/dev/null | tr '\n' ',' | sed -e 's/,$//' )" >>PACKAGES.TXT
+      echo "PACKAGE CONFLICTS:  $( tar zxOf $FILE install/slack-conflicts 2>/dev/null | tr '\n' ',' | sed -e 's/,$//' )" >>PACKAGES.TXT
+      echo "PACKAGE SUGGESTS:  $( tar zxOf $FILE install/slack-suggests 2>/dev/null | tr '\n' ' ' )" >>PACKAGES.TXT
+      echo "PACKAGE DESCRIPTION:" >>PACKAGES.TXT
+      tar xzOf $FILE install/slack-desc 2>/dev/null | grep -v "^#" | egrep "[[:alnum:]\+]+\:" >>PACKAGES.TXT
+      echo >>PACKAGES.TXT
+    done
+    cat PACKAGES.TXT | gzip -9c >PACKAGES.TXT.gz
+  )
   echo "done."
 }
 
 # Generate the CHECKSUMS.md5 file.
 function gen_checksums_md5() {
-  # Arguments:		$1 = The sub directory to process, or empty.
+  # $1 = The sub directory to process, or empty for current.
 
   echo -n "  -> Generating CHECKSUMS.md5 ... "
-  echo "MD5 message digest                Filename" >./$1/CHECKSUMS.md5
-  ( cd ./$1 && find . -type f -exec md5sum {} \; | fgrep -v "./CHECKSUMS.md5" | sort -k 2 ) >>./$1/CHECKSUMS.md5
-  cat ./$1/CHECKSUMS.md5 | gzip -9c >./$1/CHECKSUMS.md5.gz
+  ( cd ${1:-.}/
+    echo "MD5                               Filename" >CHECKSUMS.md5
+    find . -type f ! -name \*.md5 -exec md5sum {} \; | sort -k2 -f >>CHECKSUMS.md5
+    cat CHECKSUMS.md5 | gzip -9c >CHECKSUMS.md5.gz
+  )
   echo "done."
 }
 
 # Generate the FILELIST.TXT file.
 function gen_filelist_txt() {
-  # Arguments:		$1 = The sub directory to process, or empty.
+  # $1 = The sub directory to process, or empty for current.
+
+  local OUTFILE=${1:-.}/FILELIST.TXT
 
   echo -n "  -> Generating FILELIST.TXT ... "
-  echo -e "$( date )\n\n" >./$1/FILELIST.TXT
-  ( cd ./$1 && find . | fgrep -v "./FILELIST.TXT" | sort | xargs ls -ld >>./FILELIST.TXT )
-  cat ./$1/FILELIST.TXT | gzip -9c >./$1/FILELIST.TXT.gz
+  ( cd ${1:-.}/
+    echo -e "$( date )\n\n" >FILELIST.TXT
+    find . ! -name FILELIST.TXT | sort | xargs ls -ld >>FILELIST.TXT
+    cat FILELIST.TXT | gzip -9c >FILELIST.TXT.gz
+  )
   echo "done."
 }
 
@@ -117,35 +108,21 @@ do
 done
 
 # Process sub-directories and sections.
-NEWPACKAGES=0
 for DIR in $SUBDIRS
 do
-  echo "$DIR/"
-  for SECTION in $( find $DIR -type d -mindepth 1 -maxdepth 1 )
-  do
-    echo "  -> $( basename $SECTION )/"
-    gen_pkg_txt $SECTION && NEWPACKAGES=1 || echo "    -> Up to date."
-  done
-  [ "$NEWPACKAGES" = "1" ] && {
-    rm -f $DIR/CHECKSUMS.md5* $DIR/FILELIST.TXT* $DIR/PACKAGES.TXT*
-    gen_packages_txt $DIR
-    gen_checksums_md5 $DIR
-    gen_filelist_txt $DIR
-  } || {
-    echo "  -> Up to date."
-  }
+  echo "$( pwd )/$DIR"
+  rm -f $DIR/CHECKSUMS.md5* $DIR/FILELIST.TXT* $DIR/PACKAGES.TXT*
+  gen_packages_txt $DIR
+  gen_checksums_md5 $DIR
+  gen_filelist_txt $DIR
 done
 
 # Top level files.
-echo "/"
-[ "$NEWPACKAGES" = "1" ] && {
-  rm -f CHECKSUMS.md5* FILELIST.TXT* PACKAGES.TXT*
-  gen_packages_txt
-  gen_checksums_md5
-  gen_filelist_txt
-} || {
-  echo "  -> Up to date."
-}
+echo "$( pwd )"
+rm -f CHECKSUMS.md5* FILELIST.TXT* PACKAGES.TXT*
+gen_packages_txt
+gen_checksums_md5
+gen_filelist_txt
 
 echo
 echo "Booyakasha!"
