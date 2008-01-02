@@ -128,6 +128,11 @@ find . -perm 511 -exec chmod 755 {} \;
 find . -perm 711 -exec chmod 755 {} \;
 find . -perm 555 -exec chmod 755 {} \;
 
+## FIXME: This is a fudge - where did all the arch specific stuff go? ~DA.
+[ "$ARCH" = "x86_64" ] && {
+  CONFIGURE_FLAGS="--libdir=/usr/lib64"
+}
+
 ## Configure.
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
