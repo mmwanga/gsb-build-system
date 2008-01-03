@@ -120,11 +120,6 @@ our %extras =
 			     'url' => 'http://search.cpan.org/CPAN/authors/id/G/GU/GUIDO',
 			     'src' => 'tar.gz',
 			    },
-   'liferea'             => {
-			     'ver' => '1.4.5b',
-			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/liferea',
-			     'src' => 'tar.gz',
-			    },
    'MPlayer'            => {
 			     'ver' => '1.0rc2',
 			     'url' => 'http://www1.mplayerhq.hu/MPlayer/releases',
