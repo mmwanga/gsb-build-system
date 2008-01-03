@@ -1,7 +1,14 @@
+libidl
+glib2
+libxml2
+popt
+zlib
+gtk+2
+ORBit2
 GConf
+libgnomeui
 NetworkManager
 NetworkManager-vpn
-ORBit2
 a52dec
 alsa-lib
 at-spi
@@ -30,7 +37,6 @@ gail
 gamin
 gedit
 gettext
-glib2
 gnome-applets
 gnome-backgrounds
 gnome-control-center
@@ -51,7 +57,6 @@ gslapt
 gst-plugins-base
 gst-plugins-good
 gstreamer
-gtk+2
 gtk-engines
 gtkhtml
 hal
@@ -92,12 +97,10 @@ libgnomecups
 libgnomekbd
 libgnomeprint
 libgnomeprintui
-libgnomeui
 libgpg-error
 libgsf
 libgtop
 libid3tag
-libidl
 libiec61883
 libjpeg
 libmad
@@ -118,7 +121,6 @@ libvorbis
 libwnck
 libxcb
 libxklavier
-libxml2
 libxslt
 metacity
 mozilla-firefox 
@@ -131,7 +133,6 @@ openssh
 openssl-solibs | openssl
 pango
 pcre
-popt
 pygtk
 pyorbit
 python
@@ -153,4 +154,3 @@ xcursor-themes
 xproto
 xscreensaver
 yelp
-zlib

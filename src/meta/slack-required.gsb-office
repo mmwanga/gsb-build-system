@@ -1,5 +1,12 @@
-GConf
+libidl
+glib2
+libxml2
+popt
+zlib
+gtk+2
 ORBit2
+GConf
+libgnomeui
 abiword
 aspell
 atk
@@ -16,7 +23,6 @@ freetype
 fribidi
 gail
 gamin
-glib2
 glom
 gmime
 gnome-desktop
@@ -29,7 +35,6 @@ gnutls
 goffice
 goocanvas
 gstreamer
-gtk+2
 gtkhtml
 gtkmm
 gtksourceview2
@@ -46,7 +51,6 @@ libgnome
 libgnomecanvas
 libgnomedb
 libgnomeprintui
-libgnomeui
 libgsf
 libgtksourceviewmm
 libjpeg
@@ -54,7 +58,6 @@ libnotify
 libofx
 libpng
 libxml++
-libxml2
 libxslt
 liferea
 lua
@@ -63,11 +66,9 @@ pango
 pcre
 perl
 poppler
-popt
 postgresql
 pygtk
 python
 slib
 sqlite3
 tracker
-zlib

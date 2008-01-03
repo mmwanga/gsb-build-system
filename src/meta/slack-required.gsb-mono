@@ -1,3 +1,12 @@
+libidl
+glib2
+libxml2
+popt
+zlib
+gtk+2
+ORBit2
+GConf
+libgnomeui
 avahi-sharp
 cairo
 dbus
@@ -7,7 +16,6 @@ expat
 fontconfig
 freetype
 gecko-sharp
-glib2
 gmime
 gmime-sharp
 gnome-sharp
@@ -23,12 +31,10 @@ libexif
 libgda
 libgdiplus
 libglade
-libgnomeui
 libjpeg
 libpng
 librsvg
 libtiff
-libxml2
 mono
 mono-tools
 monodevelop
@@ -37,4 +43,3 @@ mozilla-firefox
 pygtk
 python
 vte
-zlib

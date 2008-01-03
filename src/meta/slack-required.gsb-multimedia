@@ -1,6 +1,13 @@
-GConf
-MPlayer
+libidl
+glib2
+libxml2
+popt
+zlib
+gtk+2
 ORBit2
+GConf
+libgnomeui
+MPlayer
 a52dec
 alsa-lib
 atk
@@ -25,7 +32,6 @@ flac
 freetype
 fribidi
 gail
-glib2
 gnome-desktop
 gnome-icon-theme
 gnome-keyring
@@ -39,7 +45,6 @@ gst-plugins-base
 gst-plugins-good
 gst-python
 gstreamer
-gtk+2
 gtkpod
 hal
 id3lib
@@ -60,7 +65,6 @@ libebml
 libgalago
 libglade
 libgnome
-libgnomeui
 libgpod
 libiec61883
 libjpeg

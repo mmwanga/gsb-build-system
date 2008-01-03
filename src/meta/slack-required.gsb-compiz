@@ -1,5 +1,11 @@
-GConf
+libidl
+glib2
+libxml2
+popt
+zlib
+gtk+2
 ORBit2
+GConf
 Pyrex
 cairo
 ccsm
@@ -11,8 +17,6 @@ compizconfig-backend-gconf
 compizconfig-python
 dbus
 fuse
-glib2
-gtk+2
 libcompizconfig
 libgnomeui
 libnotify
@@ -20,7 +24,6 @@ libpng
 librsvg
 libsexy
 libwnck
-libxml2
 libxslt
 mesa
 metacity

@@ -1,8 +1,15 @@
+libidl
+glib2
+libxml2
+popt
+zlib
+gtk+2
+ORBit2
 GConf
+libgnomeui
 MPlayer
 NetworkManager
 NetworkManager-vpn
-ORBit2
 Pyrex
 XML-Simple
 XML-Twig
@@ -115,7 +122,6 @@ gettext
 gimp
 gksu
 glade3
-glib2
 glibmm
 glom
 gmime
@@ -189,8 +195,6 @@ gst-plugins-ugly
 gst-python
 gstreamer
 gthumb
-gtk+2
-gtk+2 
 gtk-engines
 gtk-sharp
 gtkam
@@ -278,7 +282,6 @@ libgnomekbd
 libgnomemm
 libgnomeprint
 libgnomeprintui
-libgnomeui
 libgnomeuimm
 libgpg-error
 libgphoto2
@@ -332,7 +335,6 @@ libwnck
 libxcb
 libxklavier
 libxml++
-libxml2
 libxslt
 liferea
 linuxdoc-tools
@@ -381,7 +383,6 @@ pilot-link
 pkg-config
 poppler
 poppler-data
-popt
 postgresql
 ppp
 psiconv
@@ -459,4 +460,3 @@ xvidcore
 yasm
 yelp
 zenity
-zlib
