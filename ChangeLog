@@ -1,6 +1,16 @@
 ChangeLog
 ---------
 
+03-01-2008 fidesratio <sk238(at)ex.ac.uk>	
+    * First entry of 2008!  ;)
+	* Bumped version number for gnome-power-manager, gthumb,
+	  rhythmbox, gnome-speech.  Fixes various crashes.
+	* Fixed metapackages.
+	* Added patch for mozilla-firefox plugin paths (thanks to 
+	  Stephen Levine)
+	* Fixed up liboil.SlackBuild for proper CFLAGS section.
+	* Minor fix to parted slack-required.
+
 22-12-2007  Tadgy <tadgy(at)gnomeslackbuild.org>
 	* Added svn packages to gsb_update.
 	* Reworked svn package SB's to allow gsb_update to set VERSION and

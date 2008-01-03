@@ -35,6 +35,13 @@ our %double_tarballs_url =
 			 'tar' => 'nss-3.11.7-with-nspr-4.6.7.tar.gz',
 			 'var' => 'VERSION',
 				  },
+   'Gtk2-perl'               => {
+			 'ver' => '1.162',
+			 'dir' => 'extras/Gtk2-perl',
+			 'url' => 'http://search.cpan.org/CPAN/authors/id/T/TS/TSCH/',
+			 'tar' => 'Gtk2-1.162.tar.gz',
+			 'var' => 'VERSION',
+				  },
    'openldap-client'     => {
 			 'ver' => '2.3.38',
 			 'dir' => 'libraries/openldap-client',

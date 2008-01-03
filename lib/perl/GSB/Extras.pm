@@ -115,6 +115,11 @@ our %extras =
 			     'url' => 'http://www.stafford.uklinux.net/libesmtp',
 			     'src' => 'tar.bz2',
 			    },
+   'libintl-perl'            => {
+			     'ver' => '1.16',
+			     'url' => 'http://search.cpan.org/CPAN/authors/id/G/GU/GUIDO',
+			     'src' => 'tar.gz',
+			    },
    'liferea'             => {
 			     'ver' => '1.4.5b',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/liferea',
