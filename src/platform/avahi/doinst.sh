@@ -72,6 +72,14 @@ if [ ! -e etc/rc.d/rc.local ]; then
 	echo "#!/bin/sh" > etc/rc.d/rc.local
 	chmod 755 etc/rc.d/rc.local
 fi
+
+##
+## If rc.local_shutdown doesn't exist, create it
+##
+if [ ! -e etc/rc.d/rc.local_shutdown ]; then
+	echo "#!/bin/sh" > etc/rc.d/rc.local_shutdown
+	chmod 755 etc/rc.d/rc.local_shutdown
+fi
 	
 # If rc.avahi is executable, run it on startup
 run=`grep ". /etc/rc.d/rc.avahidaemon" etc/rc.d/rc.local`
@@ -82,6 +90,19 @@ cat << EOF >> etc/rc.d/rc.local
 if [ -x /etc/rc.d/rc.avahidaemon -a -x /etc/rc.d/rc.avahidnsconfd ]; then
   . /etc/rc.d/rc.avahidaemon start
   . /etc/rc.d/rc.avahidnsconfd start
+fi
+EOF
+fi
+
+# If rc.avahi is executable, make sure to shutdown properly
+run=`grep ". /etc/rc.d/rc.avahidaemon" etc/rc.d/rc.local_shutdown`
+if [ "${run}" == "" ]; then	
+cat << EOF >> etc/rc.d/rc.local_shutdown
+
+# To disable avahi shutdown, chmod rc.avahidaemon to 644
+if [ -x /etc/rc.d/rc.avahidaemon -a -x /etc/rc.d/rc.avahidnsconfd ]; then
+  . /etc/rc.d/rc.avahidaemon stop
+  . /etc/rc.d/rc.avahidnsconfd stop
 fi
 EOF
 fi

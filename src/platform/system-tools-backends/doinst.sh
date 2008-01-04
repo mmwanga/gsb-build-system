@@ -4,10 +4,6 @@
 ## Configuration Preservation
 ##
 
-##
-## Configuration Preservation
-##
-
 ldconfig -r .
 
 function install_file() {
@@ -41,6 +37,22 @@ else
   echo "stb-admin::87:" >> etc/group
 fi
 
+##
+## If rc.local doesn't exist, create it
+##
+if [ ! -e etc/rc.d/rc.local ]; then
+	echo "#!/bin/sh" > etc/rc.d/rc.local
+	chmod 755 etc/rc.d/rc.local
+fi
+
+##
+## If rc.local_shutdown doesn't exist, create it
+##
+if [ ! -e etc/rc.d/rc.local_shutdown ]; then
+	echo "#!/bin/sh" > etc/rc.d/rc.local_shutdown
+	chmod 755 etc/rc.d/rc.local_shutdown
+fi
+	
 # if rc.stb is executable, run it on startup
 run=`grep ". /etc/rc.d/rc.stb" etc/rc.d/rc.local`
 if [[ "${run}" == "" ]]; then
@@ -49,6 +61,18 @@ cat << EOF >>etc/rc.d/rc.local
 # To disable system-tools-backends, chmod rc.stb to 644
 if [ -x /etc/rc.d/rc.stb ]; then
   . /etc/rc.d/rc.stb start
+fi
+EOF
+fi
+
+# if rc.stb is executable, shutdown on reboot
+run=`grep ". /etc/rc.d/rc.stb" etc/rc.d/rc.local_shutdown`
+if [[ "${run}" == "" ]]; then
+cat << EOF >>etc/rc.d/rc.local_shutdown
+
+# To disable system-tools-backends shutdown, chmod rc.stb to 644
+if [ -x /etc/rc.d/rc.stb ]; then
+  . /etc/rc.d/rc.stb stop
 fi
 EOF
 fi
@@ -67,7 +91,6 @@ fi;
 if [ ! -x etc/rc.d/rc.messagebus ]; then
 	chmod +x etc/rc.d/rc.messagebus;
 fi;
-
 
 ##
 ## Restart dbus (reload system-tools-backends info), and start services
