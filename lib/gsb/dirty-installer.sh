@@ -16,6 +16,30 @@ SUBDIRS="	packages/tools
 		packages/themes
 		packages/compiz		"
 
+PRIORITY_PACKAGES=" ORBit2
+                    GConf
+                    libgnomeui   "
+IFS=$'\n'
+for PACKAGE in $PRIORITY_PACKAGES
+do
+  [ ! -d ./packages ] && {
+    echo "${0}: Cannot find packages/ directory."
+    exit 1
+  }
+  PKGINSTALL=$(find ./packages -name "$PACKAGE*.tgz")
+
+  if [ -z $PKGINSTALL ]; then
+    echo "${0}: Cannot find any $PACKAGE package."
+    exit 1;
+  else
+    upgradepkg --install-new $PKGINSTALL ;
+    [ $? -ne 0 ] && {
+      echo "${0}: Error during installation."
+      exit 1
+    }
+  fi;
+done; 
+
 IFS=$'\n'
 for DIR in $SUBDIRS
 do
