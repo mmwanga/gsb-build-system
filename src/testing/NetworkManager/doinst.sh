@@ -1,5 +1,9 @@
 ldconfig -r .
 
+##
+## Configuration Preservation
+##
+
 function install_file() {
   # $1 = File to process
 
@@ -25,12 +29,22 @@ install_file etc/dbus-1/system.d/NetworkManager.conf.new
 install_file etc/dbus-1/system.d/nm-dhcp-client.conf.new
 install_file etc/dbus-1/system.d/nm-system-settings.conf.new
 
-# if rc.local doesn't exist, create it
+##
+## If rc.local doesn't exist, create it
+##
 if [ ! -e etc/rc.d/rc.local ]; then
-    echo "#!/bin/sh" > etc/rc.d/rc.local
-    chmod 755 etc/rc.d/rc.local
+	echo "#!/bin/sh" > etc/rc.d/rc.local
+	chmod 755 etc/rc.d/rc.local
 fi
 
+##
+## If rc.local_shutdown doesn't exist, create it
+##
+if [ ! -e etc/rc.d/rc.local_shutdown ]; then
+	echo "#!/bin/sh" > etc/rc.d/rc.local_shutdown
+	chmod 755 etc/rc.d/rc.local_shutdown
+fi
+	
 ##
 ## If the netdev group don't exist, add them:
 ## 
@@ -51,6 +65,27 @@ if [ -x /etc/rc.d/rc.networkmanager ]; then
 fi
 EOF
 fi
+
+# if rc.networkmanager is executable, stop on shutdown
+run=`grep ". /etc/rc.d/rc.networkmanager" etc/rc.d/rc.local_shutdown`
+if [[ "${run}" == "" ]]; then
+cat << EOF >>etc/rc.d/rc.local_shutdown
+
+# To disable networkmanager shutdown, chmod rc.networkmanager to 644
+if [ -x /etc/rc.d/rc.networkmanager ]; then
+  . /etc/rc.d/rc.networkmanager stop
+fi
+EOF
+fi
+
+## 
+## Complain if dbus somehow was removed, and disable autostart.
+##
+if [ ! -f etc/rc.d/rc.messagebus ]; then
+	echo "NetworkManager requires dbus.  You appear to be missing /etc/rc.d/rc.messagebus."
+	echo "Perhaps you need to reinstall the dbus package?"
+    chmod -x etc/rc.d/rc.networkmanager*;
+fi;
 
 ## 
 ## Make dbus executable if NetworkManager is installed
