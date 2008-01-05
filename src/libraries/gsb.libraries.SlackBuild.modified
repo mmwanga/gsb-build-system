@@ -335,7 +335,7 @@ echo "*********************************************************************"
     # or installing packages.
     find_package_files "/var/log/packages" "${PACKAGE//+/\+}" "" "" "" "" \
       >/dev/null && {
-      if [ "$UPDATEONLY" = "0" -a "$MISSING" = "1" ]; then
+      if [ "$UPDATEONLY" = "0" -o "$MISSING" = "1" ]; then
         echo "${0##*/}: Uninstalling $PACKAGE package."
         removepkg $( basename $PACKAGE )
       else
