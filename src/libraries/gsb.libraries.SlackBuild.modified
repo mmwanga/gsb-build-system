@@ -311,6 +311,7 @@ echo "*********************************************************************"
 
     # Check if the package has been built previously.
     SKIP_BUILD=0
+    MISSING=0
     find_package_files "$PKGDEST/$SECTION" "${PACKAGE//+/\+}" \
       "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" >/dev/null && {
       if [ "$UPDATEONLY" = "0" ]; then
@@ -318,10 +319,8 @@ echo "*********************************************************************"
           # The package is up to date, no need to rebuild it.
           SKIP_BUILD=1
         else
-          echo
-          echo "*********************************************************************"
-          echo "*** Removing '$PACKAGE' package files from tree..."
-          echo "*********************************************************************"
+          echo "${0##*/}: $PACKAGE-${PACKAGE_VERSION//-/_}-${PACKAGE_BUILD} will be rebuilt."
+          echo "${0##*/}: Removing $PACKAGE packages from the tree."
           rm -f $( find_package_files "$PKGDEST/$SECTION" "${PACKAGE//+/\+}" \
             "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz|\.txt|\.tgz\.md5" | \
             tr '\n' ' ' )
@@ -330,17 +329,14 @@ echo "*********************************************************************"
         SKIP_BUILD=1
         echo "${0##*/}: $PACKAGE-${PACKAGE_VERSION//-/_}-${PACKAGE_BUILD} appears built."
       fi
-    }
+    } || MISSING=1
 
     # Remove the package if it's installed, unless we are only updating changed
     # or installing packages.
     find_package_files "/var/log/packages" "${PACKAGE//+/\+}" "" "" "" "" \
       >/dev/null && {
-      if [ "$UPDATEONLY" = "0" ]; then
-        echo
-        echo "*********************************************************************"
-        echo "*** Removing installed package '$PACKAGE'..."
-        echo "*********************************************************************"
+      if [ "$UPDATEONLY" = "0" -a "$MISSING" = "1" ]; then
+        echo "${0##*/}: Uninstalling $PACKAGE package."
         removepkg $( basename $PACKAGE )
       else
         echo "${0##*/}: $PACKAGE-${PACKAGE_VERSION//-/_}-${PACKAGE_BUILD} appears installed."
