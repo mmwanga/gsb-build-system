@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash 
 # Version: 1.3 GSB Section SlackBuild.
 # Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
 #
@@ -72,6 +72,7 @@ PACKAGES="	glib2
 		openal
 		freealut
 		sg3_utils	"
+
 
 # Section name.
 # This should not need to be changed unless the auto detection fails.
@@ -312,6 +313,7 @@ echo "*********************************************************************"
     # Check if the package has been built previously.
     SKIP_BUILD=0
     MISSING=0
+    INSTALLED=0
     find_package_files "$PKGDEST/$SECTION" "${PACKAGE//+/\+}" \
       "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" >/dev/null && {
       if [ "$UPDATEONLY" = "0" ]; then
@@ -340,7 +342,7 @@ echo "*********************************************************************"
         removepkg $( basename $PACKAGE )
       else
         echo "${0##*/}: $PACKAGE-${PACKAGE_VERSION//-/_}-${PACKAGE_BUILD} appears installed."
-        NOINSTALL=1
+        INSTALLED=1
       fi ;
     }
 
@@ -400,7 +402,7 @@ echo "*********************************************************************"
       echo "*********************************************************************"
     fi
 
-    if [ "$NOINSTALL" = "0" ]; then
+    if [ "$NOINSTALL" = "0" -a "$INSTALLED" = "0" ]; then
       echo
       echo "*********************************************************************"
       echo "*** Installing '$PACKAGE'..."
