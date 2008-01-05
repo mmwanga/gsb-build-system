@@ -23,6 +23,7 @@ PACKAGES="	python-ldap
 		streamripper
 		sylpheed
 		deluge
+                libintl-perl
 		dvdrip
 		vcdimager
 		MPlayer

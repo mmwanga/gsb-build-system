@@ -1,0 +1,12 @@
+            |-----handy-ruler------------------------------------------------------|
+libintl-perl: libintl-perl (Internationalization for Perl)
+libintl-perl:
+libintl-perl: libintl-perl is a library that supports message translation for Perl,
+libintl-perl: written in pure Perl (version 5.004 or better). Its interface is very 
+libintl-perl: similar to the gettext family of functions in C, and it uses the same 
+libintl-perl: file formats as GNU gettext, making it possible to use all tools 
+libintl-perl: available for gettext itself and to seamlessly integrate 
+libintl-perl: internationalized Perl code into mixed-language projects.
+libintl-perl:
+libintl-perl:
+libintl-perl:
