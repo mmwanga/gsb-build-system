@@ -6,3 +6,6 @@ ffmpeg
 mjpegtools
 hal
 imagemagick
+glib-perl
+gtk2-perl
+xine

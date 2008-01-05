@@ -1,6 +1,15 @@
 ChangeLog
 ---------
 
+05-01-2008 fidesratio <sk238(at)ex.ac.uk>		
+    * extras: Added glib-perl, gtk2-perl, gnome2-perl.
+              Added xine to dvdrip.
+    * sections: Added a "--update-only" option to SlackBuilds.
+
+04-01-2008 fidesratio <sk238(at)ex.ac.uk>	
+    * Add avahi, stb, NetworkManager to rc.local_shutdown 
+      for proper shutdown routine.
+
 03-01-2008 fidesratio <sk238(at)ex.ac.uk>	
     * First entry of 2008!  ;)
 	* Bumped version number for gnome-power-manager, gthumb,

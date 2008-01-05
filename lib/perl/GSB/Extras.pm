@@ -36,8 +36,8 @@ our %extras =
 			     'src' => 'tar.bz2',
 			    },
    'deluge'              => {
-                 'ver' => '0.5.7.1',
-                 'url' => 'http://download.deluge-torrent.org/tarball/0.5.7.1',
+                 'ver' => '0.5.8',
+                 'url' => 'http://download.deluge-torrent.org/tarball/0.5.8',
                  'src' => 'tar.gz',
                             },
    'devede'              => {
@@ -66,7 +66,7 @@ our %extras =
 			     'src' => 'tar.bz2',
 			    },
    'gimp'                => {
-			     'ver' => '2.4.1',
+			     'ver' => '2.4.3',
 			     'url' => 'ftp://ftp.gimp.org/pub/gimp/v2.4',
 			     'src' => 'tar.bz2',
 			    },

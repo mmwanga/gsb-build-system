@@ -72,11 +72,6 @@ our %office =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/kino/',
 			     'src' => 'tar.gz',
 			    },
-   'freeglut'              => {
-			     'ver' => '2.4.0',
-			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/freeglut/',
-			     'src' => 'tar.gz',
-			    },
    'goocanvas'              => {
 			     'ver' => '0.9',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/goocanvas/',

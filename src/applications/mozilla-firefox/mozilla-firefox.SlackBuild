@@ -168,6 +168,7 @@ elif [ "$ARCH" = "i586" ]; then
 elif [ "$ARCH" = "i686" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
 elif [ "$ARCH" = "x86_64" ]; then
+  LIBDIR=lib64
   if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -fPIC"}
   else
@@ -183,47 +184,51 @@ else
 fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
+LIBDIR=${LIBDIR:-"lib"}
 
 ## Configure.
 # Keep sane optimization standards.  Mozilla easily breaks with 
 # too much tweaking.  Also, we need to add in cairo-xlib and render
 # cflags for canvas support.  This is inelegant, but doesn't
 # require patching any source.  :)  (stevek)
+  #--enable-extensions=default,cookie,permissions,xml-rpc,xmlextras,pref,transformiix,universalchardet,typeaheadfind,webservices,inspector,gnomevfs,p3p \
+export MOZILLA_OFFICIAL="1" &&
+export BUILD_OFFICIAL="1" &&
+export MOZ_CO_PROJECT="browser" &&
 echo "Running configure...."
-CFLAGS="$(pkg-config --cflags --libs cairo-xlib cairo-xlib-xrender)" \
 ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
-  --disable-tests \
   --enable-application=browser \
+  --enable-optimize="-O3 -freorder-blocks -fno-reorder-functions -gstabs+ -pipe -fPIC" \
+  --enable-cpp-rtti \
+  --enable-reorder \
   --disable-debug \
-  --enable-optimize="-O2 -freorder-blocks -fno-reorder-functions -gstabs+ $(pkg-config --cflags --libs cairo-xlib cairo-xlib-xrender)"  \
-  --enable-default-toolkit=gtk2 \
-  --enable-svg \
-  --disable-mailnews \
-  --enable-system-cairo \
-  --enable-svg-renderer=cairo \
-  --with-pthreads  \
-  --with-libIDL-prefix=/usr \
-  --with-system-zlib \
-  --with-system-png \
-  --with-system-jpeg \
-  --disable-installer  \
-  --enable-pango  \
-  --enable-canvas \
-  --enable-strip  \
-  --enable-xft  \
-  --with-x  \
-  --with-system-nss \
-  --with-system-nspr \
+  --with-default-mozilla-five-home=/usr/$LIBDIR/firefox \
+  --enable-strip-libs \
+  --enable-strip \
+  --disable-tests \
+  --enable-crypto \
+  --enable-system-zlib \
+  --enable-system-png \
+  --disable-logging \
+  --disable-pedantic \
+  --enable-extensions=all \
   --disable-ldap \
-  --enable-gnomevfs \
-  --enable-gnomeui \
+  --disable-mailnews \
   --disable-composer \
-  --enable-safe-browsing \
-  --enable-update-channel=release \
-  --enable-update-packaging \
+  --enable-single-profile \
+  --disable-profilesharing \
+  --enable-xft \
+  --enable-xinerama \
+  --disable-freetype2 \
+  --enable-default-toolkit=gtk2 \
+  --disable-installer \
+  --with-pthreads \
+  --disable-jsd \
   --enable-official-branding \
+  --disable-canvas \
+  --enable-system-cairo \
+  --enable-svg \
   || exit 1
 
 ## Build and install.

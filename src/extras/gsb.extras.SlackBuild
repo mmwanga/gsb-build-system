@@ -24,6 +24,9 @@ PACKAGES="	python-ldap
 		sylpheed
 		deluge
                 libintl-perl
+		glib-perl
+                gtk2-perl
+                gnome2-perl
 		dvdrip
 		vcdimager
 		MPlayer
