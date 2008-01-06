@@ -165,6 +165,12 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 ## As this is svn sources there will be warnings, but the build shouldn't fail.
 sed -i configure.in -e 's/-Werror//g' || exit 1
 
+## There is an incomplete aclocal autoconfiguration info for pilot-link.
+## The autogen will fail if we don't move this out of the way first.
+[ -f /usr/share/aclocal/pilot-link.m4 ] && {
+  mv -f /usr/share/aclocal/pilot-link.m4 /usr/share/aclocal/pilot-link.m4.old
+}
+
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
@@ -180,6 +186,11 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## Build and install.
 make &&
 make DESTDIR=$PKG install || exit 1
+
+## Restore pilot-link.m4
+[ -f /usr/share/aclocal/pilot-link.m4.old ] && {
+  mv /usr/share/aclocal/pilot-link.m4.old /usr/share/aclocal/pilot-link.m4
+}
 
 ## Tweaks for library paths on x86_64 platforms 
 # These are needed to correct the annoying "library has moved" warnings.

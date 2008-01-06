@@ -5,6 +5,9 @@ ChangeLog
     * extras: Added glib-perl, gtk2-perl, gnome2-perl.
               Added xine to dvdrip.
     * sections: Added a "--update-only" option to SlackBuilds.
+    * testing: Added rhpl, pycups, system-config-printer for a replacement
+      for gnome-cups-manager.
+    * extras: Removed gnome-cups-manager as obsolete.
 
 04-01-2008 fidesratio <sk238(at)ex.ac.uk>	
     * Add avahi, stb, NetworkManager to rc.local_shutdown 

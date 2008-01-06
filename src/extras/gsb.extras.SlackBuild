@@ -1,5 +1,3 @@
-#!/bin/bash
-# Version: 1.3 GSB Section SlackBuild.
 # Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
 #
 # Licenced under the terms of the GNU General Public Licence version 3.
@@ -32,7 +30,6 @@ PACKAGES="	python-ldap
 		MPlayer
 		dvdauthor
 		devede
-		gnome-cups-manager
 		gnonlin
 		jokosher
 		wxGTK

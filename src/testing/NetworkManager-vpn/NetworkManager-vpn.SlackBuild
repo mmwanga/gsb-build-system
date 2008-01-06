@@ -161,6 +161,12 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
+## There is an incomplete aclocal autoconfiguration info for pilot-link.
+## The autogen will fail if we don't move this out of the way first.
+[ -f /usr/share/aclocal/pilot-link.m4 ] && {
+  mv -f /usr/share/aclocal/pilot-link.m4 /usr/share/aclocal/pilot-link.m4.old
+}
+
 ## We use the NetworkManager tree, but we only need to build from
 ## within the vpn-daemons tree for the extentions.
 
@@ -213,6 +219,11 @@ cp doc/* $PKG/usr/share/doc/$PKGNAME-$VERSION/$i
 done;
 
 )
+
+## Restore pilot-link.m4
+[ -f /usr/share/aclocal/pilot-link.m4.old ] && {
+  mv /usr/share/aclocal/pilot-link.m4.old /usr/share/aclocal/pilot-link.m4
+}
 
 cp README ChangeLog AUTHORS NEWS $PKG/usr/share/doc/$PKGNAME-$VERSION/
 

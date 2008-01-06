@@ -10,6 +10,9 @@ PACKAGES="	wpa_supplicant
 		NetworkManager
 		network-manager-applet
 		NetworkManager-vpn
+                pycups
+		rhpl
+                system-config-printer
 		gslapt		"
 
 # Section name.

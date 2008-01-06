@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=svn_404
+BUILD=1
+VERSION=0.212
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gnome-panel NetworkManager glib2 gtk+2 libglade GConf gnome-keyring libnotify libgnomeui wireless-tools"
+REQUIRED_PACKAGES="python"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -81,12 +81,6 @@ done
   done
 }
 
-## SVN warning
-echo
-echo "*********************************************************************"
-echo "*** Warning: This package is built from a fixed svn source revision."
-echo "*********************************************************************"
-
 ## Temporary space and package storage.
 mkdir -p $TMP
 rm -rf $PKG
@@ -94,10 +88,10 @@ mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
-## Copy SVN sources to temporary space
+## Decompress archive.
 cd $TMP &&
 rm -rf $PKGNAME-$VERSION &&
-cp -ar $CWD/$PKGNAME $PKGNAME-$VERSION &&
+tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -151,7 +145,7 @@ elif [ "$ARCH" = "x86_64" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -ffast-math -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS=""
+    CONFIGURE_FLAGS="--libdir=/usr/lib64"
   }
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
@@ -161,48 +155,18 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-## There is an incomplete aclocal autoconfiguration info for pilot-link.
-## The autogen will fail if we don't move this out of the way first.
-[ -f /usr/share/aclocal/pilot-link.m4 ] && {
-  mv -f /usr/share/aclocal/pilot-link.m4 /usr/share/aclocal/pilot-link.m4.old
-}
-
-## Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
-  || exit 1
-
 ## Build and install.
-make &&
-make DESTDIR=$PKG install || exit 1
-
-## Restore pilot-link.m4
-[ -f /usr/share/aclocal/pilot-link.m4.old ] && {
-  mv /usr/share/aclocal/pilot-link.m4.old /usr/share/aclocal/pilot-link.m4
-}
-
-## Preserve previous settings
-mv $PKG/etc/dbus-1/system.d/nm-applet.conf $PKG/etc/dbus-1/system.d/nm-applet.conf.new
-mkdir -p $PKG/usr/share/applications
-# Disable nm-applet autostart
-mv $PKG/etc/xdg/autostart/nm-applet.desktop $PKG/usr/share/applications
-# Place it in the networking menu
-echo "Categories=Network" >> $PKG/usr/share/applications/nm-applet.desktop 
-
-## Fix for Slackware non-PAM system.
-## Users now can add themselves to the "netdev" group to use networkmanager.
-sed -i "s/at_console=\"true\"/group=\"netdev\"/g" $PKG/etc/dbus-1/system.d/nm-applet.conf.new
+make $MAKE_FLAGS &&
+make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
 
 ## Compress and fix manpage links.
-[ -e $PKG/usr/share/man ] && {
-  find $PKG/usr/share/man -type f -name \*.? -exec gzip -9f {} \;
-  find $PKG/usr/share/man -type l -name \*.? -printf \
+[ -e $PKG/usr/man ] && {
+  find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
+  find $PKG/usr/man -type l -name \*.? -printf \
     "( cd '%h'; [ -e '%l.gz' ] &&
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }
@@ -212,6 +176,14 @@ sed -i "s/at_console=\"true\"/group=\"netdev\"/g" $PKG/etc/dbus-1/system.d/nm-ap
   rm -f $PKG/usr/info/dir
   gzip -9 $PKG/usr/info/*.info
 }
+
+## Copy extra documentation into package.
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
+cp -a \
+  COPYING* README \
+  $PKG/usr/doc/$PKGNAME-$VERSION
+find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
+chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
