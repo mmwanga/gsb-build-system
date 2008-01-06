@@ -49,7 +49,7 @@ our %mono=
 				 'src' => 'tar.bz2',
 				},
    'libgdiplus'             => {
-				'ver' => '1.2.5',
+				'ver' => '1.2.6',
 				'url' => 'http://go-mono.com/sources/libgdiplus/',
 				'src' => 'tar.bz2',
 			       },
@@ -64,22 +64,22 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'mono'                   => {
-				'ver' => '1.2.5.2',
+				'ver' => '1.2.6',
 				'url' => 'http://go-mono.com/sources/mono/',
 				'src' => 'tar.bz2',
 			       },
    'monodevelop'            => {
-				'ver' => '0.17',
+				'ver' => '0.18.1',
 				'url' => 'http://go-mono.com/sources/monodevelop/',
 				'src' => 'tar.bz2',
 			       },
    'monodoc'                => {
-				'ver' => '1.2.5',
+				'ver' => '1.2.6',
 				'url' => 'http://go-mono.com/sources/monodoc',
 				'src' => 'zip',
 			       },
    'mono-tools'                => {
-				'ver' => '1.2.4',
+				'ver' => '1.2.6',
 				'url' => 'http://go-mono.com/sources/mono-tools',
 				'src' => 'tar.bz2',
 			       },

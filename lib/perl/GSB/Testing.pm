@@ -53,7 +53,7 @@ our %testing_packages =
 
 our %testing_svn =
   (
-   'NetworkManager'         => 'svn_3173',
-   'NetworkManager-vpn'     => 'svn_3173',
-   'network-manager-applet' => 'svn_404',
+   'NetworkManager'         => 'svn_3214',
+   'NetworkManager-vpn'     => 'svn_3214',
+   'network-manager-applet' => 'svn_429',
   );

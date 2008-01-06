@@ -10,7 +10,7 @@
 # pidfile: /var/run/stb.pid
 
 # This is a modified version of the rc.messagebus script distributed with the
-# dbus sources.  It has been modified for system-tools-backends. (Steve)
+# dbus sources.  It has been modified for system-tools-backends. (stevek)
 # 
 
 
@@ -36,12 +36,13 @@ start() {
 
 stop() {
   if [ -e "$PIDFILE" ]; then
-    echo "Stopping system-tools-backends message bus..."
+    echo -n "Stopping system-tools-backends message bus service: "
     pid=$(cat $PIDFILE)
     kill $pid 1> /dev/null 2> /dev/null
     # Just in case:
     killall system-tools-backends 1> /dev/null 2> /dev/null
     rm -f $PIDFILE
+    echo "stopped."
   fi
 }
 

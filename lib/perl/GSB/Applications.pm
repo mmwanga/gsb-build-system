@@ -115,12 +115,12 @@ our %applications =
                   },
    'poppler'         => {
 			 'url' => 'http://poppler.freedesktop.org/',
-			 'ver' => '0.6.1',
+			 'ver' => '0.6.3',
 			 'src' => 'tar.gz',
 			},
    'poppler-data'         => {
 			 'url' => 'http://poppler.freedesktop.org/',
-			 'ver' => '0.1.1',
+			 'ver' => '0.2.0',
 			 'src' => 'tar.gz',
 			},
    'pybackpack'         => {
