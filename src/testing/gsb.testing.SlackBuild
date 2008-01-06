@@ -12,6 +12,7 @@ PACKAGES="	wpa_supplicant
 		NetworkManager-vpn
                 pycups
 		rhpl
+                notify-python
                 system-config-printer
 		gslapt		"
 

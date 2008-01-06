@@ -7,6 +7,7 @@ ChangeLog
     * sections: Added a "--update-only" option to SlackBuilds.
     * testing: Added rhpl, pycups, system-config-printer for a replacement
       for gnome-cups-manager.
+      Added notify-python for system-config-printer
     * extras: Removed gnome-cups-manager as obsolete.
 
 04-01-2008 fidesratio <sk238(at)ex.ac.uk>	

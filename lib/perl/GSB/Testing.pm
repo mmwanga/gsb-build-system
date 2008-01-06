@@ -21,6 +21,13 @@ our %testing_packages =
              'tar' => 'gslapt-0.3.19.tar.gz',
              'var' => 'VERSION',
                   },
+   'notify-python'    => {
+             'url' => 'http://www.galago-project.org/files/releases/source/notify-python/',
+             'ver' => '0.1.1',
+             'dir' => 'testing/notify-python',
+             'tar' => 'notify-python-0.1.1.tar.bz2',
+             'var' => 'VERSION',
+                  },
    'pycups'    => {
              'url' => 'http://cyberelk.net/tim/data/pycups/',
              'ver' => '1.9.32',
