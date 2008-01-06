@@ -6,8 +6,7 @@
 #
 
 # The list of packages in this section, in the order they should be built.
-PACKAGES="	abiword
-		gdl
+PACKAGES="	gdl
 		autogen
 		gnome-build
 		devhelp
@@ -20,6 +19,7 @@ PACKAGES="	abiword
 		goocanvas
 		libgnomedb
 		goffice
+		abiword
 		psiconv
 		libgsf
 		gnumeric

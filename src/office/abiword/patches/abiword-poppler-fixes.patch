@@ -1,0 +1,64 @@
+--- abiword-plugins/wp/impexp/pdf/xp/ie_imp_PDF.cpp.old	2008-01-06 15:09:22.000000000 +0000
++++ abiword-plugins/wp/impexp/pdf/xp/ie_imp_PDF.cpp	2008-01-06 15:17:44.000000000 +0000
+@@ -63,9 +63,11 @@
+   
+     PDFDoc * doc = new PDFDoc(fileName);
+ 
+-    globalParams = new GlobalParams("");
+-    globalParams->setTextEncoding("UTF-8");
+-    globalParams->setTextEOL("\n");
++    globalParams = new GlobalParams();
++    char *encoding = strdup("UTF-8");
++    char *linebreak = strdup("\n");
++    globalParams->setTextEncoding(encoding);
++    globalParams->setTextEOL(linebreak);
+     globalParams->setTextPageBreaks(gFalse);
+     globalParams->setErrQuiet(gTrue);
+ 
+@@ -75,7 +77,7 @@
+       UT_tmpnam(temporary_file);
+ 
+       TextOutputDev *textOut = new TextOutputDev(temporary_file, gFalse, gFalse, gFalse);
+-      doc->displayPages(textOut, 1, doc->getNumPages(), 72, 72, 0, gTrue, gFalse);
++      doc->displayPages(textOut, 1, doc->getNumPages(), 72, 72, 0, gTrue, gFalse, gFalse);
+       delete textOut;
+ 
+       IE_Imp_Text txt_imp(getDoc(), "UTF-8");      
+@@ -84,6 +86,9 @@
+       remove(temporary_file);
+     }
+ 
++    free(encoding);
++    free(linebreak);
++
+     delete globalParams;
+ 
+     delete fileName;
+@@ -113,7 +118,7 @@
+   {
+     if (strncmp (szMIME, "application/pdf", 15) == 0)
+       {
+-	return UT_CONFIDENCE_PERFECT;
++	    return UT_CONFIDENCE_PERFECT;
+       }
+     return UT_CONFIDENCE_ZILCH;
+   }
+@@ -179,12 +184,12 @@
+       m_impSniffer->ref();
+     }
+   
+-  mi->name    = "PDF Import Filter";
+-  mi->desc    = "Import Adobe PDF Documents";
+-  mi->version = ABI_VERSION_STRING;
+-  mi->author  = "Dom Lachowicz <cinamod@hotmail.com>";
+-  mi->usage   = "No Usage";
+-  
++  mi->name = strdup("PDF Import Filter");
++  mi->desc = strdup("Import Adobe PDF Documents");
++  mi->version = strdup(ABI_VERSION_STRING);
++  mi->author = strdup("Dom Lachowicz <cinamod@xxxxxxxxxxx>");
++  mi->usage = strdup("No Usage");
++
+   IE_Imp::registerImporter (m_impSniffer);
+   return 1;
+ }
