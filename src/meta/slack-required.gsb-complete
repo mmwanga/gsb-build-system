@@ -134,7 +134,7 @@ gnome-build
 gnome-commander
 gnome-common
 gnome-control-center
-gnome-cups-manager
+system-config-printer
 gnome-desktop
 gnome-doc-utils
 gnome-games

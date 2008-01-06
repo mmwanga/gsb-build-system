@@ -13,7 +13,7 @@ pybackpack
 rdiff-backup
 seahorse
 vino
-gnome-cups-manager
+system-config-printer
 parted
 gtkmm
 device-mapper
