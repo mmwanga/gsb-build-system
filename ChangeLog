@@ -5,6 +5,7 @@ ChangeLog
     * office: Added poppler patch to abiword, and updated SlackBuild 
       for proper || exit 1 checks.
     * mono: Updated to mono 1.2.6.
+    * libraries: Bumped libnl to 1.0-pre8
 
 05-01-2008 fidesratio <sk238(at)ex.ac.uk>		
     * extras: Added glib-perl, gtk2-perl, gnome2-perl.

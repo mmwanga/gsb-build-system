@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=svn_3214
+VERSION=svn_3217
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -171,7 +171,16 @@ sed -i configure.in -e 's/-Werror//g' || exit 1
   mv -f /usr/share/aclocal/pilot-link.m4 /usr/share/aclocal/pilot-link.m4.old
 }
 
+## Fix for svn r3217
+## pptp vpn-daemon has faulty configure.in which needs to be
+## refreshed before we start autogen for the whole tree.
+#echo "${0##*/}: Warning: Apply autoconf fix for r3217."
+#sed -i ./vpn-daemons/pptp/configure.in -e 's/AC\_OUTPUT//g' || exit 1
+#sed -i ./vpn-daemons/pptp/configure.in -e 's/AC\_CONFIG\_FILES/AC\_OUTPUT/g' || exit 1
+#cd vpn-daemons/pptp && NOCONFIGURE=1 ./autogen.sh || exit 1;
+
 ## Configure.
+cd $TMP/$PKGNAME-$VERSION &&
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
