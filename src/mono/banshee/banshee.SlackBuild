@@ -12,7 +12,7 @@ VERSION=0.13.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="mono gtk-sharp gstreamer libmusicbrainz nautilus-cd-burner sqlite3 gtk+2 hal ipod-sharp libipoddevice njb-sharp libmtp avahi avahi-sharp karma-sharp gnome-sharp"
+REQUIRED_PACKAGES="mono gtk-sharp gstreamer libmusicbrainz nautilus-cd-burner sqlite3 gtk+2 hal ipod-sharp libipoddevice njb-sharp libmtp avahi avahi-sharp karma-sharp gnome-sharp notification-daemon"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

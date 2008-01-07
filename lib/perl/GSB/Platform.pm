@@ -64,6 +64,11 @@ our %platform_reqs =
                              'url' => 'http://0pointer.de/lennart/projects/libdaemon/',
                              'src' => 'tar.gz',
                             },
+   'notification-daemon'           => {
+                             'ver' => '0.3.7',
+                             'url' => 'http://www.galago-project.org/files/releases/source/notification-daemon/',
+                             'src' => 'tar.bz2',
+                            },
    'shared-mime-info'    => {
 			     'url' => 'http://freedesktop.org/~hadess/',
 			     'ver' => '0.22',

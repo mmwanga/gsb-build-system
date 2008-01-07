@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=0.98.8
 
 ## List any packages here that are required to build this package.
@@ -170,6 +170,7 @@ mkdir -p $PKG/usr/share/applications
 mkdir -p $PKG/usr/share/pixmaps
 cp -a $CWD/gnome/dvdrip.desktop $PKG/usr/share/applications
 cp -a $CWD/gnome/dvdrip.png $PKG/usr/share/pixmaps
+chown root:root $PKG/usr/share/applications/dvdrip.desktop $PKG/usr/share/pixmaps/dvdrip.png
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

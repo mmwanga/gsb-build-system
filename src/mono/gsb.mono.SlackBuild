@@ -14,6 +14,7 @@ PACKAGES="	libgdiplus
 		gnome-sharp
 		gtksourceview-sharp
 		mono-tools
+                mono-addins
 		monodevelop
 		evolution-sharp
 		gmime-sharp

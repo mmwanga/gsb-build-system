@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.4.7
 
 ## List any packages here that are required to build this package.
@@ -176,6 +176,7 @@ mkdir -p $PKG/usr/share/applications
 mkdir -p $PKG/usr/share/pixmaps
 cp -a $CWD/gnome/sylpheed.desktop $PKG/usr/share/applications
 cp -a $CWD/gnome/sylpheed.png $PKG/usr/share/pixmaps
+chown root:root $PKG/usr/share/pixmaps/sylpheed.png $PKG/usr/share/applications/sylpheed.desktop
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

@@ -73,6 +73,11 @@ our %mono=
 				'url' => 'http://go-mono.com/sources/monodevelop/',
 				'src' => 'tar.bz2',
 			       },
+   'mono-addins'            => {
+				'ver' => '0.3',
+				'url' => 'http://go-mono.com/sources/mono-addins/',
+				'src' => 'tar.bz2',
+			       },
    'monodoc'                => {
 				'ver' => '1.2.6',
 				'url' => 'http://go-mono.com/sources/monodoc',

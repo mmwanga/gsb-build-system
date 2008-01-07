@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=0.18.1
+VERSION=0.3
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="mono gtksourceview-sharp gtk-sharp gnome-sharp gecko-sharp mono-tools mozilla-firefox mono-addins"
+REQUIRED_PACKAGES="mono"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -90,6 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
+rm -rf $PKGNAME-$VERSION &&
 tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
@@ -144,8 +145,8 @@ elif [ "$ARCH" = "x86_64" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -ffast-math -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS=""
-  }
+    CONFIGURE_FLAGS="--libdir=/usr/lib" 
+   }
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
 else
@@ -158,20 +159,21 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --program-prefix="" \
   --disable-static --enable-shared \
   || exit 1
 
 ## Build and install.
-make &&
-make DESTDIR=$PKG install || exit 1
+make $MAKE_FLAGS &&
+make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-# Fix for pkgconfig files on x86_64 platforms
+# Fix for pkgconfig install on x86_64 archs
 if [ "$ARCH" = "x86_64" ]; then
-  if [ -d $PKG/usr/lib/pkgconfig ]; then
-     mkdir -p $PKG/usr/lib64 ;
-     mv $PKG/usr/lib/pkgconfig $PKG/usr/lib64 ;
-  fi;
-fi ;
+ mkdir -p $PKG/usr/lib64
+ if [ -d $PKG/usr/lib/pkgconfig ]; then
+   mv $PKG/usr/lib/pkgconfig $PKG/usr/lib64 ;
+ fi;
+fi;
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

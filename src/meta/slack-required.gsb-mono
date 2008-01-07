@@ -36,6 +36,7 @@ libpng
 librsvg
 libtiff
 mono
+mono-addins
 mono-tools
 monodevelop
 monodoc

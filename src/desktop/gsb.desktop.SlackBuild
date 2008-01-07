@@ -43,7 +43,8 @@ PACKAGES="	gnome-themes
 		gtksourceview2
 		gnome-keyring-manager
 		gtkhtml
-		pyxdg		"
+		pyxdg
+                notification-daemon		"
 
 # Section name.
 # This should not need to be changed unless the auto detection fails.
