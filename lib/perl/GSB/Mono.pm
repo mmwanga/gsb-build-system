@@ -15,7 +15,8 @@ our $VERSION   = 0.01;
 
 our %mono_gnome =
   (
-   'beagle'          => '0.3.1',
+   'beagle'          => '0.3.2',
+   'libbeagle'       => '0.3.0',
    'evolution-sharp' => '0.14.0.1',
    'f-spot'          => '0.4.1',
    'tomboy'          => '0.8.2',
@@ -87,6 +88,16 @@ our %mono=
 				'ver' => '1.2.6',
 				'url' => 'http://go-mono.com/sources/mono-tools',
 				'src' => 'tar.bz2',
+			       },
+   'ndesk-dbus'                => {
+				'ver' => '0.6.0',
+				'url' => 'http://www.ndesk.org/archive/dbus-sharp/',
+				'src' => 'tar.gz',
+			       },
+   'ndesk-dbus-glib'                => {
+				'ver' => '0.4.1',
+				'url' => 'http://www.ndesk.org/archive/dbus-sharp/',
+				'src' => 'tar.gz',
 			       },
    'njb-sharp'                => {
 				'ver' => '0.3.0',

@@ -5,6 +5,7 @@ ChangeLog
     * mono: Added mono-addins for monodevel.
     * desktop: Added notification-daemon.
     * A few packages updated for permission fixes.
+    * mono: Added libbeagle, ndesk-dbus, ndesk-dbus-glib for Mono DBUS apps
 
 06-01-2008 fidesratio <sk238(at)ex.ac.uk>		
     * office: Added poppler patch to abiword, and updated SlackBuild 
