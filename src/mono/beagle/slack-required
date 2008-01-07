@@ -14,3 +14,6 @@ evolution-data-server
 libnotify
 evolution-sharp
 taglib
+ndesk-dbus
+ndesk-dbus-glib
+libbeagle

@@ -18,6 +18,9 @@ PACKAGES="	libgdiplus
 		monodevelop
 		evolution-sharp
 		gmime-sharp
+		ndesk-dbus
+		ndesk-dbus-glib
+		libbeagle
 		beagle
 		tomboy
 		f-spot

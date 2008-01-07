@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=4
 VERSION=1.2.6
 
 ## List any packages here that are required to build this package.
@@ -138,13 +138,14 @@ elif [ "$ARCH" = "i586" ]; then
 elif [ "$ARCH" = "i686" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer -ffast-math"}
 elif [ "$ARCH" = "x86_64" ]; then
+  LIBDIR=lib64
   if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -ffast-math -fPIC"}
   else
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -ffast-math -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS="--libdir=/usr/lib64"
+    CONFIGURE_FLAGS="--libdir=/usr/lib"
   }
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
@@ -153,6 +154,7 @@ else
 fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
+LIBDIR=${LIBDIR:-"lib"}
 
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
@@ -173,6 +175,14 @@ if [ "$ARCH" = "x86_64" ]; then
      mv $PKG/usr/lib/pkgconfig $PKG/usr/lib64 ;
   fi;
 fi ;
+
+## Fix weird bug http://www.mail-archive.com/mono-bugs@lists.ximian.com/msg27712.html
+## Since we're not running xulrunner, we can enable the gecko engine.  
+sed -i $PKG/usr/bin/monodoc -e "s: --no-gecko::g" &&
+mkdir -p $PKG/etc/gre.d &&
+cp $CWD/mozilla-firefox.conf $PKG/etc/gre.d/mozilla-firefox.conf.new &&
+sed -i $PKG/etc/gre.d/mozilla-firefox.conf.new -e "s:LIBDIR:$LIBDIR:g" &&
+chown root:root $PKG/etc/gre.d/mozilla-firefox.conf.new || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
