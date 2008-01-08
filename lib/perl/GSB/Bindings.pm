@@ -15,7 +15,7 @@ our $VERSION   = 0.03;
 
 our %bindings_cxx =
   (
-   'bakery'            => '2.4.2',
+   'bakery'            => '2.4.3',
    'gconfmm'           => '2.20.0',
    'gnome-vfsmm'       => '2.20.0',
    'libglademm'        => '2.6.5',

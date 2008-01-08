@@ -20,7 +20,7 @@ our %accessibility_gnome =
    'gnome-speech'           => '0.4.17',
    'gnopernicus'            => '1.1.2',
    'gok'                    => '1.3.7',
-   'orca'                   => '2.20.2',
+   'orca'                   => '2.20.3',
    'libgail-gnome'          => '1.20.0',
    );
 
