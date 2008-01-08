@@ -128,7 +128,7 @@ find . -perm 711 -exec chmod 755 {} \;
 find . -perm 555 -exec chmod 755 {} \;
 
 ## Configure, Tuning, GCC and Make options.
-## Note: -ffast-math removed from TUNE_FLAGS due to a bug report that compiz
+## Note: removed from TUNE_FLAGS due to a bug report that compiz
 ##	 runs very slowly when compiled with that option.
 CONFIGURE_FLAGS=${GSB_CONFIGURE_FLAGS:-""}
 if [ "$ARCH" = "i386" ]; then
