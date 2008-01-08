@@ -24,7 +24,7 @@ our %platform =
    'gnome-mime-data'     => '2.18.0',
    'gnome-vfs'           => '2.20.1',
    'gtk-engines'         => '2.12.2',
-   'intltool'            => '0.36.2',
+   'intltool'            => '0.36.3',
    'libbonobo'           => '2.20.1',
    'libbonoboui'         => '2.20.0',
    'libbtctl'            => '0.9.0',
@@ -35,7 +35,7 @@ our %platform =
    'libsoup'             => '2.2.104',
    'ORBit2'              => '2.14.9',
    'pygobject'           => '2.14.0',
-   'pygtk'               => '2.12.0',
+   'pygtk'               => '2.12.1',
    'pyorbit'             => '2.14.3',
    'system-tools-backends'  => '2.4.1',
   );
