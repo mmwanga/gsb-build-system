@@ -281,7 +281,7 @@ our %libraries_gnome =
   (
    'libcroco'          => '0.6.1',
    'libsigc++'         => '2.0.18',
-   'pango'             => '1.18.3',
+   'pango'             => '1.18.4',
   );
 
 our %libraries_diff_naming =
@@ -291,7 +291,7 @@ our %libraries_diff_naming =
 		'name' => 'glib',
 	       },
    'gtk+2'  => {
-		'ver'  => '2.12.3',
+		'ver'  => '2.12.4',
 		'name' => 'gtk+',
 	       },
   );
