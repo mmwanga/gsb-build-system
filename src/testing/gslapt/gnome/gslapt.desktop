@@ -1,6 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
-Exec=gksu -k /usr/sbin/gslapt
+Exec=gksu /usr/sbin/gslapt
 Name=Gslapt Package Manager
 Name[bg]=Мениджър на пакети Gslapt
 Name[pl]=Gslapt Menedżer Pakietów

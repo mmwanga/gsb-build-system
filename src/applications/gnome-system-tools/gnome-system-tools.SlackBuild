@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=3
 VERSION=2.20.0
 
 ## List any packages here that are required to build this package.
@@ -166,6 +166,15 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+## Time-date-admin is appears broken;  at least remove the menu entry
+## and prefix gksu to the other utilities;  stbadmin isn't working
+## quite right.
+rm -f $PKG/usr/share/applications/time.desktop
+for i in network shares users services ;
+do 
+  sed -i $PKG/usr/share/applications/$i.desktop -e "s:Exec\=:Exec\=gksu\ :g"
+done;
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

@@ -121,114 +121,94 @@ elif [ "$ARCH" = "i686" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  patch -p0 < $CWD/patches/mozilla.plugins-path64.patch
+  #Otherwise we get the error normally related to -fPIC on non-x86:
+  zcat $CWD/patches/visibility-mozconfig_x86_64.gz > .mozconfig
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
 # Fix for plugins patch, supplied by Stephen Levine
-echo "Patching for Mozilla plugins path..."
-patch -p0 < $CWD/patches/mozilla.plugins-path.patch
-echo
+if [ ! "$ARCH" = "x86_64" ]; then
+  patch -p0 < $CWD/patches/mozilla.plugins-path.patch
+fi;
 
 ## Fix permissions for building.
 echo "Please be patient.  This may take a while."
 echo -n "Setting file permissions for building..."
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
-echo -n .
-find . -perm 600 -exec chmod 644 {} \;
-echo -n .
-find . -perm 444 -exec chmod 644 {} \;
-echo -n .
-find . -perm 400 -exec chmod 644 {} \;
-echo -n .
-find . -perm 440 -exec chmod 644 {} \;
-echo -n .
-find . -perm 777 -exec chmod 755 {} \;
-echo -n .
 find . -perm 775 -exec chmod 755 {} \;
-echo -n .
-find . -perm 511 -exec chmod 755 {} \;
-echo -n .
-find . -perm 711 -exec chmod 755 {} \;
-echo -n .
-find . -perm 555 -exec chmod 755 {} \;
 echo "done."
 
 ## Configure, Tuning, GCC and Make options.
+# Stick with the mozilla defaults
 CONFIGURE_FLAGS=${GSB_CONFIGURE_FLAGS:-""}
 if [ "$ARCH" = "i386" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O"}
 elif [ "$ARCH" = "i486" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O"}
 elif [ "$ARCH" = "i586" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O"}
 elif [ "$ARCH" = "i686" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O"}
 elif [ "$ARCH" = "x86_64" ]; then
   LIBDIR=lib64
   if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
-    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -fPIC"}
+    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O -fPIC"}
   else
-    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
+    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
     CONFIGURE_FLAGS="--libdir=/usr/lib64"
   }
 elif [ "$ARCH" = "powerpc" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O"}
 else
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O"}
 fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 LIBDIR=${LIBDIR:-"lib"}
 
 ## Configure.
-# Keep sane optimization standards.  Mozilla easily breaks with 
-# too much tweaking.  Also, we need to add in cairo-xlib and render
-# cflags for canvas support.  This is inelegant, but doesn't
-# require patching any source.  :)  (stevek)
-  #--enable-extensions=default,cookie,permissions,xml-rpc,xmlextras,pref,transformiix,universalchardet,typeaheadfind,webservices,inspector,gnomevfs,p3p \
 export MOZILLA_OFFICIAL="1" &&
 export BUILD_OFFICIAL="1" &&
-export MOZ_CO_PROJECT="browser" &&
-echo "Running configure...."
+export MOZ_PHOENIX="1" &&
+export CFLAGS="$TUNE_CFLAGS" &&
+export CXXFLAGS="$TUNE_CFLAGS" &&
 ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --enable-official-branding \
+  --with-default-mozilla-five-home=/usr/$LIBDIR/firefox-$VERSION \
+  --with-system-zlib \
+  --with-system-png \
   --enable-application=browser \
-  --enable-optimize="-O3 -freorder-blocks -fno-reorder-functions -gstabs+ -pipe -fPIC" \
-  --enable-cpp-rtti \
-  --enable-reorder \
-  --disable-debug \
-  --with-default-mozilla-five-home=/usr/$LIBDIR/firefox \
-  --enable-strip-libs \
-  --enable-strip \
-  --disable-tests \
+  --enable-default-toolkit=gtk2 \
   --enable-crypto \
-  --enable-system-zlib \
-  --enable-system-png \
-  --disable-logging \
-  --disable-pedantic \
-  --enable-extensions=all \
-  --disable-ldap \
-  --disable-mailnews \
-  --disable-composer \
-  --enable-single-profile \
-  --disable-profilesharing \
   --enable-xft \
   --enable-xinerama \
-  --disable-freetype2 \
-  --enable-default-toolkit=gtk2 \
-  --disable-installer \
-  --with-pthreads \
-  --disable-jsd \
-  --enable-official-branding \
-  --disable-canvas \
+  --enable-optimize \
+  --enable-reorder \
+  --enable-strip \
+  --enable-cpp-rtti \
+  --enable-single-profile \
   --enable-system-cairo \
-  --enable-svg \
+  --disable-freetype2 \
+  --disable-accessibility \
+  --disable-debug \
+  --disable-tests \
+  --disable-logging \
+  --disable-pedantic \
+  --disable-installer \
+  --disable-mailnews \
+  --disable-ldap \
+  --disable-composer \
+  --disable-profilesharing \
+  --disable-gnomeui \
+  --disable-gnomevfs \
+  --disable-canvas \
   || exit 1
 
 ## Build and install.
@@ -248,7 +228,28 @@ mkdir -p $PKG/usr/share/pixmaps
 cp $CWD/gnome/mozilla-firefox.png $PKG/usr/share/pixmaps
 cp $CWD/gnome/firefox.png $PKG/usr/share/pixmaps
 
+chown -R root:root $PKG/usr/bin
 chown -R root.root $PKG/usr/share
+
+mkdir -p $PKG/usr/lib64/mozilla/plugins
+mkdir -p $PKG/usr/share/applications
+
+# These files/directories are usually created if Firefox is run as root, which on many
+# systems might (and possibly should) be never.  Therefore, if we don't see them we'll
+# put stubs in place to prevent startup errors.
+cd $PKG/usr/$LIBDIR/firefox-$VERSION
+if [ -d extensions/talkback\@mozilla.org ]; then
+  if [ ! -r extensions/talkback\@mozilla.org/chrome.manifest ]; then
+    echo > extensions/talkback\@mozilla.org/chrome.manifest
+  fi
+fi
+if [ ! -d updates ]; then
+  mkdir -p updates/0
+fi
+
+# Some icons aren't in the right place
+mkdir -p chrome/icons/default
+cp icons/{default,mozicon50}.xpm chrome/icons/default/
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
