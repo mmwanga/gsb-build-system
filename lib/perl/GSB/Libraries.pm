@@ -287,7 +287,7 @@ our %libraries_gnome =
 our %libraries_diff_naming =
   (
    'glib2'  => {
-		'ver'  => '2.14.4',
+		'ver'  => '2.14.5',
 		'name' => 'glib',
 	       },
    'gtk+2'  => {
