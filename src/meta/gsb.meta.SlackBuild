@@ -1,5 +1,5 @@
 #!/bin/bash
-# Version: 1.2 GSB Section Build Script
+# Version: 1.3 GSB Section Build Script
 # Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
 # Copyright (c) 2007 Steve Kennedy <sk238 (at) exeter.ac.uk>
 #
@@ -9,6 +9,32 @@
 #
 # Licenced under the terms of the GNU General Public Licence version 3.
 #
+
+# GSB Metapackages 
+#
+# These packages are essentially empty, except for a list of 
+# package requirements for each section.  They allow users
+# to use slapt-get to install by logical section, like
+# gsb-desktop, or gsb-extras, etc. 
+
+# Package build list.  Order doesn't matter.
+BUILD_ORDER=" 
+     gsb-accessibility
+     gsb-administration
+     gsb-desktop
+     gsb-office
+     gsb-development
+     gsb-multimedia
+     gsb-mono
+     gsb-themes
+     gsb-compiz
+     gsb-complete
+   "
+#
+
+# Section name.
+# This should not need to be changed unless the auto detection fails.
+SECTION="$( echo ${BASH_SOURCE#*/} | cut -d. -f2 )"
 
 # If the user created an options file, read it if it's not been read already.
 [ "$OPTIONSREAD" != "1" -a -r ../gsb.options ] && {
@@ -32,10 +58,10 @@ DISTRO=${DISTRO:-slackware}
 
 ## Package variables.  Version is GNOME release version.
 BUILD=1
-VERSION=2.20.2
+VERSION=2.20.3
 
 ## List any packages here that are required to build this package.
-## The list is space seperated and case sensitive.
+## The list is space seperated and case sensitive.  
 REQUIRED_PACKAGES="pkgtools"
 
 
@@ -104,6 +130,68 @@ Options are passed down to the next level SlackBuild where appropriate.
 EOF
 }
 
+function list_packages() {
+  local PACKAGE
+  echo "The following packages are built in this section, listed in processing order:"
+  ( for PACKAGE in $PACKAGES
+    do
+      echo -n "$PACKAGE, "
+    done ) | sed -e 's/, $//' | fmt -w 74 | sed -e 's/^/    /g'
+}
+
+function find_package_files() {
+  # $1 = Directory to look for files in [required]
+  # $2 = Package name or regex to match.  An empty string matches all.
+  # $3 = Package version or regex to match.  An empty string matches all.
+  # $4 = Package architecture or regex to match.  An empty string matches all.
+  # $5 = Package build tag or regex to match.  An empty string matches all.
+  # $6 = File extension or regex to match.  An empty string means no extension.
+  # Note: Remember to escape any regex characters used in fixed strings.
+  
+  [ -z "$1" ] || [ ! -d "$1" ] && return 1
+  find $1 -maxdepth 1 -mindepth 1 2>/dev/null | \
+    egrep "^.*/(${2:-.*})(-${3:-[^-]*})(-${4:-[^-]*})(-${5:-[^-.]*})($6)$" 2>/dev/null
+  return $?
+}
+
+function gen_pkg_txt() {
+  # $1 = Package file to process [required].
+
+  [ -z "$1" ] || [ ! -e "$1" ] && return 1
+  tar xzOf $1 install/slack-desc 2>/dev/null | \
+    grep -v "^#" | egrep "[[:alnum:]\+]+\:" >${1%.tgz}.txt
+  return $?
+}
+
+function gen_pkg_md5() {
+  # $1 = Package file to process [required].
+
+  [ -z "$1" ] || [ ! -e "$1" ] && return 1
+  ( cd $( dirname $1 ) && md5sum $( basename $1 ) >$1.md5 )
+  return $?
+}
+
+# Make sure we are in the right directory (you can never trust users..)
+cd $( cd ${BASH_SOURCE%/*} ; pwd )
+
+# If the user created an options file, read it.
+[ "$OPTIONSREAD" != "1" -a -r ../gsb.options ] && {
+  . ../gsb.options
+  export OPTIONSREAD=1
+}
+
+# Environment.
+export TMP=${TMP:-/tmp}
+export PKGDEST=${PKGDEST:-$TMP/gsb-tree/packages}
+export LOGSDIR=${LOGSDIR:-$TMP/gsb-buildlogs}
+
+# Option defaults.
+NOSKIP=0
+NOMETAFILES=0
+NOPRUNE=0
+NOINSTALL=0
+UPDATEONLY=0
+
 #
 # Command Line Parsing
 #
@@ -138,40 +226,14 @@ while [ $# -gt 0 ]; do
   fi
 done
 
-
-#
-# Create Temporary Space
-#
+# Temporary space, package and log file storage.
 mkdir -p $TMP
+mkdir -p $PKGDEST
 mkdir -p $LOGSDIR
+mkdir -p $PKGDEST/$SECTION
+mkdir -p $LOGSDIR/$SECTION
 
-#
-# GSB Metapackages
-#
-# These packages are essentially empty, except for a list of 
-# package requirements for each section.  They allow users
-# to use slapt-get to install by logical section, like
-# gsb-desktop, or gsb-extras, etc. 
 
-#
-# BUILD ORDER
-#
-
-# Package build list.  Order doesn't matter.
-
-BUILD_ORDER=" 
-     gsb-accessibility
-     gsb-administration
-     gsb-desktop
-     gsb-office
-     gsb-development
-     gsb-multimedia
-     gsb-mono
-     gsb-themes
-     gsb-compiz
-     gsb-complete
-   "
-#
 # MAIN BUILD 
 #
 
@@ -181,35 +243,11 @@ BUILD_ORDER="
 
 do
 
-# This check is for more useful as a reminder than a strict warning here
-# but it's best left in.  Metapackages are only really useful for 
-# slapt-get, as installpkg and pkgtool don't really check dependencies.
-
-## Package requirements and installation checks.
-[ "$FORCEBUILD" = "0" ] && {
-  function check_installed() {
-    ls -1 /var/log/packages | grep "^${1}-[^-]*-[^-]*-[^-]*$" >/dev/null 2>&1
-    return $?
-  }
-
-  check_installed "$PACKAGE" && {
-    echo "${0##*/}: Remove installed '$PACKAGE' package before build."
-    exit 1
-  }
-  
-  for REQ in $REQUIRED_PACKAGES; do
-    check_installed "$REQ" || {
-      echo "${0##*/}: Required package '$REQ' not installed."
-      exit 1
-    }
-  done
-}
-
 if [ -f $CWD/slack-desc.$PACKAGE -a -f $CWD/slack-required.$PACKAGE ]; then
 
   mkdir -p $TMP/$PACKAGE-$VERSION/install 
 
-  echo "* Compiling metapackage: ${PACKAGE}"
+  echo "${0##*/}: Compiling metapackage: ${PACKAGE}"
 
   # Install metapackage description
   if [ -f $CWD/slack-desc.$PACKAGE ]; then
@@ -228,13 +266,42 @@ if [ -f $CWD/slack-desc.$PACKAGE -a -f $CWD/slack-required.$PACKAGE ]; then
 
   # Create the package
   cd $TMP/$PACKAGE-$VERSION
-  makepkg -p -l y -c n $PKGDEST/$PACKAGE-${VERSION//-/_}-$ARCH-$BUILD.tgz 2> /dev/null 1> /dev/null || exit 1
+  makepkg -p -l y -c n $PKGDEST/$SECTION/$PACKAGE-${VERSION//-/_}-$ARCH-$BUILD.tgz 2> /dev/null 1> /dev/null || exit 1
 
-  # Seperate package into appropriate section
-  mkdir -p $PKGDEST/$SECTION
-  if [ -f $PKGDEST/${PACKAGE}-${VERSION//-/_}*.tgz ]; then
-    mv -f $PKGDEST/${PACKAGE}-${VERSION//-/_}*.tgz $PKGDEST/$SECTION > /dev/null 2>&1 || exit 1
-  fi;
+  PRUNE_FILES="$( find_package_files "$PKGDEST/$SECTION" "${PACKAGE//+/\+}" \
+      "" "" "" "\.tgz|\.txt|\.tgz\.md5" | grep -v "$( find_package_files \
+      "$PKGDEST/$SECTION" "${PACKAGE//+/\+}" "${VERSION//-/_}" "" \
+      "$PACKAGE_BUILD" "\.tgz" )" | tr '\n' ' ' )"
+    [ ! -z "$PRUNE_FILES" ] && {
+      if [ "$NOPRUNE" = "0" ]; then
+        echo "${0##*/}: Pruning old $PACKAGE packages from tree."
+        rm -f $PRUNE_FILES
+      else
+        echo
+        echo "*********************************************************************"
+        echo "*** Warning: not pruning any old '$PACKAGE' files."
+        echo "*********************************************************************"
+      fi
+    }
+
+  if [ "$NOMETAFILES" = "0" ]; then
+      echo "${0##*/}: Creating metafiles for '$PACKAGE'..."
+      gen_pkg_txt "$( find_package_files "$PKGDEST/$SECTION" "${PACKAGE//+/\+}" \
+        "${VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" )" &&
+      gen_pkg_md5 "$( find_package_files "$PKGDEST/$SECTION" "${PACKAGE//+/\+}" \
+        "${VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" )" || {
+        echo
+        echo "*********************************************************************"
+        echo "*** Error: failed to create metafiles for '$PACKAGE'."
+        echo "*********************************************************************"
+        exit 1
+      }
+    else
+      echo
+      echo "*********************************************************************"
+      echo "*** Warning: not creating metafiles for '$PACKAGE'."
+      echo "*********************************************************************"
+    fi
 
   ## Cleanup
   [ "$NOCLEANUP" = "0" ] && {
