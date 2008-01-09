@@ -34,7 +34,7 @@ xine-lib: ADD
 xine-ui: SKP
 xlockmore: SKP
 xpaint: SKP
-xpdf: SKP
+xpdf: ADD
 xsane: ADD
 xscreensaver: ADD
 xv: SKP
