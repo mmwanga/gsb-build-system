@@ -1,6 +1,9 @@
 ChangeLog
 ---------
 
+09-01-2008 fidesratio <sk238(at)ex.ac.uk>		
+    * Updated tarballs to GNOME 2.20.3
+
 07-01-2008 fidesratio <sk238(at)ex.ac.uk>		
     * mono: Added mono-addins for monodevel.
     * desktop: Added notification-daemon.

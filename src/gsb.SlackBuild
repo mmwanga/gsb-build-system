@@ -27,7 +27,8 @@ SECTIONS="${GSB_SECTIONS:-	tools
 				extras
 				themes
 				compiz
-				testing	}"
+				testing	
+			        meta }"
 
 # Usage.
 function usage() {
@@ -75,6 +76,13 @@ Options:
 			only be used for testing individual SlackBuilds as it
 			WILL cause serious problems - some package builds may
 			rely on another package being auto installed first.
+
+  --update-only         Only build packages that have been changed (either
+                        a changed version number, or a changed build number), or
+                        missing packages that haven't been built yet. This options 
+                        makes the build script skip over already built and installed 
+                        packages, and rebuild only those packages that do not match 
+                        the versions defined in the SlackBuild, or aren't found.
 
   Options are passed down to the next level SlackBuild where appropriate.
 EOF
@@ -138,6 +146,9 @@ while [ $# -gt 0 ]; do
     shift
   elif [ "$1" = "-no-install" ] || [ "$1" = "--no-install" ]; then
     SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}--no-install"
+    shift
+  elif [ "$1" = "-update-only" ] || [ "$1" = "--update-only" ]; then
+    SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}--update-only"
     shift
   else
     echo "${0##*/}: Unknown option: $1"
