@@ -114,6 +114,9 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
+## Fix for includes in daemon/verify-shadow.c
+patch -p0 < $CWD/patches/daemon.verify-shadow.patch
+
 ## Fix permissions for building.
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;

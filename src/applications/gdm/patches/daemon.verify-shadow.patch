@@ -1,0 +1,10 @@
+--- daemon/verify-shadow.c.old	2008-01-09 18:32:03.000000000 +0000
++++ daemon/verify-shadow.c	2008-01-09 18:32:18.000000000 +0000
+@@ -42,6 +42,7 @@
+ #include "verify.h"
+ #include "errorgui.h"
+ #include "gdm-common.h"
++#include "gdm-log.h"
+ #include "gdm-daemon-config.h"
+ #include "gdm-socket-protocol.h"
+ 
