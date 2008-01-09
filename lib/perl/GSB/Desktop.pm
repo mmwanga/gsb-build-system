@@ -84,6 +84,11 @@ our %desktop_nongnome =
                 'url' => 'http://banshee-project.org/files/libipoddevice',
                 'src' => 'tar.gz',
                           },
+   'notification-daemon'           => {
+                             'ver' => '0.3.7',
+                             'url' => 'http://www.galago-project.org/files/releases/source/notification-daemon/',
+                             'src' => 'tar.bz2',
+                            },
    'pyxdg'  => {
                            'ver' => '0.15',
                            'url' => 'http://www.freedesktop.org/~lanius',
