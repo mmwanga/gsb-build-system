@@ -12,7 +12,7 @@ VERSION=1.6.6
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomedb bakery pygtk gtk+2 python gtksourceview2 iso-codes libgdamm gnome-python-extras avahi"
+REQUIRED_PACKAGES="libgnomedb bakery pygtk gtk+2 python gtksourceview2 iso-codes libgdamm gnome-python-extras avahi cairomm"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
