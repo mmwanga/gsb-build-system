@@ -27,3 +27,4 @@ sdl
 alsa-lib
 glib2
 gtk+2
+openal
