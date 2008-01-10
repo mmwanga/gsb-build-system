@@ -2,6 +2,9 @@ libbonoboui
 gst-plugins-base
 gstreamer
 gst-plugins-good
+gst-python
+gst-fluendo-mp3
+gst-ffmpeg
 totem
 libnotify
 libgpod
