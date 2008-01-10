@@ -8,4 +8,4 @@ hal
 imagemagick
 glib-perl
 gtk2-perl
-xine
+xine-lib
