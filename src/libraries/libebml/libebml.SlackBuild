@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=0.7.7
 
 ## List any packages here that are required to build this package.
@@ -168,6 +168,9 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 [ "$ARCH" = "x86_64" ] && {
   mv $PKG/usr/lib $PKG/usr/lib64
 }
+
+## Make sure shared libraries have x bit
+find $PKG/usr -name "libebml.so" -exec chmod 755 {} \;
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
