@@ -134,7 +134,7 @@ our %applications =
 			 'src' => 'tar.gz',
 			},
    'librsync'         => {
-			 'url' => 'http://downloads.sourceforge.net/librsync',
+			 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/librsync/',
 			 'ver' => '0.9.7',
 			 'src' => 'tar.gz',
 			},

@@ -21,7 +21,7 @@ our %compiz =
   (
    'fuse'              => {
                  'ver' => '2.7.1',
-                 'url' => 'http://downloads.sourceforge.net/fuse',
+                 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/fuse',
                  'src' => 'tar.gz',
                             },
    'compiz'              => {

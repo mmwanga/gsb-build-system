@@ -56,7 +56,7 @@ our %mono=
 			       },
    'libgphoto2-sharp' => {
 		    'ver'  => '2.3.0',
-		    'url'  => 'http://downloads.sourceforge.net/gphoto',
+		    'url'  => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto',
 		    'src'  => 'tar.bz2',
 		   },
    'ipod-sharp'             => {

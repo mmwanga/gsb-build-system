@@ -46,7 +46,7 @@ our %extras =
                             },
    'dvdauthor'              => {
                  'ver' => '0.6.14',
-                 'url' => 'http://downloads.sourceforge.net/dvdauthor',
+                 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/dvdauthor',
                  'src' => 'tar.gz',
                             },
    'dvdrip'              => {
@@ -161,7 +161,7 @@ our %extras =
 			    },
    'wxGTK'            => {
 			     'ver' => '2.8.7',
-			     'url' => 'http://downloads.sourceforge.net/wxwindows',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/wxwindows',
 			     'src' => 'tar.gz',
 			    },
   );
