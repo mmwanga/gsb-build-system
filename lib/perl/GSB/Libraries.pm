@@ -44,8 +44,7 @@ our %libraries =
                         },
    'id3lib'            => {
 			   'ver' => '3.8.3',
-			   'url' => '
-http://heanet.dl.sourceforge.net/sourceforge/id3lib/',
+			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/id3lib/',
 			   'src' => 'tar.gz',
 			  },
    'imlib2'            => {
@@ -257,7 +256,7 @@ http://heanet.dl.sourceforge.net/sourceforge/id3lib/',
 			  },
    'twolame'           => {
 			   'ver' => '0.3.10',
-			   'url' => 'http://www.ecs.soton.ac.uk/~njh/twolame/',
+			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/twolame',
 			   'src' => 'tar.gz',
 			  },
    'wavpack'           => {
