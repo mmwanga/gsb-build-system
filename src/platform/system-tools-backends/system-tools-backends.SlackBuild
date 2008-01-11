@@ -7,13 +7,13 @@
 ##
 
 ## Package variables
-BUILD=3
+BUILD=4
 VERSION=2.4.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
 
-REQUIRED_PACKAGES="dbus perl XML-Twig"
+REQUIRED_PACKAGES="dbus perl XML-Twig liboobs"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
