@@ -31,3 +31,8 @@ fi;
 #if [ -x etc/rc.d/rc.messagebus ]; then
 #   . etc/rc.d/rc.messagebus restart;
 #i;
+
+if [ -e usr/share/icons/hicolor/icon-theme.cache ]; then
+	rm -f usr/share/icons/hicolor/icon-theme.cache
+fi
+usr/bin/gtk-update-icon-cache -f -q usr/share/icons/hicolor
