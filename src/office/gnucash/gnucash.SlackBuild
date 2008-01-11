@@ -12,7 +12,7 @@ VERSION=svn_16663
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glib2 gtk+2 guile slib libofx ORBit2 libgnomeui libbonoboui pango cairo libgnomecanvas gnome-vfs libglade goffice gail GConf gtkhtml libgnomeprintui atk swig texinfo"
+REQUIRED_PACKAGES="glib2 gtk+2 guile slib libofx ORBit2 libgnomeui libbonoboui pango cairo libgnomecanvas gnome-vfs libglade goffice gail GConf gtkhtml libgnomeprintui atk swig texinfo aqbanking"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
