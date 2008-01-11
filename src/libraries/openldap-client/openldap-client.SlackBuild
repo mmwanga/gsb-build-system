@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.3.38
 
 ## List any packages here that are required to build this package.
@@ -194,6 +194,10 @@ cat <<EOF >>$PKG/etc/openldap/ldap.conf.new || exit 1
 # See also 'man ldap.conf' or http://www.openldap.org/doc/admin/tls.html
 TLS_REQCERT allow
 EOF
+
+## Make sure shared libraries have x bit
+find $PKG/usr -name "libldap*.so.*" -type f -exec chmod 755 {} \;
+find $PKG/usr -name "libldap*.la" -type f -exec chmod 755 {} \;
 
 # Remove man pages for the servers.
 find $PKG/usr/man -name slap* -exec rm -f {} \;
