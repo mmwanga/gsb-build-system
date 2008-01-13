@@ -3,7 +3,7 @@
 # official Slackware packages.
 #
 # Packages listed under 'Required' must be upgraded in order
-# to use GNOME 2.20 on Slackware 12.  Reasons for their upgrade
+# to use GNOME 2.20.3 on Slackware 12.  Reasons for their upgrade
 # are given within brackets.
 #
 # Packages listed under 'Optional' are packages which replace 
@@ -11,9 +11,9 @@
 # functionality, or optional GNOME applications.  Notes are
 # provided in brackets.
 #
-# List last updated: December 5, 2007 (stevek)
+# List last updated: January 13th, 2008
 
--- Required Updates for GNOME 2.20 --
+-- Required Updates for GNOME 2.20.3 --
 
 gnome-icon-theme: ( >= 2.20 for gnome-desktop 2.20)
 glib2:            ( > 2.14 required by gtk+2 2.12)
@@ -26,9 +26,9 @@ libgpod:          (A much older version supplied with Slackware; Rhythmbox wants
 openldap-client:  (NTLM patch for evolution-data-server 1.12 for Microsoft Exchange support)
 mozilla-firefox:  (Rebuild for shared libraries needed by Epiphany/Yelp)
 shared-mime-info: (Totem requires version >= 0.22)
-poppler:          ( >= 0.6.1 for evince 2.20)
-poppler-data:     (For poppler >= 0.6.1)
-gimp:             (2.2 comes in Slackware 12; however, 2.4.1 is latest GIMP Stable Series)
+poppler:          ( >= 0.6.3 for evince 2.20, and Abiword with PDF support)
+poppler-data:     (For poppler >= 0.6.3)
+gimp:             (2.2 comes in Slackware 12; however, 2.4.3 is latest GIMP Stable Series)
 compiz:           (0.4.1 with Slackware 12, latest developement version if 0.6.0 for compiz-fusion)
-libgsf:           (Updated version needed for Goffice, and Gnumeric)
+libgsf:           (Updated version needed by Goffice, and Gnumeric)
 wpa_supplicant:   (NetworkManager 0.7svn needs wpa_supplicant to be build with dbus interface)
