@@ -1,11 +1,11 @@
-       |-----handy-ruler------------------------------------------------------|
+        |-----handy-ruler------------------------------------------------------|
 libbtctl: libbtctl (Gobject Library Bluetooth Controller)
 libbtctl:
 libbtctl: This library is intended to provide a GLib style library of 
 libbtctl: application support for accessing common platform Bluetooth functions 
-libbtctl: under Linux, and is used by GNOME Bluetooth applications and GNOME Phone 
-libbtctl: Manager require. It can also be used as a stand alone library as it does 
-libbtctl: not require GNOME libraries.
+libbtctl: under Linux, and is used by GNOME Bluetooth applications and GNOME
+libbtctl: Phone Manager require. It can also be used as a stand alone library
+libbtctl: as it does not require GNOME libraries.
 libbtctl: 
 libbtctl: For more information, please see http://live.gnome.org/GnomeBluetooth
 libbtctl: 

@@ -2,10 +2,10 @@
 libmpcdec: libmpcdec (Musepack Decoder Library)
 libmpcdec:
 libmpcdec: Musepack is an audio compression format with a strong emphasis on high 
-libmpcdec: quality. It's not lossless, but it is designed for transparency, so that 
-libmpcdec: you won't be able to hear differences between the original wave file and 
-libmpcdec: the much smaller MPC file.  It is based on the MPEG-1 Layer-2 / MP2 
-libmpcdec: algorithms.
+libmpcdec: quality. It's not lossless, but it is designed for transparency, so 
+libmpcdec: that you won't be able to hear differences between the original wave
+libmpcdec: file and the much smaller MPC file.  It is based on the MPEG-1
+libmpcdec: Layer-2 / MP2 algorithms.
 libmpcdec:
 libmpcdec: http://www.musepack.net/
 libmpcdec:

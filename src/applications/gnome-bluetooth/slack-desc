@@ -5,8 +5,8 @@ gnome-bluetooth: This packages contains tools for GNOME Bluetooth support.
 gnome-bluetooth:
 gnome-bluetooth: The core of GNOME Bluetooth is two packages: gnome-bluetooth, which 
 gnome-bluetooth: provides desktop level support for Bluetooth devices, and libbtctl, 
-gnome-bluetooth: which provides a GLib style library of application support for accessing 
-gnome-bluetooth: Bluetooth under Linux.
+gnome-bluetooth: which provides a GLib style library of application support for
+gnome-bluetooth: accessing Bluetooth under Linux.
 gnome-bluetooth:
 gnome-bluetooth:
 gnome-bluetooth:

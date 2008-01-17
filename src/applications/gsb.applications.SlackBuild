@@ -66,6 +66,7 @@ PACKAGES="	mozilla-firefox
 		seahorse
 		gnome-user-share
 		gdm
+		fast-user-switch-applet
 		libgksu
 		gksu		"
 

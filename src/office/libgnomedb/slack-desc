@@ -3,10 +3,10 @@ libgnomedb: libgnomedb (GNOME Database Widgets)
 libgnomedb:
 libgnomedb: The GNOME Database project aims to provide a free unified data access 
 libgnomedb: architecture to the GNOME project. GNOME-db is useful for any 
-libgnomedb: application that accesses persistent data (not only databases, but data). 
-libgnomedb: 
-libgnomedb: This package contains libgnomedb, a database widget library with data 
-libgnomedb: bound widgets and more.
+libgnomedb: application that accesses persistent data (not only databases,
+libgnomedb: but data). 
 libgnomedb:
+libgnomedb: This package contains libgnomedb, a database widget library with
+libgnomedb: data bound widgets and more.
 libgnomedb:
 libgnomedb:

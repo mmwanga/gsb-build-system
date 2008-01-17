@@ -2,7 +2,7 @@
 libgnomeprintui: libgnomeprintui (GNOME Printing Interface Library)
 libgnomeprintui:
 libgnomeprintui: libgnomeprintui is a library used to communicate with the gnomeprint
-libgnomeprintui: environment. It is part of the GNOME2 platform and it is UI dependent.
+libgnomeprintui: environment. It is part of the GNOME platform and it is UI dependent.
 libgnomeprintui:
 libgnomeprintui:
 libgnomeprintui:

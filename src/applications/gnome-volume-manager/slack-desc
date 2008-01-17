@@ -5,8 +5,8 @@ gnome-volume-manager: The gnome-volume-manager package contains a volume manager
 gnome-volume-manager: GNOME. It is a desktop-level daemon that enforces volume-related 
 gnome-volume-manager: policy in response to events received from HAL. This is useful for 
 gnome-volume-manager: automatic mounting of floppy diskettes, CDROMs and removable storage 
-gnome-volume-manager: devices. It can also be used to automatically run a program in response 
-gnome-volume-manager: to other hotplug events such as plugging in USB printers or cameras, 
-gnome-volume-manager: or inserting DVDs and music CDs. 
+gnome-volume-manager: devices. It can also be used to automatically run a program in 
+gnome-volume-manager: response to other hotplug events such as plugging in USB printers
+gnome-volume-manager: or cameras, or inserting DVDs and music CDs. 
 gnome-volume-manager: 
 gnome-volume-manager: 

@@ -2,8 +2,8 @@
 libgnomeprint: libgnomeprint (GNOME Printing Engine)
 libgnomeprint:
 libgnomeprint: libgnomeprint is a C API that implements the Postscript imaging model. 
-libgnomeprint: It is part of the GNOME toolkit. It currently contains Postscript, PDF, 
-libgnomeprint: on-screen preview, Metafile and a Generic bitmap driver.
+libgnomeprint: It is part of the GNOME toolkit. It currently contains Postscript, 
+libgnomeprint: PDF, on-screen preview, Metafile and a Generic bitmap driver.
 libgnomeprint: 
 libgnomeprint: http://www.gnome.org/projects/gnome-print/
 libgnomeprint:

@@ -18,3 +18,4 @@ GConf
 gtkhtml
 libgnomeprintui
 atk
+postgresql

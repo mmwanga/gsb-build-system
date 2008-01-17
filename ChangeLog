@@ -1,6 +1,12 @@
 ChangeLog
 ---------
 
+17-01-2008 fidesratio <sk238(at)ex.ac.uk>		
+    * Fixes for some slack-desc files, line lengths, etc
+    * Updates to gnucash, goffice, and gnumeric (for crashes)
+    * Add gnucash-docs
+    * Add fast-user-switch-applet (and needed patches)
+
 09-01-2008 fidesratio <sk238(at)ex.ac.uk>		
     * Updated tarballs to GNOME 2.20.3
 

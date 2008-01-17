@@ -3,10 +3,10 @@ seahorse: seahorse (GNOME Encryption Key Manager)
 seahorse:
 seahorse: Seahorse is a GNOME application for managing encryption keys. It also 
 seahorse: integrates with nautilus, gedit and other places for encryption, 
-seahorse: decryption and other operations. With seahorse you can encrypt, decrypt
-seahorse: and sign files and text, manage your keys and keyring, synchronize your 
-seahorse: keys and your keyring with key servers, and sign keys and publish them.
-seahorse: 
+seahorse: decryption and other operations. With seahorse you can encrypt, 
+seahorse: decrypt and sign files and text, manage your keys and keyring, 
+seahorse: synchronize your keys and your keyring with key servers, and sign
+seahorse: keys and publish them.
 seahorse: 
 seahorse: 
 seahorse: 

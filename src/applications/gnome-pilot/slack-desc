@@ -9,4 +9,4 @@ gnome-pilot:
 gnome-pilot: Other packages exist that provide additional conduits, most notably
 gnome-pilot: gnome-pilot-conduits, and the Evolution mail/calendar/memo PIM
 gnome-pilot: application suite.
-
+gnome-pilot: 

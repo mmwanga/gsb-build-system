@@ -23,6 +23,7 @@ our %extras_gnome =
    'brasero'             => '0.6.90',
    'pessulus'            => '2.16.3',
    'sabayon'             => '2.20.1',
+   'ghex'                => '2.8.2',
   );
 
 

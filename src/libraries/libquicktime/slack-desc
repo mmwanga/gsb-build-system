@@ -5,8 +5,8 @@ libquicktime: This is the home of libquicktime, a library for reading and writin
 libquicktime: quicktime/avi/mp4 files. It provides convenient access to quicktime 
 libquicktime: files with a variety of supported codecs.  The goal is to have a 
 libquicktime: simple and stable library, which can create reasonable compatible 
-libquicktime: Quicktime and AVI files either uncompressed (for high-end or production 
-libquicktime: applications) or with decent compression codecs for end user applications. 
-libquicktime:
+libquicktime: Quicktime and AVI files either uncompressed (for high-end or
+libquicktime: production applications) or with decent compression codecs for end
+libquicktime: user applications. 
 libquicktime:
 libquicktime:

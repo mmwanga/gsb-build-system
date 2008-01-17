@@ -26,6 +26,7 @@ our %applications_gnome =
    'evolution'              => '2.12.3',
    'evolution-exchange'     => '2.12.3',
    'evolution-webcal'       => '2.12.0',
+   'fast-user-switch-applet' => '2.20.0',
    'file-roller'            => '2.20.3',
    'gcalctool'              => '5.20.2',
    'gdm'                    => '2.20.3',

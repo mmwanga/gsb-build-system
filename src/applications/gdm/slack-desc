@@ -9,3 +9,4 @@ gdm: or troubleshoot settings without having to resort to a command line.
 gdm: Users can pick their session type on a per-login basis. GDM also 
 gdm: features easy customisation with themes.
 gdm:
+gdm:

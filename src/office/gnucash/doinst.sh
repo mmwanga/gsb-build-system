@@ -1,5 +1,3 @@
-libtool --silent --finish usr/lib64/gnucash/
-
 ldconfig ;
 
 function install_file() {

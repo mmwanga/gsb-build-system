@@ -5,8 +5,8 @@ libebml: libebml is a C++ libary to parse EBML files. It is available in LGPL
 libebml: license as a source code that should compile on many platforms 
 libebml: including Windows, Linux, Mac OSX and BeOS.  
 libebml: 
-libebml: For more information on EBML you can have a look at the Matroska specs, 
-libebml: the EBML RFC or check the Sourceforge website.  
+libebml: For more information on EBML you can have a look at the Matroska
+libebml: specs, the EBML RFC or check the Sourceforge website.  
 libebml:
 libebml: http://sourceforge.net/projects/ebml
 libebml:

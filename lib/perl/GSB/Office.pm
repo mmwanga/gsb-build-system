@@ -16,14 +16,14 @@ our $VERSION   = 0.03;
 our %office_gnome =
   (
    'devhelp'   => '0.16.1',
-   'gnumeric'  => '1.7.14',
+   'gnumeric'  => '1.7.91',
    'dia'       => '0.96.1',
    'gdl'       => '0.7.7',
    'glade3'      => '3.4.1',
    'glom'      => '1.6.6',
    'gnome-build' => '0.2.0',
    'gnome-python-extras'  => '2.19.1',
-   'goffice'   => '0.5.2',
+   'goffice'   => '0.5.4',
    'libgda'    => '3.0.1',
    'libgdamm'  => '2.9.81',
    'libgnomedb' => '3.0.0',
@@ -76,6 +76,16 @@ our %office =
 			     'ver' => '0.9',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/goocanvas/',
 			     'src' => 'tar.gz',
+			    },
+   'gnucash'              => {
+			     'ver' => '2.2.3',
+			     'url' => 'http://ftp.at.gnucash.org/pub/gnucash/gnucash/sources/stable/',
+			     'src' => 'tar.bz2',
+			    },
+   'gnucash-docs'              => {
+			     'ver' => '2.0.1',
+			     'url' => 'http://ftp.at.gnucash.org/pub/gnucash/gnucash/sources/stable/',
+			     'src' => 'tar.bz2',
 			    },
    'graphviz'            => {
                              'ver' => '2.14.1',
@@ -153,11 +163,6 @@ our %office =
 			     'src' => 'tar.bz2',
 			    },
 
-  );
-
-our %office_svn =
-  (
-   'gnucash' => 'svn_16663',
   );
 
 #

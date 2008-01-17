@@ -3,8 +3,8 @@ monodevelop: monodevelop (GNOME Integrated Development Environment for Mono)
 monodevelop:
 monodevelop: Mono Project is an open development initiative sponsored by Novell to
 monodevelop: develop an open source, UNIX version of the Microsoft .NET development
-monodevelop: platform. Its objective is to enable UNIX developers to build and deploy
-monodevelop: cross-platform .NET Applications.
+monodevelop: platform. Its objective is to enable UNIX developers to build and 
+monodevelop: deploy cross-platform .NET Applications.
 monodevelop:
 monodevelop: MonoDevelop is a free GNOME IDE primarily designed for C# and other 
 monodevelop: .NET languages. The main features of MonoDevelop are code completion, 
