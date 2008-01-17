@@ -35,6 +35,7 @@ PACKAGES="	python-ldap
 		wxGTK
 		simdock
 		gDesklets
+                slapt-get-update-notifier
 		grip	"
 
 # Section name.

@@ -1,0 +1,12 @@
+                     |-----handy-ruler------------------------------------------------------|
+slapt-update-notifier: slapt-update-notifier (Daemon which notifies about package updates)
+slapt-update-notifier: 
+slapt-update-notifier: slapt-update-notifier is a Daemon which notifies about package
+slapt-update-notifier: updates.  It places an icon in the user's notification area when
+slapt-update-notifier: package updates are available.
+slapt-update-notifier: 
+slapt-update-notifier: Cron entries are added to /etc/cron.daily and /etc/cron.hourly as
+slapt-update-notifier: well as a small modification to /etc/rc.d/rc.local
+slapt-update-notifier: 
+slapt-update-notifier: 
+slapt-update-notifier: 
