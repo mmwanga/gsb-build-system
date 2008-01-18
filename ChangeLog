@@ -1,6 +1,15 @@
 ChangeLog
 ---------
 
+18-01-2008  Tadgy <tadgy(at)gnomeslackbuild.org>
+    * Updated HACKING/VERSIONS
+    * Fixed bin/check_slack_desc.sh so that packages with a + in the name
+      don't get flagged up with name errors.
+    * Fixed libraries/libavc1394/slack-desc with a couple of errors that
+      Steve missed :)
+    * I really should remember to update this more often.. there's loads i've
+      done over the last few months not listed here... ;)
+
 17-01-2008 fidesratio <sk238(at)ex.ac.uk>		
     * Fixes for some slack-desc files, line lengths, etc
     * Updates to gnucash, goffice, and gnumeric (for crashes)

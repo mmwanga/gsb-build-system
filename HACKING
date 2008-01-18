@@ -10,10 +10,6 @@ Notes for hackers
   changes to the tree.  Please use 'svn diff' - we cannot work with the
   output of a simple 'diff'.  Mail the diff to the gsb-dev mailing list.
 
-* Before doing the 'svn diff' run this command from the top level dir (trunk/):
-    bin/clean_src.sh
-  This will clean the BUILD, VERSION and ARCH variables in the SlackBuilds.
-
 * Patches should have descriptive names, eg: fix-broken-something.patch.
   If a patch is ARCH specific it should include the architecture it is
   intended for in the filename.  eg: i586.fix-broken-something.patch.
@@ -33,11 +29,11 @@ Notes for hackers
 
 * Credit yourself in CREDITS.
 
-* Don't commit changes to generic.SlackBuild without talking to Tadgy or Steve
-  (fidesratio) first.
+* Don't commit changes to lib/gsb/{package,gsb.section}.SlackBuild without
+  talking to Tadgy or Steve (fidesratio) first.
 
 * Don't add any src/gsb.options you may have on your system to SVN.  We do not
   need your customisation options in the main repo.
 
 * If you add a new package to the build system please use the template
-  generic.SlackBuild, doinst.sh and slack-* files in the lib/gsb/ directory.
+  package.SlackBuild, doinst.sh and slack-* files in the lib/gsb/ directory.

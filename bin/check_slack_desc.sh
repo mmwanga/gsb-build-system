@@ -48,8 +48,8 @@ do
     }
 
     # Check that the 'packagename:' part is correct.
-    echo "$LINE" | egrep "^${PACKAGE_NAME}:" >/dev/null 2>&1 || {
-      if ! echo "$LINE" | egrep -iv "^${PACKAGE_NAME}:" >/dev/null 2>&1
+    echo "$LINE" | egrep "^${PACKAGE_NAME//+/\+}:" >/dev/null 2>&1 || {
+      if echo "$LINE" | egrep -iv "^${PACKAGE_NAME//+/\+}:" >/dev/null 2>&1
       then
         ERRORS[${#ERRORS[*]}]="Line ${LINENUM}: Does not begin '${PACKAGE_NAME}:' and isn't a comment/blank."
         LINENUM=$(( $LINENUM +1 ))
