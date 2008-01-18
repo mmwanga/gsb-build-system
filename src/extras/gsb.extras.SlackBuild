@@ -32,6 +32,7 @@ PACKAGES="	python-ldap
 		devede
 		gnonlin
 		jokosher
+                ghex
 		wxGTK
 		simdock
 		gDesklets
