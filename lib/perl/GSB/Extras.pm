@@ -140,7 +140,7 @@ our %extras =
                  'url' => 'http://heanet.dl.sourceforge.net/sourceforge/python-ldap',
                  'src' => 'tar.gz',
                             },
-   'slapt-get-update-notifier'         => {
+   'slapt-update-notifier'         => {
                  'ver' => '0.2.1',
                  'url' => 'http://software.jaos.org/source/slapt-update-notifier/',
                  'src' => 'tar.gz',
