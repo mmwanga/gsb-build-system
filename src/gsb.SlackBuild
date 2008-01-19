@@ -89,7 +89,7 @@ EOF
 }
 
 function list_packages() {
-  echo "The sections and packages below (listed in processing order) will be built."
+  echo "The sections and packages listed below (in processing order) will be built."
   for SECTION in $SECTIONS
   do
     echo
@@ -118,8 +118,15 @@ function runtime() {
 
 # Environment.
 export TMP=${TMP:-/tmp}
-export PKGDEST=${PKGDEST:-$TMP/gsb-tree/packages}
-export LOGSDIR=${LOGSDIR:-$TMP/gsb-buildlogs}
+if [ "$ARCH" = "x86_64" ]; then
+  export PKGDEST=${PKGDEST:-$TMP/gsb64-tree}
+  export LOGSDIR=${LOGSDIR:-$TMP/gsb64-buildlogs}
+else
+  export PKGDEST=${PKGDEST:-$TMP/gsb-tree}
+  export LOGSDIR=${LOGSDIR:-$TMP/gsb-buildlogs}
+fi
+export PACKAGESDIR=${PACKAGESDIR:-packages}
+export PATCHESDIR=${PATCHESDIR:-patches}
 
 # Parse command line arguments.
 while [ $# -gt 0 ]; do
@@ -180,7 +187,9 @@ mkdir -p $LOGSDIR
       echo
       echo "*********************************************************************"
       echo "* Build aborted: error building in section '$SECTION'."
-      echo "* Check the build logs in '$LOGSDIR' and try again."
+      echo "* Check the build logs in:"
+      echo "*    $LOGSDIR"
+      echo "* and try again after fixing the error."
       echo "*********************************************************************"
       echo "* Build failed after $( runtime $SECONDS )."
       echo "*********************************************************************"
@@ -194,9 +203,11 @@ mkdir -p $LOGSDIR
   echo "* GSB was sucessfully built and installed on the system."
   echo "* See the README file for details on how to start GNOME."
   echo "*********************************************************************"
-  echo "* A copy of all GSB packages can be found in '$PKGDEST'."
-  echo "* Build logs can be found in '$LOGSDIR'."
-  echo "* Package files and build logs can be deleted if not required."
+  echo "* The complete GSB binary tree can be found in:"
+  echo "*    $PKGDEST"
+  echo "* Build logs can be found in:"
+  echo "*    $LOGSDIR"
+  echo "* The binary tree and build logs can be deleted if not required."
   echo "*********************************************************************"
   echo "* Complete build time was $( runtime $SECONDS )."
   echo "*********************************************************************"

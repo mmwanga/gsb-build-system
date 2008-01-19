@@ -19,7 +19,7 @@ ARCH=${ARCH:-i586}
 TUNE=${TUNE:-i586}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
-PKGDEST=${PKGDEST:-$TMP/gsb-packages}
+PKGDEST=${PKGDEST:-$TMP}
 
 ## Script variables.
 PKGNAME=murrine

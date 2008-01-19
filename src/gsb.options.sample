@@ -6,7 +6,7 @@
 #export TUNE="i686"
 #export DISTRO="slackware"
 #export TMP=/alternative/tmp
-#export PKGDEST=/alternative/dir/gsb-tree/packages
+#export PKGDEST=/alternative/dir/gsb-tree
 #export GSB_MAKE_FLAGS="-j2"
 
 # For Slamd64
@@ -14,5 +14,5 @@
 #export TUNE="k8"
 #export DISTRO="slamd64"
 #export TMP=/alternative/tmp
-#export PKGDEST=/alternative/dir/gsb-tree/packages
+#export PKGDEST=/alternative/dir/gsb64-tree
 #export GSB_MAKE_FLAGS="-j4"
