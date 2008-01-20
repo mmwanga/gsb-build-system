@@ -144,8 +144,9 @@ else
   export PKGDEST=${PKGDEST:-$TMP/gsb-tree}
   export LOGSDIR=${LOGSDIR:-$TMP/gsb-buildlogs}
 fi
-export PACKAGESDIR="${PACKAGESDIR:-packages}"
-export PATCHESDIR="${PATCHESDIR:-patches}"
+export PACKAGESDIR=${PACKAGESDIR:-packages}/$SECTION
+export PATCHESDIR=${PATCHESDIR:-patches}/$SECTION
+export TESTINGDIR=${TESTINGDIR:-testing}
 
 # Option defaults.
 NOPATCHESDIR=0
@@ -153,10 +154,6 @@ NOSKIP=0
 NOPRUNE=0
 NOINSTALL=0
 NOMETAFILES=0
-
-# Build defaults.
-SKIP_BUILD=0
-TOPDIR=$PACKAGESDIR
 
 # Sanity check (in case Steve forgets to add packages again :P).
 [ $( echo "$PACKAGES" | wc -w ) != \
@@ -221,6 +218,10 @@ echo "*********************************************************************"
 # Process packages.
 ( for PACKAGE in $PACKAGES
   do
+    # Build defaults.
+    SKIP_BUILD=0
+    SUBDIR=$PACKAGESDIR
+
     echo
     echo "*********************************************************************"
     echo "*** Processing package '$PACKAGE'..."
@@ -256,12 +257,12 @@ echo "*********************************************************************"
     }
 
     # Check if the package should be rebuilt, and where it should be put.
-    # Default is to always rebuild and put packages in main packages directory.
+    # The assumption is to always rebuild and put packages in main packages
+    # directory, unless modified by the checks below.
     if [ "$NOSKIP" = "0" ]; then
       # Skipping is OK...
-      if find_package_files "$PKGDEST/$PACKAGESDIR/$SECTION" \
-        "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" \
-        "\.tgz" >/dev/null; then
+      if find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
+        "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" >/dev/null; then
         # Package with same version/build was found in the main packages dir.
         SKIP_BUILD=1
       else
@@ -272,10 +273,10 @@ echo "*********************************************************************"
             "\.tgz" >/dev/null; then
             # The package in the patches dir is up to date.
             SKIP_BUILD=1
-            TOPDIR=$PATCHESDIR
+            SUBDIR=$PATCHESDIR
           else
             # No package in patches with the same version/build.
-            TOPDIR=$PATCHESDIR
+            SUBDIR=$PATCHESDIR
           fi
         fi
       fi
@@ -285,9 +286,9 @@ echo "*********************************************************************"
       echo "*********************************************************************"
       echo "*** Removing '$PACKAGE' package files from tree for rebuild..."
       echo "*********************************************************************"
-      rm -f $( find_package_files "$PKGDEST/$PACKAGESDIR/$SECTION" \
-        "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" \
-        "\.tgz|\.txt|\.tgz\.md5" | tr '\n' ' ' ) >/dev/null 2>&1
+      rm -f $( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
+        "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz|\.txt|\.tgz\.md5" \
+        | tr '\n' ' ' ) >/dev/null 2>&1
     fi
 
     # Build package if required.
@@ -306,9 +307,8 @@ echo "*********************************************************************"
       echo "*********************************************************************"
       echo "*** Building package '$PACKAGE'..."
       echo "*********************************************************************"
-      mkdir -p -m 755 $PKGDEST/$TOPDIR
-      mkdir -p -m 755 $PKGDEST/$TOPDIR/$SECTION
-      ( cd $PACKAGE && export PKGDEST=$PKGDEST/$TOPDIR/$SECTION &&
+      mkdir -p $PKGDEST/$SUBDIR
+      ( cd $PACKAGE && export PKGDEST=$PKGDEST/$SUBDIR &&
         ./$PACKAGE.SlackBuild $SLACKBUILD_ARGS 2>&1 ) | \
         tee $LOGSDIR/$SECTION/$PACKAGE-$( date +%Y%m%d-%H%M%S ).log
       ERR=${PIPESTATUS[0]}
@@ -326,10 +326,10 @@ echo "*********************************************************************"
       echo "*********************************************************************"
     fi
 
-    PRUNE_FILES="$( find_package_files "$PKGDEST/$TOPDIR/$SECTION" \
-      "${PACKAGE//+/\+}" "" "" "" "\.tgz|\.txt|\.tgz\.md5" | grep -v \
-      "$( find_package_files "$PKGDEST/$TOPDIR/$SECTION" "${PACKAGE//+/\+}" \
-      "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" )" | tr '\n' ' ' )"
+    PRUNE_FILES="$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
+      "" "" "" "\.tgz|\.txt|\.tgz\.md5" | grep -v "$( find_package_files \
+      "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" \
+      "$PACKAGE_BUILD" "\.tgz" )" | tr '\n' ' ' )"
     [ ! -z "$PRUNE_FILES" ] && {
       if [ "$NOPRUNE" = "0" ]; then
         echo
@@ -350,10 +350,10 @@ echo "*********************************************************************"
       echo "*********************************************************************"
       echo "*** Creating meta files for '$PACKAGE'..."
       echo "*********************************************************************"
-      gen_pkg_txt "$( find_package_files "$PKGDEST/$TOPDIR/$SECTION" \
-        "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" )" &&
-      gen_pkg_md5 "$( find_package_files "$PKGDEST/$TOPDIR/$SECTION" \
-        "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" )" || {
+      gen_pkg_txt "$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
+        "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" )" &&
+      gen_pkg_md5 "$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
+        "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" )" || {
         echo
         echo "*********************************************************************"
         echo "*** Error: failed to create meta files for '$PACKAGE'."
@@ -372,7 +372,7 @@ echo "*********************************************************************"
       echo "*********************************************************************"
       echo "*** Installing '$PACKAGE'..."
       echo "*********************************************************************"
-      upgradepkg --install-new $( find_package_files $PKGDEST/$TOPDIR/$SECTION \
+      upgradepkg --install-new $( find_package_files "$PKGDEST/$SUBDIR" \
         "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" ) || {
         echo
         echo "*********************************************************************"
@@ -392,9 +392,8 @@ echo "*********************************************************************"
   echo "*********************************************************************"
   echo "** Finished building section '$SECTION'."
   echo "*********************************************************************"
-  echo "** Binary packages for this section can be found in:"
-  echo "**    $PKGDEST/$PACKAGESDIR/$SECTION  and/or"
-  echo "**    $PKGDEST/$PATCHESDIR/$SECTION"
+  echo "** Binary packages can be found in sub directories of:"
+  echo "**    $PKGDEST"
   echo "** Individual build logs can be found in:"
   echo "**    $LOGSDIR/$SECTION"
   echo "** Package files and build logs can be deleted if not required."
