@@ -97,14 +97,12 @@ the GSB build process, gsb.SlackBuild (and section SlackBuilds) will remove
 (updated) package from GSB will then be built and installed.
 
 Building GSB will take a very long time unless you have some top-notch hardware
-or small cluster system.  It took 2-3 days to perform a full build of GSB on
+or small cluster system.  It took 1-2 days to perform a full build of GSB on
 my build box (2.5GHz CPU, 2GB RAM) - you have been warned.
 
 If the build fails for some reason, you can correct the error and re-run the
 './gsb.SlackBuild' command - the build system will continue from where it
-failed, not restart the whole process again.  However, the process will
-removepkg all previously installed GSB packages and re-install them (to refresh
-the system from known good packages) - don't worry about that process.
+failed, not restart the whole process again.
 
 At the end of the build process you will have a full copy of GSB installed on
 your system ready to go, and a copy of the completed GSB binary package tree
@@ -121,7 +119,7 @@ If you login to your system at the text console and use 'startx' or similar,
 you should log in as your usual (not root!) user and run:
   $ xwmconfig
 ... and select the GNOME option from the menu.
-You can also repeat the above as root to set the default for system as a whole,
+You can also repeat the above as root to set the default for the whole system,
 but using root as your every day login user is a *really* *stupid* *idea*.
 
 Secondly, if you login to your system via a graphical login manager (such as
@@ -222,10 +220,11 @@ TMP
   The default is "/tmp".
 
 PKGDEST
-  Once a package has been built it will be stored in the directory specified
-  with this option.  The default for this option is affected by the value of
-  the TMP environment option detailed above (referred to as $TMP below).
-  The default is "$TMP/gsb-tree/packages".
+  Once a package has been built, it will be stored in a sub directory of the
+  path specified with this option.  The default for this option is affected by
+  the value of the TMP environment variable (referred to as $TMP below).
+  The default is "$TMP/gsb-tree", except for an ARCH type of x86_64 where it is
+  "$TEMP/gsb64-tree".
 
 LOGSDIR
   As the GSB build process proceeds, a log of the output from each package
@@ -246,7 +245,7 @@ GSB_SECTIONS
   should be processed.  This option should contain a space separated list of
   (valid) GSB sections (available using the '--list' option to gsb.SlackBuild),
   in the order they should be processed.  Care should be taken to insure the
-  processing order is correct - packages in some sections will rely on packages
+  processing order is correct - packages in some sections rely on packages
   previously built in others.
   The default is to process all GSB sections (in the correct order).
   
@@ -308,46 +307,50 @@ the build process.  Options given to a top-level SlackBuild will be passed
 down to the individual package Slackbuilds as a the build process continues.
 
 The following options are recognised:
-  --help                Show this help screen.
+  --help		Show this help screen.
 
-  --list                For each of the sections in GSB, list all the packages
-                        which will be built.  When GSB_SECTIONS is set (either
-                        in the environment or in the gsb.options file - see the
-                        README file) only those sections are displayed.
+  --list		List the packages which will be built in this section.
 
-  --force               A package will not be built if a package of the same
-                        name is already installed, or any of the pre-requisite
-                        packages are not installed.  This option over-rides
-                        the checks and attempts a build (which will probably
-                        fail) anyway.
+  --force		A package will not be built if a package of the same
+			name is already installed, or any of the pre-requisite
+			packages are not installed.  This option over-rides
+			the checks and attempts a build (which will probably
+			fail) anyway.
 
-  --no-skip             During the build process, packages that are up to date
-                        (ie, the package version and build numbers match the
-                        coresponding SlackBuild) will not be rebuilt.  This
-                        option forces packages to be rebuilt regardless of the
-                        version and build numbers.  This does not affect the
-                        pre-build checks for installed packages (see --force).
+  --no-cleanup		By default, any source, temporary build and package
+			directories will be deleted once the package is built.
+			This option prevents those files from being removed.
 
-  --no-metafiles        Do not create the .txt and .md5 files for each package
-                        which would usually be produced during a build.
+  --no-patchesdir	When rebuilding packages which already exist in the
+			main package directory, the default is to put the new
+			packages in the patches directory.  Using this option
+			completely disables the use of a patches directory.
 
-  --no-prune            Normally, when a package is built and copied to the
-                        destination directory, any previous package(s) of the
-                        same name are deleted - it is assumed the new package
-                        is to replace any which were built previously.
-                        This option prevents previous packages being deleted
-                        from the destination directory, possibly leaving more
-                        than one package of the same name (but with different
-                        version or build numbers) laying around.
+  --no-skip		During the build process, packages that are up to date
+			(ie, the package version and build numbers match the
+			coresponding SlackBuild) will not be rebuilt.  This
+			option forces packages to be rebuilt regardless of the
+			version and build numbers.  This option doesn't affect
+			the pre-build checks for installed packages (see the
+			--force option).  This option implies --no-patchesdir.
 
-  --no-cleanup          By default, any source, temporary build and package
-                        directories will be deleted once the package is built.
-                        This option prevents those files from being removed.
+  --no-prune		Normally, when a package is built and copied to the
+			destination directory (whether it be the main package 
+			directory or the patches directory), any previous
+			package(s) of the same name in that directory are
+			deleted - it is assumed the new package is to replace
+			any which are already present.  This option prevents
+			previous packages being deleted, possibly leaving more
+			than one package of the same name (but with different
+			version or build numbers) laying around.
 
-  --no-install          Build packages but don't install them.  This should
-                        only be used for testing individual SlackBuilds as it
-                        WILL cause serious problems - some package builds may
-                        rely on another package being auto installed first.
+  --no-install		Build the packages but don't install them afterwards.
+			This should only be used for testing as it WILL cause
+			serious problems - most builds rely on other GSB
+			packages being automatically installed first.
+
+  --no-metafiles	Do not create the package's .txt and .md5 meta files
+			which would usually be produced during a build.
 
 --
 Darren 'Tadgy' Austin	<tadgy(at)gnomeslackbuild.org>

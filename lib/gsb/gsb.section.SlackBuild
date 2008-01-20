@@ -348,7 +348,7 @@ echo "*********************************************************************"
     if [ "$NOMETAFILES" = "0" ]; then
       echo
       echo "*********************************************************************"
-      echo "*** Creating metafiles for '$PACKAGE'..."
+      echo "*** Creating meta files for '$PACKAGE'..."
       echo "*********************************************************************"
       gen_pkg_txt "$( find_package_files "$PKGDEST/$TOPDIR/$SECTION" \
         "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" )" &&
@@ -356,14 +356,14 @@ echo "*********************************************************************"
         "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" )" || {
         echo
         echo "*********************************************************************"
-        echo "*** Error: failed to create metafiles for '$PACKAGE'."
+        echo "*** Error: failed to create meta files for '$PACKAGE'."
         echo "*********************************************************************"
         exit 1
       }
     else
       echo
       echo "*********************************************************************"
-      echo "*** Warning: not creating metafiles for '$PACKAGE'."
+      echo "*** Warning: not creating meta files for '$PACKAGE'."
       echo "*********************************************************************"
     fi
 

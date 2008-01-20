@@ -134,13 +134,14 @@ function gen_packages_txt() {
 }
 
 function gen_checksums_md5() {
-  echo "MD5                               Filename" >CHECKSUMS.md5
+  echo -e "CHECKSUMS.md5; $( date )\n\n" >CHECKSUMS.md5
+  echo "MD5                               Filename" >>CHECKSUMS.md5
   find . -type f ! -name \*.md5 -exec md5sum {} \; | sort -k2 -f >>CHECKSUMS.md5
   cat CHECKSUMS.md5 | gzip -9c >CHECKSUMS.md5.gz
 }
 
 function gen_filelist_txt() {
-  echo -e "$( date )\n\n" >FILELIST.TXT
+  echo -e "FILELIST.TXT; $( date )\n\n" >FILELIST.TXT
   find . ! -name FILELIST.TXT | sort | xargs ls -ld >>FILELIST.TXT
   cat FILELIST.TXT | gzip -9c >FILELIST.TXT.gz
 }
@@ -156,6 +157,7 @@ else
 fi
 export PACKAGESDIR=${PACKAGESDIR:-packages}
 export PATCHESDIR=${PATCHESDIR:-patches}
+export TESTINGDIR=${TESTINGDIR:-testing}
 
 # Option defaults.
 NOMETAFILES=0
@@ -222,13 +224,35 @@ mkdir -p $LOGSDIR
       echo "* Build aborted: error building in section '$SECTION'."
       echo "* Check the build logs in:"
       echo "*    $LOGSDIR"
-      echo "* and try again after fixing the error."
+      echo "* and try again after correcting the error."
       echo "*********************************************************************"
       echo "* Build failed after $( runtime $SECONDS )."
       echo "*********************************************************************"
       exit 1
     }
   done
+
+  if [ "$NOMETAFILES" = "0" ]; then
+    echo
+    echo "*********************************************************************"
+    echo "* Generating final meta files - this may take a while..."
+    echo "*********************************************************************"
+    for DIR in "$PKGDEST/$PACKAGESDIR" "$PKGDEST/$PATCHESDIR" \
+      "$PKGDEST/$TESTINGDIR" "$PKGDEST"
+    do
+      [ -d $DIR ] && (
+        cd $DIR
+        gen_packages_txt
+        gen_checksums_md5
+        gen_filelist_txt
+      )
+    done
+  else
+    echo
+    echo "*********************************************************************"
+    echo "*** Warning: not creating final meta files."
+    echo "*********************************************************************"
+  fi
 
   echo
   echo "*********************************************************************"
