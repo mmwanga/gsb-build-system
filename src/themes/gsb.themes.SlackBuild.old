@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 # Version: 1.3 GSB Section SlackBuild.
 # Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
 #
@@ -6,73 +6,14 @@
 #
 
 # The list of packages in this section, in the order they should be built.
-PACKAGES="	glib2
-		pango
-		gtk+2
-		imlib2
-		liboil
-		libgc
-		libelf
-		libnotify
-		libatomic_ops
-		openldap-client
-		a52dec
-		ffmpeg
-		xvidcore
-		faac
-		faad2
-		lame
-		yasm
-		x264
-		libcddb
-		libcdio
-		libdvbpsi4
-		libdvdcss
-		libdvdread
-		libebml
-		libmatroska
-		libmms
-		libsndfile
-		libsamplerate
-		twolame
-		libdv
-		libquicktime
-		mpeg2dec
-		mpeg4ip
-		mjpegtools
-		libmpcdec
-		wavpack
-		transcode
-		iso-codes
-		libexif-gtk
-		libgphoto2
-		boost
-		libopenraw
-		exempi
-		libiptcdata
-		gtkunique
-		libraw1394
-		libavc1394
-		libiec61883
-		speex
-		libshout
-		sqlite3
-		pwlib
-		opal
-		nss
-		libsexy
-		libcroco
-		libgpod
-		lua
-		libnl
-		heimdal-libraries
-		libgalago
-		libsigc++
-		id3lib
-		openal
-		freealut
-		sg3_utils	"
-
+PACKAGES="	gnome-themes-extras
+		murrine-engine
+		murrine-themes
+		nmc
+		candido-engine
+		candido-themes
+		msttcorefonts
+		mac4lin-theme	"
 
 # Section name.
 # This should not need to be changed unless the auto detection fails.
@@ -121,13 +62,6 @@ Options:
 			only be used for testing individual SlackBuilds as it
 			WILL cause serious problems - some package builds may
 			rely on another package being auto installed first.
-
-  --update-only		Only build packages that have been changed (either
-			a changed version number, or a changed build number), or
-			missing packages that haven't been built yet. This options 
-			makes the build script skip over already built and installed 
-			packages, and rebuild only those packages that do not match 
-			the versions defined in the SlackBuild, or aren't found.
 
   Options are passed down to the next level SlackBuild where appropriate.
 EOF
@@ -211,7 +145,6 @@ NOSKIP=0
 NOMETAFILES=0
 NOPRUNE=0
 NOINSTALL=0
-UPDATEONLY=0
 
 # Sanity check (in case Steve forgets to add packages again :P).
 [ $( echo "$PACKAGES" | wc -w ) != \
@@ -250,9 +183,6 @@ while [ $# -gt 0 ]; do
     shift
   elif [ "$1" = "-no-install" ] || [ "$1" = "--no-install" ]; then
     NOINSTALL=1
-    shift
-  elif [ "$1" = "-update-only" ] || [ "$1" = "--update-only" ]; then
-    UPDATEONLY=1
     shift
   else
     echo "${0##*/}: Unknown option: $1"
@@ -312,38 +242,32 @@ echo "*********************************************************************"
 
     # Check if the package has been built previously.
     SKIP_BUILD=0
-    MISSING=0
-    INSTALLED=0
     find_package_files "$PKGDEST/$SECTION" "${PACKAGE//+/\+}" \
       "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" >/dev/null && {
-      if [ "$UPDATEONLY" = "0" ]; then
-        if [ "$NOSKIP" = "0" ]; then
-          # The package is up to date, no need to rebuild it.
-          SKIP_BUILD=1
-        else
-          echo "${0##*/}: $PACKAGE-${PACKAGE_VERSION//-/_}-${PACKAGE_BUILD} will be rebuilt."
-          echo "${0##*/}: Removing $PACKAGE packages from the tree."
-          rm -f $( find_package_files "$PKGDEST/$SECTION" "${PACKAGE//+/\+}" \
-            "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz|\.txt|\.tgz\.md5" | \
-            tr '\n' ' ' )
-        fi;
-      else
+      if [ "$NOSKIP" = "0" ]; then
+        # The package is up to date, no need to rebuild it.
         SKIP_BUILD=1
-        echo "${0##*/}: $PACKAGE-${PACKAGE_VERSION//-/_}-${PACKAGE_BUILD} appears built."
+      else
+        echo
+        echo "*********************************************************************"
+        echo "*** Removing '$PACKAGE' package files from tree..."
+        echo "*********************************************************************"
+        rm -f $( find_package_files "$PKGDEST/$SECTION" "${PACKAGE//+/\+}" \
+          "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz|\.txt|\.tgz\.md5" | \
+          tr '\n' ' ' )
       fi
-    } || MISSING=1
+    }
 
-    # Remove the package if it's installed, unless we are only updating changed
-    # or installing packages.
+    # Remove the package if it's installed.
+    # Note: this is done even with an "update" build so that the system is
+    # refreshed from the package in the tree.
     find_package_files "/var/log/packages" "${PACKAGE//+/\+}" "" "" "" "" \
       >/dev/null && {
-      if [ "$UPDATEONLY" = "0" -o "$MISSING" = "1" ]; then
-        echo "${0##*/}: Uninstalling $PACKAGE package."
-        removepkg $( basename $PACKAGE )
-      else
-        echo "${0##*/}: $PACKAGE-${PACKAGE_VERSION//-/_}-${PACKAGE_BUILD} appears installed."
-        INSTALLED=1
-      fi ;
+      echo
+      echo "*********************************************************************"
+      echo "*** Removing installed package '$PACKAGE'..."
+      echo "*********************************************************************"
+      removepkg $( basename $PACKAGE )
     }
 
     # Build package if required.
@@ -364,7 +288,10 @@ echo "*********************************************************************"
         exit $ERR
       }
     else
-      echo "${0##*/}: $PACKAGE-${PACKAGE_VERSION//-/_}-${PACKAGE_BUILD} appears up to date."
+      echo
+      echo "*********************************************************************"
+      echo "*** Skipping build of '$PACKAGE' - package up to date."
+      echo "*********************************************************************"
     fi
 
     PRUNE_FILES="$( find_package_files "$PKGDEST/$SECTION" "${PACKAGE//+/\+}" \
@@ -373,7 +300,10 @@ echo "*********************************************************************"
       "$PACKAGE_BUILD" "\.tgz" )" | tr '\n' ' ' )"
     [ ! -z "$PRUNE_FILES" ] && {
       if [ "$NOPRUNE" = "0" ]; then
-        echo "${0##*/}: pruning old $PACKAGE packages from tree."
+        echo
+        echo "*********************************************************************"
+        echo "*** Pruning old '$PACKAGE' package files from tree..."
+        echo "*********************************************************************"
         rm -f $PRUNE_FILES
       else
         echo
@@ -384,7 +314,10 @@ echo "*********************************************************************"
     }
 
     if [ "$NOMETAFILES" = "0" ]; then
-      echo "${0##*/}: creating metafile for $PACKAGE-${PACKAGE_VERSION//-/_}-${PACKAGE_BUILD}"
+      echo
+      echo "*********************************************************************"
+      echo "*** Creating metafiles for '$PACKAGE'..."
+      echo "*********************************************************************"
       gen_pkg_txt "$( find_package_files "$PKGDEST/$SECTION" "${PACKAGE//+/\+}" \
         "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" )" &&
       gen_pkg_md5 "$( find_package_files "$PKGDEST/$SECTION" "${PACKAGE//+/\+}" \
@@ -402,7 +335,7 @@ echo "*********************************************************************"
       echo "*********************************************************************"
     fi
 
-    if [ "$NOINSTALL" = "0" -a "$INSTALLED" = "0" ]; then
+    if [ "$NOINSTALL" = "0" ]; then
       echo
       echo "*********************************************************************"
       echo "*** Installing '$PACKAGE'..."
@@ -418,7 +351,7 @@ echo "*********************************************************************"
     else
       echo
       echo "*********************************************************************"
-      echo "*** Warning: Skipping install of '$PACKAGE'."
+      echo "*** Warning: not installing '$PACKAGE'."
       echo "*********************************************************************"
     fi
   done

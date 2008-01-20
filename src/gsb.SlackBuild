@@ -27,8 +27,8 @@ SECTIONS="${GSB_SECTIONS:-	tools
 				extras
 				themes
 				compiz
-				testing	
-			        meta }"
+				testing	}"
+# Broken at the moment:	        meta }"
 
 # Usage.
 function usage() {

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Version: 1.3 GSB Section SlackBuild.
+# Version: 1.4 GSB Section SlackBuild.
 # Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
 #
 # Licenced under the terms of the GNU General Public Licence version 3.
@@ -34,33 +34,40 @@ Options:
 			the checks and attempts a build (which will probably
 			fail) anyway.
 
-  --no-skip		During the build process, packages that are up to date
-			(ie, the package version and build numbers match the
-			coresponding SlackBuild) will not be rebuilt.  This
-			option forces packages to be rebuilt regardless of the
-			version and build numbers.  This does not affect the
-			pre-build checks for installed packages (see --force).
-
-  --no-metafiles	Do not create the .txt and .md5 files for each package
-			which would usually be produced during a build.
-
-  --no-prune		Normally, when a package is built and copied to the
-			destination directory, any previous package(s) of the
-			same name are deleted - it is assumed the new package
-			is to replace any which were built previously.
-			This option prevents previous packages being deleted
-			from the destination directory, possibly leaving more
-			than one package of the same name (but with different
-			version or build numbers) laying around.
-
   --no-cleanup		By default, any source, temporary build and package
 			directories will be deleted once the package is built.
 			This option prevents those files from being removed.
 
-  --no-install		Build packages but don't install them.  This should
-			only be used for testing individual SlackBuilds as it
-			WILL cause serious problems - some package builds may
-			rely on another package being auto installed first.
+  --no-patchesdir	When rebuilding packages which already exist in the
+			main package directory, the default is to put the new
+			packages in the patches directory.  Using this option
+			completely disables the use of a patches directory.
+
+  --no-skip		During the build process, packages that are up to date
+			(ie, the package version and build numbers match the
+			coresponding SlackBuild) will not be rebuilt.  This
+			option forces packages to be rebuilt regardless of the
+			version and build numbers.  This option doesn't affect
+			the pre-build checks for installed packages (see the
+			--force option).  This option implies --no-patchesdir.
+
+  --no-prune		Normally, when a package is built and copied to the
+			destination directory (whether it be the main package 
+			directory or the patches directory), any previous
+			package(s) of the same name in that directory are
+			deleted - it is assumed the new package is to replace
+			any which are already present.  This option prevents
+			previous packages being deleted, possibly leaving more
+			than one package of the same name (but with different
+			version or build numbers) laying around.
+
+  --no-install		Build the packages but don't install them afterwards.
+			This should only be used for testing as it WILL cause
+			serious problems - most builds rely on other GSB
+			packages being automatically installed first.
+
+  --no-metafiles	Do not create the package's .txt and .md5 meta files
+			which would usually be produced during a build.
 
   Options are passed down to the next level SlackBuild where appropriate.
 EOF
@@ -136,14 +143,23 @@ cd $( cd ${BASH_SOURCE%/*} ; pwd )
 
 # Environment.
 export TMP=${TMP:-/tmp}
-export PKGDEST=${PKGDEST:-$TMP/gsb-tree/packages}
-export LOGSDIR=${LOGSDIR:-$TMP/gsb-buildlogs}
+if [ "$ARCH" = "x86_64" ]; then
+  export PKGDEST=${PKGDEST:-$TMP/gsb64-tree}
+  export LOGSDIR=${LOGSDIR:-$TMP/gsb64-buildlogs}
+else
+  export PKGDEST=${PKGDEST:-$TMP/gsb-tree}
+  export LOGSDIR=${LOGSDIR:-$TMP/gsb-buildlogs}
+fi
+export PACKAGESDIR=${PACKAGESDIR:-packages}/$SECTION
+export PATCHESDIR=${PATCHESDIR:-patches}/$SECTION
+export TESTINGDIR=${TESTINGDIR:-testing}
 
 # Option defaults.
+NOPATCHESDIR=0
 NOSKIP=0
-NOMETAFILES=0
 NOPRUNE=0
 NOINSTALL=0
+NOMETAFILES=0
 
 # Sanity check (in case Steve forgets to add packages again :P).
 [ $( echo "$PACKAGES" | wc -w ) != \
@@ -171,17 +187,21 @@ while [ $# -gt 0 ]; do
   elif [ "$1" = "-no-cleanup" ] || [ "$1" = "--no-cleanup" ]; then
     SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}--no-cleanup"
     shift
+  elif [ "$1" = "-no-patchesdir" ] || [ "$1" = "--no-patchesdir" ]; then
+    NOPATCHESDIR=1
+    shift
   elif [ "$1" = "-no-skip" ] || [ "$1" = "--no-skip" ]; then
     NOSKIP=1
-    shift
-  elif [ "$1" = "-no-metafiles" ] || [ "$1" = "--no-metafiles" ]; then
-    NOMETAFILES=1
+    NOPATCHESDIR=1
     shift
   elif [ "$1" = "-no-prune" ] || [ "$1" = "--no-prune" ]; then
     NOPRUNE=1
     shift
   elif [ "$1" = "-no-install" ] || [ "$1" = "--no-install" ]; then
     NOINSTALL=1
+    shift
+  elif [ "$1" = "-no-metafiles" ] || [ "$1" = "--no-metafiles" ]; then
+    NOMETAFILES=1
     shift
   else
     echo "${0##*/}: Unknown option: $1"
@@ -194,7 +214,6 @@ done
 mkdir -p $TMP
 mkdir -p $PKGDEST
 mkdir -p $LOGSDIR
-mkdir -p $PKGDEST/$SECTION
 mkdir -p $LOGSDIR/$SECTION
 
 echo
@@ -205,6 +224,10 @@ echo "*********************************************************************"
 # Process packages.
 ( for PACKAGE in $PACKAGES
   do
+    # Build defaults.
+    SKIP_BUILD=0
+    SUBDIR=$PACKAGESDIR
+
     echo
     echo "*********************************************************************"
     echo "*** Processing package '$PACKAGE'..."
@@ -231,7 +254,7 @@ echo "*********************************************************************"
     declare PACKAGE_$( egrep -m 1 "^BUILD=.*" $PACKAGE/$PACKAGE.SlackBuild )
 
     # Check that we got a version and build.
-    [ -z "${PACKAGE_VERSION//-/_}" ] || [ -z "$PACKAGE_BUILD" ] && {
+    [ -z "$PACKAGE_VERSION" ] || [ -z "$PACKAGE_BUILD" ] && {
       echo
       echo "*********************************************************************"
       echo "*** Error: failed to get VERSION or BUILD from '$PACKAGE.SlackBuild'"
@@ -239,43 +262,59 @@ echo "*********************************************************************"
       exit 1
     }
 
-    # Check if the package has been built previously.
-    SKIP_BUILD=0
-    find_package_files "$PKGDEST/$SECTION" "${PACKAGE//+/\+}" \
-      "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" >/dev/null && {
-      if [ "$NOSKIP" = "0" ]; then
-        # The package is up to date, no need to rebuild it.
+    # Check if the package should be rebuilt, and where it should be put.
+    # The assumption is to always rebuild and put packages in main packages
+    # directory, unless modified by the checks below.
+    if [ "$NOSKIP" = "0" ]; then
+      # Skipping is OK...
+      if find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
+        "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" >/dev/null; then
+        # Package with same version/build was found in the main packages dir.
         SKIP_BUILD=1
       else
-        echo
-        echo "*********************************************************************"
-        echo "*** Removing '$PACKAGE' package files from tree..."
-        echo "*********************************************************************"
-        rm -f $( find_package_files "$PKGDEST/$SECTION" "${PACKAGE//+/\+}" \
-          "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz|\.txt|\.tgz\.md5" | \
-          tr '\n' ' ' )
+        if [ "$NOPATCHESDIR" = "0" ]; then
+          # Check patches dir for an updated version.
+          if find_package_files "$PKGDEST/$PATCHESDIR/$SECTION" \
+            "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" \
+            "\.tgz" >/dev/null; then
+            # The package in the patches dir is up to date.
+            SKIP_BUILD=1
+            SUBDIR=$PATCHESDIR
+          else
+            # No package in patches with the same version/build.
+            SUBDIR=$PATCHESDIR
+          fi
+        fi
       fi
-    }
-
-    # Remove the package if it's installed.
-    # Note: this is done even with an "update" build so that the system is
-    # refreshed from the package in the tree.
-    find_package_files "/var/log/packages" "${PACKAGE//+/\+}" "" "" "" "" \
-      >/dev/null && {
+    else
+      # No skipping - delete old files.
       echo
       echo "*********************************************************************"
-      echo "*** Removing installed package '$PACKAGE'..."
+      echo "*** Removing '$PACKAGE' package files from tree for rebuild..."
       echo "*********************************************************************"
-      removepkg $( basename $PACKAGE )
-    }
+      rm -f $( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
+        "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz|\.txt|\.tgz\.md5" \
+        | tr '\n' ' ' ) >/dev/null 2>&1
+    fi
 
     # Build package if required.
     if [ "$SKIP_BUILD" = "0" ]; then
+      # Remove the package if it's installed.
+      find_package_files "/var/log/packages" "${PACKAGE//+/\+}" "" "" "" "" \
+        >/dev/null && {
+        echo
+        echo "*********************************************************************"
+        echo "*** Removing installed package '$PACKAGE'..."
+        echo "*********************************************************************"
+        removepkg $( basename $PACKAGE )
+      }
+
       echo
       echo "*********************************************************************"
       echo "*** Building package '$PACKAGE'..."
       echo "*********************************************************************"
-      ( cd $PACKAGE && export PKGDEST=$PKGDEST/$SECTION &&
+      mkdir -p $PKGDEST/$SUBDIR
+      ( cd $PACKAGE && export PKGDEST=$PKGDEST/$SUBDIR &&
         ./$PACKAGE.SlackBuild $SLACKBUILD_ARGS 2>&1 ) | \
         tee $LOGSDIR/$SECTION/$PACKAGE-$( date +%Y%m%d-%H%M%S ).log
       ERR=${PIPESTATUS[0]}
@@ -293,9 +332,9 @@ echo "*********************************************************************"
       echo "*********************************************************************"
     fi
 
-    PRUNE_FILES="$( find_package_files "$PKGDEST/$SECTION" "${PACKAGE//+/\+}" \
+    PRUNE_FILES="$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
       "" "" "" "\.tgz|\.txt|\.tgz\.md5" | grep -v "$( find_package_files \
-      "$PKGDEST/$SECTION" "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" \
+      "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" \
       "$PACKAGE_BUILD" "\.tgz" )" | tr '\n' ' ' )"
     [ ! -z "$PRUNE_FILES" ] && {
       if [ "$NOPRUNE" = "0" ]; then
@@ -315,22 +354,22 @@ echo "*********************************************************************"
     if [ "$NOMETAFILES" = "0" ]; then
       echo
       echo "*********************************************************************"
-      echo "*** Creating metafiles for '$PACKAGE'..."
+      echo "*** Creating meta files for '$PACKAGE'..."
       echo "*********************************************************************"
-      gen_pkg_txt "$( find_package_files "$PKGDEST/$SECTION" "${PACKAGE//+/\+}" \
+      gen_pkg_txt "$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
         "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" )" &&
-      gen_pkg_md5 "$( find_package_files "$PKGDEST/$SECTION" "${PACKAGE//+/\+}" \
+      gen_pkg_md5 "$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
         "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" )" || {
         echo
         echo "*********************************************************************"
-        echo "*** Error: failed to create metafiles for '$PACKAGE'."
+        echo "*** Error: failed to create meta files for '$PACKAGE'."
         echo "*********************************************************************"
         exit 1
       }
     else
       echo
       echo "*********************************************************************"
-      echo "*** Warning: not creating metafiles for '$PACKAGE'."
+      echo "*** Warning: not creating meta files for '$PACKAGE'."
       echo "*********************************************************************"
     fi
 
@@ -339,7 +378,7 @@ echo "*********************************************************************"
       echo "*********************************************************************"
       echo "*** Installing '$PACKAGE'..."
       echo "*********************************************************************"
-      upgradepkg --install-new $( find_package_files $PKGDEST/$SECTION \
+      upgradepkg --install-new $( find_package_files "$PKGDEST/$SUBDIR" \
         "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" ) || {
         echo
         echo "*********************************************************************"
@@ -359,8 +398,10 @@ echo "*********************************************************************"
   echo "*********************************************************************"
   echo "** Finished building section '$SECTION'."
   echo "*********************************************************************"
-  echo "** This sections packages can be found in '$PKGDEST/$SECTION'."
-  echo "** Individual build logs can be found in '$LOGSDIR/$SECTION'."
+  echo "** Binary packages can be found in sub directories of:"
+  echo "**    $PKGDEST"
+  echo "** Individual build logs can be found in:"
+  echo "**    $LOGSDIR/$SECTION"
   echo "** Package files and build logs can be deleted if not required."
   echo "*********************************************************************"
   echo "** Section build time was $( runtime $SECONDS )."
