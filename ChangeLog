@@ -1,6 +1,20 @@
 ChangeLog
 ---------
 
+21-01-2008  Tadgy <tadgy(at)gnomeslackbuild.org>
+    * Final updates/fixes to gsb.section.SlackBuild.
+    * All section SBs (bar the SB in testing/) are symlinks to
+      lib/gsb/gsb.section.SlackBuild.
+    * Each section directory now contains a .buildlist file which lists the
+      packages (in build order) for that section.  Blank lines and comments
+      are ignored.  This file is read by gsb.section.SlackBuild.
+    * src/gsb.SlackBuild now generates the final meta data (eg, PACKAGES.TXT,
+      CHECKSUMS.md5 et al) for the tree.
+    * src/gsb.SlackBuild now puts the x86_64 tree (by default) at
+      /tmp/gsb64-tree  rather than the usual /tmp/gsb-tree for ia32.
+    * gen_metadata.sh moved to cruft.
+    * Removed notes/packages_to_rebuild as RC1 is up to date.
+
 18-01-2008  Tadgy <tadgy(at)gnomeslackbuild.org>
     * Updated HACKING/VERSIONS
     * Fixed bin/check_slack_desc.sh so that packages with a + in the name
