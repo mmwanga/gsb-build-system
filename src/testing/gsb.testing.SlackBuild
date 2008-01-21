@@ -5,20 +5,17 @@
 # Licenced under the terms of the GNU General Public Licence version 3.
 #
 
-# The list of packages in this section, in the order they should be built.
-PACKAGES="	wpa_supplicant
-		NetworkManager
-		network-manager-applet
-		NetworkManager-vpn
-		pycups
-		rhpl
-		notify-python
-		system-config-printer
-		gslapt	"
+# Make sure we are in the right directory (you can never trust users..)
+cd $( cd ${BASH_SOURCE%/*} ; pwd )
 
 # Section name.
 # This should not need to be changed unless the auto detection fails.
-SECTION="$( echo ${BASH_SOURCE#*/} | cut -d. -f2 )"
+SECTION="$( basename $( pwd ) )"
+
+# Packages to build.
+# Package list is read in from .buildlist in the current directory, with any
+# comments and blank lines removed.
+PACKAGES="$( egrep -v "^#|^$" .buildlist | cut -d'#' -f1 )"
 
 # Usage.
 function usage() {
@@ -134,9 +131,6 @@ function gen_pkg_md5() {
   return $?
 }
 
-# Make sure we are in the right directory (you can never trust users..)
-cd $( cd ${BASH_SOURCE%/*} ; pwd )
-
 # If the user created an options file, read it.
 [ "$OPTIONSREAD" != "1" -a -r ../gsb.options ] && {
   . ../gsb.options
@@ -228,7 +222,7 @@ echo "*********************************************************************"
   do
     # Build defaults.
     SKIP_BUILD=0
-    SUBDIR=$TESTINGDIR			# Note: Special dir for testing packages
+    SUBDIR=$TESTINGDIR			# Note: Use testing/ not packages/
 
     echo
     echo "*********************************************************************"
@@ -265,21 +259,23 @@ echo "*********************************************************************"
     }
 
     # Check if the package should be rebuilt, and where it should be put.
-    # The assumption is to always rebuild and put packages in main packages
+    # The assumption is to always rebuild and put packages in the main
     # directory, unless modified by the checks below.
-    if [ "$NOSKIP" = "0" ]; then
-      # Skipping is OK...
+    if find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" "" "" "" \
+      "\.tgz" >/dev/null && [ "$NOSKIP" = "0" ]
+    then
       if find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
-        "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" >/dev/null; then
-        # Package with same version/build was found in the main packages dir.
+        "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" >/dev/null
+      then
+        # Package with same version/build was found in the main directory.
         SKIP_BUILD=1
       else
+        # Not in the main directory, check patches.
         if [ "$NOPATCHESDIR" = "0" ]; then
-          # Check patches dir for an updated version.
-          if find_package_files "$PKGDEST/$PATCHESDIR/$SECTION" \
-            "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" \
-            "\.tgz" >/dev/null; then
-            # The package in the patches dir is up to date.
+          if find_package_files "$PKGDEST/$PATCHESDIR" "${PACKAGE//+/\+}" \
+            "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" >/dev/null
+          then
+            # Found in patches dir.
             SKIP_BUILD=1
             SUBDIR=$PATCHESDIR
           else
@@ -288,27 +284,21 @@ echo "*********************************************************************"
           fi
         fi
       fi
-    else
-      # No skipping - delete old files.
-      echo
-      echo "*********************************************************************"
-      echo "*** Removing '$PACKAGE' package files from tree for rebuild..."
-      echo "*********************************************************************"
-      rm -f $( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
-        "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz|\.txt|\.tgz\.md5" \
-        | tr '\n' ' ' ) >/dev/null 2>&1
     fi
 
     # Build package if required.
     if [ "$SKIP_BUILD" = "0" ]; then
-      # Remove the package if it's installed.
+      echo
+      echo "*********************************************************************"
+      echo "*** Removing installed package (if required) and cleaning up files"
+      echo "*********************************************************************"
+      rm -f $( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
+        "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz|\.txt|\.tgz\.md5" \
+        | tr '\n' ' ' ) >/dev/null 2>&1
       find_package_files "/var/log/packages" "${PACKAGE//+/\+}" "" "" "" "" \
         >/dev/null && {
-        echo
-        echo "*********************************************************************"
-        echo "*** Removing installed package '$PACKAGE'..."
-        echo "*********************************************************************"
-        removepkg $( basename $PACKAGE )
+        removepkg $( basename $( find_package_files "/var/log/packages" \
+          "${PACKAGE//+/\+}" "" "" "" "" ) )
       }
 
       echo
