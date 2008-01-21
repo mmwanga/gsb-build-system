@@ -237,6 +237,9 @@ mkdir -p $LOGSDIR
     echo "*********************************************************************"
     echo "* Generating final meta files - this may take a while..."
     echo "*********************************************************************"
+    cp ../{COPYING,CREDITS,VERSIONS} $PKGDEST
+    cp ../README.binary $PKGDEST/README
+    cp ../ChangeLog.binary $PKGDEST/ChangeLog
     for DIR in "$PKGDEST/$PACKAGESDIR" "$PKGDEST/$PATCHESDIR" \
       "$PKGDEST/$TESTINGDIR" "$PKGDEST"
     do
@@ -247,9 +250,6 @@ mkdir -p $LOGSDIR
         gen_filelist_txt
       )
     done
-    cp ../{COPYING,CREDITS,VERSIONS} $PKGDEST
-    cp ../README.binary $PKGDEST/README
-    cp ../ChangeLog.binary $PKGDEST/ChangeLog
   else
     echo
     echo "*********************************************************************"
