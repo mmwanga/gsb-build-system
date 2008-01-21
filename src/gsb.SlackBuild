@@ -247,6 +247,9 @@ mkdir -p $LOGSDIR
         gen_filelist_txt
       )
     done
+    cp ../{COPYING,CREDITS,VERSIONS} $PKGDEST
+    cp ../README.binary $PKGDEST/README
+    cp ../ChangeLog.binary $PKGDEST/ChangeLog
   else
     echo
     echo "*********************************************************************"
