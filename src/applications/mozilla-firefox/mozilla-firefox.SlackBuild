@@ -215,12 +215,6 @@ export CXXFLAGS="$TUNE_CFLAGS" &&
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-if [ "$ARCH" = "x86_64" ]; then
-  (cd $PKG/usr/lib64; ln -sf $PKGNAME-$VERSION $PKGNAME);
-else
-  (cd $PKG/usr/lib; ln -sf $PKGNAME-$VERSION $PKGNAME);
-fi;
-
 ## For GNOME
 mkdir -p $PKG/usr/share/applications
 cp $CWD/gnome/mozilla-firefox.desktop $PKG/usr/share/applications
@@ -284,6 +278,14 @@ do
     cat $CWD/$FILE >>$PKG/install/$FILE
   }
 done
+
+# Make a softlink in the doinst.sh
+if [ "$ARCH" = "x86_64" ]; then
+  echo "(cd usr/lib64; ln -sf $PKGNAME-$VERSION $PKGNAME);" >> $PKG/install/doinst.sh
+else
+  echo "(cd usr/lib; ln -sf $PKGNAME-$VERSION $PKGNAME);" >> $PKG/install/doinst.sh
+fi;
+
 
 ## Create the package
 cd $PKG
