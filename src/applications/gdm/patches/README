@@ -1,0 +1,2 @@
+gdm 2.20.3 seems broken on Slackware 12. (It won't even compile.)
+These patches help gdm compile, but it remains largely broken.  :)

@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=3
-VERSION=2.20.3
+BUILD=4
+VERSION=2.20.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -113,10 +113,6 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
-
-## Fix for includes in daemon/verify-shadow.c
-#patch -p0 < $CWD/patches/daemon.verify-shadow.patch || exit 1
-patch -p0 < $CWD/patches/daemon.verify-shadow.g_debug.patch || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .
