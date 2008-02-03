@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # $XConsortium: xinitrc.cpp,v 1.4 91/08/22 11:41:34 rws Exp $
-# Modified for GSB Gnome Xinitrc (stevek)
+# Modified for GSB xinitrc (stevek)
 #
 
 userresources=$HOME/.Xresources
@@ -11,6 +11,13 @@ sysmodmap=/usr/lib/X11/xinit/.Xmodmap
 
 ## Default Session Settings
 GNOME_SESSION_SETTINGS=""
+
+## GNOME XDG Menu Path
+# We keep the GNOME menu templates separate
+# from KDE so the two don't interfere with each other
+# This path may be extended to include the KDE
+# menu path /etc/kde/xdg if the user wishes.
+XDG_CONFIG_DIRS=/etc/xdg:/etc/gnome/xdg
 
 # Merge in defaults and keymaps
 if [ -f $sysresources ]; then
