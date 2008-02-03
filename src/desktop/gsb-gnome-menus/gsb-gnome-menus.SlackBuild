@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=4
 VERSION=1.0
 
 ## List any packages here that are required to build this package.
@@ -15,7 +15,7 @@ VERSION=1.0
 REQUIRED_PACKAGES="gnome-menus"
 
 ## Build variables.
-ARCH=${ARCH:-i586}
+ARCH=noarch
 TUNE=${TUNE:-i586}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
@@ -152,6 +152,10 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 ## Copy files to package
 cp -r $CWD/etc $PKG
 cp -r $CWD/usr $PKG
+
+# Make sure not to include svn info in the package
+find $PKG -type d -name ".svn" -exec rm -rf {} \;
+# Proper permissions
 chown -R root:root $PKG
 
 ## Copy extra documentation into package.
