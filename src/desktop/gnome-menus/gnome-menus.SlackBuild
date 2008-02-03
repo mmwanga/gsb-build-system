@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=4
 VERSION=2.20.3
 
 ## List any packages here that are required to build this package.
@@ -114,6 +114,15 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
+# Patch to clean up menus by removing KDE and Xfce items
+# This patch addes "Exclude" sections to the applications.menu
+# to avoid KDE items in the GNOME menu
+patch -p0 < $CWD/patches/gnome-menus-2.20.3-menu-cleanup.patch
+
+# Patch to prefix gnome xfg menus with "gnome-" in order
+# to keep seperate from KDE menus.
+#patch -p0 < $CWD/patches/gnome-menus-2.20.3-xdg-prefix.patch
+
 ## Fix permissions for building.
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
@@ -156,7 +165,7 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  ./configure --prefix=/usr --sysconfdir=/etc/gnome --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   || exit 1
@@ -169,9 +178,8 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 ## For doinst.sh.  This will preserve any local
 ## modifications
 ##
-
 (
-  cd $PKG/etc/xdg/menus
+  cd $PKG/etc/gnome/xdg/menus
   for i in applications preferences settings
   do
     mv $i.menu $i.menu.new
