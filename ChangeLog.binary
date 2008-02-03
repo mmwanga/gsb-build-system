@@ -1,3 +1,14 @@
+Sun Feb 03 13:28:00 GMT 2008
+* Rebuilt gnome-menus with a patch to clean up KDE items in menu
+* Added gsb-gnome-menus (based on gnome-menu-extended by Ariszlo)
+    This package makes a KDE submenu in the GNOME menu to allow
+    for nicer play between KDE and GNOME menus.
+* Rebuilt gnome-session xinitrc.gnome by adding a XDG_CONFIG_DIRS
+    This will force GNOME to ignore the KDE menu templates by
+    moving the GNOME applications.menu out of the way; this will
+    also prevent KDE from picking up the GNOME template.
+* Updated to deluge-0.5.8.1
++--------------------------+
 Mon Jan 21 23:00:32 GMT 2008
 Released gsb-2.20.3RC1 (gsb-current), with a few updates.
 +--------------------------+

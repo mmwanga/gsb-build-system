@@ -1,6 +1,15 @@
 ChangeLog
 ---------
 
+03-02-2008 fidesratio <sk238(at)ex.ac.uk>		
+    * Added gsb-gnome-menus, based on gnome-menu-extended which
+      adds a KDE submenu to the default GNOME menus
+    * Added gnome menu cleanup patch to remove KDE items by default 
+      in GNOME menus to gnome-menus, and change to --sysconfigdir=/etc/gnome
+    * Added XDG_CONFIG_DIRS to gnome-sesion xinitrc.gnome to prevent
+      interference between GNOME / KDE menu templates
+    * Fixed small typo in package.SlackBuild (missing quote)
+
 21-01-2008  Tadgy <tadgy(at)gnomeslackbuild.org>
     * Final updates/fixes to gsb.section.SlackBuild.
     * All section SBs (bar the SB in testing/) are symlinks to
