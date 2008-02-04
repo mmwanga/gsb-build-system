@@ -4,6 +4,7 @@ gnome-doc-utils
 at-spi
 gnome-desktop
 gnome-menus
+gsb-gnome-menus
 libwnck
 evolution-data-server
 gnome-python
