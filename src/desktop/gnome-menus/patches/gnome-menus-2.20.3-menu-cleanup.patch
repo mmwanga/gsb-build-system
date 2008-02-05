@@ -1,0 +1,129 @@
+--- layout/applications.menu.old	2008-02-02 12:42:45.000000000 +0000
++++ layout/applications.menu	2008-02-02 12:48:20.000000000 +0000
+@@ -30,6 +30,17 @@
+         </Not>
+       </And>
+     </Include>
++    <Exclude>
++        <Filename>Xfmime_edit.desktop</Filename>
++        <Filename>xfce4-appfinder.desktop</Filename>
++        <Filename>Xfglob.desktop</Filename>
++        <Filename>Xftree.desktop</Filename>
++        <Filename>Xfdiff.desktop</Filename>
++        <Filename>gpa.desktop</Filename>
++        <Filename>hplip.desktop</Filename>
++        <Filename>mousepad.desktop</Filename>
++        <Category>KDE</Category>
++    </Exclude>
+   </Menu> <!-- End Accessories -->
+ 
+   <!-- Accessibility submenu -->
+@@ -44,6 +55,9 @@
+         </Not>
+       </And>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++    </Exclude>
+   </Menu> <!-- End Accessibility -->
+ 
+   <!-- Development Tools -->
+@@ -56,6 +70,10 @@
+       </And>
+       <Filename>emacs.desktop</Filename>
+     </Include>
++    <Exclude>
++        <Filename>distccmon-gnome.desktop</Filename>
++        <Category>KDE</Category>
++    </Exclude>
+   </Menu> <!-- End Development Tools -->
+ 
+   <!-- Education -->
+@@ -67,6 +85,9 @@
+         <Category>Education</Category>
+       </And>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++    </Exclude>
+   </Menu> <!-- End Education -->
+ 
+   <!-- Games -->
+@@ -78,6 +99,11 @@
+         <Category>Game</Category>
+       </And>
+     </Include>
++    <Exclude>
++      <Filename>xboard.desktop</Filename>
++      <Filename>eboard.desktop</Filename>
++      <Category>KDE</Category>
++    </Exclude>
+   </Menu> <!-- End Games -->
+ 
+   <!-- Graphics -->
+@@ -89,6 +115,9 @@
+         <Category>Graphics</Category>
+       </And>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++    </Exclude>
+   </Menu> <!-- End Graphics -->
+ 
+   <!-- Internet -->
+@@ -100,6 +129,10 @@
+         <Category>Network</Category>
+       </And>
+     </Include>
++    <Exclude>
++        <Filename>Xfsamba.desktop</Filename>
++        <Category>KDE</Category>
++    </Exclude>
+   </Menu>   <!-- End Internet -->
+ 
+   <!-- Multimedia -->
+@@ -111,6 +144,9 @@
+         <Category>AudioVideo</Category>
+       </And>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++    </Exclude>
+   </Menu>   <!-- End Multimedia -->
+ 
+   <!-- Office -->
+@@ -122,6 +158,9 @@
+         <Category>Office</Category>
+       </And>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++    </Exclude>
+   </Menu> <!-- End Office -->
+ 
+   <!-- System Tools-->
+@@ -134,6 +173,14 @@
+         <Not><Category>Settings</Category></Not>
+       </And>
+     </Include>
++    <Exclude>
++        <Filename>Xffstab.desktop</Filename>
++        <Filename>Thunar-bulk-rename.desktop</Filename>
++        <Filename>Thunar.desktop</Filename>
++        <Filename>hplip.desktop</Filename>
++        <Filename>Terminal.desktop</Filename>
++        <Category>KDE</Category>
++    </Exclude>
+   </Menu>   <!-- End System Tools -->
+ 
+   <!-- Other -->
+@@ -148,6 +195,9 @@
+         <Not><Category>Screensaver</Category></Not>
+       </And>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++    </Exclude>
+   </Menu> <!-- End Other -->
+ 
+ </Menu> <!-- End Applications -->

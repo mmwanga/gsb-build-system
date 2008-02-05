@@ -1,0 +1,46 @@
+--- libmenu/gmenu-tree.c.orig	2008-01-07 23:27:42.000000000 +0100
++++ libmenu/gmenu-tree.c	2008-02-01 16:48:59.000000000 +0100
+@@ -588,15 +588,24 @@
+ 		   GMenuTreeFlags  flags)
+ {
+   GMenuTree *retval;
++  char *lookup_file;
+ 
+   g_return_val_if_fail (menu_file != NULL, NULL);
++  if (!strcmp(menu_file,"applications.menu") ||
++      !strcmp(menu_file,"settings.menu") ||
++      !strcmp(menu_file,"preferences.menu"))
++    lookup_file = g_strconcat ("gnome-", menu_file, NULL);
++  else
++    lookup_file = g_strdup (menu_file);
+ 
+   flags &= GMENU_TREE_FLAGS_MASK;
+ 
+   if (g_path_is_absolute (menu_file))
+-    retval = gmenu_tree_lookup_absolute (menu_file, flags);
++    retval = gmenu_tree_lookup_absolute (lookup_file, flags);
+   else
+-    retval = gmenu_tree_lookup_basename (menu_file, flags);
++    retval = gmenu_tree_lookup_basename (lookup_file, flags);
++
++  g_free (lookup_file);
+ 
+   g_assert (retval != NULL);
+ 
+@@ -2033,6 +2042,8 @@
+   root = menu_layout_node_get_root (layout);
+   menu_name = menu_layout_node_root_get_name (root);
+ 
++  if (g_str_has_prefix (menu_name, "gnome-"))
++    menu_name += 6;
+   merge_name = g_strconcat (menu_name, "-merged", NULL);
+ 
+   system_config_dirs = g_get_system_config_dirs ();
+
+--- layout/settings.menu.orig	2008-01-07 23:27:42.000000000 +0100
++++ layout/settings.menu	2008-02-01 16:49:32.000000000 +0100
+@@ -23,3 +23,3 @@
+     <Name>Preferences</Name>
+-    <MergeFile>preferences.menu</MergeFile>
++    <MergeFile>gnome-preferences.menu</MergeFile>
+   </Menu>
