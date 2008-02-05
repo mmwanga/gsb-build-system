@@ -142,7 +142,7 @@ our %extras =
                             },
    'slapt-update-notifier'         => {
                  'ver' => '0.2.1',
-                 'url' => 'http://software.jaos.org/source/slapt-update-notifier/',
+                 'url' => 'http://software.jaos.org/source/slapt-update-notifier',
                  'src' => 'tar.gz',
                             },
    'streamripper'        => {

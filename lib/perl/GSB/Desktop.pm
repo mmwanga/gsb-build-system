@@ -22,6 +22,7 @@ our %desktop =
    'eel'                    => '2.20.0',
    'evolution-data-server'  => '1.12.3',
    'gconf-editor'           => '2.20.0',
+   'gnome-audio'            => '2.0.0',
    'gnome-applets'          => '2.20.1',
    'gnome-control-center'   => '2.20.3',
    'gnome-desktop'          => '2.20.3',
