@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=4
+BUILD=5
 VERSION=2.20.3
 
 ## List any packages here that are required to build this package.
@@ -117,11 +117,11 @@ fi
 # Patch to clean up menus by removing KDE and Xfce items
 # This patch addes "Exclude" sections to the applications.menu
 # to avoid KDE items in the GNOME menu
-patch -p0 < $CWD/patches/gnome-menus-2.20.3-menu-cleanup.patch
+patch -p0 < $CWD/patches/gnome-menus-2.20.3-menu-cleanup.patch || exit 1
 
 # Patch to prefix gnome xfg menus with "gnome-" in order
 # to keep seperate from KDE menus.
-#patch -p0 < $CWD/patches/gnome-menus-2.20.3-xdg-prefix.patch
+#patch -p0 < $CWD/patches/gnome-menus-2.20.3-xdg-prefix.patch || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .
