@@ -1,3 +1,7 @@
+Thu Feb  7 18:13:36 GMT 2008
+* Added sensors-applet for reporting of sensor infortmation.
+  Thanks to byteframe for the suggestion.
++--------------------------+
 Sun Feb 03 13:28:00 GMT 2008
 * Rebuilt gnome-menus with a patch to clean up KDE items in menu
 * Added gsb-gnome-menus (based on gnome-menu-extended by Ariszlo)
@@ -10,5 +14,5 @@ Sun Feb 03 13:28:00 GMT 2008
 * Updated to deluge-0.5.8.1
 +--------------------------+
 Mon Jan 21 23:00:32 GMT 2008
-Released gsb-2.20.3RC1 (gsb-current), with a few updates.
+* Released gsb-2.20.3RC1 (gsb-current), with a few updates.
 +--------------------------+
