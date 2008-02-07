@@ -55,6 +55,11 @@ our %desktop_nongnome =
                       'url' => 'http://people.freedesktop.org/~david/dist/',
                       'src' => 'tar.gz',
                      },
+   'sensors-applet'  => { 
+                      'ver' => '2.2.1',
+                      'url' => 'http://heanet.dl.sourceforge.net/sourceforge/sensors-applet',
+                      'src' => 'tar.gz',
+                     },
    'gstreamer'   => {
                            'ver' => '0.10.15',
                            'url' => 'http://gstreamer.freedesktop.org/src/gstreamer/',
