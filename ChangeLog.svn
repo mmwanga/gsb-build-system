@@ -1,6 +1,13 @@
 ChangeLog
 ---------
 
+07-02-2008 fidesratio <sk238(at)ex.ac.uk>		
+    * Added sensors-applet to desktop section.
+    * Fix to gnome-themes doinst.sh
+    * Added xinitrc.compiz-gnome to compiz
+    * Added GDM session script to compiz package.
+    * Tweak to gnome-wm in gnome-session to use compiz ccp by default
+
 03-02-2008 fidesratio <sk238(at)ex.ac.uk>		
     * Added gsb-gnome-menus, based on gnome-menu-extended which
       adds a KDE submenu to the default GNOME menus

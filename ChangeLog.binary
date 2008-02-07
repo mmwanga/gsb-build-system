@@ -1,6 +1,18 @@
 Thu Feb  7 18:13:36 GMT 2008
 * Added sensors-applet for reporting of sensor infortmation.
-  Thanks to byteframe for the suggestion.
+    Thanks to byteframe for the suggestion.
+* Rebuilt gnome-themes.
+    Fixed a small error in the doinst.sh which didn't refresh
+    the newly installed icons.
+* Rebuilt gnome-session.
+    Small tweak to gnome-wm to use compiz ccp by default
+    rather than gconf/glib.
+* Rebuilt compiz.
+    Exclude dock and menu shadowing by default (causes white
+    bars around menu and dock).  
+    Added a GDM session file (Compiz GNOME in session list now)
+    Added a compiz xinitrc script to use compiz as default 
+    window manager.
 +--------------------------+
 Sun Feb 03 13:28:00 GMT 2008
 * Rebuilt gnome-menus with a patch to clean up KDE items in menu
