@@ -1,196 +1,201 @@
 GSB: GNOME SlackBuild
------------------------
+---------------------
 
-This is our binary GNOME distribution for Slackware Linux. It encompasses all needed packages for 
-a fully configurable, customisable and usable GNOME desktop environment for Slackware. If you haven't 
-yet, you should read about the GSB project before installing GSB.
+This is our binary GNOME distribution for Slackware Linux.  It encompasses all
+needed packages for a fully configurable, customisable and usable GNOME desktop
+environment for Slackware.  If you haven't yet, you should read about the GSB
+project before installing GSB.
+
 
 Package Management
 ------------------
-The package management tool used by GNOME SlackBuild is slapt-get. Slapt-get tries to emulate Debian's 
-apt-get as closely as possible. It uses native Slackware tools, like installpkg, upgradepkg and 
-removepkg, and supports multiple package sources. It is also capable of caching packages, resuming 
-downloads, checking MD5s, searching packages, and resolving dependencies and conflicts. It is the 
-preferred tool when installing GNOME SlackBuild. If you would like more information on slapt-get please 
-see see Slapt-get's home page. GSlapt is also available, and is a GTK version of slapt-get, which 
-integrates well into the GSB GNOME Desktop, and is the default package management application.
+
+The package management tool used by GNOME SlackBuild is slapt-get.  slapt-get
+tries to emulate Debian's apt-get as closely as possible.  It uses native
+Slackware tools, like installpkg, upgradepkg and removepkg, and supports
+multiple package sources.  It is also capable of caching packages, resuming 
+downloads, checking MD5s, searching packages, and resolving dependencies and
+conflicts.  It is the preferred tool when installing GNOME SlackBuild.  If you
+would like more information on slapt-get please see see slapt-get's home page.
+gslapt is also available, and is a GTK version of slapt-get, which integrates
+well into the GSB GNOME Desktop, and is the default package management
+application.  slapt-get requires the following packages: gpgme, curl, pkgtools.
     
-   * slapt-get requirements: gpgme curl pkgtools
-    
-You can download slapt-get for Slackware v12.0 from: 
+You can download slapt-get for Slackware v12.0 from:
+  <http://software.jaos.org/slackpacks/12.0/slapt-get-0.9.12c-i386-1.tgz>
 
-   * http://software.jaos.org/slackpacks/12.0/slapt-get-0.9.12c-i386-1.tgz
+If you are using a 64-bit platform, you can try slapt-get for Slamd64-current:
+  <http://software.jaos.org/slackpacks/current-x86_64/slapt-get-0.9.12b-x86_64-1.tgz>
 
-If you are using a 64-bit platform, you can try slapt-get for Slamd64-current: 
-
-   * http://software.jaos.org/slackpacks/current-x86_64/slapt-get-0.9.12b-x86_64-1.tgz
 
 Mirrors
--------------
+-------
 
-The following is a list of available mirrors from which to download GNOME SlackBuild.
+The following is a list of available mirrors from which to download GNOME
+SlackBuild:
+  * Slackware 12.0:
+	<ftp://ftp.slackware.org.uk/gsb/gsb-current/>
+	<ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-current/>
+	<http://http.slackware.org.uk/gsb/gsb-current/>
+	<http://slackware.rol.ru/gsb/gsb/gsb-current/>
 
-    *       Slackware 12.0        
+  * x86_64 Slackware derivatives, like Slamd64:
+	<ftp://ftp.slackware.org.uk/gsb64/gsb64-current/>
+	<ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb64/gsb64-current/>
+	<http://http.slackware.org.uk/gsb64/gsb64-current/>
+	<http://slackware.rol.ru/gsb/gsb64/gsb64-current/>
 
-                        <ftp://ftp.slackware.org.uk/gsb/gsb-current/>
-                        <ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-current/>
-                        <http://http.slackware.org.uk/gsb/gsb-current/>
-                        <http://slackware.rol.ru/gsb/gsb/gsb-current/>
-
-    *       x86_64 Slackware derivatives, like Slamd64
-                        <ftp://ftp.slackware.org.uk/gsb64/gsb64-current/>
-                        <ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb64/gsb64-current/>
-                        <http://http.slackware.org.uk/gsb64/gsb64-current/>
-                        <http://slackware.rol.ru/gsb/gsb64/gsb64-current/>
 
 Downloading and Installing
----------------------------
+--------------------------
 
 The complete and most up-to-date installation instructions can be found at:
+  <http://gnomeslackbuild.org/download/>
 
-   http://gnomeslackbuild.org/download/
-
-Install slapt-get.  You will need to update the /etc/slapt-get/slapt-getrc file with a SOURCE= pointing to one of the above mirrors.  After 
-installing and customizing slapt-getrc configuration file, you need to run:
-
+Install slapt-get.  You will need to update the /etc/slapt-get/slapt-getrc file
+with a SOURCE= pointing to one of the above mirrors.  After installing and
+customizing slapt-getrc configuration file, you need to run:
   $ slapt-get --update
 
-This will update all the package data available from all the package sources you specified within the slapt-getrc file. Some standard 
-Slackware packages will need to be upgraded, most notably pango, glib2, gtk+2, and gnome-icon-theme. Others may need to be upgraded later for 
-added functionality, but these packages are optional. 
+This will update all the package data available from all the package sources
+you specified within the slapt-getrc file.  Some standard Slackware packages
+will need to be upgraded, most notably pango, glib2, gtk+2, and
+gnome-icon-theme.  Others may need to be upgraded for added functionality, but
+these packages are optional. 
 
-*Required Slackware Updates for GNOME 2.20.3 *
--------------------------------------------------
 
-gnome-icon-theme: ( >= 2.20 for gnome-desktop 2.20)
-glib2:            ( > 2.14 required by gtk+2 2.12)
-pango:            ( > 1.18 required by gtk+2 2.12)
-gtk+2:            ( >= 2.12 required for libgnomeui 2.20.0)
+Required Slackware Updates for GNOME 2.20.3
+-------------------------------------------
+
+gnome-icon-theme:	>= 2.20 for gnome-desktop 2.20
+glib2:			> 2.14 required by gtk+2 2.12
+pango:			> 1.18 required by gtk+2 2.12
+gtk+2:			>= 2.12 required for libgnomeui 2.20.0
 
 You can upgrade all these required packages by running:   
+  $ slapt-get --install pango glib2 gtk+2 gnome-icon-theme
 
-   $ slapt-get --install pango glib2 gtk+2 gnome-icon-theme
+slapt-get should then upgrade only these four specific packages.  If you plan
+on using NetworkManager with GNOME, then make sure to upgrade to the GNOME
+SlackBuild build of wpa_supplicant, which contains the needed dbus bindings and
+binary.  After the package data has been updated, the first step to installing
+GNOME SlackBuild is to upgrade the required packages. 
 
-Slapt-get should then upgrade only these four specific packages.  If you plan on using NetworkManager with GNOME, then make sure to upgrade 
-to the GNOME SlackBuild build of wpa_supplicant, which contains the needed dbus bindings and binary.  After the package data has been 
-updated, the first step to installing GNOME SlackBuild is to upgrade the required packages. 
+** If you do not upgrade the required packages, GNOME SlackBuild will not run
+properly. **
 
-** If you do not upgrade the required packages, GNOME SlackBuild will not run properly. **
 
 Metapackages
---------------
+------------
 
-After upgrading the required packages, you are now ready to install GNOME SlackBuild.  GNOME SlackBuild provides a number of metapackages in 
-order to ease the installation of huge package lists via slapt-get. The recommended installation method is to first install the basic GSB 
-GNOME Desktop through the gsb-desktop metapackage.
+After upgrading the required packages, you are now ready to install GNOME
+SlackBuild.  GNOME SlackBuild provides a number of metapackages in order to
+ease the installation of huge package lists via slapt-get.  The recommended
+installation method is to first install the basic GSB GNOME Desktop through
+the gsb-desktop metapackage:
+  $ slapt-get --install gsb-desktop
 
-   $ slapt-get --install gsb-desktop
+After installation, it is strongly recommended that you reboot your system.
 
-After installation, it is also strongly recommended that you reboot your system.
+There are other metapackages available as well.  The following is a list of all
+possible metapackages available for installing GNOME SlackBuild:
+  * gsb-desktop
+	This is the basic, yet fully functional GNOME Desktop Environment
+	provided by GSB.  It contains all the packages required for a working
+	GNOME Desktop, including Epiphany, Evolution, the GNOME Display Manager
+	(GDM), NetworkManager, Gslapt for package management and some basic
+	themes and desktop utilities.
 
-There are other metapackages available as well. The following is a list of all possible metapackages available for installing GNOME 
-SlackBuild:
+  * gsb-accessibility
+	This packages all the Accessibility applications and utilities for the
+	GNOME Desktop, such as Orca and GNOME Magnifier.
 
-        gsb-desktop
-      
-            This is the basic, yet fully functional GNOME Desktop Environment
-            provided by GSB. It contains all the packages required for a
-            working GNOME Desktop, including Epiphany, Evolution, the GNOME
-            Display Manager (GDM), NetworkManager, Gslapt for package
-            management and some basic themes and desktop utilities.
+  * gsb-administration
+	This packages all the Administration applications and utilities for the
+	the GNOME Desktop, such as Pessulus and Sabayon.
 
-        gsb-accessibility
-      
-            This packages all the Accessibility applications and utilities for
-            the GNOME Desktop, such as Orca and GNOME Magnifier.          
+  * gsb-compiz
+	This package contains the 3D Window Manager Compiz, its configuration
+	utilities as well as Compiz GNOME Integration.
 
-        gsb-administration
-      
-            This packages all the Administration applications and utilities for
-            the GNOME Desktop, such as Pessulus and Sabayon.          
+  * gsb-complete
+	This package contains the entire GNOME SlackBuild distribution. It
+	contains all the multimedia, development, office, desktop, compiz,
+	library and accessibility packages available from GSB.  It is a huge
+	download and a huge install, but some users may find this convenient.
 
-        gsb-compiz
-      
-            This package contains the 3D Window Manager Compiz, its
-            configuration utilities as well as Compiz GNOME Integration.
+  * gsb-development
+	This package contains the a full Development Environment, installing
+	packages like Anjuta, Glade3, and C++ bindings for most GNOME packages.
 
-        gsb-complete
-      
-            This package contains the entire GNOME SlackBuild distribution. It
-            contains all the multimedia, development, office, desktop, compiz,
-            library and accessibility packages available from GSB. It is a huge
-            download and a huge install, but some users may find this
-            convenient.
+  * gsb-mono
+	This package is a metapackage for a Mono/C# development tools,
+	including a working Mono C# compiler, GNOME bindings, and a MonoDevelop
+	IDE.
 
-        gsb-development
-      
-            This package contains the a full Development Environment,
-            installing packages like Anjuta, Glade3, and C++ bindings for most
-            GNOME packages.
+  * gsb-multimedia
+	This package contains the a full multimedia suite for GNOME SlackBuild.
+	It includes various music players, like Banshee, Rhythmbox, Totem, as
+	well as MPlayer, and a full assortment of codec libraries.
 
-        gsb-mono
+  * gsb-office
+	This package contains the a full Office Suite, installing software for
+	all aspects of office manager, like Glom for database and Goffice/Gda
+	for data backend management, Gnumeric for spreadsheets, Abiword for
+	work processing, as well as Dia for a Visio-like charting program.
 
-            This package is a metapackage for a Mono/C# development tools, 
-            including a working Mono C# compile, GNOME bindings, and a
-             MonoDevelop IDE.
+  * gsb-themes
+	This package contains a few extra themes for GNOME SlackBuild, as well
+	as a few of the more popular GTK engines in use by a wide variety of
+	GNOME themes.
 
-        gsb-multimedia
-      
-            This package contains the a full multimedia suite for GNOME SlackBuild. 
-            It includes various music players, like Banshee, Rhythmbox, Totem, 
-            as well as MPlayer, and a full assortment of codec libraries.          
-
-        gsb-office
-      
-            This package contains the a full Office Suite, installing software for
-            all aspects of office manager, like Glom for database and Goffice/Gda
-            for data backend management, Gnumeric for spreadsheets, Abiword for work 
-            processing, as well as Dia for a Visio-like charting program.
-
-        gsb-themes
-      
-            This package contains a few extra themes for GNOME SlackBuild, as well
-            as a few of the more popular GTK engines in use by a wide variety of GNOME
-            themes.
 
 Uninstalling GNOME SlackBuild
-------------------------------    
+-----------------------------
 
-   In order to uninstall GNOME SlackBuild, you'll first need to remove all GNOME SlackBuild packages, and then re-install any Slackware 
-provided packages that may have been replaced by GSB ones.  You can remove all GNOME SlackBuild packages by running:
+In order to uninstall GNOME SlackBuild, you'll first need to remove all GNOME
+SlackBuild packages, and then re-install any Slackware provided packages that
+may have been replaced by GSB ones.  You can remove all GNOME SlackBuild
+packages by running:
+  $ removepkg /var/log/packages/*gsb
 
-   $ removepkg /var/log/packages/*gsb
+This will remove all packages that are provided by GNOME SlackBuild.  If you
+are using slapt-get, then you'll need to comment out the SOURCE for GNOME
+SlackBuild in your /etc/slapt-get/slapt-getrc file.  Then make sure to rerun
+slapt-get --update.  After this has finished, you'll be able to reinstall the
+standard Slackware packages by running:
+  $ slapt-get --install pango glib2 gtk+2 gnome-icon-theme
 
-This will remove all packages that are provided by GNOME SlackBuild.  If you are using slapt-get, then you'll need to comment out the SOURCE 
-for GNOME SlackBuild in your /etc/slapt-get/slapt-getrc file.  Then make sure to rerun slapt-get --update.  After this has finished, you'll 
-be able to reinstall the standard Slackware packages by running:
+You may also need to reinstall other packages that may have been replaced.  For
+a full list of packages that may have been upgraded by GNOME SlackBuild, please
+see our replaced packages file available in svn:
+  <http://svn.gnomeslackbuild.org/viewvc/viewvc.cgi/trunk/notes/replaced_packages?revision=HEAD&root=gsb>
 
-   $ slapt-get --install pango glib2 gtk+2 gnome-icon-theme
-
-You may also need to reinstall other packages that may have been replaced. For a full list of packages that may have been upgraded by GNOME 
-SlackBuild, please see our replaced packages file available on svn: 
-
-   http://svn.gnomeslackbuild.org/viewvc/viewvc.cgi/trunk/notes/replaced_packages?revision=HEAD&root=gsb
 
 Questions, Comments and Support
---------------------------------
+-------------------------------
 
-http://gnomeslackbuild.org/support/
+Do one of the following:
+  * Visit <http://gnomeslackbuild.org/support/> for FAQs and other helpfull
+    resources, or <http://dev.gnomeslackbuild.org/> to log bugs or make
+    feature requests.
 
-    *       Join the GSB User Discussion Mailing
-            List and ask questions (you must be subscribed to the mailing list in order to post messages).
+  * Join the GSB User Discussion Mailing List and ask questions (you must be
+    subscribed to the mailing list in order to post messages).
 
-    *       Join the #gsb IRC channel on irc.freenode.net and ask questions.
+  * Join the #gsb IRC channel on irc.freenode.net and ask questions.
 
-The mailing list is the easiest and preferred method of contact, and it allows us to keep an archive of questions and answers.  We may appear 
-to be always online on IRC, but we're frequently away from the console and you may not recieve an answer for while.  But stick around since 
-we'll always give a reply.  :)
+For bug reports and feature requests, please log an issue with our issue
+tracker which is frequently checked by all developers.  We will try our best to
+solve any issues that come up!
 
-For bug reports, please either send an email to the mailist lists, or else try:
+The mailing list is the easiest and preferred method of contact for support
+type issues - it allows us to keep an archive of questions and answers.
 
-http://dev.gnomeslackbuild.org/
+On IRC, we may appear to be always online, but we're frequently away from the
+console and you may not recieve an answer for while.  But stick around since
+we'll always give a reply, eventually  :)
 
-We have an excellent bug reporting system in place, and it is frequently checked.  We will try hard to solve any issues that come up!
 
 Hope you enjoy GNOME SlackBuild!
 
