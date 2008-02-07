@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=4
+BUILD=5
 VERSION=2.20.3
 
 ## List any packages here that are required to build this package.
@@ -166,6 +166,11 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+## Change gnome-wm to use compiz ccp if compiz selected
+mv $PKG/usr/bin/gnome-wm $PKG/usr/bin/gnome-wm.gnome || exit 1
+cp $CWD/gnome-wm.gsb $PKG/usr/bin/gnome-wm || exit 1
+chmod +x $PKG/usr/bin/gnome-wm
 
 ##
 ## Add xinitrc script for Gnome
