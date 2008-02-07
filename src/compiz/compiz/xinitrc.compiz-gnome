@@ -1,0 +1,57 @@
+#!/bin/sh
+#
+# $XConsortium: xinitrc.cpp,v 1.4 91/08/22 11:41:34 rws Exp $
+# 28-11-07 modified for GSB xinitrc (stevek)
+# 07-02-08 modified for compiz-gnome (stevek)
+#
+
+userresources=$HOME/.Xresources
+usermodmap=$HOME/.Xmodmap
+sysresources=/usr/lib/X11/xinit/.Xresources
+sysmodmap=/usr/lib/X11/xinit/.Xmodmap
+
+## Default Session Settings
+GNOME_SESSION_SETTINGS=""
+
+## Compiz GNOME
+WINDOW_MANAGER="compiz"
+
+## GNOME XDG Menu Path
+# We keep the GNOME menu templates separate
+# from KDE so the two don't interfere with each other
+# This path may be extended to include the KDE
+# menu path /etc/kde/xdg if the user wishes.
+XDG_CONFIG_DIRS=/etc/xdg:/etc/gnome/xdg
+
+# Merge in defaults and keymaps
+if [ -f $sysresources ]; then
+    xrdb -merge $sysresources
+fi
+if [ -f $sysmodmap ]; then
+    xmodmap $sysmodmap
+fi
+if [ -f $userresources ]; then
+    xrdb -merge $userresources
+fi
+if [ -f $usermodmap ]; then
+    xmodmap $usermodmap
+fi
+
+## Use ssh-agent if available
+if [ -x /usr/bin/ssh-agent ]; then
+  GNOME_SESSION_SETTINGS="$GNOME_SESSION_SETTINGS /usr/bin/ssh-agent"
+fi;
+
+## Use dbus if available
+if [ -x /usr/bin/dbus-launch ]; then
+  GNOME_SESSION_SETTINGS="$GNOME_SESSION_SETTINGS /usr/bin/dbus-launch --exit-with-session"
+fi;
+
+## Use Seahorse if available
+## For more information, please see http://live.gnome.org/Seahorse/SessionIntegration
+if [ -x /usr/bin/seahorse-agent ]; then
+  GNOME_SESSION_SETTINGS="$GNOME_SESSION_SETTINGS /usr/bin/seahorse-agent --execute"
+fi;
+
+# Start the window manager
+WINDOW_MANAGER=$WINDOW_MANAGER $GNOME_SESSION_SETTINGS gnome-session

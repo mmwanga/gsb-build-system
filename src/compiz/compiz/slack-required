@@ -13,3 +13,5 @@ libwnck
 renderproto
 fuse
 compiz-manager
+gnome-session
+ccsm
