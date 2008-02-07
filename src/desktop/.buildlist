@@ -39,3 +39,4 @@ gnome-keyring-manager
 gtkhtml
 pyxdg
 notification-daemon
+sensors-applet
