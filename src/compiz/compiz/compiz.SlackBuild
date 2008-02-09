@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=5
+BUILD=6
 VERSION=0.6.2
 
 ## List any packages here that are required to build this package.
@@ -190,6 +190,7 @@ else
 fi;
 
 cp $CWD/compiz-gnome.desktop $PKG/usr/share/xsessions || exit 1
+chmod +x $PKG/etc/X11/xinit/xinitrc.compiz-gnome.new
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
