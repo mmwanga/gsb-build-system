@@ -1,3 +1,10 @@
+Sun Feb 10 22:42:04 GMP 2008
+* Updated mozilla-firefox to 2.0.0.12.  
+    Security fixes.  See
+    http://www.mozilla.org/projects/security/known-vulnerabilities.html#firefox2.0.0.12
+* Rebuilt epiphany and yelp.
+    Necessary to link against new gecko version 2.0.0.12. 
++--------------------------+
 Thu Feb  7 18:13:36 GMT 2008
 * Added sensors-applet for reporting of sensor infortmation.
     Thanks to byteframe for the suggestion.
