@@ -4,6 +4,12 @@ Sun Feb 10 22:42:04 GMP 2008
     http://www.mozilla.org/projects/security/known-vulnerabilities.html#firefox2.0.0.12
 * Rebuilt epiphany and yelp.
     Necessary to link against new gecko version 2.0.0.12. 
+* Rebuilt gnome-menus.
+    New patch for menus to exclude KDE, rearrange Xfce.
+    Thanks to Ariszlo for the patch!
+* Rebuilt compiz.
+    Needed to make new xinitrc.compiz-gnome executable by default.
+    Thanks to Eugene Crosser for pointing this out.
 +--------------------------+
 Thu Feb  7 18:13:36 GMT 2008
 * Added sensors-applet for reporting of sensor infortmation.
