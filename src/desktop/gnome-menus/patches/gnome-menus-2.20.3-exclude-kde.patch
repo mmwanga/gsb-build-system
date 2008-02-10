@@ -1,0 +1,138 @@
+--- layout/applications.menu.orig	2008-01-07 23:27:42.000000000 +0100
++++ layout/applications.menu	2008-02-09 13:15:20.000000000 +0100
+@@ -7,7 +7,7 @@
+   <Directory>Applications.directory</Directory>
+ 
+   <!-- Scan legacy dirs first, as later items take priority -->
+-  <KDELegacyDirs/>
++  <!-- <KDELegacyDirs/> -->
+   <LegacyDir>/etc/X11/applnk</LegacyDir>
+   <LegacyDir>/usr/share/gnome/apps</LegacyDir>
+ 
+@@ -24,12 +24,18 @@
+     <Directory>Accessories.directory</Directory>
+     <Include>
+       <And>
+-        <Category>Utility</Category>
++        <Or>
++          <Category>Utility</Category>
++          <Category>TextEditor</Category>
++        </Or>
+         <Not>
+           <Category>System</Category>
+         </Not>
+       </And>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++    </Exclude>
+   </Menu> <!-- End Accessories -->
+ 
+   <!-- Accessibility submenu -->
+@@ -44,6 +50,9 @@
+         </Not>
+       </And>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++    </Exclude>
+   </Menu> <!-- End Accessibility -->
+ 
+   <!-- Development Tools -->
+@@ -56,6 +65,9 @@
+       </And>
+       <Filename>emacs.desktop</Filename>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++    </Exclude>
+   </Menu> <!-- End Development Tools -->
+ 
+   <!-- Education -->
+@@ -67,6 +79,9 @@
+         <Category>Education</Category>
+       </And>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++    </Exclude>
+   </Menu> <!-- End Education -->
+ 
+   <!-- Games -->
+@@ -78,6 +93,9 @@
+         <Category>Game</Category>
+       </And>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++    </Exclude>
+   </Menu> <!-- End Games -->
+ 
+   <!-- Graphics -->
+@@ -89,6 +107,9 @@
+         <Category>Graphics</Category>
+       </And>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++    </Exclude>
+   </Menu> <!-- End Graphics -->
+ 
+   <!-- Internet -->
+@@ -100,6 +121,9 @@
+         <Category>Network</Category>
+       </And>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++    </Exclude>
+   </Menu>   <!-- End Internet -->
+ 
+   <!-- Multimedia -->
+@@ -111,6 +135,9 @@
+         <Category>AudioVideo</Category>
+       </And>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++    </Exclude>
+   </Menu>   <!-- End Multimedia -->
+ 
+   <!-- Office -->
+@@ -119,9 +146,15 @@
+     <Directory>Office.directory</Directory>
+     <Include>
+       <And>
+-        <Category>Office</Category>
++        <Or>
++          <Category>Office</Category>
++          <Category>Calendar</Category>
++        </Or>
+       </And>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++    </Exclude>
+   </Menu> <!-- End Office -->
+ 
+   <!-- System Tools-->
+@@ -134,6 +167,9 @@
+         <Not><Category>Settings</Category></Not>
+       </And>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++    </Exclude>
+   </Menu>   <!-- End System Tools -->
+ 
+   <!-- Other -->
+@@ -148,6 +184,9 @@
+         <Not><Category>Screensaver</Category></Not>
+       </And>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++    </Exclude>
+   </Menu> <!-- End Other -->
+ 
+ </Menu> <!-- End Applications -->
