@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=0.2.1
 
 ## List any packages here that are required to build this package.
@@ -115,6 +115,9 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
+# Patch for gksu instead
+patch -p0 < $CWD/patches/slapt-update-notifier.gksu.patch
+
 ## Fix permissions for building.
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
@@ -165,6 +168,18 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+## Install cron stuff to make slapt-update-notifier work
+mkdir -p $PKG/etc/cron.daily/
+mkdir -p $PKG/etc/cron.hourly/
+cp $TMP/$PKGNAME-$VERSION/slapt_check $PKG/etc/cron.hourly/
+cp $TMP/$PKGNAME-$VERSION/slapt_update $PKG/etc/cron.daily/
+chown root:bin $PKG/etc/cron.hourly/slapt_check
+chown root:bin $PKG/etc/cron.hourly/slapt_update
+
+## GNOME autostart; I think this might be easier than messing with the default.session file
+mkdir -p $PKG/usr/share/gnome/autostart
+cp $CWD/slapt-update-notifier.desktop $PKG/usr/share/gnome/autostart
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
