@@ -3,6 +3,9 @@ Mon Feb 11 17:33:22 GMT 2008
     Please test this release fully and add any bugs to the issue tracker:
       http://dev.gnomeslackbuild.org/projects/gsb-binary/issues/
     We are anticipating the full 2.20.3-stable release on 18th February 2008.
+* Rebuild slapt-update-notifier.
+    Added a patch to use gksu instead of gnomesu, and added
+    appropriate cron entries.
 +--------------------------+
 Sun Feb 10 22:42:04 GMP 2008
 * Updated mozilla-firefox to 2.0.0.12.  
