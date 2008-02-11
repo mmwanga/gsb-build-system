@@ -1,3 +1,9 @@
+Mon Feb 11 17:33:22 GMT 2008
+* Released gsb-2.20.3RC2 for testing.
+    Please test this release fully and add any bugs to the issue tracker:
+      http://dev.gnomeslackbuild.org/projects/gsb-binary/issues/
+    We are anticipating the full 2.20.3-stable release on 18th February 2008.
++--------------------------+
 Sun Feb 10 22:42:04 GMP 2008
 * Updated mozilla-firefox to 2.0.0.12.  
     Security fixes.  See
