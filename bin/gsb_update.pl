@@ -52,6 +52,7 @@ use GSB::Fonts;
 use GSB::Themes;
 use GSB::Tools;
 use GSB::Testing;
+use GSB::Ooo;
 
 use Cwd;
 
@@ -981,6 +982,43 @@ foreach my $testpkg (keys %testing_packages) {
   my $ver     = $testing_packages{$testpkg}{ver};
   my $tarball = $testing_packages{$testpkg}{tar};
   my $packurl = $testing_packages{$testpkg}{url};
+  my $type    = 'other';
+
+  chdir "$pwd/$dir";
+
+  my @tmp = split(/\//, $dir);
+  my $sb  = pop(@tmp);
+
+  my $sb_file = $sb . $sb_ext;
+
+  if ( $download eq "true") {
+    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_double_edit($sb_file, $ver, $var);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
+# Download OpenOffice Packages
+foreach my $ooopkg (keys %ooo_packages) {
+
+  my $name    = $ooopkg;
+
+  my $dir     = $ooo_packages{$ooopkg}{dir};
+  my $var     = $ooo_packages{$ooopkg}{var};
+  my $ver     = $ooo_packages{$ooopkg}{ver};
+  my $tarball = $ooo_packages{$ooopkg}{tar};
+  my $packurl = $ooo_packages{$ooopkg}{url};
   my $type    = 'other';
 
   chdir "$pwd/$dir";
