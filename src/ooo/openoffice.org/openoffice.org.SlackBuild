@@ -150,6 +150,9 @@ elif [ "$ARCH" = "x86_64" ]; then
   }
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
+  [ -z "$CONFIGURE_FLAGS" ] && {
+    CONFIGURE_FLAGS="--with-arch=ppc"
+  }
 else
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2"}
 fi
@@ -160,6 +163,8 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 cp $CWD/gsb_art/*.bmp ./src || exit 1
 cp $CWD/patches/GNOMESlackBuild* ./distro-configs || exit 1
 patch -p1 < $CWD/patches/add-gnomeslackbuild.patch || exit 1
+## We need to temporarily spam a directory on the build machine
+mkdir -p /usr/share/openclipart
 
 ## Set our distro configuration
 if [ "$ARCH" = "x86_64" ]; then
@@ -174,11 +179,33 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --with-distro=$OO_DISTRO \
   --disable-static --enable-shared \
+  --disable-odk \
+  --disable-mono \
+  --enable-access \
+  --enable-cairo \
+  --with-system-cairo \
+  --enable-gtk \
   --disable-kde \
   --disable-mono \
   --disable-pam \
   --disable-pam-link \
+  --disable-post-install-scripts \
+  --enable-openxml \
+  --without-java \
+  --with-system-libsvg \
+  --with-binsuffix=2.3 \
+  --with-docdir=/usr/share/doc/openoffice.org \
+  --with-gcc-speedup=ccache \
+  --with-openclipart=/usr/share/openclipart \
+  --with-drink=ale \
   || exit 1
+
+## TESTING ## 
+echo "Paused."
+read
+
+## Download specific sources
+./download || exit 1
 
 ## Build and install.
 make || exit 1
