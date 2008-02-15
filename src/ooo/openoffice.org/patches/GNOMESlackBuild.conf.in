@@ -1,3 +1,5 @@
+--with-intro-bitmaps=\"$SRCDIR/openintro_gsb.bmp\"
+--with-about-bitmaps=\"$SRCDIR/openabout_gsb.bmp\"
 --with-vendor=\"GNOME\ SlackBuild\"
 --with-gcc-speedup=ccache
 --disable-kde

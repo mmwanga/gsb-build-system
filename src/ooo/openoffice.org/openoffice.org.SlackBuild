@@ -12,7 +12,7 @@ VERSION=2.3.0.3
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES=""
+REQUIRED_PACKAGES="gtk+2 libgnomeui"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -90,9 +90,10 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-rm -rf $PKGNAME-$VERSION &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
-cd $PKGNAME-$VERSION || exit 1
+#Disabled for testing purposes
+#rm -rf $PKGNAME-$VERSION &&
+tar xzf $CWD/ooo-build-$VERSION.tar.gz &&
+cd ooo-build-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i386" ]; then
@@ -145,7 +146,7 @@ elif [ "$ARCH" = "x86_64" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS="--libdir=/usr/lib64 --with-distro=GNOMESlackBuild64 --with-num-cpus=2"
+    CONFIGURE_FLAGS="--libdir=/usr/lib64 --with-num-cpus=2"
   }
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
@@ -156,11 +157,22 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Add GNOMESlackBuild sections to go-oo configure system
+cp $CWD/gsb_art/*.bmp ./src || exit 1
+cp $CWD/patches/GNOMESlackBuild* ./distro-configs || exit 1
+patch -p1 < $CWD/patches/add-gnomeslackbuild.patch || exit 1
+
+## Set our distro configuration
+if [ "$ARCH" = "x86_64" ]; then
+  OO_DISTRO=GNOMESlackBuild64
+else
+  OO_DISTRO=GNOMESlackBuild
+fi;
 
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --with-distro=$OO_DISTRO \
   --disable-static --enable-shared \
   --disable-kde \
   --disable-mono \
@@ -169,6 +181,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   || exit 1
 
 ## Build and install.
+make || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -188,13 +201,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   gzip -9 $PKG/usr/info/*.info
 }
 
-## Correct permissions.
-## Doing these chown's will remove any s{u,g}id bits that may have been set on
-## the installed files, which is not usually what we want.  Only uncomment/use
-## these chown's if necessary.  ~Tadgy.
-# chown -R $(stat --format "%u:%g" /usr/bin) $PKG/usr/bin
-# chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/sbin
-
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
@@ -202,23 +208,6 @@ cp -a \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
-
-## Add schemas install to the doinst.sh if schemas are found.
-[ -d $PKG/etc/gconf/schemas ] && {
-  echo "if [ -x usr/bin/gconftool-2 ]; then" >>$PKG/install/doinst.sh
-  ( cd $PKG/etc/gconf/schemas
-    for FILE in *; do
-      if [ -z "$(grep gconfentry $FILE)" ]; then
-        # Create gconf tree
-        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
-      else
-        # Load gconf settings
-        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --config-source=\$(usr/bin/gconftool-2 --get-default-source) --direct --load etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
-      fi
-    done
-  )
-  echo "fi" >>$PKG/install/doinst.sh
-}
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
