@@ -14,6 +14,76 @@ our $VERSION   = 0.03;
 # Building tools
 our %ooo_packages =
   (
+   'ooo-build'    => {
+             'ver' => '2.3.0.3',
+	     'dir' => 'ooo/openoffice.org',
+             'url' => 'http://download.go-oo.org/OOG680/',
+	     'tar' => 'ooo-build-2.3.0.3.tar.gz',
+             'var' => 'VERSION',
+                  },
+   'mdbtools'    => {
+             'ver' => '0.6pre1',
+	     'dir' => 'ooo/openoffice.org',
+             'url' => 'http://download.go-oo.org/SRC680/',
+	     'tar' => 'mdbtools-0.6pre1.tar.gz',
+             'var' => 'VERSION',
+                  },
+   'oog680-core'    => {
+             'ver' => 'm5',
+	     'dir' => 'ooo/openoffice.org',
+             'url' => 'http://go-oo.org/packages/OOG680/',
+	     'tar' => 'oog680-m5-core.tar.bz2',
+             'var' => 'VERSION',
+                  },
+   'extras'    => {
+             'ver' => '2',
+	     'dir' => 'ooo/openoffice.org',
+             'url' => 'http://go-oo.org/packages/SRC680/',
+	     'tar' => 'extras-2.tar.bz2',
+             'var' => 'VERSION',
+                  },
+   'biblio'    => {
+             'ver' => '1',
+	     'dir' => 'ooo/openoffice.org',
+             'url' => 'http://go-oo.org/packages/SRC680/',
+	     'tar' => 'biblio.tar.bz2',
+             'var' => 'VERSION',
+                  },
+   'lp_solve'    => {
+             'ver' => '5.5.0.10',
+	     'dir' => 'ooo/openoffice.org',
+             'url' => 'http://go-oo.org/packages/SRC680/',
+	     'tar' => 'lp_solve_5.5.0.10_source.tar.gz',
+             'var' => 'VERSION',
+                  },
+   'libwpd'    => {
+             'ver' => '0.8.11',
+	     'dir' => 'ooo/openoffice.org',
+             'url' => 'http://go-oo.org/packages/SRC680/',
+	     'tar' => 'libwpd-0.8.11.tar.gz',
+             'var' => 'VERSION',
+                  },
+   'libwps'    => {
+             'ver' => '0.1.0',
+	     'dir' => 'ooo/openoffice.org',
+             'url' => 'http://go-oo.org/packages/SRC680/',
+	     'tar' => 'libwps-0.1.0.tar.gz',
+             'var' => 'VERSION',
+                  },
+   'libwpg'    => {
+             'ver' => '0.1.0',
+	     'dir' => 'ooo/openoffice.org',
+             'url' => 'http://go-oo.org/packages/SRC680/',
+	     'tar' => 'libwpg-0.1.0.tar.gz',
+             'var' => 'VERSION',
+                  },
+   'oox'    => {
+             'ver' => '2007-09-05',
+	     'dir' => 'ooo/openoffice.org',
+             'url' => 'http://go-oo.org/packages/SRC680/',
+	     'tar' => 'oox.2007-09-05.tar.bz2',
+             'var' => 'VERSION',
+                  },
    'IO-Compress-Base'    => {
              'ver' => '2.008',
 	     'dir' => 'ooo/openoffice-perl',
