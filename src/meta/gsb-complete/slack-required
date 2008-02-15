@@ -187,7 +187,9 @@ gpgme
 graphviz
 grip
 gslapt
+slapt-update-notifier
 gst-ffmpeg
+gsb-gnome-menus
 gst-fluendo-mp3
 gst-plugins-bad
 gst-plugins-base
