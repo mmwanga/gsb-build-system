@@ -1,0 +1,11 @@
+--- patches/src680/apply.old	2008-02-15 18:59:25.000000000 +0000
++++ patches/src680/apply	2008-02-15 18:59:46.000000000 +0000
+@@ -1517,7 +1517,7 @@
+ cairo-cairo-1-4-10-diff.diff, i#70519, tml
+ 
+ # Additional diffs for cairocanvas on Win32
+-cairo-canvas-win32.diff, i#70519, n#300398, tml
++#cairo-canvas-win32.diff, i#70519, n#300398, tml
+ 
+ cairo-canvas-ppc-fix.diff, i#81235, n#266082, rodo
+ cairo-canvas-get-size-fix.diff, i#81236, rodo

@@ -80,7 +80,7 @@ diff -Naur ooo-build-2.3.0.3.old/patches/src680/apply ooo-build-2.3.0.3/patches/
 +
 +scp2-user-config-ooo-2.0.diff, pmladek
 +pushfont-psstream.diff, i#84481, michael
-+oosplash-etc-openoffice-sofficerc.diff
++
  
  [ MandrivaOnly ]
  SectionOwner => gghibo
