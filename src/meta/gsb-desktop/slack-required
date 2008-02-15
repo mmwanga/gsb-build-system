@@ -54,6 +54,7 @@ gnome-spell
 gnome-vfs
 gpgme
 gslapt
+slapt-update-notifier
 gst-plugins-base
 gst-plugins-good
 gstreamer
