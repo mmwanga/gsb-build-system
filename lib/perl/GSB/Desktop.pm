@@ -22,7 +22,6 @@ our %desktop =
    'eel'                    => '2.20.0',
    'evolution-data-server'  => '1.12.3',
    'gconf-editor'           => '2.20.0',
-   'gnome-audio'            => '2.0.0',
    'gnome-applets'          => '2.20.1',
    'gnome-control-center'   => '2.20.3',
    'gnome-desktop'          => '2.20.3',
@@ -73,6 +72,11 @@ our %desktop_nongnome =
    'gst-plugins-base'  => {
                            'ver' => '0.10.15',
                            'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-base/',
+                           'src' => 'tar.bz2',
+                          },
+   'gnome-audio'  => {
+                           'ver' => '2.0.0',
+                           'url' => 'ftp://ftp.gnome.org/pub/gnome/sources/gnome-audio/2.0/',
                            'src' => 'tar.bz2',
                           },
    'gst-plugins-good'  => {

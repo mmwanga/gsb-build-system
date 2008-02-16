@@ -15,10 +15,10 @@ our $VERSION   = 0.03;
 our %ooo_packages =
   (
    'ooo-build'    => {
-             'ver' => '2.3.0.3',
+             'ver' => '2.3.1.2',
 	     'dir' => 'ooo/openoffice.org',
              'url' => 'http://download.go-oo.org/OOG680/',
-	     'tar' => 'ooo-build-2.3.0.3.tar.gz',
+	     'tar' => 'ooo-build-2.3.1.2.tar.gz',
              'var' => 'VERSION',
                   },
    'mdbtools'    => {
@@ -29,10 +29,10 @@ our %ooo_packages =
              'var' => 'VERSION',
                   },
    'oog680-core'    => {
-             'ver' => 'm5',
+             'ver' => 'm9',
 	     'dir' => 'ooo/openoffice.org',
              'url' => 'http://go-oo.org/packages/OOG680/',
-	     'tar' => 'oog680-m5-core.tar.bz2',
+	     'tar' => 'oog680-m9-core.tar.bz2',
              'var' => 'VERSION',
                   },
    'extras'    => {
@@ -57,10 +57,10 @@ our %ooo_packages =
              'var' => 'VERSION',
                   },
    'libwpd'    => {
-             'ver' => '0.8.11',
+             'ver' => '0.8.12',
 	     'dir' => 'ooo/openoffice.org',
              'url' => 'http://go-oo.org/packages/SRC680/',
-	     'tar' => 'libwpd-0.8.11.tar.gz',
+	     'tar' => 'libwpd-0.8.12.tar.gz',
              'var' => 'VERSION',
                   },
    'libwps'    => {
