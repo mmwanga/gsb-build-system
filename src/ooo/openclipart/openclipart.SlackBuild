@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=1
-VERSION=2.3.0.3
+BUILD=0
+VERSION=0.0.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 libgnomeui"
+REQUIRED_PACKAGES=""
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -90,10 +90,9 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-#Disabled for testing purposes
-#rm -rf $PKGNAME-$VERSION &&
-tar xzf $CWD/ooo-build-$VERSION.tar.gz &&
-cd ooo-build-$VERSION || exit 1
+rm -rf $PKGNAME-$VERSION &&
+tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i386" ]; then
@@ -117,17 +116,17 @@ elif [ "$ARCH" = "powerpc" ]; then
 fi
 
 ## Fix permissions for building.
-#chown -R root.root .
-#find . -perm 664 -exec chmod 644 {} \;
-#find . -perm 600 -exec chmod 644 {} \;
-#find . -perm 444 -exec chmod 644 {} \;
-#find . -perm 400 -exec chmod 644 {} \;
-#find . -perm 440 -exec chmod 644 {} \;
-#find . -perm 777 -exec chmod 755 {} \;
-#find . -perm 775 -exec chmod 755 {} \;
-#find . -perm 511 -exec chmod 755 {} \;
-#find . -perm 711 -exec chmod 755 {} \;
-#find . -perm 555 -exec chmod 755 {} \;
+chown -R root.root .
+find . -perm 664 -exec chmod 644 {} \;
+find . -perm 600 -exec chmod 644 {} \;
+find . -perm 444 -exec chmod 644 {} \;
+find . -perm 400 -exec chmod 644 {} \;
+find . -perm 440 -exec chmod 644 {} \;
+find . -perm 777 -exec chmod 755 {} \;
+find . -perm 775 -exec chmod 755 {} \;
+find . -perm 511 -exec chmod 755 {} \;
+find . -perm 711 -exec chmod 755 {} \;
+find . -perm 555 -exec chmod 755 {} \;
 
 ## Configure, Tuning, GCC and Make options.
 CONFIGURE_FLAGS=${GSB_CONFIGURE_FLAGS:-""}
@@ -146,81 +145,31 @@ elif [ "$ARCH" = "x86_64" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS="--libdir=/usr/lib64 --with-num-cpus=2"
+    CONFIGURE_FLAGS="--libdir=/usr/lib64"
   }
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
-  [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS="--with-arch=ppc"
-  }
 else
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2"}
 fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-## Add GNOMESlackBuild sections to go-oo configure system
-cp $CWD/gsb_art/*.bmp ./src || exit 1
-cp $CWD/patches/GNOMESlackBuild* ./distro-configs || exit 1
-patch -p1 < $CWD/patches/add-gnomeslackbuild.patch || exit 1
-patch -p0 < $CWD/patches/disable-canvas32.patch || exit 1
-## We need to temporarily spam a directory on the build machine
-mkdir -p /usr/share/openclipart
-
-## Set our distro configuration
-if [ "$ARCH" = "x86_64" ]; then
-  OO_DISTRO=GNOMESlackBuild64
-else
-  OO_DISTRO=GNOMESlackBuild
-fi;
-
 ## Configure.
-#export SYSTEM_SNDFILE="YES"
-#export SYSTEM_NEON="YES"
+## The default is to build shared libraries, no static libraries, install into
+## /usr and use /etc as the config directory.
+## For packages with GNOME Schemas, additional options are required:
+##  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
+##  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --with-distro=$OO_DISTRO \
   --disable-static --enable-shared \
-  --disable-odk \
-  --disable-mono \
-  --enable-access \
-  --enable-cairo \
-  --with-system-cairo \
-  --with-system-sndfile \
-  --enable-gtk \
-  --disable-kde \
-  --disable-mono \
-  --disable-pam \
-  --disable-pam-link \
-  --disable-post-install-scripts \
-  --enable-openxml \
-  --without-java \
-  --with-system-libsvg \
-  --with-binsuffix=2.3 \
-  --with-docdir=/usr/share/doc/openoffice.org \
-  --with-gcc-speedup=ccache \
-  --with-openclipart=/usr/share/openclipart \
-  --with-drink=ale \
   || exit 1
 
-## Copy over downloaded sources
-## We do it manually rather than running the go-oo download
-## script because it saves the sources in the build tree
-## which will be deleted after build is complete.  We want
-## to keep our sources around :^)
-echo "Copying over sources: "
-for i in mdbtool oog libw lp_solve oox extras biblio;
-do 
-	cp -v $CWD/$i* ./src 
-done;
-
-## Build and Install
-make $MAKE_FLAGS -j1 || exit 1
-
-## TESTING ## 
-echo "Paused."
-read
+## Build and install.
+make $MAKE_FLAGS &&
+make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -240,6 +189,13 @@ read
   gzip -9 $PKG/usr/info/*.info
 }
 
+## Correct permissions.
+## Doing these chown's will remove any s{u,g}id bits that may have been set on
+## the installed files, which is not usually what we want.  Only uncomment/use
+## these chown's if necessary.  ~Tadgy.
+# chown -R $(stat --format "%u:%g" /usr/bin) $PKG/usr/bin
+# chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/sbin
+
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
@@ -247,6 +203,23 @@ cp -a \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
+
+## Add schemas install to the doinst.sh if schemas are found.
+[ -d $PKG/etc/gconf/schemas ] && {
+  echo "if [ -x usr/bin/gconftool-2 ]; then" >>$PKG/install/doinst.sh
+  ( cd $PKG/etc/gconf/schemas
+    for FILE in *; do
+      if [ -z "$(grep gconfentry $FILE)" ]; then
+        # Create gconf tree
+        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
+      else
+        # Load gconf settings
+        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --config-source=\$(usr/bin/gconftool-2 --get-default-source) --direct --load etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
+      fi
+    done
+  )
+  echo "fi" >>$PKG/install/doinst.sh
+}
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
@@ -262,5 +235,5 @@ makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
-  #rm -rf $PKG $TMP/$PKGNAME-$VERSION
+  rm -rf $PKG $TMP/$PKGNAME-$VERSION
 }

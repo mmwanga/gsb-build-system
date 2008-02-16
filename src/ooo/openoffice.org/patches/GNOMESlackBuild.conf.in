@@ -28,7 +28,7 @@
 --enable-arch=x86
 --with-system-libsvg
 --with-system-cairo
---with-system-libsndfile
+--with-system-sndfile
 --with-binsuffix=2.3
 --disable-pam
 --disable-pam-link

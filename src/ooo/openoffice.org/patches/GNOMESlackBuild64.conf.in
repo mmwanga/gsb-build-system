@@ -29,4 +29,4 @@
 --with-system-boost
 --with-system-cairo
 --with-system-db
---with-system-libsndfile
+--with-system-sndfile
