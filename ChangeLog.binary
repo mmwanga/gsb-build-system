@@ -1,3 +1,7 @@
+Sat Feb 16 01:55:29 GMT 2008
+* New slapt-get meta packages.  Please test slapt-get installs using these
+  new packages :)
++--------------------------+
 Mon Feb 11 17:33:22 GMT 2008
 * Released gsb-2.20.3RC2 for testing.
     Please test this release fully and add any bugs to the issue tracker:
