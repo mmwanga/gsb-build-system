@@ -1,0 +1,87 @@
+diff -Naur ooo-build-2.3.1.2.old/patches/emf+/emf+-canvas-smooth-poly.diff ooo-build-2.3.1.2/patches/emf+/emf+-canvas-smooth-poly.diff
+--- ooo-build-2.3.1.2.old/patches/emf+/emf+-canvas-smooth-poly.diff	2007-11-22 20:14:23.000000000 +0000
++++ ooo-build-2.3.1.2/patches/emf+/emf+-canvas-smooth-poly.diff	2008-02-16 16:03:36.000000000 +0000
+@@ -17,21 +17,33 @@
+  		::basegfx::B2DPoint aA, aB, aP;
+  
+  		aP = aPolygon.getB2DPoint( 0 );
+-@@ -936,7 +938,7 @@ namespace cairocanvas
++@@ -936,10 +936,10 @@ namespace cairocanvas
+  
+- 		cairo_matrix_transform_point( &aOrigMatrix, &nX, &nY );
++                cairo_matrix_transform_point( &aOrigMatrix, &nX, &nY );
+  
+--		if( ! bIsBezier ) {
+-+		if( ! bIsBezier && bIsRectangle ) {
+- 		    nX = ::rtl::math::round( nX );
+- 		    nY = ::rtl::math::round( nY );
+- 		}
+-@@ -961,7 +963,7 @@ namespace cairocanvas
+- 		    nY = aP.getY();
+- 		    cairo_matrix_transform_point( &aOrigMatrix, &nX, &nY );
+- 
+--		    if( ! bIsBezier ) {
+-+		    if( ! bIsBezier && bIsRectangle ) {
+- 			nX = ::rtl::math::round( nX );
+- 			nY = ::rtl::math::round( nY );
+- 		    }
++-               if( ! bIsBezier ) {
++-                   nX = round( nX );
++-                   nY = round( nY );
++-               }
+++                if( ! bIsBezier && bIsRectangle ) {
+++                    nX = ::rtl::math::round( nX );
+++                    nY = ::rtl::math::round( nY );
+++                }
++ 
++                if( aOperation == Stroke ) {
++                    nX += 0.5;
++@@ -961,10 +961,10 @@ namespace cairocanvas
++                    nY = aP.getY();
++                    cairo_matrix_transform_point( &aOrigMatrix, &nX, &nY );
++ 
++-                   if( ! bIsBezier ) {
++-                       nX = round( nX );
++-                       nY = round( nY );
++-                   }
+++                    if( ! bIsBezier && bIsRectangle ) {
+++                        nX = ::rtl::math::round( nX );
+++                        nY = ::rtl::math::round( nY );
+++                    }
++ 
++                    if( aOperation == Stroke ) {
++                        nX += 0.5;
+diff -Naur ooo-build-2.3.1.2.old/patches/emf+/emf+-canvas.diff ooo-build-2.3.1.2/patches/emf+/emf+-canvas.diff
+--- ooo-build-2.3.1.2.old/patches/emf+/emf+-canvas.diff	2007-11-22 20:14:23.000000000 +0000
++++ ooo-build-2.3.1.2/patches/emf+/emf+-canvas.diff	2008-02-16 12:01:46.000000000 +0000
+@@ -156,18 +156,19 @@
+ diff -rup canvas-orig/source/cairo/cairo_cairo.hxx canvas/source/cairo/cairo_cairo.hxx
+ --- canvas-orig/source/cairo/cairo_cairo.hxx	2007-08-21 13:19:18.000000000 +0200
+ +++ canvas/source/cairo/cairo_cairo.hxx	2007-10-10 17:35:34.000000000 +0200
+-@@ -67,6 +67,11 @@ namespace cairo {
+- 		{
+- 			return mpRenderFormat;
+- 		}
+-+
+-+        inline void doNotFreePixmap ()
+-+        {
+-+            mbFreePixmap = false;
+-+        }
+- #endif
++@@ -55,6 +55,12 @@ namespace cairo {
++                        return mpRenderFormat;
++                }
++ 
+++
+++                inline void doNotFreePixmap ()
+++                {
+++                    mbFreePixmap = false;
+++                }
+++
++                // use only for surfaces made on X Drawables
++                void Resize( int width, int height );
+  
+- 		// use only for surfaces made on X Drawables
+ diff -rup canvas-orig/source/cairo/cairo_canvasbitmap.hxx canvas/source/cairo/cairo_canvasbitmap.hxx
+ --- canvas-orig/source/cairo/cairo_canvasbitmap.hxx	2007-08-21 13:19:18.000000000 +0200
+ +++ canvas/source/cairo/cairo_canvasbitmap.hxx	2007-10-24 13:07:12.000000000 +0200

@@ -13,6 +13,7 @@
 --enable-libart
 --enable-libsn
 --with-system-expat
+--with-system-neon
 --with-system-sane-header
 --with-system-curl
 --disable-odk
