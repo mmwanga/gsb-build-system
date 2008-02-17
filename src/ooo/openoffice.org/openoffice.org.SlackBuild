@@ -186,6 +186,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-mono \
   --enable-access \
   --enable-cairo \
+  --with-lang="en-GB en-US" \
   --with-system-cairo \
   --with-system-sndfile \
   --with-system-neon \
@@ -217,12 +218,26 @@ do
 	cp -v $CWD/$i* ./src 
 done;
 
+## Make sure dictionaries are installed ;
+## For some reason, ooo-build 2.3.1.2 doesn't download
+## and include them by default
+mkdir -p build/current || exit 1
+cd build/current || exit 1
+tar xfj ../../src/oog680-m9-system.tar.bz2 ;
+mv -f oog680-m9/dictionaries ./ || echo "Dictionaries already there."
+cd $TMP/ooo-build-$VERSION || exit 1
+
 ## Build and Install
 make $MAKE_FLAGS -j1 || exit 1
+
+cd ./bin || exit 1;
+./ooinstall $PKG/usr
 
 ## TESTING ## 
 echo "Paused."
 read
+
+
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
