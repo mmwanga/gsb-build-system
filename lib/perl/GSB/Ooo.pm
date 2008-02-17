@@ -66,7 +66,7 @@ our %ooo_packages =
    'libwpd'    => {
              'ver' => '0.8.12',
 	     'dir' => 'ooo/openoffice.org',
-             'url' => 'http://go-oo.org/packages/SRC680/',
+             'url' => 'http://download.go-oo.org/libwpd',
 	     'tar' => 'libwpd-0.8.12.tar.gz',
              'var' => 'VERSION',
                   },
