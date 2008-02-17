@@ -158,10 +158,10 @@ sub gsb_tarball_get {
       gsb_tarball_get($name, $ver, $tarball, $url);
     }
     elsif ( $verify eq "good" ) {
-      print "$name tarball md5 matches (NOT REALLY CHECKED YET)\n";
+      print "$name tarball md5 matches\n";
     }
     else {
-      print "md5 not checked\n";
+      print "DEBUG: md5 not checked\n";
     }
   }
 }
@@ -195,10 +195,10 @@ sub gsb_gnome_tarball_get {
       gsb_gnome_tarball_get($name, $ver, $tarball);
     }
     elsif ( $verify eq "good" ) {
-      print "\n *** $name tarball md5 matches ***\n\n\n";
+      print "$name tarball md5 matches\n";
     }
     else {
-      print "\n\n DEBUG: md5 not checked\n\n\n";
+      print "DEBUG: md5 not checked\n";
     }
   }}
 }
