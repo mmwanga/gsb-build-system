@@ -35,6 +35,13 @@ our %ooo_packages =
 	     'tar' => 'oog680-m9-core.tar.bz2',
              'var' => 'VERSION',
                   },
+   'oog680-system'    => {
+             'ver' => 'm9',
+	     'dir' => 'ooo/openoffice.org',
+             'url' => 'http://go-oo.org/packages/OOG680/',
+	     'tar' => 'oog680-m9-system.tar.bz2',
+             'var' => 'VERSION',
+                  },
    'extras'    => {
              'ver' => '2',
 	     'dir' => 'ooo/openoffice.org',
