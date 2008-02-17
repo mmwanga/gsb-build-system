@@ -140,6 +140,7 @@ elif [ "$ARCH" = "i586" ]; then
 elif [ "$ARCH" = "i686" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
 elif [ "$ARCH" = "x86_64" ]; then
+  LIBDIR=lib64
   if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -fPIC"}
   else
@@ -158,6 +159,7 @@ else
 fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
+LIBDIR=${LIBDIR:-"lib"}
 
 ## Add GNOMESlackBuild sections to go-oo configure system
 cp $CWD/gsb_art/*.bmp ./src || exit 1
@@ -229,19 +231,23 @@ cd $TMP/ooo-build-$VERSION || exit 1
 
 ## Build and Install
 make $MAKE_FLAGS -j1 || exit 1
-
-cd ./bin || exit 1;
-./ooinstall $PKG/usr
-
-## TESTING ## 
-echo "Paused."
-read
-
-
+cd bin ; 
+OODESTDIR=$PKG ./package-ooo || exit 1
+cd $PKG/usr/$LIBDIR
+ln -s ooo-2.3 ooo
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
+
+## Copy extra documentation into package.
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
+cd $PKG/usr/$LIBDIR/ooo || exit 1
+for i in README README.html LICENSE LICENSE.html THIRDPARTYLICENSEREADME.html ; do
+  mv $PKG/usr/$LIBDIR/ooo/$i $PKG/usr/doc/$PKGNAME-$VERSION ;
+done
+find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
+chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 ## Compress and fix manpage links.
 [ -e $PKG/usr/man ] && {
@@ -251,20 +257,6 @@ read
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }
 
-## Deal with .info files.
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
-}
-
-## Copy extra documentation into package.
-mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
-  $PKG/usr/doc/$PKGNAME-$VERSION
-find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
-chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
-
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
 do
@@ -272,6 +264,10 @@ do
     cat $CWD/$FILE >>$PKG/install/$FILE
   }
 done
+
+## TESTING ## 
+echo "Paused."
+read
 
 ## Create the package
 cd $PKG
