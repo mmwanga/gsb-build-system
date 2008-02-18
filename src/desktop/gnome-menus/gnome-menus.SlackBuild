@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=6
+BUILD=7
 VERSION=2.20.3
 
 ## List any packages here that are required to build this package.
@@ -117,14 +117,9 @@ fi
 # Patch to clean up menus by removing KDE 
 # This patch addes "Exclude" sections to the applications.menu
 # to avoid KDE items in the GNOME menu
-# gnome-menus-2.20.3-menu-cleanup.patch deprecated by exclude-kde patch
-#patch -p0 < $CWD/patches/gnome-menus-2.20.3-menu-cleanup.patch || exit 1
 patch -p0 < $CWD/patches/gnome-menus-2.20.3-exclude-kde.patch || exit 1
-
-# Patch to prefix gnome xfg menus with "gnome-" in order
-# to keep seperate from KDE menus.
-#patch -p0 < $CWD/patches/gnome-menus-2.20.3-xdg-prefix.patch || exit 1
-
+# This patch subordinates openoffice and xfce with merged menu entries
+patch -p0 < $CWD/patches/gnome-menus-2.20.3-submenu-kde.patch || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .
