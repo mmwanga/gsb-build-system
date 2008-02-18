@@ -1,6 +1,16 @@
 ChangeLog
 ---------
 
+17-02-2008 fidesratio <sk238(at)ex.ac.uk>		
+    * oo.org script finalized.  I got a nice working gtk oo.org build
+      running on x86_64.  :)
+
+15-02-2008 fidesratio <sk238(at)ex.ac.uk>		
+    * Changed metacity.SlackBuild to use -O0 to fix weird
+      pink bug.  http://bugzilla.gnome.org/show_bug.cgi?id=478886
+      Thanks to Thomas Zajic for pointing this out.
+    * Add inital oo.org build scripts.
+
 07-02-2008 fidesratio <sk238(at)ex.ac.uk>		
     * Added sensors-applet to desktop section.
     * Fix to gnome-themes doinst.sh
