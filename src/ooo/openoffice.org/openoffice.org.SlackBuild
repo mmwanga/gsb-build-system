@@ -188,7 +188,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-mono \
   --enable-access \
   --enable-cairo \
-  --with-lang="en-GB en-US" \
   --with-system-cairo \
   --with-system-sndfile \
   --with-system-neon \
@@ -223,11 +222,11 @@ done;
 ## Make sure dictionaries are installed ;
 ## For some reason, ooo-build 2.3.1.2 doesn't download
 ## and include them by default
-mkdir -p build/current || exit 1
-cd build/current || exit 1
-tar xfj ../../src/oog680-m9-system.tar.bz2 ;
-mv -f oog680-m9/dictionaries ./ || echo "Dictionaries already there."
-cd $TMP/ooo-build-$VERSION || exit 1
+#mkdir -p build/current || exit 1
+#cd build/current || exit 1
+#tar xfj ../../src/oog680-m9-system.tar.bz2 ;
+#mv -f oog680-m9/dictionaries ./ || echo "Dictionaries already there."
+#cd $TMP/ooo-build-$VERSION || exit 1
 
 ## Build and Install
 make $MAKE_FLAGS -j1 || exit 1
@@ -236,19 +235,10 @@ OODESTDIR=$PKG ./package-ooo || exit 1
 cd $PKG/usr/$LIBDIR
 ln -s ooo-2.3 ooo
 
-# Correct symlinks in /usr/share/applications
-( cd $PKG/usr/share/applications
-  for APP in base calc draw impress math template web writer; do
-    rm -f ${APP}2.3.desktop
-    ln -sf ../../$LIBDIR/ooo/share/xdg/$APP.desktop \
-      oo${APP}2.3.desktop ;
-  done
-)
-
 # Add /usr/share/pixmaps directory and link icons to it
 mkdir -p $PKG/usr/share/pixmaps
 ( cd $PKG/usr/share/pixmaps
-  for APP in base calc draw gulls impress math template web writer ; do
+  for APP in base calc draw impress math writer ; do
     ln -sf /usr/share/icons/hicolor/48x48/apps/ooo-${APP}2.3.png . ;
   done
 )
