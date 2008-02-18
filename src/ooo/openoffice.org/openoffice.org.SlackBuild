@@ -12,7 +12,7 @@ VERSION=2.3.1.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 libgnomeui"
+REQUIRED_PACKAGES="gtk+2 libgnomeui openoffice-perl"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
