@@ -1,0 +1,114 @@
+--- layout/applications.menu	2008-02-10 22:49:13.000000000 +0000
++++ layout/applications.menu.mine	2008-02-18 21:58:16.000000000 +0000
+@@ -35,6 +35,8 @@
+     </Include>
+     <Exclude>
+         <Category>KDE</Category>
++        <Category>X-XFCE</Category>
++        <Filename>mousepad.desktop</Filename>
+     </Exclude>
+   </Menu> <!-- End Accessories -->
+ 
+@@ -52,6 +54,7 @@
+     </Include>
+     <Exclude>
+         <Category>KDE</Category>
++        <Category>X-XFCE</Category>
+     </Exclude>
+   </Menu> <!-- End Accessibility -->
+ 
+@@ -67,6 +70,7 @@
+     </Include>
+     <Exclude>
+         <Category>KDE</Category>
++        <Category>X-XFCE</Category>
+     </Exclude>
+   </Menu> <!-- End Development Tools -->
+ 
+@@ -81,6 +85,7 @@
+     </Include>
+     <Exclude>
+         <Category>KDE</Category>
++        <Category>X-XFCE</Category>
+     </Exclude>
+   </Menu> <!-- End Education -->
+ 
+@@ -95,6 +100,7 @@
+     </Include>
+     <Exclude>
+         <Category>KDE</Category>
++        <Category>X-XFCE</Category>
+     </Exclude>
+   </Menu> <!-- End Games -->
+ 
+@@ -109,6 +115,7 @@
+     </Include>
+     <Exclude>
+         <Category>KDE</Category>
++        <Category>X-XFCE</Category>
+     </Exclude>
+   </Menu> <!-- End Graphics -->
+ 
+@@ -123,6 +130,8 @@
+     </Include>
+     <Exclude>
+         <Category>KDE</Category>
++        <Category>X-XFCE</Category>
++        <Filename>web2.3.desktop</Filename>
+     </Exclude>
+   </Menu>   <!-- End Internet -->
+ 
+@@ -137,6 +146,7 @@
+     </Include>
+     <Exclude>
+         <Category>KDE</Category>
++        <Category>X-XFCE</Category>
+     </Exclude>
+   </Menu>   <!-- End Multimedia -->
+ 
+@@ -154,6 +164,13 @@
+     </Include>
+     <Exclude>
+         <Category>KDE</Category>
++        <Category>X-XFCE</Category>
++        <Filename>calc2.3.desktop</Filename>
++        <Filename>draw2.3.desktop</Filename>
++        <Filename>impress2.3.desktop</Filename>
++        <Filename>math2.3.desktop</Filename>
++        <Filename>template2.3.desktop</Filename>
++        <Filename>writer2.3.desktop</Filename>
+     </Exclude>
+   </Menu> <!-- End Office -->
+ 
+@@ -169,6 +186,7 @@
+     </Include>
+     <Exclude>
+         <Category>KDE</Category>
++        <Category>X-XFCE</Category>
+     </Exclude>
+   </Menu>   <!-- End System Tools -->
+ 
+@@ -186,7 +204,23 @@
+     </Include>
+     <Exclude>
+         <Category>KDE</Category>
++        <Category>X-XFCE</Category>
+     </Exclude>
+   </Menu> <!-- End Other -->
+ 
++  <Menu>
++     <Name>KDE</Name>
++     <MergeFile>gnome-kde-menus.menu</MergeFile>
++  </Menu>
++
++  <Menu>
++     <Name>OpenOffice.Org</Name>
++     <MergeFile>gnome-ooo-menus.menu</MergeFile>
++  </Menu>
++
++  <Menu>
++     <Name>XFCE</Name>
++     <MergeFile>gnome-xfce-menus.menu</MergeFile>
++  </Menu>
++
+ </Menu> <!-- End Applications -->
