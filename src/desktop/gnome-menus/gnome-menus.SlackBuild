@@ -119,7 +119,7 @@ fi
 # to avoid KDE items in the GNOME menu
 patch -p0 < $CWD/patches/gnome-menus-2.20.3-exclude-kde.patch || exit 1
 # This patch subordinates openoffice and xfce with merged menu entries
-patch -p0 < $CWD/patches/gnome-menus-2.20.3-submenu-kde.patch || exit 1
+patch -p0 < $CWD/patches/gnome-menus-2.20.3-submenu.patch || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .
