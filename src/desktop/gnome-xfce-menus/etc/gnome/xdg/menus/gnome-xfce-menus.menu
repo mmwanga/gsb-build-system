@@ -1,0 +1,11 @@
+<Menu>
+    <Name>XFCE</Name>
+    <Directory>Xfce.directory</Directory>
+    <Include>
+       <Filename>xfce4-appfinder.desktop</Filename>
+       <Filename>mousepad.desktop</Filename>
+       <Filename>Thunar.desktop</Filename>
+       <Filename>Thunar-bulk-rename.desktop</Filename>
+       <Filename>xfcalendar.desktop</Filename>
+    </Include>
+</Menu>
