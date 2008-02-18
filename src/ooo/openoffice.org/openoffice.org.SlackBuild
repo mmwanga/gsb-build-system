@@ -273,7 +273,7 @@ do
 done
 
 ## TESTING ## 
-echo "Paused."
+echo "Paused before makepkg."
 read
 
 ## Create the package
@@ -281,6 +281,6 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
-[ "$NOCLEANUP" = "0" ] && {
+#[ "$NOCLEANUP" = "0" ] && {
   #rm -rf $PKG $TMP/$PKGNAME-$VERSION
-}
+#}
