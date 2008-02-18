@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=1gsb
 VERSION=2.3.1.2
 
 ## List any packages here that are required to build this package.
@@ -90,7 +90,8 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-#Disabled for testing purposes
+# Disabled in case build fails;  ooo-build can
+# resume broken builds.
 #rm -rf $PKGNAME-$VERSION &&
 tar xzf $CWD/ooo-build-$VERSION.tar.gz &&
 cd ooo-build-$VERSION || exit 1
@@ -117,17 +118,17 @@ elif [ "$ARCH" = "powerpc" ]; then
 fi
 
 ## Fix permissions for building.
-#chown -R root.root .
-#find . -perm 664 -exec chmod 644 {} \;
-#find . -perm 600 -exec chmod 644 {} \;
-#find . -perm 444 -exec chmod 644 {} \;
-#find . -perm 400 -exec chmod 644 {} \;
-#find . -perm 440 -exec chmod 644 {} \;
-#find . -perm 777 -exec chmod 755 {} \;
-#find . -perm 775 -exec chmod 755 {} \;
-#find . -perm 511 -exec chmod 755 {} \;
-#find . -perm 711 -exec chmod 755 {} \;
-#find . -perm 555 -exec chmod 755 {} \;
+chown -R root.root .
+find . -perm 664 -exec chmod 644 {} \;
+find . -perm 600 -exec chmod 644 {} \;
+find . -perm 444 -exec chmod 644 {} \;
+find . -perm 400 -exec chmod 644 {} \;
+find . -perm 440 -exec chmod 644 {} \;
+find . -perm 777 -exec chmod 755 {} \;
+find . -perm 775 -exec chmod 755 {} \;
+find . -perm 511 -exec chmod 755 {} \;
+find . -perm 711 -exec chmod 755 {} \;
+find . -perm 555 -exec chmod 755 {} \;
 
 ## Configure, Tuning, GCC and Make options.
 CONFIGURE_FLAGS=${GSB_CONFIGURE_FLAGS:-""}
@@ -177,8 +178,6 @@ else
 fi;
 
 ## Configure.
-#export SYSTEM_SNDFILE="YES"
-#export SYSTEM_NEON="YES"
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
@@ -207,7 +206,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --with-drink=ale \
   || exit 1
 
-
 ## Copy over downloaded sources
 ## We do it manually rather than running the go-oo download
 ## script because it saves the sources in the build tree
@@ -218,15 +216,6 @@ for i in mdbtool oog libw lp_solve oox extras biblio;
 do 
 	cp -v $CWD/$i* ./src 
 done;
-
-## Make sure dictionaries are installed ;
-## For some reason, ooo-build 2.3.1.2 doesn't download
-## and include them by default
-#mkdir -p build/current || exit 1
-#cd build/current || exit 1
-#tar xfj ../../src/oog680-m9-system.tar.bz2 ;
-#mv -f oog680-m9/dictionaries ./ || echo "Dictionaries already there."
-#cd $TMP/ooo-build-$VERSION || exit 1
 
 ## Build and Install
 make $MAKE_FLAGS -j1 || exit 1
@@ -272,15 +261,11 @@ do
   }
 done
 
-## TESTING ## 
-echo "Paused before makepkg."
-read
-
 ## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz || exit 1
 
 ## Cleanup
-#[ "$NOCLEANUP" = "0" ] && {
-  #rm -rf $PKG $TMP/$PKGNAME-$VERSION
-#}
+[ "$NOCLEANUP" = "0" ] && {
+  rm -rf $PKG $TMP/$PKGNAME-$VERSION
+}
