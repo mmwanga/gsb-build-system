@@ -145,6 +145,10 @@ gnome-keyring-manager
 gnome-mag
 gnome-media
 gnome-menus
+gnome-kde-menus
+gnome-xfce-menus
+gnome-ooo-menus
+openoffice.org
 gnome-mime-data
 gnome-mount
 gnome-netstatus
@@ -189,7 +193,6 @@ grip
 gslapt
 slapt-update-notifier
 gst-ffmpeg
-gsb-gnome-menus
 gst-fluendo-mp3
 gst-plugins-bad
 gst-plugins-base

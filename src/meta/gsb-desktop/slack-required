@@ -45,6 +45,8 @@ gnome-doc-utils
 gnome-icon-theme
 gnome-keyring
 gnome-menus
+gnome-kde-menus
+gnome-xfce-menus
 gnome-mount
 gnome-panel
 gnome-pilot
