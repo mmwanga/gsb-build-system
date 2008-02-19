@@ -145,9 +145,9 @@ gnome-keyring-manager
 gnome-mag
 gnome-media
 gnome-menus
-gnome-kde-menus
-gnome-xfce-menus
-gnome-ooo-menus
+gnome-menus-xfce
+gnome-menus-kde
+gnome-menus-ooo
 openoffice.org
 gnome-mime-data
 gnome-mount
