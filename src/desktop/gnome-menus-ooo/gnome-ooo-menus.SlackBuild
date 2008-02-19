@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1gsb
+BUILD=1
 VERSION=1.0
 
 ## List any packages here that are required to build this package.
