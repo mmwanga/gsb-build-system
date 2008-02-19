@@ -4,9 +4,9 @@ gnome-doc-utils
 at-spi
 gnome-desktop
 gnome-menus
-gnome-kde-menus
-gnome-ooo-menus
-gnome-xfce-menus
+gnome-menus-kde
+gnome-menus-xfce
+gnome-menus-ooo
 libwnck
 evolution-data-server
 gnome-python

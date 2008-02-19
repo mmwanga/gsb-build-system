@@ -1,5 +1,5 @@
 <Menu>
-    <Name>XFCE</Name>
+    <Name>Xfce Applications</Name>
     <Directory>Xfce.directory</Directory>
     <Include>
        <Filename>xfce4-appfinder.desktop</Filename>

@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=1gsb
 VERSION=1.0
 
 ## List any packages here that are required to build this package.
@@ -157,6 +157,14 @@ cp -r $CWD/usr $PKG
 find $PKG -type d -name ".svn" -exec rm -rf {} \;
 # Proper permissions
 chown -R root:root $PKG
+
+## Copy extra documentation into package.
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
+cp -a \
+  README GPL LGPL \
+  $PKG/usr/doc/$PKGNAME-$VERSION
+find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
+chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests

@@ -1,12 +1,12 @@
 	       |-----handy-ruler------------------------------------------------------|
-gnome-kde-menus: gnome-kde-menus (GNOME Menus Extended with KDE)
-gnome-kde-menus:
-gnome-kde-menus: This package contains a modified set of GNOME Menus which include
-gnome-kde-menus: a set of subkde-menus which display KDE/Qt applications.
-gnome-kde-menus: 
-gnome-kde-menus:
-gnome-kde-menus:
-gnome-kde-menus:
-gnome-kde-menus:
-gnome-kde-menus:
-gnome-kde-menus:
+gnome-menus-kde: gnome-menus-kde (GNOME Menus Extended with KDE)
+gnome-menus-kde:
+gnome-menus-kde: This package contains a modified set of GNOME Menus which include
+gnome-menus-kde: a set of submenus-kde which display KDE/Qt applications.
+gnome-menus-kde: 
+gnome-menus-kde:
+gnome-menus-kde:
+gnome-menus-kde:
+gnome-menus-kde:
+gnome-menus-kde:
+gnome-menus-kde:
