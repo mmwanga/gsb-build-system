@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=0.9.12c
 
 ## List any packages here that are required to build this package.
@@ -157,6 +157,14 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+## Use a better (arch specific) slapt-getrc.
+( cd $PKG/etc/slapt-get && mv slapt-getrc slapt-getrc.dist ) || exit 1
+if [ "$ARCH" = "x86_64" ]; then
+  cp $CWD/slapt-getrc.x86 $PKG/etc/slapt-get/slapt-getrc.new || exit 1
+else
+  cp $CWD/slapt-getrc.ia32 $PKG/etc/slapt-get/slapt-getrc.new || exit 1
+fi
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

@@ -1,0 +1,55 @@
+# This is the slapt-getrc taken from the standard slapt-get package, modified
+# for the GSB project.
+#
+
+# Working directory for local storage/cache
+WORKINGDIR=/var/slapt-get
+
+# Exclude package names and expressions
+EXCLUDE=^kernel-.*,^alsa-.*,^glibc.*,.*-[0-9]+dl$,^devs$,^udev$,aaa_elflibs
+
+# Official slapt-get repo
+SOURCE=http://software.jaos.org/slackpacks/12.0-x86_64/
+
+# Base url to directory with a PACKAGES.TXT
+# This is a list of (some of the) Slamd64 12.0 mirrors which can be used with
+# GSB.  Any Slamd64 12.0 mirror can be used, we just list a few here, all of
+# which have been manually checked as working.
+# Any of the following can be copied and have 'extra/' 'testing/' or 'pasture/'
+# appended to the url to allow access to additional Slamd64 packages.
+SOURCE=ftp://anorien.warwick.ac.uk/slamd64/slamd64-12.0/
+#SOURCE=ftp://ftp.slackware.pl/pub/slamd64/slamd64-12.0
+#SOURCE=http://ftp.slackware.pl/pub/slamd64/slamd64-12.0/
+#SOURCE=ftp://anorien.warwick.ac.uk/slamd64/slamd64-12.0/
+#SOURCE=http://anorien.warwick.ac.uk/mirrors/slamd64/slamd64-12.0/
+#SOURCE=ftp://ftp.scarlet.be/pub/slamd64/slamd64-12.0
+#SOURCE=http://ftp.scarlet.be/pub/slamd64/slamd64-12.0/
+#SOURCE=ftp://ftp.heanet.ie/pub/slamd64/slamd64-12.0
+#SOURCE=http://ftp.heanet.ie/pub/slamd64/slamd64-12.0/
+#SOURCE=ftp://slamd64.wahlfaelschung.de/slamd64-12.0
+#SOURCE=http://slamd64.wahlfaelschung.de/slamd64-12.0/
+#SOURCE=ftp://ftp.slackware.org.uk/slamd64/slamd64-12.0/
+#SOURCE=http://www.slackware.org.uk/slamd64/slamd64-12.0/
+
+# GNOME SlackBuild mirrors (latest stable release)
+SOURCE=ftp://ftp.slackware.org.uk/gsb64/gsb64-stable/
+#SOURCE=ftp://ftp.slackware.org.uk/gsb64/gsb64-stable/
+#SOURCE=http://www.slackware.org.uk/gsb64/gsb64-stable/
+#SOURCE=ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb64/gsb64-stable/
+#SOURCE=http://slackware.rol.ru/gsb/gsb64/gsb64-stable/
+#SOURCE=http://get.gnomeslackbuild.org/gsb64/gsb64-stable/
+
+# GNOME SlackBuild mirrors (development branch - not recommended!)
+#SOURCE=ftp://ftp.slackware.org.uk/gsb64/gsb64-current/
+#SOURCE=ftp://ftp.slackware.org.uk/gsb64/gsb64-current/
+#SOURCE=http://www.slackware.org.uk/gsb64/gsb64-current/
+#SOURCE=ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb64/gsb64-current/
+#SOURCE=http://slackware.rol.ru/gsb/gsb64/gsb64-current/
+#SOURCE=http://get.gnomeslackbuild.org/gsb64/gsb64-current/
+
+# Use a local path to a Slamd64/GSB/other repo
+#SOURCE=file:///path/to/repo/slackware/slamd-12.0/
+#SOURCE=file:///path/to/repo/gsb/gsb64-stable/
+
+# Use a local mounted CDROM
+#SOURCE=file:///mnt/cdrom/
