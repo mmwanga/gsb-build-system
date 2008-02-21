@@ -44,11 +44,13 @@ use GSB::Desktop;
 use GSB::Applications;
 use GSB::Accessibility;
 use GSB::Bindings;
+use GSB::Meta;
 use GSB::Mono;
 use GSB::Office;
 use GSB::Extras;
 use GSB::Compiz;
 use GSB::Fonts;
+use GSB::Supplied;
 use GSB::Themes;
 use GSB::Tools;
 use GSB::Testing;
@@ -296,6 +298,43 @@ foreach my $libsvnpackage (keys %libraries_svn) {
   my $ver     = $libraries_svn{$name};
 
   chdir "$pwd/libraries/$name";
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+}
+
+# Set version/build numbers for metapackages
+foreach my $mp (keys %meta_packages) {
+
+  my $name    = $mp;
+  my $sb_file = $name . $sb_ext;
+  my $ver     = $meta_packages{$name};
+
+  chdir "$pwd/meta/$name";
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+}
+
+# Set version/build numbers for our own tarballs
+foreach my $sp (keys %supplied_tarballs) {
+
+  my $name    = $sp;
+  my $sb_file = $name . $sb_ext;
+  my $ver     = $supplied_tarballs{$sp}{ver};
+  my $section     = $supplied_tarballs{$sp}{section};
+
+  chdir "$pwd/$section/$name";
 
   if ( $edit eq "true" ) {
     GSB::Edit::gsb_sb_edit($sb_file, $ver);
