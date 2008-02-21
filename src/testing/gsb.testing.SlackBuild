@@ -1,0 +1,404 @@
+#!/bin/bash
+# Version: 1.4 GSB Section SlackBuild.
+# Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
+#
+# Licenced under the terms of the GNU General Public Licence version 3.
+#
+
+# Make sure we are in the right directory (you can never trust users..)
+cd $( cd ${BASH_SOURCE%/*} ; pwd )
+
+# Section name.
+# This should not need to be changed unless the auto detection fails.
+SECTION="$( basename $( pwd ) )"
+
+# Packages to build.
+# Package list is read in from .buildlist in the current directory, with any
+# comments and blank lines removed.
+PACKAGES="$( egrep -v "^#|^$" .buildlist | cut -d'#' -f1 )"
+
+# Usage.
+function usage() {
+  cat << EOF
+Usage: ${0##*/} [options]
+
+Options:
+  --help		Show this help screen.
+
+  --list		List the packages which will be built in this section.
+
+  --force		A package will not be built if a package of the same
+			name is already installed, or any of the pre-requisite
+			packages are not installed.  This option over-rides
+			the checks and attempts a build (which will probably
+			fail) anyway.
+
+  --no-cleanup		By default, any source, temporary build and package
+			directories will be deleted once the package is built.
+			This option prevents those files from being removed.
+
+  --no-patchesdir	When rebuilding packages which already exist in the
+			main package directory, the default is to put the new
+			packages in the patches directory.  Using this option
+			completely disables the use of a patches directory.
+
+  --no-skip		During the build process, packages that are up to date
+			(ie, the package version and build numbers match the
+			coresponding SlackBuild) will not be rebuilt.  This
+			option forces packages to be rebuilt regardless of the
+			version and build numbers.  This option doesn't affect
+			the pre-build checks for installed packages (see the
+			--force option).  This option implies --no-patchesdir.
+
+  --no-prune		Normally, when a package is built and copied to the
+			destination directory (whether it be the main package 
+			directory or the patches directory), any previous
+			package(s) of the same name in that directory are
+			deleted - it is assumed the new package is to replace
+			any which are already present.  This option prevents
+			previous packages being deleted, possibly leaving more
+			than one package of the same name (but with different
+			version or build numbers) laying around.
+
+  --no-install		Build the packages but don't install them afterwards.
+			This should only be used for testing as it WILL cause
+			serious problems - most builds rely on other GSB
+			packages being automatically installed first.
+
+  --no-metafiles	Do not create the package's .txt and .md5 meta files
+			which would usually be produced during a build.
+
+  Options are passed down to the next level SlackBuild where appropriate.
+EOF
+}
+
+function list_packages() {
+  local PACKAGE
+  echo "The following packages are built in this section, listed in processing order:"
+  ( for PACKAGE in $PACKAGES
+    do
+      echo -n "$PACKAGE, "
+    done ) | sed -e 's/, $//' | fmt -w 74 | sed -e 's/^/    /g'
+}
+
+function find_package_files() {
+  # $1 = Directory to look for files in [required]
+  # $2 = Package name or regex to match.  An empty string matches all.
+  # $3 = Package version or regex to match.  An empty string matches all.
+  # $4 = Package architecture or regex to match.  An empty string matches all.
+  # $5 = Package build tag or regex to match.  An empty string matches all.
+  # $6 = File extension or regex to match.  An empty string means no extension.
+  # Note: Remember to escape any regex characters used in fixed strings.
+
+  [ -z "$1" ] || [ ! -d "$1" ] && return 1
+  find $1 -maxdepth 1 -mindepth 1 2>/dev/null | \
+    egrep "^.*/(${2:-.*})(-${3:-[^-]*})(-${4:-[^-]*})(-${5:-[^-.]*})($6)$" 2>/dev/null
+  return $?
+}
+
+function runtime() {
+  # $1 = Number of seconds to convert to readable text [required]
+
+  [ -z "$1" ] && return 1
+
+  local D=$(( $1 / 86400 ))
+  local H=$(( ($1 - ($D * 86400)) / 3600 ))
+  local M=$(( ($1 - ($D * 86400) - ($H * 3600)) / 60 ))
+  local S=$(( $1 - ($D * 86400) - ($H * 3600) - ($M * 60) ))
+
+  if [ $D -gt 0 ]; then
+    echo -n "${D}d, ${H}h ${M}m ${S}s"
+  else
+    echo -n "${H}h, ${M}m ${S}s"
+  fi
+  return 0
+}
+
+function gen_pkg_txt() {
+  # $1 = Package file to process [required].
+
+  [ -z "$1" ] || [ ! -e "$1" ] && return 1
+  tar xzOf $1 install/slack-desc 2>/dev/null | \
+    grep -v "^#" | egrep "[[:alnum:]\+]+\:" >${1%.tgz}.txt
+  return $?
+}
+
+function gen_pkg_md5() {
+  # $1 = Package file to process [required].
+
+  [ -z "$1" ] || [ ! -e "$1" ] && return 1
+  ( cd $( dirname $1 ) && md5sum $( basename $1 ) >$1.md5 )
+  return $?
+}
+
+# If the user created an options file, read it.
+[ "$OPTIONSREAD" != "1" -a -r ../gsb.options ] && {
+  . ../gsb.options
+  export OPTIONSREAD=1
+}
+
+# Environment.
+export TMP=${TMP:-/tmp}
+if [ "$ARCH" = "x86_64" ]; then
+  export PKGDEST=${PKGDEST:-$TMP/gsb64-tree}
+  export LOGSDIR=${LOGSDIR:-$TMP/gsb64-buildlogs}
+else
+  export PKGDEST=${PKGDEST:-$TMP/gsb-tree}
+  export LOGSDIR=${LOGSDIR:-$TMP/gsb-buildlogs}
+fi
+export PACKAGESDIR=${PACKAGESDIR:-packages}/$SECTION
+export PATCHESDIR=${PATCHESDIR:-patches}/$SECTION
+export TESTINGDIR=${TESTINGDIR:-testing}
+
+# Option defaults.
+NOPATCHESDIR=0
+NOSKIP=0
+NOPRUNE=0
+NOINSTALL=0
+NOMETAFILES=0
+
+# Sanity check (in case Steve forgets to add packages again :P).
+[ $( echo "$PACKAGES" | wc -w ) != \
+  $( find . -type d ! -name .svn -maxdepth 1 -mindepth 1 | wc -w ) ] && {
+  echo
+  echo "*********************************************************************"
+  echo "** Error: the number of packages in the PACKAGES list is different"
+  echo "**        to the number of package directories in this section."
+  echo "**        Some packages may not have been added to the PACKAGES list."
+  echo "*********************************************************************"
+  exit 1
+}
+
+# Parse command line arguments.
+while [ $# -gt 0 ]; do
+  if [ "$1" = "-help" ] || [ "$1" = "--help" ]; then
+    usage
+    exit 0
+  elif [ "$1" = "-list" ] || [ "$1" = "--list" ]; then
+    list_packages
+    exit 0
+  elif [ "$1" = "-force" ] || [ "$1" = "--force" ]; then
+    SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}--force"
+    shift
+  elif [ "$1" = "-no-cleanup" ] || [ "$1" = "--no-cleanup" ]; then
+    SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}--no-cleanup"
+    shift
+  elif [ "$1" = "-no-patchesdir" ] || [ "$1" = "--no-patchesdir" ]; then
+    NOPATCHESDIR=1
+    shift
+  elif [ "$1" = "-no-skip" ] || [ "$1" = "--no-skip" ]; then
+    NOSKIP=1
+    NOPATCHESDIR=1
+    shift
+  elif [ "$1" = "-no-prune" ] || [ "$1" = "--no-prune" ]; then
+    NOPRUNE=1
+    shift
+  elif [ "$1" = "-no-install" ] || [ "$1" = "--no-install" ]; then
+    NOINSTALL=1
+    shift
+  elif [ "$1" = "-no-metafiles" ] || [ "$1" = "--no-metafiles" ]; then
+    NOMETAFILES=1
+    shift
+  else
+    echo "${0##*/}: Unknown option: $1"
+    echo "Try: $0 --help"
+    exit 1
+  fi
+done
+
+# Temporary space, package and log file storage.
+mkdir -p $TMP
+mkdir -p $PKGDEST
+mkdir -p $LOGSDIR
+mkdir -p $LOGSDIR/$SECTION
+
+echo
+echo "*********************************************************************"
+echo "** Building section '$SECTION'..."
+echo "*********************************************************************"
+
+# Process packages.
+( for PACKAGE in $PACKAGES
+  do
+    # Build defaults.
+    SKIP_BUILD=0
+    SUBDIR=$TESTINGDIR			# Note: Use testing/ not packages/
+
+    echo
+    echo "*********************************************************************"
+    echo "*** Processing package '$PACKAGE'..."
+    echo "*********************************************************************"
+
+    # Sanity checks.
+    [ ! -e "$PACKAGE/$PACKAGE.SlackBuild" ] && {
+      echo
+      echo "*********************************************************************"
+      echo "*** Error: '$PACKAGE.SlackBuild' not found."
+      echo "*********************************************************************"
+      exit 1
+    }
+    [ ! -x "$PACKAGE/$PACKAGE.SlackBuild" ] && {
+      echo
+      echo "*********************************************************************"
+      echo "*** Error: '$PACKAGE.SlackBuild' is not executable."
+      echo "*********************************************************************"
+      exit 1
+    }
+
+    # Get package version and build numbers from the package SlackBuild.
+    declare PACKAGE_$( egrep -m 1 "^VERSION=.*" $PACKAGE/$PACKAGE.SlackBuild )
+    declare PACKAGE_$( egrep -m 1 "^BUILD=.*" $PACKAGE/$PACKAGE.SlackBuild )
+
+    # Check that we got a version and build.
+    [ -z "$PACKAGE_VERSION" ] || [ -z "$PACKAGE_BUILD" ] && {
+      echo
+      echo "*********************************************************************"
+      echo "*** Error: failed to get VERSION or BUILD from '$PACKAGE.SlackBuild'"
+      echo "*********************************************************************"
+      exit 1
+    }
+
+    # Check if the package should be rebuilt, and where it should be put.
+    # The assumption is to always rebuild and put packages in the main
+    # directory, unless modified by the checks below.
+    if find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" "" "" "" \
+      "\.tgz" >/dev/null && [ "$NOSKIP" = "0" ]
+    then
+      if find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
+        "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" >/dev/null
+      then
+        # Package with same version/build was found in the main directory.
+        SKIP_BUILD=1
+      else
+        # Not in the main directory, check patches.
+        if [ "$NOPATCHESDIR" = "0" ]; then
+          if find_package_files "$PKGDEST/$PATCHESDIR" "${PACKAGE//+/\+}" \
+            "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" >/dev/null
+          then
+            # Found in patches dir.
+            SKIP_BUILD=1
+            SUBDIR=$PATCHESDIR
+          else
+            # No package in patches with the same version/build.
+            SUBDIR=$PATCHESDIR
+          fi
+        fi
+      fi
+    fi
+
+    # Build package if required.
+    if [ "$SKIP_BUILD" = "0" ]; then
+      echo
+      echo "*********************************************************************"
+      echo "*** Removing installed package (if required) and cleaning up files"
+      echo "*********************************************************************"
+      rm -f $( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
+        "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz|\.txt|\.tgz\.md5" \
+        | tr '\n' ' ' ) >/dev/null 2>&1
+      find_package_files "/var/log/packages" "${PACKAGE//+/\+}" "" "" "" "" \
+        >/dev/null && {
+        removepkg $( basename $( find_package_files "/var/log/packages" \
+          "${PACKAGE//+/\+}" "" "" "" "" ) )
+      }
+
+      echo
+      echo "*********************************************************************"
+      echo "*** Building package '$PACKAGE'..."
+      echo "*********************************************************************"
+      mkdir -p $PKGDEST/$SUBDIR
+      ( cd $PACKAGE && export PKGDEST=$PKGDEST/$SUBDIR &&
+        ./$PACKAGE.SlackBuild $SLACKBUILD_ARGS 2>&1 ) | \
+        tee $LOGSDIR/$SECTION/$PACKAGE-$( date +%Y%m%d-%H%M%S ).log
+      ERR=${PIPESTATUS[0]}
+      [ "$ERR" != "0" ] && {
+        echo
+        echo "*********************************************************************"
+        echo "*** Error: '$PACKAGE' build failed."
+        echo "*********************************************************************"
+        exit $ERR
+      }
+    else
+      echo
+      echo "*********************************************************************"
+      echo "*** Skipping build of '$PACKAGE' - package up to date."
+      echo "*********************************************************************"
+    fi
+
+    PRUNE_FILES="$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
+      "" "" "" "\.tgz|\.txt|\.tgz\.md5" | grep -v "$( find_package_files \
+      "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" \
+      "$PACKAGE_BUILD" "\.tgz" )" | tr '\n' ' ' )"
+    [ ! -z "$PRUNE_FILES" ] && {
+      if [ "$NOPRUNE" = "0" ]; then
+        echo
+        echo "*********************************************************************"
+        echo "*** Pruning old '$PACKAGE' package files from tree..."
+        echo "*********************************************************************"
+        rm -f $PRUNE_FILES
+      else
+        echo
+        echo "*********************************************************************"
+        echo "*** Warning: not pruning any old '$PACKAGE' files."
+        echo "*********************************************************************"
+      fi
+    }
+
+    if [ "$NOMETAFILES" = "0" ]; then
+      echo
+      echo "*********************************************************************"
+      echo "*** Creating meta files for '$PACKAGE'..."
+      echo "*********************************************************************"
+      gen_pkg_txt "$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
+        "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" )" &&
+      gen_pkg_md5 "$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
+        "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" )" || {
+        echo
+        echo "*********************************************************************"
+        echo "*** Error: failed to create meta files for '$PACKAGE'."
+        echo "*********************************************************************"
+        exit 1
+      }
+    else
+      echo
+      echo "*********************************************************************"
+      echo "*** Warning: not creating meta files for '$PACKAGE'."
+      echo "*********************************************************************"
+    fi
+
+    if [ "$NOINSTALL" = "0" ]; then
+      echo
+      echo "*********************************************************************"
+      echo "*** Installing '$PACKAGE'..."
+      echo "*********************************************************************"
+      upgradepkg --install-new $( find_package_files "$PKGDEST/$SUBDIR" \
+        "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" ) || {
+        echo
+        echo "*********************************************************************"
+        echo "*** Error: failed to install '$PACKAGE'."
+        echo "*********************************************************************"
+        exit 1
+      }
+    else
+      echo
+      echo "*********************************************************************"
+      echo "*** Warning: not installing '$PACKAGE'."
+      echo "*********************************************************************"
+    fi
+  done
+
+  echo
+  echo "*********************************************************************"
+  echo "** Finished building section '$SECTION'."
+  echo "*********************************************************************"
+  echo "** Binary packages can be found in sub directories of:"
+  echo "**    $PKGDEST"
+  echo "** Individual build logs can be found in:"
+  echo "**    $LOGSDIR/$SECTION"
+  echo "** Package files and build logs can be deleted if not required."
+  echo "*********************************************************************"
+  echo "** Section build time was $( runtime $SECONDS )."
+  echo "*********************************************************************"
+) 2>&1 | tee $LOGSDIR/$SECTION-$(date +%Y%m%d-%H%M%S).log
+
+# Return the exit status from the sub-shell, not the tee command.
+exit ${PIPESTATUS[0]}
