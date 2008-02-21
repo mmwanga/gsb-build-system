@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=0.1.14
 
 ## List any packages here that are required to build this package.
@@ -164,6 +164,10 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+## Fix up broken icon and ugly .desktop entry
+cp $CWD/gtkam.desktop $PKG/usr/share/applications
+cp $CWD/gtkam.png $PKG/usr/share/pixmaps
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
