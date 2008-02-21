@@ -7,5 +7,6 @@
        <Filename>Thunar.desktop</Filename>
        <Filename>Thunar-bulk-rename.desktop</Filename>
        <Filename>xfcalendar.desktop</Filename>
+       <Filename>Terminal.desktop</Filename>
     </Include>
 </Menu>
