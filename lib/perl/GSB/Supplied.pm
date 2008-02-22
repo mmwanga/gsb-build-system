@@ -23,4 +23,16 @@ our %supplied_tarballs =
              'ver' => '0.212',
 	     'section' => 'testing',
                  },
+   'gnome-menus-kde'  => {
+             'ver' => '1.0',
+	     'section' => 'desktop',
+                 },
+   'gnome-menus-xfce'  => {
+             'ver' => '1.0',
+	     'section' => 'desktop',
+                 },
+   'gnome-menus-ooo'  => {
+             'ver' => '1.0',
+	     'section' => 'desktop',
+                 },
   );
