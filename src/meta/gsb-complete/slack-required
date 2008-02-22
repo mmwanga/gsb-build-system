@@ -377,6 +377,7 @@ openexr
 openldap | openldap-client
 openssh
 openssl | openssl-solibs
+openoffice
 orca
 pango
 parted
