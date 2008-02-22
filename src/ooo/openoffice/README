@@ -1,0 +1,4 @@
+GSB uses go-oo (go-oo.org) as the basis for building Openoffice.org.  
+go-oo supplies milestone source balls in additional to supplementary software used by openoffice (like 
+mdbtools).  The GSB download scripts will keep the source in the svn tree, and copy them
+over the build tree later (instead of running the ./download script which comes with ooo-build) 

@@ -1,0 +1,98 @@
+diff -Naur ooo-build-2.3.1.2.old/configure ooo-build-2.3.1.2/configure
+--- ooo-build-2.3.1.2.old/configure	2008-01-03 17:48:17.000000000 +0000
++++ ooo-build-2.3.1.2/configure	2008-02-16 00:39:36.000000000 +0000
+@@ -3376,6 +3376,7 @@
+         Ark*) VENDORNAME="Ark" ;;
+         Debian*|Ubuntu*) VENDORNAME="Debian" ;;
+         Dropline*) VENDORNAME="DroplineGNOME" ;;
++        GNOMESlackBuild*) VENDORNAME="GNOMESlackBuild" ;;
+         Frugalware*) VENDORNAME="Frugalware" ;;
+         Gentoo*) VENDORNAME="Gentoo" ;;
+         Mandriva*) VENDORNAME="Mandriva" ;;
+@@ -6647,7 +6648,7 @@
+ 
+ ac_config_files="$ac_config_files intltool-extract intltool-merge intltool-update"
+ 
+-ac_config_files="$ac_config_files Makefile bin/setup bin/Makefile desktop/Makefile desktop/16x16/Makefile desktop/22x22/Makefile desktop/24x24/Makefile desktop/32x32/Makefile desktop/48x48/Makefile desktop/scalable/Makefile distro-configs/Makefile distro-configs/Ark.conf distro-configs/Common.conf distro-configs/CommonLinux.conf distro-configs/CommonWin32.conf distro-configs/GoOoWin32.conf distro-configs/DroplineGNOME.conf distro-configs/DroplineGNOME64.conf distro-configs/Debian.conf distro-configs/DebianEtch.conf distro-configs/DebianSarge.conf distro-configs/OxygenOfficeLinux.conf distro-configs/OxygenOfficeWindows.conf distro-configs/Ubuntu.conf distro-configs/UbuntuL10n.conf distro-configs/Ubuntu64.conf distro-configs/UbuntuDapper.conf distro-configs/UbuntuDapper64.conf distro-configs/UbuntuEdgy.conf distro-configs/UbuntuEdgy64.conf distro-configs/UbuntuFeisty.conf distro-configs/UbuntuFeisty64.conf distro-configs/UbuntuGutsy.conf distro-configs/UbuntuGutsy64.conf distro-configs/SUSE.conf distro-configs/SUSE-PPC.conf distro-configs/SUSE-reduced.conf distro-configs/SUSE-9.1.conf distro-configs/SUSE-9.2.conf distro-configs/SUSE-9.3.conf distro-configs/SUSE-10.0.conf distro-configs/SUSE-10.1.conf distro-configs/SUSE-10.2.conf distro-configs/SUSE-10.3.conf distro-configs/Mandriva.conf distro-configs/Mandriva64.conf distro-configs/NovellWin32.conf distro-configs/NovellWin32ISO.conf distro-configs/Gentoo.conf distro-configs/Frugalware.conf distro-configs/openmamba.conf distro-configs/translate-org-za-linux.conf distro-configs/translate-org-za-win32.conf distro-configs/rpl2.conf distro-configs/rpl2-64.conf distro-configs/Pardus.conf distro-configs/Win32.conf distro-configs/Solaris.conf distro-configs/GoOoLinux.conf etc/Makefile patches/apply.pl patches/Makefile patches/cairo/Makefile patches/evo2/Makefile patches/emf+/Makefile patches/gstreamer/Makefile patches/hotfixes/Makefile patches/vba/Makefile patches/mono/Makefile patches/ooxml/Makefile patches/postgresql/Makefile patches/scsolver/Makefile patches/src680/Makefile patches/64bit/Makefile po/Makefile doc/Makefile src/Makefile src/mono-ooo.pc stamp/Makefile templates/Makefile man/Makefile www/Makefile www/images/Makefile www/tinder-scripts/Makefile"
++ac_config_files="$ac_config_files Makefile bin/setup bin/Makefile desktop/Makefile desktop/16x16/Makefile desktop/22x22/Makefile desktop/24x24/Makefile desktop/32x32/Makefile desktop/48x48/Makefile desktop/scalable/Makefile distro-configs/Makefile distro-configs/Ark.conf distro-configs/Common.conf distro-configs/CommonLinux.conf distro-configs/CommonWin32.conf distro-configs/GoOoWin32.conf distro-configs/DroplineGNOME.conf distro-configs/DroplineGNOME64.conf distro-configs/GNOMESlackBuild.conf distro-configs/GNOMESlackBuild64.conf distro-configs/Debian.conf distro-configs/DebianEtch.conf distro-configs/DebianSarge.conf distro-configs/OxygenOfficeLinux.conf distro-configs/OxygenOfficeWindows.conf distro-configs/Ubuntu.conf distro-configs/UbuntuL10n.conf distro-configs/Ubuntu64.conf distro-configs/UbuntuDapper.conf distro-configs/UbuntuDapper64.conf distro-configs/UbuntuEdgy.conf distro-configs/UbuntuEdgy64.conf distro-configs/UbuntuFeisty.conf distro-configs/UbuntuFeisty64.conf distro-configs/UbuntuGutsy.conf distro-configs/UbuntuGutsy64.conf distro-configs/SUSE.conf distro-configs/SUSE-PPC.conf distro-configs/SUSE-reduced.conf distro-configs/SUSE-9.1.conf distro-configs/SUSE-9.2.conf distro-configs/SUSE-9.3.conf distro-configs/SUSE-10.0.conf distro-configs/SUSE-10.1.conf distro-configs/SUSE-10.2.conf distro-configs/SUSE-10.3.conf distro-configs/Mandriva.conf distro-configs/Mandriva64.conf distro-configs/NovellWin32.conf distro-configs/NovellWin32ISO.conf distro-configs/Gentoo.conf distro-configs/Frugalware.conf distro-configs/openmamba.conf distro-configs/translate-org-za-linux.conf distro-configs/translate-org-za-win32.conf distro-configs/rpl2.conf distro-configs/rpl2-64.conf distro-configs/Pardus.conf distro-configs/Win32.conf distro-configs/Solaris.conf distro-configs/GoOoLinux.conf etc/Makefile patches/apply.pl patches/Makefile patches/cairo/Makefile patches/evo2/Makefile patches/emf+/Makefile patches/gstreamer/Makefile patches/hotfixes/Makefile patches/vba/Makefile patches/mono/Makefile patches/ooxml/Makefile patches/postgresql/Makefile patches/scsolver/Makefile patches/src680/Makefile patches/64bit/Makefile po/Makefile doc/Makefile src/Makefile src/mono-ooo.pc stamp/Makefile templates/Makefile man/Makefile www/Makefile www/images/Makefile www/tinder-scripts/Makefile"
+ 
+ cat >confcache <<\_ACEOF
+ # This file is a shell script that caches the results of configure
+@@ -7265,6 +7266,8 @@
+     "distro-configs/GoOoWin32.conf") CONFIG_FILES="$CONFIG_FILES distro-configs/GoOoWin32.conf" ;;
+     "distro-configs/DroplineGNOME.conf") CONFIG_FILES="$CONFIG_FILES distro-configs/DroplineGNOME.conf" ;;
+     "distro-configs/DroplineGNOME64.conf") CONFIG_FILES="$CONFIG_FILES distro-configs/DroplineGNOME64.conf" ;;
++    "distro-configs/GNOMESlackBuild.conf") CONFIG_FILES="$CONFIG_FILES distro-configs/GNOMESlackBuild.conf" ;;
++    "distro-configs/GNOMESlackBuild64.conf") CONFIG_FILES="$CONFIG_FILES distro-configs/GNOMESlackBuild64.conf" ;;
+     "distro-configs/Debian.conf") CONFIG_FILES="$CONFIG_FILES distro-configs/Debian.conf" ;;
+     "distro-configs/DebianEtch.conf") CONFIG_FILES="$CONFIG_FILES distro-configs/DebianEtch.conf" ;;
+     "distro-configs/DebianSarge.conf") CONFIG_FILES="$CONFIG_FILES distro-configs/DebianSarge.conf" ;;
+diff -Naur ooo-build-2.3.1.2.old/configure.in ooo-build-2.3.1.2/configure.in
+--- ooo-build-2.3.1.2.old/configure.in	2008-01-03 17:39:51.000000000 +0000
++++ ooo-build-2.3.1.2/configure.in	2008-02-16 00:40:21.000000000 +0000
+@@ -495,6 +495,7 @@
+         Ark*) VENDORNAME="Ark" ;;
+         Debian*|Ubuntu*) VENDORNAME="Debian" ;;
+         Dropline*) VENDORNAME="DroplineGNOME" ;;
++        GNOMESlackBuild*) VENDORNAME="GNOMESlackBuild" ;;
+         Frugalware*) VENDORNAME="Frugalware" ;;
+         Gentoo*) VENDORNAME="Gentoo" ;;
+         Mandriva*) VENDORNAME="Mandriva" ;;
+@@ -1097,6 +1098,8 @@
+ distro-configs/GoOoWin32.conf
+ distro-configs/DroplineGNOME.conf
+ distro-configs/DroplineGNOME64.conf
++distro-configs/GNOMESlackBuild.conf
++distro-configs/GNOMESlackBuild64.conf
+ distro-configs/Debian.conf
+ distro-configs/DebianEtch.conf
+ distro-configs/DebianSarge.conf
+diff -Naur ooo-build-2.3.1.2.old/download.in ooo-build-2.3.1.2/download.in
+--- ooo-build-2.3.1.2.old/download.in	2007-11-22 20:15:00.000000000 +0000
++++ ooo-build-2.3.1.2/download.in	2008-02-16 00:40:40.000000000 +0000
+@@ -265,6 +265,7 @@
+ my $distro = '@DISTRO@';
+ if ($distro eq 'Ark' ||
+     $distro eq 'DroplineGNOME' ||
++    $distro eq 'GNOMESlackBuild' ||
+     $distro eq 'Frugalware' || $distro eq 'Frugalware64' ||
+     $distro eq 'Gentoo.conf' ||
+     $distro eq 'openmamba' ||
+diff -Naur ooo-build-2.3.1.2.old/patches/src680/apply ooo-build-2.3.1.2/patches/src680/apply
+--- ooo-build-2.3.1.2.old/patches/src680/apply	2007-12-11 09:34:24.000000000 +0000
++++ ooo-build-2.3.1.2/patches/src680/apply	2008-02-16 11:35:42.000000000 +0000
+@@ -68,6 +68,9 @@
+ # DroplineGNOME
+ DroplineGNOME : LinuxCommon, DroplineGNOMEOnly, NotDebian, Mono, msaccess
+ DroplineGNOME64 : LinuxCommon, DroplineGNOMEOnly, NotDebian, Mono, msaccess
++# GNOMESlackBuild
++GNOMESlackBuild : LinuxCommon, GNOMESlackBuildOnly, NotDebian, msaccess
++GNOMESlackBuild64 : LinuxCommon, GNOMESlackBuildOnly, NotDebian, msaccess
+ # Ark Linux
+ Ark: LinuxCommon, NotDebian, ArkOnly, BerkeleyDB43, Gcc43
+ # www.pld-linux.org
+@@ -839,6 +842,11 @@
+ pushfont-psstream.diff
+ scp2-user-config-ooo-2.0.diff
+ 
++[ GNOMESlackBuildOnly ]
++SectionOwner => GNOMESlackBuild
++
++scp2-user-config-ooo-2.0.diff, pmladek
++pushfont-psstream.diff, i#84481, michael
+ 
+ [ MandrivaOnly ]
+ SectionOwner => gghibo
+@@ -1702,10 +1710,10 @@
+ 
+ [ cairocanvas >= oog680-m8 ]
+ # Additional diffs for cairocanvas on Win32
+-cairo-canvas-win32.diff, i#70519, n#300398, tml
++#cairo-canvas-win32.diff, i#70519, n#300398, tml
+ [ cairocanvas < oog680-m8 ]
+ # Additional diffs for cairocanvas on Win32
+-cairo-canvas-win32-m7.diff, i#70519, n#300398, tml
++#cairo-canvas-win32-m7.diff, i#70519, n#300398, tml
+ 
+ [ cairocanvas < oog680-m8 ]
+ cairo-canvas-ppc-fix.diff, i#81235, n#266082, rodo
