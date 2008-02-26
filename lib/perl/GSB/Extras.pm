@@ -91,7 +91,7 @@ our %extras =
 			     'src' => 'tar.bz2',
 			    },
    'gtkpod'              => {
-			     'ver' => '0.99.10',
+			     'ver' => '0.99.12',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtkpod',
 			     'src' => 'tar.gz',
 			    },

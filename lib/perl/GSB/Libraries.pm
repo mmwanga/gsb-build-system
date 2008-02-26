@@ -89,8 +89,8 @@ our %libraries =
 			   'src' => 'tar.gz',
 			  },
    'libdvbpsi4'        => {
-			   'ver' => '0.1.5',
-			   'url' => 'http://download.videolan.org/pub/libdvbpsi/0.1.5/',
+			   'ver' => '0.1.6',
+			   'url' => 'http://download.videolan.org/pub/libdvbpsi/0.1.6/',
 			   'src' => 'tar.bz2',
 			  },
    'libdvdcss'         => {
@@ -129,7 +129,7 @@ our %libraries =
 			     'src' => 'tar.bz2',
 			    },
    'libgpod'              => {
-                 'ver' => '0.5.2',
+                 'ver' => '0.6.0',
                  'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtkpod/',
                  'src' => 'tar.gz',
                             },
@@ -149,7 +149,7 @@ our %libraries =
 			   'src' => 'tar.bz2',
 			  },
    'libmms'            => {
-			   'ver' => '0.3',
+			   'ver' => '0.4',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libmms/',
 			   'src' => 'tar.gz',
 			  },
@@ -159,7 +159,7 @@ our %libraries =
 			   'src' => 'tar.bz2',
 			  },
    'libnl'           => {
-			   'ver' => '1.0-pre6',
+			   'ver' => '1.1',
 			   'url' => 'http://people.suug.ch/~tgr/libnl/files/',
 			   'src' => 'tar.gz',
 			  },
@@ -169,22 +169,22 @@ our %libraries =
                              'src' => 'tar.bz2',
 			  },
    'liboil'            => {
-			   'ver' => '0.3.12',
+			   'ver' => '0.3.13',
 			   'url' => 'http://liboil.freedesktop.org/download/',
 			   'src' => 'tar.gz',
 			  },
    'libopenraw'        => {
-			   'ver' => '0.0.2',
+			   'ver' => '0.0.5',
 			   'url' => 'http://libopenraw.freedesktop.org/download/',
 			   'src' => 'tar.gz',
 			  },
    'libquicktime'      => {
-			   'ver' => '1.0.0',
+			   'ver' => '1.0.2',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libquicktime/',
 			   'src' => 'tar.gz',
 			  },
    'libraw1394'        => {
-			   'ver' => '1.2.1',
+			   'ver' => '1.3.0',
 			   'url' => 'http://www.linux1394.org/dl/',
 			   'src' => 'tar.gz',
 			  },
@@ -210,12 +210,12 @@ our %libraries =
                              'src' => 'tar.gz',
                             },
    'lua'             => {
-			   'ver' => '5.1.2',
+			   'ver' => '5.1.3',
 			   'url' => 'http://www.lua.org/ftp/',
 			   'src' => 'tar.gz',
 		        },
    'mjpegtools'        => {
-			   'ver' => '1.9.0rc2',
+			   'ver' => '1.9.0rc3',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mjpeg/',
 			   'src' => 'tar.gz',
 			  },
@@ -250,12 +250,12 @@ our %libraries =
                          'src' => 'tar.gz',
                         },
    'transcode'         => {
-			   'ver' => '1.0.4',
+			   'ver' => '1.0.5',
 			   'url' => 'http://transcode.kabewm.com/',
 			   'src' => 'tar.bz2',
 			  },
    'twolame'           => {
-			   'ver' => '0.3.10',
+			   'ver' => '0.3.12',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/twolame',
 			   'src' => 'tar.gz',
 			  },
@@ -291,7 +291,7 @@ our %libraries_diff_naming =
 		'name' => 'glib',
 	       },
    'gtk+2'  => {
-		'ver'  => '2.12.4',
+		'ver'  => '2.12.6',
 		'name' => 'gtk+',
 	       },
   );
@@ -300,8 +300,8 @@ our %libraries_diff_naming =
 our %libraries_svn =
   (
    'gtkunique' => 'svn_13',
-   'ffmpeg'    => 'svn_11228',
-   'x264'      => 'svn_712',
+   'ffmpeg'    => 'svn_12240',
+   'x264'      => 'svn_736',
   );
 
 #
