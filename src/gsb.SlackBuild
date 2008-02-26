@@ -24,11 +24,13 @@ SECTIONS="${GSB_SECTIONS:-	tools
 				bindings
 				office
 				mono
+				administration
 				extras
 				themes
 				compiz
-				testing	}"
-# Broken at the moment:	        meta }"
+				meta
+				testing
+		                ooo	}"
 
 # Usage.
 function usage() {

@@ -8,18 +8,18 @@
 
 ## Package variables.
 BUILD=1
-VERSION=0.3
+VERSION=0.6.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 gtk-engines cabextract msttcorefonts"
+REQUIRED_PACKAGES="compiz pango cairo mesa compiz-bcop"
 
 ## Build variables.
-ARCH=noarch
+ARCH=${ARCH:-i586}
 TUNE=${TUNE:-i586}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
-PKGDEST=${PKGDEST:-$TMP}
+PKGDEST=${PKGDEST:-$TMP/gsb-tree/packages}
 
 ## Script variables.
 PKGNAME=$(basename $0 .SlackBuild)
@@ -89,11 +89,9 @@ mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
 ## Decompress archive.
-mkdir -p $TMP/mac4lin &&
-cd $TMP/mac4lin &&
-tar xfz $CWD/Mac4Lin_Icons_v0.3a_for_GNOME_2.20.tar.gz &&
-tar xfz $CWD/Mac4Lin_v0.3.tar.gz &&
-tar xfz $CWD/Wallpapers_Mac4Lin_v0.3.tar.gz || exit 1
+cd $TMP &&
+tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i386" ]; then
@@ -129,89 +127,66 @@ find . -perm 511 -exec chmod 755 {} \;
 find . -perm 711 -exec chmod 755 {} \;
 find . -perm 555 -exec chmod 755 {} \;
 
-## Install
-mkdir -p $PKG/usr/share/icons
-mkdir -p $PKG/usr/share/themes
-mkdir -p $PKG/usr/share/backgrounds
-mkdir -p $PKG/usr/share/gdm/themes
-mkdir -p $PKG/usr/share/splash
-mkdir -p $PKG/usr/share/sounds
-mkdir -p $PKG/usr/share/fonts/TTF
-
-# Default icons
-cp -r Mac4Lin_Icons_v0.3a $PKG/usr/share/icons/mac4lin || exit 1
-cp -r $CWD/gsb/index.theme.icons $PKG/usr/share/icons/mac4lin || exit 1
-
-# GDM Theme
-cd "GDM Theme" &&
-tar xfz Mac4Lin_v0.3_GDM.tar.gz &&
-cp -r "Leopard GDM" $PKG/usr/share/gdm/themes/mac4lin &&
-cd $TMP/mac4lin || exit 1
-
-
-# GTK Theme
-cd "GTK Metacity Theme" &&
-tar xfz "Mac4Lin_GTK_v0.3.tar.gz" &&
-cp -r "Mac4Lin_GTK_v0.3" $PKG/usr/share/themes/mac4lin &&
-cp -r $CWD/gsb/index.theme.appearances $PKG/usr/share/themes/mac4lin || exit 1
-cd $TMP/mac4lin || exit 1
-
-# Mouse Cursors
-cd "Cursors" &&
-tar xfz Mac4Lin_v0.3_Cursors.tar.gz &&
-cp -r 	OSX_Cursors_v0.2 $PKG/usr/share/icons/mac4lin_osx_cursors &&
-rm -fr $PKG/usr/share/icons/Mac4Lin_Cursors/source &&
-cd $TMP/mac4lin || exit 1
-
-# Sounds
-cd "Sounds" &&
-tar xfz OSX_Sounds_v0.3.tar.gz &&
-cp -r OSX_Sounds_v0.2 $PKG/usr/share/sounds/mac4lin &&
-cd $TMP/mac4lin || exit 1
-
-# Wallpapers
-cd "Wallpapers_Mac4Lin_v0.3" &&
-cp -r * $PKG/usr/share/backgrounds &&
-cd $PKG/usr/share/backgrounds || exit 1
-for filename in * ;
-do
-     echo "$filename" | grep -q " "  ;
-     if [ $? -eq 0 ]                  
-     then
-       fname=$filename ;
-       n=$(echo $fname | sed -e "s/ /_/g") ;
-       mv "$fname" "$n" || exit 1
-     fi
-done
-cd $TMP/mac4lin || exit 1
-
-# Splash screens
-cd "GTK Splash" &&
-cp -r *png $PKG/usr/share/splash &&
-cd $TMP/mac4lin || exit 1
-
-# Fonts
-cd Fonts &&
-tar xfz OSX_Fonts.tar.gz &&
-# Font directory location depends on the X build prefix:
-# Determine what X we're running (the modular X returns the prefix
-# in the next command, while older versions stay silent):
-XPREF=`pkg-config --variable=prefix x11` || true
-if [ "$XPREF" == "" ]; then
-  XPREF='/usr/X11R6'
-  FONTDIR="$XPREF/lib/X11/fonts/TTF"
+## Configure, Tuning, GCC and Make options.
+CONFIGURE_FLAGS=${GSB_CONFIGURE_FLAGS:-""}
+if [ "$ARCH" = "i386" ]; then
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE"}
+elif [ "$ARCH" = "i486" ]; then
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE"}
+elif [ "$ARCH" = "i586" ]; then
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer -ffast-math"}
+elif [ "$ARCH" = "i686" ]; then
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer -ffast-math"}
+elif [ "$ARCH" = "x86_64" ]; then
+  if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
+    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -ffast-math -fPIC"}
+  else
+    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -ffast-math -fPIC"}
+  fi
+  [ -z "$CONFIGURE_FLAGS" ] && {
+    CONFIGURE_FLAGS="--libdir=/usr/lib64"
+  }
+elif [ "$ARCH" = "powerpc" ]; then
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
 else
-  FONTDIR="/usr/share/fonts/TTF"
-fi;
-cp OSX_Fonts/*ttf $PKG/$FONTDIR || exit 1;
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2"}
+fi
+EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
+MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-## Set permissions
-chown -R $(stat --format "%u:%g" /usr/bin) $PKG/usr
-find $PKG/usr -type f -exec chmod 644 {} \;
+## Configure.
+CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --disable-static --enable-shared \
+  || exit 1
+
+## Build and install.
+make $MAKE_FLAGS &&
+make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+## Strip debugging symbols.
+{ find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
+  cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
+
+## Compress and fix manpage links.
+[ -e $PKG/usr/man ] && {
+  find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
+  find $PKG/usr/man -type l -name \*.? -printf \
+    "( cd '%h'; [ -e '%l.gz' ] &&
+     { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
+}
+
+## Deal with .info files.
+[ -e $PKG/usr/info ] && {
+  rm -f $PKG/usr/info/dir
+  gzip -9 $PKG/usr/info/*.info
+}
 
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a README \
+cp -a \
+  AUTHORS COPYING* NEWS \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
@@ -230,5 +205,5 @@ makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/mac4lin
+  rm -rf $PKG $TMP/$PKGNAME-$VERSION
 }

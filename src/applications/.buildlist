@@ -36,9 +36,6 @@ gnome-phone-manager
 poppler
 poppler-data
 evince
-librsync
-rdiff-backup
-pybackpack
 gst-python
 gst-plugins-bad
 gst-ffmpeg

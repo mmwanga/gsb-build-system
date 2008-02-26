@@ -23,17 +23,17 @@ our %libraries =
 			   'src' => 'tar.gz',
 			  },
    'exempi'              => {
-			   'ver' => '1.99.4',
+			   'ver' => '1.99.9',
 			   'url' => 'http://libopenraw.freedesktop.org/download/',
 			   'src' => 'tar.gz',
 		          },
    'faac'              => {
-			   'ver' => '1.25',
+			   'ver' => '1.26',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/faac/',
 			   'src' => 'tar.gz',
 			  },
    'faad2'             => {
-			   'ver' => '2.5',
+			   'ver' => '2.6.1',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/faac/',
 			   'src' => 'tar.gz',
 			  },
@@ -55,7 +55,7 @@ our %libraries =
 
    'iso-codes'       => {
 			 'url' => 'ftp://pkg-isocodes.alioth.debian.org/pub/pkg-isocodes/',
-			 'ver' => '1.5',
+			 'ver' => '1.9',
 			 'src' => 'tar.bz2',
 		        },
    'lame'              => {

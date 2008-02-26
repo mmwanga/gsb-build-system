@@ -1,6 +1,3 @@
-python-ldap
-pessulus
-sabayon
 libesmtp
 balsa
 brasero
@@ -28,7 +25,6 @@ gnonlin
 jokosher
 ghex
 wxGTK
-simdock
 gDesklets
 slapt-update-notifier
 grip

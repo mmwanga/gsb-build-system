@@ -1,6 +1,11 @@
 ChangeLog
 ---------
 
+24-02-2008 fidesratio <sk238(at)ex.ac.uk>		
+    * Branched 2.20.x into branches/
+    * Some major reorganization of svn trunk working towards gsb 1.5
+    * Added compiz-fusion-plugins-extra, avant-window-manager
+
 17-02-2008 fidesratio <sk238(at)ex.ac.uk>		
     * oo.org script finalized.  I got a nice working gtk oo.org build
       running on x86_64.  :)
