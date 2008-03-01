@@ -41,8 +41,9 @@ use GSB::DoubleTar;
 use GSB::Libraries;
 use GSB::Platform;
 use GSB::Desktop;
-use GSB::Applications;
 use GSB::Accessibility;
+use GSB::Applications;
+use GSB::Administration;
 use GSB::Bindings;
 use GSB::Meta;
 use GSB::Mono;
@@ -821,7 +822,6 @@ foreach my $dtu (keys %mono_diff_naming) {
 } 
 
 # Extra Applications found on GNOME Source Tree
-
 foreach my $other_pack (keys %extras_gnome) {
 
   my $name = $other_pack;
@@ -908,6 +908,66 @@ foreach my $cpackage (keys %compiz) {
   }
   
   if ( ! -f $tarball ) { 
+    push(@bad_downloads, $name);
+  }
+}
+
+# Administration found on GNOME Source Tree
+foreach my $other_pack (keys %administration_gnome) {
+
+  my $name = $other_pack;
+  my $ver  = $administration_gnome{$name};
+
+  my $sb_file = $name . $sb_ext;
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
+
+  chdir "$pwd/administration/$name";
+
+  if ( $download eq "true" ) {
+    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
+# Extra administration packages for GSB GNOME Desktop
+# found outside the regular GNOME Tree
+foreach my $opackage (keys %administration) {
+
+  chdir "$pwd/administration/$opackage";
+  my $name    = $opackage;
+  my $sb_file = $name . $sb_ext;
+  my $packurl = $administration{$name}{url};
+  my $ver     = $administration{$name}{ver};
+  my $src     = $administration{$name}{src};
+  my $type    = "other";
+
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+
+  if ( $download eq "true") {
+      my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+      GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $src, $url);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
     push(@bad_downloads, $name);
   }
 }
@@ -1010,43 +1070,6 @@ foreach my $dttheme (keys %double_tarballs_themes) {
   }
 }
 
-
-# Download Testing Packages
-foreach my $testpkg (keys %testing_packages) {
-
-  my $name    = $testpkg;
-
-  my $dir     = $testing_packages{$testpkg}{dir};
-  my $var     = $testing_packages{$testpkg}{var};
-  my $ver     = $testing_packages{$testpkg}{ver};
-  my $tarball = $testing_packages{$testpkg}{tar};
-  my $packurl = $testing_packages{$testpkg}{url};
-  my $type    = 'other';
-
-  chdir "$pwd/$dir";
-
-  my @tmp = split(/\//, $dir);
-  my $sb  = pop(@tmp);
-
-  my $sb_file = $sb . $sb_ext;
-
-  if ( $download eq "true") {
-    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
-    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_double_edit($sb_file, $ver, $var);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
-}
 
 # Download OpenOffice Packages
 foreach my $ooopkg (keys %ooo_packages) {

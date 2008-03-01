@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=1.044
+VERSION=0.5.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 cairo glib-perl perl"
+REQUIRED_PACKAGES="compiz"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -82,12 +82,17 @@ done
 }
 
 ## Temporary space and package storage.
-mkdir -p $TMP/$PKGNAME
+mkdir -p $TMP
 rm -rf $PKG
 mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
+## Decompress archive.
+cd $TMP &&
+rm -rf $PKGNAME-$VERSION &&
+tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i386" ]; then
@@ -110,6 +115,19 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
+## Fix permissions for building.
+chown -R root.root .
+find . -perm 664 -exec chmod 644 {} \;
+find . -perm 600 -exec chmod 644 {} \;
+find . -perm 444 -exec chmod 644 {} \;
+find . -perm 400 -exec chmod 644 {} \;
+find . -perm 440 -exec chmod 644 {} \;
+find . -perm 777 -exec chmod 755 {} \;
+find . -perm 775 -exec chmod 755 {} \;
+find . -perm 511 -exec chmod 755 {} \;
+find . -perm 711 -exec chmod 755 {} \;
+find . -perm 555 -exec chmod 755 {} \;
+
 ## Configure, Tuning, GCC and Make options.
 CONFIGURE_FLAGS=${GSB_CONFIGURE_FLAGS:-""}
 if [ "$ARCH" = "i386" ]; then
@@ -117,15 +135,14 @@ if [ "$ARCH" = "i386" ]; then
 elif [ "$ARCH" = "i486" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE"}
 elif [ "$ARCH" = "i586" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
 elif [ "$ARCH" = "i686" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
 elif [ "$ARCH" = "x86_64" ]; then
-  LIBDIR=lib64
   if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
-    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -fPIC"}
+    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -fPIC"}
   else
-    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
+    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
     CONFIGURE_FLAGS="--libdir=/usr/lib64"
@@ -137,50 +154,17 @@ else
 fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
-LIBDIR=${LIBDIR:-"lib"}
+
+## Configure.
+CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --disable-static --enable-shared \
+  || exit 1
 
 ## Build and install.
-
-# This is a list of the perl modules with version numbers to include
-# in our package
-MODULE_LIST="Cairo-1.044 Gtk2-1.162"
-
-PERL_ARCH=$(perl -v | grep This | cut -d' ' -f 7)
-PERL_VERSION=$(perl -v | grep This | cut -d' ' -f4 | cut -dv -f2)
-
-# Set a perl include path so we don't have to spam the build machine
-while read pf; do
-  PERL5LIB=${PERL5LIB:+$PERL5LIB:}$pf
-done << EOPERL5LIB 
-$PKG/usr/$LIBDIR/perl5
-$PKG/usr/$LIBDIR/perl5/site_perl
-$PKG/usr/$LIBDIR/perl5/site_perl/$PERL_VERSION/$PERL_ARCH
-EOPERL5LIB
-export PERL5LIB
-
-for MODULE in $MODULE_LIST; 
-do
-
-## Decompress archive.
-cd $TMP/$PKGNAME &&
-rm -fr $MODULE && 
-tar xzf $CWD/$MODULE.tar.gz &&
-cd $MODULE || exit 1
-
-perl Makefile.PL || exit 1
-make OPTIMIZE="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" $MAKE_FLAGS &&
-make DESTDIR=$PKG install || exit 1
-
-done;
-
-# Remove perlocal.pod and .packlist from $PKG
-( for i in perllocal.pod .packlist; do
-      find $PKG -name "$i" -exec rm -rf {} \;
-  done
-) || exit 1
-
-# Remove empty directories
-find $PKG/usr -depth -type d -empty -exec rm -rf {} \;
+make $MAKE_FLAGS &&
+make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -199,6 +183,14 @@ find $PKG/usr -depth -type d -empty -exec rm -rf {} \;
   rm -f $PKG/usr/info/dir
   gzip -9 $PKG/usr/info/*.info
 }
+
+## Copy extra documentation into package.
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
+cp -a \
+  AUTHORS COPYING* ChangeLog NEWS README \
+  $PKG/usr/doc/$PKGNAME-$VERSION
+find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
+chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests

@@ -21,7 +21,7 @@ our %supplied_tarballs =
                  },
    'rhpl'  => {
              'ver' => '0.212',
-	     'section' => 'testing',
+	     'section' => 'administration',
                  },
    'gnome-menus-kde'  => {
              'ver' => '1.0',

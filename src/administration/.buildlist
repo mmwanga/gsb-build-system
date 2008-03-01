@@ -1,3 +1,4 @@
+wpa_supplicant
 librsync
 rdiff-backup
 pybackpack
@@ -5,6 +6,7 @@ parted
 gparted
 gslapt  
 pycups 
+notify-python
 rhpl
 system-config-printer
 slapt-update-notifier

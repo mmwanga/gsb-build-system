@@ -21,8 +21,6 @@ our $VERSION   = 0.03;
 our %extras_gnome =
   (
    'brasero'             => '0.6.90',
-   'pessulus'            => '2.16.3',
-   'sabayon'             => '2.20.1',
    'ghex'                => '2.8.2',
   );
 
@@ -75,11 +73,6 @@ our %extras =
                  'url' => 'http://gstreamer.freedesktop.org/src/gnonlin',
                  'src' => 'tar.bz2',
                             },
-   'gparted'             => {
-                 'ver' => '0.3.3',
-                 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gparted',
-                 'src' => 'tar.bz2',
-                            },
    'grip'                => {
                  'ver' => '3.3.1',
                  'url' => 'http://heanet.dl.sourceforge.net/sourceforge/grip',
@@ -125,26 +118,11 @@ our %extras =
 			     'url' => 'http://www1.mplayerhq.hu/MPlayer/releases',
 			     'src' => 'tar.bz2',
 			    },
-   'parted'             => {
-			     'ver' => '1.8.8',
-			     'url' => 'http://ftp.gnu.org/gnu/parted',
-			     'src' => 'tar.bz2',
-			    },
    'pstoedit'            => {
 			     'ver' => '3.45',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/pstoedit',
 			     'src' => 'tar.gz',
 			    },
-   'python-ldap'         => {
-                 'ver' => '2.3.1',
-                 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/python-ldap',
-                 'src' => 'tar.gz',
-                            },
-   'slapt-update-notifier'         => {
-                 'ver' => '0.2.1',
-                 'url' => 'http://software.jaos.org/source/slapt-update-notifier',
-                 'src' => 'tar.gz',
-                            },
    'streamripper'        => {
 			     'ver' => '1.62.0',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/streamripper',
@@ -171,7 +149,6 @@ our %extras =
 			     'src' => 'tar.gz',
 			    },
   );
-
 
 #
 # End Config Options

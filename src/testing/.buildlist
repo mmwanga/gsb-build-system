@@ -2,8 +2,3 @@ wpa_supplicant
 NetworkManager
 network-manager-applet
 NetworkManager-vpn
-pycups
-rhpl
-notify-python
-system-config-printer
-gslapt
