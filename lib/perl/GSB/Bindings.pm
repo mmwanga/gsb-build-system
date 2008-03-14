@@ -15,15 +15,15 @@ our $VERSION   = 0.03;
 
 our %bindings_cxx =
   (
-   'bakery'            => '2.4.3',
-   'gconfmm'           => '2.20.0',
-   'gnome-vfsmm'       => '2.20.0',
-   'libglademm'        => '2.6.5',
-   'libgnomecanvasmm'  => '2.20.0',
-   'libgnomemm'        => '2.20.0',
-   'libgnomeuimm'      => '2.20.0',
-   'libgtksourceviewmm' => '0.3.1',
-   'libxml++'          => '2.20.0',
+   'bakery'            => '2.4.4',
+   'gconfmm'           => '2.22.0',
+   'gnome-vfsmm'       => '2.22.0',
+   'libglademm'        => '2.6.6',
+   'libgnomecanvasmm'  => '2.22.0',
+   'libgnomemm'        => '2.22.0',
+   'libgnomeuimm'      => '2.22.0',
+   'libgtksourceviewmm' => '1.9.4',
+   'libxml++'          => '2.22.0',
   );
 
 #

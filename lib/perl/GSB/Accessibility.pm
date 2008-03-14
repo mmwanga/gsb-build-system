@@ -17,10 +17,10 @@ our %accessibility_gnome =
   (
    'dasher'                 => '4.6.1',
    'gnome-mag'              => '0.14.10',
-   'gnome-speech'           => '0.4.17',
+   'gnome-speech'           => '0.4.18',
    'gnopernicus'            => '1.1.2',
    'gok'                    => '1.3.7',
-   'orca'                   => '2.20.3',
+   'orca'                   => '2.22.0',
    'libgail-gnome'          => '1.20.0',
    );
 

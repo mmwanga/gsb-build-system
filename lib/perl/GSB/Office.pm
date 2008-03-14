@@ -15,19 +15,19 @@ our $VERSION   = 0.03;
 
 our %office_gnome =
   (
-   'devhelp'   => '0.16.1',
-   'gnumeric'  => '1.7.91',
+   'devhelp'   => '0.18',
+   'gnumeric'  => '1.8.2',
    'dia'       => '0.96.1',
-   'gdl'       => '0.7.7',
-   'glade3'      => '3.4.1',
-   'glom'      => '1.6.6',
-   'gnome-build' => '0.2.0',
+   'gdl'       => '0.7.11',
+   'glade3'      => '3.4.3',
+   'glom'      => '1.6.9',
+   'gnome-build' => '0.2.4',
    'gnome-python-extras'  => '2.19.1',
-   'goffice'   => '0.5.4',
-   'libgda'    => '3.0.1',
-   'libgdamm'  => '2.9.81',
+   'goffice'   => '0.6.2',
+   'libgda'    => '3.0.2',
+   'libgdamm'  => '2.9.82',
    'libgnomedb' => '3.0.0',
-   'libgsf'    => '1.14.7',
+   'libgsf'    => '1.14.8',
   );
 
 our %office =
@@ -38,7 +38,7 @@ our %office =
 		 'src' => 'tar.gz'
 		},
    'anjuta'              => {
-			     'ver' => '2.2.3',
+			     'ver' => '2.4.0',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/anjuta/',
 			     'src' => 'tar.bz2',
 			    },
@@ -68,7 +68,7 @@ our %office =
 			     'src' => 'tar.bz2',
 			    },
    'dvgrab'              => {
-			     'ver' => '3.0',
+			     'ver' => '3.1',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/kino/',
 			     'src' => 'tar.gz',
 			    },
@@ -78,17 +78,17 @@ our %office =
 			     'src' => 'tar.gz',
 			    },
    'gnucash'              => {
-			     'ver' => '2.2.3',
+			     'ver' => '2.2.4',
 			     'url' => 'http://ftp.at.gnucash.org/pub/gnucash/gnucash/sources/stable/',
 			     'src' => 'tar.bz2',
 			    },
    'gnucash-docs'              => {
-			     'ver' => '2.0.1',
+			     'ver' => '2.2.0',
 			     'url' => 'http://ftp.at.gnucash.org/pub/gnucash/gnucash/sources/stable/',
 			     'src' => 'tar.bz2',
 			    },
    'graphviz'            => {
-                             'ver' => '2.14.1',
+                             'ver' => '2.18',
                              'url' => 'http://www.graphviz.org/pub/graphviz/ARCHIVE/',
                              'src' => 'tar.gz',
                             },
@@ -108,7 +108,7 @@ our %office =
                    'src' => 'tar.gz',
                   },
    'inkscape'            => {
-			     'ver' => '0.45.1',
+			     'ver' => '0.46',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/inkscape/',
 			     'src' => 'tar.gz',
 			    },
@@ -118,17 +118,17 @@ our %office =
 			     'src' => 'tar.bz2',
 			    },
    'kino'                => {
-			     'ver' => '1.1.1',
+			     'ver' => '1.3',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/kino/',
 			     'src' => 'tar.gz',
 			    },
    'libofx'    => {
                    'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libofx/',
-                   'ver' => '0.8.3',
+                   'ver' => '0.9.0',
                    'src' => 'tar.gz',
                   },
    'liferea'             => {
-			     'ver' => '1.4.5b',
+			     'ver' => '1.5.0',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/liferea/',
 			     'src' => 'tar.gz',
 			    },
@@ -138,8 +138,8 @@ our %office =
                    'src' => 'tar.gz',
                   },
    'postgresql'    => {
-                   'url' => 'http://ftp7.us.postgresql.org/pub/postgresql/source/v8.2.5/',
-                   'ver' => '8.2.5',
+                   'url' => 'http://ftp7.us.postgresql.org/pub/postgresql/source/v8.3.0/',
+                   'ver' => '8.3.0',
                    'src' => 'tar.bz2',
                   },
    'psiconv'   => {
@@ -153,12 +153,12 @@ our %office =
 			     'src' => 'tar.gz',
 			    },
    'swig'             => {
-			     'ver' => '1.3.33',
+			     'ver' => '1.3.34',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/swig/',
 			     'src' => 'tar.gz',
 			    },
    'tracker'             => {
-			     'ver' => '0.6.4',
+			     'ver' => '0.6.6',
 			     'url' => 'http://www.gnome.org/~jamiemcc/tracker/',
 			     'src' => 'tar.bz2',
 			    },

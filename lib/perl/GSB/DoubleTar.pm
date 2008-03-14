@@ -36,17 +36,35 @@ our %double_tarballs_url =
 			 'var' => 'VERSION',
 				  },
    'Gtk2-perl'               => {
+<<<<<<< .mine
+			 'ver' => '1.180',
+			 'dir' => 'extras/gtk2-perl',
+=======
 			 'ver' => '1.164',
 			 'dir' => 'bindings/gtk2-perl',
+>>>>>>> .r3531
 			 'url' => 'http://search.cpan.org/CPAN/authors/id/T/TS/TSCH/',
+<<<<<<< .mine
+			 'tar' => 'Gtk2-1.180.tar.gz',
+=======
 			 'tar' => 'Gtk2-1.164.tar.gz',
+>>>>>>> .r3531
 			 'var' => 'VERSION',
 				  },
    'Glib-perl'               => {
+<<<<<<< .mine
+			 'ver' => '1.180',
+			 'dir' => 'extras/glib-perl',
+=======
 			 'ver' => '1.164',
 			 'dir' => 'bindings/glib-perl',
+>>>>>>> .r3531
 			 'url' => 'http://search.cpan.org/CPAN/authors/id/T/TS/TSCH/',
+<<<<<<< .mine
+			 'tar' => 'Glib-1.180.tar.gz',
+=======
 			 'tar' => 'Glib-1.164.tar.gz',
+>>>>>>> .r3531
 			 'var' => 'VERSION',
 				  },
    'Gnome2-Gconf-perl'               => {
@@ -64,10 +82,15 @@ our %double_tarballs_url =
 			 'var' => 'VERSION',
 				  },
    'Gnome2-VFS-perl'               => {
+<<<<<<< .mine
+			 'ver' => '1.081',
+			 'dir' => 'extras/gnome2-perl',
+=======
 			 'ver' => '1.081',
 			 'dir' => 'bindings/gnome2-perl',
+>>>>>>> .r3531
 			 'url' => 'http://search.cpan.org/CPAN/authors/id/T/TS/TSCH/',
-			 'tar' => 'Gnome2-VFS-1.080.tar.gz',
+			 'tar' => 'Gnome2-VFS-1.081.tar.gz',
 			 'var' => 'VERSION',
 				  },
    'Gnome2-Canvas'               => {
@@ -78,8 +101,13 @@ our %double_tarballs_url =
 			 'var' => 'VERSION',
 				  },
    'ExtUtilsDepends-perl'               => {
+<<<<<<< .mine
+			 'ver' => '0.204',
+			 'dir' => 'extras/glib-perl',
+=======
 			 'ver' => '0.204',
 			 'dir' => 'bindings/glib-perl',
+>>>>>>> .r3531
 			 'url' => 'http://search.cpan.org/CPAN/authors/id/R/RM/RMCFARLA/Gtk2-Perl/',
 			 'tar' => 'ExtUtils-Depends-0.204.tar.gz',
 			 'var' => 'VERSION',
@@ -88,12 +116,21 @@ our %double_tarballs_url =
 			 'ver' => '1.09',
 			 'dir' => 'bindings/glib-perl',
 			 'url' => 'http://search.cpan.org/CPAN/authors/id/M/ML/MLEHMANN/',
+<<<<<<< .mine
+			 'tar' => 'ExtUtils-PkgConfig-1.10.tar.gz',
+=======
 			 'tar' => 'ExtUtils-PkgConfig-1.09.tar.gz',
+>>>>>>> .r3531
 			 'var' => 'VERSION',
 				  },
    'Cairo-perl'               => {
+<<<<<<< .mine
+			 'ver' => '1.045',
+			 'dir' => 'extras/gtk2-perl',
+=======
 			 'ver' => '1.045',
 			 'dir' => 'bindings/gtk2-perl',
+>>>>>>> .r3531
 			 'url' => 'http://search.cpan.org/CPAN/authors/id/T/TS/TSCH/',
 			 'tar' => 'Cairo-1.045.tar.gz',
 			 'var' => 'VERSION',
