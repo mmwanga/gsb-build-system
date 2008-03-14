@@ -940,12 +940,11 @@ foreach my $other_pack (keys %administration_gnome) {
   }
 }
 
-# Extra administration packages for GSB GNOME Desktop
-# found outside the regular GNOME Tree
-foreach my $opackage (keys %administration) {
+# Admin package external to gnome
+foreach my $cpackage (keys %administration) {
 
-  chdir "$pwd/administration/$opackage";
-  my $name    = $opackage;
+  chdir "$pwd/administration/$cpackage";
+  my $name    = $cpackage;
   my $sb_file = $name . $sb_ext;
   my $packurl = $administration{$name}{url};
   my $ver     = $administration{$name}{ver};
@@ -953,21 +952,21 @@ foreach my $opackage (keys %administration) {
   my $type    = "other";
 
   my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
-
+  
   if ( $download eq "true") {
       my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
       GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $src, $url);
   }
-
+  
   if ( $edit eq "true" ) {
     GSB::Edit::gsb_sb_edit($sb_file, $ver);
   }
-
+  
   if ( $build ne "" ) {
     GSB::Edit::gsb_build_release_make($sb_file, $build);
   }
-
-  if ( ! -f $tarball ) {
+  
+  if ( ! -f $tarball ) { 
     push(@bad_downloads, $name);
   }
 }

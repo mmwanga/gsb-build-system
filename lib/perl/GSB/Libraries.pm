@@ -88,7 +88,7 @@ our %libraries =
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libdv/',
 			   'src' => 'tar.gz',
 			  },
-   'libdvbpsi4'        => {
+   'libdvbpsi5'        => {
 			   'ver' => '0.1.6',
 			   'url' => 'http://download.videolan.org/pub/libdvbpsi/0.1.6/',
 			   'src' => 'tar.bz2',
@@ -280,18 +280,18 @@ our %libraries =
 our %libraries_gnome =
   (
    'libcroco'          => '0.6.1',
-   'libsigc++'         => '2.0.18',
-   'pango'             => '1.18.4',
+   'libsigc++'         => '2.2.2',
+   'pango'             => '1.20.0',
   );
 
 our %libraries_diff_naming =
   (
    'glib2'  => {
-		'ver'  => '2.14.5',
+		'ver'  => '2.16.1',
 		'name' => 'glib',
 	       },
    'gtk+2'  => {
-		'ver'  => '2.12.6',
+		'ver'  => '2.12.9',
 		'name' => 'gtk+',
 	       },
   );

@@ -28,7 +28,6 @@ SECTIONS="${GSB_SECTIONS:-	tools
 				extras
 				themes
 				compiz
-				administration
 		                ooo
 				meta
 			}"

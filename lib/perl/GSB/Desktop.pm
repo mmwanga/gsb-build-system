@@ -106,7 +106,7 @@ our %desktop_nongnome =
                           },
    'tango-icon-theme'  => {
                            'ver' => '0.8.1',
-                           'url' => 'http://tango-project.org/releases/',
+                           'url' => 'http://tango.freedesktop.org/releases',
                            'src' => 'tar.gz',
                           },
   );

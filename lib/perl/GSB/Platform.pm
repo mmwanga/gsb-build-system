@@ -32,7 +32,7 @@ our %platform =
    'libgnomecanvas'      => '2.20.1.1',
    'libgnomeui'          => '2.22.01',
    'liboobs'             => '2.22.0',
-   'libsoup'             => '2.4',
+   'libsoup'             => '2.4.0',
    'ORBit2'              => '2.14.12',
    'pygobject'           => '2.14.1',
    'pygtk'               => '2.12.1',
@@ -46,7 +46,7 @@ our %platform_reqs =
   (
    'avahi'               => {
                              'ver' => '0.6.22',
-                             'url' => 'http://www.avahi.org/download/',
+                             'url' => 'http://www.avahi.org/download',
                              'src' => 'tar.gz',
                             },
    'dbus-python'         => {
@@ -55,42 +55,42 @@ our %platform_reqs =
                              'src' => 'tar.gz',
                             },				  
    'icon-naming-utils' => {
-	                 'url' => 'http://tango-project.org/releases/',
+	                 'url' => 'http://tango.freedesktop.org/releases',
 			 'ver' => '0.8.6',
 			 'src' => 'tar.bz2',
 			},
    'libdaemon'           => {
                              'ver' => '0.12',
-                             'url' => 'http://0pointer.de/lennart/projects/libdaemon/',
+                             'url' => 'http://0pointer.de/lennart/projects/libdaemon',
                              'src' => 'tar.gz',
                             },
    'shared-mime-info'    => {
-			     'url' => 'http://freedesktop.org/~hadess/',
+			     'url' => 'http://freedesktop.org/~hadess',
 			     'ver' => '0.23',
 			     'src' => 'tar.bz2',
 			    },
    'pulseaudio'             => {
                              'ver' => '0.9.9',
-                             'url' => 'http://0pointer.de/lennart/projects/pulseaudio/',
+                             'url' => 'http://0pointer.de/lennart/projects/pulseaudio',
                              'src' => 'tar.gz',
                             },
    'pycairo'             => {
                              'ver' => '1.4.12',
-                             'url' => 'http://cairographics.org/releases/',
+                             'url' => 'http://cairographics.org/releases',
                              'src' => 'tar.gz',
                             },
    'rarian'             => {
                              'ver' => '0.8.0',
-                             'url' => 'http://rarian.freedesktop.org/Releases/',
+                             'url' => 'http://rarian.freedesktop.org/Releases',
                              'src' => 'tar.bz2',
                             },
    'XML-Simple'      => {
-	                 'url' => 'http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM/',
+	                 'url' => 'http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM',
                          'ver' => '2.18',
                          'src' => 'tar.gz', 
                         },
    'XML-Twig'      => {
-	                 'url' => 'http://xmltwig.com/xmltwig/',
+	                 'url' => 'http://xmltwig.com/xmltwig',
                          'ver' => '3.32',
                          'src' => 'tar.gz',
                         },

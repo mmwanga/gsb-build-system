@@ -20,7 +20,7 @@ my %gnome =
   (
    'version'  => '2.20.1',
    'release'  => '2.20',
-   'mirror'   => 'ftp://ftp.gnome.org/pub/gnome',
+   'mirror'   => 'http://ftp.gnome.org/pub/gnome',
    'srcroot'  => '',
    'platform' => '/platform',
    'desktop'  => '/desktop',

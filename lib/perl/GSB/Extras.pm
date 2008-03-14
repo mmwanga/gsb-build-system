@@ -73,12 +73,7 @@ our %extras =
                  'url' => 'http://gstreamer.freedesktop.org/src/gnonlin',
                  'src' => 'tar.bz2',
                             },
-   'gparted'             => {
-                 'ver' => '0.3.5',
-                 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gparted',
-                 'src' => 'tar.bz2',
-                            },
-   'grip'                => {
+  'grip'                => {
                  'ver' => '3.3.1',
                  'url' => 'http://heanet.dl.sourceforge.net/sourceforge/grip',
                  'src' => 'tar.gz',
@@ -123,7 +118,6 @@ our %extras =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/pstoedit',
 			     'src' => 'tar.gz',
 			    },
-<<<<<<< .mine
    'python-ldap'         => {
                  'ver' => '2.3.3',
                  'url' => 'http://heanet.dl.sourceforge.net/sourceforge/python-ldap',

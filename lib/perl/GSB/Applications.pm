@@ -25,7 +25,7 @@ our %applications_gnome =
    'evince'                 => '2.22.0',
    'evolution'              => '2.22.0',
    'evolution-exchange'     => '2.22.0',
-   'evolution-webcal'       => '2.21.92'
+   'evolution-webcal'       => '2.21.92',
    'fast-user-switch-applet' => '2.22.0',
    'file-roller'            => '2.22.0',
    'gcalctool'              => '5.22.0',
@@ -71,61 +71,61 @@ our %applications =
   (
    'cairomm' => {
                  'ver' => '1.5.0',
-                 'url' => 'http://cairographics.org/releases/',
+                 'url' => 'http://cairographics.org/releases',
                  'src' => 'tar.gz',
                 },
    'enchant'   => {
-		   'url' => 'http://www.abisource.com/downloads/enchant/1.3.0/',
+		   'url' => 'http://www.abisource.com/downloads/enchant/1.3.0',
 		   'ver' => '1.3.0',
 		   'src' => 'tar.gz',
 		  },
    'gksu'      => {
                    'ver' => '2.0.0',
-                   'url' => 'http://people.debian.org/~kov/gksu/',
+                   'url' => 'http://people.debian.org/~kov/gksu',
                    'src' => 'tar.gz',
                   },
    'gnokii'    => {
                    'ver' => '0.6.23',
-                   'url' => 'http://www.gnokii.org/download/gnokii/',
+                   'url' => 'http://www.gnokii.org/download/gnokii',
                    'src' => 'tar.bz2',
                   },
    'gnomebaker'   => {
 		      'ver' => '0.6.2',
-		      'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gnomebaker/',
+		      'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gnomebaker',
 		      'src' => 'tar.gz',
 		      },
    'gst-ffmpeg'        => {
 			   'ver' => '0.10.3',
-			   'url' => 'http://gstreamer.freedesktop.org/src/gst-ffmpeg/',
+			   'url' => 'http://gstreamer.freedesktop.org/src/gst-ffmpeg',
 			   'src' => 'tar.bz2',
 			  },
    'gst-plugins-bad'   => {
                            'ver' => '0.10.6',
-                           'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-bad/',
+                           'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-bad',
                            'src' => 'tar.bz2',
 		       },
    'gst-python' => {
 	              'ver' => '0.10.10',
-		      'url' => 'http://gstreamer.freedesktop.org/src/gst-python/',
+		      'url' => 'http://gstreamer.freedesktop.org/src/gst-python',
 		      'src' => 'tar.bz2',
 		     },
    'libgksu'   => {
                    'ver' => '2.0.5',
-                   'url' => 'http://people.debian.org/~kov/gksu/',
+                   'url' => 'http://people.debian.org/~kov/gksu',
                    'src' => 'tar.gz',
                   },
    'poppler'         => {
-			 'url' => 'http://poppler.freedesktop.org/',
+			 'url' => 'http://poppler.freedesktop.org',
 			 'ver' => '0.6.4',
 			 'src' => 'tar.gz',
 			},
    'poppler-data'         => {
-			 'url' => 'http://poppler.freedesktop.org/',
+			 'url' => 'http://poppler.freedesktop.org',
 			 'ver' => '0.2.0',
 			 'src' => 'tar.gz',
 			},
    'pybackpack'         => {
-			 'url' => 'http://andrewprice.me.uk/projects/pybackpack/download/',
+			 'url' => 'http://andrewprice.me.uk/projects/pybackpack/download',
 			 'ver' => '0.5.4',
 			 'src' => 'tar.gz',
 			},
@@ -135,7 +135,7 @@ our %applications =
 			 'src' => 'tar.gz',
 			},
    'librsync'         => {
-			 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/librsync/',
+			 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/librsync',
 			 'ver' => '0.9.7',
 			 'src' => 'tar.gz',
 			},
