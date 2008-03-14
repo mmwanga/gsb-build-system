@@ -85,7 +85,7 @@ our %office =
    'gnucash-docs'              => {
 			     'ver' => '2.2.0',
 			     'url' => 'http://ftp.at.gnucash.org/pub/gnucash/gnucash/sources/stable/',
-			     'src' => 'tar.bz2',
+			     'src' => 'tar.gz',
 			    },
    'graphviz'            => {
                              'ver' => '2.18',
@@ -118,7 +118,7 @@ our %office =
 			     'src' => 'tar.bz2',
 			    },
    'kino'                => {
-			     'ver' => '1.3',
+			     'ver' => '1.3.0',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/kino/',
 			     'src' => 'tar.gz',
 			    },

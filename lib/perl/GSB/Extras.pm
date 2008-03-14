@@ -35,7 +35,7 @@ our %extras =
 			    },
    'deluge'              => {
                  'ver' => '0.5.8.6',
-                 'url' => 'http://download.deluge-torrent.org/tarball/0.5.8.1',
+                 'url' => 'http://download.deluge-torrent.org/source/0.5.8.6',
                  'src' => 'tar.gz',
                             },
    'devede'              => {
@@ -58,9 +58,9 @@ our %extras =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/easytag',
 			     'src' => 'tar.bz2',
 			    },
-   'gDesklets'           => {
+   'gdesklets'           => {
 			     'ver' => '0.36',
-			     'url' => 'http://www.gdesklets.de/files/',
+			     'url' => 'http://gdesklets.de/files',
 			     'src' => 'tar.bz2',
 			    },
    'gimp'                => {
@@ -119,7 +119,7 @@ our %extras =
 			     'src' => 'tar.gz',
 			    },
    'python-ldap'         => {
-                 'ver' => '2.3.3',
+                 'ver' => '2.3.1',
                  'url' => 'http://heanet.dl.sourceforge.net/sourceforge/python-ldap',
                  'src' => 'tar.gz',
                             },

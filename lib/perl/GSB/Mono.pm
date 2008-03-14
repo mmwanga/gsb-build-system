@@ -31,8 +31,8 @@ our %mono=
 			    },
    'gecko-sharp'        => {
 				'ver' => '2.0-0.13',
-				'url' => 'http://go-mono.com/sources/gecko-sharp-2.0/',
-				'src' => 'tar.gz',
+				'url' => 'http://go-mono.com/sources/gecko-sharp2/',
+				'src' => 'tar.bz2',
 			    },
    'gnome-sharp'        => {
 				'ver' => '2.16.1',
