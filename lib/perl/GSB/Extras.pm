@@ -20,15 +20,8 @@ our $VERSION   = 0.03;
 # src/extras
 our %extras_gnome =
   (
-<<<<<<< .mine
-   'brasero'             => '0.7.1',
-   'pessulus'            => '2.16.4',
-   'sabayon'             => '2.22.0',
-   'ghex'                => '2.21.92',
-=======
    'brasero'             => '0.6.90',
    'ghex'                => '2.8.2',
->>>>>>> .r3531
   );
 
 
@@ -80,14 +73,11 @@ our %extras =
                  'url' => 'http://gstreamer.freedesktop.org/src/gnonlin',
                  'src' => 'tar.bz2',
                             },
-<<<<<<< .mine
    'gparted'             => {
                  'ver' => '0.3.5',
                  'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gparted',
                  'src' => 'tar.bz2',
                             },
-=======
->>>>>>> .r3531
    'grip'                => {
                  'ver' => '3.3.1',
                  'url' => 'http://heanet.dl.sourceforge.net/sourceforge/grip',
@@ -144,8 +134,6 @@ our %extras =
                  'url' => 'http://software.jaos.org/source/slapt-update-notifier',
                  'src' => 'tar.gz',
                             },
-=======
->>>>>>> .r3531
    'streamripper'        => {
 			     'ver' => '1.62.3',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/streamripper',
