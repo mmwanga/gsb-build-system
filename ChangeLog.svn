@@ -7,6 +7,8 @@ ChangeLog
       now.  :^)
     * Used gsb_update to bump SlackBuild versions and
       reset build numbers on updated packages.
+    * Update testing .buildlist
+    * Rename gDesklets -> gdesklets
 
 12-03-2008 fidesratio <sk238(at)ex.ac.uk>		
     * Start rewriting new download script.
