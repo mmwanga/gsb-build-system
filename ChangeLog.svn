@@ -11,6 +11,8 @@ ChangeLog
     * Rename gDesklets -> gdesklets
     * Added cheese and totem-pl-parser packages in applications
       section.
+    * Remove old patch unneeded for new e-d-s version
+    * Remove tweaks from gtkhtml SlackBuild (not needed for new version?)
 
 12-03-2008 fidesratio <sk238(at)ex.ac.uk>		
     * Start rewriting new download script.
