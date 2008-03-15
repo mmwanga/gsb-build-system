@@ -14,14 +14,7 @@ our $VERSION   = 0.03;
 # Building tools
 our %ooo_packages =
   (
-   'ooo-build'    => {
-             'ver' => '2.3.1.2',
-	     'dir' => 'ooo/openoffice',
-             'url' => 'http://download.go-oo.org/OOG680',
-	     'tar' => 'ooo-build-2.3.1.2.tar.gz',
-             'var' => 'VERSION',
-                  },
-   'mdbtools'    => {
+  'mdbtools'    => {
              'ver' => '2.3.1.2',
 	     'dir' => 'ooo/openoffice',
              'url' => 'http://download.go-oo.org/SRC680',
@@ -64,28 +57,28 @@ our %ooo_packages =
              'var' => 'VERSION',
                   },
    'lp_solve'    => {
-             'ver' => '5.5.0.10',
+             'ver' => '2.3.1.2',
 	     'dir' => 'ooo/openoffice',
              'url' => 'http://go-oo.org/packages/SRC680',
 	     'tar' => 'lp_solve_5.5.0.10_source.tar.gz',
              'var' => 'VERSION',
                   },
    'libwpd'    => {
-             'ver' => '0.8.12',
+             'ver' => '2.3.1.2',
 	     'dir' => 'ooo/openoffice',
              'url' => 'http://download.go-oo.org/libwpd',
 	     'tar' => 'libwpd-0.8.12.tar.gz',
              'var' => 'VERSION',
                   },
    'libwps'    => {
-             'ver' => '0.1.0',
+             'ver' => '2.3.1.2',
 	     'dir' => 'ooo/openoffice',
              'url' => 'http://go-oo.org/packages/SRC680',
 	     'tar' => 'libwps-0.1.0.tar.gz',
              'var' => 'VERSION',
                   },
    'libwpg'    => {
-             'ver' => '0.1.0',
+             'ver' => '2.3.1.2',
 	     'dir' => 'ooo/openoffice',
              'url' => 'http://go-oo.org/packages/SRC680',
 	     'tar' => 'libwpg-0.1.0.tar.gz',
@@ -138,6 +131,13 @@ our %ooo_packages =
 	     'dir' => 'ooo/openclipart',
              'url' => 'http://openclipart.org/downloads/0.18',
 	     'tar' => 'openclipart-0.18-svgonly.tar.bz2',
+             'var' => 'VERSION',
+                 },
+  'ooo-build'    => {
+             'ver' => '2.3.1.2',
+	     'dir' => 'ooo/openoffice',
+             'url' => 'http://download.go-oo.org/OOG680',
+	     'tar' => 'ooo-build-2.3.1.2.tar.gz',
              'var' => 'VERSION',
                   },
  );
