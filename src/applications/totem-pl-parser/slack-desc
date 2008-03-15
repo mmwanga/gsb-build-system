@@ -1,0 +1,12 @@
+               |-----handy-ruler------------------------------------------------------|
+totem-pl-parser: totem (GNOME Movie Player Playlist Library)
+totem-pl-parser:
+totem-pl-parser: The Totem package contains the official movie player of the GNOME 
+totem-pl-parser: Desktop Environment based on GStreamer. It features a playlist, 
+totem-pl-parser: a full-screen mode, seek and volume controls, as well as keyboard 
+totem-pl-parser: navigation. This is useful for playing any GStreamer supported file, 
+totem-pl-parser: DVD, VCD or digital CD.
+totem-pl-parser: 
+totem-pl-parser: This package contains a library to read various playlist formats.
+totem-pl-parser: 
+totem-pl-parser: 

@@ -19,9 +19,9 @@ our $VERSION   = 0.03;
 # src/compiz
 our %compiz =
   (
-   'fuse'              => {
-                 'ver' => '2.7.3',
-                 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/fuse',
+   'avant-window-navigator'              => {
+                 'ver' => '0.2.6',
+                 'url' => 'https://launchpadlibrarian.net/12155574',
                  'src' => 'tar.gz',
                             },
    'compiz'              => {

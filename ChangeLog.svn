@@ -9,6 +9,8 @@ ChangeLog
       reset build numbers on updated packages.
     * Update testing .buildlist
     * Rename gDesklets -> gdesklets
+    * Added cheese and totem-pl-parser packages in applications
+      section.
 
 12-03-2008 fidesratio <sk238(at)ex.ac.uk>		
     * Start rewriting new download script.

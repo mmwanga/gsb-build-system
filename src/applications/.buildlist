@@ -8,6 +8,7 @@ gnome-python-desktop
 epiphany
 epiphany-extensions
 totem
+totem-pl-parser
 gnome-utils
 glibmm
 cairomm

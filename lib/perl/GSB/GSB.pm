@@ -35,7 +35,7 @@ my $dfiledir = $gfiledir . $gnome{desktop}  . $grelease;
 my $bfiledir = $gfiledir . $gnome{bindings} . $grelease;
 my $gsrcdir  = $gfiledir . '/sources';
 
-my $wget_options = "--continue --cache=on --passive-ftp --progress=bar:force --timeout=30 --tries=3";
+my $wget_options = "--continue --no-cache --passive-ftp --progress=bar:force --timeout=30 --tries=3 --no-check-certificate";
 
 my $gnome_md5_file = "md5sum";
 

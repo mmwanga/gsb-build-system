@@ -18,6 +18,7 @@ our %applications_gnome =
   (
    'alacarte'               => '0.11.5',
    'deskbar-applet'         => '2.22.0.1',
+   'cheese'                 => '2.22.0',
    'ekiga'                  => '2.0.12',
    'eog'                    => '2.22.0',
    'epiphany'               => '2.22.0',
@@ -61,6 +62,7 @@ our %applications_gnome =
    'seahorse'               => '2.22.0',
    'sound-juicer'           => '2.22.0',
    'totem'                  => '2.22.0',
+   'totem-pl-parser'        => '2.22.1',
    'vino'                   => '2.22.0',
    'yelp'                   => '2.22.0',
    'zenity'                 => '2.22.0',
