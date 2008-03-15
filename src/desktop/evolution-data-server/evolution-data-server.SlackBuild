@@ -115,7 +115,7 @@ elif [ "$ARCH" = "powerpc" ]; then
 fi
 
 ## Fix gtkdoc-rebase bug in camel docs
-patch -p0 < $CWD/patches/evolution-gtkdoc-rebase.patch
+#patch -p0 < $CWD/patches/evolution-gtkdoc-rebase.patch
 
 ## Fix permissions for building.
 chown -R root.root .

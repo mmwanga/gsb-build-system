@@ -91,7 +91,8 @@ mkdir -p $PKGDEST
 ## Decompress archive.
 cd $TMP &&
 rm -rf $PKGNAME-$VERSION &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xjf $CWD/${PKGNAME}-${VERSION}-svgonly.tar.bz2 &&
+mv ${PKGNAME}-${VERSION}-svgonly ${PKGNAME}-${VERSION} &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -155,16 +156,9 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-## Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
-  || exit 1
-
 ## Build and install.
 make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+CLIPARTDIR=$PKG/usr/share/openclipart make $MAKE_FLAGS install || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
