@@ -19,7 +19,7 @@ our %platform =
    'gail'                => '1.22.0',
    'GConf'               => '2.22.0',
    'gnome-common'        => '2.20.0',
-   'gnome-icon-theme'    => '2.20.0',
+   'gnome-icon-theme'    => '2.22.0',
    'gnome-keyring'       => '2.22.0',
    'gnome-mime-data'     => '2.18.0',
    'gnome-vfs'           => '2.22.0',
@@ -31,13 +31,13 @@ our %platform =
    'libgnome'            => '2.22.0',
    'libgnomecanvas'      => '2.20.1.1',
    'libgnomeui'          => '2.22.01',
-   'liboobs'             => '2.22.0',
+   'liboobs'             => '2.20.0',
    'libsoup'             => '2.4.0',
    'ORBit2'              => '2.14.12',
    'pygobject'           => '2.14.1',
    'pygtk'               => '2.12.1',
    'pyorbit'             => '2.14.3',
-   'system-tools-backends'  => '2.6.0',
+   'system-tools-backends'  => '2.4.2',
   );
 
 

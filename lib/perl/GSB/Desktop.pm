@@ -31,15 +31,17 @@ our %desktop =
    'gnome-panel'            => '2.22.0',
    'gnome-python'           => '2.22.0',
    'gnome-session'          => '2.22.0',
+   'gnome-settings-daemon'  => '2.22.0',
    'gnome-terminal'         => '2.22.0',
    'gnome-themes'           => '2.22.0',
    'gtkhtml'                => '3.18.0',
-   'gtksourceview'          => '2.2.0',
+   'gtksourceview'          => '1.8.5',
    'libgnomecups'           => '0.2.3',
    'libgnomekbd'            => '2.21.4.1',
    'libgnomeprint'          => '2.18.4',
    'libgnomeprintui'        => '2.18.2',
    'libgtop'                => '2.22.0',
+   'libgweather'            => '2.22.0',
    'libwnck'                => '2.22.0',
    'libxklavier'            => '3.4',
    'metacity'               => '2.22.0',
@@ -114,7 +116,7 @@ our %desktop_nongnome =
 our %desktop_diff_naming =
   (
    'gtksourceview2'  => {
-                         'ver'  => '2.0.1',
+                         'ver'  => '2.2.0',
                          'name' => 'gtksourceview',
                         },
    );

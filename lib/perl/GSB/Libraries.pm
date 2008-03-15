@@ -22,6 +22,11 @@ our %libraries =
 			   'url' => 'http://liba52.sourceforge.net/files/',
 			   'src' => 'tar.gz',
 			  },
+   'dbus-glib'            => {
+			   'ver' => '0.74',
+			   'url' => 'dbus.freedesktop.org/releases/dbus-glib/',
+			   'src' => 'tar.gz',
+			  },
    'exempi'              => {
 			   'ver' => '1.99.9',
 			   'url' => 'http://libopenraw.freedesktop.org/download/',
@@ -159,7 +164,7 @@ our %libraries =
 			   'src' => 'tar.bz2',
 			  },
    'libnl'           => {
-			   'ver' => '1.1',
+			   'ver' => '1.0-pre8',
 			   'url' => 'http://people.suug.ch/~tgr/libnl/files/',
 			   'src' => 'tar.gz',
 			  },
@@ -207,6 +212,11 @@ our %libraries =
    'libsexy'             => {
                              'ver' => '0.1.11',
                              'url' => 'http://releases.chipx86.com/libsexy/libsexy/',
+                             'src' => 'tar.gz',
+                            },
+   'libtasn1'             => {
+                             'ver' => '1.3',
+                             'url' => 'http://josefsson.org/gnutls/releases/libtasn1',
                              'src' => 'tar.gz',
                             },
    'lua'             => {
@@ -287,7 +297,7 @@ our %libraries_gnome =
 our %libraries_diff_naming =
   (
    'glib2'  => {
-		'ver'  => '2.16.1',
+		'ver'  => '2.16.0',
 		'name' => 'glib',
 	       },
    'gtk+2'  => {

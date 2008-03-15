@@ -134,4 +134,11 @@ our %double_tarballs_url =
 			 'tar' => 'ode-src-0.9.zip',
              'var' => 'VERSION',
                         },
+   'libidl'            => {
+             'url' => 'http://ftp.gnome.org/pub/gnome/sources/libIDL/0.8',
+             'ver' => '0.8.10',
+             'dir' => 'libraries/libidl',
+	     'tar' => 'libIDL-0.8.10.tar.bz2',
+             'var' => 'VERSION',
+                        },
   );
