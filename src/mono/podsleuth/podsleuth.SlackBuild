@@ -7,8 +7,8 @@
 ##
 
 ## Package variables. 
-BUILD=1gsb
-VERSION=svn_12240
+BUILD=1
+VERSION=svn_54
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -151,7 +151,7 @@ elif [ "$ARCH" = "x86_64" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS="--libdir=/usr/lib64 --shlibdir=/usr/lib64 --enable-pthreads --disable-mmx"
+    CONFIGURE_FLAGS="--libdir=/usr/lib64"
   }
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
@@ -163,14 +163,15 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr $CONFIGURE_FLAGS --arch=$ARCH --cpu=$TUNE \
+  ./autogen.sh --prefix=/usr $CONFIGURE_FLAGS --arch=$ARCH --cpu=$TUNE \
   --enable-shared \
   --disable-static \
+  --with-hal-callouts-dir=/usr/libexec \
   || exit 1
 
 ## Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+make $MAKE_FLAGS -j1 &&
+make $MAKE_FLAGS -j1 DESTDIR=$PKG install || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
