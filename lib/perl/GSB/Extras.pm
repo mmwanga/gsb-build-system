@@ -103,12 +103,7 @@ our %extras =
 			     'url' => 'http://www.stafford.uklinux.net/libesmtp',
 			     'src' => 'tar.bz2',
 			    },
-   'libintl-perl'            => {
-			     'ver' => '1.16',
-			     'url' => 'http://search.cpan.org/CPAN/authors/id/G/GU/GUIDO',
-			     'src' => 'tar.gz',
-			    },
-   'MPlayer'            => {
+  'MPlayer'            => {
 			     'ver' => '1.0rc2',
 			     'url' => 'http://www1.mplayerhq.hu/MPlayer/releases',
 			     'src' => 'tar.bz2',

@@ -48,7 +48,7 @@ our %applications_gnome =
    'gnome-python-desktop'   => '2.22.0',
    'gnome-spell'            => '1.0.8',
    'gnome-system-monitor'   => '2.22.0',
-   'gnome-system-tools'     => '2.22.0',
+   'gnome-system-tools'     => '2.20.0',
    'gnome-user-docs'        => '2.22.0',
    'gnome-user-share'       => '0.22',
    'gnome-utils'            => '2.20.0.1',
@@ -58,7 +58,7 @@ our %applications_gnome =
    'gtkmm'                  => '2.12.5',
    'nautilus-sendto'        => '0.13.2',
    'pygtksourceview'        => '2.2.0',
-   'rhythmbox'              => '0.11.4',
+   'rhythmbox'              => '0.11.5',
    'seahorse'               => '2.22.0',
    'sound-juicer'           => '2.22.0',
    'totem'                  => '2.22.0',
@@ -71,9 +71,34 @@ our %applications_gnome =
 
 our %applications =
   (
+   'bluez-libs' => {
+                 'ver' => '3.28',
+		 'url' => 'http://bluez.sf.net/download',
+                 'src' => 'tar.gz',
+                },
+   'bluez-utils' => {
+                 'ver' => '3.28',
+		 'url' => 'http://bluez.sf.net/download',
+                 'src' => 'tar.gz',
+                },
+   'bluez-gnome' => {
+                 'ver' => '0.25',
+		 'url' => 'http://bluez.sf.net/download',
+                 'src' => 'tar.gz',
+                },
    'cairomm' => {
-                 'ver' => '1.5.0',
+                 'ver' => '1.4.8',
                  'url' => 'http://cairographics.org/releases',
+                 'src' => 'tar.gz',
+                },
+   'libggz' => {
+                 'ver' => '0.0.14.1',
+                 'url' => 'http://ftp.belnet.be/mirrors/ftp.ggzgamingzone.org/ggz/0.0.14.1',
+                 'src' => 'tar.gz',
+                },
+   'ggz-client-libs' => {
+                 'ver' => '0.0.14.1',
+                 'url' => 'http://ftp.belnet.be/mirrors/ftp.ggzgamingzone.org/ggz/0.0.14.1',
                  'src' => 'tar.gz',
                 },
    'enchant'   => {
@@ -124,21 +149,6 @@ our %applications =
    'poppler-data'         => {
 			 'url' => 'http://poppler.freedesktop.org',
 			 'ver' => '0.2.0',
-			 'src' => 'tar.gz',
-			},
-   'pybackpack'         => {
-			 'url' => 'http://andrewprice.me.uk/projects/pybackpack/download',
-			 'ver' => '0.5.4',
-			 'src' => 'tar.gz',
-			},
-   'rdiff-backup'         => {
-			 'url' => 'http://savannah.nongnu.org/download/rdiff-backup',
-			 'ver' => '1.0.5',
-			 'src' => 'tar.gz',
-			},
-   'librsync'         => {
-			 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/librsync',
-			 'ver' => '0.9.7',
 			 'src' => 'tar.gz',
 			},
   );
