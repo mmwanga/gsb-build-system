@@ -13,12 +13,13 @@
 #
 # List last updated: January 13th, 2008
 
--- Required Updates for GNOME 2.20.3 --
+-- Required Updates for GNOME 2.22.0-CURRENT --
 
-gnome-icon-theme: ( >= 2.20 for gnome-desktop 2.20)
-glib2:            ( > 2.14 required by gtk+2 2.12)
+gnome-icon-theme: ( >= 2.20 for gnome-desktop 2.22)
+glib2:            ( > 2.16 required by libgnomeui 2.22)
 pango:            ( > 1.18 required by gtk+2 2.12)
-gtk+2:            ( >= 2.12 required for libgnomeui 2.20.0)
+gtk+2:            ( >= 2.12 required for libgnomeui 2.22.0)
+libidl:           ( > 0.8.10 required for ORBit2; glib2 changes API)
 
 -- Optional Updates (for optional applications) 
 
@@ -32,3 +33,5 @@ gimp:             (2.2 comes in Slackware 12; however, 2.4.3 is latest GIMP Stab
 compiz:           (0.4.1 with Slackware 12, latest developement version if 0.6.0 for compiz-fusion)
 libgsf:           (Updated version needed by Goffice, and Gnumeric)
 wpa_supplicant:   (NetworkManager 0.7svn needs wpa_supplicant to be build with dbus interface)
+bluez-libs:       ( > 3.18 required by bluez-gnome and gnome-phone-manager)
+bluez-utils:      ( > 3.18 required by bluez-gnome and gnome-phone-manager)
