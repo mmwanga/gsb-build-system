@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=3
 VERSION=0.18
 
 ## List any packages here that are required to build this package.
@@ -91,6 +91,7 @@ mkdir -p $PKGDEST
 ## Decompress archive.
 cd $TMP &&
 rm -rf $PKGNAME-$VERSION &&
+echo "Please wait. Extracting clipart..." &&
 tar xjf $CWD/${PKGNAME}-${VERSION}-svgonly.tar.bz2 &&
 mv ${PKGNAME}-${VERSION}-svgonly ${PKGNAME}-${VERSION} &&
 cd $PKGNAME-$VERSION || exit 1
@@ -157,12 +158,8 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Build and install.
-make $MAKE_FLAGS &&
-CLIPARTDIR=$PKG/usr/share/openclipart make $MAKE_FLAGS install || exit 1
-
-## Strip debugging symbols.
-{ find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
-  cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
+sed -i "s:/local::g" $TMP/$PKGNAME-$VERSION/Makefile || exit 1
+make install CLIPARTDIR=/usr/share DESTDIR=$PKG || exit 1
 
 ## Compress and fix manpage links.
 [ -e $PKG/usr/man ] && {
@@ -181,7 +178,7 @@ CLIPARTDIR=$PKG/usr/share/openclipart make $MAKE_FLAGS install || exit 1
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+  AUTHORS LICENSE ChangeLog NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
