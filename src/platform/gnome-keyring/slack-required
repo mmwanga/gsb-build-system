@@ -4,3 +4,4 @@ hal
 libgcrypt
 pango
 atk
+libtasn1
