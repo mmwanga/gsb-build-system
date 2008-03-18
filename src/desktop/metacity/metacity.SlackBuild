@@ -12,7 +12,7 @@ VERSION=2.22.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="GConf glib2 gtk+2 ORBit2 startup-notification libgnome libgnomeui gnome-menus libX11 libXrender libXrandr libXinerama libXcursor pango cairo"
+REQUIRED_PACKAGES="GConf glib2 gtk+2 ORBit2 startup-notification libgnome libgnomeui gnome-menus libX11 libXrender libXrandr libXinerama libXcursor pango cairo compositeproto libXcomposite"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -168,7 +168,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static --enable-shared \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
-  --disable-compositor \
+  --enable-compositor \
   || exit 1
 
 ## Build and install.

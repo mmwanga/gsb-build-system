@@ -6,7 +6,6 @@ gnome-desktop
 gnome-menus
 gnome-menus-kde
 gnome-menus-xfce
-gnome-menus-ooo
 libwnck
 evolution-data-server
 gnome-python
@@ -15,6 +14,7 @@ gst-plugins-base
 gst-plugins-good
 gst-plugins-ugly
 gst-fluendo-mp3
+libgweather
 gnome-panel
 gnome-audio
 gconf-editor
@@ -25,12 +25,12 @@ libgnomekbd
 libgnomecups
 libgnomeprint
 libgnomeprintui
-libipoddevice
 metacity
 eel
 nautilus
 gnome-mount
 nautilus-cd-burner
+gnome-settings-daemon
 gnome-control-center
 gnome-session
 gnome-applets

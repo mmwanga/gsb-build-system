@@ -171,8 +171,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
   --enable-ipv6 \
-  --enable-suid=yes \
-  --enable-frequency-selector=yes \
   --enable-flags \
   --disable-scrollkeeper \
   || exit 1

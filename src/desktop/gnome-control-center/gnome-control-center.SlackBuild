@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=4
 VERSION=2.22.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gnome-doc-utils GConf metacity gnome-menus libgnomeui libgnome libbonobo libbonoboui ORBit2 gstreamer gst-plugins-base gst-plugins-good libgnomekbd libxklavier openssl dbus xscreensaver evolution-data-server alsa-lib libgnomecups"
+REQUIRED_PACKAGES="gnome-doc-utils GConf metacity gnome-menus libgnomeui libgnome libbonobo libbonoboui ORBit2 gstreamer gst-plugins-base gst-plugins-good libgnomekbd libxklavier openssl dbus xscreensaver evolution-data-server alsa-lib libgnomecups gnome-settings-daemon"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -169,7 +169,10 @@ make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Preserve menu settings
-mv $PKG/etc/xdg/menus/gnomecc.menu $PKG/etc/xdg/menus/gnomecc.menu.new
+mkdir -p $PKG/etc/gnome/xdg/menus
+mv $PKG/etc/xdg/menus/gnomecc.menu $PKG/etc/gnome/xdg/menus/gnomecc.menu.new
+## Keep gnome-at-session as GNOME only
+mv $PKG/etc/xdg/autostart $PKG/etc/gnome/xdg
 
 ##
 ## Keep clean for Scrollkeeper

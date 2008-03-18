@@ -1,4 +1,5 @@
 GConf
+libXcomposite
 glib2
 gtk+2
 ORBit2
