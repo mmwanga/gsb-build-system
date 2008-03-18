@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw(%mono %mono_gnome %mono_diff_naming);
+our @EXPORT    = qw(%mono %mono_gnome %mono_diff_naming %mono_svn);
 our @EXPORT_OK = qw();
 our $VERSION   = 0.01;
 
@@ -15,8 +15,6 @@ our $VERSION   = 0.01;
 
 our %mono_gnome =
   (
-   'beagle'          => '0.3.3',
-   'libbeagle'       => '0.3.0',
    'evolution-sharp' => '0.16.0',
    'f-spot'          => '0.4.2',
    'tomboy'          => '0.10.0',
@@ -79,6 +77,11 @@ our %mono=
 				'url' => 'http://go-mono.com/sources/mono-addins/',
 				'src' => 'tar.bz2',
 			       },
+   'mono-zeroconf'            => {
+		'ver' => '0.7.5',
+		'url' => 'http://banshee-project.org/files/mono-zeroconf',
+		'src' => 'tar.bz2',
+			       },
    'monodoc'                => {
 				'ver' => '1.9',
 				'url' => 'http://go-mono.com/sources/monodoc',
@@ -102,6 +105,11 @@ our %mono=
    'njb-sharp'                => {
 				'ver' => '0.3.0',
 				'url' => 'http://banshee-project.org/files/njb-sharp',
+				'src' => 'tar.gz',
+			       },
+   'taglib-sharp'                => {
+				'ver' => '2.0.3.0',
+				'url' => 'http://www.taglib-sharp.com/Download',
 				'src' => 'tar.gz',
 			       },
   );
@@ -130,6 +138,12 @@ our %mono_diff_naming =
             'var' => 'VERSION',
 		   },
   );
+
+our %mono_svn =
+  (
+   'podsleuth' => 'svn_54',
+  );
+
 
 #
 # End Config Options

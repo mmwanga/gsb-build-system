@@ -214,6 +214,11 @@ our %libraries =
                              'url' => 'http://releases.chipx86.com/libsexy/libsexy/',
                              'src' => 'tar.gz',
                             },
+   'libmtp'        => {
+      'ver' => '0.2.6.1',
+      'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libmtp/',
+      'src' => 'tar.gz',
+	  },
    'libtasn1'             => {
                              'ver' => '1.3',
                              'url' => 'http://josefsson.org/gnutls/releases/libtasn1',
@@ -297,7 +302,7 @@ our %libraries_gnome =
 our %libraries_diff_naming =
   (
    'glib2'  => {
-		'ver'  => '2.16.0',
+		'ver'  => '2.16.1',
 		'name' => 'glib',
 	       },
    'gtk+2'  => {

@@ -88,11 +88,6 @@ our %extras =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtkpod',
 			     'src' => 'tar.gz',
 			    },
-   'istanbul'            => {
-			     'ver' => '0.2.1',
-			     'url' => 'http://zaheer.merali.org',
-			     'src' => 'tar.bz2',
-			    },
    'jokosher'            => {
 			     'ver' => '0.9',
 			     'url' => 'http://www.jokosher.org/downloads/source',

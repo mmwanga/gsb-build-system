@@ -22,7 +22,7 @@ our %bindings_cxx =
    'libgnomecanvasmm'  => '2.22.0',
    'libgnomemm'        => '2.22.0',
    'libgnomeuimm'      => '2.22.0',
-   'libgtksourceviewmm' => '1.9.4',
+   'libgtksourceviewmm' => '0.3.1',
    'libxml++'          => '2.22.0',
   );
 

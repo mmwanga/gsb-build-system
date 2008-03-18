@@ -12,7 +12,7 @@ our $VERSION   = 0.03;
 
 our %testing_svn =
   (
-   'NetworkManager'         => 'svn_3343',
-   'NetworkManager-vpn'     => 'svn_3343',
-   'network-manager-applet' => 'svn_559',
+   'NetworkManager'         => 'svn_3473',
+   'NetworkManager-vpn'     => 'svn_3473',
+   'network-manager-applet' => 'svn_604,
   );

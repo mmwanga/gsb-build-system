@@ -27,6 +27,11 @@ our %other_themes =
 			      'url' => 'http://download.berlios.de/candido',
 			      'src' => 'tar.bz2',
 			     },
+   'emerald-themes'           => {
+			      'ver' => '0.2.1',
+			      'url' => 'http://releases.beryl-project.org/current',
+			      'src' => 'tar.bz2',
+			     },
   );
 
 # Strangely named source tarballs can be found here.
