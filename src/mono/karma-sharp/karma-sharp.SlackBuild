@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=0.1.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="mono"
+REQUIRED_PACKAGES="mono libkarma"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -159,7 +159,8 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 make || exit 1;
 (
 cd karma-sharp ;
-make install DEST=$PKG/usr || exit 1;
+VERSION=0.1.0
+VERSION=0.1.0
 )
 
 # Fix for pkgconfig files on x86_64 platforms

@@ -12,7 +12,7 @@ VERSION=2.22.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomeui gstreamer"
+REQUIRED_PACKAGES="glib2 gtk+2 dbus hal cairo pango librsvg gstreamer gst-plugins-base gst-plugins-good gnome-vfs libgnomeui xf86vidmodeproto evolution-data-server"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -155,6 +155,11 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
+## librsvg fix
+## cheese asks for librsvg 2.18 but doesn't really required it
+sed -i "s:LIBRSVG_REQUIRED=2.18.0:LIBRSVG_REQUIRED=2.16.0:g" \
+    $TMP/$PKGNAME-$VERSION/configure
+
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
@@ -167,6 +172,13 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+##
+## Keep clean for Scrollkeeper
+## Will rebuild database in doinst.sh
+
+rm -fr $PKG/var/lib/scrollkeeper
+rm -fr $PKG/var/lib/log
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

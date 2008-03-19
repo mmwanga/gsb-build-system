@@ -114,6 +114,10 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
+# Patch to fix build errors with glib2; cvs diff from software.jaos.org
+echo "Appying CVS update patch."
+zcat $CWD/patches/gslapt.csv_update.patch.gz | patch -p0 -s
+
 ## Fix permissions for building.
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;

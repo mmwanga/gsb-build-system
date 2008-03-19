@@ -35,3 +35,4 @@ gimp:             (2.2 comes in Slackware 12; however, 2.4.3 is latest GIMP Stab
 compiz:           (0.4.1 with Slackware 12, latest developement version if 0.7.2 for compiz-fusion)
 libgsf:           (Updated version needed by Goffice, and Gnumeric)
 wpa_supplicant:   (NetworkManager 0.7svn needs wpa_supplicant to be build with dbus interface)
+libmtp:           (A much older version supplied by Slackware; Banshee requires libmtp > 0.2)

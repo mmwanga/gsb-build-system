@@ -91,9 +91,9 @@ mkdir -p $PKGDEST
 ## Decompress archive.
 mkdir -p $TMP/mac4lin &&
 cd $TMP/mac4lin &&
-tar xfz $CWD/Mac4Lin_Icons_v0.3a_for_GNOME_2.20.tar.gz &&
-tar xfz $CWD/Mac4Lin_v0.3.tar.gz &&
-tar xfz $CWD/Wallpapers_Mac4Lin_v0.3.tar.gz || exit 1
+tar xfz $CWD/Mac4Lin_Part1_v0.4.tar.gz &&
+tar xfz $CWD/Mac4Lin_Icons_Part2_v0.4.tar.gz &&
+tar xfz $CWD/Mac4Lin_Wallpapers_Part3_v0.4.tar.gz || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i386" ]; then
@@ -139,38 +139,41 @@ mkdir -p $PKG/usr/share/sounds
 mkdir -p $PKG/usr/share/fonts/TTF
 
 # Default icons
-cp -r Mac4Lin_Icons_v0.3a $PKG/usr/share/icons/mac4lin || exit 1
+cp -r Mac4Lin_Icons_v0.4 $PKG/usr/share/icons/mac4lin || exit 1
 cp -r $CWD/gsb/index.theme.icons $PKG/usr/share/icons/mac4lin || exit 1
+
+cd $TMP/mac4lin/Mac4Lin_v0.4 || exit 1
 
 # GDM Theme
 cd "GDM Theme" &&
-tar xfz Mac4Lin_v0.3_GDM.tar.gz &&
-cp -r "Leopard GDM" $PKG/usr/share/gdm/themes/mac4lin &&
-cd $TMP/mac4lin || exit 1
+tar xfz Mac4Lin_GDM_v0.4.tar.gz &&
+cp -r "Mac4Lin_GDM_v0.4" $PKG/usr/share/gdm/themes/mac4lin &&
+cd $TMP/mac4lin/Mac4Lin_v0.4 || exit 1
 
 
 # GTK Theme
 cd "GTK Metacity Theme" &&
-tar xfz "Mac4Lin_GTK_v0.3.tar.gz" &&
-cp -r "Mac4Lin_GTK_v0.3" $PKG/usr/share/themes/mac4lin &&
-cp -r $CWD/gsb/index.theme.appearances $PKG/usr/share/themes/mac4lin || exit 1
-cd $TMP/mac4lin || exit 1
+tar xfz "Mac4Lin_GTK_v0.4.tar.gz" &&
+cp -r "Mac4Lin_GTK_v0.4" $PKG/usr/share/themes/mac4lin &&
+cp -r $CWD/gsb/index.theme.appearance $PKG/usr/share/themes/mac4lin || exit 1
+cd $TMP/mac4lin/Mac4Lin_v0.4 || exit 1
 
 # Mouse Cursors
-cd "Cursors" &&
-tar xfz Mac4Lin_v0.3_Cursors.tar.gz &&
-cp -r 	OSX_Cursors_v0.2 $PKG/usr/share/icons/mac4lin_osx_cursors &&
-rm -fr $PKG/usr/share/icons/Mac4Lin_Cursors/source &&
-cd $TMP/mac4lin || exit 1
+cd "GTK Cursor Theme" &&
+tar xfz Mac4Lin_Cursors_v0.4.tar.gz &&
+cp -r Mac4Lin_Cursors_v0.4 $PKG/usr/share/icons/mac4lin_osx_cursors &&
+rm -fr $PKG/usr/share/icons/mac4lin_osx_cursors/source &&
+cd $TMP/mac4lin/Mac4Lin_v0.4 || exit 1
 
 # Sounds
 cd "Sounds" &&
-tar xfz OSX_Sounds_v0.3.tar.gz &&
-cp -r OSX_Sounds_v0.2 $PKG/usr/share/sounds/mac4lin &&
-cd $TMP/mac4lin || exit 1
+tar xfz MacOSX_Sounds.tar.gz &&
+cp -r MacOSX_Sounds $PKG/usr/share/sounds/mac4lin &&
+cd $TMP/mac4lin/Mac4Lin_v0.4 || exit 1
 
 # Wallpapers
-cd "Wallpapers_Mac4Lin_v0.3" &&
+cd $TMP/mac4lin || exit 1
+cd "Wallpapers" &&
 cp -r * $PKG/usr/share/backgrounds &&
 cd $PKG/usr/share/backgrounds || exit 1
 for filename in * ;
@@ -183,12 +186,12 @@ do
        mv "$fname" "$n" || exit 1
      fi
 done
-cd $TMP/mac4lin || exit 1
+cd $TMP/mac4lin/Mac4Lin_v0.4 || exit 1
 
 # Splash screens
-cd "GTK Splash" &&
+cd "GTK Login Splash" &&
 cp -r *png $PKG/usr/share/splash &&
-cd $TMP/mac4lin || exit 1
+cd $TMP/mac4lin/Mac4Lin_v0.4 || exit 1
 
 # Fonts
 cd Fonts &&
@@ -203,7 +206,7 @@ if [ "$XPREF" == "" ]; then
 else
   FONTDIR="/usr/share/fonts/TTF"
 fi;
-cp OSX_Fonts/*ttf $PKG/$FONTDIR || exit 1;
+cp "OSX Fonts"/*ttf $PKG/$FONTDIR || exit 1;
 
 ## Set permissions
 chown -R $(stat --format "%u:%g" /usr/bin) $PKG/usr

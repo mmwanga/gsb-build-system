@@ -117,8 +117,8 @@ elif [ "$ARCH" = "powerpc" ]; then
 fi
 
 ## See README in patches/
-patch -p0 < $CWD/patches/Makefile.am.diff &&
-patch -p0 < $CWD/patches/configure.in.diff || exit 1
+#patch -p0 < $CWD/patches/Makefile.am.diff &&
+#patch -p0 < $CWD/patches/configure.in.diff || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .

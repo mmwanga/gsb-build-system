@@ -3,12 +3,12 @@ compiz
 compiz-bcop
 libcompizconfig
 compiz-fusion-plugins-main
-compiz-fusion-plugins-extras
+compiz-fusion-plugins-extra
 compiz-manager
 emerald
-emerald-themes
 sexy-python
 Pyrex
 compizconfig-python
 compizconfig-backend-gconf
 ccsm
+avant-window-navigator

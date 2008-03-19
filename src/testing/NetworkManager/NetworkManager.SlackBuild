@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=svn_3343
+VERSION=svn_3473
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libnl wpa_supplicant libgcrypt dbus hal gtk+2 libglade gnome-keyring libgnomeui gnome-keyring wireless-tools glib2 iproute2 GConf gnome-common ppp"
+REQUIRED_PACKAGES="libnl wpa_supplicant libgcrypt dbus hal gtk+2 libglade gnome-keyring libgnomeui gnome-keyring wireless-tools glib2 iproute2 GConf gnome-common ppp perl"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -191,6 +191,20 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --with-dbus-sys=/etc/dbus-1/system.d \
   --enable-notification-icon \
   || exit 1
+
+##
+## This skirts an issue with dbus-glib <= 0.74 not supporting namespaces properly
+## Cf: http://mail.gnome.org/archives/networkmanager-list/2008-March/msg00003.html
+echo "WARNING: Fixing namespaces for $VERSION" ;
+cp $CWD/spec-to-introspect.xsl .
+mkdir introspection-dirty
+mv -f introspection/nm-*.xml introspection-dirty
+for i in introspection-dirty/*.xml
+do
+	xsltproc spec-to-introspect.xsl $i \
+	  | perl -pe '$$hash = chr(35);s{xmlns:tp="http://telepathy\.freedesktop\.org/wiki/DbusSpec$${hash}extensions-v0"} {}g' \
+	      >  introspection/$(basename $i)
+done
 
 ## Build and install.
 make &&

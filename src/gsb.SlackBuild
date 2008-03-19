@@ -26,9 +26,10 @@ SECTIONS="${GSB_SECTIONS:-	tools
 				mono
 				administration
 				extras
-				themes
 				compiz
 		                ooo
+				themes
+				testing
 				meta
 			}"
 

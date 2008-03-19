@@ -12,7 +12,7 @@ VERSION=2.22.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomeui gob2"
+REQUIRED_PACKAGES="libgnomeui gob2 ggz-client-libs"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

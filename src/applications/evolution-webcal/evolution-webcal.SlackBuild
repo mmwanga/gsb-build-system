@@ -164,8 +164,8 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 ##
 ## Fix for libsoup-2.2
 ##
-sed -i "s/libsoup\-2\.4/libsoup\-2\.2/g" $TMP/$PKGNAME-$VERSION/configure
-sed -i "s/\=2\.4/\=2\.2/g" $TMP/$PKGNAME-$VERSION/configure
+#sed -i "s/libsoup\-2\.4/libsoup\-2\.2/g" $TMP/$PKGNAME-$VERSION/configure
+#sed -i "s/\=2\.4/\=2\.2/g" $TMP/$PKGNAME-$VERSION/configure
 
 LIBSOUP_CFLAGS=`/usr/bin/pkg-config --cflags libsoup-2.2` \
 LIBSOUP_LIBS=`/usr/bin/pkg-config --libs libsoup-2.2` \

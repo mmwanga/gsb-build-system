@@ -1,3 +1,4 @@
+GConf
 aqbanking
 glib2
 gtk+2
@@ -14,7 +15,6 @@ gnome-vfs
 libglade
 goffice
 gail
-GConf
 gtkhtml
 libgnomeprintui
 atk

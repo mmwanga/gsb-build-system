@@ -8,7 +8,7 @@
 ## Parts of this scripts are based on Eric Hameleers <alien@slackware.com>
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=1.0
 
 ## List any packages here that are required to build this package.
@@ -106,7 +106,7 @@ FONTS="andale32 arial32 arialb32 comic32 courie32 georgi32 impact32 times32 treb
 cd $TMP
 mkdir -p $TMP/cab-contents ;
 for i in $FONTS ; do
-  cabextract --lowercase --directory=cab-contents $CWD/$i.exe ;
+  cabextract -q --lowercase --directory=cab-contents $CWD/$i.exe 2>/dev/null 1>/dev/null || exit 1
 done
 
 chown -R root:root *
@@ -114,6 +114,14 @@ chmod -R u+w,go+r-w,a-s *
 
 # Install the fonts into the package directory.
 cp cab-contents/*.ttf $PKG/$FONTDIR
+
+# Add fontconfig info
+mkdir -p $PKG/etc/fonts
+for i in alias local misc msfonts-rules ;
+do
+  cp $CWD/gsb/$i.conf $PKG/etc/fonts/$i.conf.new || exit 1;
+done;
+chown root:root $PKG/etc/fonts/*.conf.new || exit 1;
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests

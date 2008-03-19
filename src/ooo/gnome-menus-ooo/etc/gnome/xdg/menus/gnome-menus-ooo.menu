@@ -1,0 +1,13 @@
+<Menu>
+    <Name>OpenOffice.Org</Name>
+    <Directory>OpenOffice.directory</Directory>
+    <Include>
+      <Filename>calc2.3.desktop</Filename>
+      <Filename>draw2.3.desktop</Filename>
+      <Filename>impress2.3.desktop</Filename>
+      <Filename>math2.3.desktop</Filename>
+      <Filename>template2.3.desktop</Filename>
+      <Filename>web2.3.desktop</Filename>
+      <Filename>writer2.3.desktop</Filename>
+    </Include>
+</Menu>

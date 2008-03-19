@@ -4,18 +4,12 @@ brasero
 gimp
 gtkam
 easytag
-parted
-gparted
 gtkpod
 pstoedit
 tre
 streamripper
 sylpheed
 deluge
-libintl-perl
-glib-perl
-gtk2-perl
-gnome2-perl
 dvdrip
 vcdimager
 MPlayer
@@ -26,5 +20,4 @@ jokosher
 ghex
 wxGTK
 gdesklets
-slapt-update-notifier
 grip

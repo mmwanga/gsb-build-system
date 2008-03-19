@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=3
 VERSION=2.16.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomeui mono gnome-vfs gtkhtml libart_lgpl libglade vte librsvg"
+REQUIRED_PACKAGES="mono gnome-vfs gtkhtml libart_lgpl libglade vte librsvg libgnomecanvas libgnome libgnomeui libgnomeprint libgnomeprintui"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -157,7 +157,7 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 ## Configure.
 
 ## Fix for gtkhtml 3.16
-sed -i "s/3\.8/3\.16/g" $TMP/$PKGNAME-$VERSION/configure ;
+sed -i "s/3\.8/3\.14/g" $TMP/$PKGNAME-$VERSION/configure ;
 
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \

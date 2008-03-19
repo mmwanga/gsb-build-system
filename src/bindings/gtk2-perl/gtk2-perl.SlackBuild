@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=1
-VERSION=1.045
+BUILD=2
+VERSION=1.164
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -143,7 +143,7 @@ LIBDIR=${LIBDIR:-"lib"}
 
 # This is a list of the perl modules with version numbers to include
 # in our package
-MODULE_LIST="Cairo-1.044 Gtk2-1.162"
+MODULE_LIST="Cairo-1.045 Gtk2-1.164"
 
 PERL_ARCH=$(perl -v | grep This | cut -d' ' -f 7)
 PERL_VERSION=$(perl -v | grep This | cut -d' ' -f4 | cut -dv -f2)
@@ -214,5 +214,5 @@ makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/$PKGNAME-$VERSION
+  rm -rf $PKG $TMP/$PKGNAME
 }

@@ -163,10 +163,11 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./autogen.sh --prefix=/usr $CONFIGURE_FLAGS --arch=$ARCH --cpu=$TUNE \
-  --enable-shared \
-  --disable-static \
+  ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --disable-static --enable-shared \
   --with-hal-callouts-dir=/usr/libexec \
+  --program-prefix="" \
   || exit 1
 
 ## Build and install.

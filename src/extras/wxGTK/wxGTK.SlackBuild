@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.8.7
 
 ## List any packages here that are required to build this package.
@@ -159,18 +159,14 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
+  --enable-unicode \
+  --enable-regex \
+  --disable-debugreport  \
+  --with-sdl \
   --with-gtk \
   --with-gnomeprint \
   --with-opengl \
-  --enable-geometry \
-  --enable-graphics_ctx \
-  --enable-sound \
-  --with-sdl \
-  --enable-mediactrl \
-  --enable-display \
-  --disable-debugreport  \
-  --enable-unicode \
-  --enable-regex \
+  --enable-optimise \
   || exit 1
 
 ## Build and install.

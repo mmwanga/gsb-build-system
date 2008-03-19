@@ -1,2 +1,14 @@
-libgnomeui
+glib2
+gtk+2
+dbus
+hal
+cairo
+pango
+librsvg
 gstreamer
+gst-plugins-base
+gst-plugins-good
+gnome-vfs
+libgnomeui
+xf86vidmodeproto
+evolution-data-server

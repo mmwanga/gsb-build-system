@@ -7,3 +7,7 @@ libgnomecanvasmm
 libgnomemm
 libgnomeuimm
 libgtksourceviewmm
+libintl-perl
+glib-perl
+gtk2-perl
+gnome2-perl

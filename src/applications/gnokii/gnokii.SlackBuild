@@ -160,6 +160,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
+  --enable-security \
   || exit 1
 
 # Make sure we have a pkgconfig directory
@@ -168,7 +169,6 @@ mkdir -p $PKG/usr/${GSB_LIBDIR:-lib}/pkgconfig || exit 1
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS install DESTDIR=$PKG &&
-make $MAKE_FLAGS install-devel DESTDIR=$PKG || exit 1
 
 # Properly name the gnokii.pc
 if [ -f $PKG/usr/${GSB_LIBDIR:-lib}/pkgconfig/xgnokii.pc ]; then

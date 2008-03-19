@@ -12,7 +12,7 @@ VERSION=0.13.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="mono gtk-sharp gstreamer libmusicbrainz nautilus-cd-burner sqlite3 gtk+2 hal ipod-sharp libipoddevice njb-sharp libmtp avahi avahi-sharp karma-sharp gnome-sharp notification-daemon"
+REQUIRED_PACKAGES="mono gtk-sharp gstreamer libmusicbrainz nautilus-cd-burner sqlite3 gtk+2 hal ipod-sharp njb-sharp libmtp avahi avahi-sharp karma-sharp gnome-sharp notification-daemon"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -113,6 +113,13 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
+
+##
+## This patch fixes various build problems with banshee
+## against the newer version of mono (1.9).  It also
+## applies a few bug fixes from svn-stable.  See
+## banshee svn changelog for more info.
+zcat $CWD/patches/banshee.mono-1.9-svn-fixes.patch.gz | patch -p0 --verbose
 
 ## Fix permissions for building.
 chown -R root.root .

@@ -116,9 +116,9 @@ elif [ "$ARCH" = "powerpc" ]; then
 fi
 
 # Fix crash on non-GDM systems
-patch -p0 < $CWD/patches/startx.patch
+#patch -p0 < $CWD/patches/startx.patch
 # Fix crash for gdm > 2.20 socket naming
-patch -p0 < $CWD/patches/fusa.socket-check.patch 
+#patch -p0 < $CWD/patches/fusa.socket-check.patch 
 # Fix wonky dialog
 patch -p0 < $CWD/patches/error-dialog.patch 
 # Make usernames default in list

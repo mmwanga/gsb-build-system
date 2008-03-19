@@ -10,3 +10,7 @@ popt
 libXft
 openssl
 libgc
+gtkmm
+glibmm
+libsigc++
+libxslt

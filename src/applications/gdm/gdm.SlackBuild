@@ -181,19 +181,20 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
   ln -s ../sbin/gdmsetup .
 )
 
+mkdir -p $PKG/usr/share/xsessions ;
 for file in $CWD/sessions/* ; do
   cp $file $PKG/usr/share/xsessions ;
-  chmod 644 $PKG/usr/share/xsessions/$file ;
 done
 
 ## Preserve Files
-mv $PKG/etc/X11/gdm/Xsession $PKG/etc/X11/gdm/Xsession.new
-rm -fr $PKG/etc/X11/gdm/custom.conf
-cp $CWD/custom.conf $PKG/etc/X11/gdm/custom.conf.new
-mv $PKG/etc/X11/gdm/PreSession/Default $PKG/etc/X11/gdm/PreSession/Default.new
-mv $PKG/etc/X11/gdm/PostLogin/Default.sample $PKG/etc/X11/gdm/PostLogin/Default.new
-chown -R root:root $PKG/etc/X11/gdm;
-chown -R root:root $PKG/usr/share/xsessions/*;
+mv $PKG/etc/X11/gdm/Xsession $PKG/etc/X11/gdm/Xsession.new || exit 1;
+rm -fr $PKG/etc/X11/gdm/custom.conf || exit 1;
+cp $CWD/custom.conf $PKG/etc/X11/gdm/custom.conf.new || exit 1;
+mv $PKG/etc/X11/gdm/PreSession/Default $PKG/etc/X11/gdm/PreSession/Default.new || exit 1;
+mv $PKG/etc/X11/gdm/PostLogin/Default.sample $PKG/etc/X11/gdm/PostLogin/Default.new || exit 1;
+chown -R root:root $PKG/etc/X11/gdm || exit 1;
+chown -R root:root $PKG/usr/share/xsessions/* || exit 1;
+chmod 644 $PKG/usr/share/xsessions/* || exit 1;
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

@@ -309,6 +309,25 @@ foreach my $libsvnpackage (keys %libraries_svn) {
   }
 }
 
+# src/mono packages that are from SVN.
+# Note: this only edits the SlackBuilds to set BUILD.
+foreach my $libsvnpackage (keys %mono_svn) {
+
+  my $name    = $libsvnpackage;
+  my $sb_file = $name . $sb_ext;
+  my $ver     = $mono_svn{$name};
+
+  chdir "$pwd/mono/$name";
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+}
+
 # Set version/build numbers for metapackages
 foreach my $mp (keys %meta_packages) {
 

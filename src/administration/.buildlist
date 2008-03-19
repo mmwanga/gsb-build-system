@@ -4,11 +4,11 @@ rdiff-backup
 pybackpack
 parted
 gparted
-gslapt  
 pycups 
 notify-python
 rhpl
 system-config-printer
+gslapt
 slapt-update-notifier
 python-ldap
 sabayon

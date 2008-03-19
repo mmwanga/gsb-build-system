@@ -93,7 +93,7 @@ mkdir -p $PKGDEST
 ## Decompress archive.
 cd $TMP &&
 tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
-cd $PKGNAME-$VERSION || exit 1
+cd $PKGNAME-$VERSION/wpa_supplicant || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i386" ]; then

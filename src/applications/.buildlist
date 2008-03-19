@@ -7,8 +7,8 @@ file-roller
 gnome-python-desktop
 epiphany
 epiphany-extensions
-totem
 totem-pl-parser
+totem
 gnome-utils
 glibmm
 cairomm
@@ -18,6 +18,8 @@ gnome-system-monitor
 gnome-netstatus
 zenity
 gob2
+libggz
+ggz-client-libs
 gnome-games
 gnome-user-docs
 gnome-system-tools
@@ -27,13 +29,16 @@ gnome-volume-manager
 gnome-backgrounds
 gnome-pilot
 gnome-pilot-conduits
+bluez-libs
+bluez-utils
+bluez-gnome
+gnome-phone-manager
 gnome-bluetooth
 gnome-spell
 gcalctool
 gnokii
 evolution
 gnome-power-manager
-gnome-phone-manager
 poppler
 poppler-data
 evince
@@ -59,3 +64,4 @@ gdm
 fast-user-switch-applet
 libgksu
 gksu
+cheese

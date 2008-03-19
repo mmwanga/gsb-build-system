@@ -1,23 +1,111 @@
 ChangeLog
 ---------
 
+18-03-2008 fidesratio <sk238(at)ex.ac.uk>		
+    * Rebuilt gnome-panel disabling PolKit; fixed incorrect
+     libpanel.la.
+    * Relinked ggz-client-libs, nautalis, and gnome-sharp.
+    * Added emerald-themes
+    * Added update-mime doinst for shared-mime-info.
+    * Added update-mime doinst for emerald.
+    * Fix annoying chown bug in meta.SlackBuild.common (it would
+      chown the whole tree)
+    * NetworkManager and applet version bumps for externals.  
+      NOTE: NetworkManager needs headers from kernel 2.6.22
+      in order to compile.
+
+17-03-2008 fidesratio <sk238(at)ex.ac.uk>		
+    * Happy St. Patrick's day.  :^)
+    * Added cvs patch to gslapt for a clean build again
+      new glib2.
+    * Added svn patch stable patch to banshee 0.13.2
+      for a clean build with Mono 1.9. 
+   
+16-03-2008 fidesratio <sk238(at)ex.ac.uk>		
+    * Need to add pkg-config --cflags for gnome-vfs to
+      gnome-system-tools builds (breaks against gvfs 2.22)
+    * Removed services, network, and time from g-s-t
+      (largely broken)
+    * Removed "make install-dev" from gnokki (deprecated)
+      and added --enable-security to configure.
+    * Fixed a slack-desc for gcalctool.
+    * Remove cruft from metapackage slack-required.
+    * Added gdm package to gsb-desktop (was missing, oops),
+      added banshee to gsb-multimedia, removed ooo from
+      gsb-office.  (gsb-office will just have properly
+      "GNOME" office stuff)
+    * Add new package openclipart (svg-only), for ooo-2.3.
+    * Added new metapackage "gsb-ooo", which installs
+      ooo-2.3, openclipart, and gsb-menus-ooo.
+    * Updates to download scripts versions; move libintl-perl to 
+      DoubleTar.pm.
+    * Updates to notes.  Created new replaced_packages_gsb-2.22 to 
+      include new required packages for gnome 2.22 on Slackware 12.
+    * Fix versioning for gtk2-perl, glib-perl, gnome2-perl packages.
+    * Update inkscape slack-required.
+    * Bump Mplayer build to relink against newer x264 package.
+    * Fix wxGTK configure to include std+opengl; force gnome-vfs.
+    * Add bluez-libs, bluez-utils, and bluez-gnome packages.
+      Bluez-libs/utils replaces Slackware packages (optional) if
+      users want to use gnome-bluetooth, gnome-phone-manager, or
+      bluez-gnome panel applet.
+    * Patches startx.patch and fuser-socket.patch removed from 
+      fast-user-switch-applet 2.22 package.
+    * Removed gtkhtml tweaks from Evolution 2.22 package.
+    * Enable gtksourceview plugin for anjuta; fix accidental
+      duplication in anjuta doinst.sh. Remove parallel flags
+      for anjuta make install.
+    * Remove gnucash as requirement for gnucash-docs, and add
+      gnucash-docs to gsb-office metapackage.
+    * Added new packages libggz and ggz-client-libs, needed
+      by gnome-games 2.22.
+    * Remove gtkhtml tweak from gnucash 2.2.4.
+    * Remove beagle.  Tracker I think is coming along much better.
+    * Add package podsleuth as dependency for ipod-sharp (and banshee)
+    * Add package mono-zeroconf as dependency for banshee.
+    * Fix for karma-sharp pkgconfig file (was missing version
+      and prefix)
+
+15-03-2008 fidesratio <sk238(at)ex.ac.uk>		
+    * Added compositing to Metacity (it's stable now in 2.22)
+    * Added new package libgweather (required for gnome-panel 2.22)
+    * Added new package libtasn1 (for gnome-keyring 2.22)
+    * Upgraded to glib2 2.16.0, as required by libgnome 2.22.
+      This, however, requires us to replace the Slackware
+      package libidl (upgrade required to 0.8.10 for ORBit2)
+      G_GNU_PRETTY_FUNCTION deprecated in glib 2.16.0 which breaks
+      libIDL/ORBit2.
+    * fontconfig files added to msttcorefonts package.
+    * Upgrade to dbus-glib 0.74.  Required by new package
+      gnome-settings-daemon which is in turn required by 
+      gnome-control-panel => 2.22.
+      This replaces the standard Slackware package dbus-glib.
+    * Added new package gnome-settings-daemon 2.22.0
+    * mac4lin general theme added.  Fixes for some new naming
+      conventions in the package as well.
+    * SECURITY NOTICE: cpufreq-selector for cpufreq applet now 
+      enabled (and setuid). Is this a good idea?  :^)
+
 14-03-2008 fidesratio <sk238(at)ex.ac.uk>		
-    * Sweeping update of all versions of packages. 
+    * Release of GNOME 2.22.0 STABLE.
+    * Sweeping update of all versions of packages in GSB.
       Everything should be at its latest stable version
-      now.  :^)
+      now. I wonder if everything will upgrade smoothly... :^)
     * Used gsb_update to bump SlackBuild versions and
       reset build numbers on updated packages.
+    * Moved stable packages from testing to administration.
     * Update testing .buildlist
     * Rename gDesklets -> gdesklets
-    * Added cheese and totem-pl-parser packages in applications
-      section.
+    * Added cheese and totem-pl-parser packages in applications.
     * Remove old patch unneeded for new e-d-s version
     * Remove tweaks from gtkhtml SlackBuild (not needed for new version?)
+    * Update svn externals for ffmpeg, x264, and NetworkManager.
 
 12-03-2008 fidesratio <sk238(at)ex.ac.uk>		
-    * Start rewriting new download script.
+    * Start fiddling with writing a new download script.
 
 24-02-2008 fidesratio <sk238(at)ex.ac.uk>		
     * Branched 2.20.x into branches/
+    * Begin work for next GNOME version to be released soon.
     * Some major reorganization of svn trunk working towards gsb 1.5
     * Added compiz-fusion-plugins-extra, avant-window-manager

@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=1.16
 
 ## List any packages here that are required to build this package.
@@ -159,8 +159,11 @@ perl Makefile.PL &&
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-## Cleanup perllocal.pod
-find $PKG -name perllocal.pod -exec rm -f {} \; || exit 1
+# Remove perlocal.pod and .packlist from $PKG
+( for i in perllocal.pod .packlist; do
+      find $PKG -name "$i" -exec rm -rf {} \;
+  done
+) || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

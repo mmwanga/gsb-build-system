@@ -158,8 +158,13 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Fix library paths for x64_64
 if [ "$ARCH" = "x86_64" ]; then
-  sed -i "s/lib\/python/lib64\/python/g" $TMP/$PKGNAME-$VERSION/configure ;
+  sed -i "s/lib\/python/lib64\/python/g" \
+     $TMP/$PKGNAME-$VERSION/configure || exit 1;
 fi;
+
+## Fix for gtksourceviewmm-2.0
+#sed -i "s:libgtksourceviewmm-1.0:gtksourceviewmm-2.0:g" \
+   #$TMP/$PKGNAME-$VERSION/configure || exit 1;
 
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \

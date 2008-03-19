@@ -1,3 +1,4 @@
+GConf
 gtk+2
 pcre
 libgnome
@@ -8,14 +9,11 @@ libgnomecanvas
 libgnomeui
 libgnomeprintui
 gnome-vfs
-GConf
 vte
 libxml2
 pango
 gdl
 libxslt
-autogen
-gnome-build
 neon
 graphviz
 devhelp
