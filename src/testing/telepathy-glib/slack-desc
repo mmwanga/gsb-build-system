@@ -1,0 +1,12 @@
+              |-----handy-ruler------------------------------------------------------|
+telepathy-glib: telepathy-glibg (Connection Manager Library)
+telepathy-glib: 
+telepathy-glib: Telepathy GLib is a library for connection managers. It aims to 
+telepathy-glib: factor out code in common to GLib-based connection managers such 
+telepathy-glib: as Gabble, Idle, Sofia-Sip and Salut.
+telepathy-glib: 
+telepathy-glib: 
+telepathy-glib: 
+telepathy-glib: 
+telepathy-glib: 
+telepathy-glib: 
