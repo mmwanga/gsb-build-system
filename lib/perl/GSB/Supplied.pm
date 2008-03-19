@@ -35,4 +35,8 @@ our %supplied_tarballs =
              'ver' => '1.0',
 	     'section' => 'desktop',
                  },
+   'fusion-icon'  => {
+             'ver' => '0.1.0',
+	     'section' => 'compiz',
+                 },
   );

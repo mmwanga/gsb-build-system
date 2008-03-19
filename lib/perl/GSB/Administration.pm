@@ -42,7 +42,7 @@ our %administration =
                             },
    'gslapt'    => {
              'url' => 'http://software.jaos.org/source/gslapt',
-             'ver' => '0.3.19',
+             'ver' => '0.3.19a',
              'src' => 'tar.gz',
                   },
    'notify-python'    => {
