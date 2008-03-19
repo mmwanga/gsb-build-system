@@ -21,6 +21,13 @@ our %double_tarballs_url =
 			 'tar' => 'boost_1_34_1.tar.bz2',
              'var' => 'VERSION',
                         },
+   'telepathy-glib'            => {
+             'url' => 'http://telepathy.freedesktop.org/releases/telepathy-glib',
+             'ver' => '0.7.5',
+ 'dir' => 'testing/telepathy-glib',
+		 'tar' => 'telepathy-glib-0.7.5.tar.gz',
+             'var' => 'VERSION',
+                        },
     'libintl-perl'   => {
 	     'ver' => '1.16',
 	     'url' => 'http://search.cpan.org/CPAN/authors/id/G/GU/GUIDO',
