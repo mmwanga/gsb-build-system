@@ -14,5 +14,5 @@ our %testing_svn =
   (
    'NetworkManager'         => 'svn_3473',
    'NetworkManager-vpn'     => 'svn_3473',
-   'network-manager-applet' => 'svn_604,
+   'network-manager-applet' => 'svn_604',
   );
