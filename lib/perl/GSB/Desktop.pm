@@ -27,6 +27,7 @@ our %desktop =
    'gnome-desktop'          => '2.22.0',
    'gnome-doc-utils'        => '0.12.2',
    'gnome-keyring-manager'  => '2.20.0',
+   'gnome-volume-manager'   => '2.22.1',
    'gnome-menus'            => '2.22.0',
    'gnome-panel'            => '2.22.0',
    'gnome-python'           => '2.22.0',
@@ -34,10 +35,11 @@ our %desktop =
    'gnome-settings-daemon'  => '2.22.0',
    'gnome-terminal'         => '2.22.0',
    'gnome-themes'           => '2.22.0',
+   'gvfs'                   => '0.2.1',
    'gtkhtml'                => '3.18.0',
    'gtksourceview'          => '1.8.5',
    'libgnomecups'           => '0.2.3',
-   'libgnomekbd'            => '2.21.4.1',
+   'libgnomekbd'            => '2.22.0',
    'libgnomeprint'          => '2.18.4',
    'libgnomeprintui'        => '2.18.2',
    'libgtop'                => '2.22.0',
@@ -52,13 +54,18 @@ our %desktop =
 our %desktop_nongnome =
   (
    'gnome-mount'  => { 
-                      'ver' => '0.6',
-                      'url' => 'http://people.freedesktop.org/~david/dist/',
-                      'src' => 'tar.gz',
+                   'ver' => '0.6',
+                   'url' => 'http://people.freedesktop.org/~david/dist/',
+                   'src' => 'tar.gz',
                      },
    'sensors-applet'  => { 
                       'ver' => '2.2.1',
                       'url' => 'http://heanet.dl.sourceforge.net/sourceforge/sensors-applet',
+                      'src' => 'tar.gz',
+                     },
+   'fuse'  => { 
+                      'ver' => '2.7.3',
+                      'url' => 'http://mesh.dl.sourceforge.net/sourceforge/fuse',
                       'src' => 'tar.gz',
                      },
    'gstreamer'   => {
@@ -90,11 +97,6 @@ our %desktop_nongnome =
                            'ver' => '0.10.7',
                            'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-ugly/',
                            'src' => 'tar.bz2',
-                          },
-   'libipoddevice'       => {
-                'ver' => '0.5.3',
-                'url' => 'http://banshee-project.org/files/libipoddevice',
-                'src' => 'tar.gz',
                           },
    'notification-daemon'           => {
                              'ver' => '0.3.7',

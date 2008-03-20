@@ -1,27 +1,30 @@
 #!/bin/sh
 #
+# GNOME xinitrc Session script.
+# Based on:
 # $XConsortium: xinitrc.cpp,v 1.4 91/08/22 11:41:34 rws Exp $
-# 28-11-07 modified for GSB xinitrc (stevek)
-# 07-02-08 modified for compiz-gnome (stevek)
+#
+# Add export to XDG_CONFIG_DIRS (2008-03-19) stevek
+# Inital version (2008-01-17) stevek
 #
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
-sysresources=/usr/lib/X11/xinit/.Xresources
-sysmodmap=/usr/lib/X11/xinit/.Xmodmap
+sysresources=/usr/lib64/X11/xinit/.Xresources
+sysmodmap=/usr/lib64/X11/xinit/.Xmodmap
 
 ## Default Session Settings
 GNOME_SESSION_SETTINGS=""
 
 ## Compiz GNOME
-WINDOW_MANAGER="compiz"
+# Change default window manager to compiz instead of metacity
+export WINDOW_MANAGER="compiz"
 
 ## GNOME XDG Menu Path
-# We keep the GNOME menu templates separate
-# from KDE so the two don't interfere with each other
-# This path may be extended to include the KDE
-# menu path /etc/kde/xdg if the user wishes.
-XDG_CONFIG_DIRS=/etc/xdg:/etc/gnome/xdg
+# We keep the GNOME menu templates separate from KDE so the two 
+# don't interfere with each other. This path may be extended to 
+# include the KDE menu path /etc/kde/xdg if the user wishes.
+export XDG_CONFIG_DIRS=/etc/xdg:/etc/gnome/xdg
 
 # Merge in defaults and keymaps
 if [ -f $sysresources ]; then
@@ -54,4 +57,4 @@ if [ -x /usr/bin/seahorse-agent ]; then
 fi;
 
 # Start the window manager
-WINDOW_MANAGER=$WINDOW_MANAGER $GNOME_SESSION_SETTINGS gnome-session
+exec $GNOME_SESSION_SETTINGS gnome-session

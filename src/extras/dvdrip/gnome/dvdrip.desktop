@@ -7,4 +7,4 @@ Exec=dvdrip
 Icon=/usr/share/pixmaps/dvdrip.png
 Terminal=false
 Type=Application
-Categories=GNOME;GTK;Utility;AudioVideo;
+Categories=AudioVideo;

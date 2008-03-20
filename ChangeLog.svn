@@ -1,6 +1,26 @@
 ChangeLog
 ---------
 
+20-03-2008 fidesratio <sk238(at)ex.ac.uk>		
+    * Add conduit package.
+    * Add vobject (requirement for conduit)
+    * Add python-dateutil (for conduit)
+    * Add gvfs (for nautilus 2.22.0)
+    * Fix gnome-session scripts for gnome-session and gdm.
+    * Move gtkmm/glibmm/cairomm to bindings section
+    * Add pygoocanvas package (for conduit)
+    * Move goocanvas to applications section
+
+19-03-2008 fidesratio <sk238(at)ex.ac.uk>		
+    * Fix missing icons for epiphany
+    * Fix missing icons for ccsm
+    * Remove dvdrip from "Accessories" menu, leave only in "Sound & Video"
+    * Add fusion-icon to compiz section
+    * Add general theme for mac4lin
+    * Remove msfonts-rules from mstcorefonts (messes up arial)
+    * Fix missing theme in emerald-themes
+    * Use emerald decorator as default compiz wm
+
 18-03-2008 fidesratio <sk238(at)ex.ac.uk>		
     * Rebuilt gnome-panel disabling PolKit; fixed incorrect
      libpanel.la.

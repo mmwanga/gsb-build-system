@@ -7,11 +7,15 @@ function install_file() {
     mv "$FILE.new" "$FILE"
   elif [ "$(cat "$FILE" | md5sum)" != "$(cat "$FILE.new" | md5sum)" ]
   then
-    #     |--------|--------------------------------------------------|
-    echo "WARNING: $FILE has been customised."
-    echo "         Examine the $FILE.new file"
-    echo "         and integrate any changes into the custom file."
-    echo
+    # We need to make sure to install our version of the file;
+    # Move the old versions out of the way.
+    if [ -f $(basename "$1" .new) ];
+    then
+            mv $(basename "$1" .new) $(basename "$1" .new).$(date +%m%d%y);
+    fi;
+    # Install our new file.
+    mv $1 $(basename "$1" .new)
+
   else
     rm -f "$FILE.new"
   fi

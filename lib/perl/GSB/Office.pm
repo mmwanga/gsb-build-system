@@ -72,11 +72,6 @@ our %office =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/kino/',
 			     'src' => 'tar.gz',
 			    },
-   'goocanvas'              => {
-			     'ver' => '0.9',
-			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/goocanvas/',
-			     'src' => 'tar.gz',
-			    },
    'gnucash'              => {
 			     'ver' => '2.2.4',
 			     'url' => 'http://ftp.at.gnucash.org/pub/gnucash/gnucash/sources/stable/',

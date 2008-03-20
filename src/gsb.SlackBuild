@@ -19,9 +19,9 @@ SECTIONS="${GSB_SECTIONS:-	tools
 				libraries
 				platform
 				desktop
+				bindings
 				applications
 				accessibility
-				bindings
 				office
 				mono
 				administration

@@ -8,14 +8,14 @@
 
 ## Package variables.
 BUILD=1
-VERSION=1.0
+VERSION=0.9
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gnome-menus"
+REQUIRED_PACKAGES="libgnomecanvas cairo gtk+2"
 
 ## Build variables.
-ARCH=noarch
+ARCH=${ARCH:-i586}
 TUNE=${TUNE:-i586}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
@@ -88,6 +88,11 @@ mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
+## Decompress archive.
+cd $TMP &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
+cd $PKGNAME-$VERSION || exit 1
+
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i386" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
@@ -149,14 +154,42 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-## Copy files to package
-cp -r $CWD/etc $PKG || exit 1
-cp -r $CWD/usr $PKG || exit 1
+## Configure.
+CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --disable-static --enable-shared \
+  || exit 1
 
-# Make sure not to include svn info in the package
-find $PKG -type d -name ".svn" -exec rm -rf {} \;
-# Proper permissions
-chown -R root:root $PKG
+## Build and install.
+make $MAKE_FLAGS &&
+make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+## Strip debugging symbols.
+{ find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
+  cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
+
+## Compress and fix manpage links.
+[ -e $PKG/usr/man ] && {
+  find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
+  find $PKG/usr/man -type l -name \*.? -printf \
+    "( cd '%h'; [ -e '%l.gz' ] &&
+     { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
+}
+
+## Deal with .info files.
+[ -e $PKG/usr/info ] && {
+  rm -f $PKG/usr/info/dir
+  gzip -9 $PKG/usr/info/*.info
+}
+
+## Copy extra documentation into package.
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
+cp -a \
+  AUTHORS COPYING* ChangeLog NEWS README \
+  $PKG/usr/doc/$PKGNAME-$VERSION
+find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
+chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests

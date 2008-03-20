@@ -6,6 +6,7 @@
 # If this is not set, we search a list of known windowmanagers and use
 # the first one that is found in the users's PATH
 #
+# 19-03-2008 - Prefer emerald window decorator if installed (stevek)
 # 07-02-2008 - Modified to use compiz ccp by default in GSB (stevek)
 
 # sm-client-id value
@@ -120,7 +121,11 @@ fi
 case `basename $WINDOW_MANAGER` in
   compiz)
     export LIBGL_ALWAYS_INDIRECT=1
-    gtk-window-decorator &
+    if [ -x /usr/bin/emerald ]; then
+      /usr/bin/emerald &
+    else
+      gtk-window-decorator &
+    fi;
     OPT3=ccp
     ;;
   beryl)

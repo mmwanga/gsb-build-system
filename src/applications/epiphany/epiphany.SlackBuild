@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=4
 VERSION=2.22.0
 
 ## List any packages here that are required to build this package.
@@ -182,7 +182,7 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 ## The icons are improperly placed in a package subdirectory, rather than
 ## the main GNOME Icon Set. This moves them over so the application has
 ## access to its icons.  It is better to have them in the default gnome
-## icon directory.
+## icon directory. REQUIRED ONLY FOR GNOME 2.20
 mkdir -p $PKG/usr/share/icons/gnome
 mv $PKG/usr/share/$PKGNAME/icons/hicolor/* $PKG/usr/share/icons/gnome
 rm -fr $PKG/usr/share/$PKGNAME/icons

@@ -19,6 +19,7 @@ our %applications_gnome =
    'alacarte'               => '0.11.5',
    'deskbar-applet'         => '2.22.0.1',
    'cheese'                 => '2.22.0',
+   'conduit'                => '0.3.9',
    'ekiga'                  => '2.0.12',
    'eog'                    => '2.22.0',
    'epiphany'               => '2.22.0',
@@ -33,7 +34,6 @@ our %applications_gnome =
    'gdm'                    => '2.20.4',
    'gedit'                  => '2.22.0',
    'gedit-plugins'          => '2.22.0',
-   'glibmm'                 => '2.16.0',
    'gnome-backgrounds'      => '2.22.0',
    'gnome-bluetooth'        => '0.11.0',
    'gnome-commander'        => '1.2.5',
@@ -52,10 +52,8 @@ our %applications_gnome =
    'gnome-user-docs'        => '2.22.0',
    'gnome-user-share'       => '0.22',
    'gnome-utils'            => '2.20.0.1',
-   'gnome-volume-manager'   => '2.22.1',
    'gob2'                   => '2.0.15',
    'gthumb'                 => '2.10.8',
-   'gtkmm'                  => '2.12.5',
    'nautilus-sendto'        => '0.13.2',
    'pygtksourceview'        => '2.2.0',
    'rhythmbox'              => '0.11.5',
@@ -84,11 +82,6 @@ our %applications =
    'bluez-gnome' => {
                  'ver' => '0.25',
 		 'url' => 'http://bluez.sf.net/download',
-                 'src' => 'tar.gz',
-                },
-   'cairomm' => {
-                 'ver' => '1.4.8',
-                 'url' => 'http://cairographics.org/releases',
                  'src' => 'tar.gz',
                 },
    'libggz' => {
@@ -121,6 +114,16 @@ our %applications =
 		      'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gnomebaker',
 		      'src' => 'tar.gz',
 		      },
+   'goocanvas'   => {
+		      'ver' => '0.9',
+		      'url' => 'http://mesh.dl.sourceforge.net/sourceforge/goocanvas',
+		      'src' => 'tar.gz',
+		      },
+   'pygoocanvas'   => {
+		      'ver' => '0.9.0',
+		      'url' => 'http://download2.berlios.de/pygoocanvas',
+		      'src' => 'tar.gz',
+		      },
    'gst-ffmpeg'        => {
 			   'ver' => '0.10.3',
 			   'url' => 'http://gstreamer.freedesktop.org/src/gst-ffmpeg',
@@ -151,6 +154,16 @@ our %applications =
 			 'ver' => '0.2.0',
 			 'src' => 'tar.gz',
 			},
+   'vobject'            => {
+			   'ver' => '0.6.0',
+			   'url' => 'http://vobject.skyhouseconsulting.com',
+			   'src' => 'tar.gz',
+			  },
+   'python-dateutil'            => {
+			   'ver' => '1.4',
+			   'url' => 'http://labix.org/download/python-dateutil',
+			   'src' => 'tar.bz2',
+			  },
   );
 
 

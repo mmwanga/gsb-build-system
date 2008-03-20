@@ -23,7 +23,7 @@ gnome-keyring
 gnome-menus
 gnome-menus-xfce
 gnome-menus-kde
-gnome-mount
+pmount
 gnome-panel
 gnome-python-desktop
 gnome-vfs

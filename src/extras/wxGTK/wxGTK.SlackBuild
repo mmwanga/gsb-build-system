@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=2.8.7
 
 ## List any packages here that are required to build this package.
@@ -167,6 +167,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --with-gnomeprint \
   --with-opengl \
   --enable-optimise \
+  --with-gnomevfs \
+  --with-gnomeprint \
   || exit 1
 
 ## Build and install.

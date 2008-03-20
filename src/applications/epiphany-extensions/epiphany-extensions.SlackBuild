@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.22.0
 
 ## List any packages here that are required to build this package.
@@ -172,8 +172,8 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 ## access to its icons.  It is better to have them in the default gnome
 ## icon directory.
 mkdir -p $PKG/usr/share/icons/gnome
-mv $PKG/usr/share/$PKGNAME/icons/hicolor/* $PKG/usr/share/icons/gnome
-rm -fr $PKG/usr/share/$PKGNAME/icons
+mv $PKG/usr/share/epiphany/icons/hicolor/* $PKG/usr/share/icons/gnome
+rm -fr $PKG/usr/share/epiphany/icons
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

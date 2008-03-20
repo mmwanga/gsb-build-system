@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=0.9
+VERSION=0.9.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomecanvas cairo"
+REQUIRED_PACKAGES="python goocanvas pygtk glib2 gtk+2"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -90,6 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
+rm -rf $PKGNAME-$VERSION &&
 tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
@@ -159,6 +160,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
+  --disable-gtk-doc \
   || exit 1
 
 ## Build and install.

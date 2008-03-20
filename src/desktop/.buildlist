@@ -27,8 +27,9 @@ libgnomeprint
 libgnomeprintui
 metacity
 eel
+fuse
+gvfs
 nautilus
-gnome-mount
 nautilus-cd-burner
 gnome-settings-daemon
 gnome-control-center
@@ -42,3 +43,5 @@ gtkhtml
 pyxdg
 notification-daemon
 sensors-applet
+gnome-mount
+gnome-volume-manager

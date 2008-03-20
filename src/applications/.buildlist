@@ -10,9 +10,6 @@ epiphany-extensions
 totem-pl-parser
 totem
 gnome-utils
-glibmm
-cairomm
-gtkmm
 gnomebaker
 gnome-system-monitor
 gnome-netstatus
@@ -25,7 +22,6 @@ gnome-user-docs
 gnome-system-tools
 gnome-nettool
 vino
-gnome-volume-manager
 gnome-backgrounds
 gnome-pilot
 gnome-pilot-conduits
@@ -65,3 +61,8 @@ fast-user-switch-applet
 libgksu
 gksu
 cheese
+python-dateutil
+vobject
+goocanvas
+pygoocanvas
+conduit

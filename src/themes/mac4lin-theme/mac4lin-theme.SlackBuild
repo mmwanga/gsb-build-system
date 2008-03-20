@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=0.4
 
 ## List any packages here that are required to build this package.
@@ -140,7 +140,7 @@ mkdir -p $PKG/usr/share/fonts/TTF
 
 # Default icons
 cp -r Mac4Lin_Icons_v0.4 $PKG/usr/share/icons/mac4lin || exit 1
-cp -r $CWD/gsb/index.theme.icons $PKG/usr/share/icons/mac4lin || exit 1
+cp -r $CWD/gsb/index.theme.icons $PKG/usr/share/icons/mac4lin/index.theme || exit 1
 
 cd $TMP/mac4lin/Mac4Lin_v0.4 || exit 1
 
@@ -155,7 +155,7 @@ cd $TMP/mac4lin/Mac4Lin_v0.4 || exit 1
 cd "GTK Metacity Theme" &&
 tar xfz "Mac4Lin_GTK_v0.4.tar.gz" &&
 cp -r "Mac4Lin_GTK_v0.4" $PKG/usr/share/themes/mac4lin &&
-cp -r $CWD/gsb/index.theme.appearance $PKG/usr/share/themes/mac4lin || exit 1
+cp -r $CWD/gsb/index.theme.appearance $PKG/usr/share/themes/mac4lin/index.theme || exit 1
 cd $TMP/mac4lin/Mac4Lin_v0.4 || exit 1
 
 # Mouse Cursors

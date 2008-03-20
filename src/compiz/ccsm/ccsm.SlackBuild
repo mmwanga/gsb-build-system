@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=3
 VERSION=0.7.2
 
 ## List any packages here that are required to build this package.
@@ -158,6 +158,13 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 sed -i "s:/usr/local:/usr:g" $TMP/$PKGNAME-$VERSION/setup.py
 python setup.py build &&
 python setup.py install --prefix=/usr --root=$PKG || exit 1
+
+## Make icons over to proper locations
+mkdir -p $PKG/usr/share/icons/gnome
+cp -r $PKG/usr/share/ccsm/icons/hicolor/* $PKG/usr/share/icons/gnome
+rm -fr $PKG/usr/share/ccsm/icons/hicolor 
+cd $PKG/usr/share/ccsm/icons ; 
+ln -fs ../../icons/gnome ;
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.18
 
 ## List any packages here that are required to build this package.
@@ -175,6 +175,10 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 ## Graphviz forgets to install one of its header file strangely.  :^)
 ##
 cp $TMP/$PKGNAME-$VERSION/lib/common/arith.h $PKG/usr/include/graphviz
+
+## Clean up extraneous files on /
+rm -fr $PKG/gv.so
+rm -fr $PKG/gv.pm
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

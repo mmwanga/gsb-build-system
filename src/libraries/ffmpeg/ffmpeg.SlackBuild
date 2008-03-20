@@ -7,7 +7,7 @@
 ##
 
 ## Package variables. 
-BUILD=1
+BUILD=2
 VERSION=svn_12240
 
 ## List any packages here that are required to build this package.
@@ -145,6 +145,7 @@ elif [ "$ARCH" = "i586" ]; then
 elif [ "$ARCH" = "i686" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
 elif [ "$ARCH" = "x86_64" ]; then
+  LIBDIR=lib64
   if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -fPIC"}
   else
@@ -160,6 +161,7 @@ else
 fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
+LIBDIR=${LIBDIR:-"lib"}
 
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
@@ -175,6 +177,12 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
+# Fix for broken pkg-config file
+if [ -f $CWD/patches/libpostproc.pc.$VERSION ]; then
+  mkdir -p $PKG/usr/$LIBDIR/pkgconfig
+  cp $CWD/patches/libpostproc.pc.$VERSION $PKG/usr/$LIBDIR/pkgconfig
+fi;
+
 # Fix x86_64 pkg-config files
 if [ "$ARCH" = "x86_64" ]; then
   for i in $PKG/usr/lib64/pkgconfig/*.pc ;
@@ -186,6 +194,7 @@ fi;
 # For header compatibility
 cd $PKG/usr/include
 ln -s libavcodec ffmpeg || exit 1;
+
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

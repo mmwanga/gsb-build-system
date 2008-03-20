@@ -633,12 +633,11 @@ foreach my $acpackage (keys %accessibility_gnome) {
   }
 }
 
-# Download Bindings
-# C++
-foreach my $cbpackage (keys %bindings_cxx) {
+# Download Bindings from GNOME
+foreach my $cbpackage (keys %bindings_gnome) {
 
   my $name    = $cbpackage;
-  my $ver     = $bindings_cxx{$name};
+  my $ver     = $bindings_gnome{$name};
   my $sb_file = $name . $sb_ext;
 
   my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
@@ -647,6 +646,38 @@ foreach my $cbpackage (keys %bindings_cxx) {
 
   if ( $download eq "true") {
     GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
+# Bindings from external sources
+foreach my $ofpackage (keys %bindings_ex) {
+
+  my $name    = $ofpackage;
+  my $sb_file = $name . $sb_ext;
+  my $packurl = $bindings_ex{$name}{url};
+  my $ver     = $bindings_ex{$name}{ver};
+  my $src     = $bindings_ex{$name}{src};
+  my $type    = "other";
+
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+
+  chdir "$pwd/bindings/$name";
+
+  if ( $download eq "true") {
+    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
   }
 
   if ( $edit eq "true" ) {
