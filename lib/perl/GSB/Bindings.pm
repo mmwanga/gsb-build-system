@@ -36,6 +36,11 @@ our %bindings_ex =
                  'url' => 'http://cairographics.org/releases',
                  'src' => 'tar.gz',
                 },
+   'pysqlite' => {
+                 'ver' => '2.4.1',
+                 'url' => 'http://oss.itsystementwicklung.de/download/pysqlite/2.4/2.4.1',
+                 'src' => 'tar.gz',
+                },
   )
 
 #

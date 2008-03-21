@@ -7,7 +7,7 @@
 ##
 
 ## Package variables. 
-BUILD=2
+BUILD=4
 VERSION=svn_12240
 
 ## List any packages here that are required to build this package.
@@ -178,9 +178,9 @@ make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Fix for broken pkg-config file
-if [ -f $CWD/patches/libpostproc.pc.$VERSION ]; then
+if [ -f $CWD/patches/libpostproc.pc-$VERSION ]; then
   mkdir -p $PKG/usr/$LIBDIR/pkgconfig
-  cp $CWD/patches/libpostproc.pc.$VERSION $PKG/usr/$LIBDIR/pkgconfig
+  cp $CWD/patches/libpostproc.pc-${VERSION} $PKG/usr/$LIBDIR/pkgconfig
 fi;
 
 # Fix x86_64 pkg-config files

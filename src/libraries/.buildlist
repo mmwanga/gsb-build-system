@@ -68,3 +68,4 @@ libtasn1
 libidl
 dbus-glib
 libmtp
+libarchive

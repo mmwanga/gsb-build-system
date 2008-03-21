@@ -53,11 +53,6 @@ our %desktop =
 
 our %desktop_nongnome =
   (
-   'gnome-mount'  => { 
-                   'ver' => '0.6',
-                   'url' => 'http://people.freedesktop.org/~david/dist/',
-                   'src' => 'tar.gz',
-                     },
    'sensors-applet'  => { 
                       'ver' => '2.2.1',
                       'url' => 'http://heanet.dl.sourceforge.net/sourceforge/sensors-applet',

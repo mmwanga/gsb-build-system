@@ -73,6 +73,11 @@ our %libraries =
 			   'url' => 'http://www.hpl.hp.com/research/linux/atomic_ops/download/',
 			   'src' => 'tar.gz',
 			  },
+   'libarchive'        => {
+			   'ver' => '2.4.14',
+			   'url' => 'http://people.freebsd.org/~kientzle/libarchive/src',
+			   'src' => 'tar.gz',
+			  },
    'libavc1394'        => {
 			   'ver' => '0.5.3',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libavc1394/',

@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=3
 VERSION=0.2.1
 
 ## List any packages here that are required to build this package.
@@ -155,6 +155,9 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
+## Fix for Slackware 12
+#sed -i "s:5.10:5.9.1:g" ./configure 
+
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
@@ -163,8 +166,9 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
   --with-dbus-service-dir=/usr/share/dbus-1 \
-  --disable-hal \
-  --disable-cdda \
+  --enable-cdda \
+  --enable-hal \
+  --enable-gphoto2 \
   || exit 1
 
 ## Build and install.

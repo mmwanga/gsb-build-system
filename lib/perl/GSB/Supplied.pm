@@ -39,4 +39,8 @@ our %supplied_tarballs =
              'ver' => '0.1.0',
 	     'section' => 'compiz',
                  },
+   'gnome-mount'  => {
+             'ver' => '0.8.svn20080225',
+	     'section' => 'desktop',
+                 },
   );

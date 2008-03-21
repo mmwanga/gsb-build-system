@@ -31,6 +31,7 @@ fuse
 gvfs
 nautilus
 nautilus-cd-burner
+gnome-mount
 gnome-settings-daemon
 gnome-control-center
 gnome-session
@@ -43,5 +44,3 @@ gtkhtml
 pyxdg
 notification-daemon
 sensors-applet
-gnome-mount
-gnome-volume-manager

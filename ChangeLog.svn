@@ -6,6 +6,15 @@ ChangeLog
     * Add vobject (requirement for conduit)
     * Add python-dateutil (for conduit)
     * Add gvfs (for nautilus 2.22.0)
+      THIS REPLACES GNOME-VOLUME-MANAGER.  Added a slack-conflicts
+      to gvfs.
+      ***NOTE *** gvfs requires hal > 0.5.10 which only comes
+      in Slackware-current.  gvfs/nautilus is replacing g-v-m, 
+      so consequently auto-mounting is not possible unless hal
+      0.5.10 is installed.  GNOME-2.22 can run on Slackware 12
+      with auto-mounting disabled, but since the new Slackware
+      is coming out (probably soon?) GSB 2.22 will be aimed 
+      at Slackware-current.
     * Fix gnome-session scripts for gnome-session and gdm.
     * Move gtkmm/glibmm/cairomm to bindings section
     * Add pygoocanvas package (for conduit)
