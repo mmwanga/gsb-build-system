@@ -41,6 +41,11 @@ our %bindings_ex =
                  'url' => 'http://oss.itsystementwicklung.de/download/pysqlite/2.4/2.4.1',
                  'src' => 'tar.gz',
                 },
+   'pyalsaaudio' => {
+                 'ver' => '0.3',
+                 'url' => 'http://mesh.dl.sourceforge.net/pyalsaaudio',
+                 'src' => 'tar.gz',
+                },
   )
 
 #

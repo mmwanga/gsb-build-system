@@ -1,6 +1,11 @@
 ChangeLog
 ---------
 
+21-03-2008 fidesratio <sk238(at)ex.ac.uk>		
+    * Add awn-extras-applets for avant-window-manager to
+      make it extra cool.
+    * Add pysqlite, pyfeedparser, pyalsaaudio bindings for Python
+
 20-03-2008 fidesratio <sk238(at)ex.ac.uk>		
     * Add conduit package.
     * Add vobject (requirement for conduit)

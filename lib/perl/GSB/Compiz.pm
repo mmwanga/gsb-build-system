@@ -24,6 +24,11 @@ our %compiz =
                  'url' => 'https://launchpadlibrarian.net/12155574',
                  'src' => 'tar.gz',
                             },
+   'awn-extras-applets'              => {
+                 'ver' => '0.2.6',
+                 'url' => 'https://launchpadlibrarian.net/12155208',
+                 'src' => 'tar.gz',
+                            },
    'compiz'              => {
                  'ver' => '0.7.2',
                  'url' => 'http://releases.compiz-fusion.org/0.7.2/compiz',

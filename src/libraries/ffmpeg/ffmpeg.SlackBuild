@@ -178,9 +178,10 @@ make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Fix for broken pkg-config file
-if [ -f $CWD/patches/libpostproc.pc-$VERSION ]; then
-  mkdir -p $PKG/usr/$LIBDIR/pkgconfig
-  cp $CWD/patches/libpostproc.pc-${VERSION} $PKG/usr/$LIBDIR/pkgconfig
+if [ -f $CWD/patches/libpostproc.pc-${VERSION} ]; then
+  echo "Copying patched libpostproc.pc ${VERSION} over."
+  mkdir -p $PKG/usr/$LIBDIR/pkgconfig || exit 1
+  cp -f $CWD/patches/libpostproc.pc-${VERSION} $PKG/usr/$LIBDIR/pkgconfig/libpostproc.pc || exit 1
 fi;
 
 # Fix x86_64 pkg-config files

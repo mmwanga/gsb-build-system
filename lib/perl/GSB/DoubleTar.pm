@@ -112,6 +112,13 @@ our %double_tarballs_url =
 			 'tar' => 'sqlite-3.5.6.tar.gz',
 			 'var' => 'VERSION',
 				  },
+   'pyfeedparser'             => {
+			 'ver' => '4.1',
+			 'dir' => 'bindings/pyfeedparser',
+			 'url' => 'http://feedparser.googlecode.com/files',
+			 'tar' => 'feedparser-4.1.zip',
+			 'var' => 'VERSION',
+				  },
    'libgc'             => {
 			 'ver' => '7.0',
 			 'dir' => 'libraries/libgc',

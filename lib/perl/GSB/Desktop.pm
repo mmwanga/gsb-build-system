@@ -27,7 +27,6 @@ our %desktop =
    'gnome-desktop'          => '2.22.0',
    'gnome-doc-utils'        => '0.12.2',
    'gnome-keyring-manager'  => '2.20.0',
-   'gnome-volume-manager'   => '2.22.1',
    'gnome-menus'            => '2.22.0',
    'gnome-panel'            => '2.22.0',
    'gnome-python'           => '2.22.0',

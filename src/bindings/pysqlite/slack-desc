@@ -1,0 +1,12 @@
+        |-----handy-ruler------------------------------------------------------|
+pysqlite: pysqlite (Python Bindings for SQLite)
+pysqlite: 
+pysqlite: SQLite is a relational database management system.  pysqlite makes 
+pysqlite: this powerful embedded SQL engine available to Python programmers. It 
+pysqlite: stays compatible with the Python database API specification 2.0 as 
+pysqlite: much as possible, but also exposes most of SQLite's native API, so 
+pysqlite: that it is for example possible to create user-defined SQL functions 
+pysqlite: and aggregates in Python.
+pysqlite: 
+pysqlite: 
+pysqlite: 

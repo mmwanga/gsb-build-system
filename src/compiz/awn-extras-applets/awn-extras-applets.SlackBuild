@@ -7,19 +7,19 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=2.19.1
+BUILD=1
+VERSION=0.2.6
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="pygtk python glib2 gtk+2 gnome-python gtkhtml libgda gksu libgnomeui mozilla-firefox"
+REQUIRED_PACKAGES="avant-window-navigator gnome-menus vte libgtop cairo gtk+2 libnotify gnome-applets pyalsaaudio python pyfeedparser gnome-python gnome-python-extras"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
 TUNE=${TUNE:-i586}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
-PKGDEST=${PKGDEST:-$TMP}
+PKGDEST=${PKGDEST:-$TMP/gsb-tree/packages}
 
 ## Script variables.
 PKGNAME=$(basename $0 .SlackBuild)
@@ -90,7 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -134,14 +134,14 @@ if [ "$ARCH" = "i386" ]; then
 elif [ "$ARCH" = "i486" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE"}
 elif [ "$ARCH" = "i586" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer -ffast-math"}
 elif [ "$ARCH" = "i686" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer -ffast-math"}
 elif [ "$ARCH" = "x86_64" ]; then
   if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
-    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -fPIC"}
+    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -ffast-math -fPIC"}
   else
-    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
+    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -ffast-math -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
     CONFIGURE_FLAGS="--libdir=/usr/lib64"
@@ -154,12 +154,15 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-## Configure.
+## Configure
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
+  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
   --disable-static --enable-shared \
-  --with-gtkmozembed=firefox \
+  --with-gnome \
+  --with-gconf \
   || exit 1
 
 ## Build and install.
@@ -183,13 +186,6 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
   rm -f $PKG/usr/info/dir
   gzip -9 $PKG/usr/info/*.info
 }
-
-## Correct permissions.
-## Doing these chown's will remove any s{u,g}id bits that may have been set on
-## the installed files, which is not usually what we want.  Only uncomment/use
-## these chown's if necessary.  ~Tadgy.
-# chown -R $(stat --format "%u:%g" /usr/bin) $PKG/usr/bin
-# chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/sbin
 
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
