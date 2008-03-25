@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=1.16
 
 ## List any packages here that are required to build this package.
@@ -159,6 +159,10 @@ perl Makefile.PL &&
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
+## Fix man page location
+mkdir -p $PKG/usr &&
+mv -f $PKG/usr/share/man $PKG/usr || exit 1
+
 # Remove perlocal.pod and .packlist from $PKG
 ( for i in perllocal.pod .packlist; do
       find $PKG -name "$i" -exec rm -rf {} \;
@@ -170,9 +174,9 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
 
 ## Compress and fix manpage links.
-[ -e $PKG/usr/share/man ] && {
-  find $PKG/usr/share/man -type f -name \*.? -exec gzip -9f {} \;
-  find $PKG/usr/share/man -type l -name \*.? -printf \
+[ -e $PKG/usr/man ] && {
+  find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
+  find $PKG/usr/man -type l -name \*.? -printf \
     "( cd '%h'; [ -e '%l.gz' ] &&
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }

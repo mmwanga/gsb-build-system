@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=4
 VERSION=1.164
 
 ## List any packages here that are required to build this package.
@@ -182,14 +182,18 @@ done;
 # Remove empty directories
 find $PKG/usr -depth -type d -empty -exec rm -rf {} \;
 
+## Fix man page location
+mkdir -p $PKG/usr &&
+mv -f $PKG/usr/share/man $PKG/usr || exit 1
+
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
 
 ## Compress and fix manpage links.
-[ -e $PKG/usr/share/man ] && {
-  find $PKG/usr/share/man -type f -name \*.? -exec gzip -9f {} \;
-  find $PKG/usr/share/man -type l -name \*.? -printf \
+[ -e $PKG/usr/man ] && {
+  find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
+  find $PKG/usr/man -type l -name \*.? -printf \
     "( cd '%h'; [ -e '%l.gz' ] &&
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }
