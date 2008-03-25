@@ -2,7 +2,6 @@ gdl
 autogen
 gnome-build
 devhelp
-graphviz
 bluefish
 dia
 inkscape
@@ -33,7 +32,5 @@ gnucash
 gnucash-docs
 libgdamm
 glom
-ilmbase
-openexr
 ode
 blender
