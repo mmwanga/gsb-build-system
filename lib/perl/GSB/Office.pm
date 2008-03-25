@@ -27,7 +27,6 @@ our %office_gnome =
    'libgda'    => '3.0.2',
    'libgdamm'  => '2.9.82',
    'libgnomedb' => '3.0.0',
-   'libgsf'    => '1.14.8',
   );
 
 our %office =
@@ -119,7 +118,7 @@ our %office =
 			    },
    'libofx'    => {
                    'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libofx/',
-                   'ver' => '0.9.0',
+                   'ver' => '0.8.2',
                    'src' => 'tar.gz',
                   },
    'liferea'             => {
@@ -145,11 +144,6 @@ our %office =
    'python-xlib'             => {
 			     'ver' => '0.14',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/python-xlib/',
-			     'src' => 'tar.gz',
-			    },
-   'swig'             => {
-			     'ver' => '1.3.34',
-			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/swig/',
 			     'src' => 'tar.gz',
 			    },
    'tracker'             => {

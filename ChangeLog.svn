@@ -1,6 +1,45 @@
 ChangeLog
 ---------
 
+24-03-2008 fidesratio <sk238(at)ex.ac.uk>		
+    * Added evo-openldap for static built openldap with html
+      patch to be used by evolution-exchange. (Rather than 
+      replacing openldap-client)
+    * Added gnome-games-extra-data, nautilus-open-terminal, and
+      nautilus-image-converter.
+    * Removed unneeded dbus-launch ( < 1.1 dbus only) for xinitrc.gnome
+    * Fix gvfs dbus service path for configure.
+    * Added patch to openal to fix scope error with new gcc
+    * Added security patches to MPlayer
+    * Added gnome-scan.
+
+22-03-2008 fidesratio <sk238(at)ex.ac.uk>		
+    * Rebuilt all tools and libraries against glibc 2.7 and gcc4.2.3
+    * Rebuilt all platform against glibc 2.7 and gcc4.2.3
+      **NOTE ** 
+      All build numbers have been bumped.  Also, I've added in 
+      --mandir=/usr/man to all SlackBuilds to ensure we don't miss
+      out compressing any manpages.  :^)
+    * Actually get around to configuring pulseaudio.  Now
+      default (ie, replacement) for esound on GSB GNOME.
+    * Added alsa-plugins (for alsa pulseaudio plugins)
+    * Remove Pyrex gtk+2 libgpod pango pygtk bluez-libs icon-naming-utils  
+      poppler shared-mime-info bluez-utils libcddb libidl 
+      poppler-data tango-icon-theme dbus-glib libcdio libmtp
+      wavpack gnome-icon-theme openldap-client pygobject fuse
+      wpa_supplicant from GSB Build Tree.  These are now supplied by
+      Slackware-CURRENT.
+
+      ** NOTE ** We still need to replace glib2 in order to build 
+      libgnome 2.22.0.
+
+    * Moved pyxdg from desktop to bindings.
+    * Added gconf2-d restart to doinst.sh for packages that install
+      any schemas.  This is prevent any errors if packages are installed
+      while GNOME is running.
+    * Renamed compiz to compiz-fusion (to make it clearer).  Added conflicts
+      with compiz.  Really, it's one or the other.
+
 21-03-2008 fidesratio <sk238(at)ex.ac.uk>		
     * Add awn-extras-applets for avant-window-manager to
       make it extra cool.

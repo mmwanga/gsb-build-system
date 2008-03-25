@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=3
 VERSION=3.0.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libxml2 glib2 sqlite3 gamin db44 openldap-client mysql postgresql"
+REQUIRED_PACKAGES="libxml2 glib2 sqlite3 gamin db44 openldap-client mysql postgresql libglade"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -157,7 +157,7 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --with-mysql=/usr/bin \
   --with-postgres=/usr/bin \
@@ -166,6 +166,12 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+## Make sure our libtool files are correct
+for i in $PKG/usr/lib*/*.la ;
+do
+  sed -i "s:/local::g" $i; 
+done;
 
 ## Preserve files
 mv $PKG/etc/libgda-3.0/config $PKG/etc/libgda-3.0/config.new

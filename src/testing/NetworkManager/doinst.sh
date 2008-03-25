@@ -25,9 +25,6 @@ function install_file() {
 
 install_file etc/rc.d/rc.networkmanager.new
 install_file etc/rc.d/rc.networkmanager-dispatcher.new
-install_file etc/dbus-1/system.d/NetworkManager.conf.new
-install_file etc/dbus-1/system.d/nm-dhcp-client.conf.new
-install_file etc/dbus-1/system.d/nm-system-settings.conf.new
 
 ##
 ## If rc.local doesn't exist, create it

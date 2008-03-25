@@ -60,11 +60,6 @@ our %administration =
              'ver' => '0.7.82',
              'src' => 'tar.bz2',
                   },
-   'wpa_supplicant'    => {
-             'url' => 'http://hostap.epitest.fi/releases',
-             'ver' => '0.6.3',
-             'src' => 'tar.gz',
-                  },
    'pybackpack'         => {
 	 'url' => 'http://andrewprice.me.uk/projects/pybackpack/download/',
 	 'ver' => '0.5.4',

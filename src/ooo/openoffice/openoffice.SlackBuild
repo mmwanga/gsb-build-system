@@ -7,12 +7,18 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.3.1.2
 
 ## List any packages here that are required to build this package.
-## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 libgnomeui openoffice-perl"
+## We build with mono/java support on x86.  x86_64 does not yet support
+## this configuration.
+if [ "$ARCH" = "x86_64" ]; then
+  REQUIRED_PACKAGES="gtk+2 libgnomeui neon libsndfile gnome-vfs boost libgnomeui mozilla-firefox zlib librsvg libjpeg"
+else
+  REQUIRED_PACKAGES="gtk+2 libgnomeui neon libsndfile gnome-vfs boost libgnomeui mozilla-firefox zlib librsvg libjpeg mono jre"
+fi;
+
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -148,7 +154,7 @@ elif [ "$ARCH" = "x86_64" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS="--libdir=/usr/lib64 --with-num-cpus=2"
+    CONFIGURE_FLAGS="--libdir=/usr/lib64 --with-num-cpus=2 --without-java --disable-mono"
   }
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
@@ -180,11 +186,10 @@ fi;
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --with-distro=$OO_DISTRO \
   --disable-static --enable-shared \
   --disable-odk \
-  --disable-mono \
   --enable-access \
   --enable-cairo \
   --with-system-cairo \
@@ -192,12 +197,10 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --with-system-neon \
   --enable-gtk \
   --disable-kde \
-  --disable-mono \
   --disable-pam \
   --disable-pam-link \
   --disable-post-install-scripts \
   --enable-openxml \
-  --without-java \
   --with-system-libsvg \
   --with-binsuffix=2.3 \
   --with-docdir=/usr/share/doc/openoffice.org \
@@ -225,8 +228,8 @@ cd $PKG/usr/$LIBDIR
 ln -s ooo-2.3 ooo
 
 # Add /usr/share/pixmaps directory and link icons to it
-mkdir -p $PKG/usr/share/pixmaps
-( cd $PKG/usr/share/pixmaps
+mkdir -p $PKG/usr/pixmaps
+( cd $PKG/usr/pixmaps
   for APP in base calc draw impress math writer ; do
     ln -sf /usr/share/icons/hicolor/48x48/apps/ooo-${APP}2.3.png . ;
   done
@@ -246,9 +249,9 @@ find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 ## Compress and fix manpage links.
-[ -e $PKG/usr/share/man ] && {
-  find $PKG/usr/share/man -type f -name \*.? -exec gzip -9f {} \;
-  find $PKG/usr/share/man -type l -name \*.? -printf \
+[ -e $PKG/usr/man ] && {
+  find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
+  find $PKG/usr/man -type l -name \*.? -printf \
     "( cd '%h'; [ -e '%l.gz' ] &&
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }

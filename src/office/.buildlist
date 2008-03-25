@@ -9,10 +9,10 @@ inkscape
 postgresql
 libgda
 libgnomedb
+libgsf
 goffice
 abiword
 psiconv
-libgsf
 gnumeric
 gtkspell
 glade3
@@ -29,7 +29,6 @@ gwenhywfar
 libofx
 aqbanking
 slib
-swig
 gnucash
 gnucash-docs
 libgdamm

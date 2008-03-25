@@ -2,3 +2,6 @@ freetype
 imlib2
 sdl
 zlib
+x264
+faac
+faad2

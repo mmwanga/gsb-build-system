@@ -16,3 +16,5 @@ gail
 gnome-doc-utils
 xcursor-themes
 tango-icon-theme
+pygobject
+pygtk

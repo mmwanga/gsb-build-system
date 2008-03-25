@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.2.4
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="aqbanking glib2 gtk+2 guile slib libofx ORBit2 libgnomeui libbonoboui pango cairo libgnomecanvas gnome-vfs libglade goffice gail GConf gtkhtml libgnomeprintui atk postgresql"
+REQUIRED_PACKAGES="aqbanking glib2 gtk+2 guile libofx ORBit2 libgnomeui libbonoboui pango cairo libgnomecanvas gnome-vfs libglade goffice gail GConf gtkhtml libgnomeprintui atk postgresql slib"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -158,7 +158,7 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \

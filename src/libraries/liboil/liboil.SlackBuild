@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=0.3.13
+VERSION=0.3.14
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -157,7 +157,7 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   || exit 1
 

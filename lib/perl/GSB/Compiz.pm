@@ -29,11 +29,6 @@ our %compiz =
                  'url' => 'https://launchpadlibrarian.net/12155208',
                  'src' => 'tar.gz',
                             },
-   'compiz'              => {
-                 'ver' => '0.7.2',
-                 'url' => 'http://releases.compiz-fusion.org/0.7.2/compiz',
-                 'src' => 'tar.bz2',
-                            },
    'ccsm'              => {
                  'ver' => '0.7.2',
                  'url' => 'http://releases.compiz-fusion.org/0.7.2',
@@ -82,11 +77,6 @@ our %compiz =
    'sexy-python'              => {
                  'ver' => '0.1.9',
                  'url' => 'http://releases.chipx86.com/libsexy/sexy-python',
-                 'src' => 'tar.gz',
-                 },
-   'Pyrex'              => {
-                 'ver' => '0.9.6.4',
-                 'url' => 'http://www.cosc.canterbury.ac.nz/greg.ewing/python/Pyrex',
                  'src' => 'tar.gz',
                  },
   );

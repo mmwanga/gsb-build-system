@@ -1,5 +1,4 @@
 gnome-themes
-tango-icon-theme
 gnome-doc-utils
 at-spi
 gnome-desktop
@@ -7,8 +6,8 @@ gnome-menus
 gnome-menus-kde
 gnome-menus-xfce
 libwnck
+evo-openldap
 evolution-data-server
-gnome-python
 gstreamer
 gst-plugins-base
 gst-plugins-good
@@ -27,11 +26,12 @@ libgnomeprint
 libgnomeprintui
 metacity
 eel
-fuse
 gvfs
 nautilus
-nautilus-cd-burner
 gnome-mount
+nautilus-cd-burner
+nautilus-open-terminal
+nautilus-image-converter
 gnome-settings-daemon
 gnome-control-center
 gnome-session
@@ -41,6 +41,6 @@ gtksourceview
 gtksourceview2
 gnome-keyring-manager
 gtkhtml
-pyxdg
 notification-daemon
 sensors-applet
+gnome-python

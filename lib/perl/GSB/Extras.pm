@@ -63,11 +63,6 @@ our %extras =
 			     'url' => 'http://gdesklets.de/files',
 			     'src' => 'tar.bz2',
 			    },
-   'gimp'                => {
-			     'ver' => '2.4.5',
-			     'url' => 'ftp://ftp.gimp.org/pub/gimp/v2.4',
-			     'src' => 'tar.bz2',
-			    },
    'gnonlin'             => {
                  'ver' => '0.10.9',
                  'url' => 'http://gstreamer.freedesktop.org/src/gnonlin',

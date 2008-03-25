@@ -1,6 +1,6 @@
 ORBit2
 GConf
-Pyrex
+pyrex
 a52dec
 abiword
 alsa-lib
@@ -43,8 +43,11 @@ emerald
 enchant
 eog
 epiphany
-esound
+pulseaudio
 evolution-data-server
+evolution-exchange
+evolution-webcal
+evolution
 evolution-sharp
 faac
 faad2
@@ -75,7 +78,7 @@ gnome-menus
 gnome-menus-kde
 gnome-menus-ooo
 gnome-menus-xfce
-pmount
+gvfs
 gnome-panel
 gnome-python-desktop
 gnome-session
@@ -87,7 +90,6 @@ gnome-terminal
 gnome-themes
 gnome-themes-extras
 gnome-vfs
-gnome-volume-manager
 gnonlin
 gnopernicus
 gnucash

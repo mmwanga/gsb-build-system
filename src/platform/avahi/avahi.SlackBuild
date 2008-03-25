@@ -7,13 +7,13 @@
 ##
 
 ## Package variables
-BUILD=1
+BUILD=2
 VERSION=0.6.22
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
 
-REQUIRED_PACKAGES="glib2 desktop-file-utils dbus gtk+2 python pygtk dbus-python expat libdaemon libglade"
+REQUIRED_PACKAGES="glib2 desktop-file-utils dbus gtk+2 python pygtk dbus-python expat libdaemon libglade pygobject"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -172,7 +172,7 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --with-dbus-system-address=unix:path=/var/run/dbus/system_bus_socket \
   --disable-doxygen-doc \

@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=3
 VERSION=2.0.0.12
 
 ## List any packages here that are required to build this package.
@@ -225,7 +225,10 @@ cp $CWD/gnome/firefox.png $PKG/usr/share/pixmaps
 chown -R root:root $PKG/usr/bin
 chown -R root.root $PKG/usr/share
 
-mkdir -p $PKG/usr/lib64/mozilla/plugins
+if [ "$ARCH" = "x86_64" ]; then
+  mkdir -p $PKG/usr/lib64/mozilla/plugins
+fi;
+
 mkdir -p $PKG/usr/share/applications
 
 # These files/directories are usually created if Firefox is run as root, which on many
@@ -271,21 +274,16 @@ cp -a \
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
+## Install our doinst.sh
+cat $CWD/doinst.sh | sed "s:@VERSION@:${VERSION}:g" >> $PKG/install/doinst.sh
+
 ## Package meta files
-for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
+for FILE in slack-desc slack-required slack-conflicts slack-suggests
 do
   [ -e $CWD/$FILE ] && {
     cat $CWD/$FILE >>$PKG/install/$FILE
   }
 done
-
-# Make a softlink in the doinst.sh
-if [ "$ARCH" = "x86_64" ]; then
-  echo "(cd usr/lib64; ln -sf $PKGNAME-$VERSION $PKGNAME);" >> $PKG/install/doinst.sh
-else
-  echo "(cd usr/lib; ln -sf $PKGNAME-$VERSION $PKGNAME);" >> $PKG/install/doinst.sh
-fi;
-
 
 ## Create the package
 cd $PKG

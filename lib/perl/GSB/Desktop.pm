@@ -48,6 +48,8 @@ our %desktop =
    'metacity'               => '2.22.0',
    'nautilus'               => '2.22.0',
    'nautilus-cd-burner'     => '2.22.0',
+   'nautilus-open-terminal' => '0.9',
+   'nautilus-image-converter' => '0.3.0',
    );
 
 our %desktop_nongnome =
@@ -55,11 +57,6 @@ our %desktop_nongnome =
    'sensors-applet'  => { 
                       'ver' => '2.2.1',
                       'url' => 'http://heanet.dl.sourceforge.net/sourceforge/sensors-applet',
-                      'src' => 'tar.gz',
-                     },
-   'fuse'  => { 
-                      'ver' => '2.7.3',
-                      'url' => 'http://mesh.dl.sourceforge.net/sourceforge/fuse',
                       'src' => 'tar.gz',
                      },
    'gstreamer'   => {
@@ -97,16 +94,6 @@ our %desktop_nongnome =
                              'url' => 'http://www.galago-project.org/files/releases/source/notification-daemon/',
                              'src' => 'tar.bz2',
                             },
-   'pyxdg'  => {
-                           'ver' => '0.15',
-                           'url' => 'http://www.freedesktop.org/~lanius',
-                           'src' => 'tar.gz',
-                          },
-   'tango-icon-theme'  => {
-                           'ver' => '0.8.1',
-                           'url' => 'http://tango.freedesktop.org/releases',
-                           'src' => 'tar.gz',
-                          },
   );
 
 our %desktop_diff_naming =

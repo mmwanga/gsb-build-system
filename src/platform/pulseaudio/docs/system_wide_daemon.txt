@@ -1,10 +1,11 @@
-Starting with PulseAudio 0.9.3 the daemon can be run as a system-wide instance
-which than can be shared by multiple local users. We recommend running the
-PulseAudio daemon per-user, just like the traditional ESD sound daemon. In some
-situations however, such as systems where multiple users are logged in at the
-same time, or embedded systems where no real notion of a user exists, it makes
-sense to use the system-wide mode.  
+Starting with PulseAudio 0.9.3 the daemon can be run as a system-wide instance which than 
+can be shared by multiple local users. We recommend running the PulseAudio daemon per-user, 
+just like the traditional ESD sound daemon. In some situations however, such as systems 
+where multiple users are logged in at the same time, or embedded systems where no real 
+notion of a user exists, it makes sense to use the system-wide mode.  
 
-aslkdjasdlkjasdlkjasdlkjasdlkjasd alskdjalskdj alskdjalskdj alskdj laskdj alskdj alskdj alskdj alsdkj asldkja sdlkjasdlkjasdlaksjd 
-
-To run PulseAudio in system-wide mode, start it as root and pass the --system argument to it. It will then drop priviliges and change to the pulse UNIX user and group. The directory /var/run/pulse/ is used as home directory. In this mode the module module-native-protocol-unix will automatically allow access to all members of the group pulse-access. All user/group names and paths can be changed by passing compile-time arguments to configure. The system user pulse and the groups pulse and pulse-access need to be created manually.
+To run PulseAudio in system-wide mode, start it as root and pass the --system argument to 
+it. It will then drop priviliges and change to the pulse UNIX user and group. The directory 
+/var/run/pulse/ is used as home directory. In this mode the module 
+module-native-protocol-unix will automatically allow access to all members of the group 
+pulse-access. 

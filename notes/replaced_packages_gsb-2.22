@@ -14,7 +14,7 @@
 # functionality, or optional GNOME applications.  Notes are
 # provided in brackets.
 #
-# List last updated: March 21st, 2008 (stevek)
+# List last updated: March 24th, 2008 (stevek)
 #
 
 *****************************************************
@@ -24,24 +24,11 @@ NOTE: Slackware-CURRENT is required for GNOME 2.22.0
 
 -- Required Updates for GNOME 2.22.0 on Slackware-CURRENT --
 
-gnome-icon-theme: ( >= 2.22 for gnome-desktop 2.22)
-glib2:            ( > 2.15 required by gtk+2 2.12)
-pango:            ( > 1.20 required by gtk+2 2.12)
-gtk+2:            ( >= 2.12 required for libgnomeui 2.22.0)
-dbus-glib:        ( >= 0.74 required by gnome-control-panel 2.22.0)
-libidl:           ( >= 0.8.10 required by ORBit2 2.14.12)
+glib2:            ( > 2.15 required by libgnome 2.22 and gvfs 0.2.1, ie, nautilus 2.22)
+libwnck:          ( > 2.22 required by metacity 2.22, and GNOME 2.22 at large)
 
 -- Optional Updates (for optional applications) 
 
-libgpod:          (A much older version supplied with Slackware; Rhythmbox wants a newer version)
-openldap-client:  (NTLM patch for evolution-data-server 1.12 for Microsoft Exchange support)
 mozilla-firefox:  (Rebuild for shared libraries needed by Epiphany/Yelp)
-shared-mime-info: (Totem requires version >= 0.22)
-poppler:          ( >= 0.6.4 for evince 2.20, and Abiword with PDF support)
-poppler-data:     (For poppler >= 0.6.3)
-gimp:             (2.2 comes in Slackware 12; however, 2.4.3 is latest GIMP Stable Series)
-compiz:           (0.4.1 with Slackware 12, latest developement version if 0.7.2 for compiz-fusion)
-libgsf:           (Updated version needed by Goffice, and Gnumeric)
-wpa_supplicant:   (NetworkManager 0.7svn needs wpa_supplicant to be build with dbus interface)
-libmtp:           (A much older version supplied by Slackware; Banshee requires libmtp > 0.2)
-bluez-libs:       ( >= 3.28 Required for bluez-gnome 0.25)
+compiz-fusion:    (Slackware current comes with compiz 0.7.2, compiz-fusion is cooler though)
+libgsf:           (Slackware's libgsf lacks GNOME support; required for GNOME Office applications)

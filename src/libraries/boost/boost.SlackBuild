@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=1_34_1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES=""
+REQUIRED_PACKAGES="boost-jam"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -174,6 +174,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --exec-prefix=$PKG/usr \
   $CONFIGURE_FLAGS \
   --with-toolset=gcc \
+  --with-bjam=/usr/bin/bjam \
   || exit 1
 
 ## Build and install.

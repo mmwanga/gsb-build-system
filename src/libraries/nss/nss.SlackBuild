@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=3.11.9
 WITH_NSPR="with-nspr-4.7"
 

@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=4
 VERSION=2.22.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="openldap-client GConf gnome-vfs libgnome libgnomeui libsoup avahi ORBit2 libbonobo libbonoboui libidl db44 nss gnome-keyring glib2 heimdal-libraries"
+REQUIRED_PACKAGES="openldap-client GConf gnome-vfs libgnome libgnomeui libsoup avahi ORBit2 libbonobo libbonoboui libidl db44 nss gnome-keyring glib2 heimdal-libraries evo-openldap"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -169,7 +169,7 @@ echo
 
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --enable-gtk-doc=no \
   --disable-gtkdoc \
@@ -183,7 +183,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-nss=yes \
   --enable-nntp=yes \
   --enable-purify=no \
-  --with-openldap=yes \
+  --with-openldap=/usr/libexec/evo-openldap \
   --with-krb5=/usr \
   --with-libdb=/usr \
   || exit 1

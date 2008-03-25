@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.4.0
 
 ## List any packages here that are required to build this package.
@@ -159,14 +159,13 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 ##
 ## Enable GtkSourceView Plugin
 ## For some reason, Anjuta assumes a very old GtkSourceView.
-##
-sed -i "s/sourceview\-1\.0/sourceview\-2\.0/g" -i $TMP/$PKGNAME-$VERSION/configure
+## (Disabled for new version of anjuta)
+#sed -i "s/sourceview\-1\.0/sourceview\-2\.0/g" -i $TMP/$PKGNAME-$VERSION/configure
 
 # Run Configure
-
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \

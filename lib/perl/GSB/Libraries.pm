@@ -22,11 +22,6 @@ our %libraries =
 			   'url' => 'http://liba52.sourceforge.net/files/',
 			   'src' => 'tar.gz',
 			  },
-   'dbus-glib'            => {
-			   'ver' => '0.74',
-			   'url' => 'dbus.freedesktop.org/releases/dbus-glib/',
-			   'src' => 'tar.gz',
-			  },
    'exempi'              => {
 			   'ver' => '1.99.9',
 			   'url' => 'http://libopenraw.freedesktop.org/download/',
@@ -68,11 +63,6 @@ our %libraries =
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/lame/',
 			   'src' => 'tar.gz',
 			  },
-   'libatomic_ops'        => {
-			   'ver' => '1.2',
-			   'url' => 'http://www.hpl.hp.com/research/linux/atomic_ops/download/',
-			   'src' => 'tar.gz',
-			  },
    'libarchive'        => {
 			   'ver' => '2.4.14',
 			   'url' => 'http://people.freebsd.org/~kientzle/libarchive/src',
@@ -81,16 +71,6 @@ our %libraries =
    'libavc1394'        => {
 			   'ver' => '0.5.3',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libavc1394/',
-			   'src' => 'tar.gz',
-			  },
-   'libcddb'           => {
-			   'ver' => '1.3.0',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libcddb/',
-			   'src' => 'tar.bz2',
-			  },
-   'libcdio'           => {
-			   'ver' => '0.78.2',
-			   'url' => 'http://ftp.gnu.org/gnu/libcdio/',
 			   'src' => 'tar.gz',
 			  },
    'libdv'             => {
@@ -138,11 +118,6 @@ our %libraries =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto/',
 			     'src' => 'tar.bz2',
 			    },
-   'libgpod'              => {
-                 'ver' => '0.6.0',
-                 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtkpod/',
-                 'src' => 'tar.gz',
-                            },
    'libiec61883'       => {
                 'ver' => '1.1.0',
                 'url' => 'http://www.linux1394.org/dl/',
@@ -179,7 +154,7 @@ our %libraries =
                              'src' => 'tar.bz2',
 			  },
    'liboil'            => {
-			   'ver' => '0.3.13',
+			   'ver' => '0.3.14',
 			   'url' => 'http://liboil.freedesktop.org/download/',
 			   'src' => 'tar.gz',
 			  },
@@ -219,11 +194,6 @@ our %libraries =
                              'url' => 'http://releases.chipx86.com/libsexy/libsexy/',
                              'src' => 'tar.gz',
                             },
-   'libmtp'        => {
-      'ver' => '0.2.6.1',
-      'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libmtp/',
-      'src' => 'tar.gz',
-	  },
    'libtasn1'             => {
                              'ver' => '1.3',
                              'url' => 'http://josefsson.org/gnutls/releases/libtasn1',
@@ -279,11 +249,6 @@ our %libraries =
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/twolame',
 			   'src' => 'tar.gz',
 			  },
-   'wavpack'           => {
-			   'ver' => '4.41.0',
-			   'url' => 'http://www.wavpack.com/',
-			   'src' => 'tar.bz2',
-			  },
    'xvidcore'          => {
 			   'ver' => '1.1.3',
 			   'url' => 'http://downloads.xvid.org/downloads/',
@@ -301,7 +266,6 @@ our %libraries_gnome =
   (
    'libcroco'          => '0.6.1',
    'libsigc++'         => '2.2.2',
-   'pango'             => '1.20.0',
   );
 
 our %libraries_diff_naming =
@@ -310,17 +274,13 @@ our %libraries_diff_naming =
 		'ver'  => '2.16.1',
 		'name' => 'glib',
 	       },
-   'gtk+2'  => {
-		'ver'  => '2.12.9',
-		'name' => 'gtk+',
-	       },
   );
 
 # libraries which we get from SVN sources
 our %libraries_svn =
   (
    'gtkunique' => 'svn_13',
-   'ffmpeg'    => 'svn_12240',
+   'ffmpeg'    => 'svn_12572',
    'x264'      => 'svn_736',
   );
 

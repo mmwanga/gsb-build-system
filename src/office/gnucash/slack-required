@@ -1,9 +1,9 @@
 GConf
+slib
 aqbanking
 glib2
 gtk+2
 guile
-slib
 libofx
 ORBit2
 libgnomeui

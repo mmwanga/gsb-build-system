@@ -35,6 +35,13 @@ our %double_tarballs_url =
 	     'tar' => 'libintl-perl-1.16.tar.gz',
              'var' => 'VERSION',
 			    },
+   'compiz-fusion'              => {
+	     'ver' => '0.7.2',
+             'url' => 'http://releases.compiz-fusion.org/0.7.2/compiz',
+	     'dir' => 'compiz/compiz-fusion',
+	     'tar' => 'compiz-0.7.2.tar.bz2',
+             'var' => 'VERSION',
+                            },
    'mozilla-firefox'  => {
 			 'ver' => '2.0.0.12',
 			 'dir' => 'applications/mozilla-firefox',
@@ -42,6 +49,13 @@ our %double_tarballs_url =
 			 'tar' => 'firefox-2.0.0.12-source.tar.bz2',
 			 'var' => 'VERSION',
 			 },
+   'libgc'             => {
+			 'ver' => '7.0',
+			 'dir' => 'libraries/libgc',
+			 'url' => 'http://www.hpl.hp.com/personal/Hans_Boehm/gc/gc_source/',
+			 'tar' => 'gc-7.0.tar.gz',
+			 'var' => 'VERSION',
+				  },
    'nss'               => {
 			 'ver' => '3.11.9',
 			 'dir' => 'libraries/nss',
@@ -98,13 +112,6 @@ our %double_tarballs_url =
 			 'tar' => 'Cairo-1.045.tar.gz',
 			 'var' => 'VERSION',
 				  },
-   'openldap-client'     => {
-			 'ver' => '2.3.38',
-			 'dir' => 'libraries/openldap-client',
-			 'url' => 'ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/',
-			 'tar' => 'openldap-2.3.38.tgz',
-			 'var' => 'VERSION',
-				  },
    'sqlite3'             => {
 			 'ver' => '3.5.6',
 			 'dir' => 'libraries/sqlite3',
@@ -117,13 +124,6 @@ our %double_tarballs_url =
 			 'dir' => 'bindings/pyfeedparser',
 			 'url' => 'http://feedparser.googlecode.com/files',
 			 'tar' => 'feedparser-4.1.zip',
-			 'var' => 'VERSION',
-				  },
-   'libgc'             => {
-			 'ver' => '7.0',
-			 'dir' => 'libraries/libgc',
-			 'url' => 'http://www.hpl.hp.com/personal/Hans_Boehm/gc/gc_source/',
-			 'tar' => 'gc-7.0.tar.gz',
 			 'var' => 'VERSION',
 				  },
    'hemidal-libraries'         => {
@@ -140,13 +140,13 @@ our %double_tarballs_url =
 			 'tar' => 'ode-src-0.9.zip',
              'var' => 'VERSION',
                         },
-   'libidl'            => {
-             'url' => 'http://ftp.gnome.org/pub/gnome/sources/libIDL/0.8',
-             'ver' => '0.8.10',
-             'dir' => 'libraries/libidl',
-	     'tar' => 'libIDL-0.8.10.tar.bz2',
-             'var' => 'VERSION',
-                        },
+   'evo-openldap'     => {
+			 'ver' => '2.3.38',
+			 'dir' => 'desktop/evo-openldap',
+			 'url' => 'ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/',
+			 'tar' => 'openldap-2.3.38.tgz',
+			 'var' => 'VERSION',
+				  },
    'Glib-perl'               => {
 			 'ver' => '1.164',
 			 'dir' => 'bindings/glib-perl',

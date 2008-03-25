@@ -7,12 +7,12 @@
 ##
 
 ## Package variables. 
-BUILD=4
-VERSION=svn_12240
+BUILD=1
+VERSION=svn_12572
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="freetype imlib2 sdl zlib"
+REQUIRED_PACKAGES="freetype imlib2 sdl zlib x264 faac faad2"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -166,23 +166,31 @@ LIBDIR=${LIBDIR:-"lib"}
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr $CONFIGURE_FLAGS --arch=$ARCH --cpu=$TUNE \
+  --mandir=/usr/man \
+  --enable-postproc \
+  --enable-swscale \
+  --enable-pthreads \
   --target-os=linux \
   --enable-shared \
   --disable-static \
   --enable-gpl \
-  --enable-pp \
+  --enable-liba52 \
+  --enable-libfaac \
+  --enable-libfaad \
+  --enable-libx264 \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-# Fix for broken pkg-config file
-if [ -f $CWD/patches/libpostproc.pc-${VERSION} ]; then
-  echo "Copying patched libpostproc.pc ${VERSION} over."
-  mkdir -p $PKG/usr/$LIBDIR/pkgconfig || exit 1
-  cp -f $CWD/patches/libpostproc.pc-${VERSION} $PKG/usr/$LIBDIR/pkgconfig/libpostproc.pc || exit 1
-fi;
+# Fix for broken pkg-config files
+mkdir -p $PKG/usr/${LIBDIR}/pkgconfig ;
+for i in $CWD/patches/*.pc.${VERSION} ;
+do
+   cp $i $PKG/usr/${LIBDIR}/pkgconfig/$(basename $i .${VERSION})
+done;
+
 
 # Fix x86_64 pkg-config files
 if [ "$ARCH" = "x86_64" ]; then

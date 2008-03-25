@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.21.92
 
 ## List any packages here that are required to build this package.
@@ -167,11 +167,11 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 #sed -i "s/libsoup\-2\.4/libsoup\-2\.2/g" $TMP/$PKGNAME-$VERSION/configure
 #sed -i "s/\=2\.4/\=2\.2/g" $TMP/$PKGNAME-$VERSION/configure
 
-LIBSOUP_CFLAGS=`/usr/bin/pkg-config --cflags libsoup-2.2` \
-LIBSOUP_LIBS=`/usr/bin/pkg-config --libs libsoup-2.2` \
+#LIBSOUP_CFLAGS=`/usr/bin/pkg-config --cflags libsoup-2.2` \
+#LIBSOUP_LIBS=`/usr/bin/pkg-config --libs libsoup-2.2` \
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \

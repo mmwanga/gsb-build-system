@@ -7,7 +7,7 @@
 ##
 
 ## Package variables
-BUILD=2
+BUILD=4
 VERSION=1.6.1
 
 ## List any packages here that are required to build this package.
@@ -159,7 +159,7 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./cvs_bootstrap --prefix=/usr --sysconfdir=/etc \
-  $CONFIGURE_FLAGS \
+  --mandir=/usr/man $CONFIGURE_FLAGS \
   --disable-warns-as-err \
   --enable-ipv6  \
   --enable-mp4live-alsa \
@@ -177,9 +177,9 @@ make DESTDIR=$PKG install || exit 1
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
 
 ## Compress and fix manpage links.
-[ -e $PKG/usr/share/man ] && {
-  find $PKG/usr/share/man -type f -name \*.? -exec gzip -9f {} \;
-  find $PKG/usr/share/man -type l -name \*.? -printf \
+[ -e $PKG/usr/man ] && {
+  find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
+  find $PKG/usr/man -type l -name \*.? -printf \
     "( cd '%h'; [ -e '%l.gz' ] &&
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }

@@ -18,6 +18,7 @@ gob2
 libggz
 ggz-client-libs
 gnome-games
+gnome-games-extra-data
 gnome-user-docs
 gnome-system-tools
 gnome-nettool
@@ -25,18 +26,14 @@ vino
 gnome-backgrounds
 gnome-pilot
 gnome-pilot-conduits
-bluez-libs
-bluez-utils
 bluez-gnome
-gnome-phone-manager
+gnokii
 gnome-bluetooth
+gnome-phone-manager
 gnome-spell
 gcalctool
-gnokii
 evolution
 gnome-power-manager
-poppler
-poppler-data
 evince
 gst-python
 gst-plugins-bad
@@ -58,8 +55,6 @@ seahorse
 gnome-user-share
 gdm
 fast-user-switch-applet
-libgksu
-gksu
 cheese
 python-dateutil
 vobject

@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=3
 VERSION=0.11.5
 
 ## List any packages here that are required to build this package.
@@ -157,11 +157,13 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 ## Configure.
 
 # Fix for x86_64 Python paths
-sed -i "s/lib\/python/lib64\/python/g" $TMP/$PKGNAME-$VERSION/configure
+if [ "$ARCH" = "x86_64" ]; then
+  sed -i "s/lib\/python/lib64\/python/g" $TMP/$PKGNAME-$VERSION/configure
+fi;
 
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \

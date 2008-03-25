@@ -38,6 +38,7 @@ our %applications_gnome =
    'gnome-bluetooth'        => '0.11.0',
    'gnome-commander'        => '1.2.5',
    'gnome-games'            => '2.22.0',
+   'gnome-games-extra-data' => '2.22.0',
    'gnome-media'            => '2.22.0',
    'gnome-netstatus'        => '2.12.1',
    'gnome-nettool'          => '2.22.0',
@@ -46,9 +47,10 @@ our %applications_gnome =
    'gnome-pilot-conduits'   => '2.0.16',
    'gnome-power-manager'    => '2.22.0',
    'gnome-python-desktop'   => '2.22.0',
+   'gnome-scan'             => '0.6',
    'gnome-spell'            => '1.0.8',
    'gnome-system-monitor'   => '2.22.0',
-   'gnome-system-tools'     => '2.20.0',
+   'gnome-system-tools'     => '2.22.0',
    'gnome-user-docs'        => '2.22.0',
    'gnome-user-share'       => '0.22',
    'gnome-utils'            => '2.20.0.1',
@@ -69,16 +71,6 @@ our %applications_gnome =
 
 our %applications =
   (
-   'bluez-libs' => {
-                 'ver' => '3.28',
-		 'url' => 'http://bluez.sf.net/download',
-                 'src' => 'tar.gz',
-                },
-   'bluez-utils' => {
-                 'ver' => '3.28',
-		 'url' => 'http://bluez.sf.net/download',
-                 'src' => 'tar.gz',
-                },
    'bluez-gnome' => {
                  'ver' => '0.25',
 		 'url' => 'http://bluez.sf.net/download',
@@ -99,11 +91,6 @@ our %applications =
 		   'ver' => '1.3.0',
 		   'src' => 'tar.gz',
 		  },
-   'gksu'      => {
-                   'ver' => '2.0.0',
-                   'url' => 'http://people.debian.org/~kov/gksu',
-                   'src' => 'tar.gz',
-                  },
    'gnokii'    => {
                    'ver' => '0.6.23',
                    'url' => 'http://www.gnokii.org/download/gnokii',
@@ -139,21 +126,6 @@ our %applications =
 		      'url' => 'http://gstreamer.freedesktop.org/src/gst-python',
 		      'src' => 'tar.bz2',
 		     },
-   'libgksu'   => {
-                   'ver' => '2.0.5',
-                   'url' => 'http://people.debian.org/~kov/gksu',
-                   'src' => 'tar.gz',
-                  },
-   'poppler'         => {
-			 'url' => 'http://poppler.freedesktop.org',
-			 'ver' => '0.6.4',
-			 'src' => 'tar.gz',
-			},
-   'poppler-data'         => {
-			 'url' => 'http://poppler.freedesktop.org',
-			 'ver' => '0.2.0',
-			 'src' => 'tar.gz',
-			},
    'vobject'            => {
 			   'ver' => '0.6.0',
 			   'url' => 'http://vobject.skyhouseconsulting.com',

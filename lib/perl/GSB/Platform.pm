@@ -19,7 +19,6 @@ our %platform =
    'gail'                => '1.22.0',
    'GConf'               => '2.22.0',
    'gnome-common'        => '2.20.0',
-   'gnome-icon-theme'    => '2.22.0',
    'gnome-keyring'       => '2.22.0',
    'gnome-mime-data'     => '2.18.0',
    'gnome-vfs'           => '2.22.0',
@@ -31,13 +30,11 @@ our %platform =
    'libgnome'            => '2.22.0',
    'libgnomecanvas'      => '2.20.1.1',
    'libgnomeui'          => '2.22.01',
-   'liboobs'             => '2.20.0',
+   'liboobs'             => '2.22.0',
    'libsoup'             => '2.4.0',
    'ORBit2'              => '2.14.12',
-   'pygobject'           => '2.14.1',
-   'pygtk'               => '2.12.1',
    'pyorbit'             => '2.14.3',
-   'system-tools-backends'  => '2.4.2',
+   'system-tools-backends'  => '2.6.0',
   );
 
 
@@ -54,30 +51,20 @@ our %platform_reqs =
                              'ver' => '0.82.4',
                              'src' => 'tar.gz',
                             },				  
-   'icon-naming-utils' => {
-	                 'url' => 'http://tango.freedesktop.org/releases',
-			 'ver' => '0.8.6',
-			 'src' => 'tar.bz2',
-			},
    'libdaemon'           => {
                              'ver' => '0.12',
                              'url' => 'http://0pointer.de/lennart/projects/libdaemon',
                              'src' => 'tar.gz',
                             },
-   'shared-mime-info'    => {
-			     'url' => 'http://freedesktop.org/~hadess',
-			     'ver' => '0.23',
-			     'src' => 'tar.bz2',
-			    },
    'pulseaudio'             => {
                              'ver' => '0.9.9',
                              'url' => 'http://0pointer.de/lennart/projects/pulseaudio',
                              'src' => 'tar.gz',
                             },
-   'pycairo'             => {
-                             'ver' => '1.4.12',
-                             'url' => 'http://cairographics.org/releases',
-                             'src' => 'tar.gz',
+   'alsa-plugins'             => {
+                             'ver' => '1.0.15',
+                             'url' => 'ftp://ftp.alsa-project.org/pub/plugins/',
+                             'src' => 'tar.bz2',
                             },
    'rarian'             => {
                              'ver' => '0.8.0',

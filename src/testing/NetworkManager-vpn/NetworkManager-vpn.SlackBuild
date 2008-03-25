@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=svn_3473
+VERSION=svn_3497
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.

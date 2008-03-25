@@ -4,5 +4,5 @@ pygtk
 libsexy
 sexy-python
 compizconfig-python
-Pyrex
+pyrex
 compizconfig-backend-gconf

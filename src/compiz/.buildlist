@@ -1,4 +1,4 @@
-compiz
+compiz-fusion
 compiz-bcop
 libcompizconfig
 compiz-fusion-plugins-main
@@ -6,7 +6,6 @@ compiz-fusion-plugins-extra
 compiz-manager
 emerald
 sexy-python
-Pyrex
 compizconfig-python
 compizconfig-backend-gconf
 ccsm

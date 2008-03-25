@@ -4,12 +4,8 @@ rarian
 ORBit2
 libbonobo
 GConf
-shared-mime-info
 gnome-mime-data
-pygobject
 pyorbit
-pycairo
-pygtk
 dbus-python
 libdaemon
 avahi
@@ -23,10 +19,9 @@ gail
 libgnomecanvas
 libbonoboui
 XML-Simple
-icon-naming-utils
-gnome-icon-theme
 gnome-keyring
 pulseaudio
+alsa-plugins
 libgnomeui
 gtk-engines
 libsoup

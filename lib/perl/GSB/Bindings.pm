@@ -46,6 +46,11 @@ our %bindings_ex =
                  'url' => 'http://mesh.dl.sourceforge.net/pyalsaaudio',
                  'src' => 'tar.gz',
                 },
+   'pyxdg'  => {
+                           'ver' => '0.15',
+                           'url' => 'http://www.freedesktop.org/~lanius',
+                           'src' => 'tar.gz',
+                          },
   )
 
 #

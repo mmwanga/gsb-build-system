@@ -1,0 +1,12 @@
+          |-----handy-ruler------------------------------------------------------|
+gnome-scan: gnome-scan (GNOME Scanner Utility)
+gnome-scan:
+gnome-scan: GNOME Scan provides Flegita, an application for accesing scanners
+gnome-scan: from your GNOME Desktop, allowing you to simply scan an area from 
+gnome-scan: a device and save to a file in various format (currently, PNG, 
+gnome-scan: JPEG, TIFF and PDF are supported.) There is also Flegita-gimp, 
+gnome-scan: a gimp plugin that uses the GNOME Scan libraries. 
+gnome-scan:
+gnome-scan:
+gnome-scan:
+gnome-scan:

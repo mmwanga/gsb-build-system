@@ -11,8 +11,9 @@ NetworkManager
 NetworkManager-vpn
 eog
 epiphany
-esound
+pulseaudio
 evolution-data-server
+evolution
 gnome-applets
 gnome-backgrounds
 gnome-control-center
@@ -23,7 +24,7 @@ gnome-keyring
 gnome-menus
 gnome-menus-xfce
 gnome-menus-kde
-pmount
+gnome-media
 gnome-panel
 gnome-python-desktop
 gnome-vfs
@@ -41,6 +42,7 @@ intltool
 iso-codes
 metacity
 mozilla-firefox 
+gvfs
 nautilus
 network-manager-applet
 openldap | openldap-client
@@ -50,6 +52,7 @@ seahorse
 shared-mime-info
 startup-notification
 tango-icon-theme
+tango-icon-theme-extras
 vte
 wpa_supplicant
 xcursor-themes
@@ -57,7 +60,6 @@ xscreensaver
 yelp
 gnome-session
 gnome-terminal
-gnome-volume-manager
 notification-daemon
 gksu
 gdm

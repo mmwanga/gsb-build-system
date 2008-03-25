@@ -14,3 +14,4 @@ nss
 gnome-keyring
 glib2
 heimdal-libraries
+evo-openldap

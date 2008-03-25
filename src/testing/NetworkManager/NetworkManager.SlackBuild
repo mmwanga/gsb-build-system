@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=svn_3473
+VERSION=svn_3497
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -230,12 +230,10 @@ if [ "$ARCH" = "x86_64" ]; then
 fi;
 
 ## Preserve previous settings
-rm $PKG/etc/rc.d/rc.networkmanager
-cp $CWD/rc.networkmanager $PKG/etc/rc.d/rc.networkmanager.new
+#rm $PKG/etc/rc.d/rc.networkmanager
+#cp $CWD/rc.networkmanager $PKG/etc/rc.d/rc.networkmanager.new
+mv $PKG/etc/rc.d/rc.networkmanager $PKG/etc/rc.d/rc.networkmanager.new
 mv $PKG/etc/rc.d/rc.networkmanager-dispatcher $PKG/etc/rc.d/rc.networkmanager-dispatcher.new
-mv $PKG/etc/dbus-1/system.d/NetworkManager.conf $PKG/etc/dbus-1/system.d/NetworkManager.conf.new
-mv $PKG/etc/dbus-1/system.d/nm-dhcp-client.conf $PKG/etc/dbus-1/system.d/nm-dhcp-client.conf.new
-mv $PKG/etc/dbus-1/system.d/nm-system-settings.conf $PKG/etc/dbus-1/system.d/nm-system-settings.conf.new
 
 ## Fix for Slackware non-PAM system.
 ## Users now can add themselves to the "netdev" group to use networkmanager.
