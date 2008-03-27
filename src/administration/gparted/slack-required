@@ -1,2 +1,5 @@
+GConf
 parted
+libgnomeui
 gtkmm
+cairomm

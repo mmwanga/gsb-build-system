@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=0.7.82
 
 ## List any packages here that are required to build this package.
@@ -158,7 +158,7 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   || exit 1
 
@@ -172,9 +172,6 @@ sed -i "s/at_console=\"true\"/group=\"lp\"/g" $PKG/etc/dbus-1/system.d/newprinte
 
 ## Make softlink
 (cd $PKG/usr/bin ; ln -s ../sbin/system-config-printer ) ;
-
-## Preserve settings
-mv $PKG/etc/dbus-1/system.d/newprinternotification.conf $PKG/etc/dbus-1/system.d/newprinternotification.conf.new
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
