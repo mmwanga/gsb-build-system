@@ -21,6 +21,13 @@ our %tools =
 			 'tar' => 'scons-0.97.tar.gz',
              'var' => 'VERSION',
                   },
+   'boost-jam'    => {
+             'url' => 'http://heanet.dl.sourceforge.net/sourceforge/boost',
+             'ver' => '3.1.16',
+			 'dir' => 'tools/boost-jam',
+			 'tar' => 'boost-jam-3.1.16.tgz',
+             'var' => 'VERSION',
+                  },
    'cabextract'           => {
 			 'ver' => '1.2',
 			 'url' => 'http://www.cabextract.org.uk',

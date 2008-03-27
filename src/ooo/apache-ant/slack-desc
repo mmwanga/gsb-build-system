@@ -1,0 +1,12 @@
+   |-----handy-ruler------------------------------------------------------|
+ant: ant (Apache Ant Java Build Tool)
+ant:
+ant: Ant is a Java-based build tool, like make, and with the full 
+ant: portability of pure Java code. According to Ant's original author, 
+ant: James Duncan Davidson, the name is an acronym for "Another Neat Tool".
+ant: 
+ant: Ant is needed to build the OpenOffice.org Suite.
+ant: 
+ant: 
+ant: 
+ant: 

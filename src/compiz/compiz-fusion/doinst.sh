@@ -29,3 +29,8 @@ fi
 
 # Fix for weird white bar around menus and dock
 usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type string --set /apps/compiz/plugins/decoration/allscreens/options/shadow_match "2 !dock"1> /dev/null 2> /dev/null
+
+# Restart gconfd-2 if running to reload new gconf settings
+if ps acx | grep -q gconfd-2 ; then
+        killall -HUP gconfd-2 ;
+fi

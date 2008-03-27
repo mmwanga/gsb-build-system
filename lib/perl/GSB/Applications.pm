@@ -136,6 +136,16 @@ our %applications =
 			   'url' => 'http://labix.org/download/python-dateutil',
 			   'src' => 'tar.bz2',
 			  },
+   'libgksu'   => {
+                   'ver' => '2.0.5',
+                   'url' => 'http://people.debian.org/~kov/gksu',
+                   'src' => 'tar.gz',
+                  },
+   'gksu'      => {
+                   'ver' => '2.0.0',
+                   'url' => 'http://people.debian.org/~kov/gksu',
+                   'src' => 'tar.gz',
+                  },
   );
 
 

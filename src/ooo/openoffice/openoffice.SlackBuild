@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=2
-VERSION=2.3.1.2
+VERSION=2.4.0.3.2
 
 ## List any packages here that are required to build this package.
 ## We build with mono/java support on x86.  x86_64 does not yet support
@@ -16,7 +16,7 @@ VERSION=2.3.1.2
 if [ "$ARCH" = "x86_64" ]; then
   REQUIRED_PACKAGES="gtk+2 libgnomeui neon libsndfile gnome-vfs boost libgnomeui mozilla-firefox zlib librsvg libjpeg"
 else
-  REQUIRED_PACKAGES="gtk+2 libgnomeui neon libsndfile gnome-vfs boost libgnomeui mozilla-firefox zlib librsvg libjpeg mono jre"
+  REQUIRED_PACKAGES="gtk+2 libgnomeui neon libsndfile gnome-vfs boost libgnomeui mozilla-firefox zlib librsvg libjpeg mono jre jdk apache-ant"
 fi;
 
 
@@ -171,8 +171,9 @@ LIBDIR=${LIBDIR:-"lib"}
 ## Add GNOMESlackBuild sections to go-oo configure system
 cp $CWD/gsb_art/*.bmp ./src || exit 1
 cp $CWD/patches/GNOMESlackBuild* ./distro-configs || exit 1
-patch -p1 < $CWD/patches/add-gnomeslackbuild.patch || exit 1
-patch -p1 < $CWD/patches/emf-cairo-patchfix.patch || exit 1
+patch -p1 < $CWD/patches/addgsb.patch || exit 1
+#patch -p1 < $CWD/patches/add-gnomeslackbuild.patch || exit 1
+#patch -p1 < $CWD/patches/emf-cairo-patchfix.patch || exit 1
 ## We need to temporarily spam a directory on the build machine
 mkdir -p /usr/share/openclipart
 
@@ -202,7 +203,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-post-install-scripts \
   --enable-openxml \
   --with-system-libsvg \
-  --with-binsuffix=2.3 \
+  --with-binsuffix=2.4 \
   --with-docdir=/usr/share/doc/openoffice.org \
   --with-gcc-speedup=ccache \
   --with-openclipart=/usr/share/openclipart \
@@ -215,7 +216,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## which will be deleted after build is complete.  We want
 ## to keep our sources around :^)
 echo "Copying over sources: "
-for i in mdbtool oog libw lp_solve oox extras biblio;
+for i in mdbtool ooh libw lp_solve oox extras biblio;
 do 
 	cp -v $CWD/$i* ./src 
 done;
@@ -225,13 +226,13 @@ make $MAKE_FLAGS -j1 || exit 1
 cd bin ; 
 OODESTDIR=$PKG ./package-ooo || exit 1
 cd $PKG/usr/$LIBDIR
-ln -s ooo-2.3 ooo
+ln -s ooo-2.4 ooo
 
 # Add /usr/share/pixmaps directory and link icons to it
 mkdir -p $PKG/usr/pixmaps
 ( cd $PKG/usr/pixmaps
   for APP in base calc draw impress math writer ; do
-    ln -sf /usr/share/icons/hicolor/48x48/apps/ooo-${APP}2.3.png . ;
+    ln -sf /usr/share/icons/hicolor/48x48/apps/ooo-${APP}2.4.png . ;
   done
 )
 

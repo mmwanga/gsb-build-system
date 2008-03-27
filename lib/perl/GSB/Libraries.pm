@@ -27,6 +27,11 @@ our %libraries =
 			   'url' => 'http://libopenraw.freedesktop.org/download/',
 			   'src' => 'tar.gz',
 		          },
+   'babl'              => {
+			   'ver' => '0.0.20',
+			   'url' => 'ftp://ftp.gtk.org/pub/babl/0.0',
+			   'src' => 'tar.bz2',
+		          },
    'faac'              => {
 			   'ver' => '1.26',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/faac/',
@@ -42,6 +47,16 @@ our %libraries =
                          'ver' => '1.1.0',
                          'src' => 'tar.gz',
                         },
+   'gegl'          => {
+                         'url' => 'ftp://ftp.gimp.org/pub/gegl/0.0',
+                         'ver' => '0.0.16',
+                         'src' => 'tar.bz2',
+                        },
+   'graphviz'            => {
+                             'ver' => '2.18',
+                             'url' => 'http://www.graphviz.org/pub/graphviz/ARCHIVE/',
+                             'src' => 'tar.gz',
+                            },
    'id3lib'            => {
 			   'ver' => '3.8.3',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/id3lib/',
@@ -224,6 +239,16 @@ our %libraries =
                          'ver' => '0.0.8',
                          'src' => 'tar.gz',
                         },
+   'ilmbase'    => {
+                   'url' => 'http://download.savannah.nongnu.org/releases/openexr/',
+                   'ver' => '1.0.1',
+                   'src' => 'tar.gz',
+                  },
+   'openexr'    => {
+                   'url' => 'http://download.savannah.nongnu.org/releases/openexr/',
+                   'ver' => '1.6.1',
+                   'src' => 'tar.gz',
+                  },
    'pwlib'            => {
                          'url' => 'http://www.ekiga.org/admin/downloads/latest/sources/sources/',
                          'ver' => '1.10.10',
@@ -248,6 +273,11 @@ our %libraries =
 			   'ver' => '0.3.12',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/twolame',
 			   'src' => 'tar.gz',
+			  },
+   'x264'            => {
+			   'ver' => 'snapshot-20080324-2245',
+			   'url' => 'ftp://ftp.videolan.org/pub/videolan/x264/snapshots',
+			   'src' => 'tar.bz2',
 			  },
    'xvidcore'          => {
 			   'ver' => '1.1.3',
@@ -281,7 +311,6 @@ our %libraries_svn =
   (
    'gtkunique' => 'svn_13',
    'ffmpeg'    => 'svn_12572',
-   'x264'      => 'svn_736',
   );
 
 #

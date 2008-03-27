@@ -1,6 +1,16 @@
 ChangeLog
 ---------
 
+27-03-2008 fidesratio <sk238(at)ex.ac.uk>		
+    * Add boost-jam to tools; boost-jam provided with boost library
+      segfaults with new glibc/gcc.
+    * Updated svn ignore properties on various directories.
+    * Added vlc to extras section. Patch added to allow building against
+      newer ffmpeg version.
+    * Updated oo.org to build 2.4.0.3 (now built with mono bindings and
+      java support for x86 platform.)  Updated patch to build oo.org
+      for GSB.
+
 24-03-2008 fidesratio <sk238(at)ex.ac.uk>		
     * Added evo-openldap for static built openldap with html
       patch to be used by evolution-exchange. (Rather than 
@@ -12,6 +22,10 @@ ChangeLog
     * Added patch to openal to fix scope error with new gcc
     * Added security patches to MPlayer
     * Added gnome-scan.
+    * Added babl and gegl to libraries (for gnome-scan)
+    * Moved graphviz, ilmbase and openexr to libraries
+    * Change from svn to daily snap shot for x264
+    * Disable nautilus extension or gksu
 
 22-03-2008 fidesratio <sk238(at)ex.ac.uk>		
     * Rebuilt all tools and libraries against glibc 2.7 and gcc4.2.3

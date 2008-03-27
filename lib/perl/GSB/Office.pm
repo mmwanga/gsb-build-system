@@ -81,11 +81,6 @@ our %office =
 			     'url' => 'http://ftp.at.gnucash.org/pub/gnucash/gnucash/sources/stable/',
 			     'src' => 'tar.gz',
 			    },
-   'graphviz'            => {
-                             'ver' => '2.18',
-                             'url' => 'http://www.graphviz.org/pub/graphviz/ARCHIVE/',
-                             'src' => 'tar.gz',
-                            },
    'gtkspell'            => {
 			     'ver' => '2.0.11',
 			     'url' => 'http://gtkspell.sourceforge.net/download/',
@@ -94,11 +89,6 @@ our %office =
    'gwenhywfar'    => {
                    'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gwenhywfar/',
                    'ver' => '2.6.2',
-                   'src' => 'tar.gz',
-                  },
-   'ilmbase'    => {
-                   'url' => 'http://download.savannah.nongnu.org/releases/openexr/',
-                   'ver' => '1.0.1',
                    'src' => 'tar.gz',
                   },
    'inkscape'            => {
@@ -126,11 +116,6 @@ our %office =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/liferea/',
 			     'src' => 'tar.gz',
 			    },
-   'openexr'    => {
-                   'url' => 'http://download.savannah.nongnu.org/releases/openexr/',
-                   'ver' => '1.6.1',
-                   'src' => 'tar.gz',
-                  },
    'postgresql'    => {
                    'url' => 'http://ftp7.us.postgresql.org/pub/postgresql/source/v8.3.0/',
                    'ver' => '8.3.0',
