@@ -59,3 +59,8 @@ libtasn1
 libarchive
 transcode
 libatomic_ops
+graphviz
+ilmbase
+openexr
+babl
+gegl

@@ -6,13 +6,13 @@
 ## Licenced under the terms of the GNU General Public Licence version 3.
 ##
 
-## Package variables. 
-BUILD=2
-VERSION=svn_12572
+## Package variables.
+BUILD=1
+VERSION=0.0.20
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="freetype imlib2 sdl zlib x264 faac faad2"
+REQUIRED_PACKAGES=""
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -81,12 +81,6 @@ done
   done
 }
 
-## SVN warning
-echo
-echo "*********************************************************************"
-echo "*** Warning: This package is built from a fixed svn source revision."
-echo "*********************************************************************"
-
 ## Temporary space and package storage.
 mkdir -p $TMP
 rm -rf $PKG
@@ -94,10 +88,10 @@ mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
-## Copy SVN sources to temporary space
+## Decompress archive.
 cd $TMP &&
 rm -rf $PKGNAME-$VERSION &&
-cp -ar $CWD/$PKGNAME $PKGNAME-$VERSION &&
+tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -145,14 +139,13 @@ elif [ "$ARCH" = "i586" ]; then
 elif [ "$ARCH" = "i686" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
 elif [ "$ARCH" = "x86_64" ]; then
-  LIBDIR=lib64
   if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -fPIC"}
   else
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS="--libdir=/usr/lib64 --shlibdir=/usr/lib64 --enable-pthreads --disable-mmx"
+    CONFIGURE_FLAGS="--libdir=/usr/lib64"
   }
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
@@ -161,49 +154,17 @@ else
 fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
-LIBDIR=${LIBDIR:-"lib"}
 
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr $CONFIGURE_FLAGS --arch=$ARCH --cpu=$TUNE \
-  --mandir=/usr/man \
-  --enable-postproc \
-  --enable-swscale \
-  --enable-pthreads \
-  --target-os=linux \
-  --enable-shared \
-  --disable-static \
-  --enable-gpl \
-  --enable-liba52 \
-  --enable-libfaac \
-  --enable-libfaad \
-  --enable-libx264 \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --disable-static --enable-shared \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-# Fix for broken pkg-config files
-mkdir -p $PKG/usr/${LIBDIR}/pkgconfig ;
-for i in $CWD/patches/*.pc.${VERSION} ;
-do
-   cp $i $PKG/usr/${LIBDIR}/pkgconfig/$(basename $i .${VERSION})
-done;
-
-
-# Fix x86_64 pkg-config files
-if [ "$ARCH" = "x86_64" ]; then
-  for i in $PKG/usr/lib64/pkgconfig/*.pc ;
-  do 
-    sed -i "s:/lib:/lib64:g" $i ;
-  done;
-fi;
-
-# For header compatibility
-cd $PKG/usr/include
-ln -s libavcodec ffmpeg || exit 1;
-
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -226,7 +187,7 @@ ln -s libavcodec ffmpeg || exit 1;
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  COPYING* README \
+  AUTHORS COPYING* ChangeLog NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION

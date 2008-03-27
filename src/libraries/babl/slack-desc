@@ -1,0 +1,12 @@
+    |-----handy-ruler------------------------------------------------------|
+babl: babl (Babl Pixel Format Conversion Library)
+babl:
+babl: Babl is a dynamic, any to any, pixel format conversion library. It 
+babl: provides conversions between the myriad of buffer types images can 
+babl: be stored in. Babl doesn't only help with existing pixel formats, 
+babl: but also facilitates creation of new and uncommon ones.  GEGL uses 
+babl: babl both for enumeration of pixel formats as well as conversions 
+babl: between them.
+babl:
+babl:
+babl:
