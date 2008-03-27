@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=3
-VERSION=2.0.0
+BUILD=4
+VERSION=0.0.14.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgksu nautilus"
+REQUIRED_PACKAGES="openssl"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -90,6 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
+rm -rf $PKGNAME-$VERSION &&
 tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
@@ -157,20 +158,15 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
-  --disable-nautilus-extension \
+  --with-ssl-dir=/usr \
+  --with-tls=OpenSSL \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-## Compatibility link for gnomesu
-(
-cd $PKG/usr/bin ;
-ln -s gksu gnomesu ;
-)
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

@@ -61,3 +61,6 @@ vobject
 goocanvas
 pygoocanvas
 conduit
+libgksu
+gksu
+gnome-scan
