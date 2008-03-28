@@ -1,5 +1,5 @@
 # General setup
-ao="alsa"
+ao="pulse"
 mixer-channel="Master"
 srate=48000
 really-quiet="1" #Very very little console output

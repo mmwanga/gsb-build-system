@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=2
-VERSION=0.10.10
+VERSION=0.9.7
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gstreamer python gst-plugins-base"
+REQUIRED_PACKAGES="pulseaudio gstreamer gst-plugins-base"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -90,7 +90,8 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+rm -rf $PKGNAME-$VERSION &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.

@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=4
+BUILD=6
 VERSION=0.9.9
 
 ## List any packages here that are required to build this package.
@@ -156,7 +156,7 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --enable-avahi \
@@ -172,8 +172,10 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   || exit 1
 
 ## Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+make $MAKE_FLAGS || exit 1
+## Make sure to install with -j1 otherwise libsocket-util.so strangely gets skipped
+## I almost went insane tracking this one down.  :/
+make $MAKE_FLAGS -j1 install DESTDIR=$PKG || exit 1
 
 ## Preserve settings
 mv $PKG/etc/pulse/daemon.conf $PKG/etc/pulse/daemon.conf.new || exit 1

@@ -8,7 +8,7 @@
 ## Parts of this scripts are based on Eric Hameleers <alien@slackware.com>
 
 ## Package variables.
-BUILD=3
+BUILD=4
 VERSION=1.0
 
 ## List any packages here that are required to build this package.
@@ -116,12 +116,12 @@ chmod -R u+w,go+r-w,a-s *
 cp cab-contents/*.ttf $PKG/$FONTDIR
 
 # Add fontconfig info
-mkdir -p $PKG/etc/fonts
-for i in alias local misc ;
-do
-  cp $CWD/gsb/$i.conf $PKG/etc/fonts/$i.conf.new || exit 1;
-done;
-chown root:root $PKG/etc/fonts/*.conf.new || exit 1;
+#mkdir -p $PKG/etc/fonts
+#for i in alias local misc ;
+#do
+  #cp $CWD/gsb/$i.conf $PKG/etc/fonts/$i.conf.new || exit 1;
+#done;
+#chown root:root $PKG/etc/fonts/*.conf.new || exit 1;
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests

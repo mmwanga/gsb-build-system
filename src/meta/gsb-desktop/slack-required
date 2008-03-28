@@ -7,11 +7,16 @@ gtk+2
 ORBit2
 GConf
 libgnomeui
-NetworkManager
-NetworkManager-vpn
 eog
 epiphany
 pulseaudio
+padevchooser
+paman
+pavumeter
+pavucontrol
+paprefs
+alsa-lib
+alsa-plugins
 evolution-data-server
 evolution
 gnome-applets
@@ -32,6 +37,7 @@ gslapt
 slapt-update-notifier
 gst-plugins-base
 gst-plugins-good
+gst-pulse
 gstreamer
 gtk-engines
 gtkhtml

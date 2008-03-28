@@ -62,7 +62,7 @@ our %platform_reqs =
                              'src' => 'tar.gz',
                             },
    'alsa-plugins'             => {
-                             'ver' => '1.0.15',
+                             'ver' => '1.0.16',
                              'url' => 'ftp://ftp.alsa-project.org/pub/plugins/',
                              'src' => 'tar.bz2',
                             },

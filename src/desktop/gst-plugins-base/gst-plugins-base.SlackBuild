@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=0.10.17
+BUILD=1
+VERSION=0.10.18
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -161,6 +161,16 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --disable-valgrind \
+  --enable-ogg \
+  --enable-vorbis \
+  --enable-gnome_vfs \
+  --enable-alsa \
+  --disable-gtk-doc \
+  --disable-examples \
+  --enable-pango \
+  --enable-theora \
+  --enable-libvisual \
+  --enable-cdparanoia \
   || exit 1
 
 ## Build and install.

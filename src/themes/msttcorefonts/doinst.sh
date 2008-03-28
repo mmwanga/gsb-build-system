@@ -25,10 +25,10 @@ function install_file() {
   fi
 }
 
-install_file etc/fonts/alias.conf.new
-install_file etc/fonts/misc.conf.new
-install_file etc/fonts/local.conf.new
-install_file etc/fonts/msfonts-rules.conf.new
+#install_file etc/fonts/alias.conf.new
+#install_file etc/fonts/misc.conf.new
+#install_file etc/fonts/local.conf.new
+#install_file etc/fonts/msfonts-rules.conf.new
 
 XPREF=`pkg-config --variable=prefix x11` || true
 if [ "$XPREF" == "" ]; then

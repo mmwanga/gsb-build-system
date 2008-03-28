@@ -27,8 +27,19 @@ if [ -x usr/bin/update-desktop-database ]; then
   usr/bin/update-desktop-database 1> /dev/null 2> /dev/null
 fi
 
+## If pulseaudio installed, prefer is to esd
+if [ -f /usr/bin/esdcompat ]; then
+  if [ -f /usr/bin/esd -a ! -f /usr/bin/esound.pulsified ]; then
+    mv -f /usr/bin/esd /usr/bin/esound.pulsified ;
+  fi ;
+  # Make sure pulseaudio is default instead of esd
+  ln -sf /usr/bin/esdcompat /usr/bin/esd ;
+fi;
+
 # Set GSB splash screen as default
 usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type string --set /apps/gnome-session/options/splash_image splash/gsb-splash.png 1> /dev/null 2> /dev/null
+# Ensure sound server start up
+usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type boolean --set /desktop/gnome/sound/enable_esd true 1> /dev/null 2> /dev/null
 
 if [ -e usr/share/icons/hicolor/icon-theme.cache ]; then
 	rm -f usr/share/icons/hicolor/icon-theme.cache

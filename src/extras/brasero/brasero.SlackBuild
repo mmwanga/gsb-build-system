@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=0.6.90
+BUILD=1
+VERSION=0.7.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -161,6 +161,15 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static --enable-shared \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
+  --enable-libburnia \
+  --enable-cdrtools \
+  --enable-cdrkit \
+  --enable-libnotify \
+  --disable-search \
+  --enable-playlist \
+  --enable-dbus \
+  --enable-preview \
+  --enable-inotify \
   || exit 1
 
 ## Build and install.

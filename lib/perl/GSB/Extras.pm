@@ -20,7 +20,7 @@ our $VERSION   = 0.03;
 # src/extras
 our %extras_gnome =
   (
-   'brasero'             => '0.6.90',
+   'brasero'             => '0.7.1',
    'ghex'                => '2.8.2',
   );
 
@@ -132,11 +132,6 @@ our %extras =
 			     'ver' => '0.7.23',
 			     'url' => 'http://mirrors.kernel.org/gnu/vcdimager',
 			     'src' => 'tar.gz',
-			    },
-   'vlc'            => {
-			     'ver' => '0.8.6e',
-			     'url' => 'http://download.videolan.org/pub/videolan/vlc/0.8.6e/',
-			     'src' => 'tar.bz2',
 			    },
    'wxGTK'            => {
 			     'ver' => '2.8.7',

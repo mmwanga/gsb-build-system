@@ -1,4 +1,5 @@
 libpng
+pulseaudio
 libjpeg
 libogg
 xvidcore
@@ -28,3 +29,4 @@ alsa-lib
 glib2
 gtk+2
 openal
+MPlayer-codecs

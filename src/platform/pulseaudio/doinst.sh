@@ -1,14 +1,12 @@
 #!/bin/sh
 
-##
-## Configuration Preservation
-##
-
 ldconfig -r .
 
+libtool --finish --silent /usr/lib*/pulse-*/modules/ ;
+
+## Configuration Preservation
 function install_file() {
   # $1 = File to process
-
   FILE="$(dirname "$1")/$(basename "$1" .new)"
   if [ ! -e "$FILE" ]
   then
@@ -27,41 +25,38 @@ function install_file() {
 
 install_file etc/pulse/daemon.conf.new
 install_file etc/pulse/client.conf.new
+install_file etc/pulse/default.pa.new
 
-## Prefer pulseaudio to esd (esd will eventually be deprecated in GNOME)
-if [ -f usr/bin/esd -a ! -f usr/bin/esound.pulsified ]; then
-  mv usr/bin/esd usr/bin/esound.pulsified ;
-  ln -s usr/bin/esdcompat usr/bin/esd ;
-fi ;
-
-##
-## Modify passwd and group to add pulse and pulse-access
-##
-
-## If the pulse user doesn't exist, add them:
-if grep "^pulse:x:" etc/passwd 1> /dev/null 2> /dev/null ; then
-  true
-else
-  echo "pulse:x:92:92:pulse:/etc/pulse:" >> etc/passwd
+# Create pulse:user and group if thet don't exist.
+group_exists=`grep ^pulse:x: etc/group`
+if [[ "${group_exists}" == "" ]]; then
+        groupadd -g 94 pulse
 fi
-if grep "^pulse:" etc/shadow 1> /dev/null 2> /dev/null ; then
-  true
-else
-  echo "pulse:*:92:0:::::" >> etc/shadow
+user_exists=`grep ^pulse:x: etc/passwd`
+if [[ "${user_exists}" == "" ]]; then
+        useradd -c "PulseAudio User" -d /var/run/pulse  -u 103 -g pulse -G audio -s /bin/false pulse
 fi
 
-## If the pulse group (for system-wide daemon) doesn't exist, add them:
-if grep "^pulse::" etc/group 1> /dev/null 2> /dev/null ; then
-  true
-else
-  echo "pulse::92:pulse" >> etc/group
+# Create realtime group if  don't exist.
+group_exists=`grep ^pulse-rt:x: etc/group`
+if [[ "${group_exists}" == "" ]]; then
+        groupadd -g 104 pulse-rt
 fi
 
-## If the pulse-access group (for system-wide users) doesn't exist, add them:
-if grep "^pulse-access::" etc/group 1> /dev/null 2> /dev/null ; then
-  true
-else
-  echo "pulse-access::94:" >> etc/group
+# Create pulse-access group if they don't exist.
+group_exists=`grep ^pulse-access:x: etc/group`
+if [[ "${group_exists}" == "" ]]; then
+        groupadd -g 105 pulse-access
+fi
+
+# Add root to pulse, pulse-rt, pulse-access groups.
+usermod -G pulse,pulse-rt,pulse-access root 
+
+# Add a shm mount in our fstab for shared memory if it doesn't exist
+shm_exists=`grep ^shm etc/fstab`
+if [[ "${shm_exists}" == "" ]]; then
+        echo "shm            /dev/shm     tmpfs  defaults        0     0" >> /etc/fstab
+	mount shm ;
 fi
 
 cat << EOF

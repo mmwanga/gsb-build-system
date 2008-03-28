@@ -161,4 +161,11 @@ our %double_tarballs_url =
 			 'tar' => 'Gtk2-1.164.tar.gz',
 			 'var' => 'VERSION',
 				  },
+   'mplayer-codecs'               => {
+			 'ver' => '20071007',
+			 'dir' => 'extras/mplayer-codecs',
+			 'url' => 'http://www1.mplayerhq.hu/MPlayer/releases/codecs',
+			 'tar' => 'essential-20071007.tar.bz2',
+			 'var' => 'VERSION',
+				  },
   );

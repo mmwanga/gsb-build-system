@@ -11,7 +11,11 @@ evolution-data-server
 gstreamer
 gst-plugins-base
 gst-plugins-good
+gst-plugins-bad
 gst-plugins-ugly
+gst-pulse
+gst-python
+gst-ffmpeg
 gst-fluendo-mp3
 libgweather
 gnome-panel

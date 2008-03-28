@@ -5,11 +5,18 @@ ChangeLog
     * Add boost-jam to tools; boost-jam provided with boost library
       segfaults with new glibc/gcc.
     * Updated svn ignore properties on various directories.
-    * Added vlc to extras section. Patch added to allow building against
-      newer ffmpeg version.
     * Updated oo.org to build 2.4.0.3 (now built with mono bindings and
       java support for x86 platform.)  Updated patch to build oo.org
       for GSB.
+    * Aim for pulseaudio to be default GSB sound system.  Add paman,
+      padevchooser (set as autostart), pavumeter, pavucontrol and paprefs.
+    * Add gst-pulse plugins.  Set pulseaudio as default sink.
+    * Add gst-plugins-bad and gst-python.
+    * Updated to gstreamer and gst-plugins-base 0.10.18
+    * Updated to brasero 0.7.1
+    * Change gnome-session to force pulseaudio preference if pulseaudio
+      is installed (which it will be because i put pulseaudio in the 
+      slack-required file)  :^)
 
 24-03-2008 fidesratio <sk238(at)ex.ac.uk>		
     * Added evo-openldap for static built openldap with html

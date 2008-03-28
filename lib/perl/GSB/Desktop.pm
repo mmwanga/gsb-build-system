@@ -60,38 +60,63 @@ our %desktop_nongnome =
                       'src' => 'tar.gz',
                      },
    'gstreamer'   => {
-                           'ver' => '0.10.17',
-                           'url' => 'http://gstreamer.freedesktop.org/src/gstreamer/',
+                           'ver' => '0.10.18',
+                           'url' => 'http://gstreamer.freedesktop.org/src/gstreamer',
                            'src' => 'tar.bz2',
                           },
    'gst-fluendo-mp3'  => {
 			   'ver' => '0.10.7',
-			   'url' => 'http://core.fluendo.com/gstreamer/src/gst-fluendo-mp3/',
+			   'url' => 'http://core.fluendo.com/gstreamer/src/gst-fluendo-mp3',
 			   'src' => 'tar.bz2',
 			  },
    'gst-plugins-base'  => {
-                           'ver' => '0.10.17',
-                           'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-base/',
+                           'ver' => '0.10.18',
+                           'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-base',
                            'src' => 'tar.bz2',
                           },
    'gnome-audio'  => {
                            'ver' => '2.0.0',
-                           'url' => 'ftp://ftp.gnome.org/pub/gnome/sources/gnome-audio/2.0/',
+                           'url' => 'ftp://ftp.gnome.org/pub/gnome/sources/gnome-audio/2.0',
                            'src' => 'tar.bz2',
                           },
    'gst-plugins-good'  => {
                            'ver' => '0.10.7',
-                           'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-good/',
+                           'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-good',
                            'src' => 'tar.bz2',
                           },
    'gst-plugins-ugly'  => {
                            'ver' => '0.10.7',
-                           'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-ugly/',
+                           'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-ugly',
                            'src' => 'tar.bz2',
                           },
+   'gst-plugins-bad'  => {
+                           'ver' => '0.10.6',
+                           'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-bad',
+                           'src' => 'tar.bz2',
+                          },
+   'gst-pulse'  => {
+                           'ver' => '0.9.7',
+                           'url' => 'http://0pointer.de/lennart/projects/gst-pulse',
+                           'src' => 'tar.gz',
+                          },
+   'gst-ffmpeg'        => {
+			   'ver' => '0.10.3',
+			   'url' => 'http://gstreamer.freedesktop.org/src/gst-ffmpeg',
+			   'src' => 'tar.bz2',
+			  },
+   'gst-plugins-bad'   => {
+                           'ver' => '0.10.6',
+                           'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-bad',
+                           'src' => 'tar.bz2',
+		       },
+   'gst-python' => {
+	              'ver' => '0.10.11',
+		      'url' => 'http://gstreamer.freedesktop.org/src/gst-python',
+		      'src' => 'tar.bz2',
+		     },
    'notification-daemon'           => {
                              'ver' => '0.3.7',
-                             'url' => 'http://www.galago-project.org/files/releases/source/notification-daemon/',
+                             'url' => 'http://www.galago-project.org/files/releases/source/notification-daemon',
                              'src' => 'tar.bz2',
                             },
   );

@@ -1,3 +1,4 @@
+GConf
 desktop-file-utils
 gnome-vfs
 libbonoboui
@@ -18,3 +19,12 @@ xcursor-themes
 tango-icon-theme
 pygobject
 pygtk
+gstreamer
+pulseaudio
+padevchooser
+paprefs
+paman
+pavucontrol
+pavumeter
+gst-pulse
+alsa-plugins

@@ -1,0 +1,12 @@
+          |-----handy-ruler------------------------------------------------------|
+padevchooser: padevchooser (PulseAudio Device Chooser)
+padevchooser: 
+padevchooser: PulseAudio Device Chooser is a simple GTK tool which registers an 
+padevchooser: icon in the tray area and allows quick access to some features 
+padevchooser: of the PulseAudio sound server. It notifies you about new sources 
+padevchooser: becoming available on the LAN, allows you to quickly change the 
+padevchooser: default PulseAudio source, selecting devices available on the LAN,
+padevchooser: and start the Pulseaudio auxiliary tools.
+padevchooser: 
+padevchooser: 
+padevchooser: 

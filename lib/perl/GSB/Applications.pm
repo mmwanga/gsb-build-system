@@ -111,21 +111,6 @@ our %applications =
 		      'url' => 'http://download2.berlios.de/pygoocanvas',
 		      'src' => 'tar.gz',
 		      },
-   'gst-ffmpeg'        => {
-			   'ver' => '0.10.3',
-			   'url' => 'http://gstreamer.freedesktop.org/src/gst-ffmpeg',
-			   'src' => 'tar.bz2',
-			  },
-   'gst-plugins-bad'   => {
-                           'ver' => '0.10.6',
-                           'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-bad',
-                           'src' => 'tar.bz2',
-		       },
-   'gst-python' => {
-	              'ver' => '0.10.10',
-		      'url' => 'http://gstreamer.freedesktop.org/src/gst-python',
-		      'src' => 'tar.bz2',
-		     },
    'vobject'            => {
 			   'ver' => '0.6.0',
 			   'url' => 'http://vobject.skyhouseconsulting.com',
@@ -146,9 +131,32 @@ our %applications =
                    'url' => 'http://people.debian.org/~kov/gksu',
                    'src' => 'tar.gz',
                   },
+   'padevchooser'      => {
+                   'ver' => '0.9.3',
+                   'url' => 'http://0pointer.de/lennart/projects/padevchooser',
+                   'src' => 'tar.gz',
+                  },
+   'paprefs'      => {
+                   'ver' => '0.9.6',
+                   'url' => 'http://0pointer.de/lennart/projects/paprefs',
+                   'src' => 'tar.gz',
+                  },
+   'paman'      => {
+                   'ver' => '0.9.4',
+                   'url' => 'http://0pointer.de/lennart/projects/paman',
+                   'src' => 'tar.gz',
+                  },
+   'pavumeter'      => {
+                   'ver' => '0.9.3',
+                   'url' => 'http://0pointer.de/lennart/projects/pavumeter',
+                   'src' => 'tar.gz',
+                  },
+   'pavucontrol'      => {
+                   'ver' => '0.9.5',
+                   'url' => 'http://0pointer.de/lennart/projects/pavucontrol',
+                   'src' => 'tar.gz',
+                  },
   );
-
-
 #
 # End Config Options
 ################################################################################

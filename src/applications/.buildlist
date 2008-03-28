@@ -1,3 +1,8 @@
+padevchooser
+pavumeter
+pavucontrol
+paprefs
+paman
 mozilla-firefox
 yelp
 eog
@@ -35,9 +40,6 @@ gcalctool
 evolution
 gnome-power-manager
 evince
-gst-python
-gst-plugins-bad
-gst-ffmpeg
 evolution-webcal
 evolution-exchange
 ekiga

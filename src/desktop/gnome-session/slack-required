@@ -1,5 +1,5 @@
-gnome-control-center
 GConf
+gnome-control-center
 gnome-keyring
 gnome-vfs
 gtk+2
@@ -9,3 +9,12 @@ esound
 at-spi
 pango
 cairo
+pulseaudio
+padevchooser
+paman
+paprefs
+pavumeter
+pavucontrol
+gstreamer
+gst-pulse
+alsa-plugins
