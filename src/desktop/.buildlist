@@ -22,9 +22,11 @@ gnome-panel
 gnome-audio
 gconf-editor
 gnome-terminal
+libepc
 libgtop
 libxklavier
 libgnomekbd
+gswitchit_plugins
 libgnomecups
 libgnomeprint
 libgnomeprintui
