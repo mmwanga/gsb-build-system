@@ -1,6 +1,22 @@
 ChangeLog
 ---------
 
+28-03-2008 Tadgy <tadgy(at)gnomeslackbuild.org>
+    * Reworked the meta data generation at the end of src/gsb.SlackBuild to
+      produce more Slackware compliant files.  Because of this, users will
+      have to specifically add the testing/ directory to their slapt-get
+      repo lists in order to get testing packages.  This more accurately
+      matches the way the Slackware tree handles the testing/ directory.
+      If you don't like it, ask Pat to change the way he handles testing/
+      in Slackware - we are following his lead here :)
+      slapt-get should still pick up updated packages in the patches/
+      directory without having to add it as a specific repo.
+    * The top level PACKAGES.TXT is now a symlink to packages/PACKAGES.TXT.
+      This is the reverse of Slackware (Slackware has slackware/PACKAGES.TXT
+      as a symlink to the top level PACKAGES.TXT) but I feel this is a more
+      intuitive way of laying it out, especially as patches/ and testing/
+      have completely seperate PACKAGES.TXT files now.
+
 27-03-2008 fidesratio <sk238(at)ex.ac.uk>		
     * Add boost-jam to tools; boost-jam provided with boost library
       segfaults with new glibc/gcc.

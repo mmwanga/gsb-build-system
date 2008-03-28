@@ -19,19 +19,17 @@ SECTIONS="${GSB_SECTIONS:-	tools
 				libraries
 				platform
 				desktop
-				bindings
 				applications
 				accessibility
+				bindings
 				office
 				mono
-				administration
 				extras
-				compiz
-		                ooo
 				themes
-				testing
+				compiz
 				meta
-			}"
+				ooo
+				testing	}"
 
 # Usage.
 function usage() {
@@ -117,36 +115,49 @@ function runtime() {
 }
 
 function gen_packages_txt() {
-  echo -e "PACKAGES.TXT; $( date )\n\n" >PACKAGES.TXT
-  for FILE in $( find . -type f -name \*.tgz -printf "%f %p\n" | sort -k1 -f | \
-    cut -d' ' -f2 )
-  do
-    SIZES="$( gunzip -l $FILE | tail -n 1 | tr -s ' ' )"
-    echo "PACKAGE NAME:  $( echo $FILE | rev | cut -d/ -f1 | rev )" >>PACKAGES.TXT
-    echo "PACKAGE LOCATION:  $( echo $FILE | rev | cut -d/ -f2- | rev )" >>PACKAGES.TXT
-    echo "PACKAGE SIZE (compressed):  $(( $( echo \"$SIZES\" | cut -d' ' -f2 ) / 1024 )) K" >>PACKAGES.TXT
-    echo "PACKAGE SIZE (uncompressed):  $(( $( echo \"$SIZES\" | cut -d' ' -f3 ) / 1024 )) K" >>PACKAGES.TXT
-    echo "PACKAGE REQUIRED:  $( tar zxOf $FILE install/slack-required 2>/dev/null | tr '\n' ',' | sed -e 's/,$//' )" >>PACKAGES.TXT
-    echo "PACKAGE CONFLICTS:  $( tar zxOf $FILE install/slack-conflicts 2>/dev/null | tr '\n' ',' | sed -e 's/,$//' )" >>PACKAGES.TXT
-    echo "PACKAGE SUGGESTS:  $( tar zxOf $FILE install/slack-suggests 2>/dev/null | tr '\n' ' ' )" >>PACKAGES.TXT
-    echo "PACKAGE DESCRIPTION:" >>PACKAGES.TXT
-    tar xzOf $FILE install/slack-desc 2>/dev/null | grep -v "^#" | egrep "[[:alnum:]\+]+\:" >>PACKAGES.TXT
-    echo >>PACKAGES.TXT
-  done
-  cat PACKAGES.TXT | gzip -9c >PACKAGES.TXT.gz
-}
+  # $1 = Sub-directory to process, or empty for current directory
 
-function gen_checksums_md5() {
-  echo -e "CHECKSUMS.md5; $( date )\n\n" >CHECKSUMS.md5
-  echo "MD5                               Filename" >>CHECKSUMS.md5
-  find . -type f ! -name \*.md5 -exec md5sum {} \; | sort -k2 -f >>CHECKSUMS.md5
-  cat CHECKSUMS.md5 | gzip -9c >CHECKSUMS.md5.gz
+  { echo -e "PACKAGES.TXT; $( date )\n\n"
+    for FILE in $( find ./$1 -type f -name \*.tgz -printf "%f %p\n" | \
+      sort -k1 -f | cut -d' ' -f2 )
+    do
+      SIZES="$( gunzip -l $FILE | tail -n 1 | tr -s ' ' )"
+      echo "PACKAGE NAME:  $( echo $FILE | rev | cut -d/ -f1 | rev )"
+      echo "PACKAGE LOCATION:  $( echo $FILE | rev | cut -d/ -f2- | rev )"
+      echo "PACKAGE SIZE (compressed):  $(( $( echo \"$SIZES\" | cut -d' ' -f2 ) / 1024 )) K"
+      echo "PACKAGE SIZE (uncompressed):  $(( $( echo \"$SIZES\" | cut -d' ' -f3 ) / 1024 )) K"
+      echo "PACKAGE REQUIRED:  $( tar zxOf $FILE --occurrence=1 install/slack-required 2>/dev/null | tr '\n' ',' | sed -e 's/,$//' )"
+      echo "PACKAGE CONFLICTS:  $( tar zxOf $FILE --occurrence=1 install/slack-conflicts 2>/dev/null | tr '\n' ',' | sed -e 's/,$//' )"
+      echo "PACKAGE SUGGESTS:  $( tar zxOf $FILE --occurrence=1 install/slack-suggests 2>/dev/null | tr '\n' ' ' )"
+      echo "PACKAGE DESCRIPTION:"
+      tar xzOf $FILE --occurrence=1 install/slack-desc 2>/dev/null | grep -v "^#" | egrep "[[:alnum:]\+]+\:"
+      echo
+    done } >${1:-.}/PACKAGES.TXT 2>/dev/null
+  cat ${1:-.}/PACKAGES.TXT | gzip -9c >${1:-.}/PACKAGES.TXT.gz 2>/dev/null
 }
 
 function gen_filelist_txt() {
-  echo -e "FILELIST.TXT; $( date )\n\n" >FILELIST.TXT
-  find . ! -name FILELIST.TXT | sort | xargs ls -ld >>FILELIST.TXT
-  cat FILELIST.TXT | gzip -9c >FILELIST.TXT.gz
+  # $1 = Sub-directory to process, or empty for current directory
+
+  ( cd ./$1
+    { echo -e "FILELIST.TXT; $( date )\n\n"
+      find . ! -wholename ./FILELIST.TXT ! -wholename ./FILELIST.TXT.gz | \
+        sort | xargs ls -ld
+    } >FILELIST.TXT
+    cat FILELIST.TXT | gzip -9c >FILELIST.TXT.gz ) 2>/dev/null
+}
+
+function gen_checksums_md5() {
+  # $1 = Sub-directory to process, or empty for current directory
+
+  ( cd ./$1
+    { echo -e "CHECKSUMS.md5; $( date )\n\n"
+      echo "MD5                               Filename"
+      find . -type f ! -wholename ./CHECKSUMS.md5 \
+        ! -wholename ./CHECKSUMS.md5.gz ! -name \*.md5 -exec md5sum {} \; | \
+        sort -k2 -f
+    } >CHECKSUMS.md5
+    cat CHECKSUMS.md5 | gzip -9c >CHECKSUMS.md5.gz ) 2>/dev/null
 }
 
 # Environment.
@@ -216,7 +227,7 @@ mkdir -p $LOGSDIR
 # Do the build.
 ( echo
   echo "*********************************************************************"
-  echo "* Building GSB - this may take a while..."
+  echo "* Building GSB - this will take a while..."
   echo "*********************************************************************"
 
   for SECTION in $SECTIONS
@@ -235,24 +246,36 @@ mkdir -p $LOGSDIR
     }
   done
 
+  cp ../{COPYING,CREDITS,VERSIONS} $PKGDEST
+  cp ../README.binary $PKGDEST/README
+  cp ../ChangeLog.binary $PKGDEST/ChangeLog
+
   if [ "$NOMETAFILES" = "0" ]; then
     echo
     echo "*********************************************************************"
     echo "* Generating final meta files - this may take a while..."
     echo "*********************************************************************"
-    cp ../{COPYING,CREDITS,VERSIONS} $PKGDEST
-    cp ../README.binary $PKGDEST/README
-    cp ../ChangeLog.binary $PKGDEST/ChangeLog
-    for DIR in "$PKGDEST/$PACKAGESDIR" "$PKGDEST/$PATCHESDIR" \
-      "$PKGDEST/$TESTINGDIR" "$PKGDEST"
-    do
-      [ -d $DIR ] && (
-        cd $DIR
-        gen_packages_txt
-        gen_checksums_md5
-        gen_filelist_txt
-      )
-    done
+    echo "* If you like our GNOME desktop, plan to use it for a commercial"
+    echo "* product/service or just want to spread some goodwill, please visit"
+    echo "* the GNOME SlackBuild website: <http://gnomeslackbuild.org> and"
+    echo "* make a paypal donation to the project.  Thanks! :)    ~The GSB team"
+    echo "*********************************************************************"
+    ( cd $PKGDEST &&
+      for DIR in $PACKAGESDIR $PATCHESDIR $TESTINGDIR
+      do
+        [ -d $DIR ] && {
+          rm -f $DIR/{CHECKSUMS.md5{,.gz},FILELIST.TXT{,.gz},PACKAGES.TXT{,.gz}}
+          gen_packages_txt $DIR
+          gen_filelist_txt $DIR
+          gen_checksums_md5 $DIR
+        }
+      done
+      rm -f ./{CHECKSUMS.md5{,.gz},FILELIST.TXT{,.gz},PACKAGES.TXT{,.gz}}
+      ln -sf $PACKAGESDIR/PACKAGES.TXT PACKAGES.TXT
+      ln -sf $PACKAGESDIR/PACKAGES.TXT.gz PACKAGES.TXT.gz
+      gen_filelist_txt
+      gen_checksums_md5
+    )
   else
     echo
     echo "*********************************************************************"
