@@ -14,7 +14,7 @@
 # functionality, or optional GNOME applications.  Notes are
 # provided in brackets.
 #
-# List last updated: March 24th, 2008 (stevek)
+# List last updated: March 28th, 2008 (stevek)
 #
 
 *****************************************************
@@ -26,6 +26,7 @@ NOTE: Slackware-CURRENT is required for GNOME 2.22.0
 
 glib2:            ( > 2.15 required by libgnome 2.22 and gvfs 0.2.1, ie, nautilus 2.22)
 libwnck:          ( > 2.22 required by metacity 2.22, and GNOME 2.22 at large)
+libglade:         ( Slackware's libglade broken, particularly regarding GNOME support; rebuilt)
 
 -- Optional Updates (for optional applications) 
 
