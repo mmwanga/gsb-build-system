@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=4
 VERSION=2.22.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="alsa-lib audiofile dbus esound gnome-vfs gtk+2 hal nautilus-cd-burner startup-notification gnome-icon-theme gnome-desktop iso-codes gst-plugins-good gst-plugins-base gstreamer nautilus dbus libdvdcss libgalago totem-pl-parser"
+REQUIRED_PACKAGES="alsa-lib audiofile dbus esound gnome-vfs gtk+2 hal nautilus-cd-burner startup-notification gnome-icon-theme gnome-desktop iso-codes gst-plugins-good gst-plugins-base gstreamer nautilus dbus libdvdcss libgalago totem-pl-parser libepc"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -180,6 +180,10 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+## Patch totem desktop entry to allow opening of hd dvd
+mkdir -p $PKG/usr/share/applications &&
+cp $CWD/patches/totem.desktop $PKG/usr/share/applications || exit 1;
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

@@ -1,4 +1,5 @@
 alsa-lib
+libepc
 audiofile
 dbus
 esound
@@ -18,3 +19,4 @@ dbus
 libdvdcss
 libgalago
 totem-pl-parser
+pygdata

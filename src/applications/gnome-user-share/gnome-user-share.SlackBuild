@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=4
 VERSION=0.22
 
 ## List any packages here that are required to build this package.
@@ -166,6 +166,14 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## Build and install.
 make $MAKE_FLAGS &&
 make DESTDIR=$PKG install || exit 1
+
+## Modify for Slackware locations
+for i in dav_user_2.0.conf dav_user_2.2.conf;
+do 
+  sed -i "s:etc/httpd/modules:usr/lib/httpd/modules:g" \
+     $PKG/usr/share/gnome-user-share/$i;
+done;
+
 
 ## Preserve settings
 mv $PKG/usr/share/gnome-user-share/dav_user_2.0.conf $PKG/usr/share/gnome-user-share/dav_user_2.0.conf.new

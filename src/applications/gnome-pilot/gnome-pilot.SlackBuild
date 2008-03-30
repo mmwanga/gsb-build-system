@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=3
+BUILD=4
 VERSION=2.0.16
 
 ## List any packages here that are required to build this package.
@@ -158,6 +158,7 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --libexecdir=/usr/bin \
   --disable-static --enable-shared \
   --with-vfs \
   --enable-usb \
@@ -169,6 +170,9 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+## Remove an unneeded menu entry
+rm -fr $PKG/usr/share/applications/gpilot-applet.desktop ;
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
