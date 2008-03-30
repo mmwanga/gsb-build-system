@@ -3,7 +3,7 @@
 # The following is a list of packages that can replace official Slackware packages.
 #
 # Packages listed under 'Required' must be upgraded in order to use 
-# GNOME 2.22.0-current on Slackware 12.  
+# GNOME 2.22.0-current on Slackware 12-CURRENT (and Slackware 12.1)
 # Reasons for their upgrade are given within brackets.
 #
 # Packages listed under 'Optional' are packages which replace official Slackware 
@@ -26,6 +26,6 @@ libglade:         ( Slackware's libglade broken, particularly regarding GNOME su
 
 -- Optional Updates (for optional applications) 
 
-mozilla-firefox:  (Rebuild for shared libraries needed by Epiphany/Yelp)
-compiz-fusion:    (Slackware current comes with compiz 0.7.2, compiz-fusion is cooler though)
+mozilla-firefox:  (Rebuild for shared libraries needed by: Epiphany, Yelp, GNOME Python, DevHelp)
+compiz-fusion:    (Slackware-CURRENT comes with compiz 0.7.2, compiz-fusion is cooler though)
 libgsf:           (Slackware's libgsf lacks GNOME support; required for GNOME Office applications)
