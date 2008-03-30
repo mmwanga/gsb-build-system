@@ -1,18 +1,14 @@
+# THIS IS THE REQUIRED PACKAGES LIST FOR GSB GNOME 2.22.0-CURRENT
 #
-# THIS IS THE REQUIRED PACKAGES LIST FOR 
-# GSB GNOME 2.22.0-CURRENT
+# The following is a list of packages that can replace official Slackware packages.
 #
-# The following is a list of packages that can replace
-# official Slackware packages.
-#
-# Packages listed under 'Required' must be upgraded in order
-# to use GNOME 2.22.0-current on Slackware 12.  
+# Packages listed under 'Required' must be upgraded in order to use 
+# GNOME 2.22.0-current on Slackware 12.  
 # Reasons for their upgrade are given within brackets.
 #
-# Packages listed under 'Optional' are packages which replace 
-# official Slackware packages, but are only necessary for added
-# functionality, or optional GNOME applications.  Notes are
-# provided in brackets.
+# Packages listed under 'Optional' are packages which replace official Slackware 
+# packages, but are only necessary for added functionality, or optional GNOME 
+# applications.  Notes are provided in brackets.
 #
 # List last updated: March 28th, 2008 (stevek)
 #
