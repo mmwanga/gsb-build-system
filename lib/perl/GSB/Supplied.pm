@@ -24,16 +24,16 @@ our %supplied_tarballs =
 	     'section' => 'administration',
                  },
    'gnome-menus-kde'  => {
-             'ver' => '1.0',
+             'ver' => '1.5',
 	     'section' => 'desktop',
                  },
    'gnome-menus-xfce'  => {
-             'ver' => '1.0',
+             'ver' => '1.5',
 	     'section' => 'desktop',
                  },
    'gnome-menus-ooo'  => {
-             'ver' => '1.0',
-	     'section' => 'desktop',
+             'ver' => '2.4.0.3.2',
+	     'section' => 'ooo',
                  },
    'fusion-icon'  => {
              'ver' => '0.1.0',
@@ -42,5 +42,9 @@ our %supplied_tarballs =
    'gnome-mount'  => {
              'ver' => '0.8.svn20080225',
 	     'section' => 'desktop',
+                 },
+   'service-discovery-applet'  => {
+             'ver' => '0.4.5',
+	     'section' => 'applications',
                  },
   );

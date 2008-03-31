@@ -15,6 +15,9 @@ our %administration_gnome =
   (
    'pessulus'            => '2.16.3',
    'sabayon'             => '2.22.0',
+   'liboobs'             => '2.22.0',
+   'system-tools-backends'  => '2.6.0',
+   'gnome-system-tools'     => '2.22.0',
   );
 
 # src/administration from Elsewhere
@@ -26,9 +29,9 @@ our %administration =
 	   'src' => 'tar.bz2',
 	   },
    'gparted'    => {
-                 'ver' => '0.3.5',
-                 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gparted',
-                 'src' => 'tar.bz2',
+                 'ver' => '0.3.6',
+                 'url' => 'http://dfn.dl.sourceforge.net/sourceforge/gparted',
+                 'src' => 'tar.gz',
                 },
    'python-ldap'         => {
                  'ver' => '2.3.1',
@@ -42,7 +45,7 @@ our %administration =
                             },
    'gslapt'    => {
              'url' => 'http://software.jaos.org/source/gslapt',
-             'ver' => '0.3.19a',
+             'ver' => '0.4.0',
              'src' => 'tar.gz',
                   },
    'notify-python'    => {

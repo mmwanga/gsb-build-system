@@ -30,11 +30,9 @@ our %platform =
    'libgnome'            => '2.22.0',
    'libgnomecanvas'      => '2.20.1.1',
    'libgnomeui'          => '2.22.01',
-   'liboobs'             => '2.22.0',
    'libsoup'             => '2.4.0',
    'ORBit2'              => '2.14.12',
    'pyorbit'             => '2.14.3',
-   'system-tools-backends'  => '2.6.0',
   );
 
 

@@ -34,8 +34,8 @@ our %extras =
 			     'src' => 'tar.bz2',
 			    },
    'deluge'              => {
-                 'ver' => '0.5.8.6',
-                 'url' => 'http://download.deluge-torrent.org/source/0.5.8.6',
+                 'ver' => '0.5.8.7',
+                 'url' => 'http://download.deluge-torrent.org/source/0.5.8.7',
                  'src' => 'tar.gz',
                             },
    'devede'              => {
@@ -93,6 +93,16 @@ our %extras =
 			     'url' => 'http://www.stafford.uklinux.net/libesmtp',
 			     'src' => 'tar.bz2',
 			    },
+   'libburn'            => {
+			     'ver' => '0.4.2',
+			     'url' => 'http://files.libburnia-project.org/releases',
+			     'src' => 'tar.gz',
+			    },
+   'libisofs'            => {
+			     'ver' => '0.6.2.1',
+			     'url' => 'http://files.libburnia-project.org/releases',
+			     'src' => 'tar.gz',
+			    },
   'MPlayer'            => {
 			     'ver' => '1.0rc2',
 			     'url' => 'http://www1.mplayerhq.hu/MPlayer/releases',
@@ -103,16 +113,6 @@ our %extras =
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/pstoedit',
 			     'src' => 'tar.gz',
 			    },
-   'python-ldap'         => {
-                 'ver' => '2.3.1',
-                 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/python-ldap',
-                 'src' => 'tar.gz',
-                            },
-   'slapt-update-notifier'         => {
-                 'ver' => '0.2.1',
-                 'url' => 'http://software.jaos.org/source/slapt-update-notifier',
-                 'src' => 'tar.gz',
-                            },
    'streamripper'        => {
 			     'ver' => '1.62.3',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/streamripper',

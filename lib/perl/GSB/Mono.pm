@@ -112,6 +112,11 @@ our %mono=
 				'url' => 'http://www.taglib-sharp.com/Download',
 				'src' => 'tar.gz',
 			       },
+   'gnome-do'                => {
+				'ver' => '0.4.0.1',
+				'url' => 'http://launchpad.net/do/trunk/0.4/+download',
+				'src' => 'tar.gz',
+		        	},
   );
 
 our %mono_diff_naming =
@@ -135,6 +140,13 @@ our %mono_diff_naming =
 		    'ver'  => '0.1.0',
             'dir' => 'mono/karma-sharp',
             'tar' => 'libkarma-0.1.0.tar.gz',
+            'var' => 'VERSION',
+		   },
+   'gnome-do-plugins' => {
+		    'url'  => 'http://launchpad.net/do/trunk/0.4/+download',
+		    'ver'  => '0.4.0',
+            'dir' => 'mono/gnome-do-plugins',
+            'tar' => 'do-plugins-0.4.0.tar.gz',
             'var' => 'VERSION',
 		   },
   );

@@ -105,6 +105,13 @@ our %ooo_packages =
 	     'tar' => 'oox.2008-02-29.tar.bz2',
              'var' => 'VERSION',
                   },
+   'writerfilter'    => {
+             'ver' => '2.4.0.3.2',
+	     'dir' => 'ooo/openoffice',
+             'url' => 'http://go-oo.org/packages/SRC680',
+	     'tar' => 'writerfilter.2008-02-29.tar.bz2',
+             'var' => 'VERSION',
+                  },
    'IO-Compress-Base'    => {
              'ver' => '2.008',
 	     'dir' => 'ooo/openoffice-perl',

@@ -25,7 +25,7 @@ our %bindings_gnome =
    'libgtksourceviewmm' => '0.3.1',
    'libxml++'          => '2.22.0',
    'gtkmm'             => '2.12.5',
-   'glibmm'            => '2.16.0',
+   'glibmm'            => '2.16.1',
   );
 
   

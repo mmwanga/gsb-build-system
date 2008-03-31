@@ -1,6 +1,38 @@
 ChangeLog
 ---------
 
+31-03-2008 fidesratio <sk238(at)ex.ac.uk>               
+    * s-t-b no longer needs an rc.stb with dbus > 1.1. So disabled.
+
+30-03-2008 fidesratio <sk238(at)ex.ac.uk>               
+    * Updated to firefox 2.0.0.13
+    * Recompile epiphay, yelp, devhelp, gnome-python-extras
+      and gecko-sharp against 2.0.0.13.
+    * Added vinagre 0.5.0.
+    * Upgraded to glibmm 2.16.1.
+
+29-03-2008 fidesratio <sk238(at)ex.ac.uk>               
+    * Reconfigure dav_confs in gnome-user-share for proper
+      httpd locations on Slackware
+    * Move s-t-b, g-s-t, and liboobs to administration
+    * Disable seahorse nautilus modules (broken)
+
+28-03-2008 fidesratio <sk238(at)ex.ac.uk>               
+    * Added service-discovery-applet from svn (tar.bz2 supplied)
+      and configure as default avahi discovery coolness.
+    * Added libepc for glom and totem.
+    * rc.stb no longer required for s-t-b with dbus > 1.1.
+      s-t-b package updated.
+    * Updated gnome-system-tools to include all the applets.
+    * Fusion icon starts by default if installed (disabled compiz 
+      auto starting)
+    * Updated nautilus-sendto package.
+    * Updated gnome-audio package.
+    * Fixed missing MIME types in brasero and totem.
+    * Patched gthumb from svn to gio/nautilus 2.22 support.
+    * Replace Slackware package libgsf, rebuilt with GNOME support.
+    * Configure nautilus to disable the xfce Thunar folder handler for GNOME.
+
 28-03-2008 Tadgy <tadgy(at)gnomeslackbuild.org>
     * Reworked the meta data generation at the end of src/gsb.SlackBuild to
       produce more Slackware compliant files.  Because of this, users will

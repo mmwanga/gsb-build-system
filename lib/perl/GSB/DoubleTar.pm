@@ -43,10 +43,10 @@ our %double_tarballs_url =
              'var' => 'VERSION',
                             },
    'mozilla-firefox'  => {
-			 'ver' => '2.0.0.12',
+			 'ver' => '2.0.0.13',
 			 'dir' => 'applications/mozilla-firefox',
-			 'url' => 'http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.12/source/',
-			 'tar' => 'firefox-2.0.0.12-source.tar.bz2',
+			 'url' => 'http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.13/source/',
+			 'tar' => 'firefox-2.0.0.13-source.tar.bz2',
 			 'var' => 'VERSION',
 			 },
    'libgc'             => {
@@ -166,6 +166,13 @@ our %double_tarballs_url =
 			 'dir' => 'extras/mplayer-codecs',
 			 'url' => 'http://www1.mplayerhq.hu/MPlayer/releases/codecs',
 			 'tar' => 'essential-20071007.tar.bz2',
+			 'var' => 'VERSION',
+				  },
+   'pygdata'               => {
+			 'ver' => '1.0.11.1',
+			 'dir' => 'bindings/pygdata',
+			 'url' => 'http://gdata-python-client.googlecode.com/files',
+			 'tar' => 'gdata.py-1.0.11.1.tar.gz',
 			 'var' => 'VERSION',
 				  },
   );
