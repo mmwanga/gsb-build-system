@@ -152,7 +152,7 @@ elif [ "$ARCH" = "x86_64" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS="--libdir=/usr/lib64 --shlibdir=/usr/lib64 --enable-pthreads --disable-mmx"
+    CONFIGURE_FLAGS="--libdir=/usr/lib64 --shlibdir=/usr/lib64 --disable-mmx --disable-mmx2"
   }
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
@@ -196,7 +196,7 @@ done;
 if [ "$ARCH" = "x86_64" ]; then
   for i in $PKG/usr/lib64/pkgconfig/*.pc ;
   do 
-    sed -i "s:/lib:/lib64:g" $i ;
+    sed -i "s:/lib$:/lib64:g" $i ;
   done;
 fi;
 
