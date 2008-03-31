@@ -1,3 +1,5 @@
+libgdiplus
+mono
 avahi-sharp
 evolution-sharp
 gecko-sharp
@@ -5,10 +7,15 @@ gmime-sharp
 gnome-sharp
 gtk-sharp
 gtksourceview-sharp
-libgdiplus
-mono
 mono-addins
 mono-tools
 monodevelop
 monodoc
 mozilla-firefox
+ipod-sharp
+karma-sharp
+libgphoto2-sharp
+mono-zeroconf
+ndesk-dbus
+ndesk-glib
+taglib-sharp

@@ -6,6 +6,7 @@ compiz-bcop
 compiz-fusion-plugins-main
 compiz-fusion-plugins-extra
 compiz-manager
+fusion-icon
 compizconfig-backend-gconf
 compizconfig-python
 fuse
@@ -15,9 +16,9 @@ libsexy
 libwnck
 libxslt
 mesa
-metacity
 renderproto
 compositeproto
 emerald
 avant-window-navigator
+awn-extras-applets
 sexy-python

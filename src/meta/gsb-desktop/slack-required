@@ -50,7 +50,6 @@ metacity
 mozilla-firefox 
 gvfs
 nautilus
-network-manager-applet
 openldap | openldap-client
 openssl-solibs | openssl
 rarian
@@ -69,3 +68,5 @@ gnome-terminal
 notification-daemon
 gksu
 gdm
+service-discovery-applet
+avahi

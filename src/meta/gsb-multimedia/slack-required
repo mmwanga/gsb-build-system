@@ -1,7 +1,10 @@
 GConf
 MPlayer
+mplayer-codecs
 a52dec
 alsa-lib
+pulseaudio
+alsa-plugins
 atk
 audiofile
 avahi
@@ -19,7 +22,6 @@ faac
 faad2
 ffmpeg
 flac
-gnome-desktop
 gnome-icon-theme
 gnome-media
 gnonlin
