@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=3
-VERSION=2.0-0.13
+BUILD=2
+VERSION=0.4.0.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="mozilla-firefox mono"
+REQUIRED_PACKAGES="mono ndesk-dbus ndesk-dbus-glib gnome-sharp"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -90,7 +90,8 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+rm -rf $PKGNAME-$VERSION &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -162,16 +163,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   || exit 1
 
 ## Build and install.
-make &&
-make DESTDIR=$PKG install || exit 1
-
-# Fix for pkgconfig files on x86_64 platforms
-if [ "$ARCH" = "x86_64" ]; then
-  if [ -d $PKG/usr/lib/pkgconfig ]; then
-     mkdir -p $PKG/usr/lib64 ;
-     mv $PKG/usr/lib/pkgconfig $PKG/usr/lib64 ;
-  fi;
-fi ;
+make $MAKE_FLAGS &&
+make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

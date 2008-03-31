@@ -1,0 +1,12 @@
+                |-----handy-ruler------------------------------------------------------|
+gnome-do-plugins: gnome-do-plugins (GNOME Don't Search, Do!)
+gnome-do-plugins:
+gnome-do-plugins: GNOME Do! allows you to quickly search for many items present in 
+gnome-do-plugins: your GNOME desktop environment (applications, evolution contacts, 
+gnome-do-plugins: Firefox bookmarks, files, artists and albums in Rhythmbox, Pidgin 
+gnome-do-plugins: buddies, etc.) and perform commonly used actions on those items 
+gnome-do-plugins: (Run, Open, Email, Chat, Play, etc.).
+gnome-do-plugins:
+gnome-do-plugins: This package contains extra plugins for GNOME Do!
+gnome-do-plugins:
+gnome-do-plugins:
