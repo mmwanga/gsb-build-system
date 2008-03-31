@@ -21,6 +21,7 @@ SECTIONS="${GSB_SECTIONS:-	tools
 				desktop
 				applications
 				accessibility
+                                administration
 				bindings
 				office
 				mono
