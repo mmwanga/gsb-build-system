@@ -1,6 +1,5 @@
-for i in Crux HighContrast HighContrast-SVG HighContrastInverse \
-          HighContrastLargePrintInverse HighContrastLargePrint \
-	LargePrint LowContrast LowContrastLargePrint Mist gnome hicolor
+for i in HighContrast-SVG Crux Mist HighContrast LargePrint HighContrastLargePrint \
+	HighContrastInverse HighContrastLargePrintInverse \
 do
     if [ -e usr/share/icons/$i/icon-theme.cache ]; then
         rm -f usr/share/icons/$i/icon-theme.cache

@@ -1,6 +1,8 @@
 [Desktop Entry]
 Name=Xfce Applications
+Name[hu]=Xfce-alkalmazások
 Comment=XFCE Desktop Applications
+Comment[hu]=Xfce-alkalmazások
 Icon=xfce-mouse.png
 Type=Directory
 Encoding=UTF-8

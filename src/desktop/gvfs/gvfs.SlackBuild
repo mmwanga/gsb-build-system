@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=5
-VERSION=0.2.1
+BUILD=1
+VERSION=0.2.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -166,7 +166,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
   --with-dbus-service-dir=/usr/share/dbus-1/services \
-  --enable-disable \
   --enable-hal \
   --enable-gphoto2 \
   || exit 1

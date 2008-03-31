@@ -11,18 +11,16 @@ function install_file() {
   then
     # We need to make sure to install our version of the file;
     # Move the old versions out of the way.
-    if [ -f $(basename "$1" .new) ];
+    if [ -f "$FILE" ];
     then
-            mv $(basename "$1" .new) $(basename "$1" .new).$(date +%m%d%y);
+            mv "$FILE" "$FILE".old.$(date +%m%d%y);
     fi;
     # Install our new file.
-    mv $1 $(basename "$1" .new)
-
+    mv "$FILE.new" "$FILE"
   else
     rm -f "$FILE.new"
   fi
 }
-
 
 for i in applications preferences settings
 do

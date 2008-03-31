@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=4
 VERSION=2.22.0
 
 ## List any packages here that are required to build this package.
@@ -118,7 +118,7 @@ fi
 # This patch addes "Exclude" sections to the applications.menu
 # to avoid KDE items in the GNOME menu, and also subordinates 
 # openoffice and xfce with merged menu entries
-patch -p0 < $CWD/patches/gnome-menus-2.20.3-submenus.patch || exit 1
+patch -p0 < $CWD/patches/gnome-menus-2.22.0-submenus.patch || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .

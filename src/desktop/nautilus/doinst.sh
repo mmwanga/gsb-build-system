@@ -1,3 +1,9 @@
+# Make sure xfce thunar doesn't steal our job
+if [ -f usr/share/applications/Thunar-folder-handler.desktop ]; then
+  echo "Disabling Thunar GNOME folder handling."
+  mv -f usr/share/applications/Thunar-folder-handler.desktop usr/share/applications/Thunar-folder-handler.desktop.disabled
+fi;
+
 if [ -x usr/bin/rarian-sk-update ]; then
   usr/bin/rarian-sk-update 1> /dev/null 2> /dev/null
 fi

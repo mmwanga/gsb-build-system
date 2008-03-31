@@ -8,5 +8,7 @@
        <Filename>Thunar-bulk-rename.desktop</Filename>
        <Filename>xfcalendar.desktop</Filename>
        <Filename>Terminal.desktop</Filename>
+       <Filename>ristretto.desktop</Filename>
+       <Filename>xfbib.desktop</Filename>
     </Include>
 </Menu>
