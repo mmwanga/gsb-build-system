@@ -31,3 +31,4 @@
 --with-system-cairo
 --with-system-db
 --with-system-sndfile
+--with-binsuffix=2.4

@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=2.4.0.3.2
 
 ## List any packages here that are required to build this package.
@@ -16,7 +16,7 @@ VERSION=2.4.0.3.2
 if [ "$ARCH" = "x86_64" ]; then
   REQUIRED_PACKAGES="gtk+2 libgnomeui neon libsndfile gnome-vfs boost libgnomeui mozilla-firefox zlib librsvg libjpeg"
 else
-  REQUIRED_PACKAGES="gtk+2 libgnomeui neon libsndfile gnome-vfs boost libgnomeui mozilla-firefox zlib librsvg libjpeg mono jre jdk apache-ant"
+  REQUIRED_PACKAGES="gtk+2 libgnomeui neon libsndfile gnome-vfs boost libgnomeui mozilla-firefox zlib librsvg libjpeg jre jdk apache-ant"
 fi;
 
 
@@ -98,7 +98,7 @@ mkdir -p $PKGDEST
 cd $TMP &&
 # Disabled in case build fails;  ooo-build can
 # resume broken builds.
-#rm -rf $PKGNAME-$VERSION &&
+rm -rf $PKGNAME-$VERSION &&
 tar xzf $CWD/ooo-build-$VERSION.tar.gz &&
 cd ooo-build-$VERSION || exit 1
 
@@ -198,6 +198,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --with-system-neon \
   --enable-gtk \
   --disable-kde \
+  --disable-mono \
   --disable-pam \
   --disable-pam-link \
   --disable-post-install-scripts \
@@ -216,17 +217,19 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## which will be deleted after build is complete.  We want
 ## to keep our sources around :^)
 echo "Copying over sources: "
-for i in mdbtool ooh libw lp_solve oox extras biblio;
+for i in mdbtool ooh libw lp_solve oox extras biblio writerfilter;
 do 
 	cp -v $CWD/$i* ./src 
+	echo $i
 done;
 
 ## Build and Install
 make $MAKE_FLAGS -j1 || exit 1
 cd bin ; 
 OODESTDIR=$PKG ./package-ooo || exit 1
-cd $PKG/usr/$LIBDIR
-ln -s ooo-2.4 ooo
+cd $PKG/usr/$LIBDIR &&
+mv ooo-2.3 ooo-2.4 &&
+ln -s ooo-2.4 ooo 
 
 # Add /usr/share/pixmaps directory and link icons to it
 mkdir -p $PKG/usr/pixmaps
@@ -242,9 +245,9 @@ mkdir -p $PKG/usr/pixmaps
 
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cd $PKG/usr/$LIBDIR/ooo || exit 1
+cd $PKG/usr/$LIBDIR/ooo
 for i in README README.html LICENSE LICENSE.html THIRDPARTYLICENSEREADME.html ; do
-  mv $PKG/usr/$LIBDIR/ooo/$i $PKG/usr/doc/$PKGNAME-$VERSION ;
+  mv -f $PKG/usr/$LIBDIR/ooo/$i $PKG/usr/doc/$PKGNAME-$VERSION ;
 done
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
@@ -270,6 +273,6 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz || exit 1
 
 ## Cleanup
-[ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/ooo-build-$VERSION
-}
+#[ "$NOCLEANUP" = "0" ] && {
+  #rm -rf $PKG $TMP/ooo-build-$VERSION
+#}

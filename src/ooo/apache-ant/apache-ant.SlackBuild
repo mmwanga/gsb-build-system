@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=1.7.0
 
 ## List any packages here that are required to build this package.
@@ -165,7 +165,7 @@ sh ./build.sh dist || exit 1;
 ## Install
 mkdir -p $PKG/usr/lib/apache-ant &&
 mv $TMP/$PKGNAME-$VERSION/$PKGNAME-$VERSION/* $PKG/usr/lib/apache-ant || exit 1
-mkdir $PKG/etc/profile.d &&
+mkdir -p $PKG/etc/profile.d &&
 cp $CWD/profile.d/* $PKG/etc/profile.d || exit 1
 
 ## Strip debugging symbols.
