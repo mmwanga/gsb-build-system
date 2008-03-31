@@ -10,9 +10,7 @@ dbus-python
 libdaemon
 avahi
 XML-Twig
-system-tools-backends
 libbtctl
-liboobs
 gnome-vfs
 libgnome
 gail

@@ -133,12 +133,12 @@ fi;
 ##
 ## Restart dbus (reload avahi info), and start services
 ##
-#if [ -x etc/rc.d/rc.messagebus ]; then
-	#chmod +x etc/rc.d/rc.avahi*;
-	#. etc/rc.d/rc.messagebus restart;
-	#. etc/rc.d/rc.avahidaemon restart;
-	#. etc/rc.d/rc.avahidnsconfd restart;
-#fi;
+if [ -x etc/rc.d/rc.messagebus ]; then
+	chmod +x etc/rc.d/rc.avahi*;
+fi;
 
-# By default, disable avahi at runtime.  Users must enable if they wish.
-chmod -x etc/rc.d/rc.avahi*;
+#By default, disable avahi at runtime.  Users must enable if they wish.
+#chmod -x etc/rc.d/rc.avahi*;
+
+#By default, enable avahi at runtime.  More and more of GNOME is using it
+chmod +x etc/rc.d/rc.avahi*;
