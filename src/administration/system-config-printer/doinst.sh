@@ -1,7 +1,5 @@
 ldconfig -r .
 
-install_file etc/dbus-1/system.d/newprinternotification.conf.new
-
 if [ -x usr/bin/update-desktop-database ]; then
   usr/bin/update-desktop-database 1> /dev/null 2> /dev/null
 fi

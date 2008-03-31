@@ -12,3 +12,6 @@ slapt-update-notifier
 python-ldap
 sabayon
 pessulus
+system-tools-backends
+liboobs
+gnome-system-tools
