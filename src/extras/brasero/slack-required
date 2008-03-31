@@ -1,4 +1,7 @@
 glib2
+cdrtools
+cdrdao
+cdparanoia
 gtk+2
 libgnome
 libgnomeui
@@ -8,3 +11,4 @@ gst-plugins-base
 nautilus-cd-burner
 libxml2
 libnotify
+totem
