@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=1
-VERSION=2.16.1
+BUILD=2
+VERSION=1.0.11.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glib2"
+REQUIRED_PACKAGES="python"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -23,6 +23,7 @@ PKGDEST=${PKGDEST:-$TMP}
 
 ## Script variables.
 PKGNAME=$(basename $0 .SlackBuild)
+SRCNAME=gdata.py
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
@@ -90,7 +91,10 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+rm -rf $SRCNAME-$VERSION &&
+rm -rf $PKGNAME-$VERSION &&
+tar xzf $CWD/$SRCNAME-$VERSION.tar.gz &&
+mv $SRCNAME-$VERSION $PKGNAME-$VERSION &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -154,15 +158,9 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-## Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
-  || exit 1 
 ## Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+python setup.py build &&
+python setup.py install --prefix=/usr --root=$PKG || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -184,8 +182,7 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+cp -a MANIFEST README.txt RELEASE_NOTES.txt \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
@@ -200,7 +197,7 @@ done
 
 ## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/${PKGNAME}-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
