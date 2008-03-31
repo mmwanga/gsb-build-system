@@ -35,12 +35,24 @@ fi
 ## Our Variables
 PG_HOME=/var/lib/pgsql
 PG_USER=postgres
-PG_USER_ID=26
+PG_USER_ID=28
 PG_GROUP=postgres
-PG_GROUP_ID=26
+PG_GROUP_ID=28
 
-groupadd -g $PG_GROUP_ID $PG_GROUP
-useradd -g $PG_GROUP -u $PG_USER_ID -d $PG_HOME -c PostgreSQL $PG_USER
+## If the postgres group doesn't exist, add them:
+if grep "^postgres::" etc/group 1> /dev/null 2> /dev/null ; then
+  true
+else
+  groupadd -g $PG_GROUP_ID $PG_GROUP
+fi
+
+## If the postgres user don't exist, add them:
+if grep "^postgres:x:" etc/passwd 1> /dev/null 2> /dev/null ; then
+  true
+else
+  useradd -g $PG_GROUP -u $PG_USER_ID -d $PG_HOME -c PostgreSQL $PG_USER
+fi
+
 mkdir -p $PG_HOME/data
 
 ## default permissions
