@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=1
-VERSION=svn_3497
+BUILD=2
+VERSION=svn_3509
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -167,6 +167,33 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
   mv -f /usr/share/aclocal/pilot-link.m4 /usr/share/aclocal/pilot-link.m4.old
 }
 
+##
+## This skirts an issue with dbus-glib <= 0.74 not supporting namespaces properly
+## Cf: http://mail.gnome.org/archives/networkmanager-list/2008-March/msg00003.html
+echo "WARNING: Fixing namespaces for $VERSION" ;
+cp $CWD/spec-to-introspect.xsl .
+mkdir introspection-dirty
+mv -f introspection/nm-*.xml introspection-dirty
+for i in introspection-dirty/*.xml
+do
+  xsltproc spec-to-introspect.xsl $i \
+  | perl -pe '$$hash = chr(35);s{xmlns:tp="http://telepathy\.freedesktop\.org/wiki/DbusSpec$${hash}extensions-v0"} {}g' \
+  >  introspection/$(basename $i)
+done
+
+CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+  ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --disable-static --enable-shared \
+  --with-distro=slackware \
+  --with-mdns-provider=avahi \
+  --with-ip=/sbin/ip \
+  --with-dbus-sys=/etc/dbus-1/system.d \
+  --enable-notification-icon \
+  || exit 1
+
+make -j4 
+
 ## We use the NetworkManager tree, but we only need to build from
 ## within the vpn-daemons tree for the extentions.
 
@@ -174,6 +201,7 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 cd vpn-daemons ;
 
 ## We could also add in 'pptp' but it seems broken at the moment
+#for i in pptp openvpn vpnc ;
 for i in openvpn vpnc ;
 
 do 
@@ -200,19 +228,24 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make &&
 make DESTDIR=$PKG install || exit 1
 
-mkdir -p $PKG/etc/dbus-1/system.d ;
-mkdir -p $PKG/etc/NetworkManager/VPN ;
-mkdir -p $PKG/usr/share/applications ;
-mkdir -p $PKG/usr/share/icons/gnome/48x48/mimetypes ;
-mkdir -p $PKG/usr/share/doc/$PKGNAME-$VERSION/$i
+## Fix missing automake stuff 
+for i in $PKG/etc/NetworkManager/VPN/*.name ;
+do 
+  sed -i "s:@PREFIX@:/usr:g" $i;
+  sed -i "s:\${LIB}:lib:g" $i; 
+done;
+#mkdir -p $PKG/etc/dbus-1/system.d ;
+#mkdir -p $PKG/etc/NetworkManager/VPN ;
+#mkdir -p $PKG/usr/share/applications ;
+#mkdir -p $PKG/usr/share/icons/gnome/48x48/mimetypes ;
+#mkdir -p $PKG/usr/share/doc/$PKGNAME-$VERSION/$i
 
-mv $PKG/etc/dbus-1/system.d/nm-$i-service.conf $PKG/etc/dbus-1/system.d/nm-$i-service.conf.new ;
-cp nm-$i-service.name $PKG/etc/NetworkManager/VPN ;
-cp nm-$i.desktop $PKG/usr/share/applications ;
-cp gnome-mime-application-x-$i-settings.png $PKG/usr/share/icons/gnome/48x48/mimetypes ;
-
-cp README $PKG/usr/share/doc/$PKGNAME-$VERSION/$i
-cp doc/* $PKG/usr/share/doc/$PKGNAME-$VERSION/$i
+#cp nm-$i-service.name $PKG/etc/NetworkManager/VPN ;
+#cp nm-$i.desktop $PKG/usr/share/applications ;
+#cp gnome-mime-application-x-$i-settings.png $PKG/usr/share/icons/gnome/48x48/mimetypes ;
+#
+#cp README $PKG/usr/share/doc/$PKGNAME-$VERSION/$i
+#cp doc/* $PKG/usr/share/doc/$PKGNAME-$VERSION/$i
 
 )
 

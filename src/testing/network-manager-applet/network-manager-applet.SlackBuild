@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=1
-VERSION=svn_604
+BUILD=3
+VERSION=svn_616
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -184,7 +184,7 @@ make DESTDIR=$PKG install || exit 1
 }
 
 ## Preserve previous settings
-mv $PKG/etc/dbus-1/system.d/nm-applet.conf $PKG/etc/dbus-1/system.d/nm-applet.conf.new
+mv $PKG/etc/dbus-1/system.d/nm-applet.conf $PKG/etc/dbus-1/system.d/nm-applet.conf
 mkdir -p $PKG/usr/share/applications
 # Disable nm-applet autostart
 mv $PKG/etc/xdg/autostart/nm-applet.desktop $PKG/usr/share/applications
@@ -193,7 +193,7 @@ echo "Categories=Network" >> $PKG/usr/share/applications/nm-applet.desktop
 
 ## Fix for Slackware non-PAM system.
 ## Users now can add themselves to the "netdev" group to use networkmanager.
-sed -i "s/at_console=\"true\"/group=\"netdev\"/g" $PKG/etc/dbus-1/system.d/nm-applet.conf.new
+sed -i "s/at_console=\"true\"/group=\"netdev\"/g" $PKG/etc/dbus-1/system.d/nm-applet.conf
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

@@ -1,9 +1,4 @@
 ldconfig -r .
-
-##
-## Configuration Preservation
-##
-
 function install_file() {
   # $1 = File to process
 
@@ -13,11 +8,14 @@ function install_file() {
     mv "$FILE.new" "$FILE"
   elif [ "$(cat "$FILE" | md5sum)" != "$(cat "$FILE.new" | md5sum)" ]
   then
-    #     |--------|--------------------------------------------------|
-    echo "WARNING: $FILE has been customised."
-    echo "         Examine the $FILE.new file"
-    echo "         and integrate any changes into the custom file."
-    echo
+    # We need to make sure to install our version of the file;
+    # Move the old versions out of the way.
+    if [ -f "$FILE" ];
+    then
+            mv "$FILE" "$FILE".old.$(date +%m%d%y);
+    fi;
+    # Install our new file.
+    mv "$FILE.new" "$FILE"
   else
     rm -f "$FILE.new"
   fi
@@ -26,23 +24,18 @@ function install_file() {
 install_file etc/rc.d/rc.networkmanager.new
 install_file etc/rc.d/rc.networkmanager-dispatcher.new
 
-##
 ## If rc.local doesn't exist, create it
-##
 if [ ! -e etc/rc.d/rc.local ]; then
 	echo "#!/bin/sh" > etc/rc.d/rc.local
 	chmod 755 etc/rc.d/rc.local
 fi
 
-##
 ## If rc.local_shutdown doesn't exist, create it
-##
 if [ ! -e etc/rc.d/rc.local_shutdown ]; then
 	echo "#!/bin/sh" > etc/rc.d/rc.local_shutdown
 	chmod 755 etc/rc.d/rc.local_shutdown
 fi
 	
-##
 ## If the netdev group don't exist, add them:
 ## 
 if grep "^netdev::" etc/group 1> /dev/null 2> /dev/null ; then

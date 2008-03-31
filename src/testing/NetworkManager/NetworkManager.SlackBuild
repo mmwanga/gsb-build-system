@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=svn_3497
+VERSION=svn_3509
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -201,14 +201,18 @@ mkdir introspection-dirty
 mv -f introspection/nm-*.xml introspection-dirty
 for i in introspection-dirty/*.xml
 do
-	xsltproc spec-to-introspect.xsl $i \
-	  | perl -pe '$$hash = chr(35);s{xmlns:tp="http://telepathy\.freedesktop\.org/wiki/DbusSpec$${hash}extensions-v0"} {}g' \
-	      >  introspection/$(basename $i)
+  xsltproc spec-to-introspect.xsl $i \
+  | perl -pe '$$hash = chr(35);s{xmlns:tp="http://telepathy\.freedesktop\.org/wiki/DbusSpec$${hash}extensions-v0"} {}g' \
+  >  introspection/$(basename $i)
 done
 
 ## Build and install.
 make &&
 make DESTDIR=$PKG install || exit 1
+
+## Add wpa_supplicant dbus support
+mkdir -p $PKG/usr/share/dbus-1/services &&
+cp $CWD/fi.epitest.hostap.WPASupplicant.service $PKG/usr/share/dbus-1/services || exit 1
 
 ## Restore pilot-link.m4
 [ -f /usr/share/aclocal/pilot-link.m4.old ] && {
@@ -230,14 +234,13 @@ if [ "$ARCH" = "x86_64" ]; then
 fi;
 
 ## Preserve previous settings
-#rm $PKG/etc/rc.d/rc.networkmanager
-#cp $CWD/rc.networkmanager $PKG/etc/rc.d/rc.networkmanager.new
-mv $PKG/etc/rc.d/rc.networkmanager $PKG/etc/rc.d/rc.networkmanager.new
-mv $PKG/etc/rc.d/rc.networkmanager-dispatcher $PKG/etc/rc.d/rc.networkmanager-dispatcher.new
+rm $PKG/etc/rc.d/rc.networkmanager &&
+cp $CWD/rc.networkmanager $PKG/etc/rc.d/rc.networkmanager.new && 
+mv $PKG/etc/rc.d/rc.networkmanager-dispatcher $PKG/etc/rc.d/rc.networkmanager-dispatcher.new || exit 1
 
 ## Fix for Slackware non-PAM system.
 ## Users now can add themselves to the "netdev" group to use networkmanager.
-sed -i "s/at_console=\"true\"/group=\"netdev\"/g" $PKG/etc/dbus-1/system.d/NetworkManager.conf.new
+sed -i "s/at_console=\"true\"/group=\"netdev\"/g" $PKG/etc/dbus-1/system.d/NetworkManager.conf
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

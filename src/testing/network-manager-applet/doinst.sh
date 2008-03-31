@@ -1,24 +1,3 @@
-function install_file() {
-  # $1 = File to process
-
-  FILE="$(dirname "$1")/$(basename "$1" .new)"
-  if [ ! -e "$FILE" ]
-  then
-    mv "$FILE.new" "$FILE"
-  elif [ "$(cat "$FILE" | md5sum)" != "$(cat "$FILE.new" | md5sum)" ]
-  then
-    #     |--------|--------------------------------------------------|
-    echo "WARNING: $FILE has been customised."
-    echo "         Examine the $FILE.new file"
-    echo "         and integrate any changes into the custom file."
-    echo
-  else
-    rm -f "$FILE.new"
-  fi
-}
-
-install_file etc/dbus-1/system.d/nm-applet.conf.new
-
 if [ -x usr/bin/rarian-sk-update ]; then
   usr/bin/rarian-sk-update 1> /dev/null 2> /dev/null
 fi
@@ -32,15 +11,7 @@ if [ -e usr/share/icons/hicolor/icon-theme.cache ]; then
 fi
 usr/bin/gtk-update-icon-cache -f -q usr/share/icons/hicolor
 
-##
-## Restart dbus (reload NetworkManager applet info)
-##
-#if [ -x etc/rc.d/rc.messagebus ]; then
-    #. etc/rc.d/rc.messagebus restart;
-#fi;
-
 cat << EOF
-
 You will need to restart the dbus message system in order to load the new
 network-manager-applet settings.
 EOF
