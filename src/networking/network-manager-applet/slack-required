@@ -1,0 +1,10 @@
+gnome-panel
+NetworkManager
+glib2
+gtk+2
+libglade
+GConf
+gnome-keyring
+libnotify
+libgnomeui
+wireless-tools
