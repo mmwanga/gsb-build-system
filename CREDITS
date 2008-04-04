@@ -21,6 +21,10 @@ Gpl_Source			<fernando.flores.ortiz (at) gmail.com>
 
 Contributors
 ------------
+
+Ariszlo                         <ariszlo (at) gmail.com>
+  * GSB Menus (patched for XFCE and KDE items)
+
 Chris Lewis			<burn03 (at) bellsouth.net>
   * GWARE 02/16/2005
   * rc.howl and krb5 build scripts

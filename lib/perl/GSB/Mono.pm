@@ -18,6 +18,8 @@ our %mono_gnome =
    'evolution-sharp' => '0.16.0',
    'f-spot'          => '0.4.2',
    'tomboy'          => '0.10.0',
+   'gtk-sharp'       => '2.12.0',
+   'gnome-sharp'     => '2.20.0',
    );
 
 our %mono=
@@ -32,16 +34,6 @@ our %mono=
 				'url' => 'http://go-mono.com/sources/gecko-sharp2/',
 				'src' => 'tar.bz2',
 			    },
-   'gnome-sharp'        => {
-				'ver' => '2.16.1',
-				'url' => 'http://go-mono.com/sources/gnome-sharp2/',
-				'src' => 'tar.gz',
-			       },
-   'gtk-sharp'              => {
-				'ver' => '2.10.4',
-				'url' => 'http://go-mono.com/sources/gtk-sharp210/',
-				'src' => 'tar.bz2',
-			       },
    'gtksourceview-sharp' => {
 				 'ver' => '2.0-0.12',
 				 'url' => 'http://go-mono.com/sources/gtksourceview-sharp-2.0/',

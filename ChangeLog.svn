@@ -1,6 +1,16 @@
 ChangeLog
 ---------
 
+04-04-2008 fidesratio <sk238(at)ex.ac.uk>               
+    * Bumped glom to 1.6.12
+    * Bumped glib2 to 2.16.2
+    * Bumped gtkmm to 2.12.7
+    * Fixed openal for gcc scope compile problem
+    * Bumped gnome-user-share to 0.30
+    * Bumped gtk-sharp to 2.12
+    * Bumped gnome-themes-extras to 2.22.0
+    * Moved network-manager et alias to "networking" section
+
 31-03-2008 fidesratio <sk238(at)ex.ac.uk>               
     * s-t-b no longer needs an rc.stb with dbus > 1.1. So disabled.
 

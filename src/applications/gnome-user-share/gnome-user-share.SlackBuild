@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=4
-VERSION=0.22
+BUILD=1
+VERSION=0.30
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -138,6 +138,7 @@ elif [ "$ARCH" = "i586" ]; then
 elif [ "$ARCH" = "i686" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
 elif [ "$ARCH" = "x86_64" ]; then
+  LIBDIR=lib64
   if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -fPIC"}
   else
@@ -153,6 +154,7 @@ else
 fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
+LIBDIR=${LIBDIR:-"lib"}
 
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
@@ -161,23 +163,12 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static --enable-shared \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
+  --with-modules-path=/usr/${LIBDIR}/httpd/modules/ \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
 make DESTDIR=$PKG install || exit 1
-
-## Modify for Slackware locations
-for i in dav_user_2.0.conf dav_user_2.2.conf;
-do 
-  sed -i "s:etc/httpd/modules:usr/lib/httpd/modules:g" \
-     $PKG/usr/share/gnome-user-share/$i;
-done;
-
-
-## Preserve settings
-mv $PKG/usr/share/gnome-user-share/dav_user_2.0.conf $PKG/usr/share/gnome-user-share/dav_user_2.0.conf.new
-mv $PKG/usr/share/gnome-user-share/dav_user_2.2.conf $PKG/usr/share/gnome-user-share/dav_user_2.2.conf.new
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

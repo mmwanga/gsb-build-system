@@ -296,13 +296,12 @@ our %libraries_gnome =
   (
    'libcroco'          => '0.6.1',
    'libsigc++'         => '2.2.2',
-   'libglade'         =>  '2.6.2',
   );
 
 our %libraries_diff_naming =
   (
    'glib2'  => {
-		'ver'  => '2.16.1',
+		'ver'  => '2.16.2',
 		'name' => 'glib',
 	       },
   );

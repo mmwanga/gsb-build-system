@@ -28,8 +28,9 @@ SECTIONS="${GSB_SECTIONS:-	tools
 				extras
 				themes
 				compiz
-				meta
+				networking
 				ooo
+				meta
 				testing	}"
 
 # Usage.

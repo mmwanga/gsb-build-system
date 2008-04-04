@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=3
+BUILD=4
 VERSION=2.4.0.3.2
 
 ## List any packages here that are required to build this package.
@@ -98,7 +98,7 @@ mkdir -p $PKGDEST
 cd $TMP &&
 # Disabled in case build fails;  ooo-build can
 # resume broken builds.
-rm -rf $PKGNAME-$VERSION &&
+#rm -rf $PKGNAME-$VERSION &&
 tar xzf $CWD/ooo-build-$VERSION.tar.gz &&
 cd ooo-build-$VERSION || exit 1
 
@@ -227,9 +227,21 @@ done;
 make $MAKE_FLAGS -j1 || exit 1
 cd bin ; 
 OODESTDIR=$PKG ./package-ooo || exit 1
-cd $PKG/usr/$LIBDIR &&
-mv ooo-2.3 ooo-2.4 &&
-ln -s ooo-2.4 ooo 
+
+## Prepare our package
+cd $PKG/usr/$LIBDIR ;
+if [ -d ooo-2.3 ]; then
+  mv ooo-2.3 ooo-2.4 ;
+fi;
+if [ -d ooo-2.4 ]; then
+  ln -fs ooo-2.4 ooo 
+fi;
+
+## Fix any misnomers in the scripts
+for i in $PKG/usr/bin/oo* ;
+do 
+	sed -i "s:ooo-2.3:ooo-2.4:g" $i;
+done;
 
 # Add /usr/share/pixmaps directory and link icons to it
 mkdir -p $PKG/usr/pixmaps

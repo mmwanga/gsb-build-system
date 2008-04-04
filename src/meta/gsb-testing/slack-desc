@@ -1,0 +1,11 @@
+            |-----handy-ruler------------------------------------------------------|
+gsb-testing: gsb-testing (GNOME SlackBuild Testing Packages)
+gsb-testing: 
+gsb-testing: GNOME SlackBuild is a complete GNOME Desktop Environment for Slackware
+gsb-testing: Linux, encompassing all the needed packages for a full, clean
+gsb-testing: installation of GNOME for Slackware, or Slackware based systems.
+gsb-testing: 
+gsb-testing: This package is a metapackage for the testing packages provided by the
+gsb-testing: GNOME SlackBuild Project. For more details, please see
+gsb-testing: http://gnomeslackbuild.org/software/
+gsb-testing: 

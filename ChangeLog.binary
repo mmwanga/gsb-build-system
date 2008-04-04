@@ -1,6 +1,18 @@
+Fri Apr 04 18:11:19 GMT 2008
+libraries/glib-2.16.2-i586-1gsb.tgz: Upgraded.
+applications/gnome-user-share-0.30-i586-1gsb: Upgraded.
+bindings/gtkmm-2.12.7-i586-1gsb: Upgraded.
+mono/gtk-sharp-2.12.0-i586-1gsb: Upgraded.
+office/glom-1.6.12-i586-1gsb: Upgraded.
+mono/gnome-sharp-2.20.0-i586-1gsb: Upgraded.
+themes/gnome-themes-extras-2.22.0-noarch-1gsb: Upgraded.
++--------------------------+
 Mon Mar 31 11:46:32 GMT 2008
 administration/gslapt-0.4.0-i586-1gsb.tgz: Upgraded.
 office/glom-1.6.11-i586-1gsb.tgz: Upgraded.
+office/openoffice-2.4.0.3.2-i586-4gsb.tgz: Repackaged.
+	Scripts in /usr/bin were incorrectly configured, pointing
+	to /usr/lib/ooo-2.3 rather than 2.4.
 administration/system-tools-backends-2.6.0-i586-3gsb.  Rebuilt.
 	With dbus > 1.1 this package no longer needs an rc.stb
 	as the dbus system now properly starts it up when 

@@ -16,7 +16,7 @@ our $VERSION   = 0.03;
 # GNOME Supplies Themes
 our %gnome_themes =
   (
-   'gnome-themes-extras'  => '2.20',
+   'gnome-themes-extras'  => '2.22.0',
   );
 
 # Extra Themes of regular naming convention
