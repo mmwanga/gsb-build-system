@@ -1,0 +1,12 @@
+    |-----handy-ruler------------------------------------------------------|
+gegl: gegl (Generic Graphics Library)
+gegl:
+gegl: GEGL (Generic Graphics Library) is a graph based image processing 
+gegl: framework.  GEGL's original design was made to scratch GIMP's itches 
+gegl: for a new compositing and processing core. This core is being designed 
+gegl: to have minimal dependencies. and a simple well defined API.
+gegl:
+gegl: GEGL is used by applications such as GNOME Scan.
+gegl:
+gegl:
+gegl:

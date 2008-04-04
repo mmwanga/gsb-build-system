@@ -53,8 +53,14 @@ libgalago
 libsigc++
 id3lib
 openal
+freealut
 sg3_utils
 libtasn1
 libarchive
 transcode
 libatomic_ops
+graphviz
+ilmbase
+openexr
+babl
+gegl

@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=4
-VERSION=0.0.8
+VERSION=2.18
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="sdl"
+REQUIRED_PACKAGES="lua python perl ruby tcl libgsf"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -90,7 +90,6 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-rm -rf $PKGNAME-$VERSION &&
 tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
@@ -114,9 +113,6 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
-
-## Patch to fix broken scope in header
-patch -p0 < $CWD/patches/alc.gcc-scope.patch || exit 1;
 
 ## Fix permissions for building.
 chown -R root.root .
@@ -162,13 +158,27 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --enable-static --enable-shared \
-  --program-prefix="" \
+  --disable-static --enable-shared \
+  --enable-lua \
+  --enable-tcl \
+  --enable-perl \
+  --enable-ruby \
+  --enable-python \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+##
+## arith.h 
+## Graphviz forgets to install one of its header file strangely.  :^)
+##
+cp $TMP/$PKGNAME-$VERSION/lib/common/arith.h $PKG/usr/include/graphviz
+
+## Clean up extraneous files on /
+rm -fr $PKG/gv.so
+rm -fr $PKG/gv.pm
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
