@@ -83,6 +83,16 @@ our %libraries =
 			   'url' => 'http://people.freebsd.org/~kientzle/libarchive/src',
 			   'src' => 'tar.gz',
 			  },
+   'libdiscid'        => {
+			   'ver' => '0.1.1',
+			   'url' => 'http://users.musicbrainz.org/~matt',
+			   'src' => 'tar.gz',
+			  },
+   'libmusicbrainz'        => {
+			   'ver' => '2.1.5',
+			   'url' => 'http://ftp.musicbrainz.org/pub/musicbrainz',
+			   'src' => 'tar.gz',
+			  },
    'libavc1394'        => {
 			   'ver' => '0.5.3',
 			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libavc1394/',

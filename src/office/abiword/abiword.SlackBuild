@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=4
-VERSION=2.4.6
+BUILD=1
+VERSION=2.6.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 glib2 zlib libpng fribidi expat libxml2 popt aspell enchant fontconfig libglade perl libjpeg gucharmap libbonoboui libgnomeui ORBit2 gnome-vfs freetype libgnomeprintui pango cairo poppler libgnomedb libgda"
+REQUIRED_PACKAGES="gtk+2 glib2 zlib libpng fribidi expat libxml2 popt aspell enchant fontconfig libglade perl libjpeg gucharmap libbonoboui libgnomeui ORBit2 gnome-vfs freetype libgnomeprintui pango cairo poppler imagemagick libgsf libgnomeprintui goffice wv"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -114,9 +114,6 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
-## Patch abiword for 0.6 poppler API
-patch -p0 < $CWD/patches/abiword-poppler-fixes.patch
-
 ## Fix permissions for building.
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
@@ -160,65 +157,24 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 ## Configure.
 
 ## Configure AbiWord
-cd $TMP/$PKGNAME-$VERSION &&
-cd abi &&
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
-  --enable-scripting \
-  --enable-extra-optimization \
-  --enable-enchant \
-  --enable-gnome \
-  --enable-enable-threads \
-  --enable-gucharmap \
-  --with-png=/usr \
-  --with-libxml2 \
-  --with-libwmf=/usr \
   --with-libjpeg-prefix=/usr \
   --with-popt=/usr \
+  --with-zlib=/usr \
+  --with-libpng=/usr \
+  --with-ImageMagick=/usr \
+  --enable-scripting \
+  --enable-extra-optimization \
+  --enable-gnomevfs \
+  --enable-binreloc-threads \
   || exit 1
-
-## Re-configure and Build AbiWord Support Libraries
-cd $TMP/$PKGNAME-$VERSION &&
-cd wv &&
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --enable-shared \
-  --disable-static \
-  --with-png=/usr \
-  --with-libxml2=/usr \
-  --with-glib=/usr \
-  --with-libwmf=/usr \
-  || exit 1;
-
-make || exit 1;
 
 ## Build and install AbiWord
-cd $TMP/$PKGNAME-$VERSION &&
-cd abi &&
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-## Build and install AbiWord Plugins
-cd $TMP/$PKGNAME-$VERSION &&
-cd abiword-plugins &&
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --enable-all \
-  --enable-gnome \
-  --without-gda \
-  --enable-shared \
-  --disable-static \
-  || exit 1
-
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-## Return to main build directory
-cd $TMP/$PKGNAME-$VERSION || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

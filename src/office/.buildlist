@@ -10,7 +10,11 @@ libgda
 libgnomedb
 libgsf
 goffice
+wv
 abiword
+abiword-plugins
+abiword-extras
+abiword-docs
 psiconv
 gnumeric
 gtkspell

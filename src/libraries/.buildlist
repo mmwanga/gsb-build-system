@@ -5,6 +5,8 @@ libelf
 libnotify
 libgc
 a52dec
+libdiscid
+libmusicbrainz
 yasm
 x264
 xvidcore

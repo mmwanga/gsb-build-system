@@ -6,14 +6,13 @@
 ## Licenced under the terms of the GNU General Public Licence version 3.
 ##
 
-## Package variables
-BUILD=4
-VERSION=2.6.0
+## Package variables.
+BUILD=1
+VERSION=0.1.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-
-REQUIRED_PACKAGES="dbus perl XML-Twig"
+REQUIRED_PACKAGES=""
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -91,7 +90,8 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+rm -rf $PKGNAME-$VERSION &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -165,13 +165,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-## 
-## Preserve previous configuration
-##
-#mkdir -p $PKG/etc/rc.d
-#cp $CWD/rc.stb $PKG/etc/rc.d/rc.stb.new
-#mv $PKG/etc/dbus-1/system.d/system-tools-backends.conf $PKG/etc/dbus-1/system.d/system-tools-backends.conf.new
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

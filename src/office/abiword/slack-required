@@ -24,3 +24,5 @@ pango
 cairo
 libgnomedb
 libgda
+gnomescan
+wv

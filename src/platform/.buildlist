@@ -6,7 +6,6 @@ libbonobo
 GConf
 gnome-mime-data
 pyorbit
-dbus-python
 libdaemon
 avahi
 XML-Twig
@@ -16,7 +15,6 @@ libgnome
 gail
 libgnomecanvas
 libbonoboui
-XML-Simple
 gnome-keyring
 pulseaudio
 alsa-plugins

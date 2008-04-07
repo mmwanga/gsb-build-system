@@ -20,7 +20,7 @@ our %office_gnome =
    'dia'       => '0.96.1',
    'gdl'       => '0.7.11',
    'glade3'      => '3.4.3',
-   'glom'      => '1.6.12',
+   'glom'      => '1.6.13',
    'gnome-build' => '0.2.4',
    'gnome-python-extras'  => '2.19.1',
    'goffice'   => '0.6.2',
@@ -33,8 +33,23 @@ our %office_gnome =
 our %office =
   (
    'abiword' => {
-		 'url' => 'http://www.abisource.com/downloads/abiword/2.4.6/source/',
-		 'ver' => '2.4.6',
+		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.2/source/',
+		 'ver' => '2.6.2',
+		 'src' => 'tar.gz'
+		},
+   'abiword-docs' => {
+		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.2/source/',
+		 'ver' => '2.6.2',
+		 'src' => 'tar.gz'
+		},
+   'abiword-extras' => {
+		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.2/source/',
+		 'ver' => '2.6.2',
+		 'src' => 'tar.gz'
+		},
+   'abiword-plugins' => {
+		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.2/source/',
+		 'ver' => '2.6.2',
 		 'src' => 'tar.gz'
 		},
    'anjuta'              => {
@@ -113,7 +128,7 @@ our %office =
                    'src' => 'tar.gz',
                   },
    'liferea'             => {
-			     'ver' => '1.5.0',
+			     'ver' => '1.5.1',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/liferea/',
 			     'src' => 'tar.gz',
 			    },
@@ -136,6 +151,11 @@ our %office =
 			     'ver' => '0.6.6',
 			     'url' => 'http://www.gnome.org/~jamiemcc/tracker/',
 			     'src' => 'tar.bz2',
+			    },
+   'wv'              => {
+			     'ver' => '1.2.4',
+			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/wvware/',
+			     'src' => 'tar.gz',
 			    },
 
   );

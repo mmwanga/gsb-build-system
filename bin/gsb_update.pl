@@ -1165,7 +1165,7 @@ foreach my $testingsvnpackage (keys %testing_svn) {
   my $sb_file = $name . $sb_ext;
   my $ver     = $testing_svn{$name};
 
-  chdir "$pwd/testing/$name";
+  chdir "$pwd/networking/$name";
 
   if ( $edit eq "true" ) {
     GSB::Edit::gsb_sb_edit($sb_file, $ver);

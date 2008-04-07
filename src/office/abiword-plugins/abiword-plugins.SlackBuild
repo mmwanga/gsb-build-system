@@ -6,14 +6,13 @@
 ## Licenced under the terms of the GNU General Public Licence version 3.
 ##
 
-## Package variables
-BUILD=4
-VERSION=2.6.0
+## Package variables.
+BUILD=1
+VERSION=2.6.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-
-REQUIRED_PACKAGES="dbus perl XML-Twig"
+REQUIRED_PACKAGES="abiword gnome-scan boost gtk+2 wv libxml2 libgnomedb goffice"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -91,8 +90,18 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+rm -rf $PKGNAME-$VERSION &&
+rm -fr abiword-$VERSION &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz || exit 1
+## Do we have Abiword source?
+if [ -f $CWD/../abiword/abiword-$VERSION.tar.gz ]; then
+  tar xfz $CWD/../abiword/abiword-$VERSION.tar.gz || exit 1;
+else
+  echo "Can't find AbiWord source in $CWD/../abiword."
+  exit 1;
+fi;
 cd $PKGNAME-$VERSION || exit 1
+
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i386" ]; then
@@ -160,18 +169,13 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
+  --with-abiword=$(pwd)/../abiword-$VERSION \
+  --without-abiscan \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-## 
-## Preserve previous configuration
-##
-#mkdir -p $PKG/etc/rc.d
-#cp $CWD/rc.stb $PKG/etc/rc.d/rc.stb.new
-#mv $PKG/etc/dbus-1/system.d/system-tools-backends.conf $PKG/etc/dbus-1/system.d/system-tools-backends.conf.new
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -213,5 +217,5 @@ makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/$PKGNAME-$VERSION
+  rm -rf $PKG $TMP/${PKGNAME}*-$VERSION 
 }

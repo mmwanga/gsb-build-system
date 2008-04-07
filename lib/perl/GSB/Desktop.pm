@@ -17,7 +17,7 @@ our $VERSION   = 0.03;
 
 our %desktop =
   (
-   'at-spi'                 => '1.22.0',
+   'at-spi'                 => '1.22.1',
    'bug-buddy'              => '2.22.0',
    'eel'                    => '2.22.1',
    'evolution-data-server'  => '2.22.0',
@@ -44,7 +44,7 @@ our %desktop =
    'libgnomekbd'            => '2.22.0',
    'libgnomeprint'          => '2.18.4',
    'libgnomeprintui'        => '2.18.2',
-   'libgtop'                => '2.22.0',
+   'libgtop'                => '2.22.1',
    'libgweather'            => '2.22.0',
    'libwnck'                => '2.22.0',
    'libxklavier'            => '3.4',
@@ -63,7 +63,7 @@ our %desktop_nongnome =
                       'src' => 'tar.gz',
                      },
    'gstreamer'   => {
-                           'ver' => '0.10.18',
+                           'ver' => '0.10.19',
                            'url' => 'http://gstreamer.freedesktop.org/src/gstreamer',
                            'src' => 'tar.bz2',
                           },
@@ -73,7 +73,7 @@ our %desktop_nongnome =
 			   'src' => 'tar.bz2',
 			  },
    'gst-plugins-base'  => {
-                           'ver' => '0.10.18',
+                           'ver' => '0.10.19',
                            'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-base',
                            'src' => 'tar.bz2',
                           },

@@ -70,3 +70,4 @@ gksu
 gdm
 service-discovery-applet
 avahi
+util-linux-ng

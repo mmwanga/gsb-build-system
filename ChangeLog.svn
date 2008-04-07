@@ -1,6 +1,30 @@
 ChangeLog
 ---------
 
+07-04-2008 fidesratio <sk238(at)ex.ac.uk>               
+    * Upgraded to the latest stable release of Abiword.
+    * Bumped gail
+    * Bumped at-spi
+    * Bumped gnome-keyring
+    * Bumped seahorse
+    * Bumped gnome-games
+    * Bumped evolution
+    * Bumped epiphany
+    * Added abiword-plugins, abiword-extras, abiword-docs, wv.
+
+06-04-2008 fidesratio <sk238(at)ex.ac.uk>               
+    * Glom upgraded.
+
+05-04-2008 fidesratio <sk238(at)ex.ac.uk>               
+    * Upgraded to gstreamer 0.10.19 + gst-plugins-base 0.10.19 (fix
+    regression)
+    * Upgraded to liferea 1.5.1
+    * Upgraded to libgtop 2.22.1
+    * Removed dbus-python.  Now provided by Slackware.
+    * Removed XML-Simple-2.18-i586-3gsb.  Now provided by Slackware in perl
+    package.
+    * Added libdiscid and libmusicbrainz
+
 04-04-2008 fidesratio <sk238(at)ex.ac.uk>               
     * Bumped glom to 1.6.12
     * Bumped glib2 to 2.16.2

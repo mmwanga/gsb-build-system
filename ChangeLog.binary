@@ -1,3 +1,49 @@
+Mon Apr 07 18:59:01 GMT 2008
+office/abiword-2.6.2-i586-1gsb.tgz: Upgraded.
+  Upgraded to the latest stable release of Abiword.
+  Its plugins and docs now come as separate packages,
+  as does extra dictionaries, clipart, templates, etc
+  in the abiword-extras package.
+office/abiword-plugins-2.6.2-i586-1gsb.tgz: Added.
+office/abiword-extras-2.6.2-i586-1gsb.tgz: Added.
+office/abiword-docs-2.6.2-i586-1gsb.tgz: Added.
+office/wv-1.2.4-i586-1gsb.tgz: Added.
+  For support for Microsoft documents in Abiword.
+desktop/gail-1.22.1-i586-1gsb.tgz: Upgraded.
+platform/at-spi-1.22.1-i586-1gsb.tgz: Upgraded.
+platform/gnome-keyring-2.22.1-i586-1gsb.tgz: Upgraded.
+applications/seahorse-2.22.1-i586-1gsb.tgz: Upgraded.
+applications/gnome-games-2.22.1-i586-1gsb.tgz: Upgraded.
+applications/evolution-2.22.1-i586-1gsb.tgz: Upgraded.
+applications/epiphany-2.22.1-i586-1gsb.tgz: Upgraded.
+applications/epiphany-extensions-2.22.1-i586-1gsb.tgz: Upgraded.
++--------------------------+
+Sat Apr 05 11:20:48 GMT 2008
+office/glom-1.6.13-i586-1gsb: Upgraded.
++--------------------------+
+Sat Apr 05 11:20:48 GMT 2008
+platform/dbus-python-0.82.4-i586-2gsb: Removed.
+  This is now supplied by Slackware's dbus-python package.
+desktop/gstreamer-0.10.19-i586-1gsb.tgz: Upgraded.
+office/liferea-1.5.1-i586-1gsb.tgz: Upgraded.
+desktop/gst-plugins-base-0.10.19-i586-1gsb.tgz: Upgraded.
+desktop/libgtop-2.22.1-i586-1gsb.tgz: Upgraded.
+platform/XML-Simple-2.18-i586-3gsb: Removed.
+  This is now supplied by Slackware's perl package.
+libraries/libdiscid-0.1.1-i586-1gsb.tgz: Added.
+  Required for libmusicbrainz.
+libraries/libmusicbrainz-2.1.5-i586-1gsb.tgz: Added.
+  This is no longer supplied by Slackware.
+administration/system-tools-backends-2.6.0-i586-4gsb.tgz: Recompiled.
+desktop/nautilus-2.22.1-i586-2gsb.tgz: Recompiled.
+  Note: This now requires the util-linux-ng package (which replaces
+  the util-linux)
+desktop/gnome-mount-0.8.svn20080225-i586-3gsb.tgz: Recompiled.
+applications/rhythmbox-0.11.5-i586-4gsb.tgz: Recompiled.
+applications/sound-juicer-2.22.0-i586-3gsb.tgz: Recompiled.
+mono/banshee-0.13.2-i586-3gsb.tgz: Recompiled.
+meta/gsb-*-4gsb.tgz: All metapackages updated.
++--------------------------+
 Fri Apr 04 18:11:19 GMT 2008
 libraries/glib-2.16.2-i586-1gsb.tgz: Upgraded.
 applications/gnome-user-share-0.30-i586-1gsb: Upgraded.
@@ -6,23 +52,26 @@ mono/gtk-sharp-2.12.0-i586-1gsb: Upgraded.
 office/glom-1.6.12-i586-1gsb: Upgraded.
 mono/gnome-sharp-2.20.0-i586-1gsb: Upgraded.
 themes/gnome-themes-extras-2.22.0-noarch-1gsb: Upgraded.
+networking/NetworkManager-svn_3532-i586-1gsb.tgz: Upgraded.
+networking/NetworkManager-vpn-svn_3532-i586-1gsb.tgz: Upgraded.
+networking/network-manager-applet-svn_649-i586-1gsb.tgz: Upgraded.
 +--------------------------+
 Mon Mar 31 11:46:32 GMT 2008
 administration/gslapt-0.4.0-i586-1gsb.tgz: Upgraded.
 office/glom-1.6.11-i586-1gsb.tgz: Upgraded.
 office/openoffice-2.4.0.3.2-i586-4gsb.tgz: Repackaged.
-	Scripts in /usr/bin were incorrectly configured, pointing
-	to /usr/lib/ooo-2.3 rather than 2.4.
+  Scripts in /usr/bin were incorrectly configured, pointing
+  to /usr/lib/ooo-2.3 rather than 2.4.
 administration/system-tools-backends-2.6.0-i586-3gsb.  Rebuilt.
-	With dbus > 1.1 this package no longer needs an rc.stb
-	as the dbus system now properly starts it up when 
-	requested. If an rc.stb exists in /etc/rc.d, it is now
-	"disabled" with chmod -x on installation.
+  With dbus > 1.1 this package no longer needs an rc.stb
+  as the dbus system now properly starts it up when 
+  requested. If an rc.stb exists in /etc/rc.d, it is now
+  "disabled" with chmod -x on installation.
 +--------------------------+
 Sun Mar 30 17:11:56 GMT 2008
 applications/mozilla-firefox-2.0.0.13-i586-1gsb.tgz. 
-	Security fixes. See: 
-	http://www.mozilla.com/en-US/firefox/2.0.0.13/releasenotes/
+  Security fixes. See: 
+  http://www.mozilla.com/en-US/firefox/2.0.0.13/releasenotes/
 applications/epiphany-2.22.0-i586-6gsb.tgz: Recompiled.
 applications/yelp-2.22.0-i586-3gsb.tgz: Recompiled.
 office/devhelp-0.18-i586-3gsb.tgz: Recompiled.
@@ -34,5 +83,5 @@ bindings/glibmm-2.16.1-i586-1gsb.tgz: Upgraded.
 +--------------------------+
 Sun Mar 30 00:28:32 GMT 2008
 * First Public Build Release 
-	GSB 2.22-CURRENT for Slackware-CURRENT.
+  GSB 2.22-CURRENT for Slackware-CURRENT.
 +--------------------------+

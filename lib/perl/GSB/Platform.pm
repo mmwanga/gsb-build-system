@@ -16,10 +16,10 @@ our $VERSION   = 0.03;
 
 our %platform =
   (
-   'gail'                => '1.22.0',
+   'gail'                => '1.22.1',
    'GConf'               => '2.22.0',
    'gnome-common'        => '2.20.0',
-   'gnome-keyring'       => '2.22.0',
+   'gnome-keyring'       => '2.22.1',
    'gnome-mime-data'     => '2.18.0',
    'gnome-vfs'           => '2.22.0',
    'gtk-engines'         => '2.14.0',
@@ -44,11 +44,6 @@ our %platform_reqs =
                              'url' => 'http://www.avahi.org/download',
                              'src' => 'tar.gz',
                             },
-   'dbus-python'         => {
-                             'url' => 'http://dbus.freedesktop.org/releases/dbus-python',
-                             'ver' => '0.82.4',
-                             'src' => 'tar.gz',
-                            },				  
    'libdaemon'           => {
                              'ver' => '0.12',
                              'url' => 'http://0pointer.de/lennart/projects/libdaemon',
@@ -69,11 +64,6 @@ our %platform_reqs =
                              'url' => 'http://rarian.freedesktop.org/Releases',
                              'src' => 'tar.bz2',
                             },
-   'XML-Simple'      => {
-	                 'url' => 'http://search.cpan.org/CPAN/authors/id/G/GR/GRANTM',
-                         'ver' => '2.18',
-                         'src' => 'tar.gz', 
-                        },
    'XML-Twig'      => {
 	                 'url' => 'http://xmltwig.com/xmltwig',
                          'ver' => '3.32',
