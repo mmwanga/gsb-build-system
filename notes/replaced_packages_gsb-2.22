@@ -1,24 +1,24 @@
-# THIS IS THE REQUIRED PACKAGES LIST FOR GSB GNOME 2.22.0-CURRENT
+# THIS IS THE REQUIRED PACKAGES LIST FOR GSB GNOME 2.22.1-CURRENT
 #
 # The following is a list of packages that can replace official Slackware packages.
 #
 # Packages listed under 'Required' must be upgraded in order to use 
-# GNOME 2.22.0-current on Slackware 12-CURRENT (and Slackware 12.1)
+# GNOME 2.22.1-current on Slackware 12-CURRENT (and Slackware 12.1)
 # Reasons for their upgrade are given within brackets.
 #
 # Packages listed under 'Optional' are packages which replace official Slackware 
 # packages, but are only necessary for added functionality, or optional GNOME 
 # applications.  Notes are provided in brackets.
 #
-# List last updated: April 4th, 2008 (steve)
+# List last updated: April 13th, 2008 (steve)
 #
 
 *****************************************************
-NOTE: Slackware-CURRENT is required for GNOME 2.22.0
-* Hal >= 0.5.10 is required by gvfs, and in turn Nautilus 2.22.0
+NOTE: Slackware-CURRENT is required for GNOME 2.22.1
+* Hal >= 0.5.10 is required by gvfs, and in turn Nautilus 2.22.1
 *****************************************************
 
--- Required Updates for GNOME 2.22.0 on Slackware-CURRENT --
+-- Required Updates for GNOME 2.22.1 on Slackware-CURRENT --
 
 glib2:            ( > 2.15 required by libgnome 2.22 and gvfs 0.2.1, ie, nautilus 2.22)
 libwnck:          ( > 2.22 required by metacity 2.22, and GNOME 2.22 at large)
@@ -26,5 +26,5 @@ libwnck:          ( > 2.22 required by metacity 2.22, and GNOME 2.22 at large)
 -- Optional Updates (for optional applications) 
 
 mozilla-firefox:  (Rebuild for shared libraries needed by: Epiphany, Yelp, GNOME Python, DevHelp)
-compiz-fusion:    (Slackware-CURRENT comes with compiz 0.7.2, compiz-fusion is cooler though)
+compiz-fusion:    (Slackware-CURRENT comes with compiz 0.7.4, compiz-fusion is cooler though)
 libgsf:           (Slackware's libgsf lacks GNOME support; required for GNOME Office applications)
