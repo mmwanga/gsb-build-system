@@ -22,7 +22,7 @@ ccsm
 cdparanoia
 cdrtools
 cheese
-compiz
+compiz-fusion | compiz
 compiz-bcop
 compiz-fusion-plugins-extra
 compiz-fusion-plugins-main
@@ -130,7 +130,7 @@ libcddb
 libcdio
 libcompizconfig
 libdv
-libdvbpsi4
+libdvbpsi5
 libdvdcss
 libdvdread
 libebml
@@ -171,7 +171,6 @@ libxml++
 libxml2
 libxslt
 liferea
-mac4lin
 mesa
 metacity
 mjpegtools
@@ -243,3 +242,4 @@ NetworkManager
 NetworkManager-vpn
 vinagre
 vino
+mac4lin-theme

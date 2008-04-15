@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=svn_3532
+VERSION=svn_3557
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -201,8 +201,8 @@ make -j4
 cd vpn-daemons ;
 
 ## We could also add in 'pptp' but it seems broken at the moment
-#for i in pptp openvpn vpnc ;
-for i in openvpn vpnc ;
+for i in pptp openvpn vpnc ;
+#for i in openvpn vpnc ;
 
 do 
 

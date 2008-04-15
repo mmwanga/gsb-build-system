@@ -109,7 +109,7 @@ elif [ "$ARCH" = "i686" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  #patch -p0 < $CWD/patches/pygtk-slamd64.patch
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
@@ -183,6 +183,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-mono \
   --disable-monodoc \
   --with-distro=slackware \
+  --enable-pygtk \
   --enable-python \
   --enable-python-dbus \
   || exit 1

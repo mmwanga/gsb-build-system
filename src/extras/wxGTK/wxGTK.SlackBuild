@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=4
+BUILD=5
 VERSION=2.8.7
 
 ## List any packages here that are required to build this package.
@@ -169,9 +169,15 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-optimise \
   --with-gnomevfs \
   --with-gnomeprint \
+  --with-stc \
   || exit 1
 
 ## Build and install.
+make &&
+make DESTDIR=$PKG install || exit 1
+
+## Build and Install contrib
+cd contrib &&
 make &&
 make DESTDIR=$PKG install || exit 1
 

@@ -29,4 +29,4 @@ alsa-lib
 glib2
 gtk+2
 openal
-MPlayer-codecs
+mplayer-codecs

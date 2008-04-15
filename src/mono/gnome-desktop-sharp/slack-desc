@@ -1,0 +1,12 @@
+                   |-----handy-ruler------------------------------------------------------|
+gnome-desktop-sharp: gnome-sharp-desktop (Mono C# GNOME Desktop Bindings)
+gnome-desktop-sharp:
+gnome-desktop-sharp: The Mono Project is an open development initiative sponsored by 
+gnome-desktop-sharp: Novell to develop an open source, UNIX version of the Microsoft .NET
+gnome-desktop-sharp: development platform. Its objective is to enable UNIX developers to
+gnome-desktop-sharp: build and deploy cross-platform .NET Applications. 
+gnome-desktop-sharp:
+gnome-desktop-sharp: This package contains Mono Bindings for the GNOME Desktop Platform,
+gnome-desktop-sharp: such as vte, wnck, nautilusburn, rsvg, gtkhtml, and gtksourceview.
+gnome-desktop-sharp:
+gnome-desktop-sharp:

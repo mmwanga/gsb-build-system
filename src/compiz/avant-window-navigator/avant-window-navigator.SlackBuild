@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=0.2.6
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="pygtk pycairo python libxml2 glib2 gtk+2 GConf dbus ORBit2 libgnomeui compiz gnome-vfs"
+REQUIRED_PACKAGES="pygtk pycairo python libxml2 glib2 gtk+2 GConf dbus ORBit2 libgnomeui gnome-vfs"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=4
+BUILD=5
 VERSION=0.0.8
 
 ## List any packages here that are required to build this package.
@@ -169,6 +169,13 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+## Fix up the pkgconfig 
+if [ "$ARCH" = "x86_64" ]; then
+  cat $CWD/patches/openal.pc | sed "s:lib$:lib64:g" > $PKG/usr/lib64/pkgconfig/openal.pc || exit 1
+else
+  cp $CWD/patches/openal.pc $PKG/usr/lib/pkgconfig || exit 1
+fi;
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

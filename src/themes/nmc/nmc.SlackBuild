@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=1.4
 
 ## List any packages here that are required to build this package.
@@ -131,8 +131,9 @@ find . -perm 555 -exec chmod 755 {} \;
 mkdir -p $PKG/usr/bin
 mkdir -p $PKG/usr/share/applications
 mkdir -p $PKG/usr/share/pixmaps 
-
 ./install.sh --prefix $PKG/usr || exit 1
+cd $PKG/usr/share/nmc 
+ln -s ../pixmaps/murrine-configurator.png || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

@@ -11,7 +11,7 @@ libpng
 nautilus
 libtiff
 t1lib
-espgs
+ghostscript
 libgnomeprint
 libgnomeprintui
 cairo

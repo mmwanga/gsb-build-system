@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=2.22.0
+BUILD=1
+VERSION=2.22.1.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gnome-vfs gtk+2 libgnomeui glib2 poppler poppler-data atk freetype GConf libpng nautilus libtiff t1lib espgs libgnomecups libgnomeprint libgnomeprintui cairo pango libbonobo libbonoboui dbus"
+REQUIRED_PACKAGES="gnome-vfs gtk+2 libgnomeui glib2 poppler poppler-data atk freetype GConf libpng nautilus libtiff t1lib ghostscript libgnomecups libgnomeprint libgnomeprintui cairo pango libbonobo libbonoboui dbus"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

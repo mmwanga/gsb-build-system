@@ -6,7 +6,7 @@ gnome-sharp: Novell to develop an open source, UNIX version of the Microsoft .NE
 gnome-sharp: development platform. Its objective is to enable UNIX developers to
 gnome-sharp: build and deploy cross-platform .NET Applications. 
 gnome-sharp:
-gnome-sharp: This package contains Mono Bindings for the GNOME Desktop Platform.
+gnome-sharp: This package contains Mono Bindings for base GNOME functions.
 gnome-sharp:
 gnome-sharp:
 gnome-sharp:

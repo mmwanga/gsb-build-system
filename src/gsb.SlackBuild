@@ -19,10 +19,10 @@ SECTIONS="${GSB_SECTIONS:-	tools
 				libraries
 				platform
 				desktop
+				bindings
 				applications
 				accessibility
                                 administration
-				bindings
 				office
 				mono
 				extras
@@ -251,6 +251,7 @@ mkdir -p $LOGSDIR
   cp ../{COPYING,CREDITS,VERSIONS} $PKGDEST
   cp ../README.binary $PKGDEST/README
   cp ../ChangeLog.binary $PKGDEST/ChangeLog
+  cp ../src/testing/README $PKGDEST/testing
 
   if [ "$NOMETAFILES" = "0" ]; then
     echo

@@ -1,0 +1,11 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: OpenAL
+Description:  OpenAL is a cross-platform 3D audio API.
+Requires: sdl
+Version: 0.0.8
+Libs: -L${libdir} -lopenal
+Cflags: -I${includedir}/AL

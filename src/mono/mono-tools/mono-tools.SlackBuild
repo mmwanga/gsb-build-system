@@ -12,7 +12,7 @@ VERSION=1.9
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="mono monodoc gtk-sharp gecko-sharp"
+REQUIRED_PACKAGES="mono monodoc gtk-sharp gecko-sharp gnome-desktop-sharp"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

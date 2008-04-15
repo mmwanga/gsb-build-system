@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=5
-VERSION=0.7.2
+BUILD=6
+VERSION=0.7.4
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -173,6 +173,9 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-inotify \
   --enable-librsvg \
   --enable-fuse \
+  --enable-place \
+  --enable-gconf \
+  --enable-gnome-keybindings \
   || exit 1
 
 ## Build and install.
