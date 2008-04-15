@@ -30,23 +30,23 @@ our %compiz =
                  'src' => 'tar.gz',
                             },
    'ccsm'              => {
-                 'ver' => '0.7.2',
-                 'url' => 'http://releases.compiz-fusion.org/0.7.2',
+                 'ver' => '0.7.4',
+                 'url' => 'http://releases.compiz-fusion.org/0.7.4',
                  'src' => 'tar.bz2',
                             },
    'compiz-bcop'              => {
-                 'ver' => '0.7.2',
-                 'url' => 'http://releases.compiz-fusion.org/0.7.2',
+                 'ver' => '0.7.4',
+                 'url' => 'http://releases.compiz-fusion.org/0.7.4',
                  'src' => 'tar.bz2',
                             },
    'compiz-fusion-plugins-main'              => {
-                 'ver' => '0.7.2',
-                 'url' => 'http://releases.compiz-fusion.org/0.7.2',
+                 'ver' => '0.7.4',
+                 'url' => 'http://releases.compiz-fusion.org/0.7.4',
                  'src' => 'tar.bz2',
                             },
    'compiz-fusion-plugins-extra'              => {
-                 'ver' => '0.7.2',
-                 'url' => 'http://releases.compiz-fusion.org/0.7.2',
+                 'ver' => '0.7.4',
+                 'url' => 'http://releases.compiz-fusion.org/0.7.4',
                  'src' => 'tar.bz2',
                             },
    'compiz-manager'              => {
@@ -55,23 +55,23 @@ our %compiz =
                  'src' => 'tar.bz2',
                             },
    'compizconfig-backend-gconf'              => {
-                 'ver' => '0.7.2',
-                 'url' => 'http://releases.compiz-fusion.org/0.7.2',
+                 'ver' => '0.7.4',
+                 'url' => 'http://releases.compiz-fusion.org/0.7.4',
                  'src' => 'tar.bz2',
                             },
    'compizconfig-python'              => {
-                 'ver' => '0.7.2',
-                 'url' => 'http://releases.compiz-fusion.org/0.7.2',
+                 'ver' => '0.7.4',
+                 'url' => 'http://releases.compiz-fusion.org/0.7.4',
                  'src' => 'tar.bz2',
                             },
    'emerald'              => {
-                 'ver' => '0.7.2',
-                 'url' => 'http://releases.compiz-fusion.org/0.7.2',
+                 'ver' => '0.7.4',
+                 'url' => 'http://releases.compiz-fusion.org/0.7.4',
                  'src' => 'tar.bz2',
                             },
    'libcompizconfig'              => {
-                 'ver' => '0.7.2',
-                 'url' => 'http://releases.compiz-fusion.org/0.7.2',
+                 'ver' => '0.7.4',
+                 'url' => 'http://releases.compiz-fusion.org/0.7.4',
                  'src' => 'tar.bz2',
                             },
    'sexy-python'              => {

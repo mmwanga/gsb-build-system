@@ -21,7 +21,7 @@ our $VERSION   = 0.03;
 our %extras_gnome =
   (
    'brasero'             => '0.7.1',
-   'ghex'                => '2.8.2',
+   'ghex'                => '2.22.0',
   );
 
 
@@ -92,16 +92,6 @@ our %extras =
 			     'ver' => '1.0.4',
 			     'url' => 'http://www.stafford.uklinux.net/libesmtp',
 			     'src' => 'tar.bz2',
-			    },
-   'libburn'            => {
-			     'ver' => '0.4.2',
-			     'url' => 'http://files.libburnia-project.org/releases',
-			     'src' => 'tar.gz',
-			    },
-   'libisofs'            => {
-			     'ver' => '0.6.2.1',
-			     'url' => 'http://files.libburnia-project.org/releases',
-			     'src' => 'tar.gz',
 			    },
   'MPlayer'            => {
 			     'ver' => '1.0rc2',

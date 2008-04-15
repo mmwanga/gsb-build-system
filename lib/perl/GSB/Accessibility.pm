@@ -15,12 +15,12 @@ our $VERSION   = 0.03;
 
 our %accessibility_gnome =
   (
-   'dasher'                 => '4.6.1',
-   'gnome-mag'              => '0.14.10',
+   'dasher'                 => '4.7.3',
+   'gnome-mag'              => '0.15.0',
    'gnome-speech'           => '0.4.18',
    'gnopernicus'            => '1.1.2',
    'gok'                    => '1.3.7',
-   'orca'                   => '2.22.0',
+   'orca'                   => '2.22.1',
    'libgail-gnome'          => '1.20.0',
    );
 

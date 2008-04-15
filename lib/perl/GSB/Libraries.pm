@@ -311,7 +311,7 @@ our %libraries_gnome =
 our %libraries_diff_naming =
   (
    'glib2'  => {
-		'ver'  => '2.16.2',
+		'ver'  => '2.16.3',
 		'name' => 'glib',
 	       },
   );
@@ -320,7 +320,7 @@ our %libraries_diff_naming =
 our %libraries_svn =
   (
    'gtkunique' => 'svn_13',
-   'ffmpeg'    => 'svn_12572',
+   'ffmpeg'    => 'svn_12807',
   );
 
 #

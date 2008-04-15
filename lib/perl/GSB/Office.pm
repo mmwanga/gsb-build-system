@@ -20,12 +20,12 @@ our %office_gnome =
    'dia'       => '0.96.1',
    'gdl'       => '0.7.11',
    'glade3'      => '3.4.3',
-   'glom'      => '1.6.13',
+   'glom'      => '1.6.14',
    'gnome-build' => '0.2.4',
    'gnome-python-extras'  => '2.19.1',
    'goffice'   => '0.6.2',
    'libgsf'    => '1.14.8',
-   'libgda'    => '3.0.2',
+   'libgda'    => '3.0.4',
    'libgdamm'  => '2.9.82',
    'libgnomedb' => '3.0.0',
   );
@@ -53,7 +53,7 @@ our %office =
 		 'src' => 'tar.gz'
 		},
    'anjuta'              => {
-			     'ver' => '2.4.0',
+			     'ver' => '2.4.1',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/anjuta/',
 			     'src' => 'tar.bz2',
 			    },
@@ -95,11 +95,6 @@ our %office =
    'gnucash-docs'              => {
 			     'ver' => '2.2.0',
 			     'url' => 'http://ftp.at.gnucash.org/pub/gnucash/gnucash/sources/stable/',
-			     'src' => 'tar.gz',
-			    },
-   'gtkspell'            => {
-			     'ver' => '2.0.11',
-			     'url' => 'http://gtkspell.sourceforge.net/download/',
 			     'src' => 'tar.gz',
 			    },
    'gwenhywfar'    => {

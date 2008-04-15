@@ -15,11 +15,12 @@ our $VERSION   = 0.01;
 
 our %mono_gnome =
   (
-   'evolution-sharp' => '0.16.0',
+   'evolution-sharp' => '0.16.1',
    'f-spot'          => '0.4.2',
-   'tomboy'          => '0.10.0',
+   'tomboy'          => '0.10.1',
    'gtk-sharp'       => '2.12.0',
    'gnome-sharp'     => '2.20.0',
+   'gnome-desktop-sharp'     => '2.20.1',
    );
 
 our %mono=

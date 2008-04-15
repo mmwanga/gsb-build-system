@@ -36,10 +36,10 @@ our %double_tarballs_url =
              'var' => 'VERSION',
 			    },
    'compiz-fusion'              => {
-	     'ver' => '0.7.2',
-             'url' => 'http://releases.compiz-fusion.org/0.7.2/compiz',
+	     'ver' => '0.7.4',
+             'url' => 'http://releases.compiz-fusion.org/0.7.4/compiz',
 	     'dir' => 'compiz/compiz-fusion',
-	     'tar' => 'compiz-0.7.2.tar.bz2',
+	     'tar' => 'compiz-0.7.4.tar.bz2',
              'var' => 'VERSION',
                             },
    'mozilla-firefox'  => {

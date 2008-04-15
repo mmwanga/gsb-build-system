@@ -1,3 +1,106 @@
+Mon Apr 14 00:10:45 GMT 2008
+extras/MPlayer-1.0rc2-i586-10gsb: Rebuilt.
+  Fix a typo in the slack-required.
+  Fix mplayer.desktop to allow opening filenames with spaces.
+meta/gsb-complete: Rebuilt.
+  Fix libdvbpsi5 in slack-required.
+meta/gsb-*-2.22.1-1gsb.tgz: Version bumped.
++--------------------------+
+Sun Apr 13 00:15:45 GMT 2008
+networking/NetworkManager-svn_3557-i586-1gsb.tgz: Upgraded.
+networking/NetworkManager-vpn-svn_3557-i586-1gsb.tgz: Upgraded.
+networking/network-manager-applet-svn_664-i586-1gsb.tgz: Upgraded.
+desktop/evo-openldap-2.3.38-i586-4gsb.tgz: Rebuilt.
+  Added a doinst.sh to add the libexec evo-openldap to ld.so.conf,
+  which is required in order to the exchange plugins to work with NTLM.
+extras/wxGTK-2.8.7-i586-5gsb.tgz: Rebuilt.
+  Added --with-stc to configure line, and install stc from
+  contrib.
+libraries/openal-0.0.8-i586-5gsb.tgz: Rebuilt.
+  Fixed broken openal.pc. 
+libraries/freealut-1.1.0-i586-3gsb.tgz: Rebuilt.
+compiz/compiz-fusion-plugins-main-0.7.4-i586-2gsb.tgz: Rebuilt.
+  Rebuilt with support for GNOME schemas.
+compiz/compiz-fusion-plugins-extra-0.7.4-i586-2gsb.tgz: Rebuilt.
+  Rebuilt with support for GNOME schemas.
+compiz/libcompizconfig-0.7.4-i586-2gsb.tgz: Rebuilt.
+  Was improperly linked against compiz-core 20080218.
+libraries/ffmpeg-svn_12807-i586-1gsb.tgz: Upgraded.
++--------------------------+
+Sat Apr 12 19:25:15 GMT 2008
+platform/libgnomeui-2.22.1-i586-1gsb.tgz: Upgraded.
+office/glade-3.5.2-i586-1gsb.tgz: Upgraded.
+desktop/gnome-applets-2.22.1-i586-2gsb.tgz: Rebuilt.
+applications/padevchooser-0.9.3-i586-3gsb.tgz: Rebuilt.
+office/libgda-3.0.4-i586-1gsb.tgz: Upgraded.
+desktop/gnome-panel-2.22.1.2-i586-1gsb.tgz: Upgraded.
+desktop/gnome-session-2.22.1.1-i586-1gsb.tgz: Upgraded.
+extras/ghex-2.22.0-i586-1gsb.tgz: Upgraded.
+compiz/ccsm-0.7.4-i586-1gsb.tgz: Upgraded.
+compiz/compiz-bcop-0.7.4-i586-1gsb.tgz: Upgraded.
+compiz/compiz-fusion-0.7.4-i586-1gsb.tgz: Upgraded.
+compiz/compiz-fusion-plugins-extra-0.7.4-i586-1gsb.tgz: Upgraded.
+compiz/compiz-fusion-plugins-main-0.7.4-i586-1gsb.tgz: Upgraded.
+compiz/compizconfig-backend-gconf-0.7.4-i586-1gsb.tgz: Upgraded.
+compiz/compizconfig-python-0.7.4-i586-1gsb.tgz: Upgraded.
+compiz/emerald-0.7.4-i586-1gsb.tgz: Upgraded.
+compiz/libcompizconfig-0.7.4-i586-1gsb.tgz: Upgraded.
++--------------------------+
+Wed Apr 09 09:25:15 GMT 2008
+* GNOME 2.22.1 is Released.
+applications/vino-2.22.1-i586-1gsb.tgz: Upgraded.
+applications/vinagre-0.5.1-i586-1gsb.tgz: Upgraded.
+applications/totem-2.22.1-i586-1gsb.tgz: Upgraded.
+applications/totem-pl-parser-2.22.2-i586-1gsb.tgz: Upgraded.
+accessibility/orca-2.22.1-i586-1gsb.tgz: Upgraded.
+desktop/nautilus-cd-burner-2.22.1-i586-1gsb.tgz: Upgraded.
+desktop/nautilus-2.22.2-i586-1gsb.tgz: Upgraded.
+platform/libsoup-2.4.1-i586-1gsb.tgz: Upgraded.
+desktop/libgweather-2.22.1.1-i586-1gsb.tgz: Upgraded.
+desktop/gvfs-0.2.3-i586-1gsb.tgz: Upgraded.
+desktop/gtkhtml-3.18.1-i586-1gsb.tgz: Upgraded.
+applications/gnome-terminal-2.22.1-i586-1gsb.tgz: Upgraded.
+desktop/gnome-panel-2.22.1.1-i586-1gsb.tgz: Upgraded.
+applications/gnome-games-2.22.1.1-i586-1gsb.tgz: Upgraded.
+desktop/gnome-control-center-2.22.1-i586-1gsb.tgz: Upgraded.
+applications/gedit-2.22.1-i586-1gsb.tgz: Upgraded.
+applications/file-roller-2.22.2-i586-1gsb.tgz: Upgraded.
+platform/evolution-data-server-2.22.1-i586-1gsb.tgz: Upgraded.
+applications/evolution-exchange-2.22.1-i586-2gsb.tgz: Rebuilt.
+applications/epiphany-2.22.1.1-i586-1gsb.tgz: Upgraded.
+applications/evince-2.22.1.1-i586-1gsb.tgz: Upgraded.
+applications/eog-2.22.1-i586-1gsb.tgz: Upgraded.
+accessibility/gnome-mag-0.15.0-i586-1gsb.tgz: Upgraded.
++--------------------------+
+Tue Apr 08 09:11:15 GMT 2008
+desktop/gnome-session-2.22.1-i586-1gsb.tgz: Upgraded.
+applications/file-roller-2.22.1-i586-1gsb.tgz: Upgraded.
+platform/gtk-engines-2.14.1-i586-1gsb.tgz: Upgraded.
+desktop/gnome-menus-2.22.1-i586-1gsb.tgz: Upgraded.
+desktop/libwnck-2.22.1-i586-1gsb.tgz: Upgraded.
+desktop/gnome-desktop-2.22.1-i586-1gsb.tgz: Upgraded.
+desktop/libepc-2.22.1-i586-1gsb.tgz: Upgraded.
+applications/yelp-2.22.1-i586-1gsb.tgz: Upgraded.
+desktop/gnome-panel-2.22.1-i586-1gsb.tgz: Upgraded.
+desktop/gnome-applets-2.22.1-i586-1gsb.tgz: Upgraded.
+desktop/libgweather-2.22.1-i586-1gsb.tgz: Upgraded.
+desktop/nautilus-cd-burner-2.22.0-i586-4gsb.tgz: Rebuilt.
+desktop/nautilus-2.22.1-i586-3gsb.tgz: Rebuilt.
+libraries/glib2-2.16.3-i586-1gsb.tgz: Upgraded.
+applications/gcalctool-5.22.1-i586-1gsb.tgz: Upgraded.
+desktop/gnome-settings-daemon-2.22.1-i586-1gsb.tgz: Upgraded.
++--------------------------+
+Tue Apr 08 00:11:15 GMT 2008
+office/anjuta-2.4.1-i586-1gsb.tgz: Upgraded.
+desktop/gnome-settings-daemon-2.22.1-i586-1gsb.tgz: Upgraded.
+applications/evince-2.22.1-i586-1gsb.tgz: Upgraded.
+applications/zenity-2.22.1-i586-1gsb.tgz: Upgraded.
+applications/gdm-2.20.5-i586-1gsb.tgz: Upgraded.
+applications/deskbar-applet-2.22.1-i586-1gsb.tgz: Upgraded.
+accessbility/dasher-4.7.3-i586-1gsb.tgz: Upgraded.
+applications/cheese-2.22.1-i586-1gsb.tgz: Upgraded.
+extras/pstoedit-3.45-i586-3gsb.tgz: Rebuilt.
++--------------------------+
 Mon Apr 07 18:59:01 GMT 2008
 office/abiword-2.6.2-i586-1gsb.tgz: Upgraded.
   Upgraded to the latest stable release of Abiword.
@@ -17,6 +120,7 @@ applications/gnome-games-2.22.1-i586-1gsb.tgz: Upgraded.
 applications/evolution-2.22.1-i586-1gsb.tgz: Upgraded.
 applications/epiphany-2.22.1-i586-1gsb.tgz: Upgraded.
 applications/epiphany-extensions-2.22.1-i586-1gsb.tgz: Upgraded.
+mono/tomboy-0.10.1-i586-1gsb.tgz: Upgraded.
 +--------------------------+
 Sat Apr 05 11:20:48 GMT 2008
 office/glom-1.6.13-i586-1gsb: Upgraded.
