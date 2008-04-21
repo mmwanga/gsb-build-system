@@ -352,5 +352,5 @@ The following options are recognised:
   --no-metafiles	Do not create the package's .txt and .md5 meta files
 			which would usually be produced during a build.
 
---
+-- 
 Darren 'Tadgy' Austin	<tadgy(at)gnomeslackbuild.org>
