@@ -49,4 +49,4 @@ fi;
 #fi; 
 
 # By default, disable s-t-b.  Users must enable if they wish.
-chmod -x etc/rc.d/rc.stb
+#chmod -x etc/rc.d/rc.stb

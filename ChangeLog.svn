@@ -1,6 +1,14 @@
 ChangeLog
 ---------
 
+22-04-2008 fidesratio <sk238(at)ex.ac.uk>               
+    * Update download scripts
+    * Added slamd64 specific changelog VERSIONS files
+    * Some SlackBuild version updates from gsb_update.pl
+    * Updated to ooo-2.4.0.8 (and made some fixes for the patches)
+    * f-spot now compiles with mono 1.9
+    * Few fixes to slack-required files
+
 07-04-2008 fidesratio <sk238(at)ex.ac.uk>               
     * Upgraded to the latest stable release of Abiword.
     * Bumped gail

@@ -17,5 +17,5 @@ karma-sharp
 libgphoto2-sharp
 mono-zeroconf
 ndesk-dbus
-ndesk-glib
+ndesk-dbus-glib
 taglib-sharp

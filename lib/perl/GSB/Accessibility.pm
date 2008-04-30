@@ -17,7 +17,7 @@ our %accessibility_gnome =
   (
    'dasher'                 => '4.7.3',
    'gnome-mag'              => '0.15.0',
-   'gnome-speech'           => '0.4.18',
+   'gnome-speech'           => '0.4.19',
    'gnopernicus'            => '1.1.2',
    'gok'                    => '1.3.7',
    'orca'                   => '2.22.1',

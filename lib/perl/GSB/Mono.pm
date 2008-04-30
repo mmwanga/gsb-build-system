@@ -18,8 +18,8 @@ our %mono_gnome =
    'evolution-sharp' => '0.16.1',
    'f-spot'          => '0.4.2',
    'tomboy'          => '0.10.1',
-   'gtk-sharp'       => '2.12.0',
-   'gnome-sharp'     => '2.20.0',
+   'gtk-sharp'       => '2.12.1',
+   'gnome-sharp'     => '2.20.1',
    'gnome-desktop-sharp'     => '2.20.1',
    );
 

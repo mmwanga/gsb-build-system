@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=0.4.2
 
 ## List any packages here that are required to build this package.
@@ -113,6 +113,8 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
+
+zcat $CWD/patches/fspot-svn-stable.patch.gz | patch -p1
 
 ## Fix permissions for building.
 chown -R root.root .

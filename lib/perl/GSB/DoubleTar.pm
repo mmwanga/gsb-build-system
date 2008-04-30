@@ -43,10 +43,10 @@ our %double_tarballs_url =
              'var' => 'VERSION',
                             },
    'mozilla-firefox'  => {
-			 'ver' => '2.0.0.13',
+			 'ver' => '2.0.0.14',
 			 'dir' => 'applications/mozilla-firefox',
-			 'url' => 'http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.13/source/',
-			 'tar' => 'firefox-2.0.0.13-source.tar.bz2',
+			 'url' => 'http://www.mirrorservice.org/sites/ftp.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.14/source/',
+			 'tar' => 'firefox-2.0.0.14-source.tar.bz2',
 			 'var' => 'VERSION',
 			 },
    'libgc'             => {

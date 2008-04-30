@@ -6,3 +6,14 @@ libiptcdata
 gtkunique
 libtiff
 libglade
+libopenraw
+libjpeg
+openexr
+glib2
+gtk+2
+pango
+cairo
+libxml2
+gnome-vfs
+dbus
+ORBit2

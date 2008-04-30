@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=1
-VERSION=0.5.8.7
+BUILD=2
+VERSION=0.5.8.9
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -157,7 +157,7 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure and Build
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+#CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   python ./setup.py build || exit 1
 
 ## Build and install.

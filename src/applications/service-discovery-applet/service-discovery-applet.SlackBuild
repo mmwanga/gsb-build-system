@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=5
+BUILD=6
 VERSION=0.4.5
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gnome-panel avahi python pygtk"
+REQUIRED_PACKAGES="gnome-panel avahi python pygtk notify-python"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

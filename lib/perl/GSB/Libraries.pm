@@ -169,7 +169,7 @@ our %libraries =
 			   'src' => 'tar.bz2',
 			  },
    'libnl'           => {
-			   'ver' => '1.0-pre8',
+			   'ver' => '1.1',
 			   'url' => 'http://people.suug.ch/~tgr/libnl/files/',
 			   'src' => 'tar.gz',
 			  },

@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=4
-VERSION=2.4.0.3.2
+VERSION=2.4.0.8
 
 ## List any packages here that are required to build this package.
 ## We build with mono/java support on x86.  x86_64 does not yet support
@@ -171,7 +171,7 @@ LIBDIR=${LIBDIR:-"lib"}
 ## Add GNOMESlackBuild sections to go-oo configure system
 cp $CWD/gsb_art/*.bmp ./src || exit 1
 cp $CWD/patches/GNOMESlackBuild* ./distro-configs || exit 1
-patch -p1 < $CWD/patches/addgsb.patch || exit 1
+patch -p1 < $CWD/patches/addgsb-2.4.0.8.patch || exit 1
 #patch -p1 < $CWD/patches/add-gnomeslackbuild.patch || exit 1
 #patch -p1 < $CWD/patches/emf-cairo-patchfix.patch || exit 1
 ## We need to temporarily spam a directory on the build machine

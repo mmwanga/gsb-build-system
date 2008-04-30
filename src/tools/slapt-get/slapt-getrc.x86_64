@@ -6,7 +6,7 @@
 WORKINGDIR=/var/slapt-get
 
 # Exclude package names and expressions
-EXCLUDE=^kernel-.*,^alsa-.*,^glibc.*,.*-[0-9]+dl$,^devs$,^udev$,aaa_elflibs
+EXCLUDE=^kernel-.*,^glibc.*,.*-[0-9]+dl$,^devs$,^udev$,aaa_elflibs
 
 # Official slapt-get repo
 # GSB provides a custom slapt-get package, so this isn't strictly required

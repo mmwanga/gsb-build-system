@@ -1,11 +1,13 @@
-GSB: GNOME SlackBuild
+GSB: GNOME SlackBuild-CURRENT
 ---------------------
+
+PLEASE NOTE: This package is for Slackware-CURRENT only.  This version of
+GSB will only run on Slackware-CURRENT or Slackware 12.1.
 
 This is our binary GNOME distribution for Slackware Linux.  It encompasses all
 needed packages for a fully configurable, customisable and usable GNOME desktop
 environment for Slackware.  If you haven't yet, you should read about the GSB
 project before installing GSB.
-
 
 Package Management
 ------------------
@@ -26,7 +28,6 @@ You can download slapt-get for Slackware v12.0 from:
 
 If you are using a 64-bit platform, you can try slapt-get for Slamd64-current:
   <http://software.jaos.org/slackpacks/current-x86_64/slapt-get-0.9.12b-x86_64-1.tgz>
-
 
 Mirrors
 -------
@@ -67,19 +68,13 @@ these packages are optional.
 Required Slackware Updates for GNOME 2.20.3
 -------------------------------------------
 
-gnome-icon-theme:	>= 2.20 for gnome-desktop 2.20
-glib2:			> 2.14 required by gtk+2 2.12
-pango:			> 1.18 required by gtk+2 2.12
-gtk+2:			>= 2.12 required for libgnomeui 2.20.0
+glib2:            ( > 2.15 required by libgnome 2.22 and gvfs 0.2.1, ie, nautilus 2.22)
+libwnck:          ( > 2.22 required by metacity 2.22, and GNOME 2.22 at large)
 
 You can upgrade all these required packages by running:   
-  $ slapt-get --install pango glib2 gtk+2 gnome-icon-theme
+  $ slapt-get --install glib2 libwnck
 
-slapt-get should then upgrade only these four specific packages.  If you plan
-on using NetworkManager with GNOME, then make sure to upgrade to the GNOME
-SlackBuild build of wpa_supplicant, which contains the needed dbus bindings and
-binary.  After the package data has been updated, the first step to installing
-GNOME SlackBuild is to upgrade the required packages. 
+slapt-get should then upgrade only these two specific packages.
 
 ** If you do not upgrade the required packages, GNOME SlackBuild will not run
 properly. **
@@ -99,6 +94,10 @@ After installation, it is strongly recommended that you reboot your system.
 
 There are other metapackages available as well.  The following is a list of all
 possible metapackages available for installing GNOME SlackBuild:
+  * gsb-basic
+        Only basic base libraries for using GNOME applications, including
+        libgnome, libgnomeui, and libgnomecanvas, and all dependencies.
+
   * gsb-desktop
 	This is the basic, yet fully functional GNOME Desktop Environment
 	provided by GSB.  It contains all the packages required for a working
@@ -195,7 +194,6 @@ type issues - it allows us to keep an archive of questions and answers.
 On IRC, we may appear to be always online, but we're frequently away from the
 console and you may not recieve an answer for while.  But stick around since
 we'll always give a reply, eventually  :)
-
 
 Hope you enjoy GNOME SlackBuild!
 

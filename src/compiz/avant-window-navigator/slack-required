@@ -8,5 +8,5 @@ GConf
 dbus
 ORBit2
 libgnomeui
-compiz | compiz-fusion
+compiz-fusion | compiz
 gnome-vfs
