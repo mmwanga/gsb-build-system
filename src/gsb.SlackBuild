@@ -250,9 +250,9 @@ mkdir -p $LOGSDIR
 
   cp ../{COPYING,CREDITS} $PKGDEST
   if [ "$ARCH" = "x86_64" ]; then
-    cp ../VERSIONS.slamd64 $PKGDEST/ChangeLog
+    cp ../VERSIONS.slamd64 $PKGDEST/VERSIONS
   else
-    cp ../VERSIONS $PKGDEST/ChangeLog
+    cp ../VERSIONS $PKGDEST/VERSIONS
   fi;
   cp ../README.binary $PKGDEST/README
   if [ "$ARCH" = "x86_64" ]; then
