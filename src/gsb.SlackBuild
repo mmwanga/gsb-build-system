@@ -248,9 +248,18 @@ mkdir -p $LOGSDIR
     }
   done
 
-  cp ../{COPYING,CREDITS,VERSIONS} $PKGDEST
+  cp ../{COPYING,CREDITS} $PKGDEST
+  if [ "$ARCH" = "x86_64" ]; then
+    cp ../VERSIONS.slamd64 $PKGDEST/ChangeLog
+  else
+    cp ../VERSIONS $PKGDEST/ChangeLog
+  fi;
   cp ../README.binary $PKGDEST/README
-  cp ../ChangeLog.binary $PKGDEST/ChangeLog
+  if [ "$ARCH" = "x86_64" ]; then
+    cp ../ChangeLog.binary.slamd64 $PKGDEST/ChangeLog
+  else
+    cp ../ChangeLog.binary $PKGDEST/ChangeLog
+  fi;
   cp ../src/testing/README $PKGDEST/testing
 
   if [ "$NOMETAFILES" = "0" ]; then
