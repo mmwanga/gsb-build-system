@@ -34,12 +34,12 @@ our %extras =
 			     'src' => 'tar.bz2',
 			    },
    'deluge'              => {
-                 'ver' => '0.5.8.9',
-                 'url' => 'http://download.deluge-torrent.org/source/0.5.8.9',
+                 'ver' => '0.5.9.0',
+                 'url' => 'http://download.deluge-torrent.org/source/0.5.9.0',
                  'src' => 'tar.gz',
                             },
    'devede'              => {
-                 'ver' => '3.6',
+                 'ver' => '3.7',
                  'url' => 'http://www.rastersoft.com/descargas',
                  'src' => 'tar.bz2',
                             },
@@ -74,7 +74,7 @@ our %extras =
                  'src' => 'tar.gz',
                             },
    'gtkam'               => {
-			     'ver' => '0.1.14',
+			     'ver' => '0.1.15',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto',
 			     'src' => 'tar.bz2',
 			    },

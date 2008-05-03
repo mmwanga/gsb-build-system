@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=3.32
 
 ## List any packages here that are required to build this package.
@@ -155,7 +155,11 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Build and install.
-perl Makefile.PL -y;
+perl Makefile.PL -y || exit 1
+
+## Fix for manpages
+sed -i "s:/share/man:/man:g" Makefile
+
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 

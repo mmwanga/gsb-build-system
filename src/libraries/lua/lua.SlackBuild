@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=5.1.3
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES=""
+REQUIRED_PACKAGES="readline ncurses"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -115,6 +115,9 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
+## Patch for shared library
+patch -p1 < $CWD/patches/lua.shared-libaries.patch || exit 1
+
 ## Fix permissions for building.
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
@@ -156,45 +159,26 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
-
-##
-## Silly hack to allow proper packaging of lua.
-## Everything is placed in the Lua Makefile or src/Makefile.
-## INSTALL_TOP needs to be changed there to the $PKG root
-## but sed doesn't like /'s.  This is a lame workaround.
-## It works though.  :^)
-##
-
-
-## Fixes install Path
-sed -i "s/^INSTALL_TOP/\#INSTALL_TOP/" $TMP/$PKGNAME-$VERSION/Makefile
-echo "INSTALL_TOP=${PKG}/usr" > $TMP/$PKGNAME-$VERSION/Makefile.new
-cat $TMP/$PKGNAME-$VERSION/Makefile.new $TMP/$PKGNAME-$VERSION/Makefile > $TMP/$PKGNAME-$VERSION/Makefile.tmp
-mv $TMP/$PKGNAME-$VERSION/Makefile.tmp $TMP/$PKGNAME-$VERSION/Makefile
-rm $TMP/$PKGNAME-$VERSION/Makefile.new
-
+sed -i "s:INSTALL_TOP= /usr/local:INSTALL_TOP= $PKG/usr:g" $TMP/$PKGNAME-$VERSION/Makefile
 ## Fixes tuning
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" ;
 sed -i "s/=-DLUA_USE_LINUX/=\"$CFLAGS\ -DLUA_USE_LINUX\"/g" $TMP/$PKGNAME-$VERSION/src/Makefile;
 
 if [ "$ARCH" = "x86_64" ]; then
    sed -i 's/\/lib/\/lib64/g' $TMP/$PKGNAME-$VERSION/Makefile
-   GSB_LIBRARY_PATH=lib64
+   LIBDIR=lib64
 else
-   GSB_LIBRARY_PATH=lib
+   LIBDIR=lib
 fi;
 
 ## Build and install.
 INSTALL_TOP=$PKG make $MAKE_FLAGS linux || exit 1;
 INSTALl_TOP=$PKG make $MAKE_FLAGS install || exit 1;
 
-##
 ## Install a pkgconfig file.
-##
-
 mkdir -p $PKG/usr/$GSB_LIBRARY_PATH/pkgconfig
-sed -e "s/GSB_LIBRARY_PATH/$GSB_LIBRARY_PATH/g" $CWD/pkgconfig/lua.pc >  \
-   $PKG/usr/$GSB_LIBRARY_PATH/pkgconfig/lua.pc
+sed -e "s:@LIBDIR@:$LIBDIR/g" $CWD/pkgconfig/lua.pc >  \
+   $PKG/usr/$LIBDIR/pkgconfig/lua.pc
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -217,7 +201,8 @@ sed -e "s/GSB_LIBRARY_PATH/$GSB_LIBRARY_PATH/g" $CWD/pkgconfig/lua.pc >  \
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+  COPYRIGHT HISTORY INSTALL README \
+  doc/*.html doc/*.css doc/*.gif \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION

@@ -23,7 +23,7 @@ our %libraries =
 			   'src' => 'tar.gz',
 			  },
    'exempi'              => {
-			   'ver' => '1.99.9',
+			   'ver' => '2.0.1',
 			   'url' => 'http://libopenraw.freedesktop.org/download/',
 			   'src' => 'tar.gz',
 		          },
@@ -139,7 +139,7 @@ our %libraries =
 			     'src' => 'tar.bz2',
 			    },
    'libgphoto2'          => {
-			     'ver' => '2.4.0',
+			     'ver' => '2.4.1',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto/',
 			     'src' => 'tar.bz2',
 			    },
@@ -160,7 +160,7 @@ our %libraries =
 			  },
    'libmms'            => {
 			   'ver' => '0.4',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libmms/',
+			   'url' => 'http://launchpad.net/libmms/trunk/0.4/+download',
 			   'src' => 'tar.gz',
 			  },
    'libmpcdec'       => {
@@ -244,11 +244,6 @@ our %libraries =
                          'ver' => '2.2.11',
                          'src' => 'tar.gz',
                         },
-   'openal'          => {
-                         'url' => 'http://www.openal.org/openal_webstf/downloads/',
-                         'ver' => '0.0.8',
-                         'src' => 'tar.gz',
-                        },
    'ilmbase'    => {
                    'url' => 'http://download.savannah.nongnu.org/releases/openexr/',
                    'ver' => '1.0.1',
@@ -271,7 +266,7 @@ our %libraries =
                         },
    'speex'            => {
                          'url' => 'http://downloads.us.xiph.org/releases/speex/',
-                         'ver' => '1.2beta2',
+                         'ver' => '1.2beta3',
                          'src' => 'tar.gz',
                         },
    'transcode'         => {
@@ -285,7 +280,7 @@ our %libraries =
 			   'src' => 'tar.gz',
 			  },
    'x264'            => {
-			   'ver' => 'snapshot-20080324-2245',
+			   'ver' => 'snapshot-20080430-2245',
 			   'url' => 'ftp://ftp.videolan.org/pub/videolan/x264/snapshots',
 			   'src' => 'tar.bz2',
 			  },
@@ -320,7 +315,7 @@ our %libraries_diff_naming =
 our %libraries_svn =
   (
    'gtkunique' => 'svn_13',
-   'ffmpeg'    => 'svn_12807',
+   'ffmpeg'    => 'svn_13024',
   );
 
 #

@@ -1157,13 +1157,44 @@ foreach my $ooopkg (keys %ooo_packages) {
   }
 }
 
+# testing packages
+foreach my $cpackage (keys %testing) {
+
+  chdir "$pwd/testing/$cpackage";
+  my $name    = $cpackage;
+  my $sb_file = $name . $sb_ext;
+  my $packurl = $testing{$name}{url};
+  my $ver     = $testing{$name}{ver};
+  my $src     = $testing{$name}{src};
+  my $type    = "other";
+
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+
+  if ( $download eq "true") {
+      my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+      GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $src, $url);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
 # src/testing packages that are from SVN.
 # Note: this only edits the SlackBuilds to set BUILD.
-foreach my $testingsvnpackage (keys %testing_svn) {
+foreach my $testingsvnpackage (keys %testing_network_svn) {
 
   my $name    = $testingsvnpackage;
   my $sb_file = $name . $sb_ext;
-  my $ver     = $testing_svn{$name};
+  my $ver     = $testing_network_svn{$name};
 
   chdir "$pwd/networking/$name";
 

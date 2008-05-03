@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.008
 
 ## List any packages here that are required to build this package.
@@ -168,6 +168,11 @@ tar xzf $CWD/$MODULE.tar.gz &&
 cd $MODULE || exit 1
 
 perl Makefile.PL || exit 1
+
+## Fix for manpages
+sed -i "s:/share/man:/man:g" Makefile || exit 1
+
+## Build
 make OPTIMIZE="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" $MAKE_FLAGS &&
 make DESTDIR=$PKG install || exit 1
 

@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=0.5.4
 
 ## List any packages here that are required to build this package.
@@ -128,6 +128,7 @@ find . -perm 711 -exec chmod 755 {} \;
 find . -perm 555 -exec chmod 755 {} \;
 
 ## Build
+sed -i 's|share/man/|man/|g' setup.py || exit 1
 python setup.py build || exit 1
 python setup.py install --prefix=/usr --root=$PKG || exit 1
 

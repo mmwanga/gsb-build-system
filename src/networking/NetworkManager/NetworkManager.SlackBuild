@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=svn_3594
+BUILD=1
+VERSION=svn_3655
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -184,6 +184,7 @@ cd $TMP/$PKGNAME-$VERSION &&
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --mandir=/usr/man \
   --disable-static --enable-shared \
   --with-distro=slackware \
   --with-mdns-provider=avahi \
@@ -195,6 +196,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ##
 ## This skirts an issue with dbus-glib <= 0.74 not supporting namespaces properly
 ## Cf: http://mail.gnome.org/archives/networkmanager-list/2008-March/msg00003.html
+echo
 echo "WARNING: Fixing namespaces for $VERSION" ;
 cp $CWD/spec-to-introspect.xsl .
 mkdir introspection-dirty
@@ -204,6 +206,17 @@ do
   xsltproc spec-to-introspect.xsl $i \
   | perl -pe '$$hash = chr(35);s{xmlns:tp="http://telepathy\.freedesktop\.org/wiki/DbusSpec$${hash}extensions-v0"} {}g' \
   >  introspection/$(basename $i)
+  echo "Cleaned $i for namespaces."
+done
+
+mkdir callouts-dirty
+mv -f callouts/nm-*.xml callouts-dirty
+for i in callouts-dirty/*.xml
+do
+  xsltproc spec-to-introspect.xsl $i \
+  | perl -pe '$$hash = chr(35);s{xmlns:tp="http://telepathy\.freedesktop\.org/wiki/DbusSpec$${hash}extensions-v0"} {}g' \
+  >  callouts/$(basename $i)
+  echo "Cleaned $i for namespaces."
 done
 
 ## Build and install.
@@ -235,8 +248,8 @@ fi;
 
 ## Preserve previous settings
 rm $PKG/etc/rc.d/rc.networkmanager &&
-cp $CWD/rc.networkmanager $PKG/etc/rc.d/rc.networkmanager.new && 
-mv $PKG/etc/rc.d/rc.networkmanager-dispatcher $PKG/etc/rc.d/rc.networkmanager-dispatcher.new || exit 1
+cp $CWD/rc.networkmanager $PKG/etc/rc.d/rc.networkmanager.new || exit 1
+#mv $PKG/etc/rc.d/rc.networkmanager-dispatcher $PKG/etc/rc.d/rc.networkmanager-dispatcher.new || exit 1
 
 ## Fix for Slackware non-PAM system.
 ## Users now can add themselves to the "netdev" group to use networkmanager.

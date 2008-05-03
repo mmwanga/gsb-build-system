@@ -29,9 +29,9 @@ our %administration =
 	   'src' => 'tar.bz2',
 	   },
    'gparted'    => {
-                 'ver' => '0.3.6',
+                 'ver' => '0.3.7',
                  'url' => 'http://dfn.dl.sourceforge.net/sourceforge/gparted',
-                 'src' => 'tar.gz',
+                 'src' => 'tar.bz2',
                 },
    'python-ldap'         => {
                  'ver' => '2.3.1',
@@ -60,7 +60,7 @@ our %administration =
                   },
    'system-config-printer'    => {
              'url' => 'http://cyberelk.net/tim/data/system-config-printer/',
-             'ver' => '0.7.82',
+             'ver' => '0.9.90',
              'src' => 'tar.bz2',
                   },
    'pybackpack'         => {

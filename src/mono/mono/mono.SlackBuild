@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=1.9
+BUILD=1
+VERSION=1.9.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -166,6 +166,13 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## Build and install.
 make &&
 make DESTDIR=$PKG install || exit 1
+
+## Fix extraneous man file
+if [ -f $PKG/usr/share/man/man1/jay.1 ]; then
+	mv $PKG/usr/share/man/man1/jay.1 $PKG/usr/man/man1/jay.1 ;
+	rmdir $PKG/usr/share/man/man1/ ;
+	rmdir $PKG/usr/share/man ;
+fi ;
 
 ## Preserve settings
 mv $PKG/etc/mono/1.0/machine.config $PKG/etc/mono/1.0/machine.config.new

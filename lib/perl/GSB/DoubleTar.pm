@@ -21,13 +21,6 @@ our %double_tarballs_url =
 			 'tar' => 'boost_1_34_1.tar.bz2',
              'var' => 'VERSION',
                         },
-   'telepathy-glib'            => {
-             'url' => 'http://telepathy.freedesktop.org/releases/telepathy-glib',
-             'ver' => '0.7.5',
- 'dir' => 'testing/telepathy-glib',
-		 'tar' => 'telepathy-glib-0.7.5.tar.gz',
-             'var' => 'VERSION',
-                        },
     'libintl-perl'   => {
 	     'ver' => '1.16',
 	     'url' => 'http://search.cpan.org/CPAN/authors/id/G/GU/GUIDO',
@@ -173,6 +166,13 @@ our %double_tarballs_url =
 			 'dir' => 'bindings/pygdata',
 			 'url' => 'http://gdata-python-client.googlecode.com/files',
 			 'tar' => 'gdata.py-1.0.11.1.tar.gz',
+			 'var' => 'VERSION',
+				  },
+   'openal'               => {
+			 'ver' => '1.3.253',
+			 'dir' => 'libraries/openal',
+			 'url' => 'http://kcat.strangesoft.net/openal-releases',
+			 'tar' => 'openal-soft-1.3.253.tar.bz2',
 			 'var' => 'VERSION',
 				  },
   );

@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.6.2
+VERSION=2.6.3
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="abiword gnome-scan boost gtk+2 wv libxml2 libgnomedb goffice"
+REQUIRED_PACKAGES="abiword gnome-scan boost gtk+2 wv libxml2 libgnomedb goffice gtkmathview"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

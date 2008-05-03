@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=8
+BUILD=9
 VERSION=0.98.8
 
 ## List any packages here that are required to build this package.
@@ -160,6 +160,9 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   || exit 1
+
+## Fix for manpages
+sed -i "s:/share/man:/man:g" Makefile
 
 ## Build and install.
 make &&

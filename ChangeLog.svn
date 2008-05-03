@@ -1,6 +1,16 @@
 ChangeLog
 ---------
 
+01-05-2008 fidesratio <sk238(at)ex.ac.uk>               
+   * Updated lua: Applied shared library patch (to Makefile only) to create
+     a lua.so. Thanks to irb for the mention.
+   * libgphoto Added doinst to properly make udev rules for cameras.
+   * Switched to newer (and better maintained) OpenAL Soft.
+     Thanks to Philip Langdale for the suggestion. :)
+   * Added gtkmathview for abiword. 
+   * Fixed improper manpage locations in dvdrip, rdiff-backup, pybackpack
+     gksu, ooo-perl, glib-perl and speex.
+
 22-04-2008 fidesratio <sk238(at)ex.ac.uk>               
     * Update download scripts
     * Added slamd64 specific changelog VERSIONS files

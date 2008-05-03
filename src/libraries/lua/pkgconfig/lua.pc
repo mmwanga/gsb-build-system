@@ -1,11 +1,11 @@
 prefix=/usr
 exec_prefix=${prefix}
-libdir=/usr/GSB_LIBRARY_PATH
+libdir=/usr/@LIBDIR@
 includedir=${prefix}/include/
 
 Name: Lua
 Description: An Extensible Extension Language
-Version: 5.1.2
+Version: 5.1.3
 Requires:
 Libs: -L${libdir} -llua -lm
 Cflags: -I${includedir}

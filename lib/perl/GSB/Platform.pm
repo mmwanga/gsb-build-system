@@ -50,7 +50,7 @@ our %platform_reqs =
                              'src' => 'tar.gz',
                             },
    'pulseaudio'             => {
-                             'ver' => '0.9.9',
+                             'ver' => '0.9.10',
                              'url' => 'http://0pointer.de/lennart/projects/pulseaudio',
                              'src' => 'tar.gz',
                             },

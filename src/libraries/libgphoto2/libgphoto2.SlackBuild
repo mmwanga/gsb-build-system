@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=2.4.0
+BUILD=1
+VERSION=2.4.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -155,8 +155,17 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
+## Proper udev paths
+if [ "$ARCH" = "x86_64" ]; then
+   UDEVPATH=/lib64/udev
+   LIBDIR=lib64
+else
+   UDEVPATH=/lib/udev
+   LIBDIR=lib
+fi
+
 ## Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+udevscriptdir=$UDEVPATH CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
@@ -165,14 +174,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-## Fix for udev paths
-mkdir -p $PKG/lib
-if [ "$ARCH" = "x86_64" ]; then
-   mv $PKG/usr/lib64/udev $PKG/lib
-else
-   mv $PKG/usr/lib/udev $PKG/lib
-fi
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -200,8 +201,11 @@ cp -a \
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
+## Install doinst
+cat $CWD/doinst.sh | sed "s:@LIBDIR@:$LIBDIR:g" > $PKG/install/doinst.sh
+
 ## Package meta files
-for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
+for FILE in slack-desc slack-required slack-conflicts slack-suggests
 do
   [ -e $CWD/$FILE ] && {
     cat $CWD/$FILE >>$PKG/install/$FILE

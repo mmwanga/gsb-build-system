@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=0.30
 
 ## List any packages here that are required to build this package.
@@ -169,6 +169,12 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## Build and install.
 make $MAKE_FLAGS &&
 make DESTDIR=$PKG install || exit 1
+
+## For some strange reason the modules path doesn't work
+## Make sure they point to the right location on Slackware
+for i in dav_user_2.0.conf dav_user_2.2.conf; do
+  sed -i "s:/etc/httpd/modules/:/usr/${LIBDIR}/httpd/modules/:g" $PKG/usr/share/gnome-user-share/$i || exit 1
+done;
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

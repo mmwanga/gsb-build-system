@@ -1,0 +1,12 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libavformat
+Description: FFmpeg container format library
+Version: 52.12.0
+Requires:  libavcodec = 51.53.0
+Conflicts:
+Libs: -L${libdir} -lavformat   -lz -pthread -lm -la52 -lfaac -lfaad -lx264 -lm    -ldl -ldl
+Cflags: -I${includedir}/libavcodec

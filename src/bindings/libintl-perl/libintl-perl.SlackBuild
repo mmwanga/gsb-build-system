@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=3
+BUILD=4
 VERSION=1.16
 
 ## List any packages here that are required to build this package.
@@ -154,17 +154,18 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
+## Configure
+perl Makefile.PL || exit 1
+
+## Fix for manpages
+sed -i "s:/share/man:/man:g" Makefile || exit 1
+
 ## Build and Install
-perl Makefile.PL &&
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-## Fix man page location
-mkdir -p $PKG/usr &&
-mv -f $PKG/usr/share/man $PKG/usr || exit 1
-
 # Remove perlocal.pod and .packlist from $PKG
-( for i in perllocal.pod .packlist; do
+( for i in perllocal.pod .packlist site_perl; do
       find $PKG -name "$i" -exec rm -rf {} \;
   done
 ) || exit 1

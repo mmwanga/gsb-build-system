@@ -22,7 +22,8 @@ function install_file() {
 }
 
 install_file etc/rc.d/rc.networkmanager.new
-install_file etc/rc.d/rc.networkmanager-dispatcher.new
+# Now deprecated
+#install_file etc/rc.d/rc.networkmanager-dispatcher.new
 
 ## If rc.local doesn't exist, create it
 if [ ! -e etc/rc.d/rc.local ]; then
@@ -95,6 +96,10 @@ fi;
 
 # By default, disable NetworkManager.  Users must enable if they wish.
 chmod -x etc/rc.d/rc.networkmanager*;
+# Now deprecated.
+if [ -f etc/rc.d/rc.networkmanager-dispatcher ]; then
+  chmod -x etc/rc.d/rc.networkmanager-dispatcher ;
+fi;
 
 cat << EOF
 

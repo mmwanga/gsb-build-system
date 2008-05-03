@@ -15,8 +15,8 @@ our $VERSION   = 0.01;
 
 our %mono_gnome =
   (
-   'evolution-sharp' => '0.16.1',
-   'f-spot'          => '0.4.2',
+   'evolution-sharp' => '0.16.1.1',
+   'f-spot'          => '0.4.3.1',
    'tomboy'          => '0.10.1',
    'gtk-sharp'       => '2.12.1',
    'gnome-sharp'     => '2.20.1',
@@ -56,7 +56,7 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'mono'                   => {
-				'ver' => '1.9',
+				'ver' => '1.9.1',
 				'url' => 'http://go-mono.com/sources/mono/',
 				'src' => 'tar.bz2',
 			       },

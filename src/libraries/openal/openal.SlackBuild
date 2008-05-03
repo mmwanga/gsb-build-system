@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=5
-VERSION=0.0.8
+BUILD=1
+VERSION=1.3.253
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="sdl"
+REQUIRED_PACKAGES="sdl alsa-oss alsa-lib"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -23,6 +23,7 @@ PKGDEST=${PKGDEST:-$TMP}
 
 ## Script variables.
 PKGNAME=$(basename $0 .SlackBuild)
+SRCNAME=openal-soft
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
@@ -90,9 +91,9 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-rm -rf $PKGNAME-$VERSION &&
-tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
-cd $PKGNAME-$VERSION || exit 1
+rm -rf $SRCNAME-$VERSION &&
+tar xjf $CWD/$SRCNAME-$VERSION.tar.bz2 &&
+cd $SRCNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i386" ]; then
@@ -114,9 +115,6 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
-
-## Patch to fix broken scope in header
-patch -p0 < $CWD/patches/alc.gcc-scope.patch || exit 1;
 
 ## Fix permissions for building.
 chown -R root.root .
@@ -158,23 +156,15 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-## Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --enable-static --enable-shared \
-  --program-prefix="" \
-  || exit 1
-
 ## Build and install.
-make $MAKE_FLAGS &&
+cmake . &&
+make $MAKE_FLAGS || exit 1
+sed -i "s:/usr/local:/usr:g" cmake_install.cmake &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-## Fix up the pkgconfig 
+# Fix for lib64
 if [ "$ARCH" = "x86_64" ]; then
-  cat $CWD/patches/openal.pc | sed "s:lib$:lib64:g" > $PKG/usr/lib64/pkgconfig/openal.pc || exit 1
-else
-  cp $CWD/patches/openal.pc $PKG/usr/lib/pkgconfig || exit 1
+  mv $PKG/usr/lib $PKG/usr/lib64 ;
 fi;
 
 ## Strip debugging symbols.
@@ -213,9 +203,9 @@ done
 
 ## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/${PKGNAME}-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/$PKGNAME-$VERSION
+  rm -rf $PKG $TMP/$SRCNAME-$VERSION
 }

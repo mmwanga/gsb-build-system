@@ -33,23 +33,23 @@ our %office_gnome =
 our %office =
   (
    'abiword' => {
-		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.2/source/',
-		 'ver' => '2.6.2',
+		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.3/source/',
+		 'ver' => '2.6.3',
 		 'src' => 'tar.gz'
 		},
    'abiword-docs' => {
-		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.2/source/',
-		 'ver' => '2.6.2',
+		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.3/source/',
+		 'ver' => '2.6.3',
 		 'src' => 'tar.gz'
 		},
    'abiword-extras' => {
-		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.2/source/',
-		 'ver' => '2.6.2',
+		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.3/source/',
+		 'ver' => '2.6.3',
 		 'src' => 'tar.gz'
 		},
    'abiword-plugins' => {
-		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.2/source/',
-		 'ver' => '2.6.2',
+		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.3/source/',
+		 'ver' => '2.6.3',
 		 'src' => 'tar.gz'
 		},
    'anjuta'              => {
@@ -102,6 +102,11 @@ our %office =
                    'ver' => '2.6.2',
                    'src' => 'tar.gz',
                   },
+   'gtkmathview'    => {
+                   'url' => 'http://helm.cs.unibo.it/mml-widget/sources',
+                   'ver' => '0.8.0',
+                   'src' => 'tar.gz',
+                  },
    'inkscape'            => {
 			     'ver' => '0.46',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/inkscape/',
@@ -123,7 +128,7 @@ our %office =
                    'src' => 'tar.gz',
                   },
    'liferea'             => {
-			     'ver' => '1.5.1',
+			     'ver' => '1.5.2b',
 			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/liferea/',
 			     'src' => 'tar.gz',
 			    },

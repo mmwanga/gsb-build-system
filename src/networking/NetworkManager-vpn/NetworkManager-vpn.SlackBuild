@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=svn_3594
+BUILD=1
+VERSION=svn_3655
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -181,9 +181,20 @@ do
   >  introspection/$(basename $i)
 done
 
+mkdir callouts-dirty
+mv -f callouts/nm-*.xml callouts-dirty
+for i in callouts-dirty/*.xml
+do
+  xsltproc spec-to-introspect.xsl $i \
+  | perl -pe '$$hash = chr(35);s{xmlns:tp="http://telepathy\.freedesktop\.org/wiki/DbusSpec$${hash}extensions-v0"} {}g' \
+  >  callouts/$(basename $i)
+  echo "Cleaned $i for namespaces."
+done
+
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --mandir=/usr/man \
   --disable-static --enable-shared \
   --with-distro=slackware \
   --with-mdns-provider=avahi \
@@ -200,9 +211,10 @@ make -j4
 (
 cd vpn-daemons ;
 
-## We could also add in 'pptp' but it seems broken at the moment
-for i in pptp openvpn vpnc ;
-#for i in openvpn vpnc ;
+## We could also add in 'pptp' but it is not yet updated to the newer networkmanager
+## API
+#for i in pptp openvpn vpnc ;
+for i in openvpn vpnc ;
 
 do 
 
