@@ -84,7 +84,7 @@ properly. **
 
 However, while GNOME SlackBuild is designed to replace as few Slackware packages as 
 possible, it is not possible to free ourselves wholly from replacing some packages.  
-There are three packages that are optional and replace official Slackware packages, 
+There are two packages that are optional and replace official Slackware packages, 
 but their replacement are only necessary for added functionality, or for certain 
 GNOME applications.  Their replacement is recommended, but not required if you do 
 not plan to use certain applications, or are dead set against replacing any 
@@ -97,9 +97,6 @@ mozilla-firefox:
   the GSB version if you plan to use Epiphany (GNOME Browser), Yelp (GNOME Help System), 
   GNOME Python (for the gtkmozembed widget for some Python applications), DevHelp (Developement
   Documentation Browser), or any Mono applications.
-
-compiz-fusion:    
-  Slackware 12.1 comes with Compiz 0.7.4, but GSB's Compiz-fusion is much cooler.  ;)
 
 libgsf:
   Slackware's libgsf package lacks GNOME support.  You will need to replace this package with the
