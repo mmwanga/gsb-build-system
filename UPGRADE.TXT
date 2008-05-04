@@ -26,8 +26,10 @@ Deprecated Packages
    1. You'll have to remove the gnome-volume-manager, as it has been replaced 
       by gvfs.  If you use slapt-get, you'll see a conflict warning. 
 
-   2. Our compiz package is now called compiz-fusion to avoid confusion with the 
-      Slackware compiz package.  One or the other.  (Fusion is cooler.)
+   2. Our compiz-fusion package is no longer supplied.  Slackware 12.1 compiz package
+      should be used.  We continue to supply compiz-fusion plugins and GNOME integration.
+      You can remove any compiz-fusion GSB package and install the standard Slackware compiz
+      package.
 
    3. libmusicbrainz: Slackware no longer offers libmusicbrainz, but Sound-juicer 
       and Rhythmbox still use it, so we have begun to offer the package now.
