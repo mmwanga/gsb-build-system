@@ -1,30 +1,31 @@
-# THIS IS THE REQUIRED PACKAGES LIST FOR GSB GNOME 2.22.1-CURRENT
+# THIS IS THE REQUIRED PACKAGES LIST FOR GSB GNOME 2.22.1
 #
 # The following is a list of packages that can replace official Slackware packages.
 #
-# Packages listed under 'Required' must be upgraded in order to use 
-# GNOME 2.22.1-current on Slackware 12-CURRENT (and Slackware 12.1)
-# Reasons for their upgrade are given within brackets.
+# Packages listed under 'Required' are Slackware packages that must be replaced
+# by corresponding GNOME SlackBuild versions in order to use GNOME 2.22.1 on Slackware 12.
+# Reasons for their replacement are given within brackets.
 #
 # Packages listed under 'Optional' are packages which replace official Slackware 
-# packages, but are only necessary for added functionality, or optional GNOME 
-# applications.  Notes are provided in brackets.
+# packages, but their replacement are only necessary for added functionality, or 
+# certain GNOME applications.  Their replacement is recommended, but not required
+# if you do not plan to use certain applications, or are dead set against replacing
+# any Slackware provided packages.
 #
-# List last updated: April 13th, 2008 (steve)
+# List last updated: May 4th (stevek)
 #
 
-*****************************************************
-NOTE: Slackware-CURRENT is required for GNOME 2.22.1
-* Hal >= 0.5.10 is required by gvfs, and in turn Nautilus 2.22.1
-*****************************************************
+**********************************************
+Slackware 12.1 is required to run GNOME 2.22.1
+**********************************************
 
--- Required Updates for GNOME 2.22.1 on Slackware-CURRENT --
+-- Required Package Replacements for GNOME 2.22.1 on Slackware 12.1 --
 
-glib2:            ( > 2.15 required by libgnome 2.22 and gvfs 0.2.1, ie, nautilus 2.22)
-libwnck:          ( > 2.22 required by metacity 2.22, and GNOME 2.22 at large)
+glib2:            ( > 2.15 required by libgnome 2.22, Gvfs 0.2.3, and Nautilus 2.22)
+libwnck:          ( > 2.22 required by Metacity 2.22, and GNOME 2.22 at large)
 
--- Optional Updates (for optional applications) 
+-- Optional Replacements --
 
-mozilla-firefox:  (Rebuild for shared libraries needed by: Epiphany, Yelp, GNOME Python, DevHelp)
-compiz-fusion:    (Slackware-CURRENT comes with compiz 0.7.4, compiz-fusion is cooler though)
-libgsf:           (Slackware's libgsf lacks GNOME support; required for GNOME Office applications)
+mozilla-firefox:  (Provides shared libraries. Required by: Epiphany, Yelp, GNOME Python, DevHelp)
+compiz-fusion:    (Slackware comes with compiz 0.7.4, compiz-fusion is cooler though)
+libgsf:           (Slackware's libgsf lacks GNOME support; required for GNOME Office applications like Gnumeric)
