@@ -254,7 +254,8 @@ mkdir -p $LOGSDIR
   else
     cp ../VERSIONS $PKGDEST/VERSIONS
   fi;
-  cp ../README.binary $PKGDEST/README
+  cp ../README.binary $PKGDEST/README.TXT
+  cp ../UPGRADE.TXT $PKGDEST/UPGRADE.TXT
   if [ "$ARCH" = "x86_64" ]; then
     cp ../ChangeLog.binary.slamd64 $PKGDEST/ChangeLog
   else

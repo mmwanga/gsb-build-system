@@ -1,8 +1,8 @@
-GSB: GNOME SlackBuild-CURRENT
+GSB: GNOME SlackBuild
 ---------------------
 
-PLEASE NOTE: This package is for Slackware-CURRENT only.  This version of
-GSB will only run on Slackware-CURRENT or Slackware 12.1.
+This version of GSB will only run on Slackware 12.1.  If you are running
+a previous version of Slackware, you must upgrade.
 
 This is our binary GNOME distribution for Slackware Linux.  It encompasses all
 needed packages for a fully configurable, customisable and usable GNOME desktop
@@ -23,28 +23,28 @@ gslapt is also available, and is a GTK version of slapt-get, which integrates
 well into the GSB GNOME Desktop, and is the default package management
 application.  slapt-get requires the following packages: gpgme, curl, pkgtools.
     
-You can download slapt-get for Slackware v12.0 from:
-  <http://software.jaos.org/slackpacks/12.0/slapt-get-0.9.12c-i386-1.tgz>
+You can download slapt-get for Slackware v12.1 from:
+  <http://get.gnomeslackbuild.org/gsb/gsb-stable/packages/tools/slapt-get-0.9.12d-i586-5gsb.tgz>
 
-If you are using a 64-bit platform, you can try slapt-get for Slamd64-current:
-  <http://software.jaos.org/slackpacks/current-x86_64/slapt-get-0.9.12b-x86_64-1.tgz>
+If you are using a 64-bit platform, you can try slapt-get for Slamd64-stable:
+  <http://get.gnomeslackbuild.org/gsb/gsb64-stable/packages/tools/slapt-get-0.9.12d-i586-5gsb.tgz>
 
 Mirrors
 -------
 
 The following is a list of available mirrors from which to download GNOME
 SlackBuild:
-  * Slackware 12.0:
-	<ftp://ftp.slackware.org.uk/gsb/gsb-current/>
-	<ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-current/>
-	<http://http.slackware.org.uk/gsb/gsb-current/>
-	<http://slackware.rol.ru/gsb/gsb/gsb-current/>
+  * Slackware 12.1:
+	<ftp://ftp.slackware.org.uk/gsb/gsb-stable/>
+	<ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-stable/>
+	<http://http.slackware.org.uk/gsb/gsb-stable/>
+	<http://slackware.rol.ru/gsb/gsb/gsb-stable/>
 
   * x86_64 Slackware derivatives, like Slamd64:
-	<ftp://ftp.slackware.org.uk/gsb64/gsb64-current/>
-	<ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb64/gsb64-current/>
-	<http://http.slackware.org.uk/gsb64/gsb64-current/>
-	<http://slackware.rol.ru/gsb/gsb64/gsb64-current/>
+	<ftp://ftp.slackware.org.uk/gsb64/gsb64-stable/>
+	<ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb64/gsb64-stable/>
+	<http://http.slackware.org.uk/gsb64/gsb64-stable/>
+	<http://slackware.rol.ru/gsb/gsb64/gsb64-stable/>
 
 
 Downloading and Installing
@@ -60,12 +60,15 @@ customizing slapt-getrc configuration file, you need to run:
 
 This will update all the package data available from all the package sources
 you specified within the slapt-getrc file.  Some standard Slackware packages
-will need to be upgraded, most notably pango, glib2, gtk+2, and
-gnome-icon-theme.  Others may need to be upgraded for added functionality, but
-these packages are optional. 
+will need to be replaced, most notably glib2, and libwnck.
+
+To get the most out of your GSB GNOME Desktop, it is recommended that you replace
+a few Slackware packages.  You can easily upgrade these packages first by 
+using slapt-get:
+  $ slapt-get --upgrade
 
 
-Required Slackware Updates for GNOME 2.20.3
+Required Slackware Updates for GNOME 2.22.1
 -------------------------------------------
 
 glib2:            ( > 2.15 required by libgnome 2.22 and gvfs 0.2.1, ie, nautilus 2.22)
@@ -79,6 +82,28 @@ slapt-get should then upgrade only these two specific packages.
 ** If you do not upgrade the required packages, GNOME SlackBuild will not run
 properly. **
 
+However, while GNOME SlackBuild is designed to replace as few Slackware packages as 
+possible, it is not possible to free ourselves wholly from replacing some packages.  
+There are three packages that are optional and replace official Slackware packages, 
+but their replacement are only necessary for added functionality, or for certain 
+GNOME applications.  Their replacement is recommended, but not required if you do 
+not plan to use certain applications, or are dead set against replacing any 
+Slackware provided packages.
+    
+*Optional Slackware Package Replacements for GNOME 2.22.1*
+
+mozilla-firefox:  
+  This is a shared library version of Mozilla Firefox. You must replace the Slackware Mozilla with 
+  the GSB version if you plan to use Epiphany (GNOME Browser), Yelp (GNOME Help System), 
+  GNOME Python (for the gtkmozembed widget for some Python applications), DevHelp (Developement
+  Documentation Browser), or any Mono applications.
+
+compiz-fusion:    
+  Slackware 12.1 comes with Compiz 0.7.4, but GSB's Compiz-fusion is much cooler.  ;)
+
+libgsf:
+  Slackware's libgsf package lacks GNOME support.  You will need to replace this package with the
+  GSB version if you plan on using any GNOME Office software, like Gnumeric, Glom, GNOME Database, etc.
 
 Metapackages
 ------------
@@ -88,6 +113,7 @@ SlackBuild.  GNOME SlackBuild provides a number of metapackages in order to
 ease the installation of huge package lists via slapt-get.  The recommended
 installation method is to first install the basic GSB GNOME Desktop through
 the gsb-desktop metapackage:
+
   $ slapt-get --install gsb-desktop
 
 After installation, it is strongly recommended that you reboot your system.
@@ -143,6 +169,11 @@ possible metapackages available for installing GNOME SlackBuild:
 	for data backend management, Gnumeric for spreadsheets, Abiword for
 	work processing, as well as Dia for a Visio-like charting program.
 
+  * gsb-ooo
+	This package is for easy installation of OpenOffice.Org for your GNOME 
+	Desktop.  Openoffice is linked against Gtk+2 to fit your GNOME Desktop, 
+	and comes with a set of menus for better GNOME integration.
+
   * gsb-themes
 	This package contains a few extra themes for GNOME SlackBuild, as well
 	as a few of the more popular GTK engines in use by a wide variety of
@@ -163,7 +194,7 @@ are using slapt-get, then you'll need to comment out the SOURCE for GNOME
 SlackBuild in your /etc/slapt-get/slapt-getrc file.  Then make sure to rerun
 slapt-get --update.  After this has finished, you'll be able to reinstall the
 standard Slackware packages by running:
-  $ slapt-get --install pango glib2 gtk+2 gnome-icon-theme
+  $ slapt-get --install glib2 libwnck
 
 You may also need to reinstall other packages that may have been replaced.  For
 a full list of packages that may have been upgraded by GNOME SlackBuild, please
