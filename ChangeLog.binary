@@ -1,3 +1,8 @@
+Mon May 05 17:47:19 GMT 2008
+ GNOME SlackBuild 2.22.1 released for Slackware 12.1.
+tools/slapt-get-0.9.12d-i586-6gsb.tgz: Rebuilt.
+  Fixes for slack-required to include better dependencies.
++--------------------------+
 Sun May 04 12:21:34 GMT 2008
  Hopefully this is the last modification for a stable Slackware 12.1 release.
 administration/system-tools-backends-2.6.0-i586-6gsb.tgz: Rebuilt.

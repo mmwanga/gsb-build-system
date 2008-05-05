@@ -248,8 +248,9 @@ mkdir -p $LOGSDIR
     }
   done
 
-  rm $PKGDEST/{README,UPGRADE}.TXT
-  cp ../{COPYING,CREDITS,README} $PKGDEST
+  rm -f $PKGDEST/{README,UPGRADE}.TXT
+  cp ../{COPYING,CREDITS} $PKGDEST
+  cp ../README.binary $PKGDEST/README
   # cp ../{COPYING,CREDITS,README,UPGRADING} $PKGDEST
   cp testing/README $PKGDEST/testing
   if [ "$ARCH" = "x86_64" ]; then
