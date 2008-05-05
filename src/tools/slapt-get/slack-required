@@ -1,3 +1,7 @@
 curl
+glibc-solibs | glibc
 gpgme
+libgpg-error
+libidn
+openssl-solibs | openssl
 pkgtools
