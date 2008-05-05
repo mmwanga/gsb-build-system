@@ -7,7 +7,7 @@
 ##
 
 ## Package variables
-BUILD=5
+BUILD=6
 VERSION=2.6.0
 
 ## List any packages here that are required to build this package.
@@ -115,6 +115,9 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
+## Patch for Slackware 12.1 version
+patch -p1 < $CWD/patches/slackware-12.1.version.patch || exit 1
+
 ## Fix permissions for building.
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
@@ -160,6 +163,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
+  --with-dbus-sys=/etc/dbus-1/system.d/ \
+  --with-stb-group=stb-admin \
   || exit 1
 
 ## Build and install.
@@ -168,6 +173,8 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## 
 ## Preserve previous configuration
+#
+# Unneeded now with Slackware 12.1's newer dbus
 ##
 #mkdir -p $PKG/etc/rc.d
 #cp $CWD/rc.stb $PKG/etc/rc.d/rc.stb.new

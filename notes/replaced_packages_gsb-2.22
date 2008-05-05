@@ -27,5 +27,5 @@ libwnck:          ( > 2.22 required by Metacity 2.22, and GNOME 2.22 at large)
 -- Optional Replacements --
 
 mozilla-firefox:  (Provides shared libraries. Required by: Epiphany, Yelp, GNOME Python, DevHelp)
-compiz-fusion:    (Slackware comes with compiz 0.7.4, compiz-fusion is cooler though)
+compiz-fusion:    (Slackware comes with compiz 0.7.4, compiz-fusion is cooler though and offers GNOME support)
 libgsf:           (Slackware's libgsf lacks GNOME support; required for GNOME Office applications like Gnumeric)
