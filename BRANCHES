@@ -1,4 +1,31 @@
-SVN Development Tree:
------------------------
-http://svn.gnomeslackbuild.org/gsb/branches/gsb-2.20.x  - Stable GNOME 2.20.3 Branch
-http://svn.gnomeslackbuild.org/gsb/trunk - Current Development Tree (GNOME 2.22.1 Development Branch)
+				SVN Branches
+				============
+
+We currently maintain several SVN branches to produce our GSB releases.  The
+following is a list of our trees and the URIs which should be used to 'svn co'
+them.
+
+Bleeding edge 'gsb-current' tree:
+  http://svn.gnomeslackbuild.org/gsb/trunk/
+
+  This tree contains the latest and most up to date GSB sources.  As such, at
+  any time it may be broken (ie, will not build fully) or may cause your system
+  to explode in a shower of wires and capacitors if you run it.
+  This tree is usually only for the latest Slackware-current and may not work
+  on Slackware "stable" releases.
+
+GNOME 2.22 tree:
+  http://svn.gnomeslackbuild.org/gsb/branches/gsb-2.22.x/
+
+  This is our GNOME 2.22 stable tree for Slackware 12.1 ONLY.
+  This tree is kept up to date with the GNOME 2.22 sources and will be
+  maintained (at least for the short->medium timeframe) with the minor
+  2.22.x releases GNOME provide.
+
+GNOME 2.20 tree:
+  http://svn.gnomeslackbuild.org/gsb/branches/gsb-2.20.x/
+
+  This is our GNOME 2.20 stable tree for Slackware 12.0 ONLY.
+  This tree is kept up to date with the GNOME 2.20 sources and will be
+  maintained (at least for the short->medium timeframe) with the minor
+  2.20.x releases GNOME provide.

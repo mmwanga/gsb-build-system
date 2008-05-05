@@ -1,44 +1,55 @@
-The packages below are in testing either because their haven't been thoroughly
-tested yet, or are just the initial support for upcoming features.
+			    Testing Packages
+			    ================
 
-Packages in Testing
--------------
+The packages in this section have not been thoroughly tested yet, or provide
+just the initial support for upcoming features.
 
-libtelepathy: (Telepathy Flexible Communications Framework)
-  The Telepathy project is building a unified framework for many
-  different kinds of real-time communications, such as instant messaging
-  (both one-to-one and in groups), voice calls and video calls.  It uses
-  the D-Bus messaging system to provide a simple interface for client
-  applications, allowing them to quickly take advantage of Telepathy's
-  benefits.  Telepathy will slowly be intergrated into the GNOME Desktop, 
-  and so it is here in testing for users to preview if they wish.
+You are free to install these packages if you wish - they shouldn't bork your
+system; but installing them is at YOUR OWN RISK and we will not provide a lot
+of support for them.
 
-empathy: (GNOME Empathy Instant Messaging)
-  GNOME Instant Messaging application that uses Telepathy.
 
-farsight: 
-  Support for audio/video conferencing for Telepathy.
+Availbale pckages
+-----------------
 
-gst-plugins-farsight:
-  Farsight uses GStreamer for its mediaframework.
+empathy - GNOME Empathy instant messaging
+  A GNOME instant messaging application that uses the Telepathy framework.
 
-loudmouth:
-  Jabber library for Telepathy-Gabble
+farsight - Farsight communications framework
+  A framework to support audio/video conferencing for Telepathy.
 
-telepathy-gabble:
-  Jabber support for Empathy/Telepathy
+gst-plugins-farsight - Farsight modules for GStreamer
+  GStreamer multimedia plugins for the Farsight framework.
 
-telepathy-butterfly:
-  MSN Messanger (mostly experimental) support for Empathy/Telepathy
+libjingle - Tapioca VoIP framework
+  VoIP support for Telepathy.
 
-telepathy-salut:
-  Salut support for Empathy/Telepathy
+libtelepathy - Telepathy flexible communications framework.
+  This is the main library implimenting the Telepathy framework.
 
-telepathy-glib:
-  Dbus/GLIB support for Telepathy
+  The Telepathy project is building a unified framework for many different
+  kinds of real-time communications, such as instant messaging (both one-to-one
+  and in groups), voice calls and video calls.  It uses the D-Bus messaging
+  system to provide a simple interface for client applications, allowing them
+  to quickly take advantage of Telepathy's benefits.
 
-telepathy-mission-control:
+  Telepathy will slowly be intergrated into the GNOME Desktop, so is provided
+  here for users to preview/test if they wish.
+
+loudmouth - A Jabber XMPP library
+  A Jabber library used by Telepathy-Gabble
+
+telepathy-butterfly - Telepathy support for MSN
+  MSN Messanger (mostly experimental) support for Empathy/Telepathy.
+
+telepathy-gabble - Telepathy Support for Gabble
+  Jabber support for Empathy/Telepathy.
+
+telepathy-glib - Telepathy connection manager library
+  Dbus/GLIB support for Telepathy.
+
+telepathy-mission-control - Telepathy mission control
   Addressbook and contact support for Empathy.
 
-libjingle:
-  Tapioca VoIP support for Telepathy.
+telepathy-salut - Telepathy Support for Salut
+  Salut support for Empathy/Telepathy.

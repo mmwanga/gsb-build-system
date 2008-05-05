@@ -248,20 +248,17 @@ mkdir -p $LOGSDIR
     }
   done
 
-  cp ../{COPYING,CREDITS} $PKGDEST
-  if [ "$ARCH" = "x86_64" ]; then
-    cp ../VERSIONS.slamd64 $PKGDEST/VERSIONS
-  else
-    cp ../VERSIONS $PKGDEST/VERSIONS
-  fi;
-  cp ../README.binary $PKGDEST/README.TXT
-  cp ../UPGRADE.TXT $PKGDEST/UPGRADE.TXT
+  rm $PKGDEST/{README,UPGRADE}.TXT
+  cp ../{COPYING,CREDITS,README} $PKGDEST
+  # cp ../{COPYING,CREDITS,README,UPGRADING} $PKGDEST
+  cp testing/README $PKGDEST/testing
   if [ "$ARCH" = "x86_64" ]; then
     cp ../ChangeLog.binary.slamd64 $PKGDEST/ChangeLog
+    cp ../VERSIONS.slamd64 $PKGDEST/VERSIONS
   else
     cp ../ChangeLog.binary $PKGDEST/ChangeLog
-  fi;
-  cp ../src/testing/README $PKGDEST/testing
+    cp ../VERSIONS $PKGDEST/VERSIONS
+  fi
 
   if [ "$NOMETAFILES" = "0" ]; then
     echo

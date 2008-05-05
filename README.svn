@@ -1,5 +1,5 @@
-About GNOME SlackBuild (GSB)
-----------------------------
+			  GSB: GNOME SlackBuild
+			  =====================
 
 GNOME SlackBuild (GSB) has two components; a full and complete built system to
 build Slackware compliant packages from GNOME sources, and a binary
@@ -20,9 +20,9 @@ to build GSB yourself), please see the website at:
 Before you begin
 ----------------
 
-This version of GSB is designed to build packages on a Slackware 12.0 based
+This version of GSB is designed to build packages on a Slackware 12.1 based
 system.  If you are trying to build GSB on a Slackware version earlier than
-12.0 you *will* encounter problems during the build.
+12.1 you *will* encounter problems during the build.
 
 We cannot offer any form of support to users trying to build GSB on earlier 
 versions of Slackware.  However, if you *do* manage to get GSB built on older
@@ -58,7 +58,7 @@ Quick start
 
 You must be root in order to build GSB.
 
-You must be running Slackware 12.0 and have all the required dependancies
+You must be running Slackware 12.1 and have all the required dependancies
 installed (see above) to build GSB.
 
 The GNOME (etc) source files are not distributed with GSB - part of the build
