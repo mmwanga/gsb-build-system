@@ -1,17 +1,25 @@
-			GSB: GNOME SlackBuild
-			=====================
+			  GSB: GNOME SlackBuild
+			  =====================
 
-This is our binary GNOME distribution for Slackware Linux (and Slamd64).  It
-encompasses all needed packages for a fully configurable, customisable and
-usable GNOME desktop environment for Slackware and Slamd64.
+GNOME SlackBuild (GSB) has two components; a full and complete system to build
+Slackware compliant packages from GNOME sources, and a binary distribution of
+those pre-built packages, suitable for Slackware and Slamd64.
+
+This document provides information on installing our pre-built GSB packages on
+Slackware and Slamd64.  GSB encompasses all needed packages for a fully
+configurable, customisable and usable GNOME desktop environment.
 
 If you haven't yet, you should read about the GSB project before installing:
   <http://gnomeslackbuild.org/>
 
-This version of GSB will only run on Slackware 12.1 and Slamd64 12.1 (once the
-Slamd64-current tree is released as 12.1).  If you are running a previous
-version of Slackware or Slamd64, you must upgrade.  Do not attempt to install
-this version of GSB on previous versions of Slackware and Slamd64.
+This version of GSB is built and only supported on:
+  Slackware 12.1
+  Slamd64 current (which will soon become Slamd64 12.1)
+
+If you are trying to use GSB on systems other than the above you *will*
+encounter problems.  If you are running a previous version of Slackware or
+Slamd64, you must upgrade.  Do not attempt to install this version of GSB on
+previous versions of Slackware and Slamd64.
 
 
 Installation methods

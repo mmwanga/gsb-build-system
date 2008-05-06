@@ -1,53 +1,56 @@
 			  GSB: GNOME SlackBuild
 			  =====================
 
-GNOME SlackBuild (GSB) has two components; a full and complete built system to
-build Slackware compliant packages from GNOME sources, and a binary
-distribution of those pre-built packages for Slackware.
+GNOME SlackBuild (GSB) has two components; a full and complete system to build
+Slackware compliant packages from GNOME sources, and a binary distribution of
+those pre-built packages, suitable for Slackware and Slamd64.
 
-This README provides information on using the GSB build system to produce
-your own Slackware packages of GNOME.  Included in the GSB build system are
-all the SlackBuilds and required files to build a package, an automatic source
+This document provides information on using the GSB build system to produce
+your own packages of GNOME.  Included in the GSB build system are all the
+SlackBuilds and required files to build a package, an automatic source
 downloader (we do not distribute the GNOME sources with GSB) and several other
-tools which can be used to create a binary tree of GSB.
+tools which are used to create a binary tree of GSB.
 
 For detailed information on the build process, or how to obtain the pre-built
-GSB Slackware packages (which, in most cases, is far far easier than trying
-to build GSB yourself), please see the website at:
+GSB packages (which, in most cases, is far far easier than trying to build GSB
+yourself), please see the website at:
   <http://gnomeslackbuild.org>
 
 
 Before you begin
 ----------------
 
-This version of GSB is designed to build packages on a Slackware 12.1 based
-system.  If you are trying to build GSB on a Slackware version earlier than
-12.1 you *will* encounter problems during the build.
+This version of GSB is designed to build packages using:
+  Slackware 12.1
+  Slamd64 current (which will soon become Slamd64 12.1)
+
+If you are trying to build GSB on systems other than the above you *will*
+encounter problems during the build.
 
 We cannot offer any form of support to users trying to build GSB on earlier 
-versions of Slackware.  However, if you *do* manage to get GSB built on older
-versions, please let us know what modifications you had to make to the build
-system in order to do so - if those changes can be integrated into our build
-system, you may find previous versions of Slackware supported out of the box
-in future releases.
+versions of Slackware or Slamd64.  However, if you do manage to get GSB built
+on other versions, please let us know what modifications you had to make to the
+build system in order to do so - if those changes can be integrated into our
+build system, you may find those versions supported out of the box in our
+future releases.
 
-The developers use a strictly controled instalation of Slackware to build the
-binary packages for the project - we only install the minimum packages
-required to perform a build.  We work from a set of 'tagfiles' which specify
-exactly which Slackware packages get installed into our build environment.
-We have included our tagfiles set in the lib/gsb/tagfiles/ directory.
+The developers use a strictly controled base of packages to build the binary
+packages for the project - we only install the minimum packages required to
+perform a build.  We work from a set of 'tagfiles' which specify exactly which
+packages get installed into our build environment.  We have included our
+tagfiles set in the lib/gsb/tagfiles/ directory for reference.
 
 When it comes to building your own packages it is doubtfull your build will
 succeed if you do not have every package marked with an "ADD" in our tagfiles
 installed on your system.  Those packages marked "ADD" form the basis of our
 build requirements - any missing packages from your system will likely cause
-the build to fail.  If you have a full installation of Slackware you should
-not have any problem doing a build, but the resulting packages may have more
-dependancies than indicated in our slack-required files (because many sources
-will find extra libraries when being configured and automatically link against
-them).
+the build to fail.  If you have a full installation of Slackware or Slamd64 you
+should not have any problem doing a build, but the resulting packages may have
+more dependancies than indicated in our slack-required files (because many of
+the sources will find extra libraries when being configured and automatically
+link against them).
 
-Unless you really know what you are doing with Slackware, understand what
+Unless you really know what you are doing with packages, understand what
 tagfiles and dependancies are all about, and really feel the need to "roll
 your own", it would be a far far better choice for you to download the
 pre-built binaries and install those.
@@ -58,8 +61,8 @@ Quick start
 
 You must be root in order to build GSB.
 
-You must be running Slackware 12.1 and have all the required dependancies
-installed (see above) to build GSB.
+You must be running one of the supported build platforms and have all the
+required dependancies installed (see above) to build GSB.
 
 The GNOME (etc) source files are not distributed with GSB - part of the build
 process will download the source files for you.  Obviously you need an (active)
@@ -81,19 +84,19 @@ files with the version information from the source downloaded - you want this.
 Finally, '--build=gsb' provides a build tag for the packages.  You can specify
 any build tag you wish for your packages - we use 'gsb' to mark ours.  If no
 '--build' option is given, no tag is added to the BUILD and the built packages
-will be named just as standard Slackware packages are (and thus very difficult
-to remove once installed).
+will be named just like standard packages (and thus very difficult to remove
+once installed).
 
 The build is started by running './gsb.SlackBuild' in the src/ directory.  The
 gsb.SlackBuild script has several options which effect the whole build process.
 Normally, however, none of those options are required for a build; and you are
 advised *not* to use them unless you are a developer.  The options are
-explained in detail further down in this README.
+explained in detail further down in this document.
 
-GSB requires that some standard Slackware packages be upgraded to newer
+GSB requires that some standard Slackware/Slamd64 packages be upgraded to newer
 versions in order for other packages to compile and work correctly.  As part of
 the GSB build process, gsb.SlackBuild (and section SlackBuilds) will remove
-(using removepkg) any Slackware packages which need to be updated.  The new
+(using removepkg) any such packages which need to be updated.  The new
 (updated) package from GSB will then be built and installed.
 
 Building GSB will take a very long time unless you have some top-notch hardware
@@ -153,8 +156,8 @@ If you do have a problem like this or cannot figure out what the issue is,
 please visit us on the IRC channel for help - details are on the website.
 
 
-Environment options
--------------------
+Customising the build environment
+---------------------------------
 
 When building GSB, there are several environment variables which can be used to
 tweak and customise the build process.  GSB supports two methods of setting
