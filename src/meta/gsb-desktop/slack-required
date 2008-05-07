@@ -72,4 +72,4 @@ service-discovery-applet
 avahi
 util-linux-ng
 alacarte
-dejavu-ttf
+dejavu-fonts-ttf

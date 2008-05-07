@@ -165,10 +165,10 @@ make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Remove perlocal.pod and .packlist from $PKG
-( for i in perllocal.pod .packlist site_perl; do
-      find $PKG -name "$i" -exec rm -rf {} \;
-  done
-) || exit 1
+for i in perllocal.pod .packlist site_perl; 
+do
+    find $PKG -name "$i" -exec rm -rf {} \;
+done
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

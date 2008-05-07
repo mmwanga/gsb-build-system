@@ -2,6 +2,14 @@ Mon May 05 17:47:19 GMT 2008
  GNOME SlackBuild 2.22.1 released for Slackware 12.1.
 tools/slapt-get-0.9.12d-i586-6gsb.tgz: Rebuilt.
   Fixes for slack-required to include better dependencies.
+desktop/gnome-themes-2.22.0-i586-4gsb.tgz: Rebuilt.
+  Fixed a typo in the doinst.sh. Thanks to byteframe for pointing it out. :)
+compiz/emerald-0.7.4-i586-2gsb.tgz: Rebuilt.
+  Fix in slack-required for order.
+compiz/compiz-manager-0.6.0-i586-4gsb.tgz: Rebuilt.
+  Fix in slack-required for order.
+compiz/libcompizconfig-0.7.4-i586-3gsb.tgz: Rebuilt.
+  Fix in slack-required for order.
 +--------------------------+
 Sun May 04 12:21:34 GMT 2008
  Hopefully this is the last modification for a stable Slackware 12.1 release.
@@ -57,6 +65,7 @@ libraries/freealut-1.1.0-i586-4gsb.tgz: Rebuilt.
 office/blender-2.45-i586-4gsb.tgz: Rebuilt.
   Linked against new openal.
 libraries/ffmpeg-svn_13024-i586-1gsb: Upgraded.
+office/liferea-1.5.2b-i586-1gsb.tgz: Upgraded.
 platform/pulseaudio-0.9.10-i586-1gsb.tgz: Upgraded.
 administration/system-config-printer-0.9.90-i586-1gsb.tgz: Upgraded.
 desktop/sensors-applet-2.2.1-i586-5gsb.tgz: Rebuilt.

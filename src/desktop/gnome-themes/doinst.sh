@@ -1,5 +1,5 @@
 for i in HighContrast-SVG Crux Mist HighContrast LargePrint HighContrastLargePrint \
-	HighContrastInverse HighContrastLargePrintInverse \
+	HighContrastInverse HighContrastLargePrintInverse ;
 do
     if [ -e usr/share/icons/$i/icon-theme.cache ]; then
         rm -f usr/share/icons/$i/icon-theme.cache
