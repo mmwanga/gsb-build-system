@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=2.22.1.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomeui iso-codes dbus python pygtk gnome-python-desktop gtk+2 glib2 gnome-desktop libgnomeprintui startup-notification which pango cairo fontconfig freetype nss zlib atk popt GConf"
+REQUIRED_PACKAGES="libgnomeui iso-codes dbus python pygtk gnome-python-desktop gtk+2 glib2 gnome-desktop libgnomeprintui startup-notification which pango cairo fontconfig freetype nss zlib atk popt GConf hicolor-icon-theme"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -182,10 +182,10 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 ## The icons are improperly placed in a package subdirectory, rather than
 ## the main GNOME Icon Set. This moves them over so the application has
 ## access to its icons.  It is better to have them in the default gnome
-## icon directory. REQUIRED ONLY FOR GNOME 2.20
-mkdir -p $PKG/usr/share/icons/gnome
-mv $PKG/usr/share/$PKGNAME/icons/hicolor/* $PKG/usr/share/icons/gnome
-rm -fr $PKG/usr/share/$PKGNAME/icons
+## icon directory. They may go "missing" when KDE is installed.
+#mkdir -p $PKG/usr/share/icons/gnome
+#mv $PKG/usr/share/$PKGNAME/icons/hicolor/* $PKG/usr/share/icons/gnome
+#rm -fr $PKG/usr/share/$PKGNAME/icons
 
 ##
 ## Keep clean for Scrollkeeper

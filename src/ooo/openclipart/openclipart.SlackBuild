@@ -15,7 +15,7 @@ VERSION=0.18
 REQUIRED_PACKAGES=""
 
 ## Build variables.
-ARCH=${ARCH:-i586}
+ARCH=noarch
 TUNE=${TUNE:-i586}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}

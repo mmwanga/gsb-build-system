@@ -1,0 +1,6 @@
+glib2
+openobex
+bluez-libs
+bluez-utils
+dbus
+dbus-glib

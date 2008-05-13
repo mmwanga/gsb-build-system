@@ -15,7 +15,7 @@ VERSION=2.22.0
 REQUIRED_PACKAGES="gtk+2 gtk-engines icon-naming-utils gnome-icon-theme hicolor-icon-theme"
 
 ## Build variables.
-ARCH=${ARCH:-i586}
+ARCH=noarch
 TUNE=${TUNE:-i586}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}

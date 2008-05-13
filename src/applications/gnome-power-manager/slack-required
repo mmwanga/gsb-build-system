@@ -11,3 +11,5 @@ gstreamer
 gtk+2
 gnome-panel
 gnome-icon-theme
+pm-utils
+hicolor-icon-theme

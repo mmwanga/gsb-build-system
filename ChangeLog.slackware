@@ -1,383 +1,52 @@
+Tue May 13 16:47:57 GMT 2008
+applications/gdm-2.20.6-i586-1gsb.tgz: Upgraded.
+  A lot of crash conditions fixes is this release.  Upgrade recommended. 
+  See http://ftp.gnome.org/pub/GNOME/sources/gdm/2.20/gdm-2.20.6.news for
+  more information.
+desktop/obex-data-server-0.3.1-i586-1gsb.tgz: Added.
+  This is a useful package for GNOME Bluez.  It adds some nice dbus hooks
+  to make using bluetooth devices, ftp, and really anything that uses
+  obex much smoother in GNOME.  Thanks to walesa for pointing it out.
+applications/bluez-gnome-0.25-i586-4gsb.tgz: Rebuilt.
+  Added dependency in slack-required for obex-data-server.
+testing/banshee-1-0.99.1-i586-2gsb.tgz: Rebuilt.
+  Fixed icons paths for proper hicolor icon specification.
+applications/gnome-power-manager-2.22.1-i586-2gsb.tgz: Rebuilt.
+  Fixed icons paths for proper hicolor icon specification.
+applications/epiphany-2.22.1.1-i586-3gsb.tgz: Rebuilt.
+  Fixed icons paths for proper hicolor icon specification.
+applications/epiphany-extensions-2.22.1-i586-2gsb.tgz: Rebuilt.
+  Fixed icons paths for proper hicolor icon specification.
+applications/evince-2.22.1.1-i586-2gsb.tgz: Rebuilt.
+  Fixed icons paths for proper hicolor icon specification.
++--------------------------+
+Sun May 11 09:43:20 GMT 2008
+applications/totem-pl-parser-2.22.3-i586-1gsb.tgz: Upgraded.
++--------------------------+
+Fri May 09 15:57:20 GMT 2008
+  Development on GSB-CURRENT begins.  :^)
+testing/banshee-1-0.99.1-i586-1gsb.tgz: Added.
+  This is the new Beta release of the Banshee rewriter.  Things
+  are starting to look really good!  Here is the preview. 
+administration/pm-utils-1.1.0-i586-1gsb.tgz: Added.
+  Users may need this package in order to use gnome-power-manager
+  to hibernate/suspend their machines.  g-p-m uses hal for all power
+  events, and hal in turn uses pm-utils.  Caveat emptor.
+applications/gnome-power-manager-2.22.1-i586-3gsb.tgz: Rebuilt.
+  Added pm-utils to slack-required.
+office/glom-1.6.17-i586-1gsb.tgz: Upgraded.
+office/goffice-0.6.3-i586-1gsb.tgz: Upgraded.
++--------------------------+
+Thu May 08 16:49:20 GMT 2008
+  Minor tweaks I suppose always follow a brand new stable release.
+  No binary package changes.
+meta/gsb-complete-2.22.1-noarch-5gsb.tgz: Updated.
+  Thanks to John Garrott for pointing out that the gsb-complete
+  metapackage wasn't so complete.  Added in the missing packages. :^)
+libraries/XML-Simple-2.18-i586-3gsb.tgz: Removed.
+  Deprecated.  Not a part of any installation, and replaced by 
+  Slackware's perl.  Should have been removed from the tree earlier 
+  but I missed this one.  :/
++--------------------------+
 Mon May 05 17:47:19 GMT 2008
  GNOME SlackBuild 2.22.1 released for Slackware 12.1.
-tools/slapt-get-0.9.12d-i586-6gsb.tgz: Rebuilt.
-  Fixes for slack-required to include better dependencies.
-desktop/gnome-themes-2.22.0-i586-4gsb.tgz: Rebuilt.
-  Fixed a typo in the doinst.sh. Thanks to byteframe for pointing it out. :)
-compiz/emerald-0.7.4-i586-2gsb.tgz: Rebuilt.
-  Fix in slack-required for order.
-compiz/compiz-manager-0.6.0-i586-4gsb.tgz: Rebuilt.
-  Fix in slack-required for order.
-compiz/libcompizconfig-0.7.4-i586-3gsb.tgz: Rebuilt.
-  Fix in slack-required for order.
-+--------------------------+
-Sun May 04 12:21:34 GMT 2008
- Hopefully this is the last modification for a stable Slackware 12.1 release.
-administration/system-tools-backends-2.6.0-i586-6gsb.tgz: Rebuilt.
-  Added "Slackware 12.1" to known Slackware versions. :^)
-  Also, properly use stb-admin to restrict use of tools.  Users of
-  stb now must be in the stb-admin group.
-+--------------------------+
-Sat May 03 03:43:19 GMT 2008
-mono/evolution-sharp-0.16.1.1-i586-1gsb.tgz: Upgraded.
-extras/deluge-0.5.9.0-i586-1gsb.tgz: Upgraded.
-extras/devede-3.7-i586-1gsb.tgz: Upgraded.
-applications/gnome-user-share-0.30-i586-2gsb.tgz: Rebuilt.
-  configure script wasn't passing proper location of httpd modules 
-  to dav conf files.  
-desktop/evolution-data-server-2.22.1.1-i586-1gsb.tgz: Upgraded.
-applications/evolution-2.22.1.1-i586-1gsb.tgz: Upgraded.
-applications/evolution-exchange-2.22.1.1-i586-1gsb.tgz: Upgraded.
-testing/empathy-0.23.1-i586-1gsb.tgz: Added.
-  Added, since empathy is being pushed as a future major component of 
-  GNOME; however, it is still a bit incomplete and untested. Some other 
-  major distros are including it, so it might be a good idea to put 
-  it into "testing" for those users who want to try it out.
-testing/telepathy-glib-0.7.6-i586-2gsb.tgz: Upgraded.
-testing/libjingle-0.3.11-i586-1gsb.tgz: Added.
-  Telepathy VoIP support.
-testing/farsight-0.1.27-i586-1gsb.tgz: Added.
-  Telepathy audio/video conferencing support.
-testing/gst-plugins-farsight-0.12.7-i586-1gsb.tgz: Added.
-  Farsight support for GStreamer media framework.
-testing/telepathy-mission-control-4.65-i586-1gsb.tgz: Added.
-  Empathy contact support.
-testing/telepathy-butterfly-0.3.1-i586-1gsb.tgz: Added.
-  Empathy MSN Messanger support.
-testing/telepathy-gabble-0.7.4-i586-1gsb.tgz: Added.
-  Empathy Jabber support.
-testing/telepathy-salut-0.3.2-i586-1gsb.tgz: Added.
-  Empathy Salut support.
-+--------------------------+
-Thu May 01 19:13:41 GMT 2008
-libraries/lua-5.1.3-i586-3gsb.tgz: Rebuilt.
-  Applied shared library patch (to Makefile only) to create
-  a lua.so. Thanks to irb for the mention.
-libraries/libgphoto2-2.4.1-i586-1gsb.tgz: Upgraded.
-  Added doinst to properly make udev rules for cameras.
-extras/gtkam-0.1.15-i586-1gsb.tgz: Upgraded.
-libraries/exempi-2.0.1-i586-1gsb.tgz: Upgraded.
-libraries/openal-1.3.253-i586-1gsb.tgz: Upgraded.
-  Switched to newer (and better maintained) OpenAL Soft.
-  Thanks to Philip Langdale for the suggestion. :)
-libraries/freealut-1.1.0-i586-4gsb.tgz: Rebuilt.
-  Linked against new openal.
-office/blender-2.45-i586-4gsb.tgz: Rebuilt.
-  Linked against new openal.
-libraries/ffmpeg-svn_13024-i586-1gsb: Upgraded.
-office/liferea-1.5.2b-i586-1gsb.tgz: Upgraded.
-platform/pulseaudio-0.9.10-i586-1gsb.tgz: Upgraded.
-administration/system-config-printer-0.9.90-i586-1gsb.tgz: Upgraded.
-desktop/sensors-applet-2.2.1-i586-5gsb.tgz: Rebuilt.
-  Relinked against gnome-panel-2.22.1.3.
-mono/mono-1.9.1-i586-1gsb.tgz: Upgraded.
-office/abiword-2.6.3-i586-1gsb.tgz: Upgraded.
-office/gtkmathview-0.8.0-i586-1gsb.tgz: Added.
-office/abiword-plugins-2.6.3-i586-1gsb.tgz: Upgraded.
-  Now supports math equations with gtkmathview.
-office/abiword-extras-2.6.3-i586-1gsb.tgz: Upgraded.
-office/abiword-docs-2.6.3-i586-1gsb.tgz: Upgraded.
-libraries/x264-snapshot-20080430-2245-i586-1gsb.tgz: Upgraded.
-libraries/mpeg4ip-1.6.1-i586-5gsb.tgz: Rebuilt.
-  Rebuilt against newer ffmpeg.
-extras/MPlayer-1.0rc2-i586-11gsb: Rebuilt.
-  Rebuilt against newer ffmpeg and x264.
-mono/f-spot-0.4.3.1-i586-1gsb.tgz: Upgraded.
-extras/dvdrip-0.98.8-i586-9gsb.tgz: Rebuilt.
-  Fixed man page locations.
-administration/rdiff-backup-1.0.5-i586-2gsb.tgz: Rebuilt.
-  Fixed man page locations.
-administration/pybackpack-0.5.4-i586-3gsb.tgz: Rebuilt.
-  Fixed man page locations.
-administration/gksu-2.0.0-i586-4gsb.tgz: Rebuilt.
-  Fixed man page locations.
-ooo/openoffice-perl-2.008-i586-2gsb.tgz: Rebuilt.
-  Fixed man page locations.
-bindings/glib-perl-1.164-i586-5gsb.tgz: Rebuilt.
-  Fixed man page locations.
-libraries/speex-1.2beta3-i586-1gsb.tgz: Upgraded.
-networking/NetworkManager-svn_3655-i586-1gsb.tgz: Upgraded.
-  Contains a nice fix to wait properly for HAL startup. This
-  svn version finally appears quite stable.  :^)
-networking/NetworkManager-vpn-svn_3655-i586-1gsb.tgz: Upgraded.
-networking/network-manager-applet-svn_709-i586-1gsb.tgz: Upgraded.
-+--------------------------+
-Wed Apr 30 16:50:23 GMT 2008
-office/slib-3a4-i586-4gsb.tgz: Rebuilt.
-office/gnucash-2.2.5-i586-1gsb.tgz: Upgraded.
-mono/f-spot-0.4.3-i586-3gsb.tgz: Upgraded.
-applications/conduit-0.3.10-i586-1gsb.tgz: Upgraded.
-administration/gparted-0.3.7-i586-1gsb.tgz: Upgraded.
-+--------------------------+
-Sun Apr 27 20:10:10 GMT 2008
-libraries/libnl-1.1-i586-1gsb.tgz: Upgraded.
-networking/NetworkManager-svn_3594-i586-2gsb.tgz: Rebuilt.
-networking/NetworkManager-vpn-svn_3594-i586-2gsb.tgz: Rebuilt.
-networking/network-manager-applet-svn_696-i586-2gsb.tgz: Rebuilt.
-+--------------------------+
-Sun Apr 27 03:34:10 GMT 2008
-ooo/openoffice-2.4.0.8-i586-1gsb.tgz: Upgraded.
-  Security fixes for: CVE-2007-4770/4771,
-  CVE-2007-5745/5747, CVE-2007-5746, and CVE-2008-0320.
-extras/deluge-0.5.8.9-i586-2gsb.tgz: Rebuilt.
-networking/NetworkManager-svn_3594-i586-1gsb.tgz: Upgraded.
-networking/NetworkManager-vpn-svn_3594-i586-1gsb.tgz: Upgraded.
-networking/network-manager-applet-svn_696-i586-1gsb.tgz: Upgraded.
-+--------------------------+
-Sat Apr 26 18:10:36 GMT 2008
-mono/f-spot-0.4.2-i586-3gsb.tgz: Rebuilt.
-  Applying patches from stable svn branch in order to build
-  with mono 1.9.
-mono/gtk-sharp-2.12.1-i586-1gsb.tgz: Upgraded.
-mono/gnome-sharp-2.20.1-i586-1gsb.tgz: Upgraded.
-applications/totem-2.22.2-i586-1gsb.tgz: Upgraded.
-applications/evolution-2.22.2-i586-3gsb.tgz: Rebuilt.
-applications/service-discovery-applet-0.4.5-i586-6gsb.tgz: Rebuilt.
-  Fix to slack-required for notify-python.
-applications/gthumb-2.10.8-i586-6gsb.tgz: Rebuilt.
-  Improvements to slack-required.
-applications/pavucontrol-0.9.5-i586-2gsb.tgz: Rebuilt.
-  Fix to slack-required for cairomm.
-extras/dvdrip-0.98.8-i586-8gsb.tgz: Rebuilt.
-  Added libintl-perl to slack-required.
-+--------------------------+
-Mon Apr 21 17:42:36 GMT 2008
-compiz/avant-window-navigator-0.2.6-i586-4gsb.tgz: Rebuilt.
-  Fix slack-required.
-compiz/awn-extras-applets-0.2.6-i586-3gsb.tgz: Rebuilt.
-  Fix slack-required.
-+--------------------------+
-Sun Apr 20 19:47:36 GMT 2008
-desktop/sensors-applet-2.2.1-i586-4gsb.tgz: Rebuilt.
-  Removed dependency on cpufrequtils.
-administration/system-tools-backends-2.6.0-i586-5gsb.tgz: Rebuilt.
-  Removed old rc.stb handling from doinst.sh.  Thanks to 
-  alientBOB for pointing it out. 
-+--------------------------+
-Sat Apr 19 23:00:02 GMT 2008
-desktop/pulseaudio-0.9.9-i586-6gsb.tgz: Rebuilt.
-  Removed circular dependency for alsa-plugins.
-applications/gnome-system-monitor-2.22.1-i586-1gsb.tgz: Upgraded.
-desktop/libgweather-2.22.1.2-i586-1gsb.tgz: Upgraded.
-desktop/gnome-panel-2.22.1.3-i586-1gsb.tgz: Upgraded.
-office/glom-1.6.15-i586-1gsb.tgz: Upgraded.
-accessibility/gnome-speech-0.4.19-i586-1gsb.tgz: Upgraded.
-office/glade3-3.3.4-i586-1gsb.tgz: Upgraded.
-applications/mozilla-firefox-2.0.0.14-i586-3gsb.tgz: Upgraded.
-applications/epiphany-2.22.1.1-i586-2gsb.tgz: Rebuilt.
-applications/yelp-2.22.1-i586-2gsb.tgz: Rebuilt.
-office/devhelp-0.18-i586-4gsb.tgz: Rebuilt.
-office/gnome-python-extras-2.19.1-i586-5gsb.tgz: Rebuilt.
-mono/gecko-sharp-2.0_0.13-i586-4gsb.tgz: Rebuilt.
-tools/slapt-get-0.9.12d-i586-5gsb.tgz: Rebuilt.
-  Removed ^alsa-* from the EXCLUDE line in slapt-getrc file.
-+--------------------------+
-Wed Apr 16 01:53:12 GMT 2008
-compiz/compiz-manager-0.6.0-i586-4gsb.tgz: Rebuilt.
-  slack-required fixed.  Thanks to Philip Langdale.
-meta/gsb-mono, gsb-basic: Updated.
-  slack-required fixed.  Thanks to Philip Langdale.
-desktop/sensors-applet-2.2.1-i586-4gsb.tgz: Rebuilt.
-  slack-required fixed.  Thanks to Philip Langdale.
-office/abiword-2.6.2-i586-2gsb.tgz: Rebuilt.
-  slack-required fixed.  Thanks to Philip Langdale.
-applications/gnome-phone-manager-0.51-i586-2gsb.tgz: Rebuit.
-  Fix dependency on gtkspell.
-extras/deluge-0.5.8.9-i586-1gsb.tgz: Upgraded.
-mono/gnome-sharp-2.20.0-i586-3gsb.tgz: Rebuilt.
-mono/gnome-desktop-sharp-2.20.1-i586-3gsb: Added.
-  Thanks to Andrew V.Kosteltsev for pointing out the missing
-  dependency.
-mono/mono-tools-1.9-i586-3gsb.tgz: Rebuilt.
-+--------------------------+
-Mon Apr 14 00:10:45 GMT 2008
-extras/MPlayer-1.0rc2-i586-10gsb: Rebuilt.
-  Fix a typo in the slack-required.
-  Fix mplayer.desktop to allow opening filenames with spaces.
-meta/gsb-complete: Rebuilt.
-  Fix libdvbpsi5 in slack-required.
-meta/gsb-*-2.22.1-1gsb.tgz: Version bumped.
-+--------------------------+
-Sun Apr 13 00:15:45 GMT 2008
-networking/NetworkManager-svn_3557-i586-1gsb.tgz: Upgraded.
-networking/NetworkManager-vpn-svn_3557-i586-1gsb.tgz: Upgraded.
-networking/network-manager-applet-svn_664-i586-1gsb.tgz: Upgraded.
-desktop/evo-openldap-2.3.38-i586-4gsb.tgz: Rebuilt.
-  Added a doinst.sh to add the libexec evo-openldap to ld.so.conf,
-  which is required in order to the exchange plugins to work with NTLM.
-extras/wxGTK-2.8.7-i586-5gsb.tgz: Rebuilt.
-  Added --with-stc to configure line, and install stc from
-  contrib.
-libraries/openal-0.0.8-i586-5gsb.tgz: Rebuilt.
-  Fixed broken openal.pc. 
-libraries/freealut-1.1.0-i586-3gsb.tgz: Rebuilt.
-compiz/compiz-fusion-plugins-main-0.7.4-i586-2gsb.tgz: Rebuilt.
-  Rebuilt with support for GNOME schemas.
-compiz/compiz-fusion-plugins-extra-0.7.4-i586-2gsb.tgz: Rebuilt.
-  Rebuilt with support for GNOME schemas.
-compiz/libcompizconfig-0.7.4-i586-2gsb.tgz: Rebuilt.
-  Was improperly linked against compiz-core 20080218.
-libraries/ffmpeg-svn_12807-i586-1gsb.tgz: Upgraded.
-+--------------------------+
-Sat Apr 12 19:25:15 GMT 2008
-platform/libgnomeui-2.22.1-i586-1gsb.tgz: Upgraded.
-office/glade-3.5.2-i586-1gsb.tgz: Upgraded.
-desktop/gnome-applets-2.22.1-i586-2gsb.tgz: Rebuilt.
-applications/padevchooser-0.9.3-i586-3gsb.tgz: Rebuilt.
-office/libgda-3.0.4-i586-1gsb.tgz: Upgraded.
-desktop/gnome-panel-2.22.1.2-i586-1gsb.tgz: Upgraded.
-desktop/gnome-session-2.22.1.1-i586-1gsb.tgz: Upgraded.
-extras/ghex-2.22.0-i586-1gsb.tgz: Upgraded.
-compiz/ccsm-0.7.4-i586-1gsb.tgz: Upgraded.
-compiz/compiz-bcop-0.7.4-i586-1gsb.tgz: Upgraded.
-compiz/compiz-fusion-0.7.4-i586-1gsb.tgz: Upgraded.
-compiz/compiz-fusion-plugins-extra-0.7.4-i586-1gsb.tgz: Upgraded.
-compiz/compiz-fusion-plugins-main-0.7.4-i586-1gsb.tgz: Upgraded.
-compiz/compizconfig-backend-gconf-0.7.4-i586-1gsb.tgz: Upgraded.
-compiz/compizconfig-python-0.7.4-i586-1gsb.tgz: Upgraded.
-compiz/emerald-0.7.4-i586-1gsb.tgz: Upgraded.
-compiz/libcompizconfig-0.7.4-i586-1gsb.tgz: Upgraded.
-+--------------------------+
-Wed Apr 09 09:25:15 GMT 2008
-* GNOME 2.22.1 is Released.
-applications/vino-2.22.1-i586-1gsb.tgz: Upgraded.
-applications/vinagre-0.5.1-i586-1gsb.tgz: Upgraded.
-applications/totem-2.22.1-i586-1gsb.tgz: Upgraded.
-applications/totem-pl-parser-2.22.2-i586-1gsb.tgz: Upgraded.
-accessibility/orca-2.22.1-i586-1gsb.tgz: Upgraded.
-desktop/nautilus-cd-burner-2.22.1-i586-1gsb.tgz: Upgraded.
-desktop/nautilus-2.22.2-i586-1gsb.tgz: Upgraded.
-platform/libsoup-2.4.1-i586-1gsb.tgz: Upgraded.
-desktop/libgweather-2.22.1.1-i586-1gsb.tgz: Upgraded.
-desktop/gvfs-0.2.3-i586-1gsb.tgz: Upgraded.
-desktop/gtkhtml-3.18.1-i586-1gsb.tgz: Upgraded.
-applications/gnome-terminal-2.22.1-i586-1gsb.tgz: Upgraded.
-desktop/gnome-panel-2.22.1.1-i586-1gsb.tgz: Upgraded.
-applications/gnome-games-2.22.1.1-i586-1gsb.tgz: Upgraded.
-desktop/gnome-control-center-2.22.1-i586-1gsb.tgz: Upgraded.
-applications/gedit-2.22.1-i586-1gsb.tgz: Upgraded.
-applications/file-roller-2.22.2-i586-1gsb.tgz: Upgraded.
-platform/evolution-data-server-2.22.1-i586-1gsb.tgz: Upgraded.
-applications/evolution-exchange-2.22.1-i586-2gsb.tgz: Rebuilt.
-applications/epiphany-2.22.1.1-i586-1gsb.tgz: Upgraded.
-applications/evince-2.22.1.1-i586-1gsb.tgz: Upgraded.
-applications/eog-2.22.1-i586-1gsb.tgz: Upgraded.
-accessibility/gnome-mag-0.15.0-i586-1gsb.tgz: Upgraded.
-+--------------------------+
-Tue Apr 08 09:11:15 GMT 2008
-desktop/gnome-session-2.22.1-i586-1gsb.tgz: Upgraded.
-applications/file-roller-2.22.1-i586-1gsb.tgz: Upgraded.
-platform/gtk-engines-2.14.1-i586-1gsb.tgz: Upgraded.
-desktop/gnome-menus-2.22.1-i586-1gsb.tgz: Upgraded.
-desktop/libwnck-2.22.1-i586-1gsb.tgz: Upgraded.
-desktop/gnome-desktop-2.22.1-i586-1gsb.tgz: Upgraded.
-desktop/libepc-2.22.1-i586-1gsb.tgz: Upgraded.
-applications/yelp-2.22.1-i586-1gsb.tgz: Upgraded.
-desktop/gnome-panel-2.22.1-i586-1gsb.tgz: Upgraded.
-desktop/gnome-applets-2.22.1-i586-1gsb.tgz: Upgraded.
-desktop/libgweather-2.22.1-i586-1gsb.tgz: Upgraded.
-desktop/nautilus-cd-burner-2.22.0-i586-4gsb.tgz: Rebuilt.
-desktop/nautilus-2.22.1-i586-3gsb.tgz: Rebuilt.
-libraries/glib2-2.16.3-i586-1gsb.tgz: Upgraded.
-applications/gcalctool-5.22.1-i586-1gsb.tgz: Upgraded.
-desktop/gnome-settings-daemon-2.22.1-i586-1gsb.tgz: Upgraded.
-+--------------------------+
-Tue Apr 08 00:11:15 GMT 2008
-office/anjuta-2.4.1-i586-1gsb.tgz: Upgraded.
-desktop/gnome-settings-daemon-2.22.1-i586-1gsb.tgz: Upgraded.
-applications/evince-2.22.1-i586-1gsb.tgz: Upgraded.
-applications/zenity-2.22.1-i586-1gsb.tgz: Upgraded.
-applications/gdm-2.20.5-i586-1gsb.tgz: Upgraded.
-applications/deskbar-applet-2.22.1-i586-1gsb.tgz: Upgraded.
-accessbility/dasher-4.7.3-i586-1gsb.tgz: Upgraded.
-applications/cheese-2.22.1-i586-1gsb.tgz: Upgraded.
-extras/pstoedit-3.45-i586-3gsb.tgz: Rebuilt.
-+--------------------------+
-Mon Apr 07 18:59:01 GMT 2008
-office/abiword-2.6.2-i586-1gsb.tgz: Upgraded.
-  Upgraded to the latest stable release of Abiword.
-  Its plugins and docs now come as separate packages,
-  as does extra dictionaries, clipart, templates, etc
-  in the abiword-extras package.
-office/abiword-plugins-2.6.2-i586-1gsb.tgz: Added.
-office/abiword-extras-2.6.2-i586-1gsb.tgz: Added.
-office/abiword-docs-2.6.2-i586-1gsb.tgz: Added.
-office/wv-1.2.4-i586-1gsb.tgz: Added.
-  For support for Microsoft documents in Abiword.
-desktop/gail-1.22.1-i586-1gsb.tgz: Upgraded.
-platform/at-spi-1.22.1-i586-1gsb.tgz: Upgraded.
-platform/gnome-keyring-2.22.1-i586-1gsb.tgz: Upgraded.
-applications/seahorse-2.22.1-i586-1gsb.tgz: Upgraded.
-applications/gnome-games-2.22.1-i586-1gsb.tgz: Upgraded.
-applications/evolution-2.22.1-i586-1gsb.tgz: Upgraded.
-applications/epiphany-2.22.1-i586-1gsb.tgz: Upgraded.
-applications/epiphany-extensions-2.22.1-i586-1gsb.tgz: Upgraded.
-mono/tomboy-0.10.1-i586-1gsb.tgz: Upgraded.
-+--------------------------+
-Sat Apr 05 11:20:48 GMT 2008
-office/glom-1.6.13-i586-1gsb: Upgraded.
-+--------------------------+
-Sat Apr 05 11:20:48 GMT 2008
-platform/dbus-python-0.82.4-i586-2gsb: Removed.
-  This is now supplied by Slackware's dbus-python package.
-desktop/gstreamer-0.10.19-i586-1gsb.tgz: Upgraded.
-office/liferea-1.5.1-i586-1gsb.tgz: Upgraded.
-desktop/gst-plugins-base-0.10.19-i586-1gsb.tgz: Upgraded.
-desktop/libgtop-2.22.1-i586-1gsb.tgz: Upgraded.
-platform/XML-Simple-2.18-i586-3gsb: Removed.
-  This is now supplied by Slackware's perl package.
-libraries/libdiscid-0.1.1-i586-1gsb.tgz: Added.
-  Required for libmusicbrainz.
-libraries/libmusicbrainz-2.1.5-i586-1gsb.tgz: Added.
-  This is no longer supplied by Slackware.
-administration/system-tools-backends-2.6.0-i586-4gsb.tgz: Recompiled.
-desktop/nautilus-2.22.1-i586-2gsb.tgz: Recompiled.
-  Note: This now requires the util-linux-ng package (which replaces
-  the util-linux)
-desktop/gnome-mount-0.8.svn20080225-i586-3gsb.tgz: Recompiled.
-applications/rhythmbox-0.11.5-i586-4gsb.tgz: Recompiled.
-applications/sound-juicer-2.22.0-i586-3gsb.tgz: Recompiled.
-mono/banshee-0.13.2-i586-3gsb.tgz: Recompiled.
-meta/gsb-*-4gsb.tgz: All metapackages updated.
-+--------------------------+
-Fri Apr 04 18:11:19 GMT 2008
-libraries/glib-2.16.2-i586-1gsb.tgz: Upgraded.
-applications/gnome-user-share-0.30-i586-1gsb: Upgraded.
-bindings/gtkmm-2.12.7-i586-1gsb: Upgraded.
-mono/gtk-sharp-2.12.0-i586-1gsb: Upgraded.
-office/glom-1.6.12-i586-1gsb: Upgraded.
-mono/gnome-sharp-2.20.0-i586-1gsb: Upgraded.
-themes/gnome-themes-extras-2.22.0-noarch-1gsb: Upgraded.
-networking/NetworkManager-svn_3532-i586-1gsb.tgz: Upgraded.
-networking/NetworkManager-vpn-svn_3532-i586-1gsb.tgz: Upgraded.
-networking/network-manager-applet-svn_649-i586-1gsb.tgz: Upgraded.
-+--------------------------+
-Mon Mar 31 11:46:32 GMT 2008
-administration/gslapt-0.4.0-i586-1gsb.tgz: Upgraded.
-office/glom-1.6.11-i586-1gsb.tgz: Upgraded.
-office/openoffice-2.4.0.3.2-i586-4gsb.tgz: Repackaged.
-  Scripts in /usr/bin were incorrectly configured, pointing
-  to /usr/lib/ooo-2.3 rather than 2.4.
-administration/system-tools-backends-2.6.0-i586-3gsb.  Rebuilt.
-  With dbus > 1.1 this package no longer needs an rc.stb
-  as the dbus system now properly starts it up when 
-  requested. If an rc.stb exists in /etc/rc.d, it is now
-  "disabled" with chmod -x on installation.
-+--------------------------+
-Sun Mar 30 17:11:56 GMT 2008
-applications/mozilla-firefox-2.0.0.13-i586-1gsb.tgz. 
-  Security fixes. See: 
-  http://www.mozilla.com/en-US/firefox/2.0.0.13/releasenotes/
-applications/epiphany-2.22.0-i586-6gsb.tgz: Recompiled.
-applications/yelp-2.22.0-i586-3gsb.tgz: Recompiled.
-office/devhelp-0.18-i586-3gsb.tgz: Recompiled.
-office/gnome-python-extras-2.19.1-i586-4gsb.tgz: Recompiled.
-mono/gecko-sharp-2.0_0.13-i586-3gsb.tgz: Recompiled.
-applications/vinagre-0.5.0-i586-2gsb.tgz: Added.
-applications/gtk-vnc-0.3.4-i586-1gsb.tgz: Added.
-bindings/glibmm-2.16.1-i586-1gsb.tgz: Upgraded.
-+--------------------------+
-Sun Mar 30 00:28:32 GMT 2008
-* First Public Build Release 
-  GSB 2.22-CURRENT for Slackware-CURRENT.
-+--------------------------+

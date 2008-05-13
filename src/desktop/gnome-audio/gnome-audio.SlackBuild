@@ -8,14 +8,14 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.22.1
+VERSION=2.22.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
 REQUIRED_PACKAGES=""
 
 ## Build variables.
-ARCH=${ARCH:-i586}
+ARCH=noarch
 TUNE=${TUNE:-i586}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}

@@ -6,6 +6,7 @@ gnome-menus
 gnome-menus-kde
 gnome-menus-xfce
 libwnck
+obex-data-server
 evo-openldap
 evolution-data-server
 gstreamer

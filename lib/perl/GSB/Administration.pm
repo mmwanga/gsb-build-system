@@ -58,6 +58,11 @@ our %administration =
              'ver' => '1.9.36',
              'src' => 'tar.bz2',
                   },
+   'pm-utils'    => {
+             'url' => 'http://pm-utils.freedesktop.org/releases',
+             'ver' => '1.1.0',
+             'src' => 'tar.gz',
+                  },
    'system-config-printer'    => {
              'url' => 'http://cyberelk.net/tim/data/system-config-printer/',
              'ver' => '0.9.90',

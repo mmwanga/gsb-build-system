@@ -1,6 +1,17 @@
 ChangeLog
 ---------
 
+13-05-2008 fidesratio <sk238(at)ex.ac.uk>               
+   * Added obex-data-server, and added as dependency to obex-data-server.
+
+09-05-2008 fidesratio <sk238(at)ex.ac.uk>               
+   * Begin devel on -current again.
+   * Added banshee-1 to testing.
+   * Updated glom, goffice, telepathy-glib/gabble.
+
+08-05-2008 fidesratio <sk238(at)ex.ac.uk>               
+   * Branched gsb-2.22 now that stable released.
+
 01-05-2008 fidesratio <sk238(at)ex.ac.uk>               
    * Updated lua: Applied shared library patch (to Makefile only) to create
      a lua.so. Thanks to irb for the mention.

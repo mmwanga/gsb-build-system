@@ -28,7 +28,7 @@ our %desktop =
    'gnome-doc-utils'        => '0.12.2',
    'gnome-keyring-manager'  => '2.20.0',
    'gnome-menus'            => '2.22.1',
-   'gnome-audio'            => '2.22.1',
+   'gnome-audio'            => '2.22.2',
    'gnome-panel'            => '2.22.1.3',
    'gnome-python'           => '2.22.0',
    'gnome-session'          => '2.22.1.1',
@@ -116,6 +116,11 @@ our %desktop_nongnome =
                              'ver' => '0.3.7',
                              'url' => 'http://www.galago-project.org/files/releases/source/notification-daemon',
                              'src' => 'tar.bz2',
+                            },
+   'obex-data-server'           => {
+                             'ver' => '0.3.1',
+                             'url' => 'http://tadas.dailyda.com/software',
+                             'src' => 'tar.gz',
                             },
   );
 

@@ -12,6 +12,13 @@ of support for them.
 Available pckages
 -----------------
 
+banshee-1 - GNOME Music Management
+
+  Banshee-1 is a rewrite of the famous Mono application for organizing 
+  and playing your music on the GNOME Desktop.  This software is still 
+  in beta, but it developing quickly, and continues to prove to be
+  an excellent application.
+
 empathy - GNOME Empathy instant messaging
   A GNOME instant messaging application that uses the Telepathy framework.
 

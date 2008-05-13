@@ -30,7 +30,7 @@ our %testing =
                 },
    'telepathy-glib'            => {
              'url' => 'http://telepathy.freedesktop.org/releases/telepathy-glib',
-             'ver' => '0.7.6',
+             'ver' => '0.7.7',
              'src' => 'tar.gz'
                         },
    'libtelepathy'            => {
@@ -60,12 +60,17 @@ our %testing =
                         },
    'telepathy-gabble'            => {
              'url' => 'http://telepathy.freedesktop.org/releases/telepathy-gabble',
-             'ver' => '0.7.4',
+             'ver' => '0.7.5',
              'src' => 'tar.gz'
                         },
    'loudmouth'            => {
              'url' => 'http://ftp.imendio.com/pub/imendio/loudmouth/src',
              'ver' => '1.3.4',
+             'src' => 'tar.bz2'
+                        },
+   'banshee-1'            => {
+             'url' => 'http://banshee-project.org/files/banshee',
+             'ver' => '0.99.1',
              'src' => 'tar.bz2'
                         },
   );
