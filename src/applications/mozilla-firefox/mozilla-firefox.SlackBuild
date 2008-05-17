@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=3
+BUILD=4
 VERSION=2.0.0.14
 
 ## List any packages here that are required to build this package.
@@ -131,8 +131,11 @@ fi
 
 # Fix for plugins patch, supplied by Stephen Levine
 if [ ! "$ARCH" = "x86_64" ]; then
-  patch -p0 < $CWD/patches/mozilla.plugins-path.patch
+  patch -p0 < $CWD/patches/mozilla.plugins-path.patch || exit 1
 fi;
+
+# Fix library ld patch in order to build canvas support on Slackware 12.1
+patch -p0 < $CWD/patches/layout.Makefile.patch || exit 1
 
 ## Fix permissions for building.
 echo "Please be patient.  This may take a while."
@@ -184,12 +187,16 @@ export CXXFLAGS="$TUNE_CFLAGS" &&
   --with-default-mozilla-five-home=/usr/$LIBDIR/firefox-$VERSION \
   --with-system-zlib \
   --with-system-png \
+  --with-system-jpeg \
+  --without-system-nspr \
   --enable-application=browser \
   --enable-default-toolkit=gtk2 \
   --enable-crypto \
   --enable-xft \
   --enable-xinerama \
   --enable-optimize \
+  --enable-pango \
+  --enable-pthreads \
   --enable-reorder \
   --enable-strip \
   --enable-cpp-rtti \
@@ -198,6 +205,7 @@ export CXXFLAGS="$TUNE_CFLAGS" &&
   --disable-freetype2 \
   --disable-accessibility \
   --disable-debug \
+  --disable-xprint \
   --disable-tests \
   --disable-logging \
   --disable-pedantic \
@@ -208,7 +216,8 @@ export CXXFLAGS="$TUNE_CFLAGS" &&
   --disable-profilesharing \
   --disable-gnomeui \
   --disable-gnomevfs \
-  --disable-canvas \
+  --enable-svg \
+  --enable-canvas \
   || exit 1
 
 ## Build and install.

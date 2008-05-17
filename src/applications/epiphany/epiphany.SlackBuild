@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=3
+BUILD=4
 VERSION=2.22.1.1
 
 ## List any packages here that are required to build this package.
@@ -179,15 +179,11 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-## The icons are improperly placed in a package subdirectory, rather than
-## the main GNOME Icon Set. This moves them over so the application has
-## access to its icons.  It is better to have them in the default gnome
-## icon directory. They may go "missing" when KDE is installed.
-#mkdir -p $PKG/usr/share/icons/gnome
-#mv $PKG/usr/share/$PKGNAME/icons/hicolor/* $PKG/usr/share/icons/gnome
-#rm -fr $PKG/usr/share/$PKGNAME/icons
+## A few icons don't properly follow hicolor theme spec; 
+mkdir -p $PKG/usr/share/icons/gnome
+mv $PKG/usr/share/$PKGNAME/icons/hicolor/* $PKG/usr/share/icons/gnome
+rm -fr $PKG/usr/share/$PKGNAME/icons
 
-##
 ## Keep clean for Scrollkeeper
 ## Will rebuild database in doinst.sh
 rm -fr $PKG/var/lib/scrollkeeper

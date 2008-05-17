@@ -8,14 +8,14 @@
 
 ## Package variables.
 BUILD=1
-VERSION=0.7.6
+VERSION=1.10
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="loudmouth libtelepathy python telepathy-glib libxslt"
+REQUIRED_PACKAGES=""
 
 ## Build variables.
-ARCH=${ARCH:-i586}
+ARCH=noarch
 TUNE=${TUNE:-i586}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
@@ -91,29 +91,8 @@ mkdir -p $PKGDEST
 ## Decompress archive.
 cd $TMP &&
 rm -rf $PKGNAME-$VERSION &&
-tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
+tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
-
-# Apply ARCH specific patches.
-if [ "$ARCH" = "i386" ]; then
-  echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
-elif [ "$ARCH" = "i486" ]; then
-  echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
-elif [ "$ARCH" = "i586" ]; then
-  echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
-elif [ "$ARCH" = "i686" ]; then
-  echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
-elif [ "$ARCH" = "x86_64" ]; then
-  echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
-elif [ "$ARCH" = "powerpc" ]; then
-  echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
-fi
 
 ## Fix permissions for building.
 chown -R root.root .
@@ -128,66 +107,25 @@ find . -perm 511 -exec chmod 755 {} \;
 find . -perm 711 -exec chmod 755 {} \;
 find . -perm 555 -exec chmod 755 {} \;
 
-## Configure, Tuning, GCC and Make options.
-CONFIGURE_FLAGS=${GSB_CONFIGURE_FLAGS:-""}
-if [ "$ARCH" = "i386" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE"}
-elif [ "$ARCH" = "i486" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE"}
-elif [ "$ARCH" = "i586" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
-elif [ "$ARCH" = "i686" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
-elif [ "$ARCH" = "x86_64" ]; then
-  if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
-    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -fPIC"}
-  else
-    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
-  fi
-  [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS="--libdir=/usr/lib64"
-  }
-elif [ "$ARCH" = "powerpc" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
+# Font directory location depends on the X build prefix:
+# Determine what X we're running (the modular X returns the prefix
+# in the next command, while older versions stay silent):
+XPREF=`pkg-config --variable=prefix x11` || true
+if [ "$XPREF" == "" ]; then
+  XPREF='/usr/X11R6'
+  FONTDIR="$XPREF/lib/X11/fonts/TTF"
 else
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2"}
+  FONTDIR="/usr/share/fonts/TTF"
 fi
-EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
-MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
+mkdir -p $PKG/$FONTDIR
+mkdir -p $PKG/etc/fonts
 
-## Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
-  || exit 1
-
-## Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-## Strip debugging symbols.
-{ find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
-  cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
-
-## Compress and fix manpage links.
-[ -e $PKG/usr/man ] && {
-  find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
-  find $PKG/usr/man -type l -name \*.? -printf \
-    "( cd '%h'; [ -e '%l.gz' ] &&
-     { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
-}
-
-## Deal with .info files.
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
-}
+cp *ttf $PKG/$FONTDIR || exit 1
+cp local.conf $PKG/etc/fonts/bitstream-vera.conf.new || exit 1
 
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+cp -a COPYRIGHT* README* RELEASE* \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION

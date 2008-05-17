@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=2
-VERSION=3.5.6
+VERSION=3.5.9
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -172,10 +172,13 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Library links
 if [ "$ARCH" = "x86_64" ]; then
-  (cd $PKG/usr/lib64 ; ln -s libsqlite3.so libsqlite3.so.0 );
+  cd $PKG/usr/lib64 && ln -s libsqlite3.so libsqlite3.so.0 || exit 1
 else
-  (cd $PKG/usr/lib ; ln -s libsqlite3.so libsqlite3.so.0 );
+  cd $PKG/usr/lib && ln -s libsqlite3.so libsqlite3.so.0 || exit 1
 fi;
+
+# Make common binary link
+cd $PKG/usr/bin && ln -s sqlite3 sqlite || exit 1
   
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

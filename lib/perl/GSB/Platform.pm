@@ -33,6 +33,7 @@ our %platform =
    'libsoup'             => '2.4.1',
    'ORBit2'              => '2.14.12',
    'pyorbit'             => '2.14.3',
+   'ttf-bitstream-vera'  => '1.10',
   );
 
 

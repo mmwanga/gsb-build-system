@@ -15,7 +15,7 @@ our %testing =
   (
   'empathy' => {
                  'url' => 'http://ftp.gnome.org/pub/GNOME/sources/empathy/0.23',
-                 'ver' => '0.23.1',
+                 'ver' => '0.23.2',
                  'src' => 'tar.bz2'
                 },
   'telepathy-mission-control' => {
@@ -30,7 +30,7 @@ our %testing =
                 },
    'telepathy-glib'            => {
              'url' => 'http://telepathy.freedesktop.org/releases/telepathy-glib',
-             'ver' => '0.7.7',
+             'ver' => '0.7.8',
              'src' => 'tar.gz'
                         },
    'libtelepathy'            => {
@@ -60,7 +60,7 @@ our %testing =
                         },
    'telepathy-gabble'            => {
              'url' => 'http://telepathy.freedesktop.org/releases/telepathy-gabble',
-             'ver' => '0.7.5',
+             'ver' => '0.7.6',
              'src' => 'tar.gz'
                         },
    'loudmouth'            => {

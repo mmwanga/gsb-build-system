@@ -1,6 +1,24 @@
+Sat May 17 13:37:13 GMT 2008
+accessibility/mousetweaks-2.22.1-i586-1gsb.tgz: Added.
+  Offers better accessibility support for using the mouse in GNOME. 
+libraries/sqlite3-3.5.9-i586-1gsb.tgz: Upgraded.
+bindings/pysqlite-2.4.1-i586-3gsb.tgz: Rebuilt.
+  Linked against latest sqlite3 package.
+office/tracker-0.6.6-i586-4gsb.tgz: Rebuilt.
+  Linked against latest sqlite3 package.
+applications/gdm-2.20.6-i586-2gsb.tgz: Rebuilt.
+  Added fvwm2, afterstep, and enlightenment as window manager choices.
+  and rebuilt with less rigorous optimisations. 
+applications/mozilla-firefox-2.0.0.14-i586-4gsb.tgz: Rebuilt.
+  Rebuilt with new configure options: --without-system-nspr,
+  --with-system-jpeg, and --disable-xprint.
+testing/empathy-0.23.2-i586-1gsb.tgz: Upgraded.
+testing/telepathy-glib-0.7.8-i586-1gsb.tgz: Upgraded.
+testing/telepathy-gabble-0.7.6-i586-1gsb.tgz: Upgraded.
++--------------------------+
 Tue May 13 16:47:57 GMT 2008
 applications/gdm-2.20.6-i586-1gsb.tgz: Upgraded.
-  A lot of crash conditions fixes is this release.  Upgrade recommended. 
+  A lot of crash conditions fixed is this release.  Upgrade recommended. 
   See http://ftp.gnome.org/pub/GNOME/sources/gdm/2.20/gdm-2.20.6.news for
   more information.
 desktop/obex-data-server-0.3.1-i586-1gsb.tgz: Added.
@@ -13,7 +31,7 @@ testing/banshee-1-0.99.1-i586-2gsb.tgz: Rebuilt.
   Fixed icons paths for proper hicolor icon specification.
 applications/gnome-power-manager-2.22.1-i586-2gsb.tgz: Rebuilt.
   Fixed icons paths for proper hicolor icon specification.
-applications/epiphany-2.22.1.1-i586-3gsb.tgz: Rebuilt.
+applications/epiphany-2.22.1.1-i586-4gsb.tgz: Rebuilt.
   Fixed icons paths for proper hicolor icon specification.
 applications/epiphany-extensions-2.22.1-i586-2gsb.tgz: Rebuilt.
   Fixed icons paths for proper hicolor icon specification.

@@ -106,10 +106,10 @@ our %double_tarballs_url =
 			 'var' => 'VERSION',
 				  },
    'sqlite3'             => {
-			 'ver' => '3.5.6',
+			 'ver' => '3.5.9',
 			 'dir' => 'libraries/sqlite3',
 			 'url' => 'http://www.sqlite.org/',
-			 'tar' => 'sqlite-3.5.6.tar.gz',
+			 'tar' => 'sqlite-3.5.9.tar.gz',
 			 'var' => 'VERSION',
 				  },
    'pyfeedparser'             => {

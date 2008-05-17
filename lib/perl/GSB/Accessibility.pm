@@ -22,6 +22,7 @@ our %accessibility_gnome =
    'gok'                    => '1.3.7',
    'orca'                   => '2.22.1',
    'libgail-gnome'          => '1.20.0',
+   'mousetweaks'            => '2.22.1',
    );
 
 #
