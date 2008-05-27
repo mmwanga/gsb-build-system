@@ -35,7 +35,7 @@ our %administration =
                 },
    'python-ldap'         => {
                  'ver' => '2.3.1',
-                 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/python-ldap',
+                 'url' => 'http://kent.dl.sourceforge.net/sourceforge/python-ldap',
                  'src' => 'tar.gz',
                             },
    'slapt-update-notifier'         => {
@@ -79,7 +79,7 @@ our %administration =
 		 'src' => 'tar.gz',
 		},
    'librsync'    => {
-	 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/librsync/',
+	 'url' => 'http://kent.dl.sourceforge.net/sourceforge/librsync/',
 	 'ver' => '0.9.7',
 	 'src' => 'tar.gz',
 		},

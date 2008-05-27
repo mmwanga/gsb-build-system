@@ -9,3 +9,8 @@ dbus
 avahi
 httpd
 libgphoto2
+libarchive
+libcdio
+expat
+libsoup
+bluez-libs

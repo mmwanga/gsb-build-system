@@ -20,9 +20,9 @@ our %accessibility_gnome =
    'gnome-speech'           => '0.4.19',
    'gnopernicus'            => '1.1.2',
    'gok'                    => '1.3.7',
-   'orca'                   => '2.22.1',
+   'orca'                   => '2.22.2',
    'libgail-gnome'          => '1.20.0',
-   'mousetweaks'            => '2.22.1',
+   'mousetweaks'            => '2.22.2',
    );
 
 #

@@ -15,14 +15,14 @@ our $VERSION   = 0.03;
 our %tools =
   (
    'scons'    => {
-             'url' => 'http://heanet.dl.sourceforge.net/sourceforge/scons/',
+             'url' => 'http://kent.dl.sourceforge.net/sourceforge/scons/',
              'ver' => '0.97',
 			 'dir' => 'tools/scons',
 			 'tar' => 'scons-0.97.tar.gz',
              'var' => 'VERSION',
                   },
    'boost-jam'    => {
-             'url' => 'http://heanet.dl.sourceforge.net/sourceforge/boost',
+             'url' => 'http://kent.dl.sourceforge.net/sourceforge/boost',
              'ver' => '3.1.16',
 			 'dir' => 'tools/boost-jam',
 			 'tar' => 'boost-jam-3.1.16.tgz',

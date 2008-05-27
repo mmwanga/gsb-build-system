@@ -34,12 +34,12 @@ our %libraries =
 		          },
    'faac'              => {
 			   'ver' => '1.26',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/faac/',
+			   'url' => 'http://kent.dl.sourceforge.net/sourceforge/faac/',
 			   'src' => 'tar.gz',
 			  },
    'faad2'             => {
 			   'ver' => '2.6.1',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/faac/',
+			   'url' => 'http://kent.dl.sourceforge.net/sourceforge/faac/',
 			   'src' => 'tar.gz',
 			  },
    'freealut'          => {
@@ -59,12 +59,17 @@ our %libraries =
                             },
    'id3lib'            => {
 			   'ver' => '3.8.3',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/id3lib/',
+			   'url' => 'http://kent.dl.sourceforge.net/sourceforge/id3lib/',
+			   'src' => 'tar.gz',
+			  },
+   'libatomic_ops'            => {
+			   'ver' => '1.2',
+			   'url' => 'http://www.hpl.hp.com/research/linux/atomic_ops/download',
 			   'src' => 'tar.gz',
 			  },
    'imlib2'            => {
 			   'ver' => '1.4.0',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/enlightenment',
+			   'url' => 'http://kent.dl.sourceforge.net/sourceforge/enlightenment',
 			   'src' => 'tar.gz',
 			  },
 
@@ -75,7 +80,7 @@ our %libraries =
 		        },
    'lame'              => {
 			   'ver' => '3.97',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/lame/',
+			   'url' => 'http://kent.dl.sourceforge.net/sourceforge/lame/',
 			   'src' => 'tar.gz',
 			  },
    'libarchive'        => {
@@ -95,12 +100,12 @@ our %libraries =
 			  },
    'libavc1394'        => {
 			   'ver' => '0.5.3',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libavc1394/',
+			   'url' => 'http://kent.dl.sourceforge.net/sourceforge/libavc1394/',
 			   'src' => 'tar.gz',
 			  },
    'libdv'             => {
 			   'ver' => '1.0.0',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libdv/',
+			   'url' => 'http://kent.dl.sourceforge.net/sourceforge/libdv/',
 			   'src' => 'tar.gz',
 			  },
    'libdvbpsi5'        => {
@@ -130,7 +135,7 @@ our %libraries =
 			  },
    'libexif-gtk'         => {
 			     'ver' => '0.3.5',
-			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libexif/',
+			     'url' => 'http://kent.dl.sourceforge.net/sourceforge/libexif/',
 			     'src' => 'tar.bz2',
 			    },
    'libgalago'          => {
@@ -140,7 +145,7 @@ our %libraries =
 			    },
    'libgphoto2'          => {
 			     'ver' => '2.4.1',
-			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto/',
+			     'url' => 'http://kent.dl.sourceforge.net/sourceforge/gphoto/',
 			     'src' => 'tar.bz2',
 			    },
    'libiec61883'       => {
@@ -150,7 +155,7 @@ our %libraries =
                           },
    'libiptcdata'       => {
                            'ver' => '1.0.2',
-                           'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libiptcdata',
+                           'url' => 'http://kent.dl.sourceforge.net/sourceforge/libiptcdata',
                            'src' => 'tar.gz',
                           },
    'libmatroska'       => {
@@ -190,7 +195,7 @@ our %libraries =
 			  },
    'libquicktime'      => {
 			   'ver' => '1.0.2',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/libquicktime/',
+			   'url' => 'http://kent.dl.sourceforge.net/sourceforge/libquicktime/',
 			   'src' => 'tar.gz',
 			  },
    'libraw1394'        => {
@@ -231,7 +236,7 @@ our %libraries =
 		        },
    'mjpegtools'        => {
 			   'ver' => '1.9.0rc3',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mjpeg/',
+			   'url' => 'http://kent.dl.sourceforge.net/sourceforge/mjpeg/',
 			   'src' => 'tar.gz',
 			  },
    'mpeg2dec'          => {
@@ -276,7 +281,7 @@ our %libraries =
 			  },
    'twolame'           => {
 			   'ver' => '0.3.12',
-			   'url' => 'http://heanet.dl.sourceforge.net/sourceforge/twolame',
+			   'url' => 'http://kent.dl.sourceforge.net/sourceforge/twolame',
 			   'src' => 'tar.gz',
 			  },
    'x264'            => {

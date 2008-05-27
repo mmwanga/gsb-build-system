@@ -21,6 +21,9 @@ mono-addins
 taglib-sharp
 gst-plugins-base
 gst-plugins-good
+gst-plugins-bad
+gst-plugins-ugly
 gst-python
 gst-fluendo-mp3
 gst-ffmpeg
+wavpack

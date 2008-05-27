@@ -45,7 +45,7 @@ our %extras =
                             },
    'dvdauthor'              => {
                  'ver' => '0.6.14',
-                 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/dvdauthor',
+                 'url' => 'http://kent.dl.sourceforge.net/sourceforge/dvdauthor',
                  'src' => 'tar.gz',
                             },
    'dvdrip'              => {
@@ -55,7 +55,7 @@ our %extras =
                             },
    'easytag'             => {
 			     'ver' => '2.1.5',
-			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/easytag',
+			     'url' => 'http://kent.dl.sourceforge.net/sourceforge/easytag',
 			     'src' => 'tar.bz2',
 			    },
    'gdesklets'           => {
@@ -70,17 +70,17 @@ our %extras =
                             },
   'grip'                => {
                  'ver' => '3.3.1',
-                 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/grip',
+                 'url' => 'http://kent.dl.sourceforge.net/sourceforge/grip',
                  'src' => 'tar.gz',
                             },
    'gtkam'               => {
 			     'ver' => '0.1.15',
-			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto',
+			     'url' => 'http://kent.dl.sourceforge.net/sourceforge/gphoto',
 			     'src' => 'tar.bz2',
 			    },
    'gtkpod'              => {
 			     'ver' => '0.99.12',
-			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/gtkpod',
+			     'url' => 'http://kent.dl.sourceforge.net/sourceforge/gtkpod',
 			     'src' => 'tar.gz',
 			    },
    'jokosher'            => {
@@ -100,12 +100,12 @@ our %extras =
 			    },
    'pstoedit'            => {
 			     'ver' => '3.45',
-			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/pstoedit',
+			     'url' => 'http://kent.dl.sourceforge.net/sourceforge/pstoedit',
 			     'src' => 'tar.gz',
 			    },
    'streamripper'        => {
 			     'ver' => '1.62.3',
-			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/streamripper',
+			     'url' => 'http://kent.dl.sourceforge.net/sourceforge/streamripper',
 			     'src' => 'tar.gz',
 			    },
    'sylpheed'            => {
@@ -125,7 +125,7 @@ our %extras =
 			    },
    'wxGTK'            => {
 			     'ver' => '2.8.7',
-			     'url' => 'http://heanet.dl.sourceforge.net/sourceforge/wxwindows',
+			     'url' => 'http://kent.dl.sourceforge.net/sourceforge/wxwindows',
 			     'src' => 'tar.gz',
 			    },
   );

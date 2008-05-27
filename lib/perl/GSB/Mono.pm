@@ -17,7 +17,7 @@ our %mono_gnome =
   (
    'evolution-sharp' => '0.16.1.1',
    'f-spot'          => '0.4.3.1',
-   'tomboy'          => '0.10.1',
+   'tomboy'          => '0.10.2',
    'gtk-sharp'       => '2.12.1',
    'gnome-sharp'     => '2.20.1',
    'gnome-desktop-sharp'     => '2.20.1',
@@ -47,7 +47,7 @@ our %mono=
 			       },
    'libgphoto2-sharp' => {
 		    'ver'  => '2.3.0',
-		    'url'  => 'http://heanet.dl.sourceforge.net/sourceforge/gphoto',
+		    'url'  => 'http://kent.dl.sourceforge.net/sourceforge/gphoto',
 		    'src'  => 'tar.bz2',
 		   },
    'ipod-sharp'             => {

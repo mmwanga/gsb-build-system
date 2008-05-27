@@ -19,12 +19,12 @@ our %testing =
                  'src' => 'tar.bz2'
                 },
   'telepathy-mission-control' => {
-                 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/mission-control',
+                 'url' => 'http://kent.dl.sourceforge.net/sourceforge/mission-control',
                  'ver' => '4.65',
                  'src' => 'tar.gz'
                 },
   'libjingle' => {
-                 'url' => 'http://heanet.dl.sourceforge.net/sourceforge/tapioca-voip',
+                 'url' => 'http://kent.dl.sourceforge.net/sourceforge/tapioca-voip',
                  'ver' => '0.3.11',
                  'src' => 'tar.gz'
                 },
@@ -70,14 +70,14 @@ our %testing =
                         },
    'banshee-1'            => {
              'url' => 'http://banshee-project.org/files/banshee',
-             'ver' => '0.99.1',
+             'ver' => '0.99.2',
              'src' => 'tar.bz2'
                         },
   );
 
 our %testing_network_svn =
   (
-   'NetworkManager'         => 'svn_3655',
-   'NetworkManager-vpn'     => 'svn_3655',
-   'network-manager-applet' => 'svn_709',
+   'NetworkManager'         => 'svn_3690',
+   'NetworkManager-vpn'     => 'svn_3690',
+   'network-manager-applet' => 'svn_729',
   );

@@ -2,6 +2,12 @@ ChangeLog
 ---------
 
 13-05-2008 fidesratio <sk238(at)ex.ac.uk>               
+   * Fixes to download scripts for broken download locations.
+   * Moved notify-python from admin to applications section
+   * Updated to 2.22.2 versions.
+   * Added Webkit to testing.
+
+13-05-2008 fidesratio <sk238(at)ex.ac.uk>               
    * Added obex-data-server, and added as dependency to obex-data-server.
 
 09-05-2008 fidesratio <sk238(at)ex.ac.uk>               

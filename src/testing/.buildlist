@@ -10,3 +10,5 @@ loudmouth
 telepathy-gabble
 telepathy-salut
 empathy
+libicu
+webkit

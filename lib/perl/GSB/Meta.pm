@@ -11,15 +11,15 @@ our $VERSION   = 0.03;
 
 our %meta_packages =
   (
-   'gsb-accessibility'     => '2.22.1',
-   'gsb-administration'    => '2.22.1',
-   'gsb-compiz'            => '2.22.1',
-   'gsb-complete'          => '2.22.1',
-   'gsb-desktop'           => '2.22.1',
-   'gsb-development'       => '2.22.1',
-   'gsb-mono'              => '2.22.1',
-   'gsb-multimedia'        => '2.22.1',
-   'gsb-office'            => '2.22.1',
-   'gsb-themes'            => '2.22.1',
-   'gsb-basic'            => '2.22.1',
+   'gsb-accessibility'     => '2.22.2',
+   'gsb-administration'    => '2.22.2',
+   'gsb-compiz'            => '2.22.2',
+   'gsb-complete'          => '2.22.2',
+   'gsb-desktop'           => '2.22.2',
+   'gsb-development'       => '2.22.2',
+   'gsb-mono'              => '2.22.2',
+   'gsb-multimedia'        => '2.22.2',
+   'gsb-office'            => '2.22.2',
+   'gsb-themes'            => '2.22.2',
+   'gsb-basic'             => '2.22.2',
   );

@@ -66,6 +66,7 @@ conduit
 libgksu
 gksu
 gnome-scan
+notify-python
 service-discovery-applet
 gtk-vnc
 vinagre

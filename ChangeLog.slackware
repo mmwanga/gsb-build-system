@@ -1,3 +1,69 @@
+Tue May 27 18:55:16 GMT 2008
+libraries/libatmoic_ops-1.2-i586-2gsb.tgz: Rebuilt.
+platform/gnome-keyring-2.22.2-i586-1gsb.tgz: Upgraded.
+platform/gtk-engines-2.14.2-i586-1gsb.tgz: Upgraded.
+desktop/gnome-themes-2.22.2-noarch-1gsb.tgz: Upgraded.
+desktop/gnome-desktop-2.22.2-i586-1gsb.tgz: Upgraded.
+desktop/libgweather-2.22.2-i586-1gsb.tgz: Upgraded.
+desktop/gnome-panel-2.22.2-i586-1gsb.tgz: Upgraded.
+desktop/gnome-terminal-2.22.2-i586-1gsb.tgz: Upgraded.
+desktop/libgtop-2.22.2-i586-1gsb.tgz: Upgraded.
+desktop/gvfs-0.2.4-i586-1gsb.tgz: Upgraded.
+applications/eog-2.22.2-i586-1gsb.tgz: Upgraded.
+applications/gnokii-0.6.25-i586-1gsb.tgz: Upgraded.
+applications/epiphany-2.22.2-i586-1gsb.tgz: Upgraded.
+applications/epiphany-extensions-2.22.2-i586-1gsb.tgz: Upgraded.
+applications/gnome-system-monitor-2.22.2-i586-1gsb.tgz: Upgraded.
+applications/gnome-games-2.22.2-i586-1gsb.tgz: Upgraded.
+applications/deskbar-applet-2.22.2-i586-1gsb.tgz: Upgraded.
+applications/seahorse-2.22.2-i586-1gsb.tgz: Upgraded.
+applications/cheese-2.22.2-i586-1gsb.tgz: Upgraded.
+applications/notify-python-0.1.1-i586-2gsb.tgz: Rebuilt.
+accessibility/orca-2.22.2-i586-1gsb.tgz: Upgraded.
+accessibility/mousetweaks-2.22.2-i586-1gsb.tgz: Upgraded.
+administration/pybackpack-0.5.4-i586-1gsb.tgz: Rebuilt.
+  Added file-roller as dependency.
+office/autogen-5.9.5-i586-1gsb.tgz: Upgraded.
+office/devhelp-0.19.1-i586-1gsb.tgz: Upgraded.
+office/anjuta-2.4.2-i586-1gsb.tgz: Upgraded.
+desktop/libgtop-2.22.2-i586-1gsb.tgz: Upgraded.
+testing/banshee-1-0.99.2-i586-1gsb.tgz: Upgraded.
+meta/gsb-accessibility-2.22.2-noarch-1gsb.tgz: Bumped.
+meta/gsb-administration-2.22.2-noarch-1gsb.tgz: Bumped.
+meta/gsb-basic-2.22.2-noarch-1gsb.tgz: Bumped.
+meta/gsb-compiz-2.22.2-noarch-1gsb.tgz: Bumped.
+meta/gsb-complete-2.22.2-noarch-1gsb.tgz: Bumped.
+meta/gsb-desktop-2.22.2-noarch-1gsb.tgz: Bumped.
+  Added gnome-themes.
+meta/gsb-development-2.22.2-noarch-1gsb.tgz: Bumped.
+meta/gsb-mono-2.22.2-noarch-1gsb.tgz: Bumped.
+meta/gsb-multimedia-2.22.2-noarch-1gsb.tgz: Bumped.
+  Added gst-plugins-ugly.
+meta/gsb-office-2.22.2-noarch-1gsb.tgz: Bumped.
+meta/gsb-ooo-2.22.2-noarch-1gsb.tgz: Bumped.
+meta/gsb-testing-2.22.2-noarch-1gsb.tgz: Bumped.
+meta/gsb-themes-2.22.2-noarch-1gsb.tgz: Bumped.
++--------------------------+
+Fri May 23 16:04:23 GMT 2008
+mono/tomboy-0.10.2-i586-1gsb.tgz: Upgraded.
+desktop/gst-plugins-bad-0.10.6-i586-3gsb.tgz: Rebuilt.
+libraries/heimdal-libraries-1.2-i586-1gsb.tgz: Upgraded.
+desktop/evolution-data-server-2.22.1.1-i586-2gsb.tgz: Rebuilt.
+applications/evolution-exchange-2.22.1.1-i586-2gsb.tgz: Rebuilt.
+applications/evolution-2.22.1.1-i586-2gsb.tgz: Rebuilt.
++--------------------------+
+Sat May 17 23:22:19 GMT 2008
+office/liferea-1.5.3-i586-1gsb.tgz: Upgraded.
+libraries/lua-5.1.3-i586-4gsb.tgz: Rebuilt.
+  Fix for lua.pc pkgconfig file.
+testing/libicu-3.8.1-i586-1gsb.tgz: Added.
+testing/webkit-r33475-i586-1gsb.tgz: Added.
+  WebKit is now offered in testing.  It's still in heavy development,
+  with new builds every day.  Epiphany will be dropping Gecko
+  in favor of WebKit possibly in time for its 2.24 release. For now
+  WebKit is in testing for users interested in previewing or helping
+  test.
++--------------------------+
 Sat May 17 13:37:13 GMT 2008
 accessibility/mousetweaks-2.22.1-i586-1gsb.tgz: Added.
   Offers better accessibility support for using the mouse in GNOME. 

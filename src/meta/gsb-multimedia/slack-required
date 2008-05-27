@@ -30,6 +30,7 @@ gst-ffmpeg
 gst-plugins-bad
 gst-plugins-base
 gst-plugins-good
+gst-plugins-ugly
 gst-python
 gstreamer
 gtkpod
