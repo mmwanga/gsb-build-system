@@ -1,5 +1,5 @@
 #!/bin/bash
-# Version: 1.4 GSB SlackBuild.
+# Version: 1.5 GSB SlackBuild.
 # Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
 #
 # Licenced under the terms of the GNU General Public Licence version 3.
@@ -172,8 +172,8 @@ else
   export LOGSDIR=${LOGSDIR:-$TMP/gsb-buildlogs}
 fi
 export PACKAGESDIR=${PACKAGESDIR:-packages}
-export PATCHESDIR=${PATCHESDIR:-patches}
-export TESTINGDIR=${TESTINGDIR:-testing}
+export PATCHESDIR=${PATCHESDIR:-patches/packages}
+export TESTINGDIR=${TESTINGDIR:-testing/packages}
 
 # Option defaults.
 NOMETAFILES=0

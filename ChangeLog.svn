@@ -1,32 +1,37 @@
 ChangeLog
 ---------
 
-13-05-2008 fidesratio <sk238(at)ex.ac.uk>               
-   * Fixes to download scripts for broken download locations.
-   * Moved notify-python from admin to applications section
-   * Updated to 2.22.2 versions.
-   * Added Webkit to testing.
+28-05-2008 Tadgy <tadgy(at)gnomeslackbuild.org>
+    * Updated gsb.SlackBuild and gsb.section.SlackBuild to use
+      patches/packages/ and testing/packages/ in order to fix a problem with
+      slapt-get'ing packages in those directories.
 
 13-05-2008 fidesratio <sk238(at)ex.ac.uk>               
-   * Added obex-data-server, and added as dependency to obex-data-server.
+    * Fixes to download scripts for broken download locations.
+    * Moved notify-python from admin to applications section
+    * Updated to 2.22.2 versions.
+    * Added Webkit to testing.
+
+13-05-2008 fidesratio <sk238(at)ex.ac.uk>               
+    * Added obex-data-server, and added as dependency to obex-data-server.
 
 09-05-2008 fidesratio <sk238(at)ex.ac.uk>               
-   * Begin devel on -current again.
-   * Added banshee-1 to testing.
-   * Updated glom, goffice, telepathy-glib/gabble.
+    * Begin devel on -current again.
+    * Added banshee-1 to testing.
+    * Updated glom, goffice, telepathy-glib/gabble.
 
 08-05-2008 fidesratio <sk238(at)ex.ac.uk>               
-   * Branched gsb-2.22 now that stable released.
+    * Branched gsb-2.22 now that stable released.
 
 01-05-2008 fidesratio <sk238(at)ex.ac.uk>               
-   * Updated lua: Applied shared library patch (to Makefile only) to create
-     a lua.so. Thanks to irb for the mention.
-   * libgphoto Added doinst to properly make udev rules for cameras.
-   * Switched to newer (and better maintained) OpenAL Soft.
-     Thanks to Philip Langdale for the suggestion. :)
-   * Added gtkmathview for abiword. 
-   * Fixed improper manpage locations in dvdrip, rdiff-backup, pybackpack
-     gksu, ooo-perl, glib-perl and speex.
+    * Updated lua: Applied shared library patch (to Makefile only) to create
+      a lua.so. Thanks to irb for the mention.
+    * libgphoto Added doinst to properly make udev rules for cameras.
+    * Switched to newer (and better maintained) OpenAL Soft.
+      Thanks to Philip Langdale for the suggestion. :)
+    * Added gtkmathview for abiword. 
+    * Fixed improper manpage locations in dvdrip, rdiff-backup, pybackpack
+      gksu, ooo-perl, glib-perl and speex.
 
 22-04-2008 fidesratio <sk238(at)ex.ac.uk>               
     * Update download scripts

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Version: 1.4 GSB Section SlackBuild.
+# Version: 1.5 GSB Section SlackBuild.
 # Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
 #
 # Licenced under the terms of the GNU General Public Licence version 3.
@@ -147,8 +147,8 @@ else
   export LOGSDIR=${LOGSDIR:-$TMP/gsb-buildlogs}
 fi
 export PACKAGESDIR=${PACKAGESDIR:-packages}/$SECTION
-export PATCHESDIR=${PATCHESDIR:-patches}/$SECTION
-export TESTINGDIR=${TESTINGDIR:-testing}
+export PATCHESDIR=${PATCHESDIR:-patches/packages}/$SECTION
+export TESTINGDIR=${TESTINGDIR:-testing/packages}
 
 # Option defaults.
 NOPATCHESDIR=0

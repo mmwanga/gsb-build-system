@@ -147,8 +147,8 @@ else
   export LOGSDIR=${LOGSDIR:-$TMP/gsb-buildlogs}
 fi
 export PACKAGESDIR=${PACKAGESDIR:-packages}/$SECTION
-export PATCHESDIR=${PATCHESDIR:-patches}/$SECTION
-export TESTINGDIR=${TESTINGDIR:-testing}
+export PATCHESDIR=${PATCHESDIR:-patches/packages}/$SECTION
+export TESTINGDIR=${TESTINGDIR:-testing/packages}
 
 # Option defaults.
 NOPATCHESDIR=0
