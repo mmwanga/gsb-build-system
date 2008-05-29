@@ -1,5 +1,5 @@
 #!/bin/bash
-# Version: 1.5 GSB Section SlackBuild.
+# Version: 1.6 GSB Section SlackBuild.
 # Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
 #
 # Licenced under the terms of the GNU General Public Licence version 3.
@@ -146,9 +146,11 @@ else
   export PKGDEST=${PKGDEST:-$TMP/gsb-tree}
   export LOGSDIR=${LOGSDIR:-$TMP/gsb-buildlogs}
 fi
-export PACKAGESDIR=${PACKAGESDIR:-packages}/$SECTION
-export PATCHESDIR=${PATCHESDIR:-patches/packages}/$SECTION
-export TESTINGDIR=${TESTINGDIR:-testing/packages}
+export GSBDIR=${GSBDIR:-gsb}
+export PATCHESDIR=${PATCHESDIR:-patches}
+export TESTINGDIR=${TESTINGDIR:-testing}
+export PACKAGESDIR=${PACKAGESDIR:-packages}
+export SOURCEDIR=${SOURCEDIR:-source}
 
 # Option defaults.
 NOPATCHESDIR=0
@@ -222,7 +224,7 @@ echo "*********************************************************************"
   do
     # Build defaults.
     SKIP_BUILD=0
-    SUBDIR=$PACKAGESDIR
+    SUBDIR=$GSBDIR/$PACKAGESDIR/$SECTION
 
     echo
     echo "*********************************************************************"
@@ -261,8 +263,8 @@ echo "*********************************************************************"
     # Check if the package should be rebuilt, and where it should be put.
     # The assumption is to always rebuild and put packages in the main
     # directory, unless modified by the checks below.
-    if find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" "" "" "" \
-      "\.tgz" >/dev/null && [ "$NOSKIP" = "0" ]
+    if find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
+      "" "" "" "\.tgz" >/dev/null && [ "$NOSKIP" = "0" ]
     then
       if find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
         "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" >/dev/null
@@ -272,15 +274,16 @@ echo "*********************************************************************"
       else
         # Not in the main directory, check patches.
         if [ "$NOPATCHESDIR" = "0" ]; then
-          if find_package_files "$PKGDEST/$PATCHESDIR" "${PACKAGE//+/\+}" \
-            "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" "\.tgz" >/dev/null
+          if find_package_files "$PKGDEST/$PATCHESDIR/$PACKAGESDIR/$SECTION" \
+            "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" \
+            "\.tgz" >/dev/null
           then
             # Found in patches dir.
             SKIP_BUILD=1
-            SUBDIR=$PATCHESDIR
+            SUBDIR=$PATCHESDIR/$PACKAGESDIR/$SECTION
           else
             # No package in patches with the same version/build.
-            SUBDIR=$PATCHESDIR
+            SUBDIR=$PATCHESDIR/$PACKAGESDIR/$SECTION
           fi
         fi
       fi
