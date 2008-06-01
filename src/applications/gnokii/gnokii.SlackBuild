@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=1
-VERSION=0.6.25
+BUILD=2
+VERSION=0.6.26
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -171,10 +171,10 @@ mkdir -p $PKG/usr/${GSB_LIBDIR:-lib}/pkgconfig || exit 1
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS install DESTDIR=$PKG &&
 
-# Properly name the gnokii.pc
-if [ -f $PKG/usr/${GSB_LIBDIR:-lib}/pkgconfig/xgnokii.pc ]; then
-  mv $PKG/usr/${GSB_LIBDIR:-lib}/pkgconfig/xgnokii.pc $PKG/usr/${GSB_LIBDIR:-lib}/pkgconfig/gnokii.pc || exit 1
-fi;
+# Link gnokii.pc
+#if [ -f $PKG/usr/${GSB_LIBDIR:-lib}/pkgconfig/xgnokii.pc ]; then
+  #mv $PKG/usr/${GSB_LIBDIR:-lib}/pkgconfig/xgnokii.pc $PKG/usr/${GSB_LIBDIR:-lib}/pkgconfig/gnokii.pc || exit 1
+#fi;
 
 # Install rc
 mkdir -p $PKG/etc/udev/rules.d

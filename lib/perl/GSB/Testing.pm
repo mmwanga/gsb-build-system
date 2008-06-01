@@ -70,14 +70,14 @@ our %testing =
                         },
    'banshee-1'            => {
              'url' => 'http://banshee-project.org/files/banshee',
-             'ver' => '0.99.2',
+             'ver' => '0.99.3',
              'src' => 'tar.bz2'
                         },
   );
 
 our %testing_network_svn =
   (
-   'NetworkManager'         => 'svn_3690',
-   'NetworkManager-vpn'     => 'svn_3690',
-   'network-manager-applet' => 'svn_729',
+   'NetworkManager'         => 'svn_3655',
+   'NetworkManager-vpn'     => 'svn_3655',
+   'network-manager-applet' => 'svn_709',
   );

@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=4
+BUILD=5
 VERSION=1.16
 
 ## List any packages here that are required to build this package.
@@ -165,7 +165,7 @@ make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Remove perlocal.pod and .packlist from $PKG
-for i in perllocal.pod .packlist site_perl; 
+for i in perllocal.pod .packlist ;
 do
     find $PKG -name "$i" -exec rm -rf {} \;
 done

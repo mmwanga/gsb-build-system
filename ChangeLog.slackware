@@ -1,3 +1,41 @@
+Sun Jun 01 21:55:18 GMT 2008
+applications/gnome-games-2.22.2.1-i586-1gsb.tgz: Upgraded.
+applications/gnome-commander-1.2.6-i586-1gsb.tgz: Upgraded.
+bindings/libintl-perl-1.16-i586-5gsb.tgz: Rebuilt.
+office/gnome-build-0.2.4-i586-3gsb.tgz: Rebuilt.
+office/kino-1.3.0-i586-3gsb.tgz: Rebuilt.
+  Fix for missing man pages.  Thanks to John Garrott.
+office/blender-2.46-i586-1gsb.tgz: Upgraded.
+compiz/ccsm-0.7.6-i586-1gsb.tgz: Upgraded.
+compiz/compiz-bcop-0.7.6-i586-1gsb.tgz: Upgraded.
+compiz/compiz-fusion-0.7.6-i586-1gsb.tgz: Upgraded.
+compiz/compiz-fusion-plugins-extra-0.7.6-i586-1gsb.tgz: Upgraded.
+compiz/compiz-fusion-plugins-main-0.7.6-i586-1gsb.tgz: Upgraded.
+compiz/compizconfig-backend-gconf-0.7.6-i586-1gsb.tgz: Upgraded.
+compiz/compizconfig-python-0.7.6-i586-1gsb.tgz: Upgraded.
+compiz/emerald-0.7.6-i586-1gsb.tgz: Upgraded.
+compiz/libcompizconfig-0.7.6-i586-1gsb.tgz: Upgraded.
+extras/MPlayer-1.0rc2-i586-12gsb.tgz: Rebuilt.
+  Added speex to slack-required.
++--------------------------+
+Thu May 29 18:16:18 GMT 2008
+desktop/nautilus-2.22.3-i586-1gsb.tgz: Upgraded.
+desktop/gnome-control-center-2.22.2.1-i586-1gsb.tgz: Upgraded.
+desktop/gnome-settings-daemon-2.22.2.1-i586-1gsb.tgz: Upgraded.
+desktop/eel-2.22.2-i586-1gsb.tgz: Upgraded.
+applications/evince-2.22.2-i586-1gsb.tgz: Upgraded.
+mono/fspot-0.4.4-i586-1gsb.tgz: Upgraded.
+extras/brasero-0.7.1-i586-4gsb.tgz: Rebuilt.
+applications/gnome-phone-manager-0.51-i586-4gsb.tgz
++--------------------------+
+Wed May 28 18:16:18 GMT 2008
+applications/file-roller-2.22.2-i586-1gsb.tgz: Upgraded.
+applications/gedit-2.22.3-i586-1gsb.tgz: Upgraded.
+applications/gnome-user-docs-2.22.1-i586-1gsb.tgz: Upgraded.
+applications/gcalctool-2.22.2-i586-1gsb.tgz: Upgraded.
+applications/totem-2.22.2-i586-2gsb.tgz: Rebuilt.
+applications/gdm-2.20.6-i586-3gsb.tgz: Rebuilt.
++--------------------------+
 Tue May 27 18:55:16 GMT 2008
 libraries/libatmoic_ops-1.2-i586-2gsb.tgz: Rebuilt.
 platform/gnome-keyring-2.22.2-i586-1gsb.tgz: Upgraded.

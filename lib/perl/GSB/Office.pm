@@ -64,7 +64,7 @@ our %office =
                              'src' => 'tar.bz2',
 			    },
    'blender'             => {
-                             'ver' => '2.45',
+                             'ver' => '2.46',
                              'url' => 'http://mirror.cs.umn.edu/blender.org/source/',
                              'src' => 'tar.gz',
 			    },

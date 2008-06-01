@@ -48,11 +48,6 @@ our %administration =
              'ver' => '0.4.0',
              'src' => 'tar.gz',
                   },
-   'notify-python'    => {
-             'url' => 'http://www.galago-project.org/files/releases/source/notify-python/',
-             'ver' => '0.1.1',
-             'src' => 'tar.bz2',
-                  },
    'pycups'    => {
              'url' => 'http://cyberelk.net/tim/data/pycups/',
              'ver' => '1.9.36',

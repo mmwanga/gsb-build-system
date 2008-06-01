@@ -7,6 +7,6 @@ gtkmm: widgets that are easily extensible via inheritance. You can create
 gtkmm: user interfaces either in code or with the Glade User Interface
 gtkmm: designer, using libglademm. There's extensive documentation,
 gtkmm: including API reference and a tutorial. gtkmm is free software
-gtkmm: distributed under LGPL.  gtkmm: 
+gtkmm: distributed under LGPL. 
 gtkmm: 
 gtkmm: 

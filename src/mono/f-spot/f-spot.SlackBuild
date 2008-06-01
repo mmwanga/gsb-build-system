@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=0.4.3.1
+VERSION=0.4.4
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -114,7 +114,7 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
-#zcat $CWD/patches/fspot-svn-stable.patch.gz | patch -p1
+cat $CWD/patches/Makefile.in.patch | patch -p1 || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .
@@ -171,9 +171,9 @@ make $MAKE_FLAGS -j1 DESTDIR=$PKG install || exit 1
 ## the main GNOME Icon Set. This moves them over so the application has
 ## access to its icons.  It is better to have them in the default gnome
 ## icon directory.
-mkdir -p $PKG/usr/share/icons/gnome
-mv $PKG/usr/share/$PKGNAME/icons/hicolor/* $PKG/usr/share/icons/gnome
-rm -fr $PKG/usr/share/$PKGNAME/icons
+#mkdir -p $PKG/usr/share/icons/gnome
+#mv $PKG/usr/share/$PKGNAME/icons/hicolor/* $PKG/usr/share/icons/gnome
+#rm -fr $PKG/usr/share/$PKGNAME/icons
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

@@ -8,3 +8,6 @@ lcms
 libjpeg
 GConf
 glib2
+sqlite3
+ndesk-dbus
+libgphoto2-sharp

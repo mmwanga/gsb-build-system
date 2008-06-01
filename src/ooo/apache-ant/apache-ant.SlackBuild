@@ -12,7 +12,7 @@ VERSION=1.7.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="jre"
+REQUIRED_PACKAGES="jre jdk"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

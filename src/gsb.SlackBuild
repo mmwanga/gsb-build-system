@@ -166,7 +166,7 @@ function gen_checksums_md5() {
     echo "MD5                               Filename"
     find . -type f ! -wholename ./CHECKSUMS.md5 \
       ! -wholename ./CHECKSUMS.md5.gz ! -name \*.md5 -exec md5sum {} \; | \
-      sort -k2 -f ) >./$2/CHECKSUMS.md5 2>/dev/null
+      sort -k2 -f >./$2/CHECKSUMS.md5 2>/dev/null
   cat ./$2/CHECKSUMS.md5 | gzip -9c >./$2/CHECKSUMS.md5.gz ) 2>/dev/null
 }
 
