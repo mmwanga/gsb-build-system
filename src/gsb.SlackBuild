@@ -123,8 +123,8 @@ function gen_packages_txt() {
   [ -z "$1" ] && return 1
 
   { echo -e "PACKAGES.TXT; $( date )\n\n"
-    for FILE in $( find ./$1 -type f -name \*.tgz -printf "%f %p\n" | \
-      sort -k1 -f | cut -d' ' -f2 )
+    for FILE in $( find ./$1 -name \*.tgz \( -type f -o -type l \) \
+      -printf "%f %p\n" | sort -k1 -f | cut -d' ' -f2 )
     do
       SIZES="$( gunzip -l $FILE | tail -n 1 | tr -s ' ' )"
       echo "PACKAGE NAME:  $( echo $FILE | rev | cut -d/ -f1 | rev )"
@@ -137,10 +137,9 @@ function gen_packages_txt() {
       echo "PACKAGE DESCRIPTION:"
       tar xzOf $FILE --occurrence=1 install/slack-desc 2>/dev/null | grep -v "^#" | egrep "[[:alnum:]\+]+\:"
       echo
-    done } >./$2/PACKAGES.TXT 2>/dev/null
-  cat ./$2/PACKAGES.TXT | gzip -9c >./$2/PACKAGES.TXT.gz 2>/dev/null
+    done } >${2:-.}/PACKAGES.TXT 2>/dev/null
+  cat ${2:-.}/PACKAGES.TXT | gzip -9c >${2:-.}/PACKAGES.TXT.gz 2>/dev/null
 }
-
 
 function gen_filelist_txt() {
   # $1 = Sub-directory to process [required]
@@ -150,9 +149,10 @@ function gen_filelist_txt() {
 
   ( cd $1
     echo -e "FILELIST.TXT; $( date )\n\n"
-    find . ! -wholename ./FILELIST.TXT ! -wholename ./FILELIST.TXT.gz | \
-      sort | xargs ls -ld ) >./$2/FILELIST.TXT 2>/dev/null
-  cat ./$2/FILELIST.TXT | gzip -9c >./$2/FILELIST.TXT.gz 2>/dev/null
+    find . ! -wholename ./FILELIST.TXT ! -wholename ./FILELIST.TXT.gz \
+      ! -wholename ./CHECKSUMS.md5 ! -wholename ./CHECKSUMS.md5.gz | \
+      sort | xargs ls -ld ) >${2:-.}/FILELIST.TXT 2>/dev/null
+  cat ${2:-.}/FILELIST.TXT | gzip -9c >${2:-.}/FILELIST.TXT.gz 2>/dev/null
 }
 
 function gen_checksums_md5() {
@@ -164,11 +164,12 @@ function gen_checksums_md5() {
   ( cd $1
     echo -e "CHECKSUMS.md5; $( date )\n\n"
     echo "MD5                               Filename"
-    find . -type f ! -wholename ./CHECKSUMS.md5 \
-      ! -wholename ./CHECKSUMS.md5.gz ! -name \*.md5 -exec md5sum {} \; | \
-      sort -k2 -f >./$2/CHECKSUMS.md5 2>/dev/null
-  cat ./$2/CHECKSUMS.md5 | gzip -9c >./$2/CHECKSUMS.md5.gz ) 2>/dev/null
+    find . ! -wholename ./CHECKSUMS.md5 ! -wholename ./CHECKSUMS.md5.gz \
+      ! -name \*.tgz.md5 \( -type f -o -type l \) -exec md5sum {} \; | \
+      sort -k2 -f ) >${2:-.}/CHECKSUMS.md5 2>/dev/null
+  cat ${2:-.}/CHECKSUMS.md5 | gzip -9c >${2:-.}/CHECKSUMS.md5.gz 2>/dev/null
 }
+
 
 # Environment.
 export TMP=${TMP:-/tmp}
@@ -285,14 +286,14 @@ mkdir -p $LOGSDIR
       do
         [ -d $DIR ] && {
           gen_packages_txt $DIR/$PACKAGESDIR $DIR
-          gen_filelist_txt $DIR/$PACKAGESDIR $DIR
-          gen_checksums_md5 $DIR/$PACKAGESDIR $DIR
+          gen_filelist_txt $DIR $DIR
+          gen_checksums_md5 $DIR $DIR
         }
       done
-      gen_filelist_txt .
-      gen_checksums_md5 .
       ln -sf $GSBDIR/PACKAGES.TXT PACKAGES.TXT
       ln -sf $GSBDIR/PACKAGES.TXT.gz PACKAGES.TXT.gz
+      gen_filelist_txt .
+      gen_checksums_md5 .
     )
   else
     echo
