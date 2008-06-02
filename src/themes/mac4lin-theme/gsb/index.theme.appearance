@@ -1,0 +1,9 @@
+[X-GNOME-Metatheme]
+Name=Mac4Lin
+Type=X-GNOME-Metatheme
+Comment=Mac4Lin
+Encoding=UTF-8
+GtkTheme=mac4lin
+MetacityTheme=mac4lin
+IconTheme=mac4lin
+Inherits=mac4lin_osx_cursors
