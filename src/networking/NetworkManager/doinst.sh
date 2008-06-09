@@ -1,4 +1,5 @@
 ldconfig -r .
+
 function install_file() {
   # $1 = File to process
 
@@ -37,12 +38,12 @@ if [ ! -e etc/rc.d/rc.local_shutdown ]; then
 	chmod 755 etc/rc.d/rc.local_shutdown
 fi
 	
-## If the netdev group don't exist, add them:
-## 
-if grep "^netdev::" etc/group 1> /dev/null 2> /dev/null ; then
-  true
-else
-  echo "netdev::87:avahi" >> etc/group
+# If the netdev group doesn't exist, add it:
+if ! grep "^netdev:" etc/group 1>/dev/null 2>&1; then
+  echo "netdev:x:87:avahi" >>etc/group
+fi
+if ! grep "^netdev:" etc/gshadow 1>/dev/null 2>&1; then
+  echo "netdev:*::avahi" >>etc/gshadow
 fi
 
 # if rc.networkmanager is executable, run it on startup

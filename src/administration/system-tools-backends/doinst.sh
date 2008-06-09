@@ -1,12 +1,9 @@
-#!/bin/sh
-
-##
-## If the stb-admin group don't exist, add them:
-## 
-if grep "^stb-admin::" etc/group 1> /dev/null 2> /dev/null ; then
-  true
-else
-  echo "stb-admin::87:" >> etc/group
+# If the stb-admin group doesn't exist, add it:
+if ! grep "^stb-admin:" etc/group 1>/dev/null 2>&1; then
+  echo "stb-admin:x:87:" >>etc/group
+fi
+if ! grep "^stb-admin:" etc/gshadow 1>/dev/null 2>&1; then
+  echo "stb-admin:*::" >>etc/gshadow
 fi
 
 ##

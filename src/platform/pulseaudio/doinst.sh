@@ -27,30 +27,33 @@ install_file etc/pulse/daemon.conf.new
 install_file etc/pulse/client.conf.new
 install_file etc/pulse/default.pa.new
 
-# Create pulse:user and group if thet don't exist.
-group_exists=`grep ^pulse:x: etc/group`
-if [[ "${group_exists}" == "" ]]; then
-        groupadd -g 94 pulse
+# If the pulse, pulse-rt and pulse-access groups don't exist, add them:
+if ! grep "^pulse:" etc/group 1>/dev/null 2>&1; then
+  echo "pulse:x:94:" >>etc/group
 fi
-user_exists=`grep ^pulse:x: etc/passwd`
-if [[ "${user_exists}" == "" ]]; then
-        useradd -c "PulseAudio User" -d /var/run/pulse  -u 103 -g pulse -G audio -s /bin/false pulse
+if ! grep "^pulse:" etc/gshadow 1>/dev/null 2>&1; then
+  echo "pulse:*::" >>etc/gshadow
 fi
-
-# Create realtime group if  don't exist.
-group_exists=`grep ^pulse-rt:x: etc/group`
-if [[ "${group_exists}" == "" ]]; then
-        groupadd -g 104 pulse-rt
+if ! grep "^pulse-rt:" etc/group 1>/dev/null 2>&1; then
+  echo "pulse-rt:x:104:" >>etc/group
 fi
-
-# Create pulse-access group if they don't exist.
-group_exists=`grep ^pulse-access:x: etc/group`
-if [[ "${group_exists}" == "" ]]; then
-        groupadd -g 105 pulse-access
+if ! grep "^pulse-rt:" etc/gshadow 1>/dev/null 2>&1; then
+  echo "pulse-rt:*::" >>etc/gshadow
+fi
+if ! grep "^pulse-access:" etc/group 1>/dev/null 2>&1; then
+  echo "pulse-access:x:105:" >>etc/group
+fi
+if ! grep "^pulse-access:" etc/gshadow 1>/dev/null 2>&1; then
+  echo "pulse-access:*::" >>etc/gshadow
 fi
 
-# Add root to pulse, pulse-rt, pulse-access groups.
-usermod -G pulse,pulse-rt,pulse-access root 
+# If the pulse user doesn't exist, add it:
+if ! grep "^pulse:" etc/passwd 1>/dev/null 2>&1; then
+  echo "pulse:x:103:94:PulseAudio user:/var/run/pulse:/bin/false" >>etc/passwd
+fi
+if grep "^pulse:" etc/shadow 1>/dev/null 2>&1; then
+  echo "pulse:*:9797:0:::::" >>etc/shadow
+fi
 
 # Add a shm mount in our fstab for shared memory if it doesn't exist
 shm_exists=`grep ^shm etc/fstab`

@@ -1,6 +1,22 @@
 ChangeLog
 ---------
 
+09-06-2008 Tadgy <tadgy(at)gnomeslackbuild.org>
+    * When checking whether a user already exists in the passwd file, don't
+      grep for "^user:x:", just "^user:" - it's less likely to fail if things
+      arn't quite perfect.
+    * When checking whether a group already exists in the group file, don't
+      grep for "^group::", just "^group:".  See above.
+    * When adding new users/groups, make sure we add the group first.
+    * When adding groups, make sure the password field has an x in it.  If
+      the field is empty the group requires no password to obtain permissions!
+    * Simplified the checks for users/groups existance (redundant if/else).
+    * Changed 'gdm' {G,U}ID to match the one in the standard Slackware
+      passwd/group files by default.  No need to waste a anohter entry :)
+    * Added example of user/group checks/additions to template doinst.sh.
+    * Fixed avahi and NM doinst.sh so that they don't add the netdev group
+      with different GIDs to eachother!
+
 28-05-2008 Tadgy <tadgy(at)gnomeslackbuild.org>
     * Updated gsb.SlackBuild and gsb.section.SlackBuild to use
       patches/packages/ and testing/packages/ in order to fix a problem with

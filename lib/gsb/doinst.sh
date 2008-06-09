@@ -26,6 +26,20 @@ function install_file() {
 
 install_file FIXME/FIXME.new
 
+# If the FIXME user/group don't exist, add them:
+if ! grep "^FIXME:" etc/group 1>/dev/null 2>&1; then
+  echo "FIXME:x:GID:" >>etc/group
+fi
+if ! grep "^FIXME:" etc/gshadow 1>/dev/null 2>&1; then
+  echo "FIXME:*::" >>etc/gshadow
+fi
+if ! grep "^FIXME:" etc/passwd 1>/dev/null 2>&1; then
+  echo "FIXME:x:UID:GID:FIXME user:/FIXME/HOME/DIR:/bin/false" >>etc/passwd
+fi
+if grep "^FIXME:" etc/shadow 1>/dev/null 2>&1; then
+  echo "FIXME:*:9797:0:::::" >>etc/shadow
+fi
+
 # Install new info files
 [ -x usr/bin/install-info ] && \
   usr/bin/install-info usr/info/FIXME.info.gz usr/info/dir

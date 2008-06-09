@@ -29,40 +29,26 @@ install_file etc/rc.d/rc.avahidaemon.new
 install_file etc/rc.d/rc.avahidnsconfd.new
 install_file etc/dbus-1/system.d/avahi-dbus.conf.new
 
-##
-## Modify passwd and group to add avahi and netdev groups
-##
-
-##
-## If the avahi user don't exist, add them:
-## 
-if grep "^avahi:x:" etc/passwd 1> /dev/null 2> /dev/null ; then
-  true
-else
-  echo "avahi:x:86:86:avahi:/etc/avahi:" >> etc/passwd
+# If the avahi and netdev groups don't exist, add them:
+if ! grep "^avahi:" etc/group 1>/dev/null 2>&1; then
+  echo "avahi:x:86:" >>etc/group
 fi
-if grep "^avahi:" etc/shadow 1> /dev/null 2> /dev/null ; then
-  true
-else
-  echo "avahi:*:86:0:::::" >> etc/shadow
+if ! grep "^avahi:" etc/gshadow 1>/dev/null 2>&1; then
+  echo "avahi:*::" >>etc/gshadow
+fi
+if ! grep "^netdev:" etc/group 1>/dev/null 2>&1; then
+  echo "netdev:x:87:avahi" >>etc/group
+fi
+if ! grep "^netdev:" etc/gshadow 1>/dev/null 2>&1; then
+  echo "netdev:*::avahi" >>etc/gshadow
 fi
 
-##
-## If the avahi group don't exist, add them:
-## 
-if grep "^avahi::" etc/group 1> /dev/null 2> /dev/null ; then
-  true
-else
-  echo "avahi::86:avahi" >> etc/group
+# If the avahi user doesn't exist, add it:
+if ! grep "^avahi:" etc/passwd 1>/dev/null 2>&1; then
+  echo "avahi:x:86:86:avahi:/etc/avahi:/bin/false" >>etc/passwd
 fi
-
-##
-## If the netdev group don't exist, add them:
-## 
-if grep "^netdev::" etc/group 1> /dev/null 2> /dev/null ; then
-  true
-else
-  echo "netdev::85:avahi" >> etc/group
+if grep "^avahi:" etc/shadow 1>/dev/null 2>&1; then
+  echo "avahi:*:9797:0:::::" >>etc/shadow
 fi
 
 ##
