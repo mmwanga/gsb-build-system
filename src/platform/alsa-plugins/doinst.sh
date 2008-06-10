@@ -1,9 +1,11 @@
-#!/bin/sh
+# Version: 1.0 - Do not remove this line!
+
+# Update new libraries
 ldconfig -r .
 
+# Preserve new configuration files
 function install_file() {
   # $1 = File to process
-
   FILE="$(dirname "$1")/$(basename "$1" .new)"
   if [ ! -e "$FILE" ]
   then

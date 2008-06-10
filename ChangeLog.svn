@@ -2,6 +2,15 @@ ChangeLog
 ---------
 
 09-06-2008 Tadgy <tadgy(at)gnomeslackbuild.org>
+    * Gone though every doinst.sh in platform/ and cleaned up a lot of cruft
+      and rationalised a lot of the code.  More checks in platform/ to follow,
+      and i'm slowly going to make my way though everything in GSB.
+    * Added examples to lib/gsb/doinst.sh for work commonly done in the
+      doinst.sh files i've been though.  When adding new packages, use the
+      examples rather than writing you own - it makes sed'ing changes a
+      shedload easier.  Also, keep the damned version info in the files! :)
+
+09-06-2008 Tadgy <tadgy(at)gnomeslackbuild.org>
     * When checking whether a user already exists in the passwd file, don't
       grep for "^user:x:", just "^user:" - it's less likely to fail if things
       arn't quite perfect.

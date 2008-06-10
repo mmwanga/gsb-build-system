@@ -1,14 +1,11 @@
-# font install portion is based on Eric Hameleers <alien@slackware.com>.
-#
-# Font directory location depends on the X build prefix:
-# Determine what X we're running (the modular X returns the prefix
-# in the next command, while older versions stay silent):
+# Version: 1.0 - Do not remove this line!
 
+# Update new libraries
 ldconfig -r .
 
+# Preserve new configuration files
 function install_file() {
   # $1 = File to process
-
   FILE="$(dirname "$1")/$(basename "$1" .new)"
   if [ ! -e "$FILE" ]
   then
@@ -27,19 +24,11 @@ function install_file() {
 
 install_file etc/fonts/bitstream-vera.conf.new
 
-XPREF=`pkg-config --variable=prefix x11` || true
-if [ "$XPREF" == "" ]; then
-  XPREF='/usr/X11R6'
-  FONTDIR="$XPREF/lib/X11/fonts/TTF"
-else
-  FONTDIR="/usr/share/fonts/TTF"
+# Update X font indexes and cache
+if [ -x usr/bin/mkfontdir ]; then
+  chroot . usr/bin/mkfontscale /usr/share/fonts/TTF >/dev/null 2>&1
+  chroot . usr/bin/mkfontdir /usr/share/fonts/TTF >/dev/null 2>&1
 fi
-
-# Update X font indexes and the font cache:
-if [ -x $XPREF/bin/mkfontdir ]; then
-  chroot . $XPREF/bin/mkfontscale $FONTDIR
-  chroot . $XPREF/bin/mkfontdir $FONTDIR
-fi
-if [ -x $XPREF/bin/fc-cache ]; then
-  chroot . $XPREF/bin/fc-cache $FONTDIR
+if [ -x usr/bin/fc-cache ]; then
+  chroot . usr/bin/fc-cache /usr/share/fonts/TTF >/dev/null 2>&1
 fi

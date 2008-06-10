@@ -1,4 +1,4 @@
-# Version: 1.0
+# Version: 1.0 - Do not remove this line!
 # Example doinst.sh for GSB.
 # Remove/edit any parts that are not required for each package.
 
@@ -26,31 +26,67 @@ function install_file() {
 
 install_file FIXME/FIXME.new
 
-# If the FIXME user/group don't exist, add them:
-if ! grep "^FIXME:" etc/group 1>/dev/null 2>&1; then
+# If the FIXME user/group don't exist, add them
+if ! grep "^FIXME:" etc/group >/dev/null 2>&1; then
   echo "FIXME:x:GID:" >>etc/group
 fi
-if ! grep "^FIXME:" etc/gshadow 1>/dev/null 2>&1; then
+if ! grep "^FIXME:" etc/gshadow >/dev/null 2>&1; then
   echo "FIXME:*::" >>etc/gshadow
 fi
-if ! grep "^FIXME:" etc/passwd 1>/dev/null 2>&1; then
+if ! grep "^FIXME:" etc/passwd >/dev/null 2>&1; then
   echo "FIXME:x:UID:GID:FIXME user:/FIXME/HOME/DIR:/bin/false" >>etc/passwd
 fi
-if grep "^FIXME:" etc/shadow 1>/dev/null 2>&1; then
+if grep "^FIXME:" etc/shadow >/dev/null 2>&1; then
   echo "FIXME:*:9797:0:::::" >>etc/shadow
 fi
 
-# Install new info files
-[ -x usr/bin/install-info ] && \
-  usr/bin/install-info usr/info/FIXME.info.gz usr/info/dir
+# If rc.local doesn't exist, create it
+if [ ! -e etc/rc.d/rc.local ]; then
+  echo "#!/bin/sh" >etc/rc.d/rc.local
+  chmod 755 etc/rc.d/rc.local
+fi
 
-# Restart gconfd-2 if running to reload new gconf settings
-if ps acx | grep -q gconfd-2 ; then
-        killall -HUP gconfd-2 ;
+# If rc.local_shutdown doesn't exist, create it
+if [ ! -e etc/rc.d/rc.local_shutdown ]; then
+  echo "#!/bin/sh" >etc/rc.d/rc.local_shutdown
+  chmod 755 etc/rc.d/rc.local_shutdown
+fi
+
+# Add service start to rc.local
+if ! grep "/etc/rc.d/rc.FIXME" etc/rc.d/rc.local >/dev/null 2>&1; then
+  cat <EOF >>etc/rc.d/rc.local
+
+# To disable FIXME, chmod rc.FIXME to 644
+if [ -x /etc/rc.d/rc.FIXME ]; then
+  /etc/rc.d/rc.FIXME start
+fi
+EOF
+fi
+
+# Add service shutdown to rc.local_shutdown
+if ! grep "/etc/rc.d/rc.FIXME" etc/rc.d/rc.local_shutdown >/dev/null 2>&1; then
+  cat <EOF >>etc/rc.d/rc.local_shutdown
+
+if [ -x /etc/rc.d/rc.FIXME ]; then
+  /etc/rc.d/rc.FIXME stop
+fi
+EOF
+fi
+
+# Install new info files
+if [ -x usr/bin/install-info ]; then
+  usr/bin/install-info usr/info/FIXME.info.gz usr/info/dir >/dev/null 2>&1
+fi
+
+# Update desktop database
+if [ -x usr/bin/update-desktop-database ]; then
+  usr/bin/update-desktop-database >/dev/null 2>&1
 fi
 
 # Update mime database
 if [ -x usr/bin/update-mime-database ]; then
-        usr/bin/update-mime-database usr/share/mime/ &> /dev/null
+  usr/bin/update-mime-database usr/share/mime/ >/dev/null 2>&1
 fi
 
+# Restart gconfd-2 to reload new settings
+killall -HUP gconfd-2 >/dev/null 2>&1
