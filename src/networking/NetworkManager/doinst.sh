@@ -38,9 +38,25 @@ if [ ! -e etc/rc.d/rc.local_shutdown ]; then
 	chmod 755 etc/rc.d/rc.local_shutdown
 fi
 	
+# Remove the netdev group if it has a GID of 87.
+# This is needed because a previous install may have added the netdev group
+# with two different GIDs, 85 and 87.  We'll keep netdev as GID 85, especially
+# as the stb-admin group uses GID 87 already.
+if grep "^netdev:[^:]*:87:" etc/group >/dev/null 2>&1; then
+  cat etc/group >etc/group.gsb
+  cat etc/group.gsb | grep -v "^netdev:[^:]*:87:" >etc/group
+  if [ $? -ne 0 ]; then
+    # Don't leave etc/group in an unknown state.
+    cat etc/group.gsb >etc/group
+    #     |--------|--------------------------------------------------|
+    echo "WARNING: Failed to remove old netdev group."
+  fi
+  rm etc/group.old
+fi
+
 # If the netdev group doesn't exist, add it:
 if ! grep "^netdev:" etc/group 1>/dev/null 2>&1; then
-  echo "netdev:x:87:avahi" >>etc/group
+  echo "netdev:x:85:avahi" >>etc/group
 fi
 if ! grep "^netdev:" etc/gshadow 1>/dev/null 2>&1; then
   echo "netdev:*::avahi" >>etc/gshadow

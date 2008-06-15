@@ -1,6 +1,16 @@
 ChangeLog
 ---------
 
+15-06-2008 Tadgy <tadgy(at)gnomeslackbuild.org>
+    * Added code to the doinst.sh of avahi, pulseaudio, gdm, NetworkManager,
+      and postgresql to remove old/incorrect users/groups which may have
+      caused problems.  Any removed users/groups will be re-created with the
+      correct U/GIDs later in the scripts.
+    * Finished off editing the user/group handing stuff in some doinst.sh.
+      Users and groups are now created in a consistant way in all scripts.
+    * Added a note (users_and_groups) which gives information about what
+      users and groups a GSB install will create.
+
 09-06-2008 Tadgy <tadgy(at)gnomeslackbuild.org>
     * Gone though every doinst.sh in platform/ and cleaned up a lot of cruft
       and rationalised a lot of the code.  More checks in platform/ to follow,

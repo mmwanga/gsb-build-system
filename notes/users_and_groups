@@ -1,0 +1,12 @@
+The following users and groups are created by GSB during installation:
+
+Name			UID		GID
+-------------------------------------------
+postgres		28		28
+pulse			43		43
+pulse-access				44
+pulse-rt				45
+sabayon			46		46
+netdev					85
+avahi			86		86
+stb-admin				87

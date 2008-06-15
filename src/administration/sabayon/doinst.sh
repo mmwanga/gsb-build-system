@@ -6,7 +6,7 @@ if ! grep "^sabayon:" etc/gshadow 1>/dev/null 2>&1; then
   echo "sabayon:*::" >>etc/gshadow
 fi
 if ! grep "^sabayon:" etc/passwd 1>/dev/null 2>&1; then
-  echo "sabayon:x:63:63:Sabayon user:/var/sabayon:/bin/false" >>etc/passwd
+  echo "sabayon:x:63:63:sabayon:/var/sabayon:/bin/false" >>etc/passwd
 fi
 if ! grep "^sabayon:" etc/shadow 1>/dev/null 2>&1; then
   echo "sabayon:*:9797:0:::::" >>etc/shadow

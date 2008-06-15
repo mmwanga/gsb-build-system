@@ -26,18 +26,34 @@ install_file etc/rc.d/rc.avahidaemon.new
 install_file etc/rc.d/rc.avahidnsconfd.new
 install_file etc/dbus-1/system.d/avahi-dbus.conf.new
 
-# If the avahi and netdev groups don't exist, add them
+# Remove the netdev group if it has a GID of 87.
+# This is needed because a previous install may have added the netdev group
+# with two different GIDs, 85 and 87.  We'll keep netdev as GID 85, especially
+# as the stb-admin group uses GID 87 already.
+if grep "^netdev:[^:]*:87:" etc/group >/dev/null 2>&1; then
+  cat etc/group >etc/group.gsb
+  cat etc/group.gsb | grep -v "^netdev:[^:]*:87:" >etc/group
+  if [ $? -ne 0 ]; then
+    # Don't leave etc/group in an unknown state.
+    cat etc/group.gsb >etc/group
+    #     |--------|--------------------------------------------------|
+    echo "WARNING: Failed to remove old netdev group."
+  fi
+  rm etc/group.old
+fi
+
+# If the netdev and avahi groups don't exist, add them
+if ! grep "^netdev:" etc/group >/dev/null 2>&1; then
+  echo "netdev:x:85:avahi" >>etc/group
+fi
+if ! grep "^netdev:" etc/gshadow >/dev/null 2>&1; then
+  echo "netdev:*::avahi" >>etc/gshadow
+fi
 if ! grep "^avahi:" etc/group >/dev/null 2>&1; then
   echo "avahi:x:86:" >>etc/group
 fi
 if ! grep "^avahi:" etc/gshadow >/dev/null 2>&1; then
   echo "avahi:*::" >>etc/gshadow
-fi
-if ! grep "^netdev:" etc/group >/dev/null 2>&1; then
-  echo "netdev:x:87:avahi" >>etc/group
-fi
-if ! grep "^netdev:" etc/gshadow >/dev/null 2>&1; then
-  echo "netdev:*::avahi" >>etc/gshadow
 fi
 
 # If the avahi user doesn't exist, add it
