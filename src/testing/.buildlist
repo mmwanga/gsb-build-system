@@ -1,6 +1,6 @@
 banshee-1
-libtelepathy
 telepathy-glib
+libtelepathy
 libjingle
 gst-plugins-farsight
 farsight
