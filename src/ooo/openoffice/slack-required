@@ -9,4 +9,4 @@ mozilla-firefox
 zlib
 librsvg
 libjpeg
-jre
+jre | jdk
