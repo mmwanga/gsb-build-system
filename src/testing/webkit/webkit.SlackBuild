@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=r33475
+VERSION=r35153
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -161,17 +161,19 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
-  --with-font-backend=pango \
+  --with-font-backend=freetype \
   --with-http-backend=curl \
   --with-target=x11 \
+  --enable-fast-malloc \
+  --disable-debug \
   --enable-svg \
   --enable-xslt \
   --enable-database \
   || exit 1
 
 ## Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+make -f GNUmakefile $MAKE_FLAGS &&
+make -f GNUmakefile $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

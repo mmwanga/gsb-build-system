@@ -1,4 +1,3 @@
-banshee-1
 telepathy-glib
 libtelepathy
 libjingle
@@ -10,5 +9,6 @@ loudmouth
 telepathy-gabble
 telepathy-salut
 empathy
+mozilla-firefox
 libicu
 webkit
