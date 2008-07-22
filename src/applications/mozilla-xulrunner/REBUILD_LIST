@@ -1,0 +1,12 @@
+Note: Some apps linked against mozilla-xulrunner (our version is shared) may have hard coded runtime paths to gtkembodmoz, and these will need to be rebuilt when mozilla-xulrunner versions change.
+
+These are:
+
+epiphany (gecko)
+epiphany-extensions
+yelp (gtkmozembed)
+devhelp (gtkmozembed)
+seahorse (for nautilus plugin)
+gnome-python-extras (for pygtkmoz)
+gecko-sharp
+totem (for mozilla plugin)

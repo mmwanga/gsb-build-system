@@ -31,3 +31,5 @@ libxml2
 libmusicbrainz
 libmtp
 id3lib
+libsoup
+evolution-data-server

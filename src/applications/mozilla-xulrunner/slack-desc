@@ -1,0 +1,13 @@
+                 |-----handy-ruler------------------------------------------------------|
+mozilla-xulrunner: xulrunner (Mozilla XULRunner)
+mozilla-xulrunner: 
+mozilla-xulrunner: XULRunner is a Mozilla runtime package that can be used to bootstrap 
+mozilla-xulrunner: XUL and XPCOM applications such as Mozilla Firefox.  XULRunner will 
+mozilla-xulrunner: also provide libxul, a solution which allows the embedding of 
+mozilla-xulrunner: Mozilla technologies in other projects and products.
+mozilla-xulrunner:
+mozilla-xulrunner: Visit the Mozilla XULRunner project online: 
+mozilla-xulrunner:   http://developer.mozilla.org/en/docs/XULRunner
+mozilla-xulrunner:
+mozilla-xulrunner:
+mozilla-xulrunner:

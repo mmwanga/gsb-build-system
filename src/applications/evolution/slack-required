@@ -11,7 +11,7 @@ gtk+2
 libsoup
 libxml2
 cyrus-sasl
-mozilla-firefox 
+mozilla-xulrunner
 gnome-pilot
 libgnomeui
 libgnome

@@ -7,12 +7,13 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=2.22.1.1
+BUILD=4
+VERSION=2.22.3
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="evolution heimdal-libraries openldap-client glib2 gtk+2 evolution-data-server libsoup GConf ORBit2 libgnomeui libbonoboui evo-openldap"
+#REQUIRED_PACKAGES="evolution heimdal-libraries openldap-client glib2 gtk+2 evolution-data-server libsoup GConf ORBit2 libgnomeui libbonoboui evo-openldap"
+REQUIRED_PACKAGES="evolution heimdal-libraries glib2 gtk+2 evolution-data-server libsoup GConf ORBit2 libgnomeui libbonoboui evo-openldap"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -155,10 +156,10 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
+LIBS="-lssl" \
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
   --enable-gtk-doc=no \
   --disable-gtkdoc \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
@@ -172,6 +173,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-nntp=yes \
   --enable-purify=no \
   --with-openldap=/usr/libexec/evo-openldap \
+  --with-static-ldap=yes \
   --with-krb5=/usr \
   --with-libdb=/usr \
   || exit 1

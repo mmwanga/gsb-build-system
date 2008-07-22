@@ -3,3 +3,4 @@ gegl
 gtk+2
 glib2
 GConf
+sane

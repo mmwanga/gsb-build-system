@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=0.3.10
+VERSION=0.3.12
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -168,12 +168,15 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
+## Fix for xulrunner libs
+sed -i "s:firefox:xulrunner:g" $PKG/usr/bin/conduit || exit 1
+
 ## Remove autostart
 rm -fr $PKG/usr/share/gnome/autostart/conduit-autostart.desktop
 
 ## Fix script for x86_64
 if [ "$ARCH" = "x86_64" ]; then
-  sed -i "s:lib/firefox:lib64/firefox:g" $PKG/usr/bin/conduit ;
+  sed -i "s:lib/xulrunner:lib64/xulrunner:g" $PKG/usr/bin/conduit ;
 fi;
 
 ## Strip debugging symbols.

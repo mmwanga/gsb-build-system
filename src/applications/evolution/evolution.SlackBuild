@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=2.22.1.1
+BUILD=3
+VERSION=2.22.3.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="evolution-data-server gnome-pilot-conduits gnome-spell gtkhtml dbus gail gnome-keyring gnome-vfs gtk+2 libsoup libxml2 cyrus-sasl gnome-pilot libgnomeui libgnome ORBit2 GConf libbonobo libbonoboui libgnomeprintui libsoup libnotify gstreamer mozilla-firefox libgalago heimdal-libraries"
+REQUIRED_PACKAGES="evolution-data-server gnome-pilot-conduits gnome-spell gtkhtml dbus gail gnome-keyring gnome-vfs gtk+2 libsoup libxml2 cyrus-sasl gnome-pilot libgnomeui libgnome ORBit2 GConf libbonobo libbonoboui libgnomeprintui libsoup libnotify gstreamer mozilla-xulrunner libgalago heimdal-libraries"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -70,6 +70,13 @@ done
 
   check_installed "$PKGNAME" && {
     echo "${0##*/}: Remove installed '$PKGNAME' package before build."
+    exit 1
+  }
+
+  ## Make sure we don't build unwanted dependencies
+  ## Evolution will force a link against libnm if found.
+  check_installed "NetworkManager" && {
+    echo "${0##*/}: Remove installed 'NetworkManager' package before build."
     exit 1
   }
 
@@ -163,9 +170,8 @@ echo "Using heimdal for Krb5."
 sed -i "s/\$mitlibs/\$heimlibs/g" $TMP/$PKGNAME-$VERSION/configure
 echo
 
-## Fix for gtkhtml 3.16
-#sed -i "s/3\.14/3\.16/g" $TMP/$PKGNAME-$VERSION/configure
-
+# Needed for ldap static build
+LIBS="-lssl" \
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
@@ -173,12 +179,13 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-nss=yes \
   --enable-nntp=yes \
   --enable-pilot-conduits=yes \
-  --with-openldap=yes \
+  --with-openldap=/usr/libexec/evo-openldap \
+  --with-static-ldap=yes \
   --enable-openssl=yes \
   --enable-test-components=no \
   --enable-smime=yes \
   --enable-exchange=yes \
-  --enable-plugins=base \
+  --enable-plugins=all \
   --enable-profiling=no \
   --enable-mono=no \
   --disable-gtk-doc \

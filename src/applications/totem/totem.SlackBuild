@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=6
 VERSION=2.22.2
 
 ## List any packages here that are required to build this package.
@@ -168,6 +168,9 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
+  --disable-debug \
+  --enable-python \
+  --disable-xine \
   --with-dbus \
   --enable-nautilus \
   --enable-media-player-keys \

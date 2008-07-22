@@ -3,13 +3,14 @@ pavumeter
 pavucontrol
 paprefs
 paman
-mozilla-firefox
+mozilla-xulrunner
 yelp
 eog
 gnome-media
 sound-juicer
 file-roller
 gnome-python-desktop
+enchant
 epiphany
 epiphany-extensions
 totem-pl-parser
@@ -47,7 +48,6 @@ alacarte
 gnome-commander
 gthumb
 rhythmbox
-enchant
 deskbar-applet
 pygtksourceview
 gedit

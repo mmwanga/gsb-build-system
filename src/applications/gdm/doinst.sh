@@ -42,7 +42,7 @@ if grep "^gdm:[^:]*:95:" etc/passwd >/dev/null 2>&1; then
     #     |--------|--------------------------------------------------|
     echo "WARNING: Failed to remove old gdm user."
   fi
-  rm etc/passwd.old
+  rm etc/passwd.gsb
 fi
 if grep "^gdm:[^:]*:95:" etc/group >/dev/null 2>&1; then
   cat etc/group >etc/group.gsb
@@ -53,7 +53,7 @@ if grep "^gdm:[^:]*:95:" etc/group >/dev/null 2>&1; then
     #     |--------|--------------------------------------------------|
     echo "WARNING: Failed to remove old gdm group."
   fi
-  rm etc/group.old
+  rm etc/group.gsb
 fi
 
 # If the gdm user/group don't exist, add them:
