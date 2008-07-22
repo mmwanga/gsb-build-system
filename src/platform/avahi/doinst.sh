@@ -39,7 +39,7 @@ if grep "^netdev:[^:]*:87:" etc/group >/dev/null 2>&1; then
     #     |--------|--------------------------------------------------|
     echo "WARNING: Failed to remove old netdev group."
   fi
-  rm etc/group.old
+  rm etc/group.gsb
 fi
 
 # If the netdev and avahi groups don't exist, add them
@@ -60,7 +60,7 @@ fi
 if ! grep "^avahi:" etc/passwd >/dev/null 2>&1; then
   echo "avahi:x:86:86:avahi:/etc/avahi:/bin/false" >>etc/passwd
 fi
-if grep "^avahi:" etc/shadow >/dev/null 2>&1; then
+if ! grep "^avahi:" etc/shadow >/dev/null 2>&1; then
   echo "avahi:*:9797:0:::::" >>etc/shadow
 fi
 

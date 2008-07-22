@@ -1,8 +1,7 @@
 # Version: 1.0 - Do not remove this line!
 
-# FIXME: Tadgy: Not quite sure why this is in here.
-# FIXME: Tadgy: This is completely wrong, it's using a full path and no chroot.
-libtool --finish --silent /usr/lib*/pulse-*/modules/
+# run libtool to finish off installation
+chroot . libtool --finish --silent usr/lib*/pulse-*/modules/
 
 # Update new libraries
 ldconfig -r .
@@ -37,84 +36,101 @@ if ! grep "^shm" etc/fstab >/dev/null 2>&1; then
 fi
 
 ###############################################################################
-# Note:
-#  All of the below is commented out as we no longer create the pulse et al
-#  users and groups, which are only used for the (not recommended) system
-#  wide daemon setup.
-#  The code below can be used to create the users/groups if you need/want them.
-#
 # Remove previous pulse, pulse-access and pulse-rt users/groups.
 # This is needed because the previous ones were created with IDs >100.
 # System level users/groups should have IDs <100.
-#if grep "^pulse:[^:]*:103:" etc/passwd >/dev/null 2>&1; then
-#  cat etc/passwd >etc/passwd.gsb
-#  cat etc/passwd.gsb | grep -v "^pulse:[^:]*:103:" >etc/passwd
-#  if [ $? -ne 0 ]; then
-#    # Don't leave etc/password in an unknown state.
-#    cat etc/passwd.gsb >etc/passwd
-#    #     |--------|--------------------------------------------------|
-#    echo "WARNING: Failed to remove old pulse user."
-#  fi
-#  rm etc/passwd.old
-#fi
-#if grep "^pulse:[^:]*:94:" etc/group >/dev/null 2>&1; then
-#  cat etc/group >etc/group.gsb
-#  cat etc/group.gsb | grep -v "^pulse:[^:]*:94:" >etc/group
-#  if [ $? -ne 0 ]; then
-#    # Don't leave etc/group in an unknown state.
-#    cat etc/group.gsb >etc/group
-#    #     |--------|--------------------------------------------------|
-#    echo "WARNING: Failed to remove old pulse group."
-#  fi
-#  rm etc/group.old
-#fi
-#if grep "^pulse-rt:[^:]*:104:" etc/group >/dev/null 2>&1; then
-#  cat etc/group >etc/group.gsb
-#  cat etc/group.gsb | grep -v "^pulse-rt:[^:]*:104:" >etc/group
-#  if [ $? -ne 0 ]; then
-#    # Don't leave etc/group in an unknown state.
-#    cat etc/group.gsb >etc/group
-#    #     |--------|--------------------------------------------------|
-#    echo "WARNING: Failed to remove old pulse-rt group."
-#  fi
-#  rm etc/group.old
-#fi
-#if grep "^pulse-access:[^:]*:105:" etc/group >/dev/null 2>&1; then
-#  cat etc/group >etc/group.gsb
-#  cat etc/group.gsb | grep -v "^pulse-access:[^:]*:105:" >etc/group
-#  if [ $? -ne 0 ]; then
-#    # Don't leave etc/group in an unknown state.
-#    cat etc/group.gsb >etc/group
-#    #     |--------|--------------------------------------------------|
-#    echo "WARNING: Failed to remove old pulse-access group."
-#  fi
-#  rm etc/group.old
-#fi
-#
+if grep "^pulse:[^:]*:103:" etc/passwd >/dev/null 2>&1; then
+  cat etc/passwd >etc/passwd.gsb
+  cat etc/passwd.gsb | grep -v "^pulse:[^:]*:103:" >etc/passwd
+  if [ $? -ne 0 ]; then
+    # Don't leave etc/password in an unknown state.
+    cat etc/passwd.gsb >etc/passwd
+    #     |--------|--------------------------------------------------|
+    echo "WARNING: Failed to remove old pulse user."
+  fi
+  rm -f etc/passwd.gsb
+fi
+if grep "^pulse:[^:]*:94:" etc/group >/dev/null 2>&1; then
+  cat etc/group >etc/group.gsb
+  cat etc/group.gsb | grep -v "^pulse:[^:]*:94:" >etc/group
+  if [ $? -ne 0 ]; then
+    # Don't leave etc/group in an unknown state.
+    cat etc/group.gsb >etc/group
+    #     |--------|--------------------------------------------------|
+    echo "WARNING: Failed to remove old pulse group."
+  fi
+  rm -f etc/group.gsb
+fi
+if grep "^pulse-rt:[^:]*:104:" etc/group >/dev/null 2>&1; then
+  cat etc/group >etc/group.gsb
+  cat etc/group.gsb | grep -v "^pulse-rt:[^:]*:104:" >etc/group
+  if [ $? -ne 0 ]; then
+    # Don't leave etc/group in an unknown state.
+    cat etc/group.gsb >etc/group
+    #     |--------|--------------------------------------------------|
+    echo "WARNING: Failed to remove old pulse-rt group."
+  fi
+  rm -f etc/group.gsb
+fi
+if grep "^pulse-access:[^:]*:105:" etc/group >/dev/null 2>&1; then
+  cat etc/group >etc/group.gsb
+  cat etc/group.gsb | grep -v "^pulse-access:[^:]*:105:" >etc/group
+  if [ $? -ne 0 ]; then
+    # Don't leave etc/group in an unknown state.
+    cat etc/group.gsb >etc/group
+    #     |--------|--------------------------------------------------|
+    echo "WARNING: Failed to remove old pulse-access group."
+  fi
+  rm -f etc/group.gsb
+fi
+
+# If the pulse group doesn't exist, add it
+# pulse is required for user level 
+if ! grep "^pulse:" etc/group >/dev/null 2>&1; then
+  echo "pulse:x:53:" >>etc/group
+fi
+if ! grep "^pulse:" etc/passwd >/dev/null 2>&1; then
+  echo "pulse:x:53:53:pulse:/var/run/pulse:/bin/false" >>etc/passwd
+fi
+if ! grep "^pulse:" etc/gshadow >/dev/null 2>&1; then
+  echo "pulse:*::" >>etc/gshadow
+fi
+if ! grep "^pulse:" etc/shadow >/dev/null 2>&1; then
+  echo "pulse:*:9797:0:::::" >>etc/shadow 
+fi
+
 # If the pulse, pulse-access and pulse-rt groups don't exist, add them
-#if ! grep "^pulse:" etc/group >/dev/null 2>&1; then
-#  echo "pulse:x:43:" >>etc/group
-#fi
-#if ! grep "^pulse:" etc/gshadow >/dev/null 2>&1; then
-#  echo "pulse:*::" >>etc/gshadow
-#fi
+# pulse-rt and pulse-access required for system-wide daemon
+# disabled per default
 #if ! grep "^pulse-access:" etc/group >/dev/null 2>&1; then
-#  echo "pulse-access:x:44:" >>etc/group
+  #echo "pulse-access:x:54:" >>etc/group
 #fi
 #if ! grep "^pulse-access:" etc/gshadow >/dev/null 2>&1; then
-#  echo "pulse-access:*::" >>etc/gshadow
+  #echo "pulse-access:*::" >>etc/gshadow
 #fi
 #if ! grep "^pulse-rt:" etc/group >/dev/null 2>&1; then
-#  echo "pulse-rt:x:45:" >>etc/group
+  #echo "pulse-rt:x:55:" >>etc/group
 #fi
 #if ! grep "^pulse-rt:" etc/gshadow >/dev/null 2>&1; then
-#  echo "pulse-rt:*::" >>etc/gshadow
+  #echo "pulse-rt:*::" >>etc/gshadow
 #fi
-#
-# If the pulse user doesn't exist, add it
-#if ! grep "^pulse:" etc/passwd >/dev/null 2>&1; then
-#  echo "pulse:x:43:43:pulse:/var/run/pulse:/bin/false" >>etc/passwd
-#fi
-#if grep "^pulse:" etc/shadow >/dev/null 2>&1; then
-#  echo "pulse:*:9797:0:::::" >>etc/shadow
-#fi
+
+## If pulseaudio installed, prefer is to esd
+if [ -f usr/bin/esdcompat ]; then
+  if [ -f usr/bin/esd -a ! -f usr/bin/esound.pulsified ]; then
+    chroot . mv -f /usr/bin/esd /usr/bin/esound.pulsified ;
+  fi ;
+else
+  # Make sure pulseaudio is default instead of esd
+  chroot . ln -sf /usr/bin/esdcompat /usr/bin/esd ;
+fi; 
+
+## If pulseaudio installed, prefer is to paplay
+if [ -f usr/bin/esdplay ]; then
+  if [ -f usr/bin/esdplay -a ! -f usr/bin/esdplay.pulsified ]; then
+    chroot . mv -f /usr/bin/esdplay /usr/bin/esdplay.pulsified ;
+  fi ;
+else
+  # Make sure paplay is default instead of esdplay
+  chroot . ln -sf /usr/bin/paplay /usr/bin/esdplay ;
+fi;
