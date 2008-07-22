@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=0.10.3
+BUILD=1
+VERSION=0.10.4
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -155,11 +155,8 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
-  || exit 1
+## Packaged with internal ffmpeg which has limited options.
+./configure --prefix=/usr --disable-static --enable-shared || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
