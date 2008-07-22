@@ -28,10 +28,10 @@ SECTIONS="${GSB_SECTIONS:-	tools
 				extras
 				themes
 				compiz
-				networking
 				ooo
 				meta
-				testing	}"
+				testing
+                                networking }"
 
 # Usage.
 function usage() {
