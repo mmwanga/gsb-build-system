@@ -14,7 +14,7 @@ avahi
 avahi-sharp
 avant-window-navigator
 bakery
-banshee
+banshee-1
 bluefish
 cairomm
 candido-engine
@@ -180,8 +180,7 @@ mono-addins
 mono-tools
 monodevelop
 monodoc
-mozilla-firefox
-mozilla-firefox 
+mozilla-xulrunner
 mpeg2dec
 mpeg4ip
 msttcorefonts

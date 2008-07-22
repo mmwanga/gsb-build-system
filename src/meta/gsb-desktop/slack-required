@@ -47,7 +47,7 @@ icon-naming-utils
 intltool
 iso-codes
 metacity
-mozilla-firefox 
+mozilla-xulrunner
 gvfs
 nautilus
 openldap | openldap-client

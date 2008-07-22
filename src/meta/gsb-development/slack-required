@@ -26,7 +26,7 @@ libsigc++
 libwnck
 libxml++
 libxslt
-mozilla-firefox
+mozilla-xulrunner
 neon
 python
 scons
