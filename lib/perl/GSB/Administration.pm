@@ -13,7 +13,7 @@ our $VERSION   = 0.03;
 # src/administration from GNOME
 our %administration_gnome =
   (
-   'pessulus'            => '2.16.3',
+   'pessulus'            => '2.16.4',
    'sabayon'             => '2.22.0',
    'liboobs'             => '2.22.0',
    'system-tools-backends'  => '2.6.0',
@@ -29,12 +29,12 @@ our %administration =
 	   'src' => 'tar.bz2',
 	   },
    'gparted'    => {
-                 'ver' => '0.3.7',
+                 'ver' => '0.3.8',
                  'url' => 'http://dfn.dl.sourceforge.net/sourceforge/gparted',
                  'src' => 'tar.bz2',
                 },
    'python-ldap'         => {
-                 'ver' => '2.3.1',
+                 'ver' => '2.3.4',
                  'url' => 'http://kent.dl.sourceforge.net/sourceforge/python-ldap',
                  'src' => 'tar.gz',
                             },
@@ -50,17 +50,17 @@ our %administration =
                   },
    'pycups'    => {
              'url' => 'http://cyberelk.net/tim/data/pycups/',
-             'ver' => '1.9.36',
+             'ver' => '1.9.40',
              'src' => 'tar.bz2',
                   },
    'pm-utils'    => {
              'url' => 'http://pm-utils.freedesktop.org/releases',
-             'ver' => '1.1.0',
+             'ver' => '1.1.2.3',
              'src' => 'tar.gz',
                   },
    'system-config-printer'    => {
              'url' => 'http://cyberelk.net/tim/data/system-config-printer/',
-             'ver' => '0.9.90',
+             'ver' => '0.9.93',
              'src' => 'tar.bz2',
                   },
    'pybackpack'         => {
@@ -70,7 +70,7 @@ our %administration =
 		},
    'rdiff-backup'         => {
 		 'url' => 'http://savannah.nongnu.org/download/rdiff-backup',
-		 'ver' => '1.0.5',
+		 'ver' => '1.1.16',
 		 'src' => 'tar.gz',
 		},
    'librsync'    => {

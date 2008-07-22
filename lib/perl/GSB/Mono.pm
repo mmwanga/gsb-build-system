@@ -25,11 +25,6 @@ our %mono_gnome =
 
 our %mono=
   (
-   'banshee'        => {
-				'ver' => '0.13.2',
-				'url' => 'http://banshee-project.org/files/banshee',
-				'src' => 'tar.bz2',
-			    },
    'gecko-sharp'        => {
 				'ver' => '2.0-0.13',
 				'url' => 'http://go-mono.com/sources/gecko-sharp2/',
@@ -71,7 +66,7 @@ our %mono=
 				'src' => 'tar.bz2',
 			       },
    'mono-zeroconf'            => {
-		'ver' => '0.7.5',
+		'ver' => '0.7.6',
 		'url' => 'http://banshee-project.org/files/mono-zeroconf',
 		'src' => 'tar.bz2',
 			       },
@@ -106,19 +101,25 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'gnome-do'                => {
-				'ver' => '0.4.0.1',
+				'ver' => '0.4.2.0',
 				'url' => 'http://launchpad.net/do/trunk/0.4/+download',
 				'src' => 'tar.gz',
 		        	},
+   'banshee-1'            => {
+             'url' => 'http://banshee-project.org/files/banshee',
+             'ver' => '1.0.0',
+             'src' => 'tar.bz2'
+                        },
+
   );
 
 our %mono_diff_naming =
   (
    'avahi-sharp'  => {
              'url' => 'http://avahi.org/download',
-             'ver' => '0.6.22',
+             'ver' => '0.6.23',
              'dir' => 'mono/avahi-sharp',
-             'tar' => 'avahi-0.6.22.tar.gz',
+             'tar' => 'avahi-0.6.23.tar.gz',
              'var' => 'VERSION',
                         },
    'gmime-sharp' => {

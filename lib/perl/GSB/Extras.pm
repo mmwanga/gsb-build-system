@@ -20,7 +20,7 @@ our $VERSION   = 0.03;
 # src/extras
 our %extras_gnome =
   (
-   'brasero'             => '0.7.1',
+   'brasero'             => '0.8.0',
    'ghex'                => '2.22.0',
   );
 
@@ -29,17 +29,17 @@ our %extras_gnome =
 our %extras =
   (
    'balsa'               => {
-			     'ver' => '2.3.22',
+			     'ver' => '2.3.25',
 			     'url' => 'http://balsa.gnome.org',
 			     'src' => 'tar.bz2',
 			    },
    'deluge'              => {
-                 'ver' => '0.5.9.0',
-                 'url' => 'http://download.deluge-torrent.org/source/0.5.9.0',
+                 'ver' => '0.5.9.3',
+                 'url' => 'http://download.deluge-torrent.org/source/0.5.9.3',
                  'src' => 'tar.gz',
                             },
    'devede'              => {
-                 'ver' => '3.7',
+                 'ver' => '3.9',
                  'url' => 'http://www.rastersoft.com/descargas',
                  'src' => 'tar.bz2',
                             },
@@ -54,7 +54,7 @@ our %extras =
                  'src' => 'tar.gz',
                             },
    'easytag'             => {
-			     'ver' => '2.1.5',
+			     'ver' => '2.1.6',
 			     'url' => 'http://kent.dl.sourceforge.net/sourceforge/easytag',
 			     'src' => 'tar.bz2',
 			    },
@@ -104,13 +104,13 @@ our %extras =
 			     'src' => 'tar.gz',
 			    },
    'streamripper'        => {
-			     'ver' => '1.62.3',
+			     'ver' => '1.63.5',
 			     'url' => 'http://kent.dl.sourceforge.net/sourceforge/streamripper',
 			     'src' => 'tar.gz',
 			    },
    'sylpheed'            => {
-			     'ver' => '2.4.8',
-			     'url' => 'http://sylpheed.good-day.net/sylpheed/v2.4',
+			     'ver' => '2.5.0',
+			     'url' => 'http://sylpheed.good-day.net/sylpheed/v2.5',
 			     'src' => 'tar.bz2',
 			    },
    'tre'            => {
@@ -124,7 +124,7 @@ our %extras =
 			     'src' => 'tar.gz',
 			    },
    'wxGTK'            => {
-			     'ver' => '2.8.7',
+			     'ver' => '2.8.8',
 			     'url' => 'http://kent.dl.sourceforge.net/sourceforge/wxwindows',
 			     'src' => 'tar.gz',
 			    },

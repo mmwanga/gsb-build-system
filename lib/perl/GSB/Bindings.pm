@@ -25,7 +25,7 @@ our %bindings_gnome =
    'libgtksourceviewmm' => '0.3.1',
    'libxml++'          => '2.22.0',
    'gtkmm'             => '2.12.7',
-   'glibmm'            => '2.16.1',
+   'glibmm'            => '2.16.4',
   );
 
   
@@ -36,6 +36,11 @@ our %bindings_ex =
                  'url' => 'http://cairographics.org/releases',
                  'src' => 'tar.gz',
                 },
+   'notify-python'    => {
+             'url' => 'http://www.galago-project.org/files/releases/source/notify-python/',
+             'ver' => '0.1.1',
+             'src' => 'tar.bz2',
+                  },
    'pysqlite' => {
                  'ver' => '2.4.1',
                  'url' => 'http://oss.itsystementwicklung.de/download/pysqlite/2.4/2.4.1',

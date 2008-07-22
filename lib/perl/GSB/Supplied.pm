@@ -16,7 +16,7 @@ our %supplied_tarballs =
 	     'section' => 'libraries',
                  },
    'slib'  => {
-             'ver' => '3a4',
+             'ver' => '3b1',
 	     'section' => 'office',
                  },
    'rhpl'  => {
@@ -38,10 +38,6 @@ our %supplied_tarballs =
    'fusion-icon'  => {
              'ver' => '0.1.0',
 	     'section' => 'compiz',
-                 },
-   'gnome-mount'  => {
-             'ver' => '0.8.svn20080225',
-	     'section' => 'desktop',
                  },
    'service-discovery-applet'  => {
              'ver' => '0.4.5',

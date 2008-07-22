@@ -15,7 +15,7 @@ our %testing =
   (
   'empathy' => {
                  'url' => 'http://ftp.gnome.org/pub/GNOME/sources/empathy/0.23',
-                 'ver' => '0.23.2',
+                 'ver' => '0.23.4',
                  'src' => 'tar.bz2'
                 },
   'telepathy-mission-control' => {
@@ -30,7 +30,7 @@ our %testing =
                 },
    'telepathy-glib'            => {
              'url' => 'http://telepathy.freedesktop.org/releases/telepathy-glib',
-             'ver' => '0.7.8',
+             'ver' => '0.7.10',
              'src' => 'tar.gz'
                         },
    'libtelepathy'            => {
@@ -66,11 +66,6 @@ our %testing =
    'loudmouth'            => {
              'url' => 'http://ftp.imendio.com/pub/imendio/loudmouth/src',
              'ver' => '1.3.4',
-             'src' => 'tar.bz2'
-                        },
-   'banshee-1'            => {
-             'url' => 'http://banshee-project.org/files/banshee',
-             'ver' => '0.99.3',
              'src' => 'tar.bz2'
                         },
   );

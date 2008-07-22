@@ -17,14 +17,14 @@ our %office_gnome =
   (
    'anjuta'    => '2.4.2',
    'devhelp'   => '0.19.1',
-   'gnumeric'  => '1.8.2',
+   'gnumeric'  => '1.8.3',
    'dia'       => '0.96.1',
    'gdl'       => '0.7.11',
    'glade3'      => '3.4.5',
    'glom'      => '1.6.17',
-   'gnome-build' => '0.2.4',
+   'gnome-build' => '0.3.0',
    'gnome-python-extras'  => '2.19.1',
-   'goffice'   => '0.6.3',
+   'goffice'   => '0.6.4',
    'libgsf'    => '1.14.8',
    'libgda'    => '3.0.4',
    'libgdamm'  => '2.9.82',
@@ -34,23 +34,23 @@ our %office_gnome =
 our %office =
   (
    'abiword' => {
-		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.3/source/',
-		 'ver' => '2.6.3',
+		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.4/source/',
+		 'ver' => '2.6.4',
 		 'src' => 'tar.gz'
 		},
    'abiword-docs' => {
-		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.3/source/',
-		 'ver' => '2.6.3',
+		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.4/source/',
+		 'ver' => '2.6.4',
 		 'src' => 'tar.gz'
 		},
    'abiword-extras' => {
-		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.3/source/',
-		 'ver' => '2.6.3',
+		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.4/source/',
+		 'ver' => '2.6.4',
 		 'src' => 'tar.gz'
 		},
    'abiword-plugins' => {
-		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.3/source/',
-		 'ver' => '2.6.3',
+		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.4/source/',
+		 'ver' => '2.6.4',
 		 'src' => 'tar.gz'
 		},
    'aqbanking' => {
@@ -120,17 +120,17 @@ our %office =
 			    },
    'libofx'    => {
                    'url' => 'http://kent.dl.sourceforge.net/sourceforge/libofx/',
-                   'ver' => '0.8.2',
+                   'ver' => '0.9.0',
                    'src' => 'tar.gz',
                   },
    'liferea'             => {
-			     'ver' => '1.5.3',
-			     'url' => 'http://kent.dl.sourceforge.net/sourceforge/liferea/',
+			     'ver' => '1.5.4',
+			     'url' => 'http://switch.dl.sourceforge.net/sourceforge/liferea',
 			     'src' => 'tar.gz',
 			    },
    'postgresql'    => {
-                   'url' => 'http://ftp7.us.postgresql.org/pub/postgresql/source/v8.3.0/',
-                   'ver' => '8.3.0',
+                   'url' => 'http://ftp7.us.postgresql.org/pub/postgresql/source/v8.3.3',
+                   'ver' => '8.3.3',
                    'src' => 'tar.bz2',
                   },
    'psiconv'   => {

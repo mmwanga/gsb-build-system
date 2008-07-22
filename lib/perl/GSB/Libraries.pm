@@ -28,7 +28,7 @@ our %libraries =
 			   'src' => 'tar.gz',
 		          },
    'babl'              => {
-			   'ver' => '0.0.20',
+			   'ver' => '0.0.22',
 			   'url' => 'ftp://ftp.gtk.org/pub/babl/0.0',
 			   'src' => 'tar.bz2',
 		          },
@@ -49,11 +49,11 @@ our %libraries =
                         },
    'gegl'          => {
                          'url' => 'ftp://ftp.gimp.org/pub/gegl/0.0',
-                         'ver' => '0.0.16',
+                         'ver' => '0.0.18',
                          'src' => 'tar.bz2',
                         },
    'graphviz'            => {
-                             'ver' => '2.18',
+                             'ver' => '2.20.2',
                              'url' => 'http://www.graphviz.org/pub/graphviz/ARCHIVE/',
                              'src' => 'tar.gz',
                             },
@@ -68,14 +68,14 @@ our %libraries =
 			   'src' => 'tar.gz',
 			  },
    'imlib2'            => {
-			   'ver' => '1.4.0',
+			   'ver' => '1.4.1',
 			   'url' => 'http://kent.dl.sourceforge.net/sourceforge/enlightenment',
 			   'src' => 'tar.gz',
 			  },
 
    'iso-codes'       => {
 			 'url' => 'ftp://pkg-isocodes.alioth.debian.org/pub/pkg-isocodes/',
-			 'ver' => '1.9',
+			 'ver' => '3.1',
 			 'src' => 'tar.bz2',
 		        },
    'lame'              => {
@@ -84,12 +84,12 @@ our %libraries =
 			   'src' => 'tar.gz',
 			  },
    'libarchive'        => {
-			   'ver' => '2.4.14',
+			   'ver' => '2.4.17',
 			   'url' => 'http://people.freebsd.org/~kientzle/libarchive/src',
 			   'src' => 'tar.gz',
 			  },
    'libdiscid'        => {
-			   'ver' => '0.1.1',
+			   'ver' => '0.2.1',
 			   'url' => 'http://users.musicbrainz.org/~matt',
 			   'src' => 'tar.gz',
 			  },
@@ -124,7 +124,7 @@ our %libraries =
 			   'src' => 'tar.gz',
 			  },
    'libebml'           => {
-			   'ver' => '0.7.7',
+			   'ver' => '0.7.8',
 			   'url' => 'http://dl.matroska.org/downloads/libebml/',
 			   'src' => 'tar.bz2',
 			  },
@@ -184,7 +184,7 @@ our %libraries =
                              'src' => 'tar.bz2',
 			  },
    'liboil'            => {
-			   'ver' => '0.3.14',
+			   'ver' => '0.3.15',
 			   'url' => 'http://liboil.freedesktop.org/download/',
 			   'src' => 'tar.gz',
 			  },
@@ -215,7 +215,7 @@ our %libraries =
 			  },
 
    'libsamplerate'        => {
-                           'ver' => '0.1.2',
+                           'ver' => '0.1.4',
                            'url' => 'http://www.mega-nerd.com/SRC/',
                            'src' => 'tar.gz',
 			  },
@@ -225,7 +225,7 @@ our %libraries =
                              'src' => 'tar.gz',
                             },
    'libtasn1'             => {
-                             'ver' => '1.3',
+                             'ver' => '1.4',
                              'url' => 'http://josefsson.org/gnutls/releases/libtasn1',
                              'src' => 'tar.gz',
                             },
@@ -266,7 +266,7 @@ our %libraries =
                         },
    'sg3_utils'            => {
                          'url' => 'http://sg.torque.net/sg/p',
-                         'ver' => '1.25',
+                         'ver' => '1.26',
                          'src' => 'tgz',
                         },
    'speex'            => {
@@ -295,7 +295,7 @@ our %libraries =
 			   'src' => 'tar.bz2',
 			  },
    'yasm'           => {
-			   'ver' => '0.6.2',
+			   'ver' => '0.7.1',
 			   'url' => 'http://www.tortall.net/projects/yasm/releases/',
 			   'src' => 'tar.gz',
 			  },
@@ -311,7 +311,7 @@ our %libraries_gnome =
 our %libraries_diff_naming =
   (
    'glib2'  => {
-		'ver'  => '2.16.3',
+		'ver'  => '2.16.5',
 		'name' => 'glib',
 	       },
   );

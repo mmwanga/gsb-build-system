@@ -16,14 +16,14 @@ our $VERSION   = 0.03;
 
 our %platform =
   (
-   'gail'                => '1.22.1',
+   'gail'                => '1.22.3',
    'GConf'               => '2.22.0',
    'gnome-common'        => '2.20.0',
-   'gnome-keyring'       => '2.22.2',
+   'gnome-keyring'       => '2.22.3',
    'gnome-mime-data'     => '2.18.0',
    'gnome-vfs'           => '2.22.0',
-   'gtk-engines'         => '2.14.2',
-   'intltool'            => '0.37.1',
+   'gtk-engines'         => '2.14.3',
+   'intltool'            => '0.40.0',
    'libbonobo'           => '2.22.0',
    'libbonoboui'         => '2.22.0',
    'libbtctl'            => '0.10.0',
@@ -31,7 +31,7 @@ our %platform =
    'libgnomecanvas'      => '2.20.1.1',
    'libgnomeui'          => '2.22.1',
    'libsoup'             => '2.4.1',
-   'ORBit2'              => '2.14.12',
+   'ORBit2'              => '2.14.13',
    'pyorbit'             => '2.14.3',
    'ttf-bitstream-vera'  => '1.10',
   );
@@ -41,7 +41,7 @@ our %platform =
 our %platform_reqs =
   (
    'avahi'               => {
-                             'ver' => '0.6.22',
+                             'ver' => '0.6.23',
                              'url' => 'http://www.avahi.org/download',
                              'src' => 'tar.gz',
                             },

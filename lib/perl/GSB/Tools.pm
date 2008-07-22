@@ -16,9 +16,9 @@ our %tools =
   (
    'scons'    => {
              'url' => 'http://kent.dl.sourceforge.net/sourceforge/scons/',
-             'ver' => '0.97',
+             'ver' => '0.98.5',
 			 'dir' => 'tools/scons',
-			 'tar' => 'scons-0.97.tar.gz',
+			 'tar' => 'scons-0.98.5.tar.gz',
              'var' => 'VERSION',
                   },
    'boost-jam'    => {
