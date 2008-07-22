@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=3
+BUILD=5
 VERSION=1.9
 
 ## List any packages here that are required to build this package.
@@ -176,12 +176,10 @@ if [ "$ARCH" = "x86_64" ]; then
   fi;
 fi ;
 
-## Fix weird bug http://www.mail-archive.com/mono-bugs@lists.ximian.com/msg27712.html
-## Since we're not running xulrunner, we can enable the gecko engine.  
-sed -i $PKG/usr/bin/monodoc -e "s: --no-gecko::g" &&
+## Make sure we have the GRE pointing to xulrunner for ilcontrast
 mkdir -p $PKG/etc/gre.d &&
 cp $CWD/mozilla-firefox.conf $PKG/etc/gre.d/mozilla-firefox.conf.new &&
-sed -i $PKG/etc/gre.d/mozilla-firefox.conf.new -e "s:LIBDIR:$LIBDIR:g" &&
+sed -i $PKG/etc/gre.d/mozilla-firefox.conf.new -e "s:@LIBDIR@:$LIBDIR:g" &&
 chown root:root $PKG/etc/gre.d/mozilla-firefox.conf.new || exit 1
 
 ## Strip debugging symbols.
