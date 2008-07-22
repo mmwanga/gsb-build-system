@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=5
-VERSION=2.8.7
+BUILD=1
+VERSION=2.8.8
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -164,11 +164,10 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-debugreport  \
   --with-sdl \
   --with-gtk \
-  --with-gnomeprint \
   --with-opengl \
   --enable-optimise \
-  --with-gnomevfs \
-  --with-gnomeprint \
+  --without-gnomevfs \
+  --without-gnomeprint \
   --with-stc \
   || exit 1
 

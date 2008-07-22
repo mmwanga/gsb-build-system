@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=4
-VERSION=0.7.1
+BUILD=1
+VERSION=0.8.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -172,9 +172,9 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-## Brasero has a munged .desktop entry
-mkdir -p $PKG/usr/share/applications &&
-cp $CWD/patches/brasero.desktop $PKG/usr/share/applications || exit 1 ;
+## Brasero 0.7.1 has a munged .desktop entry
+#mkdir -p $PKG/usr/share/applications &&
+#cp $CWD/patches/brasero.desktop $PKG/usr/share/applications || exit 1 ;
 
 ## The icons are improperly placed in a package subdirectory, rather than
 ## the main GNOME Icon Set. This moves them over so the application has
