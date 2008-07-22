@@ -1,3 +1,6 @@
+# Version: 1.0 - Do not remove this line!
+
+# Update new libraries
 ldconfig -r .
 
 function install_file() {
@@ -51,7 +54,7 @@ if grep "^netdev:[^:]*:87:" etc/group >/dev/null 2>&1; then
     #     |--------|--------------------------------------------------|
     echo "WARNING: Failed to remove old netdev group."
   fi
-  rm etc/group.old
+  rm etc/group.gsb
 fi
 
 # If the netdev group doesn't exist, add it:
