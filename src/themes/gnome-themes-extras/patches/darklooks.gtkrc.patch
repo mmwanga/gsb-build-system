@@ -1,0 +1,14 @@
+diff -Naur gnome-themes-extras-2.22.0.old/gtk-themes/Darklooks/gtk-2.0/gtkrc gnome-themes-extras-2.22.0/gtk-themes/Darklooks/gtk-2.0/gtkrc
+--- gnome-themes-extras-2.22.0.old/gtk-themes/Darklooks/gtk-2.0/gtkrc	2008-03-09 12:38:00.000000000 +0000
++++ gnome-themes-extras-2.22.0/gtk-themes/Darklooks/gtk-2.0/gtkrc	2008-07-17 16:18:48.000000000 +0100
+@@ -178,8 +178,8 @@
+ 	xthickness = 4
+ 	ythickness = 4
+ 
+-	bg[NORMAL] = @tooltip_bg_color
+-	fg[NORMAL] = @tooltip_fg_color
++	#bg[NORMAL] = @tooltip_bg_color
++	#fg[NORMAL] = @tooltip_fg_color
+ }
+ 
+ style "clearlooks-progressbar"

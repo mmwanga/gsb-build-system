@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.22.0
 
 ## List any packages here that are required to build this package.
@@ -113,6 +113,9 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
+
+## Fix for invalid gtkrc in Darklooks
+patch -p1 < $CWD/patches/darklooks.gtkrc.patch || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .
