@@ -12,7 +12,7 @@ VERSION=3.5.9
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES=""
+REQUIRED_PACKAGES="ncurses readline"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -173,13 +173,17 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 # Library links
 if [ "$ARCH" = "x86_64" ]; then
   cd $PKG/usr/lib64 && ln -s libsqlite3.so libsqlite3.so.0 || exit 1
+  # Fix for pkg-config patch level
+  sed -i "s:3.5$:$VERSION:g" $PKG/usr/lib64/pkgconfig/sqlite3.pc || exit 1
 else
   cd $PKG/usr/lib && ln -s libsqlite3.so libsqlite3.so.0 || exit 1
+  # Fix for pkg-config patch level
+  sed -i "s:3.5$:$VERSION:g" $PKG/usr/lib/pkgconfig/sqlite3.pc || exit 1
 fi;
 
 # Make common binary link
 cd $PKG/usr/bin && ln -s sqlite3 sqlite || exit 1
-  
+
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
@@ -199,10 +203,9 @@ cd $PKG/usr/bin && ln -s sqlite3 sqlite || exit 1
 }
 
 ## Copy extra documentation into package.
-mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
-  $PKG/usr/doc/$PKGNAME-$VERSION
+cd $TMP/$SRCNAME-$VERSION || exit 1
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION &&
+cp VERSION README $PKG/usr/doc/$PKGNAME-$VERSION || exit 1
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 

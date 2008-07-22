@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=3.11.9
+BUILD=3
+VERSION=3.12
 WITH_NSPR="with-nspr-4.7"
 
 ## List any packages here that are required to build this package.
@@ -174,7 +174,7 @@ echo "Working from $WORKINGDIR."
 
 ## This variable is set so that the build is performed with no debugging symbols 
 ## built into the binaries and that the default compiler optimizations are used.
-BUILD_OPT=1;
+export BUILD_OPT=1;
 
 ## Default to lib on x86 platforms, but lib64 on x86_64
 if [ "$ARCH" = "x86_64" ]; then
@@ -192,6 +192,8 @@ fi;
 cd security/nss ;
 
 ## Build and install.
+export NS_USE_GCC=1
+export NSS_USE_SYSTEM_SQLITE=1
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
    make nss_build_all || exit 1;
 
@@ -206,29 +208,30 @@ mkdir -p $PKG/usr/include
 
 install -v -m755 -d $PKG/usr/$NSSLIBDIR/pkgconfig ;
 
-sed -e "s/GSB_LIBRARY_PATH/$NSSLIBDIR/g" $CWD/pkgconfig/nspr.pc > \
-       $PKG/usr/$NSSLIBDIR/pkgconfig/nspr.pc
+sed -e "s:@LIBDIR@:$NSSLIBDIR:g" $CWD/pkgconfig/nspr.pc > \
+       $PKG/usr/$NSSLIBDIR/pkgconfig/nspr.pc || exit 1
 
-sed -e "s/GSB_LIBRARY_PATH/$NSSLIBDIR/g" $CWD/pkgconfig/nss.pc > \
-       $PKG/usr/$NSSLIBDIR/pkgconfig/nss.pc 
+sed -e "s:@LIBDIR@:$NSSLIBDIR:g" $CWD/pkgconfig/nss.pc > \
+       $PKG/usr/$NSSLIBDIR/pkgconfig/nss.pc  || exit 1
 
 chmod 644 $PKG/usr/$NSSLIBDIR/pkgconfig/nspr.pc
 chmod 644 $PKG/usr/$NSSLIBDIR/pkgconfig/nss.pc
 chown root:root $PKG/usr/$NSSLIBDIR/pkgconfig/nspr.pc
 chown root:root $PKG/usr/$NSSLIBDIR/pkgconfig/nss.pc
+mkdir -p $PKG/usr/bin
+install -v -m755 $CWD/pkgconfig/nss-config $PKG/usr/bin &&
+install -v -m755 $CWD/pkgconfig/nspr-config $PKG/usr/bin || exit 1
 
 cd dist ;
 
-install -v -m755 $NSS_LINUXDIR/lib/*.so $PKG/usr/$NSSLIBDIR ;
+install -v -m755 $NSS_LINUXDIR/lib/*.so $PKG/usr/$NSSLIBDIR &&
+install -v -m644 $NSS_LINUXDIR/lib/{*.chk,libcrmf.a} $PKG/usr/$NSSLIBDIR &&
+install -v -m755 -d $PKG/usr/include/{nss,nspr} &&
+install -v -m644 {public,private}/nss/* $PKG/usr/include/nss || exit 1
+install -v -m755 $NSS_LINUXDIR/bin/{certutil,cmsutil,crlutil,modutil,pk12util,signtool,signver,ssltap,addbuiltin} $PKG/usr/bin || exit 1
 
-install -v -m644 $NSS_LINUXDIR/lib/{*.chk,libcrmf.a} /usr/$NSSLIBDIR ;
-
-install -v -m755 -d $PKG/usr/include/{nss,nspr} ;
-
-install -v -m644 {public,private}/nss/* $PKG/usr/include/nss ;
-
-cp -v -RL $NSS_LINUXDIR/include/* $PKG/usr/include/nspr ;
-chmod -v 644 /usr/include/nspr/prvrsion.h;
+cp -v -RL $NSS_LINUXDIR/include/* $PKG/usr/include/nspr &&
+chmod -v 644 $PKG/usr/include/nspr/prvrsion.h || exit 1
 
 ## End of Build and Install;
 
