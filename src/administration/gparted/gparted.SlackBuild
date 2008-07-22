@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=1
-VERSION=0.3.7
+BUILD=2
+VERSION=0.3.8
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -166,6 +166,9 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## Build and install.
 make &&
 make DESTDIR=$PKG install || exit 1
+
+## Use gksu to run
+sed -i "s:Exec=/usr/sbin/gparted:Exec=gksu /usr/sbin/gparted:g" $PKG/usr/share/applications/gparted.desktop || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

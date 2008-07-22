@@ -11,7 +11,7 @@ if grep "^sabayon:" etc/group >/dev/null 2>&1; then
     #     |--------|--------------------------------------------------|
     echo "WARNING: Failed to remove old sabayon group."
   fi
-  rm etc/group.old
+  rm -f etc/group.gsb
 
   # Make sure the sabayon user doesn't have an invalid group id.
   chroot . /usr/sbin/usermod -g 100 sabayon
@@ -23,6 +23,14 @@ if ! grep "^sabayon:" etc/passwd 1>/dev/null 2>&1; then
 fi
 if ! grep "^sabayon:" etc/shadow 1>/dev/null 2>&1; then
   echo "sabayon:*:9797:0:::::" >>etc/shadow
+fi
+
+# Needed for 'enforce mandatory' setting
+if ! grep "gconf.path.mandatory" etc/gconf/2/local-madatory.path >/dev/null 2>&1; then
+  echo "include \"\$(HOME)/.gconf.path.mandatory\"" >> etc/gconf/2/local-madatory.path ;
+fi
+if ! grep "gconf.path.defaults" etc/gconf/2/local-defaults.path >/dev/null 2>&1; then
+  echo "include \"\$(HOME)/.gconf.path.defaults\"" >> etc/gconf/2/local-defaults.path ;
 fi
 
 if [ -x usr/bin/update-desktop-database ]; then

@@ -7,7 +7,7 @@
 ##
 
 ## Package variables
-BUILD=6
+BUILD=7
 VERSION=2.6.0
 
 ## List any packages here that are required to build this package.

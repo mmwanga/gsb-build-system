@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=2.3.1
+BUILD=1
+VERSION=2.3.4
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="python openldap-client"
+REQUIRED_PACKAGES="python openldap-client cyrus-sasl"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
