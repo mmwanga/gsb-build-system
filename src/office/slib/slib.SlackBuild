@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=4
-VERSION=3a4
+BUILD=1
+VERSION=3b1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -160,29 +160,31 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 mkdir -p $PKG/usr/man ;
 mkdir -p $PKG/usr/info ;
 echo "Fixing prefix."
-sed -i "s:\/usr\/local:$PKG\/usr:" $TMP/$PKGNAME-$VERSION/Makefile ;
+sed -i "s:/usr/local:/usr:" $TMP/$PKGNAME-$VERSION/Makefile || exit 1
 echo "srcdir = `pwd`/" > srcdir.mk
 
 SLIB_LIB=lib
 if [ "$ARCH" = "x86_64" ]; then
   echo "Fixing library path."
-  sed -i "s:)lib\/:)lib64\/:" $TMP/$PKGNAME-$VERSION/Makefile ;
+  sed -i "s:)lib/:)lib64/:" $TMP/$PKGNAME-$VERSION/Makefile ;
   SLIB_LIB=lib64
 fi;
 
-make infoz ;
+make &&
+make infoz &&
 make DESTDIR=$PKG install || exit 1
 
 ## Fixes for install paths
-echo '#! /bin/sh' > $PKG/usr/bin/slib
+mkdir -p $PKG/usr/bin &&
+echo '#! /bin/sh' > $PKG/usr/bin/slib || exit 1
 echo SCHEME_LIBRARY_PATH=/usr/$SLIB_LIB/slib/  >> $PKG/usr/bin/slib
 echo export SCHEME_LIBRARY_PATH >> $PKG/usr/bin/slib
 echo VERSION=$VERSION >> $PKG/usr/bin/slib
 echo "S48_VICINITY=\"/usr/$SLIB_LIB/scheme48\";export S48_VICINITY" >> $PKG/usr/bin/slib
 cat $TMP/$PKGNAME-$VERSION/slib.sh  >> $PKG/usr/bin/slib
-chmod +x $PKG/usr/bin/slib
-mkdir -p $PKG/usr/share/guile/1.8/ice-9 ;
-cp -a $CWD/slib.scm.3a4-guile.1.8 $PKG/usr/share/guile/1.8/ice-9
+chmod +x $PKG/usr/bin/slib || exit 1
+mkdir -p $PKG/usr/share/guile/1.8/ice-9 &&
+cp -a $CWD/slib.scm.3a4-guile.1.8 $PKG/usr/share/guile/1.8/ice-9 || exit 1
 
 # Fix paths for non x86_64 
 if [ "$ARCH" != "x86_64" ]; then

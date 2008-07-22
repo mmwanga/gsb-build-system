@@ -32,7 +32,7 @@ if grep "^postgres:[^:]*:26:" etc/passwd >/dev/null 2>&1; then
     #     |--------|--------------------------------------------------|
     echo "WARNING: Failed to remove old postgres user."
   fi
-  rm etc/passwd.old
+  rm etc/passwd.gsb
 fi
 if grep "^postgres:[^:]*:26:" etc/group >/dev/null 2>&1; then
   cat etc/group >etc/group.gsb
@@ -43,7 +43,7 @@ if grep "^postgres:[^:]*:26:" etc/group >/dev/null 2>&1; then
     #     |--------|--------------------------------------------------|
     echo "WARNING: Failed to remove old postgres group."
   fi
-  rm etc/group.old
+  rm -f etc/group.gsb
 fi
 
 # If the postgres user/group don't exist, add them

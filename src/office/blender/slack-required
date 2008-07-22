@@ -4,9 +4,8 @@ python
 libjpeg
 libpng
 zlib
-openal
 sdl
-mozilla-firefox
+mozilla-xulrunner
 nss
 mesa
 openexr

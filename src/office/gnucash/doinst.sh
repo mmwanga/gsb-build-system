@@ -37,3 +37,8 @@ fi
 if ps acx | grep -q gconfd-2 ; then
         killall -HUP gconfd-2 ;
 fi
+
+# Create required slibcat file
+if [ -x usr/bin/guile ]; then
+  usr/bin/guile -c "(use-modules (ice-9 slib)) (require 'new-catalog)" 1> /dev/null 2> /dev/null
+fi;

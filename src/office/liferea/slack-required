@@ -4,5 +4,4 @@ GConf
 gnutls
 libnotify
 dbus
-mozilla-firefox
 lua

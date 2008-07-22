@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=5
+BUILD=8
 VERSION=2.19.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="pygtk python glib2 gtk+2 gnome-python gtkhtml libgda libgnomeui mozilla-firefox"
+REQUIRED_PACKAGES="pygtk python glib2 gtk+2 gnome-python gtkhtml libgda libgnomeui mozilla-xulrunner"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -159,7 +159,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
-  --with-gtkmozembed=firefox \
+  --with-gtkmozembed=xulrunner \
   || exit 1
 
 ## Build and install.

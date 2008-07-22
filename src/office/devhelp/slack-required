@@ -1,4 +1,4 @@
-mozilla-firefox
+GConf
 python
 yelp
 zlib
@@ -6,4 +6,4 @@ glib2
 libwnck
 libglade
 gtk+2
-GConf
+mozilla-xulrunner
