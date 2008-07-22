@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=5
-VERSION=1.164
+BUILD=1
+VERSION=1.183
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -143,7 +143,7 @@ LIBDIR=${LIBDIR:-"lib"}
 
 # This is a list of the perl modules with version numbers to include
 # in our package
-MODULE_LIST="ExtUtils-PkgConfig-1.10 ExtUtils-Depends-0.205 Glib-1.164"
+MODULE_LIST="ExtUtils-PkgConfig-1.10 ExtUtils-Depends-0.300 Glib-1.183"
 
 PERL_ARCH=$(perl -v | grep This | cut -d' ' -f 7)
 PERL_VERSION=$(perl -v | grep This | cut -d' ' -f4 | cut -dv -f2)
