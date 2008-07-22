@@ -22,7 +22,7 @@
 --with-system-python
 --enable-openxml
 --with-system-gcc
---with-system-mozilla=firefox
+--with-system-mozilla=xulrunner
 --with-num-cpus=2
 --with-system-libsvg
 --disable-pam

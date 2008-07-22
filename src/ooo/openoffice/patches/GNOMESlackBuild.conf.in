@@ -25,7 +25,7 @@
 --with-system-gcc
 --with-system-boost
 --with-system-db
---with-system-mozilla=firefox
+--with-system-mozilla=xulrunner
 --enable-openldap
 --enable-arch=x86
 --with-system-libsvg

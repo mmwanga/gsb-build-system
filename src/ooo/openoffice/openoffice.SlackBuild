@@ -7,16 +7,16 @@
 ##
 
 ## Package variables.
-BUILD=4
-VERSION=2.4.0.8
+BUILD=1
+VERSION=2.4.1.7
 
 ## List any packages here that are required to build this package.
 ## We build with mono/java support on x86.  x86_64 does not yet support
 ## this configuration.
 if [ "$ARCH" = "x86_64" ]; then
-  REQUIRED_PACKAGES="gtk+2 libgnomeui neon libsndfile gnome-vfs boost libgnomeui mozilla-firefox zlib librsvg libjpeg"
+  REQUIRED_PACKAGES="gtk+2 libgnomeui neon libsndfile gnome-vfs boost libgnomeui mozilla-xulrunner nss sane zlib librsvg libjpeg nss"
 else
-  REQUIRED_PACKAGES="gtk+2 libgnomeui neon libsndfile gnome-vfs boost libgnomeui mozilla-firefox zlib librsvg libjpeg jre jdk apache-ant"
+  REQUIRED_PACKAGES="gtk+2 libgnomeui neon libsndfile gnome-vfs boost libgnomeui mozilla-xulrunner nss sane zlib librsvg libjpeg jre nss jdk apache-ant"
 fi;
 
 
@@ -124,17 +124,17 @@ elif [ "$ARCH" = "powerpc" ]; then
 fi
 
 ## Fix permissions for building.
-chown -R root.root .
-find . -perm 664 -exec chmod 644 {} \;
-find . -perm 600 -exec chmod 644 {} \;
-find . -perm 444 -exec chmod 644 {} \;
-find . -perm 400 -exec chmod 644 {} \;
-find . -perm 440 -exec chmod 644 {} \;
-find . -perm 777 -exec chmod 755 {} \;
-find . -perm 775 -exec chmod 755 {} \;
-find . -perm 511 -exec chmod 755 {} \;
-find . -perm 711 -exec chmod 755 {} \;
-find . -perm 555 -exec chmod 755 {} \;
+#chown -R root.root .
+#find . -perm 664 -exec chmod 644 {} \;
+#find . -perm 600 -exec chmod 644 {} \;
+#find . -perm 444 -exec chmod 644 {} \;
+#find . -perm 400 -exec chmod 644 {} \;
+#find . -perm 440 -exec chmod 644 {} \;
+#find . -perm 777 -exec chmod 755 {} \;
+#find . -perm 775 -exec chmod 755 {} \;
+#find . -perm 511 -exec chmod 755 {} \;
+#find . -perm 711 -exec chmod 755 {} \;
+#find . -perm 555 -exec chmod 755 {} \;
 
 ## Configure, Tuning, GCC and Make options.
 CONFIGURE_FLAGS=${GSB_CONFIGURE_FLAGS:-""}
@@ -171,9 +171,14 @@ LIBDIR=${LIBDIR:-"lib"}
 ## Add GNOMESlackBuild sections to go-oo configure system
 cp $CWD/gsb_art/*.bmp ./src || exit 1
 cp $CWD/patches/GNOMESlackBuild* ./distro-configs || exit 1
-patch -p1 < $CWD/patches/addgsb-2.4.0.8.patch || exit 1
-#patch -p1 < $CWD/patches/add-gnomeslackbuild.patch || exit 1
-#patch -p1 < $CWD/patches/emf-cairo-patchfix.patch || exit 1
+if [ -f $CWD/patches/addgsb-$VERSION.patch ] ;
+then 
+  patch -p1 < $CWD/patches/addgsb-$VERSION.patch 
+  patch -p1 < $CWD/patches/apply-$VERSION.patch 
+else
+  echo "Need to patch for gsb configure." && exit 1
+fi;
+
 ## We need to temporarily spam a directory on the build machine
 mkdir -p /usr/share/openclipart
 
