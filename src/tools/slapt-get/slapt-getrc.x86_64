@@ -20,23 +20,23 @@ EXCLUDE=^kernel-.*,^glibc.*,.*-[0-9]+dl$,^devs$,^udev$,aaa_elflibs,i486,i586,i68
 # which have been manually checked as working.
 # Any of the following can be copied and have 'extra/' 'testing/' or 'pasture/'
 # appended to the url to allow access to additional Slamd64 packages.
-SOURCE=ftp://anorien.warwick.ac.uk/slamd64/slamd64-current/
-#SOURCE=ftp://ftp.slackware.pl/pub/slamd64/slamd64-current
-#SOURCE=http://ftp.slackware.pl/pub/slamd64/slamd64-current/
-#SOURCE=ftp://anorien.warwick.ac.uk/slamd64/slamd64-current/
-#SOURCE=http://anorien.warwick.ac.uk/mirrors/slamd64/slamd64-current/
-#SOURCE=ftp://ftp.scarlet.be/pub/slamd64/slamd64-current
-#SOURCE=http://ftp.scarlet.be/pub/slamd64/slamd64-current/
-#SOURCE=ftp://ftp.heanet.ie/pub/slamd64/slamd64-current
-#SOURCE=http://ftp.heanet.ie/pub/slamd64/slamd64-current/
-#SOURCE=ftp://slamd64.wahlfaelschung.de/slamd64-current
-#SOURCE=http://slamd64.wahlfaelschung.de/slamd64-current/
-#SOURCE=ftp://ftp.slackware.org.uk/slamd64/slamd64-current/
-#SOURCE=http://www.slackware.org.uk/slamd64/slamd64-current/
+SOURCE=ftp://anorien.warwick.ac.uk/slamd64/slamd64-12.1/
+#SOURCE=ftp://ftp.slackware.pl/pub/slamd64/slamd64-12.1
+#SOURCE=http://ftp.slackware.pl/pub/slamd64/slamd64-12.1/
+#SOURCE=ftp://anorien.warwick.ac.uk/slamd64/slamd64-12.1/
+#SOURCE=http://anorien.warwick.ac.uk/mirrors/slamd64/slamd64-12.1/
+#SOURCE=ftp://ftp.scarlet.be/pub/slamd64/slamd64-12.1
+#SOURCE=http://ftp.scarlet.be/pub/slamd64/slamd64-12.1/
+#SOURCE=ftp://ftp.heanet.ie/pub/slamd64/slamd64-12.1
+#SOURCE=http://ftp.heanet.ie/pub/slamd64/slamd64-12.1/
+#SOURCE=ftp://slamd64.wahlfaelschung.de/slamd64-12.1
+#SOURCE=http://slamd64.wahlfaelschung.de/slamd64-12.1/
+#SOURCE=ftp://ftp.slackware.org.uk/slamd64/slamd64-12.1/
+#SOURCE=http://www.slackware.org.uk/slamd64/slamd64-12.1/
 
 # GNOME SlackBuild mirrors (version 2.22)
-SOURCE=ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb64/gsb64-2.22/
-#SOURCE=ftp://ftp.slackware.org.uk/gsb64/gsb64-2.22/
+#SOURCE=ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb64/gsb64-2.22/
+SOURCE=ftp://ftp.slackware.org.uk/gsb64/gsb64-2.22/
 #SOURCE=http://www.slackware.org.uk/gsb64/gsb64-2.22/
 #SOURCE=ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb64/gsb64-2.22/
 #SOURCE=http://slackware.rol.ru/gsb/gsb64/gsb64-2.22/

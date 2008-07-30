@@ -1,3 +1,51 @@
+Wed Jul 30 14:45:18 GMT 2008
+applications/gnome-commander-1.2.7-i586-1gsb.tgz: Upgraded.
+platform/intltool-0.40.3-i586-1gsb.tgz: Upgraded.
+mono/evolution-sharp-0.16.1.1-i586-3gsb.tgz: Rebuilt.
+mono/tomboy-0.10.2-i586-2gsb.tgz: Rebuilt.
+platform/avahi-0.6.23-i586-4gsb.tgz: Rebuilt.
+  Fix broken doinst.sh.
++--------------------------+
+Mon Jul 28 15:46:17 GMT 2008
+mono/libgdiplus-1.9-i586-3gsb.tgz: Rebuilt.
+  Use system cairo libraries.
+mono/mono-1.9.1-i586-3gsb.tgz: Rebuilt.
+  Link against system glib and build statically linked binary
+  against libmono. 
+mono/monodoc-1.9-i586-3gsb.tgz: Rebuilt.
+  Generate index during package installation.
+mono/monodevelop-1.0-i586-2gsb.tgz: Rebuilt.
+  Update slack-required.
+mono/gnome-do-0.5.0.1-i586-2gsb.tgz: Rebuilt.
+  Fixed broken pkgconfig file.
+mono/gnome-do-plugins-0.4.0-i586-2gsb.tgz: Rebuilt.
+libraries/sg3_utils-1.26-i586-2gsb.tgz: Rebuilt.
+testing/mozilla-firefox-3.0.1-i586-3gsb.tgz: Rebuilt.
++--------------------------+
+Thu Jul 24 10:45:19 GMT 2008
+platform/pulseaudio-0.9.10-i586-4gsb.tgz: Rebuilt.
+  Fixes for properly installing softlinks for esd and esdplay.
+office/liferea-1.5.4-i586-4gsb.tgz: Rebuilt.
+  Fix for slack-required.
+office/aqbanking-2.3.3-i586-3gsb.tgz: Rebuilt.
+  Relinked against newer libofx.
+office/gnucash-2.2.5-i586-3gsb.tgz: Rebuilt.
+  Relinked against newer libofx.
+tools/setuptools-0.6c8-i586-3gsb.tgz: Rebuilt.
+  Fix some documentation.
+compiz/compiz-fusion-0.7.6-i586-2gsb.tgz: Rebuilt.
+compiz/emerald-0.7.6-i586-2gsb.tgz: Rebuilt.
+mono/gnome-do-0.5.0.1-i586-1gsb.tgz: Upgraded.
+  Updated slack-required to use xdg-utils.  Makes this application
+  much more useful.  :^)
+desktop/xdg-utils-1.0.2-i586-1gsb.tgz: Added.
+  This packages adds some useful helper scripts for KDE, GNOME, 
+  and Xfce, such as xdg-open, xdg-email, xdg-screensaver, etc 
+  which other applications can call to start environment appropriate 
+  applications. Used by various GNOME applications.  
+mono/gnome-keyring-sharp-1.0-i586-1gsb.tgz: Added.
+network/network-manager-applet-svn_718-i586-1gsb.tgz: Upgraded.
++--------------------------+
 Mon Jul 21 15:25:18 GMT 2008
 libraries/glib2-2.16.5-i586-1gsb.tgz: Upgraded.
   Includes fix for crash condition in Epiphany.
@@ -115,6 +163,7 @@ office/devhelp-0.19.1-i586-2gsb.tgz: Rebuilt.
 office/postgresql-8.3.3-i586-2gsb.tgz: Rebuilt.
 administration/gparted-0.3.8-i586-1gsb.tgz: Upgraded.
 extras/brasero-0.8.0-i586-1gsb.tgz: Upgraded.
+office/liferea-1.5.4-i586-2gsb.tgz: Rebuilt.
 +--------------------------+
 Fri Jul 04 22:33:21 GMT 2008
 libraries/glib2-2.16.4-i586-1gsb.tgz: Upgraded.

@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=3
-VERSION=0.16.1.1
+BUILD=1
+VERSION=1.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk-sharp gnome-sharp evolution-data-server mono"
+REQUIRED_PACKAGES="mono"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -90,7 +90,9 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+rm -rf $PKGNAME-$VERSION &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
+mv $PKGNAME $PKGNAME-$VERSION &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -144,7 +146,7 @@ elif [ "$ARCH" = "x86_64" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS="--libdir=/usr/lib64"
+    CONFIGURE_FLAGS=""
   }
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
@@ -156,14 +158,32 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  . ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
+  --program-prefix="" \
   || exit 1
 
 ## Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+make $MAKE_FLAGS -j1 &&
+make $MAKE_FLAGS -j1 DESTDIR=$PKG install || exit 1
+
+# Fix for pkgconfig files on x86_64 platforms
+if [ "$ARCH" = "x86_64" ]; then
+  if [ -d $PKG/usr/lib/pkgconfig ]; then
+     mkdir -p $PKG/usr/lib64 ;
+     mv $PKG/usr/lib/pkgconfig $PKG/usr/lib64 ;
+  fi;
+fi ;
+
+## For compat
+if [ "$ARCH" = "x86_64" ]; then
+  cd $PKG/usr/lib64/pkgconfig &&
+  ln -s gnome-keyring-sharp-1.0.pc gnome-keyring-sharp.pc || exit 1;
+else
+  cd $PKG/usr/lib/pkgconfig &&
+  ln -s gnome-keyring-sharp-1.0.pc gnome-keyring-sharp.pc || exit 1;
+fi;
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

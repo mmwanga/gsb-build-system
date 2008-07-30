@@ -167,8 +167,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
   --disable-scrollkeeper \
-  --with-gecko=mozilla \
-  --with-gecko-home=/usr/lib/xulrunner \
   --disable-network-manager \
   --enable-zeroconf \
   --enable-python \

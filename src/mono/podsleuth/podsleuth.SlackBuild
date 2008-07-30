@@ -7,8 +7,8 @@
 ##
 
 ## Package variables. 
-BUILD=2
-VERSION=svn_54
+BUILD=1
+VERSION=svn_60
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -120,6 +120,9 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
+
+## Fix for sg_utils2 lib search
+patch -p0 < $CWD/patches/podsleuth.m4.patch || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .

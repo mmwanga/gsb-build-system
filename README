@@ -14,7 +14,7 @@ If you haven't yet, you should read about the GSB project before installing:
 
 This version of GSB is built and only supported on:
   Slackware 12.1
-  Slamd64 current (which will soon become Slamd64 12.1)
+  Slamd64 12.1
 
 If you are trying to use GSB on systems other than the above you *will*
 encounter problems.  If you are running a previous version of Slackware or
@@ -435,21 +435,18 @@ Slackware 12.1 mirrors:
   <http://slackware.rol.ru/slackware/slackware-12.1/>
 
 Slamd64 12.1 mirrors:
-  Note: These mirrors currently point to slamd64-current, which is the
-        upcomming Slamd64 12.1 release.  These URIs will be updated to point at
-        the official Slamd64 12.1 release once it has happened.
-  <ftp://ftp.slackware.pl/pub/slamd64/slamd64-current/>
-  <http://ftp.slackware.pl/pub/slamd64/slamd64-current/>
-  <ftp://anorien.warwick.ac.uk/slamd64/slamd64-current/>
-  <http://anorien.warwick.ac.uk/mirrors/slamd64/slamd64-current/>
-  <ftp://ftp.scarlet.be/pub/slamd64/slamd64-current/>
-  <http://ftp.scarlet.be/pub/slamd64/slamd64-current/>
-  <ftp://ftp.heanet.ie/pub/slamd64/slamd64-current/>
-  <http://ftp.heanet.ie/pub/slamd64/slamd64-current/>
-  <ftp://slamd64.wahlfaelschung.de/slamd64-current/>
-  <http://slamd64.wahlfaelschung.de/slamd64-current/>
-  <ftp://ftp.slackware.org.uk/slamd64/slamd64-current/>
-  <http://www.slackware.org.uk/slamd64/slamd64-current/>
+  <ftp://ftp.slackware.pl/pub/slamd64/slamd64-12.1/>
+  <http://ftp.slackware.pl/pub/slamd64/slamd64-12.1/>
+  <ftp://anorien.warwick.ac.uk/slamd64/slamd64-12.1/>
+  <http://anorien.warwick.ac.uk/mirrors/slamd64/slamd64-12.1/>
+  <ftp://ftp.scarlet.be/pub/slamd64/slamd64-12.1/>
+  <http://ftp.scarlet.be/pub/slamd64/slamd64-12.1/>
+  <ftp://ftp.heanet.ie/pub/slamd64/slamd64-12.1/>
+  <http://ftp.heanet.ie/pub/slamd64/slamd64-12.1/>
+  <ftp://slamd64.wahlfaelschung.de/slamd64-12.1/>
+  <http://slamd64.wahlfaelschung.de/slamd64-12.1/>
+  <ftp://ftp.slackware.org.uk/slamd64/slamd64-12.1/>
+  <http://www.slackware.org.uk/slamd64/slamd64-12.1/>
 
 
 Appendix C - Meta packages and sets

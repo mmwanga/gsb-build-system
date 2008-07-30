@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=1
-VERSION=0.4.2.0
+BUILD=2
+VERSION=0.5.0.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -145,7 +145,7 @@ elif [ "$ARCH" = "x86_64" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS="--libdir=/usr/lib"
+    CONFIGURE_FLAGS="--libdir=/usr/lib" 
   }
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
@@ -165,6 +165,9 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+## Fix munged pkgconfig file
+sed -i "s:/lib/lib/:/lib/:g" $PKG/usr/lib/pkgconfig/do.dbus.pc || exit 1
 
 if [ "$ARCH" = "x86_64" ]; then
   mkdir -p $PKG/usr/lib64

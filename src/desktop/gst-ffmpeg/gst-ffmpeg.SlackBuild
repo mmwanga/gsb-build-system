@@ -156,7 +156,10 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
 ## Packaged with internal ffmpeg which has limited options.
-./configure --prefix=/usr --disable-static --enable-shared || exit 1
+  ./configure --prefix=/usr \
+  --mandir=/usr/man $CONFIGURE_FLAGS \
+  --disable-static --enable-shared \
+  || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&

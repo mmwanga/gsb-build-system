@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=2.3.3
 
 ## List any packages here that are required to build this package.
@@ -160,12 +160,14 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --enable-gwenhywfar \
+  --disable-debug \
+  --enable-release \
   --disable-chipcard-client \
   --disable-kde3 \
   --disable-qt3 \
   --disable-python \
   --enable-libofx \
-  --with-backends="aqhbci aqdtaus aqofxconnect" \
+  --with-backends="aqhbci aqdtaus" \
   --with-frontends="cbanking g2banking" \
   || exit 1
 

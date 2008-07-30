@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=svn_709
+VERSION=svn_718
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -172,6 +172,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
+  --disable-more-warnings \
   || exit 1
 
 ## Build and install.

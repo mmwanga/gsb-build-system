@@ -78,7 +78,7 @@ fi
 
 # Add service start to rc.local
 if ! grep "/etc/rc.d/rc.avahidaemon" etc/rc.d/rc.local >/dev/null 2>&1; then
-  cat <EOF >>etc/rc.d/rc.local
+  cat <<EOF >>etc/rc.d/rc.local
 
 # To disable avahi, chmod rc.avahidaemon and rc.avahidnsconfd to 644
 if [ -x /etc/rc.d/rc.avahidaemon -a -x /etc/rc.d/rc.avahidnsconfd ]; then
@@ -90,7 +90,7 @@ fi
 
 # Add service shutdown to rc.local_shutdown
 if ! grep "/etc/rc.d/rc.avahidaemon" etc/rc.d/rc.local_shutdown >/dev/null 2>&1; then
-  cat <EOF >>etc/rc.d/rc.local_shutdown
+  cat << EOF >>etc/rc.d/rc.local_shutdown
 
 if [ -x /etc/rc.d/rc.avahidaemon -a -x /etc/rc.d/rc.avahidnsconfd ]; then
   /etc/rc.d/rc.avahidaemon stop

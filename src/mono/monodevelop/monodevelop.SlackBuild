@@ -158,7 +158,12 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
+  --enable-c \
+  --enable-gnomeplatform \
+  --enable-subversion \
+  --disable-update-mimedb \
+  --disable-update-desktopdb \
+  --enable-gtksourceview2 \
   || exit 1
 
 ## Build and install.

@@ -8,3 +8,4 @@ gnome-keyring
 libnotify
 libgnomeui
 wireless-tools
+gnutls

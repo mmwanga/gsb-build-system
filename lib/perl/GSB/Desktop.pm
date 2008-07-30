@@ -127,6 +127,11 @@ our %desktop_nongnome =
                              'url' => 'http://tadas.dailyda.com/software',
                              'src' => 'tar.gz',
                             },
+   'xdg-utils'           => {
+                             'ver' => '1.0.2',
+                             'url' => 'http://portland.freedesktop.org/download',
+                             'src' => 'tgz',
+                            },
   );
 
 our %desktop_diff_naming =

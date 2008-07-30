@@ -5,3 +5,4 @@ gnutls
 libnotify
 dbus
 lua
+libgtkhtml

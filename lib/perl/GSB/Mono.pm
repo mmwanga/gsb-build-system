@@ -101,13 +101,13 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'gnome-do'                => {
-				'ver' => '0.4.2.0',
-				'url' => 'http://launchpad.net/do/trunk/0.4/+download',
+				'ver' => '0.5.0.1',
+				'url' => 'http://launchpad.net/do/trunk/0.5/+download',
 				'src' => 'tar.gz',
 		        	},
    'banshee-1'            => {
              'url' => 'http://banshee-project.org/files/banshee',
-             'ver' => '1.0.0',
+             'ver' => '1.2.0',
              'src' => 'tar.bz2'
                         },
 
@@ -147,7 +147,7 @@ our %mono_diff_naming =
 
 our %mono_svn =
   (
-   'podsleuth' => 'svn_54',
+   'podsleuth' => 'svn_60',
   );
 
 

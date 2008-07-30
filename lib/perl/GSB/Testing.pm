@@ -30,7 +30,7 @@ our %testing =
                 },
    'telepathy-glib'            => {
              'url' => 'http://telepathy.freedesktop.org/releases/telepathy-glib',
-             'ver' => '0.7.10',
+             'ver' => '0.7.13',
              'src' => 'tar.gz'
                         },
    'libtelepathy'            => {
@@ -74,5 +74,5 @@ our %testing_network_svn =
   (
    'NetworkManager'         => 'svn_3655',
    'NetworkManager-vpn'     => 'svn_3655',
-   'network-manager-applet' => 'svn_709',
+   'network-manager-applet' => 'svn_718',
   );

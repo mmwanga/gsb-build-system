@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=0.6c8
 
 ## List any packages here that are required to build this package.
@@ -178,8 +178,7 @@ python setup.py install --prefix=/usr --root=$PKG || exit 1
 
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+cp README.txt EasyInstall.txt pkg_resources.txt setuptools.txt \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION

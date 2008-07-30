@@ -152,4 +152,5 @@ makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
   rm -rf $PKG $TMP/Candido*
+  rm -rf $TMP/nuoveXT*
 }

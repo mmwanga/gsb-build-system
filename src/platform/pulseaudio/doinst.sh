@@ -117,20 +117,20 @@ fi
 
 ## If pulseaudio installed, prefer is to esd
 if [ -f usr/bin/esdcompat ]; then
+  # Move old esd out of the way
   if [ -f usr/bin/esd -a ! -f usr/bin/esound.pulsified ]; then
-    chroot . mv -f /usr/bin/esd /usr/bin/esound.pulsified ;
-  fi ;
-else
+    chroot . mv -f usr/bin/esd usr/bin/esound.pulsified ;
+  fi;
   # Make sure pulseaudio is default instead of esd
-  chroot . ln -sf /usr/bin/esdcompat /usr/bin/esd ;
+  chroot . ln -sf /usr/bin/esdcompat usr/bin/esd ;
 fi; 
 
 ## If pulseaudio installed, prefer is to paplay
-if [ -f usr/bin/esdplay ]; then
+if [ -f usr/bin/paplay ]; then
+  # Move old esdplay out of the way
   if [ -f usr/bin/esdplay -a ! -f usr/bin/esdplay.pulsified ]; then
-    chroot . mv -f /usr/bin/esdplay /usr/bin/esdplay.pulsified ;
+    chroot . mv -f usr/bin/esdplay usr/bin/esdplay.pulsified ;
   fi ;
-else
   # Make sure paplay is default instead of esdplay
-  chroot . ln -sf /usr/bin/paplay /usr/bin/esdplay ;
+  chroot . ln -sf /usr/bin/paplay usr/bin/esdplay ;
 fi;

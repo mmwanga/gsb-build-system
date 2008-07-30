@@ -24,5 +24,6 @@ karma-sharp
 mono-zeroconf
 taglib-sharp
 banshee-1
+gnome-keyring-sharp
 gnome-do
 gnome-do-plugins
