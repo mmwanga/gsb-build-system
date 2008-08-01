@@ -107,7 +107,7 @@ our %mono=
 		        	},
    'banshee-1'            => {
              'url' => 'http://banshee-project.org/files/banshee',
-             'ver' => '1.2.0',
+             'ver' => '1.0.0',
              'src' => 'tar.bz2'
                         },
 
