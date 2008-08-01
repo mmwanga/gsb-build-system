@@ -17,7 +17,7 @@ our %ooo_packages =
   'apache-ant'    => {
              'ver' => '1.7.0',
 	     'dir' => 'ooo/apache-ant',
-             'url' => 'http://www.apache.org/dist/ant/source',
+             'url' => 'http://archive.apache.org/dist/ant/source/',
 	     'tar' => 'apache-ant-1.7.0-src.tar.bz2',
              'var' => 'VERSION',
                   },
