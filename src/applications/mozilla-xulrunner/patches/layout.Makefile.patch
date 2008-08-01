@@ -1,0 +1,11 @@
+--- layout/build/Makefile.in.old	2008-05-15 21:16:07.000000000 +0100
++++ layout/build/Makefile.in	2008-05-15 21:18:36.000000000 +0100
+@@ -225,7 +225,7 @@
+ endif
+ 
+ ifdef MOZ_ENABLE_GTK2
+-EXTRA_DSO_LDOPTS += $(MOZ_GTK2_LIBS) \
++EXTRA_DSO_LDOPTS += $(MOZ_GTK2_LIBS) -L/usr/lib -lXrender -lX11 \
+ 		    $(NULL)
+ endif
+ 

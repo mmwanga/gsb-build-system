@@ -1,0 +1,11 @@
+--- mozilla/configure	2008-03-26 19:13:06.000000000 +0000
++++ mozilla.old/configure	2008-07-12 15:18:44.000000000 +0100
+@@ -11842,7 +11842,7 @@
+ fi
+ 
+ if test -n "$MOZ_NATIVE_NSS"; then
+-   NSS_LIBS="$NSS_LIBS -lcrmf"
++   NSS_LIBS=`echo $NSS_LIBS | sed 's/-l/-lcrmf &/'`
+ else
+    NSS_CFLAGS='-I$(DIST)/public/nss'
+    NSS_DEP_LIBS='\\\
