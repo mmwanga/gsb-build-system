@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=3gsb
+BUILD=3
 VERSION=1.8.1.16
 FFVERSION=2.0.0.16
 
@@ -132,7 +132,7 @@ fi
 
 ## Fix for linking order of nss libraries
 patch -p1 < $CWD/patches/libcrmf.precedence.patch || exit 1
-patch -p1 < $CWD/patches/layout.Makefile.patch || exit 1
+patch -p0 < $CWD/patches/layout.Makefile.patch || exit 1
 
 ## Fix permissions for building.
 echo "Please be patient.  This may take a while."
@@ -180,7 +180,7 @@ export CXXFLAGS="$TUNE_CFLAGS" &&
 ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --with-default-mozilla-five-home=/usr/$LIBDIR/xulrunner-$VERSION \
-  --enable-application=browser \
+  --enable-application=xulrunner \
   --enable-shared \
   --enable-optimize="-O2" \
   --enable-xft \
