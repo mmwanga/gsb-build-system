@@ -59,8 +59,8 @@ our %administration =
              'src' => 'tar.gz',
                   },
    'system-config-printer'    => {
-             'url' => 'http://cyberelk.net/tim/data/system-config-printer/',
-             'ver' => '0.9.93',
+             'url' => 'http://cyberelk.net/tim/data/system-config-printer/1.0.x/',
+             'ver' => '1.0.4',
              'src' => 'tar.bz2',
                   },
    'pybackpack'         => {

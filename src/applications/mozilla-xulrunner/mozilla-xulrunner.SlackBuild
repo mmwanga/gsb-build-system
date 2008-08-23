@@ -208,6 +208,7 @@ export CXXFLAGS="$TUNE_CFLAGS" &&
   --enable-gnomeui \
   --enable-gnomevfs \
   --enable-crypto \
+  --enable-extensions=all \
   || exit 1
 
 ## Build and install.

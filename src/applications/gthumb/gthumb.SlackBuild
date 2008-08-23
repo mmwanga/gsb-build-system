@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=6
-VERSION=2.10.8
+BUILD=1
+VERSION=2.10.9
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -116,13 +116,13 @@ elif [ "$ARCH" = "powerpc" ]; then
 fi
 
 ## Patch from svn changes to stable branch
-zcat $CWD/patches/gthumb-svn2309-update.patch.gz | patch -p0  || exit 1
-if [ ! -f /usr/share/gnome-doc-utils/gnome-doc-utils.make ]; then
-	echo "You need to install gnome-doc-utils package."
-	exit 1;
-else
-   ln -s /usr/share/gnome-doc-utils/gnome-doc-utils.make ;
-fi;
+#zcat $CWD/patches/gthumb-svn2309-update.patch.gz | patch -p0  || exit 1
+#if [ ! -f /usr/share/gnome-doc-utils/gnome-doc-utils.make ]; then
+	#echo "You need to install gnome-doc-utils package."
+	#exit 1;
+#else
+   #ln -s /usr/share/gnome-doc-utils/gnome-doc-utils.make ;
+#fi;
 
 ## Fix permissions for building.
 chown -R root.root .

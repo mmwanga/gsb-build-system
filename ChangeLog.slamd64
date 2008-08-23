@@ -1,3 +1,17 @@
+Tue Aug 13 17:35:46 GMT 2008
+applications/gthumb-2.10.9-x86_64-1gsb.tgz: Upgraded.
+  Upgrade to fix various segfault/crash conditions.
+mono/banshee-1-1.2.0-x86_64-1gsb.tgz: Upgraded.
+  Over 80 bug fixes in this release.  Probably worthwhile to 
+  upgrade it now rather than the upcoming current.
+administration/system-config-printer-1.0.4-x86_64-1gsb.tgz: Upgraded.
+applications/conduit-0.3.13-x86_64-1gsb.tgz: Upgraded.
+  Many bug fixes, including fix for segault when quitting.
+accessibility/gnome-speech-0.4.20-x86_64-1gsb.tgz: Upgraded.
+  Bug fix for segfault in espeak module.
+applications/deskbar-applet-2.22.3.1-x86_64-1gsb.tgz: Upgraded.
+  Bug fix for improperly formatted RSS feeds.
++--------------------------+
 Tue Jul 29 12:40:10 GMT 2008
 applications/gnome-commander-1.2.7-x86_64-1gsb.tgz: Upgraded.
 platform/intltool-0.40.3-x86_64-1gsb.tgz: Upgraded.
