@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.22.1
 
 ## List any packages here that are required to build this package.
@@ -15,7 +15,7 @@ VERSION=2.22.1
 REQUIRED_PACKAGES="yelp gnome-doc-utils"
 
 ## Build variables.
-ARCH=${ARCH:-i586}
+ARCH=noarch
 TUNE=${TUNE:-i586}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
