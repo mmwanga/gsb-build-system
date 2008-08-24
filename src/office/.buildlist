@@ -1,8 +1,3 @@
-gdl
-autogen
-gnome-build
-devhelp
-bluefish
 dia
 inkscape
 postgresql
@@ -18,8 +13,6 @@ abiword-extras
 abiword-docs
 psiconv
 gnumeric
-glade3
-anjuta
 gnome-python-extras
 python-xlib
 istanbul
@@ -36,5 +29,4 @@ gnucash
 gnucash-docs
 libgdamm
 glom
-ode
 blender
