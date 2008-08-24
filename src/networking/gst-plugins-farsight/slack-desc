@@ -1,0 +1,12 @@
+                    |-----handy-ruler------------------------------------------------------|
+gst-plugins-farsight: gst-plugins-farsight (Farsight Modules for GStreamer)
+gst-plugins-farsight:
+gst-plugins-farsight: Farsight is an effort to create a framework to deal with all known 
+gst-plugins-farsight: audio/video conferencing protocols for use by applications such as 
+gst-plugins-farsight: instant messaging. These applications are able to use Farsight for 
+gst-plugins-farsight: all their Audio/Video conferencing needs without having to worry 
+gst-plugins-farsight: about any of the lower level streaming and NAT traversal issues.  
+gst-plugins-farsight:
+gst-plugins-farsight: This package contains required Farsight plugins for the GStreamer
+gst-plugins-farsight: media framework.
+gst-plugins-farsight:

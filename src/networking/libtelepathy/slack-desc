@@ -1,0 +1,12 @@
+            |-----handy-ruler------------------------------------------------------|
+libtelepathy: libtelepathy (Telepathy Flexible Communications Framework)
+libtelepathy: 
+libtelepathy: The Telepathy project is building a unified framework for many 
+libtelepathy: different kinds of real-time communications, such as instant messaging 
+libtelepathy: (both one-to-one and in groups), voice calls and video calls.  It uses 
+libtelepathy: the D-Bus messaging system to provide a simple interface for client 
+libtelepathy: applications, allowing them to quickly take advantage of Telepathy's 
+libtelepathy: benefits.
+libtelepathy: 
+libtelepathy: 
+libtelepathy: 

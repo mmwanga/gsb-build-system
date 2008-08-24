@@ -1,0 +1,12 @@
+        |-----handy-ruler------------------------------------------------------|
+farsight: farsight (Farsight Communications Framework)
+farsight:
+farsight: Farsight is an effort to create a framework to deal with all known 
+farsight: audio/video conferencing protocols for use by applications such as 
+farsight: instant messaging. These applications are able to use Farsight for 
+farsight: all their Audio/Video conferencing needs without having to worry 
+farsight: about any of the lower level streaming and NAT traversal issues.  
+farsight:
+farsight: Farsight forms an integral part of the Telepathy framework.
+farsight:
+farsight:
