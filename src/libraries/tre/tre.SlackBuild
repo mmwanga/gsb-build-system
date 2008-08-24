@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=1
-VERSION=1.0.0
+BUILD=2
+VERSION=0.7.5
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -23,7 +23,6 @@ PKGDEST=${PKGDEST:-$TMP}
 
 ## Script variables.
 PKGNAME=$(basename $0 .SlackBuild)
-SRCNAME=unique
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
@@ -91,9 +90,8 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-rm -rf $SRCNAME-$VERSION &&
-tar xzf $CWD/$SRCNAME-$VERSION.tar.gz &&
-cd $SRCNAME-$VERSION || exit 1
+tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i386" ]; then
@@ -161,6 +159,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
+  --program-prefix="" \
   || exit 1
 
 ## Build and install.
@@ -203,9 +202,9 @@ done
 
 ## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/${PKGNAME}-${VERSION//-/_}-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/$SRCNAME-$VERSION
+  rm -rf $PKG $TMP/$PKGNAME-$VERSION
 }
