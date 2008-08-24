@@ -1,0 +1,12 @@
+      |-----handy-ruler------------------------------------------------------|
+pycups: pycups (Python Bindings for CUPS Printing)
+pycups:
+pycups: The Common UNIX Printing System provides a portable printing layer for
+pycups: UNIX(R)-like operating systems. It has been developed by Easy Software
+pycups: Products to promote a standard printing solution for all UNIX vendors
+pycups: and users. 
+pycups: 
+pycups: This package contains CUPS bindings for Python. For more information,
+pycups: please see http://cyberelk.net/tim/software/pycups/.
+pycups: 
+pycups: 
