@@ -17,6 +17,7 @@ totem-pl-parser
 totem
 gnome-utils
 gnomebaker
+brasero
 gnome-system-monitor
 gnome-netstatus
 zenity
@@ -28,7 +29,6 @@ gnome-games-extra-data
 gnome-user-docs
 gnome-nettool
 vino
-gnome-backgrounds
 gnome-pilot
 gnome-pilot-conduits
 bluez-gnome
@@ -40,10 +40,8 @@ gnome-spell
 gcalctool
 evolution
 gnome-power-manager
-evince
 evolution-webcal
 evolution-exchange
-ekiga
 alacarte
 gnome-commander
 gthumb
@@ -69,3 +67,7 @@ gnome-scan
 service-discovery-applet
 gtk-vnc
 vinagre
+hamster-applet
+sensors-applet
+gdesklets
+gtkam

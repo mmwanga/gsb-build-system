@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=2
-VERSION=2.22.0
+VERSION=0.36
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="desktop-file-utils gnome-desktop"
+REQUIRED_PACKAGES="gnome-python libgtop librsvg pyorbit pygtk glib2 gtk+2 libgnomeui"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -162,8 +162,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   || exit 1
 
 ## Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+make $MAKE_FLAGS -j1 &&
+make $MAKE_FLAGS -j1 DESTDIR=$PKG install || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

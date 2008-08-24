@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=2.0.12
+BUILD=1
+VERSION=0.8.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="rarian esound pwlib opal sdl dbus avahi pango cairo glib2 gtk+2 gnome-vfs gnome-keyring atk libbonobo libbonoboui ORBit2 GConf evolution-data-server libgnomeui"
+REQUIRED_PACKAGES="glib2 cdrtools cdrdao cdparanoia gtk+2 libgnome libgnomeui gnome-vfs gstreamer gst-plugins-base nautilus-cd-burner libxml2 libnotify totem"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -161,14 +161,27 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static --enable-shared \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
-  --program-prefix="" \
   --enable-dbus \
-  --enable-gnome \
+  --enable-preview \
+  --enable-inotify \
+  --disable-search \
+  --disable-libburnia \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+## Brasero 0.7.1 has a munged .desktop entry
+#mkdir -p $PKG/usr/share/applications &&
+#cp $CWD/patches/brasero.desktop $PKG/usr/share/applications || exit 1 ;
+
+## The icons are improperly placed in a package subdirectory, rather than
+## the main GNOME Icon Set. This moves them over so the application has
+## access to its icons.  
+mkdir -p $PKG/usr/share/icons/gnome
+mv $PKG/usr/share/$PKGNAME/icons/hicolor/* $PKG/usr/share/icons/gnome
+rm -fr $PKG/usr/share/$PKGNAME/icons
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
