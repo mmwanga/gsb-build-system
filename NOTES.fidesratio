@@ -1,0 +1,20 @@
+-- CHANGED --
+* Replaced gtkunique with libunique (upstream rename)
+* Added policykit(shadow) and policykit-gnome
+* Added hamster-applet
+* Added seahorse-plugins
+* Added accerciser
+* Removed gnopernicus (obsoleted by orca)
+* Removed s-t-b, and g-s-t.  (blech, good riddance)
+
+-- TO CHANGE --
+update iso-codes download site?
+  -> is the aliorth.debian site momentarily or perm broken? :(
+mplayer codecs for amd64
+mplayer switch to svn
+add "Sound Converter"
+fix up printing section
+   -> foomatic stuff?
+   -> extra ppds?
+add gnome swf-dec?
+print meta package?
