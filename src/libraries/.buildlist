@@ -36,7 +36,7 @@ boost
 libopenraw
 exempi
 libiptcdata
-gtkunique
+libunique
 libraw1394
 libavc1394
 libiec61883
