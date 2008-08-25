@@ -1,11 +1,20 @@
 -- CHANGED --
 * Replaced gtkunique with libunique (upstream rename)
 * Added policykit(shadow) and policykit-gnome
+   ---> aiming for full polkit integration; replace gksu?
 * Added hamster-applet
 * Added seahorse-plugins
 * Added accerciser
+* Added libjasper (required by latest gtk+2)
 * Removed gnopernicus (obsoleted by orca)
 * Removed s-t-b, and g-s-t.  (blech, good riddance)
+* Added gtk+2 package again.  (Looks like GNOME 2.24 will require a newer gtk+2 package again)
+
+-- MAJOR REPLACEMENTS --
+GNOME 2.24 will require replacing cairo, gtk+2, and glib2 :(
+control-panel requires libcanberra, which requires pulseaudio 0.9.11, requires alsa-lib 1.0.17a
+  -> need to replace alsa-lib :(
+need to replace dbus-glib (for gnome-session, NetworkManager, and some other apps)
 
 -- TO CHANGE --
 update iso-codes download site?
@@ -13,8 +22,18 @@ update iso-codes download site?
 mplayer codecs for amd64
 mplayer switch to svn
 add "Sound Converter"
+  -> soundconverter - http://developer.berlios.de/project/showfiles.php?group_id=3213
 fix up printing section
    -> foomatic stuff?
+   -> foomatic-gui? 
    -> extra ppds?
+   -> gnome photo printer? http://www.fogman.de/?page_id=7
 add gnome swf-dec?
 print meta package?
+libgdl-gnome in /usr/lib64?
+pysqlite2 doc in /usr?
+/usr/sbin/gconf-schemas?
+
+-- OTHER --
+
+cf. also garnome in ~/tmp
