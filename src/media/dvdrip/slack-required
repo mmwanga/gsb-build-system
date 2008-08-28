@@ -1,0 +1,12 @@
+transcode
+perl
+gtk+2
+glib2
+ffmpeg
+mjpegtools
+hal
+imagemagick
+glib-perl
+gtk2-perl
+xine-lib
+libintl-perl

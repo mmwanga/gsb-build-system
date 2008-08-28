@@ -1,0 +1,12 @@
+     |-----handy-ruler------------------------------------------------------|
+wxGTK: wxGTK (WxWidget wxGTK+ Library)
+wxGTK:
+wxGTK: wxWidgets lets developers create applications for Win32, Mac OS X, 
+wxGTK: GTK+, X11, Motif, WinCE, and more  using one codebase. It can be used 
+wxGTK: from languages such as C++, Python, Perl, and C#/.NET. Unlike other 
+wxGTK: cross-platform toolkits, wxWidgets applications look and feel native. 
+wxGTK: This is because wxWidgets uses the platform's own native controls 
+wxGTK: rather than emulating them. It's also extensive, free, open-source, 
+wxGTK: and mature.
+wxGTK:
+wxGTK:
