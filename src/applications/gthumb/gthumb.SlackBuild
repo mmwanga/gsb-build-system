@@ -12,7 +12,7 @@ VERSION=2.10.9
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomeui libgnomeprintui libgphoto2 libexif libiptcdata libtiff gtkunique libglade gnome-doc-utils"
+REQUIRED_PACKAGES="libgnomeui libgnomeprintui libgphoto2 libexif libiptcdata libtiff libunique libglade gnome-doc-utils"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

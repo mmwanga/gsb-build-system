@@ -20,3 +20,5 @@ cairo
 pygtk
 pycairo
 pygobject
+evolution-data-server
+totem-pl-parser

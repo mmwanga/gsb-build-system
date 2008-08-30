@@ -3,7 +3,7 @@ libgnomeprintui
 libgphoto2
 libexif
 libiptcdata
-gtkunique
+libunique
 libtiff
 libglade
 libopenraw

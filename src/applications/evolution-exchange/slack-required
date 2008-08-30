@@ -1,6 +1,5 @@
 evolution
 heimdal-libraries
-openldap | openldap-client
 glib2
 gtk+2
 evolution-data-server

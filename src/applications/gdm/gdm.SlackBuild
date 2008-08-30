@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=2.20.7
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="zenity gnome-doc-utils openssh which libgnomecanvas pango cairo glib2 gtk+2 dbus zenity libglade gnome-session gtk-engines gnome-icon-theme gnome-backgrounds gnome-desktop tango-icon-theme"
+REQUIRED_PACKAGES="zenity gnome-doc-utils openssh which libgnomecanvas pango cairo glib2 gtk+2 dbus zenity libglade gnome-session gtk-engines gnome-icon-theme gnome-backgrounds gnome-desktop tango-icon-theme policykit-gnome"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -160,8 +160,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --disable-scrollkeeper \
-  --enable-console-helper=no \
   --enable-authentication-scheme=shadow \
+  --enable-console-helper=no \
   --enable-secureremote=yes \
   --with-xdmcp=yes \
   --with-sysconfsubdir=X11/gdm \

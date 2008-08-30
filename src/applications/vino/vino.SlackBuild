@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.22.2
+VERSION=2.23.90
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2"
+REQUIRED_PACKAGES="gtk+2 libunique"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -166,6 +166,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-gnome-keyring \
   --enable-session-support=yes \
   --enable-libnotify \
+  --enable-libunique=yes \
   || exit 1
 
 ## Build and install.

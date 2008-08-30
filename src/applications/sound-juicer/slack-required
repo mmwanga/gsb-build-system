@@ -16,3 +16,7 @@ libbonoboui
 dbus
 ORBit2
 atk
+nautilus-cd-burner
+flac
+wavpack
+libvorbis

@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=0.11.6
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libbonoboui gst-plugins-base gstreamer gst-plugins-good totem libnotify libgpod libgnomeui hal python gnome-keyring libsexy glib2 gtk+2 pygtk nautilus nautilus-cd-burner avahi totem dbus gnome-media libgnomeui taglib pango cairo libxml2 libmusicbrainz libmtp id3lib libsoup" 
+REQUIRED_PACKAGES="libbonoboui gst-plugins-base gstreamer gst-plugins-good totem libnotify libgpod libgnomeui hal python gnome-keyring libsexy glib2 gtk+2 pygtk nautilus nautilus-cd-burner avahi totem dbus gnome-media libgnomeui taglib pango cairo libxml2 libmusicbrainz libmtp id3lib libsoup mozilla-xulrunner" 
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -185,7 +185,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-mmkeys \
   --disable-vala \
   --enable-browser-plugin \
-  --with-gecko=xulrunner \
+  --with-gecko=mozilla \
   || exit 1
 
 ## Build and install.

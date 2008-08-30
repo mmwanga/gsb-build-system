@@ -7,9 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=3
-VERSION=1.8.1.16
-FFVERSION=2.0.0.16
+BUILD=1
+VERSION=1.9.0.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -23,9 +22,9 @@ TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}
 
 ## Script variables.
-PKGNAME=firefox
-GSBPKGNAME=$(basename $0 .SlackBuild)
-PKG=$TMP/package-$GSBPKGNAME
+PKGNAME=$(basename $0 .SlackBuild)
+SRCNAME=xulrunner
+PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
 FORCEBUILD=0
@@ -70,8 +69,8 @@ done
     return $?
   }
 
-  check_installed "$GSBPKGNAME" && {
-    echo "${0##*/}: Remove installed '$GSBPKGNAME' package before build."
+  check_installed "$PKGNAME" && {
+    echo "${0##*/}: Remove installed '$PKGNAME' package before build."
     exit 1
   }
 
@@ -90,125 +89,84 @@ mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
-cat << EOF
-
-Building Mozilla XUL Runner can take a long time.  Please be patient.
-
-EOF
-
 ## Decompress archive.
-cd $TMP ;
-echo -n "Cleaning temporary space..."
-rm -fr $GSBPKGNAME-$VERSION ;
-echo "done."
-echo -n "Extracting source files..."
-tar xjf $CWD/$PKGNAME-$FFVERSION-source.tar.bz2 ;
-echo "done."
-mv mozilla $GSBPKGNAME-$VERSION ;
-cd $GSBPKGNAME-$VERSION || exit 1
+cd $TMP &&
+echo "Cleaning source." &&
+rm -rf $PKGNAME-$VERSION &&
+echo "Extracting source." &&
+tar xjf $CWD/$SRCNAME-$VERSION-source.tar.bz2 &&
+mv mozilla $PKGNAME-$VERSION &&
+cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i386" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  patch -p0 < $CWD/patches/mozilla.plugins-path.patch || exit 1
 elif [ "$ARCH" = "i486" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  patch -p0 < $CWD/patches/mozilla.plugins-path.patch || exit 1
 elif [ "$ARCH" = "i586" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  patch -p0 < $CWD/patches/mozilla.plugins-path.patch || exit 1
 elif [ "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  patch -p0 < $CWD/patches/mozilla.plugins-path.patch || exit 1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  patch -p0 < $CWD/patches/mozilla.plugins-path64.patch
-  #Otherwise we get the error normally related to -fPIC on non-x86:
-  zcat $CWD/patches/visibility-mozconfig_x86_64.gz > .mozconfig
+  patch -p0 < $CWD/patches/mozilla.plugins-path64.patch || exit 1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
-## Fix for linking order of nss libraries
-patch -p1 < $CWD/patches/libcrmf.precedence.patch || exit 1
-patch -p0 < $CWD/patches/layout.Makefile.patch || exit 1
-
 ## Fix permissions for building.
-echo "Please be patient.  This may take a while."
-echo -n "Setting file permissions for building..."
+echo -n "Setting file permissions for building.  This may take a while."
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
 find . -perm 775 -exec chmod 755 {} \;
-echo "done."
 
 ## Configure, Tuning, GCC and Make options.
-# Stick with the mozilla defaults
 CONFIGURE_FLAGS=${GSB_CONFIGURE_FLAGS:-""}
 if [ "$ARCH" = "i386" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE"}
 elif [ "$ARCH" = "i486" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE"}
 elif [ "$ARCH" = "i586" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
 elif [ "$ARCH" = "i686" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
 elif [ "$ARCH" = "x86_64" ]; then
-  LIBDIR=lib64
   if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
-    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O -fPIC"}
+    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -fPIC"}
   else
-    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O -fPIC"}
+    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
     CONFIGURE_FLAGS="--libdir=/usr/lib64"
+    LIBDIR=lib64
   }
 elif [ "$ARCH" = "powerpc" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
 else
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2"}
 fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 LIBDIR=${LIBDIR:-"lib"}
 
 ## Configure.
-#export MOZILLA_OFFICIAL="1" &&
-#export BUILD_OFFICIAL="1" &&
-export CFLAGS="$TUNE_CFLAGS" &&
-export CXXFLAGS="$TUNE_CFLAGS" &&
-./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --with-default-mozilla-five-home=/usr/$LIBDIR/xulrunner-$VERSION \
   --enable-application=xulrunner \
-  --enable-shared \
-  --enable-optimize="-O2" \
-  --enable-xft \
-  --disable-freetype2 \
+  --with-system-zlib \
   --disable-tests \
   --disable-mochitest \
-  --disable-javaxpcom \
-  --disable-debug \
-  --enable-system-cairo \
-  --with-system-jpeg \
-  --with-system-zlib \
-  --with-system-png \
-  --enable-strip \
-  --enable-reorder \
-  --enable-safe-browsing \
-  --with-system-nss \
-  --with-nss-prefix=/usr \
-  --with-system-nspr \
-  --with-nspr-prefix=/usr \
   --disable-updater \
   --disable-installer \
   --disable-mailnews \
   --disable-ldap \
-  --with-pthreads \
-  --enable-gnomeui \
-  --enable-gnomevfs \
-  --enable-crypto \
-  --enable-extensions=all \
   || exit 1
 
 ## Build and install.
@@ -234,15 +192,16 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 }
 
 ## Copy extra documentation into package.
-mkdir -p $PKG/usr/doc/$GSBPKGNAME-$VERSION
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
   AUTHORS COPYING* ChangeLog NEWS README \
-  $PKG/usr/doc/$GSBPKGNAME-$VERSION
-find $PKG/usr/doc/$GSBPKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
-chown -R root:root $PKG/usr/doc/$GSBPKGNAME-$VERSION
+  $PKG/usr/doc/$PKGNAME-$VERSION
+find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
+chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 ## Install our doinst.sh
-cat $CWD/doinst.sh | sed "s:@VERSION@:${VERSION}:g" >> $PKG/install/doinst.sh
+cat $CWD/doinst.sh | sed "s:@VERSION@:${VERSION}:g" \
+  | sed "s:@LIBDIR@:${LIBDIR}:g" >> $PKG/install/doinst.sh
 
 ## Package meta files
 for FILE in slack-desc slack-required slack-conflicts slack-suggests
@@ -254,10 +213,9 @@ done
 
 ## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$GSBPKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
-  echo "Cleaning up..."
-  rm -rf $PKG $TMP/$GSBPKGNAME-$VERSION
+  rm -rf $PKG $TMP/$PKGNAME-$VERSION
 }

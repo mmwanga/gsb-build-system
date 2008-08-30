@@ -20,7 +20,6 @@ pygtk
 nautilus
 nautilus-cd-burner
 avahi
-totem
 dbus
 gnome-media
 libgnomeui
@@ -33,3 +32,4 @@ libmtp
 id3lib
 libsoup
 evolution-data-server
+mozilla-xulrunner

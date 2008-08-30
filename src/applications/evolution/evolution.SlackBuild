@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=3
-VERSION=2.22.3.1
+BUILD=1
+VERSION=2.23.90
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -175,23 +175,23 @@ LIBS="-lssl" \
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
-  --enable-nss=yes \
-  --enable-nntp=yes \
-  --enable-pilot-conduits=yes \
-  --with-openldap=/usr/libexec/evo-openldap \
-  --with-static-ldap=yes \
-  --enable-openssl=yes \
-  --enable-test-components=no \
-  --enable-smime=yes \
-  --enable-exchange=yes \
-  --enable-plugins=all \
-  --enable-profiling=no \
-  --enable-mono=no \
-  --disable-gtk-doc \
-  --with-krb5=/usr \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
+  --disable-static \
+  --enable-shared \
+  --enable-nss=yes \
+  --enable-smime \
+  --enable-nntp \
+  --disable-mono \
+  --enable-python \
+  --enable-exchange \
+  --enable-pilot-conduits \
+  --with-openldap=/usr/libexec/evo-openldap \
+  --with-static-ldap=yes \
+  --disable-test-components \
+  --disable-profiling \
+  --disable-gtk-doc \
+  --with-krb5=/usr \
   || exit 1
 
 ## Build and install.

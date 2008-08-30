@@ -9,11 +9,10 @@ eog
 gnome-media
 sound-juicer
 file-roller
+totem-pl-parser
 gnome-python-desktop
-enchant
 epiphany
 epiphany-extensions
-totem-pl-parser
 totem
 gnome-utils
 gnomebaker
@@ -52,7 +51,7 @@ gedit
 gedit-plugins
 nautilus-sendto
 seahorse
-gnome-user-share
+seahorse-plugins
 gdm
 fast-user-switch-applet
 cheese

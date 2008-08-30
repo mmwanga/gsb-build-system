@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=6
-VERSION=2.22.2
+BUILD=1
+VERSION=2.23.4
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -167,17 +167,19 @@ fi;
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
+  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
+  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
+  --disable-static \
+  --enable-shared \
   --disable-debug \
   --enable-python \
+  --enable-gstreamer \
   --disable-xine \
   --with-dbus \
   --enable-nautilus \
   --enable-media-player-keys \
   --enable-easy-codec-installation  \
-  --enable-gstreamer \
-  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
-  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
+  --enable-complex-plugin \
   || exit 1
 
 ## Build and install.

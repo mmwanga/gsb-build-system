@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=4
-VERSION=2.22.1
+BUILD=1
+VERSION=2.23.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -161,7 +161,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static --enable-shared \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
-  --with-gecko=xulrunner --with-search=basic \
+  --with-gecko=libxul-embedding --with-search=basic \
   || exit 1
 
 ## Build and install.

@@ -2,13 +2,7 @@ openssh
 gpgme
 gnome-keyring
 libnotify
-nautilus
 libgnomeui
-libsoup
 dbus
 libgcrypt
-epiphany
-gedit
-gnome-applets
-openldap | openldap-client
-mozilla-xulrunner
+openldap-client

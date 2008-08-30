@@ -10,6 +10,8 @@ libjpeg
 libexif
 lcms
 gtk+2
+pygtk
+python
 glib2
 libart_lgpl
 gnome-icon-theme
