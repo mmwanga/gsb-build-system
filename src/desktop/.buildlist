@@ -15,7 +15,6 @@ gst-plugins-base
 gst-plugins-good
 gst-plugins-bad
 gst-plugins-ugly
-gst-pulse
 gst-python
 gst-ffmpeg
 gst-fluendo-mp3
@@ -41,6 +40,7 @@ nautilus-cd-burner
 nautilus-open-terminal
 nautilus-image-converter
 gnome-settings-daemon
+libcanberra
 gnome-control-center
 gnome-session
 gnome-applets
@@ -50,5 +50,5 @@ gtksourceview2
 gnome-keyring-manager
 gtkhtml
 notification-daemon
-sensors-applet
 gnome-python
+gnome-backgrounds

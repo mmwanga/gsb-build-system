@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=0.10.20
 
 ## List any packages here that are required to build this package.
@@ -171,6 +171,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-theora \
   --enable-libvisual \
   --enable-cdparanoia \
+  --enable-gio \
+  --enable-experimental \
   || exit 1
 
 ## Build and install.

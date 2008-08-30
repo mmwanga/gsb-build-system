@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.22.3
+VERSION=2.23.90
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gail GConf gnome-panel gnome-vfs libgtop gstreamer rarian gnome-desktop libwnck libnotify hal dbus libxml2 pygtk libgnomekbd" 
+REQUIRED_PACKAGES="gail GConf gnome-panel gnome-vfs libgtop gstreamer rarian system-tools-backends gnome-desktop libwnck libnotify hal dbus libxml2 pygtk libgnomekbd policykit-gnome libgweather dbus-glib"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -155,23 +155,15 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
-
-##
-## Configure to use System-Tools-Backends > 2
-#echo
-#echo "Configuring with system-tools-backends > 2.0"
-#sed -i "s/tools\-backends/tools\-backends\-2\.0/g" $TMP/$PKGNAME-$VERSION/configure
-#echo
-
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
-  --enable-ipv6 \
-  --enable-flags \
   --disable-scrollkeeper \
+  --with-hal \
+  --enable-flags \
   || exit 1
 
 ## Build and install.

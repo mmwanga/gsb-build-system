@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=3
-VERSION=0.2.5
+BUILD=1
+VERSION=0.99.5
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -171,7 +171,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-keyring \
   --enable-obexftp \
   --enable-gconf \
-  --disable-fuse \
+  --enable-fuse \
   --enable-cdda \
   --enable-avahi \
   --enable-http \

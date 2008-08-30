@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.22.2.1
+VERSION=2.23.90
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gnome-doc-utils GConf metacity gnome-menus libgnomeui libgnome libbonobo libbonoboui ORBit2 gstreamer gst-plugins-base gst-plugins-good libgnomekbd libxklavier openssl dbus xscreensaver evolution-data-server alsa-lib libgnomecups gnome-settings-daemon"
+REQUIRED_PACKAGES="gnome-doc-utils GConf metacity gnome-menus libgnomeui libgnome libbonobo libbonoboui ORBit2 gstreamer gst-plugins-base gst-plugins-good libgnomekbd libxklavier openssl dbus xscreensaver evolution-data-server alsa-lib libgnomecups gnome-settings-daemon libcanberra"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

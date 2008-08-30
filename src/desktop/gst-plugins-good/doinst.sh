@@ -1,3 +1,9 @@
+# run libtool to finish off installation
+chroot . libtool --finish --silent usr/lib*/gstreamer*/
+
+# Update new libraries
+ldconfig -r .
+
 if [ -x /usr/bin/update-mime-database ]; then
   /usr/bin/update-mime-database /usr/share/mime 2> /dev/null 1> /dev/null
 fi

@@ -1,5 +1,5 @@
-gnome-doc-utils
 GConf
+gnome-doc-utils
 metacity
 gnome-menus
 libgnomeui
@@ -19,3 +19,4 @@ evolution-data-server
 alsa-lib
 libgnomecups
 gnome-settings-daemon
+libcanberra

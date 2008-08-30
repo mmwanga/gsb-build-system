@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.22.2.1
+VERSION=2.23.90
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomeui gnome-panel"
+REQUIRED_PACKAGES="libgnomeui gnome-panel pulseaudio gst-plugins-base libgnomekbd libnotify gstreamer"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -162,6 +162,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static --enable-shared \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
+  --enable-gstreamer \
   || exit 1
 
 ## Build and install.

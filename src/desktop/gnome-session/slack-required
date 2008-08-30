@@ -18,3 +18,4 @@ pavucontrol
 gstreamer
 gst-pulse
 alsa-plugins
+policykit-gnome

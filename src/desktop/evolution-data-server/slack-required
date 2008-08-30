@@ -1,4 +1,3 @@
-openldap | openldap-client
 GConf
 gnome-vfs
 libgnome
@@ -15,3 +14,4 @@ gnome-keyring
 glib2
 heimdal-libraries
 evo-openldap
+sqlite3

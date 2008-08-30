@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=3.23.90
+VERSION=0.7
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gail GConf glib2 gnome-keyring gnome-vfs gtk+2 avahi libglade libgnome libgnomecanvas libgnomeprint libgnomeprintui libgnomeui libxml2 libbonobo"
+REQUIRED_PACKAGES="alsa-lib pulseaudio gtk+2 libvorbis"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -90,7 +90,8 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+rm -rf $PKGNAME-$VERSION &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -159,6 +160,10 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
+  --enable-alsa \
+  --enable-pulseaudio \
+  --enable-null \
+  --enable-gtk \
   || exit 1
 
 ## Build and install.
