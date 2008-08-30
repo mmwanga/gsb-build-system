@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=3
+BUILD=4
 VERSION=2.4.1
 
 ## List any packages here that are required to build this package.
@@ -179,9 +179,9 @@ python setup.py install --prefix=/usr --root=$PKG || exit 1
 
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
-  $PKG/usr/doc/$PKGNAME-$VERSION
+cp -a LICENSE $PKG/usr/doc/$PKGNAME-$VERSION 
+mv $PKG/usr/pysqlite2-doc/* $PKG/usr/doc/$PKGNAME-$VERSION &&
+rmdir $PKG/usr/pysqlite2-doc || exit 1
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 

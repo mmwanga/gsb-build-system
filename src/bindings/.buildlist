@@ -1,6 +1,7 @@
 pyxdg
 glibmm
 cairomm
+pangomm
 gtkmm
 libxml++
 gconfmm
