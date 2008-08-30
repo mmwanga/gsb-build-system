@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=2
-VERSION=2.6.4
+VERSION=0.5.0.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="abiword gnome-scan boost gtk+2 wv libxml2 libgnomedb goffice gtkmathview"
+REQUIRED_PACKAGES="mono ndesk-dbus ndesk-dbus-glib gnome-sharp"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -91,17 +91,8 @@ mkdir -p $PKGDEST
 ## Decompress archive.
 cd $TMP &&
 rm -rf $PKGNAME-$VERSION &&
-rm -fr abiword-$VERSION &&
-tar xzf $CWD/$PKGNAME-$VERSION.tar.gz || exit 1
-## Do we have Abiword source?
-if [ -f $CWD/../abiword/abiword-$VERSION.tar.gz ]; then
-  tar xfz $CWD/../abiword/abiword-$VERSION.tar.gz || exit 1;
-else
-  echo "Can't find AbiWord source in $CWD/../abiword."
-  exit 1;
-fi;
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
-
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i386" ]; then
@@ -154,7 +145,7 @@ elif [ "$ARCH" = "x86_64" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS="--libdir=/usr/lib64"
+    CONFIGURE_FLAGS="--libdir=/usr/lib" 
   }
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
@@ -169,13 +160,19 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
-  --with-abiword=$(pwd)/../abiword-$VERSION \
-  --without-abiscan \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+## Fix munged pkgconfig file
+sed -i "s:/lib/lib/:/lib/:g" $PKG/usr/lib/pkgconfig/do.dbus.pc || exit 1
+
+if [ "$ARCH" = "x86_64" ]; then
+  mkdir -p $PKG/usr/lib64
+  mv $PKG/usr/lib/pkgconfig $PKG/usr/lib64 ;
+fi;
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -217,6 +214,5 @@ makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/${PKGNAME}*-$VERSION 
-  rm -fr $TMP/abiword-$VERSION
+  rm -rf $PKG $TMP/$PKGNAME-$VERSION
 }

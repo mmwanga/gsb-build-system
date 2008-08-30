@@ -114,6 +114,10 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
+## Patch for local help doc use
+sed -i "s@http://www.abisource.com@file:///usr/share/$PKGNAME-$VERSION@" \
+   src/wp/ap/xp/ap_EditMethods.cpp
+
 ## Fix permissions for building.
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
@@ -170,11 +174,21 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-extra-optimization \
   --enable-gnomevfs \
   --enable-binreloc-threads \
+  --enable-printing \
+  --enable-libabiword \
   || exit 1
 
 ## Build and install AbiWord
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+## Minor tweak for icon
+mkdir -p $PKG/usr/share/pixmaps
+mv $PKG/usr/share/icons/abiword_48.png $PKG/usr/share/pixmaps/abiword.png
+rmdir $PKG/usr/share/icons
+sed -i 's@_48@@' $PKG/usr/share/applications/abiword.desktop
+sed -i 's@text/html;@@' $PKG/usr/share/applications/abiword.desktop
+chmod +x $PKG/usr/share/$PKGNAME-$VERSION/scripts/abw2html.pl
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

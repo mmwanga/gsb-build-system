@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=2.6.4
+BUILD=1
+VERSION=2.23.6
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="abiword gnome-scan boost gtk+2 wv libxml2 libgnomedb goffice gtkmathview"
+REQUIRED_PACKAGES="gnome-vfs gtk+2 libgnomeui glib2 poppler poppler-data atk freetype GConf libpng nautilus libtiff t1lib ghostscript libgnomecups libgnomeprint libgnomeprintui cairo pango libbonobo libbonoboui dbus hicolor-icon-theme"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -90,18 +90,8 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-rm -rf $PKGNAME-$VERSION &&
-rm -fr abiword-$VERSION &&
-tar xzf $CWD/$PKGNAME-$VERSION.tar.gz || exit 1
-## Do we have Abiword source?
-if [ -f $CWD/../abiword/abiword-$VERSION.tar.gz ]; then
-  tar xfz $CWD/../abiword/abiword-$VERSION.tar.gz || exit 1;
-else
-  echo "Can't find AbiWord source in $CWD/../abiword."
-  exit 1;
-fi;
+tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
-
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i386" ]; then
@@ -169,13 +159,32 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
-  --with-abiword=$(pwd)/../abiword-$VERSION \
-  --without-abiscan \
+  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
+  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
+  --enable-nautilus \
+  --enable-pdf \
+  --enable-tiff \
+  --enable-djvu \
+  --enable-dvi \
+  --enable-pixbuf \
+  --enable-comics \
+  --enable-impress \
+  --with-print=gnome \
+  --with-libgnome \
+  --disable-gtk-doc \
+  --disable-scrollkeeper \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+## The icons are improperly placed in a package subdirectory, rather than
+## the main GNOME Icon Set. This moves them over so the application has
+## access to its icons.  
+#mkdir -p $PKG/usr/share/icons/gnome
+#mv $PKG/usr/share/$PKGNAME/icons/hicolor/* $PKG/usr/share/icons/gnome
+#rm -fr $PKG/usr/share/$PKGNAME/icons
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -203,6 +212,23 @@ cp -a \
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
+## Add schemas install to the doinst.sh if schemas are found.
+[ -d $PKG/etc/gconf/schemas ] && {
+  echo "if [ -x usr/bin/gconftool-2 ]; then" >>$PKG/install/doinst.sh
+  ( cd $PKG/etc/gconf/schemas
+    for FILE in *; do
+      if [ -z "$(grep gconfentry $FILE)" ]; then
+        # Create gconf tree
+        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
+      else
+        # Load gconf settings
+        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --config-source=\$(usr/bin/gconftool-2 --get-default-source) --direct --load etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
+      fi
+    done
+  )
+  echo "fi" >>$PKG/install/doinst.sh
+}
+
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
 do
@@ -217,6 +243,5 @@ makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/${PKGNAME}*-$VERSION 
-  rm -fr $TMP/abiword-$VERSION
+  rm -rf $PKG $TMP/$PKGNAME-$VERSION
 }
