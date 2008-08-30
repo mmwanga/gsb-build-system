@@ -8,7 +8,8 @@
 
 ## Package variables
 BUILD=1
-VERSION=398
+VERSION=3.98
+TARVERSION=398
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -91,7 +92,8 @@ mkdir -p $PKGDEST
 ## Decompress archive.
 cd $TMP &&
 rm -rf $PKGNAME-$VERSION &&
-tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
+tar xzf $CWD/$PKGNAME-$TARVERSION.tar.gz &&
+mv $PKGNAME-$TARVERSION $PKGNAME-$VERSION &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.

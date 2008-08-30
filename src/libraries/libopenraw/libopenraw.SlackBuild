@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=0.0.5
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glib2 boost"
+REQUIRED_PACKAGES="glib2 boost libjpeg"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

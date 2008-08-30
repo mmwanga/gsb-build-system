@@ -154,9 +154,6 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-## Slackware 12 has lzo2.
-sed -i configure -e 's/llzo/llzo2/g' || exit 1
-
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
@@ -165,12 +162,13 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-mjpegtools \
   --enable-v4l \
   --enable-libdv \
-  --enable-ogg --enable-vorbis --enable-theora \
+  --enable-ogg \
+  --enable-vorbis \
+  --enable-theora \
   --enable-imagemagick \
   --enable-gtk \
   --enable-libxml2 \
   --enable-freetype2 \
-  --enable-lzo --with-lzo-includes=/usr/include/lzo \
   --enable-libquicktime \
   --disable-nuv \
   --program-prefix="" \

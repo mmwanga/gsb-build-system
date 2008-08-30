@@ -1,4 +1,8 @@
 glib2
+cairo
+libjasper
+gtk+2
+dbus-glib
 imlib2
 liboil
 libelf
@@ -12,8 +16,8 @@ x264
 xvidcore
 faac
 faad2
-ffmpeg
 lame
+ffmpeg
 libdvbpsi5
 libdvdcss
 libdvdread

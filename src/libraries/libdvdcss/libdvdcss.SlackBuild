@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=3
-VERSION=1.2.9
+BUILD=1
+VERSION=1.2.10
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -117,7 +117,7 @@ fi
 
 # Patch to fix building documentation with newer doxygen
 # On all platforms.  No change to actual library source.
-(cd doc && patch -u < $CWD/patches/doxygen.documents.patch) || exit 1
+#(cd doc && patch -u < $CWD/patches/doxygen.documents.patch) || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .

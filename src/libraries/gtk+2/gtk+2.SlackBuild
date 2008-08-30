@@ -6,14 +6,14 @@
 ## Licenced under the terms of the GNU General Public Licence version 3.
 ##
 
-## Package variables. 
+## Package variables.
 BUILD=1
-VERSION=svn_14999
+VERSION=2.13.7
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="freetype imlib2 sdl zlib x264 faac faad2 libvorbis lame"
-
+REQUIRED_PACKAGES="pango cairo glib2 libpng libjpeg libtiff libXrender xproto renderproto libX11 kbproto libXau libXdmcp libxcb libpthread-stubs libXext cups inputproto libXi libXinerama libXrandr libjasper"
+ 
 ## Build variables.
 ARCH=${ARCH:-i586}
 TUNE=${TUNE:-i586}
@@ -22,7 +22,8 @@ TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}
 
 ## Script variables.
-PKGNAME=$(basename $0 .SlackBuild)
+PKGNAME="$(basename $0 .SlackBuild)"
+SRCNAME="gtk+"
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
@@ -81,12 +82,6 @@ done
   done
 }
 
-## SVN warning
-echo
-echo "*********************************************************************"
-echo "*** Warning: This package is built from a fixed svn source revision."
-echo "*********************************************************************"
-
 ## Temporary space and package storage.
 mkdir -p $TMP
 rm -rf $PKG
@@ -94,11 +89,11 @@ mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
-## Copy SVN sources to temporary space
+## Decompress archive.
 cd $TMP &&
-rm -rf $PKGNAME-$VERSION &&
-cp -ar $CWD/$PKGNAME $PKGNAME-$VERSION &&
-cd $PKGNAME-$VERSION || exit 1
+rm -rf $SRCNAME-$VERSION || exit 1
+tar xjf $CWD/$SRCNAME-$VERSION.tar.bz2 &&
+cd $SRCNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i386" ]; then
@@ -145,14 +140,13 @@ elif [ "$ARCH" = "i586" ]; then
 elif [ "$ARCH" = "i686" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
 elif [ "$ARCH" = "x86_64" ]; then
-  LIBDIR=lib64
   if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -fPIC"}
   else
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS="--libdir=/usr/lib64 --shlibdir=/usr/lib64 --disable-mmx --disable-mmx2"
+    CONFIGURE_FLAGS="--libdir=/usr/lib64"
   }
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
@@ -161,52 +155,30 @@ else
 fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
-LIBDIR=${LIBDIR:-"lib"}
 
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr $CONFIGURE_FLAGS --arch=$ARCH --cpu=$TUNE \
-  --mandir=/usr/man \
-  --enable-postproc \
-  --enable-swscale \
-  --enable-pthreads \
-  --target-os=linux \
-  --enable-shared \
-  --disable-static \
-  --disable-debug \
-  --enable-gpl \
-  --enable-liba52 \
-  --enable-libfaac \
-  --enable-libfaad \
-  --enable-libx264 \
-  --enable-libmp3lame \
-  --enable-libvorbis \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --disable-static --enable-shared \
+  --with-xinput=yes \
+  --disable-test-print-backend \
+  --enable-debug=no \
+  --enable-shm \
   || exit 1
 
 ## Build and install.
-make $MAKE_FLAGS &&
+make $MAKE_FLAGS ;
+
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-# Fix for broken pkg-config files
-mkdir -p $PKG/usr/${LIBDIR}/pkgconfig ;
-for i in $CWD/patches/*.pc.${VERSION} ;
-do
-   cp $i $PKG/usr/${LIBDIR}/pkgconfig/$(basename $i .${VERSION})
-done;
-
-
-# Fix x86_64 pkg-config files
-if [ "$ARCH" = "x86_64" ]; then
-  for i in $PKG/usr/lib64/pkgconfig/*.pc ;
-  do 
-    sed -i "s:/lib$:/lib64:g" $i ;
-  done;
-fi;
-
-# For header compatibility
-cd $PKG/usr/include
-ln -s libavcodec ffmpeg || exit 1;
-
+# Install profile scripts: 
+mkdir -p $PKG/etc/profile.d/ &&
+cp -a $CWD/profile.d/libgtk+.{csh,sh} $PKG/etc/profile.d/ &&
+chown root:root $PKG/etc/profile.d/* &&
+chmod 755 $PKG/etc/profile.d/* &&
+mv $PKG/etc/profile.d/libgtk+.csh $PKG/etc/profile.d/libgtk+.csh.new &&
+mv $PKG/etc/profile.d/libgtk+.sh $PKG/etc/profile.d/libgtk+.sh.new || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -229,7 +201,7 @@ ln -s libavcodec ffmpeg || exit 1;
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  COPYING* README \
+  AUTHORS COPYING* ChangeLog NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
@@ -248,5 +220,5 @@ makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/$PKGNAME-$VERSION
+  rm -rf $PKG $TMP/$SRCNAME-$VERSION
 }

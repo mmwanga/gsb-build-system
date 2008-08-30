@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.16.5
+VERSION=2.17.7
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -166,6 +166,14 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+# Install profile scripts: 
+mkdir -p $PKG/etc/profile.d/ &&
+cp -a $CWD/libglib2.{csh,sh} $PKG/etc/profile.d/ &&
+chown root:root $PKG/etc/profile.d/* &&
+chmod 755 $PKG/etc/profile.d/* &&
+mv $PKG/etc/profile.d/libglib2.csh $PKG/etc/profile.d/libglib2.csh.new &&
+mv $PKG/etc/profile.d/libglib2.sh $PKG/etc/profile.d/libglib2.sh.new || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

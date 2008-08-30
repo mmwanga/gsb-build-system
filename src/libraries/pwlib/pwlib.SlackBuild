@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=3
+BUILD=4
 VERSION=1.10.10
 
 ## List any packages here that are required to build this package.
@@ -159,9 +159,16 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
-  --disable-oss --enable-alsa --enable-sdl --enable-openssl \
-  --enable-openldap --enable-plugins --enable-soap \
+  --disable-static \
+  --enable-shared \
+  --disable-oss \
+  --enable-alsa \
+  --enable-sdl \
+  --enable-openssl \
+  --enable-openldap \
+  --enable-plugins \
+  --enable-soap \
+  --disable-avc \
   || exit 1
 
 ## Build and install.
@@ -188,8 +195,7 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+cp -a History.txt ReadMe.txt ReadMe_QOS.txt \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
