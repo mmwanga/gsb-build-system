@@ -15,16 +15,19 @@ our $VERSION   = 0.01;
 
 our %mono_gnome =
   (
-   'evolution-sharp' => '0.16.1.1',
-   'f-spot'          => '0.4.4',
-   'tomboy'          => '0.10.2',
-   'gtk-sharp'       => '2.12.1',
-   'gnome-sharp'     => '2.20.1',
-   'gnome-desktop-sharp'     => '2.20.1',
+   'evolution-sharp' => '0.17.4',
+   'gtk-sharp'       => '2.12.2',
+   'gnome-sharp'     => '2.23.90',
+   'gnome-desktop-sharp'     => '2.23.90',
    );
 
 our %mono=
   (
+   'boo'        => {
+				'ver' => '0.8.2.2960',
+				'url' => 'http://dist.codehaus.org/boo/distributions',
+				'src' => 'tar.gz',
+			    },
    'gecko-sharp'        => {
 				'ver' => '2.0-0.13',
 				'url' => 'http://go-mono.com/sources/gecko-sharp2/',
@@ -42,7 +45,7 @@ our %mono=
 			       },
    'libgphoto2-sharp' => {
 		    'ver'  => '2.3.0',
-		    'url'  => 'http://kent.dl.sourceforge.net/sourceforge/gphoto',
+		    'url'  => 'http://mesh.dl.sourceforge.net/sourceforge/gphoto',
 		    'src'  => 'tar.bz2',
 		   },
    'ipod-sharp'             => {
@@ -55,11 +58,6 @@ our %mono=
 				'url' => 'http://go-mono.com/sources/mono/',
 				'src' => 'tar.bz2',
 			       },
-   'monodevelop'            => {
-				'ver' => '1.0',
-				'url' => 'http://go-mono.com/sources/monodevelop/',
-				'src' => 'tar.bz2',
-			       },
    'mono-addins'            => {
 				'ver' => '0.3.1',
 				'url' => 'http://go-mono.com/sources/mono-addins/',
@@ -69,16 +67,6 @@ our %mono=
 		'ver' => '0.7.6',
 		'url' => 'http://banshee-project.org/files/mono-zeroconf',
 		'src' => 'tar.bz2',
-			       },
-   'monodoc'                => {
-				'ver' => '1.9',
-				'url' => 'http://go-mono.com/sources/monodoc',
-				'src' => 'zip',
-			       },
-   'mono-tools'                => {
-				'ver' => '1.9',
-				'url' => 'http://go-mono.com/sources/mono-tools',
-				'src' => 'tar.bz2',
 			       },
    'ndesk-dbus'                => {
 				'ver' => '0.6.1a',
@@ -100,17 +88,6 @@ our %mono=
 				'url' => 'http://www.taglib-sharp.com/Download',
 				'src' => 'tar.gz',
 			       },
-   'gnome-do'                => {
-				'ver' => '0.5.0.1',
-				'url' => 'http://launchpad.net/do/trunk/0.5/+download',
-				'src' => 'tar.gz',
-		        	},
-   'banshee-1'            => {
-             'url' => 'http://banshee-project.org/files/banshee',
-             'ver' => '1.2.0',
-             'src' => 'tar.bz2'
-                        },
-
   );
 
 our %mono_diff_naming =
@@ -134,13 +111,6 @@ our %mono_diff_naming =
 		    'ver'  => '0.1.0',
             'dir' => 'mono/karma-sharp',
             'tar' => 'libkarma-0.1.0.tar.gz',
-            'var' => 'VERSION',
-		   },
-   'gnome-do-plugins' => {
-		    'url'  => 'http://launchpad.net/do/trunk/0.4/+download',
-		    'ver'  => '0.4.0',
-            'dir' => 'mono/gnome-do-plugins',
-            'tar' => 'do-plugins-0.4.0.tar.gz',
             'var' => 'VERSION',
 		   },
   );

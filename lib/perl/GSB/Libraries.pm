@@ -22,8 +22,18 @@ our %libraries =
 			   'url' => 'http://liba52.sourceforge.net/files/',
 			   'src' => 'tar.gz',
 			  },
+   'cairo'            => {
+			   'ver' => '1.6.4',
+			   'url' => 'http://www.cairographics.org/releases',
+			   'src' => 'tar.gz',
+			  },
+   'dbus-glib'            => {
+			   'ver' => '0.76',
+			   'url' => 'http://dbus.freedesktop.org/releases/dbus-glib',
+			   'src' => 'tar.gz',
+			  },
    'exempi'              => {
-			   'ver' => '2.0.1',
+			   'ver' => '2.0.2',
 			   'url' => 'http://libopenraw.freedesktop.org/download/',
 			   'src' => 'tar.gz',
 		          },
@@ -34,16 +44,16 @@ our %libraries =
 		          },
    'faac'              => {
 			   'ver' => '1.26',
-			   'url' => 'http://kent.dl.sourceforge.net/sourceforge/faac/',
+			   'url' => 'http://mesh.dl.sourceforge.net/sourceforge/faac/',
 			   'src' => 'tar.gz',
 			  },
    'faad2'             => {
 			   'ver' => '2.6.1',
-			   'url' => 'http://kent.dl.sourceforge.net/sourceforge/faac/',
+			   'url' => 'http://mesh.dl.sourceforge.net/sourceforge/faac/',
 			   'src' => 'tar.gz',
 			  },
    'freealut'          => {
-                         'url' => 'http://www.openal.org/openal_webstf/downloads/',
+                         'url' => 'http://connect.creativelabs.com/openal/Downloads/ALUT',
                          'ver' => '1.1.0',
                          'src' => 'tar.gz',
                         },
@@ -54,12 +64,12 @@ our %libraries =
                         },
    'graphviz'            => {
                              'ver' => '2.20.2',
-                             'url' => 'http://www.graphviz.org/pub/graphviz/ARCHIVE/',
+                             'url' => 'http://www.graphviz.org/pub/graphviz/stable/SOURCES',
                              'src' => 'tar.gz',
                             },
    'id3lib'            => {
 			   'ver' => '3.8.3',
-			   'url' => 'http://kent.dl.sourceforge.net/sourceforge/id3lib/',
+			   'url' => 'http://mesh.dl.sourceforge.net/sourceforge/id3lib/',
 			   'src' => 'tar.gz',
 			  },
    'libatomic_ops'            => {
@@ -69,19 +79,19 @@ our %libraries =
 			  },
    'imlib2'            => {
 			   'ver' => '1.4.1',
-			   'url' => 'http://kent.dl.sourceforge.net/sourceforge/enlightenment',
+			   'url' => 'http://mesh.dl.sourceforge.net/sourceforge/enlightenment',
 			   'src' => 'tar.gz',
 			  },
 
    'iso-codes'       => {
 			 'url' => 'ftp://pkg-isocodes.alioth.debian.org/pub/pkg-isocodes/',
-			 'ver' => '3.1',
+			 'ver' => '3.2',
 			 'src' => 'tar.bz2',
 		        },
-   'lame'              => {
-			   'ver' => '3.97',
-			   'url' => 'http://kent.dl.sourceforge.net/sourceforge/lame/',
-			   'src' => 'tar.gz',
+   'libesmtp'              => {
+			   'ver' => '1.0.4',
+			   'url' => 'http://www.stafford.uklinux.net/libesmtp',
+			   'src' => 'tar.bz2',
 			  },
    'libarchive'        => {
 			   'ver' => '2.4.17',
@@ -89,7 +99,7 @@ our %libraries =
 			   'src' => 'tar.gz',
 			  },
    'libdiscid'        => {
-			   'ver' => '0.2.1',
+			   'ver' => '0.2.2',
 			   'url' => 'http://users.musicbrainz.org/~matt',
 			   'src' => 'tar.gz',
 			  },
@@ -100,12 +110,12 @@ our %libraries =
 			  },
    'libavc1394'        => {
 			   'ver' => '0.5.3',
-			   'url' => 'http://kent.dl.sourceforge.net/sourceforge/libavc1394/',
+			   'url' => 'http://mesh.dl.sourceforge.net/sourceforge/libavc1394/',
 			   'src' => 'tar.gz',
 			  },
    'libdv'             => {
 			   'ver' => '1.0.0',
-			   'url' => 'http://kent.dl.sourceforge.net/sourceforge/libdv/',
+			   'url' => 'http://mesh.dl.sourceforge.net/sourceforge/libdv/',
 			   'src' => 'tar.gz',
 			  },
    'libdvbpsi5'        => {
@@ -114,8 +124,8 @@ our %libraries =
 			   'src' => 'tar.bz2',
 			  },
    'libdvdcss'         => {
-			   'ver' => '1.2.9',
-			   'url' => 'http://download.videolan.org/pub/libdvdcss/1.2.9/',
+			   'ver' => '1.2.10',
+			   'url' => 'http://download.videolan.org/pub/libdvdcss/1.2.10',
 			   'src' => 'tar.bz2',
 			  },
    'libdvdread'        => {
@@ -135,7 +145,7 @@ our %libraries =
 			  },
    'libexif-gtk'         => {
 			     'ver' => '0.3.5',
-			     'url' => 'http://kent.dl.sourceforge.net/sourceforge/libexif/',
+			     'url' => 'http://mesh.dl.sourceforge.net/sourceforge/libexif/',
 			     'src' => 'tar.bz2',
 			    },
    'libgalago'          => {
@@ -144,8 +154,8 @@ our %libraries =
 			     'src' => 'tar.bz2',
 			    },
    'libgphoto2'          => {
-			     'ver' => '2.4.1',
-			     'url' => 'http://kent.dl.sourceforge.net/sourceforge/gphoto/',
+			     'ver' => '2.4.2',
+			     'url' => 'http://mesh.dl.sourceforge.net/sourceforge/gphoto/',
 			     'src' => 'tar.bz2',
 			    },
    'libiec61883'       => {
@@ -155,7 +165,7 @@ our %libraries =
                           },
    'libiptcdata'       => {
                            'ver' => '1.0.2',
-                           'url' => 'http://kent.dl.sourceforge.net/sourceforge/libiptcdata',
+                           'url' => 'http://mesh.dl.sourceforge.net/sourceforge/libiptcdata',
                            'src' => 'tar.gz',
                           },
    'libmatroska'       => {
@@ -194,12 +204,12 @@ our %libraries =
 			   'src' => 'tar.gz',
 			  },
    'libquicktime'      => {
-			   'ver' => '1.0.2',
-			   'url' => 'http://kent.dl.sourceforge.net/sourceforge/libquicktime/',
+			   'ver' => '1.0.3',
+			   'url' => 'http://mesh.dl.sourceforge.net/sourceforge/libquicktime/',
 			   'src' => 'tar.gz',
 			  },
    'libraw1394'        => {
-			   'ver' => '1.3.0',
+			   'ver' => '2.0.0',
 			   'url' => 'http://www.linux1394.org/dl/',
 			   'src' => 'tar.gz',
 			  },
@@ -234,9 +244,14 @@ our %libraries =
 			   'url' => 'http://www.lua.org/ftp/',
 			   'src' => 'tar.gz',
 		        },
+   'libofx'    => {
+                   'url' => 'http://mesh.dl.sourceforge.net/sourceforge/libofx/',
+                   'ver' => '0.9.0',
+                   'src' => 'tar.gz',
+                  },
    'mjpegtools'        => {
 			   'ver' => '1.9.0rc3',
-			   'url' => 'http://kent.dl.sourceforge.net/sourceforge/mjpeg/',
+			   'url' => 'http://mesh.dl.sourceforge.net/sourceforge/mjpeg/',
 			   'src' => 'tar.gz',
 			  },
    'mpeg2dec'          => {
@@ -266,26 +281,31 @@ our %libraries =
                         },
    'sg3_utils'            => {
                          'url' => 'http://sg.torque.net/sg/p',
-                         'ver' => '1.26',
+                         'ver' => '1.27',
                          'src' => 'tgz',
                         },
    'speex'            => {
                          'url' => 'http://downloads.us.xiph.org/releases/speex/',
-                         'ver' => '1.2beta3',
+                         'ver' => '1.2rc1',
                          'src' => 'tar.gz',
                         },
    'transcode'         => {
-			   'ver' => '1.0.5',
-			   'url' => 'http://transcode.kabewm.com/',
+			   'ver' => '1.0.6',
+			   'url' => 'http://fromani.exit1.org',
 			   'src' => 'tar.bz2',
 			  },
+   'tre'            => {
+                             'ver' => '0.7.5',
+                             'url' => 'http://laurikari.net/tre',
+                             'src' => 'tar.bz2',
+                            },
    'twolame'           => {
 			   'ver' => '0.3.12',
-			   'url' => 'http://kent.dl.sourceforge.net/sourceforge/twolame',
+			   'url' => 'http://mesh.dl.sourceforge.net/sourceforge/twolame',
 			   'src' => 'tar.gz',
 			  },
    'x264'            => {
-			   'ver' => 'snapshot-20080430-2245',
+			   'ver' => 'snapshot-20080823-2245',
 			   'url' => 'ftp://ftp.videolan.org/pub/videolan/x264/snapshots',
 			   'src' => 'tar.bz2',
 			  },
@@ -311,16 +331,19 @@ our %libraries_gnome =
 our %libraries_diff_naming =
   (
    'glib2'  => {
-		'ver'  => '2.16.5',
+		'ver'  => '2.17.7',
 		'name' => 'glib',
+	       },
+   'gtk+2'  => {
+		'ver'  => '2.13.7',
+		'name' => 'gtk+',
 	       },
   );
 
 # libraries which we get from SVN sources
 our %libraries_svn =
   (
-   'gtkunique' => 'svn_13',
-   'ffmpeg'    => 'svn_13024',
+   'ffmpeg'    => 'svn_14999',
   );
 
 #

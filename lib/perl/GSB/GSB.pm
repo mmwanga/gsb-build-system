@@ -18,11 +18,12 @@ use GSB::Verify;
 
 my %gnome =
   (
-   'version'  => '2.22.0',
-   'release'  => '2.22',
+   'version'  => '2.23.90',
+   'release'  => '2.23',
    #'mirror'   => 'http://ftp.gnome.org/pub/gnome',
    'mirror'   => 'http://ftp.acc.umu.se/pub/gnome',
    #'mirror'   => 'http://www.mirrorservice.org/sites/ftp.gnome.org/pub/GNOME/',
+   'sf_mirror' => 'http://mesh.dl.sourceforge.net/sourceforge/',
    'srcroot'  => '',
    'platform' => '/platform',
    'desktop'  => '/desktop',

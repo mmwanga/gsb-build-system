@@ -15,10 +15,10 @@ our $VERSION   = 0.03;
 our %double_tarballs_url =
   (
    'boost'            => {
-             		'url' => 'http://kent.dl.sourceforge.net/sourceforge/boost/',
-             		'ver' => '1_34_1',
+             		'url' => 'http://mesh.dl.sourceforge.net/sourceforge/boost/',
+             		'ver' => '1.36.0',
              		'dir' => 'libraries/boost',
-	     		'tar' => 'boost_1_34_1.tar.bz2',
+	     		'tar' => 'boost_1_36_0.tar.bz2',
              		'var' => 'VERSION',
                         },
     'libintl-perl'   => {
@@ -42,6 +42,13 @@ our %double_tarballs_url =
     			'tar' => 'firefox-3.0.1-source.tar.bz2',
 	    		'var' => 'VERSION',
 			    },
+   'libunique'             => {
+			 'ver' => '1.0.0',
+			 'dir' => 'libraries/libunique',
+			 'url' => 'http://www.gnome.org/~ebassi/source',
+			 'tar' => 'unique-1.0.0.tar.gz',
+			 'var' => 'VERSION',
+				  },
    'libgc'             => {
 			 'ver' => '7.1',
 			 'dir' => 'libraries/libgc',
@@ -49,11 +56,32 @@ our %double_tarballs_url =
 			 'tar' => 'gc-7.1.tar.gz',
 			 'var' => 'VERSION',
 				  },
+   'lame'              => {
+			 'ver' => '3.98',
+			 'dir' => 'libraries/lame',
+			 'url' => 'http://mesh.dl.sourceforge.net/sourceforge/lame/',
+			 'tar' => 'lame-398.tar.gz',
+			 'var' => 'VERSION',
+			  },
    'nss'               => {
 			 'ver' => '3.12',
 			 'dir' => 'libraries/nss',
 			 'url' => 'http://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_12_RTM/src/',
 			 'tar' => 'nss-3.12-with-nspr-4.7.tar.gz',
+			 'var' => 'VERSION',
+				  },
+   'policykit'               => {
+			 'ver' => '0.9',
+			 'dir' => 'platform/policykit',
+			 'url' => 'http://hal.freedesktop.org/releases',
+			 'tar' => 'PolicyKit-0.9.tar.gz',
+			 'var' => 'VERSION',
+				  },
+   'policykit-gnome'               => {
+			 'ver' => '0.9',
+			 'dir' => 'platform/policykit-gnome',
+			 'url' => 'http://hal.freedesktop.org/releases',
+			 'tar' => 'PolicyKit-gnome-0.9.tar.bz2',
 			 'var' => 'VERSION',
 				  },
    'Gnome2-Gconf-perl'               => {
@@ -106,17 +134,24 @@ our %double_tarballs_url =
 			 'var' => 'VERSION',
 				  },
    'libicu'               => {
-			 'ver' => '3.8.1',
+			 'ver' => '4.0c',
 			 'dir' => 'testing/libicu',
-			 'url' => 'http://download.icu-project.org/files/icu4c/3.8.1',
-			 'tar' => 'icu4c-3_8_1-src.tgz',
+			 'url' => 'http://download.icu-project.org/files/icu4c/4.0',
+			 'tar' => 'icu4c-4_0-src.tgz',
+			 'var' => 'VERSION',
+			     },
+   'libjasper'               => {
+			 'ver' => '1.900.1',
+			 'dir' => 'libraries/libjasper',
+			 'url' => 'http://www.ece.uvic.ca/~mdadams/jasper/software/',
+			 'tar' => 'jasper-1.900.1.zip',
 			 'var' => 'VERSION',
 			     },
    'sqlite3'             => {
-			 'ver' => '3.5.9',
+			 'ver' => '3.6.1',
 			 'dir' => 'libraries/sqlite3',
 			 'url' => 'http://www.sqlite.org/',
-			 'tar' => 'sqlite-3.5.9.tar.gz',
+			 'tar' => 'sqlite-3.6.1.tar.gz',
 			 'var' => 'VERSION',
 				  },
    'pyfeedparser'             => {
@@ -127,17 +162,17 @@ our %double_tarballs_url =
 			 'var' => 'VERSION',
 				  },
    'hemidal-libraries'         => {
-			 'ver' => '1.2',
+			 'ver' => '1.2.1',
 			 'dir' => 'libraries/heimdal-libraries',
 			 'url' => 'http://www.h5l.org/dist/src/',
-			 'tar' => 'heimdal-1.2.tar.gz',
+			 'tar' => 'heimdal-1.2.1.tar.gz',
 			 'var' => 'VERSION',
 				  },
    'ode'            => {
-             		'url' => 'http://kent.dl.sourceforge.net/sourceforge/opende',
-             		'ver' => '0.10.0',
-			'dir' => 'office/ode',
-			'tar' => 'ode-0.10.0.tar.bz2',
+             		'url' => 'http://mesh.dl.sourceforge.net/sourceforge/opende',
+             		'ver' => '0.10.1',
+			'dir' => 'libraries/ode',
+			'tar' => 'ode-0.10.1.tar.bz2',
              		'var' => 'VERSION',
                         },
    'evo-openldap'     => {
@@ -163,9 +198,16 @@ our %double_tarballs_url =
 				  },
    'mplayer-codecs'               => {
 			 'ver' => '20071007',
-			 'dir' => 'extras/mplayer-codecs',
+			 'dir' => 'media/mplayer-codecs',
 			 'url' => 'http://www1.mplayerhq.hu/MPlayer/releases/codecs',
 			 'tar' => 'essential-20071007.tar.bz2',
+			 'var' => 'VERSION',
+				  },
+   'mplayer-amd64-codecs'               => {
+			 'ver' => '20071007',
+			 'dir' => 'media/mplayer-codecs',
+			 'url' => 'http://www1.mplayerhq.hu/MPlayer/releases/codecs',
+			 'tar' => 'essential-amd64-20071007.tar.bz2',
 			 'var' => 'VERSION',
 				  },
    'pygdata'               => {
@@ -176,10 +218,10 @@ our %double_tarballs_url =
 			 'var' => 'VERSION',
 				  },
    'openal'               => {
-			 'ver' => '1.4.272',
+			 'ver' => '1.5.304',
 			 'dir' => 'libraries/openal',
 			 'url' => 'http://kcat.strangesoft.net/openal-releases',
-			 'tar' => 'openal-soft-1.4.272.tar.bz2',
+			 'tar' => 'openal-soft-1.5.304.tar.bz2',
 			 'var' => 'VERSION',
 				  },
    'webkit'               => {
@@ -190,10 +232,18 @@ our %double_tarballs_url =
 			 'var' => 'VERSION',
 				  },
     'mozilla-xulrunner'  => {
-    			'ver' => '1.8.1.16',
+    			'ver' => '1.9.0.1',
     			'dir' => 'applications/mozilla-xulrunner',
-    			'url' => 'http://www.mirrorservice.org/sites/ftp.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.16/source/',
-    			'tar' => 'firefox-2.0.0.16-source.tar.bz2',
+    			'url' => 'http://releases.mozilla.org/pub/mozilla.org/xulrunner/releases/1.9.0.1/source',
+    			'tar' => 'xulrunner-1.9.0.1-source.tar.bz2',
 	    		'var' => 'VERSION',
 			    },
+   'gnome-do-plugins' => {
+            'url'  => 'http://launchpad.net/do/trunk/0.4/+download',
+            'ver'  => '0.4.0',
+            'dir' => 'office/gnome-do-plugins',
+            'tar' => 'do-plugins-0.4.0.tar.gz',
+            'var' => 'VERSION',
+                   },
+
   );

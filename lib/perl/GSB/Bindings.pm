@@ -15,24 +15,25 @@ our $VERSION   = 0.03;
 
 our %bindings_gnome =
   (
-   'bakery'            => '2.4.4',
-   'gconfmm'           => '2.22.0',
-   'gnome-vfsmm'       => '2.22.0',
-   'libglademm'        => '2.6.6',
-   'libgnomecanvasmm'  => '2.22.0',
-   'libgnomemm'        => '2.22.0',
-   'libgnomeuimm'      => '2.22.0',
+   'bakery'             => '2.4.4',
+   'gconfmm'            => '2.22.0',
+   'gnome-vfsmm'        => '2.22.0',
+   'libglademm'         => '2.6.6',
+   'libgnomecanvasmm'   => '2.23.1',
+   'libgnomemm'         => '2.22.0',
+   'libgnomeuimm'       => '2.22.0',
    'libgtksourceviewmm' => '0.3.1',
-   'libxml++'          => '2.22.0',
-   'gtkmm'             => '2.12.7',
-   'glibmm'            => '2.16.4',
+   'libxml++'           => '2.22.0',
+   'gtkmm'              => '2.13.7',
+   'glibmm'             => '2.17.2',
+   'pangomm'            => '2.13.5',
   );
 
   
 our %bindings_ex =
   (
    'cairomm' => {
-                 'ver' => '1.4.8',
+                 'ver' => '1.6.2',
                  'url' => 'http://cairographics.org/releases',
                  'src' => 'tar.gz',
                 },
@@ -52,7 +53,7 @@ our %bindings_ex =
                  'src' => 'tar.gz',
                 },
    'pyxdg'  => {
-                           'ver' => '0.15',
+                           'ver' => '0.16',
                            'url' => 'http://www.freedesktop.org/~lanius',
                            'src' => 'tar.gz',
                           },

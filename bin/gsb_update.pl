@@ -1,5 +1,4 @@
 #!/usr/bin/perl
-
 # Script that will download the latest gnome release and then
 # update the various SlackBuilds in GSB.
 #
@@ -37,25 +36,28 @@ use GSB::GSB;
 use GSB::Verify;
 
 # GSB Source Tarballs
-use GSB::DoubleTar;
-use GSB::Libraries;
-use GSB::Platform;
-use GSB::Desktop;
 use GSB::Accessibility;
-use GSB::Applications;
 use GSB::Administration;
+use GSB::Applications;
 use GSB::Bindings;
+use GSB::Compiz;
+use GSB::Desktop;
+use GSB::Devel;
+use GSB::DoubleTar;
+use GSB::Fonts;
+use GSB::Libraries;
+use GSB::Media;
 use GSB::Meta;
 use GSB::Mono;
+use GSB::Network;
 use GSB::Office;
-use GSB::Extras;
-use GSB::Compiz;
-use GSB::Fonts;
+use GSB::Ooo;
+use GSB::Platform;
+use GSB::Print;
 use GSB::Supplied;
+#use GSB::Testing;
 use GSB::Themes;
 use GSB::Tools;
-use GSB::Testing;
-use GSB::Ooo;
 
 use Cwd;
 
@@ -113,11 +115,13 @@ chdir $gsb_root_sources or
 my $pwd = getcwd();
 
 ################################################################################
-#
-# Download and Edit
+#                       Download and Edit Section                              #
+################################################################################
 
 
-# More extra tarballs.
+################################################################################
+#                       DOUBLE TARBALLS SECTION
+################################################################################
 foreach my $dtu (keys %double_tarballs_url) {
 
   my $name    = $dtu;
@@ -154,7 +158,9 @@ foreach my $dtu (keys %double_tarballs_url) {
   }
 }
 
-# Download Tools
+################################################################################
+##                       TOOL TARBALLS
+#################################################################################
 foreach my $tool (keys %tools) {
 
   my $name    = $tool;
@@ -191,8 +197,9 @@ foreach my $tool (keys %tools) {
   }
 }
 
-
-# Download Microsoft TrueType core fonts
+################################################################################
+##                       FONTS TARBALLS
+#################################################################################
 foreach my $font (keys %fonts) {
 
   my $name    = $font;
@@ -229,7 +236,9 @@ foreach my $font (keys %fonts) {
   }
 }
 
-# src/libraries: download src libraries
+################################################################################
+###                       LIBRARIES SECTION
+##################################################################################
 foreach my $drpackage (keys %libraries) {
 
   my $name    = $drpackage;
@@ -259,109 +268,6 @@ foreach my $drpackage (keys %libraries) {
 
   if ( ! -f $tarball ) {
     push(@bad_downloads, $name);
-  }
-}
-
-# src/libraries: download src tarballs from gnome ftp
-foreach my $ppackage (keys %libraries_gnome) {
-
-  my $name = $ppackage;
-  my $ver  = $libraries_gnome{$name};
-
-  my $sb_file = $name . $sb_ext;
-  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
-
-  chdir "$pwd/libraries/$name";
-
-  if ( $download eq "true" ) {
-    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name );
-  }
-}
-
-# src/libraries packages that are from SVN.
-# Note: this only edits the SlackBuilds to set BUILD.
-foreach my $libsvnpackage (keys %libraries_svn) {
-
-  my $name    = $libsvnpackage;
-  my $sb_file = $name . $sb_ext;
-  my $ver     = $libraries_svn{$name};
-
-  chdir "$pwd/libraries/$name";
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-}
-
-# src/mono packages that are from SVN.
-# Note: this only edits the SlackBuilds to set BUILD.
-foreach my $libsvnpackage (keys %mono_svn) {
-
-  my $name    = $libsvnpackage;
-  my $sb_file = $name . $sb_ext;
-  my $ver     = $mono_svn{$name};
-
-  chdir "$pwd/mono/$name";
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-}
-
-# Set version/build numbers for metapackages
-foreach my $mp (keys %meta_packages) {
-
-  my $name    = $mp;
-  my $sb_file = $name . $sb_ext;
-  my $ver     = $meta_packages{$name};
-
-  chdir "$pwd/meta/$name";
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-}
-
-# Set version/build numbers for our own tarballs
-foreach my $sp (keys %supplied_tarballs) {
-
-  my $name    = $sp;
-  my $sb_file = $name . $sb_ext;
-  my $ver     = $supplied_tarballs{$sp}{ver};
-  my $section     = $supplied_tarballs{$sp}{section};
-
-  chdir "$pwd/$section/$name";
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
   }
 }
 
@@ -395,7 +301,137 @@ foreach my $pnpackage (keys %libraries_diff_naming) {
   }
 }
 
-# src/platform gnome ftp src tarballs
+##
+## GNOME Supplied Libraries
+##
+foreach my $ppackage (keys %libraries_gnome) {
+
+  my $name = $ppackage;
+  my $ver  = $libraries_gnome{$name};
+
+  my $sb_file = $name . $sb_ext;
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
+
+  chdir "$pwd/libraries/$name";
+
+  if ( $download eq "true" ) {
+    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name );
+  }
+}
+
+##
+## SVN Libraries
+##
+# Note: this only edits the SlackBuilds to set BUILD.
+foreach my $libsvnpackage (keys %libraries_svn) {
+
+  my $name    = $libsvnpackage;
+  my $sb_file = $name . $sb_ext;
+  my $ver     = $libraries_svn{$name};
+
+  chdir "$pwd/libraries/$name";
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+}
+
+################################################################################
+###                       META PACKAGES
+##################################################################################
+foreach my $mp (keys %meta_packages) {
+
+  my $name    = $mp;
+  my $sb_file = $name . $sb_ext;
+  my $ver     = $meta_packages{$name};
+
+  chdir "$pwd/meta/$name";
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+}
+
+################################################################################
+###                       SUPPLIED TARBALLS
+##################################################################################
+foreach my $sp (keys %supplied_tarballs) {
+
+  my $name    = $sp;
+  my $sb_file = $name . $sb_ext;
+  my $ver     = $supplied_tarballs{$sp}{ver};
+  my $section     = $supplied_tarballs{$sp}{section};
+
+  chdir "$pwd/$section/$name";
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+}
+
+################################################################################
+###                       MEDIA SECTION
+##################################################################################
+
+foreach my $drpackage (keys %media_pkgs) {
+
+  my $name    = $drpackage;
+  
+  my $sb_file = $name . $sb_ext;
+  my $packurl = $media_pkgs{$name}{url};
+  my $ver     = $media_pkgs{$name}{ver};
+  my $src     = $media_pkgs{$name}{src};
+  my $type    = "other";
+
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+
+  chdir "$pwd/media/$name";
+
+  if ( $download eq "true") {
+    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
+################################################################################
+###                       PLATFORM SECTION
+##################################################################################
 foreach my $ppackage (keys %platform) {
 
   my $name = $ppackage;
@@ -423,7 +459,9 @@ foreach my $ppackage (keys %platform) {
   }
 }
 
-# src/platform: misc src tarballs
+##
+## Platform Misc 
+##
 foreach my $fdopackage (keys %platform_reqs) {
 
   my $name    = $fdopackage;
@@ -456,7 +494,10 @@ foreach my $fdopackage (keys %platform_reqs) {
   }
 }
 
-# src/desktop: gnome src tarballs
+################################################################################
+###                       DESKTOP TARBALLS
+##################################################################################
+
 foreach my $dpackage (keys %desktop) {
 
   my $name    = $dpackage;
@@ -545,7 +586,10 @@ foreach my $ngpackage (keys %desktop_nongnome) {
   }
 }
 
-# src/applications: gnome src tarballs
+################################################################################
+###                       APPLICATIONS TARBALLS
+##################################################################################
+
 foreach my $apackage (keys %applications_gnome) {
 
   my $name    = $apackage;
@@ -633,7 +677,10 @@ foreach my $acpackage (keys %accessibility_gnome) {
   }
 }
 
-# Download Bindings from GNOME
+################################################################################
+###                       BINDINGS TARBALLS
+##################################################################################
+
 foreach my $cbpackage (keys %bindings_gnome) {
 
   my $name    = $cbpackage;
@@ -694,7 +741,10 @@ foreach my $ofpackage (keys %bindings_ex) {
 }
 
 
-# Office apps
+################################################################################
+###                       OFFICE TARBALLS
+##################################################################################
+
 foreach my $ofpackage (keys %office) {
 
   my $name    = $ofpackage;
@@ -754,15 +804,80 @@ foreach my $office_pack (keys %office_gnome) {
   }
 }
 
-# src/office packages that are from SVN.
-# Note: this only edits the SlackBuilds to set BUILD.
-foreach my $officesvnpackage (keys %office_svn) {
+################################################################################
+###                       NETWORKING TARBALLS
+##################################################################################
 
-  my $name    = $officesvnpackage;
+## GNOME supplied networking packages
+foreach my $gnome_net_pack (keys %network_gnome) {
+
+  my $name    = $gnome_net_pack;
+  my $ver     = $network_gnome{$name};
+
   my $sb_file = $name . $sb_ext;
-  my $ver     = $office_svn{$name};
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
 
-  chdir "$pwd/office/$name";
+  chdir "$pwd/networking/$name";
+
+  if ( $download eq "true" ) {
+    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name,);
+  }
+}
+
+# external networking packages
+foreach my $net_pack (keys %network_external) {
+
+  my $name    = $net_pack;
+
+  my $sb_file = $name . $sb_ext;
+  my $packurl = $network_external{$name}{url};
+  my $ver     = $network_external{$name}{ver};
+  my $src     = $network_external{$name}{src};
+  my $type    = "other";
+
+  my $tarball = "$name-$ver.$src";
+
+  chdir "$pwd/networking/$name";
+
+  if ( $download eq "true") {
+    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
+## Network SVN Libraries
+# Note: this only edits the SlackBuilds to set BUILD.
+foreach my $libsvnpackage (keys %network_svn) {
+
+  my $name    = $libsvnpackage;
+  my $sb_file = $name . $sb_ext;
+  my $ver     = $network_svn{$name};
+
+  chdir "$pwd/networking/$name";
 
   if ( $edit eq "true" ) {
     GSB::Edit::gsb_sb_edit($sb_file, $ver);
@@ -773,7 +888,11 @@ foreach my $officesvnpackage (keys %office_svn) {
   }
 }
 
-# GNOME Mono
+
+################################################################################
+###                       MONO TARBALLS
+##################################################################################
+
 foreach my $gnome_mono_pack (keys %mono_gnome) {
 
   my $name    = $gnome_mono_pack;
@@ -871,20 +990,15 @@ foreach my $dtu (keys %mono_diff_naming) {
   }
 } 
 
-# Extra Applications found on GNOME Source Tree
-foreach my $other_pack (keys %extras_gnome) {
+# src/mono packages that are from SVN.
+# Note: this only edits the SlackBuilds to set BUILD.
+foreach my $libsvnpackage (keys %mono_svn) {
 
-  my $name = $other_pack;
-  my $ver  = $extras_gnome{$name};
-
+  my $name    = $libsvnpackage;
   my $sb_file = $name . $sb_ext;
-  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
+  my $ver     = $mono_svn{$name};
 
-  chdir "$pwd/extras/$name";
-
-  if ( $download eq "true" ) {
-    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
-  }
+  chdir "$pwd/mono/$name";
 
   if ( $edit eq "true" ) {
     GSB::Edit::gsb_sb_edit($sb_file, $ver);
@@ -893,45 +1007,12 @@ foreach my $other_pack (keys %extras_gnome) {
   if ( $build ne "" ) {
     GSB::Edit::gsb_build_release_make($sb_file, $build);
   }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
 }
 
-# Extra applications for GSB GNOME Desktop
-# found outside the regular GNOME Tree
-foreach my $opackage (keys %extras) {
+################################################################################
+###                       COMPIZ TARBALLS
+##################################################################################
 
-  chdir "$pwd/extras/$opackage";
-  my $name    = $opackage;
-  my $sb_file = $name . $sb_ext;
-  my $packurl = $extras{$name}{url};
-  my $ver     = $extras{$name}{ver};
-  my $src     = $extras{$name}{src};
-  my $type    = "other";
-
-  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
-
-  if ( $download eq "true") {
-      my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
-      GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $src, $url);
-  }
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
-}
-
-# Compiz modules 
 foreach my $cpackage (keys %compiz) {
 
   chdir "$pwd/compiz/$cpackage";
@@ -962,7 +1043,108 @@ foreach my $cpackage (keys %compiz) {
   }
 }
 
-# Administration found on GNOME Source Tree
+################################################################################
+###                       DEVELOPMENT TARBALLS
+##################################################################################
+
+foreach my $other_pack (keys %devel_gnome) {
+
+  my $name = $other_pack;
+  my $ver  = $devel_gnome{$name};
+
+  my $sb_file = $name . $sb_ext;
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
+
+  chdir "$pwd/devel/$name";
+
+  if ( $download eq "true" ) {
+    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
+
+# Devel packages external to gnome
+foreach my $cpackage (keys %devel) {
+
+  chdir "$pwd/devel/$cpackage";
+  my $name    = $cpackage;
+  my $sb_file = $name . $sb_ext;
+  my $packurl = $devel{$name}{url};
+  my $ver     = $devel{$name}{ver};
+  my $src     = $devel{$name}{src};
+  my $type    = "other";
+
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+  
+  if ( $download eq "true") {
+      my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+      GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $src, $url);
+  }
+  
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+  
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+  
+  if ( ! -f $tarball ) { 
+    push(@bad_downloads, $name);
+  }
+}
+
+################################################################################
+###                       PRINT TARBALLS
+##################################################################################
+
+# Print package external to gnome
+foreach my $cpackage (keys %print) {
+
+  chdir "$pwd/print/$cpackage";
+  my $name    = $cpackage;
+  my $sb_file = $name . $sb_ext;
+  my $packurl = $print{$name}{url};
+  my $ver     = $print{$name}{ver};
+  my $src     = $print{$name}{src};
+  my $type    = "other";
+
+  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+  
+  if ( $download eq "true") {
+      my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+      GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $src, $url);
+  }
+  
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+  
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+  
+  if ( ! -f $tarball ) { 
+    push(@bad_downloads, $name);
+  }
+}
+
+
+################################################################################
+###                       ADMINISTRATION TARBALLS
+##################################################################################
+
 foreach my $other_pack (keys %administration_gnome) {
 
   my $name = $other_pack;
@@ -1021,7 +1203,10 @@ foreach my $cpackage (keys %administration) {
   }
 }
 
-# Download other themes
+################################################################################
+###                       THEMES TARBALLS
+##################################################################################
+
 foreach my $otheme (keys %other_themes) {
 
   my $name = $otheme;
@@ -1120,7 +1305,10 @@ foreach my $dttheme (keys %double_tarballs_themes) {
 }
 
 
-# Download OpenOffice Packages
+################################################################################
+###                       OOO TARBALLS
+##################################################################################
+
 foreach my $ooopkg (keys %ooo_packages) {
 
   my $name    = $ooopkg;
@@ -1157,57 +1345,44 @@ foreach my $ooopkg (keys %ooo_packages) {
   }
 }
 
-# testing packages
-foreach my $cpackage (keys %testing) {
+################################################################################
+###                       TESTING TARBALLS
+##################################################################################
 
-  chdir "$pwd/testing/$cpackage";
-  my $name    = $cpackage;
-  my $sb_file = $name . $sb_ext;
-  my $packurl = $testing{$name}{url};
-  my $ver     = $testing{$name}{ver};
-  my $src     = $testing{$name}{src};
-  my $type    = "other";
+#foreach my $cpackage (keys %testing) {
 
-  my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+#chdir "$pwd/testing/$cpackage";
+#my $name    = $cpackage;
+#my $sb_file = $name . $sb_ext;
+#my $packurl = $testing{$name}{url};
+#my $ver     = $testing{$name}{ver};
+#my $src     = $testing{$name}{src};
+#my $type    = "other";
+#
+#my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
+#
+#if ( $download eq "true") {
+#my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+#GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $src, $url);
+#}
+#
+#if ( $edit eq "true" ) {
+#GSB::Edit::gsb_sb_edit($sb_file, $ver);
+#}
+#
+#if ( $build ne "" ) {
+#GSB::Edit::gsb_build_release_make($sb_file, $build);
+#}
+#
+#if ( ! -f $tarball ) {
+#push(@bad_downloads, $name);
+#}
+#}
 
-  if ( $download eq "true") {
-      my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
-      GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $src, $url);
-  }
 
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
-}
-
-# src/testing packages that are from SVN.
-# Note: this only edits the SlackBuilds to set BUILD.
-foreach my $testingsvnpackage (keys %testing_network_svn) {
-
-  my $name    = $testingsvnpackage;
-  my $sb_file = $name . $sb_ext;
-  my $ver     = $testing_network_svn{$name};
-
-  chdir "$pwd/networking/$name";
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-}
-
-# DONE DOWNLOADING
+################################################################################
+###                       DONE
+##################################################################################
 
 if ( $download eq "true" ) {
     if ( ! @bad_downloads eq "" ) {

@@ -21,7 +21,11 @@ our %supplied_tarballs =
                  },
    'rhpl'  => {
              'ver' => '0.212',
-	     'section' => 'administration',
+	     'section' => 'print',
+                 },
+   'hal-cups-utils'  => {
+             'ver' => '0.6.16',
+	     'section' => 'print',
                  },
    'gnome-menus-kde'  => {
              'ver' => '1.5',

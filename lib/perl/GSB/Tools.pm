@@ -15,14 +15,14 @@ our $VERSION   = 0.03;
 our %tools =
   (
    'scons'    => {
-             'url' => 'http://kent.dl.sourceforge.net/sourceforge/scons/',
-             'ver' => '0.98.5',
+             'url' => 'http://mesh.dl.sourceforge.net/sourceforge/scons/',
+             'ver' => '1.0.0',
 			 'dir' => 'tools/scons',
-			 'tar' => 'scons-0.98.5.tar.gz',
+			 'tar' => 'scons-1.0.0.tar.gz',
              'var' => 'VERSION',
                   },
    'boost-jam'    => {
-             'url' => 'http://kent.dl.sourceforge.net/sourceforge/boost',
+             'url' => 'http://mesh.dl.sourceforge.net/sourceforge/boost',
              'ver' => '3.1.16',
 			 'dir' => 'tools/boost-jam',
 			 'tar' => 'boost-jam-3.1.16.tgz',
@@ -45,10 +45,10 @@ our %tools =
              'var' => 'VERSION',
 			     },
     'slapt-get'           => {
-			 'ver' => '0.9.12d',
+			 'ver' => '0.9.12e',
 			 'url' => 'http://software.jaos.org/source/slapt-get/',
 			 'dir' => 'tools/slapt-get',
-			 'tar' => 'slapt-get-0.9.12d.tar.gz',
+			 'tar' => 'slapt-get-0.9.12e.tar.gz',
 			 'src' => 'tar.gz',
              'var' => 'VERSION',
 			     },
