@@ -1,0 +1,6 @@
+*** NOTE ***
+GSB trunk should be considered "unstable/development" for GNOME 2.24.  Most
+gnome packages will be from the 2.23 series.  We will use these packages in order
+to prepare for the stable 2.24 release.
+************
+

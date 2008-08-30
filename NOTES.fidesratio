@@ -5,10 +5,16 @@
 * Added hamster-applet
 * Added seahorse-plugins
 * Added accerciser
+* Added nemiver
+* Added mono/boo
+* Added gnome-mplayer
+* Added themes/gnomeartng
+* Added soundconverter
 * Added libjasper (required by latest gtk+2)
-* Removed gnopernicus (obsoleted by orca)
+* Removed gnopernicus (obsoleted by orca); slack-conflicts written for orca.
 * Removed s-t-b, and g-s-t.  (blech, good riddance)
-* Added gtk+2 package again.  (Looks like GNOME 2.24 will require a newer gtk+2 package again)
+* Added gtk+2 package (Looks like GNOME 2.24 will require a newer gtk+2 package again)
+* gst-pulse package obsoleted by gst-plugins-good (which has a pulse plugin)
 
 -- MAJOR REPLACEMENTS --
 GNOME 2.24 will require replacing cairo, gtk+2, and glib2 :(
@@ -17,12 +23,17 @@ control-panel requires libcanberra, which requires pulseaudio 0.9.11, requires a
 need to replace dbus-glib (for gnome-session, NetworkManager, and some other apps)
 
 -- TO CHANGE --
+create nautilus file-type-creation package to auto-install in user-directory.
+## cairo-dock?
+#FIXME: evolution-sharp: compiles fine against 2.23.90; sed'd configure to force compile
+add a libxul-xpcom pkgconfig file?  change yelp from emedding to libxul?
+*** epiphany extensions with 2.23?
+add a script for codec detection? (zenity script?)
+add simplejson for deskbar-applet google searching?
+gdm 2.23 non-pam patch?
 update iso-codes download site?
   -> is the aliorth.debian site momentarily or perm broken? :(
 mplayer codecs for amd64
-mplayer switch to svn
-add "Sound Converter"
-  -> soundconverter - http://developer.berlios.de/project/showfiles.php?group_id=3213
 fix up printing section
    -> foomatic stuff?
    -> foomatic-gui? 
@@ -33,6 +44,9 @@ print meta package?
 libgdl-gnome in /usr/lib64?
 pysqlite2 doc in /usr?
 /usr/sbin/gconf-schemas?
+grandr-applet
+** NOTE: monodoc will segfault if it runs against the seamonkey gtkembedmoz library. Fix?
+* add s2ram and uswsusp for handy suspending for gnome-power-manager?
 
 -- OTHER --
 
