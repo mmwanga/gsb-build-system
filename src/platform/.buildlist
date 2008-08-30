@@ -3,6 +3,7 @@ intltool
 rarian
 ORBit2
 libbonobo
+policykit
 GConf
 gnome-mime-data
 pyorbit
@@ -16,9 +17,11 @@ gail
 libgnomecanvas
 libbonoboui
 gnome-keyring
+alsa-lib
 pulseaudio
 alsa-plugins
 libgnomeui
 gtk-engines
 libsoup
+policykit-gnome
 ttf-bitstream-vera

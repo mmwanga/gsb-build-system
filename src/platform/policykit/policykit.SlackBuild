@@ -6,14 +6,13 @@
 ## Licenced under the terms of the GNU General Public Licence version 3.
 ##
 
-## Package variables
+## Package variables.
 BUILD=1
-VERSION=0.13
+VERSION=0.9
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="lynx"
-
+REQUIRED_PACKAGES="dbus"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -24,6 +23,7 @@ PKGDEST=${PKGDEST:-$TMP}
 
 ## Script variables.
 PKGNAME=$(basename $0 .SlackBuild)
+SRCNAME=PolicyKit
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
@@ -91,8 +91,9 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
-cd $PKGNAME-$VERSION || exit 1
+rm -rf $SRCNAME-$VERSION &&
+tar xzf $CWD/$SRCNAME-$VERSION.tar.gz &&
+cd $SRCNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i386" ]; then
@@ -114,6 +115,9 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
+
+## Get rid of unneeded PAM include
+patch -p1 < $CWD/patches/polkit-resolve-pam.patch || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .
@@ -157,14 +161,31 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
+  --with-authfw=shadow \
+  --disable-selinux \
+  --disable-tests \
+  --enable-man-pages \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
+
+## Make sure our polkit user/group are available before "installing"
+if ! grep "^polkituser:" /etc/group >/dev/null 2>&1; then
+  /usr/sbin/groupadd -g 60 polkituser || exit 1
+fi;
+if ! grep "^polkituser:" /etc/passwd >/dev/null 2>&1; then
+  /usr/sbin/useradd -u 60 -g 60 -s /bin/false -d /var/run/PolicyKit-public polkituser || exit 1
+fi;
+
+## Install
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+## Preserve settings
+mv $PKG/etc/PolicyKit/PolicyKit.conf $PKG/etc/PolicyKit/PolicyKit.conf.new || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -187,7 +208,7 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+  AUTHORS COPYING* ChangeLog HACKING NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
@@ -202,9 +223,9 @@ done
 
 ## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/${PKGNAME}-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/$PKGNAME-$VERSION
+  rm -rf $PKG $TMP/$SRCNAME-$VERSION
 }

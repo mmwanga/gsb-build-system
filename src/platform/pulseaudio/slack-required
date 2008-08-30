@@ -7,3 +7,4 @@ libsamplerate
 libatomic_ops
 liboil
 alsa-lib
+policykit
