@@ -1,0 +1,12 @@
+       |-----handy-ruler------------------------------------------------------|
+monodoc: monodoc (Mono C# Documentation)
+monodoc:
+monodoc: The Mono Project is an open development initiative sponsored by
+monodoc: Novell to develop an open source, UNIX version of the Microsoft .NET 
+monodoc: development platform. Its objective is to enable UNIX developers to 
+monodoc: build and deploy cross-platform .NET Applications. 
+monodoc:
+monodoc: This is the Documentation module. It contains the documentation for 
+monodoc: the Monodoc class libraries, tools to produce and edit the 
+monodoc: documentation, and a documentation browser.
+monodoc:

@@ -1,0 +1,11 @@
+GConf
+gnome-common
+gtkmm
+libgtksourceviewmm
+libgtop
+vte
+sqlite3
+boost
+gdb
+ghex
+libglademm

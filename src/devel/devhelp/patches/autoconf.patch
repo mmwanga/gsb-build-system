@@ -1,0 +1,1413 @@
+aclocal-1.10 -I m4
+automake-1.10
+autoconf
+
+Index: devhelp-0.19.1/Makefile.in
+===================================================================
+--- devhelp-0.19.1.orig/Makefile.in	2008-05-27 13:17:14.145154342 +0200
++++ devhelp-0.19.1/Makefile.in	2008-05-27 13:19:25.457151329 +0200
+@@ -124,6 +124,7 @@ GECKO = @GECKO@
+ GECKO_CFLAGS = @GECKO_CFLAGS@
+ GECKO_EXTRA_LIBS = @GECKO_EXTRA_LIBS@
+ GECKO_FLAVOUR = @GECKO_FLAVOUR@
++GECKO_GLUE_LIBS = @GECKO_GLUE_LIBS@
+ GECKO_HOME = @GECKO_HOME@
+ GECKO_INCLUDE_ROOT = @GECKO_INCLUDE_ROOT@
+ GECKO_LIBS = @GECKO_LIBS@
+@@ -567,6 +568,10 @@ dist-lzma: distdir
+ 	tardir=$(distdir) && $(am__tar) | lzma -9 -c >$(distdir).tar.lzma
+ 	$(am__remove_distdir)
+ 
++dist-lzma: distdir
++	tardir=$(distdir) && $(am__tar) | lzma -9 -c >$(distdir).tar.lzma
++	$(am__remove_distdir)
++
+ dist-tarZ: distdir
+ 	tardir=$(distdir) && $(am__tar) | compress -c >$(distdir).tar.Z
+ 	$(am__remove_distdir)
+Index: devhelp-0.19.1/aclocal.m4
+===================================================================
+--- devhelp-0.19.1.orig/aclocal.m4	2008-05-27 13:17:14.109155492 +0200
++++ devhelp-0.19.1/aclocal.m4	2008-05-27 13:19:25.461152396 +0200
+@@ -706,7 +706,7 @@ fi])
+ 
+ # libtool.m4 - Configure libtool for the host system. -*-Autoconf-*-
+ 
+-# serial 52 Debian 1.5.26-1ubuntu1 AC_PROG_LIBTOOL
++# serial 52 Debian 1.5.26-4 AC_PROG_LIBTOOL
+ 
+ 
+ # AC_PROVIDE_IFELSE(MACRO-NAME, IF-PROVIDED, IF-NOT-PROVIDED)
+@@ -8107,6 +8107,40 @@ AC_MSG_RESULT([$_am_result])
+ rm -f confinc confmf
+ ])
+ 
++# Copyright (C) 1999, 2000, 2001, 2003, 2004, 2005
++# Free Software Foundation, Inc.
++#
++# This file is free software; the Free Software Foundation
++# gives unlimited permission to copy and/or distribute it,
++# with or without modifications, as long as this notice is preserved.
++
++# serial 5
++
++# AM_PROG_CC_C_O
++# --------------
++# Like AC_PROG_CC_C_O, but changed for automake.
++AC_DEFUN([AM_PROG_CC_C_O],
++[AC_REQUIRE([AC_PROG_CC_C_O])dnl
++AC_REQUIRE([AM_AUX_DIR_EXPAND])dnl
++AC_REQUIRE_AUX_FILE([compile])dnl
++# FIXME: we rely on the cache variable name because
++# there is no other way.
++set dummy $CC
++ac_cc=`echo $[2] | sed ['s/[^a-zA-Z0-9_]/_/g;s/^[0-9]/_/']`
++if eval "test \"`echo '$ac_cv_prog_cc_'${ac_cc}_c_o`\" != yes"; then
++   # Losing compiler, so override with the script.
++   # FIXME: It is wrong to rewrite CC.
++   # But if we don't then we get into trouble of one sort or another.
++   # A longer-term fix would be to have automake use am__CC in this case,
++   # and then we could set am__CC="\$(top_srcdir)/compile \$(CC)"
++   CC="$am_aux_dir/compile $CC"
++fi
++dnl Make sure AC_PROG_CC is never called again, or it will override our
++dnl setting of CC.
++m4_define([AC_PROG_CC],
++          [m4_fatal([AC_PROG_CC cannot be called after AM_PROG_CC_C_O])])
++])
++
+ # Fake the existence of programs that GNU maintainers use.  -*- Autoconf -*-
+ 
+ # Copyright (C) 1997, 1999, 2000, 2001, 2003, 2004, 2005
+Index: devhelp-0.19.1/configure
+===================================================================
+--- devhelp-0.19.1.orig/configure	2008-05-27 13:17:14.081152422 +0200
++++ devhelp-0.19.1/configure	2008-05-27 13:19:30.765648846 +0200
+@@ -939,12 +939,17 @@ HAVE_GECKO_1_8_1_TRUE
+ HAVE_GECKO_1_8_1_FALSE
+ HAVE_GECKO_1_9_TRUE
+ HAVE_GECKO_1_9_FALSE
++HAVE_GECKO_HOME_TRUE
++HAVE_GECKO_HOME_FALSE
++HAVE_GECKO_XPCOM_GLUE_TRUE
++HAVE_GECKO_XPCOM_GLUE_FALSE
+ GECKO
+ GECKO_FLAVOUR
+ GECKO_INCLUDE_ROOT
+ GECKO_HOME
+ GECKO_PREFIX
+ GECKO_EXTRA_LIBS
++GECKO_GLUE_LIBS
+ GECKO_CFLAGS
+ GECKO_LIBS
+ GECKO_WARN_CXXFLAGS
+@@ -995,9 +1000,7 @@ PKG_CONFIG
+ DEVHELP_CFLAGS
+ DEVHELP_LIBS
+ LIBDEVHELP_CFLAGS
+-LIBDEVHELP_LIBS
+-GECKO_CFLAGS
+-GECKO_LIBS'
++LIBDEVHELP_LIBS'
+ 
+ 
+ # Initialize some variables set by options.
+@@ -1600,9 +1603,11 @@ Optional Packages:
+   --with-gconf-source=sourceaddress      Config database for installing schema files.
+   --with-gconf-schema-file-dir=dir        Directory for installing schema files.
+   --with-compile-warnings=no/yes/error Compiler warnings
+-  --with-gecko[=mozilla|firefox|seamonkey|xulrunner]
++  --with-gecko[=mozilla|firefox|seamonkey|xulrunner|libxul-embedding|libxul]
+                           Which gecko engine to use (autodetected by default)
+ 
++  --with-gecko-home[=path]
++                          Manually set MOZILLA_FIVE_HOME
+   --with-zlib=DIR       use libz in DIR
+ 
+ Some influential environment variables:
+@@ -1628,9 +1633,6 @@ Some influential environment variables:
+               C compiler flags for LIBDEVHELP, overriding pkg-config
+   LIBDEVHELP_LIBS
+               linker flags for LIBDEVHELP, overriding pkg-config
+-  GECKO_CFLAGS
+-              C compiler flags for GECKO, overriding pkg-config
+-  GECKO_LIBS  linker flags for GECKO, overriding pkg-config
+ 
+ Use these variables to override the choices made by `configure' or to help
+ it to find libraries and programs with nonstandard names/locations.
+@@ -5480,7 +5482,7 @@ ia64-*-hpux*)
+   ;;
+ *-*-irix6*)
+   # Find out which ABI we are using.
+-  echo '#line 5483 "configure"' > conftest.$ac_ext
++  echo '#line 5485 "configure"' > conftest.$ac_ext
+   if { (eval echo "$as_me:$LINENO: \"$ac_compile\"") >&5
+   (eval $ac_compile) 2>&5
+   ac_status=$?
+@@ -7660,11 +7662,11 @@ else
+    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
+    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
+    -e 's:$: $lt_compiler_flag:'`
+-   (eval echo "\"\$as_me:7663: $lt_compile\"" >&5)
++   (eval echo "\"\$as_me:7665: $lt_compile\"" >&5)
+    (eval "$lt_compile" 2>conftest.err)
+    ac_status=$?
+    cat conftest.err >&5
+-   echo "$as_me:7667: \$? = $ac_status" >&5
++   echo "$as_me:7669: \$? = $ac_status" >&5
+    if (exit $ac_status) && test -s "$ac_outfile"; then
+      # The compiler can only warn and ignore the option if not recognized
+      # So say no if there are warnings other than the usual output.
+@@ -7950,11 +7952,11 @@ else
+    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
+    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
+    -e 's:$: $lt_compiler_flag:'`
+-   (eval echo "\"\$as_me:7953: $lt_compile\"" >&5)
++   (eval echo "\"\$as_me:7955: $lt_compile\"" >&5)
+    (eval "$lt_compile" 2>conftest.err)
+    ac_status=$?
+    cat conftest.err >&5
+-   echo "$as_me:7957: \$? = $ac_status" >&5
++   echo "$as_me:7959: \$? = $ac_status" >&5
+    if (exit $ac_status) && test -s "$ac_outfile"; then
+      # The compiler can only warn and ignore the option if not recognized
+      # So say no if there are warnings other than the usual output.
+@@ -8054,11 +8056,11 @@ else
+    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
+    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
+    -e 's:$: $lt_compiler_flag:'`
+-   (eval echo "\"\$as_me:8057: $lt_compile\"" >&5)
++   (eval echo "\"\$as_me:8059: $lt_compile\"" >&5)
+    (eval "$lt_compile" 2>out/conftest.err)
+    ac_status=$?
+    cat out/conftest.err >&5
+-   echo "$as_me:8061: \$? = $ac_status" >&5
++   echo "$as_me:8063: \$? = $ac_status" >&5
+    if (exit $ac_status) && test -s out/conftest2.$ac_objext
+    then
+      # The compiler can only warn and ignore the option if not recognized
+@@ -10431,7 +10433,7 @@ else
+   lt_dlunknown=0; lt_dlno_uscore=1; lt_dlneed_uscore=2
+   lt_status=$lt_dlunknown
+   cat > conftest.$ac_ext <<EOF
+-#line 10434 "configure"
++#line 10436 "configure"
+ #include "confdefs.h"
+ 
+ #if HAVE_DLFCN_H
+@@ -10531,7 +10533,7 @@ else
+   lt_dlunknown=0; lt_dlno_uscore=1; lt_dlneed_uscore=2
+   lt_status=$lt_dlunknown
+   cat > conftest.$ac_ext <<EOF
+-#line 10534 "configure"
++#line 10536 "configure"
+ #include "confdefs.h"
+ 
+ #if HAVE_DLFCN_H
+@@ -12932,11 +12934,11 @@ else
+    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
+    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
+    -e 's:$: $lt_compiler_flag:'`
+-   (eval echo "\"\$as_me:12935: $lt_compile\"" >&5)
++   (eval echo "\"\$as_me:12937: $lt_compile\"" >&5)
+    (eval "$lt_compile" 2>conftest.err)
+    ac_status=$?
+    cat conftest.err >&5
+-   echo "$as_me:12939: \$? = $ac_status" >&5
++   echo "$as_me:12941: \$? = $ac_status" >&5
+    if (exit $ac_status) && test -s "$ac_outfile"; then
+      # The compiler can only warn and ignore the option if not recognized
+      # So say no if there are warnings other than the usual output.
+@@ -13036,11 +13038,11 @@ else
+    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
+    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
+    -e 's:$: $lt_compiler_flag:'`
+-   (eval echo "\"\$as_me:13039: $lt_compile\"" >&5)
++   (eval echo "\"\$as_me:13041: $lt_compile\"" >&5)
+    (eval "$lt_compile" 2>out/conftest.err)
+    ac_status=$?
+    cat out/conftest.err >&5
+-   echo "$as_me:13043: \$? = $ac_status" >&5
++   echo "$as_me:13045: \$? = $ac_status" >&5
+    if (exit $ac_status) && test -s out/conftest2.$ac_objext
+    then
+      # The compiler can only warn and ignore the option if not recognized
+@@ -14634,11 +14636,11 @@ else
+    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
+    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
+    -e 's:$: $lt_compiler_flag:'`
+-   (eval echo "\"\$as_me:14637: $lt_compile\"" >&5)
++   (eval echo "\"\$as_me:14639: $lt_compile\"" >&5)
+    (eval "$lt_compile" 2>conftest.err)
+    ac_status=$?
+    cat conftest.err >&5
+-   echo "$as_me:14641: \$? = $ac_status" >&5
++   echo "$as_me:14643: \$? = $ac_status" >&5
+    if (exit $ac_status) && test -s "$ac_outfile"; then
+      # The compiler can only warn and ignore the option if not recognized
+      # So say no if there are warnings other than the usual output.
+@@ -14738,11 +14740,11 @@ else
+    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
+    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
+    -e 's:$: $lt_compiler_flag:'`
+-   (eval echo "\"\$as_me:14741: $lt_compile\"" >&5)
++   (eval echo "\"\$as_me:14743: $lt_compile\"" >&5)
+    (eval "$lt_compile" 2>out/conftest.err)
+    ac_status=$?
+    cat out/conftest.err >&5
+-   echo "$as_me:14745: \$? = $ac_status" >&5
++   echo "$as_me:14747: \$? = $ac_status" >&5
+    if (exit $ac_status) && test -s out/conftest2.$ac_objext
+    then
+      # The compiler can only warn and ignore the option if not recognized
+@@ -16958,11 +16960,11 @@ else
+    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
+    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
+    -e 's:$: $lt_compiler_flag:'`
+-   (eval echo "\"\$as_me:16961: $lt_compile\"" >&5)
++   (eval echo "\"\$as_me:16963: $lt_compile\"" >&5)
+    (eval "$lt_compile" 2>conftest.err)
+    ac_status=$?
+    cat conftest.err >&5
+-   echo "$as_me:16965: \$? = $ac_status" >&5
++   echo "$as_me:16967: \$? = $ac_status" >&5
+    if (exit $ac_status) && test -s "$ac_outfile"; then
+      # The compiler can only warn and ignore the option if not recognized
+      # So say no if there are warnings other than the usual output.
+@@ -17248,11 +17250,11 @@ else
+    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
+    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
+    -e 's:$: $lt_compiler_flag:'`
+-   (eval echo "\"\$as_me:17251: $lt_compile\"" >&5)
++   (eval echo "\"\$as_me:17253: $lt_compile\"" >&5)
+    (eval "$lt_compile" 2>conftest.err)
+    ac_status=$?
+    cat conftest.err >&5
+-   echo "$as_me:17255: \$? = $ac_status" >&5
++   echo "$as_me:17257: \$? = $ac_status" >&5
+    if (exit $ac_status) && test -s "$ac_outfile"; then
+      # The compiler can only warn and ignore the option if not recognized
+      # So say no if there are warnings other than the usual output.
+@@ -17352,11 +17354,11 @@ else
+    -e 's:.*FLAGS}\{0,1\} :&$lt_compiler_flag :; t' \
+    -e 's: [^ ]*conftest\.: $lt_compiler_flag&:; t' \
+    -e 's:$: $lt_compiler_flag:'`
+-   (eval echo "\"\$as_me:17355: $lt_compile\"" >&5)
++   (eval echo "\"\$as_me:17357: $lt_compile\"" >&5)
+    (eval "$lt_compile" 2>out/conftest.err)
+    ac_status=$?
+    cat out/conftest.err >&5
+-   echo "$as_me:17359: \$? = $ac_status" >&5
++   echo "$as_me:17361: \$? = $ac_status" >&5
+    if (exit $ac_status) && test -s out/conftest2.$ac_objext
+    then
+      # The compiler can only warn and ignore the option if not recognized
+@@ -20450,6 +20452,133 @@ rm -f core conftest.err conftest.$ac_obj
+   rm -f conf.glibtest
+ 
+ 
++if test "x$CC" != xcc; then
++  { echo "$as_me:$LINENO: checking whether $CC and cc understand -c and -o together" >&5
++echo $ECHO_N "checking whether $CC and cc understand -c and -o together... $ECHO_C" >&6; }
++else
++  { echo "$as_me:$LINENO: checking whether cc understands -c and -o together" >&5
++echo $ECHO_N "checking whether cc understands -c and -o together... $ECHO_C" >&6; }
++fi
++set dummy $CC; ac_cc=`echo $2 |
++		      sed 's/[^a-zA-Z0-9_]/_/g;s/^[0-9]/_/'`
++if { as_var=ac_cv_prog_cc_${ac_cc}_c_o; eval "test \"\${$as_var+set}\" = set"; }; then
++  echo $ECHO_N "(cached) $ECHO_C" >&6
++else
++  cat >conftest.$ac_ext <<_ACEOF
++/* confdefs.h.  */
++_ACEOF
++cat confdefs.h >>conftest.$ac_ext
++cat >>conftest.$ac_ext <<_ACEOF
++/* end confdefs.h.  */
++
++int
++main ()
++{
++
++  ;
++  return 0;
++}
++_ACEOF
++# Make sure it works both with $CC and with simple cc.
++# We do the test twice because some compilers refuse to overwrite an
++# existing .o file with -o, though they will create one.
++ac_try='$CC -c conftest.$ac_ext -o conftest2.$ac_objext >&5'
++rm -f conftest2.*
++if { (case "(($ac_try" in
++  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
++  *) ac_try_echo=$ac_try;;
++esac
++eval "echo \"\$as_me:$LINENO: $ac_try_echo\"") >&5
++  (eval "$ac_try") 2>&5
++  ac_status=$?
++  echo "$as_me:$LINENO: \$? = $ac_status" >&5
++  (exit $ac_status); } &&
++   test -f conftest2.$ac_objext && { (case "(($ac_try" in
++  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
++  *) ac_try_echo=$ac_try;;
++esac
++eval "echo \"\$as_me:$LINENO: $ac_try_echo\"") >&5
++  (eval "$ac_try") 2>&5
++  ac_status=$?
++  echo "$as_me:$LINENO: \$? = $ac_status" >&5
++  (exit $ac_status); };
++then
++  eval ac_cv_prog_cc_${ac_cc}_c_o=yes
++  if test "x$CC" != xcc; then
++    # Test first that cc exists at all.
++    if { ac_try='cc -c conftest.$ac_ext >&5'
++  { (case "(($ac_try" in
++  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
++  *) ac_try_echo=$ac_try;;
++esac
++eval "echo \"\$as_me:$LINENO: $ac_try_echo\"") >&5
++  (eval "$ac_try") 2>&5
++  ac_status=$?
++  echo "$as_me:$LINENO: \$? = $ac_status" >&5
++  (exit $ac_status); }; }; then
++      ac_try='cc -c conftest.$ac_ext -o conftest2.$ac_objext >&5'
++      rm -f conftest2.*
++      if { (case "(($ac_try" in
++  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
++  *) ac_try_echo=$ac_try;;
++esac
++eval "echo \"\$as_me:$LINENO: $ac_try_echo\"") >&5
++  (eval "$ac_try") 2>&5
++  ac_status=$?
++  echo "$as_me:$LINENO: \$? = $ac_status" >&5
++  (exit $ac_status); } &&
++	 test -f conftest2.$ac_objext && { (case "(($ac_try" in
++  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
++  *) ac_try_echo=$ac_try;;
++esac
++eval "echo \"\$as_me:$LINENO: $ac_try_echo\"") >&5
++  (eval "$ac_try") 2>&5
++  ac_status=$?
++  echo "$as_me:$LINENO: \$? = $ac_status" >&5
++  (exit $ac_status); };
++      then
++	# cc works too.
++	:
++      else
++	# cc exists but doesn't like -o.
++	eval ac_cv_prog_cc_${ac_cc}_c_o=no
++      fi
++    fi
++  fi
++else
++  eval ac_cv_prog_cc_${ac_cc}_c_o=no
++fi
++rm -f core conftest*
++
++fi
++if eval test \$ac_cv_prog_cc_${ac_cc}_c_o = yes; then
++  { echo "$as_me:$LINENO: result: yes" >&5
++echo "${ECHO_T}yes" >&6; }
++else
++  { echo "$as_me:$LINENO: result: no" >&5
++echo "${ECHO_T}no" >&6; }
++
++cat >>confdefs.h <<\_ACEOF
++#define NO_MINUS_C_MINUS_O 1
++_ACEOF
++
++fi
++
++# FIXME: we rely on the cache variable name because
++# there is no other way.
++set dummy $CC
++ac_cc=`echo $2 | sed 's/[^a-zA-Z0-9_]/_/g;s/^[0-9]/_/'`
++if eval "test \"`echo '$ac_cv_prog_cc_'${ac_cc}_c_o`\" != yes"; then
++   # Losing compiler, so override with the script.
++   # FIXME: It is wrong to rewrite CC.
++   # But if we don't then we get into trouble of one sort or another.
++   # A longer-term fix would be to have automake use am__CC in this case,
++   # and then we could set am__CC="\$(top_srcdir)/compile \$(CC)"
++   CC="$am_aux_dir/compile $CC"
++fi
++
++
++
+ 
+ case "$am__api_version" in
+     1.01234)
+@@ -21577,12 +21706,15 @@ fi
+ gecko_cv_gecko=$with_gecko
+ 
+ # Autodetect gecko
+-_geckos="xulrunner firefox mozilla-firefox seamonkey mozilla"
++_geckos="xulrunner firefox mozilla-firefox seamonkey mozilla libxul-embedding libxul"
+ if test -z "$gecko_cv_gecko"; then
+ 	for lizard in $_geckos; do
+ 		if $PKG_CONFIG --exists $lizard-xpcom; then
+ 			gecko_cv_gecko=$lizard
+ 			break;
++		elif $PKG_CONFIG --exists $lizard-unstable; then
++			gecko_cv_gecko=$lizard
++			break;
+ 		fi
+ 	done
+ fi
+@@ -21604,6 +21736,18 @@ else
+ 	gecko_cv_have_gecko=yes
+ fi
+ 
++{ echo "$as_me:$LINENO: checking manual gecko home set" >&5
++echo $ECHO_N "checking manual gecko home set... $ECHO_C" >&6; }
++
++
++# Check whether --with-gecko-home was given.
++if test "${with_gecko_home+set}" = set; then
++  withval=$with_gecko_home;
++fi
++
++
++gecko_cv_gecko_home=$with_gecko_home
++
+ # ****************
+ # Define variables
+ # ****************
+@@ -21615,13 +21759,24 @@ mozilla) gecko_cv_gecko_flavour=mozilla 
+ seamonkey) gecko_cv_gecko_flavour=mozilla ;;
+ *firefox) gecko_cv_gecko_flavour=toolkit ;;
+ xulrunner) gecko_cv_gecko_flavour=toolkit ;;
++libxul*) gecko_cv_gecko_flavour=toolkit ;;
+ esac
+ 
+-_GECKO_INCLUDE_ROOT="`$PKG_CONFIG --variable=includedir ${gecko_cv_gecko}-xpcom`"
+-_GECKO_LIBDIR="`$PKG_CONFIG --variable=libdir ${gecko_cv_gecko}-xpcom`"
+-_GECKO_HOME="`$PKG_CONFIG --variable=libdir ${gecko_cv_gecko}-xpcom`"
+-_GECKO_PREFIX="`$PKG_CONFIG --variable=prefix ${gecko_cv_gecko}-xpcom`"
+-
++if $PKG_CONFIG --exists  ${gecko_cv_gecko}-xpcom; then
++	_GECKO_INCLUDE_ROOT="`$PKG_CONFIG --variable=includedir ${gecko_cv_gecko}-xpcom`"
++	_GECKO_CFLAGS="-I$_GECKO_INCLUDE_ROOT"
++	_GECKO_LIBDIR="`$PKG_CONFIG --variable=libdir ${gecko_cv_gecko}-xpcom`"
++	_GECKO_HOME="`$PKG_CONFIG --variable=libdir ${gecko_cv_gecko}-xpcom`"
++	_GECKO_PREFIX="`$PKG_CONFIG --variable=prefix ${gecko_cv_gecko}-xpcom`"
++	_GECKO_NSPR=no # XXX asac: this is currently a blind guess and should be a AC test
++else
++	_GECKO_INCLUDE_ROOT="`$PKG_CONFIG --variable=includedir ${gecko_cv_gecko}`/unstable"
++	_GECKO_CFLAGS="`$PKG_CONFIG --cflags ${gecko_cv_gecko}` `$PKG_CONFIG --cflags ${gecko_cv_gecko}-unstable`"
++	_GECKO_LIBDIR="`$PKG_CONFIG --variable=sdkdir ${gecko_cv_gecko}`/bin"
++	_GECKO_HOME=$with_gecko_home
++	_GECKO_PREFIX="`$PKG_CONFIG --variable=prefix ${gecko_cv_gecko}`"
++	_GECKO_NSPR=no # XXX asac: this is currently a blind guess and should be a AC test
++fi
+ fi # if gecko_cv_have_gecko
+ 
+ if test "$gecko_cv_gecko_flavour" = "toolkit"; then
+@@ -21632,21 +21787,14 @@ _ACEOF
+ 
+ fi
+ 
+- if test "$gecko_cv_gecko_flavour" = "toolkit"; then
+-  HAVE_MOZILLA_TOOLKIT_TRUE=
+-  HAVE_MOZILLA_TOOLKIT_FALSE='#'
+-else
+-  HAVE_MOZILLA_TOOLKIT_TRUE='#'
+-  HAVE_MOZILLA_TOOLKIT_FALSE=
+-fi
+-
+-
+ GECKO=$gecko_cv_gecko
+ GECKO_FLAVOUR=$gecko_cv_gecko_flavour
+ GECKO_INCLUDE_ROOT=$_GECKO_INCLUDE_ROOT
++GECKO_CFLAGS=$_GECKO_CFLAGS
+ GECKO_LIBDIR=$_GECKO_LIBDIR
+ GECKO_HOME=$_GECKO_HOME
+ GECKO_PREFIX=$_GECKO_PREFIX
++GECKO_NSPR=$_GECKO_NSPR
+ 
+ # **************************************************************
+ # This is really gcc-only
+@@ -21783,7 +21931,7 @@ ac_compiler_gnu=$ac_cv_cxx_compiler_gnu
+ 
+ 
+ _SAVE_CPPFLAGS="$CPPFLAGS"
+-CPPFLAGS="$CPPFLAGS $_GECKO_EXTRA_CPPFLAGS -I$_GECKO_INCLUDE_ROOT"
++CPPFLAGS="$CPPFLAGS $_GECKO_EXTRA_CPPFLAGS $_GECKO_CFLAGS"
+ 
+ { echo "$as_me:$LINENO: checking whether we have a gtk 2 gecko build" >&5
+ echo $ECHO_N "checking whether we have a gtk 2 gecko build... $ECHO_C" >&6; }
+@@ -21889,6 +22037,49 @@ rm -f core conftest.err conftest.$ac_obj
+ { echo "$as_me:$LINENO: result: $gecko_cv_have_debug" >&5
+ echo "${ECHO_T}$gecko_cv_have_debug" >&6; }
+ 
++{ echo "$as_me:$LINENO: checking whether we have a xpcom glue" >&5
++echo $ECHO_N "checking whether we have a xpcom glue... $ECHO_C" >&6; }
++cat >conftest.$ac_ext <<_ACEOF
++/* confdefs.h.  */
++_ACEOF
++cat confdefs.h >>conftest.$ac_ext
++cat >>conftest.$ac_ext <<_ACEOF
++/* end confdefs.h.  */
++
++		  #ifndef XPCOM_GLUE
++		  #error "no xpcom glue found"
++		  #endif
++
++_ACEOF
++rm -f conftest.$ac_objext
++if { (ac_try="$ac_compile"
++case "(($ac_try" in
++  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
++  *) ac_try_echo=$ac_try;;
++esac
++eval "echo \"\$as_me:$LINENO: $ac_try_echo\"") >&5
++  (eval "$ac_compile") 2>conftest.er1
++  ac_status=$?
++  grep -v '^ *+' conftest.er1 >conftest.err
++  rm -f conftest.er1
++  cat conftest.err >&5
++  echo "$as_me:$LINENO: \$? = $ac_status" >&5
++  (exit $ac_status); } && {
++	 test -z "$ac_cxx_werror_flag" ||
++	 test ! -s conftest.err
++       } && test -s conftest.$ac_objext; then
++  gecko_cv_have_xpcom_glue=yes
++else
++  echo "$as_me: failed program was:" >&5
++sed 's/^/| /' conftest.$ac_ext >&5
++
++	gecko_cv_have_xpcom_glue=no
++fi
++
++rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
++{ echo "$as_me:$LINENO: result: $gecko_cv_have_xpcom_glue" >&5
++echo "${ECHO_T}$gecko_cv_have_xpcom_glue" >&6; }
++
+ CPPFLAGS="$_SAVE_CPPFLAGS"
+ 
+ ac_ext=c
+@@ -21909,16 +22100,15 @@ _ACEOF
+ 
+ fi
+ 
+-fi # if gecko_cv_have_gecko
++if test "$gecko_cv_have_xpcom_glue" = "yes"; then
++
++cat >>confdefs.h <<\_ACEOF
++#define HAVE_GECKO_XPCOM_GLUE 1
++_ACEOF
+ 
+- if test "$gecko_cv_have_debug" = "yes"; then
+-  HAVE_GECKO_DEBUG_TRUE=
+-  HAVE_GECKO_DEBUG_FALSE='#'
+-else
+-  HAVE_GECKO_DEBUG_TRUE='#'
+-  HAVE_GECKO_DEBUG_FALSE=
+ fi
+ 
++fi # if gecko_cv_have_gecko
+ 
+ # ***********************
+ # Check for gecko version
+@@ -21934,7 +22124,7 @@ ac_compiler_gnu=$ac_cv_cxx_compiler_gnu
+ 
+ 
+ _SAVE_CPPFLAGS="$CPPFLAGS"
+-CPPFLAGS="$CPPFLAGS -I$_GECKO_INCLUDE_ROOT"
++CPPFLAGS="$CPPFLAGS $_GECKO_CFLAGS"
+ 
+ { echo "$as_me:$LINENO: checking for gecko version" >&5
+ echo $ECHO_N "checking for gecko version... $ECHO_C" >&6; }
+@@ -22083,7 +22273,54 @@ fi
+ 
+ fi # if gecko_cv_have_gecko
+ 
+- if test "$gecko_cv_gecko_version_int" -ge "1007000"; then
++GECKO_VERSION=$gecko_cv_gecko_version
++GECKO_VERSION_INT=$gecko_cv_gecko_version_int
++
++# **************************************************
++# Packages that we need to check for with pkg-config
++# **************************************************
++
++gecko_cv_extra_libs=
++gecko_cv_glue_libs=
++gecko_cv_extra_pkg_dependencies=
++
++if test "$gecko_cv_gecko_version_int" -ge "1009000"; then
++	if ! test "$gecko_cv_have_xpcom_glue" = "yes"; then
++		gecko_cv_extra_libs="-L$_GECKO_LIBDIR -lxul"
++	else
++		gecko_cv_glue_libs="-L$_GECKO_LIBDIR -lxpcomglue"
++	fi
++else
++	gecko_cv_extra_pkg_dependencies="${gecko_cv_gecko}-gtkmozembed"
++fi
++
++GECKO_EXTRA_PKG_DEPENDENCIES="$gecko_cv_extra_pkg_dependencies"
++GECKO_EXTRA_LIBS="$gecko_cv_extra_libs"
++GECKO_GLUE_LIBS="$gecko_cv_glue_libs"
++
++
++
++# Ensure we have an integer variable to compare with
++if test -z "$gecko_cv_gecko_version_int"; then
++	gecko_cv_gecko_version_int=0
++fi
++ if test "$gecko_cv_have_gecko" = "yes" -a "$gecko_cv_gecko_flavour" = "toolkit"; then
++  HAVE_MOZILLA_TOOLKIT_TRUE=
++  HAVE_MOZILLA_TOOLKIT_FALSE='#'
++else
++  HAVE_MOZILLA_TOOLKIT_TRUE='#'
++  HAVE_MOZILLA_TOOLKIT_FALSE=
++fi
++
++ if test "$gecko_cv_have_gecko" = "yes" -a "$gecko_cv_have_debug" = "yes"; then
++  HAVE_GECKO_DEBUG_TRUE=
++  HAVE_GECKO_DEBUG_FALSE='#'
++else
++  HAVE_GECKO_DEBUG_TRUE='#'
++  HAVE_GECKO_DEBUG_FALSE=
++fi
++
++ if test "$gecko_cv_have_gecko" = "yes" -a "$gecko_cv_gecko_version_int" -ge "1007000"; then
+   HAVE_GECKO_1_7_TRUE=
+   HAVE_GECKO_1_7_FALSE='#'
+ else
+@@ -22091,7 +22328,7 @@ else
+   HAVE_GECKO_1_7_FALSE=
+ fi
+ 
+- if test "$gecko_cv_gecko_version_int" -ge "1008000"; then
++ if test "$gecko_cv_have_gecko" = "yes" -a "$gecko_cv_gecko_version_int" -ge "1008000"; then
+   HAVE_GECKO_1_8_TRUE=
+   HAVE_GECKO_1_8_FALSE='#'
+ else
+@@ -22099,7 +22336,7 @@ else
+   HAVE_GECKO_1_8_FALSE=
+ fi
+ 
+- if test "$gecko_cv_gecko_version_int" -ge "1008001"; then
++ if test "$gecko_cv_have_gecko" = "yes" -a "$gecko_cv_gecko_version_int" -ge "1008001"; then
+   HAVE_GECKO_1_8_1_TRUE=
+   HAVE_GECKO_1_8_1_FALSE='#'
+ else
+@@ -22107,7 +22344,7 @@ else
+   HAVE_GECKO_1_8_1_FALSE=
+ fi
+ 
+- if test "$gecko_cv_gecko_version_int" -ge "1009000"; then
++ if test "$gecko_cv_have_gecko" = "yes" -a "$gecko_cv_gecko_version_int" -ge "1009000"; then
+   HAVE_GECKO_1_9_TRUE=
+   HAVE_GECKO_1_9_FALSE='#'
+ else
+@@ -22115,28 +22352,30 @@ else
+   HAVE_GECKO_1_9_FALSE=
+ fi
+ 
++ if test "x$_GECKO_HOME" != "x"; then
++  HAVE_GECKO_HOME_TRUE=
++  HAVE_GECKO_HOME_FALSE='#'
++else
++  HAVE_GECKO_HOME_TRUE='#'
++  HAVE_GECKO_HOME_FALSE=
++fi
+ 
+-GECKO_VERSION=$gecko_cv_gecko_version
+-GECKO_VERSION_INT=$gecko_cv_gecko_version_int
+-
+-# **************************************************
+-# Packages that we need to check for with pkg-config
+-# **************************************************
+-
+-gecko_cv_extra_libs=
+-gecko_cv_glue_libs=
+-gecko_cv_extra_pkg_dependencies=
++ if test "$gecko_cv_have_debug" = "yes"; then
++  HAVE_GECKO_DEBUG_TRUE=
++  HAVE_GECKO_DEBUG_FALSE='#'
++else
++  HAVE_GECKO_DEBUG_TRUE='#'
++  HAVE_GECKO_DEBUG_FALSE=
++fi
+ 
+-if test "$gecko_cv_gecko_version_int" -ge "1009000"; then
+-	gecko_cv_extra_libs="-L$_GECKO_LIBDIR -lxul"
+-	gecko_cv_glue_libs="-L$_GECKO_LIBDIR -lxpcomglue_s"
++ if test "$gecko_cv_have_xpcom_glue" = "yes"; then
++  HAVE_GECKO_XPCOM_GLUE_TRUE=
++  HAVE_GECKO_XPCOM_GLUE_FALSE='#'
+ else
+-	gecko_cv_extra_pkg_dependencies="${gecko_cv_gecko}-gtkmozembed"
++  HAVE_GECKO_XPCOM_GLUE_TRUE='#'
++  HAVE_GECKO_XPCOM_GLUE_FALSE=
+ fi
+ 
+-GECKO_EXTRA_PKG_DEPENDENCIES="$gecko_cv_extra_pkg_dependencies"
+-GECKO_EXTRA_LIBS="$gecko_cv_extra_libs"
+-GECKO_GLUE_LIBS="$gecko_cv_glue_libs"
+ 
+ 
+ 
+@@ -22153,119 +22392,20 @@ seamonkey) gecko_min_version=1.0 ;;
+ *firefox) gecko_min_version=1.0 ;;
+ *thunderbird) gecko_min_version=1.0 ;;
+ xulrunner) gecko_min_version=1.8 ;;
++libxul*) gecko_min_version=1.9 ;;
++*) { { echo "$as_me:$LINENO: error: $gecko_cv_gecko is not supported" >&5
++echo "$as_me: error: $gecko_cv_gecko is not supported" >&2;}
++   { (exit 1); exit 1; }; }
+ esac
+ 
+-
+-pkg_failed=no
+-{ echo "$as_me:$LINENO: checking for GECKO" >&5
+-echo $ECHO_N "checking for GECKO... $ECHO_C" >&6; }
+-
+-if test -n "$PKG_CONFIG"; then
+-    if test -n "$GECKO_CFLAGS"; then
+-        pkg_cv_GECKO_CFLAGS="$GECKO_CFLAGS"
+-    else
+-        if test -n "$PKG_CONFIG" && \
+-    { (echo "$as_me:$LINENO: \$PKG_CONFIG --exists --print-errors \"\$GECKO_EXTRA_PKG_DEPENDENCIES \$GECKO-xpcom >= \$gecko_min_version\"") >&5
+-  ($PKG_CONFIG --exists --print-errors "$GECKO_EXTRA_PKG_DEPENDENCIES $GECKO-xpcom >= $gecko_min_version") 2>&5
+-  ac_status=$?
+-  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+-  (exit $ac_status); }; then
+-  pkg_cv_GECKO_CFLAGS=`$PKG_CONFIG --cflags "$GECKO_EXTRA_PKG_DEPENDENCIES $GECKO-xpcom >= $gecko_min_version" 2>/dev/null`
+-else
+-  pkg_failed=yes
+-fi
+-    fi
+-else
+-	pkg_failed=untried
+-fi
+-if test -n "$PKG_CONFIG"; then
+-    if test -n "$GECKO_LIBS"; then
+-        pkg_cv_GECKO_LIBS="$GECKO_LIBS"
+-    else
+-        if test -n "$PKG_CONFIG" && \
+-    { (echo "$as_me:$LINENO: \$PKG_CONFIG --exists --print-errors \"\$GECKO_EXTRA_PKG_DEPENDENCIES \$GECKO-xpcom >= \$gecko_min_version\"") >&5
+-  ($PKG_CONFIG --exists --print-errors "$GECKO_EXTRA_PKG_DEPENDENCIES $GECKO-xpcom >= $gecko_min_version") 2>&5
+-  ac_status=$?
+-  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+-  (exit $ac_status); }; then
+-  pkg_cv_GECKO_LIBS=`$PKG_CONFIG --libs "$GECKO_EXTRA_PKG_DEPENDENCIES $GECKO-xpcom >= $gecko_min_version" 2>/dev/null`
+-else
+-  pkg_failed=yes
+-fi
+-    fi
+-else
+-	pkg_failed=untried
+-fi
+-
+-
+-
+-if test $pkg_failed = yes; then
+-
+-if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
+-        _pkg_short_errors_supported=yes
++if test $GECKO = libxul-embedding; then
++	GECKO_CFLAGS=`pkg-config --cflags libxul-embedding '>=' $gecko_min_version $gecko_cv_extra_pkg_dependencies`
++	GECKO_LIBS=`pkg-config --libs libxul-embedding '>=' $gecko_min_version $gecko_cv_extra_pkg_dependencies`
+ else
+-        _pkg_short_errors_supported=no
++	GECKO_CFLAGS=`pkg-config --cflags ${GECKO}-xpcom '>=' $gecko_min_version $GECKO_EXTRA_PKG_DEPENDENCIES`
++	GECKO_LIBS=`pkg-config --libs ${GECKO}-xpcom '>=' $gecko_min_version $GECKO_EXTRA_PKG_DEPENDENCIES`
+ fi
+-        if test $_pkg_short_errors_supported = yes; then
+-	        GECKO_PKG_ERRORS=`$PKG_CONFIG --short-errors --errors-to-stdout --print-errors "$GECKO_EXTRA_PKG_DEPENDENCIES $GECKO-xpcom >= $gecko_min_version"`
+-        else
+-	        GECKO_PKG_ERRORS=`$PKG_CONFIG --errors-to-stdout --print-errors "$GECKO_EXTRA_PKG_DEPENDENCIES $GECKO-xpcom >= $gecko_min_version"`
+-        fi
+-	# Put the nasty error message in config.log where it belongs
+-	echo "$GECKO_PKG_ERRORS" >&5
+-
+-	{ { echo "$as_me:$LINENO: error: Package requirements ($GECKO_EXTRA_PKG_DEPENDENCIES $GECKO-xpcom >= $gecko_min_version) were not met:
+-
+-$GECKO_PKG_ERRORS
+-
+-Consider adjusting the PKG_CONFIG_PATH environment variable if you
+-installed software in a non-standard prefix.
+-
+-Alternatively, you may set the environment variables GECKO_CFLAGS
+-and GECKO_LIBS to avoid the need to call pkg-config.
+-See the pkg-config man page for more details.
+-" >&5
+-echo "$as_me: error: Package requirements ($GECKO_EXTRA_PKG_DEPENDENCIES $GECKO-xpcom >= $gecko_min_version) were not met:
+-
+-$GECKO_PKG_ERRORS
+-
+-Consider adjusting the PKG_CONFIG_PATH environment variable if you
+-installed software in a non-standard prefix.
+-
+-Alternatively, you may set the environment variables GECKO_CFLAGS
+-and GECKO_LIBS to avoid the need to call pkg-config.
+-See the pkg-config man page for more details.
+-" >&2;}
+-   { (exit 1); exit 1; }; }
+-elif test $pkg_failed = untried; then
+-	{ { echo "$as_me:$LINENO: error: The pkg-config script could not be found or is too old.  Make sure it
+-is in your PATH or set the PKG_CONFIG environment variable to the full
+-path to pkg-config.
+-
+-Alternatively, you may set the environment variables GECKO_CFLAGS
+-and GECKO_LIBS to avoid the need to call pkg-config.
+-See the pkg-config man page for more details.
+-
+-To get pkg-config, see <http://pkg-config.freedesktop.org/>.
+-See \`config.log' for more details." >&5
+-echo "$as_me: error: The pkg-config script could not be found or is too old.  Make sure it
+-is in your PATH or set the PKG_CONFIG environment variable to the full
+-path to pkg-config.
+ 
+-Alternatively, you may set the environment variables GECKO_CFLAGS
+-and GECKO_LIBS to avoid the need to call pkg-config.
+-See the pkg-config man page for more details.
+-
+-To get pkg-config, see <http://pkg-config.freedesktop.org/>.
+-See \`config.log' for more details." >&2;}
+-   { (exit 1); exit 1; }; }
+-else
+-	GECKO_CFLAGS=$pkg_cv_GECKO_CFLAGS
+-	GECKO_LIBS=$pkg_cv_GECKO_LIBS
+-        { echo "$as_me:$LINENO: result: yes" >&5
+-echo "${ECHO_T}yes" >&6; }
+-	:
+-fi
+ 
+ 
+ 
+@@ -22299,10 +22439,20 @@ _SAVE_CPPFLAGS="$CPPFLAGS"
+ _SAVE_CXXFLAGS="$CXXFLAGS"
+ _SAVE_LDFLAGS="$LDFLAGS"
+ _SAVE_LIBS="$LIBS"
+-CPPFLAGS="$CPPFLAGS $_GECKO_EXTRA_CPPFLAGS -I$_GECKO_INCLUDE_ROOT $($PKG_CONFIG --cflags-only-I ${gecko_cv_gecko}-xpcom)"
+-CXXFLAGS="$CXXFLAGS $_GECKO_EXTRA_CXXFLAGS $($PKG_CONFIG --cflags-only-other ${gecko_cv_gecko}-xpcom)"
+-LDFLAGS="$LDFLAGS $_GECKO_EXTRA_LDFLAGS -Wl,--rpath=$_GECKO_HOME"
+-LIBS="$LIBS $($PKG_CONFIG --libs ${gecko_cv_gecko}-xpcom)"
++if test "${gecko_cv_gecko}" = "libxul-embedding" -o "${gecko_cv_gecko}" = "libxul"; then
++	CPPFLAGS="$CPPFLAGS $_GECKO_EXTRA_CPPFLAGS $_GECKO_CFLAGS $($PKG_CONFIG --cflags-only-I ${gecko_cv_gecko}-unstable)"
++	CXXFLAGS="$CXXFLAGS $_GECKO_EXTRA_CXXFLAGS $_GECKO_CFLAGS $($PKG_CONFIG --cflags-only-other ${gecko_cv_gecko}-unstable)"
++	LIBS="$LIBS $($PKG_CONFIG --libs ${gecko_cv_gecko}) -ldl"
++else
++	CPPFLAGS="$CPPFLAGS $_GECKO_EXTRA_CPPFLAGS $_GECKO_CFLAGS $($PKG_CONFIG --cflags-only-I ${gecko_cv_gecko}-xpcom)"
++	CXXFLAGS="$CXXFLAGS $_GECKO_EXTRA_CXXFLAGS $_GECKO_CFLAGS $($PKG_CONFIG --cflags-only-other ${gecko_cv_gecko}-xpcom)"
++	LIBS="$LIBS $($PKG_CONFIG --libs ${gecko_cv_gecko}-xpcom)"
++fi
++if test -n "$_GECKO_HOME"; then
++	LDFLAGS="$LDFLAGS $_GECKO_EXTRA_LDFLAGS -Wl,--rpath=$_GECKO_HOME"
++else
++	LDFLAGS="$LDFLAGS $_GECKO_EXTRA_LDFLAGS"
++fi
+ 
+ _GECKO_DISPATCH_INCLUDEDIRS="content"
+ 
+@@ -22311,9 +22461,11 @@ _GECKO_DISPATCH_INCLUDEDIRS="content"
+ # Mind you, it's useful to be able to test against uninstalled mozilla builds...
+ _GECKO_DISPATCH_INCLUDEDIRS="$_GECKO_DISPATCH_INCLUDEDIRS dom necko pref"
+ 
+-# Now add them to CPPFLAGS
++# Now add them to CPPFLAGS - asac: well ... not anymore since 1.9 -> test whether they exist before adding.
+ for i in $_GECKO_DISPATCH_INCLUDEDIRS; do
+-	CPPFLAGS="$CPPFLAGS -I$_GECKO_INCLUDE_ROOT/$i"
++	if test -d "$_GECKO_INCLUDE_ROOT/$i"; then
++		CPPFLAGS="$CPPFLAGS -I$_GECKO_INCLUDE_ROOT/$i"
++	fi
+ done
+ 
+ cat >conftest.$ac_ext <<_ACEOF
+@@ -22406,10 +22558,20 @@ _SAVE_CPPFLAGS="$CPPFLAGS"
+ _SAVE_CXXFLAGS="$CXXFLAGS"
+ _SAVE_LDFLAGS="$LDFLAGS"
+ _SAVE_LIBS="$LIBS"
+-CPPFLAGS="$CPPFLAGS $_GECKO_EXTRA_CPPFLAGS -I$_GECKO_INCLUDE_ROOT $($PKG_CONFIG --cflags-only-I ${gecko_cv_gecko}-xpcom)"
+-CXXFLAGS="$CXXFLAGS $_GECKO_EXTRA_CXXFLAGS $($PKG_CONFIG --cflags-only-other ${gecko_cv_gecko}-xpcom)"
+-LDFLAGS="$LDFLAGS $_GECKO_EXTRA_LDFLAGS -Wl,--rpath=$_GECKO_HOME"
+-LIBS="$LIBS $($PKG_CONFIG --libs ${gecko_cv_gecko}-xpcom)"
++if test "${gecko_cv_gecko}" = "libxul-embedding" -o "${gecko_cv_gecko}" = "libxul"; then
++	CPPFLAGS="$CPPFLAGS $_GECKO_EXTRA_CPPFLAGS $_GECKO_CFLAGS $($PKG_CONFIG --cflags-only-I ${gecko_cv_gecko}-unstable)"
++	CXXFLAGS="$CXXFLAGS $_GECKO_EXTRA_CXXFLAGS $_GECKO_CFLAGS $($PKG_CONFIG --cflags-only-other ${gecko_cv_gecko}-unstable)"
++	LIBS="$LIBS $($PKG_CONFIG --libs ${gecko_cv_gecko}) -ldl"
++else
++	CPPFLAGS="$CPPFLAGS $_GECKO_EXTRA_CPPFLAGS $_GECKO_CFLAGS $($PKG_CONFIG --cflags-only-I ${gecko_cv_gecko}-xpcom)"
++	CXXFLAGS="$CXXFLAGS $_GECKO_EXTRA_CXXFLAGS $_GECKO_CFLAGS $($PKG_CONFIG --cflags-only-other ${gecko_cv_gecko}-xpcom)"
++	LIBS="$LIBS $($PKG_CONFIG --libs ${gecko_cv_gecko}-xpcom)"
++fi
++if test -n "$_GECKO_HOME"; then
++	LDFLAGS="$LDFLAGS $_GECKO_EXTRA_LDFLAGS -Wl,--rpath=$_GECKO_HOME"
++else
++	LDFLAGS="$LDFLAGS $_GECKO_EXTRA_LDFLAGS"
++fi
+ 
+ _GECKO_DISPATCH_INCLUDEDIRS=""
+ 
+@@ -22418,9 +22580,11 @@ _GECKO_DISPATCH_INCLUDEDIRS=""
+ # Mind you, it's useful to be able to test against uninstalled mozilla builds...
+ _GECKO_DISPATCH_INCLUDEDIRS="$_GECKO_DISPATCH_INCLUDEDIRS dom necko pref"
+ 
+-# Now add them to CPPFLAGS
++# Now add them to CPPFLAGS - asac: well ... not anymore since 1.9 -> test whether they exist before adding.
+ for i in $_GECKO_DISPATCH_INCLUDEDIRS; do
+-	CPPFLAGS="$CPPFLAGS -I$_GECKO_INCLUDE_ROOT/$i"
++	if test -d "$_GECKO_INCLUDE_ROOT/$i"; then
++		CPPFLAGS="$CPPFLAGS -I$_GECKO_INCLUDE_ROOT/$i"
++	fi
+ done
+ 
+ 
+@@ -24811,6 +24975,27 @@ echo "$as_me: error: conditional \"HAVE_
+ Usually this means the macro was only invoked conditionally." >&2;}
+    { (exit 1); exit 1; }; }
+ fi
++if test -z "${HAVE_GECKO_HOME_TRUE}" && test -z "${HAVE_GECKO_HOME_FALSE}"; then
++  { { echo "$as_me:$LINENO: error: conditional \"HAVE_GECKO_HOME\" was never defined.
++Usually this means the macro was only invoked conditionally." >&5
++echo "$as_me: error: conditional \"HAVE_GECKO_HOME\" was never defined.
++Usually this means the macro was only invoked conditionally." >&2;}
++   { (exit 1); exit 1; }; }
++fi
++if test -z "${HAVE_GECKO_DEBUG_TRUE}" && test -z "${HAVE_GECKO_DEBUG_FALSE}"; then
++  { { echo "$as_me:$LINENO: error: conditional \"HAVE_GECKO_DEBUG\" was never defined.
++Usually this means the macro was only invoked conditionally." >&5
++echo "$as_me: error: conditional \"HAVE_GECKO_DEBUG\" was never defined.
++Usually this means the macro was only invoked conditionally." >&2;}
++   { (exit 1); exit 1; }; }
++fi
++if test -z "${HAVE_GECKO_XPCOM_GLUE_TRUE}" && test -z "${HAVE_GECKO_XPCOM_GLUE_FALSE}"; then
++  { { echo "$as_me:$LINENO: error: conditional \"HAVE_GECKO_XPCOM_GLUE\" was never defined.
++Usually this means the macro was only invoked conditionally." >&5
++echo "$as_me: error: conditional \"HAVE_GECKO_XPCOM_GLUE\" was never defined.
++Usually this means the macro was only invoked conditionally." >&2;}
++   { (exit 1); exit 1; }; }
++fi
+ 
+ : ${CONFIG_STATUS=./config.status}
+ ac_clean_files_save=$ac_clean_files
+@@ -25573,12 +25758,17 @@ HAVE_GECKO_1_8_1_TRUE!$HAVE_GECKO_1_8_1_
+ HAVE_GECKO_1_8_1_FALSE!$HAVE_GECKO_1_8_1_FALSE$ac_delim
+ HAVE_GECKO_1_9_TRUE!$HAVE_GECKO_1_9_TRUE$ac_delim
+ HAVE_GECKO_1_9_FALSE!$HAVE_GECKO_1_9_FALSE$ac_delim
++HAVE_GECKO_HOME_TRUE!$HAVE_GECKO_HOME_TRUE$ac_delim
++HAVE_GECKO_HOME_FALSE!$HAVE_GECKO_HOME_FALSE$ac_delim
++HAVE_GECKO_XPCOM_GLUE_TRUE!$HAVE_GECKO_XPCOM_GLUE_TRUE$ac_delim
++HAVE_GECKO_XPCOM_GLUE_FALSE!$HAVE_GECKO_XPCOM_GLUE_FALSE$ac_delim
+ GECKO!$GECKO$ac_delim
+ GECKO_FLAVOUR!$GECKO_FLAVOUR$ac_delim
+ GECKO_INCLUDE_ROOT!$GECKO_INCLUDE_ROOT$ac_delim
+ GECKO_HOME!$GECKO_HOME$ac_delim
+ GECKO_PREFIX!$GECKO_PREFIX$ac_delim
+ GECKO_EXTRA_LIBS!$GECKO_EXTRA_LIBS$ac_delim
++GECKO_GLUE_LIBS!$GECKO_GLUE_LIBS$ac_delim
+ GECKO_CFLAGS!$GECKO_CFLAGS$ac_delim
+ GECKO_LIBS!$GECKO_LIBS$ac_delim
+ GECKO_WARN_CXXFLAGS!$GECKO_WARN_CXXFLAGS$ac_delim
+@@ -25592,11 +25782,6 @@ CATALOGS!$CATALOGS$ac_delim
+ CATOBJEXT!$CATOBJEXT$ac_delim
+ GMOFILES!$GMOFILES$ac_delim
+ INSTOBJEXT!$INSTOBJEXT$ac_delim
+-INTLLIBS!$INTLLIBS$ac_delim
+-PO_IN_DATADIR_TRUE!$PO_IN_DATADIR_TRUE$ac_delim
+-PO_IN_DATADIR_FALSE!$PO_IN_DATADIR_FALSE$ac_delim
+-POFILES!$POFILES$ac_delim
+-POSUB!$POSUB$ac_delim
+ _ACEOF
+ 
+   if test `sed -n "s/.*$ac_delim\$/X/p" conf$$subs.sed | grep -c X` = 97; then
+@@ -25638,6 +25823,11 @@ _ACEOF
+ ac_delim='%!_!# '
+ for ac_last_try in false false false false false :; do
+   cat >conf$$subs.sed <<_ACEOF
++INTLLIBS!$INTLLIBS$ac_delim
++PO_IN_DATADIR_TRUE!$PO_IN_DATADIR_TRUE$ac_delim
++PO_IN_DATADIR_FALSE!$PO_IN_DATADIR_FALSE$ac_delim
++POFILES!$POFILES$ac_delim
++POSUB!$POSUB$ac_delim
+ MKINSTALLDIRS!$MKINSTALLDIRS$ac_delim
+ PYTHON!$PYTHON$ac_delim
+ PYTHON_VERSION!$PYTHON_VERSION$ac_delim
+@@ -25652,7 +25842,7 @@ LIBOBJS!$LIBOBJS$ac_delim
+ LTLIBOBJS!$LTLIBOBJS$ac_delim
+ _ACEOF
+ 
+-  if test `sed -n "s/.*$ac_delim\$/X/p" conf$$subs.sed | grep -c X` = 12; then
++  if test `sed -n "s/.*$ac_delim\$/X/p" conf$$subs.sed | grep -c X` = 17; then
+     break
+   elif $ac_last_try; then
+     { { echo "$as_me:$LINENO: error: could not make $CONFIG_STATUS" >&5
+Index: devhelp-0.19.1/contrib/Makefile.in
+===================================================================
+--- devhelp-0.19.1.orig/contrib/Makefile.in	2008-05-27 13:17:14.057152864 +0200
++++ devhelp-0.19.1/contrib/Makefile.in	2008-05-27 13:19:25.469151108 +0200
+@@ -86,6 +86,7 @@ GECKO = @GECKO@
+ GECKO_CFLAGS = @GECKO_CFLAGS@
+ GECKO_EXTRA_LIBS = @GECKO_EXTRA_LIBS@
+ GECKO_FLAVOUR = @GECKO_FLAVOUR@
++GECKO_GLUE_LIBS = @GECKO_GLUE_LIBS@
+ GECKO_HOME = @GECKO_HOME@
+ GECKO_INCLUDE_ROOT = @GECKO_INCLUDE_ROOT@
+ GECKO_LIBS = @GECKO_LIBS@
+Index: devhelp-0.19.1/data/Makefile.in
+===================================================================
+--- devhelp-0.19.1.orig/data/Makefile.in	2008-05-27 13:17:13.981159476 +0200
++++ devhelp-0.19.1/data/Makefile.in	2008-05-27 13:19:25.469151108 +0200
+@@ -110,6 +110,7 @@ GECKO = @GECKO@
+ GECKO_CFLAGS = @GECKO_CFLAGS@
+ GECKO_EXTRA_LIBS = @GECKO_EXTRA_LIBS@
+ GECKO_FLAVOUR = @GECKO_FLAVOUR@
++GECKO_GLUE_LIBS = @GECKO_GLUE_LIBS@
+ GECKO_HOME = @GECKO_HOME@
+ GECKO_INCLUDE_ROOT = @GECKO_INCLUDE_ROOT@
+ GECKO_LIBS = @GECKO_LIBS@
+Index: devhelp-0.19.1/data/dtd/Makefile.in
+===================================================================
+--- devhelp-0.19.1.orig/data/dtd/Makefile.in	2008-05-27 13:17:13.957165785 +0200
++++ devhelp-0.19.1/data/dtd/Makefile.in	2008-05-27 13:19:25.469151108 +0200
+@@ -96,6 +96,7 @@ GECKO = @GECKO@
+ GECKO_CFLAGS = @GECKO_CFLAGS@
+ GECKO_EXTRA_LIBS = @GECKO_EXTRA_LIBS@
+ GECKO_FLAVOUR = @GECKO_FLAVOUR@
++GECKO_GLUE_LIBS = @GECKO_GLUE_LIBS@
+ GECKO_HOME = @GECKO_HOME@
+ GECKO_INCLUDE_ROOT = @GECKO_INCLUDE_ROOT@
+ GECKO_LIBS = @GECKO_LIBS@
+Index: devhelp-0.19.1/data/icons/Makefile.in
+===================================================================
+--- devhelp-0.19.1.orig/data/icons/Makefile.in	2008-05-27 13:17:13.933156448 +0200
++++ devhelp-0.19.1/data/icons/Makefile.in	2008-05-27 13:19:25.469151108 +0200
+@@ -104,6 +104,7 @@ GECKO = @GECKO@
+ GECKO_CFLAGS = @GECKO_CFLAGS@
+ GECKO_EXTRA_LIBS = @GECKO_EXTRA_LIBS@
+ GECKO_FLAVOUR = @GECKO_FLAVOUR@
++GECKO_GLUE_LIBS = @GECKO_GLUE_LIBS@
+ GECKO_HOME = @GECKO_HOME@
+ GECKO_INCLUDE_ROOT = @GECKO_INCLUDE_ROOT@
+ GECKO_LIBS = @GECKO_LIBS@
+Index: devhelp-0.19.1/data/ui/Makefile.in
+===================================================================
+--- devhelp-0.19.1.orig/data/ui/Makefile.in	2008-05-27 13:17:13.905153378 +0200
++++ devhelp-0.19.1/data/ui/Makefile.in	2008-05-27 13:19:25.469151108 +0200
+@@ -99,6 +99,7 @@ GECKO = @GECKO@
+ GECKO_CFLAGS = @GECKO_CFLAGS@
+ GECKO_EXTRA_LIBS = @GECKO_EXTRA_LIBS@
+ GECKO_FLAVOUR = @GECKO_FLAVOUR@
++GECKO_GLUE_LIBS = @GECKO_GLUE_LIBS@
+ GECKO_HOME = @GECKO_HOME@
+ GECKO_INCLUDE_ROOT = @GECKO_INCLUDE_ROOT@
+ GECKO_LIBS = @GECKO_LIBS@
+Index: devhelp-0.19.1/misc/Makefile.in
+===================================================================
+--- devhelp-0.19.1.orig/misc/Makefile.in	2008-05-27 13:17:13.881155286 +0200
++++ devhelp-0.19.1/misc/Makefile.in	2008-05-27 13:19:25.469151108 +0200
+@@ -98,6 +98,7 @@ GECKO = @GECKO@
+ GECKO_CFLAGS = @GECKO_CFLAGS@
+ GECKO_EXTRA_LIBS = @GECKO_EXTRA_LIBS@
+ GECKO_FLAVOUR = @GECKO_FLAVOUR@
++GECKO_GLUE_LIBS = @GECKO_GLUE_LIBS@
+ GECKO_HOME = @GECKO_HOME@
+ GECKO_INCLUDE_ROOT = @GECKO_INCLUDE_ROOT@
+ GECKO_LIBS = @GECKO_LIBS@
+Index: devhelp-0.19.1/misc/gedit-plugin/Makefile.in
+===================================================================
+--- devhelp-0.19.1.orig/misc/gedit-plugin/Makefile.in	2008-05-27 13:17:13.825151101 +0200
++++ devhelp-0.19.1/misc/gedit-plugin/Makefile.in	2008-05-27 13:19:25.473150708 +0200
+@@ -108,6 +108,7 @@ GECKO = @GECKO@
+ GECKO_CFLAGS = @GECKO_CFLAGS@
+ GECKO_EXTRA_LIBS = @GECKO_EXTRA_LIBS@
+ GECKO_FLAVOUR = @GECKO_FLAVOUR@
++GECKO_GLUE_LIBS = @GECKO_GLUE_LIBS@
+ GECKO_HOME = @GECKO_HOME@
+ GECKO_INCLUDE_ROOT = @GECKO_INCLUDE_ROOT@
+ GECKO_LIBS = @GECKO_LIBS@
+Index: devhelp-0.19.1/misc/gedit-plugin/devhelp/Makefile.in
+===================================================================
+--- devhelp-0.19.1.orig/misc/gedit-plugin/devhelp/Makefile.in	2008-05-27 13:17:13.801152521 +0200
++++ devhelp-0.19.1/misc/gedit-plugin/devhelp/Makefile.in	2008-05-27 13:19:25.473150708 +0200
+@@ -96,6 +96,7 @@ GECKO = @GECKO@
+ GECKO_CFLAGS = @GECKO_CFLAGS@
+ GECKO_EXTRA_LIBS = @GECKO_EXTRA_LIBS@
+ GECKO_FLAVOUR = @GECKO_FLAVOUR@
++GECKO_GLUE_LIBS = @GECKO_GLUE_LIBS@
+ GECKO_HOME = @GECKO_HOME@
+ GECKO_INCLUDE_ROOT = @GECKO_INCLUDE_ROOT@
+ GECKO_LIBS = @GECKO_LIBS@
+Index: devhelp-0.19.1/src/Makefile.in
+===================================================================
+--- devhelp-0.19.1.orig/src/Makefile.in	2008-05-27 13:17:13.745159091 +0200
++++ devhelp-0.19.1/src/Makefile.in	2008-05-27 13:19:25.473150708 +0200
+@@ -36,8 +36,10 @@ POST_UNINSTALL = :
+ build_triplet = @build@
+ host_triplet = @host@
+ bin_PROGRAMS = devhelp$(EXEEXT)
+-@HAVE_GECKO_1_8_TRUE@am__append_1 = default-prefs-gecko-1-8.js
+-@HAVE_GECKO_1_9_TRUE@am__append_2 = default-prefs-gecko-1-9.js
++@HAVE_GECKO_XPCOM_GLUE_FALSE@am__append_1 = -R$(GECKO_HOME)
++@HAVE_GECKO_XPCOM_GLUE_FALSE@am__append_2 = -R$(GECKO_HOME)
++@HAVE_GECKO_1_8_TRUE@am__append_3 = default-prefs-gecko-1-8.js
++@HAVE_GECKO_1_9_TRUE@am__append_4 = default-prefs-gecko-1-9.js
+ subdir = src
+ DIST_COMMON = $(devhelpinclude_HEADERS) $(srcdir)/Makefile.am \
+ 	$(srcdir)/Makefile.in
+@@ -60,20 +62,12 @@ am__installdirs = "$(DESTDIR)$(libdir)" 
+ 	"$(DESTDIR)$(default_prefsdir)" \
+ 	"$(DESTDIR)$(devhelpincludedir)"
+ libLTLIBRARIES_INSTALL = $(INSTALL)
+-LTLIBRARIES = $(lib_LTLIBRARIES) $(noinst_LTLIBRARIES)
++LTLIBRARIES = $(lib_LTLIBRARIES)
+ am__DEPENDENCIES_1 =
+-libcppwrapper_la_DEPENDENCIES = $(am__DEPENDENCIES_1) \
+-	$(am__DEPENDENCIES_1)
+-am_libcppwrapper_la_OBJECTS = libcppwrapper_la-Yelper.lo \
+-	libcppwrapper_la-dh-gecko-utils.lo
+-libcppwrapper_la_OBJECTS = $(am_libcppwrapper_la_OBJECTS)
+-libcppwrapper_la_LINK = $(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) \
+-	$(LIBTOOLFLAGS) --mode=link $(CXXLD) \
+-	$(libcppwrapper_la_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
+-	$(LDFLAGS) -o $@
+-libdevhelp_1_la_DEPENDENCIES = libcppwrapper.la $(am__DEPENDENCIES_1) \
++libdevhelp_1_la_DEPENDENCIES = $(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
+-am_libdevhelp_1_la_OBJECTS =  \
++am_libdevhelp_1_la_OBJECTS = libdevhelp_1_la-Yelper.lo \
++	libdevhelp_1_la-dh-gecko-utils.lo \
+ 	libdevhelp_1_la-bacon-message-connection.lo \
+ 	libdevhelp_1_la-dh-marshal-main.lo libdevhelp_1_la-dh-base.lo \
+ 	libdevhelp_1_la-dh-book-tree.lo libdevhelp_1_la-dh-error.lo \
+@@ -83,9 +77,10 @@ am_libdevhelp_1_la_OBJECTS =  \
+ 	libdevhelp_1_la-dh-util.lo libdevhelp_1_la-dh-window.lo \
+ 	libdevhelp_1_la-eggfindbar.lo
+ libdevhelp_1_la_OBJECTS = $(am_libdevhelp_1_la_OBJECTS)
+-libdevhelp_1_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(libdevhelp_1_la_CFLAGS) \
+-	$(CFLAGS) $(libdevhelp_1_la_LDFLAGS) $(LDFLAGS) -o $@
++libdevhelp_1_la_LINK = $(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) \
++	$(LIBTOOLFLAGS) --mode=link $(CXXLD) \
++	$(libdevhelp_1_la_CXXFLAGS) $(CXXFLAGS) \
++	$(libdevhelp_1_la_LDFLAGS) $(LDFLAGS) -o $@
+ binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
+ PROGRAMS = $(bin_PROGRAMS)
+ am_devhelp_OBJECTS = devhelp-dh-main.$(OBJEXT)
+@@ -115,10 +110,8 @@ CXXLD = $(CXX)
+ CXXLINK = $(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+ 	--mode=link $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
+ 	$(LDFLAGS) -o $@
+-SOURCES = $(libcppwrapper_la_SOURCES) $(libdevhelp_1_la_SOURCES) \
+-	$(devhelp_SOURCES)
+-DIST_SOURCES = $(libcppwrapper_la_SOURCES) $(libdevhelp_1_la_SOURCES) \
+-	$(devhelp_SOURCES)
++SOURCES = $(libdevhelp_1_la_SOURCES) $(devhelp_SOURCES)
++DIST_SOURCES = $(libdevhelp_1_la_SOURCES) $(devhelp_SOURCES)
+ default_prefsDATA_INSTALL = $(INSTALL_DATA)
+ DATA = $(default_prefs_DATA)
+ devhelpincludeHEADERS_INSTALL = $(INSTALL_HEADER)
+@@ -167,6 +160,7 @@ GECKO = @GECKO@
+ GECKO_CFLAGS = @GECKO_CFLAGS@
+ GECKO_EXTRA_LIBS = @GECKO_EXTRA_LIBS@
+ GECKO_FLAVOUR = @GECKO_FLAVOUR@
++GECKO_GLUE_LIBS = @GECKO_GLUE_LIBS@
+ GECKO_HOME = @GECKO_HOME@
+ GECKO_INCLUDE_ROOT = @GECKO_INCLUDE_ROOT@
+ GECKO_LIBS = @GECKO_LIBS@
+@@ -339,17 +333,7 @@ devhelp_LDADD = \
+         $(DEVHELP_LIBS)					\
+         libdevhelp-1.la
+ 
+-devhelp_LDFLAGS = -R$(GECKO_HOME) $(AM_LDFLAGS)
+-
+-# Build the C++ code in a separate library so we can use our warning
+-# flags for the C code.
+-noinst_LTLIBRARIES = libcppwrapper.la
+-libcppwrapper_la_SOURCES = \
+-	Yelper.cpp					\
+-	Yelper.h					\
+-	dh-gecko-utils.cpp				\
+-	dh-gecko-utils.h
+-
++devhelp_LDFLAGS = $(AM_LDFLAGS) $(am__append_1)
+ gecko_include_subdirs = \
+ 	.			\
+ 	commandhandler		\
+@@ -366,23 +350,6 @@ gecko_include_subdirs = \
+ 	string			\
+ 	xpcom
+ 
+-libcppwrapper_la_CPPFLAGS = \
+-	$(DEFINES)					\
+-	-DALLOW_PRIVATE_API				\
+-	-DGECKO_HOME=\""$(GECKO_HOME)\""		\
+-	-include $(GECKO_INCLUDE_ROOT)/mozilla-config.h			\
+-	$(addprefix -I$(GECKO_INCLUDE_ROOT)/,$(gecko_include_subdirs))	\
+-	$(LIBDEVHELP_CFLAGS)				\
+-	$(AM_CPPFLAGS)
+-
+-libcppwrapper_la_CXXFLAGS = \
+-	$(GECKO_CFLAGS)					\
+-	$(AM_CXXFLAGS)
+-
+-libcppwrapper_la_LIBADD = \
+-	$(GECKO_LIBS)					\
+-	$(GECKO_EXTRA_LIBS)
+-
+ lib_LTLIBRARIES = libdevhelp-1.la
+ devhelpincludedir = $(includedir)/devhelp-1.0/devhelp
+ devhelpinclude_HEADERS = \
+@@ -400,6 +367,10 @@ devhelpinclude_HEADERS = \
+ 	eggfindbar.h
+ 
+ libdevhelp_1_la_SOURCES = \
++	Yelper.cpp					\
++	Yelper.h					\
++	dh-gecko-utils.cpp				\
++	dh-gecko-utils.h				\
+ 	bacon-message-connection.c			\
+ 	bacon-message-connection.h			\
+ 	dh-marshal-main.c				\
+@@ -418,6 +389,8 @@ libdevhelp_1_la_SOURCES = \
+ 
+ libdevhelp_1_la_CPPFLAGS = \
+ 	$(DEFINES)					\
++	-DALLOW_PRIVATE_API				\
++	-DGECKO_HOME=\""$(GECKO_HOME)\""		\
+ 	$(addprefix -I$(GECKO_INCLUDE_ROOT)/,$(gecko_include_subdirs))	\
+ 	$(AM_CPPFLAGS)
+ 
+@@ -427,13 +400,17 @@ libdevhelp_1_la_CFLAGS = \
+ 	$(GECKO_CFLAGS)					\
+ 	$(AM_CFLAGS)
+ 
++libdevhelp_1_la_CXXFLAGS = \
++	$(LIBDEVHELP_CFLAGS)				\
++	$(GECKO_CFLAGS)					\
++	$(AM_CXXFLAGS)
++
+ libdevhelp_1_la_LIBADD = \
+-	libcppwrapper.la				\
+ 	$(LIBDEVHELP_LIBS)				\
+ 	$(GECKO_LIBS)					\
+ 	$(GECKO_EXTRA_LIBS)
+ 
+-libdevhelp_1_la_LDFLAGS = -R$(GECKO_HOME) $(AM_LDFLAGS)
++libdevhelp_1_la_LDFLAGS = $(AM_LDFLAGS) $(am__append_2)
+ default_prefs_in_FILES = \
+ 	default-prefs-common.js			\
+ 	default-prefs-mozilla.js		\
+@@ -442,8 +419,8 @@ default_prefs_in_FILES = \
+ 	default-prefs-gecko-1-9.js
+ 
+ default_prefs_files = default-prefs-common.js \
+-	default-prefs-$(GECKO_FLAVOUR).js $(am__append_1) \
+-	$(am__append_2)
++	default-prefs-$(GECKO_FLAVOUR).js $(am__append_3) \
++	$(am__append_4)
+ default_prefsdir = $(pkgdatadir)
+ default_prefs_DATA = default-prefs.js
+ BUILT_SOURCES = \
+@@ -517,17 +494,6 @@ clean-libLTLIBRARIES:
+ 	  echo "rm -f \"$${dir}/so_locations\""; \
+ 	  rm -f "$${dir}/so_locations"; \
+ 	done
+-
+-clean-noinstLTLIBRARIES:
+-	-test -z "$(noinst_LTLIBRARIES)" || rm -f $(noinst_LTLIBRARIES)
+-	@list='$(noinst_LTLIBRARIES)'; for p in $$list; do \
+-	  dir="`echo $$p | sed -e 's|/[^/]*$$||'`"; \
+-	  test "$$dir" != "$$p" || dir=.; \
+-	  echo "rm -f \"$${dir}/so_locations\""; \
+-	  rm -f "$${dir}/so_locations"; \
+-	done
+-libcppwrapper.la: $(libcppwrapper_la_OBJECTS) $(libcppwrapper_la_DEPENDENCIES) 
+-	$(libcppwrapper_la_LINK)  $(libcppwrapper_la_OBJECTS) $(libcppwrapper_la_LIBADD) $(LIBS)
+ libdevhelp-1.la: $(libdevhelp_1_la_OBJECTS) $(libdevhelp_1_la_DEPENDENCIES) 
+ 	$(libdevhelp_1_la_LINK) -rpath $(libdir) $(libdevhelp_1_la_OBJECTS) $(libdevhelp_1_la_LIBADD) $(LIBS)
+ install-binPROGRAMS: $(bin_PROGRAMS)
+@@ -569,12 +535,12 @@ distclean-compile:
+ 	-rm -f *.tab.c
+ 
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/devhelp-dh-main.Po@am__quote@
+-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcppwrapper_la-Yelper.Plo@am__quote@
+-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcppwrapper_la-dh-gecko-utils.Plo@am__quote@
++@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libdevhelp_1_la-Yelper.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libdevhelp_1_la-bacon-message-connection.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libdevhelp_1_la-dh-base.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libdevhelp_1_la-dh-book-tree.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libdevhelp_1_la-dh-error.Plo@am__quote@
++@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libdevhelp_1_la-dh-gecko-utils.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libdevhelp_1_la-dh-html.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libdevhelp_1_la-dh-keyword-model.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libdevhelp_1_la-dh-link.Plo@am__quote@
+@@ -740,19 +706,19 @@ devhelp-dh-main.obj: dh-main.c
+ @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+ @am__fastdepCXX_FALSE@	$(LTCXXCOMPILE) -c -o $@ $<
+ 
+-libcppwrapper_la-Yelper.lo: Yelper.cpp
+-@am__fastdepCXX_TRUE@	$(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcppwrapper_la_CPPFLAGS) $(CPPFLAGS) $(libcppwrapper_la_CXXFLAGS) $(CXXFLAGS) -MT libcppwrapper_la-Yelper.lo -MD -MP -MF $(DEPDIR)/libcppwrapper_la-Yelper.Tpo -c -o libcppwrapper_la-Yelper.lo `test -f 'Yelper.cpp' || echo '$(srcdir)/'`Yelper.cpp
+-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libcppwrapper_la-Yelper.Tpo $(DEPDIR)/libcppwrapper_la-Yelper.Plo
+-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Yelper.cpp' object='libcppwrapper_la-Yelper.lo' libtool=yes @AMDEPBACKSLASH@
++libdevhelp_1_la-Yelper.lo: Yelper.cpp
++@am__fastdepCXX_TRUE@	$(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libdevhelp_1_la_CPPFLAGS) $(CPPFLAGS) $(libdevhelp_1_la_CXXFLAGS) $(CXXFLAGS) -MT libdevhelp_1_la-Yelper.lo -MD -MP -MF $(DEPDIR)/libdevhelp_1_la-Yelper.Tpo -c -o libdevhelp_1_la-Yelper.lo `test -f 'Yelper.cpp' || echo '$(srcdir)/'`Yelper.cpp
++@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libdevhelp_1_la-Yelper.Tpo $(DEPDIR)/libdevhelp_1_la-Yelper.Plo
++@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='Yelper.cpp' object='libdevhelp_1_la-Yelper.lo' libtool=yes @AMDEPBACKSLASH@
+ @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+-@am__fastdepCXX_FALSE@	$(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcppwrapper_la_CPPFLAGS) $(CPPFLAGS) $(libcppwrapper_la_CXXFLAGS) $(CXXFLAGS) -c -o libcppwrapper_la-Yelper.lo `test -f 'Yelper.cpp' || echo '$(srcdir)/'`Yelper.cpp
++@am__fastdepCXX_FALSE@	$(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libdevhelp_1_la_CPPFLAGS) $(CPPFLAGS) $(libdevhelp_1_la_CXXFLAGS) $(CXXFLAGS) -c -o libdevhelp_1_la-Yelper.lo `test -f 'Yelper.cpp' || echo '$(srcdir)/'`Yelper.cpp
+ 
+-libcppwrapper_la-dh-gecko-utils.lo: dh-gecko-utils.cpp
+-@am__fastdepCXX_TRUE@	$(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcppwrapper_la_CPPFLAGS) $(CPPFLAGS) $(libcppwrapper_la_CXXFLAGS) $(CXXFLAGS) -MT libcppwrapper_la-dh-gecko-utils.lo -MD -MP -MF $(DEPDIR)/libcppwrapper_la-dh-gecko-utils.Tpo -c -o libcppwrapper_la-dh-gecko-utils.lo `test -f 'dh-gecko-utils.cpp' || echo '$(srcdir)/'`dh-gecko-utils.cpp
+-@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libcppwrapper_la-dh-gecko-utils.Tpo $(DEPDIR)/libcppwrapper_la-dh-gecko-utils.Plo
+-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='dh-gecko-utils.cpp' object='libcppwrapper_la-dh-gecko-utils.lo' libtool=yes @AMDEPBACKSLASH@
++libdevhelp_1_la-dh-gecko-utils.lo: dh-gecko-utils.cpp
++@am__fastdepCXX_TRUE@	$(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libdevhelp_1_la_CPPFLAGS) $(CPPFLAGS) $(libdevhelp_1_la_CXXFLAGS) $(CXXFLAGS) -MT libdevhelp_1_la-dh-gecko-utils.lo -MD -MP -MF $(DEPDIR)/libdevhelp_1_la-dh-gecko-utils.Tpo -c -o libdevhelp_1_la-dh-gecko-utils.lo `test -f 'dh-gecko-utils.cpp' || echo '$(srcdir)/'`dh-gecko-utils.cpp
++@am__fastdepCXX_TRUE@	mv -f $(DEPDIR)/libdevhelp_1_la-dh-gecko-utils.Tpo $(DEPDIR)/libdevhelp_1_la-dh-gecko-utils.Plo
++@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='dh-gecko-utils.cpp' object='libdevhelp_1_la-dh-gecko-utils.lo' libtool=yes @AMDEPBACKSLASH@
+ @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+-@am__fastdepCXX_FALSE@	$(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libcppwrapper_la_CPPFLAGS) $(CPPFLAGS) $(libcppwrapper_la_CXXFLAGS) $(CXXFLAGS) -c -o libcppwrapper_la-dh-gecko-utils.lo `test -f 'dh-gecko-utils.cpp' || echo '$(srcdir)/'`dh-gecko-utils.cpp
++@am__fastdepCXX_FALSE@	$(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libdevhelp_1_la_CPPFLAGS) $(CPPFLAGS) $(libdevhelp_1_la_CXXFLAGS) $(CXXFLAGS) -c -o libdevhelp_1_la-dh-gecko-utils.lo `test -f 'dh-gecko-utils.cpp' || echo '$(srcdir)/'`dh-gecko-utils.cpp
+ 
+ mostlyclean-libtool:
+ 	-rm -f *.lo
+@@ -907,7 +873,7 @@ maintainer-clean-generic:
+ clean: clean-am
+ 
+ clean-am: clean-binPROGRAMS clean-generic clean-libLTLIBRARIES \
+-	clean-libtool clean-noinstLTLIBRARIES mostlyclean-am
++	clean-libtool mostlyclean-am
+ 
+ distclean: distclean-am
+ 	-rm -rf ./$(DEPDIR)
+@@ -968,22 +934,21 @@ uninstall-am: uninstall-binPROGRAMS unin
+ .MAKE: install-am install-strip
+ 
+ .PHONY: CTAGS GTAGS all all-am check check-am clean clean-binPROGRAMS \
+-	clean-generic clean-libLTLIBRARIES clean-libtool \
+-	clean-noinstLTLIBRARIES ctags distclean distclean-compile \
+-	distclean-generic distclean-libtool distclean-tags distdir dvi \
+-	dvi-am html html-am info info-am install install-am \
+-	install-binPROGRAMS install-data install-data-am \
+-	install-default_prefsDATA install-devhelpincludeHEADERS \
+-	install-dvi install-dvi-am install-exec install-exec-am \
+-	install-html install-html-am install-info install-info-am \
+-	install-libLTLIBRARIES install-man install-pdf install-pdf-am \
+-	install-ps install-ps-am install-strip installcheck \
+-	installcheck-am installdirs maintainer-clean \
+-	maintainer-clean-generic mostlyclean mostlyclean-compile \
+-	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
+-	tags uninstall uninstall-am uninstall-binPROGRAMS \
+-	uninstall-default_prefsDATA uninstall-devhelpincludeHEADERS \
+-	uninstall-libLTLIBRARIES
++	clean-generic clean-libLTLIBRARIES clean-libtool ctags \
++	distclean distclean-compile distclean-generic \
++	distclean-libtool distclean-tags distdir dvi dvi-am html \
++	html-am info info-am install install-am install-binPROGRAMS \
++	install-data install-data-am install-default_prefsDATA \
++	install-devhelpincludeHEADERS install-dvi install-dvi-am \
++	install-exec install-exec-am install-html install-html-am \
++	install-info install-info-am install-libLTLIBRARIES \
++	install-man install-pdf install-pdf-am install-ps \
++	install-ps-am install-strip installcheck installcheck-am \
++	installdirs maintainer-clean maintainer-clean-generic \
++	mostlyclean mostlyclean-compile mostlyclean-generic \
++	mostlyclean-libtool pdf pdf-am ps ps-am tags uninstall \
++	uninstall-am uninstall-binPROGRAMS uninstall-default_prefsDATA \
++	uninstall-devhelpincludeHEADERS uninstall-libLTLIBRARIES
+ 
+ 
+ dh-marshal.h: dh-marshal.list

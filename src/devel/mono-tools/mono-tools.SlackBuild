@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=5
-VERSION=0.19.1
+VERSION=1.9
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="mozilla-xulrunner python yelp zlib glib2 libwnck libglade gtk+2 GConf"
+REQUIRED_PACKAGES="mono monodoc gtk-sharp gecko-sharp gnome-desktop-sharp"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -114,15 +114,6 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
-## Fix key clobber
-patch -p1 < $CWD/patches/do_not_clober_global_w_on_el.patch || exit 1
-## Be able to use xulrunner-1.9
-patch -p1 < $CWD/patches/xulrunner-1.9.patch || exit 1
-## html2diff fix
-patch -p1 < $CWD/patches/html2diff_close_sub.patch || exit 1
-## autoconf fix to use xulrunner 1.9
-patch -p1 < $CWD/patches/autoconf.patch || exit 1
-
 ## Fix permissions for building.
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
@@ -147,14 +138,14 @@ elif [ "$ARCH" = "i586" ]; then
 elif [ "$ARCH" = "i686" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
 elif [ "$ARCH" = "x86_64" ]; then
+  LIBDIR=lib64
   if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -fPIC"}
   else
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS="--libdir=/usr/lib64"
-    LIBDIR=lib64
+    CONFIGURE_FLAGS="--libdir=/usr/lib"
   }
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
@@ -169,16 +160,27 @@ LIBDIR=${LIBDIR:-"lib"}
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
-  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
-  --disable-static \
-  --enable-shared \
-  --with-gecko=libxul-embedding \
+  --disable-static --enable-shared \
+  --program-prefix="" \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+# Fix for pkgconfig files on x86_64 platforms
+if [ "$ARCH" = "x86_64" ]; then
+  if [ -d $PKG/usr/lib/pkgconfig ]; then
+     mkdir -p $PKG/usr/lib64 ;
+     mv $PKG/usr/lib/pkgconfig $PKG/usr/lib64 ;
+  fi;
+fi ;
+
+## Make sure we have the GRE pointing to xulrunner for ilcontrast
+mkdir -p $PKG/etc/gre.d &&
+cp $CWD/mozilla-firefox.conf $PKG/etc/gre.d/mozilla-firefox.conf.new &&
+sed -i $PKG/etc/gre.d/mozilla-firefox.conf.new -e "s:@LIBDIR@:$LIBDIR:g" &&
+chown root:root $PKG/etc/gre.d/mozilla-firefox.conf.new || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -205,23 +207,6 @@ cp -a \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
-
-## Add schemas install to the doinst.sh if schemas are found.
-[ -d $PKG/etc/gconf/schemas ] && {
-  echo "if [ -x usr/bin/gconftool-2 ]; then" >>$PKG/install/doinst.sh
-  ( cd $PKG/etc/gconf/schemas
-    for FILE in *; do
-      if [ -z "$(grep gconfentry $FILE)" ]; then
-        # Create gconf tree
-        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
-      else
-        # Load gconf settings
-        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --config-source=\$(usr/bin/gconftool-2 --get-default-source) --direct --load etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
-      fi
-    done
-  )
-  echo "fi" >>$PKG/install/doinst.sh
-}
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
