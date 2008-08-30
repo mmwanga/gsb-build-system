@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=5
-VERSION=1.9
+BUILD=1
+VERSION=0.8.2.2960
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="mono monodoc gtk-sharp gecko-sharp gnome-desktop-sharp"
+REQUIRED_PACKAGES="mono gtksourceview-sharp shared-mime-info"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -90,7 +90,8 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+rm -rf $PKGNAME-$VERSION &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -138,14 +139,13 @@ elif [ "$ARCH" = "i586" ]; then
 elif [ "$ARCH" = "i686" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
 elif [ "$ARCH" = "x86_64" ]; then
-  LIBDIR=lib64
   if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -fPIC"}
   else
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS="--libdir=/usr/lib"
+    CONFIGURE_FLAGS="--libdir=/usr/lib64"
   }
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
@@ -154,33 +154,17 @@ else
 fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
-LIBDIR=${LIBDIR:-"lib"}
 
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
-  --program-prefix="" \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-# Fix for pkgconfig files on x86_64 platforms
-if [ "$ARCH" = "x86_64" ]; then
-  if [ -d $PKG/usr/lib/pkgconfig ]; then
-     mkdir -p $PKG/usr/lib64 ;
-     mv $PKG/usr/lib/pkgconfig $PKG/usr/lib64 ;
-  fi;
-fi ;
-
-## Make sure we have the GRE pointing to xulrunner for ilcontrast
-mkdir -p $PKG/etc/gre.d &&
-cp $CWD/mozilla-firefox.conf $PKG/etc/gre.d/mozilla-firefox.conf.new &&
-sed -i $PKG/etc/gre.d/mozilla-firefox.conf.new -e "s:@LIBDIR@:$LIBDIR:g" &&
-chown root:root $PKG/etc/gre.d/mozilla-firefox.conf.new || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

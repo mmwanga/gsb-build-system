@@ -1,12 +1,10 @@
 libgdiplus
 mono
-monodoc
 gtk-sharp
 gecko-sharp
 gnome-sharp
 gnome-desktop-sharp
 gtksourceview-sharp
-mono-tools
 mono-addins
 evolution-sharp
 gmime-sharp
@@ -20,7 +18,5 @@ libgphoto2-sharp
 karma-sharp
 mono-zeroconf
 taglib-sharp
-banshee-1
 gnome-keyring-sharp
-gnome-do
-gnome-do-plugins
+boo

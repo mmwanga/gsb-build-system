@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.0-0.12
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk-sharp gtksourceview mono monodoc"
+REQUIRED_PACKAGES="gtk-sharp gtksourceview mono"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -113,6 +113,9 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
+
+## Disable sample program
+patch -p1 < $CWD/patches/gtksourceview-disable-samples.patch || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .

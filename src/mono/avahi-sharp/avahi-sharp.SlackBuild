@@ -7,13 +7,13 @@
 ##
 
 ## Package variables
-BUILD=1
+BUILD=2
 VERSION=0.6.23
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
 
-REQUIRED_PACKAGES="glib2 desktop-file-utils dbus gtk+2 python pygtk dbus-python expat libdaemon libglade mono monodoc gtk-sharp"
+REQUIRED_PACKAGES="glib2 desktop-file-utils dbus gtk+2 python pygtk dbus-python expat libdaemon libglade mono gtk-sharp"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -182,7 +182,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-qt3 \
   --disable-qt4 \
   --enable-mono \
-  --enable-monodoc \
+  --disable-monodoc \
   --with-distro=slackware \
   || exit 1
 

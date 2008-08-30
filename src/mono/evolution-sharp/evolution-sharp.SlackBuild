@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=3
-VERSION=0.16.1.1
+BUILD=1
+VERSION=0.17.4
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -153,6 +153,13 @@ else
 fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
+
+## Temporary fix to allow compile against evo-2.23.90 
+## 
+echo
+echo "Slight of hand to force compile against evo-2.23.90"
+echo
+sed -i "s:2.23.5:2.24.0:g" $TMP/$PKGNAME-$VERSION/configure 
 
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
