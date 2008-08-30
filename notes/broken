@@ -1,6 +1,0 @@
-mozilla-firefox 2.0.0.12 doesn't seem to want to build with canvas support. 
-
-liboil cannot be build with hyper-optimization, else the resulting library can 
-cause segfaults. (Noticed with gstreamer plugins)
-
-gnome-system-tools (network-admin, services, timeadmin), etc are generally broken with Slackware's older version of dbus.

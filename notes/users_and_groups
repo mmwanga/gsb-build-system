@@ -9,4 +9,6 @@ pulse-rt				45
 sabayon			46		46
 netdev					85
 avahi			86		86
+
+## Removed in gsb-2.24
 stb-admin				87
