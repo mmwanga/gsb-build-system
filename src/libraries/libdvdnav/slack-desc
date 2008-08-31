@@ -1,0 +1,12 @@
+          |-----handy-ruler------------------------------------------------------|
+libdvdnav: libdvdnav (DVD navigation library)
+libdvdnav: 
+libdvdnav: libdvdnav provides a simple foundation for reading DVD video disks.
+libdvdnav: It provides the functionality that is required to access many DVDs.
+libdvdnav: It parses IFO files, reads NAV-blocks, and performs CSS
+libdvdnav: authentication and descrambling.
+libdvdnav: 
+libdvdnav: 
+libdvdnav: 
+libdvdnav: 
+libdvdnav: 
