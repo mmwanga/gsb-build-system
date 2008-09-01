@@ -21,6 +21,7 @@ ffmpeg
 libdvbpsi5
 libdvdcss
 libdvdread
+libdvdnav
 libebml
 libmatroska
 libmms
@@ -36,6 +37,7 @@ libmpcdec
 iso-codes
 libexif-gtk
 libgphoto2
+libicu
 boost
 libopenraw
 exempi
@@ -73,3 +75,4 @@ gegl
 ode
 tre
 libesmtp
+libofx
