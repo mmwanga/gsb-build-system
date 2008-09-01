@@ -331,27 +331,6 @@ foreach my $ppackage (keys %libraries_gnome) {
   }
 }
 
-##
-## SVN Libraries
-##
-# Note: this only edits the SlackBuilds to set BUILD.
-foreach my $libsvnpackage (keys %libraries_svn) {
-
-  my $name    = $libsvnpackage;
-  my $sb_file = $name . $sb_ext;
-  my $ver     = $libraries_svn{$name};
-
-  chdir "$pwd/libraries/$name";
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-}
-
 ################################################################################
 ###                       META PACKAGES
 ##################################################################################
@@ -373,7 +352,7 @@ foreach my $mp (keys %meta_packages) {
 }
 
 ################################################################################
-###                       SUPPLIED TARBALLS
+###                       SUPPLIED AND SVN TARBALLS
 ##################################################################################
 foreach my $sp (keys %supplied_tarballs) {
 
@@ -869,26 +848,6 @@ foreach my $net_pack (keys %network_external) {
   }
 }
 
-## Network SVN Libraries
-# Note: this only edits the SlackBuilds to set BUILD.
-foreach my $libsvnpackage (keys %network_svn) {
-
-  my $name    = $libsvnpackage;
-  my $sb_file = $name . $sb_ext;
-  my $ver     = $network_svn{$name};
-
-  chdir "$pwd/networking/$name";
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-}
-
-
 ################################################################################
 ###                       MONO TARBALLS
 ##################################################################################
@@ -989,25 +948,6 @@ foreach my $dtu (keys %mono_diff_naming) {
     push(@bad_downloads, $name);
   }
 } 
-
-# src/mono packages that are from SVN.
-# Note: this only edits the SlackBuilds to set BUILD.
-foreach my $libsvnpackage (keys %mono_svn) {
-
-  my $name    = $libsvnpackage;
-  my $sb_file = $name . $sb_ext;
-  my $ver     = $mono_svn{$name};
-
-  chdir "$pwd/mono/$name";
-
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_edit($sb_file, $ver);
-  }
-
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
-}
 
 ################################################################################
 ###                       COMPIZ TARBALLS
