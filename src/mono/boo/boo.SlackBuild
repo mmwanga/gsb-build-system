@@ -166,6 +166,14 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
+## Make links for metafiles
+cd $PKG/usr/lib/boo 
+for i in Lang Lang.Useful Lang.Parser Lang.Interpreter Lang.Extensions Lang.Compiler Lang.CodeDom;
+do
+  ln -sf ../mono/gac/Boo.$i/*/Boo.$i.dll || exit 1
+done
+cd $TMP/$PKGNAME-$VERSION
+
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
