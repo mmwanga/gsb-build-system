@@ -3,6 +3,8 @@ pavumeter
 pavucontrol
 paprefs
 paman
+webkit
+pywebkitgtk
 mozilla-xulrunner
 yelp
 eog
@@ -38,9 +40,10 @@ gnome-phone-manager
 gnome-spell
 gcalctool
 evolution
-gnome-power-manager
 evolution-webcal
 evolution-exchange
+evolution-rss
+gnome-power-manager
 alacarte
 gnome-commander
 gthumb

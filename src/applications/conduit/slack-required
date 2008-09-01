@@ -1,9 +1,9 @@
+glib2
 libgnomeui
 dbus-python
-gnome-vfs
 nautilus
 vobject
 goocanvas
 pygoocanvas
 pysqlite
-mozilla-xulrunner
+pywebkitgtk

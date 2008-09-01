@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=0.3.13.1
+VERSION=0.3.14
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomeui dbus-python gnome-vfs vobject goocanvas pygoocanvas"
+REQUIRED_PACKAGES="libgnomeui dbus-python nautilus vobject goocanvas pygoocanvas pysqlite pywebkitgtk"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -155,6 +155,11 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
+## Configure for webkit (as recommended by maintainer)
+sed -i "s,\"gtkmozembed\",\"webkit\",g" $TMP/$PKGNAME-$VERSION/conduit/defs.py.in
+## Configure for GIO (as recommended by maintainer)
+sed -i "s,\"GnomeVfs\",\"GIO\",g" $TMP/$PKGNAME-$VERSION/conduit/defs.py.in
+
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
@@ -162,22 +167,19 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static --enable-shared \
   --disable-scrollkeeper \
   --enable-nautilus-extension \
+  --enable-eog-plugin \
+  --enable-totem-plugin \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-## Fix for xulrunner libs
-sed -i "s:firefox:xulrunner:g" $PKG/usr/bin/conduit || exit 1
+## Since we're using webkit, don't bother with mozilla check
+mv $PKG/usr/bin/conduit.real $PKG/usr/bin/conduit || exit 1
 
 ## Remove autostart
 rm -fr $PKG/usr/share/gnome/autostart/conduit-autostart.desktop
-
-## Fix script for x86_64
-if [ "$ARCH" = "x86_64" ]; then
-  sed -i "s:lib/xulrunner:lib64/xulrunner:g" $PKG/usr/bin/conduit ;
-fi;
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

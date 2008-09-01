@@ -20,6 +20,6 @@ zlib
 atk
 popt
 hicolor-icon-theme
-mozilla-xulrunner
 avahi
 evolution-data-server
+mozilla-xulrunner

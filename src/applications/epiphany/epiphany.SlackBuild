@@ -168,9 +168,9 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
+  --with-engine=mozilla \
   --with-gecko-home=/usr/$LIBDIR/xulrunner \
   --with-gecko=libxul \
-  --with-engine=mozilla \
   --disable-scrollkeeper \
   --disable-network-manager \
   --enable-zeroconf \

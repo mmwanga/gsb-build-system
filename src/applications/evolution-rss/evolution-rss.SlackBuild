@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.23.91
+VERSION=0.1.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk-vnc avahi gtk+2 libgnomeui"
+REQUIRED_PACKAGES="evolution webkit dbus gtkhtml"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -162,6 +162,10 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static --enable-shared \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
+  --enable-webkit \
+  --disable-gecko \
+  --enable-debus \
+  --with-primary-render=webkit \
   || exit 1
 
 ## Build and install.

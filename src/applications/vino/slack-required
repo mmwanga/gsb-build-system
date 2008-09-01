@@ -1,2 +1,7 @@
 gtk+2
 libunique
+dbus
+libjpeg
+zlib
+libgcrypt
+gnutls

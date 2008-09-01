@@ -1,0 +1,14 @@
+libicu
+libxslt
+curl
+sqlite3
+libjpeg
+libpng
+gperf
+cairo
+fontconfig
+freetype
+glib2
+gtk+2
+gnome-vfs
+gstreamer

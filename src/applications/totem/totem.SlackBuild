@@ -180,6 +180,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-media-player-keys \
   --enable-easy-codec-installation  \
   --enable-complex-plugin \
+  --disable-browser-plugins \
   || exit 1
 
 ## Build and install.
