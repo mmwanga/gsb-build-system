@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw(%mono %mono_gnome %mono_diff_naming %mono_svn);
+our @EXPORT    = qw(%mono %mono_gnome %mono_diff_naming);
 our @EXPORT_OK = qw();
 our $VERSION   = 0.01;
 
@@ -114,12 +114,6 @@ our %mono_diff_naming =
             'var' => 'VERSION',
 		   },
   );
-
-our %mono_svn =
-  (
-   'podsleuth' => 'svn_60',
-  );
-
 
 #
 # End Config Options

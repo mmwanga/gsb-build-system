@@ -20,6 +20,11 @@ our %media_pkgs =
                   'ver' => '1.2.1',
                   'src' => 'tar.bz2'
                         },
+   'dvgrab'              => {
+			     'ver' => '3.2',
+			     'url' => 'http://mesh.dl.sourceforge.net/sourceforge/kino/',
+			     'src' => 'tar.gz',
+			    },
    'devede'              => {
                  'ver' => '3.11',
                  'url' => 'http://www.rastersoft.com/descargas',
@@ -60,6 +65,11 @@ our %media_pkgs =
                              'url' => 'http://mesh.dl.sourceforge.net/sourceforge/gtkpod',
                              'src' => 'tar.gz',
                             },
+   'kino'                => {
+			     'ver' => '1.3.2',
+			     'url' => 'http://mesh.dl.sourceforge.net/sourceforge/kino/',
+			     'src' => 'tar.gz',
+			    },
    'jokosher'            => {
                              'ver' => '0.9',
                              'url' => 'http://www.jokosher.org/downloads/source',

@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw(%libraries %libraries_gnome %libraries_diff_naming %libraries_svn);
+our @EXPORT    = qw(%libraries %libraries_gnome %libraries_diff_naming);
 our @EXPORT_OK = qw();
 our $VERSION   = 0.03;
 
@@ -128,9 +128,9 @@ our %libraries =
 			   'url' => 'http://download.videolan.org/pub/libdvdcss/1.2.10',
 			   'src' => 'tar.bz2',
 			  },
-   'libdvdread'        => {
-			   'ver' => '0.9.7',
-			   'url' => 'http://www.dtek.chalmers.se/groups/dvd/dist/',
+   'libdvdnav'         => {
+			   'ver' => '4.1.2',
+			   'url' => 'http://www1.mplayerhq.hu/MPlayer/releases/dvdnav',
 			   'src' => 'tar.gz',
 			  },
    'libebml'           => {
@@ -338,12 +338,6 @@ our %libraries_diff_naming =
 		'ver'  => '2.13.7',
 		'name' => 'gtk+',
 	       },
-  );
-
-# libraries which we get from SVN sources
-our %libraries_svn =
-  (
-   'ffmpeg'    => 'svn_14999',
   );
 
 #

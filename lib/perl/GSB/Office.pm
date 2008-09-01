@@ -17,7 +17,7 @@ our %office_gnome =
   (
    'gnumeric'             => '1.8.3',
    'dia'                  => '0.96.1',
-   'evince'                 => '2.23.6',
+   'evince'               => '2.22.2',
    'f-spot'               => '0.4.4',
    'glom'                 => '1.6.17',
    'gnome-python-extras'  => '2.19.1',
@@ -66,11 +66,6 @@ our %office =
 			     'url' => 'http://mesh.dl.sourceforge.net/sourceforge/drivel/',
 			     'src' => 'tar.bz2',
 			    },
-   'dvgrab'              => {
-			     'ver' => '3.2',
-			     'url' => 'http://mesh.dl.sourceforge.net/sourceforge/kino/',
-			     'src' => 'tar.gz',
-			    },
    'enchant'   => {
 		   'url' => 'http://www.abisource.com/downloads/enchant/1.4.2',
 		   'ver' => '1.4.2',
@@ -110,11 +105,6 @@ our %office =
 			     'ver' => '0.2.2',
 			     'url' => 'http://zaheer.merali.org/',
 			     'src' => 'tar.bz2',
-			    },
-   'kino'                => {
-			     'ver' => '1.3.2',
-			     'url' => 'http://mesh.dl.sourceforge.net/sourceforge/kino/',
-			     'src' => 'tar.gz',
 			    },
    'liferea'             => {
 			     'ver' => '1.5.5',

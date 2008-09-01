@@ -19,9 +19,9 @@ our %accessibility_gnome =
    'gnome-mag'              => '0.15.2',
    'gnome-speech'           => '0.4.21',
    'gok'                    => '2.23.91',
-   'orca'                   => '2.23.90',
+   'orca'                   => '2.23.91',
    'libgail-gnome'          => '1.20.0',
-   'mousetweaks'            => '2.23.90',
+   'mousetweaks'            => '2.23.91',
    );
 
 #

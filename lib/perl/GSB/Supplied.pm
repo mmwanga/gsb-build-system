@@ -19,6 +19,10 @@ our %supplied_tarballs =
              'ver' => '3b1',
 	     'section' => 'office',
                  },
+   'evolution-rss'  => {
+             'ver' => '0.1.0',
+	     'section' => 'applications',
+                 },
    'rhpl'  => {
              'ver' => '0.212',
 	     'section' => 'print',
@@ -46,5 +50,34 @@ our %supplied_tarballs =
    'service-discovery-applet'  => {
              'ver' => '0.4.5',
 	     'section' => 'applications',
+                 },
+   'NetworkManager'  => {
+             'ver' => 'svn_4008',
+	     'section' => 'networking',
+                 },
+   'NetworkManager-vpn'  => {
+             'ver' => 'svn_4008',
+	     'section' => 'networking',
+                 },
+   'network-manager-applet'  => {
+             'ver' => 'svn_863',
+	     'section' => 'networking',
+                 },
+   'ffmpeg'  => {
+             'ver' => 'svn_14999',
+	     'section' => 'libraries',
+                 },
+   'podsleuth'  => {
+             'ver' => 'svn_60',
+	     'section' => 'mono',
+                 },
+   'MPlayer'  => {
+             'ver' => 'svn_27501',
+	     'section' => 'media',
+                 },
+   'libdvdread'  => {
+	     # Although from svn, libdvdread does have a release number
+             'ver' => '4.1.3',
+	     'section' => 'libraries',
                  },
   );

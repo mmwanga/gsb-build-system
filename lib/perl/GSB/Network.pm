@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw(%network_gnome %network_external %network_svn);
+our @EXPORT    = qw(%network_gnome %network_external);
 our @EXPORT_OK = qw();
 our $VERSION   = 0.03;
 
@@ -16,7 +16,7 @@ our $VERSION   = 0.03;
 our %network_gnome =
   (
    'ekiga'                  => '2.0.12',
-   'empathy'	            => '2.23.90',
+   'empathy'	            => '2.23.91',
    'gnome-user-share'       => '0.31',
   );
 
@@ -28,8 +28,8 @@ our %network_external =
 		'src' => 'tar.bz2',
 		 },
    'deluge'     => {
-                 'ver' => '0.5.9.3',
-                 'url' => 'http://download.deluge-torrent.org/source/0.5.9.3',
+                 'ver' => '0.9.08',
+                 'url' => 'http://download.deluge-torrent.org/source/0.9.08',
                  'src' => 'tar.gz',
                    },
   'sylpheed'     => {
@@ -87,13 +87,6 @@ our %network_external =
              'ver' => '1.4.1',
              'src' => 'tar.bz2'
                         },
-  );
-
-our %network_svn =
-  (
-   'NetworkManager'         => 'svn_4008',
-   'NetworkManager-vpn'     => 'svn_4008',
-   'network-manager-applet' => 'svn_863',
   );
 
 #

@@ -135,7 +135,7 @@ our %double_tarballs_url =
 				  },
    'libicu'               => {
 			 'ver' => '4.0c',
-			 'dir' => 'testing/libicu',
+			 'dir' => 'libraries/libicu',
 			 'url' => 'http://download.icu-project.org/files/icu4c/4.0',
 			 'tar' => 'icu4c-4_0-src.tgz',
 			 'var' => 'VERSION',
@@ -225,10 +225,10 @@ our %double_tarballs_url =
 			 'var' => 'VERSION',
 				  },
    'webkit'               => {
-			 'ver' => 'r35153',
-			 'dir' => 'testing/webkit',
+			 'ver' => 'r35963',
+			 'dir' => 'applications/webkit',
 			 'url' => 'http://nightly.webkit.org/files/trunk/src',
-			 'tar' => 'WebKit-r35153.tar.bz2',
+			 'tar' => 'WebKit-r35963.tar.bz2',
 			 'var' => 'VERSION',
 				  },
     'mozilla-xulrunner'  => {

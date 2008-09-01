@@ -25,6 +25,11 @@ our %print =
              'ver' => '1.9.40',
              'src' => 'tar.bz2',
                   },
+   'gpp'    => {
+             'url' => 'http://www.fogman.de/gpp',
+             'ver' => '0.7.0',
+             'src' => 'tar.gz',
+                  },
   );
 
 #
