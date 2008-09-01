@@ -1,3 +1,55 @@
+Mon Sep 01 12:48:16 GMT 2008
+libraries/boost-1.36.0-i586-2gsb.tgz: Recompiled.
+     Apply official boost hotfix patches from:
+     http://svn.boost.org/trac/boost/wiki/ReleasePractices/HotFixes
+applications/evolution-rss-0.1.0-i586-1gsb.tgz: Added.
+applications/conduit-0.3.14-i586-1gsb.tgz: Upgraded.
+     Conduit is now configured to use WebKit as recommended by the
+     maintainers.
+networking/telepathy-glib-0.7.14-i586-1gsb.tgz: Upgraded.
+desktop/gnome-themes-2.23.91-noarch-1gsb.tgz: Upgraded.
+desktop/at-spi-1.23.91-i586-1gsb.tgz: Upgraded.
+desktop/evolution-data-server-2.23.91-i586-1gsb.tgz: Upgraded.
+desktop/gconf-editor-2.23.91-i586-1gsb.tgz: Upgraded.
+desktop/eel-2.23.91-i586-1gsb.tgz: Upgraded.
+desktop/nautilus-2.23.91-i586-1gsb.tgz: Upgraded.
+networking/gst-plugins-farsight-0.12.9-i586-1gsb.tgz: Upgraded.
+networking/farsight-0.1.28-i586-1gsb.tgz: Upgraded.
+networking/telepathy-mission-control-4.67-i586-1gsb.tgz: Upgraded.
+networking/telepathy-butterfly-0.3.2-i586-1gsb.tgz: Upgraded.
+networking/loudmouth-1.4.1-i586-1gsb.tgz: Upgraded.
+networking/telepathy-gabble-0.7.8-i586-1gsb.tgz: Upgraded.
+networking/telepathy-salut-0.3.4-i586-1gsb.tgz: Upgraded.
+networking/empathy-2.23.90-i586-1gsb.tgz: Upgraded.
+networking/balsa-2.3.25-i586-1gsb: Upgraded.
+desktop/gnome-settings-daemon-2.23.91-i586-1gsb.tgz: Upgraded.
+desktop/bug-buddy-2.23.91-i586-1gsb.tgz: Upgraded.
+desktop/gtkhtml-3.23.91-i586-1gsb.tgz: Upgraded.
+desktop/gnome-backgrounds-2.23.91-noarch-1gsb.tgz: Upgraded.
+applications/file-roller-2.23.91-i586-1gsb.tgz: Upgraded.
+applications/vino-2.23.91-i586-1gsb.tgz: Upgraded.
+applications/gcalctool-5.23.91-i586-1gsb.tgz: Upgraded.
++--------------------------+
+Sat Aug 30 16:35:29 GMT 2008
+print/system-config-printer-1.0.4-i586-2gsb.tgz: Rebuilt.
+libraries/libdvdread-4.1.3-i586-1gsb.tgz: Upgraded.
+     We've switched from the Ogle Project's libdvdread to the better supported
+     and newer MPlayer version (which is in fact based upon the Ogle Project's
+     version.)
+libraries/libdvdnav-4.1.2-i586-1gsb.tgz: Added.
+media/banshee-1-1.2.1-i586-1gsb.tgz: Upgraded.
+media/devede-3.11-i586-1gsb.tgz: Upgraded.
+media/wxGTK-2.8.8-i586-1gsb.tgz: Removed.  
+     No part of the GSB project actually requires this library anymore, so 
+     we're going to drop it.  It's main use is by VLC, which we do not
+     provide. Try Mplayer, Totem or Xine under Slackware/GNOME.
+media/MPlayer-svn_27501-i586-1gsb.tgz: Upgraded.
+     We've decided to move to the svn version of MPlayer, which has a lot more
+     features, and better support for video and audio out devices. (For example,
+     pulseaudio).  
+media/gnome-mplayer-0.7.0-i586-1gsb.tgz: Added.
+media/soundconverter-1.3.2-i586-1gsb.tgz: Added.
++--------------------------+
 Sat Aug 30 16:35:29 GMT 2008
 libraries/libdvdcss-1.2.10-i586-1gsb.tgz: Upgraded.
 accessibility/gok-2.23.91-i586-1gsb.tgz: Upgraded.
@@ -9,14 +61,26 @@ devel/vala-0.3.5-i586-1gsb.tgz: Added.
 devel/accerciser-1.3.6-i586-1gsb.tgz: Added.
 devel/monodoc-1.9-i586-4gsb.tgz: Rebuilt.
 devel/nemiver-0.6.1-i586-1gsb.tgz: Added.
+media/dvgrab-3.2-i586-1gsb.tgz: Upgraded.
+media/kino-1.3.2-i586-1gsb.tgz: Upgraded.
+desktop/nautilus-open-terminal: Recompiled against gnome-desktop-2.23.90.
+office/enchant-1.4.2-i586-2gsb.tgz: Rebuilt.
+office/abiword-plugins-2.6.4-i586-2gsb.tgz: Recompiled against boost-1.36.0.
+office/tracker-0.6.6-i586-5gsb.tgz: Recompiled against sqlite-3.6.1.
+office/gnucash-2.2.6-i586-1gsb.tgz: Upgraded.
+office/tomboy-0.11.3-i586-1gsb.tgz: Upgraded.
+print/hal-cups-utils-0.6.16-i586-1gsb.tgz: Added.
 +--------------------------+
 Fri Aug 29 14:23:37 GMT 2008
+applications/webkit-r35963-i586-1gsb.tgz: Added.
 applications/mozilla-xulrunner-1.9.0.1-i586-1gsb.tgz: Upgraded.
 applications/epiphany-2.23.90-i586-2gsb.tgz: Rebuilt against xulrunner-1.9.0.1.
 applications/gnome-utils-2.23.90-i586-1gsb.tgz: Upgraded.
 +--------------------------+
 Thu Aug 28 15:57:10 GMT 2008
+libraries/libicu-4.0c-i586-1gsb.tgz: Added.
 libraries/boost-1.36.0-i586-1gsb.tgz: Upgraded.
+     This version of boost is now linked against libicu.
 libraries/libopenraw-0.0.5-i586-3gsb.tgz: Recompiled against boost-1.36.0.
 libraries/exempi-2.0.2-i586-2gsb.tgz: Recompiled against boost-1.36.0.
 libraries/libiec61883-1.1.0-i586-3gsb.tgz: Recompiled against libraw1394-2.0.0.
@@ -104,7 +168,6 @@ Tue Aug 26 14:23:10 GMT 2008
 desktop/bug-buddy-2.23.90-i586-1gsb.tgz: Upgraded.
 desktop/gtksourceview2-2.3.1-i586-1gsb.tgz: Upgraded.
 desktop/gtkhtml-3.23.90-i586-1gsb.tgz: Upgraded.
-desktop/gnome-backgrounds-2.23.90-i586-1gsb.tgz: Upgraded.
 bindings/pyxdg-0.16-i586-1gsb.tgz: Upgraded.
 bindings/glibmm-2.17.2-i586-1gsb.tgz: Upgraded.
 bindings/cairomm-1.6.2-i586-1gsb.tgz: Upgraded.
