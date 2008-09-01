@@ -5,3 +5,4 @@ pygtk
 dbus
 rhpl
 notify-python
+hal-cups-utils
