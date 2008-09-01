@@ -7,17 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=1.36.0
-RELEASE=$(echo ${VERSION//./_} | cut -f1,2 -d_)
-
-echo
-echo "Version: ${VERSION}"
-echo "Release: ${RELEASE}"
+BUILD=1
+VERSION=4.0c
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="boost-jam python libicu"
+REQUIRED_PACKAGES=""
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -26,22 +21,9 @@ DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}
 
-BUILD_ARCH=$(arch)
-if [ "$ARCH" != "$BUILD_ARCH" ]; then
-  cat << EOF
-
-** Notice ******************************************************
-*
-* Boost can only be built with a target that matches the
-* host architecture. This package will be built for $BUILD_ARCH.
-*
-****************************************************************
-
-EOF
-fi
-
 ## Script variables.
 PKGNAME=$(basename $0 .SlackBuild)
+SRCNAME=icu4c
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
@@ -109,10 +91,10 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-rm -rf ${PKGNAME}_${VERSION} &&
-tar xjf $CWD/${PKGNAME}_${VERSION//./_}.tar.bz2 &&
-mv ${PKGNAME}_${VERSION//./_} $PKGNAME-$VERSION &&
-cd ${PKGNAME}-${VERSION} || exit 1
+rm -rf $PKGNAME-$VERSION &&
+tar xzf $CWD/$SRCNAME-4_0-src.tgz &&
+mv icu $PKGNAME-$VERSION &&
+cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i386" ]; then
@@ -134,20 +116,6 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
-
-##
-## These are official boost c++ hotfix patches
-##
-## Restore deprecated basic_directory_entry functions inadvertently omitted from 1.36.0. 
-patch -p2 < $CWD/patches/boost.basic_directory_entry.patch || exit 1 
-## Fix problem with case-insensitive alternation in Xpressive library
-patch -p2 < $CWD/patches/boost.case_sensitive.patch || exit 1
-## Fix filesystem/convenience.hpp compile errors when BOOST_FILESYSTEM_NO_DEPRECATED is defined. 
-patch -p2 < $CWD/patches/boost.convenience.patch || exit 1
-## Restore deprecated functions has_branch_path and has_leaf, inadvertently omitted from 1.36.0 
-patch -p2 < $CWD/patches/boost.has_leaf.patch || exit 1
-## Revert remove changes inadvertently committed by 47006 and fully apply ticket #1972 remove fixes. 
-patch -p2 < $CWD/patches/boost.remove-changes.patch || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .
@@ -179,10 +147,8 @@ elif [ "$ARCH" = "x86_64" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS="--libdir=$PKG/usr/lib64"
-    LIBDIR=lib64
+    CONFIGURE_FLAGS="--libdir=/usr/lib64 --enable-64bit-libs"
   }
-  LIBDIR=lib64
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
 else
@@ -190,48 +156,21 @@ else
 fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
-LIBDIR=${LIBDIR:-"lib"}
 
 ## Configure.
+cd source &&
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=$PKG/usr \
-  --exec-prefix=$PKG/usr \
-  $CONFIGURE_FLAGS \
-  --with-toolset=gcc \
-  --with-bjam=/usr/bin/bjam \
-  --with-icu \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --disable-static --enable-shared \
+  --enable-release \
   || exit 1
 
 ## Build and install.
-EXPAT_INCLUDE=/usr/include \
-EXPAT_LIBPATH=/usr/${LIBDIR} \
 make $MAKE_FLAGS &&
-make $MAKE_FLAGS install || exit 1
+make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-## Remove static, debug, and duplicate libraries
-find $PKG/usr -name "*.a" -exec rm -f {} \; &&
-find $PKG/usr -name "libboost_*-d-*" -exec rm -f {} \; &&
-find $PKG/usr -name "libboost_*-d.so" -exec rm -f {} \; &&
-find $PKG/usr -name "libboost_*-mt-d*" -exec rm -f {} \; &&
-find $PKG/usr -name "libboost_*gcc??.so" -exec rm -f {} \; || exit 1
-
-## Add some library softlinks
-( cd $PKG/usr/${LIBDIR}
-  for i in $(find . -name "libboost_*-mt-*.${VERSION}")
-  do
-    ## For library basenames
-    ln -sf $i $(echo $i | cut -d\- -f1).so &&
-    ln -sf $i $(echo $i | cut -d\- -f1)-mt.so || exit 1
-  done
-
-  for i in $(find . -name "libboost_*-gcc??-mt.so")
-  do
-    ## Overwrite duplicate copies of libraries with softlinks
-    ln -sf $(basename $i .so)-${RELEASE}.so.${VERSION} $i || exit 1
-  done ) || exit 1
-
-## Add boost include directory.
-(cd $PKG/usr/include && ln -sf ${PKGNAME}-${RELEASE}/boost boost) || exit 1
+cd $TMP/$PKGNAME-$VERSION || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -253,8 +192,7 @@ find $PKG/usr -name "libboost_*gcc??.so" -exec rm -f {} \; || exit 1
 
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a \
-  README LICENSE_1_0.txt \
+cp -a license.html readme.html unicode-license.txt \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
@@ -269,9 +207,9 @@ done
 
 ## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION}-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/${PKGNAME}-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/${PKGNAME}-${VERSION}
+  rm -rf $PKG $TMP/$PKGNAME-$VERSION
 }
