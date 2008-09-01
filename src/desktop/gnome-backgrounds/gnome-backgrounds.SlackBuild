@@ -8,14 +8,14 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.23.90
+VERSION=2.23.91
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
 REQUIRED_PACKAGES="desktop-file-utils gnome-desktop"
 
 ## Build variables.
-ARCH=${ARCH:-i586}
+ARCH=noarch
 TUNE=${TUNE:-i586}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
