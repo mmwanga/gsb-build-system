@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=snapshot-20080823-2245
+VERSION=snapshot-20080922-2245
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -195,7 +195,7 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+  AUTHORS COPYING \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION

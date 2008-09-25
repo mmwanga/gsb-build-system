@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=3.6.1
+BUILD=1
+VERSION=3.6.3
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -162,24 +162,15 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --enable-threadsafe \
-  --enable-releasemode \
-  --disable-tcl \
+  --enable-cross-thread-connections \
+  --enable-tempstore=yes \
+  --enable-load-extension \
+  --enable-static=no \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-# Library links
-if [ "$ARCH" = "x86_64" ]; then
-  cd $PKG/usr/lib64 && ln -s libsqlite3.so libsqlite3.so.0 || exit 1
-  # Fix for pkg-config patch level
-  sed -i "s:3.5$:$VERSION:g" $PKG/usr/lib64/pkgconfig/sqlite3.pc || exit 1
-else
-  cd $PKG/usr/lib && ln -s libsqlite3.so libsqlite3.so.0 || exit 1
-  # Fix for pkg-config patch level
-  sed -i "s:3.5$:$VERSION:g" $PKG/usr/lib/pkgconfig/sqlite3.pc || exit 1
-fi;
 
 # Make common binary link
 cd $PKG/usr/bin && ln -s sqlite3 sqlite || exit 1
@@ -187,6 +178,10 @@ cd $PKG/usr/bin && ln -s sqlite3 sqlite || exit 1
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
+
+# Add missed man page:
+install -D -m 0644 sqlite3.1 $PKG/usr/man/man1/sqlite3.1
+gzip -9 $PKG/usr/man/man1/sqlite3.1
 
 ## Compress and fix manpage links.
 [ -e $PKG/usr/man ] && {
@@ -205,7 +200,10 @@ cd $PKG/usr/bin && ln -s sqlite3 sqlite || exit 1
 ## Copy extra documentation into package.
 cd $TMP/$SRCNAME-$VERSION || exit 1
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION &&
-cp VERSION README $PKG/usr/doc/$PKGNAME-$VERSION || exit 1
+cp -a README VERSION $PKG/usr/doc/$PKGNAME-$VERSION/
+# Add a COPYRIGHT file -- http://www.sqlite.org/copyright.html
+zcat $CWD/COPYRIGHT.gz > $PKG/usr/doc/$PKGNAME-$VERSION/COPYRIGHT
+rm -rf $PKG/usr/doc/$PRGNAM-$VERSION/CVS
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 

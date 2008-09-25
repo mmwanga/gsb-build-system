@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=1gsb
+BUILD=1
 VERSION=2.4.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="cyrus-sasl openssl expat sdl libraw1394 libavc1394 libiec61883 libdv"
+REQUIRED_PACKAGES="cyrus-sasl openssl expat sdl libiec61883 libdv"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -166,6 +166,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-samples \
   --enable-openssl \
   --enable-openldap \
+  --enable-expat \
+  --disable-avc \
   || exit 1
 
 ## Build and install.

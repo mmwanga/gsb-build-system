@@ -89,10 +89,9 @@ mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
 ## Decompress archive.
-echo "Copying over svn checkout..."
 cd $TMP &&
 rm -rf $PKGNAME-$VERSION &&
-cp -a $CWD/$PKGNAME ./$PKGNAME-$VERSION &&
+tar xfj $CWD/$PKGNAME-$VERSION.tar.bz2 || exit 1
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.

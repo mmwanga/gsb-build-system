@@ -7,6 +7,6 @@ sources do not effect the stability of our builds.  We will only bump the svn
 version during a development phase or because of a security issue.
 
 *** IMPORTANT ***
-When the svn sources are updated to a newer revision, lib/perl/GSB/Libraries.pm
-MUST be updated with the new revision number (at the bottom of the file).
+When the svn sources are updated to a newer revision, lib/perl/GSB/Supplied.pm
+MUST be updated with the new revision number.
 *****************

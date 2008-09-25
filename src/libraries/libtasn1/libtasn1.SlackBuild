@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=1.4
+VERSION=1.5
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.

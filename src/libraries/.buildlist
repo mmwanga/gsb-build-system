@@ -49,7 +49,7 @@ libiec61883
 speex
 libshout
 sqlite3
-pwlib
+ptlib
 opal
 nss
 libsexy
@@ -76,3 +76,4 @@ ode
 tre
 libesmtp
 libofx
+vte

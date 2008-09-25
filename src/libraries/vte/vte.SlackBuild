@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.18.1
+VERSION=0.17.4
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES=""
+REQUIRED_PACKAGES="gtk+2 freetype python pygtk"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -23,7 +23,6 @@ PKGDEST=${PKGDEST:-$TMP}
 
 ## Script variables.
 PKGNAME=$(basename $0 .SlackBuild)
-SRCNAME=glib
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
@@ -91,9 +90,9 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-rm -rf $SRCNAME-$VERSION &&
-tar xjf $CWD/$SRCNAME-$VERSION.tar.bz2 &&
-cd $SRCNAME-$VERSION || exit 1
+rm -rf $PKGNAME-$VERSION &&
+tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i386" ]; then
@@ -136,14 +135,14 @@ if [ "$ARCH" = "i386" ]; then
 elif [ "$ARCH" = "i486" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE"}
 elif [ "$ARCH" = "i586" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
 elif [ "$ARCH" = "i686" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
 elif [ "$ARCH" = "x86_64" ]; then
   if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
-    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -fPIC"}
+    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -fPIC"}
   else
-    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
+    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
     CONFIGURE_FLAGS="--libdir=/usr/lib64"
@@ -161,19 +160,13 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
+  --program-prefix= \
+  --program-suffix= \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-# Install profile scripts: 
-mkdir -p $PKG/etc/profile.d/ &&
-cp -a $CWD/libglib2.{csh,sh} $PKG/etc/profile.d/ &&
-chown root:root $PKG/etc/profile.d/* &&
-chmod 755 $PKG/etc/profile.d/* &&
-mv $PKG/etc/profile.d/libglib2.csh $PKG/etc/profile.d/libglib2.csh.new &&
-mv $PKG/etc/profile.d/libglib2.sh $PKG/etc/profile.d/libglib2.sh.new || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -196,7 +189,7 @@ mv $PKG/etc/profile.d/libglib2.sh $PKG/etc/profile.d/libglib2.sh.new || exit 1
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+  AUTHORS COPYING HACKING INSTALL MAINTAINERS NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
@@ -215,5 +208,5 @@ makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/$SRCNAME-$VERSION
+  rm -rf $PKG $TMP/$PKGNAME-$VERSION
 }

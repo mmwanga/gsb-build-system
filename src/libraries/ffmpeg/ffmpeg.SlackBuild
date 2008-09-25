@@ -8,11 +8,11 @@
 
 ## Package variables. 
 BUILD=1
-VERSION=svn_14999
+VERSION=svn_15385
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="freetype imlib2 sdl zlib x264 faac faad2 libvorbis lame"
+REQUIRED_PACKAGES="freetype imlib2 sdl zlib x264 faac faad2 libvorbis lame yasm"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -187,14 +187,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-# Fix for broken pkg-config files
-mkdir -p $PKG/usr/${LIBDIR}/pkgconfig ;
-for i in $CWD/patches/*.pc.${VERSION} ;
-do
-   cp $i $PKG/usr/${LIBDIR}/pkgconfig/$(basename $i .${VERSION})
-done;
-
-
 # Fix x86_64 pkg-config files
 if [ "$ARCH" = "x86_64" ]; then
   for i in $PKG/usr/lib64/pkgconfig/*.pc ;
@@ -204,9 +196,8 @@ if [ "$ARCH" = "x86_64" ]; then
 fi;
 
 # For header compatibility
-cd $PKG/usr/include
-ln -s libavcodec ffmpeg || exit 1;
-
+(cd $PKG/usr/include ;
+ln -s libavcodec ffmpeg)
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -228,9 +219,8 @@ ln -s libavcodec ffmpeg || exit 1;
 
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a \
-  COPYING* README \
-  $PKG/usr/doc/$PKGNAME-$VERSION
+cp -a COPYING* CREDITS Changelog README MAINTAINERS ./doc/*.txt \
+  $PKG/usr/doc/$PKGNAME-$VERSION ;
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
