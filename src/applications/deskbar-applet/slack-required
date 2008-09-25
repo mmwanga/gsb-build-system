@@ -7,3 +7,4 @@ evolution-data-server
 pygtk
 gnome-python
 gnome-vfs
+simplejson

@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=3
-VERSION=2.2.0
+BUILD=1
+VERSION=2.4.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -153,6 +153,10 @@ else
 fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
+
+## Remove unneeded high dependency
+echo "Setting pygobject required version to 2.14.0" 
+sed -i "s:2.15.2:2.14.0:g" configure || exit 1
 
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \

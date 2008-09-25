@@ -169,8 +169,9 @@ make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Keep bluez-gnome applet as gnome-only
-mkdir -p $PKG/etc/gnome/xdg
-mv $PKG/etc/xdg/autostart $PKG/etc/gnome/xdg
+mkdir -p $PKG/usr/share/gnome/autostart &&
+mv $PKG/etc/xdg/autostart/bluetooth-applet.desktop \
+   $PKG/usr/share/gnome/autostart || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
