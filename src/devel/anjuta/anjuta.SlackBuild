@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.5.90
+VERSION=2.24.0.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -153,14 +153,6 @@ else
 fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
-
-## Configure.
-
-##
-## Enable GtkSourceView Plugin
-## For some reason, Anjuta assumes a very old GtkSourceView.
-## (Disabled for new version of anjuta)
-#sed -i "s/sourceview\-1\.0/sourceview\-2\.0/g" -i $TMP/$PKGNAME-$VERSION/configure
 
 # Run Configure
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \

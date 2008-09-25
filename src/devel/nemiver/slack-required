@@ -1,7 +1,7 @@
 GConf
 gnome-common
 gtkmm
-libgtksourceviewmm
+gtksourceviewmm
 libgtop
 vte
 sqlite3
