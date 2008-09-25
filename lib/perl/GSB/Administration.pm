@@ -13,8 +13,8 @@ our $VERSION   = 0.03;
 # src/administration from GNOME
 our %administration_gnome =
   (
-   'pessulus'            => '2.23.1',
-   'sabayon'             => '2.22.0',
+   'pessulus'            => '2.24.0',
+   'sabayon'             => '2.22.1',
   );
 
 # src/administration from Elsewhere
@@ -26,7 +26,7 @@ our %administration =
 	   'src' => 'tar.bz2',
 	   },
    'gparted'    => {
-                 'ver' => '0.3.8',
+                 'ver' => '0.3.9',
                  'url' => 'http://mesh.dl.sourceforge.net/sourceforge/gparted',
                  'src' => 'tar.bz2',
                 },

@@ -40,7 +40,7 @@ our %supplied_tarballs =
 	     'section' => 'desktop',
                  },
    'gnome-menus-ooo'  => {
-             'ver' => '2.4.0.3.2',
+             'ver' => '2.4.1.10',
 	     'section' => 'ooo',
                  },
    'fusion-icon'  => {
@@ -52,19 +52,19 @@ our %supplied_tarballs =
 	     'section' => 'applications',
                  },
    'NetworkManager'  => {
-             'ver' => 'svn_4008',
+             'ver' => 'svn_4107',
 	     'section' => 'networking',
                  },
    'NetworkManager-vpn'  => {
-             'ver' => 'svn_4008',
+             'ver' => 'svn_4107',
 	     'section' => 'networking',
                  },
    'network-manager-applet'  => {
-             'ver' => 'svn_863',
+             'ver' => 'svn_906',
 	     'section' => 'networking',
                  },
    'ffmpeg'  => {
-             'ver' => 'svn_14999',
+             'ver' => 'svn_15385',
 	     'section' => 'libraries',
                  },
    'podsleuth'  => {
@@ -72,12 +72,7 @@ our %supplied_tarballs =
 	     'section' => 'mono',
                  },
    'MPlayer'  => {
-             'ver' => 'svn_27501',
+             'ver' => '1.0svn_27666',
 	     'section' => 'media',
-                 },
-   'libdvdread'  => {
-	     # Although from svn, libdvdread does have a release number
-             'ver' => '4.1.3',
-	     'section' => 'libraries',
                  },
   );

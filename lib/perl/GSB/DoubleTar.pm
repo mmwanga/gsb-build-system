@@ -36,10 +36,10 @@ our %double_tarballs_url =
              		'var' => 'VERSION',
                             },
     'mozilla-firefox'  => {
-    			'ver' => '3.0.1',
+    			'ver' => '3.0.2',
     			'dir' => 'testing/mozilla-firefox',
-    			'url' => 'http://www.mirrorservice.org/sites/ftp.mozilla.org/pub/mozilla.org/firefox/releases/3.0.1/source/',
-    			'tar' => 'firefox-3.0.1-source.tar.bz2',
+    			'url' => 'http://www.mirrorservice.org/sites/ftp.mozilla.org/pub/mozilla.org/firefox/releases/3.0.2/source/',
+    			'tar' => 'firefox-3.0.2-source.tar.bz2',
 	    		'var' => 'VERSION',
 			    },
    'libunique'             => {
@@ -84,53 +84,74 @@ our %double_tarballs_url =
 			 'tar' => 'PolicyKit-gnome-0.9.tar.bz2',
 			 'var' => 'VERSION',
 				  },
-   'Gnome2-Gconf-perl'               => {
-			 'ver' => '1.044',
+  'ExtUtilsDepends-perl'               => {
+	                 # This should be the same as the Glib-Perl package version
+			 'ver' => '1.200',
+			 'dir' => 'bindings/glib-perl',
+			 'url' => 'http://search.cpan.org/CPAN/authors/id/T/TS/TSCH/',
+			 'tar' => 'ExtUtils-Depends-0.301.tar.gz',
+			 'var' => 'VERSION',
+				  },
+     'Gtk2-perl'               => {
+			 'ver' => '1.200',
+			 'dir' => 'bindings/gtk2-perl',
+			 'url' => 'http://search.cpan.org/CPAN/authors/id/T/TS/TSCH/',
+			 'tar' => 'Gtk2-1.200.tar.gz',
+			 'var' => 'VERSION',
+				  },
+ 'Gnome2-Gconf-perl'               => {
+	                 # This should be the same as the Gnome2-Perl package version
+			 'ver' => '2.24.0',
 			 'dir' => 'bindings/gnome2-perl',
 			 'url' => 'http://search.cpan.org/CPAN/authors/id/T/TS/TSCH/',
 			 'tar' => 'Gnome2-GConf-1.044.tar.gz',
 			 'var' => 'VERSION',
 				  },
    'Gnome2-VFS-perl'               => {
-			 'ver' => '1.081',
+	                 # This should be the same as the Gnome2-Perl package version
+			 'ver' => '2.24.0',
 			 'dir' => 'bindings/gnome2-perl',
 			 'url' => 'http://search.cpan.org/CPAN/authors/id/T/TS/TSCH/',
 			 'tar' => 'Gnome2-VFS-1.081.tar.gz',
 			 'var' => 'VERSION',
 				  },
    'Gnome2-Canvas'               => {
-			 'ver' => '1.042',
+	                 # This should be the same as the Gnome2-Perl package version
+			 'ver' => '2.24.0',
 			 'dir' => 'bindings/gnome2-perl',
 			 'url' => 'http://search.cpan.org/CPAN/authors/id/T/TS/TSCH/',
 			 'tar' => 'Gnome2-Canvas-1.002.tar.gz',
 			 'var' => 'VERSION',
 				  },
+   'ExtUtilsPkgConfig-perl'               => {
+	                 # This should be the same as the Glib-Perl package version
+			 'ver' => '1.200',
+			 'dir' => 'bindings/glib-perl',
+			 'url' => 'http://search.cpan.org/CPAN/authors/id/T/TS/TSCH/',
+			 'tar' => 'ExtUtils-PkgConfig-1.11.tar.gz',
+			 'var' => 'VERSION',
+				  },
+   'Cairo-perl'               => {
+	                 # This should be the same as the Gtk2-Perl package version
+			 'ver' => '1.200',
+			 'dir' => 'bindings/gtk2-perl',
+			 'url' => 'http://search.cpan.org/CPAN/authors/id/T/TS/TSCH/',
+			 'tar' => 'Cairo-1.060.tar.gz',
+			 'var' => 'VERSION',
+				  },
    'Gnome2-perl'               => {
-			 'ver' => '1.042',
+	                 # This version should be the Gnome2-Perl package version
+			 'ver' => '2.24.0',
 			 'dir' => 'bindings/gnome2-perl',
 			 'url' => 'http://search.cpan.org/CPAN/authors/id/T/TS/TSCH/',
 			 'tar' => 'Gnome2-1.042.tar.gz',
 			 'var' => 'VERSION',
 				  },
-   'ExtUtilsDepends-perl'               => {
-			 'ver' => '1.183',
+   'Glib-perl'               => {
+			 'ver' => '1.200',
 			 'dir' => 'bindings/glib-perl',
 			 'url' => 'http://search.cpan.org/CPAN/authors/id/T/TS/TSCH/',
-			 'tar' => 'ExtUtils-Depends-0.300.tar.gz',
-			 'var' => 'VERSION',
-				  },
-   'ExtUtilsPkgConfig-perl'               => {
-			 'ver' => '1.10',
-			 'dir' => 'bindings/glib-perl',
-			 'url' => 'http://search.cpan.org/CPAN/authors/id/T/TS/TSCH/',
-			 'tar' => 'ExtUtils-PkgConfig-1.10.tar.gz',
-			 'var' => 'VERSION',
-				  },
-   'Cairo-perl'               => {
-			 'ver' => '1.183',
-			 'dir' => 'bindings/gtk2-perl',
-			 'url' => 'http://search.cpan.org/CPAN/authors/id/T/TS/TSCH/',
-			 'tar' => 'Cairo-1.045.tar.gz',
+			 'tar' => 'Glib-1.200.tar.gz',
 			 'var' => 'VERSION',
 				  },
    'libicu'               => {
@@ -148,10 +169,10 @@ our %double_tarballs_url =
 			 'var' => 'VERSION',
 			     },
    'sqlite3'             => {
-			 'ver' => '3.6.1',
+			 'ver' => '3.6.3',
 			 'dir' => 'libraries/sqlite3',
 			 'url' => 'http://www.sqlite.org/',
-			 'tar' => 'sqlite-3.6.1.tar.gz',
+			 'tar' => 'sqlite-3.6.3.tar.gz',
 			 'var' => 'VERSION',
 				  },
    'pyfeedparser'             => {
@@ -180,20 +201,6 @@ our %double_tarballs_url =
 			 'dir' => 'desktop/evo-openldap',
 			 'url' => 'ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/',
 			 'tar' => 'openldap-2.3.38.tgz',
-			 'var' => 'VERSION',
-				  },
-   'Glib-perl'               => {
-			 'ver' => '1.183',
-			 'dir' => 'bindings/glib-perl',
-			 'url' => 'http://search.cpan.org/CPAN/authors/id/T/TS/TSCH/',
-			 'tar' => 'Glib-1.183.tar.gz',
-			 'var' => 'VERSION',
-				  },
-   'Gtk2-perl'               => {
-			 'ver' => '1.183',
-			 'dir' => 'bindings/gtk2-perl',
-			 'url' => 'http://search.cpan.org/CPAN/authors/id/T/TS/TSCH/',
-			 'tar' => 'Gtk2-1.183.tar.gz',
 			 'var' => 'VERSION',
 				  },
    'mplayer-codecs'               => {
@@ -225,10 +232,10 @@ our %double_tarballs_url =
 			 'var' => 'VERSION',
 				  },
    'webkit'               => {
-			 'ver' => 'r35963',
+			 'ver' => 'r36766',
 			 'dir' => 'applications/webkit',
 			 'url' => 'http://nightly.webkit.org/files/trunk/src',
-			 'tar' => 'WebKit-r35963.tar.bz2',
+			 'tar' => 'WebKit-r36766.tar.bz2',
 			 'var' => 'VERSION',
 				  },
     'mozilla-xulrunner'  => {

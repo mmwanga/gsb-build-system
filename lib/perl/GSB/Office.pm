@@ -18,15 +18,15 @@ our %office_gnome =
    'gnumeric'             => '1.8.3',
    'dia'                  => '0.96.1',
    'evince'               => '2.22.2',
-   'f-spot'               => '0.4.4',
+   'f-spot'               => '0.5.0.1',
    'glom'                 => '1.6.17',
    'gnome-python-extras'  => '2.19.1',
-   'goffice'              => '0.6.4',
+   'goffice'              => '0.6.5',
    'libgsf'               => '1.14.8',
    'libgda'               => '3.0.4',
    'libgdamm'             => '2.9.82',
    'libgnomedb'           => '3.0.0',
-   'tomboy'               => '0.11.3',
+   'tomboy'               => '0.12.0',
   );
 
 our %office =

@@ -16,16 +16,16 @@ our $VERSION   = 0.03;
 our %bindings_gnome =
   (
    'bakery'             => '2.4.4',
-   'gconfmm'            => '2.22.0',
-   'gnome-vfsmm'        => '2.22.0',
-   'libglademm'         => '2.6.6',
+   'gconfmm'            => '2.24.0',
+   'gnome-vfsmm'        => '2.24.0',
+   'libglademm'         => '2.6.7',
    'libgnomecanvasmm'   => '2.23.1',
-   'libgnomemm'         => '2.22.0',
-   'libgnomeuimm'       => '2.22.0',
-   'libgtksourceviewmm' => '0.3.1',
-   'libxml++'           => '2.22.0',
-   'gtkmm'              => '2.13.7',
-   'glibmm'             => '2.17.2',
+   'libgnomemm'         => '2.24.0',
+   'libgnomeuimm'       => '2.24.0',
+   'gtksourceviewmm'    => '2.2.0',
+   'libxml++'           => '2.24.0',
+   'gtkmm'              => '2.13.8',
+   'glibmm'             => '2.18.0',
    'pangomm'            => '2.13.5',
   );
 
@@ -43,8 +43,8 @@ our %bindings_ex =
              'src' => 'tar.bz2',
                   },
    'pysqlite' => {
-                 'ver' => '2.4.1',
-                 'url' => 'http://oss.itsystementwicklung.de/download/pysqlite/2.4/2.4.1',
+                 'ver' => '2.5.0a',
+                 'url' => 'http://oss.itsystementwicklung.de/download/pysqlite/2.5/2.5.0',
                  'src' => 'tar.gz',
                 },
    'pyalsaaudio' => {

@@ -15,10 +15,10 @@ our $VERSION   = 0.01;
 
 our %mono_gnome =
   (
-   'evolution-sharp' => '0.17.4',
-   'gtk-sharp'       => '2.12.2',
-   'gnome-sharp'     => '2.23.90',
-   'gnome-desktop-sharp'     => '2.23.90',
+   'evolution-sharp' => '0.18.0',
+   'gtk-sharp'       => '2.12.4',
+   'gnome-sharp'     => '2.24.0',
+   'gnome-desktop-sharp'     => '2.24.0',
    );
 
 our %mono=
@@ -49,7 +49,7 @@ our %mono=
 		    'src'  => 'tar.bz2',
 		   },
    'ipod-sharp'             => {
-				'ver' => '0.8.0',
+				'ver' => '0.8.1',
 				'url' => 'http://banshee-project.org/files/ipod-sharp',
 				'src' => 'tar.gz',
 			       },

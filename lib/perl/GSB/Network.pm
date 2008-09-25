@@ -15,21 +15,22 @@ our $VERSION   = 0.03;
 
 our %network_gnome =
   (
-   'ekiga'                  => '2.0.12',
-   'empathy'	            => '2.23.91',
+   'ekiga'                  => '3.0.0',
+   'empathy'	            => '2.24.0',
    'gnome-user-share'       => '0.31',
+   'xchat-gnome'            => '0.24.0',
   );
 
 our %network_external =
   (
    'balsa'       => {
-		'ver' => '2.3.25',
+		'ver' => '2.3.26',
 		'url' => 'http://balsa.gnome.org',
 		'src' => 'tar.bz2',
 		 },
    'deluge'     => {
-                 'ver' => '0.9.08',
-                 'url' => 'http://download.deluge-torrent.org/source/0.9.08',
+                 'ver' => '1.0.0',
+                 'url' => 'http://download.deluge-torrent.org/source/1.0.0',
                  'src' => 'tar.gz',
                    },
   'sylpheed'     => {
@@ -74,7 +75,7 @@ our %network_external =
                         },
    'telepathy-salut'            => {
              'url' => 'http://telepathy.freedesktop.org/releases/telepathy-salut',
-             'ver' => '0.3.4',
+             'ver' => '0.3.5',
              'src' => 'tar.gz'
                         },
    'telepathy-gabble'            => {

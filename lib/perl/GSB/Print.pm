@@ -17,12 +17,12 @@ our %print =
   (
     'system-config-printer'    => {
              'url' => 'http://cyberelk.net/tim/data/system-config-printer/1.0.x/',
-             'ver' => '1.0.4',
+             'ver' => '1.0.7',
              'src' => 'tar.bz2',
                   },
    'pycups'    => {
              'url' => 'http://cyberelk.net/tim/data/pycups/',
-             'ver' => '1.9.40',
+             'ver' => '1.9.42',
              'src' => 'tar.bz2',
                   },
    'gpp'    => {

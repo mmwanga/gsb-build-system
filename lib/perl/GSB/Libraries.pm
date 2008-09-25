@@ -67,6 +67,11 @@ our %libraries =
                              'url' => 'http://www.graphviz.org/pub/graphviz/stable/SOURCES',
                              'src' => 'tar.gz',
                             },
+   'ilmbase'    => {
+                   'url' => 'http://download.savannah.nongnu.org/releases/openexr/',
+                   'ver' => '1.0.1',
+                   'src' => 'tar.gz',
+                  },
    'id3lib'            => {
 			   'ver' => '3.8.3',
 			   'url' => 'http://mesh.dl.sourceforge.net/sourceforge/id3lib/',
@@ -84,7 +89,9 @@ our %libraries =
 			  },
 
    'iso-codes'       => {
-			 'url' => 'ftp://pkg-isocodes.alioth.debian.org/pub/pkg-isocodes/',
+	   # Stupid debian site disabled, no response.  Server down?  We'll ues the mirror below.
+	   #'url' => 'ftp://pkg-isocodes.alioth.debian.org/pub/pkg-isocodes/',
+	   'url' => 'http://www.mirrorservice.org/sites/ftp.freebsd.org/pub/FreeBSD/ports/distfiles',
 			 'ver' => '3.2',
 			 'src' => 'tar.bz2',
 		        },
@@ -129,9 +136,14 @@ our %libraries =
 			   'src' => 'tar.bz2',
 			  },
    'libdvdnav'         => {
-			   'ver' => '4.1.2',
-			   'url' => 'http://www1.mplayerhq.hu/MPlayer/releases/dvdnav',
-			   'src' => 'tar.gz',
+			   'ver' => '4.1.3',
+			   'url' => 'http://www8.mplayerhq.hu/MPlayer/releases/dvdnav',
+			   'src' => 'tar.bz2',
+			  },
+   'libdvdread'         => {
+			   'ver' => '4.1.3',
+			   'url' => 'http://www8.mplayerhq.hu/MPlayer/releases/dvdnav',
+			   'src' => 'tar.bz2',
 			  },
    'libebml'           => {
 			   'ver' => '0.7.8',
@@ -235,8 +247,8 @@ our %libraries =
                              'src' => 'tar.gz',
                             },
    'libtasn1'             => {
-                             'ver' => '1.4',
-                             'url' => 'http://josefsson.org/gnutls/releases/libtasn1',
+                             'ver' => '1.5',
+                             'url' => 'http://ftp.gnu.org/gnu/gnutls',
                              'src' => 'tar.gz',
                             },
    'lua'             => {
@@ -259,26 +271,11 @@ our %libraries =
 			   'url' => 'http://libmpeg2.sourceforge.net/files/',
 			   'src' => 'tar.gz',
 			  },
-   'opal'            => {
-                         'url' => 'http://www.ekiga.org/admin/downloads/latest/sources/sources/',
-                         'ver' => '2.2.11',
-                         'src' => 'tar.gz',
-                        },
-   'ilmbase'    => {
-                   'url' => 'http://download.savannah.nongnu.org/releases/openexr/',
-                   'ver' => '1.0.1',
-                   'src' => 'tar.gz',
-                  },
    'openexr'    => {
                    'url' => 'http://download.savannah.nongnu.org/releases/openexr/',
                    'ver' => '1.6.1',
                    'src' => 'tar.gz',
                   },
-   'pwlib'            => {
-                         'url' => 'http://www.ekiga.org/admin/downloads/latest/sources/sources/',
-                         'ver' => '1.10.10',
-                         'src' => 'tar.gz',
-                        },
    'sg3_utils'            => {
                          'url' => 'http://sg.torque.net/sg/p',
                          'ver' => '1.27',
@@ -305,7 +302,7 @@ our %libraries =
 			   'src' => 'tar.gz',
 			  },
    'x264'            => {
-			   'ver' => 'snapshot-20080823-2245',
+			   'ver' => 'snapshot-20080922-2245',
 			   'url' => 'ftp://ftp.videolan.org/pub/videolan/x264/snapshots',
 			   'src' => 'tar.bz2',
 			  },
@@ -326,16 +323,19 @@ our %libraries_gnome =
   (
    'libcroco'          => '0.6.1',
    'libsigc++'         => '2.2.2',
+   'ptlib'             => '2.4.1',
+   'opal'              => '3.4.1',
+   'vte'               => '0.17.4',
   );
 
 our %libraries_diff_naming =
   (
    'glib2'  => {
-		'ver'  => '2.17.7',
+		'ver'  => '2.18.1',
 		'name' => 'glib',
 	       },
    'gtk+2'  => {
-		'ver'  => '2.13.7',
+		'ver'  => '2.14.3',
 		'name' => 'gtk+',
 	       },
   );
