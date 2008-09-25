@@ -43,7 +43,6 @@ gnome-settings-daemon
 libcanberra
 gnome-control-center
 gnome-session
-gnome-applets
 bug-buddy
 gtksourceview
 gtksourceview2
@@ -51,4 +50,5 @@ gnome-keyring-manager
 gtkhtml
 notification-daemon
 gnome-python
+gnome-applets
 gnome-backgrounds

@@ -5,7 +5,6 @@ gnome-vfs
 libgtop
 gstreamer
 rarian
-system-tools-backends
 gnome-desktop
 libwnck
 libnotify
@@ -17,3 +16,4 @@ libgnomekbd
 policykit-gnome
 libgweather
 dbus-glib
+gnome-python

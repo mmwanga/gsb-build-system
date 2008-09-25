@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.23.90
+VERSION=2.24.0.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gail GConf gnome-panel gnome-vfs libgtop gstreamer rarian system-tools-backends gnome-desktop libwnck libnotify hal dbus libxml2 pygtk libgnomekbd policykit-gnome libgweather dbus-glib"
+REQUIRED_PACKAGES="gail GConf gnome-panel gnome-vfs libgtop gstreamer rarian gnome-desktop libwnck libnotify hal dbus libxml2 pygtk libgnomekbd policykit-gnome libgweather dbus-glib gnome-python"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -162,8 +162,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
   --disable-scrollkeeper \
-  --with-hal \
-  --enable-flags \
+  --enable-polkit \
   || exit 1
 
 ## Build and install.

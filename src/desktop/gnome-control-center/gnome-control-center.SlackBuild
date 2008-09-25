@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.23.90
+VERSION=2.24.0.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -169,14 +169,15 @@ make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Preserve menu settings
-mkdir -p $PKG/etc/gnome/xdg/menus
-mv $PKG/etc/xdg/menus/gnomecc.menu $PKG/etc/gnome/xdg/menus/gnomecc.menu.new
+mkdir -p $PKG/etc/gnome/xdg/menus &&
+mv $PKG/etc/xdg/menus/gnomecc.menu \
+   $PKG/etc/gnome/xdg/menus/gnomecc.menu.new || exit 1
 ## Keep gnome-at-session as GNOME only
-mv $PKG/etc/xdg/autostart $PKG/etc/gnome/xdg
+mkdir -p $PKG/usr/share/gnome/autostart &&
+mv $PKG/etc/xdg/autostart/gnome-at-session.desktop \
+   $PKG/usr/share/gnome/autostart || exit 1
 
-##
-## Keep clean for Scrollkeeper
-## Will rebuild database in doinst.sh
+## Keep clean for Scrollkeeper. Will rebuild database in doinst.sh
 rm -fr $PKG/var/lib/scrollkeeper
 rm -fr $PKG/var/lib/log
 
