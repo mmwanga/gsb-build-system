@@ -1,7 +1,277 @@
+Wed Sep 24 10:57:15 GMT 2008
+platform/libsoup-2.24.0.1-i586-1gsb.tgz: Upgraded.
+desktop/gvfs-1.0.1-i586-1gsb.tgz: Upgraded.
+desktop/gnome-control-center-2.24.0.1-i586-1gsb.tgz: Upgraded.
+desktop/gnome-applets-2.24.0.1-i586-1gsb.tgz: Upgraded.
+office/glom-1.6.17-i586-2gsb.tgz: Rebuilt against newer gtksourceviewmm.
+office/tomboy-0.12.0-i586-1gsb.tgz: Upgraded.
+office/f-spot-0.5.0.1-i586-1gsb.tgz: Upgraded.
+mono/ipod-sharp-0.8.1-i586-1gsb.tgz: Upgraded.
+mono/karma-sharp-0.1.0-i586-4gsb.tgz: Rebuilt.
+     Fix a broken pkgconfig file which had an undefined prefix and version.
+media/banshee-1-1.3.1-i586-1gsb.tgz: Upgraded.
+     We're upgrading to the "development" version of Banshee.  Despite being a
+     development version, Banshee-1-1.3.1 offers over 100 bug fixes from the
+     previous stable version, and includes improved hardware support.
+networking/sylpheed-2.5.0-i586-2gsb.tgz: Rebuilt against gtk+2-2.14.2.
+media/MPlayer-1.0svn_27620-i586-1gsb.tgz: Upgraded.
+     We've decided to move to the svn version of MPlayer, which has a lot more
+     features, and better support for video and audio out devices. (For example,
+     pulseaudio.  :^)
++--------------------------+
+Wed Sep 24 10:57:15 GMT 2008
+libraries/gtk+2-2.14.3-i586-1gsb.tgz: Upgraded.
+desktop/gconf-editor-2.24.0.1-i586-1gsb.tgz: Upgraded.
+desktop/nautilus-cd-burner-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/gnome-media-2.24.0.1-i586-1gsb.tgz: Upgraded.
+applications/epiphany-2.24.0.1-i586-1gsb.tgz: Upgraded.
+accessibility/gnome-mag-0.15.4-i586-1gsb.tgz: Upgraded.
+devel/anjuta-2.24.0.1-i586-1gsb.tgz: Upgraded.
+mono/gtk-sharp-2.12.4-i586-1gsb.tgz: Upgraded.
+mono/evolution-sharp-0.18.0-i586-1gsb.tgz: Upgraded.
+devel/anjuta-2.24.0.1-i586-1gsb.tgz: Upgraded.
+bindings/libgtksourceviewmm-0.3.1-i586-3gsb.tgz: Removed.
+bindings/gtksourceviewmm-2.2.0-i586-1gsb.tgz: Added.
+     This package has been renamed upstream.
+devel/nemiver-0.6.2-i586-1gsb.tgz: Upgraded.
+office/tracker-0.6.6-i586-6gsb.tgz: Rebuilt against newer sqlite3.
+print/pycups-1.9.42-i586-1gsb.tgz: Upgraded.
+print/system-config-printer-1.0.7-i586-1gsb.tgz: Upgraded.
+ooo/apache-ant-1.7.1-i586-1gsb.tgz: Upgraded.
++--------------------------+
+Tue Sep 23 01:52:48 GMT 2008
+libraries/ptlib-2.4.1-i586-1gsb.tgz: Added.
+     This package replaces the now obsolete pwlib package.
+libraries/opal-3.4.1-i586-1gsb.tgz: Upgraded.
+libraries/sqlite3-3.6.3-i586-1gsb.tgz: Upgraded.
+libraries/nss-3.12-i586-5gsb.tgz: Rebuilt against sqlite-3.6.3.
+libraries/x264-snapshot_20080922_2245-i586-1gsb.tgz: Upgraded.
+libraries/ffmpeg-svn_15385-i586-1gsb.tgz: Upgraded.
+platform/libgnome-2.24.1-i586-1gsb.tgz: Upgraded.
+platform/libgnomeui-2.24.0-i586-1gsb.tgz: Upgraded.
+platform/libbonobo-2.24.0-i586-1gsb.tgz: Upgraded.
+platform/libbonoboui-2.24.0-i586-1gsb.tgz: Upgraded.
+platform/gnome-vfs-2.24.0-i586-1gsb.tgz: Upgraded.
+platform/gnome-common-2.24.0-i586-1gsb.tgz: Upgraded.
+platform/GConf-2.24.0-i586-1gsb.tgz: Upgraded.
+platform/libsoup-2.24.0-i586-1gsb.tgz: Upgraded.
+platform/gtk-engines-2.16.0-i586-1gsb.tgz: Upgraded.
+desktop/gnome-themes-2.24.0-noarch-1gsb.tgz: Upgraded.
+desktop/at-spi-1.24.0-i586-1gsb.tgz: Upgraded.
+desktop/evolution-data-server-2.24.0-i586-1gsb.tgz: Upgraded.
+desktop/gnome-terminal-2.24.0-i586-1gsb.tgz: Upgraded.
+desktop/libgnomeprint-2.18.5-i586-1gsb.tgz: Upgraded.
+desktop/libgnomeprintui-2.18.3-i586-1gsb.tgz: Upgraded.
+desktop/gvfs-1.0.0-i586-1gsb.tgz: Upgraded.
+desktop/bug-buddy-2.24.0-i586-1gsb.tgz: Upgraded.
+desktop/gnome-python-2.22.3-i586-1gsb.tgz: Upgraded.
+desktop/gnome-applets-2.24.0-i586-1gsb.tgz: Upgraded.
+desktop/metacity-2.24.0-i586-1gsb.tgz: Upgraded.
+desktop/gnome-doc-utils-0.14.0-i586-1gsb.tgz: Upgraded.
+desktop/libgnomekbd-2.24.0-i586-1gsb.tgz: Upgraded.
+bindings/glibmm-2.18.0-i586-1gsb.tgz: Upgraded.
+bindings/libxml++-2.24.0-i586-1gsb.tgz: Upgraded.
+bindings/gconfmm-2.24.0-i586-1gsb.tgz: Upgraded.
+bindings/libglademm-2.6.7-i586-1gsb.tgz: Upgraded.
+bindings/gnome-vfsmm-2.24.0-i586-1gsb.tgz: Upgraded.
+bindings/libgnomemm-2.24.0-i586-1gsb.tgz: Upgraded.
+bindings/libgnomeuimm-2.24.0-i586-1gsb.tgz: Upgraded.
+bindings/glib-perl-1.200-i586-1gsb.tgz: Upgraded.
+bindings/gtk2-perl-1.200-i586-1gsb.tgz: Upgraded.
+bindings/gnome2-perl-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/yelp-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/sound-juicer-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/file-roller-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/totem-pl-parser-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/gnome-python-desktop-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/totem-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/gnome-utils-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/epiphany-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/epiphany-extensions-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/gnome-games-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/gnome-user-docs-2.24.0-noarch-1gsb.tgz: Upgraded.
+applications/vino-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/gcalctool-5.24.0-i586-1gsb.tgz: Upgraded.
+applications/evolution-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/evolution-exchange-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/evolution-webcal-2.23.91-i586-1gsb.tgz: Upgraded.
+applications/gnome-power-manager-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/gthumb-2.10.10-i586-1gsb.tgz: Upgraded.
+application/simplejson-1.9.2-i586-1gsb.tgz: Added.
+networking/telepathy-salut-0.3.5-i586-1gsb.tgz: Upgraded.
+libraries/vte-0.17.4-i586-1gsb.tgz: Upgraded.
+desktop/gnome-desktop-2.24.0-i586-1gsb.tgz: Upgraded.
+desktop/gnome-menus-2.24.0-i586-1gsb.tgz: Upgraded.
+desktop/libgweather-2.24.0-i586-1gsb.tgz: Upgraded.
+desktop/gnome-panel-2.24.0-i586-1gsb.tgz: Upgraded.
+platform/gnome-icon-theme-2.24.0-noarch-1gsb.tgz: Upgraded.
+desktop/libgtop-2.24.0-i586-1gsb.tgz: Upgraded.
+desktop/gnome-session-2.24.0-i586-1gsb.tgz: Upgraded.
+desktop/xdg-utils-1.0.2-i586-2gsb.tgz: Upgraded.
+     Added proper /etc/mailcap entries.
+desktop/gst-plugins-good-0.10.10-i586-1gsb.tgz: Upgraded.
+desktop/gnome-settings-daemon-2.24.0-i586-1gsb.tgz: Upgraded.
+desktop/gnome-backgrounds-2.24.0-noarch-1gsb.tgz: Upgraded.
+applications/eog-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/gnome-system-monitor-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/gnome-netstatus-2.12.2-i586-1gsb.tgz: Upgraded.
+applications/zenity-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/gnome-nettool-2.22.1-i586-1gsb.tgz: Upgraded.
+applications/evolution-webcal-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/alacarte-0.11.6-i586-1gsb.tgz: Upgraded.
+applications/deskbar-applet-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/pygtksourceview-2.4.0-i586-1gsb.tgz: Upgraded.
+applications/gedit-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/seahorse-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/seahorse-plugins-2.24.0-i586-1gsb.tgz: Upgraded.
+desktop/gnome-control-center-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/fast-user-switch-applet-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/cheese-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/goocanvas-0.12-i586-1gsb.tgz: Upgraded.
+applications/pygoocanvas-0.12.0-i586-1gsb.tgz: Upgraded.
+applications/vinagre-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/hamster-applet-2.24.0-i586-1gsb.tgz: Upgraded.
+accessibility/gok-2.24.0-i586-1gsb.tgz: Upgraded.
+accessibility/orca-2.24.0-i586-1gsb.tgz: Upgraded.
+accessibility/libgail-gnome-1.20.1-i586-1gsb.tgz: Upgraded.
+accessibility/mousetweaks-2.24.0-i586-1gsb.tgz: Upgraded.
+administration/sabayon-2.22.1-i586-1gsb.tgz: Upgraded.
+administration/pessulus-2.24.0-i586-1gsb.tgz: Upgraded.
+devel/gdl-2.24.0-i586-1gsb.tgz: Upgraded.
+devel/gnome-build-2.24.0-i586-1gsb.tgz: Upgraded.
+devel/devhelp-0.21-i586-1gsb.tgz: Upgraded.
+devel/accerciser-1.4.0-i586-1gsb.tgz: Upgraded.
+bindings/pysqlite-2.5.0a-i586-1gsb.tgz: Upgraded.
+desktop/libwnck-2.24.0-i586-1gsb.tgz: Upgraded.
+desktop/gst-plugins-bad: Rebuilt against x264-20080922_2245.
++--------------------------+
+Mon Sep 22 00:23:28 GMT 2008
+libraries/glib2-2.18.1-i586-1gsb.tgz: Upgraded.
+libraries/gtk+2-2.14.2-i586-1gsb.tgz: Upgraded.
+platform/intltool-0.40.4-i586-1gsb.tgz: Upgraded.
+platform/ORBit2-2.14.16-i586-1gsb.tgz: Upgraded.
+platform/gnome-keyring-2.24.0-i586-1gsb.tgz: Upgraded.
+desktop/eel-2.24.0-i586-1gsb.tgz: Upgraded.
+desktop/nautilus-2.24.0-i586-1gsb.tgz: Upgraded.
+desktop/gtksourceview-2.4.0-i586-1gsb.tgz: Upgraded.
++--------------------------+
+Mon Sep 15 21:08:17 GMT 2008
+applications/brasero-0.8.2-i586-1gsb.tgz: Upgraded.
+administration/gparted-0.3.9-i586-1gsb.tgz: Upgraded.
+mono/evolution-sharp-0.17.6-i586-1gsb.tgz: Upgraded.
+devel/devhelp-0.20-i586-1gsb.tgz: Upgraded.
+devel/anjuta-2.23.91-i586-1gsb.tgz: Upgraded.
+devel/accerciser-1.3.92-i586-1gsb.tgz: Upgraded.
++--------------------------+
+Wed Sep 10 19:21:21 GMT 2008
+networking/empathy-2.23.92-i586-1gsb.tgz: Upgraded.
+     This requires a minor patch to add a missing header file.
+office/f-spot-0.4.4-i586-2gsb.tgz: Rebuilt against gtk+2-2.14.1.  
+     Add missing gconf installation in the doinst.sh.
++--------------------------+
+Wed Sep 10 19:21:21 GMT 2008
+libraries/libdvdread-4.1.3-i586-1gsb.tgz: Upgraded.
+libraries/libdvdnav-4.1.3-i586-1gsb.tgz: Added.
+libraries/ffmpeg-svn_15292-i586-1gsb.tgz: Upgraded.
+bindings/gtkmm-2.13.8-i586-1gsb.tgz: Upgraded.
+bindings/gconfmm-2.23.1-i586-1gsb.tgz: Upgraded.
+applications/gnome-system-monitor-2.23.91-i586-1gsb.tgz: Upgraded.
+applications/gnome-games-2.23.92-i586-1gsb.tgz: Upgraded.
+applications/gnome-games-extra-data-2.24.0-noarch-1gsb.tgz: Upgraded.
+applications/vino-2.23.92-i586-1gsb.tgz: Upgraded.
+applications/gcalctool-5.23.92-i586-1gsb.tgz: Upgraded.
+applications/evolution-2.23.92-i586-1gsb.tgz: Upgraded.
+applications/evolution-exchange-2.23.92-i586-1gsb.tgz: Upgraded.
+applications/deskbar-applet-2.23.92-i586-1gsb.tgz: Upgraded.
+applications/gedit-2.23.92-i586-1gsb.tgz: Upgraded.
+applications/gedit-plugins-2.22.3-i586-1gsb.tgz: Upgraded.
+applications/seahorse-2.23.92-i586-1gsb.tgz: Upgraded.
+applications/seahorse-plugins-2.23.92-i586-1gsb.tgz: Upgraded.
+applications/gdm-2.20.8-i586-1gsb.tgz: Upgraded.
+applications/cheese-2.23.92-i586-1gsb.tgz: Upgraded.
+applications/goocanvas-0.11-i586-1gsb.tgz: Upgraded.
+applications/gtk-vnc-0.3.7-i586-1gsb.tgz: Upgraded.
+applications/vinagre-2.23.92-i586-1gsb.tgz: Upgraded.
+applications/hamster-applet-2.23.92-i586-1gsb.tgz: Upgraded.
+accessibility/gnome-mag-0.15.3-i586-1gsb.tgz: Upgraded.
+accessibility/orca-2.23.92-i586-1gsb.tgz: Upgraded.
+accessibility/mousetweaks-2.23.92-i586-1gsb.tgz: Upgraded.
+mono/gtk-sharp-2.12.3-i586-1gsb.tgz: Upgraded.
+mono/gnome-sharp-2.24.0-i586-1gsb.tgz: Upgraded.
+mono/gnome-desktop-sharp-2.24.0-i586-1gsb.tgz: Upgraded.
+mono/evolution-sharp-0.17.5-i586-1gsb.tgz: Upgraded.
+office/goffice-0.6.5-i586-1gsb.tgz: Upgraded.
++--------------------------+
+Tue Sep 09 13:36:10 GMT 2008
+     GNOME 2.23.91 (Beta 2) Released.
+libraries/glib2-2.18.0-i586-1gsb.tgz: Upgraded.
+libraries/gtk+2-2.14.1-i586-1gsb.tgz: Upgraded.
+libraries/opal-2.2.11-i586-3gsb.tgz: Upgraded.
+platform/rarian-0.8.1-i586-1gsb.tgz: Upgraded.
+platform/gnome-keyring-2.23.92-i586-1gsb.tgz: Upgraded.
+platform/gtk-engines-2.15.4-i586-1gsb.tgz: Upgraded.
+platform/libsoup-2.23.92-i586-1gsb.tgz: Upgraded.
+platform/gnome-themes-2.23.92-noarch-1gsb.tgz: Upgraded.
+platform/gnome-doc-utils-0.13.1-i586-1gsb.tgz: Upgraded.
+desktop/at-spi-1.23.92-i586-1gsb.tgz: Upgraded.
+desktop/gnome-desktop-2.23.92-i586-1gsb.tgz: Upgraded.
+desktop/gnome-menus-2.23.92-i586-1gsb.tgz: Upgraded.
+desktop/libwnck-2.23.92-i586-1gsb.tgz: Upgraded.
+desktop/evolution-data-server-2.23.92-i586-1gsb.tgz: Upgraded.
+desktop/libgweather-2.23.92-i586-1gsb.tgz: Upgraded.
+desktop/gnome-panel-2.23.92-i586-1gsb.tgz: Upgraded.
+libraries/vte-0.17.3-i586-1gsb.tgz: Added.
+     This replaces the standard Slackware package vte.  The 0.17 series is 
+     required by the gnome-terminal package.
+desktop/gnome-terminal-2.23.91-i586-1gsb.tgz: Upgraded.
+desktop/libxklavier-3.7-i586-1gsb.tgz: Upgraded.
+desktop/libgnomekbd-2.23.91-i586-1gsb.tgz: Upgraded.
+desktop/metacity-2.23.610-i586-1gsb.tgz: Upgraded.
+desktop/eel-2.23.92-i586-1gsb.tgz: Upgraded.
+desktop/gvfs-0.99.7.1-i586-1gsb.tgz: Upgraded.
+desktop/nautilus-2.23.92-i586-1gsb.tgz: Upgraded.
+desktop/gnome-settings-daemon-2.23.92-i586-1gsb.tgz: Upgraded.
+desktop/gnome-session-2.23.92-i586-1gsb.tgz: Upgraded.
+desktop/gnome-applets-2.23.92-i586-1gsb.tgz: Upgraded.
+desktop/bug-buddy-2.23.91.1-i586-1gsb.tgz: Upgraded.
+desktop/gtkhtml-3.23.92-i586-1gsb.tgz: Upgraded.
+desktop/gnome-backgrounds-2.23.92-noarch-1gsb.tgz: Upgraded.
+bindings/glibmm-2.17.3-i586-1gsb.tgz: Upgraded.
+bindings/gtkmm: Rebuilt against gtk+2-2.14.1.
+applications/yelp-2.23.91-i586-1gsb.tgz: Upgraded.
+applications/eog-2.23.92-i586-1gsb.tgz: Upgraded.
+applications/gnome-media-2.23.92-i586-1gsb.tgz: Upgraded.
+applications/sound-juicer-2.23.3-i586-1gsb.tgz: Upgraded.
+applications/file-roller-2.23.92-i586-1gsb.tgz: Upgraded.
+applications/totem-pl-parser-2.23.91-i586-1gsb.tgz: Upgraded.
+applications/gnome-python-desktop-2.23.1-i586-1gsb.tgz: Upgraded.
+applications/epiphany-2.23.91-i586-1gsb.tgz: Upgraded.
+applications/epiphany-extensions-2.23.91-i586-1gsb.tgz: Upgraded.
+applications/totem-2.23.91-i586-1gsb.tgz: Upgraded.
+applications/gnome-utils-2.23.92-i586-1gsb.tgz: Upgraded.
++--------------------------+
+Tue Sep 02 13:36:10 GMT 2008
+platform/libsoup-2.23.91-i586-1gsb.tgz: Upgraded.
+desktop/gvfs-0.99.6-i586-1gsb.tgz: Upgraded.
+accessibility/orca-2.23.91-i586-1gsb.tgz: Upgraded.
+accessibility/mousetweaks-2.23.91-i586-1gsb.tgz: Upgraded.
+office/liferea-1.5.5-i586-1gsb.tgz: Upgraded.
+networking/empathy-2.23.91-i586-1gsb.tgz: Upgraded.
+networking/deluge-0.9.08-i586-1gsb.tgz: Upgraded.
+networking/NetworkManager-svn_4008-i586-1gsb.tgz: Upgraded.
+networking/NetworkManager-vpn-svn_4008-i586-1gsb.tgz: Upgraded.
+networking/network-manager-applet-svn_863-i586-1gsb.tgz: Upgraded.
+print/system-config-printer-1.0.4-i586-3gsb.tgz: Rebuilt.
+platform/pulseaudio-0.9.11-i586-2gsb.tgz: Rebuilt.
+     Fix for location of GNOME pulseaudio autostart.
+print/gpp-0.7.0-i586-1gsb.tgz: Added.
+networking/gnome-user-share-0.31-i586-2gsb.tgz: Rebuilt.
++--------------------------+
 Mon Sep 01 12:48:16 GMT 2008
 libraries/boost-1.36.0-i586-2gsb.tgz: Recompiled.
      Apply official boost hotfix patches from:
      http://svn.boost.org/trac/boost/wiki/ReleasePractices/HotFixes
+     This fixes a few regressions introduced in the new stable 1.36 series.
 applications/evolution-rss-0.1.0-i586-1gsb.tgz: Added.
 applications/conduit-0.3.14-i586-1gsb.tgz: Upgraded.
      Conduit is now configured to use WebKit as recommended by the
@@ -29,24 +299,24 @@ desktop/gnome-backgrounds-2.23.91-noarch-1gsb.tgz: Upgraded.
 applications/file-roller-2.23.91-i586-1gsb.tgz: Upgraded.
 applications/vino-2.23.91-i586-1gsb.tgz: Upgraded.
 applications/gcalctool-5.23.91-i586-1gsb.tgz: Upgraded.
+applications/evolution-2.23.91-i586-1gsb.tgz: Upgraded.
+applications/evolution-webcal-2.21.92-i586-3gsb.tgz: Rebuilt.
+applications/evolution-exchange-2.23.91-i586-1gsb.tgz: Upgraded.
+applications/gnome-power-manager-2.23.91-i586-1gsb.tgz: Upgraded.
+applications/gedit-2.23.91-i586-1gsb.tgz: Upgraded.
+applications/cheese-2.23.91-i586-1gsb.tgz: Upgraded.
+applications/vinagre-2.23.91-i586-1gsb.tgz: Upgraded.
+applications/hamster-applet-2.23.91-i586-1gsb.tgz: Upgraded.
+libraries/libtasn1-1.5-i586-1gsb.tgz: Upgraded.
 +--------------------------+
 Sat Aug 30 16:35:29 GMT 2008
 print/system-config-printer-1.0.4-i586-2gsb.tgz: Rebuilt.
-libraries/libdvdread-4.1.3-i586-1gsb.tgz: Upgraded.
-     We've switched from the Ogle Project's libdvdread to the better supported
-     and newer MPlayer version (which is in fact based upon the Ogle Project's
-     version.)
-libraries/libdvdnav-4.1.2-i586-1gsb.tgz: Added.
 media/banshee-1-1.2.1-i586-1gsb.tgz: Upgraded.
 media/devede-3.11-i586-1gsb.tgz: Upgraded.
 media/wxGTK-2.8.8-i586-1gsb.tgz: Removed.  
      No part of the GSB project actually requires this library anymore, so 
      we're going to drop it.  It's main use is by VLC, which we do not
      provide. Try Mplayer, Totem or Xine under Slackware/GNOME.
-media/MPlayer-svn_27501-i586-1gsb.tgz: Upgraded.
-     We've decided to move to the svn version of MPlayer, which has a lot more
-     features, and better support for video and audio out devices. (For example,
-     pulseaudio).  
 media/gnome-mplayer-0.7.0-i586-1gsb.tgz: Added.
 media/soundconverter-1.3.2-i586-1gsb.tgz: Added.
 +--------------------------+
@@ -78,6 +348,7 @@ applications/epiphany-2.23.90-i586-2gsb.tgz: Rebuilt against xulrunner-1.9.0.1.
 applications/gnome-utils-2.23.90-i586-1gsb.tgz: Upgraded.
 +--------------------------+
 Thu Aug 28 15:57:10 GMT 2008
+     GNOME 2.23.90 (Beta 1) Released.
 libraries/libicu-4.0c-i586-1gsb.tgz: Added.
 libraries/boost-1.36.0-i586-1gsb.tgz: Upgraded.
      This version of boost is now linked against libicu.
