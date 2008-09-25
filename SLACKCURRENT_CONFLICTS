@@ -1,0 +1,17 @@
+Slackware-current has added the following packages which will we will need
+to remove in the future (once Slack-current becomes released)
+(Updated Sept 11, 2009)
+
+liboil
+gstreamer
+gst-plugins-base
+libgphoto2
+sqlite3
+xdg-utils
+gphoto2
+libraw
+intltool
+enchant
+pycups
+parted
+gtkspell
