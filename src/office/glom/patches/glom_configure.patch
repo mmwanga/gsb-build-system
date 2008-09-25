@@ -1,0 +1,12 @@
+diff -Naur glom-1.6.17.old/configure glom-1.6.17/configure
+--- glom-1.6.17.old/configure	2008-05-07 19:14:27.000000000 +0100
++++ glom-1.6.17/configure	2008-09-25 19:03:43.000000000 +0100
+@@ -22127,7 +22127,7 @@
+ # Do not require avahi, goocanvas and gtksourceviewmm in client only mode
+ REQUIRED_LIBS="bakery-2.4 >= 2.4.3 gthread-2.0 gnome-vfsmm-2.6 >= 2.11.1 libxslt >= 1.1.10 pygda-3.0 pygtk-2.0 >= 2.6.0 libgdamm-3.0 >= 2.9.81 libgda-3.0 >= 3.0.2 libgda-postgres-3.0"
+ if test "$enable_client_only" != "yes"; then
+-	REQUIRED_LIBS="$REQUIRED_LIBS libgtksourceviewmm-1.0 goocanvas avahi-glib"
++	REQUIRED_LIBS="$REQUIRED_LIBS gtksourceviewmm-2.0 goocanvas avahi-glib"
+ fi
+ 
+ # TODO_maemo: Make sure bakery was also compiled with (or without, respectively) maemo support

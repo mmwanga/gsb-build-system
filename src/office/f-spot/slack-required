@@ -11,3 +11,7 @@ glib2
 sqlite3
 ndesk-dbus
 libgphoto2-sharp
+cairo
+gnome-keyring
+dbus
+mono-addins

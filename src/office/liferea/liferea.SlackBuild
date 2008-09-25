@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=3
 VERSION=1.5.5
 
 ## List any packages here that are required to build this package.
@@ -155,7 +155,12 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 CONFIGURE_FLAGS=${CONFIGURE_FLAGS:-"--enable-gtkhtml2 --disable-xulrunner"}
 
+## Fix for xulrunner-1.9-sdk
+sed -i "s,variable=libdir,variable=sdkdir,g" ./configure || exit 1
+
 ## Configure.
+XULRUNNER_CFLAGS=$(pkg-config --cflags libxul-embedding-unstable libxul-embedding) \
+XULRUNNER_LIBS=$(pkg-config --libs libxul-embedding-unstable libxul-embedding) \
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
@@ -168,9 +173,11 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-libnotify \
   --enable-sm \
   --enable-gnutls \
+  --disable-xulrunner \
   --disable-gecko \
   --disable-nm \
-  --disable-webkit \
+  --disable-gtkhtml2 \
+  --enable-webkit \
   || exit 1
 
 ## Build and install.
@@ -221,23 +228,12 @@ chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 }
 
 ## Package meta files
-for FILE in doinst.sh slack-desc slack-conflicts slack-suggests
+for FILE in doinst.sh slack-desc slack-conflicts slack-suggests slack-required
 do
   [ -e $CWD/$FILE ] && {
     cat $CWD/$FILE >>$PKG/install/$FILE
   }
 done
-
-## Separate slack-required for platform
-if [ "$ARCH" = "x86_64" ]; then
-  [ -e $CWD/slack-required.x86_64 ] && {
-    cat $CWD/slack-required.x86_64 >> $PKG/install/slack-required
-  }
-else
-  [ -e $CWD/slack-required.ia32 ] && {
-    cat $CWD/slack-required.ia32 >> $PKG/install/slack-required
-  }
-fi
 
 ## Create the package
 cd $PKG

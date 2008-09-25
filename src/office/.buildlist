@@ -18,12 +18,9 @@ gnome-python-extras
 python-xlib
 istanbul
 drivel
-dvgrab
-kino
 liferea
 tracker
 gwenhywfar
-libofx
 aqbanking
 slib
 gnucash
@@ -34,3 +31,6 @@ blender
 tomboy
 pstoedit
 evince
+gnome-do
+gnome-do-plugins
+f-spot

@@ -17,7 +17,7 @@ gnome-vfsmm
 cairomm
 libxslt
 libgdamm
-libgtksourceviewmm
+gtksourceviewmm
 libxml++
 libgda
 goocanvas
