@@ -11,7 +11,7 @@ bakery
 libgnomecanvasmm
 libgnomemm
 libgnomeuimm
-libgtksourceviewmm
+gtksourceviewmm
 libintl-perl
 glib-perl
 gtk2-perl
