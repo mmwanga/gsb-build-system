@@ -1,6 +1,7 @@
 banshee-1
 dvdauthor
 devede
+dvdrip
 easytag
 gnonlin
 grip
@@ -8,7 +9,9 @@ gtkpod
 jokosher
 streamripper
 vcdimager
-wxGTK
 MPlayer
 mplayer-codecs
 gnome-mplayer
+soundconverter
+dvgrab
+kino

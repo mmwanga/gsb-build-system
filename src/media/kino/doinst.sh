@@ -1,4 +1,10 @@
-ldconfig -r .
+if [ -x usr/bin/update-mime-database ]; then
+  usr/bin/update-mime-database usr/share/mime 1> /dev/null 2> /dev/null
+fi
+
+if [ -x usr/bin/update-desktop-database ]; then
+  usr/bin/update-desktop-database 1> /dev/null 2> /dev/null
+fi
 
 function install_file() {
   # $1 = File to process
@@ -19,12 +25,4 @@ function install_file() {
   fi
 }
 
-#install_file etc/mplayer/mplayer.conf.new
-install_file etc/mplayer/config.new
-install_file etc/mplayer/input.conf.new
-install_file etc/mplayer/mencoder.conf.new
-#install_file usr/share/mplayer/subfont.ttf.new
-
-#if [ -x usr/bin/update-desktop-database ]; then
-  #usr/bin/update-desktop-database 1> /dev/null 2> /dev/null
-#fi
+install_file etc/udev/rules.d/80-kino.rules.new

@@ -1,0 +1,12 @@
+The mplayer subdirectory is external SVN link to
+	svn://svn.mplayerhq.hu/mplayer/trunk
+at a fixed revision.
+
+The svn link is maintaned at a fixed revision so that daily changes to their
+sources do not effect the stability of our builds.  We will only bump the svn
+version during a development phase or because of a security issue.
+
+*** IMPORTANT ***
+When the svn sources are updated to a newer revision, lib/perl/GSB/Supplied.pm
+MUST be updated with the new revision number.
+*****************
