@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=0.9.11
 
 ## List any packages here that are required to build this package.
@@ -114,9 +114,6 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
-## Fix from svn for conditional definition
-patch -p1 < $CWD/patches/caps.c.patch
-
 ## Fix permissions for building.
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
@@ -176,8 +173,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 
 ## Build and install.
 make $MAKE_FLAGS -j1 || exit 1
-## Make sure to install with -j1 otherwise libsocket-util.so strangely gets skipped
-## I almost went insane tracking this one down.  :/
+## Make sure to install with -j1 otherwise libsocket-util.so 
+## strangely gets skipped. I almost went insane tracking this one down.  :/
 make $MAKE_FLAGS -j1 install DESTDIR=$PKG || exit 1
 
 ## Preserve settings
@@ -187,8 +184,10 @@ mkdir -p $PKG/etc
 mkdir -p $PKG/etc/pulse
 cp $CWD/gsb/default.pa.gsb $PKG/etc/pulse/default.pa.new || exit 1
 
-## Let's just make pulseaudio specific to GSB for now
-mkdir -p $PKG/etc/gnome && mv $PKG/etc/xdg $PKG/etc/gnome || exit 1
+## Let's just make pulseaudio specific to GNOME for now
+mkdir -p $PKG/usr/share/gnome/ && 
+mv $PKG/etc/xdg/autostart/pulseaudio.desktop \
+   $PKG/usr/share/gnome/autostart || exit 1
 
 # Tweaks for x86_64 platforms
 if [ "$ARCH" = "x86_64" ]; then
