@@ -116,21 +116,21 @@ elif [ "$ARCH" = "powerpc" ]; then
 fi
 
 # Fix crash on non-GDM systems
-#patch -p0 < $CWD/patches/startx.patch
+patch -p0 < $CWD/patches/startx.patch
 # Fix crash for gdm > 2.20 socket naming
-#patch -p0 < $CWD/patches/fusa.socket-check.patch 
+patch -p0 < $CWD/patches/fusa.socket-check.patch 
 # Fix wonky dialog
-#patch -p0 < $CWD/patches/error-dialog.patch 
+patch -p0 < $CWD/patches/error-dialog.patch 
 # Make usernames default in list
-#patch -p0 < $CWD/patches/fusa-defaults.patch 
+patch -p0 < $CWD/patches/fusa-defaults.patch 
 # Fix for gdm usernames
-#patch -p0 < $CWD/patches/fusa.username.patch 
+patch -p0 < $CWD/patches/fusa.username.patch 
 # All users in gdm
-#patch -p0 < $CWD/patches/many-users.patch 
+patch -p0 < $CWD/patches/many-users.patch 
 # Disable session saving
-#patch -p0 < $CWD/patches/no-session.patch 
+patch -p0 < $CWD/patches/no-session.patch 
 # Fix for gnome-screensaver
-#patch -p0 < $CWD/patches/throttle.patch 
+patch -p0 < $CWD/patches/throttle.patch 
 
 
 ## Fix permissions for building.
