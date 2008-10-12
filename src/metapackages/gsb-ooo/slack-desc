@@ -9,4 +9,4 @@ gsb-ooo: This package is a metapackage for a GNOME SlackBuild build of
 gsb-ooo: OpenOffice.Org, linked against GTK+2 to fit your GNOME Desktop,
 gsb-ooo: and comes with a set of menus for better integration.
 gsb-ooo: 
-gsb-ooo: For more details, please see: http://gnomeslackbuild.org/software/
+gsb-ooo: 

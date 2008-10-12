@@ -21,7 +21,7 @@ libgnomecanvasmm
 libgnomemm
 libgnomeprintui
 libgnomeuimm
-libgtksourceviewmm
+gtksourceviewmm
 libsigc++
 libwnck
 libxml++
@@ -33,3 +33,4 @@ scons
 setuptools
 subversion
 yelp
+nemiver
