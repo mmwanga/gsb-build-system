@@ -1,0 +1,12 @@
+              |-----handy-ruler------------------------------------------------------|
+gsb-multimedia: gsb-multimedia (GNOME SlackBuild Multimedia Package)
+gsb-multimedia: 
+gsb-multimedia: GNOME SlackBuild is a complete GNOME Desktop Environment for Slackware 
+gsb-multimedia: Linux, encompassing all the needed packages for a full, clean 
+gsb-multimedia: installation of GNOME for Slackware, or Slackware based systems.
+gsb-multimedia: 
+gsb-multimedia: This package is a metapackage for multimedia applications provided
+gsb-multimedia: by the GNOME SlackBuild Project. For more details, please
+gsb-multimedia: see http://gnomeslackbuild.org/software/
+gsb-multimedia: 
+gsb-multimedia: 
