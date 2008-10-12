@@ -1,6 +1,9 @@
-# Version: 1.0 - Do not remove this line!
-# Example doinst.sh for GSB.
-# Remove/edit any parts that are not required for each package.
+# Version: 1.0 GSB doinst.sh - Do not remove this line!
+# Copyright (c) 2007, 2008:
+#   Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>, Coventry, UK.
+#   Steve Kennedy <steve (at) gnomeslackbuild.org>, Exeter, UK.
+# Licenced under the terms of the GNU General Public Licence version 3.
+#
 
 # Update new libraries
 ldconfig -r .

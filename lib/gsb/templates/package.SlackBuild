@@ -1,8 +1,8 @@
 #!/bin/bash
-## Version: 1.6 GSB Package SlackBuild.
-## Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
-## Copyright (c) 2007 Steve Kennedy <sk238 (at) exeter.ac.uk>
-##
+## Version: 1.6 GSB Package SlackBuild - Do not remove this line!
+## Copyright (c) 2007, 2008:
+##   Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>, Coventry, UK.
+##   Steve Kennedy <steve (at) gnomeslackbuild.org>, Exeter, UK.
 ## Licenced under the terms of the GNU General Public Licence version 3.
 ##
 
