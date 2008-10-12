@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=0.9.11
+BUILD=1
+VERSION=0.9.13
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libsndfile GConf hal avahi glib2 libsamplerate libatomic_ops liboil bluez-libs"
+REQUIRED_PACKAGES="libsndfile GConf hal avahi glib2 libsamplerate libatomic_ops liboil bluez-libs consolekit"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -114,6 +114,11 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
+## Patch from git; fixes pa symlink crash
+if [ "${VERSION}" = "0.9.12" ]; then
+  patch -p1 < $CWD/patches/pa_symlink_core-util.c.patch || exit 1
+fi;
+
 ## Fix permissions for building.
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
@@ -180,14 +185,16 @@ make $MAKE_FLAGS -j1 install DESTDIR=$PKG || exit 1
 ## Preserve settings
 mv $PKG/etc/pulse/daemon.conf $PKG/etc/pulse/daemon.conf.new || exit 1
 mv $PKG/etc/pulse/client.conf $PKG/etc/pulse/client.conf.new || exit 1
+mv $PKG/etc/pulse/default.pa $PKG/etc/pulse/default.pa.new || exit 1
+mv $PKG/etc/pulse/system.pa $PKG/etc/pulse/system.pa.new || exit 1
 mkdir -p $PKG/etc
 mkdir -p $PKG/etc/pulse
-cp $CWD/gsb/default.pa.gsb $PKG/etc/pulse/default.pa.new || exit 1
 
-## Let's just make pulseaudio specific to GNOME for now
-mkdir -p $PKG/usr/share/gnome/ && 
-mv $PKG/etc/xdg/autostart/pulseaudio.desktop \
-   $PKG/usr/share/gnome/autostart || exit 1
+# pulseaudio started by gnome-settings-daemon anyway
+rm -fr $PKG/etc/xdg
+
+## Install our version
+#cp $CWD/gsb/default.pa.gsb $PKG/etc/pulse/default.pa.new || exit 1
 
 # Tweaks for x86_64 platforms
 if [ "$ARCH" = "x86_64" ]; then

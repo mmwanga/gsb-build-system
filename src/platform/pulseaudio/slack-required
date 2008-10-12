@@ -8,3 +8,7 @@ libatomic_ops
 liboil
 alsa-lib
 policykit
+consolekit
+speex
+libSM
+libICE

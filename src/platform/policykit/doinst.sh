@@ -23,6 +23,7 @@ function install_file() {
 }
 
 install_file etc/PolicyKit/PolicyKit.conf.new
+install_file /etc/dbus-1/system.d/org.freedesktop.PolicyKit.conf.new
 
 # If the policykit group doesn't exist, add them
 if ! grep "^polkituser:" etc/group >/dev/null 2>&1; then

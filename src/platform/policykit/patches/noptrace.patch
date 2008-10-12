@@ -1,0 +1,29 @@
+# Description: Disable ptrace() and core dumping for programs using libpolkit
+# Ubuntu: https://wiki.ubuntu.com/DesktopTeam/Specs/PolicyKitIntegration
+# Upstream: https://bugs.freedesktop.org/show_bug.cgi?id=13742
+
+--- policykit-0.7/src/polkit/polkit-policy-default.c	2007-11-28 22:22:52.000000000 +0100
++++ policykit-0.7.new/src/polkit/polkit-policy-default.c	2007-12-31 18:14:45.000000000 +0100
+@@ -39,6 +39,7 @@
+ #include <grp.h>
+ #include <unistd.h>
+ #include <errno.h>
++#include <sys/prctl.h>
+ 
+ #include "polkit-debug.h"
+ #include "polkit-error.h"
+@@ -570,3 +571,14 @@
+ };
+ 
+ #endif /* POLKIT_BUILD_TESTS */
++
++/**
++ * Library constructor: Disable ptrace() and core dumping for applications
++ * which use this library, so that local trojans cannot silently abuse PK
++ * privileges. (This is a just a bandaid, not a robust solution).
++ */
++__attribute__ ((constructor))
++void init()
++{
++        /* prctl(PR_SET_DUMPABLE, 0); */
++}

@@ -1,12 +1,13 @@
     |-----handy-ruler------------------------------------------------------|
-gail: gail (GNOME Accessibility Interface)
+gail: gail (GNOME Accessibility Interface Library)
 gail:
-gail: Provides accessibility support for GTK+ and libgnomecanvas. GAIL is a 
-gail: GTK+ module that provides accessibility support for GTK+ and 
-gail: libgnomecanvas by implementing AtkObjects for widgets in the two 
-gail: libraries.
+gail: gail provides accessibility support for GNOME.  It offers a gtk+2 
+gail: module that provides accessibility support for gtk+2 and gnomecanvas
+gail: by implementing AtkObjects for widgets in the two libraries.
 gail:
-gail: For more information about accessibility in GNOME, see:
-gail:   http://developer.gnome.org/projects/gap
+gail:
+gail:
+gail:
+gail:
 gail:
 gail:

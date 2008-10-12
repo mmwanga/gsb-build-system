@@ -16,6 +16,9 @@
 # along with PulseAudio; if not, write to the Free Software Foundation,
 # Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.
 
+# This startup script is used only if PulseAudio is started per-user
+# (i.e. not in system mode)
+
 .nofail
 
 ### Load something into the sample cache
@@ -37,7 +40,7 @@
 #load-module module-pipe-sink
 
 ### Automatically load driver modules depending on the hardware available
-.ifexists /usr/lib/pulse-0.9/modules//module-hal-detect.so
+.ifexists module-hal-detect.so
 load-module module-hal-detect
 .else
 ### Alternatively use the static hardware detection module (for systems that
@@ -46,14 +49,16 @@ load-module module-detect
 .endif
 
 ### Load several protocols
+.ifexists module-esound-protocol-unix.so
 load-module module-esound-protocol-unix
+.endif
 load-module module-native-protocol-unix
 
 ### Network access (may be configured with paprefs, so leave this commented
 ### here if you plan to use paprefs)
 #load-module module-esound-protocol-tcp
 #load-module module-native-protocol-tcp
-load-module module-zeroconf-publish
+#load-module module-zeroconf-publish
 
 ### Load the RTP reciever module (also configured via paprefs, see above)
 #load-module module-rtp-recv
@@ -62,8 +67,9 @@ load-module module-zeroconf-publish
 #load-module module-null-sink sink_name=rtp format=s16be channels=2 rate=44100 description="RTP Multicast Sink"
 #load-module module-rtp-send source=rtp.monitor
 
-### Automatically restore the volume of playback streams
-load-module module-volume-restore
+### Automatically restore the volume of streams and devices
+load-module module-stream-restore
+load-module module-device-restore
 
 ### Automatically restore the default sink/source when changed by the user during runtime
 load-module module-default-device-restore
@@ -72,28 +78,43 @@ load-module module-default-device-restore
 ### connected to dies, similar for sources
 load-module module-rescue-streams
 
+### Make sure we always have a sink around, even if it is a null sink.
+load-module module-always-sink
+
 ### Automatically suspend sinks/sources that become idle for too long
 load-module module-suspend-on-idle
 
-### Load X11 bell module
-#load-module module-x11-bell sample=x11-bell
+### If autoexit on idle is enabled we want to make sure we only quit
+### when no local session needs us anymore.
+# load-module module-console-kit
 
-### Publish connection data in the X11 root window
-.ifexists /usr/lib/pulse-0.9/modules//module-x11-publish.so
-load-module module-x11-publish
-.endif
-
-### Register ourselves in the X11 session manager
-# Deactivated by default, to avoid deadlock when PA is started as esd from gnome-session
-# Instead we load this via /etc/xdg/autostart/ and "pactl load-module" now
-# load-module module-x11-xsmp
+### Enable positioned event sounds
+load-module module-position-event-sounds
 
 ### Load additional modules from GConf settings. This can be configured with the paprefs tool.
 ### Please keep in mind that the modules configured by paprefs might conflict with manually
 ### loaded modules.
-.ifexists /usr/lib/pulse-0.9/modules//module-gconf.so
+.ifexists module-gconf.so
+.nofail
 load-module module-gconf
+.fail
 .endif
+
+# X11 modules should not be started from default.pa so that one daemon
+# can be shared by multiple sessions.
+
+### Load X11 bell module
+#load-module module-x11-bell sample=bell-windowing-system
+
+### Register ourselves in the X11 session manager
+#load-module module-x11-xsmp
+
+### Publish connection data in the X11 root window
+#.ifexists module-x11-publish.so
+#.nofail
+#load-module module-x11-publish
+#.fail
+#.endif
 
 ### Make some devices default
 #set-default-sink output

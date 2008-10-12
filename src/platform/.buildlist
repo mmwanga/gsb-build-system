@@ -1,9 +1,11 @@
 gnome-common
 intltool
+vte
 rarian
 ORBit2
 libbonobo
 policykit
+consolekit
 GConf
 gnome-mime-data
 pyorbit
@@ -17,12 +19,12 @@ gail
 libgnomecanvas
 libbonoboui
 gnome-keyring
-alsa-lib
 pulseaudio
 alsa-plugins
 libgnomeui
 gtk-engines
 libsoup
+gnome-doc-utils
 policykit-gnome
 ttf-bitstream-vera
 gnome-icon-theme

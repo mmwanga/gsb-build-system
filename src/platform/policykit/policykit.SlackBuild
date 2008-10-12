@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=0.9
 
 ## List any packages here that are required to build this package.
@@ -118,6 +118,8 @@ fi
 
 ## Get rid of unneeded PAM include
 patch -p1 < $CWD/patches/polkit-resolve-pam.patch || exit 1
+## Security fix for ptrace attacks
+patch -p1 < $CWD/patches/noptrace.patch || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .
@@ -184,8 +186,13 @@ fi;
 ## Install
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
+## Install a nice default PolicyKit.conf
+install -m 644 $CWD/PolicyKit.conf $PKG/etc/PolicyKit || exit 1
+
 ## Preserve settings
 mv $PKG/etc/PolicyKit/PolicyKit.conf $PKG/etc/PolicyKit/PolicyKit.conf.new || exit 1
+mv $PKG/etc/dbus-1/system.d/org.freedesktop.PolicyKit.conf \
+    $PKG/etc/dbus-1/system.d/org.freedesktop.PolicyKit.conf.new || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

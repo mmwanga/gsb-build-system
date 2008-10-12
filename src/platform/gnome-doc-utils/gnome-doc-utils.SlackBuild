@@ -6,14 +6,13 @@
 ## Licenced under the terms of the GNU General Public Licence version 3.
 ##
 
-## Package variables
-BUILD=5
-VERSION=0.6.23
+## Package variables.
+BUILD=1
+VERSION=0.14.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-
-REQUIRED_PACKAGES="glib2 desktop-file-utils dbus gtk+2 python pygtk dbus-python expat libdaemon libglade pygobject gdbm"
+REQUIRED_PACKAGES="intltool libxslt rarian python"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -91,7 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
+tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -109,25 +108,11 @@ elif [ "$ARCH" = "i686" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #patch -p0 < $CWD/patches/pygtk-slamd64.patch
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
-
-## See patches/README
-if [ -x `which pkg-config` ]; then
-   pkg-config --atleast-version="1.1.1" dbus-1
-   if [ $? -ne 0 ]; then
-     echo "You do not have dbus greater or equal to 1.1.1. A patch is required."
-     (cd $TMP/$PKGNAME-$VERSION;
-      patch -p0 < $CWD/patches/avahi.dbus.patch
-     );
-   fi;
-else
-   echo "Need pkg-config in order to build this package.";
-   exit 1;
-fi;
 
 ## Fix permissions for building.
 chown -R root.root .
@@ -171,37 +156,28 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
-  --disable-doxygen-doc \
-  --disable-xmltoman \
-  --disable-manpages \
-  --disable-qt3 \
-  --disable-qt4 \
-  --disable-mono \
-  --disable-monodoc \
-  --with-distro=slackware \
-  --enable-pygtk \
-  --enable-python \
-  --enable-python-dbus \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
+## The icons are improperly placed in a package subdirectory, rather than
+## the main GNOME Icon Set. This moves them over so the application has
+## access to its icons.  
+mkdir -p $PKG/usr/share/icons/gnome
+mv $PKG/usr/share/$PKGNAME/icons/hicolor/* $PKG/usr/share/icons/gnome
+rm -fr $PKG/usr/share/$PKGNAME/icons
+
 ##
-## Preserve previously installed configuations.
-## See doinst.sh
-(
-  cd $PKG/etc/rc.d
-  for i in avahidaemon avahidnsconfd
-  do
-    mv rc.$i rc.$i.new
-  done
-)
-mv $PKG/etc/dbus-1/system.d/avahi-dbus.conf $PKG/etc/dbus-1/system.d/avahi-dbus.conf.new
+## Keep clean for Scrollkeeper
+## Will rebuild database in doinst.sh
+
+rm -fr $PKG/var/lib/scrollkeeper
+rm -fr $PKG/var/lib/log
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -220,14 +196,6 @@ mv $PKG/etc/dbus-1/system.d/avahi-dbus.conf $PKG/etc/dbus-1/system.d/avahi-dbus.
   rm -f $PKG/usr/info/dir
   gzip -9 $PKG/usr/info/*.info
 }
-
-## Copy extra documentation into package.
-mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
-  $PKG/usr/doc/$PKGNAME-$VERSION
-find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
-chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests

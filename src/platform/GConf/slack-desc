@@ -1,12 +1,13 @@
      |-----handy-ruler------------------------------------------------------|
-GConf: GConf (GNOME configuration database)
+GConf: GConf (GNOME Configuration Database)
 GConf:
-GConf: GConf is the GNOME Configuration Database System.
+GConf: GConf is the GNOME Configuration Database System and is used for 
+GConf: for storing application and user preferences. 
 GConf:
-GConf: GConf is a system for storing application preferences. It is intended 
-GConf: for user preferences.
 GConf:
-GConf: http://www.gnome.org
+GConf:
+GConf:
+GConf:
 GConf:
 GConf:
 GConf:

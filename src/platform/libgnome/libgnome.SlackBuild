@@ -13,7 +13,7 @@ VERSION=2.24.1
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
 
-REQUIRED_PACKAGES="libxslt intltool gnome-vfs esound audiofile GConf glib2 gtk+2 libbonobo libxml2 openssl ORBit2 popt zlib gnome-vfs"
+REQUIRED_PACKAGES="libxslt intltool audiofile GConf glib2 gtk+2 libbonobo libxml2 openssl ORBit2 popt zlib esound gnome-vfs"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -156,7 +156,7 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+#CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \

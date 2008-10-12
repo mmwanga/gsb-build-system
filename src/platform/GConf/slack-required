@@ -5,3 +5,4 @@ popt
 zlib
 gtk+2
 policykit
+dbus-glib
