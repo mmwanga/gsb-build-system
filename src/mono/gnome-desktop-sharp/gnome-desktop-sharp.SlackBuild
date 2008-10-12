@@ -173,11 +173,15 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## For compat
 if [ "$ARCH" = "x86_64" ]; then
+  (
   cd $PKG/usr/lib64/pkgconfig &&
   ln -s gtkhtml-sharp-3.14.pc gtkhtml-sharp-2.0.pc || exit 1;
+  )
 else
+  (
   cd $PKG/usr/lib/pkgconfig &&
   ln -s gtkhtml-sharp-3.14.pc gtkhtml-sharp-2.0.pc || exit 1;
+  )
 fi;
 
 ## Strip debugging symbols.

@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=1.0
+VERSION=1.0.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -91,8 +91,7 @@ mkdir -p $PKGDEST
 ## Decompress archive.
 cd $TMP &&
 rm -rf $PKGNAME-$VERSION &&
-tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
-mv $PKGNAME $PKGNAME-$VERSION &&
+tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -158,7 +157,7 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  . ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --program-prefix="" \
@@ -178,11 +177,15 @@ fi ;
 
 ## For compat
 if [ "$ARCH" = "x86_64" ]; then
+  (
   cd $PKG/usr/lib64/pkgconfig &&
   ln -s gnome-keyring-sharp-1.0.pc gnome-keyring-sharp.pc || exit 1;
+  )
 else
+  (
   cd $PKG/usr/lib/pkgconfig &&
   ln -s gnome-keyring-sharp-1.0.pc gnome-keyring-sharp.pc || exit 1;
+  )
 fi;
 
 ## Strip debugging symbols.

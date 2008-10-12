@@ -10,4 +10,3 @@ gnome-keyring-sharp: This package contains Mono Bindings for the GNOME keyring. 
 gnome-keyring-sharp: keyring is running, you can use this to retrive/store confidential 
 gnome-keyring-sharp: information such as passwords, notes or network services user info.
 gnome-keyring-sharp: 
-gnome-keyring-sharp: 

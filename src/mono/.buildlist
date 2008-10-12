@@ -1,13 +1,14 @@
 libgdiplus
 mono
+monodoc
 gtk-sharp
 gecko-sharp
+gmime-sharp
 gnome-sharp
 gnome-desktop-sharp
 gtksourceview-sharp
 mono-addins
 evolution-sharp
-gmime-sharp
 ndesk-dbus
 ndesk-dbus-glib
 podsleuth

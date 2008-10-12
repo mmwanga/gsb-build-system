@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=2.2.9
+BUILD=1
+VERSION=2.2.17
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -166,8 +166,21 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 
 ## Build and install.
 cd mono &&
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+make $MAKE_FLAGS -j1 &&
+mkdir -p $PKG/usr/lib/mono/gmime-sharp &&
+mkdir -p $PKG/usr/lib/pkgconfig &&
+cp gmime-sharp.dll $PKG/usr/lib/mono/gmime-sharp &&
+cp gmime-sharp.pc $PKG/usr/lib/pkgconfig || exit 1
+
+# Fix for pkgconfig files on x86_64 platforms
+if [ "$ARCH" = "x86_64" ]; then
+  if [ -d $PKG/usr/lib/pkgconfig ]; then
+     mkdir -p $PKG/usr/lib64 ;
+     mv $PKG/usr/lib/pkgconfig $PKG/usr/lib64 ;
+  fi;
+fi ;
+
+cd $TMP/$PKGNAME-$VERSION 
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
