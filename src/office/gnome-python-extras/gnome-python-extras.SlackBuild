@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=8
+BUILD=9
 VERSION=2.19.1
 
 ## List any packages here that are required to build this package.
@@ -90,6 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
+rm -fr $PKGNAME-$VERSION &&
 tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
@@ -113,6 +114,13 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
+
+## Build against xulrunner 1.9
+zcat $CWD/patches/xulrunner-1.9.patch.gz | patch -p1 || exit 1
+## Fix for renamed header
+zcat $CWD/patches/gdl-icons.patch.gz | patch -p1 || exit 1
+## Libtool patch
+zcat $CWD/patches/maintainer_mode.patch.gz | patch -p1 || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .
@@ -154,6 +162,8 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
+## Regenerate configure first after patch
+#autoconf &&
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \

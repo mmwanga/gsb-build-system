@@ -180,10 +180,7 @@ make DESTDIR=$PKG install || exit 1
 }
 
 ## Preserve files
-mv $PKG/etc/gnucash/config $PKG/etc/gnucash/config.new
-
-## GNOME Icon
-( cd $PKG/usr/share/pixmaps && ln -s gnucash-icon-32x32.png gnucash-icon.png )
+mv $PKG/etc/gnucash/config $PKG/etc/gnucash/config.new || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

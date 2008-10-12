@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=3.0.4
 
 ## List any packages here that are required to build this package.
@@ -174,7 +174,7 @@ do
 done;
 
 ## Preserve files
-mv $PKG/etc/libgda-3.0/config $PKG/etc/libgda-3.0/config.new
+mv $PKG/etc/libgda-4.0/config $PKG/etc/libgda-4.0/config.new
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

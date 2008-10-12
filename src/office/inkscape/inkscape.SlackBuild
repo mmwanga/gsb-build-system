@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=0.46
 
 ## List any packages here that are required to build this package.
@@ -113,6 +113,11 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
+
+## Allow compiling against newer poppler
+patch -p1 < $CWD/patches/inkscape-0.46-poppler-0.8.3.patch || exit 1
+## Fix for bug in gtk+2 header
+patch -p1 < $CWD/patches/gtk_includes.patch || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .

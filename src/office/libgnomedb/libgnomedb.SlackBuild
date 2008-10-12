@@ -12,7 +12,7 @@ VERSION=3.0.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="GConf goocanvas graphviz lua gtk+2 glib2 libgnome rarian gtksourceview2 libgda libgnomecanvas libglade" 
+REQUIRED_PACKAGES="GConf goocanvas graphviz lua gtk+2 glib2 libgnome rarian gtksourceview libgda libgnomecanvas libglade" 
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -153,9 +153,6 @@ else
 fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
-
-## Set gtksourceview as 2.0
-sed -i "s,gtksourceview-1.0,gtksourceview-2.0,g" configure || exit 1
 
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
