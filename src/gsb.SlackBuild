@@ -1,7 +1,7 @@
 #!/bin/bash
-# Version: 1.6 GSB SlackBuild.
-# Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
-#
+# Version: 1.7 GSB SlackBuild - Do not remove this line!
+# Copyright (c) 2007, 2008:
+#   Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>, Coventry, UK.
 # Licenced under the terms of the GNU General Public Licence version 3.
 #
 
@@ -14,28 +14,13 @@ cd $( cd ${BASH_SOURCE%/*} ; pwd )
   export OPTIONSREAD=1
 }
 
-# The default list of GSB sections, in the order they should be processed.
-SECTIONS="${GSB_SECTIONS:-	tools
-				libraries
-				platform
-				desktop
-				bindings
-				applications
-				accessibility
-                                administration
-				mono
-				devel
-				office
-				print
-				media
-				networking
-				themes
-				compiz
-				ooo
-				extras
-				testing
-				meta
-                                }"
+# The sections list is read in from .buildlist in the current directory, with
+# any comments and blank lines removed.
+SECTIONS="${GSB_SECTIONS:-$( egrep -v "^#|^$" .buildlist | cut -d'#' -f1 )}"
+
+# The meta package section(s), in the order they should be processed.
+METAPACKAGES_SECTIONS="metapackages"
+
 
 # Usage.
 function usage() {
@@ -85,6 +70,10 @@ Options:
 			serious problems - most builds rely on other GSB
 			packages being automatically installed first.
 
+  --no-metapackages	Do not create the slapt-get meta packages for each of
+			the GSB sections, or the general purpose meta packages
+			used for installation (eg, gsb-complete, gsb-libs).
+
   --no-metafiles	Do not create the package's .txt and .md5 meta files
 			which would usually be produced during a build.
 
@@ -94,11 +83,12 @@ EOF
 
 function list_packages() {
   echo "The sections and packages listed below (in processing order) will be built."
-  for SECTION in $SECTIONS
+  for SECTION in $SECTIONS $( if [ "$NOMETAPACKAGES" = "0" ] && \
+    [ -z "$GSB_SECTIONS" ]; then echo "$METAPACKAGES_SECTIONS"; fi )
   do
     echo
     echo "  $SECTION:"
-    echo "$( $SECTION/gsb.$SECTION.SlackBuild --list | cut -d$'\n' -f2- )"
+    echo "$( $SECTION/$SECTION.SlackBuild --list | cut -d$'\n' -f2- )"
   done
 }
 
@@ -191,6 +181,7 @@ export PACKAGESDIR=${PACKAGESDIR:-packages}
 export SOURCEDIR=${SOURCEDIR:-source}
 
 # Option defaults.
+NOMETAPACKAGES=0
 NOMETAFILES=0
 
 # Parse command line arguments.
@@ -218,6 +209,10 @@ while [ $# -gt 0 ]; do
     shift
   elif [ "$1" = "-no-install" ] || [ "$1" = "--no-install" ]; then
     SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}--no-install"
+    shift
+  elif [ "$1" = "-no-metapackages" ] || [ "$1" = "--no-metapackages" ]; then
+    SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}--no-metapackages"
+    NOMETAPACKAGES=1
     shift
   elif [ "$1" = "-no-metafiles" ] || [ "$1" = "--no-metafiles" ]; then
     SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}--no-metafiles"
@@ -247,9 +242,10 @@ mkdir -p $LOGSDIR
   echo "* Building GSB - this will take a while..."
   echo "*********************************************************************"
 
-  for SECTION in $SECTIONS
+  for SECTION in $SECTIONS $( if [ "$NOMETAPACKAGES" = "0" ] && \
+    [ -z "$GSB_SECTIONS" ]; then echo "$METAPACKAGES_SECTIONS"; fi )
   do
-    ( cd $SECTION && ./gsb.$SECTION.SlackBuild $SLACKBUILD_ARGS 2>&1 ) || {
+    ( cd $SECTION && ./$SECTION.SlackBuild $SLACKBUILD_ARGS 2>&1 ) || {
       echo
       echo "*********************************************************************"
       echo "* Build aborted: error building in section '$SECTION'."
@@ -262,7 +258,6 @@ mkdir -p $LOGSDIR
       exit 1
     }
   done
-
   cp ../{COPYING,CREDITS,README} $PKGDEST
   # cp ../{COPYING,CREDITS,README,UPGRADING} $PKGDEST
   cp testing/README $PKGDEST/testing
@@ -302,7 +297,7 @@ mkdir -p $LOGSDIR
   else
     echo
     echo "*********************************************************************"
-    echo "*** Warning: not creating final meta files."
+    echo "* Warning: not creating final meta files."
     echo "*********************************************************************"
   fi
 
