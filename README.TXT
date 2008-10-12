@@ -39,6 +39,7 @@ These are some of the important files and directories found on the GSB FTP site:
 |-- ChangeLog.txt		Log of system changes from GSB 2.22.3 to GSB 2.24.0.
 |-- FILELIST.TXT		List of files on the GSB FTP site.
 |-- INSTALL.TXT			Instructions on how to install GSB.
+|-- REPLACED_PACKAGES.TXT	Packages in GSB that will replace standard Slackware packages.
 |-- README.TXT			This file.
 |-- UPGRADE.TXT			Instructions on how to upgrade from GSB 2.22.3.
 |-- VERSIONS			Target versions for GSB 2.24.0.
