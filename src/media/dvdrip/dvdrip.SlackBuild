@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=9
-VERSION=0.98.8
+BUILD=1
+VERSION=0.98.9
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -175,6 +175,12 @@ cp -a $CWD/gnome/dvdrip.desktop $PKG/usr/share/applications
 cp -a $CWD/gnome/dvdrip.png $PKG/usr/share/pixmaps
 chown root:root $PKG/usr/share/applications/dvdrip.desktop $PKG/usr/share/pixmaps/dvdrip.png
 
+# Remove perlocal.pod and .packlist from $PKG
+( for i in perllocal.pod ; do
+      find $PKG -name "$i" -exec rm -rf {} \;
+  done
+) || exit 1
+
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
@@ -196,7 +202,7 @@ chown root:root $PKG/usr/share/applications/dvdrip.desktop $PKG/usr/share/pixmap
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+  COPYRIGHT Credits README TODO \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION

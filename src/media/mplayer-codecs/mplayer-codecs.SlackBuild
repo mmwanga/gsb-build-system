@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=20071007
 
 ## List any packages here that are required to build this package.
@@ -23,7 +23,6 @@ PKGDEST=${PKGDEST:-$TMP}
 
 ## Script variables.
 PKGNAME=$(basename $0 .SlackBuild)
-SRCNAME=essential
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
@@ -89,12 +88,16 @@ mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
-## Decompress archive.
+## Decompress archive depending on our arch
 cd $TMP &&
-rm -rf $SRCNAME-$VERSION &&
-rm -fr $PKGNAME-$VERSION &&
-tar xjf $CWD/$SRCNAME-$VERSION.tar.bz2 &&
-mv $SRCNAME-$VERSION $PKGNAME-$VERSION &&
+rm -fr $PKGNAME-$VERSION || exit 1
+if [ ! "${ARCH}" = "x86_64" ]; then
+  tar xjf $CWD/all-$VERSION.tar.bz2 &&
+  mv all-$VERSION $PKGNAME-$VERSION || exit 1
+else
+  tar xjf $CWD/essential-amd64-$VERSION.tar.bz2 &&
+  mv essential-amd64-$VERSION $PKGNAME-$VERSION || exit 1
+fi;
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -142,6 +145,7 @@ elif [ "$ARCH" = "i586" ]; then
 elif [ "$ARCH" = "i686" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
 elif [ "$ARCH" = "x86_64" ]; then
+  LIBDIR=lib64
   if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -fPIC"}
   else
@@ -157,14 +161,19 @@ else
 fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
+LIBDIR=${LIBDIR:-"lib"}
 
-## Install
-mkdir -p $PKG/usr/lib/codecs &&
-cp -r $TMP/$PKGNAME-$VERSION/* $PKG/usr/lib/codecs || exit 1;
+## Copy over codecs
+mkdir -p $PKG/usr/${LIBDIR}/codecs &&
+cp -r $TMP/$PKGNAME-$VERSION/* $PKG/usr/${LIBDIR}/codecs || exit 1;
+rm -fr $PKG/usr/${LIBDIR}/codecs/README
 
-## Strip debugging symbols.
-{ find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
-  cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
+## Copy extra documentation into package.
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
+cp -a \
+  $CWD/official/* $PKG/usr/doc/$PKGNAME-$VERSION
+find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
+chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
@@ -176,10 +185,9 @@ done
 
 ## Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/${PKGNAME}-${VERSION//-/_}-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {
   rm -rf $PKG $TMP/$PKGNAME-$VERSION
-  rm -rf $PKG $TMP/$SRCNAME-$VERSION
 }

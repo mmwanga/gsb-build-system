@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=0.99.12
 
 ## List any packages here that are required to build this package.
@@ -117,13 +117,13 @@ fi
 ## Patch for >= mpeg-1.6 
 ## This is required to build gtkpod against mpeg4ip 1.6 and higher.
 ## Disable this patch if you are building against mpeg4ip 1.5.
-(
-cd $TMP/$PKGNAME-$VERSION/src ;
-echo
-echo "Patching against mpeg4ip 1.6."
-patch -p0 < $CWD/patches/mpeg4ip-1.6.patch ;
-echo
-)
+#(
+#cd $TMP/$PKGNAME-$VERSION/src ;
+#echo
+#echo "Patching against mpeg4ip 1.6."
+#patch -p0 < $CWD/patches/mpeg4ip-1.6.patch ;
+#echo
+#)
 
 ## Fix permissions for building.
 chown -R root.root .

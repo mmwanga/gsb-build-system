@@ -186,7 +186,7 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+  COPYING* ChangeLog NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION

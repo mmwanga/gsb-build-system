@@ -1,5 +1,9 @@
+rhythmbox
+libflashsupport
+MPlayer
 banshee-1
 dvdauthor
+vcdimager
 devede
 dvdrip
 easytag
@@ -8,8 +12,6 @@ grip
 gtkpod
 jokosher
 streamripper
-vcdimager
-MPlayer
 mplayer-codecs
 gnome-mplayer
 soundconverter
