@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=5
+BUILD=6
 VERSION=0.1.0
 
 ## List any packages here that are required to build this package.
@@ -159,9 +159,9 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 python setup.py build &&
 python setup.py install --prefix=/usr --root=$PKG || exit 1
 
-## Autostart if installed (but don't force start of compiz)
-mkdir -p $PKG/usr/share/gnome/autostart &&
-cp $CWD/fusion-icon.autostart $PKG/usr/share/gnome/autostart/fusion-icon.desktop || exit 1;
+## Only autostart during a GNOME session
+mkdir -p $PKG/etc/gnome/xdg/autostart &&
+cp $CWD/fusion-icon.autostart $PKG/etc/gnome/xdg/autostart || exit 1
 
 ## Change default behavior of icon not to start compiz
 mkdir -p $PKG/usr/share/applications &&

@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=0.7.6
+BUILD=1
+VERSION=0.7.8
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -90,6 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
+rm -fr $PKGNAME-$VERSION &&
 tar xjf $CWD/compiz-$VERSION.tar.bz2 &&
 mv compiz-$VERSION $PKGNAME-$VERSION &&
 cd $PKGNAME-$VERSION || exit 1
@@ -217,7 +218,7 @@ chmod +x $PKG/etc/X11/xinit/xinitrc.compiz-gnome.new
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+  AUTHORS COPYING* ChangeLog NEWS README TODO \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
