@@ -157,7 +157,9 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+#CFLAGS="-O2 -DSQLITE_ENABLE_FTS3=3 -DSQLITE_ENABLE_RTREE=1" \
+#CFLAGS="$CFLAGS -DHAVE_LOCALTIME_R=1 -DHAVE_GMTIME_R=1" \
+CFLAGS="$CFLAGS -DSQLITE_ENABLE_COLUMN_METADATA=1" \
  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
@@ -173,7 +175,7 @@ make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Make common binary link
-cd $PKG/usr/bin && ln -s sqlite3 sqlite || exit 1
+(cd $PKG/usr/bin && ln -s sqlite3 sqlite)
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -201,8 +203,6 @@ gzip -9 $PKG/usr/man/man1/sqlite3.1
 cd $TMP/$SRCNAME-$VERSION || exit 1
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION &&
 cp -a README VERSION $PKG/usr/doc/$PKGNAME-$VERSION/
-# Add a COPYRIGHT file -- http://www.sqlite.org/copyright.html
-zcat $CWD/COPYRIGHT.gz > $PKG/usr/doc/$PKGNAME-$VERSION/COPYRIGHT
 rm -rf $PKG/usr/doc/$PRGNAM-$VERSION/CVS
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION

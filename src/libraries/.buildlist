@@ -1,8 +1,14 @@
 glib2
+poppler
+pixman
 cairo
+pango
 libjasper
 gtk+2
+pygobject
+dbus
 dbus-glib
+alsa-lib
 imlib2
 liboil
 libelf
@@ -16,6 +22,7 @@ x264
 xvidcore
 faac
 faad2
+libmpeg3
 lame
 ffmpeg
 libdvbpsi5
@@ -75,5 +82,3 @@ gegl
 ode
 tre
 libesmtp
-libofx
-vte

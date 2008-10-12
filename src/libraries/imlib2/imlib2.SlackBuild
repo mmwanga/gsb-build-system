@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=1.4.1
 
 ## List any packages here that are required to build this package.
@@ -162,6 +162,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static --enable-shared \
   --disable-amd64 \
   --disable-mmx \
+  --build=${ARCH}-${DISTRO}-linux \
+  --host=${ARCH}-${DISTRO}-linux \
   || exit 1
 
 ## Build and install.

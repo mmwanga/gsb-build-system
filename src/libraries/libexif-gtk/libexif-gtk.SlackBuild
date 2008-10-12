@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=0.3.5
 
 ## List any packages here that are required to build this package.
@@ -115,13 +115,8 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
-## See patches/README
-pkg-config --atleast-version="2.12" gtk+2-2.0 || {
-  echo "Patching for gtk+2 => 2.12."
-  ( cd $TMP/$PKGNAME-$VERSION/libexif-gtk &&
-    patch -p0 <$CWD/patches/gtk-exif-browser.c.gtk-2.12-patch || exit 1 ) \
-    || exit 1
-}
+## Allow compiling against newer gtk+2 library
+patch -p1 < $CWD/patches/gtk_deprecated.patch || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .

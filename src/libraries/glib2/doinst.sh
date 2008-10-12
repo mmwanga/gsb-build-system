@@ -1,3 +1,5 @@
+# Version: 1.0 - Do not remove this line!
+
 # Handle the incoming configuration files:
 config() {
   for infile in $1; do

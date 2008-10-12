@@ -12,7 +12,7 @@ VERSION=svn_15385
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="freetype imlib2 sdl zlib x264 faac faad2 libvorbis lame yasm"
+REQUIRED_PACKAGES="freetype imlib2 sdl zlib x264 faac faad2 libvorbis lame yasm alsa-oss"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

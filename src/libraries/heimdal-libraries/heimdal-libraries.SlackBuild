@@ -12,7 +12,7 @@ VERSION=1.2.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES=""
+REQUIRED_PACKAGES="libtermcap openssl db44 openldap-client"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -161,6 +161,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
+  --with-openldap=/usr \
+  --enable-pthread-support \
   || exit 1
 
 ## Build and install.
@@ -173,6 +175,7 @@ rm -fr $PKG/usr/bin
 rm -fr $PKG/usr/libexec
 rm -fr $PKG/usr/sbin
 rm -fr $PKG/usr/share
+rm -fr $PKG/usr/man
 )
 
 ## Strip debugging symbols.

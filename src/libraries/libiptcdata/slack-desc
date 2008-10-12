@@ -7,6 +7,6 @@ libiptcdata: stored within multimedia files such as images. This metadata can
 libiptcdata: include captions and keywords, often used by popular photo management 
 libiptcdata: applications. The library provides routines for parsing, viewing, 
 libiptcdata: modifying, and saving this metadata. The library is licensed under 
-libiptcdata: the GNU Library General Public License (GNU LGPL). The libiptcdata 
-libiptcdata: package also includes a command-line utility, iptc, for editing IPTC 
-libiptcdata: data in JPEG files, as well as Python bindings.
+libiptcdata: the GNU Library General Public License (GNU LGPL). 
+libiptcdata: 
+libiptcdata: 

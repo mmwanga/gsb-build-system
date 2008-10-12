@@ -7,7 +7,7 @@
 ##
 
 ## Package variables
-BUILD=2
+BUILD=3
 VERSION=1.9.0rc3
 
 ## List any packages here that are required to build this package.
@@ -161,6 +161,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --program-prefix="" \
+  --build=${ARCH}-${DISTRO}-linux \
+  --host=${ARCH}-${DISTRO}-linux \
   || exit 1
 
 ## Build and install.

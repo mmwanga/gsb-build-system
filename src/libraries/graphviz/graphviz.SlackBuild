@@ -12,7 +12,7 @@ VERSION=2.20.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="lua python perl ruby tcl libgsf"
+REQUIRED_PACKAGES="lua python perl tcl libgsf"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -170,10 +170,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-##
 ## arith.h 
 ## Graphviz forgets to install one of its header file strangely.  :^)
-##
 cp $TMP/$PKGNAME-$VERSION/lib/common/arith.h $PKG/usr/include/graphviz
 
 ## Clean up extraneous files on /

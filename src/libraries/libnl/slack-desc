@@ -1,12 +1,13 @@
      |-----handy-ruler------------------------------------------------------|
-libnl: libnl (Netlink Library)
+libnl: libnl (The Netlink Library)
 libnl:
 libnl: libnl is a library for applications dealing with netlink sockets. 
 libnl: The library provides an interface for raw netlink messaging and 
-libnl: various netlink family specific interface.
+libnl: various netlink family specific interface, and is used by such 
+libnl: applications as NetworkManager.
 libnl:
-libnl: This library is needed by NetworkManager.
 libnl:
-libnl: http://people.suug.ch/~tgr/libnl/
+libnl:
+libnl:
 libnl:
 libnl:

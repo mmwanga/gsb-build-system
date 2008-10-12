@@ -1,3 +1,5 @@
+* Potential rebuild candidates after upgrading sqlite:
+
 tracker
 pysqlite2
 liferea
@@ -6,3 +8,6 @@ nss
 nemiver
 webkit
 totem
+bug-buddy
+brasero
+mozilla-xulrunner / firefox

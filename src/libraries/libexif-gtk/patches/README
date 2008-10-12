@@ -1,1 +1,1 @@
-"#undef GTK_DISABLE_DEPRECATED" needs to be defined in gtk-exif-browser.c if compiling libexif-gtk against GTK >= 2.12.  Slackware 12 comes with gtk+2 2.10, however, this patch may be necessary in the future for libexif-gtk.  Otherwise, there is no need for patching.
+gtk_deprecated.patch: Allows GTK_DEPRECATED functions in compiling against new gtk+2 library.

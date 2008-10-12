@@ -13,7 +13,7 @@ TARVERSION=398
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="ncurses"
+REQUIRED_PACKAGES="ncurses nasm gtk+"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

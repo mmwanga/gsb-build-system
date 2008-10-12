@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=0.0.18
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="babl gtk+2 libpng lua cairo ruby pango libjpeg librsvg openexr sdl ffmpeg graphviz"
+REQUIRED_PACKAGES="babl gtk+2 libpng lua cairo pango libjpeg librsvg openexr sdl ffmpeg graphviz ruby"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -117,7 +117,7 @@ fi
 
 ## Fix a header location 
 if [ "$VERSION" = "0.0.18" ]; then
-	patch -p1 < $CWD/patches/ff-load.c.header.patch || exit 1;
+	patch -p1 < $CWD/patches/ffmpeg_deprecated.gegl.patch || exit 1
 fi;
 
 ## Fix permissions for building.
@@ -171,6 +171,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static --enable-shared \
   --disable-docs \
   --disable-debug \
+  --disable-mmx \
+  --disable-debug \
   || exit 1
 
 ## Build and install.
@@ -194,6 +196,14 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
   rm -f $PKG/usr/info/dir
   gzip -9 $PKG/usr/info/*.info
 }
+
+## Copy extra documentation into package.
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
+cp -a \
+  AUTHORS COPYING* ChangeLog NEWS README \
+  $PKG/usr/doc/$PKGNAME-$VERSION
+find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
+chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
