@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=0.4
+BUILD=1
+VERSION=0.9rc1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -91,9 +91,8 @@ mkdir -p $PKGDEST
 ## Decompress archive.
 mkdir -p $TMP/mac4lin &&
 cd $TMP/mac4lin &&
-tar xfz $CWD/Mac4Lin_Part1_v0.4.tar.gz &&
-tar xfz $CWD/Mac4Lin_Icons_Part2_v0.4.tar.gz &&
-tar xfz $CWD/Mac4Lin_Wallpapers_Part3_v0.4.tar.gz || exit 1
+tar xfz $CWD/Mac4Lin_v1.0_RC.tar.gz &&
+cd Mac4Lin_v1.0_RC || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i386" ]; then
@@ -132,50 +131,41 @@ find . -perm 555 -exec chmod 755 {} \;
 ## Install
 mkdir -p $PKG/usr/share/icons
 mkdir -p $PKG/usr/share/themes
+mkdir -p $PKG/usr/share/emerald/themes
 mkdir -p $PKG/usr/share/backgrounds
 mkdir -p $PKG/usr/share/gdm/themes
 mkdir -p $PKG/usr/share/splash
 mkdir -p $PKG/usr/share/sounds
 mkdir -p $PKG/usr/share/fonts/TTF
 
-# Default icons
-cp -r Mac4Lin_Icons_v0.4 $PKG/usr/share/icons/mac4lin || exit 1
-cp -r $CWD/gsb/index.theme.icons $PKG/usr/share/icons/mac4lin/index.theme || exit 1
+# Unpack GTK Theme
+tar -C $PKG/usr/share/themes -xzf GTK/Mac4Lin_GTK_v1.0_RC.tar.gz &&
+tar -C $PKG/usr/share/themes -xzf GTK/Mac4Lin_GTK_Graphite_v1.0_RC.tar.gz &&
+tar -C $PKG/usr/share/themes -xzf GTK/Mac4Lin_Meta_v1.0_RC.tar.gz || exit 1
 
-cd $TMP/mac4lin/Mac4Lin_v0.4 || exit 1
+# Unpack Icon Theme
+tar -C $PKG/usr/share/icons -xzf Icons/Mac4Lin_Icons_v1.0_RC.tar.gz &&
+tar -C $PKG/usr/share/icons -xzf Cursors/Mac4Lin_Cursors_v1.0_RC.tar.gz || exit 1
 
-# GDM Theme
-cd "GDM Theme" &&
-tar xfz Mac4Lin_GDM_v0.4.tar.gz &&
-cp -r "Mac4Lin_GDM_v0.4" $PKG/usr/share/gdm/themes/mac4lin &&
-cd $TMP/mac4lin/Mac4Lin_v0.4 || exit 1
+# Unpack Emerald Theme
+tar -C $PKG/usr/share/emerald/themes -xzf Emerald/Mac4Lin_Emerald_v1.0_RC.tar.gz &&
+tar -C $PKG/usr/share/emerald/themes -xzf Emerald/Mac4Lin_Graphite_Emerald_v1.0_RC.tar.gz &&
+tar -C $PKG/usr/share/emerald/themes -xzf Emerald/Mac4Lin_Emerald_v1.0_RC.tar.gz || exit 1
 
+# Unpack GDM Theme
+tar -C $PKG/usr/share/gdm/themes -xzf GDM/Mac4Lin_GDM_v1.0_RC.tar.gz || exit 1
 
-# GTK Theme
-cd "GTK Metacity Theme" &&
-tar xfz "Mac4Lin_GTK_v0.4.tar.gz" &&
-cp -r "Mac4Lin_GTK_v0.4" $PKG/usr/share/themes/mac4lin &&
-cp -r $CWD/gsb/index.theme.appearance $PKG/usr/share/themes/mac4lin/index.theme || exit 1
-cd $TMP/mac4lin/Mac4Lin_v0.4 || exit 1
-
-# Mouse Cursors
-cd "GTK Cursor Theme" &&
-tar xfz Mac4Lin_Cursors_v0.4.tar.gz &&
-cp -r Mac4Lin_Cursors_v0.4 $PKG/usr/share/icons/mac4lin_osx_cursors &&
-rm -fr $PKG/usr/share/icons/mac4lin_osx_cursors/source &&
-cd $TMP/mac4lin/Mac4Lin_v0.4 || exit 1
-
-# Sounds
-cd "Sounds" &&
-tar xfz MacOSX_Sounds.tar.gz &&
-cp -r MacOSX_Sounds $PKG/usr/share/sounds/mac4lin &&
-cd $TMP/mac4lin/Mac4Lin_v0.4 || exit 1
+# Unpack sounds
+tar -C $PKG/usr/share/sounds -xzf Sounds/Mac4Lin_Sounds_v1.0_RC.tar.gz &&
+tar -C $PKG/usr/share/sounds -xzf Sounds/Mac4Lin_Pidgin-Sounds_v1.0_RC.tar.gz || exit 1
 
 # Wallpapers
-cd $TMP/mac4lin || exit 1
-cd "Wallpapers" &&
-cp -r * $PKG/usr/share/backgrounds &&
-cd $PKG/usr/share/backgrounds || exit 1
+cp Wallpapers/* $PKG/usr/share/backgrounds &&
+tar xfz $CWD/Leopard_Wallpapers.tar.gz &&
+cp Leopard_Wallpapers/* $PKG/usr/share/backgrounds || exit 1
+
+(
+cd $PKG/usr/share/backgrounds ;
 for filename in * ;
 do
      echo "$filename" | grep -q " "  ;
@@ -184,18 +174,12 @@ do
        fname=$filename ;
        n=$(echo $fname | sed -e "s/ /_/g") ;
        mv "$fname" "$n" || exit 1
+       chmod 644 $n
      fi
 done
-cd $TMP/mac4lin/Mac4Lin_v0.4 || exit 1
-
-# Splash screens
-cd "GTK Login Splash" &&
-cp -r *png $PKG/usr/share/splash &&
-cd $TMP/mac4lin/Mac4Lin_v0.4 || exit 1
+)
 
 # Fonts
-cd Fonts &&
-tar xfz OSX_Fonts.tar.gz &&
 # Font directory location depends on the X build prefix:
 # Determine what X we're running (the modular X returns the prefix
 # in the next command, while older versions stay silent):
@@ -206,18 +190,12 @@ if [ "$XPREF" == "" ]; then
 else
   FONTDIR="/usr/share/fonts/TTF"
 fi;
-cp "OSX Fonts"/*ttf $PKG/$FONTDIR || exit 1;
+tar -C $PKG/$FONTDIR -xzf Fonts/fonts.tar.gz || exit 1
+## These msfonts are in mscorefont package
+rm $PKG/$FONTDIR/[a-z]*ttf
 
 ## Set permissions
-chown -R $(stat --format "%u:%g" /usr/bin) $PKG/usr
 find $PKG/usr -type f -exec chmod 644 {} \;
-
-## Copy extra documentation into package.
-mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a README \
-  $PKG/usr/doc/$PKGNAME-$VERSION
-find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
-chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
