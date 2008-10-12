@@ -161,24 +161,30 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-## Configure.
-##
-## Enable use of Heimdal libraries over MIT KRB5
-##
-echo
+#Enable use of Heimdal libraries over MIT KRB5
 echo "Using heimdal for Krb5."
 sed -i "s/\$mitlibs/\$heimlibs/g" $TMP/$PKGNAME-$VERSION/configure
-echo
 
-# Needed for ldap static build
-LIBS="-lssl" \
+# Set of Plugins
+# Note: email-custom-header is causing evolution-2.24 to segfault, so disabling
+PLUGINS="calendar-file calendar-http calendar-weather itip-formatter \
+         plugin-manager default-source addressbook-file startup-wizard \
+         mark-all-read groupwise-features groupwise-account-setup \
+         mail-account-disable publish-calendar caldav imap-features \
+         google-account-setup webdav-account-setup sa-junk-plugin \
+         bogo-junk-plugin exchange-operations bbdb subject-thread \
+         save-calendar select-one-source copy-tool mail-to-task \
+         mark-calendar-offline audio-inline mailing-list-actions \
+         default-mailer import-ics-attachments prefer-plain \
+         mail-notification attachment-reminder face backup-restore \
+         templates"
+
+# Configure
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
-  --disable-static \
-  --enable-shared \
   --enable-nss=yes \
   --enable-smime \
   --enable-nntp \
@@ -191,6 +197,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-test-components \
   --disable-profiling \
   --disable-gtk-doc \
+  --enable-plugins="$PLUGINS" \
   --with-krb5=/usr \
   || exit 1
 

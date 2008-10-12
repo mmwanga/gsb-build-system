@@ -159,15 +159,12 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --with-default-mozilla-five-home=/usr/$LIBDIR/xulrunner-$VERSION \
-  --silent \
   --enable-application=xulrunner \
   --enable-optimize="$TUNE_CFLAGS" \
   --enable-system-cairo \
   --enable-system-lcms \
   --enable-strip \
-  --enable-jemalloc \
   --enable-safe-browsing \
-  --enable-webservices \
   --disable-pedantic \
   --disable-long-long-warning \
   --disable-debug \
@@ -183,13 +180,24 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --with-system-jpeg \
   --with-system-bz2 \
   --with-system-sqlite \
-  --with-system-nss \
   --with-system-nspr \
+  --with-system-nss \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+## Make sure we have proper dependencies for the embedding pkgconfig
+for pcfile in $PKG/usr/${LIBDIR}/pkgconfig/*embedding*.pc ;
+do
+ if ! grep -q 'Requires:' $pcfile ; then
+	 echo "Requires: nspr >= 4.7.0" >> $pcfile ;
+ fi;
+done;
+
+## Softlink for xulrunner-plugin.pc
+(cd $PKG/usr/${LIBDIR}/pkgconfig ; ln -sf mozilla-plugin.pc xulrunner-plugin.pc)
 
 ## login session settings
 mkdir -p $PKG/etc/profile.d
@@ -217,7 +225,7 @@ install -m 755 $CWD/xulrunner.csh $PKG/etc/profile.d || exit 1
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+  LEGAL LICENSE README.txt \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION

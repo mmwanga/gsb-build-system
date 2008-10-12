@@ -172,7 +172,7 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 mkdir -p $PKG/etc/gnome/xdg/autostart &&
 mv $PKG/etc/xdg/autostart/bluetooth-applet.desktop \
    $PKG/etc/gnome/xdg/autostart || exit 1
-rm -fr $PKG/etc/xdg/autostart 
+rm -fr $PKG/etc/xdg
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

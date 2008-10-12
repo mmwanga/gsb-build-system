@@ -28,6 +28,7 @@ function install_file() {
 install_file etc/X11/gdm/Xsession.new
 install_file etc/X11/gdm/custom.conf.new
 install_file etc/X11/gdm/PreSession/Default.new
+install_file etc/X11/gdm/PostSession/Default.new
 install_file etc/X11/gdm/PostLogin/Default.new
 
 # Remove the gdm user+group if it doesn't have the standard Slackware UID/GID.

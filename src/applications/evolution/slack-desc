@@ -7,7 +7,6 @@ evolution: list management functions, and features iCalendar support, full-text
 evolution: indexing, powerful email filters, and "Search Folders" feature.  
 evolution: Evolution can be connect to a Microsoft Exchange Server, and can 
 evolution: synchronize with Palm Pilot devices, and OpenSync enables it to 
-evolution: synchronize with mobile phones and other PDAs.
-evolution: 
-evolution: Evolution development is sponsored by Novell and licensed under GPL.
+evolution: synchronize with mobile phones and other PDAs. Evolution development 
+evolution: is sponsored by Novell and licensed under GPL.
 evolution:

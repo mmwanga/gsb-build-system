@@ -162,10 +162,9 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static --enable-shared \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
-  --enable-webkit \
-  --disable-gecko \
   --enable-dbus \
-  --with-primary-render=webkit \
+  --disable-gtkhtml \
+  --with-primary-render=gecko \
   || exit 1
 
 ## Build and install.

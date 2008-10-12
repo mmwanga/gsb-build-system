@@ -12,7 +12,7 @@ VERSION=2.24.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libnotify hal dbus glib2 libgnomeui GConf libunique atk libwnck gstreamer gtk+2 gnome-panel gnome-icon-theme pm-utils hicolor-icon-theme libxcb policykit-gnome"
+REQUIRED_PACKAGES="libnotify hal dbus glib2 libgnomeui GConf libunique atk libwnck gstreamer gtk+2 gnome-panel gnome-icon-theme hicolor-icon-theme libxcb policykit-gnome"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

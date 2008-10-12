@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=5
+BUILD=6
 VERSION=0.9.3
 
 ## List any packages here that are required to build this package.
@@ -160,6 +160,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
+  --disable-debug \
   || exit 1
 
 ## Build and install.
@@ -167,8 +168,9 @@ make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Autostart padevchooser
-mkdir -p $PKG/usr/share/gnome/autostart &&
-cp $PKG/usr/share/applications/padevchooser.desktop $PKG/usr/share/gnome/autostart || exit 1
+#mkdir -p $PKG/etc/gnome/xdg/autostart &&
+#cp $PKG/usr/share/applications/padevchooser.desktop \
+   #$PKG/etc/gnome/xdg/autostart || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -191,7 +193,7 @@ cp $PKG/usr/share/applications/padevchooser.desktop $PKG/usr/share/gnome/autosta
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+LICENSE README doc/README.html doc/style.css \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION

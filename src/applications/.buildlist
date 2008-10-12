@@ -33,7 +33,6 @@ bluez-gnome
 gnokii
 gnome-bluetooth
 gtkspell
-gnome-phone-manager
 gnome-spell
 gcalctool
 evolution
@@ -44,7 +43,6 @@ gnome-power-manager
 alacarte
 gnome-commander
 gthumb
-rhythmbox
 simplejson
 deskbar-applet
 pygtksourceview
@@ -54,7 +52,6 @@ nautilus-sendto
 seahorse
 seahorse-plugins
 gdm
-fast-user-switch-applet
 cheese
 python-dateutil
 vobject
@@ -71,3 +68,4 @@ hamster-applet
 sensors-applet
 gdesklets
 gtkam
+fast-user-switch-applet
