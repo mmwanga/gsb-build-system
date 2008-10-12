@@ -376,6 +376,35 @@ foreach my $sp (keys %supplied_tarballs) {
 ###                       MEDIA SECTION
 ##################################################################################
 
+## GNOME Supplied Media
+foreach my $ppackage (keys %media_gnome) {
+
+  my $name = $ppackage;
+  my $ver  = $media_gnome{$name};
+
+  my $sb_file = $name . $sb_ext;
+  my $tarball = GSB::GSB::gsb_gnome_tarball_name_make($name, $ver);
+
+  chdir "$pwd/media/$name";
+
+  if ( $download eq "true" ) {
+    GSB::GSB::gsb_gnome_tarball_get($name, $ver, $tarball);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_edit($sb_file, $ver);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name );
+  }
+}
+
+## Other media packages
 foreach my $drpackage (keys %media_pkgs) {
 
   my $name    = $drpackage;
