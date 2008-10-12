@@ -33,13 +33,18 @@ our %mono=
 				'url' => 'http://go-mono.com/sources/gecko-sharp2/',
 				'src' => 'tar.bz2',
 			    },
+   'gnome-keyring-sharp'                => {
+				'ver' => '1.0.0',
+				'url' => 'http://ftp.novell.com/pub/mono/sources/gnome-keyring-sharp',
+				'src' => 'tar.bz2',
+			       },
    'gtksourceview-sharp' => {
 				 'ver' => '2.0-0.12',
 				 'url' => 'http://go-mono.com/sources/gtksourceview-sharp-2.0/',
 				 'src' => 'tar.bz2',
 				},
    'libgdiplus'             => {
-				'ver' => '1.9',
+				'ver' => '2.0',
 				'url' => 'http://go-mono.com/sources/libgdiplus/',
 				'src' => 'tar.bz2',
 			       },
@@ -54,7 +59,7 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'mono'                   => {
-				'ver' => '1.9.1',
+				'ver' => '2.0',
 				'url' => 'http://go-mono.com/sources/mono/',
 				'src' => 'tar.bz2',
 			       },
@@ -62,6 +67,11 @@ our %mono=
 				'ver' => '0.3.1',
 				'url' => 'http://go-mono.com/sources/mono-addins/',
 				'src' => 'tar.bz2',
+			       },
+   'monodoc'                => {
+				'ver' => '2.0',
+				'url' => 'http://go-mono.com/sources/monodoc',
+				'src' => 'zip',
 			       },
    'mono-zeroconf'            => {
 		'ver' => '0.7.6',
@@ -101,9 +111,9 @@ our %mono_diff_naming =
                         },
    'gmime-sharp' => {
 		    'url'  => 'ftp://ftp.gnome.org/pub/gnome/sources/gmime/2.2',
-		    'ver'  => '2.2.9',
+		    'ver'  => '2.2.17',
             'dir' => 'mono/gmime-sharp',
-            'tar' => 'gmime-2.2.9.tar.bz2',
+            'tar' => 'gmime-2.2.17.tar.bz2',
             'var' => 'VERSION',
 		   },
    'libkarma-sharp' => {

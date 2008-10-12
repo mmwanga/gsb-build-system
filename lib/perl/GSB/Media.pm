@@ -5,13 +5,18 @@ use strict;
 use warnings;
 
 our @ISA       = qw(Exporter);
-our @EXPORT    = qw(%media_pkgs);
+our @EXPORT    = qw(%media_gnome 
+                    %media_pkgs);
 our @EXPORT_OK = qw();
 our $VERSION   = 0.03;
 
 ################################################################################
 # Config Options
 #
+our %media_gnome =
+  (
+   'rhythmbox'               => '0.11.6',
+  );
 
 our %media_pkgs =
   (
@@ -36,7 +41,7 @@ our %media_pkgs =
                  'src' => 'tar.gz',
                             },
    'dvdrip'              => {
-                 'ver' => '0.98.8',
+                 'ver' => '0.98.9',
                  'url' => 'http://www.exit1.org/dvdrip/dist',
                  'src' => 'tar.gz',
                             },

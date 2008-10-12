@@ -32,11 +32,12 @@ our %other_themes =
 			      'url' => 'http://releases.beryl-project.org/current',
 			      'src' => 'tar.bz2',
 			     },
-   'gnomeartng'   => {
-		      'ver' => '0.6.0',
-		      'url' => 'http://download.berlios.de/gnomeartng',
-		      'src' => 'tar.gz',
-		      },
+			     # Pretty buggy at the moment, so ignored.  But seems promising.
+			     #'gnomeartng'   => {
+			     #'ver' => '0.6.0',
+			     #'url' => 'http://download.berlios.de/gnomeartng',
+			     #'src' => 'tar.gz',
+			     #},
   );
 
 # Strangely named source tarballs can be found here.
@@ -79,23 +80,16 @@ our %double_tarballs_themes =
                   },
    'mac4lin-themes'            => {
              'url' => 'http://mesh.dl.sourceforge.net/sourceforge/mac4lin',
-             'ver' => '0.4',
+             'ver' => '0.9rc1',
 			 'dir' => 'themes/mac4lin-theme',
-			 'tar' => 'Mac4Lin_Part1_v0.4.tar.gz',
-             'var' => 'VERSION',
-                  },
-   'mac4lin-icons'            => {
-             'url' => 'http://mesh.dl.sourceforge.net/sourceforge/mac4lin',
-             'ver' => '0.4',
-			 'dir' => 'themes/mac4lin-theme',
-			 'tar' => 'Mac4Lin_Icons_Part2_v0.4.tar.gz',
+			 'tar' => 'Mac4Lin_v1.0_RC.tar.gz',
              'var' => 'VERSION',
                   },
    'mac4lin-wallpapers'            => {
              'url' => 'http://mesh.dl.sourceforge.net/sourceforge/mac4lin',
-             'ver' => '0.4',
-			 'dir' => 'themes/mac4lin-theme',
-			 'tar' => 'Mac4Lin_Wallpapers_Part3_v0.4.tar.gz',
+             'ver' => '0.9rc1',
+	     'dir' => 'themes/mac4lin-theme',
+	      'tar' => 'Leopard_Wallpapers.tar.gz',
              'var' => 'VERSION',
                   },
    'nmc'            => {

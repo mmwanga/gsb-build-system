@@ -20,11 +20,11 @@ our %supplied_tarballs =
 	     'section' => 'office',
                  },
    'evolution-rss'  => {
-             'ver' => '0.1.0',
+             'ver' => '0.1.0a',
 	     'section' => 'applications',
                  },
    'rhpl'  => {
-             'ver' => '0.212',
+             'ver' => '0.215',
 	     'section' => 'print',
                  },
    'hal-cups-utils'  => {
@@ -52,15 +52,15 @@ our %supplied_tarballs =
 	     'section' => 'applications',
                  },
    'NetworkManager'  => {
-             'ver' => 'svn_4107',
+             'ver' => 'svn_4152',
 	     'section' => 'networking',
                  },
    'NetworkManager-vpn'  => {
-             'ver' => 'svn_4107',
+             'ver' => 'svn_4152',
 	     'section' => 'networking',
                  },
    'network-manager-applet'  => {
-             'ver' => 'svn_906',
+             'ver' => 'svn_929',
 	     'section' => 'networking',
                  },
    'ffmpeg'  => {
@@ -72,7 +72,11 @@ our %supplied_tarballs =
 	     'section' => 'mono',
                  },
    'MPlayer'  => {
-             'ver' => '1.0svn_27666',
+             'ver' => '1.0svn_27725',
+	     'section' => 'media',
+                 },
+   'libflashsupport'  => {
+             'ver' => '1.9',
 	     'section' => 'media',
                  },
   );

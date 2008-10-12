@@ -26,20 +26,20 @@ our %desktop =
    'gnome-backgrounds'      => '2.24.0',
    'gnome-control-center'   => '2.24.0.1',
    'gnome-desktop'          => '2.24.0',
-   'gnome-doc-utils'        => '0.14.0',
-   'gnome-keyring-manager'  => '2.20.0',
    'gnome-menus'            => '2.24.0',
+   'gnome-media'            => '2.24.0.1',
    'gnome-audio'            => '2.22.2',
    'gnome-panel'            => '2.24.0',
    'gnome-python'           => '2.22.3',
+   'gnome-python-desktop'   => '2.24.0',
    'gnome-session'          => '2.24.0',
    'gnome-settings-daemon'  => '2.24.0',
    'gnome-terminal'         => '2.24.0',
    'gnome-themes'           => '2.24.0',
    'gswitchit_plugins'      => '0.9',
    'gvfs'                   => '1.0.1',
-   'gtkhtml'                => '3.23.92',
-   'gtksourceview'          => '2.4.0',
+   'gtkhtml'                => '3.24.0',
+   'gtksourceview'          => '1.8.5',
    'libepc'                 => '0.3.5',
    'libgnomecups'           => '0.2.3',
    'libgnomekbd'            => '2.24.0',
@@ -54,17 +54,23 @@ our %desktop =
    'nautilus-cd-burner'     => '2.24.0',
    'nautilus-open-terminal' => '0.9',
    'nautilus-image-converter' => '0.3.0',
+   'totem-pl-parser'         => '2.24.1',
    );
 
 our %desktop_nongnome =
   (
+   'enchant'   => {
+		   'url' => 'http://www.abisource.com/downloads/enchant/1.4.2',
+		   'ver' => '1.4.2',
+		   'src' => 'tar.gz',
+		  },
    'gnome-mount'   => {
                            'ver' => '0.8',
                            'url' => 'http://hal.freedesktop.org/releases',
                            'src' => 'tar.gz',
                           },
    'gstreamer'   => {
-                           'ver' => '0.10.20',
+                           'ver' => '0.10.21',
                            'url' => 'http://gstreamer.freedesktop.org/src/gstreamer',
                            'src' => 'tar.bz2',
                           },
@@ -74,7 +80,7 @@ our %desktop_nongnome =
 			   'src' => 'tar.bz2',
 			  },
    'gst-plugins-base'  => {
-                           'ver' => '0.10.20',
+                           'ver' => '0.10.21',
                            'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-base',
                            'src' => 'tar.bz2',
                           },
@@ -133,7 +139,7 @@ our %desktop_nongnome =
 our %desktop_diff_naming =
   (
    'gtksourceview2'  => {
-                         'ver'  => '2.3.1',
+                         'ver'  => '2.4.0',
                          'name' => 'gtksourceview',
                         },
    );

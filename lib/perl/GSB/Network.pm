@@ -17,8 +17,8 @@ our %network_gnome =
   (
    'ekiga'                  => '3.0.0',
    'empathy'	            => '2.24.0',
-   'gnome-user-share'       => '0.31',
-   'xchat-gnome'            => '0.24.0',
+   'gnome-user-share'       => '0.40',
+   'gnome-phone-manager'     => '0.60',
   );
 
 our %network_external =
@@ -44,8 +44,8 @@ our %network_external =
                  'src' => 'tar.gz'
                 },
   'libjingle' => {
-                 'url' => 'http://mesh.dl.sourceforge.net/sourceforge/tapioca-voip',
-                 'ver' => '0.3.11',
+                 'url' => 'http://farsight.freedesktop.org/releases/libjingle',
+                 'ver' => '0.3.12',
                  'src' => 'tar.gz'
                 },
    'telepathy-glib'            => {
@@ -85,7 +85,7 @@ our %network_external =
                         },
    'loudmouth'            => {
              'url' => 'http://ftp.imendio.com/pub/imendio/loudmouth/src',
-             'ver' => '1.4.1',
+             'ver' => '1.4.2',
              'src' => 'tar.bz2'
                         },
   );

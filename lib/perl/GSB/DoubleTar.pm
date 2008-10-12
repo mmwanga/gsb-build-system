@@ -29,17 +29,17 @@ our %double_tarballs_url =
              		'var' => 'VERSION',
 			    },
    'compiz-fusion'              => {
-	     		'ver' => '0.7.6',
-             		'url' => 'http://releases.compiz-fusion.org/0.7.6/compiz',
+	     		'ver' => '0.7.8',
+             		'url' => 'http://releases.compiz-fusion.org/0.7.8/0.7.8',
 	     		'dir' => 'compiz/compiz-fusion',
-	     		'tar' => 'compiz-0.7.6.tar.bz2',
+	     		'tar' => 'compiz-0.7.8.tar.bz2',
              		'var' => 'VERSION',
                             },
     'mozilla-firefox'  => {
-    			'ver' => '3.0.2',
-    			'dir' => 'testing/mozilla-firefox',
-    			'url' => 'http://www.mirrorservice.org/sites/ftp.mozilla.org/pub/mozilla.org/firefox/releases/3.0.2/source/',
-    			'tar' => 'firefox-3.0.2-source.tar.bz2',
+    			'ver' => '3.0.3',
+    			'dir' => 'extras/mozilla-firefox',
+    			'url' => 'http://www.mirrorservice.org/sites/ftp.mozilla.org/pub/mozilla.org/firefox/releases/3.0.3/source/',
+    			'tar' => 'firefox-3.0.3-source.tar.bz2',
 	    		'var' => 'VERSION',
 			    },
    'libunique'             => {
@@ -47,6 +47,13 @@ our %double_tarballs_url =
 			 'dir' => 'libraries/libunique',
 			 'url' => 'http://www.gnome.org/~ebassi/source',
 			 'tar' => 'unique-1.0.0.tar.gz',
+			 'var' => 'VERSION',
+				  },
+   'libmpeg3'             => {
+			 'ver' => '1.8',
+			 'dir' => 'libraries/libmpeg3',
+			 'url' => 'http://mesh.dl.sourceforge.net/heroines',
+			 'tar' => 'libmpeg3-1.8-src.tar.bz2',
 			 'var' => 'VERSION',
 				  },
    'libgc'             => {
@@ -68,6 +75,13 @@ our %double_tarballs_url =
 			 'dir' => 'libraries/nss',
 			 'url' => 'http://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_12_RTM/src/',
 			 'tar' => 'nss-3.12-with-nspr-4.7.tar.gz',
+			 'var' => 'VERSION',
+				  },
+   'consolekit'               => {
+			 'ver' => '0.3.0',
+			 'dir' => 'platform/consolekit',
+			 'url' => 'http://people.freedesktop.org/~mccann/dist',
+			 'tar' => 'ConsoleKit-0.3.0.tar.bz2',
 			 'var' => 'VERSION',
 				  },
    'policykit'               => {
@@ -207,7 +221,7 @@ our %double_tarballs_url =
 			 'ver' => '20071007',
 			 'dir' => 'media/mplayer-codecs',
 			 'url' => 'http://www1.mplayerhq.hu/MPlayer/releases/codecs',
-			 'tar' => 'essential-20071007.tar.bz2',
+			 'tar' => 'all-20071007.tar.bz2',
 			 'var' => 'VERSION',
 				  },
    'mplayer-amd64-codecs'               => {
@@ -252,5 +266,18 @@ our %double_tarballs_url =
             'tar' => 'do-plugins-0.4.0.tar.gz',
             'var' => 'VERSION',
                    },
-
+   'pidgin-encryption' => {
+            'url'  => 'http://mesh.dl.sourceforge.net/sourceforge/pidgin-encrypt',
+            'ver'  => '2.5.1',
+            'dir' => 'extras/pidgin',
+            'tar' => 'pidgin-encryption-3.0.tar.gz',
+            'var' => 'VERSION',
+                   },
+   'pidgin' => {
+            'url'  => 'http://mesh.dl.sourceforge.net/sourceforge/pidgin',
+            'ver'  => '2.5.1',
+            'dir' => 'extras/pidgin',
+            'tar' => 'pidgin-2.5.1.tar.bz2',
+            'var' => 'VERSION',
+                   },
   );

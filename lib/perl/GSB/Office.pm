@@ -17,16 +17,16 @@ our %office_gnome =
   (
    'gnumeric'             => '1.8.3',
    'dia'                  => '0.96.1',
-   'evince'               => '2.22.2',
-   'f-spot'               => '0.5.0.1',
+   'evince'               => '2.24.0',
+   'f-spot'               => '0.5.0.2',
    'glom'                 => '1.6.17',
    'gnome-python-extras'  => '2.19.1',
    'goffice'              => '0.6.5',
    'libgsf'               => '1.14.8',
    'libgda'               => '3.0.4',
-   'libgdamm'             => '2.9.82',
+   'libgdamm'             => '3.0.1',
    'libgnomedb'           => '3.0.0',
-   'tomboy'               => '0.12.0',
+   'tomboy'               => '0.12.1',
   );
 
 our %office =
@@ -66,18 +66,13 @@ our %office =
 			     'url' => 'http://mesh.dl.sourceforge.net/sourceforge/drivel/',
 			     'src' => 'tar.bz2',
 			    },
-   'enchant'   => {
-		   'url' => 'http://www.abisource.com/downloads/enchant/1.4.2',
-		   'ver' => '1.4.2',
-		   'src' => 'tar.gz',
-		  },
    'gnome-do'                => {
 				'ver' => '0.5.0.1',
 				'url' => 'http://launchpad.net/do/trunk/0.5/+download',
 				'src' => 'tar.gz',
 		        	},
    'gnucash'              => {
-			     'ver' => '2.2.6',
+			     'ver' => '2.2.7',
 			     'url' => 'http://ftp.at.gnucash.org/pub/gnucash/gnucash/sources/stable/',
 			     'src' => 'tar.bz2',
 			    },
@@ -111,6 +106,11 @@ our %office =
 			     'url' => 'http://mesh.dl.sourceforge.net/sourceforge/liferea',
 			     'src' => 'tar.gz',
 			    },
+   'libofx'    => {
+                   'url' => 'http://mesh.dl.sourceforge.net/sourceforge/libofx/',
+                   'ver' => '0.9.0',
+                   'src' => 'tar.gz',
+                  },
    'pstoedit'            => {
 			     'ver' => '3.45',
 			     'url' => 'http://mesh.dl.sourceforge.net/sourceforge/pstoedit',

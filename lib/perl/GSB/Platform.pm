@@ -19,12 +19,13 @@ our %platform =
    'gail'                => '1.22.3',
    'GConf'               => '2.24.0',
    'gnome-common'        => '2.24.0',
+   'gnome-doc-utils'     => '0.14.0',
    'gnome-keyring'       => '2.24.0',
    'gnome-mime-data'     => '2.18.0',
    'gnome-icon-theme'    => '2.24.0',
    'gnome-vfs'           => '2.24.0',
    'gtk-engines'         => '2.16.0',
-   'intltool'            => '0.40.4',
+   'intltool'            => '0.40.5',
    'libbonobo'           => '2.24.0',
    'libbonoboui'         => '2.24.0',
    'libbtctl'            => '0.10.0',
@@ -33,8 +34,9 @@ our %platform =
    'libgnomeui'          => '2.24.0',
    'libsoup'             => '2.24.0.1',
    'ORBit2'              => '2.14.16',
-   'pyorbit'             => '2.14.3',
+   'pyorbit'             => '2.24.0',
    'ttf-bitstream-vera'  => '1.10',
+   'vte'                 => '0.17.4',
   );
 
 
@@ -52,18 +54,13 @@ our %platform_reqs =
                              'src' => 'tar.gz',
                             },
    'pulseaudio'             => {
-                             'ver' => '0.9.11',
+                             'ver' => '0.9.13',
                              'url' => 'http://0pointer.de/lennart/projects/pulseaudio',
                              'src' => 'tar.gz',
                             },
    'alsa-plugins'             => {
                              'ver' => '1.0.17',
                              'url' => 'ftp://ftp.alsa-project.org/pub/plugins',
-                             'src' => 'tar.bz2',
-                            },
-   'alsa-lib'             => {
-                             'ver' => '1.0.17a',
-                             'url' => 'ftp://ftp.alsa-project.org/pub/lib',
                              'src' => 'tar.bz2',
                             },
    'rarian'             => {

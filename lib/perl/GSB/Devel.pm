@@ -26,7 +26,7 @@ our %devel_gnome =
    'ghex'        => '2.22.0',
    'glade3'      => '3.4.5',
    'gnome-build' => '2.24.0',
-   'nemiver'     => '0.6.2',
+   'nemiver'     => '0.6.3',
    'vala'        => '0.3.5',
   );
 
@@ -47,13 +47,8 @@ our %devel =
 				'url' => 'http://go-mono.com/sources/monodevelop/',
 				'src' => 'tar.bz2',
 			       },
-   'monodoc'                => {
-				'ver' => '1.9',
-				'url' => 'http://go-mono.com/sources/monodoc',
-				'src' => 'zip',
-			       },
    'mono-tools'                => {
-				'ver' => '1.9',
+				'ver' => '2.0',
 				'url' => 'http://go-mono.com/sources/mono-tools',
 				'src' => 'tar.bz2',
 			       },

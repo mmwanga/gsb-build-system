@@ -18,13 +18,23 @@ our $VERSION   = 0.03;
 our %libraries =
   (
    'a52dec'            => {
-			   'ver' => '0.7.4',
-			   'url' => 'http://liba52.sourceforge.net/files/',
-			   'src' => 'tar.gz',
+	   'ver' => '0.7.4',
+	   'url' => 'http://liba52.sourceforge.net/files/',
+	   'src' => 'tar.gz',
 			  },
-   'cairo'            => {
-			   'ver' => '1.6.4',
-			   'url' => 'http://www.cairographics.org/releases',
+   'alsa-lib'             => {
+             'ver' => '1.0.17a',
+            'url' => 'ftp://ftp.alsa-project.org/pub/lib',
+             'src' => 'tar.bz2',
+                            },
+    'cairo'            => {
+	    'ver' => '1.8.0',
+	    'url' => 'http://www.cairographics.org/releases',
+	    'src' => 'tar.gz',
+			    },
+   'dbus'            => {
+			   'ver' => '1.2.3',
+			   'url' => 'http://dbus.freedesktop.org/releases/dbus',
 			   'src' => 'tar.gz',
 			  },
    'dbus-glib'            => {
@@ -256,11 +266,6 @@ our %libraries =
 			   'url' => 'http://www.lua.org/ftp/',
 			   'src' => 'tar.gz',
 		        },
-   'libofx'    => {
-                   'url' => 'http://mesh.dl.sourceforge.net/sourceforge/libofx/',
-                   'ver' => '0.9.0',
-                   'src' => 'tar.gz',
-                  },
    'mjpegtools'        => {
 			   'ver' => '1.9.0rc3',
 			   'url' => 'http://mesh.dl.sourceforge.net/sourceforge/mjpeg/',
@@ -276,21 +281,31 @@ our %libraries =
                    'ver' => '1.6.1',
                    'src' => 'tar.gz',
                   },
+   'poppler'    => {
+                   'url' => 'http://poppler.freedesktop.org',
+                   'ver' => '0.9.3',
+                   'src' => 'tar.gz',
+                  },
    'sg3_utils'            => {
                          'url' => 'http://sg.torque.net/sg/p',
                          'ver' => '1.27',
                          'src' => 'tgz',
                         },
+   'pixman'          => {
+			   'ver' => '0.12.0',
+			   'url' => 'ftp://xorg.freedesktop.org/pub/xorg/individual/lib',
+			   'src' => 'tar.bz2',
+			  },
    'speex'            => {
                          'url' => 'http://downloads.us.xiph.org/releases/speex/',
                          'ver' => '1.2rc1',
                          'src' => 'tar.gz',
                         },
-   'transcode'         => {
-			   'ver' => '1.0.6',
-			   'url' => 'http://fromani.exit1.org',
-			   'src' => 'tar.bz2',
-			  },
+   'transcode'            => {
+                             'ver' => '1.0.7rc1',
+                             'url' => 'http://download.berlios.de/tcforge',
+                             'src' => 'tar.bz2',
+                            },
    'tre'            => {
                              'ver' => '0.7.5',
                              'url' => 'http://laurikari.net/tre',
@@ -324,8 +339,9 @@ our %libraries_gnome =
    'libcroco'          => '0.6.1',
    'libsigc++'         => '2.2.2',
    'ptlib'             => '2.4.1',
+   'pygobject'         => '2.15.4',
    'opal'              => '3.4.1',
-   'vte'               => '0.17.4',
+   'pango'             => '1.22.0',
   );
 
 our %libraries_diff_naming =
@@ -333,11 +349,12 @@ our %libraries_diff_naming =
    'glib2'  => {
 		'ver'  => '2.18.1',
 		'name' => 'glib',
-	       },
+	      },
    'gtk+2'  => {
-		'ver'  => '2.14.3',
-		'name' => 'gtk+',
-	       },
+	   #'ver'  => '2.12.12',
+	   'ver'  => '2.14.3',
+      		'name' => 'gtk+',
+	      },
   );
 
 #

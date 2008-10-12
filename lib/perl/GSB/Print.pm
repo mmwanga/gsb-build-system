@@ -17,7 +17,7 @@ our %print =
   (
     'system-config-printer'    => {
              'url' => 'http://cyberelk.net/tim/data/system-config-printer/1.0.x/',
-             'ver' => '1.0.7',
+             'ver' => '1.0.8',
              'src' => 'tar.bz2',
                   },
    'pycups'    => {
