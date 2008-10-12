@@ -1,3 +1,8 @@
+12-10-2008 Steve <steve(at)gnomeslackbuild.org>
+  * Lots of changes to bring trunk/ to build 2.24.0.  I'm 
+    not going to write them all here.  :)
+  * Update to Tadgy's new build system.
+
 21-06-2008 Tadgy <tadgy(at)gnomeslackbuild.org>
   * Moved notify-python from administration/ to bindings/ as
     service-discovery-applet requires it for build.

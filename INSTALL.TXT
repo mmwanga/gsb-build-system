@@ -1,0 +1,522 @@
+Written by, and Copyright (c) 2007, 2008:
+   Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>, Coventry, UK.
+
+		 HOW TO INSTALL GSB: GNOME SlackBuild 2.24.0
+                    =======================================
+
+GNOME SlackBuild (GSB) has two components; a full and complete system to build
+Slackware compliant packages from GNOME sources, and a binary distribution of
+those pre-built packages, suitable for Slackware and Slamd64.
+
+This document provides information on installing our pre-built GSB packages on
+Slackware and Slamd64.  GSB encompasses all needed packages for a fully
+configurable, customisable and usable GNOME desktop environment.
+
+If you haven't yet, you should read about the GSB project before installing:
+  <http://gnomeslackbuild.org/>
+
+This version of GSB is built and only supported on:
+  Slackware 12.1
+  Slamd64 12.1
+
+If you are trying to use GSB on systems other than the above you *will*
+encounter problems.  If you are running a previous version of Slackware or
+Slamd64, you must upgrade.  Do not attempt to install this version of GSB on
+previous versions of Slackware and Slamd64.
+
+
+Installation methods
+--------------------
+
+Before starting an installation, please, PLEASE, *P L E A S E* read this entire
+document.  There is important information about performing the installation,
+and post-installation configuration and problems that may occur.  If you do not
+read this entire document and have a problem which is covered here you WILL NOT
+make any friends on the mailing lists or IRC channel and we will likely not
+bother to help you, in the same way as you have not bothered to help yourself.
+
+GSB currently supports three installation methos; a fully automated net based
+installer, installation over the net using a manually configured slapt-get, and
+installation from a local repository mirror.
+
+The automated net installer, obviously, requires an active internet connection
+to perform the installation - packages are downloaded from one of the GSB
+mirror sites (randomly selected from our mirrors list) and installed onto the
+system automatically.  However, with the net installer there is no facility to
+select what packages will be installed - the net installer will install all
+packages listed in the 'gsb-complete' meta package (see below).  This is by
+far the best option for users who want a fully functional, fully featured
+GNOME desktop.
+
+The second net based install requires manual configuation of slapt-get with the
+GSB repository details.  slapt-get will also need to be configured with a
+Slackware/Slamd64 mirror so that it can resolve any dependancies the GSB
+packages may have on Slackware/Slamd64 packages.  Once slapt-get is configured,
+any of the GSB meta packages (see below) or individual packages can be
+installed - this allows fine grained package selection or installation of
+different collections of packages without having to download a full copy of
+our repository.
+
+If net installation is not possible or there are many installations to be
+performed, GSB can be installed from a local mirror/repository.  This procedure
+requires a full local copy of the whole GSB binary tree - either on hard disk,
+a CDROM or some other portable media, and follows the same general process as
+the manual slapt-get net installation, except that slapt-get is configured
+to use a local GSB repository rather than a online one.
+
+Each of the procedures for installation is detailed below.  Once you have
+decided which option is best for you, please refer to the appropriate section
+for full instructions.
+
+If you regulaly use slapt-get to keep your packages up to date, or have
+multiple repositories in your slapt-getrc, it is important that you read the
+section titled 'Problems when using slapt-get' below.
+
+
+Before installation
+-------------------
+
+The installation is best done at runlevel 3 - *without* X11 running.  It is not
+advisable to do the installation from within an XTerm or Terminal Emulator.
+
+If you have any X11 sessions open which were started with the 'startx' command
+(or similar) after you logged into the console in text mode, you must exit
+those sessions to insure the installation goes smoothly.  Once those are closed
+you will probably be returned to your normal (unprivilged) user account shell
+prompt, you should now logout using:
+  $ logout
+
+You should now be back at the text based 'login:' prompt.  Skip the next 2
+paragraphs nad continue with the procedure.
+
+If your system boots (or has been put) into runlevel 4 (the graphical login
+runlevel), you must put the system back into runlevel 3.  Firstly, if you are
+in X11, you need to get to a text login console - hold down the Ctl and Alt
+keys and press F6.  This will take you to a text based 'login:' prompt, where
+you should log in as 'root' using your root password.  Once logged in, use this
+command to bring the system back to runlevel 3:
+  $ init 3
+
+Wait for the process to finish (it might help to hit Enter a couple of times
+after 20-30 seconds).  During the process, your active terminal may be changed,
+so you may not be returned to the shell prompt.  If the active terminal has
+changed, it will probably now show another 'login:' prompt.  If you are
+returned to the shell prompt after hitting Enter a couple of times, you do not
+need to log out (and can skip the rest of this section) - you are logged in
+as 'root' and can begin installation.
+
+In either of the two cases above, if you have a text based 'login:' prompt on
+screen, you must login as 'root' using your own root password.
+
+You should now be logged into your system as the 'root' user, your system
+should be at runlevel 3, and there should be no active X11 sessions.
+
+
+Automated net installation
+--------------------------
+
+This is the simplest method of installation and requires very little detailed
+explanation - you simply run one command and a full installation of GSB, plus
+any of the required Slackware/Slamd64 package dependancies, will be installed.
+
+Depending on whether you have 'wget', 'curl' or 'lynx' available on your system,
+you can use one of the following commands to begin installation.
+Be sure to use the correct URI for your architecture - GSB supports both IA32
+(32 bit Slackware) and x86_64 (64 bit Slamd64).
+
+Using wget:
+  For IA32:
+    $ wget -q -O- http://gnomeslackbuild.org/net-install | bash
+  For x86_64:
+    $ wget -q -O- http://gnomeslackbuild.org/net-install/64 | bash
+
+Using curl:
+  For IA32:
+    $ curl http://gnomeslackbuild.org/net-install | bash
+  For x86_64:
+    $ curl http://gnomeslackbuild.org/net-install/64 | bash
+
+Using lynx:
+  For IA32:
+    $ lynx --source http://gnomeslackbuild.org/net-install | bash
+  For x86_64:
+    $ lynx --source http://gnomeslackbuild.org/net-install/64 | bash
+
+
+Manual slapt-get net installation
+---------------------------------
+
+The first thing to do for a manual slapt-get installation is to download and
+install slapt-get.  slapt-get requires the curl, glibc-solibs, gpgme,
+libgpg-error, libidn and openssl-solibs packages from Slackware/Slamd64, which
+must be installed from a mirror before slapt-get can be used for installation.
+
+If you already have slapt-get (and the required dependancies) installed on your
+system there is no reason to replace that version with ours before installation,
+but during the GSB installation process it will be automatically updated to our
+provided version.
+
+Download slapt-get for Slackware 12.1 from:
+  <http://get.gnomeslackbuild.org/gsb/gsb-stable/packages/tools/>
+
+Download slapt-get for Slamd64 12.1 from:
+  <http://get.gnomeslackbuild.org/gsb/gsb64-stable/packages/tools/>
+
+And use the following command to install:
+  $ upgradepkg --install-new slapt-get-*.tgz
+
+Once slapt-get is installed, a basic configuration file must be created for the
+installation.  We do not recommend editing your current slapt-get configuration
+unless you know what you are doing.  These instructions will create a new, GSB
+specific, slapt-getrc file which should be used just for installation and for
+future updates.
+
+Before the slapt-getrc file can be created, you must select the GSB and
+Slackware/Slamd64 mirrors to be used for the installation.  Appendix A and
+Appendix B, towards the end of this document, list the available mirrors
+for GSB and Slackware/Slamd64 respectivly.  Please check those mirror lists now
+and select a mirror for GSB and Slackware/Slamd64 which will be added to the
+slapt-getrc file here.
+
+To create the slapt-getrc for GSB, open a text editor (we recommend 'nano'):
+  $ nano /etc/slapt-get/slapt-getrc.gsb
+
+Add the following lines exactly as shown (copy and paste is your friend):
+  WORKINGDIR=/var/slapt-get
+  EXCLUDE=^kernel-.*,^glibc.*,.*-[0-9]+dl$,^devs$,^udev$,aaa_elflibs
+
+In addition to the above, you will need to add two SOURCE= lines to the file -
+one SOURCE for GSB and one SOURCE for Slackware/Slamd64:
+  SOURCE=<your chosen GSB mirror URL from Appendix A>
+  SOURCE=<your chosen Slackware/Slamd64 mirror URL from Appendix B>
+
+Once all 4 of the above lines have been added to the file, save it and exit the
+text editor.  Configuration of slapt-get is now complete.
+
+You will now need to update the slapt-get cache files:
+  $ slapt-get -c /etc/slapt-get/slapt-getrc.gsb --update
+
+If the above update process ran without errors, you are now ready to begin
+installation by selecting which of the GSB software 'sets' you would like to
+install.
+
+Appendix C, towards the end of this document, details the available 'sets' of
+packages which can be installed.  We highly recommend installation of the
+'gsb-complete' set unless you are sure you know what you are doing.
+
+Once you have selected the set to be installed you can begin the install
+process with:
+  $ slapt-get -c /etc/slapt-get/slapt-getrc.gsb -y --retry 10 --upgrade
+  $ slapt-get -c /etc/slapt-get/slapt-getrc.gsb -y --retry 10 \
+      --install <your chosen package set from Appendix C>
+  (Note: the second command has been spanned over two lines for readability)
+
+For clarity, to install the 'gsb-complete' set (highly recommended) use the
+following commands:
+  $ slapt-get -c /etc/slapt-get/slapt-getrc.gsb -y --retry 10 --upgrade
+  $ slapt-get -c /etc/slapt-get/slapt-getrc.gsb -y --retry 10 --install gsb-complete
+
+With any luck, the installation process will finish without any errors or
+problems and GSB will now be installed on your system.  Please read the section
+'After installation' (and the sections which follow it) below.
+
+
+Installing from a local copy
+----------------------------
+
+Installing from a local copy of GSB and/or Slackware/Slamd64 is a very similar
+process to the manual slapt-get net installation detailed above - it is
+recommended that you read that section in addition to this one, in order to
+understand the slapt-get installtion process.  Only brief instructions are
+given here.
+
+For the following instructions, </path/to/gsb> referrs to the local filesystem
+location for the GSB mirror, and </path/to/slackware> referrs to the local
+filesystem location to the Slackware/Slamd64 mirror.  Both of these should,
+obviously, be replaced with the full correct paths to each mirror.  These
+paths can also be on a CDROM or USB device if the mirrors are located on such
+media.
+
+As with the manual slapt-get net installation, a GSB slapt-getrc file must be
+created - however, the two SOURCE entries in the slapt-getrc for this install
+method will be local filesystem paths, not URIs.
+
+Create the slapt-getrc:
+  $ nano /etc/slapt-getrc.gsb
+
+Add the required configuration:
+  WORKINGDIR=/var/slapt-get
+  EXCLUDE=^kernel-.*,^glibc.*,.*-[0-9]+dl$,^devs$,^udev$,aaa_elflibs
+
+Finally, add the two SOURCE entries:
+  SOURCE=file://</path/to/gsb>
+  SOURCE=file://</path/to/slackware>
+
+Save the file and exit the text editor.  Use these commands to update the
+slapt-get cache files:
+  $ slapt-get -c /etc/slapt-get/slapt-getrc.gsb --update
+
+Finally, as with the manual slapt-get net installation, you must choose which
+'set' to install.  Details of the sets are in Appendix C below, but we highly
+recommend that you install 'gsb-complete'.
+
+To start the installation, use:
+  $ slapt-get -c /etc/slapt-get/slapt-getrc.gsb -y --retry 10 --upgrade
+  $ slapt-get -c /etc/slapt-get/slapt-getrc.gsb -y --retry 10 \
+      --install <your chosen package set from Appendix C>
+  (Note: the second command has been spanned over two lines for readability)
+
+For clarity, to install the 'gsb-complete' set (highly recommended) use the
+following commands:
+  $ slapt-get -c /etc/slapt-get/slapt-getrc.gsb -y --retry 10 --upgrade
+  $ slapt-get -c /etc/slapt-get/slapt-getrc.gsb -y --retry 10 --install gsb-complete
+
+With any luck, the installation process will finish without any errors or
+problems and GSB will now be installed on your system.  Please read the section
+'After installation' (and the sections which follow it) below.
+
+
+After installation
+------------------
+
+It is highly recommended that you reboot your system after installation in
+order to insure that all services/daemons required by GNOME have been started.
+You can start the daemons manually and avoid the need to reboot, but there are
+a number of services that need to be started - it's just easier to reboot!
+
+If your system is configured to start at run level 4 (the X11 graphical login),
+your usual display manager should now have been replaced with GDM - the GNOME
+Display Manager.  You should be able to log in with your usual username and
+password in the same way as you did before - but be sure to check that GNOME
+(or Compiz GNOME if you want fancy 3D stuffs) is selected in the Sessions list.
+
+If you usually log into your system at run level 3 (text based login) and then
+use 'startx' or similar you should log in as your usual (not root!) user and
+run:
+  $ xwmconfig
+
+and select the GNOME (or Compiz GNOME) option from the menu.
+
+You can also repeat the above as root to set the default for the whole system,
+but using root as your every day login user is a *really* *stupid* *idea*.
+
+You can then use 'startx' to start GSB as usual.
+
+If you have any problems starting GSB or logging in, please see below for
+support links and mailing lists.
+
+
+Uninstalling GNOME SlackBuild
+-----------------------------
+
+Firstly, why do you want to?
+Seriously, I mean, what are your alternatives?
+KDE?  No thanks, might as well use Windows.
+Dropline GNOME?  I'd rather not have PAM bastardising my system, thanks :)
+So, really, don't uninstall GSB :)
+
+So you still want to?  You will need to remove all GNOME SlackBuild packages,
+and then re-install any Slackware/Slamd64 provided packages that may have been
+replaced by GSB ones.
+
+To remove all the GSB packages, run (as root):
+  $ removepkg /var/log/packages/*gsb | tee /tmp/gsb-uninstall.log
+
+You should probably check the uninstall log at /tmp/gsb-uninstall.log to see if
+any files installed by GSB packages got left behind - it's up to you how much
+housekeeping you want to do on those files :)
+
+Once all the GSB packages are removed and you've done any housekeeping, you
+will need to re-install any Slackware/Slamd64 packages which were replaced by
+the GSB provided ones.  A complete list of standard Slackware/Slamd64 packages
+GSB replaced during installation can be found here:
+  <http://svn.gnomeslackbuild.org/gsb/trunk/notes/replaced_packages_gsb-2.22>
+
+From the above list of packages, re-install any which may be required for your
+system to operate correctly.
+
+If you are using slapt-get to re-install the packages, you will need to comment
+out any SOURCE= line(s) for GSB in your /etc/slapt-get/slapt-getrc file (if any
+were added during installation).  Then be sure to run:
+  $ slapt-get --update
+
+Once that is finished, you can re-install the standard Slackware packages by
+running:
+  $ slapt-get --install <list of packages>
+
+where the <list of packages> is those obtained from the replaced packages list.
+
+If you don't use slapt-get to maintain your Slackware/Slamd64 packages, you can
+use 'installpkg' (or whatever your preferred package management front-end is)
+to simply re-install any required packages.
+
+It would also be a good idea to select an alternative window manager (as
+detailed in the 'After installation' section), and reboot your system to insure
+all GSB daemon/services have been stopped.
+
+
+Questions, Comments and Support
+-------------------------------
+
+Do one of the following (in this order):
+  * Check the FAQs and other helpfull resources on the website:
+      <http://gnomeslackbuild.org/support/>
+
+  * For bug reports and feature requests, please check our issue tracker for
+    previous reports of the same problem and possible solutions.  If your bug
+    or feature is not solved or listed, add it:
+      <http://dev.gnomeslackbuild.org/>
+
+  * Join the GSB User Discussion Mailing List:
+      <http://gnomeslackbuild.org/lists/>
+
+    Firstly, check the archive to see if anyone else has had a similar problem
+    which has already been solved.  You will not get any points for requesting
+    help with a problem that has already been addressed.
+
+    The mailing list is the easiest and preferred method of contact for support
+    type issues - it allows us to keep an archive of questions and answers.
+
+    Note: You must be subscribed to the mailing list in order to post messages.
+
+  * Join the #gsb IRC channel on irc.freenode.net and ask questions - without
+    whinging, bitching, repeatidly asking the same question, repeatidly asking
+    'is anyone here?' or being a general idiot.  We are a friendly bunch
+    (well, mostly anyway) and willing to help IF YOU GIVE US RESPECT.
+
+    On IRC, we may appear to be always online, but we are frequently away from
+    the console and you may not receive an answer for a while.  But stick
+    around since we'll try to give a reply, eventually  :)
+
+
+Appendix A - GSB repositories/mirrors
+-------------------------------------
+
+The following is a list of mirrors from which to download GSB.  Any of the
+mirrors can be used in slapt-get and each is synced with the master server at
+least once per day.
+
+For the IA32 (i586, i686 et al) version of GSB for Slackware 12.1:
+  <ftp://ftp.slackware.org.uk/gsb/gsb-2.22/>
+  <http://www.slackware.org.uk/gsb/gsb-2.22/>
+  <ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-2.22/>
+  <http://slackware.rol.ru/gsb/gsb/gsb-2.22/>
+  <http://get.gnomeslackbuild.org/gsb/gsb-2.22/>
+
+For the x86_64 (opteron, athlon64, et al) version of GSB for Slamd64 12.1:
+  <ftp://ftp.slackware.org.uk/gsb64/gsb64-2.22/>
+  <http://www.slackware.org.uk/gsb64/gsb64-2.22/>
+  <ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb64/gsb64-2.22/>
+  <http://slackware.rol.ru/gsb/gsb64/gsb64-2.22/>
+  <http://get.gnomeslackbuild.org/gsb64/gsb64-2.22/>
+
+
+Appendix B - Slackware/Slamd64 repositories/mirrors
+---------------------------------------------------
+
+The follwoing is a non-exhaustive list of Slackware/Slamd64 mirrors which can
+be used to resolve dependancies during the GSB installation.  These mirrors
+have been manually checked to insure they are alive and up to date, but we
+cannot guarantee how often they update or how long they will be available.
+You can, of course, use your own favourite Slackware/Slamd64 mirror instead.
+
+Slackware 12.1 mirrors:
+  <ftp://ftp.slackware.at/slackware-12.1/>
+  <http://www.slackware.at/data/slackware-12.1/>
+  <ftp://ftp.slackware.org.uk/slackware/slackware-12.1/>
+  <http://www.slackware.org.uk/slackware/slackware-12.1/>
+  <ftp://slackware.oregonstate.edu/pub/slackware/slackware-12.1/>
+  <http://slackware.oregonstate.edu/slackware-12.1/>
+  <ftp://mirror.switch.ch/mirror/slackware/slackware-12.1/>
+  <http://mirror.switch.ch/ftp/mirror/slackware/slackware-12.1/>
+  <ftp://distro.ibiblio.org/pub/linux/distributions/slackware/slackware-12.1/>
+  <http://distro.ibiblio.org/pub/linux/distributions/slackware/slackware-12.1/>
+  <ftp://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-12.1/>
+  <http://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-12.1/>
+  <ftp://slackware.mirrors.tds.net/pub/slackware/slackware-12.1/>
+  <ftp://ftp.slackware.no/pub/linux/slackware/slackware-12.1/>
+  <http://slackware.rol.ru/slackware/slackware-12.1/>
+
+Slamd64 12.1 mirrors:
+  <ftp://ftp.slackware.pl/pub/slamd64/slamd64-12.1/>
+  <http://ftp.slackware.pl/pub/slamd64/slamd64-12.1/>
+  <ftp://anorien.warwick.ac.uk/slamd64/slamd64-12.1/>
+  <http://anorien.warwick.ac.uk/mirrors/slamd64/slamd64-12.1/>
+  <ftp://ftp.scarlet.be/pub/slamd64/slamd64-12.1/>
+  <http://ftp.scarlet.be/pub/slamd64/slamd64-12.1/>
+  <ftp://ftp.heanet.ie/pub/slamd64/slamd64-12.1/>
+  <http://ftp.heanet.ie/pub/slamd64/slamd64-12.1/>
+  <ftp://slamd64.wahlfaelschung.de/slamd64-12.1/>
+  <http://slamd64.wahlfaelschung.de/slamd64-12.1/>
+  <ftp://ftp.slackware.org.uk/slamd64/slamd64-12.1/>
+  <http://www.slackware.org.uk/slamd64/slamd64-12.1/>
+
+
+Appendix C - Meta packages and sets
+-----------------------------------
+
+GSB has been divided into package sets which can be selectivly installed to
+suit the need of the user.  The packages which will be installed by each set
+are listed in meta packages which slapt-get knows how to process and install.
+
+The following meta packages (or sets) can be used with slapt-get once it has
+been configured with a GSB repository - a detailed description of each set is
+also provided:
+  * gsb-complete
+      This set includes the entire GSB distribution - every package.  It
+      contains all the multimedia, development, office, desktop, compiz,
+      library and accessibility packages available from GSB.  It is a huge
+      download and a huge install, but provides everything a user could want
+      in a GNOME desktop.  It is *highly* recommended that a full installation
+      be performed using this set.
+
+  * gsb-desktop
+      This is the basic, yet fully functional GNOME Desktop Environment
+      provided by GSB.  It contains all the packages required for a working
+      GNOME Desktop, including Epiphany, Evolution, the GNOME Display Manager
+      (GDM), NetworkManager, Gslapt for package management and some basic 
+      themes and desktop utilities.
+
+  * gsb-basic
+      This set provides only the basic base libraries for using GNOME
+      applications, including libgnome, libgnomeui, and libgnomecanvas, and all
+      dependencies.
+
+  * gsb-accessibility
+      This set is for all the accessibility applications and utilities for the
+      GNOME Desktop, such as Orca and GNOME Magnifier.
+
+  * gsb-administration
+      This set is all the administration applications and utilities for the
+      the GNOME Desktop, such as Pessulus and Sabayon.
+
+  * gsb-multimedia
+      The full multimedia suite for GNOME SlackBuild.  It includes various
+      music players, like Banshee, Rhythmbox, Totem, as well as MPlayer, and a
+      full assortment of codec libraries.
+
+  * gsb-office
+      This is a full Office Suite, with software for all aspects of the office,
+      like Glom for database, Goffice, Gnumeric, Abiword, as well as Dia for a
+      Visio-like charting program and of course, Open Office.
+
+  * gsb-ooo
+      This set is for easy installation of our OpenOffice.Org build for GSB.
+      Openoffice is linked against Gtk+2 to fit well with the GNOME Desktop,
+      and comes with a set of menus for better GNOME integration.
+
+  * gsb-development
+      This set contains a full Development Environment, including packages such
+      such as Anjuta, Glade3, and C++ bindings for most GNOME packages.
+
+  * gsb-themes
+      This set provides a few extra themes for GSB, as well as a few of the
+      more popular GTK engines in use by a wide variety of GNOME themes.
+
+  * gsb-compiz
+      This set installs the 3D window manager: Compiz.  Its configuration
+      utilities as well as Compiz GNOME Integration.
+
+  * gsb-mono
+      This set provides the Mono/C# development tools, including a working
+      Mono C# compiler, GNOME bindings, and a MonoDevelop IDE.

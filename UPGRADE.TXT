@@ -1,0 +1,110 @@
+This document explains how to upgrade from GNOME SlackBuild 2.22.3 to GSB 2.24.0
+----------------------------------------------------------------------------
+
+For details of important changes from GSB 2.22.3 to 2.24.0, see the file 'CHANGES_AND_HINTS.TXT'.  
+
+Before you begin, we would strongly recommend making a backup of your system, or, if not the 
+entire system, at least the /etc directory.  You might find that you need to refer to a few 
+things after the upgrade process is complete. Back it up, or take your chances.  
+
+There are two ways of upgrading your system:
+
+	A.  Slapt-get.
+	B.  Local copy of the packages.
+
+
+A. Slapt-get
+-------------
+
+0.  Make sure to put your machine single-user mode:
+    $ telinit 1
+
+    However, note that this method will actually need internet access, so before we can 
+    continue, make sure that you can actually use networking. :^)
+
+1.  Remove obsolete packages.  The CHANGES_AND_HINTS.TXT file should have a list of these.  
+    You can remove these using 'removepkg'.
+
+2.  Make sure that your /etc/slapt-get/slapt-getrc file has been updated to point both to a 
+    valid Slackware 12.1 repository as well as a gsb-2.24 stable repository.  
+    $ vi /etc/slapt-get/slapt-getrc
+
+3.  Make sure we're using the latest package information from these repositories.
+    $ slapt-get --update
+
+4.  Upgrade your system.
+    $ slapt-get --upgrade
+
+    And away it should go, upgrading every installed package of GSB. This may well take a long 
+    time to finish, and will depend on your download speed.  
+
+5.  Fix your config files.  Some of the config files in /etc are going to need your attention, 
+    for example PulseAudio, or NetworkManager.  You'll find the new incoming config files on  
+    your system with the ".new" extension, or in some cases, your old configurations may have 
+    been moved to ".old"  You may need to fill these in with information from your old config 
+    files and then move them over.  
+
+6.  Reboot your machine.
+    $ reboot
+
+    A reboot is recommended.  Dbus, and other servies should be restarted, and icon caches 
+    remade.  If you want to use GDM, you'll need to edit your /etc/inittab to start in run 
+    level 4.  At this point you should be running GNOME SlackBuild 2.24.0.
+
+7.  xwmconfig
+
+    If you use `startx` to start an Xsession, you can run xwmconfig to choose xinitrc.gnome, 
+    or for those of you with an awesome graphics card, try xinitrc.gnome-compiz to run GNOME 
+    with Compiz-Fusion as a window manager.
+
+
+
+B. Local copy of the packages
+------------------------------
+
+To do this, you'll need the GNOME SlackBuild 2.24.0 packages.  The packages don't have to be 
+on a CD-ROM, as an alternative you could copy the slackware directory (the one with the 
+various package subdirectories in it, basically the "gsb" directory from the ftp site) to 
+someplace like /root/gsb/.  The important thing is that you know where the gsb 
+packages directory is.  We'll use /root/gsb in the following examples.
+
+0.  Put your machine in single-user mode:
+    $ telinit 1
+
+1.  Remove obsolete packages.  The CHANGES_AND_HINTS.TXT file should have a list of these.  
+    You can remove these using 'removepkg'.
+
+2.  Upgrade your libraries.
+    $ upgradepkg /root/gsb/packages/libraries/*.tgz
+
+3.  Upgrade everything else: 
+    $ upgradepkg /root/gsb/packages/*/*.tgz
+
+    Or if you want to install a full GSB system, try running
+    $ upgradepkg --install-new /root/gsb/packages/*/*.tgz
+
+4.  Fix your config files.  Some of the config files in /etc are going to need your attention, 
+    for example PulseAudio, or NetworkManager.  You'll find the new incoming config files on  
+    your system with the ".new" extension, or in some cases, your old configurations may have 
+    been moved to ".old"  You may need to fill these in with information from your old config 
+    files and then move them over.  
+
+5.  Reboot your machine.
+    $ reboot
+
+    A reboot is recommended.  Dbus, and other servies should be restarted, and icon caches 
+    remade.  If you want to use GDM, you'll need to edit your /etc/inittab to start in run 
+    level 4.  At this point you should be running GNOME SlackBuild 2.24.0.
+
+6.  xwmconfig
+
+    If you use `startx` to start an Xsession, you can run xwmconfig to choose xinitrc.gnome, 
+    or for those of you with an awesome graphics card, try xinitrc.gnome-compiz to run GNOME 
+    with Compiz-Fusion as a window manager.
+
+At this point you should be running GNOME SlackBuild 2.24.0.
+
+Good luck!
+
+---
+The GNOME SlackBuild Team

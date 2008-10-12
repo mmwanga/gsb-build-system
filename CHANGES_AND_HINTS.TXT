@@ -1,0 +1,85 @@
+This file documents the instructions for upgrading to GNOME SlackBuild 2.24.0, and any 
+packages added, removed, renamed, and/or split during the development cycle from GSB 2.22.3 
+through 2.24.0, and some potential "gotchas" that users can avoid by arming themselves with a 
+little knowledge.
+
+*** PACKAGE ADDITIONS SINCE 2.22.3 ***
+
+libraries/pango: Added.
+libraries/libmpeg3: Added.
+bindings/gtksourceviewmm: Added.
+libraries/ptlib: Added.
+application/simplejson: Added.
+libraries/libdvdnav: Added.
+libraries/vte: Added.
+print/gpp: Added.
+applications/evolution-rss: Added.
+media/gnome-mplayer: Added.
+media/soundconverter: Added.
+mono/boo: Added.
+devel/vala: Added.
+devel/accerciser: Added.
+devel/nemiver: Added.
+print/hal-cups-utils: Added.
+applications/webkit: Added.
+libraries/libicu: Added.
+applications/seahorse-plugins: Added.
+applications/hamster-applet: Added.
+bindings/pangomm: Added.
+libraries/gtk+2: Added.
+libraries/cairo: Added.
+libraries/libjasper: Added.
+libraries/libcanberra: Added.
+desktop/alsa-lib: Added.
+libraries/dbus-glib: Added.
+platform/policykit: Added.
+platform/policykit-gnome: Added.
+libraries/libunique: Added.
+platform/gnome-icon-theme: Added.
+
+*** PACKAGE REMOVALS SINCE 2.22.3 ***
+
+libraries/gtkunique: Removed.
+libraries/pwlib: Removed.
+bindings/libgtksourceviewmm: Removed.
+media/wxGTK: Removed.
+accessibility/gnopernicus: Removed.
+administration/system-tools-backends: Removed.
+administration/liboobs: Removed.
+administration/gnome-system-tools: Removed.
+desktop/gst-pulse: Removed.
+platform/gnome-keyring-manager: Removed.
+
+*** OTHER NOTABLE CHANGES AND HINTS ***
+
+- Make sure to remove system-tools-backends, liboobs, and gnome-system-tools.  They are rather 
+broken in Slackware, and so we have removed them from GSB.  It looks doubtful whether they will 
+re-enter at a later date.  For the time being, users are encouraged to use the command-line 
+utilities that come with Slackware for system maintenance.
+
+- Before upgrading your previous GSB installation, make sure to remove all the "removed" 
+packages (listed above) from your system before installing any new packages.  For example, 
+gst-pulse has been subsumed into gst-plugins-good.  The other packages are considered obsolete.  
+Gnopernicus has been replaced by Orca, gnome-keyring-manager by seahorse, etc.  It's best to 
+remove these packages first to avoid conflicts.
+
+- Mozilla Seamonkey is probably best avoided.  We recommend you uninstall it from your system 
+as it may lead to conflicts with XULRunner or Firefox.  Some programs, like devhelp, yelp, 
+MonoDoc, and other applications which are built using Mozilla libaries may get confused as to 
+which libraries it should use.  `removepkg seamonkey` is your best bet.  Unless of course you 
+really do like Seamonkey.  :^)  If you're desperate to keep it around, make sure to remove the 
+seamonkey line from your /etc/ld.so.conf and re-run ldconfig.
+
+- All packages that are built to replace a standard Slackware package are configured, and built 
+as closely as possible to how Patrick does it.  However, we could not avoid this time around 
+replacing some major software.  For more information about what needs to be replaced, and why, 
+please see our 'REPLACED_PACKAGES.TXT'.  
+
+- Poppler needed to be replaced unfortunately, but we have rebuilt it with Qt bindings enabled 
+to avoid breaking any KDE compatability.
+
+- Our Boost C++ libraries are built against libICU and with the official HotFix patches.
+
+- GSB now comes with PolicyKit/ConsoleKit support.  We have included a default 
+/etc/PolicyKit/PolicyKit.conf file with basic USB pluggable permissions, and some other 
+examples to show to use the file.  See the manual page PolicyKit.conf(5) for the file format.
