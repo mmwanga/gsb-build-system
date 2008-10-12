@@ -1,1 +1,0 @@
-meta.SlackBuild.common is the SlackBuild for all metapackages, each SlackBuild is only a softlink back to this one.
