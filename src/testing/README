@@ -13,10 +13,8 @@ of support for them.
 Available packages
 -----------------
 
-firefox -  Firefox 3.0.2 Web Browser
+libflashsupport - 
+	This library allows the Adobe Flash 9 plugin to use the PulseAudio
+	sound server. The library is Copyright(c) 2006 Adobe Systems 
+	Incorporated and Lennart Poettering.
 
-       This project is a redesign of the Mozilla browser component written
-       using the XUL user interface language.  Firefox empowers you to
-       browse faster, more safely and more efficiently than with any other
-       browser. This is version 3.0.2 of the Web Browser built with 
-       GNOME Support.
