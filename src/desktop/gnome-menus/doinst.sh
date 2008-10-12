@@ -1,3 +1,4 @@
+# Version: 1.0 - Do not remove this line!
 ldconfig -r .
 
 function install_file() {
@@ -22,7 +23,7 @@ function install_file() {
   fi
 }
 
-for i in applications preferences settings
+for i in applications settings
 do
     install_file etc/gnome/xdg/menus/$i.menu.new
 done

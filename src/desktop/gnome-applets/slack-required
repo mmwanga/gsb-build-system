@@ -16,4 +16,4 @@ libgnomekbd
 policykit-gnome
 libgweather
 dbus-glib
-gnome-python
+gnome-python-desktop

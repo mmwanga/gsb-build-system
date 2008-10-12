@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=0.10.20
+VERSION=0.10.21
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -159,6 +159,9 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
+  --disable-debug \
+  --disable-tests \
+  --disable-examples \
   || exit 1
 
 ## Build and install.

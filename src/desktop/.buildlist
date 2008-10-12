@@ -1,6 +1,5 @@
 xdg-utils
 gnome-themes
-gnome-doc-utils
 at-spi
 gnome-desktop
 gnome-menus
@@ -23,6 +22,7 @@ gnome-panel
 gnome-audio
 gconf-editor
 gnome-terminal
+enchant
 libepc
 libgtop
 libxklavier
@@ -46,9 +46,11 @@ gnome-session
 bug-buddy
 gtksourceview
 gtksourceview2
-gnome-keyring-manager
 gtkhtml
+gnome-media
 notification-daemon
+totem-pl-parser
 gnome-python
+gnome-python-desktop
 gnome-applets
 gnome-backgrounds

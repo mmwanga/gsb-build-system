@@ -1,0 +1,176 @@
+diff -Naur gnome-menus-2.24.0.old/layout/applications.menu gnome-menus-2.24.0/layout/applications.menu
+--- gnome-menus-2.24.0.old/layout/applications.menu	2008-09-22 22:10:56.000000000 +0100
++++ gnome-menus-2.24.0/layout/applications.menu	2008-10-12 11:10:31.000000000 +0100
+@@ -7,7 +7,7 @@
+   <Directory>X-GNOME-Menu-Applications.directory</Directory>
+ 
+   <!-- Scan legacy dirs first, as later items take priority -->
+-  <KDELegacyDirs/>
++  <!-- <KDELegacyDirs/> -->
+   <LegacyDir>/etc/X11/applnk</LegacyDir>
+   <LegacyDir>/usr/share/gnome/apps</LegacyDir>
+ 
+@@ -24,7 +24,10 @@
+     <Directory>Utility.directory</Directory>
+     <Include>
+       <And>
+-        <Category>Utility</Category>
++         <Or>
++           <Category>Utility</Category>
++           <Category>TextEditor</Category>
++         </Or>
+ 	<!-- Accessibility spec must have either the Utility or Settings
+ 	     category, and we display an accessibility submenu already for
+ 	     the ones that do not have Settings, so don't display accessibility
+@@ -33,6 +36,11 @@
+         <Not><Category>System</Category></Not>
+       </And>
+     </Include>
++     <Exclude>
++         <Category>KDE</Category>
++         <Category>X-XFCE</Category>
++         <Filename>mousepad.desktop</Filename>
++     </Exclude>
+   </Menu> <!-- End Accessories -->
+ 
+   <!-- Accessibility submenu -->
+@@ -45,6 +53,10 @@
+         <Not><Category>Settings</Category></Not>
+       </And>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++        <Category>X-XFCE</Category>
++    </Exclude>
+   </Menu> <!-- End Accessibility -->
+ 
+   <!-- Development Tools -->
+@@ -57,6 +69,11 @@
+       </And>
+       <Filename>emacs.desktop</Filename>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++        <Category>X-XFCE</Category>
++        <Filename>distccmon-gnome-icon.desktop</Filename>
++    </Exclude>
+   </Menu> <!-- End Development Tools -->
+ 
+   <!-- Education -->
+@@ -68,6 +85,10 @@
+         <Category>Education</Category>
+       </And>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++        <Category>X-XFCE</Category>
++    </Exclude>
+   </Menu> <!-- End Education -->
+ 
+   <!-- Games -->
+@@ -79,6 +100,10 @@
+         <Category>Game</Category>
+       </And>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++        <Category>X-XFCE</Category>
++    </Exclude>
+   </Menu> <!-- End Games -->
+ 
+   <!-- Graphics -->
+@@ -90,6 +115,11 @@
+         <Category>Graphics</Category>
+       </And>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++        <Category>X-XFCE</Category>
++        <Filename>ristretto.desktop</Filename>
++    </Exclude>
+   </Menu> <!-- End Graphics -->
+ 
+   <!-- Internet -->
+@@ -101,6 +131,11 @@
+         <Category>Network</Category>
+       </And>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++        <Category>X-XFCE</Category>
++        <Filename>wpa_gui.desktop</Filename>
++    </Exclude>
+   </Menu>   <!-- End Internet -->
+ 
+   <!-- Multimedia -->
+@@ -112,6 +147,10 @@
+         <Category>AudioVideo</Category>
+       </And>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++        <Category>X-XFCE</Category>
++    </Exclude>
+   </Menu>   <!-- End Multimedia -->
+ 
+   <!-- Office -->
+@@ -120,9 +159,17 @@
+     <Directory>Office.directory</Directory>
+     <Include>
+       <And>
+-        <Category>Office</Category>
++        <Or>
++          <Category>Office</Category>
++          <Category>Calendar</Category>
++        </Or>
+       </And>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++        <Category>X-XFCE</Category>
++        <Filename>xfbib.desktop</Filename>
++    </Exclude>
+   </Menu> <!-- End Office -->
+ 
+   <!-- System Tools-->
+@@ -135,6 +182,13 @@
+         <Not><Category>Settings</Category></Not>
+       </And>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++        <Category>X-XFCE</Category>
++        <Filename>Thunar.desktop</Filename>
++        <Filename>Thunar-bulk-rename.desktop</Filename>
++        <Filename>Terminal.desktop</Filename>
++    </Exclude>
+   </Menu>   <!-- End System Tools -->
+ 
+   <!-- Other -->
+@@ -149,6 +203,26 @@
+         <Not><Category>Screensaver</Category></Not>
+       </And>
+     </Include>
++    <Exclude>
++        <Category>KDE</Category>
++        <Category>X-XFCE</Category>
++        <Filename>mprof-heap-viewer.desktop</Filename>
++    </Exclude>
+   </Menu> <!-- End Other -->
+ 
++  <Menu>
++     <Name>KDE Applications</Name>
++     <MergeFile>gnome-menus-kde.menu</MergeFile>
++  </Menu>
++
++  <Menu>
++     <Name>OpenOffice.Org</Name>
++     <MergeFile>gnome-menus-ooo.menu</MergeFile>
++  </Menu>
++
++  <Menu>
++     <Name>Xfce Applications</Name>
++     <MergeFile>gnome-menus-xfce.menu</MergeFile>
++  </Menu>
++
+ </Menu> <!-- End Applications -->

@@ -162,17 +162,18 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static --enable-shared \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
-  --enable-gstreamer \
+  --disable-esd \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-## Preserve GNOME identity
-mkdir -p $PKG/usr/share/gnome/autostart &&
+## Make sure we only start gnome-setting-daemon in a gnome session
+mkdir -p $PKG/etc/gnome/xdg/autostart &&
 mv $PKG/etc/xdg/autostart/gnome-settings-daemon.desktop \
-   $PKG/usr/share/gnome/autostart || exit 1
+   $PKG/etc/gnome/xdg/autostart || exit 1
+rm -fr $PKG/etc/xdg
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

@@ -1,7 +1,7 @@
 # Add some reasonable default values for xdg-open to /etc/mailcap,
 # since this is where many programs look for this information:
 
-if ! grep -q '# Sample xdg-open entries:' etc/mailcap ; then
+if ! grep -q '# Sample xdg-open entries:' etc/mailcap 1> /dev/null 2> /dev/null ; then
   echo "# Sample xdg-open entries:" >> etc/mailcap
   echo >> etc/mailcap
 fi

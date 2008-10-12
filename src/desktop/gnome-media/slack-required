@@ -1,0 +1,14 @@
+dbus
+gail
+gst-plugins-base
+gst-plugins-good
+gstreamer
+gtk+2
+hal
+nautilus-cd-burner
+GConf
+libgnome
+libgnomeui
+libbonobo
+libcdio
+libxml2

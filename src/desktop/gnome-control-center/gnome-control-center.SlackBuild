@@ -173,9 +173,10 @@ mkdir -p $PKG/etc/gnome/xdg/menus &&
 mv $PKG/etc/xdg/menus/gnomecc.menu \
    $PKG/etc/gnome/xdg/menus/gnomecc.menu.new || exit 1
 ## Keep gnome-at-session as GNOME only
-mkdir -p $PKG/usr/share/gnome/autostart &&
+mkdir -p $PKG/etc/gnome/xdg/autostart &&
 mv $PKG/etc/xdg/autostart/gnome-at-session.desktop \
-   $PKG/usr/share/gnome/autostart || exit 1
+   $PKG/etc/gnome/xdg/autostart || exit 1
+rm -fr $PKG/etc/xdg
 
 ## Keep clean for Scrollkeeper. Will rebuild database in doinst.sh
 rm -fr $PKG/var/lib/scrollkeeper

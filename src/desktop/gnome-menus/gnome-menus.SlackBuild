@@ -118,7 +118,7 @@ fi
 # This patch addes "Exclude" sections to the applications.menu
 # to avoid KDE items in the GNOME menu, and also subordinates 
 # openoffice and xfce with merged menu entries
-patch -p1 < $CWD/patches/gnome-menus-2.22.2-submenus.patch || exit 1
+patch -p1 < $CWD/patches/gnome-menus-2.24.0-submenus.patch || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .
@@ -171,17 +171,12 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-##
-## For doinst.sh.  This will preserve any local
-## modifications
-##
-(
-  cd $PKG/etc/gnome/xdg/menus
-  for i in applications preferences settings
+## For doinst.sh.  This will preserve any local modifications
+(cd $PKG/etc/gnome/xdg/menus
+  for i in applications settings
   do
     mv $i.menu $i.menu.new
-  done
-)
+done)
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

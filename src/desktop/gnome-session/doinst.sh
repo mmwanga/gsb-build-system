@@ -29,7 +29,9 @@ fi
 # Set GSB splash screen as default
 usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type string --set /apps/gnome-session/options/splash_image splash/gsb-splash.png 1> /dev/null 2> /dev/null
 # Ensure sound server start up
-usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type boolean --set /desktop/gnome/sound/enable_esd true 1> /dev/null 2> /dev/null
+usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type boolean --set /desktop/gnome/sound/enable_esd false 1> /dev/null 2> /dev/null
+# Disable splash screen
+usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type boolean --set /apps/gnome-session/options/show_splash_screen false 1> /dev/null 2> /dev/null
 
 if [ -e usr/share/icons/hicolor/icon-theme.cache ]; then
 	rm -f usr/share/icons/hicolor/icon-theme.cache

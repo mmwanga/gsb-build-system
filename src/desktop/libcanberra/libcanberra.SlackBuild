@@ -170,6 +170,23 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
+## Remove gnome autostart, really unnecessary with g-s-d
+rm -fr $PKG/usr/share/gnome/autostart/libcanberra-login-sound.desktop &&
+rm -fr $PKG/usr/share/gnome/shutdown/libcanberra-logout-sound.sh || exit 1
+
+## Extraneous docs
+rm -fr $PKG/usr/share/doc
+
+## Install default sound theme from freedesktop
+if [ -f $CWD/sound-theme-freedesktop.tar.gz ]; then
+	tar xfz $CWD/sound-theme-freedesktop.tar.gz &&
+	mkdir -p $PKG/usr/share/sounds &&
+	cp -r freedesktop $PKG/usr/share/sounds || exit 1
+else
+	echo "Can't find freedesktop default sound theme."
+	exit 1
+fi;
+
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
@@ -191,7 +208,7 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+  LGPL README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
