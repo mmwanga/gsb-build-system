@@ -1,9 +1,148 @@
-Wed Sep 24 10:57:15 GMT 2008
+Tue Oct 07 16:55:10 GMT 2008
+bindings/bakery-2.6.0-i586-1gsb.tgz: Upgraded.
+platform/intltool-0.40.5-i586-1gsb.tgz: Upgraded.
++--------------------------+
+Tue Oct 07 16:55:10 GMT 2008
+office/tomboy-0.12.1-i586-1gsb.tgz: Upgraded.
+networking/gnome-user-share-0.40-i586-1gsb.tgz: Upgraded.
+networking/gnome-phone-manager-0.60-i586-1gsb.tgz: Reconfigured.
+     gnome-phone-manager now builds with the telepathy SMS plugin.
+networking/loudmouth-1.4.2-i586-1gsb.tgz: Upgraded.
+networking/NetworkManager-vpn-svn_4152-i586-1gsb.tgz: Upgraded.
+networking/NetworkManager-svn_4152-i586-1gsb.tgz: Upgraded.
+networking/network-manager-applet-svn_929-i586-1gsb.tgz: Upgraded.
+desktop/totem-pl-parser-2.24.1-i586-1gsb.tgz: Upgraded.
+applications/totem-2.24.2-i586-1gsb.tgz: Upgraded.
+printing/system-config-printer-1.0.8-i586-1gsb.tgz: Upgraded.
++--------------------------+
+Mon Oct 06 17:38:51 GMT 2008
+ooo/openoffice-2.4.1.10-i586-1gsb.tgz: Upgraded.
+office/gnome-python-extras-2.19.1-i586-9gsb.tgz: Recompiled.
+     Now linked against xulrunner 1.9.
+office/f-spot-0.5.0.2-i586-1gsb.tgz: Upgraded.
+platform/pulseaudio-0.9.13-i586-1gsb.tgz: Upgraded.
+mono/gmime-sharp-2.2.17-i586-1gsb.tgz: Upgraded.
+office/evince-2.24.0-i586-1gsb.tgz: Upgraded.
+networking/libjingle-0.3.12-i586-1gsb.tgz: Upgraded.
+media/MPlayer-1.0svn_27725-i586-1gsb.tgz: Upgraded.
+     We've decided to move to the svn version of MPlayer, which has a lot more
+     features, and better support for video and audio out devices, for example,
+     pulseaudio.  :^)
+media/dvdrip-0.98.9-i586-1gsb.tgz: Upgraded.
+media/devede-3.11-i586-1gsb.tgz: Upgraded.
++--------------------------+
+Sun Oct 05 20:58:29 GMT 2008
+office/inkscape-0.46-i586-3gsb.tgz: Recompiled.
+     Recompiled against newer boost, gtk+2 and poppler libraries.
+office/libgnomedb-3.0.0-i586-3gsb.tgz: Rebuilt against gtksourceview2-2.4.0.
+office/gnucash-2.2.7-i586-1gsb.tgz: Upgraded.
+office/drivel-2.0.3-i586-3gsb.tgz: Rebuilt against gtksourceview2-2.4.0.
+office/libgda-3.0.4-i586-2gsb.tgz: Rebuilt.
++--------------------------+
+Sat Oct 04 19:24:50 GMT 2008
+desktop/gstreamer-0.10.21-i586-1gsb.tgz: Upgraded.
+desktop/gst-plugins-base-0.10.21-i586-1gsb.tgz: Upgraded.
+themes/mac4lin-theme-0.9rc1-noarch-1gsb.tgz: Upgraded.
+applications/gnome-pilot-2.0.16-i586-5gsb.tgz: Rebuilt.
+     Rebuilt against newer gnome-vfs and dbus.
+applications/gnome-pilot-conduits-2.0.16-i586-2gsb.tgz: Rebuilt.
+applications/totem-2.24.1-i586-1gsb.tgz: Upgraded.
+applications/nautilus-sendto-1.1.0-i586-1gsb.tgz: Upgraded.
+desktop/gst-plugins-bad-0.10.8-i586-1gsb.tgz: Upgraded.
+platform/pulseaudio-0.9.12-i586-2gsb.tgz: Recompiled.
+     Patch from git to prevent fatal error making symlink in home directories.
+applications/ggz-client-libs-0.0.14.1-i586-5gsb.tgz: Rebuilt.
+     Move menus to /etc/gnome/xdg.
+mono/mono-2.0-i586-1gsb.tgz: Upgraded.
+mono/libgdiplus-2.0-i586-1gsb.tgz: Upgraded.
+devel/monodoc-2.0-i586-1gsb.tgz: Upgraded.
+devel/mono-tools-2.0-i586-1gsb.tgz: Upgraded.
+devel/mono-addins-0.3.1-i586-2gsb.tgz: Rebuilt.
+devel/nemiver-0.6.3-i586-1gsb.tgz: Upgraded.
++--------------------------+
+Sun Sep 28 12:03:14 GMT 2008
+libraries/gegl-0.0.18-i586-2gsb.tgz: Recompiled.
+     Rebuild against latest ffmpeg, glib2 and pango libraries.
+platform/pyorbit-2.24.0-i586-1gsb.tgz: Upgraded.
+platform/libdaemon-0.13-i586-2gsb.tgz: Rebuilt.
+     Fix for proper documentation in /usr/doc.
+platform/avahi-0.6.23-i586-5gsb.tgz: Rebuilt.
+     Removed obsolete --with-dbus-system-address from configure, and rebuild
+     against newer dbus-1.2.3.
+platform/libgnomecanvas-2.20.1.1-i586-3gsb.tgz: Rebuilt.
+     Rebuild against newer libgnome-2.24.1.
+desktop/gst-plugins-ugly-0.10.8-i586-2gsb.tgz: Rebuilt.
+desktop/gst-ffmpeg-0.10.4-i586-2gsb.tgz: Rebuilt.
+desktop/libepc-0.3.5-i586-2gsb.tgz: Rebuilt against newer glib2 and libsoup
+desktop/libnotify-0.4.4-i586-2gsb.tgz: Rebuilt.
+applications/padevchooser-0.9.3-i586-6gsb.tgz: Rebuilt.
+     Fix documentation in /usr/doc and rebuild against newer gtkmm,
+     as well as fix location of gnome autostart.
+applications/pavumeter-0.9.3-i586-3gsb.tgz: Rebuilt.
+     Fix documentation in /usr/doc and rebuild against newer gtkmm.
+applications/paman-0.9.4-i586-2gsb.tgz: Rebuilt.
+     Fix documentation in /usr/doc and rebuild against newer gtkmm.
+applications/paprefs-0.9.6-i586-2gsb.tgz: Rebuilt.
+     Fix documentation in /usr/doc and rebuild against newer gtkmm.
+applications/pavucontrol-0.9.5-i586-3gsb.tgz: Rebuilt.
+     Fix documentation in /usr/doc and rebuild against newer gtkmm.
+libraries/pango-1.22.0-i586-1gsb.tgz: Added.
+     Required by gtk+2 and pango bindings for C++ and newest cairo.  We build our
+     replacement pango library with qt bindings.
+libraries/cairo-1.8.0-i586-1gsb.tgz: Upgraded.  
++--------------------------+
+Sat Sep 27 00:16:12 GMT 2008
+libraries/dbus-1.2.3-i586-1gsb.tgz: Upgraded.
+     Unfortunately, we must upgrade the dbus package in Slackware.  There are
+     a number of GNOME applications, including gnome-session and vinagre,
+     among others, that require the latest dbus that supports the new
+     UpdateActivationEnvironment bus API.  
+office/gnome-do-0.5.0.1-i586-3gsb.tgz: Rebuilt.
+     Rebuilt against gnome-desktop-sharp-2.24.0 to fix missing gconf-sharp.dll
+     reference.  *NOTE* Gnome-do copies its dlls into the user's home
+     directory .local/share/gnome-do/plugins, and will consequently not use
+     the recompiled dlls and may fail on start up.  If this occurs, simply
+     remove the .local copy and restart Gnome-Do.
+office/gnome-do-plugins-0.4.0-i586-3gsb.tgz: Rebuilt.
+     Rebuilt against gnome-desktop-sharp-2.24.0.
+applications/mozilla-xulrunner-1.9.0.1-i586-2gsb.tgz: Rebuilt.
+     Disable gnomevfs support, which will be deprecated in the future for GIO.
+platform/policykit-0.9-i586-2gsb.tgz: Rebuilt.
+     Patched to remove ptrace statements for security reasons.
+platform/pulseaudio-0.9.12-i586-1gsb.tgz: Upgraded.
+office/libgdamm-3.0.1-i586-1gsb.tgz: Upgraded.
+office/glom-1.6.17-i586-2gsb.tgz: Rebuilt against newer libgdamm-3.0.1.
+desktop/gtkhtml-3.24.0-i586-1gsb.tgz: Upgraded.
+themes/candido-themes-1.0-noarch-2gsb.tgz: Rebuilt.
+     Fix gtkrc theme files considered munged in gnome-control-center-2.24.0.
+libraries/libatomic_ops-1.2-i586-3gsb.tgz: Rebuilt.
+libraries/libgc-7.1-i586-2gsb.tgz: Rebuilt.
+     Reconfigured to use system libatomic_ops rather than internal version.
+libraries/yasm-0.7.1-i586-2gsb.tgz: Rebuilt.
+     Fix documentation and include GPL license in docs/.
+libraries/libdvdnav-4.1.3-i586-2gsb.tgz: Rebuilt.
+     Added slack-required with libdvdread.
+libraries/libdvbpsi5-0.1.6-i586-3gsb.tgz: Rebuilt.
+     Reconfigured with --enable-release.
+libraries/libquicktime-1.0.3-i586-2gsb.tgz: Rebuilt.
+     Disable ffmpeg and x264 plugins.
+libraries/mjpegtools-1.9.0rc3-i586-3gsb.tgz: Rebuilt.
+     Set build/host type in configure.
+libraries/libexif-gtk-0.3.5-i586-3gsb.tgz: Recompiled against newer gtk+2. 
+libraries/libiptcdata-1.0.2-i586-3gsb.tgz: Recompiled.
+     Enable python bindings.
+libraries/openal-1.5.304-i586-2gsb.tgz: Rebuilt.
+     Include alsoftrc sample in documentation.
+libraries/libmpeg3-1.8-i586-gsb.tgz: Added.
+libraries/transcode-1.0.7rc1-i586-1gsb.tgz: Upgraded.
+     Reconfigured to use a52dec as default encoder, and added libmpeg3
+     support through libmpeg3 package.
++--------------------------+
+Thu Sep 25 23:33:34 GMT 2008
 platform/libsoup-2.24.0.1-i586-1gsb.tgz: Upgraded.
 desktop/gvfs-1.0.1-i586-1gsb.tgz: Upgraded.
 desktop/gnome-control-center-2.24.0.1-i586-1gsb.tgz: Upgraded.
 desktop/gnome-applets-2.24.0.1-i586-1gsb.tgz: Upgraded.
-office/glom-1.6.17-i586-2gsb.tgz: Rebuilt against newer gtksourceviewmm.
 office/tomboy-0.12.0-i586-1gsb.tgz: Upgraded.
 office/f-spot-0.5.0.1-i586-1gsb.tgz: Upgraded.
 mono/ipod-sharp-0.8.1-i586-1gsb.tgz: Upgraded.
@@ -12,12 +151,26 @@ mono/karma-sharp-0.1.0-i586-4gsb.tgz: Rebuilt.
 media/banshee-1-1.3.1-i586-1gsb.tgz: Upgraded.
      We're upgrading to the "development" version of Banshee.  Despite being a
      development version, Banshee-1-1.3.1 offers over 100 bug fixes from the
-     previous stable version, and includes improved hardware support.
+     previous stable version, and includes improved hardware support for music
+     players, and better stability and speed.
 networking/sylpheed-2.5.0-i586-2gsb.tgz: Rebuilt against gtk+2-2.14.2.
-media/MPlayer-1.0svn_27620-i586-1gsb.tgz: Upgraded.
-     We've decided to move to the svn version of MPlayer, which has a lot more
-     features, and better support for video and audio out devices. (For example,
-     pulseaudio.  :^)
+networking/empathy-2.24.0-i586-1gsb.tgz: Upgraded.
+networking/balsa-2.3.26-i586-1gsb.tgz: Upgraded.
+networking/deluge-1.0.0-i586-1gsb.tgz: Upgraded.
+networking/ekiga-3.0.0-i586-1gsb.tgz: Upgraded.
+networking/xchat-gnome-0.24.0-i586-1gsb.tgz: Upgraded.
+compiz/compiz-fusion-0.7.8-i586-1gsb.tgz: Upgraded.
+compiz/compiz-bcop-0.7.8-i586-1gsb.tgz: Upgraded.
+compiz/libcompizconfig-0.7.8-i586-1gsb.tgz: Upgraded.
+compiz/compiz-fusion-plugins-main-0.7.8-i586-1gsb.tgz: Upgraded.
+compiz/compiz-fusion-plugins-extra-0.7.8-i586-1gsb.tgz: Upgraded.
+compiz/emerald-0.7.8-i586-1gsb.tgz: Upgraded.
+compiz/compizconfig-python-0.7.8-i586-1gsb.tgz: Upgraded.
+compiz/compizconfig-backend-gconf-0.7.8-i586-1gsb.tgz: Upgraded.
+compiz/ccsm-0.7.8-i586-1gsb.tgz: Upgraded.
+applications/evolution-rss-0.1.0a-i586-1gsb.tgz: Upgraded.
+applications/rhythmbox-0.11.6-i586-4gsb.tgz: Rebuilt.
+     Rebuilt against newer GNOME libraries.
 +--------------------------+
 Wed Sep 24 10:57:15 GMT 2008
 libraries/gtk+2-2.14.3-i586-1gsb.tgz: Upgraded.
@@ -143,7 +296,6 @@ devel/devhelp-0.21-i586-1gsb.tgz: Upgraded.
 devel/accerciser-1.4.0-i586-1gsb.tgz: Upgraded.
 bindings/pysqlite-2.5.0a-i586-1gsb.tgz: Upgraded.
 desktop/libwnck-2.24.0-i586-1gsb.tgz: Upgraded.
-desktop/gst-plugins-bad: Rebuilt against x264-20080922_2245.
 +--------------------------+
 Mon Sep 22 00:23:28 GMT 2008
 libraries/glib2-2.18.1-i586-1gsb.tgz: Upgraded.
@@ -153,7 +305,8 @@ platform/ORBit2-2.14.16-i586-1gsb.tgz: Upgraded.
 platform/gnome-keyring-2.24.0-i586-1gsb.tgz: Upgraded.
 desktop/eel-2.24.0-i586-1gsb.tgz: Upgraded.
 desktop/nautilus-2.24.0-i586-1gsb.tgz: Upgraded.
-desktop/gtksourceview-2.4.0-i586-1gsb.tgz: Upgraded.
+desktop/gtksourceview2-2.4.0-i586-1gsb.tgz: Upgraded.
+desktop/gtksourceview-1.8.5-i586-3gsb.tgz: Rebuilt.
 +--------------------------+
 Mon Sep 15 21:08:17 GMT 2008
 applications/brasero-0.8.2-i586-1gsb.tgz: Upgraded.
@@ -268,10 +421,6 @@ print/gpp-0.7.0-i586-1gsb.tgz: Added.
 networking/gnome-user-share-0.31-i586-2gsb.tgz: Rebuilt.
 +--------------------------+
 Mon Sep 01 12:48:16 GMT 2008
-libraries/boost-1.36.0-i586-2gsb.tgz: Recompiled.
-     Apply official boost hotfix patches from:
-     http://svn.boost.org/trac/boost/wiki/ReleasePractices/HotFixes
-     This fixes a few regressions introduced in the new stable 1.36 series.
 applications/evolution-rss-0.1.0-i586-1gsb.tgz: Added.
 applications/conduit-0.3.14-i586-1gsb.tgz: Upgraded.
      Conduit is now configured to use WebKit as recommended by the
@@ -351,7 +500,10 @@ Thu Aug 28 15:57:10 GMT 2008
      GNOME 2.23.90 (Beta 1) Released.
 libraries/libicu-4.0c-i586-1gsb.tgz: Added.
 libraries/boost-1.36.0-i586-1gsb.tgz: Upgraded.
-     This version of boost is now linked against libicu.
+     This build applies the official boost hotfix patches from:
+     http://svn.boost.org/trac/boost/wiki/ReleasePractices/HotFixes
+     This is to fix a few regressions introduced in the new stable 1.36 series.
+     Boost C++ Libraries are now built against libicu and expat. 
 libraries/libopenraw-0.0.5-i586-3gsb.tgz: Recompiled against boost-1.36.0.
 libraries/exempi-2.0.2-i586-2gsb.tgz: Recompiled against boost-1.36.0.
 libraries/libiec61883-1.1.0-i586-3gsb.tgz: Recompiled against libraw1394-2.0.0.
@@ -472,7 +624,6 @@ desktop/libwnck-2.23.6-i586-1gsb.tgz: Upgraded.
 desktop/obex-data-server-0.3.4-i586-1gsb.tgz: Upgraded.
 desktop/evolution-data-server-2.23.90.1-i586-1gsb.tgz: Upgraded.
 desktop/gst-plugins-good-0.10.9-i586-1gsb.tgz: Upgraded.
-desktop/gst-plugins-bad-0.10.8-i586-1gsb.tgz: Upgraded.
 desktop/libgweather-2.23.6-i586-1gsb.tgz: Upgraded.
 desktop/gnome-panel-2.23.90.1-i586-1gsb.tgz: Upgraded.
      Now compiled against policykit 0.9.
@@ -485,7 +636,8 @@ desktop/gvfs-0.99.5-i586-1gsb.tgz: Upgraded.
      Requires the latest version of the glib2 library.
 desktop/nautilus-2.23.90-i586-1gsb.tgz: Upgraded.
 libraries/libcanberra-0.7-i586-1gsb.tgz: Added
-     Required by gnome-control-center for sound support.
+     Required by gnome-control-center for sound support.  This includes
+     the default freedesktop sound theme.
 desktop/gnome-settings-daemon-2.23.90-i586-1gsb.tgz: Upgraded.
 desktop/alsa-lib-1.0.17a-i586-1gsb.tgz: Added.
      Unfortunately, we will need to upgrade the alsa-lib Slackware package,
@@ -528,7 +680,6 @@ libraries/libdiscid-0.2.2-i586-1gsb.tgz: Upgraded.
 libraries/x264-snapshot_20080823_2245-i586-1gsb.tgz: Upgraded.
 libraries/ffmpeg-svn_14945-i586-1gsb.tgz: Upgraded.
 libraries/lame-3.98-i586-1gsb.tgz: Upgraded.
-libraries/libquicktime-1.0.3-i586-1gsb.tgz: Upgraded.
 libraries/iso-codes-3.2-noarch-1gsb.tgz: Upgraded.
 libraries/libgphoto2-2.4.2-i586-1gsb.tgz: Upgraded.
 libraries/exempi-2.0.2-i586-1gsb.tgz: Upgraded.
@@ -542,7 +693,6 @@ libraries/nss: Recompiled against sqlite3 3.6.1.
 libraries/heimdal-libraries-1.2.1-i586-1gsb.tgz: Upgraded.
 libraries/openal-1.5.304-i586-1gsb.tgz: Upgraded.
 libraries/sg3_utils-1.27-i586-1gsb.tgz: Upgraded.
-libraries/transcode-1.0.6-i586-1gsb.tgz: Upgraded.
 libraries/ode-0.10.1-i586-1gsb.tgz: Upgraded.
 libraries/libesmtp-1.0.4-i586-3gsb.tgz: Rebuilt.
 +--------------------------+
