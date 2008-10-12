@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=1.0.7
+VERSION=1.0.8
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -170,10 +170,11 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 ## Users now can add themselves to the "lp" group to use the print manager
 sed -i "s/at_console=\"true\"/group=\"lp\"/g" $PKG/etc/dbus-1/system.d/newprinternotification.conf
 
-## Install autostart in proper location
-mkdir -p $PKG/usr/share/gnome/autostart &&
+## Only start print applet during gnome session
+mkdir -p $PKG/etc/gnome/xdg/autostart &&
 mv $PKG/etc/xdg/autostart/redhat-print-applet.desktop \
-     $PKG/usr/share/gnome/autostart || exit 1
+     $PKG/etc/gnome/xdg/autostart/print-applet.desktop || exit 1
+rm -fr $PKG/etc/xdg
 
 ## Make softlink
 (cd $PKG/usr/bin ; ln -s ../sbin/system-config-printer ) ;
