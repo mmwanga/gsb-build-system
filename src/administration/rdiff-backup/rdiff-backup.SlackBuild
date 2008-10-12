@@ -178,9 +178,10 @@ python ./setup.py install --prefix=/usr --root=$PKG || exit 1
 }
 
 ## Copy extra documentation into package.
+rm -fr $PKG/usr/share/doc &&
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+  CHANGELOG COPYING FAQ.html README examples.html \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION

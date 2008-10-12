@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=3
+BUILD=4
 VERSION=0.2.1
 
 ## List any packages here that are required to build this package.
@@ -178,8 +178,8 @@ chown root:bin $PKG/etc/cron.hourly/slapt_check
 chown root:bin $PKG/etc/cron.hourly/slapt_update
 
 ## GNOME autostart; I think this might be easier than messing with the default.session file
-mkdir -p $PKG/usr/share/gnome/autostart
-cp $CWD/slapt-update-notifier.desktop $PKG/usr/share/gnome/autostart
+mkdir -p $PKG/etc/gnome/xdg/autostart &&
+cp $CWD/slapt-update-notifier.desktop $PKG/etc/gnome/xdg/autostart || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
