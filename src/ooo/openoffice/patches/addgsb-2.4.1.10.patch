@@ -1,0 +1,2740 @@
+diff -Naur ooo-build-2.4.1.10.old/configure ooo-build-2.4.1.10/configure
+--- ooo-build-2.4.1.10.old/configure	2008-09-16 20:35:36.000000000 +0100
++++ ooo-build-2.4.1.10/configure	2008-10-06 01:17:56.000000000 +0100
+@@ -3425,6 +3425,7 @@
+         Ark*) VENDORNAME="Ark" ;;
+         Debian*|Ubuntu*) VENDORNAME="Debian" ;;
+         Dropline*) VENDORNAME="DroplineGNOME" ;;
++        GNOMESlackBuild*) VENDORNAME="GNOMESlackBuild" ;;
+         Frugalware*) VENDORNAME="Frugalware" ;;
+         Gentoo*) VENDORNAME="Gentoo" ;;
+         Mandriva*) VENDORNAME="Mandriva" ;;
+@@ -6779,7 +6780,7 @@
+ 
+ ac_config_files="$ac_config_files intltool-extract intltool-merge intltool-update"
+ 
+-ac_config_files="$ac_config_files Makefile bin/setup bin/Makefile desktop/Makefile desktop/16x16/Makefile desktop/22x22/Makefile desktop/24x24/Makefile desktop/32x32/Makefile desktop/48x48/Makefile desktop/scalable/Makefile desktop/mimetypes/Makefile desktop/mimetypes/16x16/Makefile desktop/mimetypes/22x22/Makefile desktop/mimetypes/24x24/Makefile desktop/mimetypes/32x32/Makefile desktop/mimetypes/48x48/Makefile distro-configs/Makefile distro-configs/Ark.conf distro-configs/Common.conf distro-configs/CommonLinux.conf distro-configs/CommonWin32.conf distro-configs/GoOoWin32.conf distro-configs/DroplineGNOME.conf distro-configs/DroplineGNOME64.conf distro-configs/Debian.conf distro-configs/DebianEtch.conf distro-configs/DebianSarge.conf distro-configs/OxygenOfficeLinux.conf distro-configs/OxygenOfficeWindows.conf distro-configs/Ubuntu.conf distro-configs/UbuntuL10n.conf distro-configs/Ubuntu64.conf distro-configs/UbuntuDapper.conf distro-configs/UbuntuDapper64.conf distro-configs/UbuntuFeisty.conf distro-configs/UbuntuFeisty64.conf distro-configs/UbuntuGutsy.conf distro-configs/UbuntuGutsy64.conf distro-configs/UbuntuHardy.conf distro-configs/UbuntuHardy64.conf distro-configs/UbuntuIntrepid.conf distro-configs/UbuntuIntrepid64.conf distro-configs/SUSE.conf distro-configs/SUSE-reduced.conf distro-configs/SUSE-9.1.conf distro-configs/SUSE-9.2.conf distro-configs/SUSE-9.3.conf distro-configs/SUSE-10.0.conf distro-configs/SUSE-10.1.conf distro-configs/SUSE-10.2.conf distro-configs/SUSE-10.3.conf distro-configs/SUSE-11.0.conf distro-configs/Mandriva.conf distro-configs/Mandriva64.conf distro-configs/NovellWin32.conf distro-configs/NovellWin32ISO.conf distro-configs/Gentoo.conf distro-configs/Frugalware.conf distro-configs/openmamba.conf distro-configs/translate-org-za-linux.conf distro-configs/translate-org-za-win32.conf distro-configs/rpl2.conf distro-configs/rpl2-64.conf distro-configs/Pardus2007.conf distro-configs/Pardus2008.conf distro-configs/Win32.conf distro-configs/Solaris.conf distro-configs/GoOoLinux.conf etc/Makefile patches/apply.pl patches/Makefile patches/cairo/Makefile patches/evo2/Makefile patches/emf+/Makefile patches/gstreamer/Makefile patches/hotfixes/Makefile patches/vba/Makefile patches/mono/Makefile patches/ooxml/Makefile patches/postgresql/Makefile patches/scsolver/Makefile patches/src680/Makefile patches/src680-only/Makefile patches/64bit/Makefile po/Makefile doc/Makefile src/Makefile src/icons/Makefile src/icons/tango/Makefile src/layout/Makefile src/sdf/Makefile stamp/Makefile templates/Makefile man/Makefile www/Makefile www/images/Makefile www/tinder-scripts/Makefile scratch/Makefile scratch/lpsolve/Makefile scratch/lpsolve/prj/Makefile scratch/scsolver/docs/Makefile scratch/scsolver/idl/org/openoffice/sc/solver/Makefile scratch/scsolver/idl/org/openoffice/sc/Makefile scratch/scsolver/idl/org/openoffice/Makefile scratch/scsolver/idl/org/Makefile scratch/scsolver/idl/Makefile scratch/scsolver/prj/Makefile scratch/scsolver/source/inc/numeric/Makefile scratch/scsolver/source/inc/tool/Makefile scratch/scsolver/source/inc/Makefile scratch/scsolver/source/numeric/Makefile scratch/scsolver/source/service/Makefile scratch/scsolver/source/tool/Makefile scratch/scsolver/source/ui/Makefile scratch/scsolver/source/Makefile scratch/scsolver/util/Makefile scratch/scsolver/Makefile"
++ac_config_files="$ac_config_files Makefile bin/setup bin/Makefile desktop/Makefile desktop/16x16/Makefile desktop/22x22/Makefile desktop/24x24/Makefile desktop/32x32/Makefile desktop/48x48/Makefile desktop/scalable/Makefile desktop/mimetypes/Makefile desktop/mimetypes/16x16/Makefile desktop/mimetypes/22x22/Makefile desktop/mimetypes/24x24/Makefile desktop/mimetypes/32x32/Makefile desktop/mimetypes/48x48/Makefile distro-configs/Makefile distro-configs/Ark.conf distro-configs/Common.conf distro-configs/CommonLinux.conf distro-configs/CommonWin32.conf distro-configs/GoOoWin32.conf distro-configs/DroplineGNOME.conf distro-configs/DroplineGNOME64.conf distro-configs/GNOMESlackBuild64.conf distro-configs/GNOMESlackBuild64.conf distro-configs/Debian.conf distro-configs/DebianEtch.conf distro-configs/DebianSarge.conf distro-configs/OxygenOfficeLinux.conf distro-configs/OxygenOfficeWindows.conf distro-configs/Ubuntu.conf distro-configs/UbuntuL10n.conf distro-configs/Ubuntu64.conf distro-configs/UbuntuDapper.conf distro-configs/UbuntuDapper64.conf distro-configs/UbuntuFeisty.conf distro-configs/UbuntuFeisty64.conf distro-configs/UbuntuGutsy.conf distro-configs/UbuntuGutsy64.conf distro-configs/UbuntuHardy.conf distro-configs/UbuntuHardy64.conf distro-configs/UbuntuIntrepid.conf distro-configs/UbuntuIntrepid64.conf distro-configs/SUSE.conf distro-configs/SUSE-reduced.conf distro-configs/SUSE-9.1.conf distro-configs/SUSE-9.2.conf distro-configs/SUSE-9.3.conf distro-configs/SUSE-10.0.conf distro-configs/SUSE-10.1.conf distro-configs/SUSE-10.2.conf distro-configs/SUSE-10.3.conf distro-configs/SUSE-11.0.conf distro-configs/Mandriva.conf distro-configs/Mandriva64.conf distro-configs/NovellWin32.conf distro-configs/NovellWin32ISO.conf distro-configs/Gentoo.conf distro-configs/Frugalware.conf distro-configs/openmamba.conf distro-configs/translate-org-za-linux.conf distro-configs/translate-org-za-win32.conf distro-configs/rpl2.conf distro-configs/rpl2-64.conf distro-configs/Pardus2007.conf distro-configs/Pardus2008.conf distro-configs/Win32.conf distro-configs/Solaris.conf distro-configs/GoOoLinux.conf etc/Makefile patches/apply.pl patches/Makefile patches/cairo/Makefile patches/evo2/Makefile patches/emf+/Makefile patches/gstreamer/Makefile patches/hotfixes/Makefile patches/vba/Makefile patches/mono/Makefile patches/ooxml/Makefile patches/postgresql/Makefile patches/scsolver/Makefile patches/src680/Makefile patches/src680-only/Makefile patches/64bit/Makefile po/Makefile doc/Makefile src/Makefile src/icons/Makefile src/icons/tango/Makefile src/layout/Makefile src/sdf/Makefile stamp/Makefile templates/Makefile man/Makefile www/Makefile www/images/Makefile www/tinder-scripts/Makefile scratch/Makefile scratch/lpsolve/Makefile scratch/lpsolve/prj/Makefile scratch/scsolver/docs/Makefile scratch/scsolver/idl/org/openoffice/sc/solver/Makefile scratch/scsolver/idl/org/openoffice/sc/Makefile scratch/scsolver/idl/org/openoffice/Makefile scratch/scsolver/idl/org/Makefile scratch/scsolver/idl/Makefile scratch/scsolver/prj/Makefile scratch/scsolver/source/inc/numeric/Makefile scratch/scsolver/source/inc/tool/Makefile scratch/scsolver/source/inc/Makefile scratch/scsolver/source/numeric/Makefile scratch/scsolver/source/service/Makefile scratch/scsolver/source/tool/Makefile scratch/scsolver/source/ui/Makefile scratch/scsolver/source/Makefile scratch/scsolver/util/Makefile scratch/scsolver/Makefile"
+ 
+ cat >confcache <<\_ACEOF
+ # This file is a shell script that caches the results of configure
+@@ -7403,6 +7404,8 @@
+     "distro-configs/GoOoWin32.conf") CONFIG_FILES="$CONFIG_FILES distro-configs/GoOoWin32.conf" ;;
+     "distro-configs/DroplineGNOME.conf") CONFIG_FILES="$CONFIG_FILES distro-configs/DroplineGNOME.conf" ;;
+     "distro-configs/DroplineGNOME64.conf") CONFIG_FILES="$CONFIG_FILES distro-configs/DroplineGNOME64.conf" ;;
++    "distro-configs/GNOMESlackBuild.conf") CONFIG_FILES="$CONFIG_FILES distro-configs/GNOMESlackBuild.conf" ;;
++    "distro-configs/GNOMESlackBuild64.conf") CONFIG_FILES="$CONFIG_FILES distro-configs/GNOMESlackBuild64.conf" ;;
+     "distro-configs/Debian.conf") CONFIG_FILES="$CONFIG_FILES distro-configs/Debian.conf" ;;
+     "distro-configs/DebianEtch.conf") CONFIG_FILES="$CONFIG_FILES distro-configs/DebianEtch.conf" ;;
+     "distro-configs/DebianSarge.conf") CONFIG_FILES="$CONFIG_FILES distro-configs/DebianSarge.conf" ;;
+diff -Naur ooo-build-2.4.1.10.old/configure.in ooo-build-2.4.1.10/configure.in
+--- ooo-build-2.4.1.10.old/configure.in	2008-09-16 20:35:21.000000000 +0100
++++ ooo-build-2.4.1.10/configure.in	2008-10-06 01:17:48.000000000 +0100
+@@ -528,6 +528,7 @@
+         Ark*) VENDORNAME="Ark" ;;
+         Debian*|Ubuntu*) VENDORNAME="Debian" ;;
+         Dropline*) VENDORNAME="DroplineGNOME" ;;
++        GNOMESlackBuild*) VENDORNAME="GNOMESlackBuild" ;;
+         Frugalware*) VENDORNAME="Frugalware" ;;
+         Gentoo*) VENDORNAME="Gentoo" ;;
+         Mandriva*) VENDORNAME="Mandriva" ;;
+@@ -1213,6 +1214,8 @@
+ distro-configs/GoOoWin32.conf
+ distro-configs/DroplineGNOME.conf
+ distro-configs/DroplineGNOME64.conf
++distro-configs/GNOMESlackBuild.conf
++distro-configs/GNOMESlackBuild64.conf
+ distro-configs/Debian.conf
+ distro-configs/DebianEtch.conf
+ distro-configs/DebianSarge.conf
+diff -Naur ooo-build-2.4.1.10.old/download.in ooo-build-2.4.1.10/download.in
+--- ooo-build-2.4.1.10.old/download.in	2008-05-13 18:16:39.000000000 +0100
++++ ooo-build-2.4.1.10/download.in	2008-10-06 01:18:04.000000000 +0100
+@@ -296,6 +296,7 @@
+ my $distro = '@DISTRO@';
+ if ($distro eq 'Ark' ||
+     $distro eq 'DroplineGNOME' ||
++    $distro eq 'GNOMESlackBuild' || $distro eq 'GNOMESlackBuild64' ||
+     $distro eq 'Frugalware' || $distro eq 'Frugalware64' ||
+     $distro eq 'Gentoo.conf' ||
+     $distro eq 'openmamba' ||
+diff -Naur ooo-build-2.4.1.10.old/patches/ooxml/cws-xmlfilter02-sc.diff ooo-build-2.4.1.10/patches/ooxml/cws-xmlfilter02-sc.diff
+--- ooo-build-2.4.1.10.old/patches/ooxml/cws-xmlfilter02-sc.diff	2008-05-23 19:22:52.000000000 +0100
++++ ooo-build-2.4.1.10/patches/ooxml/cws-xmlfilter02-sc.diff	2008-10-06 01:18:07.000000000 +0100
+@@ -1,6 +1,7 @@
+---- sc/inc/ViewSettingsSequenceDefines.hxx	8 Sep 2005 17:20:50 -0000	1.5
+-+++ sc/inc/ViewSettingsSequenceDefines.hxx	11 Jun 2007 08:57:11 -0000	1.5.402.2
+-@@ -89,15 +89,19 @@
++diff -Naur sc.old/inc/ViewSettingsSequenceDefines.hxx sc/inc/ViewSettingsSequenceDefines.hxx
++--- sc.old/inc/ViewSettingsSequenceDefines.hxx	2008-10-05 16:47:31.000000000 +0100
+++++ sc/inc/ViewSettingsSequenceDefines.hxx	2008-10-05 16:48:24.000000000 +0100
++@@ -92,15 +92,19 @@
+  #define SC_VERTICALSPLITMODE				"VerticalSplitMode"
+  #define SC_HORIZONTALSPLITPOSITION			"HorizontalSplitPosition"
+  #define SC_VERTICALSPLITPOSITION			"VerticalSplitPosition"
+@@ -20,8 +21,9 @@
+  #define SC_ZOOMTYPE							"ZoomType"
+  #define SC_ZOOMVALUE						"ZoomValue"
+  #define SC_PAGEVIEWZOOMVALUE				"PageViewZoomValue"
+---- sc/inc/addincol.hxx	27 Sep 2007 13:50:56 -0000	1.10
+-+++ sc/inc/addincol.hxx	4 Oct 2007 09:01:03 -0000	1.9.172.4
++diff -Naur sc.old/inc/addincol.hxx sc/inc/addincol.hxx
++--- sc.old/inc/addincol.hxx	2008-10-05 16:47:31.000000000 +0100
+++++ sc/inc/addincol.hxx	2008-10-05 16:48:24.000000000 +0100
+ @@ -78,6 +78,10 @@
+  #include <rtl/ustring.h>
+  #endif
+@@ -33,7 +35,7 @@
+  #include <hash_map>
+  
+  
+-@@ -162,6 +166,7 @@ public:
++@@ -162,6 +166,7 @@
+      USHORT                  GetHelpId() const           { return nHelpId; }
+  
+      const com::sun::star::uno::Sequence< com::sun::star::sheet::LocalizedName>&  GetCompNames() const;
+@@ -41,7 +43,7 @@
+  
+      void    SetFunction( const com::sun::star::uno::Reference< com::sun::star::reflection::XIdlMethod>& rNewFunc,
+                           const com::sun::star::uno::Any& rNewObj );
+-@@ -203,6 +208,12 @@ public:
++@@ -203,6 +208,12 @@
+                          // are initialized (component may have to be loaded).
+      const ScUnoAddInFuncData*   GetFuncData( const String& rName, bool bComplete = false );
+  
+@@ -54,7 +56,7 @@
+      void                Clear();
+  
+  	void				LocalizeString( String& rName );	// modify rName - input: exact name
+-@@ -231,7 +242,7 @@ private:
++@@ -231,7 +242,7 @@
+  	BOOL						bHasString;
+  	double						fValue;
+  	String						aString;
+@@ -63,7 +65,7 @@
+  	com::sun::star::uno::Reference<com::sun::star::sheet::XVolatileResult> xVarRes;
+  
+  	void			ExecuteCallWithArgs(
+-@@ -258,11 +269,11 @@ public:
++@@ -258,11 +269,11 @@
+  
+  	USHORT				GetErrCode() const		{ return nErrCode; }
+  	BOOL				HasString() const		{ return bHasString; }
+@@ -77,8 +79,9 @@
+  	com::sun::star::uno::Reference<com::sun::star::sheet::XVolatileResult>
+  						GetVarRes() const		{ return xVarRes; }
+  };
+---- sc/inc/cellsuno.hxx	22 May 2007 19:37:43 -0000	1.29
+-+++ sc/inc/cellsuno.hxx	22 Nov 2007 09:10:25 -0000	1.27.18.5
++diff -Naur sc.old/inc/cellsuno.hxx sc/inc/cellsuno.hxx
++--- sc.old/inc/cellsuno.hxx	2008-10-05 16:47:31.000000000 +0100
+++++ sc/inc/cellsuno.hxx	2008-10-05 16:48:24.000000000 +0100
+ @@ -131,6 +131,12 @@
+  #ifndef _COM_SUN_STAR_SHEET_XMULTIPLEOPERATION_HPP_
+  #include <com/sun/star/sheet/XMultipleOperation.hpp>
+@@ -102,7 +105,7 @@
+  
+  #ifndef _CPPUHELPER_IMPLBASE2_HXX_
+  #include <cppuhelper/implbase2.hxx>
+-@@ -709,6 +718,7 @@ class SC_DLLPUBLIC ScCellRangeObj : publ
++@@ -712,6 +721,7 @@
+  					   public com::sun::star::sheet::XCellRangeAddressable,
+  					   public com::sun::star::sheet::XSheetCellRange,
+  					   public com::sun::star::sheet::XArrayFormulaRange,
+@@ -110,7 +113,7 @@
+  					   public com::sun::star::sheet::XCellRangeData,
+  					   public com::sun::star::sheet::XCellRangeFormula,
+  					   public com::sun::star::sheet::XMultipleOperation,
+-@@ -776,6 +786,13 @@ public:
++@@ -779,6 +789,13 @@
+  	virtual void SAL_CALL 	setArrayFormula( const ::rtl::OUString& aFormula )
+  								throw(::com::sun::star::uno::RuntimeException);
+  
+@@ -124,7 +127,7 @@
+  							// XCellRangeData
+  	virtual ::com::sun::star::uno::Sequence< ::com::sun::star::uno::Sequence<
+  							::com::sun::star::uno::Any > > SAL_CALL getDataArray()
+-@@ -916,6 +933,7 @@ class ScCellObj : public ScCellRangeObj,
++@@ -919,6 +936,7 @@
+  				  public com::sun::star::text::XText,
+  				  public com::sun::star::container::XEnumerationAccess,
+  				  public com::sun::star::table::XCell,
+@@ -132,7 +135,7 @@
+  				  public com::sun::star::sheet::XCellAddressable,
+  				  public com::sun::star::sheet::XSheetAnnotationAnchor,
+  				  public com::sun::star::text::XTextFieldsSupplier,
+-@@ -1027,6 +1045,13 @@ public:
++@@ -1030,6 +1048,13 @@
+  								throw(::com::sun::star::uno::RuntimeException);
+  	virtual sal_Int32 SAL_CALL getError() throw(::com::sun::star::uno::RuntimeException);
+  
+@@ -146,7 +149,7 @@
+  							// XCellAddressable
+  	virtual ::com::sun::star::table::CellAddress SAL_CALL getCellAddress()
+  								throw(::com::sun::star::uno::RuntimeException);
+-@@ -1089,7 +1114,8 @@ class ScTableSheetObj : public ScCellRan
++@@ -1092,7 +1117,8 @@
+  						public com::sun::star::sheet::XSheetOutline,
+  						public com::sun::star::util::XProtectable,
+  						public com::sun::star::sheet::XScenario,
+@@ -156,7 +159,7 @@
+  {
+  	friend class ScTableSheetsObj;		// fuer insertByName()
+  
+-@@ -1289,6 +1315,11 @@ public:
++@@ -1292,6 +1318,11 @@
+                              getRanges(  )
+                                      throw(::com::sun::star::uno::RuntimeException);
+  
+@@ -168,8 +171,9 @@
+  							// XPropertySet ueberladen wegen Sheet-Properties
+  	virtual ::com::sun::star::uno::Reference< ::com::sun::star::beans::XPropertySetInfo >
+  							SAL_CALL getPropertySetInfo()
+---- sc/inc/compiler.hrc	3 Jul 2007 15:46:06 -0000	1.16
+-+++ sc/inc/compiler.hrc	14 Aug 2007 18:32:01 -0000	1.16.14.1
++diff -Naur sc.old/inc/compiler.hrc sc/inc/compiler.hrc
++--- sc.old/inc/compiler.hrc	2008-10-05 16:47:30.000000000 +0100
+++++ sc/inc/compiler.hrc	2008-10-05 16:48:24.000000000 +0100
+ @@ -40,7 +40,7 @@
+  
+  /*** Special commands ***/
+@@ -179,8 +183,9 @@
+  #define	SC_OPCODE_STOP				  2
+  #define	SC_OPCODE_EXTERNAL			  3
+  #define	SC_OPCODE_NAME				  4
+---- sc/inc/compiler.hxx	24 Jul 2007 09:22:32 -0000	1.32
+-+++ sc/inc/compiler.hxx	15 Oct 2007 13:48:04 -0000	1.31.44.7
++diff -Naur sc.old/inc/compiler.hxx sc/inc/compiler.hxx
++--- sc.old/inc/compiler.hxx	2008-10-05 16:47:30.000000000 +0100
+++++ sc/inc/compiler.hxx	2008-10-05 16:48:24.000000000 +0100
+ @@ -71,6 +71,20 @@
+  #include <rtl/ustrbuf.hxx>
+  #endif
+@@ -202,7 +207,7 @@
+  #ifndef INCLUDED_HASH_MAP
+  #include <hash_map>
+  #define INCLUDED_HASH_MAP
+-@@ -216,8 +230,9 @@ typedef ScSimpleIntrusiveReference< stru
++@@ -216,8 +230,9 @@
+  struct ScArrayStack;
+  
+  typedef ::std::hash_map< String, OpCode, ScStringHashCode, ::std::equal_to< String > > ScOpCodeHashMap;
+@@ -213,7 +218,7 @@
+  class SC_DLLPUBLIC ScCompiler
+  {
+  public:
+-@@ -239,19 +254,137 @@ public:
++@@ -239,19 +254,137 @@
+  								   xub_StrLen nSrcPos,
+  								   const CharClass* pCharClass) const = 0;
+  	};
+@@ -298,7 +303,12 @@
+ +        /** Put entry of symbol String and AddIn international String pair,
+ +            failing silently if rAddIn name already exists. */
+ +        void putExternalSoftly( const String & rSymbol, const String & rAddIn );
+-+
++ 
++-	static String*	pSymbolTableNative;				// array of native symbols, offset==OpCode
++-	static String*	pSymbolTableEnglish; 			// array of English symbols, offset==OpCode
++-	static USHORT	nAnzStrings;					// count of symbols
++-    static ScOpCodeHashMap* pSymbolHashMapNative;   // hash map of native symbols
++-    static ScOpCodeHashMap* pSymbolHashMapEnglish;  // hash map of English symbols
+ +        /// Core implementation of XFormulaOpCodeMapper::getMappings()
+ +        ::com::sun::star::uno::Sequence< ::com::sun::star::sheet::FormulaToken >
+ +            createSequenceOfFormulaTokens(
+@@ -308,12 +318,7 @@
+ +        ::com::sun::star::uno::Sequence<
+ +            ::com::sun::star::sheet::FormulaOpCodeMapEntry >
+ +            createSequenceOfAvailableMappings( const sal_Int32 nGroup ) const;
+- 
+--	static String*	pSymbolTableNative;				// array of native symbols, offset==OpCode
+--	static String*	pSymbolTableEnglish; 			// array of English symbols, offset==OpCode
+--	static USHORT	nAnzStrings;					// count of symbols
+--    static ScOpCodeHashMap* pSymbolHashMapNative;   // hash map of native symbols
+--    static ScOpCodeHashMap* pSymbolHashMapEnglish;  // hash map of English symbols
+++
+ +        /** The value used in createSequenceOfAvailableMappings() and thus in
+ +            XFormulaOpCodeMapper::getMappings() for an unknown symbol. */
+ +        static inline sal_Int32 getOpCodeUnknown()
+@@ -357,7 +362,7 @@
+  	String		aCorrectedFormula;					// autocorrected Formula
+  	String		aCorrectedSymbol;					// autocorrected Symbol
+  	sal_Unicode	cSymbol[MAXSTRLEN];					// current Symbol
+-@@ -264,8 +397,7 @@ private:
++@@ -264,8 +397,7 @@
+  	OpCode		eLastOp;
+  	ScToken** 	pCode;
+  	ScArrayStack* pStack;
+@@ -367,7 +372,7 @@
+      const CharClass*    pCharClass;         // which character classification is used for parseAnyToken
+  	USHORT		pc;
+  	short		nNumFmt;					// set during CompileTokenArray()
+-@@ -320,14 +452,28 @@ private:
++@@ -321,14 +453,28 @@
+      void AppendDouble( rtl::OUStringBuffer& rBuffer, double fVal );
+      void AppendString( rtl::OUStringBuffer& rBuffer, const String & rStr );
+  
+@@ -398,7 +403,7 @@
+  
+  	// for ScAddress::Format()
+  	static void CheckTabQuotes( String& aTabName,
+-@@ -337,16 +483,48 @@ public:
++@@ -337,16 +483,48 @@
+  	static BOOL EnQuote( String& rStr );
+  	static BOOL DeQuote( String& rStr );
+  
+@@ -448,7 +453,7 @@
+  	void			SetCompileXML( BOOL bVal );	// Deprecate and move to an address conv
+  	void			SetImportXML( BOOL bVal )
+  						{ bImportXML = bVal; }
+-@@ -356,6 +534,8 @@ public:
++@@ -358,6 +536,8 @@
+  								 ScAddress::Convention eConv = ScAddress::CONV_UNSPECIFIED );
+  	BOOL  CompileTokenArray();
+  	short GetNumFormatType() { return nNumFmt; }
+@@ -457,7 +462,7 @@
+  
+      static const String& GetStringFromOpCode( OpCode eOpCode, bool bEnglish = false );
+  
+-@@ -466,6 +646,6 @@ private:
++@@ -468,6 +648,6 @@
+      };
+  };
+  
+@@ -465,9 +470,10 @@
+ +SC_DLLPUBLIC String GetScCompilerNativeSymbol( OpCode eOp ); //CHINA001
+  
+  #endif
+---- sc/inc/conditio.hxx	27 Feb 2007 11:54:31 -0000	1.10
+-+++ sc/inc/conditio.hxx	6 Aug 2007 21:56:39 -0000	1.10.18.1
+-@@ -148,6 +148,9 @@ public:
++diff -Naur sc.old/inc/conditio.hxx sc/inc/conditio.hxx
++--- sc.old/inc/conditio.hxx	2008-10-05 16:47:31.000000000 +0100
+++++ sc/inc/conditio.hxx	2008-10-05 16:48:24.000000000 +0100
++@@ -148,6 +148,9 @@
+  
+      void            SetSrcString( const String& rNew );     // for XML import
+  
+@@ -477,9 +483,10 @@
+  	String			GetExpression( const ScAddress& rCursor, USHORT nPos, ULONG nNumFmt = 0,
+  									BOOL bEnglish = FALSE, BOOL bCompileXML = FALSE,
+  									BOOL bTextToReal = FALSE ) const;
+---- sc/inc/document.hxx	27 Sep 2007 13:51:33 -0000	1.104
+-+++ sc/inc/document.hxx	7 Dec 2007 09:25:20 -0000	1.97.44.9
+-@@ -421,6 +421,12 @@ private:
++diff -Naur sc.old/inc/document.hxx sc/inc/document.hxx
++--- sc.old/inc/document.hxx	2008-10-05 16:47:30.000000000 +0100
+++++ sc/inc/document.hxx	2008-10-05 16:48:24.000000000 +0100
++@@ -423,6 +423,12 @@
+  
+      mutable BOOL        bStyleSheetUsageInvalid;
+  
+@@ -492,7 +499,7 @@
+  
+  	inline BOOL 		RowHidden( SCROW nRow, SCTAB nTab );		// FillInfo
+  
+-@@ -919,7 +925,16 @@ SC_DLLPUBLIC	ScDBCollection*	GetDBCollec
++@@ -930,7 +936,16 @@
+  	BOOL			IsClipOrUndo() const 						{ return bIsClip || bIsUndo; }
+  	BOOL			IsUndo() const								{ return bIsUndo; }
+  	BOOL			IsClipboard() const 						{ return bIsClip; }
+@@ -510,8 +517,9 @@
+  	void			ResetClip( ScDocument* pSourceDoc, const ScMarkData* pMarks );
+  	void			ResetClip( ScDocument* pSourceDoc, SCTAB nTab );
+  	void			SetCutMode( BOOL bCut );
+---- sc/inc/fmtuno.hxx	8 Sep 2005 17:40:53 -0000	1.7
+-+++ sc/inc/fmtuno.hxx	9 Aug 2007 04:28:38 -0000	1.7.402.5
++diff -Naur sc.old/inc/fmtuno.hxx sc/inc/fmtuno.hxx
++--- sc.old/inc/fmtuno.hxx	2008-10-05 16:47:31.000000000 +0100
+++++ sc/inc/fmtuno.hxx	2008-10-05 16:48:24.000000000 +0100
+ @@ -73,6 +73,9 @@
+  #include <com/sun/star/beans/XPropertySet.hpp>
+  #endif
+@@ -522,7 +530,7 @@
+  #ifndef _CPPUHELPER_IMPLBASE3_HXX_
+  #include <cppuhelper/implbase3.hxx>
+  #endif
+-@@ -90,7 +93,17 @@ class ScConditionalFormat;
++@@ -90,7 +93,17 @@
+  class ScValidationData;
+  
+  
+@@ -541,7 +549,7 @@
+  
+  class ScTableConditionalFormat : public cppu::WeakImplHelper5<
+  							com::sun::star::sheet::XSheetConditionalEntries,
+-@@ -103,9 +116,7 @@ private:
++@@ -103,9 +116,7 @@
+  	List	aEntries;
+  
+  	ScTableConditionalEntry*	GetObjectByIndex_Impl(USHORT nIndex) const;
+@@ -552,7 +560,7 @@
+  
+  public:
+  							ScTableConditionalFormat();
+-@@ -178,23 +189,15 @@ class ScTableConditionalEntry : public c
++@@ -178,23 +189,15 @@
+  {
+  private:
+  	ScTableConditionalFormat*	pParent;
+@@ -579,7 +587,7 @@
+  
+  							// XSheetCondition
+  	virtual ::com::sun::star::sheet::ConditionOperator SAL_CALL getOperator()
+-@@ -228,8 +231,9 @@ public:
++@@ -228,8 +231,9 @@
+  
+  
+  
+@@ -590,7 +598,7 @@
+  							com::sun::star::beans::XPropertySet,
+  							com::sun::star::lang::XUnoTunnel,
+  							com::sun::star::lang::XServiceInfo >
+-@@ -239,6 +243,8 @@ private:
++@@ -239,6 +243,8 @@
+  	USHORT				nMode;			// enum ScConditionMode
+  	String				aExpr1;
+  	String				aExpr2;
+@@ -599,7 +607,7 @@
+  	ScAddress			aSrcPos;
+      String              aPosString;     // formula position as text
+  	USHORT				nValMode;		// enum ScValidationMode
+-@@ -280,6 +286,15 @@ public:
++@@ -280,6 +286,15 @@
+  	virtual void SAL_CALL setSourcePosition( const ::com::sun::star::table::CellAddress& aSourcePosition )
+  								throw(::com::sun::star::uno::RuntimeException);
+  
+@@ -615,8 +623,9 @@
+  							// XPropertySet
+  	virtual ::com::sun::star::uno::Reference< ::com::sun::star::beans::XPropertySetInfo >
+  							SAL_CALL getPropertySetInfo()
+---- sc/inc/linkuno.hxx	27 Feb 2007 11:56:50 -0000	1.5
+-+++ sc/inc/linkuno.hxx	29 Nov 2007 12:06:40 -0000	1.5.18.2
++diff -Naur sc.old/inc/linkuno.hxx sc/inc/linkuno.hxx
++--- sc.old/inc/linkuno.hxx	2008-10-05 16:47:31.000000000 +0100
+++++ sc/inc/linkuno.hxx	2008-10-05 16:48:24.000000000 +0100
+ @@ -47,6 +47,12 @@
+  #ifndef _COM_SUN_STAR_SHEET_XDDELINK_HPP_
+  #include <com/sun/star/sheet/XDDELink.hpp>
+@@ -640,7 +649,7 @@
+  
+  
+  class ScAreaLink;
+-@@ -405,10 +414,11 @@ public:
++@@ -405,10 +414,11 @@
+  
+  //!	order of XNamed and DDELink changed to avoid "duplicate comdat" symbols
+  
+@@ -653,7 +662,7 @@
+  							com::sun::star::lang::XServiceInfo >,
+  						public SfxListener
+  {
+-@@ -447,6 +457,14 @@ public:
++@@ -447,6 +457,14 @@
+  									::com::sun::star::util::XRefreshListener >& l )
+  								throw(::com::sun::star::uno::RuntimeException);
+  
+@@ -668,7 +677,7 @@
+  							// XServiceInfo
+  	virtual ::rtl::OUString SAL_CALL getImplementationName()
+  								throw(::com::sun::star::uno::RuntimeException);
+-@@ -458,9 +476,9 @@ public:
++@@ -458,9 +476,9 @@
+  
+  
+  class ScDDELinksObj : public cppu::WeakImplHelper4<
+@@ -679,7 +688,7 @@
+  							com::sun::star::lang::XServiceInfo >,
+  						public SfxListener
+  {
+-@@ -502,6 +520,12 @@ public:
++@@ -502,6 +520,12 @@
+  								throw(::com::sun::star::uno::RuntimeException);
+  	virtual sal_Bool SAL_CALL hasElements() throw(::com::sun::star::uno::RuntimeException);
+  
+@@ -692,8 +701,9 @@
+  							// XServiceInfo
+  	virtual ::rtl::OUString SAL_CALL getImplementationName()
+  								throw(::com::sun::star::uno::RuntimeException);
+---- sc/inc/nameuno.hxx	8 Sep 2005 17:45:29 -0000	1.4
+-+++ sc/inc/nameuno.hxx	24 Jul 2007 09:04:11 -0000	1.4.402.3
++diff -Naur sc.old/inc/nameuno.hxx sc/inc/nameuno.hxx
++--- sc.old/inc/nameuno.hxx	2008-10-05 16:47:31.000000000 +0100
+++++ sc/inc/nameuno.hxx	2008-10-05 16:48:24.000000000 +0100
+ @@ -56,6 +56,9 @@
+  #ifndef _COM_SUN_STAR_SHEET_XNAMEDRANGE_HPP_
+  #include <com/sun/star/sheet/XNamedRange.hpp>
+@@ -736,7 +746,7 @@
+  							::com::sun::star::sheet::XCellRangeReferrer,
+  							::com::sun::star::beans::XPropertySet,
+  							::com::sun::star::lang::XServiceInfo >,
+-@@ -99,7 +107,8 @@ private:
++@@ -99,7 +107,8 @@
+  
+  private:
+  	ScRangeData*			GetRangeData_Impl();
+@@ -746,7 +756,7 @@
+  										const ScAddress* pNewPos, const sal_uInt16* pNewType );
+  
+  public:
+-@@ -120,6 +129,13 @@ public:
++@@ -120,6 +129,13 @@
+  	virtual sal_Int32		SAL_CALL getType() throw(::com::sun::star::uno::RuntimeException);
+  	virtual void SAL_CALL	setType( sal_Int32 nType ) throw(::com::sun::star::uno::RuntimeException);
+  
+@@ -760,7 +770,7 @@
+  							// XNamed
+  	virtual ::rtl::OUString SAL_CALL getName() throw(::com::sun::star::uno::RuntimeException);
+  	virtual void SAL_CALL	setName( const ::rtl::OUString& aName )
+-@@ -180,10 +196,11 @@ public:
++@@ -180,10 +196,11 @@
+  };
+  
+  
+@@ -773,7 +783,7 @@
+  							::com::sun::star::lang::XServiceInfo >,
+  						public SfxListener
+  {
+-@@ -193,6 +210,13 @@ private:
++@@ -193,6 +210,13 @@
+  	ScNamedRangeObj*		GetObjectByIndex_Impl(sal_uInt16 nIndex);
+  	ScNamedRangeObj*		GetObjectByName_Impl(const ::rtl::OUString& aName);
+  
+@@ -787,7 +797,7 @@
+  public:
+  							ScNamedRangesObj(ScDocShell* pDocSh);
+  	virtual					~ScNamedRangesObj();
+-@@ -237,6 +261,13 @@ public:
++@@ -237,6 +261,13 @@
+  								throw(::com::sun::star::uno::RuntimeException);
+  	virtual sal_Bool SAL_CALL hasElements() throw(::com::sun::star::uno::RuntimeException);
+  
+@@ -801,9 +811,10 @@
+  							// XServiceInfo
+  	virtual ::rtl::OUString SAL_CALL getImplementationName()
+  								throw(::com::sun::star::uno::RuntimeException);
+---- sc/inc/opcode.hxx	6 Jul 2007 12:30:35 -0000	1.19
+-+++ sc/inc/opcode.hxx	14 Aug 2007 18:32:01 -0000	1.19.10.1
+-@@ -47,7 +47,7 @@ enum OpCodeEnum
++diff -Naur sc.old/inc/opcode.hxx sc/inc/opcode.hxx
++--- sc.old/inc/opcode.hxx	2008-10-05 16:47:31.000000000 +0100
+++++ sc/inc/opcode.hxx	2008-10-05 16:48:24.000000000 +0100
++@@ -47,7 +47,7 @@
+  {
+  	// Special commands
+  		ocPush				= SC_OPCODE_PUSH,
+@@ -812,8 +823,9 @@
+  		ocStop				= SC_OPCODE_STOP,
+  		ocExternal			= SC_OPCODE_EXTERNAL,
+  		ocName				= SC_OPCODE_NAME,
+---- sc/inc/rangeseq.hxx	8 Sep 2005 17:50:20 -0000	1.4
+-+++ sc/inc/rangeseq.hxx	30 Aug 2007 09:24:13 -0000	1.4.402.1
++diff -Naur sc.old/inc/rangeseq.hxx sc/inc/rangeseq.hxx
++--- sc.old/inc/rangeseq.hxx	2008-10-05 16:47:31.000000000 +0100
+++++ sc/inc/rangeseq.hxx	2008-10-05 16:48:24.000000000 +0100
+ @@ -44,10 +44,13 @@
+  #include <com/sun/star/uno/Any.h>
+  #endif
+@@ -829,7 +841,7 @@
+  
+  class ScRangeToSequence
+  {
+-@@ -67,8 +70,50 @@ public:
++@@ -67,8 +70,50 @@
+  	static BOOL	FillMixedArray( com::sun::star::uno::Any& rAny,
+  								ScDocument* pDoc, const ScRange& rRange,
+  								BOOL bAllowNV = FALSE );
+@@ -881,9 +893,10 @@
+  };
+  
+  
+---- sc/inc/sc.hrc	21 Sep 2007 09:22:29 -0000	1.55
+-+++ sc/inc/sc.hrc	4 Oct 2007 09:02:05 -0000	1.54.10.2
+-@@ -1156,7 +1156,7 @@
++diff -Naur sc.old/inc/sc.hrc sc/inc/sc.hrc
++--- sc.old/inc/sc.hrc	2008-10-05 16:47:31.000000000 +0100
+++++ sc/inc/sc.hrc	2008-10-05 16:48:24.000000000 +0100
++@@ -1160,7 +1160,7 @@
+  #define RID_SC_FUNCTION_DESCRIPTIONS2	(SC_RESOURCE_START+44)
+  #define RID_POPUP_CONTROL		(SC_RESOURCE_START+45)
+  #define RID_POPUP_PAGEBREAK		(SC_RESOURCE_START+46)
+@@ -892,9 +905,10 @@
+  #define RID_POPUP_DRAWFORM		(SC_RESOURCE_START+48)
+  #define RID_SC_ADDIN_ROT13		(SC_RESOURCE_START+50)
+  #define RID_SC_ADDIN_DFA		(SC_RESOURCE_START+51)
+---- sc/inc/scmatrix.hxx	13 Jun 2007 09:05:40 -0000	1.8
+-+++ sc/inc/scmatrix.hxx	30 Aug 2007 09:24:13 -0000	1.8.44.1
+-@@ -143,6 +143,12 @@ public:
++diff -Naur sc.old/inc/scmatrix.hxx sc/inc/scmatrix.hxx
++--- sc.old/inc/scmatrix.hxx	2008-10-05 16:47:31.000000000 +0100
+++++ sc/inc/scmatrix.hxx	2008-10-05 16:48:24.000000000 +0100
++@@ -143,6 +143,12 @@
+          return nType <= SC_MATVAL_BOOLEAN;
+      }
+  
+@@ -907,7 +921,7 @@
+      /// String, empty or empty path, but not value nor boolean.
+      inline static bool IsStringType( ScMatValType nType )
+      {
+-@@ -280,6 +286,10 @@ public:
++@@ -280,6 +286,10 @@
+          { return !mnValType || IsValueType( mnValType[ nC * nRowCount + nR ]) ||
+              ((mnValType[ nC * nRowCount + nR ] & SC_MATVAL_EMPTY) ==
+               SC_MATVAL_EMPTY); }
+@@ -918,9 +932,10 @@
+  
+      /// @return <TRUE/> if entire matrix is numeric, including booleans, with no strings or empties
+      BOOL IsNumeric() const
+---- sc/inc/servuno.hxx	8 Sep 2005 17:56:51 -0000	1.12
+-+++ sc/inc/servuno.hxx	14 Aug 2007 18:32:01 -0000	1.12.402.2
+-@@ -100,7 +100,10 @@ class ScDocShell;
++diff -Naur sc.old/inc/servuno.hxx sc/inc/servuno.hxx
++--- sc.old/inc/servuno.hxx	2008-10-05 16:47:31.000000000 +0100
+++++ sc/inc/servuno.hxx	2008-10-05 16:48:24.000000000 +0100
++@@ -100,7 +100,10 @@
+  // BM
+  #define SC_SERVICE_CHDATAPROV   37
+  
+@@ -932,8 +947,9 @@
+  #define SC_SERVICE_INVALID		USHRT_MAX
+  
+  
+---- /dev/null	1 Jan 1970 00:00:00 -0000
+-+++ sc/inc/tokenuno.hxx	29 Aug 2007 11:58:50 -0000	1.1.2.6
++diff -Naur sc.old/inc/tokenuno.hxx sc/inc/tokenuno.hxx
++--- sc.old/inc/tokenuno.hxx	1970-01-01 01:00:00.000000000 +0100
+++++ sc/inc/tokenuno.hxx	2008-10-05 16:48:24.000000000 +0100
+ @@ -0,0 +1,214 @@
+ +/*************************************************************************
+ + *
+@@ -1149,8 +1165,9 @@
+ +
+ +#endif
+ +
+---- sc/inc/unonames.hxx	6 Jul 2007 12:31:28 -0000	1.74
+-+++ sc/inc/unonames.hxx	7 Dec 2007 09:25:20 -0000	1.71.250.15
++diff -Naur sc.old/inc/unonames.hxx sc/inc/unonames.hxx
++--- sc.old/inc/unonames.hxx	2008-10-05 16:47:31.000000000 +0100
+++++ sc/inc/unonames.hxx	2008-10-05 16:48:24.000000000 +0100
+ @@ -42,6 +42,10 @@
+  #define SC_SERVICENAME_LISTSOURCE   "com.sun.star.table.CellRangeListSource"
+  #define SC_SERVICENAME_CELLADDRESS  "com.sun.star.table.CellAddressConversion"
+@@ -1162,7 +1179,7 @@
+  #define SC_SERVICENAME_CHDATAPROV   "com.sun.star.chart2.data.DataProvider"
+  #define SC_SERVICENAME_CHRANGEHILIGHT "com.sun.star.chart2.data.RangeHighlightListener"
+  
+-@@ -294,6 +298,7 @@
++@@ -296,6 +300,7 @@
+  #define SC_UNONAME_ENABSORT         "EnableSort"
+  #define SC_UNONAME_FROMSELECT       "FromSelection"
+  #define SC_UNONAME_CONRES           "ConnectionResource"
+@@ -1170,7 +1187,7 @@
+  
+  //	text fields
+  #define SC_UNONAME_ANCTYPE			"AnchorType"
+-@@ -471,6 +476,12 @@
++@@ -473,6 +478,12 @@
+  #define SC_UNO_DIALOGLIBRARIES      "DialogLibraries"
+  #define SC_UNO_RUNTIMEUID           "RuntimeUID"
+  #define SC_UNO_HASVALIDSIGNATURES   "HasValidSignatures"
+@@ -1183,7 +1200,7 @@
+  
+  //	document properties from FormModel
+  #define SC_UNO_APPLYFMDES			"ApplyFormDesignMode"
+-@@ -582,6 +593,14 @@
++@@ -584,6 +595,14 @@
+  #define SC_UNO_LOADREADONLY			"LoadReadonly"
+  // <--
+  
+@@ -1198,9 +1215,10 @@
+  // Chart2
+  #define SC_UNONAME_ISHIDDEN         "IsHidden"
+  #define SC_UNONAME_ROLE             "Role"
+---- sc/source/core/data/conditio.cxx	27 Feb 2007 12:00:49 -0000	1.21
+-+++ sc/source/core/data/conditio.cxx	21 Sep 2007 08:57:21 -0000	1.21.18.2
+-@@ -569,6 +569,26 @@ void ScConditionEntry::SetSrcString( con
++diff -Naur sc.old/source/core/data/conditio.cxx sc/source/core/data/conditio.cxx
++--- sc.old/source/core/data/conditio.cxx	2008-10-05 16:47:47.000000000 +0100
+++++ sc/source/core/data/conditio.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -569,6 +569,26 @@
+      aSrcString = rNew;
+  }
+  
+@@ -1227,9 +1245,10 @@
+  void lcl_CondUpdateInsertTab( ScTokenArray& rCode, SCTAB nInsTab, SCTAB nPosTab, BOOL& rChanged )
+  {
+      //  Insert table: only update absolute table references.
+---- sc/source/core/data/documen2.cxx	27 Sep 2007 13:52:23 -0000	1.67
+-+++ sc/source/core/data/documen2.cxx	7 Dec 2007 09:25:38 -0000	1.62.18.8
+-@@ -393,7 +393,12 @@ ScDocument::ScDocument( ScDocumentMode	e
++diff -Naur sc.old/source/core/data/documen2.cxx sc/source/core/data/documen2.cxx
++--- sc.old/source/core/data/documen2.cxx	2008-10-05 16:47:46.000000000 +0100
+++++ sc/source/core/data/documen2.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -212,7 +212,12 @@
+          bInUnoBroadcast( FALSE ),
+          bInUnoListenerCall( FALSE ),
+          eAddrConv( ScAddress::CONV_OOO ),
+@@ -1243,9 +1262,10 @@
+  {
+  	eSrcSet = gsl_getSystemTextEncoding();
+  
+---- sc/source/core/data/documen3.cxx	21 Sep 2007 09:22:54 -0000	1.38
+-+++ sc/source/core/data/documen3.cxx	7 Dec 2007 09:25:39 -0000	1.38.16.1
+-@@ -1765,9 +1765,8 @@ BOOL ScDocument::IsDocProtected() const
++diff -Naur sc.old/source/core/data/documen3.cxx sc/source/core/data/documen3.cxx
++--- sc.old/source/core/data/documen3.cxx	2008-10-05 16:47:46.000000000 +0100
+++++ sc/source/core/data/documen3.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -1724,9 +1724,8 @@
+  
+  BOOL ScDocument::IsDocEditable() const
+  {
+@@ -1257,9 +1277,10 @@
+  }
+  
+  BOOL ScDocument::IsTabProtected( SCTAB nTab ) const
+---- sc/source/core/data/documen4.cxx	27 Feb 2007 12:01:47 -0000	1.18
+-+++ sc/source/core/data/documen4.cxx	14 Aug 2007 18:32:01 -0000	1.18.18.1
+-@@ -237,8 +237,7 @@ void ScDocument::InsertTableOp(const ScT
++diff -Naur sc.old/source/core/data/documen4.cxx sc/source/core/data/documen4.cxx
++--- sc.old/source/core/data/documen4.cxx	2008-10-05 16:47:46.000000000 +0100
+++++ sc/source/core/data/documen4.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -237,8 +237,7 @@
+  
+      ScRefAddress aRef;
+  	String aForString = '=';
+@@ -1269,9 +1290,10 @@
+  	aForString += '(';
+  	if (rParam.nMode == 0)							// nur Spalte
+  	{
+---- sc/source/core/data/document.cxx	27 Sep 2007 13:52:38 -0000	1.80
+-+++ sc/source/core/data/document.cxx	7 Dec 2007 09:25:39 -0000	1.80.14.1
+-@@ -3575,8 +3575,8 @@ BOOL ScDocument::IsBlockEditable( SCTAB 
++diff -Naur sc.old/source/core/data/document.cxx sc/source/core/data/document.cxx
++--- sc.old/source/core/data/document.cxx	2008-10-05 16:47:46.000000000 +0100
+++++ sc/source/core/data/document.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -3652,8 +3652,8 @@
+  										SCCOL nEndCol, SCROW nEndRow,
+  										BOOL* pOnlyNotBecauseOfMatrix /* = NULL */ ) const
+  {
+@@ -1282,7 +1304,7 @@
+  	{
+  		if ( pOnlyNotBecauseOfMatrix )
+  			*pOnlyNotBecauseOfMatrix = FALSE;
+-@@ -3599,8 +3599,8 @@ BOOL ScDocument::IsSelectedBlockEditable
++@@ -3676,8 +3676,8 @@
+  											SCCOL nEndCol, SCROW nEndRow,
+  											const ScMarkData& rMark ) const
+  {
+@@ -1293,7 +1315,7 @@
+  		return FALSE;
+  
+  	BOOL bOk = TRUE;
+-@@ -3617,8 +3617,8 @@ BOOL ScDocument::IsSelectedBlockEditable
++@@ -3694,8 +3694,8 @@
+  BOOL ScDocument::IsSelectionEditable( const ScMarkData& rMark,
+  			BOOL* pOnlyNotBecauseOfMatrix /* = NULL */ ) const
+  {
+@@ -1304,7 +1326,7 @@
+  	{
+  		if ( pOnlyNotBecauseOfMatrix )
+  			*pOnlyNotBecauseOfMatrix = FALSE;
+-@@ -3613,8 +3613,8 @@ BOOL ScDocument::IsSelectionOrBlockEdita
++@@ -3745,8 +3745,8 @@
+  										SCCOL nEndCol, SCROW nEndRow,
+  										const ScMarkData& rMark ) const
+  {
+@@ -1315,7 +1337,7 @@
+  		return FALSE;
+  
+  	BOOL bOk = TRUE;
+-@@ -3668,8 +3668,8 @@ BOOL ScDocument::IsSelectedOrBlockEditab
++@@ -3778,8 +3778,8 @@
+  											SCCOL nEndCol, SCROW nEndRow,
+  											const ScMarkData& rMark ) const
+  {
+@@ -1326,9 +1348,10 @@
+  		return FALSE;
+  
+  	BOOL bOk = TRUE;
+---- sc/source/core/data/global.cxx	6 Jul 2007 12:33:19 -0000	1.52
+-+++ sc/source/core/data/global.cxx	15 Aug 2007 15:45:37 -0000	1.52.10.2
+-@@ -569,7 +569,7 @@ void ScGlobal::Init()
++diff -Naur sc.old/source/core/data/global.cxx sc/source/core/data/global.cxx
++--- sc.old/source/core/data/global.cxx	2008-10-05 16:47:47.000000000 +0100
+++++ sc/source/core/data/global.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -569,7 +569,7 @@
+      pProtectedBrushItem = new SvxBrushItem( Color( COL_LIGHTGRAY ), ATTR_BACKGROUND );
+  
+  	UpdatePPT(NULL);
+@@ -1337,7 +1360,7 @@
+      // ScParameterClassification _after_ Compiler, needs function resources if
+      // arguments are to be merged in, which in turn need strings of function
+      // names from the compiler.
+-@@ -1396,7 +1396,7 @@ ScFuncRes::ScFuncRes( ResId &aRes, ScFun
++@@ -1396,7 +1396,7 @@
+  			pDesc->aDefArgOpt[i] = (BOOL)GetNum();
+  	}
+  
+@@ -1346,9 +1369,10 @@
+  	pDesc->pFuncDesc = new String(ScResId(1));
+  
+  	if (nArgs)
+---- sc/source/core/data/table1.cxx	27 Feb 2007 12:09:14 -0000	1.20
+-+++ sc/source/core/data/table1.cxx	20 Jul 2007 12:24:45 -0000	1.20.18.1
+-@@ -313,6 +313,11 @@ BOOL ScTable::SetOptimalHeight( SCROW nS
++diff -Naur sc.old/source/core/data/table1.cxx sc/source/core/data/table1.cxx
++--- sc.old/source/core/data/table1.cxx	2008-10-05 16:47:46.000000000 +0100
+++++ sc/source/core/data/table1.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -312,6 +312,11 @@
+  {
+  	DBG_ASSERT( nExtra==0 || bForce, "autom. OptimalHeight mit Extra" );
+  
+@@ -1360,9 +1384,10 @@
+  	BOOL    bChanged = FALSE;
+  	SCSIZE  nCount = static_cast<SCSIZE>(nEndRow-nStartRow+1);
+  
+---- sc/source/core/inc/parclass.hxx	8 Sep 2005 18:34:41 -0000	1.3
+-+++ sc/source/core/inc/parclass.hxx	23 Oct 2007 12:58:25 -0000	1.3.402.2
+-@@ -94,8 +94,9 @@ public:
++diff -Naur sc.old/source/core/inc/parclass.hxx sc/source/core/inc/parclass.hxx
++--- sc.old/source/core/inc/parclass.hxx	2008-10-05 16:47:46.000000000 +0100
+++++ sc/source/core/inc/parclass.hxx	2008-10-05 16:48:24.000000000 +0100
++@@ -94,8 +94,9 @@
+                                      ForceArray. */
+      static  inline  bool        HasForceArray( OpCode eOp)
+                                      {
+@@ -1374,9 +1399,10 @@
+                                      }
+  
+  private:
+---- sc/source/core/src/compiler.src	3 Jul 2007 15:48:53 -0000	1.54
+-+++ sc/source/core/src/compiler.src	24 Aug 2007 19:19:09 -0000	1.54.14.3
+-@@ -1169,6 +1169,11 @@ Resource RID_SC_FUNCTION_NAMES
++diff -Naur sc.old/source/core/src/compiler.src sc/source/core/src/compiler.src
++--- sc.old/source/core/src/compiler.src	2008-10-05 16:47:46.000000000 +0100
+++++ sc/source/core/src/compiler.src	2008-10-05 16:48:24.000000000 +0100
++@@ -1169,6 +1169,11 @@
+          Text [ en-US ] = "GETPIVOTDATA";
+      };
+  };
+@@ -1388,7 +1414,7 @@
+  Resource RID_SC_FUNCTION_NAMES_ENGLISH
+  {
+  	String SC_OPCODE_IF { Text = "IF" ; };
+-@@ -1474,3 +1479,310 @@ Resource RID_SC_FUNCTION_NAMES_ENGLISH
++@@ -1474,3 +1479,310 @@
+      String SC_OPCODE_GET_PIVOT_DATA { Text = "GETPIVOTDATA" ; };
+  };
+  
+@@ -1699,8 +1725,9 @@
+ +    String SC_OPCODE_BAHTTEXT { Text = "COM.MICROSOFT.BAHTTEXT" ; };
+ +    String SC_OPCODE_GET_PIVOT_DATA { Text = "GETPIVOTDATA" ; };
+ +};
+---- sc/source/core/tool/addincol.cxx	6 Jul 2007 12:34:33 -0000	1.22
+-+++ sc/source/core/tool/addincol.cxx	30 Aug 2007 09:24:13 -0000	1.22.10.3
++diff -Naur sc.old/source/core/tool/addincol.cxx sc/source/core/tool/addincol.cxx
++--- sc.old/source/core/tool/addincol.cxx	2008-10-05 16:47:47.000000000 +0100
+++++ sc/source/core/tool/addincol.cxx	2008-10-05 16:48:24.000000000 +0100
+ @@ -70,6 +70,7 @@
+  #include "optutil.hxx"
+  #include "addincfg.hxx"
+@@ -1709,7 +1736,7 @@
+  
+  using namespace com::sun::star;
+  
+-@@ -205,6 +206,47 @@ void ScUnoAddInFuncData::SetCompNames( c
++@@ -205,6 +206,47 @@
+      bCompInitialized = TRUE;
+  }
+  
+@@ -1757,7 +1784,7 @@
+  void ScUnoAddInFuncData::SetFunction( const uno::Reference< reflection::XIdlMethod>& rNewFunc, const uno::Any& rNewObj )
+  {
+      xFunction = rNewFunc;
+-@@ -233,38 +275,6 @@ void ScUnoAddInFuncData::SetCallerPos( l
++@@ -233,38 +275,6 @@
+  
+  //------------------------------------------------------------------------
+  
+@@ -1796,7 +1823,7 @@
+  ScUnoAddInCollection::ScUnoAddInCollection() :
+      nFuncCount( 0 ),
+      ppFuncData( NULL ),
+-@@ -657,44 +667,7 @@ BOOL ScUnoAddInCollection::GetExcelName(
++@@ -657,44 +667,7 @@
+  {
+      const ScUnoAddInFuncData* pFuncData = GetFuncData( rCalcName );
+      if ( pFuncData )
+@@ -1842,7 +1869,7 @@
+      return FALSE;
+  }
+  
+-@@ -1305,6 +1278,16 @@ const ScUnoAddInFuncData* ScUnoAddInColl
++@@ -1305,6 +1278,16 @@
+      return NULL;
+  }
+  
+@@ -1859,7 +1886,7 @@
+  void ScUnoAddInCollection::LocalizeString( String& rName )
+  {
+      if (!bInitialized)
+-@@ -1412,7 +1395,7 @@ ScUnoAddInCall::ScUnoAddInCall( ScUnoAdd
++@@ -1412,7 +1395,7 @@
+      nErrCode( errNoCode ),      // before function was called
+      bHasString( TRUE ),
+      fValue( 0.0 ),
+@@ -1868,7 +1895,7 @@
+  {
+      pFuncData = rColl.GetFuncData( rName, true );           // need fully initialized data
+      DBG_ASSERT( pFuncData, "Function Data missing" );
+-@@ -1447,9 +1430,6 @@ ScUnoAddInCall::ScUnoAddInCall( ScUnoAdd
++@@ -1447,9 +1430,6 @@
+  ScUnoAddInCall::~ScUnoAddInCall()
+  {
+      // pFuncData is deleted with ScUnoAddInCollection
+@@ -1878,7 +1905,7 @@
+  }
+  
+  BOOL ScUnoAddInCall::ValidParamCount()
+-@@ -1638,8 +1618,11 @@ void ScUnoAddInCall::SetResult( const un
++@@ -1642,8 +1622,11 @@
+          case uno::TypeClass_UNSIGNED_LONG:
+          case uno::TypeClass_FLOAT:
+          case uno::TypeClass_DOUBLE:
+@@ -1891,7 +1918,7 @@
+              break;
+  
+          case uno::TypeClass_STRING:
+-@@ -1688,9 +1671,10 @@ void ScUnoAddInCall::SetResult( const un
++@@ -1692,9 +1675,10 @@
+                      }
+                      if ( nMaxColCount && nRowCount )
+                      {
+@@ -1903,7 +1930,7 @@
+                          for (nRow=0; nRow<nRowCount; nRow++)
+                          {
+                              long nColCount = pRowArr[nRow].getLength();
+-@@ -1730,9 +1714,10 @@ void ScUnoAddInCall::SetResult( const un
++@@ -1734,9 +1718,10 @@
+                      }
+                      if ( nMaxColCount && nRowCount )
+                      {
+@@ -1915,7 +1942,7 @@
+                          for (nRow=0; nRow<nRowCount; nRow++)
+                          {
+                              long nColCount = pRowArr[nRow].getLength();
+-@@ -1772,9 +1757,10 @@ void ScUnoAddInCall::SetResult( const un
++@@ -1776,9 +1761,10 @@
+                      }
+                      if ( nMaxColCount && nRowCount )
+                      {
+@@ -1927,7 +1954,7 @@
+                          for (nRow=0; nRow<nRowCount; nRow++)
+                          {
+                              long nColCount = pRowArr[nRow].getLength();
+-@@ -1793,68 +1779,10 @@ void ScUnoAddInCall::SetResult( const un
++@@ -1797,68 +1783,10 @@
+              }
+              else if ( aType.equals( getCppuType( (uno::Sequence< uno::Sequence<uno::Any> > *)0 ) ) )
+              {
+@@ -1998,9 +2025,10 @@
+                  nErrCode = errNoValue;          //! code for error in return type???
+      }
+  }
+---- sc/source/core/tool/address.cxx	27 Feb 2007 12:11:39 -0000	1.9
+-+++ sc/source/core/tool/address.cxx	27 Jun 2007 15:40:35 -0000	1.9.18.1
+-@@ -272,7 +272,12 @@ lcl_ScRange_Parse_XL_Header( ScRange& r,
++diff -Naur sc.old/source/core/tool/address.cxx sc/source/core/tool/address.cxx
++--- sc.old/source/core/tool/address.cxx	2008-10-05 16:47:47.000000000 +0100
+++++ sc/source/core/tool/address.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -272,7 +272,12 @@
+              nFlags |= SCA_VALID_TAB2 | SCA_TAB2_3D | SCA_TAB2_ABSOLUTE;
+          }
+          else
+@@ -2014,8 +2042,9 @@
+  
+          if( *p++ != '!' )
+              return start;   // syntax error
+---- sc/source/core/tool/compiler.cxx	6 Jul 2007 12:34:52 -0000	1.70
+-+++ sc/source/core/tool/compiler.cxx	12 Oct 2007 15:51:45 -0000	1.68.18.17
++diff -Naur sc.old/source/core/tool/compiler.cxx sc/source/core/tool/compiler.cxx
++--- sc.old/source/core/tool/compiler.cxx	2008-10-05 16:47:47.000000000 +0100
+++++ sc/source/core/tool/compiler.cxx	2008-10-05 16:48:24.000000000 +0100
+ @@ -47,6 +47,10 @@
+  #include <tools/rc.hxx>
+  #include <tools/solar.h>
+@@ -2081,7 +2110,7 @@
+      ssGetString,
+      ssSkipString,
+      ssGetIdent,
+-@@ -188,10 +220,10 @@ short lcl_GetRetFormat( OpCode eOpCode )
++@@ -188,10 +220,10 @@
+  class ScOpCodeList : public Resource        // temp object for resource
+  {
+  public:
+@@ -2094,7 +2123,7 @@
+          :
+          Resource( ScResId( nRID ) )
+  {
+-@@ -200,10 +232,7 @@ ScOpCodeList::ScOpCodeList( USHORT nRID,
++@@ -200,10 +232,7 @@
+          ScResId aRes(i);
+          aRes.SetRT(RSC_STRING);
+          if (IsAvailableRes(aRes))
+@@ -2106,7 +2135,7 @@
+      }
+      FreeResource();
+  }
+-@@ -220,42 +249,154 @@ public:
++@@ -220,42 +249,154 @@
+  };
+  
+  
+@@ -2152,12 +2181,13 @@
+ +void ScCompiler::fillFromAddInCollectionEnglishName( NonConstOpCodeMapPtr xMap )
+  {
+ -    if (pSymbolTableNative)
++-    {
++-        delete [] pSymbolTableNative;
++-        pSymbolTableNative = NULL;
+ +    ScUnoAddInCollection* pColl = ScGlobal::GetAddInCollection();
+ +    long nCount = pColl->GetFuncCount();
+ +    for (long i=0; i < nCount; ++i)
+-     {
+--        delete [] pSymbolTableNative;
+--        pSymbolTableNative = NULL;
+++    {
+ +        const ScUnoAddInFuncData* pFuncData = pColl->GetFuncData(i);
+ +        if (pFuncData)
+ +        {
+@@ -2284,7 +2314,7 @@
+      if (pCharClassEnglish)
+      {
+          delete pCharClassEnglish;
+-@@ -263,38 +404,452 @@ void ScCompiler::DeInit()
++@@ -263,38 +404,452 @@
+      }
+  }
+  
+@@ -2754,7 +2784,7 @@
+  //-----------------------------------------------------------------------------
+  
+  ScCompiler::Convention::~Convention()
+-@@ -390,7 +945,7 @@ for (i = 97; i < 123; i++)
++@@ -390,7 +945,7 @@
+  /* ] */     t[93] |=   SC_COMPILER_C_WORD;
+  /* { */     t[123]|=   SC_COMPILER_C_WORD;
+  /* | */     t[124]|=   SC_COMPILER_C_WORD;
+@@ -2763,7 +2793,7 @@
+  /* ~ */     t[126]|=   SC_COMPILER_C_WORD;
+  
+          if( ScAddress::CONV_XL_R1C1 == meConv )
+-@@ -467,7 +1022,7 @@ struct ConventionOOO_A1 : public Convent
++@@ -467,7 +1022,7 @@
+      static String MakeTabStr( const ScCompiler& rComp, SCTAB nTab, String& aDoc )
+      {
+          String aString;
+@@ -2772,7 +2802,7 @@
+              aString = ScGlobal::GetRscString(STR_NO_REF_TABLE);
+          else
+          {
+-@@ -505,9 +1060,9 @@ struct ConventionOOO_A1 : public Convent
++@@ -505,9 +1060,9 @@
+          //  AdjustReference( aRef.Ref1 );
+          //  if( !bSingleRef )
+          //      AdjustReference( aRef.Ref2 );
+@@ -2784,7 +2814,7 @@
+          if( aRef.Ref1.IsFlag3D() )
+          {
+              if (aRef.Ref1.IsTabDeleted())
+-@@ -595,9 +1150,9 @@ struct ConventionOOO_A1_XML : public Con
++@@ -595,9 +1150,9 @@
+  //  AdjustReference( aRef.Ref1 );
+  //  if( !bSingleRef )
+  //      AdjustReference( aRef.Ref2 );
+@@ -2796,7 +2826,7 @@
+      if( aRef.Ref1.IsFlag3D() )
+      {
+          if (aRef.Ref1.IsTabDeleted())
+-@@ -686,7 +1241,7 @@ struct ConventionXL
++@@ -686,7 +1241,7 @@
+  
+          rDocName.Erase();
+          if (rRef.IsTabDeleted() ||
+@@ -2805,7 +2835,7 @@
+          {
+              rTabName = ScGlobal::GetRscString( STR_NO_REF_TABLE );
+              return false;
+-@@ -750,7 +1305,7 @@ struct ConventionXL
++@@ -750,7 +1305,7 @@
+              }
+  
+              rBuf.append( aStartTabName );
+@@ -2814,7 +2844,7 @@
+              {
+                  rBuf.append( sal_Unicode( ':' ) );
+                  rBuf.append( aEndTabName );
+-@@ -775,7 +1330,7 @@ struct ConventionXL_A1 : public Conventi
++@@ -775,7 +1330,7 @@
+  
+          // Play fast and loose with invalid refs.  There is not much point in producing
+          // Foo!A1:#REF! versus #REF! at this point
+@@ -2823,7 +2853,7 @@
+          if( aRef.Ref1.IsColDeleted() || aRef.Ref1.IsRowDeleted() )
+          {
+              rBuf.append(ScGlobal::GetRscString(STR_NO_REF_TABLE));
+-@@ -784,7 +1339,7 @@ struct ConventionXL_A1 : public Conventi
++@@ -784,7 +1339,7 @@
+  
+          if( !bSingleRef )
+          {
+@@ -2832,7 +2862,7 @@
+              if( aRef.Ref2.IsColDeleted() || aRef.Ref2.IsRowDeleted() )
+              {
+                  rBuf.append(ScGlobal::GetRscString(STR_NO_REF_TABLE));
+-@@ -888,7 +1443,7 @@ struct ConventionXL_R1C1 : public ScComp
++@@ -888,7 +1443,7 @@
+  
+          // Play fast and loose with invalid refs.  There is not much point in producing
+          // Foo!A1:#REF! versus #REF! at this point
+@@ -2841,7 +2871,7 @@
+          if( aRef.Ref1.IsColDeleted() || aRef.Ref1.IsRowDeleted() )
+          {
+              rBuf.append(ScGlobal::GetRscString(STR_NO_REF_TABLE));
+-@@ -897,7 +1452,7 @@ struct ConventionXL_R1C1 : public ScComp
++@@ -897,7 +1452,7 @@
+  
+          if( !bSingleRef )
+          {
+@@ -2850,7 +2880,7 @@
+              if( aRef.Ref2.IsColDeleted() || aRef.Ref2.IsRowDeleted() )
+              {
+                  rBuf.append(ScGlobal::GetRscString(STR_NO_REF_TABLE));
+-@@ -963,8 +1518,7 @@ ScCompiler::ScCompiler( ScDocument* pDoc
++@@ -963,8 +1518,7 @@
+                          const ScTokenArray& rArr )
+          :
+          aPos( rPos ),
+@@ -2860,9 +2890,9 @@
+          pCharClass( ScGlobal::pCharClass ),
+          nRecursion(0),
+          bAutoCorrect( FALSE ),
+-@@ -973,8 +1527,11 @@ ScCompiler::ScCompiler( ScDocument* pDoc
+-         bIgnoreErrors( FALSE ),
+-         bImportXML ( FALSE )
++@@ -974,8 +1528,11 @@
++         bImportXML ( FALSE ),
++         mbCloseBrackets( true )
+  {
+ -    if (!nAnzStrings)
+ -        Init();
+@@ -2874,7 +2904,7 @@
+      pArr = (ScTokenArray*) &rArr;
+      pDoc = pDocument;
+  
+-@@ -991,8 +1548,7 @@ ScCompiler::ScCompiler( ScDocument* pDoc
++@@ -992,8 +1549,7 @@
+  ScCompiler::ScCompiler(ScDocument* pDocument, const ScAddress& rPos )
+          :
+          aPos( rPos ),
+@@ -2884,9 +2914,9 @@
+          pCharClass( ScGlobal::pCharClass ),
+          nRecursion(0),
+          bAutoCorrect( FALSE ),
+-@@ -1001,8 +1557,11 @@ ScCompiler::ScCompiler(ScDocument* pDocu
+-         bIgnoreErrors( FALSE ),
+-         bImportXML ( FALSE )
++@@ -1003,8 +1559,11 @@
++         bImportXML ( FALSE ),
++         mbCloseBrackets( true )
+  {
+ -    if (!nAnzStrings)
+ -        Init();
+@@ -2898,7 +2928,7 @@
+      pArr = NULL;
+      pDoc = pDocument;
+  
+-@@ -1151,11 +1710,25 @@ xub_StrLen ScCompiler::NextSymbol()
++@@ -1153,11 +1712,25 @@
+      BOOL bQuote = FALSE;
+      ScanState eState = ssGetChar;
+      xub_StrLen nSpaces = 0;
+@@ -2924,7 +2954,7 @@
+          switch (eState)
+          {
+              case ssGetChar :
+-@@ -1170,6 +1743,11 @@ xub_StrLen ScCompiler::NextSymbol()
++@@ -1172,6 +1745,11 @@
+                      *pSym++ = c;
+                      eState = ssGetBool;
+                  }
+@@ -2936,7 +2966,7 @@
+                  else if( nMask & SC_COMPILER_C_CHAR_STRING )
+                  {
+                      *pSym++ = c;
+-@@ -1208,9 +1786,6 @@ xub_StrLen ScCompiler::NextSymbol()
++@@ -1210,9 +1788,6 @@
+                  {   // High values need reparsing with i18n,
+                      // single quoted $'sheet' names too (otherwise we'd had to
+                      // implement everything twice).
+@@ -2946,7 +2976,7 @@
+                      bi18n = TRUE;
+                      eState = ssStop;
+                  }
+-@@ -1235,6 +1810,63 @@ xub_StrLen ScCompiler::NextSymbol()
++@@ -1237,6 +1812,63 @@
+                  }
+              }
+              break;
+@@ -3010,7 +3040,7 @@
+              case ssGetString :
+              {
+                  if( nMask & SC_COMPILER_C_STRING_SEP )
+-@@ -1336,16 +1968,39 @@ xub_StrLen ScCompiler::NextSymbol()
++@@ -1338,16 +1970,39 @@
+  
+  BOOL ScCompiler::IsOpCode( const String& rName )
+  {
+@@ -3053,7 +3083,7 @@
+          USHORT nIndex;
+          bFound = ScGlobal::GetFuncCollection()->SearchFunc(cSymbol, nIndex);
+          if( bFound )
+-@@ -1355,10 +2010,11 @@ BOOL ScCompiler::IsOpCode( const String&
++@@ -1357,10 +2012,11 @@
+              pRawToken = aToken.Clone();
+          }
+          else
+@@ -3069,7 +3099,7 @@
+              if (aIntName.Len())
+              {
+                  ScRawToken aToken;
+-@@ -1369,14 +1369,20 @@
++@@ -1369,14 +2025,20 @@
+                  bFound = TRUE;
+              }
+          }
+@@ -3095,7 +3125,7 @@
+      return bFound;
+  }
+  
+-@@ -1397,7 +2058,7 @@ BOOL ScCompiler::IsOpCode2( const String
++@@ -1400,7 +2062,7 @@
+  BOOL ScCompiler::IsValue( const String& rSym )
+  {
+      double fVal;
+@@ -3104,7 +3134,7 @@
+          pDoc->GetFormatTable()->GetStandardIndex( LANGUAGE_ENGLISH_US ) : 0 );
+  //  ULONG nIndex = 0;
+  ////    ULONG nIndex = pDoc->GetFormatTable()->GetStandardIndex(ScGlobal::eLnge);
+-@@ -1454,7 +2115,7 @@ BOOL ScCompiler::IsReference( const Stri
++@@ -1457,7 +2119,7 @@
+  {
+      // Has to be called before IsValue
+      sal_Unicode ch1 = rName.GetChar(0);
+@@ -3113,7 +3143,7 @@
+          ScGlobal::pLocaleData->getNumDecimalSep().GetChar(0) );
+      if ( ch1 == cDecSep )
+          return FALSE;
+-@@ -1903,13 +2564,13 @@ BOOL ScCompiler::IsColRowName( const Str
++@@ -1906,13 +2568,13 @@
+  
+  BOOL ScCompiler::IsBoolean( const String& rName )
+  {
+@@ -3132,7 +3162,7 @@
+          pRawToken = aToken.Clone();
+          return TRUE;
+      }
+-@@ -1951,7 +2612,7 @@ void ScCompiler::AutoCorrectParsedSymbol
++@@ -1954,7 +2616,7 @@
+          }
+          else if ( nPos == 0 && (c1 == cx || c1 == cX) )
+          {   // x => *
+@@ -3141,7 +3171,7 @@
+              bCorrected = TRUE;
+          }
+          else if ( (GetCharTableFlags( c1 ) & SC_COMPILER_C_CHAR_VALUE)
+-@@ -1961,7 +2622,7 @@ void ScCompiler::AutoCorrectParsedSymbol
++@@ -1964,7 +2626,7 @@
+              if ( (nXcount = aCorrectedSymbol.GetTokenCount( cx )) > 1 )
+              {   // x => *
+                  xub_StrLen nIndex = 0;
+@@ -3150,7 +3180,7 @@
+                  while ( (nIndex = aCorrectedSymbol.SearchAndReplace(
+                          cx, c, nIndex )) != STRING_NOTFOUND )
+                      nIndex++;
+-@@ -1970,7 +2631,7 @@ void ScCompiler::AutoCorrectParsedSymbol
++@@ -1973,7 +2635,7 @@
+              if ( (nXcount = aCorrectedSymbol.GetTokenCount( cX )) > 1 )
+              {   // X => *
+                  xub_StrLen nIndex = 0;
+@@ -3159,7 +3189,7 @@
+                  while ( (nIndex = aCorrectedSymbol.SearchAndReplace(
+                          cX, c, nIndex )) != STRING_NOTFOUND )
+                      nIndex++;
+-@@ -2321,7 +2982,7 @@ ScTokenArray* ScCompiler::CompileString(
++@@ -2326,7 +2988,7 @@
+                  SetError(errCodeOverflow);
+              }
+              else if ( bAutoCorrect )
+@@ -3167,8 +3197,8 @@
+ +                aCorrectedFormula += mxSymbols->getSymbol(ocArrayClose);
+          }
+  
+-         // With ocBad the remaining formula is a string, too many parentheses
+-@@ -2334,7 +2995,7 @@ ScTokenArray* ScCompiler::CompileString(
++         ScByteToken aToken( ocClose );
++@@ -2337,7 +2999,7 @@
+                  SetError(errCodeOverflow); break;
+              }
+              if ( bAutoCorrect )
+@@ -3177,7 +3207,7 @@
+          }
+      }
+      if ( nForced >= 2 )
+-@@ -2784,44 +3445,44 @@ OpCode ScCompiler::NextToken()
++@@ -2787,44 +3449,44 @@
+                          switch ( eOp )
+                          {   // swap operators
+                              case ocGreater:
+@@ -3232,7 +3262,7 @@
+                                      aCorrectedSymbol = c;
+                                      bCorrected = TRUE;
+                                  }
+-@@ -2952,7 +3613,7 @@ void ScCompiler::Factor()
++@@ -2955,7 +3617,7 @@
+                 ? errNoName : errOperatorExpected );
+              if ( bAutoCorrect && !pStack )
+              {   // assume multiplication
+@@ -3241,7 +3271,7 @@
+                  bCorrected = TRUE;
+                  NextToken();
+                  eOp = Expression();
+-@@ -4338,9 +4999,7 @@ ScRangeData* ScCompiler::UpdateMoveTab( 
++@@ -4341,9 +5003,7 @@
+  
+  const String& ScCompiler::GetStringFromOpCode( OpCode eOpCode, bool bEnglish )
+  {
+@@ -3252,7 +3282,7 @@
+  }
+  
+  ScToken* ScCompiler::CreateStringFromToken( String& rFormula, ScToken* pTokenP,
+-@@ -4382,8 +5041,8 @@ ScToken* ScCompiler::CreateStringFromTok
++@@ -4385,8 +5045,8 @@
+      }
+      else if( eOp >= ocInternalBegin && eOp <= ocInternalEnd )
+          rBuffer.appendAscii( pInternal[ eOp - ocInternalBegin ] );
+@@ -3263,7 +3293,7 @@
+      else
+      {
+          DBG_ERROR("Unbekannter OpCode");
+-@@ -4445,7 +5104,7 @@ ScToken* ScCompiler::CreateStringFromTok
++@@ -4448,7 +5108,7 @@
+                      {
+                          if (pData->HasType(RT_SHARED))
+                              pData->UpdateSymbol( aBuffer, aPos,
+@@ -3272,7 +3302,7 @@
+                                          pConv == pConvOOO_A1_XML );
+                          else
+                              aBuffer.append(pData->GetName());
+-@@ -4470,9 +5129,19 @@ ScToken* ScCompiler::CreateStringFromTok
++@@ -4473,9 +5133,19 @@
+          }
+          case svExternal:
+          {
+@@ -3294,7 +3324,7 @@
+                  ScGlobal::GetAddInCollection()->LocalizeString( aAddIn );
+              rBuffer.append(aAddIn);
+          }
+-@@ -4503,19 +5172,19 @@ void ScCompiler::CreateStringFromScMatri
++@@ -4506,19 +5176,19 @@
+  
+      pMatrix->GetDimensions( nMaxC, nMaxR);
+  
+@@ -3317,7 +3347,7 @@
+              }
+  
+              if( pMatrix->IsValue( nC, nR ) )
+-@@ -4540,16 +5209,17 @@ void ScCompiler::CreateStringFromScMatri
++@@ -4543,16 +5213,17 @@
+                  AppendString( rBuffer, pMatrix->GetString( nC, nR ) );
+          }
+      }
+@@ -3338,7 +3368,7 @@
+      {
+          ::rtl::math::doubleToUStringBuffer( rBuffer, fVal,
+                  rtl_math_StringFormat_Automatic,
+-@@ -4652,7 +5322,7 @@ BOOL ScCompiler::DeQuote( String& rStr )
++@@ -4655,7 +5326,7 @@
+  }
+  
+  
+@@ -3348,9 +3378,10 @@
+ -    return ScCompiler::pSymbolTableNative;
+ +    return ScCompiler::GetNativeSymbol( eOp );
+  }
+---- sc/source/core/tool/interpr4.cxx	6 Jul 2007 12:35:56 -0000	1.51
+-+++ sc/source/core/tool/interpr4.cxx	30 Aug 2007 09:24:13 -0000	1.47.14.3
+-@@ -1088,6 +1088,7 @@ bool ScInterpreter::ConvertMatrixParamet
++diff -Naur sc.old/source/core/tool/interpr4.cxx sc/source/core/tool/interpr4.cxx
++--- sc.old/source/core/tool/interpr4.cxx	2008-10-05 16:47:47.000000000 +0100
+++++ sc/source/core/tool/interpr4.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -1099,6 +1099,7 @@
+                  case svDouble:
+                  case svString:
+                  case svSingleRef:
+@@ -3358,7 +3389,7 @@
+                      // nothing to do
+                  break;
+                  case svMatrix:
+-@@ -2272,19 +2273,8 @@ void ScInterpreter::ScExternal()
++@@ -2283,19 +2284,8 @@
+  			}
+  			else if ( aCall.HasMatrix() )
+  			{
+@@ -3380,9 +3411,10 @@
+  			}
+  			else if ( aCall.HasString() )
+  				PushString( aCall.GetString() );
+---- sc/source/core/tool/makefile.mk	27 Sep 2007 13:54:07 -0000	1.24
+-+++ sc/source/core/tool/makefile.mk	4 Oct 2007 09:09:07 -0000	1.20.14.2
+-@@ -99,6 +99,7 @@ SLOFILES =  \
++diff -Naur sc.old/source/core/tool/makefile.mk sc/source/core/tool/makefile.mk
++--- sc.old/source/core/tool/makefile.mk	2008-10-05 16:47:47.000000000 +0100
+++++ sc/source/core/tool/makefile.mk	2008-10-05 16:48:24.000000000 +0100
++@@ -99,6 +99,7 @@
+  		$(SLO)$/interpr6.obj \
+  		$(SLO)$/lookupcache.obj \
+  		$(SLO)$/navicfg.obj \
+@@ -3390,8 +3422,9 @@
+  		$(SLO)$/optutil.obj \
+  		$(SLO)$/parclass.obj \
+  		$(SLO)$/printopt.obj \
+---- /dev/null	1 Jan 1970 00:00:00 -0000
+-+++ sc/source/core/tool/odffmap.cxx	31 Aug 2007 10:33:03 -0000	1.1.2.4
++diff -Naur sc.old/source/core/tool/odffmap.cxx sc/source/core/tool/odffmap.cxx
++--- sc.old/source/core/tool/odffmap.cxx	1970-01-01 01:00:00.000000000 +0100
+++++ sc/source/core/tool/odffmap.cxx	2008-10-05 16:48:24.000000000 +0100
+ @@ -0,0 +1,154 @@
+ +/*************************************************************************
+ + *
+@@ -3547,8 +3580,9 @@
+ +{
+ +    return sizeof(maAddInMap)/sizeof(maAddInMap[0]);
+ +}
+---- sc/source/core/tool/parclass.cxx	26 Apr 2007 07:39:05 -0000	1.8
+-+++ sc/source/core/tool/parclass.cxx	23 Oct 2007 16:17:56 -0000	1.7.18.5
++diff -Naur sc.old/source/core/tool/parclass.cxx sc/source/core/tool/parclass.cxx
++--- sc.old/source/core/tool/parclass.cxx	2008-10-05 16:47:47.000000000 +0100
+++++ sc/source/core/tool/parclass.cxx	2008-10-05 16:48:24.000000000 +0100
+ @@ -49,6 +49,7 @@
+  #if OSL_DEBUG_LEVEL > 1
+  // the documentation thingy
+@@ -3557,7 +3591,7 @@
+  #include "compiler.hxx"
+  #include "sc.hrc"   // VAR_ARGS
+  #endif
+-@@ -306,7 +307,7 @@ ScParameterClassification::Type ScParame
++@@ -306,7 +307,7 @@
+              // added to avoid warnings
+          }
+      }
+@@ -3566,7 +3600,7 @@
+      {
+          if ( nParameter < CommonData::nMaxParams )
+          {
+-@@ -453,20 +454,19 @@ void ScParameterClassification::Generate
++@@ -453,20 +454,19 @@
+      if ( !getenv( aEnvVarName) )
+          return;
+      MergeArgumentsFromFunctionResource();
+@@ -3596,9 +3630,10 @@
+              aStr += "(";
+              ScByteToken aToken( eOp);
+              BYTE nParams = GetMinimumParameters( eOp);
+---- sc/source/core/tool/rangenam.cxx	27 Feb 2007 12:18:14 -0000	1.24
+-+++ sc/source/core/tool/rangenam.cxx	14 Aug 2007 18:32:02 -0000	1.24.18.1
+-@@ -536,7 +536,7 @@ void ScRangeData::UpdateTabRef(SCTAB nOl
++diff -Naur sc.old/source/core/tool/rangenam.cxx sc/source/core/tool/rangenam.cxx
++--- sc.old/source/core/tool/rangenam.cxx	2008-10-05 16:47:47.000000000 +0100
+++++ sc/source/core/tool/rangenam.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -553,7 +553,7 @@
+  
+  void ScRangeData::MakeValidName( String& rName )		// static
+  {
+@@ -3607,9 +3642,10 @@
+  
+  	//	ungueltige Zeichen vorne weglassen
+  	xub_StrLen nPos = 0;
+---- sc/source/core/tool/rangeseq.cxx	21 Jul 2006 11:41:27 -0000	1.7
+-+++ sc/source/core/tool/rangeseq.cxx	30 Aug 2007 15:10:48 -0000	1.7.194.2
+-@@ -309,7 +309,7 @@ BOOL ScRangeToSequence::FillMixedArray( 
++diff -Naur sc.old/source/core/tool/rangeseq.cxx sc/source/core/tool/rangeseq.cxx
++--- sc.old/source/core/tool/rangeseq.cxx	2008-10-05 16:47:47.000000000 +0100
+++++ sc/source/core/tool/rangeseq.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -309,7 +309,7 @@
+  }
+  
+  
+@@ -3618,7 +3654,7 @@
+  {
+  	if (!pMatrix)
+  		return FALSE;
+-@@ -334,7 +334,13 @@ BOOL ScRangeToSequence::FillMixedArray( 
++@@ -334,7 +334,13 @@
+  				pColAry[nCol] <<= rtl::OUString( aStr );
+  			}
+  			else
+@@ -3633,7 +3669,7 @@
+  		}
+  
+  		pRowAry[nRow] = aColSeq;
+-@@ -344,6 +350,119 @@ BOOL ScRangeToSequence::FillMixedArray( 
++@@ -344,6 +350,119 @@
+  	return TRUE;
+  }
+  
+@@ -3753,9 +3789,10 @@
+  
+  //------------------------------------------------------------------------
+  
+---- sc/source/filter/excel/xestyle.cxx	18 Jul 2007 11:55:28 -0000	1.30
+-+++ sc/source/filter/excel/xestyle.cxx	24 Jul 2007 21:19:45 -0000	1.28.6.2
+-@@ -385,7 +385,7 @@ XclExpPaletteImpl::XclExpPaletteImpl( co
++diff -Naur sc.old/source/filter/excel/xestyle.cxx sc/source/filter/excel/xestyle.cxx
++--- sc.old/source/filter/excel/xestyle.cxx	2008-10-05 16:47:50.000000000 +0100
+++++ sc/source/filter/excel/xestyle.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -385,7 +385,7 @@
+      mnLastIdx( 0 )
+  {
+      // initialize maPalette with default colors
+@@ -3764,9 +3801,10 @@
+      maPalette.reserve( nCount );
+      for( sal_uInt16 nIdx = 0; nIdx < nCount; ++nIdx )
+          maPalette.push_back( XclPaletteColor( mrDefPal.GetDefColor( GetXclIndex( nIdx ) ) ) );
+---- sc/source/ui/dbgui/validate.cxx	27 Feb 2007 13:05:45 -0000	1.16
+-+++ sc/source/ui/dbgui/validate.cxx	14 Aug 2007 18:32:02 -0000	1.16.18.1
+-@@ -250,9 +250,9 @@ ScTPValidationValue::ScTPValidationValue
++diff -Naur sc.old/source/ui/dbgui/validate.cxx sc/source/ui/dbgui/validate.cxx
++--- sc.old/source/ui/dbgui/validate.cxx	2008-10-05 16:47:42.000000000 +0100
+++++ sc/source/ui/dbgui/validate.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -250,9 +250,9 @@
+  
+      // list separator in formulas
+      //CHINA001 const String& rListSep = ScCompiler::pSymbolTableNative[ ocSep ];
+@@ -3779,9 +3817,10 @@
+  }
+  
+  ScTPValidationValue::~ScTPValidationValue()
+---- sc/source/ui/docshell/docfunc.cxx	27 Jun 2007 12:45:25 -0000	1.66
+-+++ sc/source/ui/docshell/docfunc.cxx	7 Dec 2007 09:25:55 -0000	1.65.16.6
+-@@ -137,6 +137,10 @@ BOOL ScDocFunc::AdjustRowHeight( const S
++diff -Naur sc.old/source/ui/docshell/docfunc.cxx sc/source/ui/docshell/docfunc.cxx
++--- sc.old/source/ui/docshell/docfunc.cxx	2008-10-05 16:47:46.000000000 +0100
+++++ sc/source/ui/docshell/docfunc.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -137,6 +137,10 @@
+  		//	for XML import, all row heights are updated together after importing
+  		return FALSE;
+  	}
+@@ -3792,7 +3831,7 @@
+  
+  	SCTAB nTab      = rRange.aStart.Tab();
+  	SCROW nStartRow = rRange.aStart.Row();
+-@@ -2329,7 +2333,8 @@ BOOL ScDocFunc::SetWidthOrHeight( BOOL b
++@@ -2329,7 +2333,8 @@
+  	if ( bRecord && !pDoc->IsUndoEnabled() )
+  		bRecord = FALSE;
+  
+@@ -3802,7 +3841,7 @@
+  	{
+  		if (!bApi)
+  			rDocShell.ErrorMessage(STR_PROTECTIONERR);		//! eigene Meldung?
+-@@ -2925,6 +2930,7 @@ BOOL ScDocFunc::AutoFormat( const ScRang
++@@ -2925,6 +2930,7 @@
+  //------------------------------------------------------------------------
+  
+  BOOL ScDocFunc::EnterMatrix( const ScRange& rRange, const ScMarkData* pTabMark,
+@@ -3810,7 +3849,7 @@
+  								const String& rString, BOOL bApi, BOOL bEnglish )
+  {
+  	ScDocShellModificator aModificator( rDocShell );
+-@@ -2964,7 +2970,12 @@ BOOL ScDocFunc::EnterMatrix( const ScRan
++@@ -2964,7 +2970,12 @@
+  			pDoc->CopyToDocument( rRange, IDF_ALL, FALSE, pUndoDoc );
+  		}
+  
+@@ -3824,7 +3863,7 @@
+  		{
+  			ScTokenArray* pCode = lcl_ScDocFunc_CreateTokenArrayXML( rString );
+  			pDoc->InsertMatrixFormula(nStartCol,nStartRow,nEndCol,nEndRow,aMark,EMPTY_STRING,pCode);
+-@@ -3612,7 +3623,7 @@ BOOL ScDocFunc::SetNewRangeNames( ScRang
++@@ -3621,7 +3632,7 @@
+      // #i55926# While loading XML, formula cells only have a single string token,
+      // so CompileNameFormula would never find any name (index) tokens, and would
+      // unnecessarily loop through all cells.
+@@ -3833,7 +3872,7 @@
+  
+      if ( bCompile )
+          pDoc->CompileNameFormula( TRUE );	// CreateFormulaString
+-@@ -3915,11 +3926,11 @@ BOOL ScDocFunc::ResizeMatrix( const ScRa
++@@ -3924,11 +3935,11 @@
+  
+  		if ( DeleteContents( aMark, IDF_CONTENTS, TRUE, bApi ) )
+  		{
+@@ -3847,9 +3886,10 @@
+  			}
+  		}
+  
+---- sc/source/ui/docshell/docsh.cxx	3 Aug 2007 13:08:10 -0000	1.92
+-+++ sc/source/ui/docshell/docsh.cxx	4 Oct 2007 09:13:43 -0000	1.89.16.4
+-@@ -535,6 +535,7 @@ void ScDocShell::BeforeXMLLoading()
++diff -Naur sc.old/source/ui/docshell/docsh.cxx sc/source/ui/docshell/docsh.cxx
++--- sc.old/source/ui/docshell/docsh.cxx	2008-10-05 16:47:46.000000000 +0100
+++++ sc/source/ui/docshell/docsh.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -741,6 +741,7 @@
+  	pModificator = new ScDocShellModificator( *this );
+  
+      aDocument.SetImportingXML( TRUE );
+@@ -3857,7 +3897,7 @@
+  	// prevent unnecessary broadcasts and "half way listeners"
+  	aDocument.SetInsertingFromOtherDoc( TRUE );
+  
+-@@ -614,6 +615,7 @@ void ScDocShell::AfterXMLLoading(sal_Boo
++@@ -820,6 +821,7 @@
+  		aDocument.SetInsertingFromOtherDoc( FALSE );
+  
+  	aDocument.SetImportingXML( FALSE );
+@@ -3865,9 +3905,10 @@
+      bIsEmpty = FALSE;
+  
+      if (pModificator)
+---- sc/source/ui/docshell/docsh2.cxx	10 May 2007 16:55:49 -0000	1.23
+-+++ sc/source/ui/docshell/docsh2.cxx	29 May 2007 14:19:39 -0000	1.22.18.2
+-@@ -122,9 +122,9 @@ BOOL ScDocShell::IsEmpty() const
++diff -Naur sc.old/source/ui/docshell/docsh2.cxx sc/source/ui/docshell/docsh2.cxx
++--- sc.old/source/ui/docshell/docsh2.cxx	2008-10-05 16:47:46.000000000 +0100
+++++ sc/source/ui/docshell/docsh2.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -122,9 +122,9 @@
+  }
+  
+  
+@@ -3879,9 +3920,10 @@
+  }
+  
+  //------------------------------------------------------------------
+---- sc/source/ui/docshell/docsh3.cxx	17 Jul 2007 13:34:17 -0000	1.30
+-+++ sc/source/ui/docshell/docsh3.cxx	24 Jul 2007 21:33:36 -0000	1.29.18.2
+-@@ -953,7 +953,7 @@ void ScDocShell::MergeDocument( ScDocume
++diff -Naur sc.old/source/ui/docshell/docsh3.cxx sc/source/ui/docshell/docsh3.cxx
++--- sc.old/source/ui/docshell/docsh3.cxx	2008-10-05 16:47:46.000000000 +0100
+++++ sc/source/ui/docshell/docsh3.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -957,7 +957,7 @@
+  									aSourceRange.aEnd.SetRow( aPos.Row() + nRows - 1 );
+  									aValue.Erase( 0, 1 );
+  									aValue.Erase( aValue.Len()-1, 1 );
+@@ -3890,8 +3932,9 @@
+  								}
+  								break;
+  								case MM_REFERENCE :		// do nothing
+---- sc/source/ui/drawfunc/drawsh2.cxx	6 Jul 2007 12:42:40 -0000	1.24
+-+++ sc/source/ui/drawfunc/drawsh2.cxx	24 Jul 2007 21:34:52 -0000	1.23.82.3
++diff -Naur sc.old/source/ui/drawfunc/drawsh2.cxx sc/source/ui/drawfunc/drawsh2.cxx
++--- sc.old/source/ui/drawfunc/drawsh2.cxx	2008-10-05 16:47:43.000000000 +0100
+++++ sc/source/ui/drawfunc/drawsh2.cxx	2008-10-05 16:48:24.000000000 +0100
+ @@ -65,6 +65,7 @@
+  #include "viewdata.hxx"
+  #include "sc.hrc"
+@@ -3900,7 +3943,7 @@
+  #include "drwlayer.hxx"
+  #include "userdat.hxx"
+  
+-@@ -86,7 +87,12 @@ ScDrawShell::ScDrawShell( ScViewData* pD
++@@ -86,7 +87,12 @@
+  	pViewData( pData )
+  {
+  	SetPool( &pViewData->GetScDrawView()->GetModel()->GetItemPool() );
+@@ -3914,9 +3957,10 @@
+  	SetHelpId( HID_SCSHELL_DRAWSH );
+  	SetName(String::CreateFromAscii(RTL_CONSTASCII_STRINGPARAM("Drawing")));
+  }
+---- sc/source/ui/drawfunc/drtxtob.cxx	18 Jul 2007 09:44:35 -0000	1.32
+-+++ sc/source/ui/drawfunc/drtxtob.cxx	24 Jul 2007 21:35:11 -0000	1.29.18.5
+-@@ -130,7 +130,12 @@ ScDrawTextObjectBar::ScDrawTextObjectBar
++diff -Naur sc.old/source/ui/drawfunc/drtxtob.cxx sc/source/ui/drawfunc/drtxtob.cxx
++--- sc.old/source/ui/drawfunc/drtxtob.cxx	2008-10-05 16:47:42.000000000 +0100
+++++ sc/source/ui/drawfunc/drtxtob.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -130,7 +130,12 @@
+  	SetPool( pViewData->GetScDrawView()->GetDefaultAttr().GetPool() );
+  
+  	//	UndoManager wird beim Umschalten in den Edit-Modus umgesetzt...
+@@ -3930,9 +3974,10 @@
+  
+  	SetHelpId( HID_SCSHELL_DRTXTOB );
+  	SetName(String::CreateFromAscii(RTL_CONSTASCII_STRINGPARAM("DrawText")));
+---- sc/source/ui/inc/docfunc.hxx	25 Apr 2007 15:58:57 -0000	1.15
+-+++ sc/source/ui/inc/docfunc.hxx	24 Jul 2007 09:06:24 -0000	1.15.8.3
+-@@ -57,6 +57,7 @@ class ScPatternAttr;
++diff -Naur sc.old/source/ui/inc/docfunc.hxx sc/source/ui/inc/docfunc.hxx
++--- sc.old/source/ui/inc/docfunc.hxx	2008-10-05 16:47:34.000000000 +0100
+++++ sc/source/ui/inc/docfunc.hxx	2008-10-05 16:48:24.000000000 +0100
++@@ -57,6 +57,7 @@
+  class ScRange;
+  class ScRangeName;
+  class ScBaseCell;
+@@ -3940,7 +3985,7 @@
+  struct ScTabOpParam;
+  
+  
+-@@ -147,6 +148,7 @@ public:
++@@ -147,6 +148,7 @@
+  									USHORT nFormatNo, BOOL bRecord, BOOL bApi );
+  
+  	BOOL			EnterMatrix( const ScRange& rRange, const ScMarkData* pTabMark,
+@@ -3948,9 +3993,10 @@
+  									const String& rString, BOOL bApi, BOOL bEnglish );
+  
+  	BOOL			TabOp( const ScRange& rRange, const ScMarkData* pTabMark,
+---- sc/source/ui/inc/docsh.hxx	6 Jul 2007 12:43:58 -0000	1.43
+-+++ sc/source/ui/inc/docsh.hxx	24 Jul 2007 21:36:57 -0000	1.40.18.4
+-@@ -365,7 +365,7 @@ public:
++diff -Naur sc.old/source/ui/inc/docsh.hxx sc/source/ui/inc/docsh.hxx
++--- sc.old/source/ui/inc/docsh.hxx	2008-10-05 16:47:33.000000000 +0100
+++++ sc/source/ui/inc/docsh.hxx	2008-10-05 16:48:24.000000000 +0100
++@@ -367,7 +367,7 @@
+  
+  	void			SetInplace( BOOL bInplace );
+  	BOOL			IsEmpty() const;
+@@ -3959,9 +4005,10 @@
+  
+  	BOOL			IsInUndo() const				{ return bIsInUndo; }
+  	void			SetInUndo(BOOL bSet);
+---- sc/source/ui/inc/viewdata.hxx	27 Feb 2007 13:28:47 -0000	1.20
+-+++ sc/source/ui/inc/viewdata.hxx	11 Jun 2007 08:57:35 -0000	1.20.18.2
+-@@ -95,6 +95,7 @@ class SfxDispatcher;
++diff -Naur sc.old/source/ui/inc/viewdata.hxx sc/source/ui/inc/viewdata.hxx
++--- sc.old/source/ui/inc/viewdata.hxx	2008-10-05 16:47:33.000000000 +0100
+++++ sc/source/ui/inc/viewdata.hxx	2008-10-05 16:48:24.000000000 +0100
++@@ -99,6 +99,7 @@
+  class ScPatternAttr;
+  class ScRangeListRef;
+  class ScExtDocOptions;
+@@ -3969,7 +4016,7 @@
+  
+  //--------------------------------------------------------------------------
+  
+-@@ -129,12 +129,15 @@ private:
++@@ -139,12 +140,15 @@
+  	BOOL			bOldCurValid;				// "virtuelle" Cursorpos. bei zusammengefassten
+  
+  					ScViewDataTable();
+@@ -3989,8 +4036,9 @@
+  };
+  
+  // ---------------------------------------------------------------------------
+---- sc/source/ui/unoobj/cellsuno.cxx	25 Jul 2007 09:14:56 -0000	1.107
+-+++ sc/source/ui/unoobj/cellsuno.cxx	22 Nov 2007 09:13:30 -0000	1.100.18.7
++diff -Naur sc.old/source/ui/unoobj/cellsuno.cxx sc/source/ui/unoobj/cellsuno.cxx
++--- sc.old/source/ui/unoobj/cellsuno.cxx	2008-10-05 16:47:44.000000000 +0100
+++++ sc/source/ui/unoobj/cellsuno.cxx	2008-10-05 16:48:24.000000000 +0100
+ @@ -91,6 +91,7 @@
+  #include "convuno.hxx"
+  #include "srchuno.hxx"
+@@ -3999,7 +4047,7 @@
+  #include "docsh.hxx"
+  #include "markdata.hxx"
+  #include "patattr.hxx"
+-@@ -4799,6 +4800,7 @@ uno::Any SAL_CALL ScCellRangeObj::queryI
++@@ -4807,6 +4808,7 @@
+  	SC_QUERYINTERFACE( table::XCellRange )
+  	SC_QUERYINTERFACE( sheet::XSheetCellRange )
+  	SC_QUERYINTERFACE( sheet::XArrayFormulaRange )
+@@ -4007,7 +4055,7 @@
+  	SC_QUERYINTERFACE( sheet::XCellRangeData )
+  	SC_QUERYINTERFACE( sheet::XCellRangeFormula )
+  	SC_QUERYINTERFACE( sheet::XMultipleOperation )
+-@@ -4836,24 +4838,25 @@ uno::Sequence<uno::Type> SAL_CALL ScCell
++@@ -4844,24 +4846,25 @@
+  		long nParentLen = aParentTypes.getLength();
+  		const uno::Type* pParentPtr = aParentTypes.getConstArray();
+  
+@@ -4047,7 +4095,7 @@
+  
+  		for (long i=0; i<nParentLen; i++)
+  			pPtr[i] = pParentPtr[i];				// parent types first
+-@@ -5102,7 +5105,7 @@ void SAL_CALL ScCellRangeObj::setArrayFo
++@@ -5110,7 +5113,7 @@
+  				throw uno::RuntimeException();
+  			}
+  
+@@ -4056,7 +4104,7 @@
+  		}
+  		else
+  		{
+-@@ -5115,6 +5118,72 @@ void SAL_CALL ScCellRangeObj::setArrayFo
++@@ -5123,6 +5126,72 @@
+  	}
+  }
+  
+@@ -4129,7 +4177,7 @@
+  // XCellRangeData
+  
+  uno::Sequence< uno::Sequence<uno::Any> > SAL_CALL ScCellRangeObj::getDataArray()
+-@@ -6022,6 +6091,7 @@ void ScCellObj::RefChanged()
++@@ -6030,6 +6099,7 @@
+  uno::Any SAL_CALL ScCellObj::queryInterface( const uno::Type& rType ) throw(uno::RuntimeException)
+  {
+  	SC_QUERYINTERFACE( table::XCell )
+@@ -4137,7 +4185,7 @@
+  	SC_QUERYINTERFACE( sheet::XCellAddressable )
+  	SC_QUERYINTERFACE( text::XText )
+  	SC_QUERYINTERFACE( text::XSimpleText )
+-@@ -6054,7 +6124,7 @@ uno::Sequence<uno::Type> SAL_CALL ScCell
++@@ -6062,7 +6132,7 @@
+  		long nParentLen = aParentTypes.getLength();
+  		const uno::Type* pParentPtr = aParentTypes.getConstArray();
+  
+@@ -4146,7 +4194,7 @@
+  		uno::Type* pPtr = aTypes.getArray();
+  		pPtr[nParentLen + 0] = getCppuType((const uno::Reference<table::XCell>*)0);
+  		pPtr[nParentLen + 1] = getCppuType((const uno::Reference<sheet::XCellAddressable>*)0);
+-@@ -6063,6 +6133,7 @@ uno::Sequence<uno::Type> SAL_CALL ScCell
++@@ -6071,6 +6141,7 @@
+  		pPtr[nParentLen + 4] = getCppuType((const uno::Reference<sheet::XSheetAnnotationAnchor>*)0);
+  		pPtr[nParentLen + 5] = getCppuType((const uno::Reference<text::XTextFieldsSupplier>*)0);
+  		pPtr[nParentLen + 6] = getCppuType((const uno::Reference<document::XActionLockable>*)0);
+@@ -4154,7 +4202,7 @@
+  
+  		for (long i=0; i<nParentLen; i++)
+  			pPtr[i] = pParentPtr[i];				// parent types first
+-@@ -6461,6 +6532,43 @@ sal_Int32 SAL_CALL ScCellObj::getError()
++@@ -6473,6 +6544,43 @@
+  	return nError;
+  }
+  
+@@ -4198,7 +4246,7 @@
+  // XCellAddressable
+  
+  table::CellAddress SAL_CALL ScCellObj::getCellAddress() throw(uno::RuntimeException)
+-@@ -6723,6 +6831,7 @@ uno::Any SAL_CALL ScTableSheetObj::query
++@@ -6735,6 +6843,7 @@
+  	SC_QUERYINTERFACE( sheet::XScenario )
+  	SC_QUERYINTERFACE( sheet::XScenarioEnhanced )
+  	SC_QUERYINTERFACE( sheet::XSheetLinkable )
+@@ -4206,7 +4254,7 @@
+  
+  	return ScCellRangeObj::queryInterface( rType );
+  }
+-@@ -6746,7 +6855,7 @@ uno::Sequence<uno::Type> SAL_CALL ScTabl
++@@ -6758,7 +6867,7 @@
+  		long nParentLen = aParentTypes.getLength();
+  		const uno::Type* pParentPtr = aParentTypes.getConstArray();
+  
+@@ -4215,7 +4263,7 @@
+  		uno::Type* pPtr = aTypes.getArray();
+  		pPtr[nParentLen + 0] = getCppuType((const uno::Reference<sheet::XSpreadsheet>*)0);
+  		pPtr[nParentLen + 1] = getCppuType((const uno::Reference<container::XNamed>*)0);
+-@@ -6764,6 +6873,7 @@ uno::Sequence<uno::Type> SAL_CALL ScTabl
++@@ -6776,6 +6885,7 @@
+  		pPtr[nParentLen +13] = getCppuType((const uno::Reference<sheet::XScenario>*)0);
+  		pPtr[nParentLen +14] = getCppuType((const uno::Reference<sheet::XScenarioEnhanced>*)0);
+  		pPtr[nParentLen +15] = getCppuType((const uno::Reference<sheet::XSheetLinkable>*)0);
+@@ -4223,7 +4271,7 @@
+  
+  		for (long i=0; i<nParentLen; i++)
+  			pPtr[i] = pParentPtr[i];				// parent types first
+-@@ -7561,7 +7671,7 @@ void SAL_CALL ScTableSheetObj::link( con
++@@ -7573,7 +7683,7 @@
+  
+  		//!	Undo fuer Link-Daten an der Table
+  
+@@ -4232,7 +4280,7 @@
+  		{
+  			//	Update immer, auch wenn der Link schon da war
+  			//!	Update nur fuer die betroffene Tabelle???
+-@@ -8021,6 +8131,29 @@ uno::Sequence< table::CellRangeAddress >
++@@ -8033,6 +8143,29 @@
+      return uno::Sequence< table::CellRangeAddress > ();
+  }
+  
+@@ -4262,9 +4310,10 @@
+  // XPropertySet erweitert fuer Sheet-Properties
+  
+  uno::Reference<beans::XPropertySetInfo> SAL_CALL ScTableSheetObj::getPropertySetInfo()
+---- sc/source/ui/unoobj/datauno.cxx	5 Mar 2007 14:45:54 -0000	1.28
+-+++ sc/source/ui/unoobj/datauno.cxx	6 Jul 2007 10:10:44 -0000	1.28.48.1
+-@@ -143,6 +143,7 @@ const SfxItemPropertyMap* lcl_GetDBRange
++diff -Naur sc.old/source/ui/unoobj/datauno.cxx sc/source/ui/unoobj/datauno.cxx
++--- sc.old/source/ui/unoobj/datauno.cxx	2008-10-05 16:47:44.000000000 +0100
+++++ sc/source/ui/unoobj/datauno.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -143,6 +143,7 @@
+          {MAP_CHAR_LEN(SC_UNONAME_MOVCELLS), 0,  &getBooleanCppuType(),                      0, 0},
+          {MAP_CHAR_LEN(SC_UNONAME_REFPERIOD), 0, &getCppuType((sal_Int32*)0),                0, 0},
+          {MAP_CHAR_LEN(SC_UNONAME_STRIPDAT), 0,  &getBooleanCppuType(),                      0, 0},
+@@ -4272,7 +4321,7 @@
+          {MAP_CHAR_LEN(SC_UNONAME_USEFLTCRT),0,  &getBooleanCppuType(),                      0, 0},
+          {0,0,0,0,0,0}
+  	};
+-@@ -2054,6 +2055,11 @@ uno::Any SAL_CALL ScDatabaseRangeObj::ge
++@@ -2062,6 +2063,11 @@
+          else if (aString.EqualsAscii( SC_UNONAME_CONRES ))
+          {
+          }
+@@ -4284,8 +4333,9 @@
+  	}
+  	return aRet;
+  }
+---- sc/source/ui/unoobj/docuno.cxx	22 May 2007 20:11:28 -0000	1.62
+-+++ sc/source/ui/unoobj/docuno.cxx	7 Dec 2007 09:26:11 -0000	1.59.16.9
++diff -Naur sc.old/source/ui/unoobj/docuno.cxx sc/source/ui/unoobj/docuno.cxx
++--- sc.old/source/ui/unoobj/docuno.cxx	2008-10-05 16:47:44.000000000 +0100
+++++ sc/source/ui/unoobj/docuno.cxx	2008-10-05 16:48:24.000000000 +0100
+ @@ -47,6 +47,7 @@
+  
+  #include <svtools/numuno.hxx>
+@@ -4294,7 +4344,7 @@
+  #include <sfx2/printer.hxx>
+  #include <sfx2/bindings.hxx>
+  #include <vcl/pdfextoutdevdata.hxx>
+-@@ -141,6 +142,12 @@ const SfxItemPropertyMap* lcl_GetDocOptP
++@@ -141,6 +142,12 @@
+          {MAP_CHAR_LEN(SC_UNO_REGEXENABLED),      0, &getBooleanCppuType(),                                    0, 0},
+          {MAP_CHAR_LEN(SC_UNO_RUNTIMEUID),        0, &getCppuType(static_cast< const rtl::OUString * >(0)),    beans::PropertyAttribute::READONLY, 0},
+          {MAP_CHAR_LEN(SC_UNO_HASVALIDSIGNATURES),0, &getBooleanCppuType(),                                    beans::PropertyAttribute::READONLY, 0},
+@@ -4307,7 +4357,7 @@
+          {MAP_CHAR_LEN("BuildId"),                0, &::getCppuType(static_cast< const rtl::OUString * >(0)), 0, 0},
+  
+          {0,0,0,0,0,0}
+-@@ -1345,6 +1352,38 @@ void SAL_CALL ScModelObj::setPropertyVal
++@@ -1368,6 +1375,38 @@
+  			if (pBindings)
+  				pBindings->Invalidate( SID_FM_AUTOCONTROLFOCUS );
+  		}
+@@ -4346,7 +4396,7 @@
+  		else if ( aString.EqualsAscii( "BuildId" ) )
+  		{
+  			aValue >>= maBuildId;
+-@@ -1480,6 +1519,32 @@ uno::Any SAL_CALL ScModelObj::getPropert
++@@ -1503,6 +1542,32 @@
+          {
+              aRet <<= hasValidSignatures();
+          }
+@@ -4379,8 +4429,9 @@
+          else if ( aString.EqualsAscii( "BuildId" ) )
+  		{
+  			aRet <<= maBuildId;
+---- sc/source/ui/unoobj/fmtuno.cxx	27 Feb 2007 13:45:20 -0000	1.14
+-+++ sc/source/ui/unoobj/fmtuno.cxx	9 Aug 2007 11:35:20 -0000	1.14.18.7
++diff -Naur sc.old/source/ui/unoobj/fmtuno.cxx sc/source/ui/unoobj/fmtuno.cxx
++--- sc.old/source/ui/unoobj/fmtuno.cxx	2008-10-05 16:47:44.000000000 +0100
+++++ sc/source/ui/unoobj/fmtuno.cxx	2008-10-05 16:48:24.000000000 +0100
+ @@ -53,6 +53,8 @@
+  #include "unoguard.hxx"
+  #include "unonames.hxx"
+@@ -4390,7 +4441,7 @@
+  
+  using namespace com::sun::star;
+  
+-@@ -153,14 +155,15 @@ ScTableConditionalFormat::ScTableConditi
++@@ -153,14 +155,15 @@
+  				USHORT nEntryCount = pFormat->Count();
+  				for (USHORT i=0; i<nEntryCount; i++)
+  				{
+@@ -4412,7 +4463,7 @@
+  				}
+  			}
+  		}
+-@@ -177,18 +180,31 @@ void ScTableConditionalFormat::FillForma
++@@ -177,18 +180,31 @@
+  	for (USHORT i=0; i<nCount; i++)
+  	{
+  		ScTableConditionalEntry* pEntry = (ScTableConditionalEntry*)aEntries.GetObject(i);
+@@ -4454,7 +4505,7 @@
+  	}
+  }
+  
+-@@ -200,12 +216,9 @@ ScTableConditionalFormat::~ScTableCondit
++@@ -200,12 +216,9 @@
+  		pEntry->release();
+  }
+  
+@@ -4469,7 +4520,7 @@
+  	pNew->acquire();
+  	aEntries.Insert( pNew, LIST_APPEND );
+  }
+-@@ -227,12 +240,8 @@ void SAL_CALL ScTableConditionalFormat::
++@@ -227,12 +240,8 @@
+  					throw(uno::RuntimeException)
+  {
+  	ScUnoGuard aGuard;
+@@ -4484,7 +4535,7 @@
+  
+  	const beans::PropertyValue* pPropArray = aConditionalEntry.getConstArray();
+  	long nPropCount = aConditionalEntry.getLength();
+-@@ -245,37 +254,49 @@ void SAL_CALL ScTableConditionalFormat::
++@@ -245,37 +254,49 @@
+  		{
+  			sheet::ConditionOperator eOper = (sheet::ConditionOperator)
+  							ScUnoHelpFunctions::GetEnumFromAny( rProp.Value );
+@@ -4540,7 +4591,7 @@
+  												aStrVal, SFX_STYLE_FAMILY_PARA );
+  		}
+  		else
+-@@ -285,7 +306,7 @@ void SAL_CALL ScTableConditionalFormat::
++@@ -285,7 +306,7 @@
+  		}
+  	}
+  
+@@ -4549,7 +4600,7 @@
+  	DataChanged();
+  }
+  
+-@@ -464,15 +485,9 @@ ScTableConditionalEntry::ScTableConditio
++@@ -464,15 +485,9 @@
+  }
+  
+  ScTableConditionalEntry::ScTableConditionalEntry( ScTableConditionalFormat* pPar,
+@@ -4567,7 +4618,7 @@
+  {
+  	if (pParent)
+  		pParent->acquire();
+-@@ -484,15 +499,9 @@ ScTableConditionalEntry::~ScTableConditi
++@@ -484,15 +499,9 @@
+  		pParent->release();
+  }
+  
+@@ -4585,7 +4636,7 @@
+  }
+  
+  // XSheetCondition
+-@@ -501,14 +510,14 @@ sheet::ConditionOperator SAL_CALL ScTabl
++@@ -501,14 +510,14 @@
+  												throw(uno::RuntimeException)
+  {
+  	ScUnoGuard aGuard;
+@@ -4602,7 +4653,7 @@
+  	if (pParent)
+  		pParent->DataChanged();
+  }
+-@@ -516,14 +525,14 @@ void SAL_CALL ScTableConditionalEntry::s
++@@ -516,14 +525,14 @@
+  rtl::OUString SAL_CALL ScTableConditionalEntry::getFormula1() throw(uno::RuntimeException)
+  {
+  	ScUnoGuard aGuard;
+@@ -4619,7 +4670,7 @@
+  	if (pParent)
+  		pParent->DataChanged();
+  }
+-@@ -531,14 +540,14 @@ void SAL_CALL ScTableConditionalEntry::s
++@@ -531,14 +540,14 @@
+  rtl::OUString SAL_CALL ScTableConditionalEntry::getFormula2() throw(uno::RuntimeException)
+  {
+  	ScUnoGuard aGuard;
+@@ -4636,7 +4687,7 @@
+  	if (pParent)
+  		pParent->DataChanged();
+  }
+-@@ -547,9 +556,9 @@ table::CellAddress SAL_CALL ScTableCondi
++@@ -547,9 +556,9 @@
+  {
+  	ScUnoGuard aGuard;
+  	table::CellAddress aRet;
+@@ -4649,7 +4700,7 @@
+  	return aRet;
+  }
+  
+-@@ -557,7 +566,7 @@ void SAL_CALL ScTableConditionalEntry::s
++@@ -557,7 +566,7 @@
+  											throw(uno::RuntimeException)
+  {
+  	ScUnoGuard aGuard;
+@@ -4658,7 +4709,7 @@
+  	if (pParent)
+  		pParent->DataChanged();
+  }
+-@@ -567,14 +576,14 @@ void SAL_CALL ScTableConditionalEntry::s
++@@ -567,14 +576,14 @@
+  rtl::OUString SAL_CALL ScTableConditionalEntry::getStyleName() throw(uno::RuntimeException)
+  {
+  	ScUnoGuard aGuard;
+@@ -4675,7 +4726,7 @@
+  	if (pParent)
+  		pParent->DataChanged();
+  }
+-@@ -629,6 +638,20 @@ ScValidationData* ScTableValidationObj::
++@@ -629,6 +638,20 @@
+  	pRet->SetIgnoreBlank(bIgnoreBlank);
+      pRet->SetListType(nShowList);
+  
+@@ -4696,7 +4747,7 @@
+  	// set strings for error / input even if disabled (and disable afterwards)
+  	pRet->SetInput( aInputTitle, aInputMessage );
+  	if (!bShowInput)
+-@@ -733,6 +756,40 @@ void SAL_CALL ScTableValidationObj::setS
++@@ -733,6 +756,40 @@
+  	DataChanged();
+  }
+  
+@@ -4737,9 +4788,10 @@
+  uno::Reference<beans::XPropertySetInfo> SAL_CALL ScTableValidationObj::getPropertySetInfo()
+  														throw(uno::RuntimeException)
+  {
+---- sc/source/ui/unoobj/funcuno.cxx	6 Jul 2007 12:45:57 -0000	1.18
+-+++ sc/source/ui/unoobj/funcuno.cxx	14 Aug 2007 18:32:03 -0000	1.18.10.1
+-@@ -331,14 +331,10 @@ BOOL lcl_AddFunctionToken( ScTokenArray&
++diff -Naur sc.old/source/ui/unoobj/funcuno.cxx sc/source/ui/unoobj/funcuno.cxx
++--- sc.old/source/ui/unoobj/funcuno.cxx	2008-10-05 16:47:44.000000000 +0100
+++++ sc/source/ui/unoobj/funcuno.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -331,14 +331,10 @@
+  	// same options as in ScCompiler::IsOpCode:
+  	// 1. built-in function name
+  
+@@ -4757,7 +4809,7 @@
+          return TRUE;
+      }
+  
+-@@ -521,11 +517,8 @@ uno::Any SAL_CALL ScFunctionAccess::call
++@@ -521,11 +517,8 @@
+  	if ( !pDoc->HasTable( nTempSheet ) )
+  		pDoc->MakeTable( nTempSheet );
+  
+@@ -4771,8 +4823,9 @@
+  
+  	//
+  	//	find function
+---- sc/source/ui/unoobj/linkuno.cxx	5 Mar 2007 14:46:55 -0000	1.16
+-+++ sc/source/ui/unoobj/linkuno.cxx	29 Nov 2007 12:07:55 -0000	1.16.48.2
++diff -Naur sc.old/source/ui/unoobj/linkuno.cxx sc/source/ui/unoobj/linkuno.cxx
++--- sc.old/source/ui/unoobj/linkuno.cxx	2008-10-05 16:47:44.000000000 +0100
+++++ sc/source/ui/unoobj/linkuno.cxx	2008-10-05 16:48:24.000000000 +0100
+ @@ -52,6 +52,7 @@
+  #include "unoguard.hxx"
+  #include "hints.hxx"
+@@ -4781,7 +4834,7 @@
+  
+  using namespace com::sun::star;
+  
+-@@ -1189,6 +1190,77 @@ void SAL_CALL ScDDELinkObj::removeRefres
++@@ -1189,6 +1190,77 @@
+  	}
+  }
+  
+@@ -4859,11 +4912,12 @@
+  void ScDDELinkObj::Refreshed_Impl()
+  {
+  	lang::EventObject aEvent;
+-@@ -1356,8 +1428,61 @@ sal_Bool SAL_CALL ScDDELinksObj::hasByNa
++@@ -1356,8 +1428,61 @@
+  	return FALSE;
+  }
+  
+ -//------------------------------------------------------------------------
++-
+ +// XDDELinks
+  
+ +uno::Reference< sheet::XDDELink > ScDDELinksObj::addDDELink(
+@@ -4873,7 +4927,7 @@
+ +{
+ +    ScUnoGuard aGuard;
+ +    uno::Reference< sheet::XDDELink > xLink;
+- 
+++
+ +    if ( pDocShell )
+ +    {
+ +        ScDocument* pDoc = pDocShell->GetDocument();
+@@ -4910,21 +4964,22 @@
+ +            }
+ +        }
+ +    }
+- 
+++
+ +    if ( !xLink.is() )
+ +    {
+ +        throw uno::RuntimeException( ::rtl::OUString( RTL_CONSTASCII_USTRINGPARAM(
+ +            "ScDDELinksObj::addDDELink: cannot add DDE link!" ) ),
+ +            uno::Reference< uno::XInterface >() );
+ +    }
+-+
++ 
+ +    return xLink;
+ +}
+  
+ +//------------------------------------------------------------------------
+---- sc/source/ui/unoobj/makefile.mk	22 May 2007 20:11:40 -0000	1.18
+-+++ sc/source/ui/unoobj/makefile.mk	29 May 2007 15:02:02 -0000	1.17.402.2
+-@@ -61,6 +61,7 @@ SLO1FILES =  \
++diff -Naur sc.old/source/ui/unoobj/makefile.mk sc/source/ui/unoobj/makefile.mk
++--- sc.old/source/ui/unoobj/makefile.mk	2008-10-05 16:47:44.000000000 +0100
+++++ sc/source/ui/unoobj/makefile.mk	2008-10-05 16:48:24.000000000 +0100
++@@ -61,6 +61,7 @@
+          $(SLO)$/defltuno.obj \
+          $(SLO)$/drdefuno.obj \
+          $(SLO)$/cellsuno.obj \
+@@ -4932,9 +4987,10 @@
+          $(SLO)$/textuno.obj \
+          $(SLO)$/notesuno.obj \
+          $(SLO)$/cursuno.obj \
+---- sc/source/ui/unoobj/nameuno.cxx	27 Feb 2007 13:46:17 -0000	1.16
+-+++ sc/source/ui/unoobj/nameuno.cxx	24 Jul 2007 09:07:20 -0000	1.16.18.4
+-@@ -52,6 +52,8 @@ using namespace ::com::sun::star;
++diff -Naur sc.old/source/ui/unoobj/nameuno.cxx sc/source/ui/unoobj/nameuno.cxx
++--- sc.old/source/ui/unoobj/nameuno.cxx	2008-10-05 16:47:44.000000000 +0100
+++++ sc/source/ui/unoobj/nameuno.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -52,6 +52,8 @@
+  #include "cellsuno.hxx"
+  #include "convuno.hxx"
+  #include "targuno.hxx"
+@@ -4943,7 +4999,7 @@
+  #include "docsh.hxx"
+  #include "docfunc.hxx"
+  #include "rangenam.hxx"
+-@@ -69,6 +71,7 @@ const SfxItemPropertyMap* lcl_GetNamedRa
++@@ -69,6 +71,7 @@
+  	{
+  		{MAP_CHAR_LEN(SC_UNO_LINKDISPBIT),	0,	&getCppuType((uno::Reference<awt::XBitmap>*)0),	beans::PropertyAttribute::READONLY, 0 },
+  		{MAP_CHAR_LEN(SC_UNO_LINKDISPNAME),	0,	&getCppuType((rtl::OUString*)0),				beans::PropertyAttribute::READONLY, 0 },
+@@ -4951,7 +5007,7 @@
+          {0,0,0,0,0,0}
+  	};
+  	return aNamedRangeMap_Impl;
+-@@ -137,7 +140,7 @@ ScRangeData* ScNamedRangeObj::GetRangeDa
++@@ -137,7 +140,7 @@
+  
+  // sheet::XNamedRange
+  
+@@ -4960,7 +5016,7 @@
+  									const ScAddress* pNewPos, const sal_uInt16* pNewType )
+  {
+  	if (pDocShell)
+-@@ -166,8 +169,11 @@ void ScNamedRangeObj::Modify_Impl( const
++@@ -166,8 +169,11 @@
+  				if (pNewType)
+  					nType = *pNewType;
+  
+@@ -4974,7 +5030,7 @@
+  				pNew->SetIndex( pOld->GetIndex() );
+  
+                  pNewRanges->AtFree( nPos );
+-@@ -202,7 +208,7 @@ void SAL_CALL ScNamedRangeObj::setName( 
++@@ -202,7 +208,7 @@
+  	//!	Formeln anpassen ?????
+  
+  	String aNewStr(aNewName);
+@@ -4983,7 +5039,7 @@
+  
+  	if ( aName != aNewStr )					// some error occured...
+  		throw uno::RuntimeException();		// no other exceptions specified
+-@@ -223,7 +229,7 @@ void SAL_CALL ScNamedRangeObj::setConten
++@@ -223,7 +229,7 @@
+  {
+  	ScUnoGuard aGuard;
+  	String aContStr(aContent);
+@@ -4992,7 +5048,7 @@
+  }
+  
+  table::CellAddress SAL_CALL ScNamedRangeObj::getReferencePosition()
+-@@ -257,7 +263,7 @@ void SAL_CALL ScNamedRangeObj::setRefere
++@@ -257,7 +263,7 @@
+  {
+  	ScUnoGuard aGuard;
+  	ScAddress aPos( (SCCOL)aReferencePosition.Column, (SCROW)aReferencePosition.Row, aReferencePosition.Sheet );
+@@ -5001,14 +5057,14 @@
+  }
+  
+  sal_Int32 SAL_CALL ScNamedRangeObj::getType() throw(uno::RuntimeException)
+-@@ -286,9 +292,34 @@ void SAL_CALL ScNamedRangeObj::setType( 
++@@ -286,9 +292,34 @@
+  	if ( nUnoType & sheet::NamedRangeFlag::COLUMN_HEADER )		nNewType |= RT_COLHEADER;
+  	if ( nUnoType & sheet::NamedRangeFlag::ROW_HEADER )			nNewType |= RT_ROWHEADER;
+  
+ -	Modify_Impl( NULL, NULL, NULL, &nNewType );
+ +	Modify_Impl( NULL, NULL, NULL, NULL, &nNewType );
+-+}
+-+
++ }
++ 
+ +// XFormulaTokens
+ +
+ +uno::Sequence<sheet::FormulaToken> SAL_CALL ScNamedRangeObj::getTokens() throw(uno::RuntimeException)
+@@ -5031,13 +5087,13 @@
+ +    ScTokenArray aTokenArray;
+ +    (void)ScTokenConversion::ConvertToTokenArray( aTokenArray, rTokens );
+ +    Modify_Impl( NULL, &aTokenArray, NULL, NULL, NULL );
+- }
+- 
+++}
+++
+ +
+  // XCellRangeSource
+  
+  uno::Reference<table::XCellRange> SAL_CALL ScNamedRangeObj::getReferredCells()
+-@@ -342,6 +373,13 @@ uno::Any SAL_CALL ScNamedRangeObj::getPr
++@@ -342,6 +373,13 @@
+  	}
+  	else if ( aString.EqualsAscii( SC_UNO_LINKDISPNAME ) )
+  		aRet <<= rtl::OUString( aName );
+@@ -5051,7 +5107,7 @@
+  	return aRet;
+  }
+  
+-@@ -654,6 +692,87 @@ sal_Bool SAL_CALL ScNamedRangesObj::hasB
++@@ -654,6 +692,87 @@
+  	return sal_False;
+  }
+  
+@@ -5139,8 +5195,9 @@
+  //------------------------------------------------------------------------
+  
+  ScLabelRangeObj::ScLabelRangeObj(ScDocShell* pDocSh, sal_Bool bCol, const ScRange& rR) :
+---- sc/source/ui/unoobj/servuno.cxx	22 May 2007 20:11:51 -0000	1.15
+-+++ sc/source/ui/unoobj/servuno.cxx	14 Aug 2007 18:32:03 -0000	1.14.192.3
++diff -Naur sc.old/source/ui/unoobj/servuno.cxx sc/source/ui/unoobj/servuno.cxx
++--- sc.old/source/ui/unoobj/servuno.cxx	2008-10-05 16:47:44.000000000 +0100
+++++ sc/source/ui/unoobj/servuno.cxx	2008-10-05 16:48:24.000000000 +0100
+ @@ -66,6 +66,7 @@
+  #include "celllistsource.hxx"
+  #include "addruno.hxx"
+@@ -5149,7 +5206,7 @@
+  
+  // #100263# Support creation of GraphicObjectResolver and EmbeddedObjectResolver
+  #ifndef _XMLEOHLP_HXX
+-@@ -125,7 +126,9 @@ static const sal_Char* __FAR_DATA aProvN
++@@ -125,7 +126,9 @@
+  
+          "com.sun.star.sheet.DocumentSettings",      // SC_SERVICE_SHEETDOCSET
+  
+@@ -5160,7 +5217,7 @@
+  	};
+  
+  //
+-@@ -175,7 +178,9 @@ static const sal_Char* __FAR_DATA aOldNa
++@@ -175,7 +178,9 @@
+  		"",											// SC_SERVICE_CELLADDRESS
+  		"",											// SC_SERVICE_RANGEADDRESS
+          "",                                         // SC_SERVICE_SHEETDOCSET
+@@ -5171,7 +5228,7 @@
+  	};
+  
+  
+-@@ -203,12 +208,15 @@ sal_uInt16 ScServiceProvider::GetProvide
++@@ -203,12 +208,15 @@
+  				return i;
+  
+  		for (i=0; i<SC_SERVICE_COUNT; i++)
+@@ -5187,7 +5244,7 @@
+  	return SC_SERVICE_INVALID;
+  }
+  
+-@@ -356,6 +364,15 @@ uno::Reference<uno::XInterface> ScServic
++@@ -356,6 +364,15 @@
+              if (pDocShell && pDocShell->GetDocument())
+                  xRet = *new ScChart2DataProvider( pDocShell->GetDocument() );
+              break;
+@@ -5203,8 +5260,9 @@
+  	}
+  	return xRet;
+  }
+---- sc/source/ui/unoobj/styleuno.cxx	10 May 2007 16:59:42 -0000	1.39
+-+++ sc/source/ui/unoobj/styleuno.cxx	22 Nov 2007 12:33:43 -0000	1.37.18.4
++diff -Naur sc.old/source/ui/unoobj/styleuno.cxx sc/source/ui/unoobj/styleuno.cxx
++--- sc.old/source/ui/unoobj/styleuno.cxx	2008-10-05 16:47:44.000000000 +0100
+++++ sc/source/ui/unoobj/styleuno.cxx	2008-10-05 16:48:24.000000000 +0100
+ @@ -82,6 +82,7 @@
+  #include "unonames.hxx"
+  #include "unowids.hxx"
+@@ -5213,7 +5271,7 @@
+  
+  using namespace ::com::sun::star;
+  
+-@@ -1269,7 +1270,7 @@ const SfxItemSet* ScStyleObj::GetStyleIt
++@@ -1269,7 +1270,7 @@
+  			}
+  		}
+  		pMap = SfxItemPropertyMap::GetByName( aPropSet.getPropertyMap(), rPropName );
+@@ -5222,7 +5280,7 @@
+  		{
+  			rpResultEntry = pMap;
+  			return &pStyle->GetItemSet();
+-@@ -1293,6 +1294,12 @@ beans::PropertyState SAL_CALL ScStyleObj
++@@ -1293,6 +1294,12 @@
+  	if ( pItemSet && pResultEntry )
+  	{
+  		USHORT nWhich = pResultEntry->nWID;
+@@ -5235,15 +5293,15 @@
+  		SfxItemState eState = pItemSet->GetItemState( nWhich, sal_False );
+  
+  //       //  if no rotate value is set, look at orientation
+-@@ -1309,6 +1316,7 @@ beans::PropertyState SAL_CALL ScStyleObj
+- 		else
++@@ -1311,6 +1318,7 @@
+  			DBG_ERROR("unbekannter ItemState");
++ 		}
+  	}
+ +	}
+  	return eRet;
+  }
+  
+-@@ -1356,6 +1364,8 @@ uno::Any SAL_CALL ScStyleObj::getPropert
++@@ -1358,6 +1366,8 @@
+  	{
+  		USHORT nWhich = pResultEntry->nWID;
+  
+@@ -5252,7 +5310,7 @@
+  		//	Default ist Default vom ItemPool, nicht vom Standard-Style,
+  		//	damit es zu setPropertyToDefault passt
+  		SfxItemSet aEmptySet( *pStyleSet->GetPool(), pStyleSet->GetRanges() );
+-@@ -1403,6 +1413,31 @@ uno::Any SAL_CALL ScStyleObj::getPropert
++@@ -1405,6 +1415,31 @@
+  				aAny = aPropSet.getPropertyValue( *pResultEntry, *pItemSet );
+  		}
+  	}
+@@ -5284,7 +5342,7 @@
+  	return aAny;
+  }
+  
+-@@ -1646,7 +1681,9 @@ void ScStyleObj::SetOnePropertyValue( co
++@@ -1648,7 +1683,9 @@
+  		{
+  			const SfxItemPropertyMap* pOwnMap =
+  					SfxItemPropertyMap::GetByName( aPropSet.getPropertyMap(), aString );
+@@ -5295,7 +5353,7 @@
+  			{
+  				if (pValue)
+  				{
+-@@ -1728,7 +1765,6 @@ void ScStyleObj::SetOnePropertyValue( co
++@@ -1730,7 +1767,6 @@
+                              break;
+  						case ATTR_PAGE_SCALE:
+  						case ATTR_PAGE_SCALETOPAGES:
+@@ -5303,7 +5361,7 @@
+  							{
+                                  rSet.ClearItem(ATTR_PAGE_SCALETOPAGES);
+                                  rSet.ClearItem(ATTR_PAGE_SCALE);
+-@@ -1738,11 +1774,18 @@ void ScStyleObj::SetOnePropertyValue( co
++@@ -1740,11 +1776,18 @@
+  								rSet.Put( SfxUInt16Item( pOwnMap->nWID, nVal ) );
+  							}
+  							break;
+@@ -5323,7 +5381,7 @@
+  								*pValue >>= bBool;
+  								//!	sal_Bool-MID fuer ScViewObjectModeItem definieren?
+  								rSet.Put( ScViewObjectModeItem( pOwnMap->nWID,
+-@@ -1820,6 +1863,32 @@ void ScStyleObj::SetOnePropertyValue( co
++@@ -1822,6 +1865,32 @@
+  					//!	for ATTR_ROTATE_VALUE, also reset ATTR_ORIENTATION?
+  				}
+  			}
+@@ -5356,7 +5414,7 @@
+  		}
+  
+  		//!	DocFunc-Funktion??
+-@@ -1864,6 +1933,8 @@ uno::Any SAL_CALL ScStyleObj::getPropert
++@@ -1866,6 +1935,8 @@
+  	{
+  		USHORT nWhich = pResultEntry->nWID;
+  
+@@ -5365,7 +5423,7 @@
+  		switch ( nWhich )		// fuer Item-Spezial-Behandlungen
+  		{
+  			case ATTR_VALUE_FORMAT:
+-@@ -1942,6 +2013,29 @@ uno::Any SAL_CALL ScStyleObj::getPropert
++@@ -1944,6 +2015,29 @@
+  					aAny = aPropSet.getPropertyValue( *pResultEntry, *pItemSet );
+  		}
+  	}
+@@ -5395,8 +5453,9 @@
+  	else if ( aString.EqualsAscii( SC_UNONAME_DISPNAME ) )		// read-only
+  	{
+  		//	core always has the display name
+---- /dev/null	1 Jan 1970 00:00:00 -0000
+-+++ sc/source/ui/unoobj/tokenuno.cxx	30 Aug 2007 09:22:54 -0000	1.1.2.7
++diff -Naur sc.old/source/ui/unoobj/tokenuno.cxx sc/source/ui/unoobj/tokenuno.cxx
++--- sc.old/source/ui/unoobj/tokenuno.cxx	1970-01-01 01:00:00.000000000 +0100
+++++ sc/source/ui/unoobj/tokenuno.cxx	2008-10-05 16:48:24.000000000 +0100
+ @@ -0,0 +1,547 @@
+ +/*************************************************************************
+ + *
+@@ -5945,8 +6004,9 @@
+ +        throw lang::IllegalArgumentException();
+ +    return xMap->createSequenceOfAvailableMappings( nGroups);
+ +}
+---- sc/source/ui/view/auditsh.cxx	21 Jul 2006 14:50:46 -0000	1.5
+-+++ sc/source/ui/view/auditsh.cxx	8 May 2007 16:08:31 -0000	1.5.194.2
++diff -Naur sc.old/source/ui/view/auditsh.cxx sc/source/ui/view/auditsh.cxx
++--- sc.old/source/ui/view/auditsh.cxx	2008-10-05 16:47:42.000000000 +0100
+++++ sc/source/ui/view/auditsh.cxx	2008-10-05 16:48:24.000000000 +0100
+ @@ -51,6 +51,7 @@
+  #include "tabvwsh.hxx"
+  #include "scresid.hxx"
+@@ -5955,7 +6015,7 @@
+  
+  //------------------------------------------------------------------------
+  
+-@@ -75,7 +76,12 @@ ScAuditingShell::ScAuditingShell(ScViewD
++@@ -75,7 +76,12 @@
+  	nFunction( SID_FILL_ADD_PRED )
+  {
+  	SetPool( &pViewData->GetViewShell()->GetPool() );
+@@ -5969,9 +6029,10 @@
+  	SetHelpId( HID_SCSHELL_AUDIT );
+  	SetName(String::CreateFromAscii(RTL_CONSTASCII_STRINGPARAM("Auditing")));
+  }
+---- sc/source/ui/view/formatsh.cxx	18 Jul 2007 09:45:01 -0000	1.36
+-+++ sc/source/ui/view/formatsh.cxx	24 Jul 2007 21:45:28 -0000	1.33.18.5
+-@@ -180,7 +180,12 @@ ScFormatShell::ScFormatShell(ScViewData*
++diff -Naur sc.old/source/ui/view/formatsh.cxx sc/source/ui/view/formatsh.cxx
++--- sc.old/source/ui/view/formatsh.cxx	2008-10-05 16:47:42.000000000 +0100
+++++ sc/source/ui/view/formatsh.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -181,7 +181,12 @@
+  	ScTabViewShell*	pTabViewShell = GetViewData()->GetViewShell();
+  
+  	SetPool( &pTabViewShell->GetPool() );
+@@ -5985,9 +6046,10 @@
+  	SetHelpId(HID_SCSHELL_FORMATSH);
+  	SetName(String::CreateFromAscii(RTL_CONSTASCII_STRINGPARAM("Format")));
+  }
+---- sc/source/ui/view/gridwin.cxx	27 Sep 2007 13:56:11 -0000	1.85
+-+++ sc/source/ui/view/gridwin.cxx	4 Oct 2007 09:22:56 -0000	1.82.12.2
+-@@ -3798,7 +3798,7 @@ sal_Int8 ScGridWindow::DropTransferObj( 
++diff -Naur sc.old/source/ui/view/gridwin.cxx sc/source/ui/view/gridwin.cxx
++--- sc.old/source/ui/view/gridwin.cxx	2008-10-05 16:47:41.000000000 +0100
+++++ sc/source/ui/view/gridwin.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -3989,7 +3989,7 @@
+  
+                      //!	use tokens
+                      String aFormula( '=' );
+@@ -5996,9 +6058,10 @@
+                      aFormula.AppendAscii(RTL_CONSTASCII_STRINGPARAM("(\""));
+                      aFormula += aApp;
+                      aFormula.AppendAscii(RTL_CONSTASCII_STRINGPARAM("\";\""));
+---- sc/source/ui/view/pgbrksh.cxx	21 Jul 2006 15:06:15 -0000	1.4
+-+++ sc/source/ui/view/pgbrksh.cxx	8 May 2007 16:12:56 -0000	1.4.194.2
+-@@ -74,7 +74,13 @@ ScPageBreakShell::ScPageBreakShell( ScTa
++diff -Naur sc.old/source/ui/view/pgbrksh.cxx sc/source/ui/view/pgbrksh.cxx
++--- sc.old/source/ui/view/pgbrksh.cxx	2008-10-05 16:47:42.000000000 +0100
+++++ sc/source/ui/view/pgbrksh.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -74,7 +74,13 @@
+  	SfxShell(pViewSh)
+  {
+  	SetPool( &pViewSh->GetPool() );
+@@ -6013,9 +6076,10 @@
+  	SetHelpId( HID_SCSHELL_PAGEBREAK );
+  	SetName(String::CreateFromAscii(RTL_CONSTASCII_STRINGPARAM("PageBreak")));
+  }
+---- sc/source/ui/view/pivotsh.cxx	26 Apr 2007 09:57:21 -0000	1.8
+-+++ sc/source/ui/view/pivotsh.cxx	8 May 2007 16:13:27 -0000	1.7.194.3
+-@@ -83,7 +83,13 @@ ScPivotShell::ScPivotShell( ScTabViewShe
++diff -Naur sc.old/source/ui/view/pivotsh.cxx sc/source/ui/view/pivotsh.cxx
++--- sc.old/source/ui/view/pivotsh.cxx	2008-10-05 16:47:41.000000000 +0100
+++++ sc/source/ui/view/pivotsh.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -89,7 +89,13 @@
+  	pViewShell( pViewSh )
+  {
+  	SetPool( &pViewSh->GetPool() );
+@@ -6030,9 +6094,10 @@
+  	SetHelpId( HID_SCSHELL_PIVOTSH );
+  	SetName(String::CreateFromAscii(RTL_CONSTASCII_STRINGPARAM("Pivot")));
+  }
+---- sc/source/ui/view/tabvwsh4.cxx	17 Jul 2007 13:35:24 -0000	1.68
+-+++ sc/source/ui/view/tabvwsh4.cxx	24 Jul 2007 21:48:04 -0000	1.64.18.5
+-@@ -1163,7 +1163,15 @@ void ScTabViewShell::SetDrawTextUndo( Sf
++diff -Naur sc.old/source/ui/view/tabvwsh4.cxx sc/source/ui/view/tabvwsh4.cxx
++--- sc.old/source/ui/view/tabvwsh4.cxx	2008-10-05 16:47:41.000000000 +0100
+++++ sc/source/ui/view/tabvwsh4.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -1163,7 +1163,15 @@
+  		pNewUndoMgr = GetViewData()->GetDocShell()->GetUndoManager();
+  
+  	if (pDrawTextShell)
+@@ -6046,9 +6111,9 @@
+ +        }
+ +    }
+  	else
++ 	{
+  		DBG_ERROR("SetDrawTextUndo ohne DrawTextShell");
+- }
+-@@ -1802,8 +1810,13 @@ void ScTabViewShell::Construct( BYTE nFo
++@@ -1804,8 +1812,13 @@
+  		MakeDrawView( nForceDesignMode );
+  	ViewOptionsHasChanged(FALSE);	// legt auch evtl. DrawView an
+  
+@@ -6064,7 +6129,7 @@
+  	SetRepeatTarget( &aTarget );
+  	pFormShell->SetRepeatTarget( &aTarget );
+  	SetHelpId( HID_SCSHELL_TABVWSH );
+-@@ -1824,7 +1837,7 @@ void ScTabViewShell::Construct( BYTE nFo
++@@ -1826,7 +1839,7 @@
+  					pDoc->MakeTable(i);
+  			}
+  
+@@ -6073,9 +6138,10 @@
+  		}
+  
+  		// ReadExtOptions is now in Activate
+---- sc/source/ui/view/viewdata.cxx	10 May 2007 17:03:57 -0000	1.59
+-+++ sc/source/ui/view/viewdata.cxx	27 Nov 2007 15:06:54 -0000	1.59.16.4
+-@@ -173,51 +173,11 @@ ScViewDataTable::ScViewDataTable() :
++diff -Naur sc.old/source/ui/view/viewdata.cxx sc/source/ui/view/viewdata.cxx
++--- sc.old/source/ui/view/viewdata.cxx	2008-10-05 16:47:41.000000000 +0100
+++++ sc/source/ui/view/viewdata.cxx	2008-10-05 16:56:48.000000000 +0100
++@@ -133,51 +133,11 @@
+  	nPixPosY[0]=nPixPosY[1]=0;
+  }
+  
+@@ -6128,7 +6194,7 @@
+  {
+  	rSettings.realloc(SC_TABLE_VIEWSETTINGS_COUNT);
+  	beans::PropertyValue* pSettings = rSettings.getArray();
+-@@ -223,16 +188,19 @@ void ScViewDataTable::WriteUserDataSeque
++@@ -223,8 +183,7 @@
+  	}
+  }
+  
+@@ -6138,8 +6204,7 @@
+  {
+      rHasZoom = false;
+  
+- 	sal_Int32 nCount(aSettings.getLength());
+- 	sal_Int32 nTemp32(0);
++@@ -233,6 +192,10 @@
+  	sal_Int16 nTemp16(0);
+  	sal_Int32 nTempPosV(0);
+  	sal_Int32 nTempPosH(0);
+@@ -6150,7 +6215,7 @@
+  	for (sal_Int32 i = 0; i < nCount; i++)
+  	{
+  		rtl::OUString sName(aSettings[i].Name);
+-@@ -259,10 +229,22 @@ void ScViewDataTable::ReadUserDataSequen
++@@ -259,10 +222,22 @@
+  		else if (sName.compareToAscii(SC_HORIZONTALSPLITPOSITION) == 0)
+  		{
+  			aSettings[i].Value >>= nTempPosH;
+@@ -6173,10 +6238,10 @@
+  		}
+  		else if (sName.compareToAscii(SC_ACTIVESPLITRANGE) == 0)
+  		{
+-@@ -289,15 +271,23 @@ void ScViewDataTable::ReadUserDataSequen
+- 			aSettings[i].Value >>= nTemp32;
+- 			nPosY[SC_SPLIT_BOTTOM] = static_cast<SCROW>(nTemp32);
+- 		}
++@@ -309,15 +284,23 @@
++             aPageZoomX = aPageZoomY = aZoom;
++             rHasZoom = true;
++         }
+ +        else if (sName.compareToAscii(SC_TABLESELECTED) == 0)
+ +        {
+ +            bool bSelected = false;
+@@ -6187,21 +6252,21 @@
+ +
+  	if (eHSplitMode == SC_SPLIT_FIX)
+ -		nFixPosX = SanitizeCol( static_cast<SCCOL>(nTempPosH));
+-+        nFixPosX = SanitizeCol( static_cast< SCCOL >( bHasHSplitInTwips ? nTempPosHTw : nTempPosH ));
+++		nFixPosX = SanitizeCol( static_cast< SCCOL >( bHasHSplitInTwips ? nTempPosHTw : nTempPosH ));
+  	else
+ -		nHSplitPos = nTempPosH;
+-+        nHSplitPos = bHasHSplitInTwips ? static_cast< long >( nTempPosHTw * rViewData.GetPPTX() ) : nTempPosH;
+++		nHSplitPos = bHasHSplitInTwips ? static_cast< long >( nTempPosHTw * rViewData.GetPPTX() ) : nTempPosH;
+ +
+  	if (eVSplitMode == SC_SPLIT_FIX)
+ -		nFixPosY = SanitizeRow( static_cast<SCROW>(nTempPosV));
+-+        nFixPosY = SanitizeRow( static_cast< SCROW >( bHasVSplitInTwips ? nTempPosVTw : nTempPosV ));
+++		nFixPosY = SanitizeRow( static_cast< SCROW >( bHasVSplitInTwips ? nTempPosVTw : nTempPosV ));
+  	else
+ -		nVSplitPos = nTempPosV;
+-+        nVSplitPos = bHasVSplitInTwips ? static_cast< long >( nTempPosVTw * rViewData.GetPPTY() ) : nTempPosV;
+++		nVSplitPos = bHasVSplitInTwips ? static_cast< long >( nTempPosVTw * rViewData.GetPPTY() ) : nTempPosV;
+  }
+  
+  //==================================================================
+-@@ -2678,7 +2668,7 @@ void ScViewData::WriteUserDataSequence(u
++@@ -2702,7 +2685,7 @@
+  					if (pTabData[nTab])
+  					{
+  						uno::Sequence <beans::PropertyValue> aTableViewSettings;
+@@ -6210,7 +6275,7 @@
+  						String sTabName;
+  						GetDocument()->GetName( nTab, sTabName );
+  						rtl::OUString sOUName(sTabName);
+-@@ -2794,7 +2784,7 @@ void ScViewData::ReadUserDataSequence(co
++@@ -2818,7 +2801,7 @@
+  						{
+  							pTabData[nTab] = new ScViewDataTable;
+                              bool bHasZoom = false;
+@@ -6219,7 +6284,7 @@
+                              aHasZoomVect[nTab] = bHasZoom;
+  						}
+  					}
+-@@ -2817,6 +2807,12 @@ void ScViewData::ReadUserDataSequence(co
++@@ -2841,6 +2824,12 @@
+  			if (rSettings[i].Value >>= nTemp32)
+  				pView->SetTabBarWidth(nTemp32);
+  		}
+@@ -6232,7 +6297,7 @@
+  		else if (sName.compareToAscii(SC_ZOOMTYPE) == 0)
+  		{
+  			if (rSettings[i].Value >>= nTemp16)
+-@@ -2853,6 +2849,9 @@ void ScViewData::ReadUserDataSequence(co
++@@ -2877,6 +2866,9 @@
+  			{
+  				String aColorName;
+  				Color aColor(static_cast<sal_uInt32>(nColor));
+@@ -6242,7 +6307,7 @@
+  				pOptions->SetGridColor(aColor, aColorName);
+  			}
+  		}
+-@@ -2864,6 +2863,24 @@ void ScViewData::ReadUserDataSequence(co
++@@ -2888,6 +2880,24 @@
+  			pOptions->SetOption(VOPT_TABCONTROLS, ScUnoHelpFunctions::GetBoolFromAny( rSettings[i].Value ) );
+  		else if ( sName.compareToAscii( SC_UNO_OUTLSYMB ) == 0 )
+  			pOptions->SetOption(VOPT_OUTLINER, ScUnoHelpFunctions::GetBoolFromAny( rSettings[i].Value ) );
+@@ -6267,9 +6332,10 @@
+  		else
+  		{
+  			ScGridOptions aGridOpt(pOptions->GetGridOptions());
+---- sc/source/ui/view/viewfun5.cxx	26 Apr 2007 09:58:50 -0000	1.49
+-+++ sc/source/ui/view/viewfun5.cxx	14 Aug 2007 18:32:03 -0000	1.49.8.1
+-@@ -730,15 +730,9 @@ BOOL ScViewFunc::PasteDDE( const uno::Re
++diff -Naur sc.old/source/ui/view/viewfun5.cxx sc/source/ui/view/viewfun5.cxx
++--- sc.old/source/ui/view/viewfun5.cxx	2008-10-05 16:47:41.000000000 +0100
+++++ sc/source/ui/view/viewfun5.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -724,15 +724,9 @@
+      String aTopic( aByteTopic, eSysEnc );
+      String aItem( aByteItem, eSysEnc );
+  
+@@ -6286,9 +6352,10 @@
+  	aFormula.AppendAscii(RTL_CONSTASCII_STRINGPARAM("(\""));
+  	aFormula += aApp;
+  	aFormula.AppendAscii(RTL_CONSTASCII_STRINGPARAM("\";\""));
+---- sc/source/ui/view/viewfunc.cxx	10 May 2007 17:04:32 -0000	1.37
+-+++ sc/source/ui/view/viewfunc.cxx	28 Jun 2007 15:47:36 -0000	1.37.16.1
+-@@ -849,7 +849,7 @@ void ScViewFunc::EnterMatrix( const Stri
++diff -Naur sc.old/source/ui/view/viewfunc.cxx sc/source/ui/view/viewfunc.cxx
++--- sc.old/source/ui/view/viewfunc.cxx	2008-10-05 16:47:41.000000000 +0100
+++++ sc/source/ui/view/viewfunc.cxx	2008-10-05 16:48:24.000000000 +0100
++@@ -887,7 +887,7 @@
+  	if (pData->GetSimpleArea(aRange))
+  	{
+  		ScDocShell* pDocSh = pData->GetDocShell();
+diff -Naur ooo-build-2.4.1.10.old/patches/src680/apply ooo-build-2.4.1.10/patches/src680/apply
+--- ooo-build-2.4.1.10.old/patches/src680/apply	2008-09-16 10:53:38.000000000 +0100
++++ ooo-build-2.4.1.10/patches/src680/apply	2008-10-06 01:18:07.000000000 +0100
+@@ -75,6 +75,9 @@
+ # DroplineGNOME
+ DroplineGNOME : LinuxCommon, DroplineGNOMEOnly, NotDebian, Mono, msaccess
+ DroplineGNOME64 : LinuxCommon, DroplineGNOMEOnly, NotDebian, Mono, msaccess
++# GNOMESlackBuild
++GNOMESlackBuild : LinuxCommon, GNOMESlackBuildOnly, NotDebian, Mono, msaccess, CairoFonts
++GNOMESlackBuild64 : LinuxCommon, GNOMESlackBuildOnly, NotDebian, Mono, msaccess, CairoFonts
+ # Ark Linux
+ Ark: LinuxCommon, NotDebian, ArkOnly, BerkeleyDB43, Gcc43
+ # www.pld-linux.org
+@@ -997,6 +1000,12 @@
+ pushfont-psstream.diff, i#84481
+ scp2-user-config-ooo-2.0.diff
+ 
++[ GNOMESlackBuildOnly ]
++SectionOwner => GNOMESlackBuild
++
++pushfont-psstream.diff, i#84481
++scp2-user-config-ooo-2.0.diff
++
+ 
+ [ MandrivaOnly ]
+ SectionOwner => gghibo

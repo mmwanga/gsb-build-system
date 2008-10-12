@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.4.1.7
+VERSION=2.4.1.10
 
 ## List any packages here that are required to build this package.
 ## We build with mono/java support on x86.  x86_64 does not yet support
@@ -174,7 +174,6 @@ cp $CWD/patches/GNOMESlackBuild* ./distro-configs || exit 1
 if [ -f $CWD/patches/addgsb-$VERSION.patch ] ;
 then 
   patch -p1 < $CWD/patches/addgsb-$VERSION.patch 
-  patch -p1 < $CWD/patches/apply-$VERSION.patch 
 else
   echo "Need to patch for gsb configure." && exit 1
 fi;
