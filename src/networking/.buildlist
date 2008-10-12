@@ -10,9 +10,11 @@ telepathy-gabble
 telepathy-salut
 empathy
 balsa
-sylpheed
 deluge
 ekiga
+gnome-user-share
 NetworkManager
 network-manager-applet
 NetworkManager-vpn
+sylpheed
+gnome-phone-manager

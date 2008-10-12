@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=svn_3655
+BUILD=1
+VERSION=svn_4152
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -167,30 +167,7 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
   mv -f /usr/share/aclocal/pilot-link.m4 /usr/share/aclocal/pilot-link.m4.old
 }
 
-##
-## This skirts an issue with dbus-glib <= 0.74 not supporting namespaces properly
-## Cf: http://mail.gnome.org/archives/networkmanager-list/2008-March/msg00003.html
-echo "WARNING: Fixing namespaces for $VERSION" ;
-cp $CWD/spec-to-introspect.xsl .
-mkdir introspection-dirty
-mv -f introspection/nm-*.xml introspection-dirty
-for i in introspection-dirty/*.xml
-do
-  xsltproc spec-to-introspect.xsl $i \
-  | perl -pe '$$hash = chr(35);s{xmlns:tp="http://telepathy\.freedesktop\.org/wiki/DbusSpec$${hash}extensions-v0"} {}g' \
-  >  introspection/$(basename $i)
-done
-
-mkdir callouts-dirty
-mv -f callouts/nm-*.xml callouts-dirty
-for i in callouts-dirty/*.xml
-do
-  xsltproc spec-to-introspect.xsl $i \
-  | perl -pe '$$hash = chr(35);s{xmlns:tp="http://telepathy\.freedesktop\.org/wiki/DbusSpec$${hash}extensions-v0"} {}g' \
-  >  callouts/$(basename $i)
-  echo "Cleaned $i for namespaces."
-done
-
+# Configure
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
@@ -201,20 +178,22 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --with-ip=/sbin/ip \
   --with-dbus-sys=/etc/dbus-1/system.d \
   --enable-notification-icon \
+  --with-dhcp-client=/sbin/dhcpcd \
+  --with-crypto=nss \
+  --with-docs \
   || exit 1
 
 make -j4 
 
 ## We use the NetworkManager tree, but we only need to build from
 ## within the vpn-daemons tree for the extentions.
-
 (
 cd vpn-daemons ;
 
 ## We could also add in 'pptp' but it is not yet updated to the newer networkmanager
 ## API
-#for i in pptp openvpn vpnc ;
-for i in openvpn vpnc ;
+#for i in openvpn vpnc ;
+for i in pptp openvpn vpnc ;
 
 do 
 
@@ -224,7 +203,7 @@ cd $i
 
 echo "*** Building $i ***"
 
-## Configure.
+## Configure plugins
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
@@ -234,6 +213,9 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --with-ip=/sbin/ip \
   --with-dbus-sys=/etc/dbus-1/system.d \
   --enable-notification-icon \
+  --with-dhcp-client=/sbin/dhcpcd \
+  --with-crypto=nss \
+  --with-docs \
   || exit 1
 
 ## Build and install.

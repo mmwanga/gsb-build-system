@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.3.25
+VERSION=2.3.26
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 glib2 gmime openssl sqlite3 libnotify openldap-client gpgme libgnomeui gtkspell gtkhtml gtksourceview2 libesmtp"
+REQUIRED_PACKAGES="gtk+2 glib2 gmime openssl sqlite3 libnotify openldap-client gpgme libgnomeui gtkspell gtkhtml gtksourceview2 libesmtp gtkspell aspell libgnomeprintui"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -114,6 +114,9 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
+## Remove deprecated checks
+patch -p1 < $CWD/patches/balsa.deprecated.patch || exit 1
+
 ## Fix permissions for building.
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
@@ -168,6 +171,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-pcre \
   --enable-smime \
   --enable-threads \
+  --with-gtkspell \
   || exit 1
 
 ## Build and install.

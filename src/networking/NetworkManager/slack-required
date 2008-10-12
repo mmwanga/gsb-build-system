@@ -1,3 +1,4 @@
+GConf
 libnl
 libgcrypt
 wpa_supplicant
@@ -11,5 +12,7 @@ gnome-keyring
 wireless-tools
 glib2
 iproute2
-GConf
 ppp
+policykit-gnome
+dhcpcd
+nss

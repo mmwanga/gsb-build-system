@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=svn_718
+VERSION=svn_929
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gnome-panel NetworkManager glib2 gtk+2 libglade GConf gnome-keyring libnotify libgnomeui wireless-tools"
+REQUIRED_PACKAGES="GConf gnome-panel NetworkManager glib2 gtk+2 libglade GConf gnome-keyring libnotify libgnomeui wireless-tools"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -187,8 +187,11 @@ make DESTDIR=$PKG install || exit 1
 ## Preserve previous settings
 mv $PKG/etc/dbus-1/system.d/nm-applet.conf $PKG/etc/dbus-1/system.d/nm-applet.conf
 mkdir -p $PKG/usr/share/applications
-# Disable nm-applet autostart
-mv $PKG/etc/xdg/autostart/nm-applet.desktop $PKG/usr/share/applications
+# Enable nm-applet autostart for GNOME
+mkdir -p $PKG/usr/share/gnome/autostart &&
+  mv $PKG/etc/xdg/autostart/nm-applet.desktop $PKG/usr/share/gnome/autostart || exit 1
+rm -fr $PKG/etc/xdg
+
 # Place it in the networking menu
 echo "Categories=Network" >> $PKG/usr/share/applications/nm-applet.desktop 
 

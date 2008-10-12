@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=svn_3655
+BUILD=1
+VERSION=svn_4152
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libnl wpa_supplicant libgcrypt dbus hal gtk+2 libglade gnome-keyring libgnomeui gnome-keyring wireless-tools glib2 iproute2 GConf gnome-common ppp perl"
+REQUIRED_PACKAGES="libnl wpa_supplicant libgcrypt dbus hal gtk+2 libglade gnome-keyring libgnomeui gnome-keyring wireless-tools glib2 iproute2 GConf gnome-common ppp perl policykit-gnome dhcpcd nss"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -171,14 +171,6 @@ sed -i configure.in -e 's/-Werror//g' || exit 1
   mv -f /usr/share/aclocal/pilot-link.m4 /usr/share/aclocal/pilot-link.m4.old
 }
 
-## Fix for svn r3217
-## pptp vpn-daemon has faulty configure.in which needs to be
-## refreshed before we start autogen for the whole tree.
-#echo "${0##*/}: Warning: Apply autoconf fix for r3217."
-#sed -i ./vpn-daemons/pptp/configure.in -e 's/AC\_OUTPUT//g' || exit 1
-#sed -i ./vpn-daemons/pptp/configure.in -e 's/AC\_CONFIG\_FILES/AC\_OUTPUT/g' || exit 1
-#cd vpn-daemons/pptp && NOCONFIGURE=1 ./autogen.sh || exit 1;
-
 ## Configure.
 cd $TMP/$PKGNAME-$VERSION &&
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
@@ -191,41 +183,18 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --with-ip=/sbin/ip \
   --with-dbus-sys=/etc/dbus-1/system.d \
   --enable-notification-icon \
+  --with-dhcp-client=/sbin/dhcpcd \
+  --with-crypto=nss \
+  --with-docs \
   || exit 1
-
-##
-## This skirts an issue with dbus-glib <= 0.74 not supporting namespaces properly
-## Cf: http://mail.gnome.org/archives/networkmanager-list/2008-March/msg00003.html
-echo
-echo "WARNING: Fixing namespaces for $VERSION" ;
-cp $CWD/spec-to-introspect.xsl .
-mkdir introspection-dirty
-mv -f introspection/nm-*.xml introspection-dirty
-for i in introspection-dirty/*.xml
-do
-  xsltproc spec-to-introspect.xsl $i \
-  | perl -pe '$$hash = chr(35);s{xmlns:tp="http://telepathy\.freedesktop\.org/wiki/DbusSpec$${hash}extensions-v0"} {}g' \
-  >  introspection/$(basename $i)
-  echo "Cleaned $i for namespaces."
-done
-
-mkdir callouts-dirty
-mv -f callouts/nm-*.xml callouts-dirty
-for i in callouts-dirty/*.xml
-do
-  xsltproc spec-to-introspect.xsl $i \
-  | perl -pe '$$hash = chr(35);s{xmlns:tp="http://telepathy\.freedesktop\.org/wiki/DbusSpec$${hash}extensions-v0"} {}g' \
-  >  callouts/$(basename $i)
-  echo "Cleaned $i for namespaces."
-done
 
 ## Build and install.
 make &&
 make DESTDIR=$PKG install || exit 1
 
 ## Add wpa_supplicant dbus support
-mkdir -p $PKG/usr/share/dbus-1/services &&
-cp $CWD/fi.epitest.hostap.WPASupplicant.service $PKG/usr/share/dbus-1/services || exit 1
+#mkdir -p $PKG/usr/share/dbus-1/services &&
+#cp $CWD/fi.epitest.hostap.WPASupplicant.service $PKG/usr/share/dbus-1/services || exit 1
 
 ## Restore pilot-link.m4
 [ -f /usr/share/aclocal/pilot-link.m4.old ] && {
@@ -247,13 +216,11 @@ if [ "$ARCH" = "x86_64" ]; then
 fi;
 
 ## Preserve previous settings
-rm $PKG/etc/rc.d/rc.networkmanager &&
-cp $CWD/rc.networkmanager $PKG/etc/rc.d/rc.networkmanager.new || exit 1
-#mv $PKG/etc/rc.d/rc.networkmanager-dispatcher $PKG/etc/rc.d/rc.networkmanager-dispatcher.new || exit 1
+mv $PKG/etc/rc.d/rc.networkmanager $PKG/etc/rc.d/rc.networkmanager.new || exit 1
 
 ## Fix for Slackware non-PAM system.
 ## Users now can add themselves to the "netdev" group to use networkmanager.
-sed -i "s/at_console=\"true\"/group=\"netdev\"/g" $PKG/etc/dbus-1/system.d/NetworkManager.conf
+sed -i "s/at_console=\"true\"/group=\"netdev\"/g" $PKG/etc/dbus-1/system.d/NetworkManager.conf || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

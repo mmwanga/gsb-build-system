@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=2.0.12
+BUILD=1
+VERSION=3.0.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="rarian esound pwlib opal sdl dbus avahi pango cairo glib2 gtk+2 gnome-vfs gnome-keyring atk libbonobo libbonoboui ORBit2 GConf evolution-data-server libgnomeui"
+REQUIRED_PACKAGES="rarian esound ptlib opal sdl dbus avahi pango cairo glib2 gtk+2 gnome-vfs gnome-keyring atk libbonobo libbonoboui ORBit2 GConf evolution-data-server libgnomeui"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -158,12 +158,23 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
+  --disable-scrollkeeper \
+  --disable-static \
+  --enable-shared \
+  --disable-debug \
+  --enable-gdu \
+  --enable-avahi \
+  --enable-dbus-service \
+  --enable-ldap \
+  --enable-xv \
+  --enable-notify \
+  --enable-eds \
   --program-prefix="" \
   --enable-dbus \
   --enable-gnome \
+  --enable-gconf \
   || exit 1
 
 ## Build and install.

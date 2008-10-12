@@ -11,3 +11,6 @@ gtkspell
 gtkhtml
 gtksourceview2
 libesmtp
+gtkspell
+aspell
+libgnomeprintui
