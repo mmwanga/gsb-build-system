@@ -23,15 +23,19 @@ SECTIONS="${GSB_SECTIONS:-	tools
 				applications
 				accessibility
                                 administration
-				office
 				mono
-				extras
+				devel
+				office
+				print
+				media
+				networking
 				themes
 				compiz
 				ooo
-				meta
+				extras
 				testing
-                                networking }"
+				meta
+                                }"
 
 # Usage.
 function usage() {
