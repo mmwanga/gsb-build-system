@@ -86,13 +86,11 @@ gnome-session
 gnome-sharp
 gnome-speech
 gnome-system-monitor
-gnome-system-tools
 gnome-terminal
 gnome-themes
 gnome-themes-extras
 gnome-vfs
 gnonlin
-gnopernicus
 gnucash
 gnucash-docs
 gnumeric
@@ -146,7 +144,7 @@ libgnomeprintui
 libgnomeui
 libgnomeuimm
 libgpod
-libgtksourceviewmm
+gtksourceviewmm
 libidl
 libiec61883
 libjpeg
@@ -193,7 +191,7 @@ network-manager-applet
 nmc
 notification-daemon
 openclipart
-openldap | openldap-client
+openldap-client
 openoffice
 openssl-solibs | openssl
 orca
@@ -310,4 +308,3 @@ pstoedit
 sensors-applet
 sylpheed
 tomboy
-wxGTK

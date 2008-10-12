@@ -9,3 +9,4 @@ gsb-testing: This package is a metapackage for the testing packages provided by 
 gsb-testing: GNOME SlackBuild Project. For more details, please see
 gsb-testing: http://gnomeslackbuild.org/software/
 gsb-testing: 
+gsb-testing: 
