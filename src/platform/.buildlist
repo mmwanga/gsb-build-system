@@ -11,6 +11,7 @@ gnome-mime-data
 pyorbit
 libdaemon
 avahi
+nss-mdns
 XML-Twig
 libbtctl
 gnome-vfs
