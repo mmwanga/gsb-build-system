@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=1gsb
 VERSION=2.24.0
 
 ## List any packages here that are required to build this package.
@@ -114,6 +114,12 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
+if [ "${VERSION}" = "2.24.0" ]; then
+  ## Fix for tools/gnome-session-save.c: (main): rename kill variable to
+  ## kill_session to avoid conflict with kill(2)
+  patch -p0 < $CWD/patches/gnome-session-save.c.patch || exit 1
+fi;
+
 ## Fix permissions for building.
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
@@ -173,11 +179,8 @@ mv $PKG/usr/bin/gnome-wm $PKG/usr/bin/gnome-wm.gnome || exit 1
 cp $CWD/gnome-wm.gsb $PKG/usr/bin/gnome-wm || exit 1
 chmod +x $PKG/usr/bin/gnome-wm
 
-##
 ## Add xinitrc script for Gnome
-##
 mkdir -p $PKG/etc/X11/xinit
-
 if [ "$ARCH" = "x86_64" ]; then
   # Change paths for lib64 on 64-bit systems
   cat $CWD/xinitrc.gnome | sed -e "s/lib\//lib64\//g" > $PKG/etc/X11/xinit/xinitrc.gnome.new
