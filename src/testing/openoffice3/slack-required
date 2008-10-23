@@ -1,0 +1,19 @@
+GConf
+gtk+2
+libgnomeui
+neon
+libsndfile
+gnome-vfs
+boost
+libgnomeui
+mozilla-xulrunner
+zlib
+librsvg
+libjpeg
+jre | jdk
+sane
+gstreamer
+cairo
+gtk+2
+openssl-solibs | openssl
+nss
