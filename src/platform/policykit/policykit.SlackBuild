@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=0.9
 
 ## List any packages here that are required to build this package.
@@ -174,6 +174,10 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 
 ## Build and install.
 make $MAKE_FLAGS &&
+
+## Install hal relevant policykit policies
+mkdir -p $PKG/usr/share/PolicyKit/policy || exit 1
+cp $CWD/hal/*.policy $PKG/usr/share/PolicyKit/policy || exit 1
 
 ## Make sure our polkit user/group are available before "installing"
 if ! grep "^polkituser:" /etc/group >/dev/null 2>&1; then

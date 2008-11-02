@@ -160,8 +160,7 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --enable-avahi \
@@ -169,11 +168,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-gconf \
   --enable-glib2 \
   --enable-alsa \
-  --enable-oss \
   --enable-dbus \
-  --enable-samplerate \
   --enable-bluez \
-  --enable-polkit \
   || exit 1
 
 ## Build and install.
