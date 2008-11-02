@@ -14,5 +14,4 @@ glib2
 iproute2
 ppp
 policykit-gnome
-dhcpcd
 nss

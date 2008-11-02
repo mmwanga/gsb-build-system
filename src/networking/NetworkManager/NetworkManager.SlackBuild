@@ -8,11 +8,12 @@
 
 ## Package variables.
 BUILD=1
-VERSION=svn_4152
+VERSION=svn_4243
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libnl wpa_supplicant libgcrypt dbus hal gtk+2 libglade gnome-keyring libgnomeui gnome-keyring wireless-tools glib2 iproute2 GConf gnome-common ppp perl policykit-gnome dhcpcd nss"
+REQUIRED_PACKAGES="libnl wpa_supplicant libgcrypt dbus hal gtk+2 libglade gnome-keyring libgnomeui gnome-keyring wireless-tools glib2 iproute2 GConf gnome-common ppp perl policykit-gnome nss"
+
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -161,6 +162,28 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
+## NetworkManager requires dhcpcd4 in order to function properly; rather than
+## include another dhcpcd package, we'll put our NM dhcpcd4 privately in libexec
+## since on a Slackware system, pretty much only NM will use it.  
+
+# Grab our internal dhcpcd4
+mkdir dhcpcd4 &&
+cd dhcpcd4 &&
+if [ ! -f dhcpcd-4.0.3.tar.bz2 ]; then
+	wget -c http://roy.marples.name/downloads/dhcpcd/dhcpcd-4.0.3.tar.bz2 ;
+fi;
+tar xfj dhcpcd-4.0.3.tar.bz2 &&
+cd dhcpcd-4.0.3 &&
+make ${MAKE_FLAGS} SYSCONFDIR=/usr/libexec/dhcpcd4 \
+BINDIR=/usr/libexec/dhcpcd4 \
+LIBEXECDIR=/usr/libexec/dhcpcd4 \
+DESTDIR=$PKG install || exit 1
+rm -fr $PKG/usr/share 
+# Done dhcpcd4 build
+
+## Restore proper CWD
+cd $TMP/$PKGNAME-$VERSION 
+
 ## Disable -Werror from any gcc options.
 ## As this is svn sources there will be warnings, but the build shouldn't fail.
 sed -i configure.in -e 's/-Werror//g' || exit 1
@@ -180,10 +203,9 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static --enable-shared \
   --with-distro=slackware \
   --with-mdns-provider=avahi \
-  --with-ip=/sbin/ip \
   --with-dbus-sys=/etc/dbus-1/system.d \
   --enable-notification-icon \
-  --with-dhcp-client=/sbin/dhcpcd \
+  --with-dhcp-client=/usr/libexec/dhcpcd4/dhcpcd \
   --with-crypto=nss \
   --with-docs \
   || exit 1
@@ -192,9 +214,17 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make &&
 make DESTDIR=$PKG install || exit 1
 
+## Add custom startup script
+cp $CWD/rc.networkmanager $PKG/etc/rc.d/rc.networkmanager || exit 1
+
+## Add default nm-setting configuration
+mkdir -p $PKG/etc/NetworkManager &&
+cp $CWD/nm-system-settings.conf $PKG/etc/NetworkManager || exit 1
+
 ## Add wpa_supplicant dbus support
-#mkdir -p $PKG/usr/share/dbus-1/services &&
-#cp $CWD/fi.epitest.hostap.WPASupplicant.service $PKG/usr/share/dbus-1/services || exit 1
+mkdir -p $PKG/usr/share/dbus-1/system-services &&
+cp $CWD/fi.epitest.hostap.WPASupplicant.service \
+  $PKG/usr/share/dbus-1/system-services || exit 1
 
 ## Restore pilot-link.m4
 [ -f /usr/share/aclocal/pilot-link.m4.old ] && {
@@ -227,9 +257,9 @@ sed -i "s/at_console=\"true\"/group=\"netdev\"/g" $PKG/etc/dbus-1/system.d/Netwo
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
 
 ## Compress and fix manpage links.
-[ -e $PKG/usr/share/man ] && {
-  find $PKG/usr/share/man -type f -name \*.? -exec gzip -9f {} \;
-  find $PKG/usr/share/man -type l -name \*.? -printf \
+[ -e $PKG/usr/man ] && {
+  find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
+  find $PKG/usr/man -type l -name \*.? -printf \
     "( cd '%h'; [ -e '%l.gz' ] &&
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }

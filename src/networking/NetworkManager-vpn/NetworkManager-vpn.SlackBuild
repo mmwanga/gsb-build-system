@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=svn_4152
+VERSION=svn_4243
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="NetworkManager libnl wpa_supplicant libgcrypt dbus hal gtk+2 libglade gnome-keyring libgnomeui gnome-keyring wireless-tools glib2 iproute2 GConf gnome-common ppp network-manager-applet"
+REQUIRED_PACKAGES="NetworkManager libnl wpa_supplicant libgcrypt dbus hal gtk+2 libglade gnome-keyring libgnomeui gnome-keyring wireless-tools glib2 iproute2 GConf gnome-common ppp"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

@@ -24,7 +24,6 @@ WPA_SUPPLICANT=/usr/sbin/wpa_supplicant
 [ -x $WPA_SUPPLICANT ] || exit 0
 
 NM_PIDFILE=/var/run/NetworkManager.pid
-WPA_PIDFILE=/var/run/wpa_supplicant.pid
 
 nm_start()
 {
@@ -50,13 +49,6 @@ else
   $NETWORKMANAGER --pid-file $NM_PIDFILE
 fi ;
 
-if ps acx | grep -q wpa_supplicant ; then
-   echo "wpa_supplicant already running."
-else
-  echo "Starting wpa_supplicant dbus service: $WPA_SUPPLICANT -Bu -P $WPA_PIDFILE"
-  $WPA_SUPPLICANT -Bu -P $WPA_PIDFILE 
-fi;
-
 }
 
 nm_status()
@@ -64,9 +56,6 @@ nm_status()
   if ps acx | grep -q NetworkManager ; then
      echo "NetworkManager running."
   fi;
-  if ps acx | grep -q wpa_supplicant ; then
-     echo "wpa_supplicant running."
-  fi
 }
 
 nm_stop()
@@ -79,17 +68,9 @@ nm_stop()
   fi
   ## Be sure we're dead
   killall -q -15 NetworkManager
+  killall -q -15 nm-system-settings
   echo "stopped";
 
-  echo -en "Stopping wpa_supplicant dbus services: "
-  local pidlist=`cat $WPA_PIDFILE 2>/dev/null`
-  if [ ! -z "$pidlist" ]; then
-    kill $pidlist &>/dev/null
-    rm -f $WPA_PIDFILE &>/dev/null
-  fi
-  ## Be sure we're dead
-  killall -q -15 wpa_supplicant
-  echo "stopped";
 }
 
 nm_restart()

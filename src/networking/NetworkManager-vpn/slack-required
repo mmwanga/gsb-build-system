@@ -1,5 +1,4 @@
 NetworkManager
-network-manager-applet
 libnl
 libgcrypt
 wpa_supplicant

@@ -8,5 +8,5 @@ NetworkManager-vpn: when back at the desk, NetworkManager-vpn will switch to the
 NetworkManager-vpn: more reliable wired network connection. 
 NetworkManager-vpn:
 NetworkManager-vpn: This package provides NetworkManager with VPN Extensions for
-NetworkManager-vpn: openvpn and vpnc.
+NetworkManager-vpn: openvpn, vpnc and pptp.
 NetworkManager-vpn:

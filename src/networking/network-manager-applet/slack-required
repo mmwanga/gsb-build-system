@@ -1,6 +1,7 @@
 GConf
 gnome-panel
 NetworkManager
+NetworkManager-vpn
 glib2
 gtk+2
 libglade
@@ -10,3 +11,4 @@ libnotify
 libgnomeui
 wireless-tools
 gnutls
+policykit-gnome
