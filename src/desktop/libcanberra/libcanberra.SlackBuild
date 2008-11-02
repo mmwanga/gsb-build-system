@@ -170,9 +170,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-## Remove gnome autostart, really unnecessary with g-s-d
-rm -fr $PKG/usr/share/gnome/autostart/libcanberra-login-sound.desktop &&
-rm -fr $PKG/usr/share/gnome/shutdown/libcanberra-logout-sound.sh || exit 1
+#rm -fr $PKG/usr/share/gnome/autostart/libcanberra-login-sound.desktop &&
+#rm -fr $PKG/usr/share/gnome/shutdown/libcanberra-logout-sound.sh || exit 1
 
 ## Extraneous docs
 rm -fr $PKG/usr/share/doc

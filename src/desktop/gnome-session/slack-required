@@ -18,3 +18,4 @@ pavucontrol
 gstreamer
 alsa-plugins
 policykit-gnome
+consolekit

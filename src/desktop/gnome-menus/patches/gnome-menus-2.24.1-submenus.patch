@@ -1,6 +1,6 @@
-diff -Naur gnome-menus-2.24.0.old/layout/applications.menu gnome-menus-2.24.0/layout/applications.menu
---- gnome-menus-2.24.0.old/layout/applications.menu	2008-09-22 22:10:56.000000000 +0100
-+++ gnome-menus-2.24.0/layout/applications.menu	2008-10-12 11:10:31.000000000 +0100
+diff -Naur gnome-menus-2.24.1.old/layout/applications.menu gnome-menus-2.24.1/layout/applications.menu
+--- gnome-menus-2.24.1.old/layout/applications.menu	2008-10-22 09:15:08.000000000 +0000
++++ gnome-menus-2.24.1/layout/applications.menu	2008-10-28 19:13:11.000000000 +0000
 @@ -7,7 +7,7 @@
    <Directory>X-GNOME-Menu-Applications.directory</Directory>
  
@@ -147,7 +147,7 @@ diff -Naur gnome-menus-2.24.0.old/layout/applications.menu gnome-menus-2.24.0/la
    </Menu>   <!-- End System Tools -->
  
    <!-- Other -->
-@@ -149,6 +203,26 @@
+@@ -149,6 +203,31 @@
          <Not><Category>Screensaver</Category></Not>
        </And>
      </Include>
@@ -164,8 +164,13 @@ diff -Naur gnome-menus-2.24.0.old/layout/applications.menu gnome-menus-2.24.0/la
 +  </Menu>
 +
 +  <Menu>
-+     <Name>OpenOffice.Org</Name>
++     <Name>OpenOffice.Org 2.4</Name>
 +     <MergeFile>gnome-menus-ooo.menu</MergeFile>
++  </Menu>
++
++  <Menu>
++     <Name>OpenOffice.Org 3.0</Name>
++     <MergeFile>gnome-menus-ooo3.menu</MergeFile>
 +  </Menu>
 +
 +  <Menu>

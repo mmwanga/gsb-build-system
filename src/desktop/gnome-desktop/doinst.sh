@@ -8,7 +8,7 @@ fi
 
 # Set GSB background as default
 usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type string --set /desktop/gnome/background/picture_filename /usr/share/pixmaps/backgrounds/gsb-background.png 1> /dev/null 2> /dev/null
-usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type string --set /desktop/gnome/background/picture_options zoom 1> /dev/null 2> /dev/null
+usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type string --set /desktop/gnome/background/picture_options stretched 1> /dev/null 2> /dev/null
 usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type string --set  /desktop/gnome/peripherals/mouse/cursor_theme whiteglass 1> /dev/null 2> /dev/null
 usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type integer --set /desktop/gnome/peripherals/mouse/cursor_size 16 1> /dev/null 2> /dev/null
 
