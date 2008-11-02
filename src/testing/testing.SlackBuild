@@ -84,8 +84,7 @@ function list_packages() {
   local PACKAGE
   echo "The following packages are built in this section, listed in processing order:"
 
-  ( for PACKAGE in $PACKAGES $( if [ "$NOMETAPACKAGES" = "0" ]; then \
-      echo "$METAPACKAGES"; fi )
+  ( for PACKAGE in $PACKAGES ;
     do
       echo -n "$PACKAGE, "
     done ) | sed -e 's/, $//' | fmt -w 74 | sed -e 's/^/    /g'
@@ -171,7 +170,7 @@ NOMETAPACKAGES=0
 NOMETAFILES=0
 
 # Sanity check (in case Steve forgets to add packages again :P).
-[ $( echo "$PACKAGES $METAPACKAGES" | wc -w ) != \
+[ $( echo "$PACKAGES" | wc -w ) != \
   $( find . -type d ! -name .svn -maxdepth 1 -mindepth 1 | wc -w ) ] && {
   echo
   echo "*********************************************************************"
@@ -234,8 +233,7 @@ echo "** Building section '$SECTION'..."
 echo "*********************************************************************"
 
 # Process packages.
-( for PACKAGE in $PACKAGES $( if [ "$NOMETAPACKAGES" = "0" ]; then \
-    echo "$METAPACKAGES"; fi )
+( for PACKAGE in $PACKAGES ;
   do
     # Build defaults.
     SKIP_BUILD=0
