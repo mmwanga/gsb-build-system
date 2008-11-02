@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=1.0svn_27725
+VERSION=1.0svn_27841
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -187,9 +187,13 @@ make DESTDIR=$PKG install || exit 1
 
 ## Add some custom configurations
 mkdir -p $PKG/etc/mplayer ;
-cp -a $CWD/etc/mplayer/config $PKG/etc/mplayer/config.new &&
+mkdir -p $PKG/usr
+cp -a $CWD/etc/mplayer/mplayer.conf $PKG/etc/mplayer/mplayer.conf.new &&
 cp -a $CWD/etc/mplayer/input.conf $PKG/etc/mplayer/input.conf.new &&
 cp -a $CWD/etc/mplayer/mencoder.conf $PKG/etc/mplayer/mencoder.conf.new || exit 1
+cp -vr $CWD/share $PKG/usr || exit 1
+# Make sure not to include svn info in the package
+find $PKG -type d -name ".svn" -exec rm -rf {} \;
 
 # Set permissions
 chown -R root:root $PKG/etc

@@ -19,8 +19,7 @@ function install_file() {
   fi
 }
 
-#install_file etc/mplayer/mplayer.conf.new
-install_file etc/mplayer/config.new
+install_file etc/mplayer/mplayer.conf.new
 install_file etc/mplayer/input.conf.new
 install_file etc/mplayer/mencoder.conf.new
 #install_file usr/share/mplayer/subfont.ttf.new
