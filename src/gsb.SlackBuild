@@ -1,7 +1,10 @@
 #!/bin/bash
-# Version: 1.7 GSB SlackBuild - Do not remove this line!
+# Version: 1.8 GSB SlackBuild - Do not remove this line!
 # Copyright (c) 2007, 2008:
 #   Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>, Coventry, UK.
+#
+# Version 1.8: Added source export support for GSB tree.  <stevek>
+#
 # Licenced under the terms of the GNU General Public Licence version 3.
 #
 
@@ -77,6 +80,8 @@ Options:
   --no-metafiles	Do not create the package's .txt and .md5 meta files
 			which would usually be produced during a build.
 
+  --export-source	Export our build source into the gsb tree.
+
   Options are passed down to the next level SlackBuild where appropriate.
 EOF
 }
@@ -130,7 +135,6 @@ function gen_packages_txt() {
       echo "PACKAGE SUGGESTS:  $( tar zxOf $FILE --occurrence=1 install/slack-suggests 2>/dev/null | tr '\n' ' ' )"
       echo "PACKAGE DESCRIPTION:"
       tar xzOf $FILE --occurrence=1 install/slack-desc 2>/dev/null | grep -v "^#" | egrep "[[:alnum:]\+]+\:"
-      echo
     done } >${2:-.}/PACKAGES.TXT 2>/dev/null
   cat ${2:-.}/PACKAGES.TXT | gzip -9c >${2:-.}/PACKAGES.TXT.gz 2>/dev/null
 }
@@ -177,12 +181,14 @@ fi
 export GSBDIR=${GSBDIR:-gsb}
 export PATCHESDIR=${PATCHESDIR:-patches}
 export TESTINGDIR=${TESTINGDIR:-testing}
+export EXTRADIR=${EXTRADIR:-extra}
 export PACKAGESDIR=${PACKAGESDIR:-packages}
 export SOURCEDIR=${SOURCEDIR:-source}
 
 # Option defaults.
 NOMETAPACKAGES=0
 NOMETAFILES=0
+EXPORTSOURCE=0
 
 # Parse command line arguments.
 while [ $# -gt 0 ]; do
@@ -217,6 +223,9 @@ while [ $# -gt 0 ]; do
   elif [ "$1" = "-no-metafiles" ] || [ "$1" = "--no-metafiles" ]; then
     SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}--no-metafiles"
     NOMETAFILES=1
+    shift
+  elif [ "$1" = "-export-source" ] || [ "$1" = "--export-source" ]; then
+    EXPORTSOURCE=1
     shift
   else
     echo "${0##*/}: Unknown option: $1"
@@ -258,9 +267,41 @@ mkdir -p $LOGSDIR
       exit 1
     }
   done
-  cp ../{COPYING,CREDITS,README} $PKGDEST
-  # cp ../{COPYING,CREDITS,README,UPGRADING} $PKGDEST
-  cp testing/README $PKGDEST/testing
+
+  # Add a source directory to our gsb tree
+  if [ "${EXPORTSOURCE}" = "1" ]; then
+	  # Clean up our destination for stale files
+	  rm -fr $PKGDEST/$SOURCEDIR
+	  if [ -x /usr/bin/svn ]; then
+		  echo
+		  echo "*********************************************************************"
+                  echo "* Exporting source tree..."
+                  echo "*********************************************************************"
+		  svn export ../src $PKGDEST/$SOURCEDIR 1>/dev/null 2>/dev/null || exit 1
+		  # Clean up the export a bit
+		  find $PKGDEST/$SOURCEDIR \( -name "gsb.*" \
+		       -o -name "*.SlackBuild" \
+		       -o -name ".buildlist" \) \
+		    -maxdepth 2 -exec rm -rf {} \;
+	  else
+                  echo "You need subversion in order to export the source."
+		  exit 1
+          fi;
+	  cp ../README_SOURCE.TXT $PKGDEST/$SOURCEDIR/README.TXT || exit 1
+          gen_filelist_txt $PKGDEST/$SOURCEDIR $PKGDEST/$SOURCEDIR 
+          gen_checksums_md5 $PKGDEST/$SOURCEDIR $PKGDEST/$SOURCEDIR 
+  fi;
+
+  # Copy our main documentation
+  for i in COPYING COPYING3 CREDITS INSTALL.TXT README.TXT UPGRADE.TXT \
+	  REPLACED_PACKAGES.TXT BUILDING.TXT CHANGES_AND_HINTS.TXT ; 
+  do
+     cp ../$i $PKGDEST || exit 1;
+  done;
+
+  # Copy extra documentation
+  cp testing/README.TXT $PKGDEST/$TESTINGDIR &&
+  cp extra/README.TXT $PKGDEST/$EXTRADIR || exit 1
   if [ "$ARCH" = "x86_64" ]; then
     cp ../ChangeLog.slamd64 $PKGDEST/ChangeLog
     cp ../VERSIONS.slamd64 $PKGDEST/VERSIONS
@@ -270,18 +311,19 @@ mkdir -p $LOGSDIR
   fi
   ( cd $PKGDEST && ln -sf ChangeLog ChangeLog.txt )
 
+  # Create meta files
   if [ "$NOMETAFILES" = "0" ]; then
     echo
-    echo "*********************************************************************"
-    echo "* Generating final meta files - this may take a while..."
-    echo "*********************************************************************"
+    echo "***************************************************************************"
+    echo "* Generating package file lists and checksums... (This may take a while.)"
+    echo "***************************************************************************"
+    echo
     echo "* If you like our GNOME desktop, plan to use it for a commercial"
     echo "* product/service or just want to spread some goodwill, please visit"
     echo "* the GNOME SlackBuild website: <http://gnomeslackbuild.org> and"
     echo "* make a paypal donation to the project.  Thanks! :)    ~The GSB team"
-    echo "*********************************************************************"
     ( cd $PKGDEST &&
-      for DIR in $GSBDIR $PATCHESDIR $TESTINGDIR
+      for DIR in $GSBDIR $PATCHESDIR $TESTINGDIR $EXTRADIR
       do
         [ -d $DIR ] && {
           gen_packages_txt $DIR/$PACKAGESDIR $DIR
