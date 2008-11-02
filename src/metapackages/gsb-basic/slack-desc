@@ -1,5 +1,5 @@
          |-----handy-ruler------------------------------------------------------|
-gsb-basic: gsb-basic (GNOME SlackBuild GNOME Basic Support)
+gsb-basic: gsb-basic (GNOME SlackBuild GNOME Basic Metapackage)
 gsb-basic: 
 gsb-basic: GNOME SlackBuild is a complete GNOME Desktop Environment for Slackware 
 gsb-basic: Linux, encompassing all the needed packages for a full, clean 

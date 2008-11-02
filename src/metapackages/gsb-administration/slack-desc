@@ -1,5 +1,5 @@
                   |-----handy-ruler------------------------------------------------------|
-gsb-administration: gsb-administration (GNOME SlackBuild Administration Package)
+gsb-administration: gsb-administration (GNOME SlackBuild Administration Metapackage)
 gsb-administration: 
 gsb-administration: GNOME SlackBuild is a complete GNOME Desktop Environment for Slackware 
 gsb-administration: Linux, encompassing all the needed packages for a full, clean 

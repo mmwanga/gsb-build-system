@@ -1,5 +1,5 @@
             |-----handy-ruler------------------------------------------------------|
-gsb-complete: gsb-complete (GNOME SlackBuild Complete GNOME Install)
+gsb-complete: gsb-complete (GNOME SlackBuild Complete GNOME Metapackage)
 gsb-complete: 
 gsb-complete: GNOME SlackBuild is a complete GNOME Desktop Environment for Slackware 
 gsb-complete: Linux, encompassing all the needed packages for a full, clean 

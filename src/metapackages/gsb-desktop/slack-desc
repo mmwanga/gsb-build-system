@@ -1,5 +1,5 @@
            |-----handy-ruler------------------------------------------------------|
-gsb-desktop: gsb-desktop (GNOME SlackBuild GNOME Desktop Package)
+gsb-desktop: gsb-desktop (GNOME SlackBuild GNOME Desktop Metapackage)
 gsb-desktop: 
 gsb-desktop: GNOME SlackBuild is a complete GNOME Desktop Environment for Slackware 
 gsb-desktop: Linux, encompassing all the needed packages for a full, clean 

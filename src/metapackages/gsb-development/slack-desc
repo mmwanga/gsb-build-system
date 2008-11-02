@@ -1,5 +1,5 @@
                |-----handy-ruler------------------------------------------------------|
-gsb-development: gsb-development (GNOME SlackBuild Development Package)
+gsb-development: gsb-development (GNOME SlackBuild Development Metapackage)
 gsb-development: 
 gsb-development: GNOME SlackBuild is a complete GNOME Desktop Environment for Slackware 
 gsb-development: Linux, encompassing all the needed packages for a full, clean 

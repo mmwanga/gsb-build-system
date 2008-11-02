@@ -1,5 +1,5 @@
        |-----handy-ruler------------------------------------------------------|
-gsb-ooo: gsb-ooo (GNOME SlackBuild OpenOffice.Org Package)
+gsb-ooo: gsb-ooo (GNOME SlackBuild OpenOffice.Org Metapackage)
 gsb-ooo: 
 gsb-ooo: GNOME SlackBuild is a complete GNOME Desktop Environment for Slackware 
 gsb-ooo: Linux, encompassing all the needed packages for a full, clean 

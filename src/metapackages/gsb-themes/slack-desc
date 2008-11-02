@@ -1,5 +1,5 @@
           |-----handy-ruler------------------------------------------------------|
-gsb-themes: gsb-themes (GNOME SlackBuild GNOME Themes Package)
+gsb-themes: gsb-themes (GNOME SlackBuild GNOME Themes Metapackage)
 gsb-themes: 
 gsb-themes: GNOME SlackBuild is a complete GNOME Desktop Environment for Slackware 
 gsb-themes: Linux, encompassing all the needed packages for a full, clean 

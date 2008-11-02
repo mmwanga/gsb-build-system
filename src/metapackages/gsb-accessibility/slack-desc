@@ -1,5 +1,5 @@
                  |-----handy-ruler------------------------------------------------------|
-gsb-accessibility: gsb-accessibility (GNOME SlackBuild Accessibility Package)
+gsb-accessibility: gsb-accessibility (GNOME SlackBuild Accessibility Metapackage)
 gsb-accessibility: 
 gsb-accessibility: GNOME SlackBuild is a complete GNOME Desktop Environment for Slackware 
 gsb-accessibility: Linux, encompassing all the needed packages for a full, clean 

@@ -1,9 +1,7 @@
-GConf
-at-spi
 dasher
 gnome-mag
 gnome-speech
 gok
-orca
-speex
+libgail-gnome
 mousetweaks
+orca
