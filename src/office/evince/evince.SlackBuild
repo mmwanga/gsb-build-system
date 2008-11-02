@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=1
-VERSION=2.24.0
+BUILD=2
+VERSION=2.24.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gnome-vfs gtk+2 libgnomeui glib2 poppler poppler-data atk freetype GConf libpng nautilus libtiff t1lib ghostscript libgnomecups libgnomeprint libgnomeprintui cairo pango libbonobo libbonoboui dbus hicolor-icon-theme"
+REQUIRED_PACKAGES="gnome-vfs gtk+2 libgnomeui glib2 poppler poppler-data atk freetype GConf libpng nautilus libtiff t1lib ghostscript libgnomecups libgnomeprint libgnomeprintui cairo pango libbonobo libbonoboui dbus hicolor-icon-theme tetex libspectre djvulibre"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -155,10 +155,11 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS  -L/usr/share/texmf/lib -I/usr/share/texmf/include/" \
+CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS -L/usr/share/texmf/lib -I/usr/share/texmf/include/" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
+  --enable-shared --disable-static \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
   --enable-nautilus \

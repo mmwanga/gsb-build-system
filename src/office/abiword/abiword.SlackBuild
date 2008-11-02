@@ -115,7 +115,7 @@ elif [ "$ARCH" = "powerpc" ]; then
 fi
 
 ## Patch for local help doc use
-sed -i "s@http://www.abisource.com@file:///usr/share/$PKGNAME-$VERSION@" \
+sed -i "s@http://www.abisource.com@file:///usr/share/$PKGNAME-2.6@" \
    src/wp/ap/xp/ap_EditMethods.cpp
 
 ## Fix permissions for building.

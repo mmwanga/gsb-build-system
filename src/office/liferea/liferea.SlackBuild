@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=3
-VERSION=1.5.5
+BUILD=1
+VERSION=1.4.20
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -159,8 +159,8 @@ CONFIGURE_FLAGS=${CONFIGURE_FLAGS:-"--enable-gtkhtml2 --disable-xulrunner"}
 sed -i "s,variable=libdir,variable=sdkdir,g" ./configure || exit 1
 
 ## Configure.
-XULRUNNER_CFLAGS=$(pkg-config --cflags libxul-embedding-unstable libxul-embedding) \
-XULRUNNER_LIBS=$(pkg-config --libs libxul-embedding-unstable libxul-embedding) \
+XULRUNNER_CFLAGS=$(pkg-config --cflags libxul-embedding-unstable) \
+XULRUNNER_LIBS=$(pkg-config --libs libxul-embedding-unstable) \
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
@@ -173,11 +173,9 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-libnotify \
   --enable-sm \
   --enable-gnutls \
-  --disable-xulrunner \
-  --disable-gecko \
   --disable-nm \
-  --disable-gtkhtml2 \
-  --enable-webkit \
+  --disable-gecko \
+  --enable-xulrunner \
   || exit 1
 
 ## Build and install.

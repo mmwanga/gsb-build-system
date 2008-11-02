@@ -8,10 +8,8 @@ atk
 freetype
 GConf
 libpng
-nautilus
 libtiff
 t1lib
-ghostscript
 libgnomeprint
 libgnomeprintui
 cairo
@@ -20,3 +18,5 @@ libbonobo
 libbonoboui
 dbus
 hicolor-icon-theme
+libspectre
+djvulibre
