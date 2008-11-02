@@ -56,6 +56,7 @@ cheese
 python-dateutil
 vobject
 goocanvas
+goocanvasmm
 pygoocanvas
 conduit
 libgksu

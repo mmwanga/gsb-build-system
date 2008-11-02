@@ -163,6 +163,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-optimize="$TUNE_CFLAGS" \
   --enable-system-cairo \
   --enable-system-lcms \
+  --enable-system-sqlite \
   --enable-strip \
   --enable-safe-browsing \
   --disable-pedantic \
@@ -179,7 +180,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --with-system-zlib \
   --with-system-jpeg \
   --with-system-bz2 \
-  --with-system-sqlite \
   --with-system-nspr \
   --with-system-nss \
   || exit 1
