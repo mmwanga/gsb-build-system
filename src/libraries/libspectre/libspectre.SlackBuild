@@ -1,18 +1,18 @@
 #!/bin/bash
-## Version: 1.6 GSB Package SlackBuild.
-## Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
-## Copyright (c) 2007 Steve Kennedy <sk238 (at) exeter.ac.uk>
-##
+## Version: 1.6 GSB Package SlackBuild - Do not remove this line!
+## Copyright (c) 2007, 2008:
+##   Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>, Coventry, UK.
+##   Steve Kennedy <steve (at) gnomeslackbuild.org>, Exeter, UK.
 ## Licenced under the terms of the GNU General Public Licence version 3.
 ##
 
 ## Package variables.
 BUILD=1
-VERSION=1.22.2
+VERSION=0.2.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glib2 cairo freetype fontconfig"
+REQUIRED_PACKAGES="cairo"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -91,7 +91,7 @@ mkdir -p $PKGDEST
 ## Decompress archive.
 cd $TMP &&
 rm -rf $PKGNAME-$VERSION &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -139,6 +139,7 @@ elif [ "$ARCH" = "i586" ]; then
 elif [ "$ARCH" = "i686" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
 elif [ "$ARCH" = "x86_64" ]; then
+	LIBDIR=lib64
   if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -fPIC"}
   else
@@ -154,24 +155,53 @@ else
 fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
+LIBDIR=${LIBDIR:-"lib"}
+
+if [ "$(cat /etc/slackware-version)" = "Slackware 12.1.0" ]; then
+  ## Doh.  No libgs supplied by Slackware's ghostscript.  Rather than replace the
+  ## entire ghostscript package, we'll just quickly build our own libgs, and include
+  ## libgs with libspectre.
+  echo 
+  echo "Slackware 12.1 doesn't come with libgs.  We'll need to build our own"
+  echo "copy."
+  echo 
+  mkdir gstmp && cd gstmp;
+  if [ ! -f ./ghostscript-8.62.tar.bz2 ]; then
+    wget -c --progress=bar:force http://ghostscript.com/releases/ghostscript-8.62.tar.bz2 ;
+  fi;
+  tar xfj ghostscript-8.62.tar.bz2 &&
+  cd ghostscript-8.62 || exit 1
+  ./configure \
+    --prefix=/usr \
+    ${CONFIGURE_FLAGS} \
+    --libdir=/usr/$LIBDIR \
+    --sysconfdir=/etc \
+    --mandir=/usr/man \
+    --with-fontpath=/usr/share/fonts/TTF \
+    --with-ijs \
+    --disable-compile-inits \
+    --enable-dynamic || exit 1
+  make && make so &&
+  make soinstall DESTDIR=$PKG || exit 1
+  ## Clean up unneeded files
+  rm -fr $PKG/usr/bin $PKG/usr/share $PKG/usr/man $PKG/usr/lib/ghostscript || exit 1
+  ## Append CFLAGS to build against internal libgs
+  CFLAGS="$CFLAGS -L$PKG/usr/$LIBDIR \
+          -I$PKG/usr/include" 
+  LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PKG/usr/$LIBDIR
+fi;
 
 ## Configure.
-#CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+cd $TMP/$PKGNAME-$VERSION || exit 1
+CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS $CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" 
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
-  --build=$ARCH-$DISTRO-linux \
+  --enable-shared --disable-static \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-#make install DESTDIR=$PKG
-# Spamming your root partition:
-#make install
-#mkdir -p $PKG/etc/pango
-#cp -a /etc/pango/* $PKG/etc/pango
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -194,7 +224,7 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING* NEWS README TODO \
+  AUTHORS COPYING* ChangeLog NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION

@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=3.4.1
+VERSION=3.4.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -116,7 +116,9 @@ elif [ "$ARCH" = "powerpc" ]; then
 fi
 
 ## Disable obsolete rtp_mode
-patch -p1 < $CWD/patches/opal_rtp_mode_disable.patch || exit 1
+if [ "${VERSION}" = "3.4.1" ]; then
+  patch -p1 < $CWD/patches/opal_rtp_mode_disable.patch || exit 1
+fi;
 
 ## Fix permissions for building.
 chown -R root.root .
