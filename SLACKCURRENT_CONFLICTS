@@ -24,3 +24,8 @@ dbus-glib
 cairo
 pango
 poppler
+
+/testing
+
+djvulibre
+libspectre

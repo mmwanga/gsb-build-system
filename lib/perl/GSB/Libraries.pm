@@ -28,7 +28,7 @@ our %libraries =
              'src' => 'tar.bz2',
                             },
     'cairo'            => {
-	    'ver' => '1.8.0',
+	    'ver' => '1.8.2',
 	    'url' => 'http://www.cairographics.org/releases',
 	    'src' => 'tar.gz',
 			    },
@@ -40,6 +40,11 @@ our %libraries =
    'dbus-glib'            => {
 			   'ver' => '0.76',
 			   'url' => 'http://dbus.freedesktop.org/releases/dbus-glib',
+			   'src' => 'tar.gz',
+			  },
+   'djvulibre'            => {
+			   'ver' => '3.5.21',
+			   'url' => 'http://downloads.sourceforge.net/djvu',
 			   'src' => 'tar.gz',
 			  },
    'exempi'              => {
@@ -256,6 +261,11 @@ our %libraries =
                              'url' => 'http://releases.chipx86.com/libsexy/libsexy/',
                              'src' => 'tar.gz',
                             },
+   'libspectre'             => {
+                             'ver' => '0.2.1',
+                             'url' => 'http://libspectre.freedesktop.org/releases',
+                             'src' => 'tar.gz',
+                            },
    'libtasn1'             => {
                              'ver' => '1.5',
                              'url' => 'http://ftp.gnu.org/gnu/gnutls',
@@ -337,22 +347,22 @@ our %libraries =
 our %libraries_gnome =
   (
    'libcroco'          => '0.6.1',
-   'libsigc++'         => '2.2.2',
-   'ptlib'             => '2.4.1',
+   'libsigc++'         => '2.2.3',
+   'ptlib'             => '2.4.2',
    'pygobject'         => '2.15.4',
-   'opal'              => '3.4.1',
-   'pango'             => '1.22.0',
+   'opal'              => '3.4.2',
+   'pango'             => '1.22.2',
   );
 
 our %libraries_diff_naming =
   (
    'glib2'  => {
-		'ver'  => '2.18.1',
+		'ver'  => '2.18.2',
 		'name' => 'glib',
 	      },
    'gtk+2'  => {
 	   #'ver'  => '2.12.12',
-	   'ver'  => '2.14.3',
+	   'ver'  => '2.14.4',
       		'name' => 'gtk+',
 	      },
   );

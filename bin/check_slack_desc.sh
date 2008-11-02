@@ -1,5 +1,7 @@
 #!/bin/bash
-# Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
+# Version: 1.0 check_slack_desc.sh - Do not remove this line!
+# Copyright (c) 2007, 2008:
+#   Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>, Coventry, UK.
 # Licenced under the terms of the GNU General Public Licence version 3.
 #
 # This script will check the validity of all slack-desc files found under the

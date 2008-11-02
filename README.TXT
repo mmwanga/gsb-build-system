@@ -1,5 +1,5 @@
 
-Welcome to GNOME SlackBuild 2.24.0!
+Welcome to GNOME SlackBuild 2.24.1!
 
 GNOME SlackBuild v2.22.1 is a complete GNOME Desktop Environment for Slackware Linux v12.1, 
 encompassing all the needed packages for a full, clean installation of GNOME for Slackware. It 

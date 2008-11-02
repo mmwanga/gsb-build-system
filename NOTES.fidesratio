@@ -1,67 +1,7 @@
--- CHANGED --
-
-* Replaced gtkunique with libunique (upstream rename)
-* Replaced pwlib with ptlib.
-* Replaced libgtksourceviewmm with gtksourceviewmm
-
-* Added policykit(shadow) and policykit-gnome
-   ---> aiming for full polkit integration; replace gksu?
-* Added hamster-applet
-* Added libdvdnav
-* Added hal-cups-utils
-* Added boo
-* Added vala
-* Added seahorse-plugins
-* Added accerciser
-* Added nemiver
-* Added mono/boo
-* Added gnome-mplayer
-* Added themes/gnomeartng
-* Added soundconverter
-* Added vte
-* Added gpp
-* Added evolution-rss to add RSS feed support to Evolution
-  -> note: svn compiled tarball version used with evo 2.23; switch to release tarball when it's out?
-* Added gtk+2 package (gnome-panel, gnome-terminal, libgnomekbd, nautilus)
-* Added webkit
-* Added libicu
-* Added seahorse-plugins
-* Added pangomm
-* Added libjasper (required by latest gtk+2)
-* Added gtk+2
-* Added cairo
-* Added libcanberra
-* Added dbus-glib
-* Added alsa-lib
-* Added simplejson
-* Added gnome-icon-theme
-
-
-* Removed gnopernicus (obsoleted by orca); slack-conflicts written for orca.
-* Removed s-t-b, liboobs, and g-s-t.  (blech, good riddance)
-* Removed wxGTK (no longer used)
-* Removed gst-pulse package obsoleted by gst-plugins-good (which has a pulse plugin)
-* Removed gnome-keyring-manager
-
--- MAJOR REPLACEMENTS --
-GNOME 2.24 will require replacing cairo, gtk+2, and glib2 :(
-control-panel requires libcanberra, which requires pulseaudio 0.9.11, requires alsa-lib 1.0.17a
-  -> need to replace alsa-lib :(
-need to replace dbus-glib (for gnome-session, NetworkManager, and some other apps)
-poppler upgraded (qt bindings still exist)
-need to replace dbus
-need to replace vte for gnome-terminal
-use of Webkit?
-use of libicu in boost
-gnome-icon-theme
-
 -- TO FIX --
 
 rebuild mozilla-xulrunner to test embedding requires fix
 May need to remove .local/share/gnome-do/plugins for upgrade.
-xchat-gnome segfaults
-look at gob2 package?
-how to enable metacity compositing?
 
 -- TO CHANGE --
 * add gnome-main-menu?
@@ -99,3 +39,5 @@ email go-oo.org project to add GSB packages for Slackware available?
 
 --- FUTURE DEVELOPMENT ---
 packagekit?
+percentage bar for gsb.SlackBuild?
+  -> http://thesweeheng.wordpress.com/2008/01/03/a-progress-bar-for-bash-scripts/

@@ -43,6 +43,10 @@ our %supplied_tarballs =
              'ver' => '2.4.1.10',
 	     'section' => 'ooo',
                  },
+   'gnome-menus-ooo3'  => {
+             'ver' => '3.0.0.6',
+	     'section' => 'testing',
+                 },
    'fusion-icon'  => {
              'ver' => '0.1.0',
 	     'section' => 'compiz',
@@ -52,15 +56,15 @@ our %supplied_tarballs =
 	     'section' => 'applications',
                  },
    'NetworkManager'  => {
-             'ver' => 'svn_4152',
+             'ver' => 'svn_4243',
 	     'section' => 'networking',
                  },
    'NetworkManager-vpn'  => {
-             'ver' => 'svn_4152',
+             'ver' => 'svn_4243',
 	     'section' => 'networking',
                  },
    'network-manager-applet'  => {
-             'ver' => 'svn_929',
+             'ver' => 'svn_997',
 	     'section' => 'networking',
                  },
    'ffmpeg'  => {
@@ -72,11 +76,7 @@ our %supplied_tarballs =
 	     'section' => 'mono',
                  },
    'MPlayer'  => {
-             'ver' => '1.0svn_27725',
-	     'section' => 'media',
-                 },
-   'libflashsupport'  => {
-             'ver' => '1.9',
+             'ver' => '1.0svn_27841',
 	     'section' => 'media',
                  },
   );

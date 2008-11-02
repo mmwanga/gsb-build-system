@@ -19,15 +19,15 @@ our $VERSION   = 0.03;
 
 our %devel_gnome =
   (
-   'anjuta'      => '2.24.0.1',
+   'anjuta'      => '2.24.1',
    'accerciser'  => '1.4.0',
    'devhelp'     => '0.21',
    'gdl'         => '2.24.0',
    'ghex'        => '2.22.0',
    'glade3'      => '3.4.5',
-   'gnome-build' => '2.24.0',
+   'gnome-build' => '2.24.1',
    'nemiver'     => '0.6.3',
-   'vala'        => '0.3.5',
+   'vala'        => '0.4.0',
   );
 
 our %devel =

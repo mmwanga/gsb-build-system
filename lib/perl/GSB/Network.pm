@@ -15,8 +15,8 @@ our $VERSION   = 0.03;
 
 our %network_gnome =
   (
-   'ekiga'                  => '3.0.0',
-   'empathy'	            => '2.24.0',
+   'ekiga'                  => '3.0.1',
+   'empathy'	            => '2.24.1',
    'gnome-user-share'       => '0.40',
    'gnome-phone-manager'     => '0.60',
   );
@@ -29,8 +29,8 @@ our %network_external =
 		'src' => 'tar.bz2',
 		 },
    'deluge'     => {
-                 'ver' => '1.0.0',
-                 'url' => 'http://download.deluge-torrent.org/source/1.0.0',
+                 'ver' => '1.0.4',
+                 'url' => 'http://download.deluge-torrent.org/source/1.0.3',
                  'src' => 'tar.gz',
                    },
   'sylpheed'     => {
@@ -50,7 +50,7 @@ our %network_external =
                 },
    'telepathy-glib'            => {
              'url' => 'http://telepathy.freedesktop.org/releases/telepathy-glib',
-             'ver' => '0.7.14',
+             'ver' => '0.7.17',
              'src' => 'tar.gz'
                         },
    'libtelepathy'            => {
@@ -80,12 +80,12 @@ our %network_external =
                         },
    'telepathy-gabble'            => {
              'url' => 'http://telepathy.freedesktop.org/releases/telepathy-gabble',
-             'ver' => '0.7.8',
+             'ver' => '0.7.13',
              'src' => 'tar.gz'
                         },
    'loudmouth'            => {
              'url' => 'http://ftp.imendio.com/pub/imendio/loudmouth/src',
-             'ver' => '1.4.2',
+             'ver' => '1.4.3',
              'src' => 'tar.bz2'
                         },
   );

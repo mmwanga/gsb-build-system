@@ -22,7 +22,7 @@ our %media_pkgs =
   (
    'banshee-1'         => {
                   'url' => 'http://banshee-project.org/files/banshee',
-                  'ver' => '1.3.1',
+                  'ver' => '1.2.1',
                   'src' => 'tar.bz2'
                         },
    'dvgrab'              => {

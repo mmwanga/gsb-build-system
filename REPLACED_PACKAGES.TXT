@@ -36,10 +36,12 @@ vte:              ( > 0.17 required by gnome-terminal)
 
 -- Optional Replacements --
 
-mozilla-firefox:  ( 3.0.3 found extras/ section.  Built against xulrunner-1.9.0.1)
+mozilla-firefox:  ( 3.0.3 found extra/ section.  Built against xulrunner-1.9.0.1)
 compiz-fusion:    ( Slackware comes with compiz 0.7.4; our compiz-fusion is offers GNOME 
                     support, like CCSM and other goodies.)
 libgsf:           ( Slackware's libgsf lacks GNOME support; required for GNOME Office 
                     applications like Gnumeric)
 pidgin:           ( We offer the latest stable Pidgin package with pulseaudio support for 
-                    sounds.)
+                    sounds in extra/.)
+gnome-icon-theme  ( We offer an updated gnome-icon-theme package; better icons, and a rather
+                    rather trivial replacement.  Update recommended.)

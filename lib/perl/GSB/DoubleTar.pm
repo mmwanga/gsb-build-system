@@ -37,7 +37,7 @@ our %double_tarballs_url =
                             },
     'mozilla-firefox'  => {
     			'ver' => '3.0.3',
-    			'dir' => 'extras/mozilla-firefox',
+    			'dir' => 'extra/mozilla-firefox',
     			'url' => 'http://www.mirrorservice.org/sites/ftp.mozilla.org/pub/mozilla.org/firefox/releases/3.0.3/source/',
     			'tar' => 'firefox-3.0.3-source.tar.bz2',
 	    		'var' => 'VERSION',
@@ -269,14 +269,14 @@ our %double_tarballs_url =
    'pidgin-encryption' => {
             'url'  => 'http://mesh.dl.sourceforge.net/sourceforge/pidgin-encrypt',
             'ver'  => '2.5.1',
-            'dir' => 'extras/pidgin',
+            'dir' => 'extra/pidgin',
             'tar' => 'pidgin-encryption-3.0.tar.gz',
             'var' => 'VERSION',
                    },
    'pidgin' => {
             'url'  => 'http://mesh.dl.sourceforge.net/sourceforge/pidgin',
             'ver'  => '2.5.1',
-            'dir' => 'extras/pidgin',
+            'dir' => 'extra/pidgin',
             'tar' => 'pidgin-2.5.1.tar.bz2',
             'var' => 'VERSION',
                    },

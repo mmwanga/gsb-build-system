@@ -55,7 +55,7 @@ use GSB::Ooo;
 use GSB::Platform;
 use GSB::Print;
 use GSB::Supplied;
-#use GSB::Testing;
+use GSB::Testing;
 use GSB::Themes;
 use GSB::Tools;
 
@@ -340,7 +340,7 @@ foreach my $mp (keys %meta_packages) {
   my $sb_file = $name . $sb_ext;
   my $ver     = $meta_packages{$name};
 
-  chdir "$pwd/meta/$name";
+  chdir "$pwd/metapackages/$name";
 
   if ( $edit eq "true" ) {
     GSB::Edit::gsb_sb_edit($sb_file, $ver);
@@ -1318,36 +1318,41 @@ foreach my $ooopkg (keys %ooo_packages) {
 ###                       TESTING TARBALLS
 ##################################################################################
 
-#foreach my $cpackage (keys %testing) {
+foreach my $testpkg (keys %testing) {
 
-#chdir "$pwd/testing/$cpackage";
-#my $name    = $cpackage;
-#my $sb_file = $name . $sb_ext;
-#my $packurl = $testing{$name}{url};
-#my $ver     = $testing{$name}{ver};
-#my $src     = $testing{$name}{src};
-#my $type    = "other";
-#
-#my $tarball = GSB::GSB::gsb_generic_tarball_name_make($name, $ver, $src);
-#
-#if ( $download eq "true") {
-#my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
-#GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $src, $url);
-#}
-#
-#if ( $edit eq "true" ) {
-#GSB::Edit::gsb_sb_edit($sb_file, $ver);
-#}
-#
-#if ( $build ne "" ) {
-#GSB::Edit::gsb_build_release_make($sb_file, $build);
-#}
-#
-#if ( ! -f $tarball ) {
-#push(@bad_downloads, $name);
-#}
-#}
+  my $name    = $testpkg;
 
+  my $dir     = $testing{$testpkg}{dir};
+  my $var     = $testing{$testpkg}{var};
+  my $ver     = $testing{$testpkg}{ver};
+  my $tarball = $testing{$testpkg}{tar};
+  my $packurl = $testing{$testpkg}{url};
+  my $type    = 'other';
+
+  chdir "$pwd/$dir";
+
+  my @tmp = split(/\//, $dir);
+  my $sb  = pop(@tmp);
+
+  my $sb_file = $sb . $sb_ext;
+
+  if ( $download eq "true") {
+    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
+  }
+
+  if ( $edit eq "true" ) {
+    GSB::Edit::gsb_sb_double_edit($sb_file, $ver, $var);
+  }
+
+  if ( $build ne "" ) {
+    GSB::Edit::gsb_build_release_make($sb_file, $build);
+  }
+
+  if ( ! -f $tarball ) {
+    push(@bad_downloads, $name);
+  }
+}
 
 ################################################################################
 ###                       DONE

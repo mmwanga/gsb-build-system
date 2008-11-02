@@ -16,7 +16,7 @@ our $VERSION   = 0.01;
 our %mono_gnome =
   (
    'evolution-sharp' => '0.18.0',
-   'gtk-sharp'       => '2.12.4',
+   'gtk-sharp'       => '2.12.5',
    'gnome-sharp'     => '2.24.0',
    'gnome-desktop-sharp'     => '2.24.0',
    );
@@ -31,6 +31,11 @@ our %mono=
    'gecko-sharp'        => {
 				'ver' => '2.0-0.13',
 				'url' => 'http://go-mono.com/sources/gecko-sharp2/',
+				'src' => 'tar.bz2',
+			    },
+   'gluezilla'        => {
+				'ver' => '2.0',
+				'url' => 'http://ftp.novell.com/pub/mono/sources/gluezilla',
 				'src' => 'tar.bz2',
 			    },
    'gnome-keyring-sharp'                => {
@@ -59,7 +64,7 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'mono'                   => {
-				'ver' => '2.0',
+				'ver' => '2.0.1',
 				'url' => 'http://go-mono.com/sources/mono/',
 				'src' => 'tar.bz2',
 			       },
