@@ -1,5 +1,5 @@
 <Menu>
-    <Name>OpenOffice.Org</Name>
+    <Name>OpenOffice.Org 2.4</Name>
     <Directory>OpenOffice.directory</Directory>
     <Include>
       <Filename>calc2.4.desktop</Filename>
