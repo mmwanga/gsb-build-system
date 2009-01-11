@@ -182,3 +182,6 @@ gnome-pilot-conduits
 gtkhtml
 gtksourceview2
 sound-juicer
+NetworkManager
+NetworkManager-vpn
+network-manager-applet

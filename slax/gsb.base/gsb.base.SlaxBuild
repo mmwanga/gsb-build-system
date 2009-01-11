@@ -276,7 +276,7 @@ mkdir -p $LOGSDIR || exit 1
 
 # Make our space for module package
 echo
-header " Building module ${MODULE_ORDER}-${MODULE}-${GNOME_VERSION}-${ARCH}-rev${REVISION}.lzm "
+header " Building module ${MODULE_ORDER}-${MODULE}-${GNOME_VERSION}-${ARCH}-${REVISION}gsb.lzm "
 echo
 echogreen " * " ; echo "Cleaning up temporary space."
 rm -fr $TMP/module-$MODULE &&
@@ -380,11 +380,12 @@ mkdir -p ${PKG}/etc/rc.d/rcS.d &&
 mkdir -p ${PKG}/etc/rc.d/rc3.d &&
 mkdir -p ${PKG}/etc/rc.d/rc6.d &&
 mkdir -p ${PKG}/root/Desktop &&
-mkdir -p ${PKG}/usr/share/applications &&
+mkdir -p ${PKG}/etc/gnome/xdg/menus &&
 cp ${CWD}/rc.gsb.S ${PKG}/etc/init.d &&
 cp ${CWD}/rc.gsb.M ${PKG}/etc/init.d &&
 cp ${CWD}/GSB.desktop ${PKG}/root/Desktop &&
-cp ${CWD}/applications.menu ${PKG}/usr/share/applications &&
+cp ${CWD}/applications.menu ${PKG}/etc/gnome/xdg/menus &&
+cp ${CWD}/issue ${PKG}/etc &&
 chmod 755 ${PKG}/etc/init.d/rc.gsb.* || exit 1
 
 # Create sysvinit style links
@@ -444,7 +445,7 @@ find $TMP/module-$MODULE -name "*.la" -exec rm -f {} \;
     echo "Finished trimming for submodule ${SPLIT_MODULE}.       "
     [ -d $TMP/module-${MODULE}_${SPLIT_MODULE} ] && {
     echo "Compressing submodule ${MODULEDEST}/${MODULE_ORDER}-${MODULE}_${SPLIT_MODULE}.lzm" &&
-    $DIR2LZM $TMP/module-${MODULE}_${SPLIT_MODULE} ${MODULEDEST}/${MODULE_ORDER}-${MODULE}_${SPLIT_MODULE}-${GNOME_VERSION}-rev${REVISION}.lzm || exit 1
+    $DIR2LZM $TMP/module-${MODULE}_${SPLIT_MODULE} ${MODULEDEST}/${MODULE_ORDER}-${MODULE}_${SPLIT_MODULE}-${GNOME_VERSION}-${ARCH}-${REVISION}gsb.lzm || exit 1
     echo ;
     }
     fi;
@@ -453,7 +454,7 @@ find $TMP/module-$MODULE -name "*.la" -exec rm -f {} \;
 
 # Compress module directory
 echogreen " * " ; echo "Compressing main module ${MODULEDEST}/${MODULE_ORDER}-$MODULE.lzm" &&
-$DIR2LZM $TMP/module-${MODULE} ${MODULEDEST}/${MODULE_ORDER}-${MODULE}-${GNOME_VERSION}-rev${REVISION}.lzm || exit 1
+$DIR2LZM $TMP/module-${MODULE} ${MODULEDEST}/${MODULE_ORDER}-${MODULE}-${GNOME_VERSION}-${ARCH}-${REVISION}gsb.lzm || exit 1
 echo ; echogreen " * " ; echo "Created module ${MODULEDEST}/${MODULE_ORDER}-$MODULE.lzm"
 
 # Clean up

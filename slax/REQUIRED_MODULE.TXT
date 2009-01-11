@@ -6,6 +6,7 @@ pygobject-2.15.4-i486-1
 libtool-1.5.26-i486-1
 shared-mime-info-0.51-i486-1
 liboil-0.3.15-i486-1
+libcdio-0.79-i486-1
 gstreamer-0.10.21-i486-1
 gnutls-2.6.2-i486-1
 httpd-2.2.10-i486-1
@@ -19,3 +20,4 @@ bluez-libs-3.36-i486-2
 bluez-utils-3.36-i486-4
 gnupg-1.4.9-i486-1
 dbus-python-0.83.0-i486-1
+libgphoto2-2.4.3-i486-3

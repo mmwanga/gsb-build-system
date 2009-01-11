@@ -2,3 +2,4 @@
 export TMP=/home/build
 #export TMP=/home/stevek/build
 export GSBBASE=/home/gsb-tree/gsb-current
+export ARCH=i486
