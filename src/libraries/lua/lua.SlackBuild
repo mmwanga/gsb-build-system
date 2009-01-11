@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=4
+BUILD=5
 VERSION=5.1.3
 
 ## List any packages here that are required to build this package.
@@ -159,10 +159,10 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
-sed -i "s:INSTALL_TOP= /usr/local:INSTALL_TOP= $PKG/usr:g" $TMP/$PKGNAME-$VERSION/Makefile
+sed -i "s:INSTALL_TOP= /usr/local:INSTALL_TOP= $PKG/usr:g" $TMP/$PKGNAME-$VERSION/Makefile || exit 1
 ## Fixes tuning
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" ;
-sed -i "s/=-DLUA_USE_LINUX/=\"$CFLAGS\ -DLUA_USE_LINUX\"/g" $TMP/$PKGNAME-$VERSION/src/Makefile;
+sed -i "s/=-DLUA_USE_LINUX/=\"$CFLAGS\ -DLUA_USE_LINUX\"/g" $TMP/$PKGNAME-$VERSION/src/Makefile || exit 1
 
 if [ "$ARCH" = "x86_64" ]; then
    sed -i 's:/lib:/lib64:g' $TMP/$PKGNAME-$VERSION/Makefile
@@ -178,7 +178,6 @@ INSTALl_TOP=$PKG make $MAKE_FLAGS install || exit 1;
 ## Install a pkgconfig file.
 mkdir -p $PKG/usr/$LIBDIR/pkgconfig || exit 1
 cat $CWD/pkgconfig/lua.pc | sed "s:@LIBDIR@:$LIBDIR:g" > $PKG/usr/$LIBDIR/pkgconfig/lua.pc || exit 1
-
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null

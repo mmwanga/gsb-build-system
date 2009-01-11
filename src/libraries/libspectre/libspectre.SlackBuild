@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=0.2.1
+VERSION=0.2.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -90,7 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-rm -rf $PKGNAME-$VERSION &&
+#rm -rf $PKGNAME-$VERSION &&
 tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
@@ -165,7 +165,7 @@ if [ "$(cat /etc/slackware-version)" = "Slackware 12.1.0" ]; then
   echo "Slackware 12.1 doesn't come with libgs.  We'll need to build our own"
   echo "copy."
   echo 
-  mkdir gstmp && cd gstmp;
+  mkdir -p gstmp && cd gstmp;
   if [ ! -f ./ghostscript-8.62.tar.bz2 ]; then
     wget -c --progress=bar:force http://ghostscript.com/releases/ghostscript-8.62.tar.bz2 ;
   fi;
@@ -193,7 +193,7 @@ fi;
 
 ## Configure.
 cd $TMP/$PKGNAME-$VERSION || exit 1
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS $CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" 
+CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS $CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --enable-shared --disable-static \

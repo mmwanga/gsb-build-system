@@ -1,0 +1,2 @@
+Important: Make sure to rebuild poppler again after building cairo 
+to enable poppler-cairo support in poppler.

@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=0.0.18
+BUILD=1
+VERSION=0.0.20
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -116,7 +116,7 @@ elif [ "$ARCH" = "powerpc" ]; then
 fi
 
 ## Fix a header location 
-if [ "$VERSION" = "0.0.18" ]; then
+if [ "$VERSION" = "0.0.20" ]; then
 	patch -p1 < $CWD/patches/ffmpeg_deprecated.gegl.patch || exit 1
 fi;
 

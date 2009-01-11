@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=1.0.0
+VERSION=1.0.4
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -80,6 +80,16 @@ done
       exit 1
     }
   done
+
+  if [ -f $CWD/slack-conflicts ]; then
+    for REQ in $(cat $CWD/slack-conflicts); do
+      check_installed "$REQ" && {
+        echo "${0##*/}: Package '$REQ' conflicts."
+        exit 1
+      }
+    done
+  fi;
+
 }
 
 ## Temporary space and package storage.

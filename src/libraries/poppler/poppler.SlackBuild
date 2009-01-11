@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=1
-VERSION=0.9.3
+BUILD=3
+VERSION=0.10.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -171,10 +171,12 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --enable-xpdf-headers \
+  --enable-cairo-output \
+  --enable-poppler-glib \
   --disable-static \
   --enable-opi \
-  --enable-zlib \
   --program-prefix= \
+  --enable-zlib \
   --program-suffix= \
   --build=$ARCH-$DISTRO-linux \
   || exit 1
@@ -182,6 +184,9 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+# Softlink required for some gimp plugins to work
+( cd $PKG/usr/lib*; ln -s libpoppler-glib.so.4 libpoppler-glib.so.3)
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

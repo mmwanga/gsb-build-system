@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=snapshot-20080922-2245
+VERSION=snapshot-20081223-2245
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -159,7 +159,6 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr \
-  --enable-gtk \
   --enable-pthread \
   --enable-visualize \
   --enable-shared \

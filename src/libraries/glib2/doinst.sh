@@ -6,11 +6,13 @@ config() {
     NEW="$infile"
     OLD="`dirname $NEW`/`basename $NEW .new`"
     # If there's no config file by that name, mv it over:
-    if [ ! -r $OLD ]; then
+    if [ ! -r $OLD ]; then 
+     if [ -f $NEW ]; then
       mv $NEW $OLD
+     fi;
     elif [ "`cat $OLD | md5sum`" = "`cat $NEW | md5sum`" ]; then
       # toss the redundant copy
-      rm $NEW
+      rm -f $NEW
     fi
     # Otherwise, we leave the .new copy for the admin to consider...
   done
