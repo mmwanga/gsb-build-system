@@ -294,16 +294,16 @@ echo "*********************************************************************"
       else
         # Not in the main directory, check patches.
         if [ "$NOPATCHESDIR" = "0" ]; then
-          if find_package_files "$PKGDEST/$PATCHESDIR/$PACKAGESDIR/$SECTION" \
+          if find_package_files "$PKGDEST/$PATCHESDIR/$PACKAGESDIR" \
             "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "$PACKAGE_BUILD" \
             "\.tgz" >/dev/null
           then
             # Found in patches dir.
             SKIP_BUILD=1
-            SUBDIR=$PATCHESDIR/$PACKAGESDIR/$SECTION
+            SUBDIR=$PATCHESDIR/$PACKAGESDIR
           else
             # No package in patches with the same version/build.
-            SUBDIR=$PATCHESDIR/$PACKAGESDIR/$SECTION
+            SUBDIR=$PATCHESDIR/$PACKAGESDIR
           fi
         fi
       fi
@@ -333,15 +333,16 @@ echo "*********************************************************************"
         ./$PACKAGE.SlackBuild $SLACKBUILD_ARGS 2>&1 ) | \
         tee $LOGSDIR/$SECTION/$PACKAGE-$( date +%Y%m%d-%H%M%S ).log
       ERR=${PIPESTATUS[0]}
-      [ "$ERR" = "0" ] && {
-        echo "${SECTION}/${PACKAGE}: Built." >> $CHANGELOG ;
-      }
       [ "$ERR" != "0" ] && {
         echo
         echo "*********************************************************************"
         echo "*** Error: '$PACKAGE' build failed."
         echo "*********************************************************************"
         exit $ERR
+      }
+     # Update ChangeLog if build successful
+      [ "$ERR" = "0" ] && {
+      echo "${SECTION}/${PACKAGE}-${PACKAGE_VERSION//-/_}-${ARCH}-${PACKAGE_BUILD}.tgz: Built." >> $CHANGELOG ;
       }
     else
       echo
@@ -410,6 +411,7 @@ echo "*********************************************************************"
       echo "*** Warning: not installing '$PACKAGE'."
       echo "*********************************************************************"
     fi
+
   done
 
   echo
