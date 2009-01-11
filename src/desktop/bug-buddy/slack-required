@@ -8,4 +8,4 @@ gnome-keyring
 libgnomecanvas
 startup-notification
 libelf
-sqlite3
+sqlite

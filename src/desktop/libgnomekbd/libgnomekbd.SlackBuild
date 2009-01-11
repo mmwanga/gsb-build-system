@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.24.0
 
 ## List any packages here that are required to build this package.
@@ -113,6 +113,10 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
+
+if [ "$VERSION" = "2.24.0" ]; then
+  patch -p1 < $CWD/patches/dont_crash_on_incorrect_xorg_configuration.patch || exit 1
+fi;
 
 ## Fix permissions for building.
 chown -R root.root .

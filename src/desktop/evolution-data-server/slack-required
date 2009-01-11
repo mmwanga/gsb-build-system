@@ -14,4 +14,4 @@ gnome-keyring
 glib2
 heimdal-libraries
 evo-openldap
-sqlite3
+sqlite

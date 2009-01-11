@@ -1,0 +1,8 @@
+[X-GNOME-Metatheme]
+Name=GSB Default
+Type=X-GNOME-Metatheme
+Comment=A Default GSB Theme
+Encoding=UTF-8
+GtkTheme=GSB
+MetacityTheme=GSB
+IconTheme=gnome

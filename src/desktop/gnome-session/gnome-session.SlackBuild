@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=2.24.1
+BUILD=1
+VERSION=2.24.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -200,8 +200,9 @@ chown root.root $PKG/usr/share/pixmaps/splash/gsb-splash.png
 ( cd $PKG/usr/bin ; ln -s gnome-session gnome ); 
 
 # Fix gdm session file (in case it's replaced)
-mkdir -p $PKG/usr/share/xsessions
-cp $CWD/gnome.desktop $PKG/usr/share/xsessions
+mkdir -p $PKG/usr/share/xsessions &&
+cp $CWD/gnome.desktop $PKG/usr/share/xsessions &&
+chmod +x $PKG/usr/share/xsessions/gnome.desktop  || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

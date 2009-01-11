@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.24.1
+VERSION=2.24.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -171,11 +171,22 @@ mkdir -p $PKG/usr/share/pixmaps/backgrounds
 cp $CWD/gsb-background.png $PKG/usr/share/pixmaps/backgrounds
 chown root.root $PKG/usr/share/pixmaps/backgrounds/gsb-background.png
 
-##
 ## Keep clean for Scrollkeeper
-## Will rebuild database in doinst.sh
 rm -fr $PKG/var/lib/scrollkeeper
 rm -fr $PKG/var/lib/log
+
+# Add a default GSB gtk theme
+mkdir $PKG/usr/share/themes &&
+cp -r $CWD/GSB $PKG/usr/share/themes || exit 1
+# Make sure not to include svn info in the package
+find $PKG/usr -type d -name ".svn" -exec rm -rf {} \;
+
+## Add a simple default mouse theme
+(
+mkdir -p $PKG/usr/share/icons &&
+cd $PKG/usr/share/icons &&
+tar xfj $CWD/comixcursors.tar.bz2 || exit 1
+)
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -198,7 +209,7 @@ rm -fr $PKG/var/lib/log
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+  AUTHORS COPYING* ChangeLog NEWS README $CWD/README.theme.txt \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION

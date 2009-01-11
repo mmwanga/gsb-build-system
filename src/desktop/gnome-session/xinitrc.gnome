@@ -40,21 +40,20 @@ if [ -f $usermodmap ]; then
     xmodmap $usermodmap
 fi
 
-## Use ConsoleKit if available
-if [ -x /usr/bin/ck-launch-session ]; then
-  GNOME_SESSION_SETTINGS="/usr/bin/ck-launch-session $GNOME_SESSION_SETTINGS"
-fi;
-
 ## Use ssh-agent if available
 if [ -x /usr/bin/ssh-agent ]; then
   GNOME_SESSION_SETTINGS="$GNOME_SESSION_SETTINGS /usr/bin/ssh-agent"
 fi;
 
 ## Use Seahorse if available
-## For more information, please see http://live.gnome.org/Seahorse/SessionIntegration
 if [ -x /usr/bin/seahorse-agent ]; then
   GNOME_SESSION_SETTINGS="$GNOME_SESSION_SETTINGS /usr/bin/seahorse-agent --execute"
 fi;
 
+## Use ConsoleKit if available
+if [ -z "${XDG_SESSION_COOKIE}" -a -x /usr/bin/ck-launch-session ]; then
+  CK_SESSION="/usr/bin/ck-launch-session"
+fi;
+
 # Start the window manager
-exec $GNOME_SESSION_SETTINGS gnome-session
+exec $GNOME_SESSION_SETTINGS $CK_SESSION gnome-session

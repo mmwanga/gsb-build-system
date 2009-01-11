@@ -23,10 +23,9 @@ function install_file() {
   fi
 }
 
-for i in applications settings
-do
-    install_file etc/gnome/xdg/menus/$i.menu.new
-done
+# Preserve menus
+install_file etc/gnome/xdg/menus/applications.menu.new
+install_file etc/gnome/xdg/menus/settings.menu.new
 
 if [ -x usr/bin/update-desktop-database ]; then
   usr/bin/update-desktop-database 1> /dev/null 2> /dev/null
