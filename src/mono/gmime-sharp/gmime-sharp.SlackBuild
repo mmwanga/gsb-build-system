@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=1
-VERSION=2.2.17
+BUILD=2
+VERSION=2.2.23
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -116,6 +116,11 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
+if [ "$VERSION" = "2.2.23" ]; then
+ # Fix strong name error with mono 2.0
+ patch -p0 < $CWD/patches/gmime_mono2.0.patch || exit 1;
+fi;
+
 ## Fix permissions for building.
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
@@ -165,12 +170,15 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   || exit 1
 
 ## Build and install.
+(
 cd mono &&
 make $MAKE_FLAGS -j1 &&
-mkdir -p $PKG/usr/lib/mono/gmime-sharp &&
-mkdir -p $PKG/usr/lib/pkgconfig &&
-cp gmime-sharp.dll $PKG/usr/lib/mono/gmime-sharp &&
-cp gmime-sharp.pc $PKG/usr/lib/pkgconfig || exit 1
+make $MAKE_FLAGS -j1 install DESTDIR=$PKG || exit 1
+)
+#mkdir -p $PKG/usr/lib/mono/gmime-sharp &&
+#mkdir -p $PKG/usr/lib/pkgconfig &&
+#cp gmime-sharp.dll $PKG/usr/lib/mono/gmime-sharp &&
+#cp gmime-sharp.pc $PKG/usr/lib/pkgconfig || exit 1
 
 # Fix for pkgconfig files on x86_64 platforms
 if [ "$ARCH" = "x86_64" ]; then

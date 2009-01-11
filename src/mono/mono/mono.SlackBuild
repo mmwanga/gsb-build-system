@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.0.1
 
 ## List any packages here that are required to build this package.
@@ -15,8 +15,8 @@ VERSION=2.0.1
 REQUIRED_PACKAGES="glib2 libxml2 libgdiplus zlib"
 
 ## Build variables.
-ARCH=${ARCH:-i586}
-TUNE=${TUNE:-i586}
+ARCH=i486
+TUNE=i486
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}
@@ -159,10 +159,6 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS \
   --program-prefix="" \
-  --with-static_mono=yes \
-  --with-glib=system \
-  --with-libgdiplus=installed \
-  --with-gc=boehm \
   || exit 1
 
 ## Build and install.

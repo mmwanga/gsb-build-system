@@ -1,0 +1,13 @@
+            |-----handy-ruler------------------------------------------------------|
+notify-sharp: notify-sharp (libnotify bindings for Mono)
+notify-sharp:
+notify-sharp: The Mono Project is an open development initiative sponsored by Novell 
+notify-sharp: to develop an open source, UNIX version of the Microsoft .NET 
+notify-sharp: development platform. Its objective is to enable UNIX developers to
+notify-sharp: build and deploy cross-platform .NET Applications. 
+notify-sharp:
+notify-sharp: This package contains Mono Bindings to access the libnotify library,
+notify-sharp: which sends desktop notifications to a notification daemon to
+notify-sharp: inform the user about an event or display some form of notice.
+notify-sharp:
+notify-sharp:
