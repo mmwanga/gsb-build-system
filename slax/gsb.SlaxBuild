@@ -1,0 +1,207 @@
+#!/bin/bash
+# Licenced under the terms of the GNU General Public Licence version 3.
+#
+
+# Make sure we are in the right directory (you can never trust users..)
+cd $( cd ${BASH_SOURCE%/*} ; pwd )
+CWD=$(pwd)
+
+# Use liblinuxlive tools
+. ./tools/liblinuxlive || {
+   echo "Cannot find liblinuxlive in ./tools."
+   exit 1;
+}
+
+# We have to be root to preserve proper permission on files
+[ "$(whoami)" = "root" ] || {
+   echo
+   echogreen "WARNING:"
+   echo "You need to run this script as root in production to preserve proper file permissions"
+   echo "for system binaries."
+   echo
+}
+
+# If the user created an options file, read it.
+[ -r ./modules.options ] && {
+  . ./modules.options
+  export OPTIONSREAD=1
+}
+
+# Environment.
+export TMP=${TMP:-/tmp}
+export SLAXDIR=${SLAXDIR:-$TMP/slax}
+export MODULEDEST=${MODULEDEST:-$SLAXDIR/modules}
+export GSBBASE=${GSBBASE:-$TMP/gsb-tree}
+export GSBPKGDIR=${GSBPKGDIR:-$GSBBASE/gsb/packages}
+export LOGSDIR=${LOGSDIR:-$TMP/gsbslax-buildlogs}
+
+# Number the modules
+export MODULE_ORDER=1
+
+# The sections list is read in from .buildlist in the current directory, with
+# any comments and blank lines removed.
+MODULE_SETS="${MODULE_SETS:-$( egrep -v "^#|^$" .buildlist | cut -d'#' -f1 )}"
+
+# Usage.
+function usage() {
+  cat << EOF
+Usage: ${0##*/} [options]
+
+Options:
+  --help		Show this help screen.
+
+  --list		List the modules which will be built in this section.
+
+  --no-split            By default, gsb.SlaxBuild will separate out all the 
+                        developement files and documentation from the main
+			module (which only then contains runtime libraries
+			and binaries). Use this option to keep everything
+			in one big module.
+
+  --no-cleanup		By default, any source, temporary build and module
+			directories will be deleted once the module is built.
+			This option prevents those files from being removed.
+
+  --ignore-submodules   Skip building any submodules. Instead of spliting out
+                        the relevant files, they will simply be removed.  If 
+                        you would prefer to keep everything in one big module,
+                        use the --no-split argument.
+
+EOF
+}
+
+function find_package_files() {
+  # $1 = Directory to look for files in [required]
+  # $2 = Package name or regex to match.  An empty string matches all.
+  # $3 = Package version or regex to match.  An empty string matches all.
+  # $4 = Package architecture or regex to match.  An empty string matches all.
+  # $5 = Package build tag or regex to match.  An empty string matches all.
+  # $6 = File extension or regex to match.  An empty string means no extension.
+  # Note: Remember to escape any regex characters used in fixed strings.
+
+  [ -z "$1" ] || [ ! -d "$1" ] && return 1
+  find $1 -maxdepth 2 -mindepth 1 2>/dev/null | \
+    egrep "^.*/(${2:-.*})(-${3:-[^-]*})(-${4:-[^-]*})(-${5:-[^-.]*})($6)$" 2>/dev/null
+  return $?
+}
+
+function runtime() {
+  # $1 = Number of seconds to convert to readable text [required]
+  [ -z "$1" ] && return 1
+  local D=$(( $1 / 86400 ))
+  local H=$(( ($1 - ($D * 86400)) / 3600 ))
+  local M=$(( ($1 - ($D * 86400) - ($H * 3600)) / 60 ))
+  local S=$(( $1 - ($D * 86400) - ($H * 3600) - ($M * 60) ))
+  if [ $D -gt 0 ]; then
+    echo -n "${D}d, ${H}h ${M}m ${S}s"
+  else
+    echo -n "${H}h, ${M}m ${S}s"
+  fi
+  return 0
+}
+
+function gen_filelist_txt() {
+  # $1 = Sub-directory to process [required]
+  # $2 = Sub-directory to put FILELIST.TXT in, or empty for current directory
+  [ -z "$1" ] && return 1
+  ( cd $1
+    echo -e "FILELIST.TXT; $( date )\n\n"
+    find . ! -wholename ./FILELIST.TXT ! -wholename ./FILELIST.TXT.gz \
+      ! -wholename ./CHECKSUMS.md5 ! -wholename ./CHECKSUMS.md5.gz | \
+      sort | xargs ls -ld ) >${2:-.}/FILELIST.TXT 2>/dev/null
+  cat ${2:-.}/FILELIST.TXT | gzip -9c >${2:-.}/FILELIST.TXT.gz 2>/dev/null
+}
+
+function gen_checksums_md5() {
+  # $1 = Sub-directory to process [required]
+  # $2 = Sub-directory to put CHECKSUMS.md5 in, or empty for current directory
+  [ -z "$1" ] && return 1
+  ( cd $1
+    echo -e "CHECKSUMS.md5; $( date )\n\n"
+    echo "MD5                               Filename"
+    find . ! -wholename ./CHECKSUMS.md5 ! -wholename ./CHECKSUMS.md5.gz \
+      ! -name \*.tgz.md5 \( -type f -o -type l \) -exec md5sum {} \; | \
+      sort -k2 -f ) >${2:-.}/CHECKSUMS.md5 2>/dev/null
+  cat ${2:-.}/CHECKSUMS.md5 | gzip -9c >${2:-.}/CHECKSUMS.md5.gz 2>/dev/null
+}
+
+function list_modules() {
+  local MODULE
+  echo "The following modules are built in this section, listed in processing order:"
+  ( for MODULE in $MODULE_SETS ;
+    do
+      echo -n "$MODULE, "
+    done ) | sed -e 's/, $//' | fmt -w 74 | sed -e 's/^/    /g'
+}
+
+# Defaults
+NOCLEANUP=0
+NOSPLIT=0
+
+# Parse command line arguments.
+while [ $# -gt 0 ]; do
+  if [ "$1" = "-help" ] || [ "$1" = "--help" ]; then
+    usage
+    exit 0
+  elif [ "$1" = "-list" ] || [ "$1" = "--list" ]; then
+    list_modules
+    exit 0
+  elif [ "$1" = "-no-cleanup" ] || [ "$1" = "--no-cleanup" ]; then
+    SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}--no-cleanup"
+    shift
+  elif [ "$1" = "-no-split" ] || [ "$1" = "--no-split" ]; then
+    SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}--no-split"
+    shift
+  elif [ "$1" = "-ignore-submodules" ] || [ "$1" = "--ignore-submodules" ]; then
+    SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}--ignore-submodules"
+    shift
+  else
+    echo "${0##*/}: Unknown option: $1"
+    echo "Try: $0 --help"
+    exit 1
+  fi
+done
+
+# Temporary space
+mkdir -p $TMP
+
+# Do the build.
+echo ;
+echogreen " * " ; echo "Building Modules for Slax:"
+echogreen "   =========================" ; echo ;
+echo
+echogreen " * " ; echo "Expecting GSB packages in:  $GSBPKGDIR"
+
+# For each module in our .buildlist
+for MODULE in $MODULE_SETS ; do
+  (
+    cd $MODULE && ./$MODULE.SlaxBuild $SLACKBUILD_ARGS 2>&1 ) || {
+      echo 
+      echo "Failed to build module $MODULE"
+      echo
+      exit 1
+    }
+  MODULE_ORDER=$(( $MODULE_ORDER + 1 ))
+done;
+
+# Copy our modules documentation
+cd $CWD ;
+echogreen " * " ; echo "Copying documentation."
+for DOC in COPYING COPYING3 LICENSE.GSB LICENSE.SLAX HOWTO.TXT README.TXT ;
+do
+   cp ${DOC} ${SLAXDIR} || exit 1;
+done;
+
+echogreen " * " ; echo "Generating file list and checksums."
+for DIR in $SLAXDIR ;
+ do
+   [ -d $DIR ] && {
+    gen_filelist_txt $DIR $DIR
+    gen_checksums_md5 $DIR $DIR
+  }
+done
+
+echo ; echo "Total build time was $( runtime $SECONDS )."
+
+# Return the exit status from the sub-shell, not the tee command.
+exit ${PIPESTATUS[0]}

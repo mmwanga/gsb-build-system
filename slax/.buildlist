@@ -1,0 +1,3 @@
+# Our main slax module, this has to be first in the list
+gsb.base
+# Secondary module which may depend on gsb.base

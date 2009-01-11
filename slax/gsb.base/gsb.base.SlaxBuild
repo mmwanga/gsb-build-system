@@ -1,0 +1,474 @@
+#!/bin/bash
+# gsb.SlaxBuild  This script builds the main gsb.lzm module for Slax.
+# Author:        Steve Kennedy, <steve@gnomeslackbuild.org>
+# Version:       @(#)/gsb.SlaxBuild  1.00    Sun Nov 16 12:17:18 GMT 2008
+#
+
+# Module information
+MODULE=gsb.base
+GNOME_VERSION=2.24.2
+REVISION=5
+
+# List of modules we want to split out of main module.
+# There should be a corresponding .dir file which contains
+# a list of directories to split out for each module.
+SPLIT_MODULES="doc devel"
+
+# Create three digit order prefix for module
+MODULE_ORDER=00${MODULE_ORDER:-1}
+
+# Make sure we are in the right directory 
+cd $( cd ${BASH_SOURCE%/*} ; pwd )
+CWD=$(pwd)
+
+# If the user created an options file, read it.
+[ -r ../modules.options ] && {
+  . ../modules.options
+  export OPTIONSREAD=1
+}
+
+# Environment.
+export TMP=${TMP:-/tmp}
+export SLAXDIR=${SLAXDIR:-$TMP/slax}
+export MODULEDEST=${MODULEDEST:-${SLAXDIR}/modules}
+export GSBBASE=${GSBBASE:-$TMP/gsb-tree}
+export GSBPKGDIR=${GSBPKGDIR:-$GSBBASE/gsb/packages}
+export LOGSDIR=${LOGSDIR:-$TMP/gsbslax-buildlogs}
+export LOGFILE=${LOGFILE:-$LOGSDIR/${MODULE}.log}
+export ARCH=${ARCH:-i486}
+
+# Use liblinuxlive tools
+. ${CWD}/../tools/liblinuxlive || {
+   echo "Cannot find liblinuxlive in ./tools."
+   exit 1;
+}
+
+# Test for dir2lzm presence
+DIR2LZM="${CWD}/../tools/dir2lzm"
+[ ! -x $DIR2LZM ] && {
+   echo "Missing dir2lzm."
+   exit 1
+}
+
+# Test for wget
+WGET="/usr/bin/wget"
+[ ! -x $WGET ] && {
+   echo "Missing wget."
+   exit 1
+}
+
+# Usage.
+function usage() {
+  cat << EOF
+Usage: ${0##*/} [options]
+
+Options:
+  --help		Show this help screen.
+
+  --list		List the modules which will be built in this section.
+
+  --no-split            By default, gsb.SlaxBuild will separate out all the 
+                        developement files and documentation from the main
+			module (which only then contains runtime libraries
+			and binaries). Use this option to keep everything
+			in one big module.
+
+  --no-cleanup		By default, any source, temporary build and module
+			directories will be deleted once the module is built.
+			This option prevents those files from being removed.
+
+  --ignore-submodules	Skip building any submodules. Instead of spliting out
+                        the relevant files, they will simply be removed.  If 
+			you would prefer to keep everything in one big module,
+			use the --no-split argument.
+EOF
+}
+
+# Functions
+
+function unpack_pkg() {
+  # We want to avoid using /sbin/installpkg because we need finer control over package installation
+  # since we're builidng a module that doesn't have access to a full Slackware system.
+  # This function installs Slackware packages with their package information into destination $2.  
+  # $1 is the package. This is mostly stolen from Pat's /sbin/installpkg.
+
+  [ -z $1 ] || [ -z $2 ] && {
+    return 1
+  }
+
+  # Our variables
+  ADM_DIR=$2/var/log/package 
+  shortname="$(basename $1 .tgz)"
+  COMPRESSED=`gzip -l $1 | grep -v uncompressed_name | crunch | cut -f 1 -d ' '`
+  UNCOMPRESSED=`gzip -l $1 | grep -v uncompressed_name | crunch | cut -f 2 -d ' '`
+  COMPRESSED="`expr $COMPRESSED / 1024` K"
+  UNCOMPRESSED="`expr $UNCOMPRESSED / 1024` K"
+
+  # Simple package integrity check:
+  if [ ! -f $1 ]; then
+    EXITSTATUS=4
+    echo "Cannot install $1: package is not a regular file"
+    return 1
+  fi
+  gzip -l $1 1> /dev/null 2> /dev/null
+  if [ ! "$?" = "0" ]; then
+    EXITSTATUS=2 # failed gzip -l
+    echo "Cannot install $1: package is corrupt (failed 'gzip -l $1')"
+    return 1
+  fi
+
+  # Write the package file database entry and install the package:
+  echo "PACKAGE NAME:     $shortname" > $ADM_DIR/packages/$shortname
+  echo "COMPRESSED PACKAGE SIZE:     $COMPRESSED" >> $ADM_DIR/packages/$shortname
+  echo "UNCOMPRESSED PACKAGE SIZE:     $UNCOMPRESSED" >> $ADM_DIR/packages/$shortname
+  echo "PACKAGE LOCATION: $package" >> $ADM_DIR/packages/$shortname
+  echo "PACKAGE DESCRIPTION:" >> $ADM_DIR/packages/$shortname
+  mkdir -p $TMP/scan$$
+  ( cd $TMP/scan$$ ; tar xzf - install ) < $1 2> /dev/null
+  DESCRIPTION="$TMP/scan$$/install/slack-desc"
+  cat $DESCRIPTION | grep "^$shortname:" >> $ADM_DIR/packages/$shortname 2> /dev/null
+  echo "FILE LIST:" >> $ADM_DIR/packages/$shortname
+  ( cd $2/ ; tar -xzlpvf - ) < $1 >> $TMP/$shortname 2> /dev/null
+
+  if [ "`cat $TMP/$shortname | grep '^\./' | wc -l | tr -d ' '`" = "1" ]; then
+    # Good.  We have a package that meets the Slackware spec.
+    cat $TMP/$shortname >> $ADM_DIR/packages/$shortname
+  else
+    # Some dumb bunny built a package with something other than makepkg.  Bad!
+    # Oh well.  Bound to happen.  Par for the course.  Fix it and move on...
+    echo './' >> $ADM_DIR/packages/$shortname
+    cat $TMP/$shortname | grep -v '^./$' | cut -b3- >> $ADM_DIR/packages/$shortname
+  fi
+  rm -f $TMP/$shortname
+
+}
+
+function find_package_files() {
+  # $1 = Directory to look for files in [required]
+  # $2 = Package name or regex to match.  An empty string matches all.
+  # $3 = Package version or regex to match.  An empty string matches all.
+  # $4 = Package architecture or regex to match.  An empty string matches all.
+  # $5 = Package build tag or regex to match.  An empty string matches all.
+  # $6 = File extension or regex to match.  An empty string means no extension.
+  # Note: Remember to escape any regex characters used in fixed strings.
+
+  [ -z "$1" ] || [ ! -d "$1" ] && return 1
+  find $1 -maxdepth 2 -mindepth 1 2>/dev/null | \
+    egrep "^.*/(${2:-.*})(-${3:-[^-]*})(-${4:-[^-]*})(-${5:-[^-.]*})($6)$" 2>/dev/null
+  return $?
+}
+
+function checkmd5() {
+   # $1 Package to check
+   
+   # Sanity check
+   [ -z $1 ] || [ ! -f ${1// /} ] && return 1;
+   [ ! -x /usr/bin/md5sum ] && return 1
+
+   ACTUAL_MD5=$( md5sum ${1// /} | cut -f1 -d\ )
+   CHECKSUMS_MD5=$( cat ${1// /}.md5 | cut -f1 -d\ )
+
+   [ $ACTUAL_MD5 = $CHECKSUMS_MD5 ] && return 0
+}
+
+function runtime() {
+  # $1 = Number of seconds to convert to readable text [required]
+  [ -z "$1" ] && return 1
+  local D=$(( $1 / 86400 ))
+  local H=$(( ($1 - ($D * 86400)) / 3600 ))
+  local M=$(( ($1 - ($D * 86400) - ($H * 3600)) / 60 ))
+  local S=$(( $1 - ($D * 86400) - ($H * 3600) - ($M * 60) ))
+  if [ $D -gt 0 ]; then
+    echo -n "${D}d, ${H}h ${M}m ${S}s"
+  else
+    echo -n "${H}h, ${M}m ${S}s"
+  fi
+  return 0
+}
+
+function gen_filelist_txt() {
+  # $1 = Sub-directory to process [required]
+  # $2 = Sub-directory to put FILELIST.TXT in, or empty for current directory
+  [ -z "$1" ] && return 1
+  ( cd $1
+    echo -e "FILELIST.TXT; $( date )\n\n"
+    find . ! -wholename ./FILELIST.TXT ! -wholename ./FILELIST.TXT.gz \
+      ! -wholename ./CHECKSUMS.md5 ! -wholename ./CHECKSUMS.md5.gz | \
+      sort | xargs ls -ld ) >${2:-.}/FILELIST.TXT 2>/dev/null
+  cat ${2:-.}/FILELIST.TXT | gzip -9c >${2:-.}/FILELIST.TXT.gz 2>/dev/null
+}
+
+function gen_checksums_md5() {
+  # $1 = Sub-directory to process [required]
+  # $2 = Sub-directory to put CHECKSUMS.md5 in, or empty for current directory
+  [ -z "$1" ] && return 1
+  ( cd $1
+    echo -e "CHECKSUMS.md5; $( date )\n\n"
+    echo "MD5                               Filename"
+    find . ! -wholename ./CHECKSUMS.md5 ! -wholename ./CHECKSUMS.md5.gz \
+      ! -name \*.tgz.md5 \( -type f -o -type l \) -exec md5sum {} \; | \
+      sort -k2 -f ) >${2:-.}/CHECKSUMS.md5 2>/dev/null
+  cat ${2:-.}/CHECKSUMS.md5 | gzip -9c >${2:-.}/CHECKSUMS.md5.gz 2>/dev/null
+}
+
+function verify_pkglist() {
+  # Make sure we can find all the tgz packages listed in $1
+  # $1 = Pkglist text file [required]
+  local PACKAGE
+  [ ! -r $1 ] && {
+      echo "Can't find pkglist."
+      return 1
+  }
+
+  # Make sure out pkglist file doesn't have any comments or blank lines 
+  PKGLIST=$( egrep -v "^#|^$" $1 | cut -d'#' -f1 )
+
+  for PACKAGE in $PKGLIST ;
+     do
+       echo -ne "\r * Searching for $PACKAGE.                        "
+       # Test to make sure we can find all our required packages for the module
+       if ! find_package_files "$GSBPKGDIR" "${PACKAGE//+/\+}" \
+         "" "" "" "\.tgz" >/dev/null ; then
+	 echo ;
+         echo -e "\r\n  Error: Cannot find $PACKAGE package." && return 1
+       fi;
+     done;
+     echo -en "\r " ; echogreen "* " ; 
+     echo "All packages found required for module $MODULE.          "
+   return 0
+}
+  
+# Defaults
+NOCLEANUP=0
+NOSPLIT=0
+
+# Parse command line arguments.
+while [ $# -gt 0 ]; do
+  if [ "$1" = "-help" ] || [ "$1" = "--help" ]; then
+    usage
+    exit 0
+  elif [ "$1" = "-list" ] || [ "$1" = "--list" ]; then
+    list_modules
+    exit 0
+  elif [ "$1" = "-no-cleanup" ] || [ "$1" = "--no-cleanup" ]; then
+    NOCLEANUP=1
+    shift
+  elif [ "$1" = "-no-split" ] || [ "$1" = "--no-split" ]; then
+    NOSPLIT=1
+    shift
+  elif [ "$1" = "-ignore-submodules" ] || [ "$1" = "--ignore-submodules" ]; then
+    IGNORE_SUBMODS=1
+    shift
+  else
+    echo "${0##*/}: Unknown option: $1"
+    echo "Try: $0 --help"
+    exit 1
+  fi
+done
+
+# Temporary space, package and log file storage.
+mkdir -p $TMP &&
+mkdir -p $SLAXDIR &&
+mkdir -p $MODULEDEST &&
+mkdir -p $LOGSDIR || exit 1
+
+# Do the build.
+
+# Make our space for module package
+echo
+header " Building module ${MODULE_ORDER}-${MODULE}-${GNOME_VERSION}-${ARCH}-rev${REVISION}.lzm "
+echo
+echogreen " * " ; echo "Cleaning up temporary space."
+rm -fr $TMP/module-$MODULE &&
+mkdir -p $TMP/module-$MODULE &&
+
+# Make sure we're able to install all the listed GSB packages
+verify_pkglist "${CWD}/pkglist" || exit 1;
+
+# Switch into our main working directory.
+PKG="$TMP/module-$MODULE"
+cd $PKG ;
+
+# Install our packages
+PKGCOUNT=100;
+PKGLIST=$( egrep -v "^#|^$" ${CWD}/pkglist | cut -d'#' -f1 )
+
+for PACKAGE in $PKGLIST ; do
+  echo -ne "\r * Checking md5 for package $PACKAGE.              "
+  checkmd5 " $( find_package_files "$GSBPKGDIR" "${PACKAGE//+/\+}" \
+    "" "" "" "\.tgz") " || {
+       echo "Checksum failed for package $PACKAGE"
+       exit 1
+       }
+
+  echo -ne "\r * Installing package $PACKAGE.                    "
+  # Untar all the relevant packages into a temporary directory
+  tar -xzlpf $( find_package_files "$GSBPKGDIR" "${PACKAGE//+/\+}" "" "" \
+    "" "\.tgz" ) || {
+       echo "Failed to untar package $PACKAGE."
+       exit 1
+       }
+
+  cd $PKG ;
+  if [ -f ${PKG}/install/doinst.sh ]; then
+    # We need to vet doinst.sh for nicer integration into Slax. We'll 
+    # run parts of doinsts, to set up softlinks, create Gconf, etc
+    # but we'll need to preserve stuff like user/passwd creation for
+    # non-persistent filesystems. See the rc.gsb scripts.
+
+    # If our doinst.sh does nothing other than set up softlinks, then 
+    # just plain run it now then remove it entirely.
+    if [ -z "$(egrep -v "ln|rm|^$|ldconfig" ${PKG}/install/doinst.sh)" ]; then
+      sh ${PKG}/install/doinst.sh >/dev/null 2>&1 &&
+      rm ${PKG}/install/doinst.sh || exit 1
+    else
+      # Here, we'll run as much of the doinst.sh as possible now, keeping 
+      # everything else to run as an activation script. 
+
+      # Strip softlinks from doinst.sh
+      if [ "$(egrep "^\(\ cd\ " ${PKG}/install/doinst.sh)" ]; then
+        egrep "^\(\ cd\ " ${PKG}/install/doinst.sh >> ${PKG}/install/slax.doinst.sh || exit 1
+      fi;
+
+      # The main "gsb" module should create and ship with a created gconf structure
+      # for all its main packages.  All other modules which use gconf *MUST*
+      # use init scripts (perhaps using rc.gsb.base as a template) to merge its
+      # private gconf settings into the gsb gconf tree.  Modules other than 
+      # the main gsb module *SHOULD NOT* ship with a /etc/gconf tree, which 
+      # will otherwise clobber the main libgnome tree when mounted.
+
+      # We need to create a gconf tree for our main gsb module.
+      # Strip gconf setups from doinst.sh
+      if [ "$(egrep "GCONF_CONFIG_SOURCE" ${PKG}/install/doinst.sh)" ]; then
+        egrep "^GCONF_CONFIG_SOURCE" ${PKG}/install/doinst.sh >> ${PKG}/install/slax.doinst.sh &&
+        # Make sure to flip our gconf installation to our local copy
+        sed -i "s,\$(usr/bin/gconftool-2 --get-default-source),xml:merged:${TMP}/module-${MODULE}/etc/gconf/gconf.xml.defaults,g" ${PKG}/install/slax.doinst.sh || exit 1
+      fi;
+
+      # Run our stripped version
+      if [ -f ${PKG}/install/slax.doinst.sh ]; then
+        cd $PKG ;
+        sh ${PKG}/install/slax.doinst.sh >/dev/null 2>&1 
+        rm -fr ${PKG}/install/slax.doinst.sh ;
+      fi;
+   fi;
+  fi;
+# Install package
+done;
+echo -ne "\r" ; echogreen " * "; echo "Finished installing packages.              "
+
+# Clean up unneeded install dir
+cat ${CWD}/post.install | sed "s,@SOURCE@,xml\:merged\:${TMP}/module-${MODULE}\/etc\/gconf\/gconf.xml.defaults,g" > ${PKG}/install/post.install || exit 1
+( cd ${PKG} ; sh ${PKG}/install/post.install )
+rm -fr ${PKG}/install ;
+
+# Make some startup scripts
+echogreen " * " ; echo "Preparing module startup scripts."
+cd ${PKG} || exit 1
+
+# Don't leave any ".new" config files lying around
+for CONFIG in $( find ${PKG} -name "*.new" ) ; do
+ mv $CONFIG $(echo $CONFIG | sed "s,.new,,g") || exit 1
+done;
+
+# Scripts in /etc/rc.d should be executable
+chmod 755 ${PKG}/etc/rc.d/rc.* ;
+
+# Copy over our main activation script
+mkdir -p ${PKG}/etc/init.d &&
+mkdir -p ${PKG}/etc/rc.d/rcS.d &&
+mkdir -p ${PKG}/etc/rc.d/rc3.d &&
+mkdir -p ${PKG}/etc/rc.d/rc6.d &&
+mkdir -p ${PKG}/root/Desktop &&
+mkdir -p ${PKG}/usr/share/applications &&
+cp ${CWD}/rc.gsb.S ${PKG}/etc/init.d &&
+cp ${CWD}/rc.gsb.M ${PKG}/etc/init.d &&
+cp ${CWD}/GSB.desktop ${PKG}/root/Desktop &&
+cp ${CWD}/applications.menu ${PKG}/usr/share/applications &&
+chmod 755 ${PKG}/etc/init.d/rc.gsb.* || exit 1
+
+# Create sysvinit style links
+( cd $TMP/module-$MODULE/etc/rc.d/rcS.d ; ln -s ../../init.d/rc.gsb.S \
+  ./S${MODULE_ORDER}${MODULE} )
+( cd $TMP/module-$MODULE/etc/rc.d/rcS.d ; ln -s ../../init.d/rc.gsb.S \
+  ./K${MODULE_ORDER}${MODULE} )
+( cd $TMP/module-$MODULE/etc/rc.d/rc6.d ; ln -s ../../init.d/rc.gsb.S \
+  ./K${MODULE_ORDER}${MODULE} )
+( cd $TMP/module-$MODULE/etc/rc.d/rc3.d ; ln -s ../../init.d/rc.gsb.M \
+  ./S${MODULE_ORDER}${MODULE} )
+( cd $TMP/module-$MODULE/etc/rc.d/rc3.d ; ln -s ../../init.d/rc.gsb.M} \
+  ./K${MODULE_ORDER}${MODULE} )
+       
+# Copy over version information
+if [ -f ${CWD}/version ]; then
+  mkdir -p ${PKG}/etc &&
+  cat $CWD/version | sed "s:@GNOME_VERSION@:${GNOME_VERSION}:g" \
+    | sed "s:@REVISION@:${REVISION}:g" \
+    > $TMP/module-$MODULE/etc/${MODULE}-version || exit 1
+fi;
+
+# Make some startup scripts
+echogreen " * " ; echo "Cleaning up extraneous files."
+# Clean up any cache files
+rm -fr ${PKG}/etc/ld.so.cache
+# Clean up unneeded *.la files
+find $TMP/module-$MODULE -name "*.la" -exec rm -f {} \;
+
+# Split up module by trimming out documentation and development files.
+[ "${NOSPLIT}" = "0" ] && {
+  # Create seperate modules for documentation/help and developement files.
+  for SPLIT_MODULE in $SPLIT_MODULES; do
+    echogreen " * " ; echo "Splitting module $MODULE-${SPLIT_MODULE}."
+    rm -fr $TMP/module-${MODULE}_${SPLIT_MODULE};
+    if [ -f ${CWD}/${SPLIT_MODULE}.dirs ]; then
+      DIRS="$( egrep -v "^#|^$" ${CWD}/${SPLIT_MODULE}.dirs \
+         | cut -d'#' -f1 | sort | uniq)"
+      if [ ! -z "${DIRS}" ]; then
+	# Create separate modules for trimmed directories ;
+        for trimed_dir in $DIRS ; do
+	  [ -d $trimed_dir ] && {
+	  if [ "${IGNORE_SUBMODS}" != "1" ]; then
+	    mkdir -p $TMP/module-${MODULE}_${SPLIT_MODULE} || exit 1
+            echo -ne "\r   * Separating out ${trimed_dir}           "
+	    ( cd $TMP/module-$MODULE ; 
+            tar -clpf - ./$trimed_dir 2> /dev/null | ( cd $TMP/module-${MODULE}_${SPLIT_MODULE} ; tar -xzlpf - ) || exit 1
+	    )
+          else
+	    echo -ne "\r   * Removing ${trimed_dir}          "
+	  fi;
+	  rm -fr $TMP/module-$MODULE/${trimed_dir} ;
+          }
+        done;
+      fi ;
+    echo -en "\r  " ; echogreen "* " ; 
+    echo "Finished trimming for submodule ${SPLIT_MODULE}.       "
+    [ -d $TMP/module-${MODULE}_${SPLIT_MODULE} ] && {
+    echo "Compressing submodule ${MODULEDEST}/${MODULE_ORDER}-${MODULE}_${SPLIT_MODULE}.lzm" &&
+    $DIR2LZM $TMP/module-${MODULE}_${SPLIT_MODULE} ${MODULEDEST}/${MODULE_ORDER}-${MODULE}_${SPLIT_MODULE}-${GNOME_VERSION}-rev${REVISION}.lzm || exit 1
+    echo ;
+    }
+    fi;
+  done;
+}
+
+# Compress module directory
+echogreen " * " ; echo "Compressing main module ${MODULEDEST}/${MODULE_ORDER}-$MODULE.lzm" &&
+$DIR2LZM $TMP/module-${MODULE} ${MODULEDEST}/${MODULE_ORDER}-${MODULE}-${GNOME_VERSION}-rev${REVISION}.lzm || exit 1
+echo ; echogreen " * " ; echo "Created module ${MODULEDEST}/${MODULE_ORDER}-$MODULE.lzm"
+
+# Clean up
+if [ "$NOCLEANUP" = "0" ]; then
+  echogreen " * " ; echo "Cleaning up module build space."
+  rm -fr $TMP/module-${MODULE} ;
+  rm -fr $TMP/module-${MODULE}_* ;
+  rm -fr $TMP/slackware ;
+  rm -fr $LOGSDIR ;
+else
+  echogreen " * "; echo "User specified to not clean up temporary space."
+fi;
+
+echo ; echo "Module $MODULE build time was $( runtime $SECONDS )."
+echo ;
+
+# Return the exit status from the sub-shell
+exit ${PIPESTATUS[0]}

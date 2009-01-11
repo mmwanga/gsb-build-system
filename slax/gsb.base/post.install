@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# Clean up previous softlinks
+if [ -r usr/lib/xulrunner ]; then
+  chroot . rm -rf usr/lib/xulrunner ;
+fi;
+if [ -r usr/lib/xulrunner-devel ]; then
+  chroot . rm -rf usr/lib/xulrunner-devel ;
+fi;
+
+# Make our softlinks
+if [ -d usr/lib/xulrunner-1.9.0.5 ]; then
+  (cd usr/lib ; ln -sf xulrunner-1.9.0.5 xulrunner );
+fi;
+if [ -d usr/lib/xulrunner-devel-1.9.0.5 ]; then
+  (cd usr/lib ; ln -sf xulrunner-devel-1.9.0.5 xulrunner-devel );
+fi;
+
+# configure some default gconf settings
+usr/bin/gconftool-2 --direct --config-source=@SOURCE@ --type string --set /desktop/gnome/url-handlers/ftp/command "nautilus \"%s\"" 1> /dev/null 2> /dev/null
+usr/bin/gconftool-2 --direct --config-source=@SOURCE@ --type string --set /desktop/gnome/background/picture_filename /usr/share/pixmaps/backgrounds/gsb-background.png 1> /dev/null 2> /dev/null
+usr/bin/gconftool-2 --direct --config-source=@SOURCE@ --type string --set /desktop/gnome/background/picture_options stretched 1> /dev/null 2> /dev/null
+usr/bin/gconftool-2 --direct --config-source=@SOURCE@ --type string --set  /desktop/gnome/peripherals/mouse/cursor_theme comixcursors 1> /dev/null 2> /dev/null
+usr/bin/gconftool-2 --direct --config-source=@SOURCE@ --type integer --set /desktop/gnome/peripherals/mouse/cursor_size 16 1> /dev/null 2> /dev/null
+usr/bin/gconftool-2 --direct --config-source=@SOURCE@ --type string --set  /apps/metacity/general/theme GSB 1> /dev/null 2> /dev/null
+usr/bin/gconftool-2 --direct --config-source=@SOURCE@ --type string --set /apps/gnome-session/options/splash_image splash/gsb-splash.png 1> /dev/null 2> /dev/null
+usr/bin/gconftool-2 --direct --config-source=@SOURCE@ --type boolean --set /desktop/gnome/sound/enable_esd false 1> /dev/null 2> /dev/null
+usr/bin/gconftool-2 --direct --config-source=@SOURCE@ --type boolean --set /apps/gnome-session/options/show_splash_screen false 1> /dev/null 2> /dev/null
+usr/bin/gconftool-2 --direct --config-source=@SOURCE@ --type string --set /desktop/gnome/applications/main-menu/lock-down/user_modifiable_apps True >/dev/null 2>&1
+usr/bin/gconftool-2 --direct --config-source=@SOURCE@ --type boolean --set /apps/service-discovery-applet/options/show_notifications true 1> /dev/null 2> /dev/null
+usr/bin/gconftool-2 --direct --config-source=@SOURCE@ --type boolean --set /apps/service-discovery-applet/options/show_local_services true 1> /dev/null 2> /dev/null
+usr/bin/gconftool-2 --direct --config-source=@SOURCE@ --type boolean --set /apps/service-discovery-applet/services/_daap._tcp true  1> /dev/null 2> /dev/null
+usr/bin/gconftool-2 --direct --config-source=@SOURCE@ --type boolean --set /apps/service-discovery-applet/services/_pulse-server._tcp true 1> /dev/null 2> /dev/null
+usr/bin/gconftool-2 --direct --config-source=@SOURCE@ --type boolean --set /apps/service-discovery-applet/services/_smb._tcp true 1> /dev/null 2> /dev/null
+usr/bin/gconftool-2 --direct --config-source=@SOURCE@ --type boolean --set /apps/padevchooser/no_notify_on_startup true 1> /dev/null 2> /dev/null
+usr/bin/gconftool-2 --direct --config-source=@SOURCE@ --type boolean --set /apps/padevchooser/notify_on_server_discovery true 1> /dev/null 2> /dev/null
+usr/bin/gconftool-2 --direct --config-source=@SOURCE@ --type boolean --set /apps/padevchooser/notify_on_sink_discovery true 1> /dev/null 2> /dev/null
+usr/bin/gconftool-2 --direct --config-source=@SOURCE@ --type boolean --set /apps/padevchooser/notify_on_source_discovery true 1> /dev/null 2> /dev/null
