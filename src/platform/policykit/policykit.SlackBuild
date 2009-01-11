@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=3
+BUILD=6
 VERSION=0.9
 
 ## List any packages here that are required to build this package.
@@ -120,6 +120,8 @@ fi
 patch -p1 < $CWD/patches/polkit-resolve-pam.patch || exit 1
 ## Security fix for ptrace attacks
 patch -p1 < $CWD/patches/noptrace.patch || exit 1
+## patch for ck
+patch -p1 < $CWD/patches/ck_api_change.patch || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .
@@ -175,7 +177,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## Build and install.
 make $MAKE_FLAGS &&
 
-## Install hal relevant policykit policies
+# Install hal relevant policykit policies
 mkdir -p $PKG/usr/share/PolicyKit/policy || exit 1
 cp $CWD/hal/*.policy $PKG/usr/share/PolicyKit/policy || exit 1
 

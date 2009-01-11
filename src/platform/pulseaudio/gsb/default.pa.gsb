@@ -48,6 +48,11 @@ load-module module-hal-detect
 load-module module-detect
 .endif
 
+### Automatically load driver modules for Bluetooth hardware
+#.ifexists module-bluetooth-discover.so
+#load-module module-bluetooth-discover
+#.endif
+
 ### Load several protocols
 .ifexists module-esound-protocol-unix.so
 load-module module-esound-protocol-unix
@@ -86,7 +91,7 @@ load-module module-suspend-on-idle
 
 ### If autoexit on idle is enabled we want to make sure we only quit
 ### when no local session needs us anymore.
-# load-module module-console-kit
+load-module module-console-kit
 
 ### Enable positioned event sounds
 load-module module-position-event-sounds

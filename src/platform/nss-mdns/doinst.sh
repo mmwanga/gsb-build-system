@@ -2,4 +2,3 @@
 
 # Update new libraries
 ldconfig -r .
-libtool --finish --silent usr/lib*

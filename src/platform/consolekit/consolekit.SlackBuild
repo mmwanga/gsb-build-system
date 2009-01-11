@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=3
 VERSION=0.3.0
 
 ## List any packages here that are required to build this package.
@@ -115,6 +115,12 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
+
+patch -p1 < $CWD/patches/01-dbus_policy.patch || exit 1
+patch -p1 < $CWD/patches/08-fix-double-close.patch || exit 1
+patch -p1 < $CWD/patches/09-directory-handle-leak.patch || exit 1
+patch -p1 < $CWD/patches/10-file_monitor_remove_watch_crash.patch || exit 1
+
 
 ## Fix permissions for building.
 chown -R root.root .

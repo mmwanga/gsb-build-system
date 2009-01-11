@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=4
 VERSION=0.9.13
 
 ## List any packages here that are required to build this package.
@@ -186,11 +186,13 @@ mv $PKG/etc/pulse/system.pa $PKG/etc/pulse/system.pa.new || exit 1
 mkdir -p $PKG/etc
 mkdir -p $PKG/etc/pulse
 
-# pulseaudio started by gnome-settings-daemon anyway
-rm -fr $PKG/etc/xdg
+# Move pulseaudio to GNOME specific xdg
+mkdir $PKG/etc/gnome &&
+mv $PKG/etc/xdg $PKG/etc/gnome || exit 1
 
 ## Install our version
-#cp $CWD/gsb/default.pa.gsb $PKG/etc/pulse/default.pa.new || exit 1
+cp $CWD/gsb/default.pa.gsb $PKG/etc/pulse/default.pa.new || exit 1
+cp $CWD/gsb/start-pulseaudio-x11 $PKG/usr/bin || exit 1
 
 # Tweaks for x86_64 platforms
 if [ "$ARCH" = "x86_64" ]; then

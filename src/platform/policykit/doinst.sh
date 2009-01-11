@@ -40,3 +40,8 @@ fi
 if ! grep "^polkituser:" etc/shadow >/dev/null 2>&1; then
   echo "polkituser:*:9797:0:::::" >>etc/shadow
 fi
+
+# Allow hal to query the PolicyKit database to enforce privileges
+if ! usr/bin/polkit-auth --user haldaemon --explicit | grep -q 'org.freedesktop.policykit.read'; then
+   usr/bin/polkit-auth --user haldaemon --grant 'org.freedesktop.policykit.read'
+fi

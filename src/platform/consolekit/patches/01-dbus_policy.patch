@@ -1,0 +1,27 @@
+Index: ConsoleKit-0.2.10/data/ConsoleKit.conf
+===================================================================
+--- ConsoleKit-0.2.10.orig/data/ConsoleKit.conf	2008-02-12 16:45:04.000000000 +0100
++++ ConsoleKit-0.2.10/data/ConsoleKit.conf	2008-07-25 00:34:44.000000000 +0200
+@@ -22,10 +22,6 @@
+           send_interface="org.freedesktop.DBus.Properties" />
+ 
+     <allow send_interface="org.freedesktop.ConsoleKit.Manager"
+-           send_member="Restart"/>
+-    <allow send_interface="org.freedesktop.ConsoleKit.Manager"
+-           send_member="Stop"/>
+-    <allow send_interface="org.freedesktop.ConsoleKit.Manager"
+            send_member="OpenSession"/>
+     <allow send_interface="org.freedesktop.ConsoleKit.Manager"
+            send_member="CloseSession"/>
+@@ -91,4 +87,11 @@
+            send_member="GetIdleSinceHint"/>
+   </policy>
+ 
++  <policy user="root">
++    <allow send_interface="org.freedesktop.ConsoleKit.Manager"
++           send_member="Restart"/>
++    <allow send_interface="org.freedesktop.ConsoleKit.Manager"
++           send_member="Stop"/>
++  </policy>
++
+ </busconfig>
