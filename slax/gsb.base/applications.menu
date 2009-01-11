@@ -191,25 +191,6 @@
     </Exclude>
   </Menu>   <!-- End System Tools -->
 
-  <!-- Other -->
-  <Menu>
-    <Name>Other</Name>
-    <Directory>X-GNOME-Other.directory</Directory>
-    <OnlyUnallocated/>
-    <Include>
-      <And>
-        <Not><Category>Core</Category></Not>
-        <Not><Category>Settings</Category></Not>
-        <Not><Category>Screensaver</Category></Not>
-      </And>
-    </Include>
-    <Exclude>
-        <Category>KDE</Category>
-        <Category>X-XFCE</Category>
-        <Filename>mprof-heap-viewer.desktop</Filename>
-    </Exclude>
-  </Menu> <!-- End Other -->
-
   <Menu>
      <Name>KDE Applications</Name>
      <MergeFile>gnome-menus-kde.menu</MergeFile>

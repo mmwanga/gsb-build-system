@@ -86,6 +86,32 @@ EOF
 
 # Functions
 
+crunch() {
+  while read FOO ; do
+    echo $FOO
+  done
+}
+
+package_name() {
+  STRING=`basename $1 .tgz`
+  if [ "`echo $STRING | cut -f 1 -d -`" = "`echo $STRING | cut -f 2 -d -`" ]; then
+    echo $STRING
+  else
+    INDEX=1
+    while [ ! "`echo $STRING | cut -f $INDEX -d -`" = "" ]; do
+      INDEX=`expr $INDEX + 1`
+    done
+    INDEX=`expr $INDEX - 1` # don't include the null value
+    if [ "$INDEX" = "2" -o "$INDEX" = "3" ]; then
+      echo $STRING
+    else
+      NAME=`expr $INDEX - 3`
+      NAME="`echo $STRING | cut -f 1-$NAME -d -`"
+      echo $NAME
+    fi
+  fi
+}
+
 function unpack_pkg() {
   # We want to avoid using /sbin/installpkg because we need finer control over package installation
   # since we're builidng a module that doesn't have access to a full Slackware system.
@@ -97,12 +123,15 @@ function unpack_pkg() {
   }
 
   # Our variables
-  ADM_DIR=$2/var/log/package 
+  ADM_DIR=$2/var/log
   shortname="$(basename $1 .tgz)"
+  packagebase="`package_name $shortname`"
   COMPRESSED=`gzip -l $1 | grep -v uncompressed_name | crunch | cut -f 1 -d ' '`
   UNCOMPRESSED=`gzip -l $1 | grep -v uncompressed_name | crunch | cut -f 2 -d ' '`
   COMPRESSED="`expr $COMPRESSED / 1024` K"
   UNCOMPRESSED="`expr $UNCOMPRESSED / 1024` K"
+
+  mkdir -p ${ADM_DIR}/packages || exit 1
 
   # Simple package integrity check:
   if [ ! -f $1 ]; then
@@ -125,8 +154,9 @@ function unpack_pkg() {
   echo "PACKAGE DESCRIPTION:" >> $ADM_DIR/packages/$shortname
   mkdir -p $TMP/scan$$
   ( cd $TMP/scan$$ ; tar xzf - install ) < $1 2> /dev/null
-  DESCRIPTION="$TMP/scan$$/install/slack-desc"
-  cat $DESCRIPTION | grep "^$shortname:" >> $ADM_DIR/packages/$shortname 2> /dev/null
+  DESCRIPTION="$TMP/scan$$/install/slack-desc" 
+  cat $DESCRIPTION | grep "^$packagebase:" >> $ADM_DIR/packages/$shortname 2> /dev/null || exit 1
+  rm -fr ${TMP}/scan$$
   echo "FILE LIST:" >> $ADM_DIR/packages/$shortname
   ( cd $2/ ; tar -xzlpvf - ) < $1 >> $TMP/$shortname 2> /dev/null
 
@@ -140,7 +170,6 @@ function unpack_pkg() {
     cat $TMP/$shortname | grep -v '^./$' | cut -b3- >> $ADM_DIR/packages/$shortname
   fi
   rm -f $TMP/$shortname
-
 }
 
 function find_package_files() {
@@ -301,11 +330,11 @@ for PACKAGE in $PKGLIST ; do
        exit 1
        }
 
-  echo -ne "\r * Installing package $PACKAGE.                    "
+  echo -ne "\r * Unpacking $PACKAGE.                    "
   # Untar all the relevant packages into a temporary directory
-  tar -xzlpf $( find_package_files "$GSBPKGDIR" "${PACKAGE//+/\+}" "" "" \
-    "" "\.tgz" ) || {
-       echo "Failed to untar package $PACKAGE."
+  unpack_pkg $( find_package_files "$GSBPKGDIR" "${PACKAGE//+/\+}" "" "" \
+    "" "\.tgz" ) ${PKG} || {
+       echo "Failed to unpack package $PACKAGE."
        exit 1
        }
 
@@ -381,11 +410,13 @@ mkdir -p ${PKG}/etc/rc.d/rc3.d &&
 mkdir -p ${PKG}/etc/rc.d/rc6.d &&
 mkdir -p ${PKG}/root/Desktop &&
 mkdir -p ${PKG}/etc/gnome/xdg/menus &&
+mkdir -p ${PKG}/usr/share/applications &&
 cp ${CWD}/rc.gsb.S ${PKG}/etc/init.d &&
 cp ${CWD}/rc.gsb.M ${PKG}/etc/init.d &&
 cp ${CWD}/GSB.desktop ${PKG}/root/Desktop &&
 cp ${CWD}/applications.menu ${PKG}/etc/gnome/xdg/menus &&
 cp ${CWD}/issue ${PKG}/etc &&
+cp ${CWD}/defaults.list ${PKG}/usr/share/applications &&
 chmod 755 ${PKG}/etc/init.d/rc.gsb.* || exit 1
 
 # Create sysvinit style links
@@ -414,6 +445,8 @@ echogreen " * " ; echo "Cleaning up extraneous files."
 rm -fr ${PKG}/etc/ld.so.cache
 # Clean up unneeded *.la files
 find $TMP/module-$MODULE -name "*.la" -exec rm -f {} \;
+# Create icon caches on boot.
+find $TMP/module-$MODULE -name "icon-theme.cache" -exec rm -f {} \;
 
 # Split up module by trimming out documentation and development files.
 [ "${NOSPLIT}" = "0" ] && {
@@ -435,7 +468,7 @@ find $TMP/module-$MODULE -name "*.la" -exec rm -f {} \;
             tar -clpf - ./$trimed_dir 2> /dev/null | ( cd $TMP/module-${MODULE}_${SPLIT_MODULE} ; tar -xzlpf - ) || exit 1
 	    )
           else
-	    echo -ne "\r   * Removing ${trimed_dir}          "
+	    echo -ne "\r   * Removing ${TMP}/module-$MODULE/${trimed_dir}          "
 	  fi;
 	  rm -fr $TMP/module-$MODULE/${trimed_dir} ;
           }
@@ -444,7 +477,7 @@ find $TMP/module-$MODULE -name "*.la" -exec rm -f {} \;
     echo -en "\r  " ; echogreen "* " ; 
     echo "Finished trimming for submodule ${SPLIT_MODULE}.       "
     [ -d $TMP/module-${MODULE}_${SPLIT_MODULE} ] && {
-    echo "Compressing submodule ${MODULEDEST}/${MODULE_ORDER}-${MODULE}_${SPLIT_MODULE}.lzm" &&
+    echo "Compressing submodule ${MODULEDEST}/${MODULE_ORDER}-${MODULE}_${SPLIT_MODULE}-${GNOME_VERSION}-${ARCH}-${REVISION}gsb.lzm" &&
     $DIR2LZM $TMP/module-${MODULE}_${SPLIT_MODULE} ${MODULEDEST}/${MODULE_ORDER}-${MODULE}_${SPLIT_MODULE}-${GNOME_VERSION}-${ARCH}-${REVISION}gsb.lzm || exit 1
     echo ;
     }
@@ -453,7 +486,7 @@ find $TMP/module-$MODULE -name "*.la" -exec rm -f {} \;
 }
 
 # Compress module directory
-echogreen " * " ; echo "Compressing main module ${MODULEDEST}/${MODULE_ORDER}-$MODULE.lzm" &&
+echogreen " * " ; echo "Compressing main module ${MODULEDEST}/${MODULE_ORDER}-$MODULE-${GNOME_VERSION}-${ARCH}-${REVISION}gsb.lzm" &&
 $DIR2LZM $TMP/module-${MODULE} ${MODULEDEST}/${MODULE_ORDER}-${MODULE}-${GNOME_VERSION}-${ARCH}-${REVISION}gsb.lzm || exit 1
 echo ; echogreen " * " ; echo "Created module ${MODULEDEST}/${MODULE_ORDER}-$MODULE.lzm"
 

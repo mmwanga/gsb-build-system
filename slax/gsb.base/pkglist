@@ -146,6 +146,7 @@ yelp
 eog
 file-roller
 epiphany
+epiphany-extensions
 totem
 gnome-utils
 brasero
@@ -185,3 +186,6 @@ sound-juicer
 NetworkManager
 NetworkManager-vpn
 network-manager-applet
+rhythmbox
+gksu
+libgksu
