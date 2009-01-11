@@ -1,9 +1,12 @@
 #!/bin/sh
 #
-# GNOME-Compiz xinitrc Session script.
+# GNOME xinitrc Session script.
 # Based on:
 # $XConsortium: xinitrc.cpp,v 1.4 91/08/22 11:41:34 rws Exp $
 #
+# Changelog: 
+#
+# Added ConsoleKit support (2008-10-30) stevek
 # Remove unneeded user started dbus session (2008-03-28) stevek
 # Add export to XDG_CONFIG_DIRS (2008-03-19) stevek
 # Inital version (2008-01-17) stevek
@@ -47,10 +50,14 @@ if [ -x /usr/bin/ssh-agent ]; then
 fi;
 
 ## Use Seahorse if available
-## For more information, please see http://live.gnome.org/Seahorse/SessionIntegration
 if [ -x /usr/bin/seahorse-agent ]; then
   GNOME_SESSION_SETTINGS="$GNOME_SESSION_SETTINGS /usr/bin/seahorse-agent --execute"
 fi;
 
+## Use ConsoleKit if available
+if [ -z "${XDG_SESSION_COOKIE}" -a -x /usr/bin/ck-launch-session ]; then
+  CK_SESSION="/usr/bin/ck-launch-session"
+fi;
+
 # Start the window manager
-exec $GNOME_SESSION_SETTINGS gnome-session
+exec $GNOME_SESSION_SETTINGS $CK_SESSION gnome-session

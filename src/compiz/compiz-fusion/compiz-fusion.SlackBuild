@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=3
 VERSION=0.7.8
 
 ## List any packages here that are required to build this package.
@@ -72,6 +72,13 @@ done
     echo "${0##*/}: Remove installed '$PKGNAME' package before build."
     exit 1
   }
+
+  ## Make sure we don't build with the Slackware compiz installed.
+  check_installed "compiz" && {
+    echo "${0##*/}: Remove installed 'compiz' package before build."
+    exit 1
+  }
+
 
   for REQ in $REQUIRED_PACKAGES; do
     check_installed "$REQ" || {
