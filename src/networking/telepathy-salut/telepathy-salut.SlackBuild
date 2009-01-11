@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=1
-VERSION=0.3.5
+BUILD=3
+VERSION=0.3.6
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -114,6 +114,11 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
+
+## Force build against latest libsoup
+if [ "$VERSION" = "0.3.6" ]; then
+ patch -p1 < $CWD/patches/telepathy-salut-libsoup24.patch || exit 1
+fi;
 
 ## Fix permissions for building.
 chown -R root.root .

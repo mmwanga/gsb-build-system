@@ -8,11 +8,12 @@
 
 ## Package variables.
 BUILD=1
-VERSION=0.7.18
+VERSION=0.7.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="dbus glib2"
+REQUIRED_PACKAGES="NetworkManager openvpn ppp dbus GConf libgnomeui"
+
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -88,10 +89,10 @@ mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
-## Decompress archive.
+## Prepare temporary space
 cd $TMP &&
 rm -rf $PKGNAME-$VERSION &&
-tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
+mkdir -p $PKGNAME-$VERSION &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -145,7 +146,7 @@ elif [ "$ARCH" = "x86_64" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS="--libdir=/usr/lib64"
+    CONFIGURE_FLAGS=""
   }
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
@@ -155,16 +156,31 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-## Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
-  || exit 1
+# We have three tarballs for the vpn package ;
+VPN="openvpn pptp vpnc"
 
-## Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+for PLUGIN in $VPN ; do
+ tar xfj $CWD/NetworkManager-$PLUGIN-$VERSION.tar.bz2 &&
+ cd NetworkManager-$PLUGIN-$VERSION || exit 1
+
+ ## Configure.
+ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+   $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+   --mandir=/usr/man \
+   --disable-static --enable-shared \
+   || exit 1
+
+ ## Build and install.
+ make &&
+ make DESTDIR=$PKG install || exit 1
+ cd $TMP/$PKGNAME-$VERSION
+
+done;
+
+## Fix for Slackware non-PAM system.
+## Users now can add themselves to the "netdev" group to use networkmanager.
+sed -i "s/at_console=\"true\"/group=\"netdev\"/g" $PKG/etc/dbus-1/system.d/*.conf || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -184,14 +200,6 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
   gzip -9 $PKG/usr/info/*.info
 }
 
-## Copy extra documentation into package.
-mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
-  $PKG/usr/doc/$PKGNAME-$VERSION
-find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
-chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
-
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
 do
@@ -200,7 +208,7 @@ do
   }
 done
 
-## Create the package
+## Create full package with vpn support
 cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
 

@@ -2,7 +2,7 @@ gtk+2
 glib2
 gmime
 openssl
-sqlite3
+sqlite
 libnotify
 openldap-client
 gpgme

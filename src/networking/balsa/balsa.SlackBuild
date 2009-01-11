@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=1
-VERSION=2.3.26
+BUILD=3
+VERSION=2.3.27
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 glib2 gmime openssl sqlite3 libnotify openldap-client gpgme libgnomeui gtkspell gtkhtml gtksourceview2 libesmtp gtkspell aspell libgnomeprintui"
+REQUIRED_PACKAGES="gtk+2 glib2 gmime openssl sqlite libnotify openldap-client gpgme libgnomeui gtkspell gtkhtml gtksourceview2 libesmtp gtkspell aspell libgnomeprintui"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -115,7 +115,13 @@ elif [ "$ARCH" = "powerpc" ]; then
 fi
 
 ## Remove deprecated checks
-patch -p1 < $CWD/patches/balsa.deprecated.patch || exit 1
+if [ "$VERSION" = "2.3.26" ]; then
+  patch -p1 < $CWD/patches/balsa.deprecated.patch || exit 1
+fi;
+# Fix for imap message threading
+if [ "$VERSION" = "2.3.27" ]; then
+  patch -p1 < $CWD/patches/imap-command.patch || exit 1
+fi;
 
 ## Fix permissions for building.
 chown -R root.root .
@@ -162,16 +168,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
-  --with-gtkhtml \
-  --with-libnotify \
-  --with-ssl \
-  --with-gtksourceview \
-  --with-gtkprint \
-  --enable-extra-mimeicons \
-  --enable-pcre \
-  --enable-smime \
-  --enable-threads \
-  --with-gtkspell \
   || exit 1
 
 ## Build and install.
