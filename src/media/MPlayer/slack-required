@@ -14,6 +14,7 @@ libcddb
 libcdio
 libdvbpsi5
 libdvdcss
+libdvdnav
 libdvdread
 libebml
 libmatroska

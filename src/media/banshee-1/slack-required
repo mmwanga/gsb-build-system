@@ -1,16 +1,13 @@
 mono
 gnome-vfs
 glib2
-sqlite3
+sqlite
 gtk-sharp
 gstreamer
 libmusicbrainz
 nautilus-cd-burner
 gtk+2
 hal
-ipod-sharp
-podsleuth
-njb-sharp
 avahi
 avahi-sharp
 libmtp
