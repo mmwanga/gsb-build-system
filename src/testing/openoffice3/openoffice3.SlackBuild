@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=2
-VERSION=3.0.0.6
+VERSION=3.0.0.9
 
 ## List any packages here that are required to build this package.
 ## We build with mono/java support on x86.  x86_64 does not yet support
@@ -158,12 +158,7 @@ LIBDIR=${LIBDIR:-"lib"}
 ## Add GNOMESlackBuild sections to go-oo configure system
 cp $CWD/gsb_art/*.bmp ./src || exit 1
 cp $CWD/patches/GNOMESlackBuild* ./distro-configs || exit 1
-if [ -f $CWD/patches/addgsb-$VERSION.patch ] ;
-then 
-  patch -p1 < $CWD/patches/addgsb-$VERSION.patch 
-else
-  echo "Need to patch for gsb configure." && exit 1
-fi;
+patch -p1 < $CWD/patches/addgsb-$VERSION.patch || exit 1
 
 ## We need to temporarily spam a directory on the build machine
 mkdir -p /usr/share/openclipart

@@ -17,3 +17,4 @@ cairo
 gtk+2
 openssl-solibs | openssl
 nss
+ttf-liberation-fonts
