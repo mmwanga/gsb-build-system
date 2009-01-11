@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=3
-VERSION=2.46
+BUILD=1
+VERSION=2.48a
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -159,10 +159,11 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 GSB_LIBDIR=${GSB_LIBDIR:-"lib"}
 
 ## Build 
+echo "BF_OPENAL_LIB = 'openal alut'" > user-config.py;
+echo BF_PYTHON_VERSION=\"$(python -V 2>&1 | cut -d" " -f 2 | cut -d"." -f 1-2)\" >> user-config.py;
 scons ${MAKE_FLAGS} BF_DEBUG=0 \
-      WITH_BF_VERSE=0 \
-      BF_INSTALLDIR=$PKG/usr/blender \
-      || exit 1
+  BF_INSTALLDIR=$PKG/usr/blender \
+  || exit 1
 
 ## Set up Package Directories
 mkdir -p $PKG/usr/bin ;
@@ -173,7 +174,7 @@ mkdir -p $PKG/usr/${GSB_LIBDIR}/blender/sequence ;
 mkdir -p $PKG/usr/${GSB_LIBDIR}/blender/texture ;
 
 ## Install
-mv $PKG/usr/blender/blender $PKG/usr/blender/blenderplayer $PKG/usr/bin ;
+mv $PKG/usr/blender/blender $PKG/usr/bin ;
 mv $PKG/usr/blender/.blender $PKG/usr/share ;
 mv $PKG/usr/share/.blender $PKG/usr/share/blender ;
 mv $PKG/usr/share/blender/locale $PKG/usr/share ;

@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=9
-VERSION=2.19.1
+BUILD=1
+VERSION=2.24.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -115,13 +115,6 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
-## Build against xulrunner 1.9
-zcat $CWD/patches/xulrunner-1.9.patch.gz | patch -p1 || exit 1
-## Fix for renamed header
-zcat $CWD/patches/gdl-icons.patch.gz | patch -p1 || exit 1
-## Libtool patch
-zcat $CWD/patches/maintainer_mode.patch.gz | patch -p1 || exit 1
-
 ## Fix permissions for building.
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
@@ -162,14 +155,12 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-## Regenerate configure first after patch
-#autoconf &&
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
-  --with-gtkmozembed=xulrunner \
+  --with-gtkmozembed=mozilla \
   || exit 1
 
 ## Build and install.

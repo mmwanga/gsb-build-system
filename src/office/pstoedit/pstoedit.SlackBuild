@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=3
+BUILD=4
 VERSION=3.45
 
 ## List any packages here that are required to build this package.
@@ -113,6 +113,9 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
+
+# Patch for imagemagick 6.4.3 ISO long long type
+patch -p1 < $CWD/patches/imagemagic_iso_pedantic.patch || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .

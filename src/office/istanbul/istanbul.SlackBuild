@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=4
 VERSION=0.2.2
 
 ## List any packages here that are required to build this package.
@@ -113,6 +113,11 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
+
+if [ "$VERSION" = "0.2.2" ]; then
+  # Fix up some minor bugs for this rather unmaintained package
+  patch -p1 < $CWD/patches/istanbul-update.patch || exit 1
+fi;
 
 ## Fix permissions for building.
 chown -R root.root .

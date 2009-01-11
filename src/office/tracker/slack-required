@@ -1,6 +1,6 @@
 libxml2
 gstreamer
-sqlite3
+sqlite
 gamin
 gnome-vfs
 gnome-desktop

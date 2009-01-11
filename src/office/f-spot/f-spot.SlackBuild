@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=3
 VERSION=0.5.0.3
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomeui libexif mono gnome-sharp gtk-sharp libgphoto2 lcms libjpeg GConf glib2 sqlite3 ndesk-dbus libgphoto2-sharp cairo gnome-keyring dbus mono-addins"
+REQUIRED_PACKAGES="libgnomeui libexif mono gnome-sharp gtk-sharp libgphoto2 lcms libjpeg GConf glib2 sqlite ndesk-dbus libgphoto2-sharp cairo gnome-keyring dbus mono-addins"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=3
+BUILD=4
 VERSION=0.46
 
 ## List any packages here that are required to build this package.
@@ -164,11 +164,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
-  --with-gnome-vfs \
-  --with-gnome-print \
-  --with-xft \
   --enable-inkboard \
-  --enable-lcms \
   || exit 1
 
 ## Build and install.

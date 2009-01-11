@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=1.4.20
+VERSION=1.4.23
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -153,10 +153,9 @@ else
 fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
-CONFIGURE_FLAGS=${CONFIGURE_FLAGS:-"--enable-gtkhtml2 --disable-xulrunner"}
 
 ## Fix for xulrunner-1.9-sdk
-sed -i "s,variable=libdir,variable=sdkdir,g" ./configure || exit 1
+#sed -i "s,variable=libdir,variable=sdkdir,g" ./configure || exit 1
 
 ## Configure.
 XULRUNNER_CFLAGS=$(pkg-config --cflags libxul-embedding-unstable) \
@@ -168,14 +167,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --program-prefix="" \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
-  --enable-lua \
-  --enable-dbus \
-  --enable-libnotify \
-  --enable-sm \
-  --enable-gnutls \
   --disable-nm \
-  --disable-gecko \
-  --enable-xulrunner \
+  --disable-webkit \
   || exit 1
 
 ## Build and install.

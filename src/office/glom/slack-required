@@ -16,7 +16,6 @@ gnome-vfs
 gnome-vfsmm
 cairomm
 libxslt
-libgdamm
 gtksourceviewmm
 libxml++
 libgda
