@@ -121,6 +121,8 @@ function gen_packages_txt() {
 
   [ -z "$1" ] && return 1
 
+  echo "Creating PACKAGES.TXT for ${1}."
+
   { echo -e "PACKAGES.TXT; $( date )\n\n"
     for FILE in $( find ./$1 -name \*.tgz \( -type f -o -type l \) \
       -printf "%f %p\n" | sort -k1 -f | cut -d' ' -f2 )
@@ -135,6 +137,7 @@ function gen_packages_txt() {
       echo "PACKAGE SUGGESTS:  $( tar zxOf $FILE --occurrence=1 install/slack-suggests 2>/dev/null | tr '\n' ' ' )"
       echo "PACKAGE DESCRIPTION:"
       tar xzOf $FILE --occurrence=1 install/slack-desc 2>/dev/null | grep -v "^#" | egrep "[[:alnum:]\+]+\:"
+      echo 
     done } >${2:-.}/PACKAGES.TXT 2>/dev/null
   cat ${2:-.}/PACKAGES.TXT | gzip -9c >${2:-.}/PACKAGES.TXT.gz 2>/dev/null
 }
@@ -144,6 +147,8 @@ function gen_filelist_txt() {
   # $2 = Sub-directory to put FILELIST.TXT in, or empty for current directory
 
   [ -z "$1" ] && return 1
+
+  echo "Creating FILELIST.TXT for ${1}."
 
   ( cd $1
     echo -e "FILELIST.TXT; $( date )\n\n"
@@ -159,6 +164,8 @@ function gen_checksums_md5() {
 
   [ -z "$1" ] && return 1
 
+  echo "Creating CHECKSUMS.md5 for ${1}."
+
   ( cd $1
     echo -e "CHECKSUMS.md5; $( date )\n\n"
     echo "MD5                               Filename"
@@ -166,6 +173,32 @@ function gen_checksums_md5() {
       ! -name \*.tgz.md5 \( -type f -o -type l \) -exec md5sum {} \; | \
       sort -k2 -f ) >${2:-.}/CHECKSUMS.md5 2>/dev/null
   cat ${2:-.}/CHECKSUMS.md5 | gzip -9c >${2:-.}/CHECKSUMS.md5.gz 2>/dev/null
+}
+
+function gen_manifest() {
+  # This handy little piece is from http://www.inreto.de/slacker/, (c) tp(at)fonz.de.
+  # We use it to produce the MANIFEST.bz2 file in imitation of Slackware.
+  # $1 = Sub-directory to process [required]
+  # $2 = Sub-directory to put MANIFEST.bz2 in, or empty for current directory
+
+  [ -z "$1" ] && return 1
+
+  echo "Creating MANIFEST.bz2 for ${1}."
+
+  manifest=.manifest
+  rm -f $manifest
+  pkglist=($(find ${1} -name \*.tgz -type f | sort))
+  for x in ${pkglist[*]}; do
+      xx=${x#./}
+      echo '++========================================' >>$manifest
+      echo '||'                                         >>$manifest
+      echo "||   Package:  $x"                          >>$manifest
+      echo '||'                                         >>$manifest
+      echo '++========================================' >>$manifest
+      tar tzvf $xx 2>/dev/null >>$manifest
+  done
+  bzip2 -c $manifest > ${2:-.}/MANIFEST.bz2
+  rm -f $manifest
 }
 
 
@@ -184,6 +217,7 @@ export TESTINGDIR=${TESTINGDIR:-testing}
 export EXTRADIR=${EXTRADIR:-extra}
 export PACKAGESDIR=${PACKAGESDIR:-packages}
 export SOURCEDIR=${SOURCEDIR:-source}
+export CHANGELOG=${CHANGELOG:-$LOGSDIR/ChangeLog.txt}
 
 # Option defaults.
 NOMETAPACKAGES=0
@@ -251,6 +285,9 @@ mkdir -p $LOGSDIR
   echo "* Building GSB - this will take a while..."
   echo "*********************************************************************"
 
+  echo "$(date)" >> ${CHANGELOG}
+  echo "+--------------------------+" >> ${CHANGELOG}
+
   for SECTION in $SECTIONS $( if [ "$NOMETAPACKAGES" = "0" ] && \
     [ -z "$GSB_SECTIONS" ]; then echo "$METAPACKAGES_SECTIONS"; fi )
   do
@@ -277,7 +314,10 @@ mkdir -p $LOGSDIR
 		  echo "*********************************************************************"
                   echo "* Exporting source tree..."
                   echo "*********************************************************************"
-		  svn export ../src $PKGDEST/$SOURCEDIR 1>/dev/null 2>/dev/null || exit 1
+		  svn export --force ../src $PKGDEST/$SOURCEDIR 1>/dev/null 2>/dev/null || {
+		    echo "Failed to export source."
+		    exit 1
+		  }
 		  # Clean up the export a bit
 		  find $PKGDEST/$SOURCEDIR \( -name "gsb.*" \
 		       -o -name "*.SlackBuild" \
@@ -294,7 +334,8 @@ mkdir -p $LOGSDIR
 
   # Copy our main documentation
   for i in COPYING COPYING3 CREDITS INSTALL.TXT README.TXT UPGRADE.TXT \
-	  REPLACED_PACKAGES.TXT BUILDING.TXT CHANGES_AND_HINTS.TXT ; 
+	  SLACKWARE-12.2_REPLACED_PACKAGES.TXT BUILDING.TXT CHANGES_AND_HINTS.TXT \
+	  SLACKWARE-12.2_CONFLICTS.TXT ; 
   do
      cp ../$i $PKGDEST || exit 1;
   done;
@@ -310,23 +351,21 @@ mkdir -p $LOGSDIR
     cp ../VERSIONS.slackware $PKGDEST/VERSIONS
   fi
   ( cd $PKGDEST && ln -sf ChangeLog ChangeLog.txt )
+  ( cd $PKGDEST/$PATCHESDIR && ln -sf ../ChangeLog.txt )
 
   # Create meta files
   if [ "$NOMETAFILES" = "0" ]; then
     echo
     echo "***************************************************************************"
-    echo "* Generating package file lists and checksums... (This may take a while.)"
+    echo "* Generating package file lists and checksums... (This will take a while.)"
     echo "***************************************************************************"
     echo
-    echo "* If you like our GNOME desktop, plan to use it for a commercial"
-    echo "* product/service or just want to spread some goodwill, please visit"
-    echo "* the GNOME SlackBuild website: <http://gnomeslackbuild.org> and"
-    echo "* make a paypal donation to the project.  Thanks! :)    ~The GSB team"
     ( cd $PKGDEST &&
       for DIR in $GSBDIR $PATCHESDIR $TESTINGDIR $EXTRADIR
       do
         [ -d $DIR ] && {
           gen_packages_txt $DIR/$PACKAGESDIR $DIR
+          gen_manifest $DIR $DIR
           gen_filelist_txt $DIR $DIR
           gen_checksums_md5 $DIR $DIR
         }
