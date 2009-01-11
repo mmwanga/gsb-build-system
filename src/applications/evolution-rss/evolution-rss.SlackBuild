@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=0.1.0a
+VERSION=0.1.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="evolution webkit dbus gtkhtml"
+REQUIRED_PACKAGES="evolution webkit dbus gtkhtml mozilla-xulrunner"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -91,7 +91,7 @@ mkdir -p $PKGDEST
 ## Decompress archive.
 cd $TMP &&
 rm -rf $PKGNAME-$VERSION &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -162,8 +162,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static --enable-shared \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
-  --enable-dbus \
-  --disable-gtkhtml \
   --with-primary-render=gecko \
   || exit 1
 

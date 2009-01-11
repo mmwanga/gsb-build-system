@@ -24,4 +24,4 @@ libgpg-error
 libidn
 libpng
 libxcb
-sqlite3
+sqlite

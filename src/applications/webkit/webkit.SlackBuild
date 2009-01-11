@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=r36766
+VERSION=r39469
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libicu libxslt curl sqlite3 libjpeg libpng gperf cairo fontconfig freetype glib2 gtk+2 gnome-vfs gstreamer"
+REQUIRED_PACKAGES="libicu libxslt curl sqlite libjpeg libpng gperf cairo fontconfig freetype glib2 gtk+2 gnome-vfs gstreamer"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -162,13 +162,11 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --enable-shared \
   --disable-static \
-  --disable-samples \
-  --disable-tests \
   --enable-fast-malloc \
   --with-font-backend=pango \
   --enable-svg \
-  --enable-svg-experimental \
   --enable-svg-animation \
+  --enable-optimizations \
   --enable-fast-malloc \
   --enable-xslt \
   --enable-xpath \

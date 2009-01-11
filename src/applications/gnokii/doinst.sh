@@ -20,7 +20,7 @@ function install_file() {
 }
 
 install_file etc/gnokiirc.new
-install_file etc/udev/rules.d/45-nokiadku2.rules.new
+#install_file etc/udev/rules.d/45-nokiadku2.rules.new
 
 if [ -x usr/bin/update-desktop-database ]; then
   usr/bin/update-desktop-database 1> /dev/null 2> /dev/null

@@ -2,11 +2,9 @@ Note: Some apps linked against mozilla-xulrunner (our version is shared) may hav
 
 These are:
 
-epiphany (gecko)
 epiphany-extensions
-yelp (gtkmozembed)
-devhelp (gtkmozembed)
 seahorse (for nautilus plugin)
 gnome-python-extras (for pygtkmoz)
-gecko-sharp
+gecko-sharp (gtkembedmoz)
 totem (for mozilla plugin)
+firefox (for XULRunner version check)
