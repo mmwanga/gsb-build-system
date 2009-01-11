@@ -1,0 +1,18 @@
+--- hal-cups-utils-0.6.16.orig/systemv/hal_lpadmin	2008-11-07 11:50:31.699842788 +0100
++++ hal-cups-utils-0.6.16/systemv/hal_lpadmin	2008-11-07 11:52:38.839841866 +0100
+@@ -385,12 +385,8 @@ class HalPrinter:
+                 syslog (LOG_DEBUG,
+                          "Found configured printer: %s" % name)
+                 if printer.enabled:
+-                    if ((not printer.device_uri.startswith ("hp:") and
+-                         not printer.device_uri.startswith ("hpfax:")) or
+-                        (bus == "usb" and
+-                         printer.device_uri.find ("/usb/") != -1 and
+-                         not get_hplip_uris_for_usb (False, printer.device_uri) and
+-                         not get_hplip_uris_for_usb (True, printer.device_uri))):
++                    if (not printer.device_uri.startswith ("hp:") and
++                        not printer.device_uri.startswith ("hpfax:")):
+                         self.cups_connection.disablePrinter(name,
+                                                         "Unplugged or turned off")
+                         syslog (LOG_INFO,
+
