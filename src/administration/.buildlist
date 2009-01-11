@@ -1,8 +1,6 @@
-pm-utils
 librsync
 rdiff-backup
 pybackpack
-parted
 gparted
 gslapt
 slapt-update-notifier
