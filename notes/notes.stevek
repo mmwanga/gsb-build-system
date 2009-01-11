@@ -1,0 +1,37 @@
+-- TO FIX? --
+
+May need to remove .local/share/gnome-do/plugins for upgrade in newer package.
+
+-- POSSIBILITIES --
+* gnome-main-menu?
+* better icons for slapt-get-notifier?
+* create nautilus file-type-creation package to auto-install in 
+  user-directory.
+* cairo-dock?
+* add a script for codec detection? (zenity script?)
+* mplayer codecs for amd64
+* fix up printing section
+   -> foomatic stuff?
+   -> foomatic-gui? 
+   -> extra ppds?
+* add gnome swf-dec?
+* print meta package?
+* libgdl-gnome in /usr/lib64?
+* /usr/sbin/gconf-schemas?
+* grandr-applet
+* add s2ram and uswsusp for handy suspending for gnome-power-manager?
+* gnome-password-generator?
+* wp_tray?
+* guake?
+* agave?
+* gnome-devel-docs?
+
+-- WACKY --
+* email go-oo.org project to add GSB packages for Slackware available?
+
+-- KNOWN PROBLEMS --
+* monodoc will segfault if it runs against the seamonkey gtkembedmoz library. 
+  --> How to fix?
+
+--- FUTURE DEVELOPMENT ---
+* packagekit?

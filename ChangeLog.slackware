@@ -1,796 +1,1031 @@
+Fri Jan 09 20:52:35 GMT 2009
+patches/applications/gnome-pilot-2.0.17-i486-1gsb.tgz: Upgraded.
+patches/applications/gnome-pilot-conduits-2.0.17-i486-1gsb.tgz: Upgraded.
+patches/libraries/gtk+2-2.14.7-i486-1gsb.tgz: Upgraded.
++--------------------------+
+Thu Jan 08 19:56:12 GMT 2009
+desktop/gnome-menus-2.24.2-i486-2gsb.tgz: Rebuilt.
+     Fixes to remove KDE entries from GNOME Control Panel.
+desktop/libgnomekbd-2.24.0-i486-2gsb.tgz: Recompilied.
+     Patched for segfault condition in gnome-keyboard-properties.
+networking/balsa-2.3.27-i486-3gsb.tgz: Recompiled.
+     Fix for broken imap-threads.
+extra/mozilla-firefox-3.0.5-i486-2gsb.tgz: Rebuilt.
+     Rebuilt against the latest mozilla-xulrunner package.
+applications/mozilla-xulrunner-1.9.0.4-i486-2gsb.tgz: Rebuilt.
+platform/policykit-gnome-0.9-i486-2gsb.tgz: Rebuilt.
+     Includes a super-user authorizations in the GNOME system menu
+     for configuring policykit.
+libraries/libnotify-0.4.5-i486-1gsb.tgz: Upgraded.
+office/istanbul-0.2.2-i486-4gsb.tgz: Rebuilt.
+desktop/notification-daemon-0.4.0-i486-1gsb.tgz: Upgraded.
+mono/monodoc-2.0-i486-i486-3gsb.tgz: Rebuilt.
+office/gnome-do-0.5.99.0-i486-1gsb.tgz: Upgraded.
+themes/ttf-liberation-fonts-1.1-i486-1gsb.tgz: Added.
+     These are useful fonts for the OpenOffice.org suite.
+libraries/poppler-0.10.2-i486-3gsb.tgz: Rebuilt.
+     Added softlink for compatibility reasons.
+platform/policykit-0.9-i486-6gsb.tgz: Rebuilt.
+     Added missing HAL policy files.
+applications/mozilla-xulrunner-1.9.0.4-i486-2gsb.tgz: Rebuilt.
+     Rebuilt to enforce building the libgnomeui/libgvfs components.
+networking/balsa-2.3.27-i486-3gsb.tgz: Built.
+networking/deluge-1.1.0_RC3-i486-1gsb.tgz: Upgraded.
+desktop/gst-plugins-base-0.10.21-i486-2gsb.tgz: Rebuilt.
+     This package replaces the standard Slackware package and includes the 
+     giosink.
+mono/gmime-sharp-2.2.23-i486-2gsb.tgz: Built.
+platform/gnome-icon-theme-2.24.0-i486-2gsb.tgz: Built.
+     Now includes a fancy xmms icon (now that Slackware includes xmms again).
+office/liferea-1.4.23-i486-2gsb.tgz: Built.
+mono/gecko-sharp-2.0_0.13-i486-11gsb.tgz: Rebuilt.
+     Builds against an internal version of the libgtkembedmoz, which is no
+     longer included in the xulrunner package.  Some monotools still use the
+     gecko-sharp bindings.
+networking/telepathy-gabble-0.7.18-i486-1gsb.tgz: Upgraded.
+office/libgsf-1.14.11-i486-1gsb.tgz: Upgraded.
+media/devede-3.11b-i486-1gsb.tgz: Upgraded.
+networking/network-manager-applet-0.7.0-i486-2gsb.tgz: Rebuilt.
+     Fixes a broken /usr/share/applications/nm-applet.desktop.
+applications/epiphany-2.24.2.1-i486-2gsb.tgz: Built.
+     Fixes the download dialog which causes epiphany to crash.
++--------------------------+
+Sun Dec 23 17:54:44 GMT 2008
+* Full rebuild of GSB 2.24.2 for Slackware 12.2.
++--------------------------+
+Sun Dec 19 17:54:44 GMT 2008
+* Slackware 12.2 Released.
++--------------------------+
+Sun Dec 13 17:54:44 GMT 2008
+desktop/gnome-themes-2.24.1-i486-2gsb.tgz: Rebuilt.
+desktop/totem-pl-parser-2.24.3-i486-1gsb.tgz: Upgraded.
+bindings/libxml++-2.24.1-i486-1gsb.tgz: Upgraded.
+bindings/bakery-2.6.2-i486-1gsb.tgz: Upgraded.
+applications/gdm-2.20.9-i486-1gsb.tgz: Upgraded.
+libraries/gegl-0.0.20-i486-1gsb.tgz: Upgraded.
+applications/gnome-scan-0.6-i486-3gsb.tgz: Rebuilt.
+administration/gparted-0.4.1-i486-1gsb.tgz: Upgraded.
+mono/gtk-sharp-2.12.7-i486-1gsb.tgz: Upgraded.
+devel/devhelp-0.22-i486-1gsb.tgz: Upgraded.
+themes/gnome-themes-extras-2.22.0-i486-4gsb.tgz: Rebuilt.
+themes/candido-themes-1.0-i486-3gsb.tgz: Rebuilt.
+compiz/compiz-fusion-0.7.8-i486-3gsb.tgz: Rebuilt.
+compiz/compiz-fusion-plugins-main-0.7.8-i486-2gsb.tgz: Rebuilt.
+compiz/compiz-fusion-plugins-extra-0.7.8-i486-2gsb.tgz: Rebuilt.
++--------------------------+
+Thu Dec 04 23:25:32 GMT 2008
+mono/gtk-sharp-2.12.6-i486-4gsb.tgz: Upgraded.
+office/libgda-3.0.4-i486-3gsb.tgz: Upgraded.
+office/libgda-3.0.4-i486-3gsb.tgz: Upgraded.
+office/libgnomedb-3.0.0-i486-4gsb.tgz: Upgraded.
+office/abiword-2.6.4-i486-4gsb.tgz: Upgraded.
+office/gnumeric-1.8.3-i486-4gsb.tgz: Upgraded.
+office/gnome-python-extras-2.24.0-i486-1gsb.tgz: Upgraded.
+office/istanbul-0.2.2-i486-3gsb.tgz: Upgraded.
+office/libgdamm-3.0.1-i486-2gsb.tgz: Upgraded.
+office/glom-1.8.3-i486-1gsb.tgz: Upgraded.
+office/evince-2.24.2-i486-1gsb.tgz: Upgraded.
+compiz/awn-extras-applets-0.2.6-i486-5gsb.tgz: Upgraded.
++--------------------------+
+Sun Nov 30 17:34:43 GMT 2008
+accessibility/orca-2.24.2-i486-1gsb.tgz: Upgraded.
+accessibility/mousetweaks-2.24.2-i486-1gsb.tgz: Upgraded.
+devel/nemiver-0.6.4-i486-1gsb.tgz: Upgraded.
+office/abiword-2.6.4-i486-3gsb.tgz: Rebuilt.
+office/gnumeric-1.8.3-i486-3gsb.tgz: Rebuilt.
+networking/NetworkManager-0.7.0-i486-1gsb.tgz: Upgraded.
+networking/NetworkManager-vpn-0.7.0-i486-1gsb.tgz: Upgraded.
+networking/NetworkManager-vpn-0.7.0-i486-1gsb.tgz: Upgraded.
+networking/network-manager-applet-0.7.0-i486-1gsb.tgz: Upgraded.
++--------------------------+
+Thu Nov 27 23:43:56 GMT 2008
+platform/libsoup-2.24.2.1-i486-1gsb.tgz: Upgraded.
+desktop/gnome-desktop-2.24.2-i486-1gsb.tgz: Upgraded.
+desktop/gnome-menus-2.24.2-i486-1gsb.tgz: Upgraded.
+desktop/libwnck-2.24.2-i486-1gsb.tgz: Upgraded.
+desktop/libgweather-2.24.2-i486-1gsb.tgz: Upgraded.
+desktop/gnome-panel-2.24.2-i486-1gsb.tgz: Upgraded.
+desktop/gnome-settings-daemon-2.24.1-i486-1gsb.tgz: Upgraded.
+desktop/gnome-session-2.24.2-i486-1gsb.tgz: Upgraded.
+desktop/bug-buddy-2.24.2-i486-1gsb.tgz: Upgraded.
+desktop/gnome-applets-2.24.2-i486-1gsb.tgz: Upgraded.
+applications/eog-2.24.2-i486-1gsb.tgz: Upgraded.
+applications/epiphany-2.24.2.1-i486-1gsb.tgz: Upgraded.
+applications/gnome-games-2.24.2-i486-1gsb.tgz: Upgraded.
+applications/gcalctool-5.24.2-i486-1gsb.tgz: Upgraded.
+applications/cheese-2.24.2-i486-1gsb.tgz: Upgraded.
+devel/anjuta-2.24.2-i486-1gsb.tgz: Upgraded.
+libraries/glib2-2.18.3-i486-1gsb.tgz: Upgraded.
+libraries/gtk+2-2.14.5-i486-1gsb.tgz: Upgraded.
+libraries/libunique-1.0.4-i486-1gsb.tgz: Upgraded.
+libraries/libspectre-0.2.2-i486-1gsb.tgz: Upgraded.
+desktop/libxklavier-3.8-i486-1gsb.tgz: Upgraded.
++--------------------------+
+Wed Nov 26 17:18:18 GMT 2008
+desktop/gnome-session-2.24.1-i486-5gsb.tgz: Rebuilt.
+     Another fix to properly use the ck-launch-session if
+     ConsoleKit is available.
++--------------------------+
+Sun Nov 24 21:16:29 GMT 2008
+platform/pulseaudio-0.9.13-i486-4gsb.tgz: Rebuilt.
+     Make start-pulseaudio-x11 use -D rather than --start. 
+     If seems pulseaudio will idle out after 5 secs killing
+     all daemons using the --start option.
+desktop/nautilus-2.24.1-i486-5gsb.tgz: Rebuilt.
+     Fix for doinst.sh if clause.
+desktop/gnome-session-2.24.1-i486-5gsb.tgz: Rebuilt.
+applications/deskbar-applet-2.24.2-i486-1gsb.tgz: Upgraded.
+libraries/libgphoto2-2.4.2-i486-2gsb.tgz: Rebuilt.
+     Fix for doinst.sh to use proper chroot.
++--------------------------+
+Thu Nov 20 17:39:43 GMT 2008
+libraries/cairo-1.8.4-i486-1gsb.tgz: Upgraded.
+     Add a doinst.sh to refresh gdk loaders in case cairo
+     is upgraded after gtk+2 is already installed.
+libraries/glib2-2.18.2-i486-2gsb.tgz: Rebuilt.
+libraries/gtk+2-2.14.4-i486-2gsb.tgz: Rebuilt.
+     Add a gdk-loader update to the rc.local script to 
+     update gdk loader list on boot (similar to the gtk update
+     already done by rc.M)
+libraries/dbus-1.2.3-i486-2gsb.tgz: Rebuilt.
+     Fix for doinst.sh to only move rc.dbus.new to rc.dbus if
+     rc.dbus.new actually exists.  :)
+platform/nss-mdns-0.10-i486-2gsb.tgz: Rebuilt.
+     Fix for doinst.sh.
+media/banshee-1-1.4.1-i486-2gsb.tgz: Upgraded.
+mono/mono-2.0.1-i486-2gsb.tgz: Reconfigured.
+mono/mono-addins-0.3.1-i486-3gsb.tgz: Rebuilt.
++--------------------------+
+Sun Nov 16 13:44:21 GMT 2008
+desktop/gnome-desktop-2.24.1-i486-4gsb.tgz: Rebuilt.
+     Added iceauth to slack-required.
+desktop/gnome-session-2.24.1-i486-3gsb.tgz: Rebuilt.
+     Fix for ck-launch-session and XDG_SESSION_COOKIE settings.
+platform/policykit-0.9-i486-5gsb.tgz: Rebuilt.
+     Added default root permissions to add authorisations.
++--------------------------+
+Sun Nov 16 13:44:21 GMT 2008
+networking/NetworkManager-0.7.0_rc2-i486-1gsb.tgz: Upgraded.
+networking/network-manager-applet-0.7.0_rc2-i486-1gsb.tgz: Upgraded.
+bindings/pangomm-2.14.1-i486-1gsb.tgz: Upgraded.
+bindings/gtkmm-2.14.3-i486-1gsb.tgz: Upgraded.
+platform/parted-1.8.8-i486-2gsb.tgz: Rebuilt.
+platform/policykit-0.9-i486-4gsb.tgz: Rebuilt.
+     Patched for fix to the newer CK 3.0 API.
+platform/consolekit-0.3.0-i486-2gsb.tgz: Rebuilt.
+     Patched to fix possible crash conditions.
+libraries/libtasn1-1.5-i486-2gsb.tgz: Recompiled.
+     Recompiled against the patched gnutls Slackware package.
+desktop/gswitchit_plugins-0.9-i486-2gsb.tgz: Rebuilt.
+libraries/libgc-7.1-i486-3gsb.tgz: Rebuilt.
+     Fixed misplaced documentation.
+desktop/gnome-desktop-2.24.1-i486-3gsb.tgz: Rebuilt.
+desktop/gnome-menus-2.24.1-i486-2gsb.tgz: Rebuilt.
++--------------------------+
+Sun Nov 09 13:44:21 GMT 2008
+tools/scons-1.1.0-i486-1gsb.tgz: Upgraded.
+office/postgresql-8.3.5-i486-1gsb.tgz: Upgraded.
+applications/gnokii-0.6.27-i486-1gsb.tgz: Upgraded.
+networking/gnome-phone-manager-0.60-i486-2gsb.tgz: Rebuilt.
+     Rebuilt against newer gnokii.
++--------------------------+
+Sat Nov 08 10:55:52 GMT 2008
+desktop/gtksourceview2-2.4.1-i486-1gsb.tgz: Upgraded.
+networking/NetworkManager-0.7.0_rc1-i486-1gsb.tgz: Upgraded.
+networking/network-manager-applet-0.7.0_rc1-i486-1gsb.tgz: Upgraded.
+ooo/gnome-menus-ooo-2.4.1.10-noarch-3gsb.tgz: Rebuilt.
+     Added "2.4" to menu entries to distinguish from 3.0 Oo.org.
+desktop/gnome-desktop-2.24.1-i486-2gsb.tgz: Rebuilt.
+desktop/gst-plugins-good-0.10.11-i486-1gsb.tgz: Upgraded.
+desktop/gst-plugins-ugly-0.10.9-i486-1gsb.tgz: Upgraded.
+desktop/nautilus-2.24.1-i486-2gsb.tgz: Rebuilt.
+     Force nautilus to register itself as the default ftp mime handler.
+applications/evolution-rss-0.1.2-i486-1gsb.tgz: Upgraded.
+applications/gnome-games-2.24.1.1-i486-1gsb.tgz: Upgraded.
+applications/gdm-2.20.8-i486-1gsb.tgz: Rebuilt.
+applications/gnome-utils-2.24.1-i486-2gsb.tgz: Upgraded.
+networking/ekiga-3.0.1-i486-2gsb.tgz: Rebuilt.
+     Register ekiga as default mime handler for h323 and callto.
+libraries/libunique-1.0.2-i486-1gsb.tgz: Upgraded.
+desktop/evolution-data-server-2.24.1.1-i486-1gsb.tgz: Upgraded.
+desktop/gtkhtml-3.24.1.1-i486-1gsb.tgz: Upgraded.
+applications/evolution-2.24.1.1-i486-1gsb.tgz: Upgraded.
+applications/evolution-exchange-2.24.1.1-i486-1gsb.tgz: Upgraded.
+mono/gtk-sharp-2.12.6-i486-1gsb.tgz: Upgraded.
+mono/evolution-sharp-0.18.1-i486-1gsb.tgz: Upgraded.
+desktop/gnome-session-2.24.1-i486-3gsb.tgz: Rebuilt.
+     Added CK integration to xinitrc.gnome.
+compiz/compiz-fusion-0.7.8-i486-2gsb.tgz: Rebuilt.
+     Added CK integration to xinitrc.compiz-gnome.
++--------------------------+
+Sun Nov 02 13:30:17 GMT 2008
+platform/pulseaudio-0.9.13-i486-2gsb.tgz: Rebuilt.
+     Force the pulseaudio daemon to load a null sink to prevent
+     refusing connections by quitting in idle mode.
++--------------------------+
 Sat Nov 01 21:02:32 GMT 2008
-platform/policykit-0.9-i586-3gsb.tgz: Rebuilt.
+platform/policykit-0.9-i486-3gsb.tgz: Rebuilt.
      Added policies for hal control.
-desktop/gtksourceview2-2.4.1-i586-1gsb.tgz: Upgraded.
-networking/NetworkManager-svn_4243-i586-1gsb.tgz: Upgraded.
-networking/NetworkManager-vpn-svn_4243-i586-1gsb.tgz: Upgraded.
-networking/network-manager-applet-svn_997-i586-1gsb.tgz: Upgraded.
+desktop/gtksourceview2-2.4.1-i486-1gsb.tgz: Upgraded.
+networking/NetworkManager-svn_4243-i486-1gsb.tgz: Upgraded.
+networking/NetworkManager-vpn-svn_4243-i486-1gsb.tgz: Upgraded.
+networking/network-manager-applet-svn_997-i486-1gsb.tgz: Upgraded.
 testing/gnome-menus-ooo3-3.0.0.6-noarch-1gsb.tgz: Added.
      Add a GNOME menu for the new openoffice 3.0 icons.
-desktop/gnome-session-2.24.1-i586-2gsb.tgz: Rebuilt.
+desktop/gnome-session-2.24.1-i486-2gsb.tgz: Rebuilt.
+networking/deluge-1.0.4-i486-1gsb.tgz: Upgraded.
+ooo/openoffice-2.4.1.10-i486-2gsb.tgz: Upgraded.
+     Added a "2.4" extension to the icons to keep them separate from
+     the new openoffice3 icons.
+testing/openoffice3-3.0.0.6-i486-2gsb.tgz: Upgraded.
+     Added a "3.0" extension to the icons to keep them separate from
+     the older 2.4 series.  You can install and use both versions of
+     OpenOffice if you wish.  OpenOffice 3.0 is latest stable series,
+     but as with all new releases, may contain some bugs.  However,
+     feel free to install both or either version. 
 +--------------------------+
 Mon Oct 31 00:25:18 GMT 2008
-libraries/libspectre-0.2.1-i586-1gsb.tgz: Added.
+libraries/libspectre-0.2.1-i486-1gsb.tgz: Added.
      Compiled with support for DVI and PostScript files.  Thanks to
      Joel Adamson for the suggestion.
-applications/totem-2.24.3-i586-1gsb.tgz: Upgraded.
-desktop/totem-pl-parser-2.24.2-i586-1gsb.tgz: Upgraded.
-applications/gedit-plugins-2.22.5-i586-1gsb.tgz: Upgraded.
-libraries/djvulibre-3.5.21-i586-1gsb.tgz: Added.
-libraries/cairo-1.8.2-i586-1gsb.tgz: Upgraded.
-libraries/pango-1.22.2-i586-1gsb.tgz: Upgraded.
-office/evince-2.24.1-i586-2gsb.tgz: Rebuilt.
+applications/totem-2.24.3-i486-1gsb.tgz: Upgraded.
+desktop/totem-pl-parser-2.24.2-i486-1gsb.tgz: Upgraded.
+applications/gedit-plugins-2.22.5-i486-1gsb.tgz: Upgraded.
+libraries/djvulibre-3.5.21-i486-1gsb.tgz: Added.
+libraries/cairo-1.8.2-i486-1gsb.tgz: Upgraded.
+libraries/pango-1.22.2-i486-1gsb.tgz: Upgraded.
+office/evince-2.24.1-i486-2gsb.tgz: Rebuilt.
      Now supports DVI, PS, PDF, and DjVU files.
-networking/loudmouth-1.4.3-i586-1gsb.tgz: Upgraded.
-networking/telepathy-gabble-0.7.13-i586-1gsb.tgz: Upgraded.
+networking/loudmouth-1.4.3-i486-1gsb.tgz: Upgraded.
+networking/telepathy-gabble-0.7.13-i486-1gsb.tgz: Upgraded.
 +--------------------------+
 Wed Oct 22 18:10:54 GMT 2008
-libraries/pango-1.22.1-i586-1gsb.tgz: Upgraded.
-desktop/libepc-0.3.8-i586-1gsb.tgz: Upgraded.
-desktop/gnome-applets-2.24.1-i586-1gsb.tgz: Upgraded.
-bindings/glibmm-2.18.1-i586-1gsb.tgz: Upgraded.
-applications/file-roller-2.24.1-i586-1gsb.tgz: Upgraded.
-applications/gnome-system-monitor-2.24.1-i586-1gsb.tgz: Upgraded.
-desktop/gnome-desktop-2.24.1-i586-1gsb.tgz: Upgraded.
-desktop/gnome-menus-2.24.1-i586-1gsb.tgz: Upgraded.
-desktop/libwnck-2.24.1-i586-1gsb.tgz: Upgraded.
-desktop/libgweather-2.24.1-i586-1gsb.tgz: Upgraded.
-desktop/gnome-panel-2.24.1-i586-1gsb.tgz: Upgraded.
-desktop/gnome-terminal-2.24.1.1-i586-1gsb.tgz: Upgraded.
-desktop/gnome-session-2.24.1-i586-1gsb.tgz: Upgraded.
-applications/gnome-power-manager-2.24.1-i586-1gsb.tgz: Upgraded.
-applications/goocanvasmm-0.12.0-i586-1gsb.tgz: Added.
-mono/gtk-sharp-2.12.5-i586-1gsb.tgz: Upgraded.
-office/glom-1.8.1-i586-1gsb.tgz: Upgraded.
+libraries/pango-1.22.1-i486-1gsb.tgz: Upgraded.
+desktop/libepc-0.3.8-i486-1gsb.tgz: Upgraded.
+desktop/gnome-applets-2.24.1-i486-1gsb.tgz: Upgraded.
+bindings/glibmm-2.18.1-i486-1gsb.tgz: Upgraded.
+applications/file-roller-2.24.1-i486-1gsb.tgz: Upgraded.
+applications/gnome-system-monitor-2.24.1-i486-1gsb.tgz: Upgraded.
+desktop/gnome-desktop-2.24.1-i486-1gsb.tgz: Upgraded.
+desktop/gnome-menus-2.24.1-i486-1gsb.tgz: Upgraded.
+desktop/libwnck-2.24.1-i486-1gsb.tgz: Upgraded.
+desktop/libgweather-2.24.1-i486-1gsb.tgz: Upgraded.
+desktop/gnome-panel-2.24.1-i486-1gsb.tgz: Upgraded.
+desktop/gnome-terminal-2.24.1.1-i486-1gsb.tgz: Upgraded.
+desktop/gnome-session-2.24.1-i486-1gsb.tgz: Upgraded.
+applications/gnome-power-manager-2.24.1-i486-1gsb.tgz: Upgraded.
+applications/goocanvasmm-0.12.0-i486-1gsb.tgz: Added.
+mono/gtk-sharp-2.12.5-i486-1gsb.tgz: Upgraded.
+office/glom-1.8.1-i486-1gsb.tgz: Upgraded.
 +--------------------------+
 Tue Oct 21 08:52:18 GMT 2008
-libraries/ptlib-2.4.2-i586-1gsb.tgz: Upgraded.
-libraries/opal-3.4.2-i586-1gsb.tgz: Upgraded.
-platform/gtk-engines-2.16.1-i586-1gsb.tgz: Upgraded.
-platform/libsoup-2.24.1-i586-1gsb.tgz: Upgraded.
+libraries/ptlib-2.4.2-i486-1gsb.tgz: Upgraded.
+libraries/opal-3.4.2-i486-1gsb.tgz: Upgraded.
+platform/gtk-engines-2.16.1-i486-1gsb.tgz: Upgraded.
+platform/libsoup-2.24.1-i486-1gsb.tgz: Upgraded.
 desktop/gnome-themes-2.24.1-noarch-1gsb.tgz: Upgraded.
-desktop/evolution-data-server-2.24.1-i586-1gsb.tgz: Upgraded.
-desktop/gnome-terminal-2.24.1-i586-1gsb.tgz: Upgraded.
-desktop/eel-2.24.1-i586-1gsb.tgz: Upgraded.
-desktop/gvfs-1.0.2-i586-1gsb.tgz: Upgraded.
-desktop/nautilus-2.24.1-i586-1gsb.tgz: Upgraded.
-desktop/gtkhtml-3.24.1-i586-1gsb.tgz: Upgraded.
-applications/eog-2.24.1-i586-1gsb.tgz: Upgraded.
-applications/epiphany-2.24.1-i586-1gsb.tgz: Upgraded.
-applications/epiphany-extensions-2.24.1-i586-1gsb.tgz: Upgraded.
-applications/gnome-utils-2.24.1-i586-1gsb.tgz: Upgraded.
-applications/gnome-games-2.24.1-i586-1gsb.tgz: Upgraded.
-applications/vino-2.24.1-i586-1gsb.tgz: Upgraded.
-applications/gcalctool-5.24.1-i586-1gsb.tgz: Upgraded.
-applications/evolution-2.24.1-i586-1gsb.tgz: Upgraded.
-applications/evolution-exchange-2.24.1-i586-1gsb.tgz: Upgraded.
-applications/deskbar-applet-2.24.1-i586-1gsb.tgz: Upgraded.
-applications/cheese-2.24.1-i586-1gsb.tgz: Upgraded.
-applications/conduit-0.3.15-i586-1gsb.tgz: Upgraded.
-applications/vinagre-2.24.1-i586-1gsb.tgz: Upgraded.
-applications/hamster-applet-2.24.1-i586-1gsb.tgz: Upgraded.
-accessibility/mousetweaks-2.24.1-i586-1gsb.tgz: Upgraded.
-devel/vala-0.4.0-i586-1gsb.tgz: Upgraded.
-office/evince-2.24.1-i586-1gsb.tgz: Upgraded.
-networking/empathy-2.24.1-i586-1gsb.tgz: Upgraded.
-networking/ekiga-3.0.1-i586-1gsb.tgz: Upgraded.
+desktop/evolution-data-server-2.24.1-i486-1gsb.tgz: Upgraded.
+desktop/gnome-terminal-2.24.1-i486-1gsb.tgz: Upgraded.
+desktop/eel-2.24.1-i486-1gsb.tgz: Upgraded.
+desktop/gvfs-1.0.2-i486-1gsb.tgz: Upgraded.
+desktop/nautilus-2.24.1-i486-1gsb.tgz: Upgraded.
+desktop/gtkhtml-3.24.1-i486-1gsb.tgz: Upgraded.
+applications/eog-2.24.1-i486-1gsb.tgz: Upgraded.
+applications/epiphany-2.24.1-i486-1gsb.tgz: Upgraded.
+applications/epiphany-extensions-2.24.1-i486-1gsb.tgz: Upgraded.
+applications/gnome-utils-2.24.1-i486-1gsb.tgz: Upgraded.
+applications/gnome-games-2.24.1-i486-1gsb.tgz: Upgraded.
+applications/vino-2.24.1-i486-1gsb.tgz: Upgraded.
+applications/gcalctool-5.24.1-i486-1gsb.tgz: Upgraded.
+applications/evolution-2.24.1-i486-1gsb.tgz: Upgraded.
+applications/evolution-exchange-2.24.1-i486-1gsb.tgz: Upgraded.
+applications/deskbar-applet-2.24.1-i486-1gsb.tgz: Upgraded.
+applications/cheese-2.24.1-i486-1gsb.tgz: Upgraded.
+applications/conduit-0.3.15-i486-1gsb.tgz: Upgraded.
+applications/vinagre-2.24.1-i486-1gsb.tgz: Upgraded.
+applications/hamster-applet-2.24.1-i486-1gsb.tgz: Upgraded.
+accessibility/mousetweaks-2.24.1-i486-1gsb.tgz: Upgraded.
+devel/vala-0.4.0-i486-1gsb.tgz: Upgraded.
+office/evince-2.24.1-i486-1gsb.tgz: Upgraded.
+networking/empathy-2.24.1-i486-1gsb.tgz: Upgraded.
+networking/ekiga-3.0.1-i486-1gsb.tgz: Upgraded.
 +--------------------------+
 Sat Oct 18 18:31:51 GMT 2008
-libraries/libsigc++-2.2.3-i586-1gsb.tgz: Upgraded.
-desktop/libepc-0.3.6-i586-1gsb.tgz: Upgraded.
-applications/gedit-plugins-2.22.4-i586-1gsb.tgz: Upgraded.
-office/f-spot-0.5.0.3-i586-1gsb.tgz: Upgraded.
-networking/NetworkManager-svn_4193-i586-1gsb.tgz: Upgraded.
-networking/NetworkManager-vpn-svn_4193-i586-1gsb.tgz: Upgraded.
-networking/network-manager-applet-svn_954-i586-1gsb.tgz: Upgraded.
-networking/deluge-1.0.3-i586-1gsb.tgz: Upgraded.
-platform/gnome-keyring-2.24.1-i586-1gsb.tgz: Upgraded.
-desktop/libepc-0.3.7-i586-1gsb.tgz: Upgraded.
-applications/seahorse-2.24.1-i586-1gsb.tgz: Upgraded.
-applications/seahorse-plugins-2.24.1-i586-1gsb.tgz: Upgraded.
-office/libgsf-1.14.10-i586-1gsb.tgz: Upgraded.
-devel/gnome-build-2.24.1-i586-1gsb.tgz: Upgraded.
-devel/anjuta-2.24.1-i586-1gsb.tgz: Upgraded.
-desktop/gconf-editor-2.24.1-i586-1gsb.tgz: Upgraded.
+libraries/libsigc++-2.2.3-i486-1gsb.tgz: Upgraded.
+desktop/libepc-0.3.6-i486-1gsb.tgz: Upgraded.
+applications/gedit-plugins-2.22.4-i486-1gsb.tgz: Upgraded.
+office/f-spot-0.5.0.3-i486-1gsb.tgz: Upgraded.
+networking/NetworkManager-svn_4193-i486-1gsb.tgz: Upgraded.
+networking/NetworkManager-vpn-svn_4193-i486-1gsb.tgz: Upgraded.
+networking/network-manager-applet-svn_954-i486-1gsb.tgz: Upgraded.
+networking/deluge-1.0.3-i486-1gsb.tgz: Upgraded.
+platform/gnome-keyring-2.24.1-i486-1gsb.tgz: Upgraded.
+desktop/libepc-0.3.7-i486-1gsb.tgz: Upgraded.
+applications/seahorse-2.24.1-i486-1gsb.tgz: Upgraded.
+applications/seahorse-plugins-2.24.1-i486-1gsb.tgz: Upgraded.
+office/libgsf-1.14.10-i486-1gsb.tgz: Upgraded.
+devel/gnome-build-2.24.1-i486-1gsb.tgz: Upgraded.
+devel/anjuta-2.24.1-i486-1gsb.tgz: Upgraded.
+desktop/gconf-editor-2.24.1-i486-1gsb.tgz: Upgraded.
 +--------------------------+
 Sat Oct 18 18:31:51 GMT 2008
-libraries/glib2-2.18.2-i586-1gsb.tgz: Upgraded.
-libraries/gtk+2-2.14.4-i586-1gsb.tgz: Upgraded.
-accessibility/orca-2.24.1-i586-1gsb.tgz: Upgraded.
+libraries/glib2-2.18.2-i486-1gsb.tgz: Upgraded.
+libraries/gtk+2-2.14.4-i486-1gsb.tgz: Upgraded.
+accessibility/orca-2.24.1-i486-1gsb.tgz: Upgraded.
 +--------------------------+
 Tue Oct 07 16:55:10 GMT 2008
-bindings/bakery-2.6.0-i586-1gsb.tgz: Upgraded.
-platform/intltool-0.40.5-i586-1gsb.tgz: Upgraded.
+bindings/bakery-2.6.0-i486-1gsb.tgz: Upgraded.
+platform/intltool-0.40.5-i486-1gsb.tgz: Upgraded.
 +--------------------------+
 Tue Oct 07 16:55:10 GMT 2008
-office/tomboy-0.12.1-i586-1gsb.tgz: Upgraded.
-networking/gnome-user-share-0.40-i586-1gsb.tgz: Upgraded.
-networking/gnome-phone-manager-0.60-i586-1gsb.tgz: Reconfigured.
+office/tomboy-0.12.1-i486-1gsb.tgz: Upgraded.
+networking/gnome-user-share-0.40-i486-1gsb.tgz: Upgraded.
+networking/gnome-phone-manager-0.60-i486-1gsb.tgz: Reconfigured.
      gnome-phone-manager now builds with the telepathy SMS plugin.
-networking/loudmouth-1.4.2-i586-1gsb.tgz: Upgraded.
-networking/NetworkManager-vpn-svn_4152-i586-1gsb.tgz: Upgraded.
-networking/NetworkManager-svn_4152-i586-1gsb.tgz: Upgraded.
-desktop/totem-pl-parser-2.24.1-i586-1gsb.tgz: Upgraded.
-applications/totem-2.24.2-i586-1gsb.tgz: Upgraded.
-printing/system-config-printer-1.0.8-i586-1gsb.tgz: Upgraded.
+networking/loudmouth-1.4.2-i486-1gsb.tgz: Upgraded.
+networking/NetworkManager-vpn-svn_4152-i486-1gsb.tgz: Upgraded.
+networking/NetworkManager-svn_4152-i486-1gsb.tgz: Upgraded.
+desktop/totem-pl-parser-2.24.1-i486-1gsb.tgz: Upgraded.
+applications/totem-2.24.2-i486-1gsb.tgz: Upgraded.
+printing/system-config-printer-1.0.8-i486-1gsb.tgz: Upgraded.
 +--------------------------+
 Mon Oct 06 17:38:51 GMT 2008
-ooo/openoffice-2.4.1.10-i586-1gsb.tgz: Upgraded.
-office/gnome-python-extras-2.19.1-i586-9gsb.tgz: Recompiled.
+ooo/openoffice-2.4.1.10-i486-1gsb.tgz: Upgraded.
+office/gnome-python-extras-2.19.1-i486-9gsb.tgz: Recompiled.
      Now linked against xulrunner 1.9.
-office/f-spot-0.5.0.2-i586-1gsb.tgz: Upgraded.
-platform/pulseaudio-0.9.13-i586-1gsb.tgz: Upgraded.
-mono/gmime-sharp-2.2.17-i586-1gsb.tgz: Upgraded.
-office/evince-2.24.0-i586-1gsb.tgz: Upgraded.
-networking/libjingle-0.3.12-i586-1gsb.tgz: Upgraded.
-media/MPlayer-1.0svn_27841-i586-1gsb.tgz: Upgraded.
+office/f-spot-0.5.0.2-i486-1gsb.tgz: Upgraded.
+platform/pulseaudio-0.9.13-i486-1gsb.tgz: Upgraded.
+mono/gmime-sharp-2.2.17-i486-1gsb.tgz: Upgraded.
+office/evince-2.24.0-i486-1gsb.tgz: Upgraded.
+networking/libjingle-0.3.12-i486-1gsb.tgz: Upgraded.
+media/MPlayer-1.0svn_27841-i486-1gsb.tgz: Upgraded.
      We've decided to move to the svn version of MPlayer, which has a lot more
      features, and better support for video and audio out devices, for example,
      pulseaudio.  :^)
-media/dvdrip-0.98.9-i586-1gsb.tgz: Upgraded.
-media/devede-3.11-i586-1gsb.tgz: Upgraded.
+media/dvdrip-0.98.9-i486-1gsb.tgz: Upgraded.
+media/devede-3.11-i486-1gsb.tgz: Upgraded.
 +--------------------------+
 Sun Oct 05 20:58:29 GMT 2008
-office/inkscape-0.46-i586-3gsb.tgz: Recompiled.
+office/inkscape-0.46-i486-3gsb.tgz: Recompiled.
      Recompiled against newer boost, gtk+2 and poppler libraries.
-office/libgnomedb-3.0.0-i586-3gsb.tgz: Rebuilt against gtksourceview2-2.4.0.
-office/gnucash-2.2.7-i586-1gsb.tgz: Upgraded.
-office/drivel-2.0.3-i586-3gsb.tgz: Rebuilt against gtksourceview2-2.4.0.
-office/libgda-3.0.4-i586-2gsb.tgz: Rebuilt.
+office/libgnomedb-3.0.0-i486-3gsb.tgz: Rebuilt against gtksourceview2-2.4.0.
+office/gnucash-2.2.7-i486-1gsb.tgz: Upgraded.
+office/drivel-2.0.3-i486-3gsb.tgz: Rebuilt against gtksourceview2-2.4.0.
+office/libgda-3.0.4-i486-2gsb.tgz: Rebuilt.
 +--------------------------+
 Sat Oct 04 19:24:50 GMT 2008
-desktop/gstreamer-0.10.21-i586-1gsb.tgz: Upgraded.
-desktop/gst-plugins-base-0.10.21-i586-1gsb.tgz: Upgraded.
+desktop/gstreamer-0.10.21-i486-1gsb.tgz: Upgraded.
+desktop/gst-plugins-base-0.10.21-i486-1gsb.tgz: Upgraded.
 themes/mac4lin-theme-0.9rc1-noarch-1gsb.tgz: Upgraded.
-applications/gnome-pilot-2.0.16-i586-5gsb.tgz: Rebuilt.
+applications/gnome-pilot-2.0.16-i486-5gsb.tgz: Rebuilt.
      Rebuilt against newer gnome-vfs and dbus.
-applications/gnome-pilot-conduits-2.0.16-i586-2gsb.tgz: Rebuilt.
-applications/totem-2.24.1-i586-1gsb.tgz: Upgraded.
-applications/nautilus-sendto-1.1.0-i586-1gsb.tgz: Upgraded.
-desktop/gst-plugins-bad-0.10.8-i586-1gsb.tgz: Upgraded.
-platform/pulseaudio-0.9.12-i586-2gsb.tgz: Recompiled.
+applications/gnome-pilot-conduits-2.0.16-i486-2gsb.tgz: Rebuilt.
+applications/totem-2.24.1-i486-1gsb.tgz: Upgraded.
+applications/nautilus-sendto-1.1.0-i486-1gsb.tgz: Upgraded.
+desktop/gst-plugins-bad-0.10.8-i486-1gsb.tgz: Upgraded.
+platform/pulseaudio-0.9.12-i486-2gsb.tgz: Recompiled.
      Patch from git to prevent fatal error making symlink in home directories.
-applications/ggz-client-libs-0.0.14.1-i586-5gsb.tgz: Rebuilt.
+applications/ggz-client-libs-0.0.14.1-i486-5gsb.tgz: Rebuilt.
      Move menus to /etc/gnome/xdg.
-mono/mono-2.0-i586-1gsb.tgz: Upgraded.
-mono/libgdiplus-2.0-i586-1gsb.tgz: Upgraded.
-devel/monodoc-2.0-i586-1gsb.tgz: Upgraded.
-devel/mono-tools-2.0-i586-1gsb.tgz: Upgraded.
-devel/mono-addins-0.3.1-i586-2gsb.tgz: Rebuilt.
-devel/nemiver-0.6.3-i586-1gsb.tgz: Upgraded.
+mono/mono-2.0-i486-1gsb.tgz: Upgraded.
+mono/libgdiplus-2.0-i486-1gsb.tgz: Upgraded.
+devel/monodoc-2.0-i486-1gsb.tgz: Upgraded.
+devel/mono-tools-2.0-i486-1gsb.tgz: Upgraded.
+devel/mono-addins-0.3.1-i486-2gsb.tgz: Rebuilt.
+devel/nemiver-0.6.3-i486-1gsb.tgz: Upgraded.
 +--------------------------+
 Sun Sep 28 12:03:14 GMT 2008
-libraries/gegl-0.0.18-i586-2gsb.tgz: Recompiled.
+libraries/gegl-0.0.18-i486-2gsb.tgz: Recompiled.
      Rebuild against latest ffmpeg, glib2 and pango libraries.
-platform/pyorbit-2.24.0-i586-1gsb.tgz: Upgraded.
-platform/libdaemon-0.13-i586-2gsb.tgz: Rebuilt.
+platform/pyorbit-2.24.0-i486-1gsb.tgz: Upgraded.
+platform/libdaemon-0.13-i486-2gsb.tgz: Rebuilt.
      Fix for proper documentation in /usr/doc.
-platform/avahi-0.6.23-i586-5gsb.tgz: Rebuilt.
+platform/avahi-0.6.23-i486-5gsb.tgz: Rebuilt.
      Removed obsolete --with-dbus-system-address from configure, and rebuild
      against newer dbus-1.2.3.
-platform/nss-mdns-0.10-i586-1gsb.tgz: Added.
-platform/libgnomecanvas-2.20.1.1-i586-3gsb.tgz: Rebuilt.
+platform/nss-mdns-0.10-i486-1gsb.tgz: Added.
+platform/libgnomecanvas-2.20.1.1-i486-3gsb.tgz: Rebuilt.
      Rebuild against newer libgnome-2.24.1.
-desktop/gst-plugins-ugly-0.10.8-i586-2gsb.tgz: Rebuilt.
-desktop/gst-ffmpeg-0.10.4-i586-2gsb.tgz: Rebuilt.
-desktop/libepc-0.3.5-i586-2gsb.tgz: Rebuilt against newer glib2 and libsoup
-desktop/libnotify-0.4.4-i586-2gsb.tgz: Rebuilt.
-applications/padevchooser-0.9.3-i586-6gsb.tgz: Rebuilt.
+desktop/gst-plugins-ugly-0.10.8-i486-2gsb.tgz: Rebuilt.
+desktop/gst-ffmpeg-0.10.4-i486-2gsb.tgz: Rebuilt.
+desktop/libepc-0.3.5-i486-2gsb.tgz: Rebuilt against newer glib2 and libsoup
+desktop/libnotify-0.4.4-i486-2gsb.tgz: Rebuilt.
+applications/padevchooser-0.9.3-i486-6gsb.tgz: Rebuilt.
      Fix documentation in /usr/doc and rebuild against newer gtkmm,
      as well as fix location of gnome autostart.
-applications/pavumeter-0.9.3-i586-3gsb.tgz: Rebuilt.
+applications/pavumeter-0.9.3-i486-3gsb.tgz: Rebuilt.
      Fix documentation in /usr/doc and rebuild against newer gtkmm.
-applications/paman-0.9.4-i586-2gsb.tgz: Rebuilt.
+applications/paman-0.9.4-i486-2gsb.tgz: Rebuilt.
      Fix documentation in /usr/doc and rebuild against newer gtkmm.
-applications/paprefs-0.9.6-i586-2gsb.tgz: Rebuilt.
+applications/paprefs-0.9.6-i486-2gsb.tgz: Rebuilt.
      Fix documentation in /usr/doc and rebuild against newer gtkmm.
-applications/pavucontrol-0.9.5-i586-3gsb.tgz: Rebuilt.
+applications/pavucontrol-0.9.5-i486-3gsb.tgz: Rebuilt.
      Fix documentation in /usr/doc and rebuild against newer gtkmm.
-libraries/pango-1.22.0-i586-1gsb.tgz: Added.
+libraries/pango-1.22.0-i486-1gsb.tgz: Added.
      Required by gtk+2 and pango bindings for C++ and newest cairo.  We build our
      replacement pango library with qt bindings.
-libraries/cairo-1.8.0-i586-1gsb.tgz: Upgraded.  
+libraries/cairo-1.8.0-i486-1gsb.tgz: Upgraded.  
 +--------------------------+
 Sat Sep 27 00:16:12 GMT 2008
-libraries/dbus-1.2.3-i586-1gsb.tgz: Upgraded.
+libraries/dbus-1.2.3-i486-1gsb.tgz: Upgraded.
      Unfortunately, we must upgrade the dbus package in Slackware.  There are
      a number of GNOME applications, including gnome-session and vinagre,
      among others, that require the latest dbus that supports the new
      UpdateActivationEnvironment bus API.  
-office/gnome-do-0.5.0.1-i586-3gsb.tgz: Rebuilt.
+office/gnome-do-0.5.0.1-i486-3gsb.tgz: Rebuilt.
      Rebuilt against gnome-desktop-sharp-2.24.0 to fix missing gconf-sharp.dll
      reference.  *NOTE* Gnome-do copies its dlls into the user's home
      directory .local/share/gnome-do/plugins, and will consequently not use
      the recompiled dlls and may fail on start up.  If this occurs, simply
      remove the .local copy and restart Gnome-Do.
-office/gnome-do-plugins-0.4.0-i586-3gsb.tgz: Rebuilt.
+office/gnome-do-plugins-0.4.0-i486-3gsb.tgz: Rebuilt.
      Rebuilt against gnome-desktop-sharp-2.24.0.
-applications/mozilla-xulrunner-1.9.0.1-i586-2gsb.tgz: Rebuilt.
+applications/mozilla-xulrunner-1.9.0.1-i486-2gsb.tgz: Rebuilt.
      Disable gnomevfs support, which will be deprecated in the future for GIO.
-platform/policykit-0.9-i586-2gsb.tgz: Rebuilt.
+platform/policykit-0.9-i486-2gsb.tgz: Rebuilt.
      Patched to remove ptrace statements for security reasons.
-platform/pulseaudio-0.9.12-i586-1gsb.tgz: Upgraded.
-office/libgdamm-3.0.1-i586-1gsb.tgz: Upgraded.
-office/glom-1.6.17-i586-2gsb.tgz: Rebuilt against newer libgdamm-3.0.1.
-desktop/gtkhtml-3.24.0-i586-1gsb.tgz: Upgraded.
+platform/pulseaudio-0.9.12-i486-1gsb.tgz: Upgraded.
+office/libgdamm-3.0.1-i486-1gsb.tgz: Upgraded.
+office/glom-1.6.17-i486-2gsb.tgz: Rebuilt against newer libgdamm-3.0.1.
+desktop/gtkhtml-3.24.0-i486-1gsb.tgz: Upgraded.
 themes/candido-themes-1.0-noarch-2gsb.tgz: Rebuilt.
      Fix gtkrc theme files considered munged in gnome-control-center-2.24.0.
-libraries/libatomic_ops-1.2-i586-3gsb.tgz: Rebuilt.
-libraries/libgc-7.1-i586-2gsb.tgz: Rebuilt.
+libraries/libatomic_ops-1.2-i486-3gsb.tgz: Rebuilt.
+libraries/libgc-7.1-i486-2gsb.tgz: Rebuilt.
      Reconfigured to use system libatomic_ops rather than internal version.
-libraries/yasm-0.7.1-i586-2gsb.tgz: Rebuilt.
+libraries/yasm-0.7.1-i486-2gsb.tgz: Rebuilt.
      Fix documentation and include GPL license in docs/.
-libraries/libdvdnav-4.1.3-i586-2gsb.tgz: Rebuilt.
+libraries/libdvdnav-4.1.3-i486-2gsb.tgz: Rebuilt.
      Added slack-required with libdvdread.
-libraries/libdvbpsi5-0.1.6-i586-3gsb.tgz: Rebuilt.
+libraries/libdvbpsi5-0.1.6-i486-3gsb.tgz: Rebuilt.
      Reconfigured with --enable-release.
-libraries/libquicktime-1.0.3-i586-2gsb.tgz: Rebuilt.
+libraries/libquicktime-1.0.3-i486-2gsb.tgz: Rebuilt.
      Disable ffmpeg and x264 plugins.
-libraries/mjpegtools-1.9.0rc3-i586-3gsb.tgz: Rebuilt.
+libraries/mjpegtools-1.9.0rc3-i486-3gsb.tgz: Rebuilt.
      Set build/host type in configure.
-libraries/libexif-gtk-0.3.5-i586-3gsb.tgz: Recompiled against newer gtk+2. 
-libraries/libiptcdata-1.0.2-i586-3gsb.tgz: Recompiled.
+libraries/libexif-gtk-0.3.5-i486-3gsb.tgz: Recompiled against newer gtk+2. 
+libraries/libiptcdata-1.0.2-i486-3gsb.tgz: Recompiled.
      Enable python bindings.
-libraries/openal-1.5.304-i586-2gsb.tgz: Rebuilt.
+libraries/openal-1.5.304-i486-2gsb.tgz: Rebuilt.
      Include alsoftrc sample in documentation.
-libraries/libmpeg3-1.8-i586-gsb.tgz: Added.
-libraries/transcode-1.0.7rc1-i586-1gsb.tgz: Upgraded.
+libraries/libmpeg3-1.8-i486-gsb.tgz: Added.
+libraries/transcode-1.0.7rc1-i486-1gsb.tgz: Upgraded.
      Reconfigured to use a52dec as default encoder, and added libmpeg3
      support through libmpeg3 package.
 +--------------------------+
 Thu Sep 25 23:33:34 GMT 2008
-platform/libsoup-2.24.0.1-i586-1gsb.tgz: Upgraded.
-desktop/gvfs-1.0.1-i586-1gsb.tgz: Upgraded.
-desktop/gnome-control-center-2.24.0.1-i586-1gsb.tgz: Upgraded.
-desktop/gnome-applets-2.24.0.1-i586-1gsb.tgz: Upgraded.
-office/tomboy-0.12.0-i586-1gsb.tgz: Upgraded.
-office/f-spot-0.5.0.1-i586-1gsb.tgz: Upgraded.
-mono/ipod-sharp-0.8.1-i586-1gsb.tgz: Upgraded.
-mono/karma-sharp-0.1.0-i586-4gsb.tgz: Rebuilt.
+platform/libsoup-2.24.0.1-i486-1gsb.tgz: Upgraded.
+desktop/gvfs-1.0.1-i486-1gsb.tgz: Upgraded.
+desktop/gnome-control-center-2.24.0.1-i486-1gsb.tgz: Upgraded.
+desktop/gnome-applets-2.24.0.1-i486-1gsb.tgz: Upgraded.
+office/tomboy-0.12.0-i486-1gsb.tgz: Upgraded.
+office/f-spot-0.5.0.1-i486-1gsb.tgz: Upgraded.
+mono/ipod-sharp-0.8.1-i486-1gsb.tgz: Upgraded.
+mono/karma-sharp-0.1.0-i486-4gsb.tgz: Rebuilt.
      Fix a broken pkgconfig file which had an undefined prefix and version.
-media/banshee-1-1.2.1-i586-1gsb.tgz: Upgraded.
-networking/sylpheed-2.5.0-i586-2gsb.tgz: Rebuilt against gtk+2-2.14.2.
-networking/empathy-2.24.0-i586-1gsb.tgz: Upgraded.
-networking/balsa-2.3.26-i586-1gsb.tgz: Upgraded.
-networking/deluge-1.0.0-i586-1gsb.tgz: Upgraded.
-networking/ekiga-3.0.0-i586-1gsb.tgz: Upgraded.
-networking/xchat-gnome-0.24.0-i586-1gsb.tgz: Upgraded.
-compiz/compiz-fusion-0.7.8-i586-1gsb.tgz: Upgraded.
-compiz/compiz-bcop-0.7.8-i586-1gsb.tgz: Upgraded.
-compiz/libcompizconfig-0.7.8-i586-1gsb.tgz: Upgraded.
-compiz/compiz-fusion-plugins-main-0.7.8-i586-1gsb.tgz: Upgraded.
-compiz/compiz-fusion-plugins-extra-0.7.8-i586-1gsb.tgz: Upgraded.
-compiz/emerald-0.7.8-i586-1gsb.tgz: Upgraded.
-compiz/compizconfig-python-0.7.8-i586-1gsb.tgz: Upgraded.
-compiz/compizconfig-backend-gconf-0.7.8-i586-1gsb.tgz: Upgraded.
-compiz/ccsm-0.7.8-i586-1gsb.tgz: Upgraded.
-applications/evolution-rss-0.1.0a-i586-1gsb.tgz: Upgraded.
-applications/rhythmbox-0.11.6-i586-4gsb.tgz: Rebuilt.
+media/banshee-1-1.2.1-i486-1gsb.tgz: Upgraded.
+networking/sylpheed-2.5.0-i486-2gsb.tgz: Rebuilt against gtk+2-2.14.2.
+networking/empathy-2.24.0-i486-1gsb.tgz: Upgraded.
+networking/balsa-2.3.26-i486-1gsb.tgz: Upgraded.
+networking/deluge-1.0.0-i486-1gsb.tgz: Upgraded.
+networking/ekiga-3.0.0-i486-1gsb.tgz: Upgraded.
+networking/xchat-gnome-0.24.0-i486-1gsb.tgz: Upgraded.
+compiz/compiz-fusion-0.7.8-i486-1gsb.tgz: Upgraded.
+compiz/compiz-bcop-0.7.8-i486-1gsb.tgz: Upgraded.
+compiz/libcompizconfig-0.7.8-i486-1gsb.tgz: Upgraded.
+compiz/compiz-fusion-plugins-main-0.7.8-i486-1gsb.tgz: Upgraded.
+compiz/compiz-fusion-plugins-extra-0.7.8-i486-1gsb.tgz: Upgraded.
+compiz/emerald-0.7.8-i486-1gsb.tgz: Upgraded.
+compiz/compizconfig-python-0.7.8-i486-1gsb.tgz: Upgraded.
+compiz/compizconfig-backend-gconf-0.7.8-i486-1gsb.tgz: Upgraded.
+compiz/ccsm-0.7.8-i486-1gsb.tgz: Upgraded.
+applications/evolution-rss-0.1.0a-i486-1gsb.tgz: Upgraded.
+applications/rhythmbox-0.11.6-i486-4gsb.tgz: Rebuilt.
      Rebuilt against newer GNOME libraries.
 +--------------------------+
 Wed Sep 24 10:57:15 GMT 2008
-libraries/gtk+2-2.14.3-i586-1gsb.tgz: Upgraded.
-desktop/gconf-editor-2.24.0.1-i586-1gsb.tgz: Upgraded.
-desktop/nautilus-cd-burner-2.24.0-i586-1gsb.tgz: Upgraded.
-applications/gnome-media-2.24.0.1-i586-1gsb.tgz: Upgraded.
-applications/epiphany-2.24.0.1-i586-1gsb.tgz: Upgraded.
-accessibility/gnome-mag-0.15.4-i586-1gsb.tgz: Upgraded.
-devel/anjuta-2.24.0.1-i586-1gsb.tgz: Upgraded.
-mono/gtk-sharp-2.12.4-i586-1gsb.tgz: Upgraded.
-mono/evolution-sharp-0.18.0-i586-1gsb.tgz: Upgraded.
-devel/anjuta-2.24.0.1-i586-1gsb.tgz: Upgraded.
-bindings/libgtksourceviewmm-0.3.1-i586-3gsb.tgz: Removed.
-bindings/gtksourceviewmm-2.2.0-i586-1gsb.tgz: Added.
+libraries/gtk+2-2.14.3-i486-1gsb.tgz: Upgraded.
+desktop/gconf-editor-2.24.0.1-i486-1gsb.tgz: Upgraded.
+desktop/nautilus-cd-burner-2.24.0-i486-1gsb.tgz: Upgraded.
+applications/gnome-media-2.24.0.1-i486-1gsb.tgz: Upgraded.
+applications/epiphany-2.24.0.1-i486-1gsb.tgz: Upgraded.
+accessibility/gnome-mag-0.15.4-i486-1gsb.tgz: Upgraded.
+devel/anjuta-2.24.0.1-i486-1gsb.tgz: Upgraded.
+mono/gtk-sharp-2.12.4-i486-1gsb.tgz: Upgraded.
+mono/evolution-sharp-0.18.0-i486-1gsb.tgz: Upgraded.
+devel/anjuta-2.24.0.1-i486-1gsb.tgz: Upgraded.
+bindings/libgtksourceviewmm-0.3.1-i486-3gsb.tgz: Removed.
+bindings/gtksourceviewmm-2.2.0-i486-1gsb.tgz: Added.
      This package has been renamed upstream.
-devel/nemiver-0.6.2-i586-1gsb.tgz: Upgraded.
-office/tracker-0.6.6-i586-6gsb.tgz: Rebuilt against newer sqlite3.
-print/pycups-1.9.42-i586-1gsb.tgz: Upgraded.
-print/system-config-printer-1.0.7-i586-1gsb.tgz: Upgraded.
-ooo/apache-ant-1.7.1-i586-1gsb.tgz: Upgraded.
+devel/nemiver-0.6.2-i486-1gsb.tgz: Upgraded.
+office/tracker-0.6.6-i486-6gsb.tgz: Rebuilt against newer sqlite3.
+print/pycups-1.9.42-i486-1gsb.tgz: Upgraded.
+print/system-config-printer-1.0.7-i486-1gsb.tgz: Upgraded.
+ooo/apache-ant-1.7.1-i486-1gsb.tgz: Upgraded.
 +--------------------------+
 Tue Sep 23 01:52:48 GMT 2008
-libraries/ptlib-2.4.1-i586-1gsb.tgz: Added.
+libraries/ptlib-2.4.1-i486-1gsb.tgz: Added.
      This package replaces the now obsolete pwlib package.
-libraries/opal-3.4.1-i586-1gsb.tgz: Upgraded.
-libraries/sqlite3-3.6.3-i586-1gsb.tgz: Upgraded.
-libraries/nss-3.12-i586-5gsb.tgz: Rebuilt against sqlite-3.6.3.
-libraries/x264-snapshot_20080922_2245-i586-1gsb.tgz: Upgraded.
-libraries/ffmpeg-svn_15385-i586-1gsb.tgz: Upgraded.
-platform/libgnome-2.24.1-i586-1gsb.tgz: Upgraded.
-platform/libgnomeui-2.24.0-i586-1gsb.tgz: Upgraded.
-platform/libbonobo-2.24.0-i586-1gsb.tgz: Upgraded.
-platform/libbonoboui-2.24.0-i586-1gsb.tgz: Upgraded.
-platform/gnome-vfs-2.24.0-i586-1gsb.tgz: Upgraded.
-platform/gnome-common-2.24.0-i586-1gsb.tgz: Upgraded.
-platform/GConf-2.24.0-i586-1gsb.tgz: Upgraded.
-platform/libsoup-2.24.0-i586-1gsb.tgz: Upgraded.
-platform/gtk-engines-2.16.0-i586-1gsb.tgz: Upgraded.
+libraries/opal-3.4.1-i486-1gsb.tgz: Upgraded.
+libraries/sqlite3-3.6.3-i486-1gsb.tgz: Upgraded.
+libraries/nss-3.12-i486-5gsb.tgz: Rebuilt against sqlite-3.6.3.
+libraries/x264-snapshot_20080922_2245-i486-1gsb.tgz: Upgraded.
+libraries/ffmpeg-svn_15385-i486-1gsb.tgz: Upgraded.
+platform/libgnome-2.24.1-i486-1gsb.tgz: Upgraded.
+platform/libgnomeui-2.24.0-i486-1gsb.tgz: Upgraded.
+platform/libbonobo-2.24.0-i486-1gsb.tgz: Upgraded.
+platform/libbonoboui-2.24.0-i486-1gsb.tgz: Upgraded.
+platform/gnome-vfs-2.24.0-i486-1gsb.tgz: Upgraded.
+platform/gnome-common-2.24.0-i486-1gsb.tgz: Upgraded.
+platform/GConf-2.24.0-i486-1gsb.tgz: Upgraded.
+platform/libsoup-2.24.0-i486-1gsb.tgz: Upgraded.
+platform/gtk-engines-2.16.0-i486-1gsb.tgz: Upgraded.
 desktop/gnome-themes-2.24.0-noarch-1gsb.tgz: Upgraded.
-desktop/at-spi-1.24.0-i586-1gsb.tgz: Upgraded.
-desktop/evolution-data-server-2.24.0-i586-1gsb.tgz: Upgraded.
-desktop/gnome-terminal-2.24.0-i586-1gsb.tgz: Upgraded.
-desktop/libgnomeprint-2.18.5-i586-1gsb.tgz: Upgraded.
-desktop/libgnomeprintui-2.18.3-i586-1gsb.tgz: Upgraded.
-desktop/gvfs-1.0.0-i586-1gsb.tgz: Upgraded.
-desktop/bug-buddy-2.24.0-i586-1gsb.tgz: Upgraded.
-desktop/gnome-python-2.22.3-i586-1gsb.tgz: Upgraded.
-desktop/gnome-applets-2.24.0-i586-1gsb.tgz: Upgraded.
-desktop/metacity-2.24.0-i586-1gsb.tgz: Upgraded.
-desktop/gnome-doc-utils-0.14.0-i586-1gsb.tgz: Upgraded.
-desktop/libgnomekbd-2.24.0-i586-1gsb.tgz: Upgraded.
-bindings/glibmm-2.18.0-i586-1gsb.tgz: Upgraded.
-bindings/libxml++-2.24.0-i586-1gsb.tgz: Upgraded.
-bindings/gconfmm-2.24.0-i586-1gsb.tgz: Upgraded.
-bindings/libglademm-2.6.7-i586-1gsb.tgz: Upgraded.
-bindings/gnome-vfsmm-2.24.0-i586-1gsb.tgz: Upgraded.
-bindings/libgnomemm-2.24.0-i586-1gsb.tgz: Upgraded.
-bindings/libgnomeuimm-2.24.0-i586-1gsb.tgz: Upgraded.
-bindings/glib-perl-1.200-i586-1gsb.tgz: Upgraded.
-bindings/gtk2-perl-1.200-i586-1gsb.tgz: Upgraded.
-bindings/gnome2-perl-2.24.0-i586-1gsb.tgz: Upgraded.
-applications/yelp-2.24.0-i586-1gsb.tgz: Upgraded.
-applications/sound-juicer-2.24.0-i586-1gsb.tgz: Upgraded.
-applications/file-roller-2.24.0-i586-1gsb.tgz: Upgraded.
-applications/totem-pl-parser-2.24.0-i586-1gsb.tgz: Upgraded.
-applications/gnome-python-desktop-2.24.0-i586-1gsb.tgz: Upgraded.
-applications/totem-2.24.0-i586-1gsb.tgz: Upgraded.
-applications/gnome-utils-2.24.0-i586-1gsb.tgz: Upgraded.
-applications/epiphany-2.24.0-i586-1gsb.tgz: Upgraded.
-applications/epiphany-extensions-2.24.0-i586-1gsb.tgz: Upgraded.
-applications/gnome-games-2.24.0-i586-1gsb.tgz: Upgraded.
+desktop/at-spi-1.24.0-i486-1gsb.tgz: Upgraded.
+desktop/evolution-data-server-2.24.0-i486-1gsb.tgz: Upgraded.
+desktop/gnome-terminal-2.24.0-i486-1gsb.tgz: Upgraded.
+desktop/libgnomeprint-2.18.5-i486-1gsb.tgz: Upgraded.
+desktop/libgnomeprintui-2.18.3-i486-1gsb.tgz: Upgraded.
+desktop/gvfs-1.0.0-i486-1gsb.tgz: Upgraded.
+desktop/bug-buddy-2.24.0-i486-1gsb.tgz: Upgraded.
+desktop/gnome-python-2.22.3-i486-1gsb.tgz: Upgraded.
+desktop/gnome-applets-2.24.0-i486-1gsb.tgz: Upgraded.
+desktop/metacity-2.24.0-i486-1gsb.tgz: Upgraded.
+desktop/gnome-doc-utils-0.14.0-i486-1gsb.tgz: Upgraded.
+desktop/libgnomekbd-2.24.0-i486-1gsb.tgz: Upgraded.
+bindings/glibmm-2.18.0-i486-1gsb.tgz: Upgraded.
+bindings/libxml++-2.24.0-i486-1gsb.tgz: Upgraded.
+bindings/gconfmm-2.24.0-i486-1gsb.tgz: Upgraded.
+bindings/libglademm-2.6.7-i486-1gsb.tgz: Upgraded.
+bindings/gnome-vfsmm-2.24.0-i486-1gsb.tgz: Upgraded.
+bindings/libgnomemm-2.24.0-i486-1gsb.tgz: Upgraded.
+bindings/libgnomeuimm-2.24.0-i486-1gsb.tgz: Upgraded.
+bindings/glib-perl-1.200-i486-1gsb.tgz: Upgraded.
+bindings/gtk2-perl-1.200-i486-1gsb.tgz: Upgraded.
+bindings/gnome2-perl-2.24.0-i486-1gsb.tgz: Upgraded.
+applications/yelp-2.24.0-i486-1gsb.tgz: Upgraded.
+applications/sound-juicer-2.24.0-i486-1gsb.tgz: Upgraded.
+applications/file-roller-2.24.0-i486-1gsb.tgz: Upgraded.
+applications/totem-pl-parser-2.24.0-i486-1gsb.tgz: Upgraded.
+applications/gnome-python-desktop-2.24.0-i486-1gsb.tgz: Upgraded.
+applications/totem-2.24.0-i486-1gsb.tgz: Upgraded.
+applications/gnome-utils-2.24.0-i486-1gsb.tgz: Upgraded.
+applications/epiphany-2.24.0-i486-1gsb.tgz: Upgraded.
+applications/epiphany-extensions-2.24.0-i486-1gsb.tgz: Upgraded.
+applications/gnome-games-2.24.0-i486-1gsb.tgz: Upgraded.
 applications/gnome-user-docs-2.24.0-noarch-1gsb.tgz: Upgraded.
-applications/vino-2.24.0-i586-1gsb.tgz: Upgraded.
-applications/gcalctool-5.24.0-i586-1gsb.tgz: Upgraded.
-applications/evolution-2.24.0-i586-1gsb.tgz: Upgraded.
-applications/evolution-exchange-2.24.0-i586-1gsb.tgz: Upgraded.
-applications/evolution-webcal-2.23.91-i586-1gsb.tgz: Upgraded.
-applications/gnome-power-manager-2.24.0-i586-1gsb.tgz: Upgraded.
-applications/gthumb-2.10.10-i586-1gsb.tgz: Upgraded.
-application/simplejson-1.9.2-i586-1gsb.tgz: Added.
-networking/telepathy-salut-0.3.5-i586-1gsb.tgz: Upgraded.
-libraries/vte-0.17.4-i586-1gsb.tgz: Upgraded.
-desktop/gnome-desktop-2.24.0-i586-1gsb.tgz: Upgraded.
-desktop/gnome-menus-2.24.0-i586-1gsb.tgz: Upgraded.
-desktop/libgweather-2.24.0-i586-1gsb.tgz: Upgraded.
-desktop/gnome-panel-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/vino-2.24.0-i486-1gsb.tgz: Upgraded.
+applications/gcalctool-5.24.0-i486-1gsb.tgz: Upgraded.
+applications/evolution-2.24.0-i486-1gsb.tgz: Upgraded.
+applications/evolution-exchange-2.24.0-i486-1gsb.tgz: Upgraded.
+applications/evolution-webcal-2.23.91-i486-1gsb.tgz: Upgraded.
+applications/gnome-power-manager-2.24.0-i486-1gsb.tgz: Upgraded.
+applications/gthumb-2.10.10-i486-1gsb.tgz: Upgraded.
+application/simplejson-1.9.2-i486-1gsb.tgz: Added.
+networking/telepathy-salut-0.3.5-i486-1gsb.tgz: Upgraded.
+libraries/vte-0.17.4-i486-1gsb.tgz: Upgraded.
+desktop/gnome-desktop-2.24.0-i486-1gsb.tgz: Upgraded.
+desktop/gnome-menus-2.24.0-i486-1gsb.tgz: Upgraded.
+desktop/libgweather-2.24.0-i486-1gsb.tgz: Upgraded.
+desktop/gnome-panel-2.24.0-i486-1gsb.tgz: Upgraded.
 platform/gnome-icon-theme-2.24.0-noarch-1gsb.tgz: Upgraded.
-desktop/libgtop-2.24.0-i586-1gsb.tgz: Upgraded.
-desktop/gnome-session-2.24.0-i586-1gsb.tgz: Upgraded.
-desktop/xdg-utils-1.0.2-i586-2gsb.tgz: Upgraded.
+desktop/libgtop-2.24.0-i486-1gsb.tgz: Upgraded.
+desktop/gnome-session-2.24.0-i486-1gsb.tgz: Upgraded.
+desktop/xdg-utils-1.0.2-i486-2gsb.tgz: Upgraded.
      Added proper /etc/mailcap entries.
-desktop/gst-plugins-good-0.10.10-i586-1gsb.tgz: Upgraded.
-desktop/gnome-settings-daemon-2.24.0-i586-1gsb.tgz: Upgraded.
+desktop/gst-plugins-good-0.10.10-i486-1gsb.tgz: Upgraded.
+desktop/gnome-settings-daemon-2.24.0-i486-1gsb.tgz: Upgraded.
 desktop/gnome-backgrounds-2.24.0-noarch-1gsb.tgz: Upgraded.
-applications/eog-2.24.0-i586-1gsb.tgz: Upgraded.
-applications/gnome-system-monitor-2.24.0-i586-1gsb.tgz: Upgraded.
-applications/gnome-netstatus-2.12.2-i586-1gsb.tgz: Upgraded.
-applications/zenity-2.24.0-i586-1gsb.tgz: Upgraded.
-applications/gnome-nettool-2.22.1-i586-1gsb.tgz: Upgraded.
-applications/evolution-webcal-2.24.0-i586-1gsb.tgz: Upgraded.
-applications/alacarte-0.11.6-i586-1gsb.tgz: Upgraded.
-applications/deskbar-applet-2.24.0-i586-1gsb.tgz: Upgraded.
-applications/pygtksourceview-2.4.0-i586-1gsb.tgz: Upgraded.
-applications/gedit-2.24.0-i586-1gsb.tgz: Upgraded.
-applications/seahorse-2.24.0-i586-1gsb.tgz: Upgraded.
-applications/seahorse-plugins-2.24.0-i586-1gsb.tgz: Upgraded.
-desktop/gnome-control-center-2.24.0-i586-1gsb.tgz: Upgraded.
-applications/fast-user-switch-applet-2.24.0-i586-1gsb.tgz: Upgraded.
-applications/cheese-2.24.0-i586-1gsb.tgz: Upgraded.
-applications/goocanvas-0.12-i586-1gsb.tgz: Upgraded.
-applications/pygoocanvas-0.12.0-i586-1gsb.tgz: Upgraded.
-applications/vinagre-2.24.0-i586-1gsb.tgz: Upgraded.
-applications/hamster-applet-2.24.0-i586-1gsb.tgz: Upgraded.
-accessibility/gok-2.24.0-i586-1gsb.tgz: Upgraded.
-accessibility/orca-2.24.0-i586-1gsb.tgz: Upgraded.
-accessibility/libgail-gnome-1.20.1-i586-1gsb.tgz: Upgraded.
-accessibility/mousetweaks-2.24.0-i586-1gsb.tgz: Upgraded.
-administration/sabayon-2.22.1-i586-1gsb.tgz: Upgraded.
-administration/pessulus-2.24.0-i586-1gsb.tgz: Upgraded.
-devel/gdl-2.24.0-i586-1gsb.tgz: Upgraded.
-devel/gnome-build-2.24.0-i586-1gsb.tgz: Upgraded.
-devel/devhelp-0.21-i586-1gsb.tgz: Upgraded.
-devel/accerciser-1.4.0-i586-1gsb.tgz: Upgraded.
-bindings/pysqlite-2.5.0a-i586-1gsb.tgz: Upgraded.
-desktop/libwnck-2.24.0-i586-1gsb.tgz: Upgraded.
+applications/eog-2.24.0-i486-1gsb.tgz: Upgraded.
+applications/gnome-system-monitor-2.24.0-i486-1gsb.tgz: Upgraded.
+applications/gnome-netstatus-2.12.2-i486-1gsb.tgz: Upgraded.
+applications/zenity-2.24.0-i486-1gsb.tgz: Upgraded.
+applications/gnome-nettool-2.22.1-i486-1gsb.tgz: Upgraded.
+applications/evolution-webcal-2.24.0-i486-1gsb.tgz: Upgraded.
+applications/alacarte-0.11.6-i486-1gsb.tgz: Upgraded.
+applications/deskbar-applet-2.24.0-i486-1gsb.tgz: Upgraded.
+applications/pygtksourceview-2.4.0-i486-1gsb.tgz: Upgraded.
+applications/gedit-2.24.0-i486-1gsb.tgz: Upgraded.
+applications/seahorse-2.24.0-i486-1gsb.tgz: Upgraded.
+applications/seahorse-plugins-2.24.0-i486-1gsb.tgz: Upgraded.
+desktop/gnome-control-center-2.24.0-i486-1gsb.tgz: Upgraded.
+applications/fast-user-switch-applet-2.24.0-i486-1gsb.tgz: Upgraded.
+applications/cheese-2.24.0-i486-1gsb.tgz: Upgraded.
+applications/goocanvas-0.12-i486-1gsb.tgz: Upgraded.
+applications/pygoocanvas-0.12.0-i486-1gsb.tgz: Upgraded.
+applications/vinagre-2.24.0-i486-1gsb.tgz: Upgraded.
+applications/hamster-applet-2.24.0-i486-1gsb.tgz: Upgraded.
+accessibility/gok-2.24.0-i486-1gsb.tgz: Upgraded.
+accessibility/orca-2.24.0-i486-1gsb.tgz: Upgraded.
+accessibility/libgail-gnome-1.20.1-i486-1gsb.tgz: Upgraded.
+accessibility/mousetweaks-2.24.0-i486-1gsb.tgz: Upgraded.
+administration/sabayon-2.22.1-i486-1gsb.tgz: Upgraded.
+administration/pessulus-2.24.0-i486-1gsb.tgz: Upgraded.
+devel/gdl-2.24.0-i486-1gsb.tgz: Upgraded.
+devel/gnome-build-2.24.0-i486-1gsb.tgz: Upgraded.
+devel/devhelp-0.21-i486-1gsb.tgz: Upgraded.
+devel/accerciser-1.4.0-i486-1gsb.tgz: Upgraded.
+bindings/pysqlite-2.5.0a-i486-1gsb.tgz: Upgraded.
+desktop/libwnck-2.24.0-i486-1gsb.tgz: Upgraded.
 +--------------------------+
 Mon Sep 22 00:23:28 GMT 2008
-libraries/glib2-2.18.1-i586-1gsb.tgz: Upgraded.
-libraries/gtk+2-2.14.2-i586-1gsb.tgz: Upgraded.
-platform/intltool-0.40.4-i586-1gsb.tgz: Upgraded.
-platform/ORBit2-2.14.16-i586-1gsb.tgz: Upgraded.
-platform/gnome-keyring-2.24.0-i586-1gsb.tgz: Upgraded.
-desktop/eel-2.24.0-i586-1gsb.tgz: Upgraded.
-desktop/nautilus-2.24.0-i586-1gsb.tgz: Upgraded.
-desktop/gtksourceview2-2.4.0-i586-1gsb.tgz: Upgraded.
-desktop/gtksourceview-1.8.5-i586-3gsb.tgz: Rebuilt.
+libraries/glib2-2.18.1-i486-1gsb.tgz: Upgraded.
+libraries/gtk+2-2.14.2-i486-1gsb.tgz: Upgraded.
+platform/intltool-0.40.4-i486-1gsb.tgz: Upgraded.
+platform/ORBit2-2.14.16-i486-1gsb.tgz: Upgraded.
+platform/gnome-keyring-2.24.0-i486-1gsb.tgz: Upgraded.
+desktop/eel-2.24.0-i486-1gsb.tgz: Upgraded.
+desktop/nautilus-2.24.0-i486-1gsb.tgz: Upgraded.
+desktop/gtksourceview2-2.4.0-i486-1gsb.tgz: Upgraded.
+desktop/gtksourceview-1.8.5-i486-3gsb.tgz: Rebuilt.
 +--------------------------+
 Mon Sep 15 21:08:17 GMT 2008
-applications/brasero-0.8.2-i586-1gsb.tgz: Upgraded.
-administration/gparted-0.3.9-i586-1gsb.tgz: Upgraded.
-mono/evolution-sharp-0.17.6-i586-1gsb.tgz: Upgraded.
-devel/devhelp-0.20-i586-1gsb.tgz: Upgraded.
-devel/anjuta-2.23.91-i586-1gsb.tgz: Upgraded.
-devel/accerciser-1.3.92-i586-1gsb.tgz: Upgraded.
+applications/brasero-0.8.2-i486-1gsb.tgz: Upgraded.
+administration/gparted-0.3.9-i486-1gsb.tgz: Upgraded.
+mono/evolution-sharp-0.17.6-i486-1gsb.tgz: Upgraded.
+devel/devhelp-0.20-i486-1gsb.tgz: Upgraded.
+devel/anjuta-2.23.91-i486-1gsb.tgz: Upgraded.
+devel/accerciser-1.3.92-i486-1gsb.tgz: Upgraded.
 +--------------------------+
 Wed Sep 10 19:21:21 GMT 2008
-networking/empathy-2.23.92-i586-1gsb.tgz: Upgraded.
+networking/empathy-2.23.92-i486-1gsb.tgz: Upgraded.
      This requires a minor patch to add a missing header file.
-office/f-spot-0.4.4-i586-2gsb.tgz: Rebuilt against gtk+2-2.14.1.  
+office/f-spot-0.4.4-i486-2gsb.tgz: Rebuilt against gtk+2-2.14.1.  
      Add missing gconf installation in the doinst.sh.
 +--------------------------+
 Wed Sep 10 19:21:21 GMT 2008
-libraries/libdvdread-4.1.3-i586-1gsb.tgz: Upgraded.
-libraries/libdvdnav-4.1.3-i586-1gsb.tgz: Added.
-libraries/ffmpeg-svn_15292-i586-1gsb.tgz: Upgraded.
-bindings/gtkmm-2.13.8-i586-1gsb.tgz: Upgraded.
-bindings/gconfmm-2.23.1-i586-1gsb.tgz: Upgraded.
-applications/gnome-system-monitor-2.23.91-i586-1gsb.tgz: Upgraded.
-applications/gnome-games-2.23.92-i586-1gsb.tgz: Upgraded.
+libraries/libdvdread-4.1.3-i486-1gsb.tgz: Upgraded.
+libraries/libdvdnav-4.1.3-i486-1gsb.tgz: Added.
+libraries/ffmpeg-svn_15292-i486-1gsb.tgz: Upgraded.
+bindings/gtkmm-2.13.8-i486-1gsb.tgz: Upgraded.
+bindings/gconfmm-2.23.1-i486-1gsb.tgz: Upgraded.
+applications/gnome-system-monitor-2.23.91-i486-1gsb.tgz: Upgraded.
+applications/gnome-games-2.23.92-i486-1gsb.tgz: Upgraded.
 applications/gnome-games-extra-data-2.24.0-noarch-1gsb.tgz: Upgraded.
-applications/vino-2.23.92-i586-1gsb.tgz: Upgraded.
-applications/gcalctool-5.23.92-i586-1gsb.tgz: Upgraded.
-applications/evolution-2.23.92-i586-1gsb.tgz: Upgraded.
-applications/evolution-exchange-2.23.92-i586-1gsb.tgz: Upgraded.
-applications/deskbar-applet-2.23.92-i586-1gsb.tgz: Upgraded.
-applications/gedit-2.23.92-i586-1gsb.tgz: Upgraded.
-applications/gedit-plugins-2.22.3-i586-1gsb.tgz: Upgraded.
-applications/seahorse-2.23.92-i586-1gsb.tgz: Upgraded.
-applications/seahorse-plugins-2.23.92-i586-1gsb.tgz: Upgraded.
-applications/gdm-2.20.8-i586-1gsb.tgz: Upgraded.
-applications/cheese-2.23.92-i586-1gsb.tgz: Upgraded.
-applications/goocanvas-0.11-i586-1gsb.tgz: Upgraded.
-applications/gtk-vnc-0.3.7-i586-1gsb.tgz: Upgraded.
-applications/vinagre-2.23.92-i586-1gsb.tgz: Upgraded.
-applications/hamster-applet-2.23.92-i586-1gsb.tgz: Upgraded.
-accessibility/gnome-mag-0.15.3-i586-1gsb.tgz: Upgraded.
-accessibility/orca-2.23.92-i586-1gsb.tgz: Upgraded.
-accessibility/mousetweaks-2.23.92-i586-1gsb.tgz: Upgraded.
-mono/gtk-sharp-2.12.3-i586-1gsb.tgz: Upgraded.
-mono/gnome-sharp-2.24.0-i586-1gsb.tgz: Upgraded.
-mono/gnome-desktop-sharp-2.24.0-i586-1gsb.tgz: Upgraded.
-mono/evolution-sharp-0.17.5-i586-1gsb.tgz: Upgraded.
-office/goffice-0.6.5-i586-1gsb.tgz: Upgraded.
+applications/vino-2.23.92-i486-1gsb.tgz: Upgraded.
+applications/gcalctool-5.23.92-i486-1gsb.tgz: Upgraded.
+applications/evolution-2.23.92-i486-1gsb.tgz: Upgraded.
+applications/evolution-exchange-2.23.92-i486-1gsb.tgz: Upgraded.
+applications/deskbar-applet-2.23.92-i486-1gsb.tgz: Upgraded.
+applications/gedit-2.23.92-i486-1gsb.tgz: Upgraded.
+applications/gedit-plugins-2.22.3-i486-1gsb.tgz: Upgraded.
+applications/seahorse-2.23.92-i486-1gsb.tgz: Upgraded.
+applications/seahorse-plugins-2.23.92-i486-1gsb.tgz: Upgraded.
+applications/gdm-2.20.8-i486-1gsb.tgz: Upgraded.
+applications/cheese-2.23.92-i486-1gsb.tgz: Upgraded.
+applications/goocanvas-0.11-i486-1gsb.tgz: Upgraded.
+applications/gtk-vnc-0.3.7-i486-1gsb.tgz: Upgraded.
+applications/vinagre-2.23.92-i486-1gsb.tgz: Upgraded.
+applications/hamster-applet-2.23.92-i486-1gsb.tgz: Upgraded.
+accessibility/gnome-mag-0.15.3-i486-1gsb.tgz: Upgraded.
+accessibility/orca-2.23.92-i486-1gsb.tgz: Upgraded.
+accessibility/mousetweaks-2.23.92-i486-1gsb.tgz: Upgraded.
+mono/gtk-sharp-2.12.3-i486-1gsb.tgz: Upgraded.
+mono/gnome-sharp-2.24.0-i486-1gsb.tgz: Upgraded.
+mono/gnome-desktop-sharp-2.24.0-i486-1gsb.tgz: Upgraded.
+mono/evolution-sharp-0.17.5-i486-1gsb.tgz: Upgraded.
+office/goffice-0.6.5-i486-1gsb.tgz: Upgraded.
 +--------------------------+
 Tue Sep 09 13:36:10 GMT 2008
      GNOME 2.23.91 (Beta 2) Released.
-libraries/glib2-2.18.0-i586-1gsb.tgz: Upgraded.
-libraries/gtk+2-2.14.1-i586-1gsb.tgz: Upgraded.
-libraries/opal-2.2.11-i586-3gsb.tgz: Upgraded.
-platform/rarian-0.8.1-i586-1gsb.tgz: Upgraded.
-platform/gnome-keyring-2.23.92-i586-1gsb.tgz: Upgraded.
-platform/gtk-engines-2.15.4-i586-1gsb.tgz: Upgraded.
-platform/libsoup-2.23.92-i586-1gsb.tgz: Upgraded.
+libraries/glib2-2.18.0-i486-1gsb.tgz: Upgraded.
+libraries/gtk+2-2.14.1-i486-1gsb.tgz: Upgraded.
+libraries/opal-2.2.11-i486-3gsb.tgz: Upgraded.
+platform/rarian-0.8.1-i486-1gsb.tgz: Upgraded.
+platform/gnome-keyring-2.23.92-i486-1gsb.tgz: Upgraded.
+platform/gtk-engines-2.15.4-i486-1gsb.tgz: Upgraded.
+platform/libsoup-2.23.92-i486-1gsb.tgz: Upgraded.
 platform/gnome-themes-2.23.92-noarch-1gsb.tgz: Upgraded.
-platform/gnome-doc-utils-0.13.1-i586-1gsb.tgz: Upgraded.
-desktop/at-spi-1.23.92-i586-1gsb.tgz: Upgraded.
-desktop/gnome-desktop-2.23.92-i586-1gsb.tgz: Upgraded.
-desktop/gnome-menus-2.23.92-i586-1gsb.tgz: Upgraded.
-desktop/libwnck-2.23.92-i586-1gsb.tgz: Upgraded.
-desktop/evolution-data-server-2.23.92-i586-1gsb.tgz: Upgraded.
-desktop/libgweather-2.23.92-i586-1gsb.tgz: Upgraded.
-desktop/gnome-panel-2.23.92-i586-1gsb.tgz: Upgraded.
-libraries/vte-0.17.3-i586-1gsb.tgz: Added.
+platform/gnome-doc-utils-0.13.1-i486-1gsb.tgz: Upgraded.
+desktop/at-spi-1.23.92-i486-1gsb.tgz: Upgraded.
+desktop/gnome-desktop-2.23.92-i486-1gsb.tgz: Upgraded.
+desktop/gnome-menus-2.23.92-i486-1gsb.tgz: Upgraded.
+desktop/libwnck-2.23.92-i486-1gsb.tgz: Upgraded.
+desktop/evolution-data-server-2.23.92-i486-1gsb.tgz: Upgraded.
+desktop/libgweather-2.23.92-i486-1gsb.tgz: Upgraded.
+desktop/gnome-panel-2.23.92-i486-1gsb.tgz: Upgraded.
+libraries/vte-0.17.3-i486-1gsb.tgz: Added.
      This replaces the standard Slackware package vte.  The 0.17 series is 
      required by the gnome-terminal package.
-desktop/gnome-terminal-2.23.91-i586-1gsb.tgz: Upgraded.
-desktop/libxklavier-3.7-i586-1gsb.tgz: Upgraded.
-desktop/libgnomekbd-2.23.91-i586-1gsb.tgz: Upgraded.
-desktop/metacity-2.23.610-i586-1gsb.tgz: Upgraded.
-desktop/eel-2.23.92-i586-1gsb.tgz: Upgraded.
-desktop/gvfs-0.99.7.1-i586-1gsb.tgz: Upgraded.
-desktop/nautilus-2.23.92-i586-1gsb.tgz: Upgraded.
-desktop/gnome-settings-daemon-2.23.92-i586-1gsb.tgz: Upgraded.
-desktop/gnome-session-2.23.92-i586-1gsb.tgz: Upgraded.
-desktop/gnome-applets-2.23.92-i586-1gsb.tgz: Upgraded.
-desktop/bug-buddy-2.23.91.1-i586-1gsb.tgz: Upgraded.
-desktop/gtkhtml-3.23.92-i586-1gsb.tgz: Upgraded.
+desktop/gnome-terminal-2.23.91-i486-1gsb.tgz: Upgraded.
+desktop/libxklavier-3.7-i486-1gsb.tgz: Upgraded.
+desktop/libgnomekbd-2.23.91-i486-1gsb.tgz: Upgraded.
+desktop/metacity-2.23.610-i486-1gsb.tgz: Upgraded.
+desktop/eel-2.23.92-i486-1gsb.tgz: Upgraded.
+desktop/gvfs-0.99.7.1-i486-1gsb.tgz: Upgraded.
+desktop/nautilus-2.23.92-i486-1gsb.tgz: Upgraded.
+desktop/gnome-settings-daemon-2.23.92-i486-1gsb.tgz: Upgraded.
+desktop/gnome-session-2.23.92-i486-1gsb.tgz: Upgraded.
+desktop/gnome-applets-2.23.92-i486-1gsb.tgz: Upgraded.
+desktop/bug-buddy-2.23.91.1-i486-1gsb.tgz: Upgraded.
+desktop/gtkhtml-3.23.92-i486-1gsb.tgz: Upgraded.
 desktop/gnome-backgrounds-2.23.92-noarch-1gsb.tgz: Upgraded.
-bindings/glibmm-2.17.3-i586-1gsb.tgz: Upgraded.
+bindings/glibmm-2.17.3-i486-1gsb.tgz: Upgraded.
 bindings/gtkmm: Rebuilt against gtk+2-2.14.1.
-applications/yelp-2.23.91-i586-1gsb.tgz: Upgraded.
-applications/eog-2.23.92-i586-1gsb.tgz: Upgraded.
-applications/gnome-media-2.23.92-i586-1gsb.tgz: Upgraded.
-applications/sound-juicer-2.23.3-i586-1gsb.tgz: Upgraded.
-applications/file-roller-2.23.92-i586-1gsb.tgz: Upgraded.
-applications/totem-pl-parser-2.23.91-i586-1gsb.tgz: Upgraded.
-applications/gnome-python-desktop-2.23.1-i586-1gsb.tgz: Upgraded.
-applications/epiphany-2.23.91-i586-1gsb.tgz: Upgraded.
-applications/epiphany-extensions-2.23.91-i586-1gsb.tgz: Upgraded.
-applications/totem-2.23.91-i586-1gsb.tgz: Upgraded.
-applications/gnome-utils-2.23.92-i586-1gsb.tgz: Upgraded.
+applications/yelp-2.23.91-i486-1gsb.tgz: Upgraded.
+applications/eog-2.23.92-i486-1gsb.tgz: Upgraded.
+applications/gnome-media-2.23.92-i486-1gsb.tgz: Upgraded.
+applications/sound-juicer-2.23.3-i486-1gsb.tgz: Upgraded.
+applications/file-roller-2.23.92-i486-1gsb.tgz: Upgraded.
+applications/totem-pl-parser-2.23.91-i486-1gsb.tgz: Upgraded.
+applications/gnome-python-desktop-2.23.1-i486-1gsb.tgz: Upgraded.
+applications/epiphany-2.23.91-i486-1gsb.tgz: Upgraded.
+applications/epiphany-extensions-2.23.91-i486-1gsb.tgz: Upgraded.
+applications/totem-2.23.91-i486-1gsb.tgz: Upgraded.
+applications/gnome-utils-2.23.92-i486-1gsb.tgz: Upgraded.
 +--------------------------+
 Tue Sep 02 13:36:10 GMT 2008
-platform/libsoup-2.23.91-i586-1gsb.tgz: Upgraded.
-desktop/gvfs-0.99.6-i586-1gsb.tgz: Upgraded.
-accessibility/orca-2.23.91-i586-1gsb.tgz: Upgraded.
-accessibility/mousetweaks-2.23.91-i586-1gsb.tgz: Upgraded.
-office/liferea-1.5.5-i586-1gsb.tgz: Upgraded.
-networking/empathy-2.23.91-i586-1gsb.tgz: Upgraded.
-networking/deluge-0.9.08-i586-1gsb.tgz: Upgraded.
-networking/NetworkManager-svn_4008-i586-1gsb.tgz: Upgraded.
-networking/NetworkManager-vpn-svn_4008-i586-1gsb.tgz: Upgraded.
-networking/network-manager-applet-svn_863-i586-1gsb.tgz: Upgraded.
-print/system-config-printer-1.0.4-i586-3gsb.tgz: Rebuilt.
-platform/pulseaudio-0.9.11-i586-2gsb.tgz: Rebuilt.
+platform/libsoup-2.23.91-i486-1gsb.tgz: Upgraded.
+desktop/gvfs-0.99.6-i486-1gsb.tgz: Upgraded.
+accessibility/orca-2.23.91-i486-1gsb.tgz: Upgraded.
+accessibility/mousetweaks-2.23.91-i486-1gsb.tgz: Upgraded.
+office/liferea-1.5.5-i486-1gsb.tgz: Upgraded.
+networking/empathy-2.23.91-i486-1gsb.tgz: Upgraded.
+networking/deluge-0.9.08-i486-1gsb.tgz: Upgraded.
+networking/NetworkManager-svn_4008-i486-1gsb.tgz: Upgraded.
+networking/NetworkManager-vpn-svn_4008-i486-1gsb.tgz: Upgraded.
+networking/network-manager-applet-svn_863-i486-1gsb.tgz: Upgraded.
+print/system-config-printer-1.0.4-i486-3gsb.tgz: Rebuilt.
+platform/pulseaudio-0.9.11-i486-2gsb.tgz: Rebuilt.
      Fix for location of GNOME pulseaudio autostart.
-print/gpp-0.7.0-i586-1gsb.tgz: Added.
-networking/gnome-user-share-0.31-i586-2gsb.tgz: Rebuilt.
+print/gpp-0.7.0-i486-1gsb.tgz: Added.
+networking/gnome-user-share-0.31-i486-2gsb.tgz: Rebuilt.
 +--------------------------+
 Mon Sep 01 12:48:16 GMT 2008
-applications/evolution-rss-0.1.0-i586-1gsb.tgz: Added.
-applications/conduit-0.3.14-i586-1gsb.tgz: Upgraded.
+applications/evolution-rss-0.1.0-i486-1gsb.tgz: Added.
+applications/conduit-0.3.14-i486-1gsb.tgz: Upgraded.
      Conduit is now configured to use WebKit as recommended by the
      maintainers.
-networking/telepathy-glib-0.7.14-i586-1gsb.tgz: Upgraded.
+networking/telepathy-glib-0.7.14-i486-1gsb.tgz: Upgraded.
 desktop/gnome-themes-2.23.91-noarch-1gsb.tgz: Upgraded.
-desktop/at-spi-1.23.91-i586-1gsb.tgz: Upgraded.
-desktop/evolution-data-server-2.23.91-i586-1gsb.tgz: Upgraded.
-desktop/gconf-editor-2.23.91-i586-1gsb.tgz: Upgraded.
-desktop/eel-2.23.91-i586-1gsb.tgz: Upgraded.
-desktop/nautilus-2.23.91-i586-1gsb.tgz: Upgraded.
-networking/gst-plugins-farsight-0.12.9-i586-1gsb.tgz: Upgraded.
-networking/farsight-0.1.28-i586-1gsb.tgz: Upgraded.
-networking/telepathy-mission-control-4.67-i586-1gsb.tgz: Upgraded.
-networking/telepathy-butterfly-0.3.2-i586-1gsb.tgz: Upgraded.
-networking/loudmouth-1.4.1-i586-1gsb.tgz: Upgraded.
-networking/telepathy-gabble-0.7.8-i586-1gsb.tgz: Upgraded.
-networking/telepathy-salut-0.3.4-i586-1gsb.tgz: Upgraded.
-networking/empathy-2.23.90-i586-1gsb.tgz: Upgraded.
-networking/balsa-2.3.25-i586-1gsb: Upgraded.
-desktop/gnome-settings-daemon-2.23.91-i586-1gsb.tgz: Upgraded.
-desktop/bug-buddy-2.23.91-i586-1gsb.tgz: Upgraded.
-desktop/gtkhtml-3.23.91-i586-1gsb.tgz: Upgraded.
+desktop/at-spi-1.23.91-i486-1gsb.tgz: Upgraded.
+desktop/evolution-data-server-2.23.91-i486-1gsb.tgz: Upgraded.
+desktop/gconf-editor-2.23.91-i486-1gsb.tgz: Upgraded.
+desktop/eel-2.23.91-i486-1gsb.tgz: Upgraded.
+desktop/nautilus-2.23.91-i486-1gsb.tgz: Upgraded.
+networking/gst-plugins-farsight-0.12.9-i486-1gsb.tgz: Upgraded.
+networking/farsight-0.1.28-i486-1gsb.tgz: Upgraded.
+networking/telepathy-mission-control-4.67-i486-1gsb.tgz: Upgraded.
+networking/telepathy-butterfly-0.3.2-i486-1gsb.tgz: Upgraded.
+networking/loudmouth-1.4.1-i486-1gsb.tgz: Upgraded.
+networking/telepathy-gabble-0.7.8-i486-1gsb.tgz: Upgraded.
+networking/telepathy-salut-0.3.4-i486-1gsb.tgz: Upgraded.
+networking/empathy-2.23.90-i486-1gsb.tgz: Upgraded.
+networking/balsa-2.3.25-i486-1gsb: Upgraded.
+desktop/gnome-settings-daemon-2.23.91-i486-1gsb.tgz: Upgraded.
+desktop/bug-buddy-2.23.91-i486-1gsb.tgz: Upgraded.
+desktop/gtkhtml-3.23.91-i486-1gsb.tgz: Upgraded.
 desktop/gnome-backgrounds-2.23.91-noarch-1gsb.tgz: Upgraded.
-applications/file-roller-2.23.91-i586-1gsb.tgz: Upgraded.
-applications/vino-2.23.91-i586-1gsb.tgz: Upgraded.
-applications/gcalctool-5.23.91-i586-1gsb.tgz: Upgraded.
-applications/evolution-2.23.91-i586-1gsb.tgz: Upgraded.
-applications/evolution-webcal-2.21.92-i586-3gsb.tgz: Rebuilt.
-applications/evolution-exchange-2.23.91-i586-1gsb.tgz: Upgraded.
-applications/gnome-power-manager-2.23.91-i586-1gsb.tgz: Upgraded.
-applications/gedit-2.23.91-i586-1gsb.tgz: Upgraded.
-applications/cheese-2.23.91-i586-1gsb.tgz: Upgraded.
-applications/vinagre-2.23.91-i586-1gsb.tgz: Upgraded.
-applications/hamster-applet-2.23.91-i586-1gsb.tgz: Upgraded.
-libraries/libtasn1-1.5-i586-1gsb.tgz: Upgraded.
+applications/file-roller-2.23.91-i486-1gsb.tgz: Upgraded.
+applications/vino-2.23.91-i486-1gsb.tgz: Upgraded.
+applications/gcalctool-5.23.91-i486-1gsb.tgz: Upgraded.
+applications/evolution-2.23.91-i486-1gsb.tgz: Upgraded.
+applications/evolution-webcal-2.21.92-i486-3gsb.tgz: Rebuilt.
+applications/evolution-exchange-2.23.91-i486-1gsb.tgz: Upgraded.
+applications/gnome-power-manager-2.23.91-i486-1gsb.tgz: Upgraded.
+applications/gedit-2.23.91-i486-1gsb.tgz: Upgraded.
+applications/cheese-2.23.91-i486-1gsb.tgz: Upgraded.
+applications/vinagre-2.23.91-i486-1gsb.tgz: Upgraded.
+applications/hamster-applet-2.23.91-i486-1gsb.tgz: Upgraded.
+libraries/libtasn1-1.5-i486-1gsb.tgz: Upgraded.
 +--------------------------+
 Sat Aug 30 16:35:29 GMT 2008
-print/system-config-printer-1.0.4-i586-2gsb.tgz: Rebuilt.
-media/banshee-1-1.2.1-i586-1gsb.tgz: Upgraded.
-media/devede-3.11-i586-1gsb.tgz: Upgraded.
-media/wxGTK-2.8.8-i586-1gsb.tgz: Removed.  
+print/system-config-printer-1.0.4-i486-2gsb.tgz: Rebuilt.
+media/banshee-1-1.2.1-i486-1gsb.tgz: Upgraded.
+media/devede-3.11-i486-1gsb.tgz: Upgraded.
+media/wxGTK-2.8.8-i486-1gsb.tgz: Removed.  
      No part of the GSB project actually requires this library anymore, so 
      we're going to drop it.  It's main use is by VLC, which we do not
      provide. Try Mplayer, Totem or Xine under Slackware/GNOME.
-media/gnome-mplayer-0.7.0-i586-1gsb.tgz: Added.
-media/soundconverter-1.3.2-i586-1gsb.tgz: Added.
+media/gnome-mplayer-0.7.0-i486-1gsb.tgz: Added.
+media/soundconverter-1.3.2-i486-1gsb.tgz: Added.
 +--------------------------+
 Sat Aug 30 16:35:29 GMT 2008
-libraries/libdvdcss-1.2.10-i586-1gsb.tgz: Upgraded.
-accessibility/gok-2.23.91-i586-1gsb.tgz: Upgraded.
-mono/mono-1.9.1-i586-4gsb.tgz: Recompiled against glib2-2.17.7.
-mono/boo-0.8.2.2960-i586-1gsb.tgz: Added.
-devel/devhelp-0.19.1-i586-5gsb.tgz: Rebuilt against xulrunner-1.9.0.1.
-devel/anjuta-2.5.90-i586-1gsb.tgz: Upgraded.
-devel/vala-0.3.5-i586-1gsb.tgz: Added.
-devel/accerciser-1.3.6-i586-1gsb.tgz: Added.
-devel/monodoc-1.9-i586-4gsb.tgz: Rebuilt.
-devel/nemiver-0.6.1-i586-1gsb.tgz: Added.
-media/dvgrab-3.2-i586-1gsb.tgz: Upgraded.
-media/kino-1.3.2-i586-1gsb.tgz: Upgraded.
+libraries/libdvdcss-1.2.10-i486-1gsb.tgz: Upgraded.
+accessibility/gok-2.23.91-i486-1gsb.tgz: Upgraded.
+mono/mono-1.9.1-i486-4gsb.tgz: Recompiled against glib2-2.17.7.
+mono/boo-0.8.2.2960-i486-1gsb.tgz: Added.
+devel/devhelp-0.19.1-i486-5gsb.tgz: Rebuilt against xulrunner-1.9.0.1.
+devel/anjuta-2.5.90-i486-1gsb.tgz: Upgraded.
+devel/vala-0.3.5-i486-1gsb.tgz: Added.
+devel/accerciser-1.3.6-i486-1gsb.tgz: Added.
+devel/monodoc-1.9-i486-4gsb.tgz: Rebuilt.
+devel/nemiver-0.6.1-i486-1gsb.tgz: Added.
+media/dvgrab-3.2-i486-1gsb.tgz: Upgraded.
+media/kino-1.3.2-i486-1gsb.tgz: Upgraded.
 desktop/nautilus-open-terminal: Recompiled against gnome-desktop-2.23.90.
-office/enchant-1.4.2-i586-2gsb.tgz: Rebuilt.
-office/abiword-plugins-2.6.4-i586-2gsb.tgz: Recompiled against boost-1.36.0.
-office/tracker-0.6.6-i586-5gsb.tgz: Recompiled against sqlite-3.6.1.
-office/gnucash-2.2.6-i586-1gsb.tgz: Upgraded.
-office/tomboy-0.11.3-i586-1gsb.tgz: Upgraded.
-print/hal-cups-utils-0.6.16-i586-1gsb.tgz: Added.
+office/enchant-1.4.2-i486-2gsb.tgz: Rebuilt.
+office/abiword-plugins-2.6.4-i486-2gsb.tgz: Recompiled against boost-1.36.0.
+office/tracker-0.6.6-i486-5gsb.tgz: Recompiled against sqlite-3.6.1.
+office/gnucash-2.2.6-i486-1gsb.tgz: Upgraded.
+office/tomboy-0.11.3-i486-1gsb.tgz: Upgraded.
+print/hal-cups-utils-0.6.16-i486-1gsb.tgz: Added.
 +--------------------------+
 Fri Aug 29 14:23:37 GMT 2008
-applications/webkit-r35963-i586-1gsb.tgz: Added.
-applications/mozilla-xulrunner-1.9.0.1-i586-1gsb.tgz: Upgraded.
-applications/epiphany-2.23.90-i586-2gsb.tgz: Rebuilt against xulrunner-1.9.0.1.
-applications/gnome-utils-2.23.90-i586-1gsb.tgz: Upgraded.
+applications/webkit-r35963-i486-1gsb.tgz: Added.
+applications/mozilla-xulrunner-1.9.0.1-i486-1gsb.tgz: Upgraded.
+applications/epiphany-2.23.90-i486-2gsb.tgz: Rebuilt against xulrunner-1.9.0.1.
+applications/gnome-utils-2.23.90-i486-1gsb.tgz: Upgraded.
 +--------------------------+
 Thu Aug 28 15:57:10 GMT 2008
      GNOME 2.23.90 (Beta 1) Released.
-libraries/libicu-4.0c-i586-1gsb.tgz: Added.
-libraries/boost-1.36.0-i586-1gsb.tgz: Upgraded.
+libraries/libicu-4.0c-i486-1gsb.tgz: Added.
+libraries/boost-1.36.0-i486-1gsb.tgz: Upgraded.
      This build applies the official boost hotfix patches from:
      http://svn.boost.org/trac/boost/wiki/ReleasePractices/HotFixes
      This is to fix a few regressions introduced in the new stable 1.36 series.
      Boost C++ Libraries are now built against libicu and expat. 
-libraries/libopenraw-0.0.5-i586-3gsb.tgz: Recompiled against boost-1.36.0.
-libraries/exempi-2.0.2-i586-2gsb.tgz: Recompiled against boost-1.36.0.
-libraries/libiec61883-1.1.0-i586-3gsb.tgz: Recompiled against libraw1394-2.0.0.
-libraries/libavc1394-0.5.3-i586-3gsb.tgz: Recompiled against libraw1394-2.0.0.
-desktop/gst-plugins-good-0.10.9-i586-2gsb.tgz: Recompiled. 
+libraries/libopenraw-0.0.5-i486-3gsb.tgz: Recompiled against boost-1.36.0.
+libraries/exempi-2.0.2-i486-2gsb.tgz: Recompiled against boost-1.36.0.
+libraries/libiec61883-1.1.0-i486-3gsb.tgz: Recompiled against libraw1394-2.0.0.
+libraries/libavc1394-0.5.3-i486-3gsb.tgz: Recompiled against libraw1394-2.0.0.
+desktop/gst-plugins-good-0.10.9-i486-2gsb.tgz: Recompiled. 
      Recompiled against newer libraw1394, libiec61883, and libavc1394.
-libraries/pwlib-1.10.10-i586-4gsb.tgz: Recompiled against newer libraw1394-2.0.0.
+libraries/pwlib-1.10.10-i486-4gsb.tgz: Recompiled against newer libraw1394-2.0.0.
      Disabled avc plugin which is old and buggy.
-applications/seahorse-plugins-2.23.6-i586-1gsb.tgz: Added.
+applications/seahorse-plugins-2.23.6-i486-1gsb.tgz: Added.
      This package has been split off seahorse upstream.
-applications/rhythmbox-0.11.6-i586-3gsb.tgz: Recompiled. 
+applications/rhythmbox-0.11.6-i486-3gsb.tgz: Recompiled. 
      Recompiled against totem-pl-parser-2.23.3.
-applications/gdm-2.20.7-i586-3gsb.tgz: Recompiled against policykit 0.9.
-applications/cheese-2.23.90-i586-1gsb.tgz: Upgraded.
-applications/python-dateutil-1.4.1-i586-1gsb.tgz: Upgraded.
-applications/vobject-0.7.1-i586-1gsb.tgz: Upgraded.
-applications/conduit-0.3.13.1-i586-1gsb.tgz: Upgraded.
-applications/gksu-2.0.0-i586-4gsb.tgz: Rebuilt.
-applications/vinagre-2.23.90-i586-1gsb.tgz: Upgraded.
-applications/hamster-applet-2.23.90-i586-1gsb.tgz: Added.
-applications/gdesklets-0.36-i586-3gsb.tgz: Recompiled. 
+applications/gdm-2.20.7-i486-3gsb.tgz: Recompiled against policykit 0.9.
+applications/cheese-2.23.90-i486-1gsb.tgz: Upgraded.
+applications/python-dateutil-1.4.1-i486-1gsb.tgz: Upgraded.
+applications/vobject-0.7.1-i486-1gsb.tgz: Upgraded.
+applications/conduit-0.3.13.1-i486-1gsb.tgz: Upgraded.
+applications/gksu-2.0.0-i486-4gsb.tgz: Rebuilt.
+applications/vinagre-2.23.90-i486-1gsb.tgz: Upgraded.
+applications/hamster-applet-2.23.90-i486-1gsb.tgz: Added.
+applications/gdesklets-0.36-i486-3gsb.tgz: Recompiled. 
      Recompiled against newer libgtop-2.23.90.
-accessibility/gnome-speech-0.4.21-i586-2gsb.tgz: Rebuilt.
+accessibility/gnome-speech-0.4.21-i486-2gsb.tgz: Rebuilt.
      Enabled java bridge bindings.
-accessibility/dasher-4.9.0-i586-1gsb.tgz: Upgraded.
-accessibility/gnome-mag-0.15.2-i586-1gsb.tgz: Upgraded.
-accessibility/orca-2.23.90-i586-1gsb.tgz: Upgraded.
-accessibility/gnopernicus-1.1.2-i586-3gsb.tgz.tgz: Removed.
+accessibility/dasher-4.9.0-i486-1gsb.tgz: Upgraded.
+accessibility/gnome-mag-0.15.2-i486-1gsb.tgz: Upgraded.
+accessibility/orca-2.23.90-i486-1gsb.tgz: Upgraded.
+accessibility/gnopernicus-1.1.2-i486-3gsb.tgz.tgz: Removed.
      gnopernicus has been removed, and is fully replaced by orca.
-accessibility/mousetweaks-2.23.90-i586-1gsb.tgz: Upgraded.
-administration/pm-utils-1.1.2.4-i586-1gsb.tgz: Upgraded.
-administration/rdiff-backup-1.2.0-i586-1gsb.tgz: Upgraded.
-administration/python-ldap-2.3.5-i586-1gsb.tgz: Upgraded.
-administration/pessulus-2.23.1-i586-1gsb.tgz: Upgraded.
-administration/system-tools-backends-2.6.0-i586-7gsb.tgz: Removed.
-administration/liboobs-2.22.0-i586-2gsb.tgz.tgz: Removed.
-administration/gnome-system-tools-2.22.0-i586-3gsb.tgz: Removed.
+accessibility/mousetweaks-2.23.90-i486-1gsb.tgz: Upgraded.
+administration/pm-utils-1.1.2.4-i486-1gsb.tgz: Upgraded.
+administration/rdiff-backup-1.2.0-i486-1gsb.tgz: Upgraded.
+administration/python-ldap-2.3.5-i486-1gsb.tgz: Upgraded.
+administration/pessulus-2.23.1-i486-1gsb.tgz: Upgraded.
+administration/system-tools-backends-2.6.0-i486-7gsb.tgz: Removed.
+administration/liboobs-2.22.0-i486-2gsb.tgz.tgz: Removed.
+administration/gnome-system-tools-2.22.0-i486-3gsb.tgz: Removed.
      GNOME System Tools, (s-t-b/liboobs) are poorly supported for Slackware,
      and in some cases, users have reported they are actually harmful.  These
      packages have been removed.  We will "replace" them by supplying menu
      items of Slackware supplied tools instead. :^)
-mono/gtk-sharp-2.12.2-i586-1gsb.tgz: Upgraded.
-mono/gecko-sharp-2.0_0.13-i586-7gsb.tgz: Rebuilt against xulrunner-1.9.0.1.
-mono/gnome-sharp-2.23.90-i586-1gsb.tgz: Upgraded.
-mono/gnome-desktop-sharp-2.23.90-i586-1gsb.tgz: Upgraded.
-mono/evolution-sharp-0.17.4-i586-1gsb.tgz: Upgraded.
-mono/gtksourceview-sharp-2.0_0.12-i586-2gsb.tgz: Rebuilt.
-devel/gdl-2.23.90-i586-1gsb.tgz: Upgraded.
-devel/gnome-build-2.23.90-i586-1gsb.tgz: Upgraded.
+mono/gtk-sharp-2.12.2-i486-1gsb.tgz: Upgraded.
+mono/gecko-sharp-2.0_0.13-i486-7gsb.tgz: Rebuilt against xulrunner-1.9.0.1.
+mono/gnome-sharp-2.23.90-i486-1gsb.tgz: Upgraded.
+mono/gnome-desktop-sharp-2.23.90-i486-1gsb.tgz: Upgraded.
+mono/evolution-sharp-0.17.4-i486-1gsb.tgz: Upgraded.
+mono/gtksourceview-sharp-2.0_0.12-i486-2gsb.tgz: Rebuilt.
+devel/gdl-2.23.90-i486-1gsb.tgz: Upgraded.
+devel/gnome-build-2.23.90-i486-1gsb.tgz: Upgraded.
 +--------------------------+
 Wed Aug 27 17:48:57 GMT 2008
-applications/mozilla-xulrunner-1.9-i586-1gsb.tgz: Upgraded.
-applications/yelp-2.23.2-i586-1gsb.tgz: Upgraded.
-applications/eog-2.23.90-i586-1gsb.tgz: Upgraded.
-applications/gnome-media-2.23.3-i586-1gsb.tgz: Upgraded.
-desktop/gst-plugins-base-0.10.20-i586-2gsb.tgz: Rebuilt.
+applications/mozilla-xulrunner-1.9-i486-1gsb.tgz: Upgraded.
+applications/yelp-2.23.2-i486-1gsb.tgz: Upgraded.
+applications/eog-2.23.90-i486-1gsb.tgz: Upgraded.
+applications/gnome-media-2.23.3-i486-1gsb.tgz: Upgraded.
+desktop/gst-plugins-base-0.10.20-i486-2gsb.tgz: Rebuilt.
      Configure to build experimental plugin giosink. This is required
      by sound-juicer.
-applications/sound-juicer-2.23.2-i586-1gsb.tgz: Upgraded.
-applications/file-roller-2.23.6-i586-1gsb.tgz: Upgraded.
-applications/totem-pl-parser-2.23.3-i586-1gsb.tgz: Upgraded.
-applications/gnome-python-desktop-2.23.0-i586-1gsb.tgz: Upgraded.
+applications/sound-juicer-2.23.2-i486-1gsb.tgz: Upgraded.
+applications/file-roller-2.23.6-i486-1gsb.tgz: Upgraded.
+applications/totem-pl-parser-2.23.3-i486-1gsb.tgz: Upgraded.
+applications/gnome-python-desktop-2.23.0-i486-1gsb.tgz: Upgraded.
      Enabled totem-pl-parser plugin.
-applications/epiphany-2.23.90-i586-1gsb.tgz: Upgraded.
-applications/totem-2.23.4-i586-1gsb.tgz: Upgraded.
-applications/brasero-0.8.1-i586-1gsb.tgz: Upgraded.
-applications/gnome-system-monitor-2.23.90-i586-1gsb.tgz: Upgraded.
-applications/zenity-2.23.3.1-i586-1gsb.tgz: Upgraded.
-applications/gnome-games-2.23.90-i586-1gsb.tgz: Upgraded.
+applications/epiphany-2.23.90-i486-1gsb.tgz: Upgraded.
+applications/totem-2.23.4-i486-1gsb.tgz: Upgraded.
+applications/brasero-0.8.1-i486-1gsb.tgz: Upgraded.
+applications/gnome-system-monitor-2.23.90-i486-1gsb.tgz: Upgraded.
+applications/zenity-2.23.3.1-i486-1gsb.tgz: Upgraded.
+applications/gnome-games-2.23.90-i486-1gsb.tgz: Upgraded.
 applications/gnome-user-docs-2.22.1-noarch-2gsb.tgz: Rebuilt.
-applications/vino-2.23.90-i586-1gsb.tgz: Upgraded.
-applications/bluez-gnome-0.28-i586-1gsb.tgz: Upgraded.
-applications/gtkspell-2.0.14-i586-1gsb.tgz: Upgraded.
-applications/gcalctool-5.23.90-i586-1gsb.tgz: Upgraded.
-libraries/ffmpeg-svn_14999-i586-1gsb.tgz: Upgraded.
+applications/vino-2.23.90-i486-1gsb.tgz: Upgraded.
+applications/bluez-gnome-0.28-i486-1gsb.tgz: Upgraded.
+applications/gtkspell-2.0.14-i486-1gsb.tgz: Upgraded.
+applications/gcalctool-5.23.90-i486-1gsb.tgz: Upgraded.
+libraries/ffmpeg-svn_14999-i486-1gsb.tgz: Upgraded.
      Enabled mp3lame and vorbis encoding through system libraries.
-applications/evolution-2.23.90-i586-1gsb.tgz: Upgraded.
-applications/evolution-exchange-2.23.90-i586-1gsb.tgz: Upgraded.
-applications/deskbar-applet-2.23.90-i586-1gsb.tgz: Upgraded.
-applications/pygtksourceview-2.2.0-i586-3gsb.tgz: Recompiled. 
-applications/gedit-2.23.90-i586-1gsb.tgz: Upgraded.
-applications/seahorse-2.23.90-i586-1gsb.tgz: Upgraded.
+applications/evolution-2.23.90-i486-1gsb.tgz: Upgraded.
+applications/evolution-exchange-2.23.90-i486-1gsb.tgz: Upgraded.
+applications/deskbar-applet-2.23.90-i486-1gsb.tgz: Upgraded.
+applications/pygtksourceview-2.2.0-i486-3gsb.tgz: Recompiled. 
+applications/gedit-2.23.90-i486-1gsb.tgz: Upgraded.
+applications/seahorse-2.23.90-i486-1gsb.tgz: Upgraded.
 +--------------------------+
 Tue Aug 26 14:23:10 GMT 2008
-desktop/bug-buddy-2.23.90-i586-1gsb.tgz: Upgraded.
-desktop/gtksourceview2-2.3.1-i586-1gsb.tgz: Upgraded.
-desktop/gtkhtml-3.23.90-i586-1gsb.tgz: Upgraded.
-bindings/pyxdg-0.16-i586-1gsb.tgz: Upgraded.
-bindings/glibmm-2.17.2-i586-1gsb.tgz: Upgraded.
-bindings/cairomm-1.6.2-i586-1gsb.tgz: Upgraded.
-bindings/pangomm-2.13.5-i586-1gsb.tgz: Added.
+desktop/bug-buddy-2.23.90-i486-1gsb.tgz: Upgraded.
+desktop/gtksourceview2-2.3.1-i486-1gsb.tgz: Upgraded.
+desktop/gtkhtml-3.23.90-i486-1gsb.tgz: Upgraded.
+bindings/pyxdg-0.16-i486-1gsb.tgz: Upgraded.
+bindings/glibmm-2.17.2-i486-1gsb.tgz: Upgraded.
+bindings/cairomm-1.6.2-i486-1gsb.tgz: Upgraded.
+bindings/pangomm-2.13.5-i486-1gsb.tgz: Added.
      The pangomm package is required by the latest gtkmm package.
-bindings/gtkmm-2.13.7-i586-1gsb.tgz: Upgraded.
-bindings/gconfmm-2.22.0-i586-3gsb.tgz: Recompiled against GConf-2.23.2.
-bindings/libgnomemm-2.22.0-i586-3gsb.tgz: Recompiled against libgnome-2.23.90.
-bindings/libgnomeuimm-2.22.0-i586-4gsb.tgz: Recompiled against libgnomeui-2.23.90.
-bindings/libgtksourceviewmm-0.3.1-i586-3gsb.tgz: Recompiled.
+bindings/gtkmm-2.13.7-i486-1gsb.tgz: Upgraded.
+bindings/gconfmm-2.22.0-i486-3gsb.tgz: Recompiled against GConf-2.23.2.
+bindings/libgnomemm-2.22.0-i486-3gsb.tgz: Recompiled against libgnome-2.23.90.
+bindings/libgnomeuimm-2.22.0-i486-4gsb.tgz: Recompiled against libgnomeui-2.23.90.
+bindings/libgtksourceviewmm-0.3.1-i486-3gsb.tgz: Recompiled.
      Recompiled against gtksourceview2-2.3.1.
-bindings/gnome2-perl-1.044-i586-3gsb.tgz: Recompiled.
+bindings/gnome2-perl-1.044-i486-3gsb.tgz: Recompiled.
      Recompiled against latest GNOME libraries (glib2/gtk+2/libgnome).
-bindings/pysqlite-2.4.1-i586-4gsb.tgz: Recompiled against sqlite3-3.6.1.
+bindings/pysqlite-2.4.1-i486-4gsb.tgz: Recompiled against sqlite3-3.6.1.
      Fix up pysqlite2 documentation in package.
 +--------------------------+
 Mon Aug 25 09:20:13 GMT 2008
-libraries/glib2-2.17.7-i586-1gsb.tgz: Upgraded.
-libraries/gtk+2-2.13.7-i586-1gsb.tgz: Added.
+libraries/glib2-2.17.7-i486-1gsb.tgz: Upgraded.
+libraries/gtk+2-2.13.7-i486-1gsb.tgz: Added.
      Unforunately, a few GNOME 2.24 packages require the latest GTK+2
      library, and will we need to replace the standard Slackware package.
-libraries/cairo-1.6.4-i586-1gsb.tgz: Added
+libraries/cairo-1.6.4-i486-1gsb.tgz: Added
      The latest 1.6 series of cairo is required by the gtk+2-2.14 series.
-libraries/libjasper-1.900.1-i586-1gsb.tgz: Added.
+libraries/libjasper-1.900.1-i486-1gsb.tgz: Added.
      Required by gtk+2-2.14 for JPEG-2000 support.
 desktop/gnome-themes-2.23.90-noarch-1gsb.tgz: Upgraded.
-desktop/at-spi-1.23.6-i586-1gsb.tgz: Upgraded.
-desktop/gnome-desktop-2.23.90-i586-1gsb.tgz: Upgraded.
-desktop/gnome-menus-2.23.6-i586-1gsb.tgz: Upgraded.
-desktop/libwnck-2.23.6-i586-1gsb.tgz: Upgraded.
-desktop/obex-data-server-0.3.4-i586-1gsb.tgz: Upgraded.
-desktop/evolution-data-server-2.23.90.1-i586-1gsb.tgz: Upgraded.
-desktop/gst-plugins-good-0.10.9-i586-1gsb.tgz: Upgraded.
-desktop/libgweather-2.23.6-i586-1gsb.tgz: Upgraded.
-desktop/gnome-panel-2.23.90.1-i586-1gsb.tgz: Upgraded.
+desktop/at-spi-1.23.6-i486-1gsb.tgz: Upgraded.
+desktop/gnome-desktop-2.23.90-i486-1gsb.tgz: Upgraded.
+desktop/gnome-menus-2.23.6-i486-1gsb.tgz: Upgraded.
+desktop/libwnck-2.23.6-i486-1gsb.tgz: Upgraded.
+desktop/obex-data-server-0.3.4-i486-1gsb.tgz: Upgraded.
+desktop/evolution-data-server-2.23.90.1-i486-1gsb.tgz: Upgraded.
+desktop/gst-plugins-good-0.10.9-i486-1gsb.tgz: Upgraded.
+desktop/libgweather-2.23.6-i486-1gsb.tgz: Upgraded.
+desktop/gnome-panel-2.23.90.1-i486-1gsb.tgz: Upgraded.
      Now compiled against policykit 0.9.
-desktop/gnome-terminal-2.23.6-i586-1gsb.tgz: Upgraded.
-desktop/libgtop-2.23.90-i586-1gsb.tgz: Upgraded.
-desktop/libgnomekbd-2.23.2-i586-1gsb.tgz: Upgraded.
-desktop/metacity-2.23.144-i586-1gsb.tgz: Upgraded.
-desktop/eel-2.23.90-i586-1gsb.tgz: Upgraded.
-desktop/gvfs-0.99.5-i586-1gsb.tgz: Upgraded.
+desktop/gnome-terminal-2.23.6-i486-1gsb.tgz: Upgraded.
+desktop/libgtop-2.23.90-i486-1gsb.tgz: Upgraded.
+desktop/libgnomekbd-2.23.2-i486-1gsb.tgz: Upgraded.
+desktop/metacity-2.23.144-i486-1gsb.tgz: Upgraded.
+desktop/eel-2.23.90-i486-1gsb.tgz: Upgraded.
+desktop/gvfs-0.99.5-i486-1gsb.tgz: Upgraded.
      Requires the latest version of the glib2 library.
-desktop/nautilus-2.23.90-i586-1gsb.tgz: Upgraded.
-libraries/libcanberra-0.7-i586-1gsb.tgz: Added
+desktop/nautilus-2.23.90-i486-1gsb.tgz: Upgraded.
+libraries/libcanberra-0.7-i486-1gsb.tgz: Added
      Required by gnome-control-center for sound support.  This includes
      the default freedesktop sound theme.
-desktop/gnome-settings-daemon-2.23.90-i586-1gsb.tgz: Upgraded.
-desktop/alsa-lib-1.0.17a-i586-1gsb.tgz: Added.
+desktop/gnome-settings-daemon-2.23.90-i486-1gsb.tgz: Upgraded.
+desktop/alsa-lib-1.0.17a-i486-1gsb.tgz: Added.
      Unfortunately, we will need to upgrade the alsa-lib Slackware package,
      which is required by pulseaudio, libcanberra, and better sound support.
      There are a number of major bug fixes in this upgrade, which should 
      outweigh the drawback of replacing a standard Slackware package.
-platform/pulseaudio-0.9.11-i586-1gsb.tgz: Upgraded.
-libraries/dbus-glib-0.76-i586-1gsb.tgz: Added.
+platform/pulseaudio-0.9.11-i486-1gsb.tgz: Upgraded.
+libraries/dbus-glib-0.76-i486-1gsb.tgz: Added.
      This package replaces the Slackware dbus-glib package, which is now
      over a year old.  The upgrade is required by the gnome-session package.
-desktop/gnome-control-center-2.23.90-i586-1gsb.tgz: Upgraded.
+desktop/gnome-control-center-2.23.90-i486-1gsb.tgz: Upgraded.
      Now compiled against policykit 0.9.
-desktop/gnome-session-2.23.90-i586-1gsb.tgz: Upgraded.
+desktop/gnome-session-2.23.90-i486-1gsb.tgz: Upgraded.
      Now compiled against policykit 0.9.
-desktop/gnome-applets-2.23.90-i586-1gsb.tgz: Upgraded.
+desktop/gnome-applets-2.23.90-i486-1gsb.tgz: Upgraded.
      Now compiled against policykit 0.9.
 +--------------------------+
 Sun Aug 24 23:07:24 GMT 2008
-platform/ORBit2-2.14.14-i586-1gsb.tgz: Upgraded.
-platform/libbonobo-2.23.1-i586-1gsb.tgz: Upgraded.
-platform/policykit-0.9-i586-1gsb.tgz: Added.
+platform/ORBit2-2.14.14-i486-1gsb.tgz: Upgraded.
+platform/libbonobo-2.23.1-i486-1gsb.tgz: Upgraded.
+platform/policykit-0.9-i486-1gsb.tgz: Added.
      GNOME 2.24 will now require PolicyKit, which has been configured to 
      use Slackware's shadow passwords. No pam required! :^)
-platform/GConf-2.23.2-i586-1gsb.tgz: Upgraded.
+platform/GConf-2.23.2-i486-1gsb.tgz: Upgraded.
      Compiled against policykit 0.9.
-platform/libdaemon-0.13-i586-1gsb.tgz: Upgraded.
-platform/gnome-vfs-2.23.0-i586-1gsb.tgz: Upgraded.
-platform/libgnome-2.23.5-i586-1gsb.tgz: Upgraded.
-platform/libbonoboui-2.23.5-i586-1gsb.tgz: Upgraded.
-platform/gnome-keyring-2.23.90-i586-1gsb.tgz: Upgraded.
-platform/pulseaudio-0.9.10-i586-5gsb.tgz: Recompiled against policykit 0.9.
-platform/libgnome-2.23.5-i586-1gsb.tgz: Upgraded.
-platform/gtk-engines-2.15.3-i586-1gsb.tgz: Upgraded.
-platform/libsoup-2.23.6-i586-1gsb.tgz: Upgraded.
-platform/policykit-gnome-0.9-i586-1gsb.tgz: Added.
+platform/libdaemon-0.13-i486-1gsb.tgz: Upgraded.
+platform/gnome-vfs-2.23.0-i486-1gsb.tgz: Upgraded.
+platform/libgnome-2.23.5-i486-1gsb.tgz: Upgraded.
+platform/libbonoboui-2.23.5-i486-1gsb.tgz: Upgraded.
+platform/gnome-keyring-2.23.90-i486-1gsb.tgz: Upgraded.
+platform/pulseaudio-0.9.10-i486-5gsb.tgz: Recompiled against policykit 0.9.
+platform/libgnome-2.23.5-i486-1gsb.tgz: Upgraded.
+platform/gtk-engines-2.15.3-i486-1gsb.tgz: Upgraded.
+platform/libsoup-2.23.6-i486-1gsb.tgz: Upgraded.
+platform/policykit-gnome-0.9-i486-1gsb.tgz: Added.
     This package offers some nice GNOME Desktop integration for PolicyKit.
 +--------------------------+
 Sun Aug 24 23:07:24 GMT 2008
-libraries/libdiscid-0.2.2-i586-1gsb.tgz: Upgraded.
-libraries/x264-snapshot_20080823_2245-i586-1gsb.tgz: Upgraded.
-libraries/ffmpeg-svn_14945-i586-1gsb.tgz: Upgraded.
-libraries/lame-3.98-i586-1gsb.tgz: Upgraded.
+libraries/libdiscid-0.2.2-i486-1gsb.tgz: Upgraded.
+libraries/x264-snapshot_20080823_2245-i486-1gsb.tgz: Upgraded.
+libraries/ffmpeg-svn_14945-i486-1gsb.tgz: Upgraded.
+libraries/lame-3.98-i486-1gsb.tgz: Upgraded.
 libraries/iso-codes-3.2-noarch-1gsb.tgz: Upgraded.
-libraries/libgphoto2-2.4.2-i586-1gsb.tgz: Upgraded.
-libraries/exempi-2.0.2-i586-1gsb.tgz: Upgraded.
-libraries/libunique-1.0.0-i586-1gsb.tgz: Added.
+libraries/libgphoto2-2.4.2-i486-1gsb.tgz: Upgraded.
+libraries/exempi-2.0.2-i486-1gsb.tgz: Upgraded.
+libraries/libunique-1.0.0-i486-1gsb.tgz: Added.
      This package supercedes and replaces the old gtkunique library.
      You will need to remove gtkunique and install libunique.
-libraries/libraw1394-2.0.0-i586-1gsb.tgz: Upgraded.
-libraries/speex-1.2rc1-i586-1gsb.tgz: Upgraded.
-libraries/sqlite3-3.6.1-i586-2gsb.tgz: Upgraded.
+libraries/libraw1394-2.0.0-i486-1gsb.tgz: Upgraded.
+libraries/speex-1.2rc1-i486-1gsb.tgz: Upgraded.
+libraries/sqlite3-3.6.1-i486-2gsb.tgz: Upgraded.
 libraries/nss: Recompiled against sqlite3 3.6.1.
-libraries/heimdal-libraries-1.2.1-i586-1gsb.tgz: Upgraded.
-libraries/openal-1.5.304-i586-1gsb.tgz: Upgraded.
-libraries/sg3_utils-1.27-i586-1gsb.tgz: Upgraded.
-libraries/ode-0.10.1-i586-1gsb.tgz: Upgraded.
-libraries/libesmtp-1.0.4-i586-3gsb.tgz: Rebuilt.
+libraries/heimdal-libraries-1.2.1-i486-1gsb.tgz: Upgraded.
+libraries/openal-1.5.304-i486-1gsb.tgz: Upgraded.
+libraries/sg3_utils-1.27-i486-1gsb.tgz: Upgraded.
+libraries/ode-0.10.1-i486-1gsb.tgz: Upgraded.
+libraries/libesmtp-1.0.4-i486-3gsb.tgz: Rebuilt.
 +--------------------------+
 Sun Aug 24 14:13:19 GMT 2008
 Released GNOME SlackBuild 2.22.3.

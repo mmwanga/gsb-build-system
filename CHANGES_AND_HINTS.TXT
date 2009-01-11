@@ -40,6 +40,8 @@ platform/policykit: Added.
 platform/policykit-gnome: Added.
 libraries/libunique: Added.
 platform/gnome-icon-theme: Added.
+themes/ttf-liberation-fonts: Added.
+mono/notify-sharp: Added.
 
 *** PACKAGE REMOVALS SINCE 2.22.3 ***
 
@@ -104,7 +106,7 @@ desperate to keep it around, make sure to remove the seamonkey line from
 your /etc/ld.so.conf and re-run ldconfig.
 
 - All packages that are built to replace a standard Slackware package 
-are configured, and built as closely as possible to how Patrick does it.  
+are configured and built as closely as possible to how Patrick does it.  
 However, we could not avoid this time around replacing some major 
 software.  For more information about what needs to be replaced, and 
 why, please see our 'REPLACED_PACKAGES.TXT'.  
@@ -121,4 +123,15 @@ permissions, and some other examples to show to use the file.  See the
 manual page PolicyKit.conf(5) for the file format. In order to make use 
 of PolicyKit, be sure to have the consolekit installed as well when 
 you're running your GNOME session, otherwise, the PolicyKit will largely 
-be ignored.
+be ignored.  (If you run ck-list-session from a GNOME terminal you can 
+see if consolekit is running.)  You will need to run consolekit if you 
+want to reboot or shutdown from the gnome-menu or use some utilities 
+such as the GNOME cpufreq applet.  For such things, it might be 
+necessary to use polkit-gnome-authorization (run as root) and grant your 
+user the abilities to use applications configured to use PolicyKit 
+authorisations.
+
+- You will need to manually remove the NetworkManager-svn and
+network-manager-applet-svn packages before installing the shiny and
+newly released 0.7 versions.  Because of the name formatting, slapt-get
+will not automatically upgrade these packages.

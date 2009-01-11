@@ -16,8 +16,8 @@ If you haven't yet, you should read about the GSB project before installing:
   <http://gnomeslackbuild.org/>
 
 This version of GSB is built and only supported on:
-  Slackware 12.1
-  Slamd64 12.1
+  Slackware 12.2
+  Slamd64 12.2
 
 If you are trying to use GSB on systems other than the above you *will*
 encounter problems.  If you are running a previous version of Slackware or
