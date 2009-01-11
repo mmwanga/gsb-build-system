@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=3
 VERSION=2.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="mono monodoc gtk-sharp gecko-sharp gnome-desktop-sharp"
+REQUIRED_PACKAGES="mono monodoc gtk-sharp gnome-desktop-sharp gecko-sharp"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -162,6 +162,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --program-prefix="" \
+  --enable-release \
   || exit 1
 
 ## Build and install.

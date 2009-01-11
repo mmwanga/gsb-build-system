@@ -24,3 +24,8 @@ install_file etc/gre.d/mozilla-firefox.conf.new
 if [ -x usr/bin/update-desktop-database ]; then
   usr/bin/update-desktop-database 1> /dev/null 2> /dev/null
 fi
+
+if [ -x usr/bin/monodoc ]; then
+  echo "Generating monodoc search index."
+  chroot . usr/bin/monodoc --make-index > /dev/null
+fi

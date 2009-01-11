@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=1
-VERSION=3.0.3
+BUILD=2
+VERSION=3.0.5
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -101,7 +101,7 @@ echo -n "Cleaning temporary space..."
 rm -fr $PKGNAME-$VERSION ;
 echo "done."
 echo -n "Extracting source files..."
-tar xjf $CWD/$SRCNAME-$VERSION-source.tar.bz2 ;
+tar xjf $CWD/$SRCNAME-$VERSION-source.tar.bz2 || exit 1
 echo "done."
 mv mozilla $PKGNAME-$VERSION ;
 cd $PKGNAME-$VERSION || exit 1

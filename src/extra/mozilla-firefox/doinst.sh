@@ -17,3 +17,8 @@ if [ ! -h usr/@LIBDIR@/mozilla/plugins/libjavaplugin_oji.so ]; then
     ( cd usr/@LIBDIR@/mozilla/plugins ; ln -sf /usr/@LIBDIR@/java/jre/plugin/i386/ns7/libjavaplugin_oji.so libjavaplugin_oji.so )
   fi
 fi
+
+if [ -x usr/bin/gconftool-2 ]; then
+  # Set firefox as default GNOME chrome reader
+  usr/bin/gconftool-2 --direct --config-source=$(usr/bin/gconftool-2 --get-default-source) --type string --set /desktop/gnome/url-handlers/chrome/command "/usr/bin/firefox \"%s\"" 1> /dev/null 2> /dev/null
+fi;
