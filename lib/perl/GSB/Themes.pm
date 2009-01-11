@@ -92,11 +92,18 @@ our %double_tarballs_themes =
 	      'tar' => 'Leopard_Wallpapers.tar.gz',
              'var' => 'VERSION',
                   },
-   'nmc'            => {
+   'nmc'   => {
              'url' => 'http://murrine.netsons.org/files',
              'ver' => '1.4',
-			 'dir' => 'themes/nmc',
-			 'tar' => 'nmc.tar_3.bz2',
+	     'dir' => 'themes/nmc',
+	     'tar' => 'nmc.tar_3.bz2',
+             'var' => 'VERSION',
+                  },
+   'ttf-liberation-fonts'   => {
+             'url' => 'http://download.go-oo.org/SRC680',
+             'ver' => '1.1',
+	     'dir' => 'themes/ttf-liberation-fonts',
+	     'tar' => 'liberation-fonts-ttf-1.1.zip',
              'var' => 'VERSION',
                   },
   );

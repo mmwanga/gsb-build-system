@@ -16,9 +16,9 @@ our %tools =
   (
    'scons'    => {
              'url' => 'http://mesh.dl.sourceforge.net/sourceforge/scons/',
-             'ver' => '1.0.0',
+             'ver' => '1.1.0',
 			 'dir' => 'tools/scons',
-			 'tar' => 'scons-1.0.0.tar.gz',
+			 'tar' => 'scons-1.1.0.tar.gz',
              'var' => 'VERSION',
                   },
    'boost-jam'    => {

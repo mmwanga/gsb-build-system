@@ -17,11 +17,11 @@ our %accessibility_gnome =
   (
    'dasher'                 => '4.9.0',
    'gnome-mag'              => '0.15.4',
-   'gnome-speech'           => '0.4.21',
+   'gnome-speech'           => '0.4.22',
    'gok'                    => '2.24.0',
-   'orca'                   => '2.24.1',
+   'orca'                   => '2.24.2',
    'libgail-gnome'          => '1.20.1',
-   'mousetweaks'            => '2.24.1',
+   'mousetweaks'            => '2.24.2',
    );
 
 #

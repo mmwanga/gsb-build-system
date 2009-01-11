@@ -17,16 +17,15 @@ our %office_gnome =
   (
    'gnumeric'             => '1.8.3',
    'dia'                  => '0.96.1',
-   'evince'               => '2.24.1',
+   'evince'               => '2.24.2',
    'f-spot'               => '0.5.0.3',
-   'glom'                 => '1.8.1',
-   'gnome-python-extras'  => '2.19.1',
+   'glom'                 => '1.8.4',
    'goffice'              => '0.6.5',
-   'libgsf'               => '1.14.10',
+   'libgsf'               => '1.14.11',
    'libgda'               => '3.0.4',
    'libgdamm'             => '3.0.1',
    'libgnomedb'           => '3.0.0',
-   'tomboy'               => '0.12.1',
+   'tomboy'               => '0.12.2',
   );
 
 our %office =
@@ -57,7 +56,7 @@ our %office =
                    'src' => 'tar.gz',
                   },
    'blender'             => {
-                             'ver' => '2.46',
+                             'ver' => '2.48a',
                              'url' => 'http://mirror.cs.umn.edu/blender.org/source/',
                              'src' => 'tar.gz',
 			    },
@@ -67,12 +66,12 @@ our %office =
 			     'src' => 'tar.bz2',
 			    },
    'gnome-do'                => {
-				'ver' => '0.5.0.1',
-				'url' => 'http://launchpad.net/do/trunk/0.5/+download',
+				'ver' => '0.5.99.0',
+				'url' => 'http://launchpad.net/do/trunk/0.5.99/+download',
 				'src' => 'tar.gz',
 		        	},
    'gnucash'              => {
-			     'ver' => '2.2.7',
+			     'ver' => '2.2.8',
 			     'url' => 'http://ftp.at.gnucash.org/pub/gnucash/gnucash/sources/stable/',
 			     'src' => 'tar.bz2',
 			    },
@@ -102,8 +101,8 @@ our %office =
 			     'src' => 'tar.bz2',
 			    },
    'liferea'             => {
-			     'ver' => '1.4.20',
-			     'url' => 'http://mesh.dl.sourceforge.net/sourceforge/liferea',
+			     'ver' => '1.4.23',
+			     'url' => 'http://kent.dl.sourceforge.net/sourceforge/liferea',
 			     'src' => 'tar.gz',
 			    },
    'libofx'    => {
@@ -117,8 +116,8 @@ our %office =
 			     'src' => 'tar.gz',
 			    },
    'postgresql'    => {
-                   'url' => 'http://ftp7.us.postgresql.org/pub/postgresql/source/v8.3.3',
-                   'ver' => '8.3.3',
+                   'url' => 'http://wwwmaster.postgresql.org/redir/170/h/source/v8.3.5',
+                   'ver' => '8.3.5',
                    'src' => 'tar.bz2',
                   },
    'psiconv'   => {

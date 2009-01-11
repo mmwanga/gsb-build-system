@@ -22,7 +22,7 @@ our %media_pkgs =
   (
    'banshee-1'         => {
                   'url' => 'http://banshee-project.org/files/banshee',
-                  'ver' => '1.2.1',
+                  'ver' => '1.4.1',
                   'src' => 'tar.bz2'
                         },
    'dvgrab'              => {
@@ -31,7 +31,7 @@ our %media_pkgs =
 			     'src' => 'tar.gz',
 			    },
    'devede'              => {
-                 'ver' => '3.11',
+                 'ver' => '3.11b',
                  'url' => 'http://www.rastersoft.com/descargas',
                  'src' => 'tar.bz2',
                             },
@@ -56,7 +56,7 @@ our %media_pkgs =
                  'src' => 'tar.bz2',
                             },
    'gnome-mplayer'             => {
-                 'ver' => '0.7.0',
+                 'ver' => '0.9.2',
                  'url' => 'http://gnome-mplayer.googlecode.com/files',
                  'src' => 'tar.gz',
                             },
@@ -81,7 +81,7 @@ our %media_pkgs =
                              'src' => 'tar.gz',
                             },
    'soundconverter'        => {
-                             'ver' => '1.3.2',
+                             'ver' => '1.4.0',
                              'url' => 'http://download.berlios.de/soundconverter',
                              'src' => 'tar.gz',
                             },

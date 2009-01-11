@@ -15,8 +15,8 @@ our $VERSION   = 0.01;
 
 our %mono_gnome =
   (
-   'evolution-sharp' => '0.18.0',
-   'gtk-sharp'       => '2.12.5',
+   'evolution-sharp' => '0.18.1',
+   'gtk-sharp'       => '2.12.7',
    'gnome-sharp'     => '2.24.0',
    'gnome-desktop-sharp'     => '2.24.0',
    );
@@ -116,9 +116,9 @@ our %mono_diff_naming =
                         },
    'gmime-sharp' => {
 		    'url'  => 'ftp://ftp.gnome.org/pub/gnome/sources/gmime/2.2',
-		    'ver'  => '2.2.17',
+		    'ver'  => '2.2.23',
             'dir' => 'mono/gmime-sharp',
-            'tar' => 'gmime-2.2.17.tar.bz2',
+            'tar' => 'gmime-2.2.23.tar.bz2',
             'var' => 'VERSION',
 		   },
    'libkarma-sharp' => {

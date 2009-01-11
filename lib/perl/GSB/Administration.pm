@@ -20,13 +20,8 @@ our %administration_gnome =
 # src/administration from Elsewhere
 our %administration =
   (
-   'parted'    => {
-	   'ver' => '1.8.8',
-	   'url' => 'http://ftp.gnu.org/gnu/parted',
-	   'src' => 'tar.bz2',
-	   },
    'gparted'    => {
-                 'ver' => '0.3.9',
+                 'ver' => '0.4.1',
                  'url' => 'http://mesh.dl.sourceforge.net/sourceforge/gparted',
                  'src' => 'tar.bz2',
                 },
@@ -45,11 +40,6 @@ our %administration =
              'ver' => '0.4.0',
              'src' => 'tar.gz',
                   },
-   'pm-utils'    => {
-             'url' => 'http://pm-utils.freedesktop.org/releases',
-             'ver' => '1.1.2.4',
-             'src' => 'tar.gz',
-                  },
    'pybackpack'         => {
 	 'url' => 'http://andrewprice.me.uk/projects/pybackpack/download/',
 	 'ver' => '0.5.4',
@@ -61,7 +51,7 @@ our %administration =
 		 'src' => 'tar.gz',
 		},
    'librsync'    => {
-	 'url' => 'http://mesh.dl.sourceforge.net/sourceforge/librsync/',
+	 'url' => 'http://kent.dl.sourceforge.net/sourceforge/librsync/',
 	 'ver' => '0.9.7',
 	 'src' => 'tar.gz',
 		},

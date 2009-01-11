@@ -22,26 +22,11 @@ our %libraries =
 	   'url' => 'http://liba52.sourceforge.net/files/',
 	   'src' => 'tar.gz',
 			  },
-   'alsa-lib'             => {
-             'ver' => '1.0.17a',
-            'url' => 'ftp://ftp.alsa-project.org/pub/lib',
-             'src' => 'tar.bz2',
-                            },
-    'cairo'            => {
-	    'ver' => '1.8.2',
+   'cairo'            => {
+	    'ver' => '1.8.6',
 	    'url' => 'http://www.cairographics.org/releases',
 	    'src' => 'tar.gz',
 			    },
-   'dbus'            => {
-			   'ver' => '1.2.3',
-			   'url' => 'http://dbus.freedesktop.org/releases/dbus',
-			   'src' => 'tar.gz',
-			  },
-   'dbus-glib'            => {
-			   'ver' => '0.76',
-			   'url' => 'http://dbus.freedesktop.org/releases/dbus-glib',
-			   'src' => 'tar.gz',
-			  },
    'djvulibre'            => {
 			   'ver' => '3.5.21',
 			   'url' => 'http://downloads.sourceforge.net/djvu',
@@ -74,7 +59,7 @@ our %libraries =
                         },
    'gegl'          => {
                          'url' => 'ftp://ftp.gimp.org/pub/gegl/0.0',
-                         'ver' => '0.0.18',
+                         'ver' => '0.0.20',
                          'src' => 'tar.bz2',
                         },
    'graphviz'            => {
@@ -89,7 +74,7 @@ our %libraries =
                   },
    'id3lib'            => {
 			   'ver' => '3.8.3',
-			   'url' => 'http://mesh.dl.sourceforge.net/sourceforge/id3lib/',
+			   'url' => 'http://kent.dl.sourceforge.net/sourceforge/id3lib/',
 			   'src' => 'tar.gz',
 			  },
    'libatomic_ops'            => {
@@ -172,17 +157,12 @@ our %libraries =
 			  },
    'libexif-gtk'         => {
 			     'ver' => '0.3.5',
-			     'url' => 'http://mesh.dl.sourceforge.net/sourceforge/libexif/',
+			     'url' => 'http://kent.dl.sourceforge.net/sourceforge/libexif/',
 			     'src' => 'tar.bz2',
 			    },
    'libgalago'          => {
 			     'ver' => '0.5.2',
 			     'url' => 'http://www.galago-project.org/files/releases/source/libgalago/',
-			     'src' => 'tar.bz2',
-			    },
-   'libgphoto2'          => {
-			     'ver' => '2.4.2',
-			     'url' => 'http://mesh.dl.sourceforge.net/sourceforge/gphoto/',
 			     'src' => 'tar.bz2',
 			    },
    'libiec61883'       => {
@@ -216,14 +196,9 @@ our %libraries =
 			   'src' => 'tar.gz',
 			  },
    'libnotify'         => {
-                             'ver' => '0.4.4',
+                             'ver' => '0.4.5',
                              'url' => 'http://galago-project.org/files/releases/source/libnotify/',
                              'src' => 'tar.bz2',
-			  },
-   'liboil'            => {
-			   'ver' => '0.3.15',
-			   'url' => 'http://liboil.freedesktop.org/download/',
-			   'src' => 'tar.gz',
 			  },
    'libopenraw'        => {
 			   'ver' => '0.0.5',
@@ -233,11 +208,6 @@ our %libraries =
    'libquicktime'      => {
 			   'ver' => '1.0.3',
 			   'url' => 'http://mesh.dl.sourceforge.net/sourceforge/libquicktime/',
-			   'src' => 'tar.gz',
-			  },
-   'libraw1394'        => {
-			   'ver' => '2.0.0',
-			   'url' => 'http://www.linux1394.org/dl/',
 			   'src' => 'tar.gz',
 			  },
    'libshout'        => {
@@ -262,7 +232,7 @@ our %libraries =
                              'src' => 'tar.gz',
                             },
    'libspectre'             => {
-                             'ver' => '0.2.1',
+                             'ver' => '0.2.2',
                              'url' => 'http://libspectre.freedesktop.org/releases',
                              'src' => 'tar.gz',
                             },
@@ -293,19 +263,14 @@ our %libraries =
                   },
    'poppler'    => {
                    'url' => 'http://poppler.freedesktop.org',
-                   'ver' => '0.9.3',
+                   'ver' => '0.10.2',
                    'src' => 'tar.gz',
                   },
    'sg3_utils'            => {
-                         'url' => 'http://sg.torque.net/sg/p',
+                         'url' => 'http://sg.danny.cz/sg/p/',
                          'ver' => '1.27',
                          'src' => 'tgz',
                         },
-   'pixman'          => {
-			   'ver' => '0.12.0',
-			   'url' => 'ftp://xorg.freedesktop.org/pub/xorg/individual/lib',
-			   'src' => 'tar.bz2',
-			  },
    'speex'            => {
                          'url' => 'http://downloads.us.xiph.org/releases/speex/',
                          'ver' => '1.2rc1',
@@ -327,7 +292,7 @@ our %libraries =
 			   'src' => 'tar.gz',
 			  },
    'x264'            => {
-			   'ver' => 'snapshot-20080922-2245',
+			   'ver' => 'snapshot-20081223-2245',
 			   'url' => 'ftp://ftp.videolan.org/pub/videolan/x264/snapshots',
 			   'src' => 'tar.bz2',
 			  },
@@ -349,7 +314,6 @@ our %libraries_gnome =
    'libcroco'          => '0.6.1',
    'libsigc++'         => '2.2.3',
    'ptlib'             => '2.4.2',
-   'pygobject'         => '2.15.4',
    'opal'              => '3.4.2',
    'pango'             => '1.22.2',
   );
@@ -357,12 +321,12 @@ our %libraries_gnome =
 our %libraries_diff_naming =
   (
    'glib2'  => {
-		'ver'  => '2.18.2',
+		'ver'  => '2.18.4',
 		'name' => 'glib',
 	      },
    'gtk+2'  => {
 	   #'ver'  => '2.12.12',
-	   'ver'  => '2.14.4',
+	   'ver'  => '2.14.7',
       		'name' => 'gtk+',
 	      },
   );

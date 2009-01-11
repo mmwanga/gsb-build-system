@@ -17,21 +17,23 @@ our %network_gnome =
   (
    'ekiga'                  => '3.0.1',
    'empathy'	            => '2.24.1',
-   'gnome-user-share'       => '0.40',
-   'gnome-phone-manager'     => '0.60',
+   'gnome-user-share'       => '0.41',
+   'gnome-phone-manager'    => '0.60',
+   'NetworkManager'         => '0.7.0',
+   'network-manager-applet' => '0.7.0',
   );
 
 our %network_external =
   (
    'balsa'       => {
-		'ver' => '2.3.26',
+		'ver' => '2.3.27',
 		'url' => 'http://balsa.gnome.org',
 		'src' => 'tar.bz2',
 		 },
    'deluge'     => {
-                 'ver' => '1.0.4',
-                 'url' => 'http://download.deluge-torrent.org/source/1.0.3',
-                 'src' => 'tar.gz',
+                 'ver' => '1.1.0_RC3',
+                 'url' => 'http://download.deluge-torrent.org/source/1.1.0_RC3',
+		 'src' => 'tar.bz2',
                    },
   'sylpheed'     => {
                   'ver' => '2.5.0',
@@ -50,7 +52,7 @@ our %network_external =
                 },
    'telepathy-glib'            => {
              'url' => 'http://telepathy.freedesktop.org/releases/telepathy-glib',
-             'ver' => '0.7.17',
+             'ver' => '0.7.18',
              'src' => 'tar.gz'
                         },
    'libtelepathy'            => {
@@ -75,12 +77,12 @@ our %network_external =
                         },
    'telepathy-salut'            => {
              'url' => 'http://telepathy.freedesktop.org/releases/telepathy-salut',
-             'ver' => '0.3.5',
+             'ver' => '0.3.6',
              'src' => 'tar.gz'
                         },
    'telepathy-gabble'            => {
              'url' => 'http://telepathy.freedesktop.org/releases/telepathy-gabble',
-             'ver' => '0.7.13',
+             'ver' => '0.7.18',
              'src' => 'tar.gz'
                         },
    'loudmouth'            => {

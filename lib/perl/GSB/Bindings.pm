@@ -15,7 +15,7 @@ our $VERSION   = 0.03;
 
 our %bindings_gnome =
   (
-   'bakery'             => '2.6.0',
+   'bakery'             => '2.6.2',
    'gconfmm'            => '2.24.0',
    'gnome-vfsmm'        => '2.24.0',
    'libglademm'         => '2.6.7',
@@ -23,13 +23,10 @@ our %bindings_gnome =
    'libgnomemm'         => '2.24.0',
    'libgnomeuimm'       => '2.24.0',
    'gtksourceviewmm'    => '2.2.0',
-   'gtkmm'              => '2.14.1',
-   #'gtkmm'              => '2.12.7',
-   'libxml++'          => '2.24.0',
+   'gtkmm'              => '2.14.3',
+   'libxml++'           => '2.24.2',
    'glibmm'             => '2.18.1',
-   #'glibmm'             => '2.16.4',
-   #'pangomm'            => '2.13.5',
-   'pangomm'            => '2.14.0',
+   'pangomm'            => '2.14.1',
   );
 
   
