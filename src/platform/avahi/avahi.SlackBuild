@@ -7,8 +7,8 @@
 ##
 
 ## Package variables
-BUILD=5
-VERSION=0.6.23
+BUILD=2
+VERSION=0.6.24
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -179,12 +179,11 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-manpages \
   --disable-qt3 \
   --disable-qt4 \
+  --with-distro=slackware \
+  --enable-compat-libdns_sd \
+  --enable-compat-howl \
   --disable-mono \
   --disable-monodoc \
-  --with-distro=slackware \
-  --enable-pygtk \
-  --enable-python \
-  --enable-python-dbus \
   || exit 1
 
 ## Build and install.

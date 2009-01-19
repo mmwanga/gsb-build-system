@@ -351,7 +351,9 @@ mkdir -p $LOGSDIR
     cp ../VERSIONS.slackware $PKGDEST/VERSIONS
   fi
   ( cd $PKGDEST && ln -sf ChangeLog ChangeLog.txt )
-  ( cd $PKGDEST/$PATCHESDIR && ln -sf ../ChangeLog.txt )
+  [ -d $PKGDEST/$PATCHESDIR ] && {
+    ( cd $PKGDEST/$PATCHESDIR && ln -sf ../ChangeLog.txt )
+  }
 
   # Create meta files
   if [ "$NOMETAFILES" = "0" ]; then

@@ -55,6 +55,20 @@ fi
 if ! grep "^avahi:" etc/gshadow >/dev/null 2>&1; then
   echo "avahi:*::" >>etc/gshadow
 fi
+if ! grep "^avahi-autoipd:" etc/group >/dev/null 2>&1; then
+  echo "avahi-autoipd:x:88:" >>etc/group
+fi
+if ! grep "^avahi-autoipd:" etc/gshadow >/dev/null 2>&1; then
+  echo "avahi-autoipd:*::" >>etc/gshadow
+fi
+
+# If the avahi-autoipd user doesn't exist, add it
+if ! grep "^avahi-autoipd:" etc/passwd >/dev/null 2>&1; then
+  echo "avahi-autoipd:x:88:88:avahi-autoipd:/etc/avahi:/bin/false" >>etc/passwd
+fi
+if ! grep "^avahi-autoipd:" etc/shadow >/dev/null 2>&1; then
+  echo "avahi-autoipd:*:9797:0:::::" >>etc/shadow
+fi
 
 # If the avahi user doesn't exist, add it
 if ! grep "^avahi:" etc/passwd >/dev/null 2>&1; then
