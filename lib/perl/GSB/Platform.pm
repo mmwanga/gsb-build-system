@@ -31,7 +31,7 @@ our %platform =
    'libgnome'            => '2.24.1',
    'libgnomecanvas'      => '2.20.1.1',
    'libgnomeui'          => '2.24.0',
-   'libsoup'             => '2.24.2.1',
+   'libsoup'             => '2.24.3',
    'ORBit2'              => '2.14.16',
    'pyorbit'             => '2.24.0',
    'ttf-bitstream-vera'  => '1.10',
@@ -43,7 +43,7 @@ our %platform =
 our %platform_reqs =
   (
    'avahi'               => {
-                             'ver' => '0.6.23',
+                             'ver' => '0.6.24',
                              'url' => 'http://www.avahi.org/download',
                              'src' => 'tar.gz',
                             },

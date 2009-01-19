@@ -59,7 +59,7 @@ our %libraries =
                         },
    'gegl'          => {
                          'url' => 'ftp://ftp.gimp.org/pub/gegl/0.0',
-                         'ver' => '0.0.20',
+                         'ver' => '0.0.22',
                          'src' => 'tar.bz2',
                         },
    'graphviz'            => {
@@ -263,7 +263,7 @@ our %libraries =
                   },
    'poppler'    => {
                    'url' => 'http://poppler.freedesktop.org',
-                   'ver' => '0.10.2',
+                   'ver' => '0.10.3',
                    'src' => 'tar.gz',
                   },
    'sg3_utils'            => {
@@ -313,9 +313,9 @@ our %libraries_gnome =
   (
    'libcroco'          => '0.6.1',
    'libsigc++'         => '2.2.3',
-   'ptlib'             => '2.4.2',
-   'opal'              => '3.4.2',
-   'pango'             => '1.22.2',
+   'ptlib'             => '2.4.4',
+   'opal'              => '3.4.4',
+   'pango'             => '1.22.4',
   );
 
 our %libraries_diff_naming =

@@ -109,9 +109,9 @@ our %mono_diff_naming =
   (
    'avahi-sharp'  => {
              'url' => 'http://avahi.org/download',
-             'ver' => '0.6.23',
+             'ver' => '0.6.24',
              'dir' => 'mono/avahi-sharp',
-             'tar' => 'avahi-0.6.23.tar.gz',
+             'tar' => 'avahi-0.6.24.tar.gz',
              'var' => 'VERSION',
                         },
    'gmime-sharp' => {

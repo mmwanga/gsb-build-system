@@ -17,6 +17,11 @@ Quick HOWTO For GNOME SlackBuild 2.24.2 Module for Slax
   If you're doing this from Windows:
     * Run the liloinst.bat to make the USB key bootable.
 
+  * NOTE: Make sure to run the liloinst script, as this also sets up the
+    'changes' directory, which will store any changes you make to your
+    filesystems.  Very important if you want to store anything on your USB 
+    key after booting.
+
   * Download the gsb.lzm file and copy it to the slax/modules directory.
       Remember: You must also include the Slax python module.
 

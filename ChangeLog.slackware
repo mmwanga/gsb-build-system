@@ -1,7 +1,62 @@
+Sun Jan 18 20:11:21 GMT 2009
+     GNOME 2.24.3 Released.
+libraries/glib2-2.18.4-i486-1gsb.tgz: Upgraded.
+libraries/poppler-0.10.3-i486-1gsb.tgz: Upgraded.
+libraries/pango-1.22.4-i486-1gsb.tgz: Upgraded.
+libraries/gtk+2-2.14.7-i486-1gsb.tgz: Upgraded.
+libraries/gegl-0.0.22-i486-1gsb.tgz: Upgraded.
+platform/avahi-0.6.24-i486-2gsb.tgz: Upgraded.
+platform/libsoup-2.24.3-i486-1gsb.tgz: Upgraded.
+platform/gnome-doc-utils-0.14.2-i486-1gsb.tgz: Upgraded.
+desktop/gnome-themes-2.24.3-i486-1gsb.tgz: Upgraded.
+desktop/gnome-desktop-2.24.3-i486-1gsb.tgz: Upgraded.
+desktop/evolution-data-server-2.24.3-i486-1gsb.tgz: Upgraded.
+desktop/libgweather-2.24.3-i486-1gsb.tgz: Upgraded.
+desktop/gnome-panel-2.24.3-i486-1gsb.tgz: Upgraded.
+desktop/gnome-terminal-2.24.3-i486-1gsb.tgz: Upgraded.
+desktop/libgtop-2.24.3-i486-1gsb.tgz: Upgraded.
+desktop/gnome-session-2.24.3-i486-1gsb.tgz: Upgraded.
+desktop/gtkhtml-3.24.3-i486-1gsb.tgz: Upgraded.
+desktop/gnome-applets-2.24.3.1-i486-1gsb.tgz: Upgraded.
+applications/eog-2.24.3.1-i486-1gsb.tgz: Upgraded.
++--------------------------+
+Sun Jan 18 21:07:49 GMT 2009
+applications/file-roller-2.24.3-i486-1gsb.tgz: Upgraded.
+applications/epiphany-2.24.3-i486-1gsb.tgz: Upgraded.
+applications/epiphany-extensions-2.24.3-i486-1gsb.tgz: Upgraded.
+applications/gnome-system-monitor-2.24.3-i486-1gsb.tgz: Upgraded.
+applications/zenity-2.24.1-i486-1gsb.tgz: Upgraded.
+applications/gnome-games-2.24.3-i486-1gsb.tgz: Upgraded.
+applications/gnome-user-docs-2.24.2-i486-1gsb.tgz: Upgraded.
+applications/gnome-pilot-2.0.17-i486-1gsb.tgz: Upgraded.
+applications/gnome-pilot-conduits-2.0.17-i486-1gsb.tgz: Upgraded.
+applications/gcalctool-5.24.3-i486-1gsb.tgz: Upgraded.
+applications/evolution-2.24.3-i486-1gsb.tgz: Upgraded.
+applications/evolution-exchange-2.24.3-i486-1gsb.tgz: Upgraded.
+applications/gnome-power-manager-2.24.3-i486-1gsb.tgz: Upgraded.
+applications/deskbar-applet-2.24.3-i486-1gsb.tgz: Upgraded.
+applications/gedit-2.24.3-i486-1gsb.tgz: Upgraded.
++--------------------------+
+Sun Jan 18 22:17:25 GMT 2009
+applications/cheese-2.24.3-i486-1gsb.tgz: Upgraded.
+applications/gnome-scan-0.7.1-i486-1gsb.tgz: Upgraded.
+applications/vinagre-2.24.2-i486-1gsb.tgz: Upgraded.
+applications/hamster-applet-2.24.3-i486-1gsb.tgz: Upgraded.
+accessibility/orca-2.24.3-i486-1gsb.tgz: Upgraded.
+accessibility/mousetweaks-2.24.3-i486-1gsb.tgz: Upgraded.
+mono/avahi-sharp-0.6.24-i486-1gsb.tgz: Upgraded.
+networking/telepathy-glib-0.7.22-i486-1gsb.tgz: Upgraded.
+networking/balsa-2.3.28-i486-1gsb.tgz: Upgraded.
++--------------------------+
+Sun Jan 18 23:05:21 GMT 2009
+libraries/ptlib-2.4.4-i486-1gsb.tgz: Upgraded.
+libraries/opal-3.4.4-i486-1gsb.tgz: Upgraded.
+networking/ekiga-3.0.2-i486-1gsb.tgz: Upgraded.
+media/brasero-0.8.4-i486-1gsb.tgz: Upgraded.
++--------------------------+
 Fri Jan 09 20:52:35 GMT 2009
-patches/applications/gnome-pilot-2.0.17-i486-1gsb.tgz: Upgraded.
-patches/applications/gnome-pilot-conduits-2.0.17-i486-1gsb.tgz: Upgraded.
-patches/libraries/gtk+2-2.14.7-i486-1gsb.tgz: Upgraded.
+applications/gnome-pilot-2.0.17-i486-1gsb.tgz: Upgraded.
+applications/gnome-pilot-conduits-2.0.17-i486-1gsb.tgz: Upgraded.
 +--------------------------+
 Thu Jan 08 19:56:12 GMT 2009
 desktop/gnome-menus-2.24.2-i486-2gsb.tgz: Rebuilt.
@@ -29,15 +84,15 @@ platform/policykit-0.9-i486-6gsb.tgz: Rebuilt.
      Added missing HAL policy files.
 applications/mozilla-xulrunner-1.9.0.4-i486-2gsb.tgz: Rebuilt.
      Rebuilt to enforce building the libgnomeui/libgvfs components.
-networking/balsa-2.3.27-i486-3gsb.tgz: Built.
+networking/balsa-2.3.27-i486-3gsb.tgz: Upgraded.
 networking/deluge-1.1.0_RC3-i486-1gsb.tgz: Upgraded.
 desktop/gst-plugins-base-0.10.21-i486-2gsb.tgz: Rebuilt.
      This package replaces the standard Slackware package and includes the 
      giosink.
-mono/gmime-sharp-2.2.23-i486-2gsb.tgz: Built.
-platform/gnome-icon-theme-2.24.0-i486-2gsb.tgz: Built.
+mono/gmime-sharp-2.2.23-i486-2gsb.tgz: Upgraded.
+platform/gnome-icon-theme-2.24.0-i486-2gsb.tgz: Upgraded.
      Now includes a fancy xmms icon (now that Slackware includes xmms again).
-office/liferea-1.4.23-i486-2gsb.tgz: Built.
+office/liferea-1.4.23-i486-2gsb.tgz: Upgraded.
 mono/gecko-sharp-2.0_0.13-i486-11gsb.tgz: Rebuilt.
      Builds against an internal version of the libgtkembedmoz, which is no
      longer included in the xulrunner package.  Some monotools still use the
@@ -47,7 +102,7 @@ office/libgsf-1.14.11-i486-1gsb.tgz: Upgraded.
 media/devede-3.11b-i486-1gsb.tgz: Upgraded.
 networking/network-manager-applet-0.7.0-i486-2gsb.tgz: Rebuilt.
      Fixes a broken /usr/share/applications/nm-applet.desktop.
-applications/epiphany-2.24.2.1-i486-2gsb.tgz: Built.
+applications/epiphany-2.24.2.1-i486-2gsb.tgz: Upgraded.
      Fixes the download dialog which causes epiphany to crash.
 +--------------------------+
 Sun Dec 23 17:54:44 GMT 2008

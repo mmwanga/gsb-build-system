@@ -15,7 +15,7 @@ our $VERSION   = 0.03;
 
 our %network_gnome =
   (
-   'ekiga'                  => '3.0.1',
+   'ekiga'                  => '3.0.2',
    'empathy'	            => '2.24.1',
    'gnome-user-share'       => '0.41',
    'gnome-phone-manager'    => '0.60',
@@ -26,7 +26,7 @@ our %network_gnome =
 our %network_external =
   (
    'balsa'       => {
-		'ver' => '2.3.27',
+		'ver' => '2.3.28',
 		'url' => 'http://balsa.gnome.org',
 		'src' => 'tar.bz2',
 		 },
@@ -52,7 +52,7 @@ our %network_external =
                 },
    'telepathy-glib'            => {
              'url' => 'http://telepathy.freedesktop.org/releases/telepathy-glib',
-             'ver' => '0.7.18',
+             'ver' => '0.7.22',
              'src' => 'tar.gz'
                         },
    'libtelepathy'            => {
