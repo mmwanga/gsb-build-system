@@ -8,6 +8,7 @@ libwnck
 obex-data-server
 evo-openldap
 evolution-data-server
+gstreamer
 gst-plugins-base
 gst-plugins-good
 gst-plugins-bad

@@ -6,8 +6,8 @@
 
 # Module information
 MODULE=gsb.base
-GNOME_VERSION=2.24.2
-REVISION=5
+GNOME_VERSION=2.24.3
+REVISION=1
 
 # List of modules we want to split out of main module.
 # There should be a corresponding .dir file which contains
@@ -465,7 +465,7 @@ find $TMP/module-$MODULE -name "icon-theme.cache" -exec rm -f {} \;
 	    mkdir -p $TMP/module-${MODULE}_${SPLIT_MODULE} || exit 1
             echo -ne "\r   * Separating out ${trimed_dir}           "
 	    ( cd $TMP/module-$MODULE ; 
-            tar -clpf - ./$trimed_dir 2> /dev/null | ( cd $TMP/module-${MODULE}_${SPLIT_MODULE} ; tar -xzlpf - ) || exit 1
+            tar -clpf - ./$trimed_dir 2> /dev/null | ( cd $TMP/module-${MODULE}_${SPLIT_MODULE} ; tar -xlpf - ) || exit 1
 	    )
           else
 	    echo -ne "\r   * Removing ${TMP}/module-$MODULE/${trimed_dir}          "

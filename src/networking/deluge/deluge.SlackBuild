@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=1.1.0_RC3
+VERSION=1.1.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.

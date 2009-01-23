@@ -1,8 +1,8 @@
 This document explains how to upgrade from GNOME SlackBuild 2.22.3 to 
-GSB 2.24.2
+GSB 2.24.3
 ----------------------------------------------------------------------------
 
-For details of important changes from GSB 2.22.3 to 2.24.0, see the 
+For details of important changes from GSB 2.22.3 to 2.24.3, see the 
 file 'CHANGES_AND_HINTS.TXT'.  
 
 ** IMPORTANT NOTE **
@@ -45,7 +45,7 @@ A. Slapt-get
     have a list of these.  You can remove these using 'removepkg'.
 
 2.  Make sure that your /etc/slapt-get/slapt-getrc file has been 
-    updated to point both to a valid Slackware 12.1 repository as well 
+    updated to point both to a valid Slackware 12.2 repository as well 
     as a gsb-2.24 stable repository.  
       $ vi /etc/slapt-get/slapt-getrc
 
@@ -73,7 +73,7 @@ A. Slapt-get
     A reboot is recommended.  Dbus, and other servies should be 
     restarted, and icon caches remade.  If you want to use GDM, you'll 
     need to edit your /etc/inittab to start in run level 4.  At this 
-    point you should be running GNOME SlackBuild 2.24.0.
+    point you should be running GNOME SlackBuild 2.24.3.
 
 7.  xwmconfig
 
@@ -86,7 +86,7 @@ A. Slapt-get
 B. Local copy of the packages
 ------------------------------
 
-To do this, you'll need the GNOME SlackBuild 2.24.0 packages.  The 
+To do this, you'll need the GNOME SlackBuild 2.24.3 packages.  The 
 packages don't have to be on a CD-ROM, as an alternative you could copy 
 the slackware directory (the one with the various package 
 subdirectories in it, basically the "gsb" directory from the ftp site) to 
@@ -122,7 +122,7 @@ examples.
     A reboot is recommended.  Dbus, and other servies should be 
     restarted, and icon caches remade.  If you want to use GDM, you'll 
     need to edit your /etc/inittab to start in run level 4.  At this 
-    point you should be running GNOME SlackBuild 2.24.0.
+    point you should be running GNOME SlackBuild 2.24.3.
 
 6.  xwmconfig
 
@@ -131,7 +131,7 @@ examples.
     card, try xinitrc.gnome-compiz to run GNOME with Compiz-Fusion as a 
     window manager.
 
-At this point you should be running GNOME SlackBuild 2.24.0.
+At this point you should be running GNOME SlackBuild 2.24.3.
 
 Good luck!
 

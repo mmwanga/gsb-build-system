@@ -31,8 +31,8 @@ our %network_external =
 		'src' => 'tar.bz2',
 		 },
    'deluge'     => {
-                 'ver' => '1.1.0_RC3',
-                 'url' => 'http://download.deluge-torrent.org/source/1.1.0_RC3',
+                 'ver' => '1.1.0',
+                 'url' => 'http://download.deluge-torrent.org/source/1.1.0',
 		 'src' => 'tar.bz2',
                    },
   'sylpheed'     => {
@@ -52,7 +52,7 @@ our %network_external =
                 },
    'telepathy-glib'            => {
              'url' => 'http://telepathy.freedesktop.org/releases/telepathy-glib',
-             'ver' => '0.7.22',
+             'ver' => '0.7.23',
              'src' => 'tar.gz'
                         },
    'libtelepathy'            => {
@@ -72,7 +72,12 @@ our %network_external =
                         },
    'telepathy-butterfly'            => {
              'url' => 'http://telepathy.freedesktop.org/releases/telepathy-butterfly',
-             'ver' => '0.3.2',
+             'ver' => '0.3.3',
+             'src' => 'tar.gz'
+                        },
+   'pymsn'            => {
+             'url' => 'http://telepathy.freedesktop.org/releases/pymsn',
+             'ver' => '0.3.3',
              'src' => 'tar.gz'
                         },
    'telepathy-salut'            => {

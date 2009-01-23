@@ -45,7 +45,7 @@ our %desktop =
    'libgnomekbd'            => '2.24.0',
    'libgnomeprint'          => '2.18.5',
    'libgnomeprintui'        => '2.18.3',
-   'libgtop'                => '2.24.3',
+   'libgtop'                => '2.24.4',
    'libgweather'            => '2.24.3',
    'libwnck'                => '2.24.2',
    'libxklavier'            => '3.8',
@@ -69,8 +69,13 @@ our %desktop_nongnome =
 			   'url' => 'http://core.fluendo.com/gstreamer/src/gst-fluendo-mp3',
 			   'src' => 'tar.bz2',
 			  },
+   'gstreamer'  => {
+                           'ver' => '0.10.22',
+                           'url' => 'http://gstreamer.freedesktop.org/src/gstreamer',
+                           'src' => 'tar.bz2',
+                          },
    'gst-plugins-base'  => {
-                           'ver' => '0.10.21',
+                           'ver' => '0.10.22',
                            'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-base',
                            'src' => 'tar.bz2',
                           },

@@ -1,4 +1,7 @@
-The gsb.required.lzm module contains the following offical Slackware packages:
+--- 
+The gsb.required.lzm module contains only the following offical 
+Slackware 12.2 packages:
+---
 
 sqlite-3.6.6.2-i486-1
 pygtk-2.12.1-i486-2

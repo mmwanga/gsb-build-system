@@ -141,3 +141,8 @@ if [ ! -x etc/rc.d/rc.messagebus ]; then
   #       the user has been warned on the problems.  We can't be responsible
   #       for users not being able to install Slackware correctly :)
 fi
+
+# Reload messagebus service
+if [ -x etc/rc.d/rc.messagebus ]; then
+  chroot . /etc/rc.d/rc.messagebus reload
+fi

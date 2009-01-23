@@ -1,11 +1,11 @@
-# THIS IS THE REQUIRED PACKAGES LIST FOR GSB GNOME 2.24.2
+# THIS IS THE REQUIRED PACKAGES LIST FOR GSB GNOME 2.24.3
 #
 # The following is a list of packages that must replace official 
 # Slackware packages.
 #
 # Packages listed under 'Required' are Slackware packages that must be 
 # replaced by corresponding GNOME SlackBuild versions in order to use 
-# GNOME 2.24.2 on Slackware 12.2. Reasons for their replacement are 
+# GNOME 2.24.3 on Slackware 12.2. Reasons for their replacement are 
 # given within brackets.
 #
 # Packages listed under 'Optional' are packages which replace official 
@@ -17,10 +17,10 @@
 #
 
 ***********************************************
-Slackware 12.2 is required to run GNOME 2.24.2
+Slackware 12.2 is required to run GNOME 2.24.3
 ***********************************************
 
--- Required Package Replacements for GNOME 2.24.2 on Slackware 12.2 --
+-- Required Package Replacements for GNOME 2.24.3 on Slackware 12.2 --
 
 cairo:            ( > 1.6  required by gtk+2 > 2.14)
 glib2:            ( > 2.18 required by libgnome 2.24, gvfs 1.0.1, 

@@ -1,6 +1,6 @@
 This file documents the instructions for upgrading to GNOME SlackBuild 
-2.24.0, and any packages added, removed, renamed, and/or split during 
-the development cycle from GSB 2.22.3 through 2.24.0, and some potential 
+2.24.3, and any packages added, removed, renamed, and/or split during 
+the development cycle from GSB 2.22.3 through 2.24.3, and some potential 
 "gotchas" that users can avoid by arming themselves with a little 
 knowledge.
 
@@ -56,13 +56,10 @@ administration/gnome-system-tools: Removed.
 desktop/gst-pulse: Removed.
 platform/gnome-keyring-manager: Removed.
 
-*** OTHER NOTABLE CHANGES AND HINTS ***
+Slackware 12.2 has added numerous packages as well that supplant older 
+GSB packages. Please see SLACKWARE-12.2_CONFLICTS.TXT for more details.
 
-- We needed to replace Slackware's DBUS system.  There are a number of 
-GNOME applications, including gnome-session and vinagre, among others, 
-that require the latest dbus that supports the new 
-UpdateActivationEnvironment bus API.  MAKE SURE TO MOVE ANY *.new files 
-in /etc/dbus-1 into their proper location.
+*** OTHER NOTABLE CHANGES AND HINTS ***
 
 - Someone pointed out that we were using the development version of 
 Liferea and not the stable version.  Oops.  So we reverted to the stable 
@@ -72,7 +69,7 @@ and install the "stable" version.
 
 - If NetworkManager is running, but unused, Firefox will try to detect 
 an available connection and start up in offline mode (annoyingly).  You 
-can fix this behavior by disabling Network Manager if you're not using 
+can fix this behavior by disabling NetworkManager if you're not using 
 it.
 
 - Gnome-do copies its dlls into the user's home directory 
@@ -94,7 +91,7 @@ installing any new packages.  For example, gst-pulse has been subsumed
 into gst-plugins-good.  The other packages are considered obsolete.  
 Gnopernicus has been replaced by Orca, gnome-keyring-manager by 
 seahorse, etc.  It's best to remove these packages first to avoid 
-conflicts.
+conflicts. See also SLACKWARE-12.2_CONFLICTS.TXT.
 
 - Mozilla Seamonkey is probably best avoided.  We recommend you 
 uninstall it from your system as it may lead to conflicts with XULRunner 

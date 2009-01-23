@@ -7,7 +7,7 @@
 ##
 
 ## Package variables
-BUILD=2
+BUILD=3
 VERSION=0.6.24
 
 ## List any packages here that are required to build this package.
@@ -169,21 +169,41 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
+## Quick check for user/groups
+if ! grep -q "^avahi:" /etc/passwd; then
+  echo "Make sure to add 'avahi' to /etc/passwd before running."
+  exit 1
+fi 
+if ! grep -q "^avahi:" /etc/group; then
+  echo "Make sure to add 'avahi' to /etc/group before running."
+  exit 1
+fi 
+
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
-  --disable-doxygen-doc \
-  --disable-xmltoman \
-  --disable-manpages \
+  --disable-monodoc \
+  --disable-autoipd \
+  --enable-python-dbus \
+  --enable-pygtk\
+  --enable-glib \
+  --enable-dbus \
+  --enable-python \
+  --enable-gtk \
   --disable-qt3 \
   --disable-qt4 \
-  --with-distro=slackware \
-  --enable-compat-libdns_sd \
+  --enable-core-docs \
   --enable-compat-howl \
-  --disable-mono \
-  --disable-monodoc \
+  --enable-compat-libdns_sd \
+  --with-dbus-sys=/etc/dbus-1/system.d \
+  --with-avahi-user=avahi \
+  --with-avahi-group=avahi \
+  --with-avahi-priv-access-group=root \
+  --with-distro=slackware \
+  --program-prefix= \
+  --program-suffix= \
   || exit 1
 
 ## Build and install.
@@ -222,8 +242,7 @@ mv $PKG/etc/dbus-1/system.d/avahi-dbus.conf $PKG/etc/dbus-1/system.d/avahi-dbus.
 
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+cp -a LICENSE docs/* \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION

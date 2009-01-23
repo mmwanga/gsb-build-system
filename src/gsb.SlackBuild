@@ -314,7 +314,7 @@ mkdir -p $LOGSDIR
 		  echo "*********************************************************************"
                   echo "* Exporting source tree..."
                   echo "*********************************************************************"
-		  svn export --force ../src $PKGDEST/$SOURCEDIR 1>/dev/null 2>/dev/null || {
+		  svn export --ignore-externals --force ../src $PKGDEST/$SOURCEDIR 1>/dev/null 2>/dev/null || {
 		    echo "Failed to export source."
 		    exit 1
 		  }

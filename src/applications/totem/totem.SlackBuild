@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.24.3
 
 ## List any packages here that are required to build this package.
@@ -180,7 +180,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-media-player-keys \
   --enable-easy-codec-installation  \
   --enable-complex-plugin \
-  --disable-browser-plugins \
   || exit 1
 
 ## Build and install.

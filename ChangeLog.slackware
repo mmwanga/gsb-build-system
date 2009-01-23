@@ -1,3 +1,44 @@
+Wed Jan 21 21:28:53 GMT 2009
+platform/avahi-0.6.24-i486-3gsb.tgz: Reconfigured.
+     Added --enable-compat-howl and --enable-compat-libdns_sd 
+     to the avahi configure script.
+platform/pulseaudio-0.9.14-i486-1gsb.tgz: Upgraded.
+desktop/gstreamer-0.10.22-i486-1gsb.tgz: Added.
+    Added gstreamer back to the GSB fold.  Upgrading is recommended
+    as this release fixes a number of segfault conditions.
+desktop/gst-plugins-base-0.10.22-i486-1gsb.tgz: Upgraded.
+applications/totem-2.24.3-i486-2gsb.tgz: Reconfigured.
+     Enabled browser plugin.
+extra/mozilla-firefox-3.0.5-i486-3gsb.tgz: Rebuilt.
+     Fixed script to look for plugins in /usr/lib/mozilla as well.
++--------------------------+
+Wed Jan 21 19:19:18 GMT 2009
+desktop/libgtop-2.24.4-i486-1gsb.tgz: Upgraded.
+applications/gnome-system-monitor-2.24.4-i486-1gsb.tgz: Upgraded.
+media/banshee-1-1.4.2-i486-1gsb.tgz: Upgraded.
+networking/telepathy-glib-0.7.23-i486-1gsb.tgz: Upgraded.
+networking/telepathy-butterfly-0.3.3-i486-1gsb.tgz: Upgraded.
++--------------------------+
+Tue Jan 20 19:00:35 GMT 2009
+networking/deluge-1.1.0-i486-1gsb.tgz: Upgraded.
+metapackages/gsb-accessibility-2.24.3-i486-1gsb.tgz: Rebuilt.
+metapackages/gsb-administration-2.24.3-i486-1gsb.tgz: Rebuilt.
+metapackages/gsb-applications-2.24.3-i486-1gsb.tgz: Added.
+     Added a gsb-applications metapackage to quickly install
+     a full user suite set of applications for GNOME.
+metapackages/gsb-basic-2.24.3-i486-1gsb.tgz: Rebuilt.
+metapackages/gsb-desktop-2.24.3-i486-1gsb.tgz: Rebuilt.
+metapackages/gsb-office-2.24.3-i486-1gsb.tgz: Rebuilt.
+metapackages/gsb-development-2.24.3-i486-1gsb.tgz: Rebuilt.
+metapackages/gsb-multimedia-2.24.3-i486-1gsb.tgz: Rebuilt.
+metapackages/gsb-mono-2.24.3-i486-1gsb.tgz: Rebuilt.
+metapackages/gsb-themes-2.24.3-i486-1gsb.tgz: Rebuilt.
+metapackages/gsb-compiz-2.24.3-i486-1gsb.tgz: Rebuilt.
+metapackages/gsb-complete-2.24.3-i486-1gsb.tgz: Rebuilt.
+     Updated to include everything.  Thanks to Tiago Souza for 
+     pointing out the incompleteness of gsb-complete.  :^)
+metapackages/gsb-ooo-2.24.3-i486-1gsb.tgz: Rebuilt.
++--------------------------+
 Sun Jan 18 20:11:21 GMT 2009
      GNOME 2.24.3 Released.
 libraries/glib2-2.18.4-i486-1gsb.tgz: Upgraded.

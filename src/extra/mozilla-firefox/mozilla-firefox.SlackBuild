@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=3.0.5
 
 ## List any packages here that are required to build this package.
@@ -128,11 +128,6 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
-# Fix for plugins patch, supplied by Stephen Levine
-if [ ! "$ARCH" = "x86_64" ]; then
-  patch -p0 < $CWD/patches/mozilla.plugins-path.patch
-fi;
-
 ## Fix permissions for building.
 echo "Please be patient.  This may take a while."
 echo -n "Setting file permissions for building..."
@@ -212,11 +207,13 @@ make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## For GNOME
-mkdir -p $PKG/usr/share/applications
-cp $CWD/gnome/mozilla-firefox.desktop $PKG/usr/share/applications
-mkdir -p $PKG/usr/share/pixmaps
-cp $CWD/gnome/mozilla-firefox.png $PKG/usr/share/pixmaps
-cp $CWD/gnome/firefox.png $PKG/usr/share/pixmaps
+mkdir -p $PKG/usr/share/applications &&
+cp $CWD/gnome/mozilla-firefox.desktop $PKG/usr/share/applications &&
+mkdir -p $PKG/usr/share/pixmaps &&
+cp $CWD/gnome/mozilla-firefox.png $PKG/usr/share/pixmaps &&
+cp $CWD/gnome/firefox.png $PKG/usr/share/pixmaps &&
+rm -fr $PKG/usr/bin/firefox &&
+cp $CWD/firefox.sh $PKG/usr/bin/firefox || exit 1
 
 chown -R root:root $PKG/usr/bin
 chown -R root.root $PKG/usr/share
