@@ -23,6 +23,7 @@ pulseaudio
 alsa-plugins
 libgnomeui
 gtk-engines
+libproxy
 libsoup
 gnome-doc-utils
 policykit-gnome

@@ -7,8 +7,8 @@
 ##
 
 ## Package variables
-BUILD=3
-VERSION=0.6.24
+BUILD=1
+VERSION=0.6.25
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -185,6 +185,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --disable-monodoc \
+  --disable-mono \
   --disable-autoipd \
   --enable-python-dbus \
   --enable-pygtk\
@@ -195,9 +196,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-qt3 \
   --disable-qt4 \
   --enable-core-docs \
-  --enable-compat-howl \
-  --enable-compat-libdns_sd \
-  --with-dbus-sys=/etc/dbus-1/system.d \
   --with-avahi-user=avahi \
   --with-avahi-group=avahi \
   --with-avahi-priv-access-group=root \

@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=0.9.14
+VERSION=0.9.15
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libsndfile GConf hal avahi glib2 libsamplerate libatomic_ops liboil bluez-libs consolekit"
+REQUIRED_PACKAGES="libsndfile GConf hal avahi glib2 libsamplerate libatomic_ops liboil bluez-libs consolekit libtool alsa-lib"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
