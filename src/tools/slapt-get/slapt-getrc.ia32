@@ -10,38 +10,38 @@ EXCLUDE=^kernel-.*,^glibc.*,.*-[0-9]+dl$,^devs$,^udev$,aaa_elflibs,x86_64
 
 # Official slapt-get repo
 # GSB provides a custom slapt-get package, so this isn't strictly required
-#SOURCE=http://software.jaos.org/slackpacks/12.1/
+#SOURCE=http://software.jaos.org/slackpacks/12.2/
 
 # Base url to directory with a PACKAGES.TXT
-# This is a list of (some of the) Slackware 12.1 mirrors which can be used
-# with GSB.  Any Slackware 12.1 mirror can be used, we just list a few here,
+# This is a list of (some of the) Slackware 12.2 mirrors which can be used
+# with GSB.  Any Slackware 12.2 mirror can be used, we just list a few here,
 # all of which have been manually checked as working.
 # Any of the following can be copied and have 'extra/' 'testing/' or 'pasture/'
 # appended to the url to allow access to additional packages.
-SOURCE=ftp://slackware.mirrors.tds.net/pub/slackware/slackware-12.1/
-#SOURCE=ftp://ftp.slackware.at/slackware-12.1/
-#SOURCE=http://www.slackware.at/data/slackware-12.1/
-#SOURCE=ftp://ftp.slackware.org.uk/slackware/slackware-12.1/
-#SOURCE=http://www.slackware.org.uk/slackware/slackware-12.1/
-#SOURCE=ftp://slackware.oregonstate.edu/pub/slackware/slackware-12.1/
-#SOURCE=http://slackware.oregonstate.edu/slackware-12.1/
-#SOURCE=ftp://mirror.switch.ch/mirror/slackware/slackware-12.1/
-#SOURCE=http://mirror.switch.ch/ftp/mirror/slackware/slackware-12.1/
-#SOURCE=ftp://distro.ibiblio.org/pub/linux/distributions/slackware/slackware-12.1/
-#SOURCE=http://distro.ibiblio.org/pub/linux/distributions/slackware/slackware-12.1/
-#SOURCE=ftp://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-12.1/
-#SOURCE=http://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-12.1/
-#SOURCE=ftp://slackware.mirrors.tds.net/pub/slackware/slackware-12.1/
-#SOURCE=ftp://ftp.slackware.no/pub/linux/slackware/slackware-12.1/
-#SOURCE=http://slackware.rol.ru/slackware/slackware-12.1/
+SOURCE=ftp://slackware.mirrors.tds.net/pub/slackware/slackware-12.2/
+#SOURCE=ftp://ftp.slackware.at/slackware-12.2/
+#SOURCE=http://www.slackware.at/data/slackware-12.2/
+#SOURCE=ftp://ftp.slackware.org.uk/slackware/slackware-12.2/
+#SOURCE=http://www.slackware.org.uk/slackware/slackware-12.2/
+#SOURCE=ftp://slackware.oregonstate.edu/pub/slackware/slackware-12.2/
+#SOURCE=http://slackware.oregonstate.edu/slackware-12.2/
+#SOURCE=ftp://mirror.switch.ch/mirror/slackware/slackware-12.2/
+#SOURCE=http://mirror.switch.ch/ftp/mirror/slackware/slackware-12.2/
+#SOURCE=ftp://distro.ibiblio.org/pub/linux/distributions/slackware/slackware-12.2/
+#SOURCE=http://distro.ibiblio.org/pub/linux/distributions/slackware/slackware-12.2/
+#SOURCE=ftp://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-12.2/
+#SOURCE=http://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-12.2/
+#SOURCE=ftp://slackware.mirrors.tds.net/pub/slackware/slackware-12.2/
+#SOURCE=ftp://ftp.slackware.no/pub/linux/slackware/slackware-12.2/
+#SOURCE=http://slackware.rol.ru/slackware/slackware-12.2/
 
 # GNOME SlackBuild mirrors (version 2.22)
-SOURCE=ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-2.22/
-#SOURCE=ftp://ftp.slackware.org.uk/gsb/gsb-2.22/
-#SOURCE=http://www.slackware.org.uk/gsb/gsb-2.22/
-#SOURCE=ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-2.22/
-#SOURCE=http://slackware.rol.ru/gsb/gsb/gsb-2.22/
-#SOURCE=http://get.gnomeslackbuild.org/gsb/gsb-2.22/
+SOURCE=ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-2.26/
+#SOURCE=ftp://ftp.slackware.org.uk/gsb/gsb-2.26/
+#SOURCE=http://www.slackware.org.uk/gsb/gsb-2.26/
+#SOURCE=ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-2.26/
+#SOURCE=http://slackware.rol.ru/gsb/gsb/gsb-2.26/
+#SOURCE=http://get.gnomeslackbuild.org/gsb/gsb-2.26/
 
 # GNOME SlackBuild mirrors (development branch - not recommended!)
 #SOURCE=ftp://ftp.slackware.org.uk/gsb/gsb-current/
@@ -51,8 +51,8 @@ SOURCE=ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-2.22/
 #SOURCE=http://get.gnomeslackbuild.org/gsb/gsb-current/
 
 # Use a local path to a Slackware/GSB/other repo
-#SOURCE=file:///path/to/repo/slackware/slackware-12.1/
-#SOURCE=file:///path/to/repo/gsb/gsb-2.22/
+#SOURCE=file:///path/to/repo/slackware/slackware-12.2/
+#SOURCE=file:///path/to/repo/gsb/gsb-2.26/
 
 # Use a local mounted CDROM
 #SOURCE=file:///mnt/cdrom/
