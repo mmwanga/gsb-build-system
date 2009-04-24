@@ -75,3 +75,5 @@ tre
 libesmtp
 libspectre
 djvulibre
+libtool
+alsa-lib

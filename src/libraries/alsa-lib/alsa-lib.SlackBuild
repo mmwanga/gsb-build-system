@@ -1,18 +1,18 @@
 #!/bin/bash
-## Version: 1.6 GSB Package SlackBuild.
-## Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
-## Copyright (c) 2007 Steve Kennedy <sk238 (at) exeter.ac.uk>
-##
+## Version: 1.6 GSB Package SlackBuild - Do not remove this line!
+## Copyright (c) 2007, 2008:
+##   Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>, Coventry, UK.
+##   Steve Kennedy <steve (at) gnomeslackbuild.org>, Exeter, UK.
 ## Licenced under the terms of the GNU General Public Licence version 3.
 ##
 
 ## Package variables.
 BUILD=1
-VERSION=1.2.1
+VERSION=1.0.19
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="yasm"
+REQUIRED_PACKAGES=""
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -92,9 +92,6 @@ mkdir -p $PKGDEST
 cd $TMP &&
 rm -rf $PKGNAME-$VERSION &&
 tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
-if [ -d $PKGNAME ]; then
-	mv $PKGNAME $PKGNAME-$VERSION ;
-fi;
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -159,7 +156,6 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
-cd build/generic &&
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
@@ -169,19 +165,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-## Extra tweaks for Xvid libraries
-if [ "$ARCH" = "x86_64" ]; then
-  ( cd $PKG/usr/lib64 &&
-    rm $PKG/usr/lib64/*.a &&
-    chmod +x $PKG/usr/lib64/*.so.* &&
-    ln -s ./libxvidcore.so.4.2 ./libxvidcore.so || exit 1 ) || exit 1
-else
-  ( cd $PKG/usr/lib &&
-    rm $PKG/usr/lib/*.a &&
-    chmod +x $PKG/usr/lib/*.so.* &&
-    ln -s ./libxvidcore.so.4.2 ./libxvidcore.so || exit 1 ) || exit 1
-fi
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -203,9 +186,11 @@ fi
 
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+cp -a INSTALL MEMORY-LEAK NOTES TODO \
   $PKG/usr/doc/$PKGNAME-$VERSION
+cp -a COPYING $PKG/usr/doc/$PKGNAME-$VERSION/COPYING.lib
+cp -a aserver/COPYING $PKG/usr/doc/$PKGNAME-$VERSION/COPYING.aserver
+
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 

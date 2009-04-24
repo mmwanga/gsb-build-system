@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=1.36.0
+VERSION=1.38.0
 RELEASE=$(echo ${VERSION//./_} | cut -f1,2 -d_)
 
 echo
@@ -136,19 +136,19 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
-##
-## These are official boost c++ hotfix patches
-##
-## Restore deprecated basic_directory_entry functions inadvertently omitted from 1.36.0. 
-patch -p2 < $CWD/patches/boost.basic_directory_entry.patch || exit 1 
-## Fix problem with case-insensitive alternation in Xpressive library
-patch -p2 < $CWD/patches/boost.case_sensitive.patch || exit 1
-## Fix filesystem/convenience.hpp compile errors when BOOST_FILESYSTEM_NO_DEPRECATED is defined. 
-patch -p2 < $CWD/patches/boost.convenience.patch || exit 1
-## Restore deprecated functions has_branch_path and has_leaf, inadvertently omitted from 1.36.0 
-patch -p2 < $CWD/patches/boost.has_leaf.patch || exit 1
-## Revert remove changes inadvertently committed by 47006 and apply ticket #1972 remove fixes. 
-patch -p2 < $CWD/patches/boost.remove-changes.patch || exit 1
+if [ "$VERSION" = "1.36.0" ]; then
+  ## These are official boost c++ hotfix patches for 1.36
+  ## Restore deprecated basic_directory_entry functions inadvertently omitted from 1.36.0. 
+  patch -p2 < $CWD/patches/boost.basic_directory_entry.patch || exit 1 
+  ## Fix problem with case-insensitive alternation in Xpressive library
+  patch -p2 < $CWD/patches/boost.case_sensitive.patch || exit 1
+  ## Fix filesystem/convenience.hpp compile errors when BOOST_FILESYSTEM_NO_DEPRECATED is defined. 
+  patch -p2 < $CWD/patches/boost.convenience.patch || exit 1
+  ## Restore deprecated functions has_branch_path and has_leaf, inadvertently omitted from 1.36.0 
+  patch -p2 < $CWD/patches/boost.has_leaf.patch || exit 1
+  ## Revert remove changes inadvertently committed by 47006 and apply ticket #1972 remove fixes. 
+  patch -p2 < $CWD/patches/boost.remove-changes.patch || exit 1
+fi;
 
 ## Fix permissions for building.
 chown -R root.root .

@@ -8,8 +8,8 @@
 
 ## Package variables
 BUILD=1
-VERSION=3.98
-TARVERSION=398
+VERSION=3.98.2
+TARVERSION=398-2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.

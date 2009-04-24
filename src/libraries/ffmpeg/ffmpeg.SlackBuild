@@ -8,7 +8,7 @@
 
 ## Package variables. 
 BUILD=1
-VERSION=svn_16306
+VERSION=svn_18652
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -168,7 +168,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr $CONFIGURE_FLAGS --arch=$ARCH --cpu=$TUNE \
   --mandir=/usr/man \
   --enable-postproc \
-  --enable-swscale \
   --enable-pthreads \
   --target-os=linux \
   --enable-shared \
