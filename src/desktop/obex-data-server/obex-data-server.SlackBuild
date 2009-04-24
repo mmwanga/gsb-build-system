@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=0.3.4
+VERSION=0.4.4
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glib2 openobex bluez-libs bluez-utils dbus dbus-glib"
+REQUIRED_PACKAGES="glib2 openobex bluez dbus dbus-glib imagemagick"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -159,7 +159,6 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
   || exit 1
 
 ## Build and install.

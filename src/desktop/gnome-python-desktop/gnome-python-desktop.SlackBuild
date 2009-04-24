@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.24.1
+VERSION=2.26.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gnome-python gtksourceview2 libgnome libgnomeprint libgnomeprintui libwnck libgtop nautilus-cd-burner librsvg gnome-keyring gnome-desktop bug-buddy glib2 gtk+2 libart_lgpl libpng pango cairo pygtk pycairo pygobject totem-pl-parser metacity gnome-media"
+REQUIRED_PACKAGES="gnome-python gtksourceview2 libgnome libgnomeprint libgnomeprintui libwnck libgtop nautilus-cd-burner librsvg gnome-keyring gnome-desktop bug-buddy glib2 gtk+2 libart_lgpl libpng pango cairo pygtk pycairo pygobject totem-pl-parser metacity gnome-media evince"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -156,25 +156,11 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
-  --disable-gtk-doc \
-  --enable-evolution_ecal \
-  --enable-bugbuddy \
-  --enable-gnomedesktop \
-  --enable-gnomekeyring \
-  --enable-metacity \
-  --enable-rsvg \
-  --enable-mediaprofiles \
-  --enable-nautilusburn \
-  --enable-gtop \
-  --enable-totem_plparser \
-  || exit 1
+  ./waf configure --prefix=/usr --sysconfdir=/etc || exit 1
 
 ## Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+./waf &&
+./waf install --destdir=$PKG || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

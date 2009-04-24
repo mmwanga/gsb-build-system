@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.22.3
+VERSION=2.26.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -158,7 +158,6 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./waf configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   $CONFIGURE_FLAGS \
-  --debug-level=release \
   || exit 1
 
 ## Build and install.

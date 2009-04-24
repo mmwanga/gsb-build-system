@@ -5,8 +5,9 @@ gnome-menus
 gnome-menus-kde
 gnome-menus-xfce
 libwnck
-obex-data-server
 evo-openldap
+libgweather
+libical
 evolution-data-server
 gstreamer
 gst-plugins-base
@@ -16,7 +17,6 @@ gst-plugins-ugly
 gst-python
 gst-ffmpeg
 gst-fluendo-mp3
-libgweather
 gnome-panel
 gnome-audio
 gconf-editor
@@ -29,8 +29,12 @@ gswitchit_plugins
 libgnomecups
 libgnomeprint
 libgnomeprintui
+zenity
 metacity
 eel
+bluez
+libbtctl
+obex-data-server
 gvfs
 nautilus
 gnome-mount
@@ -49,6 +53,7 @@ gnome-media
 notification-daemon
 totem-pl-parser
 gnome-python
+evince
 gnome-python-desktop
 gnome-applets
 gnome-backgrounds

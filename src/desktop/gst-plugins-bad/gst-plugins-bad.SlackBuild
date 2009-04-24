@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=0.10.8
+VERSION=0.10.11
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -114,8 +114,10 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
-## Remove obsoleted bframe_adaptive use
-patch -p1 < $CWD/patches/x264_bframe_adaptive.patch || exit 1
+if [ "$VERSION" = "0.10.8" ]; then
+  ## Remove obsoleted bframe_adaptive use
+  patch -p1 < $CWD/patches/x264_bframe_adaptive_gst0.10.8.patch || exit 1
+fi;
 
 ## Fix permissions for building.
 chown -R root.root .

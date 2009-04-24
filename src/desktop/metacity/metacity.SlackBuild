@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.24.0
+VERSION=2.26.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="GConf glib2 gtk+2 ORBit2 startup-notification libgnome libgnomeui gnome-menus libX11 libXrender libXrandr libXinerama libXcursor pango cairo compositeproto libXcomposite"
+REQUIRED_PACKAGES="GConf glib2 gtk+2 ORBit2 startup-notification libgnome libgnomeui gnome-menus libX11 libXrender libXrandr libXinerama libXcursor pango cairo compositeproto libXcomposite zenity"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -131,32 +131,31 @@ find . -perm 555 -exec chmod 755 {} \;
 ##
 ## Note -O0 should be used with metacity 2.20.x as
 ## any optimization levels can cause a weird pink
-## color problem.  
-## http://bugzilla.gnome.org/show_bug.cgi?id=478886
+## color problem.  http://bugzilla.gnome.org/show_bug.cgi?id=478886
 ##
 
 CONFIGURE_FLAGS=${GSB_CONFIGURE_FLAGS:-""}
 if [ "$ARCH" = "i386" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O0 -march=$ARCH -mtune=$TUNE"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-march=$ARCH -mtune=$TUNE"}
 elif [ "$ARCH" = "i486" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O0 -march=$ARCH -mtune=$TUNE"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-march=$ARCH -mtune=$TUNE"}
 elif [ "$ARCH" = "i586" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O0 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
 elif [ "$ARCH" = "i686" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O0 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
 elif [ "$ARCH" = "x86_64" ]; then
   if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
-    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O0 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -fPIC"}
+    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -fPIC"}
   else
-    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O0 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
+    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
     CONFIGURE_FLAGS="--libdir=/usr/lib64"
   }
 elif [ "$ARCH" = "powerpc" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O0 -march=$ARCH"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-march=$ARCH"}
 else
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O0"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-""}
 fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}

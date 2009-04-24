@@ -13,3 +13,4 @@ libXcursor
 pango
 cairo
 gnome-menus
+zenity

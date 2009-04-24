@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.24.2
+VERSION=2.26.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -161,7 +161,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static --enable-shared \
   --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
-  --disable-debug \
   --disable-tracker \
   --disable-beagle \
   || exit 1

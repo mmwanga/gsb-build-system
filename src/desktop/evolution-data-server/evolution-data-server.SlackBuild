@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.24.3
+VERSION=2.26.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="GConf gnome-vfs libgnome libgnomeui libsoup avahi ORBit2 libbonobo libbonoboui libidl db44 nss gnome-keyring glib2 heimdal-libraries evo-openldap"
+REQUIRED_PACKAGES="GConf gnome-vfs libgnome libgnomeui libsoup avahi ORBit2 libbonobo libbonoboui libidl db44 nss gnome-keyring glib2 heimdal-libraries evo-openldap libgweather libical"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
