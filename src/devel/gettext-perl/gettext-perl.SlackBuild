@@ -1,18 +1,18 @@
 #!/bin/bash
-## Version: 1.6 GSB Package SlackBuild.
-## Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
-## Copyright (c) 2007 Steve Kennedy <sk238 (at) exeter.ac.uk>
-##
+## Version: 1.6 GSB Package SlackBuild - Do not remove this line!
+## Copyright (c) 2007, 2008:
+##   Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>, Coventry, UK.
+##   Steve Kennedy <steve (at) gnomeslackbuild.org>, Exeter, UK.
 ## Licenced under the terms of the GNU General Public Licence version 3.
 ##
 
 ## Package variables.
 BUILD=1
-VERSION=3.6.2
+VERSION=1.05
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomeui gtk+2 glib2 libglade libxml2 libgnomeprintui"
+REQUIRED_PACKAGES="perl"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -23,6 +23,7 @@ PKGDEST=${PKGDEST:-$TMP}
 
 ## Script variables.
 PKGNAME=$(basename $0 .SlackBuild)
+SRCNAME=gettext
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
@@ -90,7 +91,9 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+rm -rf $PKGNAME-$VERSION &&
+tar xzf $CWD/$SRCNAME-$VERSION.tar.gz &&
+mv $SRCNAME-$VERSION $PKGNAME-$VERSION &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -154,16 +157,36 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-## Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --program-prefix="" \
-  || exit 1
+PERL_ARCH=$(perl -v | grep This | cut -d' ' -f 7)
+PERL_VERSION=$(perl -v | grep This | cut -d' ' -f4 | cut -dv -f2)
 
-## Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+# Set a perl include path so we don't have to spam the build machine
+while read pf; do
+  PERL5LIB=${PERL5LIB:+$PERL5LIB:}$pf
+done << EOPERL5LIB 
+$PKG/usr/$LIBDIR/perl5
+$PKG/usr/$LIBDIR/perl5/site_perl
+$PKG/usr/$LIBDIR/perl5/site_perl/$PERL_VERSION/$PERL_ARCH
+EOPERL5LIB
+export PERL5LIB
+
+perl Makefile.PL || exit 1
+
+## Fix for manpages
+sed -i "s:/share/man:/man:g" Makefile
+
+make OPTIMIZE="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" $MAKE_FLAGS &&
+make test &&
+make DESTDIR=$PKG install || exit 1
+
+# Remove perlocal.pod and .packlist from $PKG
+( for i in perllocal.pod .packlist; do
+      find $PKG -name "$i" -exec rm -rf {} \;
+  done
+) || exit 1
+
+# Remove empty directories
+find $PKG/usr -depth -type d -empty -exec rm -rf {} \;
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

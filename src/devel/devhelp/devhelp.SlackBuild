@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=0.22
 
 ## List any packages here that are required to build this package.
@@ -164,7 +164,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
   --disable-static \
   --enable-shared \
-  --with-gecko=libxul-embedding \
   || exit 1
 
 ## Build and install.
