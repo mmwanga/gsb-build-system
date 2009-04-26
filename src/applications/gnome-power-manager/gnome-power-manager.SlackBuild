@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.24.3
+VERSION=2.26.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libnotify hal dbus glib2 libgnomeui GConf libunique atk libwnck gstreamer gtk+2 gnome-panel gnome-icon-theme hicolor-icon-theme libxcb policykit-gnome"
+REQUIRED_PACKAGES="libnotify hal dbus glib2 libgnomeui GConf libunique atk libwnck gstreamer gtk+2 gnome-panel gnome-icon-theme hicolor-icon-theme libxcb policykit-gnome devicekit-power libcanberra"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -114,6 +114,11 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
+if [ "$VERSION" = "2.26.1" ]; then
+ # Remove -Werror compile fail on gcc warnings
+ patch -p1 < $CWD/patches/gcc_warning.patch || exit 1
+fi;
+
 ## Fix permissions for building.
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
@@ -166,8 +171,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-shared \
   --with-dpms-ext \
   --enable-applets \
-  --enable-xevents \
   --enable-policykit \
+  --enable-legacy-buttons \
   || exit 1
 
 ## Build and install.

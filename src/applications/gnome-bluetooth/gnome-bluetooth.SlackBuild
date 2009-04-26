@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=3
-VERSION=0.11.0
+BUILD=1
+VERSION=0.12.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="bluez-libs bluez-utils bluez-hcidump bluez-firmware libbtctl gob2 libgnomeui libbonoboui python gnome-keyring gnome-vfs pygtk"
+REQUIRED_PACKAGES="bluez bluez-hcidump bluez-firmware libbtctl gob2 libgnomeui libbonoboui python gnome-keyring gnome-vfs pygtk"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

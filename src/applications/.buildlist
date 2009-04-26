@@ -8,17 +8,16 @@ pywebkitgtk
 mozilla-xulrunner
 yelp
 eog
-sound-juicer
 file-roller
 epiphany
 epiphany-extensions
 totem
+brasero
+sound-juicer
 gnome-utils
 gnomebaker
-brasero
 gnome-system-monitor
 gnome-netstatus
-zenity
 gob2
 libggz
 ggz-client-libs
@@ -48,7 +47,6 @@ deskbar-applet
 pygtksourceview
 gedit
 gedit-plugins
-nautilus-sendto
 seahorse
 seahorse-plugins
 gdm

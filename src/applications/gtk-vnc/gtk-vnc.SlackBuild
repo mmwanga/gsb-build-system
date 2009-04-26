@@ -162,7 +162,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static --enable-shared \
   --without-examples \
   --with-python \
-  --disable-plugin \
   || exit 1
 
 ## Build and install.

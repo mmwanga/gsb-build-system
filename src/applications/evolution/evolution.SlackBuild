@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.24.3
+VERSION=2.26.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -167,6 +167,7 @@ sed -i "s/\$mitlibs/\$heimlibs/g" $TMP/$PKGNAME-$VERSION/configure
 
 # Set of Plugins
 # Note: email-custom-header is causing evolution-2.24 to segfault, so disabling
+# Add this to the configure line if you wish: --enable-plugins="$PLUGINS" \
 PLUGINS="calendar-file calendar-http calendar-weather itip-formatter \
          plugin-manager default-source addressbook-file startup-wizard \
          mark-all-read groupwise-features groupwise-account-setup \
@@ -195,7 +196,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --with-openldap=/usr/libexec/evo-openldap \
   --with-static-ldap=yes \
   --disable-profiling \
-  --enable-plugins="$PLUGINS" \
   --with-krb5=/usr \
   || exit 1
 

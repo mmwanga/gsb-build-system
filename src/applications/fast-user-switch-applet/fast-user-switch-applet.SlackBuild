@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.24.0
 
 ## List any packages here that are required to build this package.
@@ -156,7 +156,11 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+# Fix for proper libs and includes with libgnomeui-2.26
+CFLAGS="$(pkg-config libgnomeui-2.0 --cflags)" \
+LIBS="$(pkg-config libgnomeui-2.0 --libs)" \
+CFLAGS="$CFLAGS $TUNE_CFLAGS $EXTRA_CFLAGS" \
+CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/run \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \

@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=0.6.27
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="bluez-libs libusb gtk+2 cairo"
+REQUIRED_PACKAGES="bluez libusb gtk+2 cairo"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

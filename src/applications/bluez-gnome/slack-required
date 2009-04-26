@@ -1,5 +1,4 @@
-bluez-libs
-bluez-utils
+bluez
 libgnomeui
 dbus
 libnotify

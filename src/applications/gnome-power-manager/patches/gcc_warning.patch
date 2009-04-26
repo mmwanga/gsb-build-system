@@ -1,0 +1,11 @@
+diff -Naur gnome-power-manager-2.26.1.old/configure gnome-power-manager-2.26.1/configure
+--- gnome-power-manager-2.26.1.old/configure	2009-04-21 11:56:03.000000000 +0100
++++ gnome-power-manager-2.26.1/configure	2009-04-25 12:43:57.000000000 +0100
+@@ -12570,6 +12570,7 @@
+ 	WARNINGFLAGS="$WARNINGFLAGS -Wmissing-parameter-type"
+ 	WARNINGFLAGS="$WARNINGFLAGS -Woverride-init"
+ 	WARNINGFLAGS="$WARNINGFLAGS -Wno-strict-aliasing"
++	WARNINGFLAGS=""
+ else
+ 	WARNINGFLAGS=""
+ 	WARNINGFLAGS=""

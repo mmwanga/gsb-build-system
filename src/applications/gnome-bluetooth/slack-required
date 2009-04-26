@@ -1,5 +1,4 @@
-bluez-libs
-bluez-utils
+bluez
 bluez-hcidump
 bluez-firmware
 libbtctl
