@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=3
-VERSION=0.3.1
+BUILD=2
+VERSION=0.4
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -164,8 +164,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   || exit 1
 
 ## Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+make &&
+make DESTDIR=$PKG install || exit 1
 
 # Fix for pkgconfig install on x86_64 archs
 if [ "$ARCH" = "x86_64" ]; then

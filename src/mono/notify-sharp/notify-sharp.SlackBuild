@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=0.4.0_svn2998
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libnotify monodoc gtk-sharp ndesk-dbus-glib mono"
+REQUIRED_PACKAGES="libnotify gtk-sharp ndesk-dbus-glib mono"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=3
-VERSION=0.8.2.2960
+BUILD=1
+VERSION=0.9.0.3203-2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -92,6 +92,8 @@ mkdir -p $PKGDEST
 cd $TMP &&
 rm -rf $PKGNAME-$VERSION &&
 tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
+# fix for strange versioning format
+mv $PKGNAME-${VERSION//-2/} $PKGNAME-$VERSION &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -159,7 +161,6 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
   || exit 1
 
 ## Build and install.

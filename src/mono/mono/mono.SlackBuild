@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=2.0.1
+BUILD=1
+VERSION=2.4
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -154,14 +154,23 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
+# Fix for configure ;
+if [ "$VERSION" = "2.4" ]; then
+ patch -p0 < $CWD/patches/mono-2.4.configure.in.patch || exit 1;
+ autoreconf || exit 1
+fi ;
+
 ## Configure.
 #CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS \
   --program-prefix="" \
+  --infodir=/usr/info \
   || exit 1
 
 ## Build and install.
+# force mono to use system libtool
+find $TMP/$PKGNAME-$VERSION -name libtool -exec ln -sf /usr/bin/libtool {} \; 
 make &&
 make DESTDIR=$PKG install || exit 1
 

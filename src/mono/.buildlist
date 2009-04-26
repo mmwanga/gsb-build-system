@@ -1,6 +1,6 @@
 libgdiplus
 mono
-monodoc
+#monodoc
 gtk-sharp
 gecko-sharp
 gluezilla
