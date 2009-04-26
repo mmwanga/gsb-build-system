@@ -36,7 +36,7 @@ gmp: ADD
 gnome-icon-theme: SKP
 gstreamer: ADD
 gst-plugins-base: ADD
-gtk+: SKP
+gtk+: ADD
 gtk+2: SKP
 gtkspell: ADD
 hal: ADD
@@ -115,7 +115,7 @@ qt: SKP
 readline: ADD
 sdl: ADD
 shared-mime-info: ADD
-slang: SKP
+slang: ADD
 slang1: SKP
 startup-notification: ADD
 svgalib: ADD
