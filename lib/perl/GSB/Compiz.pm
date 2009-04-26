@@ -20,33 +20,33 @@ our $VERSION   = 0.03;
 our %compiz =
   (
    'avant-window-navigator'              => {
-                 'ver' => '0.2.6',
-                 'url' => 'https://launchpadlibrarian.net/12155574',
+                 'ver' => '0.3.2',
+                 'url' => 'http://code.launchpad.net/awn/0.2/0.3.2/+download',
                  'src' => 'tar.gz',
                             },
    'awn-extras-applets'              => {
-                 'ver' => '0.2.6',
-                 'url' => 'https://launchpadlibrarian.net/12155208',
+                 'ver' => '0.3.2.1',
+                 'url' => 'http://code.launchpad.net/awn-extras/0.2/0.3.2.1/+download/',
                  'src' => 'tar.gz',
                             },
    'ccsm'              => {
-                 'ver' => '0.7.8',
-                 'url' => 'http://releases.compiz-fusion.org/0.7.8',
+                 'ver' => '0.8.2',
+                 'url' => 'http://releases.compiz-fusion.org/0.8.2',
                  'src' => 'tar.bz2',
                             },
    'compiz-bcop'              => {
-                 'ver' => '0.7.8',
-                 'url' => 'http://releases.compiz-fusion.org/0.7.8',
+                 'ver' => '0.8.2',
+                 'url' => 'http://releases.compiz-fusion.org/0.8.2',
                  'src' => 'tar.bz2',
                             },
-   'compiz-fusion-plugins-main'              => {
-                 'ver' => '0.7.8',
-                 'url' => 'http://releases.compiz-fusion.org/0.7.8',
+   'compiz-plugins-main'              => {
+                 'ver' => '0.8.2',
+                 'url' => 'http://releases.compiz-fusion.org/0.8.2',
                  'src' => 'tar.bz2',
                             },
-   'compiz-fusion-plugins-extra'              => {
-                 'ver' => '0.7.8',
-                 'url' => 'http://releases.compiz-fusion.org/0.7.8',
+   'compiz-plugins-extra'              => {
+                 'ver' => '0.8.2',
+                 'url' => 'http://releases.compiz-fusion.org/0.8.2',
                  'src' => 'tar.bz2',
                             },
    'compiz-manager'              => {
@@ -55,23 +55,23 @@ our %compiz =
                  'src' => 'tar.bz2',
                             },
    'compizconfig-backend-gconf'              => {
-                 'ver' => '0.7.8',
-                 'url' => 'http://releases.compiz-fusion.org/0.7.8',
+                 'ver' => '0.8.2',
+                 'url' => 'http://releases.compiz-fusion.org/0.8.2',
                  'src' => 'tar.bz2',
                             },
    'compizconfig-python'              => {
-                 'ver' => '0.7.8',
-                 'url' => 'http://releases.compiz-fusion.org/0.7.8',
+                 'ver' => '0.8.2',
+                 'url' => 'http://releases.compiz-fusion.org/0.8.2',
                  'src' => 'tar.bz2',
                             },
    'emerald'              => {
-                 'ver' => '0.7.8',
-                 'url' => 'http://releases.compiz-fusion.org/0.7.8',
+                 'ver' => '0.8.2',
+                 'url' => 'http://releases.compiz-fusion.org/0.8.2',
                  'src' => 'tar.bz2',
                             },
    'libcompizconfig'              => {
-                 'ver' => '0.7.8',
-                 'url' => 'http://releases.compiz-fusion.org/0.7.8',
+                 'ver' => '0.8.2',
+                 'url' => 'http://releases.compiz-fusion.org/0.8.2',
                  'src' => 'tar.bz2',
                             },
    'sexy-python'              => {

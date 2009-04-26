@@ -15,12 +15,13 @@ our $VERSION   = 0.03;
 
 our %network_gnome =
   (
-   'ekiga'                  => '3.0.2',
-   'empathy'	            => '2.24.1',
-   'gnome-user-share'       => '0.41',
-   'gnome-phone-manager'    => '0.60',
-   'NetworkManager'         => '0.7.0',
-   'network-manager-applet' => '0.7.0',
+   'ekiga'                  => '3.2.0',
+   'empathy'	            => '2.26.1',
+   'gnome-user-share'       => '2.26.0',
+   'gnome-phone-manager'    => '0.65',
+   'nautilus-sendto'        => '1.1.4.1',
+   'NetworkManager'         => '0.7.1',
+   'network-manager-applet' => '0.7.1',
   );
 
 our %network_external =
@@ -31,13 +32,13 @@ our %network_external =
 		'src' => 'tar.bz2',
 		 },
    'deluge'     => {
-                 'ver' => '1.1.0',
-                 'url' => 'http://download.deluge-torrent.org/source/1.1.0',
+                 'ver' => '1.1.6',
+                 'url' => 'http://download.deluge-torrent.org/source',
 		 'src' => 'tar.bz2',
                    },
   'sylpheed'     => {
-                  'ver' => '2.5.0',
-                  'url' => 'http://sylpheed.good-day.net/sylpheed/v2.5',
+                  'ver' => '2.6.0',
+                  'url' => 'http://sylpheed.sraoss.jp/sylpheed/v2.6/',
                  'src' => 'tar.bz2',
                  },
   'telepathy-mission-control' => {
@@ -46,13 +47,13 @@ our %network_external =
                  'src' => 'tar.gz'
                 },
   'libjingle' => {
-                 'url' => 'http://farsight.freedesktop.org/releases/libjingle',
-                 'ver' => '0.3.12',
+                 'url' => 'http://libjingle.googlecode.com/files/',
+                 'ver' => '0.4.0',
                  'src' => 'tar.gz'
                 },
    'telepathy-glib'            => {
              'url' => 'http://telepathy.freedesktop.org/releases/telepathy-glib',
-             'ver' => '0.7.23',
+             'ver' => '0.7.28',
              'src' => 'tar.gz'
                         },
    'libtelepathy'            => {
@@ -82,12 +83,12 @@ our %network_external =
                         },
    'telepathy-salut'            => {
              'url' => 'http://telepathy.freedesktop.org/releases/telepathy-salut',
-             'ver' => '0.3.6',
+             'ver' => '0.3.9',
              'src' => 'tar.gz'
                         },
    'telepathy-gabble'            => {
              'url' => 'http://telepathy.freedesktop.org/releases/telepathy-gabble',
-             'ver' => '0.7.18',
+             'ver' => '0.7.26',
              'src' => 'tar.gz'
                         },
    'loudmouth'            => {

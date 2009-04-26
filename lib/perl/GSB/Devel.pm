@@ -19,21 +19,20 @@ our $VERSION   = 0.03;
 
 our %devel_gnome =
   (
-   'anjuta'      => '2.24.2',
-   'accerciser'  => '1.4.0',
+   'accerciser'  => '1.6.1',
    'devhelp'     => '0.22',
-   'gdl'         => '2.24.0',
-   'ghex'        => '2.22.0',
-   'glade3'      => '3.4.5',
+   'gdl'         => '2.26.0',
+   'ghex'        => '2.24.0',
+   'glade3'      => '3.6.2',
    'gnome-build' => '2.24.1',
-   'nemiver'     => '0.6.4',
-   'vala'        => '0.4.0',
+   'nemiver'     => '0.6.6',
+   'vala'        => '0.6.1',
   );
 
 our %devel =
   (
    'autogen'             => {
-                             'ver' => '5.9.5',
+                             'ver' => '5.9.7',
                              'url' => 'http://mesh.dl.sourceforge.net/sourceforge/autogen/',
                              'src' => 'tar.bz2',
 			    },
@@ -43,12 +42,12 @@ our %devel =
 			     'src' => 'tar.bz2',
 			    },
    'monodevelop'            => {
-				'ver' => '1.0',
+				'ver' => '2.0',
 				'url' => 'http://go-mono.com/sources/monodevelop/',
 				'src' => 'tar.bz2',
 			       },
    'mono-tools'                => {
-				'ver' => '2.0',
+				'ver' => '2.4',
 				'url' => 'http://go-mono.com/sources/mono-tools',
 				'src' => 'tar.bz2',
 			       },

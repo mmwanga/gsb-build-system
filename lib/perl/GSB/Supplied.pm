@@ -52,21 +52,21 @@ our %supplied_tarballs =
 	     'section' => 'applications',
                  },
    'ffmpeg'  => {
-             'ver' => 'svn_16306',
+             'ver' => 'svn_18652',
 	     'section' => 'libraries',
                  },
    'podsleuth'  => {
-             'ver' => 'svn_60',
+             'ver' => 'svn_76',
 	     'section' => 'mono',
                  },
    'MPlayer'  => {
-             'ver' => '1.0svn_28215',
+             'ver' => '1.0svn_29219',
 	     'section' => 'media',
                  },
-   'gnome-python-extras'  => {
-             'ver' => '2.24.0',
-	     'section' => 'office',
-                 },
+		 #'gnome-python-extras'  => {
+		 #'ver' => '2.24.0',
+		 #'section' => 'office',
+		 #},
    'notify-sharp'  => {
              'ver' => '0.4.0_svn2998',
 	     'section' => 'mono',

@@ -15,39 +15,41 @@ our $VERSION   = 0.03;
 
 our %office_gnome =
   (
+   'anjuta'               => '2.26.1.0',
    'gnumeric'             => '1.8.3',
    'dia'                  => '0.96.1',
-   'evince'               => '2.24.2',
    'f-spot'               => '0.5.0.3',
-   'glom'                 => '1.8.4',
-   'goffice'              => '0.6.5',
-   'libgsf'               => '1.14.11',
-   'libgda'               => '3.0.4',
+   'glom'                 => '1.10.0',
+   'goffice'              => '0.6.6',
+   'gnome-python-extras'  => '2.25.3',
+   'libgsf'               => '1.14.12',
+   'libgda'               => '4.0.2',
    'libgdamm'             => '3.0.1',
-   'libgnomedb'           => '3.0.0',
-   'tomboy'               => '0.12.2',
+   'libgnomedb'           => '3.99.7',
+   'tomboy'               => '0.14.1',
+   'tracker'              => '0.6.93',
   );
 
 our %office =
   (
    'abiword' => {
-		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.4/source/',
-		 'ver' => '2.6.4',
+		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.8/source/',
+		 'ver' => '2.6.8',
 		 'src' => 'tar.gz'
 		},
    'abiword-docs' => {
-		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.4/source/',
-		 'ver' => '2.6.4',
+		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.8/source/',
+		 'ver' => '2.6.8',
 		 'src' => 'tar.gz'
 		},
    'abiword-extras' => {
-		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.4/source/',
-		 'ver' => '2.6.4',
+		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.8/source/',
+		 'ver' => '2.6.8',
 		 'src' => 'tar.gz'
 		},
    'abiword-plugins' => {
-		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.4/source/',
-		 'ver' => '2.6.4',
+		 'url' => 'http://www.abisource.com/downloads/abiword/2.6.8/source/',
+		 'ver' => '2.6.8',
 		 'src' => 'tar.gz'
 		},
    'aqbanking' => {
@@ -66,12 +68,17 @@ our %office =
 			     'src' => 'tar.bz2',
 			    },
    'gnome-do'                => {
-				'ver' => '0.5.99.0',
-				'url' => 'http://launchpad.net/do/trunk/0.5.99/+download',
+				'ver' => '0.8.1',
+				'url' => 'http://edge.launchpad.net/do/0.8/0.8.1/+download/',
+				'src' => 'tar.gz',
+		        	},
+   'gnome-do-plugins'                => {
+				'ver' => '0.8.1',
+				'url' => 'http://edge.launchpad.net/do-plugins/0.8/0.8.1/+download/',
 				'src' => 'tar.gz',
 		        	},
    'gnucash'              => {
-			     'ver' => '2.2.8',
+			     'ver' => '2.2.9',
 			     'url' => 'http://ftp.at.gnucash.org/pub/gnucash/gnucash/sources/stable/',
 			     'src' => 'tar.bz2',
 			    },
@@ -90,6 +97,11 @@ our %office =
                    'ver' => '0.8.0',
                    'src' => 'tar.gz',
                   },
+   'guile'    => {
+                   'url' => 'ftp://ftp.gnu.org/pub/gnu/guile/',
+                   'ver' => '1.8.6',
+                   'src' => 'tar.gz',
+                  },
    'inkscape'            => {
 			     'ver' => '0.46',
 			     'url' => 'http://mesh.dl.sourceforge.net/sourceforge/inkscape/',
@@ -101,7 +113,7 @@ our %office =
 			     'src' => 'tar.bz2',
 			    },
    'liferea'             => {
-			     'ver' => '1.4.23',
+			     'ver' => '1.4.28',
 			     'url' => 'http://kent.dl.sourceforge.net/sourceforge/liferea',
 			     'src' => 'tar.gz',
 			    },
@@ -116,8 +128,8 @@ our %office =
 			     'src' => 'tar.gz',
 			    },
    'postgresql'    => {
-                   'url' => 'http://wwwmaster.postgresql.org/redir/170/h/source/v8.3.5',
-                   'ver' => '8.3.5',
+                   'url' => 'http://ftp2.uk.postgresql.org/sites/ftp.postgresql.org/source/v8.3.7/',
+                   'ver' => '8.3.7',
                    'src' => 'tar.bz2',
                   },
    'psiconv'   => {
@@ -129,11 +141,6 @@ our %office =
 			     'ver' => '0.14',
 			     'url' => 'http://mesh.dl.sourceforge.net/sourceforge/python-xlib/',
 			     'src' => 'tar.gz',
-			    },
-   'tracker'             => {
-			     'ver' => '0.6.6',
-			     'url' => 'http://www.gnome.org/~jamiemcc/tracker/',
-			     'src' => 'tar.bz2',
 			    },
    'wv'              => {
 			     'ver' => '1.2.4',

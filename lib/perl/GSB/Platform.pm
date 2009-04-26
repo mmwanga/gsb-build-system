@@ -17,25 +17,24 @@ our $VERSION   = 0.03;
 our %platform =
   (
    'gail'                => '1.22.3',
-   'GConf'               => '2.24.0',
-   'gnome-common'        => '2.24.0',
-   'gnome-doc-utils'     => '0.14.2',
-   'gnome-keyring'       => '2.24.1',
+   'GConf'               => '2.26.0',
+   'gnome-common'        => '2.26.0',
+   'gnome-doc-utils'     => '0.16.1',
+   'gnome-keyring'       => '2.26.1',
    'gnome-mime-data'     => '2.18.0',
-   'gnome-icon-theme'    => '2.24.0',
-   'gnome-vfs'           => '2.24.0',
-   'gtk-engines'         => '2.16.1',
-   'libbonobo'           => '2.24.0',
-   'libbonoboui'         => '2.24.0',
-   'libbtctl'            => '0.10.0',
-   'libgnome'            => '2.24.1',
-   'libgnomecanvas'      => '2.20.1.1',
-   'libgnomeui'          => '2.24.0',
-   'libsoup'             => '2.24.3',
-   'ORBit2'              => '2.14.16',
+   'gnome-icon-theme'    => '2.26.0',
+   'gnome-vfs'           => '2.24.1',
+   'gtk-engines'         => '2.18.1',
+   'libbonobo'           => '2.24.1',
+   'libbonoboui'         => '2.24.1',
+   'libgnome'            => '2.26.0',
+   'libgnomecanvas'      => '2.26.0',
+   'libgnomeui'          => '2.24.1',
+   'libsoup'             => '2.26.1',
+   'ORBit2'              => '2.14.17',
    'pyorbit'             => '2.24.0',
    'ttf-bitstream-vera'  => '1.10',
-   'vte'                 => '0.17.4',
+   'vte'                 => '0.20.1',
   );
 
 
@@ -43,7 +42,7 @@ our %platform =
 our %platform_reqs =
   (
    'avahi'               => {
-                             'ver' => '0.6.24',
+                             'ver' => '0.6.25',
                              'url' => 'http://www.avahi.org/download',
                              'src' => 'tar.gz',
                             },
@@ -57,8 +56,13 @@ our %platform_reqs =
                              'url' => 'http://0pointer.de/lennart/projects/libdaemon',
                              'src' => 'tar.gz',
                             },
+   'libproxy'           => {
+                             'ver' => '0.2.3',
+                             'url' => 'http://libproxy.googlecode.com/files/',
+                             'src' => 'tar.gz',
+                            },
    'pulseaudio'             => {
-                             'ver' => '0.9.14',
+                             'ver' => '0.9.15',
                              'url' => 'http://0pointer.de/lennart/projects/pulseaudio',
                              'src' => 'tar.gz',
                             },

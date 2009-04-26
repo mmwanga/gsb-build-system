@@ -15,18 +15,18 @@ our $VERSION   = 0.03;
 
 our %bindings_gnome =
   (
-   'bakery'             => '2.6.2',
+   'bakery'             => '2.6.3',
    'gconfmm'            => '2.24.0',
-   'gnome-vfsmm'        => '2.24.0',
+   'gnome-vfsmm'        => '2.26.0',
    'libglademm'         => '2.6.7',
-   'libgnomecanvasmm'   => '2.23.1',
-   'libgnomemm'         => '2.24.0',
-   'libgnomeuimm'       => '2.24.0',
+   'libgnomecanvasmm'   => '2.26.0',
+   'libgnomemm'         => '2.26.0',
+   'libgnomeuimm'       => '2.26.0',
    'gtksourceviewmm'    => '2.2.0',
-   'gtkmm'              => '2.14.3',
-   'libxml++'           => '2.24.2',
-   'glibmm'             => '2.18.1',
-   'pangomm'            => '2.14.1',
+   'gtkmm'              => '2.16.0',
+   'libxml++'           => '2.26.0',
+   'glibmm'             => '2.20.0',
+   'pangomm'            => '2.24.0',
   );
 
   
@@ -34,7 +34,8 @@ our %bindings_ex =
   (
    'cairomm' => {
 	   #'ver' => '1.6.2',
-	   'ver' => '1.4.8',
+	   #'ver' => '1.4.8',
+	   'ver' => '1.8.0',
                  'url' => 'http://cairographics.org/releases',
                  'src' => 'tar.gz',
                 },
@@ -44,17 +45,17 @@ our %bindings_ex =
              'src' => 'tar.bz2',
                   },
    'pysqlite' => {
-                 'ver' => '2.5.0a',
-                 'url' => 'http://oss.itsystementwicklung.de/download/pysqlite/2.5/2.5.0',
+                 'ver' => '2.5.5',
+                 'url' => 'http://oss.itsystementwicklung.de/download/pysqlite/2.5/2.5.5',
                  'src' => 'tar.gz',
                 },
    'pyalsaaudio' => {
-                 'ver' => '0.3',
+                 'ver' => '0.5',
                  'url' => 'http://mesh.dl.sourceforge.net/pyalsaaudio',
                  'src' => 'tar.gz',
                 },
    'pyxdg'  => {
-                           'ver' => '0.16',
+                           'ver' => '0.17',
                            'url' => 'http://www.freedesktop.org/~lanius',
                            'src' => 'tar.gz',
                           },

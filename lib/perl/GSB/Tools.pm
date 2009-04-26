@@ -16,16 +16,16 @@ our %tools =
   (
    'scons'    => {
              'url' => 'http://mesh.dl.sourceforge.net/sourceforge/scons/',
-             'ver' => '1.1.0',
+             'ver' => '1.2.0',
 			 'dir' => 'tools/scons',
-			 'tar' => 'scons-1.1.0.tar.gz',
+			 'tar' => 'scons-1.2.0.tar.gz',
              'var' => 'VERSION',
                   },
    'boost-jam'    => {
              'url' => 'http://mesh.dl.sourceforge.net/sourceforge/boost',
-             'ver' => '3.1.16',
+             'ver' => '3.1.17',
 			 'dir' => 'tools/boost-jam',
-			 'tar' => 'boost-jam-3.1.16.tgz',
+			 'tar' => 'boost-jam-3.1.17.tgz',
              'var' => 'VERSION',
                   },
    'cabextract'           => {
@@ -37,18 +37,18 @@ our %tools =
              'var' => 'VERSION',
 			     },
    'setuptools'           => {
-			 'ver' => '0.6c8',
+			 'ver' => '0.6c9',
 			 'url' => 'http://pypi.python.org/packages/source/s/setuptools',
 			 'dir' => 'tools/setuptools',
-			 'tar' => 'setuptools-0.6c8.tar.gz',
+			 'tar' => 'setuptools-0.6c9.tar.gz',
 			 'src' => 'tar.gz',
              'var' => 'VERSION',
 			     },
     'slapt-get'           => {
-			 'ver' => '0.9.12e',
+			 'ver' => '0.10.1',
 			 'url' => 'http://software.jaos.org/source/slapt-get/',
 			 'dir' => 'tools/slapt-get',
-			 'tar' => 'slapt-get-0.9.12e.tar.gz',
+			 'tar' => 'slapt-get-0.10.1.tar.gz',
 			 'src' => 'tar.gz',
              'var' => 'VERSION',
 			     },

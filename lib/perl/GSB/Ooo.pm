@@ -147,13 +147,6 @@ our %ooo_packages =
 	     'tar' => 'Archive-Zip-1.23.tar.gz',
              'var' => 'VERSION',
                   },
- 'openclipart'    => {
-             'ver' => '0.18',
-	     'dir' => 'ooo/openclipart',
-             'url' => 'http://openclipart.org/downloads/0.18',
-	     'tar' => 'openclipart-0.18-svgonly.tar.bz2',
-             'var' => 'VERSION',
-                 },
   'ooo-build'    => {
              'ver' => '2.4.1.10',
 	     'dir' => 'ooo/openoffice',

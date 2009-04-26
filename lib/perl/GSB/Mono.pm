@@ -15,26 +15,26 @@ our $VERSION   = 0.01;
 
 our %mono_gnome =
   (
-   'evolution-sharp' => '0.18.1',
-   'gtk-sharp'       => '2.12.7',
-   'gnome-sharp'     => '2.24.0',
-   'gnome-desktop-sharp'     => '2.24.0',
+   'evolution-sharp' => '0.20.0',
+   'gtk-sharp'       => '2.12.8',
+   'gnome-sharp'     => '2.24.1',
+   'gnome-desktop-sharp'     => '2.26.0',
    );
 
 our %mono=
   (
    'boo'        => {
-				'ver' => '0.8.2.2960',
+				'ver' => '0.9.0.3203-2',
 				'url' => 'http://dist.codehaus.org/boo/distributions',
 				'src' => 'tar.gz',
 			    },
-   'gecko-sharp'        => {
-				'ver' => '2.0-0.13',
-				'url' => 'http://go-mono.com/sources/gecko-sharp2/',
-				'src' => 'tar.bz2',
-			    },
+			    #'gecko-sharp'        => {
+			    #'ver' => '2.0-0.13',
+			    #'url' => 'http://go-mono.com/sources/gecko-sharp2/',
+			    #'src' => 'tar.bz2',
+			    #},
    'gluezilla'        => {
-				'ver' => '2.0',
+				'ver' => '2.4',
 				'url' => 'http://ftp.novell.com/pub/mono/sources/gluezilla',
 				'src' => 'tar.bz2',
 			    },
@@ -49,7 +49,7 @@ our %mono=
 				 'src' => 'tar.bz2',
 				},
    'libgdiplus'             => {
-				'ver' => '2.0',
+				'ver' => '2.4',
 				'url' => 'http://go-mono.com/sources/libgdiplus/',
 				'src' => 'tar.bz2',
 			       },
@@ -59,27 +59,27 @@ our %mono=
 		    'src'  => 'tar.bz2',
 		   },
    'ipod-sharp'             => {
-				'ver' => '0.8.1',
+				'ver' => '0.8.2',
 				'url' => 'http://banshee-project.org/files/ipod-sharp',
 				'src' => 'tar.gz',
 			       },
    'mono'                   => {
-				'ver' => '2.0.1',
+				'ver' => '2.4',
 				'url' => 'http://go-mono.com/sources/mono/',
 				'src' => 'tar.bz2',
 			       },
    'mono-addins'            => {
-				'ver' => '0.3.1',
+				'ver' => '0.4',
 				'url' => 'http://go-mono.com/sources/mono-addins/',
 				'src' => 'tar.bz2',
 			       },
-   'monodoc'                => {
-				'ver' => '2.0',
-				'url' => 'http://go-mono.com/sources/monodoc',
-				'src' => 'zip',
-			       },
+			       #'monodoc'                => {
+			       #'ver' => '2.0',
+			       #'url' => 'http://go-mono.com/sources/monodoc',
+			       #'src' => 'zip',
+			       #},
    'mono-zeroconf'            => {
-		'ver' => '0.7.6',
+		'ver' => '0.8.0',
 		'url' => 'http://banshee-project.org/files/mono-zeroconf',
 		'src' => 'tar.bz2',
 			       },
@@ -99,9 +99,9 @@ our %mono=
 				'src' => 'tar.gz',
 			       },
    'taglib-sharp'                => {
-				'ver' => '2.0.3.0',
-				'url' => 'http://www.taglib-sharp.com/Download',
-				'src' => 'tar.gz',
+				'ver' => '2.0.3.2',
+				'url' => 'http://download.banshee-project.org/taglib-sharp/2.0.3.2/',
+				'src' => 'tar.bz2',
 			       },
   );
 
@@ -109,9 +109,9 @@ our %mono_diff_naming =
   (
    'avahi-sharp'  => {
              'url' => 'http://avahi.org/download',
-             'ver' => '0.6.24',
+             'ver' => '0.6.25',
              'dir' => 'mono/avahi-sharp',
-             'tar' => 'avahi-0.6.24.tar.gz',
+             'tar' => 'avahi-0.6.25.tar.gz',
              'var' => 'VERSION',
                         },
    'gmime-sharp' => {

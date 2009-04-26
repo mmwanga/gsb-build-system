@@ -13,7 +13,7 @@ our $VERSION   = 0.03;
 # src/administration from GNOME
 our %administration_gnome =
   (
-   'pessulus'            => '2.24.0',
+   'pessulus'            => '2.26.1',
    'sabayon'             => '2.22.1',
   );
 
@@ -21,7 +21,7 @@ our %administration_gnome =
 our %administration =
   (
    'gparted'    => {
-                 'ver' => '0.4.1',
+                 'ver' => '0.4.4',
                  'url' => 'http://mesh.dl.sourceforge.net/sourceforge/gparted',
                  'src' => 'tar.bz2',
                 },
@@ -37,17 +37,17 @@ our %administration =
                             },
    'gslapt'    => {
              'url' => 'http://software.jaos.org/source/gslapt',
-             'ver' => '0.4.0',
+             'ver' => '0.5.1',
              'src' => 'tar.gz',
                   },
    'pybackpack'         => {
 	 'url' => 'http://andrewprice.me.uk/projects/pybackpack/download/',
-	 'ver' => '0.5.4',
+	 'ver' => '0.5.6',
 	 'src' => 'tar.gz',
 		},
    'rdiff-backup'         => {
 		 'url' => 'http://savannah.nongnu.org/download/rdiff-backup',
-		 'ver' => '1.2.0',
+		 'ver' => '1.2.8',
 		 'src' => 'tar.gz',
 		},
    'librsync'    => {
