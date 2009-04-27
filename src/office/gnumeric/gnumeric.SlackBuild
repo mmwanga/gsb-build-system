@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=4
-VERSION=1.8.3
+BUILD=1
+VERSION=1.8.4
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libbonoboui libgsf goffice gtk+2 glib2 libgda pango cairo libgnome libgnomeui python perl pygtk libgnomedb libglade libgnomeprintui ORBit2 libgail-gnome"
+REQUIRED_PACKAGES="libbonoboui libgsf goffice gtk+2 glib2 libgda-compat pango cairo libgnome libgnomeui python perl pygtk libgnomedb libglade libgnomeprintui ORBit2 libgail-gnome"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

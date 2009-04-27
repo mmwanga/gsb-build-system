@@ -22,7 +22,5 @@ freetype
 libgnomeprintui
 pango
 cairo
-libgnomedb
-libgda
 gnome-scan
 wv

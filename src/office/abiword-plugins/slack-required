@@ -4,6 +4,7 @@ boost
 gtk+2
 wv
 libxml2
+libgda-compat
 libgnomedb
-goffice
 gtkmathview
+libwpd

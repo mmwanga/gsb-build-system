@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.2.8
+VERSION=2.2.9
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -166,7 +166,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-sql \
   --with-ofx-prefix=/usr \
   --enable-hbci \
-  --with-aqbanking-dir=/usr \
   --disable-error-on-warning \
   || exit 1
 

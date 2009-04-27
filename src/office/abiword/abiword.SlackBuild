@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=4
-VERSION=2.6.4
+BUILD=1
+VERSION=2.6.8
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -161,7 +161,9 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 ## Configure.
 
 ## Configure AbiWord
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+CFLAGS="$(pkg-config --cflags libgnomeprint-2.2)" \
+LIBS="$(pkg-config --libs libgnomeprint-2.2)" \
+CFLAGS="$CFLAGS $TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
@@ -188,7 +190,7 @@ mv $PKG/usr/share/icons/abiword_48.png $PKG/usr/share/pixmaps/abiword.png
 rmdir $PKG/usr/share/icons
 sed -i 's@_48@@' $PKG/usr/share/applications/abiword.desktop
 sed -i 's@text/html;@@' $PKG/usr/share/applications/abiword.desktop
-chmod +x $PKG/usr/share/$PKGNAME-$VERSION/scripts/abw2html.pl
+#chmod +x $PKG/usr/share/$PKGNAME-$VERSION/scripts/abw2html.pl
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -211,7 +213,7 @@ chmod +x $PKG/usr/share/$PKGNAME-$VERSION/scripts/abw2html.pl
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+  COPYING COPYRIGHT.TXT CREDITS.TXT README.TXT \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION

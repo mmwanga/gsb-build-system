@@ -4,5 +4,4 @@ gamin
 db44
 openldap-client
 mysql
-sqlite
 postgresql

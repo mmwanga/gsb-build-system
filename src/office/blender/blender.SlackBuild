@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.48a
 
 ## List any packages here that are required to build this package.
@@ -158,10 +158,19 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 ## Set lib for non x86_64 platforms
 GSB_LIBDIR=${GSB_LIBDIR:-"lib"}
 
-## Build 
-echo "BF_OPENAL_LIB = 'openal alut'" > user-config.py;
+# Basic config
+echo "BF_OPENAL_LIB='openal alut'" > user-config.py;
 echo BF_PYTHON_VERSION=\"$(python -V 2>&1 | cut -d" " -f 2 | cut -d"." -f 1-2)\" >> user-config.py;
+
+## Build 
 scons ${MAKE_FLAGS} BF_DEBUG=0 \
+  BF_DEBUG=0 \
+  WITH_BF_GAMEENGINE=true \
+  WITH_BF_PLAYER=true \
+  WITH_BF_VERSE=yes \
+  BF_QUIET=0 \
+  WITH_BF_SDL=true \
+  WITH_BF_OPENEXR=true \
   BF_INSTALLDIR=$PKG/usr/blender \
   || exit 1
 

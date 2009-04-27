@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.24.0
+VERSION=2.25.3
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="pygtk python glib2 gtk+2 gnome-python gtkhtml libgda libgnomeui mozilla-xulrunner"
+REQUIRED_PACKAGES="pygtk python glib2 gtk+2 gnome-python gtkhtml libgda-compat libgnomeui mozilla-xulrunner"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

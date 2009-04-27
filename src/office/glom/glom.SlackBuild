@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=1.8.4
+VERSION=1.10.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomedb bakery pygtk gtk+2 python gtksourceview2 iso-codes libgdamm gnome-python-extras avahi cairomm libepc gtksourceviewmm"
+REQUIRED_PACKAGES="libgnomedb bakery pygtk gtk+2 python gtksourceview2 iso-codes libgdamm libgda gnome-python-extras avahi cairomm libepc gtksourceviewmm"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

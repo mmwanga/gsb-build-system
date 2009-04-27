@@ -4,7 +4,7 @@ glib2
 gtk+2
 gnome-python
 gtkhtml
-libgda
+libgda-compat
 libgnomeui
 mozilla-xulrunner
 libgtkhtml

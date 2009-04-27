@@ -19,4 +19,4 @@ function install_file() {
   fi
 }
 
-install_file etc/libgda-3.0/config.new
+install_file etc/libgda-4.0/config.new

@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=5
-VERSION=3.0.4
+BUILD=1
+VERSION=4.0.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -161,6 +161,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static --enable-shared \
   --with-mysql=/usr/bin \
   --with-postgres=/usr/bin \
+  --disable-debug \
   || exit 1
 
 ## Build and install.
@@ -174,7 +175,8 @@ do
 done;
 
 ## Preserve files
-mv $PKG/etc/libgda-3.0/config $PKG/etc/libgda-3.0/config.new || exit 1
+mv $PKG/etc/libgda-4.0/config $PKG/etc/libgda-4.0/config.new || exit 1
+rm -fr $PKG/etc/libgda-4.0/sales_test.db
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=3
-VERSION=2.3.3
+BUILD=1
+VERSION=3.8.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -167,8 +167,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-qt3 \
   --disable-python \
   --enable-libofx \
-  --with-backends="aqhbci aqdtaus" \
-  --with-frontends="cbanking g2banking" \
+  --with-backends="aqhbci aqnone aqofxconnect" \
+  --with-frontends="" \
   || exit 1
 
 ## Build and install.
@@ -195,11 +195,14 @@ make DESTDIR=$PKG install || exit 1
 
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
+mv $PKG/usr/share/doc/aqhbci/aqhbci-tool/README $PKG/usr/doc/$PKGNAME-$VERSION/README.aqhbci-tool
 cp -a \
   AUTHORS COPYING* ChangeLog NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
+## Clean up extraneous doc dir
+rm -fr $PKG/usr/share/doc
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
