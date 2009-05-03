@@ -1,11 +1,11 @@
-# THIS IS THE REQUIRED PACKAGES LIST FOR GSB GNOME 2.24.3
+# THIS IS THE REQUIRED PACKAGES LIST FOR GSB GNOME 2.26.1
 #
 # The following is a list of packages that must replace official 
 # Slackware packages.
 #
 # Packages listed under 'Required' are Slackware packages that must be 
 # replaced by corresponding GNOME SlackBuild versions in order to use 
-# GNOME 2.24.3 on Slackware 12.2. Reasons for their replacement are 
+# GNOME 2.26.1 on Slackware 12.2. Reasons for their replacement are 
 # given within brackets.
 #
 # Packages listed under 'Optional' are packages which replace official 
@@ -17,30 +17,36 @@
 #
 
 ***********************************************
-Slackware 12.2 is required to run GNOME 2.24.3
+Slackware 12.2 is required to run GNOME 2.26.1
 ***********************************************
 
--- Required Package Replacements for GNOME 2.24.3 on Slackware 12.2 --
+-- Required Package Replacements for GNOME 2.26.1 on Slackware 12.2 --
 
-cairo:            ( > 1.6  required by gtk+2 > 2.14)
-glib2:            ( > 2.18 required by libgnome 2.24, gvfs 1.0.1, 
-                      nautilus 2.24.0, etc.)
-gtk+2:            ( > 2.14 required by libgnome 2.24, gvfs 1.0.1, 
-                      gnome-panel 2.24.0, etc.)
-libwnck:          ( > 2.24 required by Metacity 2.24, and GNOME 2.24)
-poppler:          ( > 0.9.3 required by newer cairo, as well as Evince 2.24.0)
-                    Note: These still contain Qt bindings for KDE 
-                    compatibility.
+alsa-lib:         ( > 1.0.19 required by pulseaudio 0.9.15, libcanberra, and 
+                      gnome-control-center)
+bluez:            ( > 4.2 bluez replaces bluez-utils/libs, required for gvfs
+                    support for Bluetooth, and other GNOME 2.26 bluetooth userspace
+                    applications)
+cairo:            ( > 1.8  required by Evince 2.26)
+glib2:            ( > 2.20 required by libgnome 2.26, gvfs 1.2.2, 
+                      nautilus 2.26, etc.)
+gtk+2:            ( > 2.16 required by libgnome 2.26, gvfs 1.2.2, 
+                      gnome-panel 2.26.0, etc.)
+libwnck:          ( > 2.26 required by Metacity 2.26, and GNOME 2.26)
+poppler:          ( > 0.10 required by newer cairo, as well as Evince 2.26)
+                    Note: These still contain Qt bindings for KDE compatibility.
 
 -- Recommended Replacements --
 
-vte:              ( > 0.17 required by gnome-terminal)
-gst-plugins-base  ( > 0.10.21 rebuilt against gvfs/gnomevfs)
+vte:              ( > 0.20 required by gnome-terminal)
+gstreamer         ( > 0.10.22 rebuild required to enable gvfs)
+gst-plugins-base  ( > 0.10.22 rebuild against gvfs/gnomevfs)
 libgsf:           ( Slackware's libgsf lacks GNOME support; required 
                     for GNOME Office applications like Gnumeric)
 gnome-icon-theme  ( We offer an updated gnome-icon-theme package; 
                     better icons, and a rather trivial replacement.   
                     Update recommended.)
+libgpod           ( > 0.7.2 used by the newer gtkpod, and gnome-mplayer)
 
 -- Optional Replacements --
 

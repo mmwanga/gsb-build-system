@@ -14,15 +14,15 @@ Then, you grep for the package it came from. Note that the leading '/'
 is removed:
 
 [stevek@computy:~]$ grep usr/bin/nautilus /var/log/packages/* 
-/var/log/packages/nautilus-2.24.0-i586-1gsb:usr/bin/nautilus 
-/var/log/packages/nautilus-2.24.0-i586-1gsb:usr/bin/nautilus-connect-server 
-/var/log/packages/nautilus-2.24.0-i586-1gsb:usr/bin/nautilus-autorun-software 
-/var/log/packages/nautilus-2.24.0-i586-1gsb:usr/bin/nautilus-file-management-properties 
-/var/log/packages/nautilus-cd-burner-2.24.0-i586-1gsb:usr/bin/nautilus-cd-burner 
+/var/log/packages/nautilus-2.26.1-i586-1gsb:usr/bin/nautilus 
+/var/log/packages/nautilus-2.26.1-i586-1gsb:usr/bin/nautilus-connect-server 
+/var/log/packages/nautilus-2.26.1-i586-1gsb:usr/bin/nautilus-autorun-software 
+/var/log/packages/nautilus-2.26.1-i586-1gsb:usr/bin/nautilus-file-management-properties 
+/var/log/packages/nautilus-cd-burner-2.26.1-i586-1gsb:usr/bin/nautilus-cd-burner 
 /var/log/packages/nautilus-sendto-1.1.0-i586-1gsb:usr/bin/nautilus-sendto
 
 From this, you can see that 'nautilus' came from the 
-nautilus-2.24.0-i586-1gsb package. The source will be found in a 
+nautilus-2.26.1-i586-1gsb package. The source will be found in a 
 corresponding subdirectory.  In this case, that would be 
 ./desktop/nautilus.
 

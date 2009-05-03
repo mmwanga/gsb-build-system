@@ -1,71 +1,41 @@
 This file documents the instructions for upgrading to GNOME SlackBuild 
-2.24.3, and any packages added, removed, renamed, and/or split during 
-the development cycle from GSB 2.22.3 through 2.24.3, and some potential 
+2.26.1, and any packages added, removed, renamed, and/or split during 
+the development cycle from GSB 2.24.3 through 2.26.1, and some potential 
 "gotchas" that users can avoid by arming themselves with a little 
 knowledge.
 
-*** PACKAGE ADDITIONS SINCE 2.22.3 ***
+*** PACKAGE ADDITIONS SINCE 2.24.3 ***
 
-libraries/pango: Added.
-libraries/libmpeg3: Added.
-bindings/gtksourceviewmm: Added.
-libraries/ptlib: Added.
-application/simplejson: Added.
-applications/goocanvasmm: Added.
-libraries/libdvdnav: Added.
-libraries/vte: Added.
-print/gpp: Added.
-applications/evolution-rss: Added.
-media/gnome-mplayer: Added.
-media/soundconverter: Added.
-mono/boo: Added.
-mono/gluezilla: Added.
-devel/vala: Added.
-devel/accerciser: Added.
-devel/nemiver: Added.
-print/hal-cups-utils: Added.
-applications/webkit: Added.
-libraries/libicu: Added.
-applications/seahorse-plugins: Added.
-applications/hamster-applet: Added.
-bindings/pangomm: Added.
-platform/nss-mdns: Added.
-libraries/gtk+2: Added.
-libraries/cairo: Added.
-libraries/libjasper: Added.
-libraries/libcanberra: Added.
-desktop/alsa-lib: Added.
-libraries/dbus-glib: Added.
-platform/policykit: Added.
-platform/policykit-gnome: Added.
-libraries/libunique: Added.
-platform/gnome-icon-theme: Added.
-themes/ttf-liberation-fonts: Added.
-mono/notify-sharp: Added.
+media/libgpod: Added. (Newer version required.)
+libraries/alsa-lib: Added. (Required by newer pulseaudio)
+desktop/libical: Added.
+libraries/libtool-compat: Added.  (This provides libltdl.so.7 for pulseaudio
+                                   libcanberra, and gnome-control-panel.)
+office/libgda-compat: Added.  (Provides the older libgda3 for some gnome applications
+                               which haven't yet made the switch to the newer API)
+networking/telepathy-farsight: Added.  (For Empathy to use farsight2)
 
-*** PACKAGE REMOVALS SINCE 2.22.3 ***
+*** PACKAGE REMOVALS SINCE 2.24.3 ***
 
-libraries/gtkunique: Removed.
-libraries/pwlib: Removed.
-bindings/libgtksourceviewmm: Removed.
-media/wxGTK: Removed.
-accessibility/gnopernicus: Removed.
-administration/system-tools-backends: Removed.
-administration/liboobs: Removed.
-administration/gnome-system-tools: Removed.
-desktop/gst-pulse: Removed.
-platform/gnome-keyring-manager: Removed.
+mono/monodoc: Removed. (Obsoleted by mono-tools)
+networking/farsight: Removed. (Obsoleted by farsight2)
+networking/gst-plugins-farsight: Removed. (Obsoleted by farsight2)
+ooo/openoffice: Removed.  (We've now moved fully to the new stable Oo.org3.
 
 Slackware 12.2 has added numerous packages as well that supplant older 
-GSB packages. Please see SLACKWARE-12.2_CONFLICTS.TXT for more details.
+GSB packages. If you were running an older version of GSB and now upgrading,
+Please see SLACKWARE-12.2_CONFLICTS.TXT for more details.
 
 *** OTHER NOTABLE CHANGES AND HINTS ***
 
-- Someone pointed out that we were using the development version of 
-Liferea and not the stable version.  Oops.  So we reverted to the stable 
-version.  However, slapt-get will not change the package because of the 
-higher version of the devel package.  You may want to removepkg liferea 
-and install the "stable" version.
+- Slackware 12.2's newer dbus package has a stricter security model.  Avahi now
+supplies a separate /etc/dbus-1/system-local.conf file which enables signal sending.
+This shouldn't be a major security issue, but users should be aware that when installing
+the GSB avahi package, the dbus security model does open up slightly. 
+
+- PolicyKit and ConsoleKit have been rigourously revamped.  Be sure to install any
+".new" files in your /etc (`find . -name "*.new"`) and either overwrite your old
+settings, or incorporate the new configurations.  Otherwise, things may go wrong. 
 
 - If NetworkManager is running, but unused, Firefox will try to detect 
 an available connection and start up in offline mode (annoyingly).  You 
@@ -76,14 +46,6 @@ it.
 .local/share/gnome-do/plugins, and will consequently not use the 
 recompiled dlls and may fail on start up.  If this occurs, simply 
 remove the .local copy and restart Gnome-Do.
-
-- Make sure to remove system-tools-backends, liboobs, and 
-gnome-system-tools.  They are rather broken in Slackware, and so we have 
-removed them from GSB.  It looks doubtful whether they will re-enter at 
-a later date.  For the time being, users are encouraged to use the 
-command-line utilities that come with Slackware for system maintenance. 
-We will try to offer a package which will put some icons in the GNOME 
-system menu for these utilities.  
 
 - Before upgrading your previous GSB installation, make sure to remove 
 all the "removed" packages (listed above) from your system before 
@@ -106,13 +68,12 @@ your /etc/ld.so.conf and re-run ldconfig.
 are configured and built as closely as possible to how Patrick does it.  
 However, we could not avoid this time around replacing some major 
 software.  For more information about what needs to be replaced, and 
-why, please see our 'REPLACED_PACKAGES.TXT'.  
+why, please see our 'SLACKWARE-12.2_REPLACED_PACKAGES.TXT'.  
 
 - Poppler needed to be replaced unfortunately, but we have rebuilt it 
 with Qt bindings enabled to avoid breaking any KDE compatability.
 
-- Our Boost C++ libraries are built against libICU and with the 
-official HotFix patches.
+- Our Boost C++ libraries are built against libICU.
 
 - GSB now comes with PolicyKit/ConsoleKit support.  We have included a 
 default /etc/PolicyKit/PolicyKit.conf file with basic USB pluggable 
@@ -127,8 +88,3 @@ such as the GNOME cpufreq applet.  For such things, it might be
 necessary to use polkit-gnome-authorization (run as root) and grant your 
 user the abilities to use applications configured to use PolicyKit 
 authorisations.
-
-- You will need to manually remove the NetworkManager-svn and
-network-manager-applet-svn packages before installing the shiny and
-newly released 0.7 versions.  Because of the name formatting, slapt-get
-will not automatically upgrade these packages.

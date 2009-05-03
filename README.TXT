@@ -1,38 +1,38 @@
 
-Welcome to GNOME SlackBuild 2.24.2!
+Welcome to GNOME SlackBuild 2.26.1!
 
-GNOME SlackBuild v2.22.2 is a complete GNOME Desktop Environment for 
-Slackware Linux v12.1, encompassing all the needed packages for a full, 
+GNOME SlackBuild v2.26.1 is a complete GNOME Desktop Environment for 
+Slackware Linux v12.2, encompassing all the needed packages for a full, 
 clean installation of GNOME for Slackware. It aims to provide a fully 
 functional desktop, including a wide range of multimedia, graphics, 
 and development tools, as well as a complete networking and office suite.  
 
-Here are some versions of major components of GNOME SlackBuild 2.24.2
+Here are some versions of major components of GNOME SlackBuild 2.26.1
 
-- Full GNOME Desktop     2.24.2
-	- Evolution      2.24.2
-	- NetworkManager 0.7.0
-- PulseAudio		 0.9.13
-- Mono C#		 2.0.1
-- OpenOffice.org         2.4.1.10
-- Compiz                 0.7.8
+- Full GNOME Desktop     2.26.1
+	- Evolution      2.26.1
+	- NetworkManager 0.7.1
+- PulseAudio		 0.9.15
+- Mono C#		 2.4
+- OpenOffice.org         3.0.1.2
+- Compiz                 0.8.3
 - GNOME Office
-	- Abiword        2.6.4 
+	- Abiword        2.6.8 
 	- Gnumeric       1.8.3
 
 For installation instructions, see the file 'INSTALL_GSB.TXT'
 
-For instructions to upgrade from GSB 2.22.3 and previous versions to 
-GSB 2.24.2, please see the 'UPGRADE.TXT'.  You would still be well 
+For instructions to upgrade from GSB 2.24.3 and previous versions to 
+GSB 2.26.1, please see the 'UPGRADE.TXT'.  You would still be well 
 advised to backup your machine first if it contains any important data.
 
-For details of important changes between GSB 2.22.3 and GSB 2.24.2, see 
+For details of important changes between GSB 2.24.3 and GSB 2.26.1, see 
 'CHANGES_AND_HINTS.TXT'.
 
 These are some of the important files and directories found on the GSB 
 FTP site:
 
- <ftp://ftp.slackware.org.uk/gsb/gsb-2.24/>
+ <ftp://ftp.slackware.org.uk/gsb/gsb-2.26/>
 
 .
 |-- BUILDING.TXT		Instructions on how to build GSB from scratch
@@ -41,8 +41,8 @@ FTP site:
 |-- COPYING3			The GNU Public License, version 3.
 |-- CREDITS			A brief list of those who help with the 
                                 GSB project.
-|-- ChangeLog.txt		Log of system changes from GSB 2.22.3 
-                                to GSB 2.24.0.
+|-- ChangeLog.txt		Log of system changes from GSB 2.24.3 
+                                to GSB 2.26.1.
 |-- FILELIST.TXT		List of files on the GSB FTP site.
 |-- INSTALL.TXT			Instructions on how to install GSB.
 |-- SLACKWARE-12.2_CONFLICTS.TXT
@@ -55,8 +55,8 @@ FTP site:
 	                        Packages in GSB that will replace 
                                 standard Slackware packages.
 |-- README.TXT			This file.
-|-- UPGRADE.TXT			Instructions on how to upgrade from GSB 2.22.3.
-|-- VERSIONS			Target versions for GSB 2.24.0.
+|-- UPGRADE.TXT			Instructions on how to upgrade from GSB 2.24.3.
+|-- VERSIONS			Target versions for GSB 2.26.1.
 |
 |-- extra/			This directory contains extra packages 
 |   |                           for GSB like mozilla-firefox, and pidgin 
@@ -68,7 +68,7 @@ FTP site:
 |   `-- packages/		Contains the *.tgz packages.
 |
 |-- gsb/			This directory contains all the 
-|   |                           software you will need for GSB 2.24.0.
+|   |                           software you will need for GSB 2.26.1.
 |   `-- packages
 |       |-- accessibility	Packages for accesibility in GNOME.
 |       |-- administration	Packages for system administration.
@@ -81,7 +81,7 @@ FTP site:
 |       |                       various dependencies.
 |       |-- media		Audio and video applications for GNOME.
 |       |-- metapackages	Our handy metapackages for easy installation.
-|       |-- mono		Mono C# 2.0 packages.
+|       |-- mono		Mono C# 2.2 packages.
 |       |-- networking		Useful set of networking applications for GNOME.
 |       |-- office		GNOME Office.
 |       |-- ooo			OpenOffice.org 2.4.1.10.

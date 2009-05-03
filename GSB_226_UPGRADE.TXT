@@ -1,0 +1,35 @@
+If you are install GSB 2.26.1 fresh on a Slackware 12.2 machine, then
+follow these instructions.  
+
+If you were running GSB 2.24.3 on Slackware 12.2, and now upgrading to 
+GSB 2.26.1, then please follow these instruction to ensure an easy upgrade.
+
+
+1.  Switch your slapt-get SOURCE= line to point to the new gsb-2.26 directory
+    on a server near you.  Rerun `slapt-get --update` to update your 
+    repository information with the latest package info.
+
+2.  Read the SLACKWARE-12.2_REPLACED_PACKAGES.TXT for information about which
+    standard Slackware packages will be replaced by GSB versions.
+    You may also want to read the 'CHANGES_AND_HINTS.TXT' before upgrading.
+
+3.  Remove the following obsoleted packages:
+
+    # removepkg bluez-lib bluez-utils monodoc gst-plugins-farsight farsight 
+
+4.  It's recommended your install a smaller gsb-desktop for a fresh install:
+
+    # slapt-get --install gsb-desktop 
+
+    If you are upgrading, then you can run:
+
+    # slapt-get --upgrade 
+
+5.  Examine new configuration files.  
+
+    # find /etc -name "*.new"
+
+    Make sure you are using the latest avahi, dbus, PolicyKit, and ConsoleKit
+    configuration files.  Otherwise, things may break. 
+
+6.  Reboot. 

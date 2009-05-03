@@ -1,23 +1,27 @@
-This document explains how to upgrade from GNOME SlackBuild 2.22.3 to 
-GSB 2.24.3
+This document explains how to upgrade from GNOME SlackBuild 2.24.3 to 
+GSB 2.26.1
 ----------------------------------------------------------------------------
 
-For details of important changes from GSB 2.22.3 to 2.24.3, see the 
+For details of important changes from GSB 2.24.3 to 2.26.1, see the 
 file 'CHANGES_AND_HINTS.TXT'.  
 
-** IMPORTANT NOTE **
+For detail on how Slackware 12.2 GSB 2.24.3 users should upgrade, 
+please see the 'GSB_226_UPGRADE.TXT'.
+
+** IMPORTANT NOTE FOR UPGRADED 12.1 USERS **
   If you have upgraded from Slackware 12.1 to Slackware 12.2, please 
 make sure to replace all the GSB packages listed in 
 SLACKWARE_CONFLICTS.TXT with their Slackware 12.2 equivalent.
 **
 
-** SECOND IMPORTANT NOTE **
-  Packages have been fully rebuilt for Slackware 12.2.  Be sure to 
-replace all your old GSB packages.  You may want to run a: 
+** SECOND IMPORTANT NOTE FOR PREVIOUS SLACKWARE 12.1 USERS **
+  All GSB packages have been fully rebuilt for Slackware 12.2. If you have 
+upgraded from Slackware 12.1, and have not upgraded your earlier
+GSB packages, you must now be sure to do so.  You may want to run a: 
     
 $ slapt-get --install --reinstall /var/log/packages/*gsb 
 
-  to ensure you are running the latest built packages.
+  to ensure you are running all the latest built packages.
 **
 
 Before you begin, we would strongly recommend making a backup of your 
@@ -73,7 +77,7 @@ A. Slapt-get
     A reboot is recommended.  Dbus, and other servies should be 
     restarted, and icon caches remade.  If you want to use GDM, you'll 
     need to edit your /etc/inittab to start in run level 4.  At this 
-    point you should be running GNOME SlackBuild 2.24.3.
+    point you should be running GNOME SlackBuild 2.26.1.
 
 7.  xwmconfig
 
@@ -86,7 +90,7 @@ A. Slapt-get
 B. Local copy of the packages
 ------------------------------
 
-To do this, you'll need the GNOME SlackBuild 2.24.3 packages.  The 
+To do this, you'll need the GNOME SlackBuild 2.26.1 packages.  The 
 packages don't have to be on a CD-ROM, as an alternative you could copy 
 the slackware directory (the one with the various package 
 subdirectories in it, basically the "gsb" directory from the ftp site) to 
@@ -122,7 +126,7 @@ examples.
     A reboot is recommended.  Dbus, and other servies should be 
     restarted, and icon caches remade.  If you want to use GDM, you'll 
     need to edit your /etc/inittab to start in run level 4.  At this 
-    point you should be running GNOME SlackBuild 2.24.3.
+    point you should be running GNOME SlackBuild 2.26.1.
 
 6.  xwmconfig
 
@@ -131,7 +135,7 @@ examples.
     card, try xinitrc.gnome-compiz to run GNOME with Compiz-Fusion as a 
     window manager.
 
-At this point you should be running GNOME SlackBuild 2.24.3.
+At this point you should be running GNOME SlackBuild 2.26.1.
 
 Good luck!
 

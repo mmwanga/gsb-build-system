@@ -1,7 +1,7 @@
 Written by, and Copyright (c) 2007, 2008:
    Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>, Coventry, UK.
 
-		 HOW TO INSTALL GSB: GNOME SlackBuild 2.24.0
+		 HOW TO INSTALL GSB: GNOME SlackBuild 2.26.1
                     =======================================
 
 GNOME SlackBuild (GSB) has two components; a full and complete system to build
@@ -156,10 +156,10 @@ system there is no reason to replace that version with ours before installation,
 but during the GSB installation process it will be automatically updated to our
 provided version.
 
-Download slapt-get for Slackware 12.1 from:
+Download slapt-get for Slackware 12.2 from:
   <http://get.gnomeslackbuild.org/gsb/gsb-stable/packages/tools/>
 
-Download slapt-get for Slamd64 12.1 from:
+Download slapt-get for Slamd64 12.2 from:
   <http://get.gnomeslackbuild.org/gsb/gsb64-stable/packages/tools/>
 
 And use the following command to install:
@@ -396,14 +396,14 @@ The following is a list of mirrors from which to download GSB.  Any of the
 mirrors can be used in slapt-get and each is synced with the master server at
 least once per day.
 
-For the IA32 (i586, i686 et al) version of GSB for Slackware 12.1:
+For the IA32 (i586, i686 et al) version of GSB for Slackware 12.2:
   <ftp://ftp.slackware.org.uk/gsb/gsb-2.22/>
   <http://www.slackware.org.uk/gsb/gsb-2.22/>
   <ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-2.22/>
   <http://slackware.rol.ru/gsb/gsb/gsb-2.22/>
   <http://get.gnomeslackbuild.org/gsb/gsb-2.22/>
 
-For the x86_64 (opteron, athlon64, et al) version of GSB for Slamd64 12.1:
+For the x86_64 (opteron, athlon64, et al) version of GSB for Slamd64 12.2:
   <ftp://ftp.slackware.org.uk/gsb64/gsb64-2.22/>
   <http://www.slackware.org.uk/gsb64/gsb64-2.22/>
   <ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb64/gsb64-2.22/>
@@ -420,36 +420,36 @@ have been manually checked to insure they are alive and up to date, but we
 cannot guarantee how often they update or how long they will be available.
 You can, of course, use your own favourite Slackware/Slamd64 mirror instead.
 
-Slackware 12.1 mirrors:
-  <ftp://ftp.slackware.at/slackware-12.1/>
-  <http://www.slackware.at/data/slackware-12.1/>
-  <ftp://ftp.slackware.org.uk/slackware/slackware-12.1/>
-  <http://www.slackware.org.uk/slackware/slackware-12.1/>
-  <ftp://slackware.oregonstate.edu/pub/slackware/slackware-12.1/>
-  <http://slackware.oregonstate.edu/slackware-12.1/>
-  <ftp://mirror.switch.ch/mirror/slackware/slackware-12.1/>
-  <http://mirror.switch.ch/ftp/mirror/slackware/slackware-12.1/>
-  <ftp://distro.ibiblio.org/pub/linux/distributions/slackware/slackware-12.1/>
-  <http://distro.ibiblio.org/pub/linux/distributions/slackware/slackware-12.1/>
-  <ftp://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-12.1/>
-  <http://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-12.1/>
-  <ftp://slackware.mirrors.tds.net/pub/slackware/slackware-12.1/>
-  <ftp://ftp.slackware.no/pub/linux/slackware/slackware-12.1/>
-  <http://slackware.rol.ru/slackware/slackware-12.1/>
+Slackware 12.2 mirrors:
+  <ftp://ftp.slackware.at/slackware-12.2/>
+  <http://www.slackware.at/data/slackware-12.2/>
+  <ftp://ftp.slackware.org.uk/slackware/slackware-12.2/>
+  <http://www.slackware.org.uk/slackware/slackware-12.2/>
+  <ftp://slackware.oregonstate.edu/pub/slackware/slackware-12.2/>
+  <http://slackware.oregonstate.edu/slackware-12.2/>
+  <ftp://mirror.switch.ch/mirror/slackware/slackware-12.2/>
+  <http://mirror.switch.ch/ftp/mirror/slackware/slackware-12.2/>
+  <ftp://distro.ibiblio.org/pub/linux/distributions/slackware/slackware-12.2/>
+  <http://distro.ibiblio.org/pub/linux/distributions/slackware/slackware-12.2/>
+  <ftp://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-12.2/>
+  <http://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-12.2/>
+  <ftp://slackware.mirrors.tds.net/pub/slackware/slackware-12.2/>
+  <ftp://ftp.slackware.no/pub/linux/slackware/slackware-12.2/>
+  <http://slackware.rol.ru/slackware/slackware-12.2/>
 
-Slamd64 12.1 mirrors:
-  <ftp://ftp.slackware.pl/pub/slamd64/slamd64-12.1/>
-  <http://ftp.slackware.pl/pub/slamd64/slamd64-12.1/>
-  <ftp://anorien.warwick.ac.uk/slamd64/slamd64-12.1/>
-  <http://anorien.warwick.ac.uk/mirrors/slamd64/slamd64-12.1/>
-  <ftp://ftp.scarlet.be/pub/slamd64/slamd64-12.1/>
-  <http://ftp.scarlet.be/pub/slamd64/slamd64-12.1/>
-  <ftp://ftp.heanet.ie/pub/slamd64/slamd64-12.1/>
-  <http://ftp.heanet.ie/pub/slamd64/slamd64-12.1/>
-  <ftp://slamd64.wahlfaelschung.de/slamd64-12.1/>
-  <http://slamd64.wahlfaelschung.de/slamd64-12.1/>
-  <ftp://ftp.slackware.org.uk/slamd64/slamd64-12.1/>
-  <http://www.slackware.org.uk/slamd64/slamd64-12.1/>
+Slamd64 12.2 mirrors:
+  <ftp://ftp.slackware.pl/pub/slamd64/slamd64-12.2/>
+  <http://ftp.slackware.pl/pub/slamd64/slamd64-12.2/>
+  <ftp://anorien.warwick.ac.uk/slamd64/slamd64-12.2/>
+  <http://anorien.warwick.ac.uk/mirrors/slamd64/slamd64-12.2/>
+  <ftp://ftp.scarlet.be/pub/slamd64/slamd64-12.2/>
+  <http://ftp.scarlet.be/pub/slamd64/slamd64-12.2/>
+  <ftp://ftp.heanet.ie/pub/slamd64/slamd64-12.2/>
+  <http://ftp.heanet.ie/pub/slamd64/slamd64-12.2/>
+  <ftp://slamd64.wahlfaelschung.de/slamd64-12.2/>
+  <http://slamd64.wahlfaelschung.de/slamd64-12.2/>
+  <ftp://ftp.slackware.org.uk/slamd64/slamd64-12.2/>
+  <http://www.slackware.org.uk/slamd64/slamd64-12.2/>
 
 
 Appendix C - Meta packages and sets
