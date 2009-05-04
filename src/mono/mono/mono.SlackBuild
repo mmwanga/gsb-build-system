@@ -169,8 +169,6 @@ fi ;
   || exit 1
 
 ## Build and install.
-# force mono to use system libtool
-find $TMP/$PKGNAME-$VERSION -name libtool -exec ln -sf /usr/bin/libtool {} \; 
 make &&
 make DESTDIR=$PKG install || exit 1
 
