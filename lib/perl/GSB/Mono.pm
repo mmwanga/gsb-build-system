@@ -28,11 +28,11 @@ our %mono=
 				'url' => 'http://dist.codehaus.org/boo/distributions',
 				'src' => 'tar.gz',
 			    },
-			    #'gecko-sharp'        => {
-			    #'ver' => '2.0-0.13',
-			    #'url' => 'http://go-mono.com/sources/gecko-sharp2/',
-			    #'src' => 'tar.bz2',
-			    #},
+    'gecko-sharp'        => {
+			    'ver' => '2.0-0.13',
+			    'url' => 'http://go-mono.com/sources/gecko-sharp2/',
+			    'src' => 'tar.bz2',
+			    },
    'gluezilla'        => {
 				'ver' => '2.4',
 				'url' => 'http://ftp.novell.com/pub/mono/sources/gluezilla',

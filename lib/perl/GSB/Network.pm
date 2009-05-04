@@ -18,7 +18,7 @@ our %network_gnome =
    'ekiga'                  => '3.2.0',
    'empathy'	            => '2.26.1',
    'gnome-user-share'       => '2.26.0',
-   'gnome-phone-manager'    => '0.65',
+   'gnome-phone-manager'    => '0.60',
    'nautilus-sendto'        => '1.1.4.1',
    'NetworkManager'         => '0.7.1',
    'network-manager-applet' => '0.7.1',
@@ -32,7 +32,7 @@ our %network_external =
 		'src' => 'tar.bz2',
 		 },
    'deluge'     => {
-                 'ver' => '1.1.6',
+                 'ver' => '1.1.7',
                  'url' => 'http://download.deluge-torrent.org/source',
 		 'src' => 'tar.bz2',
                    },
@@ -53,7 +53,12 @@ our %network_external =
                 },
    'telepathy-glib'            => {
              'url' => 'http://telepathy.freedesktop.org/releases/telepathy-glib',
-             'ver' => '0.7.28',
+             'ver' => '0.7.29',
+             'src' => 'tar.gz'
+                        },
+   'telepathy-farsight'            => {
+             'url' => 'http://telepathy.freedesktop.org/releases/telepathy-farsight',
+             'ver' => '0.0.6',
              'src' => 'tar.gz'
                         },
    'libtelepathy'            => {
@@ -61,26 +66,36 @@ our %network_external =
              'ver' => '0.3.3',
              'src' => 'tar.gz'
                         },
-   'farsight'            => {
-             'url' => 'http://farsight.freedesktop.org/releases/farsight',
-             'ver' => '0.1.28',
+			#'farsight'            => {
+			#'url' => 'http://farsight.freedesktop.org/releases/farsight',
+			#'ver' => '0.1.28',
+			#'src' => 'tar.gz'
+			#},
+   'farsight2'            => {
+             'url' => 'http://farsight.freedesktop.org/releases/farsight2',
+             'ver' => '0.0.9',
              'src' => 'tar.gz'
                         },
-   'gst-plugins-farsight'            => {
-             'url' => 'http://farsight.freedesktop.org/releases/gst-plugins-farsight',
-             'ver' => '0.12.9',
+   'libnice'            => {
+             'url' => 'http://nice.freedesktop.org/releases',
+             'ver' => '0.0.6',
              'src' => 'tar.gz'
                         },
+			#'gst-plugins-farsight'            => {
+			#'url' => 'http://farsight.freedesktop.org/releases/gst-plugins-farsight',
+			#'ver' => '0.12.9',
+			#'src' => 'tar.gz'
+			#},
    'telepathy-butterfly'            => {
              'url' => 'http://telepathy.freedesktop.org/releases/telepathy-butterfly',
              'ver' => '0.3.3',
              'src' => 'tar.gz'
                         },
-   'pymsn'            => {
-             'url' => 'http://telepathy.freedesktop.org/releases/pymsn',
-             'ver' => '0.3.3',
-             'src' => 'tar.gz'
-                        },
+			#'pymsn'            => {
+			#'url' => 'http://telepathy.freedesktop.org/releases/pymsn',
+			#'ver' => '0.3.3',
+			#'src' => 'tar.gz'
+			#},
    'telepathy-salut'            => {
              'url' => 'http://telepathy.freedesktop.org/releases/telepathy-salut',
              'ver' => '0.3.9',
@@ -96,6 +111,16 @@ our %network_external =
              'ver' => '1.4.3',
              'src' => 'tar.bz2'
                         },
+			#'gupnp'            => {
+			#'url' => 'http://www.gupnp.org/sources/gupnp/',
+			#'ver' => '0.12.7',
+			#'src' => 'tar.gz'
+			#},
+			#'gsspd'            => {
+			#'url' => 'http://www.gupnp.org/sources/gsspd/',
+			#'ver' => '0.6.4',
+			#'src' => 'tar.gz'
+			#},
   );
 
 #

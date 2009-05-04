@@ -21,7 +21,7 @@ our %desktop =
    'bug-buddy'              => '2.26.0',
    'eel'                    => '2.26.0',
    'evince'                 => '2.26.1',
-   'evolution-data-server'  => '2.26.1',
+   'evolution-data-server'  => '2.26.1.1',
    'gconf-editor'           => '2.26.0',
    'gnome-applets'          => '2.26.1',
    'gnome-backgrounds'      => '2.24.1',
@@ -56,17 +56,12 @@ our %desktop =
    'nautilus-cd-burner'     => '2.24.0',
    'nautilus-open-terminal' => '0.9',
    'nautilus-image-converter' => '0.3.0',
-   'totem-pl-parser'         => '2.26.1',
+   'totem-pl-parser'         => '2.26.2',
    'zenity'                  => '2.26.0',
    );
 
 our %desktop_nongnome =
   (
-   'bluez'   => {
-                           'ver' => '4.37',
-                           'url' => 'http://www.kernel.org/pub/linux/bluetooth',
-                           'src' => 'tar.gz',
-                          },
    'gnome-mount'   => {
                            'ver' => '0.8',
                            'url' => 'http://hal.freedesktop.org/releases',

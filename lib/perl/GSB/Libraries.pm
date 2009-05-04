@@ -120,11 +120,6 @@ our %libraries =
 			   'url' => 'http://users.musicbrainz.org/~matt',
 			   'src' => 'tar.gz',
 			  },
-   'libtool'           => {
-                             'ver' => '2.2.6a',
-                             'url' => 'http://ftp.gnu.org/gnu/libtool/',
-                             'src' => 'tar.gz',
-                            },
    'libmusicbrainz'        => {
 			   'ver' => '3.0.2',
 			   'url' => 'http://ftp.musicbrainz.org/pub/musicbrainz',
@@ -330,7 +325,7 @@ our %libraries_gnome =
    'libsigc++'         => '2.2.3',
    'ptlib'             => '2.6.1',
    'opal'              => '3.6.1',
-   'pango'             => '1.24.1',
+   'pango'             => '1.24.2',
   );
 
 our %libraries_diff_naming =

@@ -79,6 +79,11 @@ our %compiz =
                  'url' => 'http://releases.chipx86.com/libsexy/sexy-python',
                  'src' => 'tar.gz',
                  },
+   'protobuf'              => {
+                 'ver' => '2.0.3',
+                 'url' => 'http://protobuf.googlecode.com/files/',
+                 'src' => 'tar.bz2',
+                 },
   );
 
 

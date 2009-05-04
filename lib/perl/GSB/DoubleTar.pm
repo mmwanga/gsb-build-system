@@ -43,10 +43,10 @@ our %double_tarballs_url =
              		'var' => 'VERSION',
                             },
     'mozilla-firefox'  => {
-    			'ver' => '3.0.9',
+    			'ver' => '3.0.10',
     			'dir' => 'extra/mozilla-firefox',
-    			'url' => 'http://www.mirrorservice.org/sites/ftp.mozilla.org/pub/mozilla.org/firefox/releases/3.0.9/source',
-    			'tar' => 'firefox-3.0.9-source.tar.bz2',
+    			'url' => 'http://www.mirrorservice.org/sites/ftp.mozilla.org/pub/mozilla.org/firefox/releases/3.0.10/source',
+    			'tar' => 'firefox-3.0.10-source.tar.bz2',
 	    		'var' => 'VERSION',
 			    },
    'libunique'             => {
@@ -120,10 +120,10 @@ our %double_tarballs_url =
 			 'var' => 'VERSION',
 				  },
    'policykit-gnome'               => {
-			 'ver' => '0.9',
+			 'ver' => '0.9.2',
 			 'dir' => 'platform/policykit-gnome',
 			 'url' => 'http://hal.freedesktop.org/releases',
-			 'tar' => 'PolicyKit-gnome-0.9.tar.bz2',
+			 'tar' => 'PolicyKit-gnome-0.9.2.tar.bz2',
 			 'var' => 'VERSION',
 				  },
   'ExtUtilsDepends-perl'               => {
@@ -301,6 +301,20 @@ our %double_tarballs_url =
             'tar' => 'pidgin-2.5.5.tar.bz2',
             'var' => 'VERSION',
                    },
+   'libgda-compat' => {
+            'url'  => 'ftp://ftp.gnome.org/pub/GNOME/sources/libgda/3.1/',
+            'ver'  => '3.1.5',
+            'dir' => 'office/libgda-compat',
+            'tar' => 'libgda-3.1.5.tar.bz2',
+            'var' => 'VERSION',
+	           },
+   'libtool-compat' => {
+            'url' => 'http://ftp.gnu.org/gnu/libtool/',
+            'ver'  => '2.2.6a',
+            'dir' => 'libraries/libtool-compat',
+            'tar' => 'libtool-2.2.6a.tar.gz',
+            'var' => 'VERSION',
+	           },
    'NetworkManager-pptp' => {
             'url'  => 'ftp://ftp.gnome.org/pub/GNOME/sources/NetworkManager-pptp/0.7',
             'ver'  => '0.7.1',

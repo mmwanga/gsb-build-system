@@ -15,7 +15,7 @@ our $VERSION   = 0.03;
 
 our %accessibility_gnome =
   (
-   'dasher'                 => '4.10.0',
+   'dasher'                 => '4.10.1',
    'gnome-mag'              => '0.15.6',
    'gnome-speech'           => '0.4.25',
    'gok'                    => '2.26.0',

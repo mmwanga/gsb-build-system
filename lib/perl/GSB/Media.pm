@@ -15,7 +15,7 @@ our $VERSION   = 0.03;
 #
 our %media_gnome =
   (
-   'rhythmbox'               => '0.12.0',
+   'rhythmbox'               => '0.12.1',
   );
 
 our %media_pkgs =
@@ -64,6 +64,11 @@ our %media_pkgs =
                  'ver' => '3.3.1',
                  'url' => 'http://mesh.dl.sourceforge.net/sourceforge/grip',
                  'src' => 'tar.gz',
+                            },
+   'libgpod'              => {
+                             'ver' => '0.7.2',
+                             'url' => 'http://mesh.dl.sourceforge.net/sourceforge/gtkpod',
+                             'src' => 'tar.gz',
                             },
    'gtkpod'              => {
                              'ver' => '0.99.14',

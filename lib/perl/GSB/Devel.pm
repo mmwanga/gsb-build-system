@@ -25,7 +25,7 @@ our %devel_gnome =
    'ghex'        => '2.24.0',
    'glade3'      => '3.6.2',
    'gnome-build' => '2.24.1',
-   'nemiver'     => '0.6.6',
+   'nemiver'     => '0.6.7',
    'vala'        => '0.6.1',
   );
 

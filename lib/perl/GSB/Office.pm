@@ -16,7 +16,7 @@ our $VERSION   = 0.03;
 our %office_gnome =
   (
    'anjuta'               => '2.26.1.0',
-   'gnumeric'             => '1.8.3',
+   'gnumeric'             => '1.8.4',
    'dia'                  => '0.96.1',
    'f-spot'               => '0.5.0.3',
    'glom'                 => '1.10.0',
@@ -24,8 +24,8 @@ our %office_gnome =
    'gnome-python-extras'  => '2.25.3',
    'libgsf'               => '1.14.12',
    'libgda'               => '4.0.2',
-   'libgdamm'             => '3.0.1',
-   'libgnomedb'           => '3.99.7',
+   'libgdamm'             => '3.99.14',
+   'libgnomedb'           => '3.0.0',
    'tomboy'               => '0.14.1',
    'tracker'              => '0.6.93',
   );
@@ -52,11 +52,6 @@ our %office =
 		 'ver' => '2.6.8',
 		 'src' => 'tar.gz'
 		},
-   'aqbanking' => {
-                   'url' => 'http://mesh.dl.sourceforge.net/sourceforge/aqbanking/',
-                   'ver' => '2.3.3',
-                   'src' => 'tar.gz',
-                  },
    'blender'             => {
                              'ver' => '2.48a',
                              'url' => 'http://mirror.cs.umn.edu/blender.org/source/',
@@ -68,15 +63,15 @@ our %office =
 			     'src' => 'tar.bz2',
 			    },
    'gnome-do'                => {
-				'ver' => '0.8.1',
-				'url' => 'http://edge.launchpad.net/do/0.8/0.8.1/+download/',
-				'src' => 'tar.gz',
-		        	},
-   'gnome-do-plugins'                => {
-				'ver' => '0.8.1',
-				'url' => 'http://edge.launchpad.net/do-plugins/0.8/0.8.1/+download/',
-				'src' => 'tar.gz',
-		        	},
+		'ver' => '0.8.1',
+		'url' => 'http://edge.launchpad.net/do/0.8/0.8.1/+download/',
+		'src' => 'tar.gz',
+	       },
+	       #'gnome-do-plugins'                => {
+	       #'ver' => '0.8.1',
+	       #'url' => 'http://edge.launchpad.net/do-plugins/0.8/0.8.1/+download/',
+	       #'src' => 'tar.gz',
+	       #},
    'gnucash'              => {
 			     'ver' => '2.2.9',
 			     'url' => 'http://ftp.at.gnucash.org/pub/gnucash/gnucash/sources/stable/',
@@ -87,19 +82,9 @@ our %office =
 			     'url' => 'http://ftp.at.gnucash.org/pub/gnucash/gnucash/sources/stable/',
 			     'src' => 'tar.gz',
 			    },
-   'gwenhywfar'    => {
-                   'url' => 'http://mesh.dl.sourceforge.net/sourceforge/gwenhywfar/',
-                   'ver' => '2.6.2',
-                   'src' => 'tar.gz',
-                  },
    'gtkmathview'    => {
                    'url' => 'http://helm.cs.unibo.it/mml-widget/sources',
                    'ver' => '0.8.0',
-                   'src' => 'tar.gz',
-                  },
-   'guile'    => {
-                   'url' => 'ftp://ftp.gnu.org/pub/gnu/guile/',
-                   'ver' => '1.8.6',
                    'src' => 'tar.gz',
                   },
    'inkscape'            => {

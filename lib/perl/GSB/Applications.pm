@@ -16,7 +16,7 @@ our $VERSION   = 0.03;
 
 our %applications_gnome =
   (
-   'alacarte'                => '0.11.10',
+   'alacarte'                => '0.12.1',
    'brasero'                 => '2.26.1',
    'cheese'                  => '2.26.0',
    'deskbar-applet'          => '2.26.1',
@@ -24,7 +24,7 @@ our %applications_gnome =
    'eog'                     => '2.26.1',
    'epiphany'                => '2.26.1',
    'epiphany-extensions'     => '2.26.1',
-   'evolution'               => '2.26.1',
+   'evolution'               => '2.26.1.1',
    'evolution-exchange'      => '2.26.1',
    'evolution-webcal'        => '2.26.0',
    'fast-user-switch-applet' => '2.24.0',
@@ -42,7 +42,7 @@ our %applications_gnome =
    'gnome-pilot'             => '2.0.17',
    'gnome-pilot-conduits'    => '2.0.17',
    'gnome-power-manager'     => '2.26.1',
-   'gnome-scan'              => '0.7.1',
+   'gnome-scan'              => '0.6.2',
    'gnome-spell'             => '1.0.8',
    'gnome-system-monitor'    => '2.26.1',
    'gnome-user-docs'         => '2.26.1',
@@ -113,12 +113,12 @@ our %applications =
 			     'src' => 'tar.gz',
 			    },
    'libgksu'   => {
-                   'ver' => '2.0.7',
+                   'ver' => '2.0.9',
                    'url' => 'http://people.debian.org/~kov/gksu',
                    'src' => 'tar.gz',
                   },
    'gksu'      => {
-                   'ver' => '2.0.0',
+                   'ver' => '2.0.2',
                    'url' => 'http://people.debian.org/~kov/gksu',
                    'src' => 'tar.gz',
                   },

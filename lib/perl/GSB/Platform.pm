@@ -34,7 +34,7 @@ our %platform =
    'ORBit2'              => '2.14.17',
    'pyorbit'             => '2.24.0',
    'ttf-bitstream-vera'  => '1.10',
-   'vte'                 => '0.20.1',
+   'vte'                 => '0.20.2',
   );
 
 
@@ -46,6 +46,11 @@ our %platform_reqs =
                              'url' => 'http://www.avahi.org/download',
                              'src' => 'tar.gz',
                             },
+   'bluez'   => {
+                           'ver' => '4.37',
+                           'url' => 'http://www.kernel.org/pub/linux/bluetooth',
+                           'src' => 'tar.gz',
+                          },
    'nss-mdns'               => {
                              'ver' => '0.10',
                              'url' => 'http://0pointer.de/lennart/projects/nss-mdns',

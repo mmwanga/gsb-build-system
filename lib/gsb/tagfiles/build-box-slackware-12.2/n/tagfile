@@ -5,8 +5,8 @@ bind: ADD
 bitchx: SKP
 bluez-firmware: ADD
 bluez-hcidump: ADD
-bluez-libs: ADD
-bluez-utils: ADD
+bluez-libs: SKP
+bluez-utils: SKP
 bootp: SKP
 bridge-utils: SKP
 bsd-finger: ADD
