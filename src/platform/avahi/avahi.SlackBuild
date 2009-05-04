@@ -7,7 +7,7 @@
 ##
 
 ## Package variables
-BUILD=1
+BUILD=5
 VERSION=0.6.25
 
 ## List any packages here that are required to build this package.
@@ -186,7 +186,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static --enable-shared \
   --disable-monodoc \
   --disable-mono \
-  --disable-autoipd \
   --enable-python-dbus \
   --enable-pygtk\
   --enable-glib \
@@ -198,8 +197,11 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-core-docs \
   --with-avahi-user=avahi \
   --with-avahi-group=avahi \
-  --with-avahi-priv-access-group=root \
+  --with-autoipd-user=avahi-autoipd \
+  --with-autoipd-group=avahi-autoipd \
   --with-distro=slackware \
+  --enable-compat-howl \
+  --enable-compat-libdns_sd \
   --program-prefix= \
   --program-suffix= \
   || exit 1
@@ -208,17 +210,24 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-##
+## re-enable signals in dbus
+mkdir -p $PKG/etc/dbus-1 &&
+cp $CWD/system-local.conf $PKG/etc/dbus-1/system-local.conf.new || exit 1
+chmod 644 $PKG/etc/dbus-1/system-local.conf.new || exit 1
+
+## Setup up autoipd dirs
+mkdir -p ${PKG}/var/run/avahi-daemon
+mkdir -p ${PKG}/var/run/avahi-autoipd 
+## Remove extraneous icons
+rm -fr $PKG/usr/share/applications/bssh.desktop
+rm -fr $PKG/usr/share/applications/bvnc.desktop
+
 ## Preserve previously installed configuations.
-## See doinst.sh
-(
-  cd $PKG/etc/rc.d
+( cd $PKG/etc/rc.d
   for i in avahidaemon avahidnsconfd
   do
     mv rc.$i rc.$i.new
-  done
-)
-mv $PKG/etc/dbus-1/system.d/avahi-dbus.conf $PKG/etc/dbus-1/system.d/avahi-dbus.conf.new
+  done)
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

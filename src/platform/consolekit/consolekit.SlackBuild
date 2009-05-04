@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=3
+BUILD=6
 VERSION=0.3.0
 
 ## List any packages here that are required to build this package.
@@ -116,11 +116,18 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
-patch -p1 < $CWD/patches/01-dbus_policy.patch || exit 1
-patch -p1 < $CWD/patches/08-fix-double-close.patch || exit 1
-patch -p1 < $CWD/patches/09-directory-handle-leak.patch || exit 1
-patch -p1 < $CWD/patches/10-file_monitor_remove_watch_crash.patch || exit 1
-
+patch -p1 < $CWD/patches/consolekit-0.3.0-get-vt-from-display-instead-of-controlling-tty.patch || exit 1
+patch -p1 < $CWD/patches/consolekit-0.3.0-allowsetidle.patch || exit 1
+# http://bugs.freedesktop.org/show_bug.cgi?id=19020
+# http://bugs.freedesktop.org/show_bug.cgi?id=20471
+patch -p1 < $CWD/patches/consolekit-dbus-permissions.patch || exit 1
+patch -p1 < $CWD/patches/consolekit-skipvalidation.patch || exit 1
+# Fix directory leaks, bug #258685
+patch -p1 < $CWD/patches/consolekit-0.2.10-directory-leak.patch || exit 1
+# Clean up at_console compat files, bug #257761
+patch -p1 < $CWD/patches/consolekit-0.2.10-cleanup_console_tags.patch || exit 1
+# Fix inability to shutdown/restart
+patch -p1 < $CWD/patches/consolekit-0.3.0-shutdown.patch || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .
@@ -168,14 +175,18 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --disable-debug \
+  --with-pid-file=/var/run/console-kit-daemon.pid \
+  --disable-pam-module \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-## Preserve settings
 mv $PKG/etc/dbus-1/system.d/ConsoleKit.conf $PKG/etc/dbus-1/system.d/ConsoleKit.conf.new || exit 1
+mv $PKG/etc/ConsoleKit/seats.d/00-primary.seat $PKG/etc/ConsoleKit/seats.d/00-primary.seat.new || exit 1
+mkdir -p $PKG/usr/lib/ConsoleKit/run-session.d &&
+cp $CWD/pam-foreground-compat.ck $PKG/usr/lib/ConsoleKit/run-session.d/ || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=3
 VERSION=1.0.17
 
 ## List any packages here that are required to build this package.
@@ -167,8 +167,8 @@ make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Configure alsa
-mkdir -p $PKG/etc
-cp $CWD/asound.conf.new $PKG/etc
+#mkdir -p $PKG/etc
+#cp $CWD/asound.conf.new $PKG/etc
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

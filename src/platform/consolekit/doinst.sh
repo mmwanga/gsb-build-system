@@ -23,3 +23,4 @@ function install_file() {
 }
 
 install_file etc/dbus-1/system.d/ConsoleKit.conf.new
+install_file etc/ConsoleKit/seats.d/00-primary.seat.new

@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=0.9.15
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libsndfile GConf hal avahi glib2 libsamplerate libatomic_ops liboil bluez-libs consolekit libtool alsa-lib"
+REQUIRED_PACKAGES="libsndfile GConf hal avahi glib2 libsamplerate libatomic_ops liboil bluez consolekit libtool alsa-lib libtool-compat"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -160,6 +160,7 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
+CFLAGS="-L/usr/libexec/libtool2/lib -I/usr/libexec/libtool2/include" \
 ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \

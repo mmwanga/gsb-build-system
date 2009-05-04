@@ -5,6 +5,8 @@ ORBit2
 libbonobo
 policykit
 consolekit
+devicekit
+devicekit-power
 GConf
 gnome-mime-data
 pyorbit
@@ -12,9 +14,9 @@ libdaemon
 avahi
 nss-mdns
 XML-Twig
-libbtctl
 gnome-vfs
 libgnome
+bluez
 gail
 libgnomecanvas
 libbonoboui

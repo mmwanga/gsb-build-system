@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=2
-VERSION=0.9
+BUILD=1
+VERSION=0.9.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -116,6 +116,10 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
+patch -p1 < $CWD/patches/policykit-gnome-0.8-dont-spawn-when-running-under-gdm.patch || exit 1
+patch -p1 < $CWD/patches/policykit-gnome-0.9.2-i18ninit.patch || exit 1
+patch -p1 < $CWD/patches/policykit-gnome-0.9.2-nonutf8.patch || exit 1
+
 ## Fix permissions for building.
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
@@ -161,6 +165,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
+  --disable-schemas-install \
   --disable-examples \
   --disable-debug \
   --disable-gtk-doc \

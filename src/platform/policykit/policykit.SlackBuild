@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=6
+BUILD=8
 VERSION=0.9
 
 ## List any packages here that are required to build this package.
@@ -116,12 +116,13 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
-## Get rid of unneeded PAM include
+# Patches
+patch -p1 < $CWD/patches/policykit-ck-api-change.patch || exit 1
+patch -p1 < $CWD/patches/policykit-entry-leak.patch || exit 1
+patch -p1 < $CWD/patches/policykit-noptrace.patch || exit 1
+patch -p1 < $CWD/patches/policykit-src_kit_kit-string.patch || exit 1
+patch -p1 < $CWD/patches/polkit-0.8-dbus-policy.patch || exit 1
 patch -p1 < $CWD/patches/polkit-resolve-pam.patch || exit 1
-## Security fix for ptrace attacks
-patch -p1 < $CWD/patches/noptrace.patch || exit 1
-## patch for ck
-patch -p1 < $CWD/patches/ck_api_change.patch || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .
@@ -172,6 +173,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-selinux \
   --disable-tests \
   --enable-man-pages \
+  --disable-gtk-doc \
   || exit 1
 
 ## Build and install.

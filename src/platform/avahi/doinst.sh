@@ -24,7 +24,7 @@ function install_file() {
 
 install_file etc/rc.d/rc.avahidaemon.new
 install_file etc/rc.d/rc.avahidnsconfd.new
-install_file etc/dbus-1/system.d/avahi-dbus.conf.new
+install_file etc/dbus-1/system-local.conf.new
 
 # Remove the netdev group if it has a GID of 87.
 # This is needed because a previous install may have added the netdev group
