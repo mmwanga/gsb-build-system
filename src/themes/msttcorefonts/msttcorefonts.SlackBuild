@@ -8,8 +8,8 @@
 ## Parts of this scripts are based on Eric Hameleers <alien@slackware.com>
 
 ## Package variables.
-BUILD=4
-VERSION=1.0
+BUILD=1
+VERSION=2.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -106,14 +106,21 @@ FONTS="andale32 arial32 arialb32 comic32 courie32 georgi32 impact32 times32 treb
 cd $TMP
 mkdir -p $TMP/cab-contents ;
 for i in $FONTS ; do
-  cabextract -q --lowercase --directory=cab-contents $CWD/$i.exe 2>/dev/null 1>/dev/null || exit 1
+  cabextract --lowercase --directory=cab-contents $CWD/$i.exe 2>/dev/null 1>/dev/null || exit 1
 done
 
-chown -R root:root *
-chmod -R u+w,go+r-w,a-s *
+## for vista fonts
+cabextract -L -F ppviewer.cab --directory=$TMP $CWD/PowerPointViewer.exe &&
+cabextract -L -F '*.TT[FC]' --directory=cab-contents $TMP/ppviewer.cab || exit 1
+( cd cab-contents && mv cambria.ttc cambria.ttf && chmod 600 \
+    calibri{,b,i,z}.ttf cambria{,b,i,z}.ttf candara{,b,i,z}.ttf \
+    consola{,b,i,z}.ttf constan{,b,i,z}.ttf corbel{,b,i,z}.ttf )
 
 # Install the fonts into the package directory.
-cp cab-contents/*.ttf $PKG/$FONTDIR
+cp -v cab-contents/*.ttf $PKG/$FONTDIR
+cd $PKG/$FONTDIR
+chown -R root:root *
+chmod -R u+w,go+r-w,a-s *
 
 # Add fontconfig info
 #mkdir -p $PKG/etc/fonts
