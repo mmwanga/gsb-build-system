@@ -31,7 +31,7 @@ usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-
 # Ensure sound server start up
 usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type boolean --set /desktop/gnome/sound/enable_esd false 1> /dev/null 2> /dev/null
 # Disable splash screen
-usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type boolean --set /apps/gnome-session/options/show_splash_screen false 1> /dev/null 2> /dev/null
+usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type boolean --set /apps/gnome-session/options/show_splash_screen true 1> /dev/null 2> /dev/null
 
 if [ -e usr/share/icons/hicolor/icon-theme.cache ]; then
 	rm -f usr/share/icons/hicolor/icon-theme.cache

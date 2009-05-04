@@ -24,3 +24,4 @@ evolution-data-server
 gstreamer
 libgweather
 policykit-gnome
+libproxy

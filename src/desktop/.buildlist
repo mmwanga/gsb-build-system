@@ -32,7 +32,6 @@ libgnomeprintui
 zenity
 metacity
 eel
-bluez
 libbtctl
 obex-data-server
 gvfs

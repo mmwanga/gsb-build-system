@@ -30,3 +30,4 @@ startup-notification
 GConf
 exempi
 util-linux-ng
+libunique

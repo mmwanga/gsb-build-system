@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=3
 VERSION=0.12
 
 ## List any packages here that are required to build this package.
@@ -156,13 +156,15 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+CFLAGS="-L/usr/libexec/libtool2/lib -I/usr/libexec/libtool2/include $TUNE_CFLAGS $EXTRA_CFLAGS" \
+CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --enable-alsa \
   --enable-null \
   --enable-gtk \
+  --disable-oss \
   || exit 1
 
 ## Build and install.

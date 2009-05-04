@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=1.2.2
 
 ## List any packages here that are required to build this package.
@@ -114,6 +114,13 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
+
+patch -p0 < $CWD/patches/gvfs-0.99.2-archive-integration.patch || exit 1
+patch -p1 < $CWD/patches/gvfs-1.1.7-gdu-computer-expose-devices.patch || exit 1
+patch -p0 < $CWD/patches/gvfs-1.2.2-ssh-auth-sock.patch || exit 1
+patch -p1 < $CWD/patches/gvfs-bash-completion.patch || exit 1
+# fix for newer obexftp 4.4
+#patch -p0 < $CWD/patches/gvfs-obexftp-updated-apis-2.patch || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .

@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=3
 VERSION=2.26.1
 
 ## List any packages here that are required to build this package.
@@ -179,6 +179,11 @@ mv $PKG/usr/bin/gnome-wm $PKG/usr/bin/gnome-wm.gnome || exit 1
 cp $CWD/gnome-wm.gsb $PKG/usr/bin/gnome-wm || exit 1
 chmod +x $PKG/usr/bin/gnome-wm
 
+# GNOME autostart
+mkdir -p $PKG/etc/gnome/xdg &&
+mv $PKG/etc/xdg/autostart $PKG/etc/gnome/xdg || exit 1
+rmdir -p $PKG/etc/xdg
+
 ## Add xinitrc script for Gnome
 mkdir -p $PKG/etc/X11/xinit
 if [ "$ARCH" = "x86_64" ]; then
@@ -224,6 +229,7 @@ chmod +x $PKG/usr/share/xsessions/gnome.desktop  || exit 1
 
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
+cp -a $CWD/README.splash $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
   AUTHORS COPYING* ChangeLog NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION

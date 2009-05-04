@@ -11,7 +11,7 @@ usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-
 usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type string --set /desktop/gnome/background/picture_options stretched 1> /dev/null 2> /dev/null
 usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type string --set  /desktop/gnome/peripherals/mouse/cursor_theme comixcursors 1> /dev/null 2> /dev/null
 usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type integer --set /desktop/gnome/peripherals/mouse/cursor_size 16 1> /dev/null 2> /dev/null
-usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type string --set  /apps/metacity/general/theme GSB 1> /dev/null 2> /dev/null
+#usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type string --set  /apps/metacity/general/theme GSB 1> /dev/null 2> /dev/null
 
 for i in gnome hicolor
 do

@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=3
 VERSION=2.26.1
 
 ## List any packages here that are required to build this package.
@@ -175,9 +175,6 @@ chown root.root $PKG/usr/share/pixmaps/backgrounds/gsb-background.png
 rm -fr $PKG/var/lib/scrollkeeper
 rm -fr $PKG/var/lib/log
 
-# Add a default GSB gtk theme
-mkdir $PKG/usr/share/themes &&
-cp -r $CWD/GSB $PKG/usr/share/themes || exit 1
 # Make sure not to include svn info in the package
 find $PKG/usr -type d -name ".svn" -exec rm -rf {} \;
 
