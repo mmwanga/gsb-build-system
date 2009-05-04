@@ -1,0 +1,7 @@
+gstreamer
+libjingle
+dbus
+libnice
+gst-plugins-base
+gst-plugins-good
+gst-plugins-bad

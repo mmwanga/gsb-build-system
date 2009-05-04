@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=1
-VERSION=0.7.0
+BUILD=2
+VERSION=0.7.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -156,8 +156,8 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-# We have three tarballs for the vpn package ;
-VPN="openvpn pptp vpnc"
+# We have four tarballs for the vpn package ;
+VPN="openvpn pptp vpnc openconnect"
 
 for PLUGIN in $VPN ; do
  tar xfj $CWD/NetworkManager-$PLUGIN-$VERSION.tar.bz2 &&
@@ -178,9 +178,9 @@ for PLUGIN in $VPN ; do
 
 done;
 
-## Fix for Slackware non-PAM system.
 ## Users now can add themselves to the "netdev" group to use networkmanager.
 sed -i "s/at_console=\"true\"/group=\"netdev\"/g" $PKG/etc/dbus-1/system.d/*.conf || exit 1
+sed -i "s,nm-openconnect,netdev,g" $PKG/etc/dbus-1/system.d/nm-openconnect-service.conf || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

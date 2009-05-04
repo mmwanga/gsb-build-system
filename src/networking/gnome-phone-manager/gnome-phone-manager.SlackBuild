@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=0.60
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glib2 gtk+2 bluez-libs gnokii gnome-bluetooth dbus gtkspell"
+REQUIRED_PACKAGES="glib2 gtk+2 bluez gnokii gnome-bluetooth dbus gtkspell"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

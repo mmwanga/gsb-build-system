@@ -1,0 +1,75 @@
+diff -uNr libjingle-0.4.0/talk/base/base64.h libjingle-0.4.0-mod/talk/base/base64.h
+--- libjingle-0.4.0/talk/base/base64.h	2007-02-02 06:07:22.000000000 +0100
++++ libjingle-0.4.0-mod/talk/base/base64.h	2008-09-13 01:20:48.000000000 +0200
+@@ -23,8 +23,8 @@
+   static std::string decode(const std::string & data);
+   static std::string encodeFromArray(const char * data, size_t len);
+ private:
+-  static const std::string Base64::Base64Table;
+-  static const std::string::size_type Base64::DecodeTable[];
++  static const std::string Base64Table;
++  static const std::string::size_type DecodeTable[];
+ };
+ 
+ } // namespace talk_base
+ 
+ 
+
+diff -uNr libjingle-0.4.0/talk/base/stringutils.h libjingle-0.4.0-mod/talk/base/stringutils.h
+--- libjingle-0.4.0/talk/base/stringutils.h	2007-02-02 06:07:22.000000000 +0100
++++ libjingle-0.4.0-mod/talk/base/stringutils.h	2008-09-13 01:17:47.000000000 +0200
+@@ -269,7 +269,7 @@
+ template<>
+ struct Traits<char> {
+   typedef std::string string;
+-  inline static const char* Traits<char>::empty_str() { return ""; }
++  inline static const char* empty_str() { return ""; }
+ };
+ 
+ ///////////////////////////////////////////////////////////////////////////////
+ 
+ 
+ 
+diff -uNr libjingle-0.4.0/talk/base/unixfilesystem.cc libjingle-0.4.0-mod/talk/base/unixfilesystem.cc
+--- libjingle-0.4.0/talk/base/unixfilesystem.cc	2007-02-02 06:07:25.000000000 +0100
++++ libjingle-0.4.0-mod/talk/base/unixfilesystem.cc	2008-09-13 01:23:43.000000000 +0200
+@@ -110,7 +110,8 @@
+     pathname.AppendFolder(*append);
+     if (create)
+       CreateFolder(pathname);
+-  }
++  } 
++  return true;
+ }
+ 
+ std::string UnixFilesystem::TempFilenameI(const Pathname &dir, const std::string &prefix) {
+ 
+ 
+ 
+diff -uNr libjingle-0.4.0/talk/p2p/base/sessionmanager.h libjingle-0.4.0-mod/talk/p2p/base/sessionmanager.h
+--- libjingle-0.4.0/talk/p2p/base/sessionmanager.h	2007-02-02 06:07:27.000000000 +0100
++++ libjingle-0.4.0-mod/talk/p2p/base/sessionmanager.h	2008-09-13 01:28:24.000000000 +0200
+@@ -156,7 +156,7 @@
+ 
+   // Creates and returns an error message from the given components.  The
+   // caller is responsible for deleting this.
+-  buzz::XmlElement* SessionManager::CreateErrorMessage(
++  buzz::XmlElement* CreateErrorMessage(
+       const buzz::XmlElement* stanza,
+       const buzz::QName& name,
+       const std::string& type,
+
+
+
+diff -uNr libjingle-0.4.0/talk/xmpp/xmppclient.h libjingle-0.4.0-mod/talk/xmpp/xmppclient.h
+--- libjingle-0.4.0/talk/xmpp/xmppclient.h	2007-02-02 06:07:26.000000000 +0100
++++ libjingle-0.4.0-mod/talk/xmpp/xmppclient.h	2008-09-13 01:25:04.000000000 +0200
+@@ -138,7 +138,7 @@
+     }
+   }
+ 
+-  std::string XmppClient::GetStateName(int state) const {
++  std::string GetStateName(int state) const {
+     switch (state) {
+       case STATE_PRE_XMPP_LOGIN:      return "PRE_XMPP_LOGIN";
+       case STATE_START_XMPP_LOGIN:  return "START_XMPP_LOGIN";

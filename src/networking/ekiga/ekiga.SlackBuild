@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=1
-VERSION=3.0.2
+BUILD=2
+VERSION=3.2.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -163,18 +163,10 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-scrollkeeper \
   --disable-static \
   --enable-shared \
-  --disable-debug \
-  --enable-gdu \
   --enable-avahi \
-  --enable-dbus-service \
-  --enable-ldap \
-  --enable-xv \
-  --enable-notify \
-  --enable-eds \
-  --program-prefix="" \
   --enable-dbus \
-  --enable-gnome \
-  --enable-gconf \
+  --enable-ldap \
+  --program-prefix="" \
   || exit 1
 
 ## Build and install.

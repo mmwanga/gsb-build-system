@@ -1,13 +1,14 @@
 telepathy-glib
 libtelepathy
 libjingle
-gst-plugins-farsight
-farsight
+libnice
+farsight2
 telepathy-mission-control
 telepathy-butterfly
 loudmouth
 telepathy-gabble
 telepathy-salut
+telepathy-farsight
 empathy
 balsa
 deluge
@@ -18,3 +19,4 @@ NetworkManager-vpn
 network-manager-applet
 sylpheed
 gnome-phone-manager
+nautilus-sendto

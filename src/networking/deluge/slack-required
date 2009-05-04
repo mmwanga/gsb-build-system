@@ -5,3 +5,4 @@ glib2
 boost
 pyxdg
 openssl
+setuptools

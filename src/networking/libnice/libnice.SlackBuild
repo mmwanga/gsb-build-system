@@ -1,18 +1,18 @@
 #!/bin/bash
-## Version: 1.6 GSB Package SlackBuild.
-## Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
-## Copyright (c) 2007 Steve Kennedy <sk238 (at) exeter.ac.uk>
-##
+## Version: 1.6 GSB Package SlackBuild - Do not remove this line!
+## Copyright (c) 2007, 2008:
+##   Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>, Coventry, UK.
+##   Steve Kennedy <steve (at) gnomeslackbuild.org>, Exeter, UK.
 ## Licenced under the terms of the GNU General Public Licence version 3.
 ##
 
 ## Package variables.
 BUILD=1
-VERSION=2.26.0
+VERSION=0.0.6
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 GConf avahi httpd"
+REQUIRED_PACKAGES="glib2 gstreamer"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -90,7 +90,8 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+rm -rf $PKGNAME-$VERSION &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -138,7 +139,6 @@ elif [ "$ARCH" = "i586" ]; then
 elif [ "$ARCH" = "i686" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
 elif [ "$ARCH" = "x86_64" ]; then
-  LIBDIR=lib64
   if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -fPIC"}
   else
@@ -154,55 +154,21 @@ else
 fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
-LIBDIR=${LIBDIR:-"lib"}
 
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
-  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
-  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
-  --with-modules-path=/usr/${LIBDIR}/httpd/modules/ \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
-make DESTDIR=$PKG install || exit 1
-
-## For some strange reason the modules path doesn't work
-## Make sure they point to the right location on Slackware
-for i in dav_user_2.0.conf dav_user_2.2.conf; do
-  sed -i "s:/etc/httpd/modules/:/usr/${LIBDIR}/httpd/modules/:g" $PKG/usr/share/gnome-user-share/$i || exit 1
-done;
-
-## Install gnome autostart
-mkdir -p $PKG/etc/gnome/xdg/autostart &&
-mv $PKG/etc/xdg/autostart/gnome-user-share.desktop \
-   $PKG/etc/gnome/xdg/autostart || exit 1
-rm -fr $PKG/etc/xdg
+make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
-
-## Add schemas install to the doinst.sh if schemas are found.
-[ -d $PKG/etc/gconf/schemas ] && {
-  echo "if [ -x usr/bin/gconftool-2 ]; then" >>$PKG/install/doinst.sh
-  ( cd $PKG/etc/gconf/schemas
-    for FILE in *; do
-      if [ -z "$(grep gconfentry $FILE)" ]; then
-        # Create gconf tree
-        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
-      else
-        # Load gconf settings
-        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --config-source=\$(usr/bin/gconftool-2 --get-default-source) --direct --load etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
-      fi
-    done
-  )
-  echo "fi" >>$PKG/install/doinst.sh
-}
-
 
 ## Compress and fix manpage links.
 [ -e $PKG/usr/man ] && {
