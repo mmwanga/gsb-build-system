@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=4
+BUILD=5
 VERSION=0.6.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="compiz-fusion-plugins-main metacity"
+REQUIRED_PACKAGES="compiz-plugins-main metacity"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

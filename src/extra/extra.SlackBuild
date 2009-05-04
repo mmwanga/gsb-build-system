@@ -238,6 +238,7 @@ echo "*********************************************************************"
     # Build defaults.
     SKIP_BUILD=0
     SUBDIR=$EXTRADIR/$PACKAGESDIR		# Note: Use extra/ not gsb/
+    mkdir -p $PKGDEST/$SUBDIR || exit 1
 
     echo
     echo "*********************************************************************"

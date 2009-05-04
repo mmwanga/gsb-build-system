@@ -1,18 +1,18 @@
 #!/bin/bash
-## Version: 1.6 GSB Package SlackBuild.
-## Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
-## Copyright (c) 2007 Steve Kennedy <sk238 (at) exeter.ac.uk>
-##
+## Version: 1.6 GSB Package SlackBuild - Do not remove this line!
+## Copyright (c) 2007, 2008:
+##   Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>, Coventry, UK.
+##   Steve Kennedy <steve (at) gnomeslackbuild.org>, Exeter, UK.
 ## Licenced under the terms of the GNU General Public Licence version 3.
 ##
 
 ## Package variables.
 BUILD=1
-VERSION=0.8.2
+VERSION=2.0.3
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="python pygtk libcompizconfig pyrex"
+REQUIRED_PACKAGES=""
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -90,6 +90,7 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
+rm -rf $PKGNAME-$VERSION &&
 tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
@@ -186,7 +187,7 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+  CHANGES.txt CONTRIB* COPYING* README* \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION

@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=3
-VERSION=3.0.5
+VERSION=3.0.10
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -213,7 +213,8 @@ mkdir -p $PKG/usr/share/pixmaps &&
 cp $CWD/gnome/mozilla-firefox.png $PKG/usr/share/pixmaps &&
 cp $CWD/gnome/firefox.png $PKG/usr/share/pixmaps &&
 rm -fr $PKG/usr/bin/firefox &&
-cp $CWD/firefox.sh $PKG/usr/bin/firefox || exit 1
+sed "s,@VERSION@,$VERSION,g" $CWD/firefox.sh > $PKG/usr/bin/firefox || exit 1
+chmod 755 $PKG/usr/bin/firefox 
 
 chown -R root:root $PKG/usr/bin
 chown -R root.root $PKG/usr/share

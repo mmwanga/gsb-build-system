@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=0.7.8
+VERSION=0.8.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libxml2 libnotify compiz-fusion"
+REQUIRED_PACKAGES="libxml2 libnotify compiz-fusion protobuf"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

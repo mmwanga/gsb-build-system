@@ -4,7 +4,7 @@ nss
 gstreamer
 gnutls
 dbus
-libxml
+libxml2
 gtk+2
 pango
 gtkspell

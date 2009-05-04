@@ -52,7 +52,7 @@
 #uncomment for debugging
 #set -x
 
-moz_libdir=/usr/lib/firefox-3.0.5
+moz_libdir=/usr/lib/firefox-@VERSION@
 
 # Include /usr/lib/mozilla/plugins in the plugin path:
 if [ "$MOZ_PLUGIN_PATH" ] ; then

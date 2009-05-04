@@ -1,8 +1,9 @@
 compiz-fusion
 compiz-bcop
+protobuf
 libcompizconfig
-compiz-fusion-plugins-main
-compiz-fusion-plugins-extra
+compiz-plugins-main
+compiz-plugins-extra
 compiz-manager
 emerald
 sexy-python
