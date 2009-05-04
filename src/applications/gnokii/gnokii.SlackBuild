@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=0.6.27
 
 ## List any packages here that are required to build this package.
@@ -177,9 +177,9 @@ make $MAKE_FLAGS install DESTDIR=$PKG &&
 #fi;
 
 # Install rc
-mkdir -p $PKG/etc/udev/rules.d
+mkdir -p $PKG/lib/udev/rules.d
 cp $TMP/$PKGNAME-$VERSION/Docs/sample/gnokiirc $PKG/etc/gnokiirc.new
-cp $TMP/$PKGNAME-$VERSION/Docs/sample/45-nokiadku2.rules $PKG/etc/udev/rules.d/45-nokiadku2.rules
+cp $TMP/$PKGNAME-$VERSION/Docs/sample/45-nokiadku2.rules $PKG/lib/udev/rules.d/45-nokiadku2.rules
 
 # Install gnome icon
 mkdir -p $PKG/usr/share/applications

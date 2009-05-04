@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=3
 VERSION=2.26.1
 
 ## List any packages here that are required to build this package.
@@ -185,6 +185,11 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 mkdir -p $PKG/usr/share/icons/gnome
 mv $PKG/usr/share/$PKGNAME/icons/hicolor/* $PKG/usr/share/icons/gnome
 rm -fr $PKG/usr/share/$PKGNAME/icons
+
+# GNOME autostart
+mkdir -p $PKG/etc/gnome/xdg &&
+mv $PKG/etc/xdg/autostart $PKG/etc/gnome/xdg || exit 1
+rmdir -p $PKG/etc/xdg
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

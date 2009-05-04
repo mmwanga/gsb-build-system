@@ -1,0 +1,12 @@
+Index: epiphany-2.24.1/data/default-prefs-common.js
+===================================================================
+--- epiphany-2.24.1.orig/data/default-prefs-common.js	2008-10-19 14:58:21.000000000 +0200
++++ epiphany-2.24.1/data/default-prefs-common.js	2008-11-14 00:30:11.513240091 +0100
+@@ -195,3 +195,7 @@ pref("places.frecency.tempRedirectVisitB
+ pref("places.frecency.defaultVisitBonus", 0);
+ pref("places.frecency.unvisitedBookmarkBonus", 0);
+ pref("places.frecency.unvisitedTypedBonus", 0);
++
++// enable weak SSL ciphers, as Epiphany warns about them anyway
++pref("security.ssl3.rsa_rc4_40_md5", true);
++pref("security.ssl3.rsa_rc2_40_md5", true);

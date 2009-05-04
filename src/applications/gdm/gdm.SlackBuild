@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.20.10
 
 ## List any packages here that are required to build this package.
@@ -114,6 +114,22 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
+patch -p1 < $CWD/patches/08_notify_ck_about_static_server.patch || exit 1
+patch -p1 < $CWD/patches/10_noxkeepcrashing.patch || exit 1
+#patch -p1 < $CWD/patches/11_powermanagement.patch || exit 1
+patch -p1 < $CWD/patches/16_configure_menu_item.patch || exit 1
+patch -p1 < $CWD/patches/18_combo_box_language_selector.patch || exit 1
+patch -p1 < $CWD/patches/20_timedlogindelay_min_value_change.patch || exit 1
+patch -p1 < $CWD/patches/36_update_prefetch_lists.patch || exit 1
+patch -p1 < $CWD/patches/45_use-gksu-for-gdmsetup.patch || exit 1
+patch -p1 < $CWD/patches/46_kde-substitude-uid.patch || exit 1
+patch -p1 < $CWD/patches/47_xkeepscrashing-restore-keyboard.patch || exit 1
+patch -p1 < $CWD/patches/55_use-theme-gtkrc.patch || exit 1
+patch -p1 < $CWD/patches/62_reference-manual-docbook-entity-reference.patch || exit 1
+#patch -p1 < $CWD/patches/63_xrandr_virtual.patch || exit 1
+patch -p1 < $CWD/patches/73_disable_user_input_tooltip.patch || exit 1
+patch -p1 < $CWD/patches/74_greeter_theme_memleak.patch || exit 1
+
 ## Fix permissions for building.
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
@@ -160,6 +176,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
   --disable-scrollkeeper \
+  --enable-ipv6 \
+  --with-prefetch=yes \
   --enable-authentication-scheme=shadow \
   --enable-console-helper=no \
   --enable-secureremote=yes \

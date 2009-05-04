@@ -1,0 +1,13 @@
+# Description: Fix memory leak in greeter's theme reader
+=== modified file 'gui/greeter/greeter_parser.c'
+--- a/gui/greeter/greeter_parser.c	2009-02-24 13:55:25 +0000
++++ b/gui/greeter/greeter_parser.c	2009-02-24 14:02:14 +0000
+@@ -1876,6 +1876,7 @@
+       if (g_file_test (theme_dir, G_FILE_TEST_IS_DIR))
+          gdm_set_theme ((char *) prop);
+ 
++      g_free (theme_dir);
+       xmlFree (prop);
+     }
+ 
+

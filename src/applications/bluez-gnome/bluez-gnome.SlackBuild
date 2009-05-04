@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=3
 VERSION=1.8
 
 ## List any packages here that are required to build this package.
@@ -114,6 +114,18 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
+
+if [ "$VERSION" = "1.8" ]; then
+  patch -p1 < $CWD/patches/02_menusrevisited.patch || exit 1
+  patch -p1 < $CWD/patches/04_bluetooth-sendto-ods-svn.patch || exit 1
+  # api fix for file transfers
+  patch -p1 < $CWD/patches/05_bluetooth_sendto_dbus-snd.patch || exit 1
+  patch -p1 < $CWD/patches/06_preferences-horizontal-layout.patch || exit 1
+  patch -p1 < $CWD/patches/07_null_device_name.patch || exit 1
+  patch -p1 < $CWD/patches/09_visibility.patch || exit 1
+  patch -p1 < $CWD/patches/10_wizard-custom-pin.patch || exit 1
+  patch -p1 < $CWD/patches/11_bluez-notifications.patch || exit 1
+fi;
 
 ## Fix permissions for building.
 chown -R root.root .

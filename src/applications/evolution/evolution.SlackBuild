@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=1
-VERSION=2.26.1
+BUILD=2
+VERSION=2.26.1.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="evolution-data-server gnome-pilot-conduits gnome-spell gtkhtml dbus gail gnome-keyring gnome-vfs gtk+2 libsoup libxml2 cyrus-sasl gnome-pilot libgnomeui libgnome ORBit2 GConf libbonobo libbonoboui libgnomeprintui libsoup libnotify gstreamer libgalago heimdal-libraries sqlite"
+REQUIRED_PACKAGES="evolution-data-server gnome-pilot-conduits gnome-spell gtkhtml dbus gail gnome-keyring gnome-vfs gtk+2 libsoup libxml2 cyrus-sasl gnome-pilot libgnomeui libgnome ORBit2 GConf libbonobo libbonoboui libgnomeprintui libsoup libnotify gstreamer libgalago heimdal-libraries sqlite bluez"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

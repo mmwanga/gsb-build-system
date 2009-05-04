@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=1
-VERSION=2.0.7
+BUILD=2
+VERSION=2.0.9
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -116,12 +116,12 @@ fi
 
 # libgksu designed for debian's su? Not sure why the 
 # default package doesn't properly handle the su output
-(
-echo
-echo "Patching for Slackware compatibility."
-cd $TMP/$PKGNAME-$VERSION/libgksu ;
-patch -p0 < $CWD/patches/libgksu.c.patch ;
-)
+#(
+#echo
+#echo "Patching for Slackware compatibility."
+#cd $TMP/$PKGNAME-$VERSION/libgksu ;
+#patch -p0 < $CWD/patches/libgksu.c.patch ;
+#)
 
 # This is necessary for the hardcoded paths on x86_64 lib64.
 if [ "$ARCH" = "x86_64" ]; then

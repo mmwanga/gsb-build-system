@@ -1,0 +1,12 @@
+Index: epiphany-2.20.0/data/bme.desktop.in.in
+===================================================================
+--- epiphany-2.20.0.orig/data/bme.desktop.in.in	2007-09-21 14:26:35.018825354 +0200
++++ epiphany-2.20.0/data/bme.desktop.in.in	2007-09-21 14:28:35.273678287 +0200
+@@ -8,6 +8,7 @@
+ Terminal=false
+ Type=Application
+ Icon=epiphany-bookmarks
++NoDisplay=true
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=epiphany
+ X-GNOME-Bugzilla-Component=BugBuddyBugs

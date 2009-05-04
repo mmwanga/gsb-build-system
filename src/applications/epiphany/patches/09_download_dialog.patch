@@ -1,0 +1,143 @@
+Index: epiphany-2.24.1/data/glade/prefs-dialog.glade
+===================================================================
+--- epiphany-2.24.1.orig/data/glade/prefs-dialog.glade	2008-09-22 20:38:32.000000000 +0200
++++ epiphany-2.24.1/data/glade/prefs-dialog.glade	2008-11-14 00:30:49.210988479 +0100
+@@ -303,6 +303,25 @@
+ 			      <property name="spacing">6</property>
+ 
+ 			      <child>
++				<widget class="GtkCheckButton" id="automatic_downloads_checkbutton">
++				  <property name="visible">True</property>
++				  <property name="can_focus">True</property>
++				  <property name="label" translatable="yes">A_utomatically download and open files</property>
++				  <property name="use_underline">True</property>
++				  <property name="relief">GTK_RELIEF_NORMAL</property>
++				  <property name="focus_on_click">True</property>
++				  <property name="active">False</property>
++				  <property name="inconsistent">False</property>
++				  <property name="draw_indicator">True</property>
++				</widget>
++				<packing>
++				  <property name="padding">0</property>
++				  <property name="expand">False</property>
++				  <property name="fill">False</property>
++				</packing>
++			      </child>
++
++			      <child>
+ 				<widget class="GtkHBox" id="download_button_hbox">
+ 				  <property name="visible">True</property>
+ 				  <property name="homogeneous">False</property>
+@@ -343,25 +362,6 @@
+ 				  <property name="fill">True</property>
+ 				</packing>
+ 			      </child>
+-
+-			      <child>
+-				<widget class="GtkCheckButton" id="automatic_downloads_checkbutton">
+-				  <property name="visible">True</property>
+-				  <property name="can_focus">True</property>
+-				  <property name="label" translatable="yes">A_utomatically download and open files</property>
+-				  <property name="use_underline">True</property>
+-				  <property name="relief">GTK_RELIEF_NORMAL</property>
+-				  <property name="focus_on_click">True</property>
+-				  <property name="active">False</property>
+-				  <property name="inconsistent">False</property>
+-				  <property name="draw_indicator">True</property>
+-				</widget>
+-				<packing>
+-				  <property name="padding">0</property>
+-				  <property name="expand">False</property>
+-				  <property name="fill">False</property>
+-				</packing>
+-			      </child>
+ 			    </widget>
+ 			  </child>
+ 			</widget>
+Index: epiphany-2.24.1/embed/mozilla/ContentHandler.cpp
+===================================================================
+--- epiphany-2.24.1.orig/embed/mozilla/ContentHandler.cpp	2008-08-31 13:38:12.000000000 +0200
++++ epiphany-2.24.1/embed/mozilla/ContentHandler.cpp	2008-11-14 00:30:49.210988479 +0100
+@@ -372,6 +372,7 @@ NS_METHOD GContentHandler::MIMEConfirmAc
+ NS_METHOD GContentHandler::MIMEInitiateAction (void)
+ {
+ 	gboolean auto_downloads;
++	gboolean confirm = FALSE;
+ 
+ 	if (eel_gconf_get_boolean (CONF_LOCKDOWN_DISABLE_SAVE_TO_DISK)) return NS_OK;
+ 
+@@ -394,23 +395,18 @@ NS_METHOD GContentHandler::MIMEInitiateA
+ 		}
+ 	}
+ 
+-#ifndef HAVE_GECKO_1_9
+-	if (auto_downloads)
++	if (!mHelperApp || mPermission != EPHY_MIME_PERMISSION_SAFE)
+ 	{
+-		mAction = CONTENT_ACTION_OPEN;
++		mAction = auto_downloads ? CONTENT_ACTION_DOWNLOAD : CONTENT_ACTION_SAVEAS;
++		confirm = (auto_downloads && mPermission != EPHY_MIME_PERMISSION_SAFE);
+ 	}
+ 	else
+-#endif /* !HAVE_GECKO_1_9 */
+ 	{
+ 		mAction = CONTENT_ACTION_OPEN_TMP;
++		confirm = !auto_downloads;
+ 	}
+ 
+-	if (!mHelperApp || mPermission != EPHY_MIME_PERMISSION_SAFE)
+-	{
+-		mAction = CONTENT_ACTION_DOWNLOAD;
+-	}
+-
+-	if (!auto_downloads || mAction == CONTENT_ACTION_DOWNLOAD)
++	if (confirm)
+ 	{
+ 		MIMEConfirmAction ();
+ 	}
+Index: epiphany-2.24.1/src/prefs-dialog.c
+===================================================================
+--- epiphany-2.24.1.orig/src/prefs-dialog.c	2008-08-03 14:23:09.000000000 +0200
++++ epiphany-2.24.1/src/prefs-dialog.c	2008-11-14 00:30:49.210988479 +0100
+@@ -345,6 +345,13 @@ prefs_dialog_show_help (EphyDialog *dial
+ }
+ 
+ static void
++automatic_downloads_toggled (GtkToggleButton *button,
++			     GtkWidget *widget)
++{
++	g_object_set (widget, "sensitive", gtk_toggle_button_get_active (button), NULL);
++}
++
++static void
+ setup_font_combo (EphyDialog *dialog,
+ 		  const char *type,
+ 		  const char *code,
+@@ -1474,6 +1481,7 @@ prefs_dialog_init (PrefsDialog *pd)
+ 	EphyDialog *dialog = EPHY_DIALOG (pd);
+ 	EphyEncodings *encodings;
+ 	GtkWidget *window, *curr_button, *blank_button;
++	GtkWidget *automatic_downloads_checkbutton, *download_button_hbox;
+ 	GtkWidget *clear_cache_button, *font_prefs_button;
+ 	GtkWidget *css_checkbox, *css_edit_box, *css_edit_button, *css_container;
+ 	gboolean sensitive;
+@@ -1494,6 +1502,8 @@ prefs_dialog_init (PrefsDialog *pd)
+ 		 properties[WINDOW_PROP].id, &window,
+ 		 properties[HOMEPAGE_CURRENT_PROP].id, &curr_button,
+ 		 properties[HOMEPAGE_BLANK_PROP].id, &blank_button,
++		 properties[AUTO_OPEN_PROP].id, &automatic_downloads_checkbutton,
++		 properties[DOWNLOAD_PATH_HBOX_PROP].id, &download_button_hbox,
+ 		 properties[FONT_PREFS_BUTTON_PROP].id, &font_prefs_button,
+ 		 properties[CSS_CHECKBOX_PROP].id, &css_checkbox,
+ 		 properties[CSS_EDIT_BOX_PROP].id, &css_edit_box,
+@@ -1517,6 +1527,10 @@ prefs_dialog_init (PrefsDialog *pd)
+ 	gtk_widget_set_sensitive (curr_button, sensitive);
+ 	gtk_widget_set_sensitive (blank_button, sensitive);
+ 
++	automatic_downloads_toggled (GTK_TOGGLE_BUTTON (automatic_downloads_checkbutton), download_button_hbox);
++	g_signal_connect (automatic_downloads_checkbutton, "toggled",
++			  G_CALLBACK (automatic_downloads_toggled), download_button_hbox);
++
+ 	g_signal_connect (font_prefs_button, "clicked",
+ 			  G_CALLBACK (font_prefs_button_clicked_cb), dialog);
+ 
