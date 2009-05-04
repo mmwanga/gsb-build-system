@@ -1,4 +1,39 @@
 +--------------------------+
+Sun May  5 00:06:14 BST 2009
+platform/alsa-plugins-1.0.17-i486-3gsb.tgz: Rebuilt.
+  No longer configure asound.conf for PulseAudio.
+platform/bluez-4.37-i486-6gsb.tgz: Rebuilt.
+  Fixes for rc.bluetooth, and set compatibility link for older
+  bluez-libs. 
+applications/evolution-2.26.1.1-i486-2gsb.tgz: Rebuilt.
+  Rebuilt against newer bluez.
+desktop/gvfs-1.2.2-i486-2gsb.tgz: Rebuilt.
+  Applied git patche for newer obexftp DBUS API.
+networking/deluge-1.1.7-i486-2gsb.tgz: Rebuilt.
+  Requires setuptools in slack-required.
+applications/gdm-2.20.10-i486-2gsb.tgz: Rebuilt.
+  Improved prefetch list.
+networking/ekiga-3.2.0-i486-2gsb.tgz: Rebuilt.
+  No longer linked against eds.
+libraries/boost-1.38.0-i486-2gsb.tgz: Rebuilt.
+  Patch from upsteam against function_template.hpp which breaks
+  builds with gcc <= 4.3.
+platform/gnome-keyring-2.26.1-i486-2gsb.tgz: Rebuilt.
+  Corrected location of xdg autostart file.
+applications/epiphany-2.26.1-i486-4gsb.tgz: Rebuilt.
+  Patched for crashing download dialog with newer cairo.
+applications/seahorse-2.26.1-i486-3gsb.tgz: Rebuilt.
+  Fix for moved xdg autostart causing seahorse to crash.
+libraries/pango-1.24.2-i486-1gsb.tgz: Upgraded.
+platform/vte-0.20.2-i486-1gsb.tgz: Upgraded.
+applications/alacarte-0.12.1-i486-1gsb.tgz: Upgraded.
+applications/bluez-gnome-1.8-i486-3gsb.tgz: Rebuilt.
+  Patched to remove empty device list in applet wizard.
+applications/libgksu-2.0.9-i486-1gsb.tgz: Upgraded.
+applications/gksu-2.0.2-i486-1gsb.tgz: Upgraded.
+media/kino-1.3.3-i486-3gsb.tgz: Rebuilt.
+  Fix for location of udev rules.
++--------------------------+
 Sun May  3 16:14:20 BST 2009
 platform/alsa-plugins-1.0.17-i486-3gsb.tgz: Rebuilt.
   No longer include the /etc/asound.conf.
