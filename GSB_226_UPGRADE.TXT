@@ -15,7 +15,9 @@ GSB 2.26.1, then please follow these instruction to ensure an easy upgrade.
 
 3.  Remove the following obsoleted packages:
 
-    # removepkg bluez-lib bluez-utils monodoc gst-plugins-farsight farsight 
+    # removepkg bluez-lib bluez-utils monodoc gst-plugins-farsight farsight \
+       nmc emerald-themes candido-themes compiz-fusion-plugins-main \
+       compiz-fusion-plugins-extra
 
 4.  It's recommended your install a smaller gsb-desktop for a fresh install:
 

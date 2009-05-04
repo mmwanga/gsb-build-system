@@ -17,6 +17,11 @@ networking/telepathy-farsight: Added.  (For Empathy to use farsight2)
 
 *** PACKAGE REMOVALS SINCE 2.24.3 ***
 
+compiz-fusion-plugins-main: Rename to compiz-plugins-main.
+compiz-fusion-plugins-extra: Rename to compiz-plugins-extra.
+themes/nmc: Removed. (Old and no longer maintained)
+themes/candido-themes: (Old, icon problems with newer GNOME formats)
+themes/emerald-themes: (Old and broken now with emerald 0.8.2)
 mono/monodoc: Removed. (Obsoleted by mono-tools)
 networking/farsight: Removed. (Obsoleted by farsight2)
 networking/gst-plugins-farsight: Removed. (Obsoleted by farsight2)
@@ -27,6 +32,11 @@ GSB packages. If you were running an older version of GSB and now upgrading,
 Please see SLACKWARE-12.2_CONFLICTS.TXT for more details.
 
 *** OTHER NOTABLE CHANGES AND HINTS ***
+
+- You user must be in the 'audio' group to use audio, the 'netdev' group to use
+avahi and NetworkManager, the 'plugdev' to use BlueTooth and removeable
+media in Nautilus, and the 'power' group to use hibernate/suspend with GNOME
+Power Manager.
 
 - Slackware 12.2's newer dbus package has a stricter security model.  Avahi now
 supplies a separate /etc/dbus-1/system-local.conf file which enables signal sending.
