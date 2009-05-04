@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=1.38.0
 RELEASE=$(echo ${VERSION//./_} | cut -f1,2 -d_)
 
@@ -148,6 +148,11 @@ if [ "$VERSION" = "1.36.0" ]; then
   patch -p2 < $CWD/patches/boost.has_leaf.patch || exit 1
   ## Revert remove changes inadvertently committed by 47006 and apply ticket #1972 remove fixes. 
   patch -p2 < $CWD/patches/boost.remove-changes.patch || exit 1
+fi;
+
+if [ "$VERSION" = "1.38.0" ]; then
+  ## fix broken ifdef in function_template.hpp
+  patch -p1 < $CWD/patches/boost_function_template_ifdef.patch || exit 1;
 fi;
 
 ## Fix permissions for building.

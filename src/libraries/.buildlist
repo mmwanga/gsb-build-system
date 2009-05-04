@@ -75,5 +75,6 @@ tre
 libesmtp
 libspectre
 djvulibre
-libtool
+libtool-compat
 alsa-lib
+exiv2

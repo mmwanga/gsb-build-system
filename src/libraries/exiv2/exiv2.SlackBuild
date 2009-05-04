@@ -7,8 +7,8 @@
 ##
 
 ## Package variables.
-BUILD=1
-VERSION=2.2.6a
+BUILD=2
+VERSION=0.18.1
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -92,7 +92,6 @@ mkdir -p $PKGDEST
 cd $TMP &&
 rm -rf $PKGNAME-$VERSION &&
 tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
-mv libtool-2.2.6 $PKGNAME-$VERSION &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -136,14 +135,14 @@ if [ "$ARCH" = "i386" ]; then
 elif [ "$ARCH" = "i486" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE"}
 elif [ "$ARCH" = "i586" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
 elif [ "$ARCH" = "i686" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE"}
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
 elif [ "$ARCH" = "x86_64" ]; then
   if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
-    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -fPIC"}
+    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -fPIC"}
   else
-    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -fPIC"}
+    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
   fi
   [ -z "$CONFIGURE_FLAGS" ] && {
     CONFIGURE_FLAGS="--libdir=/usr/lib64"
@@ -158,10 +157,9 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 ## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc \
-  --infodir=/usr/info \
-  --docdir=/usr/doc/libtool-$VERSION \
-  --build=$ARCH-slackware-linux \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --disable-static --enable-shared \
   || exit 1
 
 ## Build and install.
@@ -188,7 +186,8 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 ## Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a AUTHORS COPYING NEWS README THANKS TODO \
+cp -a \
+  AUTHORS COPYING* ChangeLog NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
