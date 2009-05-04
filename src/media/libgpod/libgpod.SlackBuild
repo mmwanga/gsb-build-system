@@ -1,18 +1,18 @@
 #!/bin/bash
-## Version: 1.6 GSB Package SlackBuild.
-## Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
-## Copyright (c) 2007 Steve Kennedy <sk238 (at) exeter.ac.uk>
-##
+## Version: 1.6 GSB Package SlackBuild - Do not remove this line!
+## Copyright (c) 2007, 2008:
+##   Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>, Coventry, UK.
+##   Steve Kennedy <steve (at) gnomeslackbuild.org>, Exeter, UK.
 ## Licenced under the terms of the GNU General Public Licence version 3.
 ##
 
 ## Package variables.
 BUILD=1
-VERSION=0.9.5
+VERSION=0.7.2
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="MPlayer libgnomeui dbus libgpod libmusicbrainz libnotify nautilus"
+REQUIRED_PACKAGES=""
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -159,8 +159,6 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
-  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
   --disable-static --enable-shared \
   || exit 1
 
@@ -186,10 +184,18 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
   gzip -9 $PKG/usr/info/*.info
 }
 
+## Correct permissions.
+## Doing these chown's will remove any s{u,g}id bits that may have been set on
+## the installed files, which is not usually what we want.  Only uncomment/use
+## these chown's if necessary.  ~Tadgy.
+# chown -R $(stat --format "%u:%g" /usr/bin) $PKG/usr/bin
+# chown -R $(stat --format "%u:%g" /usr/sbin) $PKG/usr/sbin
+
 ## Copy extra documentation into package.
-mkdir -p $PKG/usr/doc &&
-mv $PKG/usr/share/doc/$PKGNAME $PKG/usr/doc/$PKGNAME-$VERSION &&
-rm -fr $PKG/usr/share/doc || exit 1
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
+cp -a \
+  AUTHORS COPYING* ChangeLog NEWS README \
+  $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 

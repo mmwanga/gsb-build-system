@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=1.4.0
+VERSION=1.4.3
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -159,7 +159,6 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
   || exit 1
 
 ## Build and install.

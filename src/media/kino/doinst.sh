@@ -25,4 +25,4 @@ function install_file() {
   fi
 }
 
-install_file etc/udev/rules.d/80-kino.rules.new
+install_file lib/udev/rules.d/80-kino.rules.new
