@@ -7,12 +7,13 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=3.8.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
 REQUIRED_PACKAGES="openssl libxml2 intltool"
+
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -27,6 +28,12 @@ PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
 FORCEBUILD=0
+
+## Workaround for download script; the author of gwenhywfar doesn't
+## like haven't a standard download location.  :S
+if [ ! -f ${CWD}/${PKGNAME}-${VERSION}.tar.gz ]; then
+  wget "http://www2.aquamaniac.de/sites/download/download.php?package=01&release=21&file=01&dummy=gwenhywfar-${VERSION}.tar.gz" -O ${CWD}/${PKGNAME}-${VERSION}.tar.gz || exit 1
+fi; 
 
 ## Usage.
 function usage() {
