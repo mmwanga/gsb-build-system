@@ -1,0 +1,12 @@
+              |-----handy-ruler------------------------------------------------------|
+gsb-networking: gsb-networking (GNOME SlackBuild Networking Metapackage)
+gsb-networking: 
+gsb-networking: GNOME SlackBuild is a complete GNOME Desktop Environment for Slackware 
+gsb-networking: Linux, encompassing all the needed packages for a full, clean 
+gsb-networking: installation of GNOME for Slackware, or Slackware based systems.
+gsb-networking: 
+gsb-networking: This package is a metapackage for networking applications provided
+gsb-networking: by the GNOME SlackBuild Project. For more details, please
+gsb-networking: see http://gnomeslackbuild.org/software/
+gsb-networking: 
+gsb-networking: 
