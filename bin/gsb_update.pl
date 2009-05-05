@@ -55,7 +55,7 @@ use GSB::Ooo;
 use GSB::Platform;
 use GSB::Print;
 use GSB::Supplied;
-use GSB::Testing;
+#use GSB::Testing;
 use GSB::Themes;
 use GSB::Tools;
 
@@ -1318,41 +1318,41 @@ foreach my $ooopkg (keys %ooo_packages) {
 ###                       TESTING TARBALLS
 ##################################################################################
 
-foreach my $testpkg (keys %testing) {
+#foreach my $testpkg (keys %testing) {
 
-  my $name    = $testpkg;
+#my $name    = $testpkg;
 
-  my $dir     = $testing{$testpkg}{dir};
-  my $var     = $testing{$testpkg}{var};
-  my $ver     = $testing{$testpkg}{ver};
-  my $tarball = $testing{$testpkg}{tar};
-  my $packurl = $testing{$testpkg}{url};
-  my $type    = 'other';
+#my $dir     = $testing{$testpkg}{dir};
+#my $var     = $testing{$testpkg}{var};
+#my $ver     = $testing{$testpkg}{ver};
+#my $tarball = $testing{$testpkg}{tar};
+#my $packurl = $testing{$testpkg}{url};
+#my $type    = 'other';
 
-  chdir "$pwd/$dir";
+#chdir "$pwd/$dir";
 
-  my @tmp = split(/\//, $dir);
-  my $sb  = pop(@tmp);
+#my @tmp = split(/\//, $dir);
+#my $sb  = pop(@tmp);
 
-  my $sb_file = $sb . $sb_ext;
+#my $sb_file = $sb . $sb_ext;
 
-  if ( $download eq "true") {
-    my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
-    GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
-  }
+#if ( $download eq "true") {
+#my $url = GSB::GSB::gsb_generic_url_make($packurl, $tarball);
+#GSB::GSB::gsb_tarball_get($name, $ver, $tarball, $type, $url);
+#}
 
-  if ( $edit eq "true" ) {
-    GSB::Edit::gsb_sb_double_edit($sb_file, $ver, $var);
-  }
+#if ( $edit eq "true" ) {
+#GSB::Edit::gsb_sb_double_edit($sb_file, $ver, $var);
+#}
 
-  if ( $build ne "" ) {
-    GSB::Edit::gsb_build_release_make($sb_file, $build);
-  }
+#if ( $build ne "" ) {
+#GSB::Edit::gsb_build_release_make($sb_file, $build);
+#}
 
-  if ( ! -f $tarball ) {
-    push(@bad_downloads, $name);
-  }
-}
+#if ( ! -f $tarball ) {
+#push(@bad_downloads, $name);
+#}
+#}
 
 ################################################################################
 ###                       DONE

@@ -6,26 +6,27 @@ knowledge.
 
 *** PACKAGE ADDITIONS SINCE 2.24.3 ***
 
-media/libgpod: Added. (Newer version required.)
-libraries/alsa-lib: Added. (Required by newer pulseaudio)
+platform/devicekit: Added.
+platform/devicekit-power: Added.
+libraries/exiv2: Added.
+media/libgpod: Added. 
+libraries/alsa-lib: Added.
 desktop/libical: Added.
-libraries/libtool-compat: Added.  (This provides libltdl.so.7 for pulseaudio
-                                   libcanberra, and gnome-control-panel.)
-office/libgda-compat: Added.  (Provides the older libgda3 for some gnome applications
-                               which haven't yet made the switch to the newer API)
-networking/telepathy-farsight: Added.  (For Empathy to use farsight2)
+libraries/libtool-compat: Added.  (This provides libltdl.so.7)
+office/libgda-compat: Added.  (Provides the older libgda3)
+networking/telepathy-farsight: Added. 
 
 *** PACKAGE REMOVALS SINCE 2.24.3 ***
 
-compiz-fusion-plugins-main: Rename to compiz-plugins-main.
-compiz-fusion-plugins-extra: Rename to compiz-plugins-extra.
-themes/nmc: Removed. (Old and no longer maintained)
-themes/candido-themes: (Old, icon problems with newer GNOME formats)
-themes/emerald-themes: (Old and broken now with emerald 0.8.2)
-mono/monodoc: Removed. (Obsoleted by mono-tools)
-networking/farsight: Removed. (Obsoleted by farsight2)
-networking/gst-plugins-farsight: Removed. (Obsoleted by farsight2)
-ooo/openoffice: Removed.  (We've now moved fully to the new stable Oo.org3.
+compiz-fusion-plugins-main: Renamed to compiz-plugins-main.
+compiz-fusion-plugins-extra: Renamed to compiz-plugins-extra.
+themes/nmc: Removed. 
+themes/candido-themes: Removed.
+themes/emerald-themes: Removed.
+mono/monodoc: Removed. 
+networking/farsight: Removed. 
+networking/gst-plugins-farsight: Removed. 
+ooo/openoffice: Renamed to openoffice3. 
 
 Slackware 12.2 has added numerous packages as well that supplant older 
 GSB packages. If you were running an older version of GSB and now upgrading,
