@@ -285,8 +285,8 @@ mkdir -p $LOGSDIR
   echo "* Building GSB - this will take a while..."
   echo "*********************************************************************"
 
-  echo "$(date)" >> ${CHANGELOG}
   echo "+--------------------------+" >> ${CHANGELOG}
+  echo "$(date)" >> ${CHANGELOG}
 
   for SECTION in $SECTIONS $( if [ "$NOMETAPACKAGES" = "0" ] && \
     [ -z "$GSB_SECTIONS" ]; then echo "$METAPACKAGES_SECTIONS"; fi )
@@ -341,7 +341,7 @@ mkdir -p $LOGSDIR
   done;
 
   # Copy extra documentation
-  cp testing/README.TXT $PKGDEST/$TESTINGDIR &&
+  #cp testing/README.TXT $PKGDEST/$TESTINGDIR &&
   cp extra/README.TXT $PKGDEST/$EXTRADIR || exit 1
   if [ "$ARCH" = "x86_64" ]; then
     cp ../ChangeLog.slamd64 $PKGDEST/ChangeLog
