@@ -42,7 +42,6 @@ goocanvasmm
 gparted
 gslapt
 gthumb
-gtk-vnc
 gtkam
 gtkspell
 hamster-applet
@@ -57,16 +56,12 @@ paprefs
 parted
 pavucontrol
 pavumeter
-pessulus
 pm-utils
-pybackpack
 pygoocanvas
 pygtksourceview
 python-dateutil
 python-ldap
 pywebkitgtk
-rdiff-backup
-sabayon
 seahorse
 seahorse-plugins
 sensors-applet

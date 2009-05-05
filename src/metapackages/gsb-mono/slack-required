@@ -16,9 +16,9 @@ libgphoto2-sharp
 mono
 mono-addins
 mono-zeroconf
-monodoc
 ndesk-dbus
 ndesk-dbus-glib
 njb-sharp
 podsleuth
 taglib-sharp
+banshee-1

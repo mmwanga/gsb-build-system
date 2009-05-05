@@ -3,8 +3,8 @@ awn-extras-applets
 ccsm
 compiz-bcop
 compiz-fusion
-compiz-fusion-plugins-extra
-compiz-fusion-plugins-main
+compiz-plugins-extra
+compiz-plugins-main
 compiz-manager
 compizconfig-backend-gconf
 compizconfig-python
