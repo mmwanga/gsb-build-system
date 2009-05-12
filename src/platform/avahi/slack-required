@@ -9,3 +9,4 @@ expat
 libdaemon
 libglade
 pygobject
+nss-mdns

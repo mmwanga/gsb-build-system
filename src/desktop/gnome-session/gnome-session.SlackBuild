@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=3
+BUILD=1
 VERSION=2.26.1
 
 ## List any packages here that are required to build this package.
@@ -180,9 +180,9 @@ cp $CWD/gnome-wm.gsb $PKG/usr/bin/gnome-wm || exit 1
 chmod +x $PKG/usr/bin/gnome-wm
 
 # GNOME autostart
-mkdir -p $PKG/etc/gnome/xdg &&
-mv $PKG/etc/xdg/autostart $PKG/etc/gnome/xdg || exit 1
-rmdir -p $PKG/etc/xdg
+#mkdir -p $PKG/etc/gnome/xdg &&
+#mv $PKG/etc/xdg/autostart $PKG/etc/gnome/xdg || exit 1
+#rmdir -p $PKG/etc/xdg
 
 ## Add xinitrc script for Gnome
 mkdir -p $PKG/etc/X11/xinit

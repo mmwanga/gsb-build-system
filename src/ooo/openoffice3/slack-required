@@ -18,4 +18,4 @@ gtk+2
 openssl-solibs | openssl
 nss
 ttf-liberation-fonts
-gnome-ooo-menus
+gnome-menus-ooo
