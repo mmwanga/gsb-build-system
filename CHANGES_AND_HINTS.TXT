@@ -15,6 +15,9 @@ desktop/libical: Added.
 libraries/libtool-compat: Added.  (This provides libltdl.so.7)
 office/libgda-compat: Added.  (Provides the older libgda3)
 networking/telepathy-farsight: Added. 
+extra/xorg-server-1.4.2-i486-1gsb.tgz: Added.
+extra/xorg-server-xnest-1.4.2-i486-1gsb.tgz: Added.
+extra/xorg-server-xvfb-1.4.2-i486-1gsb.tgz: Added.
 
 *** PACKAGE REMOVALS SINCE 2.24.3 ***
 
@@ -33,6 +36,9 @@ GSB packages. If you were running an older version of GSB and now upgrading,
 Please see SLACKWARE-12.2_CONFLICTS.TXT for more details.
 
 *** OTHER NOTABLE CHANGES AND HINTS ***
+
+- If you are experiencing a 100% usage of your X process when running GNOME, 
+please see our XORG_PACKAGES.TXT for more information about this bug in X.
 
 - You user must be in the 'audio' group to use audio, the 'netdev' group to use
 avahi and NetworkManager, the 'plugdev' to use BlueTooth and removeable

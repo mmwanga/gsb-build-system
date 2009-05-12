@@ -1,3 +1,33 @@
+Mon May 11 22:29:32 BST 2009
++--------------------------+
+extra/xorg-server-1.4.2-i486-1gsb.tgz: Added.
+  There is a known bug in X.org 1.4.2 event handling code which is 
+  noticeable with GNOME 2.26.  We have build Slackware's xorg-*
+  packages using Pat's own SlackBuilds, after having applied an 
+  official X.Org GIT upstream patch.  If you find that your X
+  process is chewing 100% of your processor, then you may want
+  to replace your xorg packages with these in our extra/ 
+  section.
+extra/xorg-server-xnest-1.4.2-i486-1gsb.tgz: Added.
+extra/xorg-server-xvfb-1.4.2-i486-1gsb.tgz: Added.
++--------------------------+
+Tue May  5 01:05:13 BST 2009
+applications/libgksu-2.0.9-i486-1gsb.tgz: Upgraded.
+applications/gksu-2.0.2-i486-1gsb.tgz: Upgraded.
+media/kino-1.3.3-i486-3gsb.tgz: Rebuilt.
+  Fix for slack-required
+themes/gnome-themes-extras-2.22.0-i486-4gsb.tgz: Rebuilt.
+themes/murrine-engine-0.90.3-i486-1gsb.tgz: Upgraded.
+themes/candido-engine-0.9.1-i486-2gsb.tgz: Rebuilt.
+themes/msttcorefonts-2.0-i486-1gsb.tgz: Repackaged.
+  Now includes vista fonts.
+themes/mac4lin-theme-1.0rc1-i486-1gsb.tgz: Upgraded.
+themes/ttf-liberation-fonts-1.1-i486-1gsb.tgz: Repackaged.
+applications/libgksu-2.0.9-i486-2gsb.tgz: Recompiled.
+ooo/gnome-menus-ooo-3.0.0.6-i486-1gsb.tgz: Repackaged.
+ooo/openoffice3-3.0.1.3-i486-1gsb.tgz: Upgraded.
+applications/gdm-2.20.10-i486-3gsb.tgz: Recompiled.
+compiz/compiz-fusion-0.8.2-i486-2gsb.tgz: Recompiled.
 +--------------------------+
 Sun May  5 00:06:14 BST 2009
 platform/alsa-plugins-1.0.17-i486-3gsb.tgz: Rebuilt.

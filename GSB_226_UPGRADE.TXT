@@ -13,13 +13,15 @@ GSB 2.26.1, then please follow these instruction to ensure an easy upgrade.
     standard Slackware packages will be replaced by GSB versions.
     You may also want to read the 'CHANGES_AND_HINTS.TXT' before upgrading.
 
-3.  Remove the following obsoleted packages:
+3.  Read the notice in XORG_PACKAGES.TXT about a possible xorg-server bug.
+
+4.  Remove the following obsoleted packages:
 
     # removepkg bluez-lib bluez-utils monodoc gst-plugins-farsight farsight \
        nmc emerald-themes candido-themes compiz-fusion-plugins-main \
        compiz-fusion-plugins-extra
 
-4.  It's recommended your install a smaller gsb-desktop for a fresh install:
+5.  It's recommended your install a smaller gsb-desktop for a fresh install:
 
     # slapt-get --install gsb-desktop 
 
@@ -27,11 +29,11 @@ GSB 2.26.1, then please follow these instruction to ensure an easy upgrade.
 
     # slapt-get --upgrade 
 
-5.  Examine new configuration files.  
+6.  Examine new configuration files.  
 
     # find /etc -name "*.new"
 
     Make sure you are using the latest avahi, dbus, PolicyKit, and ConsoleKit
     configuration files.  Otherwise, things may break. 
 
-6.  Reboot. 
+7.  Reboot. 
