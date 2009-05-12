@@ -18,8 +18,8 @@ use GSB::Verify;
 
 my %gnome =
   (
-   'version'  => '2.24.0',
-   'release'  => '2.24',
+   'version'  => '2.26.1',
+   'release'  => '2.26',
    #'mirror'   => 'http://ftp.gnome.org/pub/gnome',
    'mirror'   => 'http://ftp.acc.umu.se/pub/gnome',
    #'mirror'   => 'http://www.mirrorservice.org/sites/ftp.gnome.org/pub/GNOME/',
