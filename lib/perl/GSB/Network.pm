@@ -66,11 +66,6 @@ our %network_external =
              'ver' => '0.3.3',
              'src' => 'tar.gz'
                         },
-			#'farsight'            => {
-			#'url' => 'http://farsight.freedesktop.org/releases/farsight',
-			#'ver' => '0.1.28',
-			#'src' => 'tar.gz'
-			#},
    'farsight2'            => {
              'url' => 'http://farsight.freedesktop.org/releases/farsight2',
              'ver' => '0.0.9',
@@ -81,11 +76,11 @@ our %network_external =
              'ver' => '0.0.6',
              'src' => 'tar.gz'
                         },
-			#'gst-plugins-farsight'            => {
-			#'url' => 'http://farsight.freedesktop.org/releases/gst-plugins-farsight',
-			#'ver' => '0.12.9',
-			#'src' => 'tar.gz'
-			#},
+   'mod_dnssd'            => {
+             'url' => 'http://0pointer.de/lennart/projects/mod_dnssd',
+             'ver' => '0.6',
+             'src' => 'tar.gz'
+                        },
    'telepathy-butterfly'            => {
              'url' => 'http://telepathy.freedesktop.org/releases/telepathy-butterfly',
              'ver' => '0.3.3',

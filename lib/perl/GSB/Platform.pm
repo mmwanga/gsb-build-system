@@ -17,7 +17,7 @@ our $VERSION   = 0.03;
 our %platform =
   (
    'gail'                => '1.22.3',
-   'GConf'               => '2.26.0',
+   'GConf'               => '2.26.2',
    'gnome-common'        => '2.26.0',
    'gnome-doc-utils'     => '0.16.1',
    'gnome-keyring'       => '2.26.1',

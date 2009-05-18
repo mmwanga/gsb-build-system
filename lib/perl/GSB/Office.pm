@@ -22,11 +22,11 @@ our %office_gnome =
    'glom'                 => '1.10.0',
    'goffice'              => '0.6.6',
    'gnome-python-extras'  => '2.25.3',
-   'libgsf'               => '1.14.12',
+   'libgsf'               => '1.14.13',
    'libgda'               => '4.0.2',
    'libgdamm'             => '3.99.14',
    'libgnomedb'           => '3.0.0',
-   'tomboy'               => '0.14.1',
+   'tomboy'               => '0.14.2',
    'tracker'              => '0.6.93',
   );
 

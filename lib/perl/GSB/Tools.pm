@@ -45,10 +45,10 @@ our %tools =
              'var' => 'VERSION',
 			     },
     'slapt-get'           => {
-			 'ver' => '0.10.1',
+			 'ver' => '0.10.1a',
 			 'url' => 'http://software.jaos.org/source/slapt-get/',
 			 'dir' => 'tools/slapt-get',
-			 'tar' => 'slapt-get-0.10.1.tar.gz',
+			 'tar' => 'slapt-get-0.10.1a.tar.gz',
 			 'src' => 'tar.gz',
              'var' => 'VERSION',
 			     },

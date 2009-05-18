@@ -1,14 +1,20 @@
-Slackware 12.2 has added the following packages to the official 
-repository, and GSB will no longer be offering them.
-
-Please make sure that you remove the GSB versions of the packages and 
-replace them with the official Slackware 12.2 packages.
+# Slackware 12.2 has added the following packages to the official 
+# repository, and GSB will no longer be offering them.
+# 
+# For packages which still need to be replaced, please see our
+# 'SLACKWARE-12.2_REPLACED_PACKAGES.TXT'.
+# 
+# If you have upgraded from a previous version of Slackware, then
+# please make sure that you remove the GSB versions of the following
+# packages and replace them with the official Slackware 12.2 packages.
+# 
+# Last Updated: May 17, 2009 (stevek)
+# 
+# ----------------------------------------------------------------
 
 liboil
-alsa-lib
-gstreamer
 libgphoto2
-sqlite3 (Slackware's package is named sqlite)
+sqlite3
 xdg-utils
 gphoto2
 libraw1394
@@ -18,5 +24,5 @@ pycups
 pygobject
 parted
 gtkspell
-dbus (If using an old GSB version.)
-dbus-glib (If using an old GSB version.)
+dbus
+dbus-glib

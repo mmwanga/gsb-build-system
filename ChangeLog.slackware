@@ -1,5 +1,67 @@
-Mon May 11 22:29:32 BST 2009
+Sun May 17 18:49:17 BST 2009
+devel/mono-tools-2.4-i486-3gsb.tgz: Rebuilt.
+  Beautification fix for gsharp.desktop.
+networking/NetworkManager-vpn-0.7.1-i486-3gsb.tgz: Rebuilt.
+  Fix for dbus group from invalid user nmopenconnect to netdev.
 +--------------------------+
+Sun May 17 17:43:27 BST 2009
+platform/GConf-2.26.2-i486-1gsb.tgz: Upgraded.
+compiz/fusion-icon-0.1.0-i486-7gsb.tgz: Repackaged.
+  Fix for doinst.sh gtk icon cache update.
+desktop/gnome-session-2.26.1-i486-2gsb.tgz: Rebuilt.
+  Improved gnome-wm script with compiz updates, and set
+  default gconf window manager key as gnome-wm.  
+applications/gdm-2.20.10-i486-5gsb.tgz: Rebuilt.
+office/tracker-0.6.93-i486-2gsb.tgz: Rebuilt.
+  Disable indexing and search by default.  Users should
+  enable this if they wish, rather than disabling it.
+office/tomboy-0.14.2-i486-2gsb.tgz: Rebuilt.
+  Fix for doinst.sh gtk icon cache update.
+compiz/compiz-fusion-0.8.2-i486-3gsb.tgz: Rebuilt.
+  Set default list of active plugins for gconf plugin. Thanks to
+  Joel Adamson for reporting the issue. 
+libraries/glib2-2.20.2-i486-1gsb.tgz: Upgraded.
+desktop/gtksourceview2-2.6.2-i486-1gsb.tgz: Upgraded.
+libraries/cairo-1.8.6-i486-2gsb.tgz: Rebuilt.
+  Applied upstream git patch to fix cairo-clip which caused 
+  assertions some applications such as Epiphany, Deluge, and 
+  a few others. Thanks to byteframe for reporting the problem.
+desktop/nautilus-open-terminal-0.12-i486-1gsb.tgz: Upgraded.
+applications/gcalctool-5.26.2-i486-1gsb.tgz: Upgraded.
++--------------------------+
+Wed May 13 23:48:44 BST 2009
+administration/gslapt-0.5.1a-i486-1gsb.tgz: Upgraded.
+tools/slapt-get-0.10.1a-i486-1gsb.tgz: Upgraded.
+  This version has updated MD5 parsing to accept new Slackware md5sum
+  metadata in /var/log/packages entries.
+office/tomboy-0.14.2-i486-1gsb.tgz: Upgraded.
+applications/service-discovery-applet-0.4.5-i486-7gsb.tgz: Rebuilt.
+  Minor bug fix for _sftp-ssh._tcp entry.
++--------------------------+
+Tue May 12 23:41:26 BST 2009
+networking/mod_dnssd-0.6-i486-1gsb.tgz: Added.
+  Required package for gnome-user-share.
+networking/gnome-user-share-2.26.0-i486-2gsb.tgz: Rebuilt.
++--------------------------+
+Tue May 12 23:41:26 BST 2009
+platform/GConf-2.26.1-i486-1gsb.tgz: Upgraded.
+desktop/gstreamer-0.10.23-i486-1gsb.tgz: Upgraded.
+desktop/gst-plugins-base-0.10.23-i486-1gsb.tgz: Upgraded.
+libraries/libtasn1-2.1-i486-2gsb.tgz: Rebuilt.
+  Fixed misplaced /usr/info. 
+desktop/libgtop-2.26.1-i486-2gsb.tgz: Rebuilt.
+  Fixed misplaced /usr/info. 
+platform/bluez-4.37-i486-7gsb.tgz: Rebuilt.
+  Fixed broken softlink.
+devel/autogen-5.9.7-i486-2gsb.tgz: Rebuilt.
+  Fixed misplaced /usr/info. 
+office/libgsf-1.14.13-i486-1gsb.tgz: Upgraded.
++--------------------------+
+Tue May 12 18:57:21 BST 2009
+office/gnucash-2.2.9-i486-2gsb.tgz: Rebuilt.
+  Fixed misplaced /usr/info. 
++--------------------------+
+Mon May 11 22:29:32 BST 2009
 extra/xorg-server-1.4.2-i486-1gsb.tgz: Added.
   There is a known bug in X.org 1.4.2 event handling code which is 
   noticeable with GNOME 2.26.  We have build Slackware's xorg-*

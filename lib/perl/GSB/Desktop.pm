@@ -54,7 +54,7 @@ our %desktop =
    'metacity'               => '2.26.0',
    'nautilus'               => '2.26.2',
    'nautilus-cd-burner'     => '2.24.0',
-   'nautilus-open-terminal' => '0.9',
+   'nautilus-open-terminal' => '0.12',
    'nautilus-image-converter' => '0.3.0',
    'totem-pl-parser'         => '2.26.2',
    'zenity'                  => '2.26.0',
@@ -73,12 +73,12 @@ our %desktop_nongnome =
 			   'src' => 'tar.bz2',
 			  },
    'gstreamer'  => {
-                           'ver' => '0.10.22',
+                           'ver' => '0.10.23',
                            'url' => 'http://gstreamer.freedesktop.org/src/gstreamer',
                            'src' => 'tar.bz2',
                           },
    'gst-plugins-base'  => {
-                           'ver' => '0.10.22',
+                           'ver' => '0.10.23',
                            'url' => 'http://gstreamer.freedesktop.org/src/gst-plugins-base',
                            'src' => 'tar.bz2',
                           },
@@ -132,7 +132,7 @@ our %desktop_nongnome =
 our %desktop_diff_naming =
   (
    'gtksourceview2'  => {
-                         'ver'  => '2.6.1',
+                         'ver'  => '2.6.2',
                          'name' => 'gtksourceview',
                         },
    );

@@ -31,13 +31,13 @@ our %administration =
                  'src' => 'tar.gz',
                             },
    'slapt-update-notifier'         => {
-                 'ver' => '0.2.1',
+                 'ver' => '0.4.1',
                  'url' => 'http://software.jaos.org/source/slapt-update-notifier',
                  'src' => 'tar.gz',
                             },
    'gslapt'    => {
              'url' => 'http://software.jaos.org/source/gslapt',
-             'ver' => '0.5.1',
+             'ver' => '0.5.1a',
              'src' => 'tar.gz',
                   },
    'pybackpack'         => {
