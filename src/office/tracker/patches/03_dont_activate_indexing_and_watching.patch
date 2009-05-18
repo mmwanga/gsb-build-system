@@ -1,0 +1,16 @@
+Index: tracker-0.6.91/src/libtracker-common/tracker-config.c
+===================================================================
+--- tracker-0.6.91.orig/src/libtracker-common/tracker-config.c	2009-03-18 23:56:26.000000000 +0000
++++ tracker-0.6.91/src/libtracker-common/tracker-config.c	2009-03-18 23:57:00.000000000 +0000
+@@ -76,9 +76,9 @@
+ #define DEFAULT_INITIAL_SLEEP			 45	  /* 0->1000 */
+ #define DEFAULT_LOW_MEMORY_MODE			 FALSE
+ #define DEFAULT_NFS_LOCKING			 FALSE
+-#define DEFAULT_ENABLE_WATCHES			 TRUE
++#define DEFAULT_ENABLE_WATCHES			 FALSE
+ #define DEFAULT_THROTTLE			 0	  /* 0->20 */
+-#define DEFAULT_ENABLE_INDEXING			 TRUE
++#define DEFAULT_ENABLE_INDEXING			 FALSE
+ #define DEFAULT_ENABLE_CONTENT_INDEXING		 TRUE
+ #define DEFAULT_ENABLE_THUMBNAILS		 TRUE
+ #define DEFAULT_FAST_MERGES			 FALSE

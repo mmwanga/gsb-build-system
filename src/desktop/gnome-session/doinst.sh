@@ -30,8 +30,10 @@ fi
 usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type string --set /apps/gnome-session/options/splash_image splash/gsb-splash.png 1> /dev/null 2> /dev/null
 # Ensure sound server start up
 usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type boolean --set /desktop/gnome/sound/enable_esd false 1> /dev/null 2> /dev/null
-# Disable splash screen
+# Enable splash screen
 usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type boolean --set /apps/gnome-session/options/show_splash_screen true 1> /dev/null 2> /dev/null
+# Enable gnome-wm as windowizer
+usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type string --set /desktop/gnome/session/required_components/windowmanager gnome-wm 1> /dev/null 2> /dev/null
 
 if [ -e usr/share/icons/hicolor/icon-theme.cache ]; then
 	rm -f usr/share/icons/hicolor/icon-theme.cache

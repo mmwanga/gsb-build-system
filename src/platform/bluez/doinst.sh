@@ -39,7 +39,7 @@ install_file etc/rc.d/rc.bluetooth.new
 install_file etc/bluetooth/passkeys/default.new
 install_file etc/default/bluetooth.new
 
-if [ ! -e etc/asound.conf ]; then
-  ( cd etc ; ln -sf bluetooth/asound.conf . )
-fi
+#if [ ! -e etc/asound.conf ]; then
+  #( cd etc ; ln -sf bluetooth/asound.conf . )
+#fi
 

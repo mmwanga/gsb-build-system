@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=5.9.7
 
 ## List any packages here that are required to build this package.
@@ -179,6 +179,12 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 }
 
 ## Deal with .info files.
+if [ -d $PKG/usr/share/info ]; then
+ mkdir -p $PKG/usr ;
+ mv $PKG/usr/share/info $PKG/usr ;
+ rmdir -p $PKG/usr/share ;
+fi;
+
 [ -e $PKG/usr/info ] && {
   rm -f $PKG/usr/info/dir
   gzip -9 $PKG/usr/info/*.info

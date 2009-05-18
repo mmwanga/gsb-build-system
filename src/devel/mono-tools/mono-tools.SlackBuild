@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=2.4
 
 ## List any packages here that are required to build this package.
@@ -187,6 +187,9 @@ mkdir -p $PKG/etc/gre.d &&
 cp $CWD/mozilla-firefox.conf $PKG/etc/gre.d/mozilla-firefox.conf.new &&
 sed -i $PKG/etc/gre.d/mozilla-firefox.conf.new -e "s:@LIBDIR@:$LIBDIR:g" &&
 chown root:root $PKG/etc/gre.d/mozilla-firefox.conf.new || exit 1
+
+mkdir -p $PKG/usr/share/applications &&
+cp  $CWD/gsharp.desktop $PKG/usr/share/applications || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

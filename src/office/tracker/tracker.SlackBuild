@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=0.6.93
 
 ## List any packages here that are required to build this package.
@@ -113,6 +113,9 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
+
+patch -p1 < $CWD/patches/02_no_kde_autostart.patch || exit 1
+patch -p1 < $CWD/patches/03_dont_activate_indexing_and_watching.patch || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .

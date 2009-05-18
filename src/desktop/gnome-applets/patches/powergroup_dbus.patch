@@ -1,0 +1,16 @@
+diff -Naur gnome-applets-2.26.1.old/cpufreq/src/cpufreq-selector/org.gnome.CPUFreqSelector.conf gnome-applets-2.26.1/cpufreq/src/cpufreq-selector/org.gnome.CPUFreqSelector.conf
+--- gnome-applets-2.26.1.old/cpufreq/src/cpufreq-selector/org.gnome.CPUFreqSelector.conf	2009-03-16 23:39:11.000000000 +0000
++++ gnome-applets-2.26.1/cpufreq/src/cpufreq-selector/org.gnome.CPUFreqSelector.conf	2009-05-17 22:59:31.000000000 +0100
+@@ -12,6 +12,12 @@
+     <allow send_interface="org.gnome.CPUFreqSelector"/>
+   </policy>
+ 
++  <!-- allow power group to own the service -->
++  <policy group="power">
++    <allow own="org.gnome.CPUFreqSelector"/>
++    <allow send_interface="org.gnome.CPUFreqSelector"/>
++  </policy>
++
+   <policy context="default">
+     <allow send_interface="org.gnome.CPUFreqSelector"/>
+   </policy>

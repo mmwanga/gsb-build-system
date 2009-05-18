@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=3
+BUILD=5
 VERSION=2.20.10
 
 ## List any packages here that are required to build this package.
@@ -126,7 +126,6 @@ patch -p1 < $CWD/patches/46_kde-substitude-uid.patch || exit 1
 patch -p1 < $CWD/patches/47_xkeepscrashing-restore-keyboard.patch || exit 1
 patch -p1 < $CWD/patches/55_use-theme-gtkrc.patch || exit 1
 patch -p1 < $CWD/patches/62_reference-manual-docbook-entity-reference.patch || exit 1
-#patch -p1 < $CWD/patches/63_xrandr_virtual.patch || exit 1
 patch -p1 < $CWD/patches/73_disable_user_input_tooltip.patch || exit 1
 patch -p1 < $CWD/patches/74_greeter_theme_memleak.patch || exit 1
 

@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=6
+BUILD=7
 VERSION=0.4.5
 
 ## List any packages here that are required to build this package.
@@ -114,6 +114,10 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
+
+patch -p0 < $CWD/patches/pluginloader-shebang.diff || exit 1
+patch -p0 < $CWD/patches/pygtk-require.diff || exit 1
+patch -p0 < $CWD/patches/sftp-no-terminal.patch || exit 1
 
 ## Fix permissions for building.
 chown -R root.root .

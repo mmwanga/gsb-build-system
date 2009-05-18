@@ -7,12 +7,12 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.26.0
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 GConf avahi httpd"
+REQUIRED_PACKAGES="gtk+2 GConf avahi httpd mod_dnssd"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

@@ -35,7 +35,7 @@ SOURCE=ftp://slackware.mirrors.tds.net/pub/slackware/slackware-12.2/
 #SOURCE=ftp://ftp.slackware.no/pub/linux/slackware/slackware-12.2/
 #SOURCE=http://slackware.rol.ru/slackware/slackware-12.2/
 
-# GNOME SlackBuild mirrors (version 2.22)
+# GNOME SlackBuild mirrors (version 2.26)
 SOURCE=ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-2.26/
 #SOURCE=ftp://ftp.slackware.org.uk/gsb/gsb-2.26/
 #SOURCE=http://www.slackware.org.uk/gsb/gsb-2.26/

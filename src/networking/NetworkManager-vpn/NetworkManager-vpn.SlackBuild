@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=0.7.1
 
 ## List any packages here that are required to build this package.
@@ -180,7 +180,7 @@ done;
 
 ## Users now can add themselves to the "netdev" group to use networkmanager.
 sed -i "s/at_console=\"true\"/group=\"netdev\"/g" $PKG/etc/dbus-1/system.d/*.conf || exit 1
-sed -i "s,nm-openconnect,netdev,g" $PKG/etc/dbus-1/system.d/nm-openconnect-service.conf || exit 1
+sed -i "s,user=\"nm-openconnect\",group=\"netdev\",g" $PKG/etc/dbus-1/system.d/nm-openconnect-service.conf || exit 1
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

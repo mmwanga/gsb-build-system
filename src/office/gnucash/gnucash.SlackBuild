@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.2.9
 
 ## List any packages here that are required to build this package.
@@ -194,6 +194,12 @@ mv $PKG/etc/gnucash/config $PKG/etc/gnucash/config.new || exit 1
 }
 
 ## Deal with .info files.
+if [ -d $PKG/usr/share/info ]; then
+ mkdir -p $PKG/usr ;
+ mv $PKG/usr/share/info $PKG/usr ; 
+ rmdir -p $PKG/usr/share ;
+fi;
+
 [ -e $PKG/usr/info ] && {
   rm -f $PKG/usr/info/dir
   gzip -9 $PKG/usr/info/*.info

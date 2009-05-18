@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.26.1
 
 ## List any packages here that are required to build this package.
@@ -178,6 +178,8 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 mv $PKG/usr/bin/gnome-wm $PKG/usr/bin/gnome-wm.gnome || exit 1
 cp $CWD/gnome-wm.gsb $PKG/usr/bin/gnome-wm || exit 1
 chmod +x $PKG/usr/bin/gnome-wm
+mkdir -p $PKG/usr/share/applications &&
+cp $CWD/gnome-wm.desktop $PKG/usr/share/applications || exit 1
 
 # GNOME autostart
 #mkdir -p $PKG/etc/gnome/xdg &&

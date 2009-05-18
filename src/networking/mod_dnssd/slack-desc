@@ -1,0 +1,12 @@
+         |-----handy-ruler------------------------------------------------------|
+mod_dnssd: mod_dnssd (Apache Httpd Zeroconf Support)
+mod_dnssd:
+mod_dnssd: mod_dnssd is an Apache HTTPD module which adds Zeroconf support via 
+mod_dnssd: DNS-SD using Avahi. mod_dnssd is written by Lennart Poettering.
+mod_dnssd:
+mod_dnssd:
+mod_dnssd:
+mod_dnssd:
+mod_dnssd:
+mod_dnssd:
+mod_dnssd:

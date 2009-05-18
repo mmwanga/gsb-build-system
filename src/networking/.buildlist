@@ -13,6 +13,7 @@ empathy
 balsa
 deluge
 ekiga
+mod_dnssd
 gnome-user-share
 NetworkManager
 NetworkManager-vpn

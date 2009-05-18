@@ -5,7 +5,7 @@ fi
 if [ -e usr/share/icons/hicolor/icon-theme.cache ]; then
     rm -f usr/share/icons/hicolor/icon-theme.cache
 fi
-usr/bin/gtk-update-icon-cache -f -q usr/share/icons/hicolor
+usr/bin/gtk-update-icon-cache -f -q usr/share/icons/hicolor 1>/dev/null 2>/dev/null
 
 cat << EOF
 You will need to restart the dbus message system in order to load the new
