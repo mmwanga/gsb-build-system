@@ -15,7 +15,7 @@ our $VERSION   = 0.03;
 
 our %office_gnome =
   (
-   'anjuta'               => '2.26.1.0',
+   'anjuta'               => '2.26.2.0',
    'gnumeric'             => '1.8.4',
    'dia'                  => '0.96.1',
    'f-spot'               => '0.5.0.3',

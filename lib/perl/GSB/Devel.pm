@@ -21,7 +21,7 @@ our %devel_gnome =
   (
    'accerciser'  => '1.6.1',
    'devhelp'     => '0.22',
-   'gdl'         => '2.26.0',
+   'gdl'         => '2.26.2',
    'ghex'        => '2.24.0',
    'glade3'      => '3.6.2',
    'gnome-build' => '2.24.1',

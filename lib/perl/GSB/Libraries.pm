@@ -323,8 +323,8 @@ our %libraries_gnome =
   (
    'libcroco'          => '0.6.2',
    'libsigc++'         => '2.2.3',
-   'ptlib'             => '2.6.1',
-   'opal'              => '3.6.1',
+   'ptlib'             => '2.6.2',
+   'opal'              => '3.6.2',
    'pango'             => '1.24.2',
   );
 
