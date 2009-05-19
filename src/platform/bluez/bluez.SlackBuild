@@ -211,7 +211,11 @@ rm -fr $PKG/usr/libexec ;
 sed -i "s/at_console=\"true\"/group=\"netdev\"/g" $PKG/etc/dbus-1/system.d/bluetooth.conf
 
 ## compatibility for previous bluez-libs 3 package
-( cd $PKG/usr/lib ; ln -s libbluetooth.so libbluetooth.so.2 ) ;
+if [ "$ARCH" = "x86_64" ]; then
+  ( cd $PKG/usr/lib64 ; ln -s libbluetooth.so libbluetooth.so.2 ) ;
+else
+  ( cd $PKG/usr/lib ; ln -s libbluetooth.so libbluetooth.so.2 ) ;
+fi
 
 # Move/rename/patch init script:
 mv $PKG/etc/init.d $PKG/etc/rc.d
@@ -232,7 +236,11 @@ cp -a rfcomm/rfcomm.conf $PKG/etc/bluetooth
 chmod 644 $PKG/etc/bluetooth/*.conf
 
 # Install Debian's add-passkey program:
-DEBDEST=/usr/lib/bluetooth
+if [ "$ARCH" = "x86_64" ]; then
+  DEBDEST=/usr/lib64/bluetooth
+else
+  DEBDEST=/usr/lib/bluetooth
+fi
 gcc $(pkg-config --libs --cflags dbus-1) -DDBUS_API_SUBJECT_TO_CHANGE \
         $CWD/add-passkey.c -o $PKG/$DEBDEST/add-passkey || exit 1
 cp $CWD/register-passkeys $PKG/$DEBDEST
