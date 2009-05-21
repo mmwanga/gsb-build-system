@@ -273,7 +273,7 @@ our %libraries =
                   },
    'poppler'    => {
                    'url' => 'http://poppler.freedesktop.org',
-                   'ver' => '0.10.5',
+                   'ver' => '0.10.7',
                    'src' => 'tar.gz',
                   },
    'sg3_utils'            => {

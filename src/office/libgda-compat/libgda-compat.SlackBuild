@@ -8,11 +8,11 @@
 
 ## Package variables.
 BUILD=1
-VERSION=2.26.2
+VERSION=3.1.5
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomeui gnome-python-desktop gnome-panel gnome-applets dbus evolution-data-server pygtk gnome-python gnome-vfs"
+REQUIRED_PACKAGES="libxml2 glib2 sqlite gamin db44 openldap-client mysql postgresql libglade"
 
 ## Build variables.
 ARCH=${ARCH:-i586}
@@ -23,6 +23,7 @@ PKGDEST=${PKGDEST:-$TMP}
 
 ## Script variables.
 PKGNAME=$(basename $0 .SlackBuild)
+SRCNAME=libgda
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
@@ -90,7 +91,8 @@ mkdir -p $PKGDEST
 
 ## Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xjf $CWD/$SRCNAME-$VERSION.tar.bz2 &&
+mv $SRCNAME-$VERSION $PKGNAME-$VERSION &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -154,18 +156,29 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-## Configure.
+# Configure
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
-  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
-  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
+  --with-mysql=/usr/bin \
+  --with-postgres=/usr/bin \
+  --disable-debug \
   || exit 1
 
 ## Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+## Make sure our libtool files are correct
+for i in $PKG/usr/lib*/*.la ;
+do
+  sed -i "s:/local::g" $i; 
+done;
+
+## Preserve files
+mv $PKG/etc/libgda-3.0/config $PKG/etc/libgda-3.0/config.new || exit 1
+rm -fr $PKG/etc/libgda-3.0/sales_test.db
 
 ## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -192,23 +205,6 @@ cp -a \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
-
-## Add schemas install to the doinst.sh if schemas are found.
-[ -d $PKG/etc/gconf/schemas ] && {
-  echo "if [ -x usr/bin/gconftool-2 ]; then" >>$PKG/install/doinst.sh
-  ( cd $PKG/etc/gconf/schemas
-    for FILE in *; do
-      if [ -z "$(grep gconfentry $FILE)" ]; then
-        # Create gconf tree
-        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
-      else
-        # Load gconf settings
-        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --config-source=\$(usr/bin/gconftool-2 --get-default-source) --direct --load etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
-      fi
-    done
-  )
-  echo "fi" >>$PKG/install/doinst.sh
-}
 
 ## Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests

@@ -1,3 +1,60 @@
+Thu May 21 08:41:12 BST 2009
+  Final GNOME 2.26.2 updates.
+patches/gnome-desktop-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/gst-plugins-good-0.10.15-i486-1gsb.tgz: Upgraded.
+patches/gnome-panel-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/seahorse-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/seahorse-plugins-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/ekiga-3.2.4-i486-1gsb.tgz: Upgraded.
+patches/poppler-0.10.7-i486-1gsb.tgz: Upgraded.
++--------------------------+
+Thu May 21 01:34:27 BST 2009
+desktop/gnome-themes-2.26.2-i486-2gsb.tgz: Rebuilt.
+  Fixed typo in doinst.sh.
++--------------------------+
+Wed May 20 08:35:58 BST 2009
+patches/gnome-nettool-2.26.2-i486-1gsb.tgz: Upgraded.
++--------------------------+
+Tue May 19 19:14:28 BST 2009
+  GNOME 2.26.2 updates.
+patches/ptlib-2.6.2-i486-1gsb.tgz: Upgraded.
+patches/opal-3.6.2-i486-1gsb.tgz: Upgraded.
+patches/gtk-engines-2.18.2-i486-1gsb.tgz: Upgraded.
+patches/libsoup-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/gnome-themes-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/evolution-data-server-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/gnome-terminal-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/gvfs-1.2.3-i486-1gsb.tgz: Upgraded.
+patches/nautilus-2.26.3-i486-1gsb.tgz: Upgraded.
+patches/gtkhtml-3.26.2-i486-1gsb.tgz: Upgraded.
+patches/evince-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/eog-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/file-roller-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/epiphany-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/brasero-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/gnome-games-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/gnome-user-docs-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/vino-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/evolution-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/evolution-exchange-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/deskbar-applet-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/gedit-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/gedit-plugins-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/cheese-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/vinagre-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/hamster-applet-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/orca-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/mousetweaks-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/gdl-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/anjuta-2.26.2.0-i486-1gsb.tgz: Upgraded.
+patches/empathy-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/ekiga-3.2.1-i486-1gsb.tgz: Upgraded.
++--------------------------+
+Sun May 17 23:19:05 BST 2009
+desktop/gnome-applets-2.26.1-i486-2gsb.tgz: Rebuilt.
+  Patched to add the "power" group for the cpufreq dbus
+  configuration.
++--------------------------+
 Sun May 17 18:49:17 BST 2009
 devel/mono-tools-2.4-i486-3gsb.tgz: Rebuilt.
   Beautification fix for gsharp.desktop.

@@ -15,7 +15,7 @@ our $VERSION   = 0.03;
 
 our %network_gnome =
   (
-   'ekiga'                  => '3.2.1',
+   'ekiga'                  => '3.2.4',
    'empathy'	            => '2.26.2',
    'gnome-user-share'       => '2.26.0',
    'gnome-phone-manager'    => '0.60',
