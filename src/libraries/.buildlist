@@ -1,9 +1,3 @@
-glib2
-poppler
-cairo
-pango
-libjasper
-gtk+2
 imlib2
 libelf
 libnotify
@@ -11,7 +5,6 @@ libgc
 a52dec
 libdiscid
 libmusicbrainz
-yasm
 x264
 xvidcore
 faac
@@ -21,7 +14,6 @@ lame
 ffmpeg
 libdvbpsi5
 libdvdcss
-libdvdread
 libdvdnav
 libebml
 libmatroska
@@ -35,10 +27,8 @@ mpeg2dec
 mpeg4ip
 mjpegtools
 libmpcdec
-iso-codes
 libexif-gtk
 libicu
-boost
 libopenraw
 exempi
 libiptcdata
@@ -53,7 +43,6 @@ nss
 libsexy
 libcroco
 lua
-libnl
 heimdal-libraries
 libgalago
 libsigc++
@@ -62,19 +51,11 @@ openal
 freealut
 sg3_utils
 libtasn1
-libarchive
 transcode
 libatomic_ops
 graphviz
 ilmbase
-openexr
-babl
-gegl
 ode
 tre
 libesmtp
-libspectre
-djvulibre
 libtool-compat
-alsa-lib
-exiv2
