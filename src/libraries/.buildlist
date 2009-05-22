@@ -3,7 +3,6 @@ libelf
 libnotify
 libgc
 a52dec
-libdiscid
 libmusicbrainz
 x264
 xvidcore
@@ -15,8 +14,6 @@ ffmpeg
 libdvbpsi5
 libdvdcss
 libdvdnav
-libebml
-libmatroska
 libmms
 libsndfile
 libsamplerate
@@ -27,7 +24,6 @@ mpeg2dec
 mpeg4ip
 mjpegtools
 libmpcdec
-libexif-gtk
 libicu
 libopenraw
 exempi
@@ -46,7 +42,6 @@ lua
 heimdal-libraries
 libgalago
 libsigc++
-id3lib
 openal
 freealut
 sg3_utils

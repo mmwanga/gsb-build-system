@@ -1,1 +1,0 @@
-gtk_deprecated.patch: Allows GTK_DEPRECATED functions in compiling against new gtk+2 library.
