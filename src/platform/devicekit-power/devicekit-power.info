@@ -1,0 +1,7 @@
+PKGNAME="devicekit-power"
+VERSION="007"
+HOMEPAGE="http://freedesktop.org/wiki/Software/DeviceKit"
+DOWNLOAD="http://hal.freedesktop.org/releases/DeviceKit-power-007.tar.gz"
+MD5SUM="4b1159374f36e23fe7d920f934076269"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

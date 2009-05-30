@@ -1,0 +1,8 @@
+PKGNAME="gnome-vfs"
+VERSION="2.24.1"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gnome-vfs/2.24/gnome-vfs-2.24.1.tar.bz2"
+MD5SUM="100f9af16dc659e375ee8da45175a28d"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

@@ -1,0 +1,7 @@
+PKGNAME="policykit"
+VERSION="0.9"
+HOMEPAGE="http://freedesktop.org/wiki/Software/PolicyKit"
+DOWNLOAD="http://hal.freedesktop.org/releases/PolicyKit-0.9.tar.gz"
+MD5SUM="802fd13ae41f73d79359e5ecb0a98716"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

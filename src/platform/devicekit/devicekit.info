@@ -1,0 +1,7 @@
+PKGNAME="devicekit"
+VERSION="003"
+HOMEPAGE="http://freedesktop.org/wiki/Software/DeviceKit"
+DOWNLOAD="http://hal.freedesktop.org/releases/DeviceKit-003.tar.gz"
+MD5SUM="8b311547f4a2c8c6b6598e3318d66cd7"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

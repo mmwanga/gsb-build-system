@@ -6,3 +6,4 @@ zlib
 gtk+2
 policykit
 dbus-glib
+openldap-client
