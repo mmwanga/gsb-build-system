@@ -5,8 +5,8 @@ libmusicbrainz: MusicBrainz is a user-maintained community music metadatabase. M
 libmusicbrainz: metadata is information such as the artist name, the release title, 
 libmusicbrainz: and the list of tracks that appear on a release. MusicBrainz 
 libmusicbrainz: collects this information about recordings and makes it available 
-libmusicbrainz: to the public. The web site is the interface which allows the 
-libmusicbrainz: creation and maintenance of the data. For more information, see:
+libmusicbrainz: to the public. For more information, see http://musicbrainz.org/
 libmusicbrainz:
-libmusicbrainz: 		http://musicbrainz.org/
+libmusicbrainz:
+libmusicbrainz:
 libmusicbrainz:

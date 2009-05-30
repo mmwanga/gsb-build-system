@@ -1,0 +1,5 @@
+PKGNAME="mpeg4ip"
+VERSION="1.6.1"
+MD5SUM="7aa0ae59d478fe156b2a132c7ab9f10b"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

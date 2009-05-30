@@ -32,6 +32,7 @@ VERSION=0.8.10
 REQUIRED_PACKAGES=""
 
 # Build variables.
+TAG=${TAG:-gsb}
 ARCH=${ARCH:-i486}
 TUNE=${TUNE:-i486}
 DISTRO=${DISTRO:-slackware}
@@ -204,7 +205,7 @@ done
 
 # Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.txz
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 ## Cleanup
 [ "$NOCLEANUP" = "0" ] && {

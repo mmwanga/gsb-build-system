@@ -1,4 +1,3 @@
-imlib2
 libelf
 libnotify
 libgc
@@ -8,7 +7,6 @@ x264
 xvidcore
 faac
 faad2
-libmpeg3
 lame
 ffmpeg
 libdvbpsi5
@@ -17,7 +15,6 @@ libdvdnav
 libmms
 libsndfile
 libsamplerate
-twolame
 libdv
 libquicktime
 mpeg2dec
@@ -38,19 +35,13 @@ opal
 nss
 libsexy
 libcroco
-lua
 heimdal-libraries
-libgalago
-libsigc++
-openal
-freealut
-sg3_utils
+libdaemon
+#libgalago
+#libsigc++
+#sg3_utils
 libtasn1
-transcode
-libatomic_ops
-graphviz
-ilmbase
-ode
-tre
-libesmtp
+#transcode
+#libatomic_ops
+#libesmtp
 libtool-compat

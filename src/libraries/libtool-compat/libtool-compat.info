@@ -1,0 +1,7 @@
+PKGNAME="libtool-compat"
+VERSION="2.2.6a"
+HOMEPAGE="http://www.gnu.org/software/libtool/"
+DOWNLOAD="http://ftp.gnu.org/gnu/libtool/libtool-2.2.6a.tar.gz"
+MD5SUM="8ca1ea241cd27ff9832e045fe9afe4fd"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
