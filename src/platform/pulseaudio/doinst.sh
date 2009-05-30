@@ -9,21 +9,17 @@ ldconfig -r .
 # Preserve new configuration files
 function install_file() {
   # $1 = File to process
-
   FILE="$(dirname "$1")/$(basename "$1" .new)"
   if [ ! -e "$FILE" ]
   then
     mv "$FILE.new" "$FILE"
   elif [ "$(cat "$FILE" | md5sum)" != "$(cat "$FILE.new" | md5sum)" ]
   then
-    # We need to make sure to install our version of the file;
-    # Move the old versions out of the way.
-    if [ -f "$FILE" ];
-    then
-            mv "$FILE" "$FILE".old.$(date +%m%d%y);
-    fi;
-    # Install our new file.
-    mv "$FILE.new" "$FILE"
+    #     |--------|--------------------------------------------------|
+    echo "WARNING: $FILE has been customised."
+    echo "         Examine the $FILE.new file"
+    echo "         and integrate any changes into the custom file."
+    echo
   else
     rm -f "$FILE.new"
   fi
@@ -33,6 +29,7 @@ install_file etc/pulse/daemon.conf.new
 install_file etc/pulse/client.conf.new
 install_file etc/pulse/default.pa.new
 install_file etc/pulse/system.pa.new
+install_file etc/asound.conf.new
 
 # Add a shm mount in fstab if it doesn't exist
 if ! grep "^shm" etc/fstab >/dev/null 2>&1; then

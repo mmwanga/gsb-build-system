@@ -8,3 +8,5 @@ telepathy-salut
 telepathy-gabble
 telepathy-farsight
 python
+libcanberra
+telepathy-mission-control

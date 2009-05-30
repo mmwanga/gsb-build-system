@@ -7,7 +7,7 @@
 ##
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=0.9.15
 
 ## List any packages here that are required to build this package.
@@ -192,8 +192,8 @@ mkdir $PKG/etc/gnome &&
 mv $PKG/etc/xdg $PKG/etc/gnome || exit 1
 
 ## Install our version
-cp $CWD/gsb/default.pa.gsb $PKG/etc/pulse/default.pa.new || exit 1
-#cp $CWD/gsb/start-pulseaudio-x11 $PKG/usr/bin || exit 1
+mkdir -p $PKG/etc &&
+cp -a $CWD/gsb/asound.conf.new $PKG/etc || exit 1
 
 # Tweaks for x86_64 platforms
 if [ "$ARCH" = "x86_64" ]; then

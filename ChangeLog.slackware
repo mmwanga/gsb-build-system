@@ -1,3 +1,43 @@
+Sat May 30 15:04:00 BST 2009
+libraries/glib2-2.20.3-i486-1gsb.tgz: Upgraded.
+desktop/gnome-panel-2.26.2-i486-2gsb.tgz: Patched.
+  Minor patch to fix vertical panel visibilities.
+mono/gtk-sharp-2.12.9-i486-1gsb.tgz: Upgraded.
+platform/GConf-2.26.2-i486-2gsb.tgz: Recompiled.
+  Recompiled without disabling debug symbols.  This should
+  fix a crash in gnome-network-properties.
+applications/gdm-2.20.10-i486-7gsb.tgz: Recompiled.
+  Recompiled against newer gtk+2.
+libraries/gtk+2-2.16.1-i486-2gsb.tgz: Recompiled.
+  Recompiled without disabling debug symbols.  This should
+  fix a crash condition in GDM Themed Greeter.
++--------------------------+
+Tue May 26 12:05:26 BST 2009
+platform/libproxy-0.2.3-i486-2gsb.tgz: Rebuilt.
+  Rebuilt against recompiled GConf.
+desktop/gnome-control-center-2.26.0-i486-2gsb.tgz: Rebuilt.
+  Fix to incorporate firefox 3 as new default browser, and
+  add mime update to doinst.sh.
++--------------------------+
+Sat May 23 17:53:01 BST 2009
+patches/libepc-0.3.10-i486-1gsb.tgz: Upgraded.
+patches/nautilus-open-terminal-0.13-i486-1gsb.tgz: Upgraded.
+patches/gnome-system-monitor-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/tracker-0.6.95-i486-1gsb.tgz: Upgraded.
+patches/gdm-2.20.10-i486-6gsb.tgz: Rebuilt.
+patches/empathy-2.26.2-i486-2gsb.tgz: Rebuilt.
+  Updated slack-desc. Thanks to Chris Craig for pointing out 
+  the missing dependencies.  
++--------------------------+
+Fri May 22 11:49:57 BST 2009
+patches/gnome-applets-2.26.1-i486-3gsb.tgz: Reconfigured.
+  Re-enabled the panel mixing applet.  Thanks to byteframe and Chris
+  Vine for the discussion.  
+patches/pulseaudio-0.9.15-i486-3gsb.tgz: Rebuilt.
+  Added a default pulse /etc/asound.conf so that alsa apps won't
+  be shut out from using the sound device by pulseaudio.  Thanks to 
+  Chris Vine for the hint. 
++--------------------------+
 Thu May 21 08:41:12 BST 2009
   Final GNOME 2.26.2 updates.
 patches/gnome-desktop-2.26.2-i486-1gsb.tgz: Upgraded.

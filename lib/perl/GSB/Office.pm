@@ -27,7 +27,7 @@ our %office_gnome =
    'libgdamm'             => '3.99.14',
    'libgnomedb'           => '3.0.0',
    'tomboy'               => '0.14.2',
-   'tracker'              => '0.6.93',
+   'tracker'              => '0.6.95',
   );
 
 our %office =

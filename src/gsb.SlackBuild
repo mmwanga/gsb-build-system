@@ -321,8 +321,11 @@ mkdir -p $LOGSDIR
 		  # Clean up the export a bit
 		  find $PKGDEST/$SOURCEDIR \( -name "gsb.*" \
 		       -o -name "*.SlackBuild" \
-		       -o -name ".buildlist" \) \
-		    -maxdepth 2 -exec rm -rf {} \;
+		       -o -name ".buildlist" \
+		       -o -name "REBUILD_LIST" \
+		       -o -type d -name "metapackages" \
+		       -o -type l \) \
+		       -maxdepth 2 -exec rm -rf {} \;
 	  else
                   echo "You need subversion in order to export the source."
 		  exit 1

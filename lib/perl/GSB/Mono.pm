@@ -16,7 +16,7 @@ our $VERSION   = 0.01;
 our %mono_gnome =
   (
    'evolution-sharp' => '0.20.0',
-   'gtk-sharp'       => '2.12.8',
+   'gtk-sharp'       => '2.12.9',
    'gnome-sharp'     => '2.24.1',
    'gnome-desktop-sharp'     => '2.26.0',
    );

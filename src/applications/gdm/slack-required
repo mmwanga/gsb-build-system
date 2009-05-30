@@ -8,7 +8,6 @@ cairo
 glib2
 gtk+2
 dbus
-zenity
 libglade
 gnome-session
 gtk-engines

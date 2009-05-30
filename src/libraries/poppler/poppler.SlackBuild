@@ -8,7 +8,7 @@
 
 ## Package variables.
 BUILD=1
-VERSION=0.10.5
+VERSION=0.10.7
 
 ## List any packages here that are required to build this package.
 ## The list is space seperated and case sensitive.
@@ -174,7 +174,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-cairo-output \
   --enable-poppler-glib \
   --disable-static \
-  --enable-opi \
   --program-prefix= \
   --enable-zlib \
   --program-suffix= \

@@ -37,6 +37,12 @@ Please see SLACKWARE-12.2_CONFLICTS.TXT for more details.
 
 *** OTHER NOTABLE CHANGES AND HINTS ***
 
+- Pulseaudio will grab the ALSA sound device, which may block other applications
+from using sound while pulseaudio is running.  You may wish to install the 
+alsa-plugins package, and then configure your /etc/asound.conf file to force
+ALSA to use pulesaudio.  This may be handy if you want to use flash video as
+well as using other pulsified applications.
+
 - If you are experiencing a 100% usage of your X process when running GNOME, 
 please see our XORG_PACKAGES.TXT for more information about this bug in X.
 
