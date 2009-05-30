@@ -1,7 +1,0 @@
-PRGNAM="imlib2"
-VERSION="1.4.2"
-HOMEPAGE="http://www.enlightenment.org/"
-DOWNLOAD="http://prdownloads.sourceforge.net/enlightenment/imlib2-1.4.2.tar.bz2"
-MD5SUM="9f15568e76ebda9092c571e0df261f54"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
