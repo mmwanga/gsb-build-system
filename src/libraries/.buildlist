@@ -1,3 +1,5 @@
+glib2
+gtk+2
 libelf
 libnotify
 libgc
@@ -21,7 +23,7 @@ mpeg2dec
 mpeg4ip
 mjpegtools
 libmpcdec
-libicu
+#libicu
 libopenraw
 exempi
 libiptcdata
@@ -45,3 +47,4 @@ libtasn1
 #libatomic_ops
 #libesmtp
 libtool-compat
+#libical
