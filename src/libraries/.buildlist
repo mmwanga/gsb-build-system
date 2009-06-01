@@ -44,8 +44,6 @@ libdaemon
 #sg3_utils
 libtasn1
 #transcode
-#libatomic_ops
-#libesmtp
 libtool-compat
 #libical
 pyorbit
