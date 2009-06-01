@@ -11,9 +11,4 @@ install_file() {
   # Otherwise, we leave the .new copy for the admin to consider...
 }
 
-install_file etc/gconf/2/path.new
-install_file etc/gconf/2/evoldap.conf.new
-install_file etc/dbus-1/system.d/org.gnome.GConf.Defaults.conf
-
-# Restart gconfd-2 to reload new settings
-killall -HUP gconfd-2 >/dev/null 2>&1
+install_file etc/dbus-1/system.d/org.freedesktop.DeviceKit.conf.new

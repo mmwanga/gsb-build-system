@@ -182,6 +182,8 @@ mv $PKG/etc/pulse/default.pa $PKG/etc/pulse/default.pa.new || exit 1
 mv $PKG/etc/pulse/system.pa $PKG/etc/pulse/system.pa.new || exit 1
 mkdir -p $PKG/etc
 mkdir -p $PKG/etc/pulse
+# set alsa use of pulse modules if plugins available
+cp $CWD/asound.conf.new $PKG/etc || exit 1
 
 # Move pulseaudio to GNOME specific xdg
 mkdir $PKG/etc/gnome &&

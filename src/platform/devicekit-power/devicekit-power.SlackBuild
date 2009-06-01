@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
+BUILD=3
 VERSION=007
 
 # List any packages here that are required to build this package.
@@ -172,6 +172,10 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 # Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+# preserve files
+mv $PKG/etc/dbus-1/system.d/org.freedesktop.DeviceKit.Power.conf \
+  $PKG/etc/dbus-1/system.d/org.freedesktop.DeviceKit.Power.conf.new 
 
 # Fix for udev rules on Slackware
 mkdir -p $PKG/lib/udev/rules.d &&

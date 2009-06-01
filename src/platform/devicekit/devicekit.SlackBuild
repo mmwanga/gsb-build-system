@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=3
+BUILD=4
 VERSION=003
 
 # List any packages here that are required to build this package.
@@ -170,6 +170,9 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 # Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+# preserve files
+mv $PKG/etc/dbus-1/system.d/org.freedesktop.DeviceKit.conf $PKG/etc/dbus-1/system.d/org.freedesktop.DeviceKit.conf.new 
 
 # udev rules
 mkdir -p $PKG/lib/udev/rules.d &&

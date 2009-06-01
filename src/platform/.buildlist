@@ -8,7 +8,6 @@ devicekit
 devicekit-power
 GConf
 gnome-mime-data
-pyorbit
 avahi
 nss-mdns
 gnome-vfs
@@ -18,8 +17,8 @@ bluez
 libgnomecanvas
 libbonoboui
 gnome-keyring
-#pulseaudio
-#alsa-plugins
+pulseaudio
+alsa-plugins
 libgnomeui
 gtk-engines
 libproxy

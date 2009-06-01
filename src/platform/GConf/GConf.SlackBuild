@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables
-BUILD=3
+BUILD=4
 VERSION=2.26.1
 
 # List any packages here that are required to build this package.
@@ -176,6 +176,8 @@ mkdir -p $PKG/etc/gconf/gconf.xml.system || exit 1
 # Preserve gconf settings
 mv $PKG/etc/gconf/2/path $PKG/etc/gconf/2/path.new
 mv $PKG/etc/gconf/2/evoldap.conf $PKG/etc/gconf/2/evoldap.conf.new
+mv $PKG/etc/dbus-1/system.d/org.gnome.GConf.Defaults.conf \
+  $PKG/etc/dbus-1/system.d/org.gnome.GConf.Defaults.conf.new
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
