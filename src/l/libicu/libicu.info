@@ -1,0 +1,7 @@
+PKGNAME="libicu"
+VERSION="4.2"
+HOMEPAGE="http://site.icu-project.org/"
+DOWNLOAD="http://download.icu-project.org/files/icu4c/4.2/icu4c-4_2-src.tgz"
+MD5SUM="eb405c646d96337e40445ec1a9de38f8"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

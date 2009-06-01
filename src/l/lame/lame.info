@@ -1,0 +1,7 @@
+PKGNAME="lame"
+VERSION="3.98.1"
+HOMEPAGE="http://lame.sourceforge.net/"
+DOWNLOAD="http://downloads.sourceforge.net/sourceforge/lame/lame-398-2.tar.gz"
+MD5SUM="4c332fa23febc0e4648064685a3d4332"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

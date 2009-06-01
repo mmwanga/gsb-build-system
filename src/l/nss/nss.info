@@ -1,0 +1,12 @@
+PKGNAME="nss"
+VERSION="3.12.3-with-nspr-4.7.4"
+HOMEPAGE="http://www.mozilla.org/projects/security/pki/nss/"
+DOWNLOAD="
+http://ftp.mozilla.org/pub/mozilla.org/security/nss/releases/NSS_3_12_3_RTM/src/nss-3.12.3.tar.bz2 \
+http://ftp.mozilla.org/pub/nspr/releases/v4.7.4/src/nspr-4.7.4.tar.gz"
+MD5SUM="
+ecb7079ba4ebcf29b7716775384f1f18  nss-3.12.3.tar.bz2 \
+ec1a991fc211450085149905c5e340da  nspr-4.7.4.tar.gz \
+"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
