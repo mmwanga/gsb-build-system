@@ -48,3 +48,6 @@ libtasn1
 #libesmtp
 libtool-compat
 #libical
+pyorbit
+alsa-lib
+libgtop
