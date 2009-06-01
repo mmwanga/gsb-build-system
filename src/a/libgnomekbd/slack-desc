@@ -1,0 +1,11 @@
+libgnomekbd: libgnomekdb (GNOME Keyboard Library)
+libgnomekbd:
+libgnomekbd: GNOME library to manage keyboard configuration. libgnomekbd 
+libgnomekbd: offers an API to manage the keyboard in GNOME applications and 
+libgnomekbd: contains a configuration applet to select enabled libgnomekbd 
+libgnomekbd: plugins. It is used mainly by the GNOME Control Center.
+libgnomekbd: 
+libgnomekbd: 
+libgnomekbd: 
+libgnomekbd:
+libgnomekbd: 

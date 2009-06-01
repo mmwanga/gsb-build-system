@@ -1,0 +1,12 @@
+libxslt
+gnome-vfs
+esound
+audiofile
+GConf
+glib2
+gtk+2
+libbonobo
+libxml2
+openssl-solibs | openssl
+ORBit2
+gnome-vfs

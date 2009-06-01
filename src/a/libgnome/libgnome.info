@@ -1,0 +1,8 @@
+PKGNAME="libgnome"
+VERSION="2.26.0"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/libgnome/2.26/libgnome-2.26.0.tar.bz2"
+MD5SUM="a5634fe9ddc54bbb726cbaaa35abc0b9"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

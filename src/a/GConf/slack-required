@@ -1,0 +1,9 @@
+glib2
+libxml2
+ORBit2
+popt
+zlib
+gtk+2
+policykit
+dbus-glib
+openldap-client

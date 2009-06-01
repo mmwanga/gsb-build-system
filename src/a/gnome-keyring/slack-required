@@ -1,0 +1,7 @@
+gtk+2
+dbus
+hal
+libgcrypt
+pango
+atk
+libtasn1

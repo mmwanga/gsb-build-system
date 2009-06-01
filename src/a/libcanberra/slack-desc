@@ -1,0 +1,12 @@
+           |-----handy-ruler------------------------------------------------------|
+libcanberra: libcanberra (Freedesktop.org Sound Theme Specification Library)
+libcanberra:
+libcanberra: libcanberra is an implementation of the XDG Sound Theme and Name 
+libcanberra: Specifications, for generating event sounds on free desktops, such as 
+libcanberra: GNOME. It comes with several backends (ALSA, PulseAudio, null) and is 
+libcanberra: designed to be portable.
+libcanberra:
+libcanberra:
+libcanberra:
+libcanberra:
+libcanberra:
