@@ -1,3 +1,4 @@
+GConf
 python
 pygtk
 pyorbit
@@ -9,4 +10,3 @@ libbonobo
 libbonoboui
 libgnomecanvas
 gnome-vfs
-GConf

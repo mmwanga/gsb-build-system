@@ -6,7 +6,6 @@ gtk+2
 avahi
 libnotify
 esound
-at-spi
 pango
 cairo
 pulseaudio

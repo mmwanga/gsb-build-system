@@ -7,6 +7,6 @@ gnome-python: Python programming language. The underlaying GTK+ library provides
 gnome-python: all kind of visual elements and utilities for it and, if needed, you 
 gnome-python: can develop full featured applications for the GNOME Desktop.  
 gnome-python: 
-gnome-python: http://www.pygtk.org/
+gnome-python: 
 gnome-python: 
 gnome-python: 

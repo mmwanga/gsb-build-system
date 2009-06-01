@@ -1,4 +1,3 @@
-gail
 GConf
 gnome-panel
 gnome-vfs
@@ -16,4 +15,4 @@ libgnomekbd
 policykit-gnome
 libgweather
 dbus-glib
-gnome-python-desktop
+gnome-python

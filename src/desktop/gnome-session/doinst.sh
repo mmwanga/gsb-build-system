@@ -1,40 +1,37 @@
-function install_file() {
-  # $1 = File to process
-
-  FILE="$(dirname "$1")/$(basename "$1" .new)"
-  if [ ! -e "$FILE" ]
-  then
-    mv "$FILE.new" "$FILE"
-  elif [ "$(cat "$FILE" | md5sum)" != "$(cat "$FILE.new" | md5sum)" ]
-  then
-    # We need to make sure to install our version of the file;
-    # Move the old versions out of the way.
-    if [ -f "$FILE" ];
-    then
-            mv "$FILE" "$FILE".old.$(date +%m%d%y);
-    fi;
-    # Install our new file.
-    mv "$FILE.new" "$FILE"
-  else
-    rm -f "$FILE.new"
+# preserve files
+install_file() {
+  NEW="$1"
+  OLD="`dirname $NEW`/`basename $NEW .new`"
+  # If there's no config file by that name, mv it over:
+  if [ ! -r $OLD ]; then
+    mv $NEW $OLD
+  elif [ "`cat $OLD | md5sum`" = "`cat $NEW | md5sum`" ]; then # toss the redundant copy
+    rm $NEW
   fi
+  # Otherwise, we leave the .new copy for the admin to consider...
 }
 
 install_file etc/X11/xinit/xinitrc.gnome.new
 
+# update desktop entries
 if [ -x usr/bin/update-desktop-database ]; then
   usr/bin/update-desktop-database 1> /dev/null 2> /dev/null
 fi
 
 # Set GSB splash screen as default
-usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type string --set /apps/gnome-session/options/splash_image splash/gsb-splash.png 1> /dev/null 2> /dev/null
+GCONF_CONFIG_SOURCE="xml::etc/gconf/gconf.xml.defaults" usr/bin/gconftool-2 --direct --type string \
+  --set /apps/gnome-session/options/splash_image splash/gsb-splash.png 1> /dev/null 2> /dev/null
 # Ensure sound server start up
-usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type boolean --set /desktop/gnome/sound/enable_esd false 1> /dev/null 2> /dev/null
+GCONF_CONFIG_SOURCE="xml::etc/gconf/gconf.xml.defaults" usr/bin/gconftool-2 --direct --type boolean \
+  --set /desktop/gnome/sound/enable_esd false 1> /dev/null 2> /dev/null
 # Enable splash screen
-usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type boolean --set /apps/gnome-session/options/show_splash_screen true 1> /dev/null 2> /dev/null
+GCONF_CONFIG_SOURCE="xml::etc/gconf/gconf.xml.defaults" usr/bin/gconftool-2 --direct --type boolean \
+  --set /apps/gnome-session/options/show_splash_screen true 1> /dev/null 2> /dev/null
 # Enable gnome-wm as windowizer
-usr/bin/gconftool-2 --direct --config-source=`usr/bin/gconftool-2 --get-default-source` --type string --set /desktop/gnome/session/required_components/windowmanager gnome-wm 1> /dev/null 2> /dev/null
+GCONF_CONFIG_SOURCE="xml::etc/gconf/gconf.xml.defaults" usr/bin/gconftool-2 --direct --type string \
+  --set /desktop/gnome/session/required_components/windowmanager gnome-wm 1> /dev/null 2> /dev/null
 
+# update icons
 if [ -e usr/share/icons/hicolor/icon-theme.cache ]; then
 	rm -f usr/share/icons/hicolor/icon-theme.cache
 fi
