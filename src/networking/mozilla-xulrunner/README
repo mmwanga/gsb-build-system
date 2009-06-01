@@ -1,0 +1,3 @@
+Slackware 12.1 provides a mozilla-firefox, however it is the binary build from mozilla.org.  This causes problems building 
+for Epiphany/Yelp, and any other programs which requires the gecko engine.  This package rebuilds the mozilla-xulrunner package using 
+shared libraries.

@@ -1,0 +1,11 @@
+evolution
+heimdal-libraries
+glib2
+gtk+2
+evolution-data-server
+libsoup
+GConf
+ORBit2
+libgnomeui
+libbonoboui
+evo-openldap

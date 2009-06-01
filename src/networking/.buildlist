@@ -1,3 +1,4 @@
+mozilla-xulrunner
 telepathy-glib
 libtelepathy
 libjingle
@@ -10,14 +11,12 @@ telepathy-gabble
 telepathy-salut
 telepathy-farsight
 empathy
-balsa
 deluge
 ekiga
 mod_dnssd
 gnome-user-share
-NetworkManager
-NetworkManager-vpn
+networkmananger
+networkmananger-vpn
 network-manager-applet
-sylpheed
 gnome-phone-manager
 nautilus-sendto
