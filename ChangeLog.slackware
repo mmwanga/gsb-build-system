@@ -1,3 +1,13 @@
+Tue Jun  2 11:30:32 BST 2009
+  Stable GSB 2.26.2 is released. 
+patches/gtk+2-2.16.2-i486-1gsb.tgz: Upgraded.
+patches/vte-0.20.4-i486-1gsb.tgz: Upgraded.
+patches/gnome-applets-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/gnome-power-manager-2.26.2-i486-1gsb.tgz: Upgraded.
+patches/glom-1.10.1-i486-1gsb.tgz: Upgraded.
+patches/rhythmbox-0.12.2-i486-1gsb.tgz: Upgraded.
+patches/deluge-1.1.8-i486-1gsb.tgz: Upgraded.
++--------------------------+
 Sat May 30 15:04:00 BST 2009
 libraries/glib2-2.20.3-i486-1gsb.tgz: Upgraded.
 desktop/gnome-panel-2.26.2-i486-2gsb.tgz: Patched.

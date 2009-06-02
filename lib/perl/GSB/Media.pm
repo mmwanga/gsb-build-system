@@ -15,7 +15,7 @@ our $VERSION   = 0.03;
 #
 our %media_gnome =
   (
-   'rhythmbox'               => '0.12.1',
+   'rhythmbox'               => '0.12.2',
   );
 
 our %media_pkgs =

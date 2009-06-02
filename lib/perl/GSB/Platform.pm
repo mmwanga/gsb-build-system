@@ -34,7 +34,7 @@ our %platform =
    'ORBit2'              => '2.14.17',
    'pyorbit'             => '2.24.0',
    'ttf-bitstream-vera'  => '1.10',
-   'vte'                 => '0.20.2',
+   'vte'                 => '0.20.4',
   );
 
 

@@ -1,8 +1,8 @@
-If you are install GSB 2.26.1 fresh on a Slackware 12.2 machine, then
+If you are install GSB 2.26.2 fresh on a Slackware 12.2 machine, then
 follow these instructions.  
 
 If you were running GSB 2.24.3 on Slackware 12.2, and now upgrading to 
-GSB 2.26.1, then please follow these instruction to ensure an easy upgrade.
+GSB 2.26.2, then please follow these instruction to ensure an easy upgrade.
 
 
 1.  Switch your slapt-get SOURCE= line to point to the new gsb-2.26 directory

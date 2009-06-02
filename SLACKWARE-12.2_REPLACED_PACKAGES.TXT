@@ -1,11 +1,11 @@
-# THIS IS THE REQUIRED PACKAGES LIST FOR GSB GNOME 2.26.1
+# THIS IS THE REQUIRED PACKAGES LIST FOR GSB GNOME 2.26.2
 #
 # The following is a list of packages that must replace official 
 # Slackware packages.
 #
 # Packages listed under 'Required' are Slackware packages that must be 
 # replaced by corresponding GNOME SlackBuild versions in order to use 
-# GNOME 2.26.1 on Slackware 12.2. Reasons for their replacement are 
+# GNOME 2.26.2 on Slackware 12.2. Reasons for their replacement are 
 # given within brackets.
 #
 # Packages listed under 'Optional' are packages which replace official 
@@ -15,13 +15,13 @@
 # applications, or are dead set against replacing any Slackware provided  
 # packages.
 #
-# Last updated: May 17, 2009 (stevek)
+# Last updated: June 01, 2009 (stevek)
 
 ***********************************************
-Slackware 12.2 is required to run GNOME 2.26.1
+Slackware 12.2 is required to run GNOME 2.26.2
 ***********************************************
 
--- Required Package Replacements for GNOME 2.26.1 on Slackware 12.2 --
+-- Required Package Replacements for GNOME 2.26.2 on Slackware 12.2 --
 
 alsa-lib:         ( > 1.0.19 required by pulseaudio 0.9.15, libcanberra, and 
                       gnome-control-center)

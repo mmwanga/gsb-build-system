@@ -32,7 +32,7 @@ our %network_external =
 		'src' => 'tar.bz2',
 		 },
    'deluge'     => {
-                 'ver' => '1.1.7',
+                 'ver' => '1.1.8',
                  'url' => 'http://download.deluge-torrent.org/source',
 		 'src' => 'tar.bz2',
                    },

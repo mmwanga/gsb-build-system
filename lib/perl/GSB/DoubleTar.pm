@@ -296,9 +296,9 @@ our %double_tarballs_url =
                    },
    'pidgin' => {
             'url'  => 'http://mesh.dl.sourceforge.net/sourceforge/pidgin',
-            'ver'  => '2.5.5',
+            'ver'  => '2.5.6',
             'dir' => 'extra/pidgin',
-            'tar' => 'pidgin-2.5.5.tar.bz2',
+            'tar' => 'pidgin-2.5.6.tar.bz2',
             'var' => 'VERSION',
                    },
    'libgda-compat' => {

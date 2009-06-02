@@ -336,7 +336,7 @@ our %libraries_diff_naming =
 	      },
    'gtk+2'  => {
 	   #'ver'  => '2.12.12',
-	   'ver'  => '2.16.1',
+	   'ver'  => '2.16.2',
       		'name' => 'gtk+',
 	      },
   );
