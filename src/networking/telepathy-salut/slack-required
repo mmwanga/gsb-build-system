@@ -1,7 +1,0 @@
-libtelepathy
-dbus
-glib2
-libxml2
-avahi
-telepathy-glib
-openssl
