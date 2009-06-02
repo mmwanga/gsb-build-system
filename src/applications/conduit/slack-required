@@ -1,9 +1,0 @@
-glib2
-libgnomeui
-dbus-python
-nautilus
-vobject
-goocanvas
-pygoocanvas
-pysqlite
-pywebkitgtk
