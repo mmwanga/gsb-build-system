@@ -116,6 +116,8 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
+zcat $CWD/purple-allow-sign-rsa-md5.patch.gz | patch -p0 || exit 1
+
 ## Fix permissions for building.
 chown -R root.root .
 find . -perm 664 -exec chmod 644 {} \;
