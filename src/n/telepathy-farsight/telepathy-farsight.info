@@ -1,0 +1,7 @@
+PKGNAME="telepathy-glib"
+VERSION="0.0.7"
+HOMEPAGE="http://telepathy.freedesktop.org"
+DOWNLOAD="http://telepathy.freedesktop.org/releases/telepathy-farsight/telepathy-farsight-0.0.7.tar.gz"
+MD5SUM="882c9630ab28706d34d7d6d1060d43f0"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

@@ -1,0 +1,7 @@
+PKGNAME="telepathy-glib"
+VERSION="0.7.31"
+HOMEPAGE="http://telepathy.freedesktop.org"
+DOWNLOAD="http://telepathy.freedesktop.org/releases/telepathy-glib/telepathy-glib-0.7.31.tar.gz"
+MD5SUM="42ceb70aacbe918e64c8f3196afc5c81"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

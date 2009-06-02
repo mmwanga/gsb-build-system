@@ -1,0 +1,7 @@
+PKGNAME="libnice"
+VERSION="0.0.6"
+HOMEPAGE="http://nice.freedesktop.org"
+DOWNLOAD="http://nice.freedesktop.org/releases/libnice-0.0.6.tar.gz"
+MD5SUM="055e3eedf735ee1257fd4bb9ce86d04e"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

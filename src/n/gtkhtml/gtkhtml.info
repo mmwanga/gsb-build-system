@@ -1,0 +1,8 @@
+PKGNAME="gtkhtml"
+VERSION="3.26.2"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gtkhtml/3.26/gtkhtml-3.26.2.tar.bz2"
+MD5SUM="5b109d47aaa95898a169fa9ae572c763"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

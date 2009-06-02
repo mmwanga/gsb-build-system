@@ -1,0 +1,8 @@
+PKGNAME="evolution"
+VERSION="2.26.2"
+HOMEPAGE="http://projects.gnome.org/evolution/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/evolution/2.26/evolution-2.26.2.tar.bz2"
+MD5SUM="f93b02141a8e67588ed258d0dc310a0f"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

@@ -1,0 +1,7 @@
+PKGNAME="farsight2"
+VERSION="0.0.12"
+HOMEPAGE="http://farsight.freedesktop.org/"
+DOWNLOAD="http://farsight.freedesktop.org/releases/farsight2/farsight2-0.0.12.tar.gz"
+MD5SUM="cd4cb116947dd8ce2c837ba398e27c4e"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

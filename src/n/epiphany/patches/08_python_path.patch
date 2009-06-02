@@ -1,0 +1,13 @@
+Index: epiphany-2.22.3/src/ephy-python.c
+===================================================================
+--- epiphany-2.22.3.orig/src/ephy-python.c	2008-11-10 15:23:49.875333317 +0100
++++ epiphany-2.22.3/src/ephy-python.c	2008-11-10 15:23:57.279326702 +0100
+@@ -51,6 +51,8 @@ ephy_python_init (void)
+ 
+ 	argv[0] = g_get_prgname ();
+ 	PySys_SetArgv (1, argv);
++	/* Sanitize sys.path */
++	PyRun_SimpleString("import sys; sys.path = filter(None, sys.path)");
+ 
+ 	init_pygobject ();
+ 	init_pygtk ();

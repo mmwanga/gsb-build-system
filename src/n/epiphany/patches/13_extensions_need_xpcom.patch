@@ -1,0 +1,14 @@
+Index: epiphany-2.22.1.1/src/ephy-shell.c
+===================================================================
+--- epiphany-2.22.1.1.orig/src/ephy-shell.c	2008-05-12 14:02:25.576933713 +0200
++++ epiphany-2.22.1.1/src/ephy-shell.c	2008-05-12 14:09:14.000934821 +0200
+@@ -708,6 +708,9 @@ ephy_shell_get_extensions_manager (EphyS
+ 
+ 	if (es->priv->extensions_manager == NULL)
+ 	{
++	    /* Ensure Gecko is booted (necessary for the xpcomglue crackpipe) */
++	    ephy_embed_shell_get_embed_single (EPHY_EMBED_SHELL (es));
++
+ 		/* Instantiate extensions manager */
+ 		es->priv->extensions_manager =
+ 			g_object_new (EPHY_TYPE_EXTENSIONS_MANAGER, NULL);

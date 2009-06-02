@@ -1,0 +1,212 @@
+Index: epiphany-browser-2.22.3/src/ephy-home-action.c
+===================================================================
+--- epiphany-browser-2.22.3.orig/src/ephy-home-action.c	2008-03-28 14:59:49.000000000 +0000
++++ epiphany-browser-2.22.3/src/ephy-home-action.c	2008-07-14 17:49:03.000000000 +0100
+@@ -155,16 +155,95 @@
+ 	}
+ }	
+ 
++static char *
++escape_homepage (char *homepage, char *languages)
++{
++       const char *inptr, *start;
++       GString *page;
++ 
++       languages = g_strdelimit (languages, ".@:", '\0');
++ 
++       page = g_string_new (NULL);
++ 
++       start = inptr = homepage;
++       while ((inptr = strchr (inptr, '%')) != NULL) {
++               g_string_append_len (page, start, inptr - start);
++               inptr++;
++               switch (*inptr) {
++               case 'l':
++                       g_string_append (page, languages);
++                       break;
++               case '%':
++                       g_string_append_c (page, '%');
++                       break;
++               default:
++                       g_string_append_c (page, '%');
++                       if (*inptr)
++                               g_string_append_c (page, *inptr);
++                       break;
++               }
++ 
++               if (*inptr)
++                       inptr++;
++               start = inptr;
++       }
++ 
++       g_string_append (page, start);
++ 
++       return g_string_free (page, FALSE);
++}
++
+ static void
+ ephy_home_action_activate (GtkAction *action)
+ {
+ 	char *action_name;
+ 	char *address;
++	const char * const * languages;
++	char *homepage;
+ 
+ 	g_object_get (G_OBJECT (action), "name", &action_name, NULL);
+ 		
+ 	address = eel_gconf_get_string (CONF_GENERAL_HOMEPAGE);
+ 
++       if (address != NULL && address[0] != '\0' && (*address == '/' || !strncmp(address, "file://", 7)))
++       {
++               languages = g_get_language_names ();
++               if (languages)
++               {
++                       int i;
++                       gboolean page_set = FALSE;
++ 
++                       for (i = 0; languages[i] != NULL; i++)
++                       {
++                               if (page_set)
++                                       break;
++ 
++                               homepage = escape_homepage (address, languages[i]);
++ 
++                               if (!strncmp(address, "file://", 7)) 
++                               {
++                                       char *path;
++                                       path = homepage + 7;
++ 
++                                       if (g_file_test (path, G_FILE_TEST_EXISTS)) 
++                                               page_set = TRUE;
++ 
++                               }
++                               else if (g_file_test (homepage, G_FILE_TEST_EXISTS)) 
++                                       page_set = TRUE;
++                       }
++ 
++                       if (!page_set)
++                               homepage = escape_homepage (address, "C");
++               } 
++               else 
++                       homepage = escape_homepage (address, "C");
++ 
++               g_free (address);
++               address = g_strdup (homepage);
++               g_free (homepage);
++       }
++
+ 	action_name_association (action, action_name, address, FALSE);
+ 
+ 	g_free (address);
+Index: epiphany-browser-2.22.3/src/ephy-shell.c
+===================================================================
+--- epiphany-browser-2.22.3.orig/src/ephy-shell.c	2008-03-28 14:59:49.000000000 +0000
++++ epiphany-browser-2.22.3/src/ephy-shell.c	2008-07-14 17:49:03.000000000 +0100
+@@ -26,6 +26,7 @@
+ #include <gtk/gtk.h>
+ #include <dirent.h>
+ #include <unistd.h>
++#include <locale.h>
+ 
+ #include "ephy-shell.h"
+ #include "ephy-type-builtins.h"
+@@ -364,6 +365,44 @@
+ 	return ephy_shell;
+ }
+ 
++static char *
++escape_homepage (char *homepage, char *languages)
++{
++	const char *inptr, *start;
++	GString *page;
++	
++	languages = g_strdelimit (languages, ".@:", '\0');
++	
++	page = g_string_new (NULL);
++	
++	start = inptr = homepage;
++	while ((inptr = strchr (inptr, '%')) != NULL) {
++		g_string_append_len (page, start, inptr - start);
++		inptr++;
++		switch (*inptr) {
++		case 'l':
++			g_string_append (page, languages);
++			break;
++		case '%':
++			g_string_append_c (page, '%');
++			break;
++		default:
++			g_string_append_c (page, '%');
++			if (*inptr)
++				g_string_append_c (page, *inptr);
++			break;
++		}
++		
++		if (*inptr)
++			inptr++;
++		start = inptr;
++	}
++	
++	g_string_append (page, start);
++	
++	return g_string_free (page, FALSE);
++}
++
+ static gboolean
+ url_is_empty (const char *location)
+ {
+@@ -381,7 +420,8 @@
+ static gboolean
+ load_homepage (EphyEmbed *embed)
+ {
+-	char *home;
++	const char * const * languages;
++	char *homepage, *home;
+ 	gboolean is_empty;
+ 
+ 	home = eel_gconf_get_string(CONF_GENERAL_HOMEPAGE);
+@@ -392,6 +432,44 @@
+ 
+ 		home = g_strdup ("about:blank");
+ 	}
++	else if (*home == '/' || !strncmp(home, "file://", 7))
++	{
++		languages = g_get_language_names ();
++		if (languages)
++		{
++			int i;
++			gboolean page_set = FALSE;
++
++			for (i = 0; languages[i] != NULL; i++)
++			{
++				if (page_set)
++					break;
++
++				homepage = escape_homepage (home, languages[i]);
++
++				if (!strncmp(home, "file://", 7)) 
++				{
++					char *path;
++					path = homepage + 7;
++					
++					if (g_file_test (path, G_FILE_TEST_EXISTS)) 
++						page_set = TRUE;
++					
++				}
++				else if (g_file_test (homepage, G_FILE_TEST_EXISTS)) 
++					page_set = TRUE;
++			}
++			
++			if (!page_set)
++				homepage = escape_homepage (home, "C");
++		} 
++		else 
++			homepage = escape_homepage (home, "C");
++		
++		g_free (home);		
++		home = g_strdup (homepage);
++		g_free (homepage);
++	}
+ 
+ 	is_empty = url_is_empty (home);
+ 

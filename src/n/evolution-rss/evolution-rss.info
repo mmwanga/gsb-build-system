@@ -1,0 +1,7 @@
+PKGNAME="evolution-rss"
+VERSION="0.1.2"
+HOMEPAGE="http://gnome.eu.org/index.php/Evolution_RSS_Reader_Plugin"
+DOWNLOAD="http://gnome.eu.org/evolution-rss-0.1.2.tar.gz"
+MD5SUM="a7c04b6f330c49785d34f59a19537798"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
