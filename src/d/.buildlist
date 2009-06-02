@@ -8,6 +8,5 @@ vala
 gettext-perl
 accerciser
 ghex
-mono-tools
-monodevelop
+setuptools
 nemiver
