@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
+BUILD=3
 VERSION=1.9.0.7
 
 # List any packages here that are required to build this package.
@@ -161,7 +161,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --with-default-mozilla-five-home=/usr/$LIBDIR/xulrunner-$VERSION \
+  --with-default-mozilla-five-home=/usr/lib${LIBDIRSUFFIX}/xulrunner-$VERSION \
   --enable-application=xulrunner \
   --enable-optimize="$CFLAGS" \
   --enable-system-cairo \
@@ -193,15 +193,15 @@ make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Make sure we have proper dependencies for the embedding pkgconfig
-for pcfile in $PKG/usr/${LIBDIR}/pkgconfig/*embedding*.pc ;
+for pcfile in libxul-embedding-unstable.pc libxul-embedding.pc ;
 do
- if ! grep -q 'Requires:' $pcfile ; then
-	 echo "Requires: nspr >= 4.7.0" >> $pcfile ;
+ if ! grep -q 'Requires:' $PKG/usr/lib${LIBDIRSUFFIX}/pkgconfig/$pcfile ; then
+	 echo "Requires: nspr >= 4.7.4" >> $PKG/usr/lib${LIBDIRSUFFIX}/pkgconfig/$pcfile ;
  fi;
 done;
 
 # Softlink for xulrunner-plugin.pc
-(cd $PKG/usr/${LIBDIR}/pkgconfig ; ln -sf mozilla-plugin.pc xulrunner-plugin.pc)
+(cd $PKG/usr/lib${LIBDIRSUFFIX}/pkgconfig ; ln -sf mozilla-plugin.pc xulrunner-plugin.pc)
 
 # login session settings
 mkdir -p $PKG/etc/profile.d
@@ -238,8 +238,8 @@ find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 # Install our doinst.sh
-cat $CWD/doinst.sh | sed "s:@VERSION@:${VERSION}:g" \
-  | sed "s:@LIBDIR@:${LIBDIR}:g" >> $PKG/install/doinst.sh
+cat $CWD/doinst.sh | sed "s,@VERSION@,${VERSION},g" \
+  | sed "s,@LIBDIR@,lib${LIBDIRSUFFIX},g" >> $PKG/install/doinst.sh || exit 1
 
 # Package meta files
 for FILE in slack-desc slack-required slack-conflicts slack-suggests

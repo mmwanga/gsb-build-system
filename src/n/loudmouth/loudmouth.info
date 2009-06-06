@@ -1,0 +1,8 @@
+PKGNAME="loudmouth"
+VERSION="1.4.3"
+HOMEPAGE="http://groups.google.com/group/loudmouth-dev/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/loudmouth/1.4/loudmouth-1.4.3.tar.bz2"
+MD5SUM="55339ca42494690c3942ee1465a96937"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

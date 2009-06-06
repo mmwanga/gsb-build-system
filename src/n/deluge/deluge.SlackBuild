@@ -29,7 +29,7 @@ VERSION=1.1.8
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="python boost"
+REQUIRED_PACKAGES="python boost setuptools"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -151,15 +151,6 @@ elif [ "$ARCH" = "powerpc" ]; then
 fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
-
-# We need to grab the setuptools egg before building;
-if [ -x /usr/bin/wget ] ; then
-  wget -c http://pypi.python.org/packages/2.6/s/setuptools/setuptools-0.6c9-py2.6.egg || exit 1;
-  # Make sure we're using the python 2.6 egg ;
-  sed -i "s,0.6c8,0.6c9,g" ez_setup.py || exit 1
-else
- echo "We need wget to grab the setuptools python egg." && exit 1
-fi; 
 
 # Configure and Build
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \

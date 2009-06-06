@@ -1,0 +1,7 @@
+PKGNAME="telepathy-gabble"
+VERSION="0.7.28"
+HOMEPAGE="http://telepathy.freedesktop.org"
+DOWNLOAD="http://telepathy.freedesktop.org/releases/telepathy-gabble/telepathy-gabble-0.7.28.tar.gz"
+MD5SUM="617b9f161a08f5b9598647aa78d721e5"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

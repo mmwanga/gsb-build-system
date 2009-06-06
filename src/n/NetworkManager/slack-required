@@ -1,0 +1,16 @@
+GConf
+libnl
+libgcrypt
+wpa_supplicant
+dbus
+hal
+gtk+2
+libglade
+gnome-keyring
+libgnomeui
+gnome-keyring
+wireless-tools
+iproute2
+ppp
+policykit-gnome
+nss

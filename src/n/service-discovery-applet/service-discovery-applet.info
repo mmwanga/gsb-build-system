@@ -1,0 +1,5 @@
+PKGNAME="service-discovery-applet"
+VERSION="0.4.5"
+MD5SUM="e54972d4ebb88500b9f528fdd1204f28"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

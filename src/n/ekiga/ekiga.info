@@ -1,0 +1,8 @@
+PKGNAME="ekiga"
+VERSION="3.2.4"
+HOMEPAGE="http://www.gnomemeeting.org/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/ekiga/3.2/ekiga-3.2.4.tar.bz2"
+MD5SUM="88076eeadee1351704afb2aeb3532c17"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

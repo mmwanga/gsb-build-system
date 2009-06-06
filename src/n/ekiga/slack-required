@@ -1,7 +1,6 @@
-GConf
-evolution-data-server
 ptlib
 opal
-sdl
-dbus
-avahi
+libsigc++
+GConf
+evolution-data-server
+libnotify

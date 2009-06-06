@@ -8,10 +8,10 @@ fi;
 
 # Make our softlinks
 if [ -d usr/@LIBDIR@/xulrunner-@VERSION@ ]; then
-  (cd usr/lib ; ln -sf xulrunner-@VERSION@ xulrunner );
+  (cd usr/@LIBDIR@ ; ln -sf xulrunner-@VERSION@ xulrunner );
 fi;
 if [ -d usr/@LIBDIR@/xulrunner-devel-@VERSION@ ]; then
-  (cd usr/lib ; ln -sf xulrunner-devel-@VERSION@ xulrunner-devel );
+  (cd usr/@LIBDIR@ ; ln -sf xulrunner-devel-@VERSION@ xulrunner-devel );
 fi;
 
 # Set up java plugins for xulrunner if java installed

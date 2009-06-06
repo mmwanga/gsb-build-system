@@ -91,8 +91,8 @@ done
     exit 1
   }
 
-  ## Make sure we don't build unwanted dependencies
-  ## Evolution will force a link against libnm if found.
+  # Make sure we don't build unwanted dependencies
+  # Evolution will force a link against libnm if found.
   check_installed "NetworkManager" && {
     echo "${0##*/}: Remove installed 'NetworkManager' package before build."
     exit 1

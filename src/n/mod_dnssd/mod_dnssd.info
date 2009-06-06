@@ -1,0 +1,7 @@
+PKGNAME="mod_dnssd"
+VERSION="0.6"
+HOMEPAGE="http://0pointer.de/lennart/projects/mod_dnssd/"
+DOWNLOAD="http://0pointer.de/lennart/projects/mod_dnssd/mod_dnssd-0.6.tar.gz"
+MD5SUM="bed3d95a98168bf0515922d1c05020c5"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

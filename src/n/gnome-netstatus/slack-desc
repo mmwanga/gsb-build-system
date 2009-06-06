@@ -1,0 +1,12 @@
+	       |-----handy-ruler------------------------------------------------------|
+gnome-netstatus: gnome-netstatus (GNOME Network Status Applet)
+gnome-netstatus:
+gnome-netstatus: The GNOME Netstatus package contains a panel applet that monitors 
+gnome-netstatus: network interfaces. It provides indicators for incoming and outgoing 
+gnome-netstatus: data, packets received and transmitted, and information about the 
+gnome-netstatus: network interface such as IP information and Ethernet address.
+gnome-netstatus:
+gnome-netstatus:
+gnome-netstatus:
+gnome-netstatus:
+gnome-netstatus:
