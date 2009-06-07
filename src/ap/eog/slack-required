@@ -1,0 +1,10 @@
+libgnomeui
+libjpeg
+libexif
+gtk+2
+pygtk
+python
+glib2
+exempi
+lcms
+dbus

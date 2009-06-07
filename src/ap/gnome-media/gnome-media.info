@@ -1,0 +1,8 @@
+PKGNAME="gnome-media"
+VERSION="2.26.0"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gnome-media/2.26/gnome-media-2.26.0.tar.bz2"
+MD5SUM="3d519bc7d812aed8f6e4288b6d3cdf26"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

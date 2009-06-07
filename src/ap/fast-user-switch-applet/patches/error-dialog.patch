@@ -1,0 +1,23 @@
+diff -up src/applet.c.error-dialog src/applet.c
+--- src/applet.c.error-dialog	2007-09-16 23:51:41.000000000 -0400
++++ src/applet.c	2007-09-16 23:51:41.000000000 -0400
+@@ -2147,6 +2147,7 @@ show_error_dialog (FusaAppletData *adata
+ 
+       dialog = glade_xml_get_widget (xml, "error_dialog");
+       gtk_dialog_run (GTK_DIALOG (dialog));
++      gtk_widget_destroy (dialog);
+ 
+       if (is_fatal)
+ 	bonobo_main_quit ();
+diff -up data/ui.glade.error-dialog data/ui.glade
+--- data/ui.glade.error-dialog	2007-09-16 23:57:08.000000000 -0400
++++ data/ui.glade	2007-04-09 12:01:04.000000000 -0400
+@@ -726,7 +726,7 @@
+ 		<widget class="GtkExpander" id="details_expander">
+ 		  <property name="visible">True</property>
+ 		  <property name="can_focus">True</property>
+-		  <property name="expanded">True</property>
++		  <property name="expanded">False</property>
+ 		  <property name="spacing">0</property>
+ 
+ 		  <child>

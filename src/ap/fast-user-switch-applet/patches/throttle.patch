@@ -1,0 +1,26 @@
+diff -up src/applet.c.throttle src/applet.c
+--- src/applet.c.throttle	2007-09-16 23:28:17.000000000 -0400
++++ src/applet.c	2007-09-16 23:29:07.000000000 -0400
+@@ -2347,18 +2347,16 @@ maybe_lock_screen (FusaAppletData *adata
+ 	  g_error_free (err);
+ 	}
+ 
+-      if (use_gscreensaver)
+-	args[1] = "--throttle";
+-      else
+-	args[1] = "-throttle";
++      args[1] = "-throttle";
+ 
+-      if (!gdk_spawn_on_screen (screen, g_get_home_dir (), args, NULL,
++      if (use_gscreensaver ||
++          !gdk_spawn_on_screen (screen, g_get_home_dir (), args, NULL,
+ 				(G_SPAWN_STDERR_TO_DEV_NULL |
+ 				 G_SPAWN_STDOUT_TO_DEV_NULL),
+ 				NULL, NULL, NULL, &err))
+ 	{
+ 	  g_warning (_("Can't temporarily set screensaver to blank screen: %s"),
+-		     err->message);
++		     err ? err->message : "");
+ 	  g_error_free (err);
+ 	}
+ 

@@ -1,0 +1,10 @@
+libgnomeui
+gnome-python-desktop
+gnome-panel
+gnome-applets
+dbus
+evolution-data-server
+pygtk
+gnome-python
+gnome-vfs
+simplejson

@@ -1,0 +1,9 @@
+openssh
+gpgme
+gnome-keyring
+libnotify
+libgnomeui
+dbus
+libgcrypt
+openldap-client
+libsoup

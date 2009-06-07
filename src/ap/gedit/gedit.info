@@ -1,0 +1,8 @@
+PKGNAME="gedit"
+VERSION="2.26.2"
+HOMEPAGE="http://projects.gnome.org/gedit/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gedit/2.26/gedit-2.26.2.tar.bz2"
+MD5SUM="c5126bd7ddfda3317daa71c06f261034"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

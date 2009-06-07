@@ -1,0 +1,8 @@
+PKGNAME="totem"
+VERSION="2.26.1"
+HOMEPAGE="http://projects.gnome.org/totem/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/totem/2.26/totem-2.26.1.tar.bz2"
+MD5SUM="410d14957f48ae179c03e5c663607536"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

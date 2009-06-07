@@ -1,0 +1,8 @@
+PKGNAME="cheese"
+VERSION="2.26.2"
+HOMEPAGE="http://projects.gnome.org/cheese/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/cheese/2.26/cheese-2.26.2.tar.bz2"
+MD5SUM="3413fd051c5ecbfe98819a8fb4ac83dd"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

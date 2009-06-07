@@ -1,0 +1,13 @@
+gnome-python
+libgnome
+libgnomeprint
+libgnomeprintui
+glib2
+gtk+2
+libart_lgpl
+libpng
+pango
+cairo
+pygtk
+pycairo
+pygobject
