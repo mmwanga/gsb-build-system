@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=3
+BUILD=4
 VERSION=2.26.0
 
 # List any packages here that are required to build this package.
@@ -158,8 +158,10 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
+  --disable-static \
+  --enable-shared \
   --disable-schemas-install \
+  --disable-update-mimedb \
   || exit 1
 
 # Build and install.
@@ -168,6 +170,10 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # clean up empty mime file
 find $PKG/usr/share/mime -size 0 -type f -exec rm {} \;
+
+# move misplaced pkgconfig files
+mv $PKG/usr/share/pkgconfig/*.pc $PKG/usr/lib${LIBDIRSUFFIX}/pkgconfig
+rmdir -p $PKG/usr/share/pkgconfig
 
 # Preserve menu settings
 mkdir -p $PKG/etc/gnome/xdg/menus &&
@@ -178,6 +184,7 @@ mkdir -p $PKG/etc/gnome/xdg/autostart &&
 mv $PKG/etc/xdg/autostart/gnome-at-session.desktop \
    $PKG/etc/gnome/xdg/autostart || exit 1
 rm -fr $PKG/etc/xdg
+rm -fr $PKG/usr/share/applications/mimeinfo.cache
 
 # keep clean for scrollkeeper
 rm -fr $PKG/var/lib/scrollkeeper

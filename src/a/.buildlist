@@ -40,3 +40,6 @@ gnome-control-center
 gnome-session
 gnome-python
 gnome-applets
+libgnomecups
+libgnomeprint
+libgnomeprintui

@@ -1,0 +1,8 @@
+PKGNAME="libgnomeprint"
+VERSION="2.18.6"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/libgnomeprint/2.18/libgnomeprint-2.18.6.tar.bz2"
+MD5SUM="a5aa248058a07de4b3cf444673cfc683"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
