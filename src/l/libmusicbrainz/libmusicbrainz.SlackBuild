@@ -153,9 +153,22 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Build and install.
-cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr -DLIB_INSTALL_DIR:PATH=/usr/lib${LIBDIRSUFFIX} . &&
+cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr \
+      -DCMAKE_C_FLAGS:STRING="$TUNE_CFLAGS" \
+      -DCMAKE_CXX_FLAGS:STRING="$TUNE_CFLAGS" \
+      -DLIB_INSTALL_DIR:PATH=/usr/lib${LIBDIRSUFFIX} \
+      -DEXEC_INSTALL_PREFIX:PATH=/usr \
+     . || exit 1
+
+# Build and install
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+# Make sure we're using right lib path on x86_64, since it seems cmake
+# doesn't honour the LIB_INSTAL_DIR setting
+if [ -d $PKG/usr/lib ]; then
+ mv $PKG/usr/lib $PKG/usr/lib64 ;
+fi;
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

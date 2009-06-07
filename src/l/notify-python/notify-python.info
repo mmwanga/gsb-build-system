@@ -1,0 +1,7 @@
+PKGNAME="notify-python"
+VERSION="0.1.1"
+HOMEPAGE="http://www.galago-project.org"
+DOWNLOAD="http://www.galago-project.org/files/releases/source/notify-python/notify-python-0.1.1.tar.bz2"
+MD5SUM="e0553e12c7a467af44693e95e2eac668"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

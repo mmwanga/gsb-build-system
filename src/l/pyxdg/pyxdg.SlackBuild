@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=3
-VERSION=0.5.2
+BUILD=2
+VERSION=0.17
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glib2 dbus dbus-glib"
+REQUIRED_PACKAGES="python"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -108,8 +108,7 @@ mkdir -p $PKGDEST
 
 # Decompress archive.
 cd $TMP &&
-rm -rf $PKGNAME-$VERSION &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xfz $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -152,23 +151,9 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-# Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  --mandir=/usr/man $CONFIGURE_FLAGS \
-  --libdir=/usr/lib${LIBDIRSUFFIX} \
-  --build=$ARCH-$DISTRO-linux \
-  --target=$ARCH-$DISTRO-linux \
-  --disable-static \
-  --enable-shared \
-  || exit 1
-
 # Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-# we don't use autopackage
-rm -fr $PKG/usr/share/autopackage
+python setup.py build || exit 1;
+python setup.py install --prefix=/usr --root=$PKG || exit 1;
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -194,7 +179,7 @@ rm -fr $PKG/usr/share/autopackage
 
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a AUTHORS COPYING NEWS README \
+cp -a AUTHORS COPYING README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
