@@ -1,0 +1,8 @@
+PKGNAME="gtkmm"
+VERSION="2.16.0"
+HOMEPAGE="http://www.gtkmm.org/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gtkmm/2.16/gtkmm-2.16.0.tar.bz2"
+MD5SUM="a82e3b5b93008421ff67df16d1e51ec2"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

@@ -1,0 +1,7 @@
+PKGNAME="cairomm"
+VERSION="1.8.0"
+HOMEPAGE="http://cairographics.org/cairomm/"
+DOWNLOAD="http://cairographics.org/releases/cairomm-1.8.0.tar.gz"
+MD5SUM="15c0f56eee57bb418c38463a6297d715"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
