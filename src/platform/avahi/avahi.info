@@ -1,7 +1,0 @@
-PKGNAME="avahi"
-VERSION="0.6.25"
-HOMEPAGE="http://avahi.org/"
-DOWNLOAD="http://avahi.org/download/avahi-0.6.25.tar.gz"
-MD5SUM="8b311547f4a2c8c6b6598e3318d66cd7"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
