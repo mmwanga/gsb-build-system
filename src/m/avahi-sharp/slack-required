@@ -1,0 +1,12 @@
+glib2
+gtk-sharp
+desktop-file-utils
+dbus
+gtk+2
+python
+pygtk
+dbus-python
+expat
+libdaemon
+libglade
+mono

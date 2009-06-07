@@ -1,0 +1,12 @@
+         |-----handy-ruler------------------------------------------------------|
+gluezilla: gluezilla (Mono C# Mozilla Glue)
+gluezilla:
+gluezilla: The Mono Project is an open development initiative sponsored by Novell
+gluezilla: to develop an open source, UNIX version of the Microsoft .NET
+gluezilla: development platform. Its objective is to enable UNIX developers to 
+gluezilla: build and deploy cross-platform .NET Applications. 
+gluezilla:
+gluezilla: This package contains a simple library to embed Gecko (xulrunner) 
+gluezilla: for Mono WebControl.
+gluezilla:
+gluezilla:

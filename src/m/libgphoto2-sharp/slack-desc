@@ -1,0 +1,12 @@
+                |-----handy-ruler------------------------------------------------------|
+libgphoto2-sharp: libgphoto2-sharp (Libgphoto2 Bindings for Mono)
+libgphoto2-sharp:
+libgphoto2-sharp: The Mono Project is an open development initiative sponsored by Novell 
+libgphoto2-sharp: to develop an open source, UNIX version of the Microsoft .NET 
+libgphoto2-sharp: development platform. Its objective is to enable UNIX developers to
+libgphoto2-sharp: build and deploy cross-platform .NET Applications. 
+libgphoto2-sharp:
+libgphoto2-sharp: This package contains Mono Bindings for Libgphoto2.
+libgphoto2-sharp:
+libgphoto2-sharp:
+libgphoto2-sharp:

@@ -1,0 +1,42 @@
+diff -Naur monodevelop-2.0.old/configure monodevelop-2.0/configure
+--- monodevelop-2.0.old/configure	2009-03-24 22:27:44.000000000 +0000
++++ monodevelop-2.0/configure	2009-04-26 18:25:24.000000000 +0100
+@@ -4555,7 +4555,7 @@
+ # detection code in the MonoDevelop core so that MD can set LD_LIBRARY_PATH
+ # MOZILLA_FIVE_HOME before starting.
+ ###############################################################################
+-MOZFILE="libgtkembedmoz.so"
++MOZFILE="libxul.so"
+ 
+ #Check pkg-config first
+ MOZILLA_HOME="`$PKG_CONFIG --variable=libdir mozilla-gtkmozembed`"
+@@ -4580,7 +4580,7 @@
+ 
+ #if MOZILLA_HOME is still empty, try to detect without pkg_config
+ #(NOTE: any changes to this block should be kept in sync with the one in monodevelop.in)
+-MOZFILE="libgtkembedmoz.so"
++MOZFILE="libxul.so"
+ find_libgtkembedmoz ()
+ {
+ 	MOZDIR=$MOZILLA_FIVE_HOME
+diff -Naur monodevelop-2.0.old/configure.in monodevelop-2.0/configure.in
+--- monodevelop-2.0.old/configure.in	2009-03-17 15:35:50.000000000 +0000
++++ monodevelop-2.0/configure.in	2009-04-26 18:25:34.000000000 +0100
+@@ -228,7 +228,7 @@
+ # detection code in the MonoDevelop core so that MD can set LD_LIBRARY_PATH 
+ # MOZILLA_FIVE_HOME before starting.
+ ###############################################################################
+-MOZFILE="libgtkembedmoz.so"
++MOZFILE="libxul.so"
+ 
+ #Check pkg-config first
+ MOZILLA_HOME="`$PKG_CONFIG --variable=libdir mozilla-gtkmozembed`"
+@@ -250,7 +250,7 @@
+ 
+ #if MOZILLA_HOME is still empty, try to detect without pkg_config
+ #(NOTE: any changes to this block should be kept in sync with the one in monodevelop.in)
+-MOZFILE="libgtkembedmoz.so"
++MOZFILE="libxul.so"
+ find_libgtkembedmoz ()
+ {
+ 	MOZDIR=$MOZILLA_FIVE_HOME
