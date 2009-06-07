@@ -1,0 +1,6 @@
+We require a libgda-compat package because a lot of GNOME apps are
+switching to the new stable 4.0 API (anjuta, glom), but there are 
+still a lot of applications which haven't made this non-trivial
+update.  The compat package is available for those applications, 
+which offers the previous stable 3.0.5 API which can be installed 
+alongside libgda-4.0.

@@ -1,0 +1,24 @@
+diff -Naur pstoedit-3.45.old/configure pstoedit-3.45/configure
+--- pstoedit-3.45.old/configure	2007-08-10 20:26:10.000000000 +0000
++++ pstoedit-3.45/configure	2008-12-30 20:21:03.000000000 +0000
+@@ -22282,7 +22282,7 @@
+   else
+     { echo "$as_me:$LINENO: result: GNU" >&5
+ echo "${ECHO_T}GNU" >&6; }
+-    SPECIAL_CXXFLAGS="-DBUGGYGPP -pedantic -Wall -Wwrite-strings -Wcast-qual -Wpointer-arith "
++    SPECIAL_CXXFLAGS="-DBUGGYGPP -Wall -Wwrite-strings -Wcast-qual -Wpointer-arith "
+   fi
+   CXXFLAGS="-g"
+ elif test `echo "$CXX" | egrep -c 'xlC$'` -eq 1; then
+diff -Naur pstoedit-3.45.old/configure.ac pstoedit-3.45/configure.ac
+--- pstoedit-3.45.old/configure.ac	2007-08-10 20:23:26.000000000 +0000
++++ pstoedit-3.45/configure.ac	2008-12-30 20:21:17.000000000 +0000
+@@ -394,7 +394,7 @@
+     AC_SUBST(LDLIBS)
+   else
+     AC_MSG_RESULT([GNU])
+-    SPECIAL_CXXFLAGS="-DBUGGYGPP -pedantic -Wall -Wwrite-strings -Wcast-qual -Wpointer-arith "
++    SPECIAL_CXXFLAGS="-DBUGGYGPP -Wall -Wwrite-strings -Wcast-qual -Wpointer-arith "
+   fi
+   CXXFLAGS="-g" 
+ elif test `echo "$CXX" | egrep -c 'xlC$'` -eq 1; then

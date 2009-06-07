@@ -1,0 +1,12 @@
+          |-----handy-ruler------------------------------------------------------|
+gwenhywfar: gwenhywfar (Gwenhywfar Abstration Library)
+gwenhywfar: 
+gwenhywfar: Gwenhywfar allows porting of software to different operating 
+gwenhywfar: systems like Linux, *BSD, and Windows. It also provides some
+gwenhywfar: often needed modules such as configuration file handling, 
+gwenhywfar: simple XML file parsing, IPC, and so on.
+gwenhywfar: 
+gwenhywfar: Gwenhywfar is used by GnuCash.
+gwenhywfar: 
+gwenhywfar: 
+gwenhywfar: 
