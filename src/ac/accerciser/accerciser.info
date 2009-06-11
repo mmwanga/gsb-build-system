@@ -1,0 +1,8 @@
+PKGNAME="accerciser"
+VERSION="1.6.1"
+HOMEPAGE="http://live.gnome.org/Accerciser"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/accerciser/1.6/accerciser-1.6.1.tar.bz2"
+MD5SUM="9dd36435858f6eaf63694eb16584e777"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
