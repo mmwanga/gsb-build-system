@@ -29,7 +29,7 @@ VERSION=2.26.2
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomeui gnome-python-desktop gnome-panel gnome-applets dbus evolution-data-server pygtk gnome-python gnome-vfs"
+REQUIRED_PACKAGES="libgnomeui gnome-python-desktop gnome-panel gnome-applets"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -155,6 +155,7 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS \
+  --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
   --disable-static \

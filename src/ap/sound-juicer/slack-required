@@ -9,14 +9,8 @@ gnome-media
 libmusicbrainz
 libgnomeui
 libgnome
-glib2
-gtk+2
-libbonobo
 libbonoboui
-dbus
 ORBit2
-atk
-nautilus-cd-burner
 flac
 wavpack
 libvorbis

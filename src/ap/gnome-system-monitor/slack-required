@@ -1,12 +1,7 @@
-gtk+2
-startup-notification
-libgnome
+GConf
 libgnomeui
 libwnck
 gnome-vfs
 libgtop
-gnome-icon-theme
+glibmm
 gtkmm
-libxml2
-GConf
-glib2

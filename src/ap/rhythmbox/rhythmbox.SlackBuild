@@ -1,0 +1,262 @@
+#!/bin/bash
+## Version: 1.6 GSB Package SlackBuild.
+## Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
+## Copyright (c) 2007 Steve Kennedy <sk238 (at) exeter.ac.uk>
+##
+## Licenced under the terms of the GNU General Public Licence version 3.
+##
+
+## Package variables.
+BUILD=2
+VERSION=0.12.1
+
+## List any packages here that are required to build this package.
+## The list is space seperated and case sensitive.
+REQUIRED_PACKAGES="libbonoboui gst-plugins-base gstreamer gst-plugins-good totem libnotify libgpod libgnomeui hal python gnome-keyring libsexy glib2 gtk+2 pygtk nautilus brasero avahi totem dbus gnome-media libgnomeui taglib pango cairo libxml2 libmusicbrainz libmtp id3lib libsoup mozilla-xulrunner" 
+
+## Build variables.
+ARCH=${ARCH:-i586}
+TUNE=${TUNE:-i586}
+DISTRO=${DISTRO:-slackware}
+TMP=${TMP:-/tmp}
+PKGDEST=${PKGDEST:-$TMP}
+
+## Script variables.
+PKGNAME=$(basename $0 .SlackBuild)
+PKG=$TMP/package-$PKGNAME
+CWD=$(pwd)
+NOCLEANUP=0
+FORCEBUILD=0
+
+## Usage.
+function usage() {
+  cat << EOF
+Usage: ${0##*/} [options]
+
+Options:  --force       The package will not be built if a package of the same
+                        name is already installed, or any of the packages
+                        required to build are missing.  This option over-rides
+                        these checks and attempts a build anyway.
+          --no-cleanup  By default any temporary source, build and package
+                        directories will be deleted once the package is built.
+                        This option prevents those files from being removed.
+          --help        Show this help screen.
+EOF
+}
+
+## Parse command line arguments.
+while [ $# -gt 0 ]; do
+  if [ "$1" = "-force" ] || [ "$1" = "--force" ]; then
+    FORCEBUILD=1
+    shift
+  elif [ "$1" = "-no-cleanup" ] || [ "$1" = "--no-cleanup" ]; then
+    NOCLEANUP=1
+    shift
+  elif [ "$1" = "-help" ] || [ "$1" = "--help" ]; then
+    usage
+    exit 0
+  else
+    echo "${0##*/}: Unknown option: $1"
+    exit 1
+  fi
+done
+
+## Package requirements and installation checks.
+[ "$FORCEBUILD" = "0" ] && {
+  function check_installed() {
+    ls -1 /var/log/packages | grep "^${1}-[^-]*-[^-]*-[^-]*$" >/dev/null 2>&1
+    return $?
+  }
+
+  check_installed "$PKGNAME" && {
+    echo "${0##*/}: Remove installed '$PKGNAME' package before build."
+    exit 1
+  }
+
+  for REQ in $REQUIRED_PACKAGES; do
+    check_installed "$REQ" || {
+      echo "${0##*/}: Required package '$REQ' not installed."
+      exit 1
+    }
+  done
+}
+
+## Temporary space and package storage.
+mkdir -p $TMP
+rm -rf $PKG
+mkdir -p $PKG
+mkdir -p $PKG/install
+mkdir -p $PKGDEST
+
+## Decompress archive.
+cd $TMP &&
+tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+cd $PKGNAME-$VERSION || exit 1
+
+# Apply ARCH specific patches.
+if [ "$ARCH" = "i386" ]; then
+  echo "${0##*/}: Applying any patches for $ARCH"
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "i486" ]; then
+  echo "${0##*/}: Applying any patches for $ARCH"
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "i586" ]; then
+  echo "${0##*/}: Applying any patches for $ARCH"
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "i686" ]; then
+  echo "${0##*/}: Applying any patches for $ARCH"
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "x86_64" ]; then
+  echo "${0##*/}: Applying any patches for $ARCH"
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "powerpc" ]; then
+  echo "${0##*/}: Applying any patches for $ARCH"
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+fi
+
+if [ "$VERSION" = "0.11.6" ]; then
+  # Fix for libmtp > 0.3
+  patch -p1 < $CWD/patches/libmtp.patch || exit 1
+fi;
+
+## Fix permissions for building.
+chown -R root.root .
+find . -perm 664 -exec chmod 644 {} \;
+find . -perm 600 -exec chmod 644 {} \;
+find . -perm 444 -exec chmod 644 {} \;
+find . -perm 400 -exec chmod 644 {} \;
+find . -perm 440 -exec chmod 644 {} \;
+find . -perm 777 -exec chmod 755 {} \;
+find . -perm 775 -exec chmod 755 {} \;
+find . -perm 511 -exec chmod 755 {} \;
+find . -perm 711 -exec chmod 755 {} \;
+find . -perm 555 -exec chmod 755 {} \;
+
+## Configure, Tuning, GCC and Make options.
+CONFIGURE_FLAGS=${GSB_CONFIGURE_FLAGS:-""}
+if [ "$ARCH" = "i386" ]; then
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE"}
+elif [ "$ARCH" = "i486" ]; then
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE"}
+elif [ "$ARCH" = "i586" ]; then
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
+elif [ "$ARCH" = "i686" ]; then
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
+elif [ "$ARCH" = "x86_64" ]; then
+  if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
+    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -fPIC"}
+  else
+    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
+  fi
+  [ -z "$CONFIGURE_FLAGS" ] && {
+    CONFIGURE_FLAGS="--libdir=/usr/lib64"
+  }
+elif [ "$ARCH" = "powerpc" ]; then
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
+else
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2"}
+fi
+EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
+MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
+
+## Configure.
+
+# Fix for x86_64 Python paths
+if [ "$ARCH" = "x86_64" ]; then
+  sed -i "s/lib\/python/lib64\/python/g" $TMP/$PKGNAME-$VERSION/configure
+fi;
+
+CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --disable-static --enable-shared \
+  --disable-schemas-install --with-gconf-schema-file-dir=/etc/gconf/schemas \
+  --with-gconf-source=`/usr/bin/gconftool-2 --get-default-source` \
+  --with-libnautilus-burn \
+  --with-database=tree \
+  --with-gnome-keyring  \
+  --with-mtp \
+  --with-ipod \
+  --with-hal \
+  --disable-vala \
+  --enable-libnotify \
+  --enable-musicbrainz \
+  --enable-python \
+  --enable-fm-radio \
+  --with-mdns=avahi \
+  --enable-daap \
+  --enable-mmkeys \
+  --disable-vala \
+  --enable-browser-plugin \
+  || exit 1
+
+## Build and install.
+make $MAKE_FLAGS &&
+make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+## The icons are improperly placed in a package subdirectory, rather than
+## the main GNOME Icon Set. This moves them over so the application has
+## access to its icons.  
+mkdir -p $PKG/usr/share/icons/gnome
+mv $PKG/usr/share/$PKGNAME/icons/hicolor/* $PKG/usr/share/icons/gnome
+rm -fr $PKG/usr/share/$PKGNAME/icons
+
+## Strip debugging symbols.
+{ find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
+  cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
+
+## Compress and fix manpage links.
+[ -e $PKG/usr/man ] && {
+  find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
+  find $PKG/usr/man -type l -name \*.? -printf \
+    "( cd '%h'; [ -e '%l.gz' ] &&
+     { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
+}
+
+## Deal with .info files.
+[ -e $PKG/usr/info ] && {
+  rm -f $PKG/usr/info/dir
+  gzip -9 $PKG/usr/info/*.info
+}
+
+## Copy extra documentation into package.
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
+cp -a \
+  AUTHORS COPYING* ChangeLog NEWS README \
+  $PKG/usr/doc/$PKGNAME-$VERSION
+find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
+chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
+
+## Add schemas install to the doinst.sh if schemas are found.
+[ -d $PKG/etc/gconf/schemas ] && {
+  echo "if [ -x usr/bin/gconftool-2 ]; then" >>$PKG/install/doinst.sh
+  ( cd $PKG/etc/gconf/schemas
+    for FILE in *; do
+      if [ -z "$(grep gconfentry $FILE)" ]; then
+        # Create gconf tree
+        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
+      else
+        # Load gconf settings
+        echo "GCONF_CONFIG_SOURCE=\"\$(usr/bin/gconftool-2 --get-default-source)\" usr/bin/gconftool-2 --config-source=\$(usr/bin/gconftool-2 --get-default-source) --direct --load etc/gconf/schemas/$FILE >/dev/null 2>&1" >>$PKG/install/doinst.sh
+      fi
+    done
+  )
+  echo "fi" >>$PKG/install/doinst.sh
+}
+
+## Package meta files
+for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
+do
+  [ -e $CWD/$FILE ] && {
+    cat $CWD/$FILE >>$PKG/install/$FILE
+  }
+done
+
+## Create the package
+cd $PKG
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
+
+## Cleanup
+[ "$NOCLEANUP" = "0" ] && {
+  rm -rf $PKG $TMP/$PKGNAME-$VERSION
+}
