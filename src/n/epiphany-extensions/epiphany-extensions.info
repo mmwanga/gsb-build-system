@@ -1,0 +1,8 @@
+PKGNAME="epiphany-extensions"
+VERSION="2.26.1"
+HOMEPAGE="http://projects.gnome.org/epiphany-extensions/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/epiphany-extensions/2.26/epiphany-extensions-2.26.1.tar.bz2"
+MD5SUM="bc3044148e915312654f8c82a575e58e"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

@@ -1,0 +1,7 @@
+PKGNAME="bluez-gnome"
+VERSION="1.8"
+HOMEPAGE="http://www.bluez.org/"
+DOWNLOAD="http://www.kernel.org/pub/linux/bluetooth/bluez-gnome-1.8.tar.gz"
+MD5SUM="7f34a08e36aa77d4476d0919c52b59b6"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

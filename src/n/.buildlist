@@ -40,3 +40,9 @@ service-discovery-applet
 vino
 gnome-netstatus
 gnome-nettool
+libepc
+epiphany
+epiphany-extensions
+webkit
+#twitux
+#bluez-gnome

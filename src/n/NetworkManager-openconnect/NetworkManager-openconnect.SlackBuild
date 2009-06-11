@@ -168,7 +168,7 @@ make &&
 make DESTDIR=$PKG install || exit 1
 
 # Users now can add themselves to the "netdev" group to use networkmanager.
-sed -i "s/at_console=\"true\"/group=\"netdev\"/g" \
+sed -i "s,user=\"nm-openconnect\",group=\"netdev\",g" \
   $PKG/etc/dbus-1/system.d/nm-openconnect-service.conf || exit 1
 
 # Preserve settings
