@@ -25,7 +25,7 @@
 
 # Package variables. 
 BUILD=2
-VERSION=svn_r18894
+VERSION=r18894
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.

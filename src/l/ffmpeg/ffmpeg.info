@@ -1,5 +1,5 @@
 PKGNAME="ffmpeg"
-VERSION="svn_r18894"
+VERSION="r18894"
 HOMEPAGE="http://www.ffmpeg.org/"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

@@ -173,6 +173,7 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 # Fix misplaced documents
 mkdir -p $PKG/usr/doc &&
 mv $PKG/usr/share/gc $PKG/usr/doc/$PKGNAME-$VERSION || exit 1
+rmdir -p $PKG/usr/share 
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

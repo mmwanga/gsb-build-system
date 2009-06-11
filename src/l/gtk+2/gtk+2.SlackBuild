@@ -129,12 +129,13 @@ fi
 # There's been this long standing debate about PNG and -lz
 # and this patch is the workaround.  ;-)
 zcat $CWD/gtk.pnglz.diff.gz | patch -p1 || exit 1
-# Fix Flash in Konquoror:
-# This is no longer needed in the gtk+2 2.16 series
-#zcat $CWD/gtk.nsplugin.diff.gz | patch -p1 --verbose || exit 1
-# Fix for x86_64 (does not hurt the other archs but note that we will start
-# using /etc/gtk-2.0/$host instead of /etc/gtk-2.0/ now):
-zcat $CWD/gtk.etc.host.location.diff.gz | patch -p1 || exit 1
+## Fix for x86_64 (does not hurt the other archs but note that we will start
+## using /etc/gtk-2.0/$host instead of /etc/gtk-2.0/ now):
+ sed -i "s/GTK_SYSCONFDIR, \\\"gtk-2\\.0\\\"/GTK_SYSCONFDIR, \\\"gtk-2\\.0\\\", HOST/g" ./gtk/gtkrc.c ./gdk-pixbuf/gdk-pixbuf-io.c
+ sed -i 's/sysconfdir)\\"/&      \\\n\t-DHOST=\\\"$(host_triplet)\\\"/g' \
+ gdk-pixbuf/Makefile.am \
+ gtk/Makefile.am \
+ modules/input/Makefile.am
 
 # The original config.{guess,sub} do not work on x86_64
 cp -p /usr/share/libtool/config.{guess,sub} .
@@ -180,8 +181,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --sysconfdir=/etc \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --mandir=/usr/man \
-  --build=$ARCH-$DISTRO-linux \
   --with-xinput=yes \
+  --build=$ARCH-$DISTRO-linux \
   || exit 1
 
 make $MAKE_FLAGS || exit 1

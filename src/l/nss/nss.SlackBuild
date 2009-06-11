@@ -119,13 +119,13 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  zcat $CWD/patches/nss_disablezlib.patch | patch -p1 || exit 1
+  zcat $CWD/nss_disablezlib.patch | patch -p1 || exit 1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  zcat $CWD/patches/nss_disablezlib.patch | patch -p1 || exit 1
+  zcat $CWD/nss_disablezlib.patch | patch -p1 || exit 1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  zcat $CWD/patches/nss_disablezlib.patch | patch -p1 || exit 1
+  zcat $CWD/nss_disablezlib.patch | patch -p1 || exit 1
 fi
 
 # Fix permissions for building.
@@ -200,17 +200,17 @@ unset CC
 mkdir -p $PKG/usr/bin
 mkdir -p $PKG/usr/include
 install -v -m755 -d $PKG/usr/$NSSLIBDIR/pkgconfig ;
-sed -e "s:@LIBDIR@:$NSSLIBDIR:g" $CWD/pkgconfig/nspr.pc > \
+sed -e "s:@LIBDIR@:$NSSLIBDIR:g" $CWD/nspr.pc > \
        $PKG/usr/$NSSLIBDIR/pkgconfig/nspr.pc || exit 1
-sed -e "s:@LIBDIR@:$NSSLIBDIR:g" $CWD/pkgconfig/nss.pc > \
+sed -e "s:@LIBDIR@:$NSSLIBDIR:g" $CWD/nss.pc > \
        $PKG/usr/$NSSLIBDIR/pkgconfig/nss.pc  || exit 1
 chmod 644 $PKG/usr/$NSSLIBDIR/pkgconfig/nspr.pc
 chmod 644 $PKG/usr/$NSSLIBDIR/pkgconfig/nss.pc
 chown root:root $PKG/usr/$NSSLIBDIR/pkgconfig/nspr.pc
 chown root:root $PKG/usr/$NSSLIBDIR/pkgconfig/nss.pc
 mkdir -p $PKG/usr/bin
-install -v -m755 $CWD/pkgconfig/nss-config $PKG/usr/bin &&
-install -v -m755 $CWD/pkgconfig/nspr-config $PKG/usr/bin || exit 1
+install -v -m755 $CWD/nss-config $PKG/usr/bin &&
+install -v -m755 $CWD/nspr-config $PKG/usr/bin || exit 1
 cd dist ;
 install -v -m755 $NSS_LINUXDIR/lib/*.so $PKG/usr/$NSSLIBDIR &&
 install -v -m644 $NSS_LINUXDIR/lib/{*.chk,libcrmf.a} $PKG/usr/$NSSLIBDIR &&
