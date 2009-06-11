@@ -1,18 +1,35 @@
 #!/bin/bash
-## Version: 1.6 GSB Package SlackBuild.
-## Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
-## Copyright (c) 2007 Steve Kennedy <sk238 (at) exeter.ac.uk>
-##
-## Licenced under the terms of the GNU General Public Licence version 3.
-##
+# Version: 1.7 GSB Package SlackBuild.
+# Copyright (c) 2007,2008,2009 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
+# Copyright (c) 2007,2008,2009 Steve Kennedy <steve (at) gnomeslackbuild.org>
+# All rights reserved.
+#
+# Licenced under the terms of the GNU General Public Licence version 3.
+#
+# Redistribution and use of this script, with or without modification, is
+# permitted provided that the following conditions are met:
+#
+# 1. Redistributions of this script must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#
+#  THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
+#  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+#  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO
+#  EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+#  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+#  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+#  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+#  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+#  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+#  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-## Package variables.
-BUILD=1
+# Package variables.
+BUILD=2
 VERSION=1.8.4
 
-## List any packages here that are required to build this package.
-## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libbonoboui libgsf goffice gtk+2 glib2 libgda-compat pango cairo libgnome libgnomeui python perl pygtk libgnomedb libglade libgnomeprintui ORBit2 libgail-gnome"
+# List any packages here that are required to build this package.
+# The list is space seperated and case sensitive.
+REQUIRED_PACKAGES="libbonoboui libgsf goffice gtk+2 glib2 libgda-compat pango cairo libgnome libgnomeui python perl pygtk libgnomedb libglade libgnomeprintui ORBit2"
 
 ## Build variables.
 ARCH=${ARCH:-i586}

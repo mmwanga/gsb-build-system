@@ -1,0 +1,8 @@
+PKGNAME="gnumeric"
+VERSION="1.8.4"
+HOMEPAGE="http://projects.gnome.org/gnumeric/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gnumeric/1.8/gnumeric-1.8.4.tar.bz2"
+MD5SUM="3d11f9aaa5a4923f0a5533962c87bdfb"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

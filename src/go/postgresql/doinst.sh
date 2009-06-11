@@ -1,50 +1,18 @@
-function install_file() {
-  # $1 = File to process
-
-  FILE="$(dirname "$1")/$(basename "$1" .new)"
-  if [ ! -e "$FILE" ]
-  then
-    mv "$FILE.new" "$FILE"
-  elif [ "$(cat "$FILE" | md5sum)" != "$(cat "$FILE.new" | md5sum)" ]
-  then
-    #     |--------|--------------------------------------------------|
-    echo "WARNING: $FILE has been customised."
-    echo "         Examine the $FILE.new file"
-    echo "         and integrate any changes into the custom file."
-    echo
-  else
-    rm -f "$FILE.new"
+# Preserve new configuration files
+install_file() {
+  NEW="$1"
+  OLD="`dirname $NEW`/`basename $NEW .new`"
+  # If there's no config file by that name, mv it over:
+  if [ ! -r $OLD ]; then
+    mv $NEW $OLD
+  elif [ "`cat $OLD | md5sum`" = "`cat $NEW | md5sum`" ]; then # toss the redundant copy
+    rm $NEW
   fi
+  # Otherwise, we leave the .new copy for the admin to consider...
 }
 
 install_file etc/rc.d/rc.postgresql.new
 install_file etc/logrotate.d/postgresql.new
-
-# Remove old postgres user+group.
-# Somewhere in a previous install, this user/group could have been created
-# with a U/GID of 26.  We want it at 28.
-if grep "^postgres:[^:]*:26:" etc/passwd >/dev/null 2>&1; then
-  cat etc/passwd >etc/passwd.gsb
-  cat etc/passwd.gsb | grep -v "^postgres:[^:]*:26:" >etc/passwd
-  if [ $? -ne 0 ]; then
-    # Don't leave etc/password in an unknown state.
-    cat etc/passwd.gsb >etc/passwd
-    #     |--------|--------------------------------------------------|
-    echo "WARNING: Failed to remove old postgres user."
-  fi
-  rm etc/passwd.gsb
-fi
-if grep "^postgres:[^:]*:26:" etc/group >/dev/null 2>&1; then
-  cat etc/group >etc/group.gsb
-  cat etc/group.gsb | grep -v "^postgres:[^:]*:26:" >etc/group
-  if [ $? -ne 0 ]; then
-    # Don't leave etc/group in an unknown state.
-    cat etc/group.gsb >etc/group
-    #     |--------|--------------------------------------------------|
-    echo "WARNING: Failed to remove old postgres group."
-  fi
-  rm -f etc/group.gsb
-fi
 
 # If the postgres user/group don't exist, add them
 if ! grep "^postgres:" etc/group >/dev/null 2>&1; then
