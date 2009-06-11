@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=2
-VERSION=2.6.2
+VERSION=2.2.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 libxml2"
+REQUIRED_PACKAGES="gtksourceview2 glibmm"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -40,8 +40,7 @@ TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}
 
 # Script variables.
-PKGNAME=gtksourceview
-GSBPKGNAME=$(basename $0 .SlackBuild)
+PKGNAME=$(basename $0 .SlackBuild)
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
@@ -87,8 +86,8 @@ done
     return $?
   }
 
-  check_installed "$GSBPKGNAME" && {
-    echo "${0##*/}: Remove installed '$GSBPKGNAME' package before build."
+  check_installed "$PKGNAME" && {
+    echo "${0##*/}: Remove installed '$PKGNAME' package before build."
     exit 1
   }
 
@@ -164,8 +163,15 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   || exit 1
 
 # Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+make &&
+make DESTDIR=$PKG install || exit 1
+
+# Fix up documentation location for Slackware
+mkdir -p $PKG/usr/doc &&
+mv $PKG/usr/share/doc/libgtksourceviewmm-2.0 $PKG/usr/doc || exit 1
+rmdir -p $PKG/usr/share/doc
+( cd $PKG/usr/doc; ln -s libgtksourceviewmm-2.0 $PKGNAME-$VERSION )
+
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -190,7 +196,6 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 }
 
 # Copy extra documentation into package.
-mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a AUTHORS COPYING NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
@@ -206,7 +211,7 @@ done
 
 # Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/${GSBPKGNAME}-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
 [ "$NOCLEANUP" = "0" ] && {

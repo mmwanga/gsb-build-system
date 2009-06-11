@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
-VERSION=2.6.2
+BUILD=5
+VERSION=0.0.14.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 libxml2"
+REQUIRED_PACKAGES="openssl"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -40,8 +40,7 @@ TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}
 
 # Script variables.
-PKGNAME=gtksourceview
-GSBPKGNAME=$(basename $0 .SlackBuild)
+PKGNAME=$(basename $0 .SlackBuild)
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
@@ -87,8 +86,8 @@ done
     return $?
   }
 
-  check_installed "$GSBPKGNAME" && {
-    echo "${0##*/}: Remove installed '$GSBPKGNAME' package before build."
+  check_installed "$PKGNAME" && {
+    echo "${0##*/}: Remove installed '$PKGNAME' package before build."
     exit 1
   }
 
@@ -109,7 +108,8 @@ mkdir -p $PKGDEST
 
 # Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+rm -rf $PKGNAME-$VERSION &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -161,6 +161,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --target=$ARCH-$DISTRO-linux \
   --disable-static \
   --enable-shared \
+  --with-ssl-dir=/usr \
+  --with-tls=OpenSSL \
   || exit 1
 
 # Build and install.
@@ -206,7 +208,7 @@ done
 
 # Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/${GSBPKGNAME}-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
 [ "$NOCLEANUP" = "0" ] && {

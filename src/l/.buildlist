@@ -53,8 +53,15 @@ pangomm
 gtkmm
 gtksourceview2
 pygtksourceview
+python-dateutil
+vobject
+libggz
+ggz-client-libs
+libicu
+libglademm
+gtksourceviewmm
 #sg3_utils
 #transcode
 #libical
-#libicu
 #notify-python
+#graphviz

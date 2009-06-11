@@ -1,0 +1,7 @@
+PKGNAME="ggz-client-libs"
+VERSION="0.0.14.1"
+HOMEPAGE="http://www.ggzgamingzone.org"
+DOWNLOAD="http://mirrors.ibiblio.org/pub/mirrors/ggzgamingzone/ggz/0.0.14.1/ggz-client-libs-0.0.14.1.tar.gz"
+MD5SUM="299eaa93721b1d867b5bf7dc6ac764b0"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
