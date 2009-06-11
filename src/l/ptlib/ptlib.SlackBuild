@@ -115,13 +115,13 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  zcat $CWD/ptlib.pthread.diff.gz | patch -p1 
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  zcat $CWD/ptlib.pthread.diff.gz | patch -p1 
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  zcat $CWD/ptlib.pthread.diff.gz | patch -p1 
 fi
 
 # Fix permissions for building.
@@ -159,15 +159,16 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
-  --disable-static \
   --enable-shared \
   --enable-openh323 \
   --enable-opal \
-  --disable-samples \
   --enable-openssl \
   --enable-openldap \
   --enable-expat \
   --disable-avc \
+  --disable-samples \
+  --disable-static \
+  --disable-oss \
   || exit 1
 
 # Build and install.
