@@ -126,12 +126,17 @@ elif [ "$ARCH" = "powerpc" ]; then
 fi
 
 # Patches for all platforms
-patch -p1 < $CWD/patches/policykit-ck-api-change.patch || exit 1
-patch -p1 < $CWD/patches/policykit-entry-leak.patch || exit 1
-patch -p1 < $CWD/patches/policykit-noptrace.patch || exit 1
-patch -p1 < $CWD/patches/policykit-src_kit_kit-string.patch || exit 1
-patch -p1 < $CWD/patches/polkit-0.8-dbus-policy.patch || exit 1
-patch -p1 < $CWD/patches/polkit-resolve-pam.patch || exit 1
+# Compability with ck 0.3 api
+zcat $CWD/policykit-ck-api-change.patch.gz | patch -p1 || exit 1
+# Fix memory leak
+zcat $CWD/policykit-entry-leak.patch.gz | patch -p1 || exit 1
+# Disable ptrace for security
+#zcat $CWD/policykit-noptrace.patch.gz | patch -p1 || exit 1
+zcat $CWD/policykit-src_kit_kit-string.gz | patch -p1 || exit 1
+# Allow read access to dbus 
+zcat $CWD/policykit-dbus-policy.patch.gz | patch -p1 || exit 1
+# Remove unneeded include pam header
+zcat $CWD/policykit-disablepam.patch.gz | patch -p1 || exit 1
 
 # Fix permissions for building.
 chown -R root:root .

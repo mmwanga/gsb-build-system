@@ -128,7 +128,7 @@ fi
 
 # ntml patch: this patch adds NTML support to openldap and will allow evolution 
 # to connect to Microsoft Exchange Servers.
-zcat $CWD/patches/openldap-ntlm.patch.gz | patch -p1 || exit 1
+zcat $CWD/evo-openldap.ntlm.patch.gz | patch -p1
 
 # Fix permissions for building.
 chown -R root:root .

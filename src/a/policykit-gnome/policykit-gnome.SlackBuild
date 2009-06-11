@@ -116,19 +116,23 @@ cd $SRCNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # Fix glib i18 settings
+  zcat $CWD/policykit-gnome.i18init.diff.gz | patch -p1 
+  # For for utf8 strings
+  zcat $CWD/policykit-gnome.nonutf8.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # Fix glib i18 settings
+  zcat $CWD/policykit-gnome.i18init.diff.gz | patch -p1 
+  # For for utf8 strings
+  zcat $CWD/policykit-gnome.nonutf8.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # Fix glib i18 settings
+  zcat $CWD/policykit-gnome.i18init.diff.gz | patch -p1 
+  # For for utf8 strings
+  zcat $CWD/policykit-gnome.nonutf8.diff.gz | patch -p1
 fi
-
-# patches for all platforms
-patch -p1 < $CWD/patches/policykit-gnome-0.8-dont-spawn-when-running-under-gdm.patch || exit 1
-patch -p1 < $CWD/patches/policykit-gnome-0.9.2-i18ninit.patch || exit 1
-patch -p1 < $CWD/patches/policykit-gnome-0.9.2-nonutf8.patch || exit 1
 
 # Fix permissions for building.
 chown -R root:root .
