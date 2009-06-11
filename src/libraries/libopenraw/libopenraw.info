@@ -1,7 +1,0 @@
-PKGNAME="libopenraw"
-VERSION="0.0.8"
-HOMEPAGE="http://libopenraw.freedesktop.org/wiki/"
-DOWNLOAD="http://libopenraw.freedesktop.org/download/libopenraw-0.0.8.tar.gz"
-MD5SUM="fc26f146586a4b601326130bce6ffd88"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

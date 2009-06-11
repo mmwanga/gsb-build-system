@@ -1,7 +1,0 @@
-PKGNAME="libsexy"
-VERSION="0.1.11"
-HOMEPAGE="http://www.chipx86.com/w/index.php/Libsexy"
-DOWNLOAD="http://releases.chipx86.com/libsexy/libsexy/libsexy-0.1.11.tar.gz"
-MD5SUM="33c079a253270ec8bfb9508e4bb30754"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

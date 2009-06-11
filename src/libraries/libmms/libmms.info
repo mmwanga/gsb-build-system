@@ -1,7 +1,0 @@
-PKGNAME="libmms"
-VERSION="0.4"
-HOMEPAGE="http://sourceforge.net/projects/libmms"
-DOWNLOAD="http://downloads.sourceforge.net/sourceforge/libmms/libmms-0.4.tar.gz"
-MD5SUM="4a681a815186fe26bb1b02ccea57fb75"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

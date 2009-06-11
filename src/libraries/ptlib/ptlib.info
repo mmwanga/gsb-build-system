@@ -1,8 +1,0 @@
-PKGNAME="ptlib"
-VERSION="2.6.2"
-HOMEPAGE="http://www.opalvoip.org/"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/ptlib/2.6/ptlib-2.6.2.tar.bz2"
-MD5SUM="d478121cfc82da7c0f0ce0e53fc7c2fd"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

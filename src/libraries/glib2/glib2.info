@@ -1,8 +1,0 @@
-PKGNAME="glib2"
-VERSION="2.20.3"
-HOMEPAGE="http://www.gtk.org/"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/glib/2.20/glib-2.20.3.tar.bz2"
-MD5SUM="1173688c58b4b62809c83bb07a2cf71a"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

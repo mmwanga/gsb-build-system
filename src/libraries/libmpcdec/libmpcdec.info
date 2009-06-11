@@ -1,7 +1,0 @@
-PKGNAME="libmpcdec"
-VERSION="1.2.6"
-HOMEPAGE="http://www.musepack.net/"
-DOWNLOAD="http://files.musepack.net/source/libmpcdec-1.2.6.tar.bz2"
-MD5SUM="0e858972978fe480fd1400b7331061de"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

@@ -1,7 +1,0 @@
-PKGNAME="libdvbpsi5"
-VERSION="0.1.6"
-HOMEPAGE="http://www.videolan.org/developers/libdvbpsi.html"
-DOWNLOAD="http://download.videolan.org/pub/libdvbpsi/0.1.6/libdvbpsi5-0.1.6.tar.bz2"
-MD5SUM="bd2d9861be3311e1e03c91cd9345f542"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

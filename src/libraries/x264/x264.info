@@ -1,7 +1,0 @@
-PKGNAME="x264"
-VERSION="snapshot-20090521-2245"
-HOMEPAGE="http://www.videolan.org/developers/x264.html"
-DOWNLOAD="ftp://ftp.videolan.org/pub/videolan/x264/snapshots/x264-snapshot-20090521-2245.tar.bz2"
-MD5SUM="d94d6a4373ea6990dbb46b9917e7f240"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
