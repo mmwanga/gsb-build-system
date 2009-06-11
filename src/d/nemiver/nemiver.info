@@ -1,0 +1,8 @@
+PKGNAME="nemiver"
+VERSION="0.6.7"
+HOMEPAGE="http://projects.gnome.org/nemiver/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/nemiver/0.6/nemiver-0.6.7.tar.bz2"
+MD5SUM="eeb0f56cf70d26746f79486bd5437ac7"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

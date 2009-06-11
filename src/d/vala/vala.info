@@ -1,0 +1,8 @@
+PKGNAME="vala"
+VERSION="0.6.1"
+HOMEPAGE="http://live.gnome.org/Vala"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/vala/0.6/vala-0.6.1.tar.bz2"
+MD5SUM="592009ea10fa35ebb6bd472bb4198654"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

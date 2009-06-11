@@ -24,15 +24,14 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
-VERSION=2.26.2
+BUILD=1gsb
+VERSION=1.2.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnome"
+REQUIRED_PACKAGES="python"
 
 # Build variables.
-TAG=${TAG:-gsb}
 ARCH=${ARCH:-i486}
 TUNE=${TUNE:-i486}
 DISTRO=${DISTRO:-slackware}
@@ -108,7 +107,7 @@ mkdir -p $PKGDEST
 
 # Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xzf $CWD/scons-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -151,21 +150,9 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-# Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  --mandir=/usr/man $CONFIGURE_FLAGS \
-  --libdir=/usr/lib${LIBDIRSUFFIX} \
-  --build=$ARCH-$DISTRO-linux \
-  --target=$ARCH-$DISTRO-linux \
-  --disable-static \
-  --enable-shared \
-  --enable-gnome \
-  || exit 1
-
 # Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+python ./setup.py build || exit 1
+python ./setup.py install --prefix=/usr --root=$PKG || exit 1;
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -191,10 +178,11 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a AUTHORS COPYING NEWS README \
+cp -a LICENSE.txt README.txt RELEASE.txt \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
+
 
 # Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
@@ -206,7 +194,7 @@ done
 
 # Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.txz
 
 # Cleanup
 [ "$NOCLEANUP" = "0" ] && {
