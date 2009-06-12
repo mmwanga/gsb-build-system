@@ -191,7 +191,7 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 mv $PKG/usr/share/doc/libsigc-2.0/docs $PKG/usr/doc/$PKGNAME-$VERSION 
-rmdir -p $PKG/usr/share/doc/libsic-2.0
+rmdir -p $PKG/usr/share/doc/libsigc-2.0
 cp -a AUTHORS COPYING NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;

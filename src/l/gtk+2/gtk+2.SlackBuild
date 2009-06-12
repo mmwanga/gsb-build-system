@@ -266,9 +266,9 @@ chmod 755 $PKG/etc/profile.d/*
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a \
-  AUTHORS COPYING NEWS README TODO \
+  AUTHORS COPYING NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
-( cd $PKG/usr/doc/gtk+-$VERSION
+( cd $PKG/usr/doc/$PKGNAME-$VERSION
   ln -s /usr/share/gtk-doc/html/gail-libgail-util .
   ln -s /usr/share/gtk-doc/html/gdk .
   ln -s /usr/share/gtk-doc/html/gdk-pixbuf .

@@ -115,17 +115,14 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # Fix build against newer ffmpeg
-  zcat $CWD/libquicktime.ffmpeg_videoc.patch.gz | patch -p1 || exit 1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # Fix build against newer ffmpeg
-  zcat $CWD/libquicktime.ffmpeg_videoc.patch.gz | patch -p1 || exit 1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # Fix build against newer ffmpeg
-  zcat $CWD/libquicktime.ffmpeg_videoc.patch.gz | patch -p1 || exit 1
 fi
+
+# Fix for latest ffmpeg videoc
+zcat $CWD/libquicktime.ffmpeg_videoc.patch.gz | patch -p1 || exit 1
 
 # Fix permissions for building.
 chown -R root:root .

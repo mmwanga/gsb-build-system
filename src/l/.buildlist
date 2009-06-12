@@ -42,7 +42,6 @@ libdaemon
 libsigc++
 libtasn1
 libtool-compat
-pyorbit
 libgtop
 libgalago
 pygdata
@@ -60,8 +59,9 @@ ggz-client-libs
 libicu
 libglademm
 gtksourceviewmm
+pyorbit
+alsa-plugins
+hal-cups-utils
+rhpl
 #sg3_utils
-#transcode
-#libical
 #notify-python
-#graphviz

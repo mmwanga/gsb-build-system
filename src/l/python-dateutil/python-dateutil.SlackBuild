@@ -29,7 +29,7 @@ VERSION=1.4.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="python"
+REQUIRED_PACKAGES="python setuptools"
 
 # Build variables.
 TAG=${TAG:-gsb}

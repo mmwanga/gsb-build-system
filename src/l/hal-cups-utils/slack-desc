@@ -1,0 +1,13 @@
+              |-----handy-ruler------------------------------------------------------|
+hal-cups-utils: hal-cups-utils (CUPS integration with HAL)
+hal-cups-utils: 
+hal-cups-utils: This package provides a CUPS backend for browsing local printers 
+hal-cups-utils: using HAL and a utility based on lpadmin for adding, configuring and 
+hal-cups-utils: removing printers using HAL UDIs. 
+hal-cups-utils: 
+hal-cups-utils: 
+hal-cups-utils: 
+hal-cups-utils: 
+hal-cups-utils: 
+hal-cups-utils: 
+hal-cups-utils: 
