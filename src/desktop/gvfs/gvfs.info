@@ -1,8 +1,0 @@
-PKGNAME="gvfs"
-VERSION="1.2.3"
-HOMEPAGE="http://www.gnome.org"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gvfs/1.2/gvfs-1.2.3.tar.bz2"
-MD5SUM="04a7f9c892b962cfedf0637dd2b01196"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

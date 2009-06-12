@@ -1,7 +1,0 @@
-PKGNAME="evo-openldap"
-VERSION="2.3.43"
-HOMEPAGE="http://www.openldap.org/"
-DOWNLOAD="ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.3.43.tgz"
-MD5SUM="1b25281086eb146b8e11ebd33de086dc"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
