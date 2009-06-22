@@ -1,4 +1,4 @@
-#setuptools
+setuptools
 #gdl
 #bluefish
 #devhelp
@@ -9,7 +9,5 @@
 #autogen
 #anjuta
 #bakery
-#goocanvas
-#goocanvasmm
 #gnome-build
 #gettext-perl
