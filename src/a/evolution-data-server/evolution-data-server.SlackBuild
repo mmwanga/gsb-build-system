@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
-VERSION=2.26.2
+BUILD=1
+VERSION=2.26.3
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="GConf evolution-data-server gtkhtml dbus gnome-keyring gnome-vfs gtk+2 libsoup libxml2 cyrus-sasl gnome-pilot libgnomeui libgnome libbonoboui libsoup libnotify gstreamer sqlite bluez" 
+REQUIRED_PACKAGES="GConf gnome-vfs libgnome libgnomeui libsoup avahi ORBit2 libbonobo libbonoboui libidl db44 nss gnome-keyring glib2 heimdal-libraries evo-openldap sqlite libgweather libical"
 
 # Build variables.
 TAG=${TAG:-gsb}

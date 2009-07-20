@@ -1,12 +1,12 @@
 	   |-----handy-ruler------------------------------------------------------|
 gnome-menus: gnome-menus (GNOME Freedesktop.org Menu Implementation)
 gnome-menus:
-gnome-menus: The package contains an implementation of the draft "Desktop Menu 
-gnome-menus: Specification" from freedesktop.org.
+gnome-menus: gnome-menus contains an implementation of the draft "Desktop Menu 
+gnome-menus: Specification" from freedesktop.org, as well as the GNOME menu layout 
+gnome-menus: configuration files, .directory files and assorted menu related 
+gnome-menus: utility programs.
 gnome-menus:
-gnome-menus: Also contained here are the GNOME menu layout configuration files, 
-gnome-menus: .directory files and assorted menu related utility programs.
 gnome-menus:
-gnome-menus: See http://www.freedesktop.org/Standards/menu-spec
+gnome-menus:
 gnome-menus:
 gnome-menus:

@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=7
+BUILD=8
 VERSION=0.3.0
 
 # List any packages here that are required to build this package.
@@ -173,6 +173,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
+  --docdir=/usr/doc/$PKGNAME-$VERSION \
+  --enable-docbook-docs \
   --disable-static --enable-shared \
   --with-pid-file=/var/run/console-kit-daemon.pid \
   --disable-pam-module \
@@ -183,12 +185,14 @@ make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Preserve files
-mv $PKG/etc/dbus-1/system.d/ConsoleKit.conf $PKG/etc/dbus-1/system.d/ConsoleKit.conf.new || exit 1
-mv $PKG/etc/ConsoleKit/seats.d/00-primary.seat $PKG/etc/ConsoleKit/seats.d/00-primary.seat.new || exit 1
+mv $PKG/etc/dbus-1/system.d/ConsoleKit.conf \
+  $PKG/etc/dbus-1/system.d/ConsoleKit.conf.new || exit 1
+mv $PKG/etc/ConsoleKit/seats.d/00-primary.seat \
+  $PKG/etc/ConsoleKit/seats.d/00-primary.seat.new || exit 1
 
-# pam compatibility
-mkdir -p $PKG/usr/lib/ConsoleKit/run-session.d &&
-cp $CWD/pam-foreground-compat.ck $PKG/usr/lib/ConsoleKit/run-session.d/ || exit 1
+# PAM compatibility
+mkdir -p $PKG/usr/lib${LIBDIRSUFFIX}/ConsoleKit/run-session.d &&
+cp $CWD/pam-foreground-compat.ck $PKG/usr/lib${LIBDIRSUFFIX}/ConsoleKit/run-session.d/ || exit 1
 # clean up empty pam module man page
 rmdir -p $PKG/usr/man/man8 
 

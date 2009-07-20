@@ -132,11 +132,11 @@ zcat $CWD/policykit-ck-api-change.patch.gz | patch -p1 || exit 1
 zcat $CWD/policykit-entry-leak.patch.gz | patch -p1 || exit 1
 # Disable ptrace for security
 #zcat $CWD/policykit-noptrace.patch.gz | patch -p1 || exit 1
-zcat $CWD/policykit-src_kit_kit-string.gz | patch -p1 || exit 1
+zcat $CWD/policykit-src_kit_kit-string.patch.gz | patch -p1 || exit 1
 # Allow read access to dbus 
 zcat $CWD/policykit-dbus-policy.patch.gz | patch -p1 || exit 1
 # Remove unneeded include pam header
-zcat $CWD/policykit-disablepam.patch.gz | patch -p1 || exit 1
+zcat $CWD/policykit-pamdisable.patch.gz | patch -p1 || exit 1
 
 # Fix permissions for building.
 chown -R root:root .
@@ -182,8 +182,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-gtk-doc \
   || exit 1
 
-# Build and install.
-make $MAKE_FLAGS &&
+# Build 
+make $MAKE_FLAGS -j2 &&
 
 # Install hal relevant policykit policies for compatibility
 mkdir -p $PKG/usr/share/PolicyKit/policy || exit 1

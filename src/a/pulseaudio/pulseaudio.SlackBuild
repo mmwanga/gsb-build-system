@@ -29,7 +29,7 @@ VERSION=0.9.15
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-#REQUIRED_PACKAGES="libsndfile GConf hal avahi glib2 libsamplerate libatomic_ops liboil bluez consolekit libtool alsa-lib libtool-compat"
+REQUIRED_PACKAGES="libsndfile GConf hal avahi glib2 libsamplerate liboil bluez consolekit alsa-lib libtool-compat"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -180,10 +180,7 @@ mv $PKG/etc/pulse/daemon.conf $PKG/etc/pulse/daemon.conf.new || exit 1
 mv $PKG/etc/pulse/client.conf $PKG/etc/pulse/client.conf.new || exit 1
 mv $PKG/etc/pulse/default.pa $PKG/etc/pulse/default.pa.new || exit 1
 mv $PKG/etc/pulse/system.pa $PKG/etc/pulse/system.pa.new || exit 1
-mkdir -p $PKG/etc
 mkdir -p $PKG/etc/pulse
-# set alsa use of pulse modules if plugins available
-cp $CWD/asound.conf.new $PKG/etc || exit 1
 
 # Move pulseaudio to GNOME specific xdg
 mkdir $PKG/etc/gnome &&

@@ -16,7 +16,6 @@ libgnomecanvas
 libbonoboui
 gnome-keyring
 pulseaudio
-alsa-plugins
 libgnomeui
 gtk-engines
 libproxy

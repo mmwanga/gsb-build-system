@@ -4,7 +4,6 @@ hal
 avahi
 glib2
 libsamplerate
-libatomic_ops
 liboil
 alsa-lib
 alsa-plugins

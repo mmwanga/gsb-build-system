@@ -1,5 +1,5 @@
              |-----handy-ruler------------------------------------------------------|
-gnome-desktop: gnome-desktop (Core GNOME library and applications)
+gnome-desktop: gnome-desktop (GNOME core library and applications)
 gnome-desktop:
 gnome-desktop: This package contains the libgnome-desktop library, some documents
 gnome-desktop: installed as part of the core GNOME distribution, GNOME's .desktop

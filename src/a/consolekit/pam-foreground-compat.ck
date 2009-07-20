@@ -3,7 +3,7 @@ TAGDIR=/var/run/console
  
 [ -n "${CK_SESSION_USER_UID}" ] || exit 1
  
-TAGFILE="${TAGDIR}/`getent passwd ${CK_SESSION_USER_UID} | cut -f 1 -d:`"
+TAGFILE="${TAGDIR}/$(getent passwd ${CK_SESSION_USER_UID} | cut -f 1 -d:)"
  
 if [ "$1" = "session_added" ]; then
   mkdir -p "${TAGDIR}"

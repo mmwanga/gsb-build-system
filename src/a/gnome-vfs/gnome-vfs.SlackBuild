@@ -179,6 +179,11 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 # Remove unneeded libtool files
 rm $PKG/usr/lib${LIBDIRSUFFIX}/gnome-vfs-2.0/modules/*.la
 
+# Preserve settings
+for i in default-modules.conf smb-module.conf ssl-modules.conf; do
+  mv $PKG/etc/gnome-vfs-2.0/modules/$i $PKG/etc/gnome-vfs-2.0/modules/$i.new
+done;
+
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null

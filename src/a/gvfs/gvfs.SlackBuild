@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
+BUILD=3
 VERSION=1.2.3
 
 # List any packages here that are required to build this package.
@@ -179,6 +179,7 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Preserve settings
 mv $PKG/etc/profile.d/gvfs-bash-completion.sh $PKG/etc/profile.d/gvfs-bash-completion.sh.new
+chmod 755 $PKG/etc/profile.d/gvfs-bash-completion.sh.new 
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

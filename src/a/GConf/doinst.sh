@@ -15,5 +15,7 @@ install_file etc/gconf/2/path.new
 install_file etc/gconf/2/evoldap.conf.new
 install_file etc/dbus-1/system.d/org.gnome.GConf.Defaults.conf.new
 
-# Restart gconfd-2 to reload new settings
-killall -HUP gconfd-2 >/dev/null 2>&1
+# Restart gconfd-2 if running to reload new gconf settings
+if ps acx | grep -q gconfd-2 ; then
+  killall -HUP gconfd-2 
+fi

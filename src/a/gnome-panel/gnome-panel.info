@@ -1,8 +1,8 @@
 PKGNAME="gnome-panel"
-VERSION="2.26.2"
+VERSION="2.26.3"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-panel/2.26/gnome-panel-2.26.2.tar.bz2"
-MD5SUM="07974105fec9a6bab8be8b20b9b956e9"
+DOWNLOAD="${GNOME_SERVER}/gnome-panel/2.26/gnome-panel-2.26.3.tar.bz2"
+MD5SUM="38de69896976d57abb4f4720fef62fcf"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

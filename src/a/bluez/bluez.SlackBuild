@@ -25,7 +25,7 @@
 
 # Package variables.
 BUILD=1
-VERSION=4.40
+VERSION=4.43
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -183,10 +183,10 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-pand \
   --enable-dund \
   --enable-cups \
+  --enable-pcmcia \
   --enable-manpages \
   --enable-configfiles \
-  --enable-initscripts \
-  --enable-pcmciarules \
+  --enable-udevrules \
   || exit 1
 
 # Build and install.
@@ -213,13 +213,8 @@ else
 fi
 
 # Replace with our own Slackware version
-mv $PKG/etc/init.d $PKG/etc/rc.d &&
-mv $PKG/etc/rc.d/bluetooth $PKG/etc/rc.d/rc.bluetooth &&
+mkdir -p $PKG/etc/rc.d &&
 cp $CWD/rc.bluetooth $PKG/etc/rc.d/rc.bluetooth || exit 1
-
-# Edit "default" configuration script:
-sed -i "s:\(HIDD_ENABLE=\).*:\1false:" $PKG/etc/default/bluetooth || exit 1
-sed -i "s:\(HID2HCI_ENABLE=\).*:\1false:" $PKG/etc/default/bluetooth || exit 1
 
 # Install other configuration files:
 mkdir -p $PKG/etc/bluetooth &&
