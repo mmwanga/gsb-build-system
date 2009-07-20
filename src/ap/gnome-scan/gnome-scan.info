@@ -1,8 +1,0 @@
-PKGNAME="gnome-scan"
-VERSION="0.6.2"
-HOMEPAGE="http://projects.gnome.org/gnome-scan/"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-scan/0.6/gnome-scan-0.6.2.tar.bz2"
-MD5SUM="fa4057d772cb78dc6745eee2226a78f5"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

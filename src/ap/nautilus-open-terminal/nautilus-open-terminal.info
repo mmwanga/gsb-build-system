@@ -1,0 +1,8 @@
+PKGNAME="nautilus-open-terminal"
+VERSION="0.12"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/nautilus-open-terminal/0.12/nautilus-open-terminal-0.12.tar.bz2"
+MD5SUM="4c1e1674282836de718e7537da748d81"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

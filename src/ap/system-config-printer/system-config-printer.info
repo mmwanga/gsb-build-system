@@ -1,0 +1,7 @@
+PKGNAME="system-config-printer"
+VERSION="1.0.16"
+HOMEPAGE="http://cyberelk.net/tim/software/system-config-printer/"
+DOWNLOAD="http://cyberelk.net/tim/data/system-config-printer/1.0.x/system-config-printer-1.0.16.tar.bz2"
+MD5SUM="eab094411498de16a0c2cf2c2ab5428a"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

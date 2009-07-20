@@ -29,7 +29,7 @@ VERSION=2.26.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gstreamer gst-plugins-base gst-plugins-good libcdio cdparanoia libcddb taglib gnome-media libmusicbrainz libgnomeui libgnome libbonoboui ORBit2 flac wavpack libvorbis brasero"
+REQUIRED_PACKAGES="gst-plugins-base gst-plugins-good libcdio cdparanoia libcddb taglib gnome-media libmusicbrainz libdiscid libgnomeui libbonoboui flac wavpack libvorbis brasero"
 
 # Build variables.
 TAG=${TAG:-gsb}

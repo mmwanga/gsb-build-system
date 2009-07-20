@@ -114,29 +114,20 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  zcat $CWD/gdm.gksu.diff.gz | patch -p1 || exit 1
+  zcat $CWD/gdm.kdesubid.diff.gz | patch -p1 || exit 1
+  zcat $CWD/gdm.memleak.diff.gz | patch -p1 || exit 1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  zcat $CWD/gdm.gksu.diff.gz | patch -p1 || exit 1
+  zcat $CWD/gdm.kdesubid.diff.gz | patch -p1 || exit 1
+  zcat $CWD/gdm.memleak.diff.gz | patch -p1 || exit 1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  zcat $CWD/gdm.gksu.diff.gz | patch -p1 || exit 1
+  zcat $CWD/gdm.kdesubid.diff.gz | patch -p1 || exit 1
+  zcat $CWD/gdm.memleak.diff.gz | patch -p1 || exit 1
 fi
-
-# Patches for all platforms
-zcat $CWD/patches/08_notify_ck_about_static_server.patch.gz | patch -p1 || exit 1
-zcat $CWD/patches/10_noxkeepcrashing.patch.gz | patch -p1 || exit 1
-zcat $CWD/patches/16_configure_menu_item.patch.gz | patch -p1 || exit 1
-zcat $CWD/patches/18_combo_box_language_selector.patch.gz | patch -p1 || exit 1
-zcat $CWD/patches/20_timedlogindelay_min_value_change.patch.gz | patch -p1 || exit 1
-zcat $CWD/patches/36_update_prefetch_lists.patch.gz | patch -p1 || exit 1
-zcat $CWD/patches/45_use-gksu-for-gdmsetup.patch.gz | patch -p1 || exit 1
-zcat $CWD/patches/46_kde-substitude-uid.patch.gz | patch -p1 || exit 1
-zcat $CWD/patches/47_xkeepscrashing-restore-keyboard.patch.gz | patch -p1 || exit 1
-zcat $CWD/patches/55_use-theme-gtkrc.patch.gz | patch -p1 || exit 1
-zcat $CWD/patches/62_reference-manual-docbook-entity-reference.patch.gz | patch -p1 || exit 1
-zcat $CWD/patches/73_disable_user_input_tooltip.patch.gz | patch -p1 || exit 1
-zcat $CWD/patches/74_greeter_theme_memleak.patch.gz | patch -p1 || exit 1
 
 # Fix permissions for building.
 chown -R root:root .
