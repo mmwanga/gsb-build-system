@@ -6,7 +6,6 @@ gnome-pilot-conduits
 evolution-exchange
 evolution-webcal
 evolution-rss
-#evolution-mapi
 telepathy-glib
 libtelepathy
 telepathy-mission-control
@@ -23,7 +22,7 @@ ekiga
 mod_dnssd
 gnome-user-share
 gnokii
-obex-data-server
+obexd
 gnome-bluetooth
 gnome-phone-manager
 NetworkManager
@@ -44,5 +43,7 @@ libepc
 epiphany
 epiphany-extensions
 webkit
+pywebkitgtk
 #twitux
 #bluez-gnome
+#evolution-mapi

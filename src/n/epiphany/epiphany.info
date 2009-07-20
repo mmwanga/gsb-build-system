@@ -1,8 +1,8 @@
 PKGNAME="epiphany"
-VERSION="2.26.2"
+VERSION="2.26.3"
 HOMEPAGE="http://projects.gnome.org/epiphany/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/epiphany/2.26/epiphany-2.26.2.tar.bz2"
-MD5SUM="29c23cfb0a5713b53255a9ca652192c1"
+DOWNLOAD="${GNOME_SERVER}/epiphany/2.26/epiphany-2.26.3.tar.bz2"
+MD5SUM="16f44012bc376077e1443e049d725847"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

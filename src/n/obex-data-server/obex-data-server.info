@@ -1,7 +1,0 @@
-PKGNAME="obex-data-server"
-VERSION="0.4.4"
-HOMEPAGE="http://wiki.muiline.com/obex-data-server"
-DOWNLOAD="http://tadas.dailyda.com/software/obex-data-server-0.4.4.tar.gz"
-MD5SUM="4aad0182812c770dde21246522be9f5e"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
