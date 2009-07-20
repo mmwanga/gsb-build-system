@@ -5,6 +5,7 @@ libelf
 libnotify
 libgc
 a52dec
+libdiscid
 libmusicbrainz
 x264
 xvidcore
@@ -63,5 +64,8 @@ pyorbit
 alsa-plugins
 hal-cups-utils
 rhpl
+goocanvas
+goocanvasmm
+pygoocanvas
 #sg3_utils
 #notify-python

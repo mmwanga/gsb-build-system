@@ -29,7 +29,7 @@ VERSION=3.0.2
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="neon cmake"
+REQUIRED_PACKAGES="neon cmake libdiscid"
 
 # Build variables.
 TAG=${TAG:-gsb}
