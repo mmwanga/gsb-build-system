@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
-VERSION=3.6.6
+BUILD=2
+VERSION=2.26.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomeui gtk+2 glib2 libglade libxml2 libgnomeprintui"
+REQUIRED_PACKAGES="libxml2 perl"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -158,12 +158,19 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --program-prefix="" \
+  --disable-static \
+  --enable-shared \
   || exit 1
 
 # Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+# Fix documentation
+mkdir -p $PKG/usr/doc &&
+mv $PKG/usr/share/doc/libxml++-2.6 $PKG/usr/doc || exit 1
+rmdir -p $PKG/usr/share/doc 
+( cd $PKG/usr/doc; ln -s libxml++-2.6 $PKGNAME-$VERSION )
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -208,5 +215,5 @@ makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
 [ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/$PKGNAME-$VERSION
+  rm -rf $PKG $TMP/${PKGNAME}-${VERSION}
 }

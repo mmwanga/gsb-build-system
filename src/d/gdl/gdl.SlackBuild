@@ -160,7 +160,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --target=$ARCH-$DISTRO-linux \
   --disable-static \
   --enable-shared \
-  --enable-gnome \
   || exit 1
 
 # Build and install.

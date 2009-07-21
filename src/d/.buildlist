@@ -1,5 +1,9 @@
 setuptools
-#gdl
+scons
+gconfmm
+libxml++
+bakery
+gdl
 #bluefish
 #devhelp
 #glade3

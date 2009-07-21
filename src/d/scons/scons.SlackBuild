@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1gsb
+BUILD=1
 VERSION=1.2.0
 
 # List any packages here that are required to build this package.
@@ -194,7 +194,7 @@ done
 
 # Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.txz
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
 [ "$NOCLEANUP" = "0" ] && {

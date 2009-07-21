@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
-VERSION=3.6.6
+BUILD=2
+VERSION=2.24.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomeui gtk+2 glib2 libglade libxml2 libgnomeprintui"
+REQUIRED_PACKAGES="GConf glibmm"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -158,7 +158,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --program-prefix="" \
+  --disable-static \
+  --enable-shared \
   || exit 1
 
 # Build and install.
@@ -189,7 +190,7 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a AUTHORS COPYING NEWS README \
+cp -a AUTHORS COPYING COPYING.LIB NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION

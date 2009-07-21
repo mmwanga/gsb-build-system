@@ -1,0 +1,8 @@
+PKGNAME="libxml++"
+VERSION="2.26.0"
+HOMEPAGE="http://projects.gnome.org/nemiver/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/libxml++/2.26/libxml++-2.26.0.tar.bz2"
+MD5SUM="a52fc7e6e44bb5cc187672930b843f72"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
