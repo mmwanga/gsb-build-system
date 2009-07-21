@@ -161,6 +161,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static --enable-shared \
   --disable-scrollkeeper \
   --with-postgres-utils=/usr/bin \
+  --disable-update-mime-database \
   || exit 1
 
 # Build and install.

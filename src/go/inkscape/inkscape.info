@@ -1,0 +1,7 @@
+PKGNAME="inkscape"
+VERSION="0.46"
+HOMEPAGE="http://www.inkscape.org"
+DOWNLOAD="http://downloads.sourceforge.net/inkscape/inkscape-0.46.tar.gz"
+MD5SUM="611a9cc73aadd1ff5fdc4dd81e240822"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

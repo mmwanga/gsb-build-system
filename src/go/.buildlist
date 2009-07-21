@@ -3,15 +3,16 @@ libgda
 libgdamm
 gnome-python-extras
 glom
+dia
+gnucash
+gnucash-docs
+inkscape
 #libgnomedb
 #abiword
-#dia
 #abiword-plugins
 #abiword-extras
 #abiword-docs
 #tracker
-#gnucash
-#gnucash-docs
 #libgda-compat
 #goffice
 #python-xlib
@@ -23,6 +24,5 @@ glom
 #pstoedit
 #f-spot
 #gnome-do
-#inkscape
 #gnumeric
 #wv
