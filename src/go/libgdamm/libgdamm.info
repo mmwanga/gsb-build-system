@@ -1,0 +1,8 @@
+PKGNAME="libgdamm"
+VERSION="3.99.16"
+HOMEPAGE="http://www.gnome-db.org/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/libgdamm/3.99/libgdamm-3.99.16.tar.bz2"
+MD5SUM="975e90bfaa21491c71cbe12741b24ba2"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

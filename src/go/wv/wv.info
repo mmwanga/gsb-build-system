@@ -1,0 +1,7 @@
+PKGNAME="wv"
+VERSION="2.6.8"
+HOMEPAGE="http://wvware.sourceforge.net/"
+DOWNLOAD="http://www.abisource.com/downloads/abiword/2.6.8/source/abiword-2.6.8.tar.gz"
+MD5SUM="fab04d8ef999c303f720197adf261310"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

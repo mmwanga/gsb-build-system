@@ -1,0 +1,7 @@
+PKGNAME="gpp"
+VERSION="0.7.0"
+HOMEPAGE="http://www.fogman.de/gpp/"
+DOWNLOAD="http://www.fogman.de/gpp/gpp-0.7.0.tar.gz"
+MD5SUM="ff8fdd9a8f741b346a8d87045d1d02e3"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

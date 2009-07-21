@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=2
-VERSION=2.6.8
+VERSION=0.7.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="abiword"
+REQUIRED_PACKAGES="gnome-vfs libgnomeprintui"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -159,6 +159,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
+  --disable-static \
+  --enable-shared \
   || exit 1
 
 # Build and install.
