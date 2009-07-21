@@ -1,1 +1,0 @@
-If incorrect password is supplied for su, then when "Sorry." is given by su, gksu fails with error message. This patch tries to fix that.  It's hacky, but it works.  -Steve 
