@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=5
+BUILD=6
 VERSION=0.46
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 glib2 libjpeg libpng gnome-vfs pango cairo lcms popt libXft openssl libgc"
+REQUIRED_PACKAGES="gtk+2 glib2 libjpeg libpng gnome-vfs pango cairo lcms popt libXft openssl libgc boost"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -117,16 +117,18 @@ if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  zcat $CWD/glom.python.x86_64.diff.gz | patch -p1
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
 # Allow compiling against newer poppler
-zcat $CWD/patches/inkscape.poppler.diff.gz | patch -p1
+zcat $CWD/inkscape.poppler.diff.gz | patch -p1
 # Fix for bug in gtk+2 header
-zcat $CWD/patches/inkscape.gtkincludes.diff.gz | patch -p1
+zcat $CWD/inkscape.gtkincludes.diff.gz | patch -p1
+# Fix broken libpng include
+zcat $CWD/inkscape.earlypngheader.diff.gz | patch -p1
 
 # Fix permissions for building.
 chown -R root:root .
@@ -212,7 +214,7 @@ done
 
 # Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}.txz
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
 [ "$NOCLEANUP" = "0" ] && {
