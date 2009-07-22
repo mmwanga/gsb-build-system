@@ -1,0 +1,12 @@
+        |-----handy-ruler------------------------------------------------------|
+psiconv: psiconv (EPOC32 Psion Conversion Library)
+psiconv:
+psiconv: Psiconv is a file conversion utility that converts between Psion 5(MX) 
+psiconv: files and more commonly-used Linux file formats. It can read and write 
+psiconv: Psion Word, TextEd, Sketch, MBM, and Clipart files, and outputs HTML 
+psiconv: 3.2, HTML 4, ASCII, and almost any graphical format. The libpsiconv 
+psiconv: library can also read Sheet files for use in other programs.
+psiconv:
+psiconv:
+psiconv:
+psiconv:

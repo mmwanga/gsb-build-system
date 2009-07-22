@@ -67,5 +67,7 @@ rhpl
 goocanvas
 goocanvasmm
 pygoocanvas
+psiconv
+slib
 #sg3_utils
 #notify-python
