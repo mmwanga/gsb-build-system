@@ -1,8 +1,0 @@
-PKGNAME="gnome-python"
-VERSION="2.26.1"
-HOMEPAGE="http://www.gnome.org"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-python/2.26/gnome-python-2.26.1.tar.bz2"
-MD5SUM="e5dcae40b2c291126843680dbed924a8"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
