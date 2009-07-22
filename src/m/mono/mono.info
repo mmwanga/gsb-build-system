@@ -1,0 +1,7 @@
+PKGNAME="mono"
+VERSION="2.4"
+HOMEPAGE="http://mono-project.com"
+DOWNLOAD="http://ftp.novell.com/pub/mono/sources/mono/mono-2.4.tar.bz2"
+MD5SUM="ddf40d6f21ab7e8942abd063d460e4fa"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

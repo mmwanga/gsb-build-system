@@ -1,0 +1,7 @@
+PKGNAME="libgdiplus"
+VERSION="2.4"
+HOMEPAGE="http://www.mono-project.com/Libgdiplus"
+DOWNLOAD="http://ftp.novell.com/pub/mono/sources/libgdiplus/libgdiplus-2.4.tar.bz2"
+MD5SUM="ddf40d6f21ab7e8942abd063d460e4fa"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
