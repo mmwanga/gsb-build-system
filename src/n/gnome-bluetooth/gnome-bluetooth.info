@@ -1,8 +1,8 @@
 PKGNAME="gnome-bluetooth"
-VERSION="2.27.5"
+VERSION="2.27.8"
 HOMEPAGE="http://live.gnome.org/GnomeBluetooth"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-bluetooth/2.27/gnome-bluetooth-2.27.5.tar.bz2"
-MD5SUM="881a01ce964b8c02b5d40be8b5aedcaf"
+DOWNLOAD="${GNOME_SERVER}/gnome-bluetooth/2.27/gnome-bluetooth-2.27.8.tar.bz2"
+MD5SUM="c82f33830c279e36a71c896be99a8035"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

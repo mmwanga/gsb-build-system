@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.27.5
+VERSION=2.27.8
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="bluez obex-data-server libunique libnotify"
+REQUIRED_PACKAGES="bluez obexd libunique libnotify"
 
 # Build variables.
 TAG=${TAG:-gsb}
