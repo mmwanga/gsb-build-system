@@ -1,0 +1,7 @@
+PKGNAME="gtkmathview"
+VERSION="0.8.0"
+HOMEPAGE="http://helm.cs.unibo.it/mml-widget/"
+DOWNLOAD="http://helm.cs.unibo.it/mml-widget/sources/gtkmathview-0.8.0.tar.gz"
+MD5SUM="b53564e553728d4b69f7d366dfeb5299"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

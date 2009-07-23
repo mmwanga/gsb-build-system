@@ -114,13 +114,16 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # build against the goffice-0.6 series
+  zcat $CWD/abiword.goffice.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # build against the goffice-0.6 series
+  zcat $CWD/abiword.goffice.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # build against the goffice-0.6 series
+  zcat $CWD/abiword.goffice.diff.gz | patch -p1
 fi
 
 # Fix permissions for building.
@@ -162,17 +165,7 @@ CFLAGS="$CFLAGS $TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS
   --target=$ARCH-$DISTRO-linux \
   --disable-static \
   --enable-shared \
-  --with-libjpeg-prefix=/usr \
-  --with-popt=/usr \
-  --with-zlib=/usr \
-  --with-libpng=/usr \
-  --with-ImageMagick=/usr \
-  --enable-scripting \
   --enable-extra-optimization \
-  --enable-gnomevfs \
-  --enable-binreloc-threads \
-  --enable-printing \
-  --enable-libabiword \
   || exit 1
 
 # Build and install AbiWord

@@ -1,0 +1,7 @@
+PKGNAME="abiword-plugins"
+VERSION="2.6.8"
+HOMEPAGE="http://www.abisource.com/"
+DOWNLOAD="http://www.abisource.com/downloads/abiword/2.6.8/source/abiword-plugins-2.6.8.tar.gz"
+MD5SUM="421c49723e209c971ddb0798c1b313a9"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

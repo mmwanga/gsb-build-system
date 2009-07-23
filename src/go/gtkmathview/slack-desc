@@ -1,5 +1,5 @@
            |-----handy-ruler------------------------------------------------------|
-gtkmathview: gtkmathview (Gtk Rendering for Math)
+gtkmathview: gtkmathview (Gtk Rendering for MathML)
 gtkmathview:
 gtkmathview: GtkMathView is a C++ rendering engine for MathML documents. It 
 gtkmathview: provides an interactive view that can be used for browsing and 
