@@ -13,6 +13,11 @@ install_file() {
 
 install_file etc/gnucash/config.new
 
+# Install new info files
+if [ -x usr/bin/install-info ]; then
+  usr/bin/install-info usr/info/gnucash-design.info.gz usr/info/dir >/dev/null 2>&1
+fi
+
 # update rarian database
 if [ -x usr/bin/rarian-sk-update ]; then
   usr/bin/rarian-sk-update 1> /dev/null 2> /dev/null

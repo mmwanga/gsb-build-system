@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
-VERSION=0.7.0
+BUILD=1
+VERSION=2.0.4
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gnome-vfs libgnomeprintui"
+REQUIRED_PACKAGES="libgnomeui gtkspell aspell curl dbus gtksourceview"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -108,8 +108,7 @@ mkdir -p $PKGDEST
 
 # Decompress archive.
 cd $TMP &&
-rm -rf $PKGNAME-$VERSION &&
-tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
+tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -161,6 +160,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --target=$ARCH-$DISTRO-linux \
   --disable-static \
   --enable-shared \
+  --disable-schemas-install \
   || exit 1
 
 # Build and install.
@@ -195,6 +195,29 @@ cp -a AUTHORS COPYING NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
+
+# Add schemas install to the doinst.sh if schemas are found.
+[ -d $PKG/etc/gconf/schemas ] && {
+# Make sure we have gconftool installed 
+echo "if [ -x usr/bin/gconftool-2 ]; then" >>$PKG/install/doinst.sh
+( cd $PKG/etc/gconf/schemas
+for schema in *; do
+  if [ -z "$(grep gconfentry ${schema})" ]; then
+    # Install schemas
+    echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
+    usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/${schema} >/dev/null 2>&1" \
+    >>$PKG/install/doinst.sh
+  else
+    # Load default schema if an entry file
+    echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
+    usr/bin/gconftool-2 --direct --load etc/gconf/schemas/${schema} >/dev/null 2>&1" \
+    >>$PKG/install/doinst.sh
+  fi
+done
+)
+# Finish off gconf block
+echo "fi" >>$PKG/install/doinst.sh
+}
 
 # Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests

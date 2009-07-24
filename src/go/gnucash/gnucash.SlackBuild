@@ -29,7 +29,7 @@ VERSION=2.2.9
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="aqbanking glib2 gtk+2 guile libofx ORBit2 libgnomeui libbonoboui pango cairo libgnomecanvas gnome-vfs libglade goffice gail GConf gtkhtml libgnomeprintui atk postgresql slib"
+REQUIRED_PACKAGES="glib2 gtk+2 guile ORBit2 libgnomeui libbonoboui pango cairo libgnomecanvas gnome-vfs libglade goffice GConf gtkhtml libgnomeprintui atk postgresql slib libofx"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -165,7 +165,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-ofx \
   --enable-sql \
   --with-ofx-prefix=/usr \
-  --enable-hbci \
   --disable-error-on-warning \
   || exit 1
 
@@ -189,12 +188,10 @@ mv $PKG/etc/gnucash/config $PKG/etc/gnucash/config.new || exit 1
 }
 
 # Deal with .info files.
-if [ -d $PKG/usr/share/info ]; then
- mkdir -p $PKG/usr ;
- mv $PKG/usr/share/info $PKG/usr ; 
- rmdir -p $PKG/usr/share ;
-fi;
-
+[ -e $PKG/usr/share/info ] && {
+  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
+  rmdir -p $PKG/usr/share
+  }
 [ -e $PKG/usr/info ] && {
   rm -f $PKG/usr/info/dir
   gzip -9 $PKG/usr/info/*.info
@@ -202,10 +199,9 @@ fi;
 
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a AUTHORS COPYING NEWS README \
-  $PKG/usr/doc/$PKGNAME-$VERSION
+cp -a AUTHORS COPYING NEWS README $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
-chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
+chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION 
 
 # Add schemas install to the doinst.sh if schemas are found.
 [ -d $PKG/etc/gconf/schemas ] && {
@@ -228,6 +224,7 @@ done
 )
 # Finish off gconf block
 echo "fi" >>$PKG/install/doinst.sh
+}
 
 # Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests

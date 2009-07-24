@@ -1,6 +1,4 @@
 GConf
-slib
-aqbanking
 glib2
 gtk+2
 guile
@@ -19,3 +17,4 @@ gtkhtml
 libgnomeprintui
 atk
 postgresql
+slib
