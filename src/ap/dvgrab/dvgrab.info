@@ -1,0 +1,7 @@
+PKGNAME="dvgrab"
+VERSION="3.4"
+HOMEPAGE="http://www.kinodv.org"
+DOWNLOAD="http://downloads.sourceforge.net/sourceforge/kino/dvgrab-3.4.tar.gz"
+MD5SUM="093b74cb9f9bf321e48ffbbe5ba8cba6"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

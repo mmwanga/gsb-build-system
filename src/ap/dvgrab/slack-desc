@@ -1,0 +1,12 @@
+      |-----handy-ruler------------------------------------------------------|
+dvgrab: dvgrab (Digital Video Utility)
+dvgrab:
+dvgrab: dvgrab receives audio and video data from a digital camcorder via an 
+dvgrab: IEEE 1394 (widely known as FireWire) link and stores them into an AVI 
+dvgrab: file. It features autosplit of long video sequences into several
+dvgrab: files, and supports saving the data as raw frames, AVI type 1, 
+dvgrab: AVI type 2, and image files.
+dvgrab:
+dvgrab:
+dvgrab:
+dvgrab:

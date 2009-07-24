@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
-VERSION=1.4.4
+BUILD=4
+VERSION=1.3.3
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gstreamer gst-plugins-good gst-plugins-base libgnomeui"
+REQUIRED_PACKAGES="libglade gtk+2 libxml2 libdv libsamplerate ffmpeg libraw1394 libiec61883 libavc1394 lame vorbis-tools sox pango"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -108,8 +108,7 @@ mkdir -p $PKGDEST
 
 # Decompress archive.
 cd $TMP &&
-rm -rf $PKGNAME-$VERSION &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -159,11 +158,27 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
+  --disable-static \
+  --enable-shared \
+  --enable-local-ffmpeg \
+  --enable-quicktime \
   || exit 1
 
 # Build and install.
 make $MAKE_FLAGS &&
+# Fix for missing man page
+cp ./src/ffmpeg-kino.1 ./ffmpeg/doc || exit 1
+
+# Make install
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+# Preserve files
+mkdir -p $PKG/lib/udev/rules.d &&
+mv $PKG/etc/udev/rules.d/kino.rules $PKG/lib/udev/rules.d/80-kino.rules.new &&
+rm -fr $PKG/etc/udev || exit 1
+
+# Remove duplicate man page installation 
+rm -fr $PKG/usr/share/man || exit 1
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -189,7 +204,7 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a AUTHORS COPYING README \
+cp -a AUTHORS COPYING NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
