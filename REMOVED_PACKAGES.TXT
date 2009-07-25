@@ -1,0 +1,35 @@
+Removed: tools/boost-jam: Slackware supplies boost.
+Removed: libraries/babl: Slackware supplies babl.
+Removed: libraries/boost: Slackware supplies boost.
+Removed: libraries/cairo: Slackware supplies cairo.
+Removed: libraries/djvulibre: Slackware supplies djvulibre.
+Removed: libraries/exiv2: Slackware supplies exiv2.
+Removed: libraries/gegl: Slackware supplies gegl.
+Removed: libraries/iso-codes: Slackware supplies iso-codes.
+Removed: libraries/libarchive: Slackware supplies libarchive.
+Removed: libraries/libdvdread: Slackware supplies libdvdread.
+Removed: libraries/libjasper: Slackware supplies libjaspser.
+Removed: libraries/libnl: Slackware supplies libnl.
+Removed: libraries/libspectre: Slackware supplies libspectre.
+Removed: libraries/openexr: Slackware supplies openexr.
+Removed: libraries/pango: Slackware supplies pango.
+Removed: libraries/poppler: Slackware supplies poppler.
+Removed: libraries/yasm: Slackware supplies yasm in extra/.
+Removed: libraries/libdiscid: Removed as obsolete.
+Removed: libraries/tre: Removed as obsolete.
+Removed: libraries/libexif-gtk: Removed as obsolete.
+Removed: libraries/id3lib: Removed as obsolete.
+Removed: libraries/libmatroska: Removed as obsolete.
+Removed: libraries/libmpeg3: Removed as obsolete.
+Removed: libraries/freealut: Removed as obsolete.
+Removed: libraries/twolame: Removed as obsolete.
+Removed: libraries/openal: Removed as obsolete.
+Removed: libraries/lua: Removed as largely unused.
+Removed: libraries/libebml: Removed as obsolete.
+Removed: libraries/ode: Removed as obsolete.
+Removed: desktop/libxklavier: Slackware supplies libxklavier.
+Removed: desktop/gob2: Removed as obsolete.
+Removed: networking/NetworkManager-vpn: Has now been split into separate packages.
+Removed: libraries/libbtctl: Removed as obsolete.
+Removed: networking/obex-data-server: Replaced by obexd.
+Removed: desktop/gnome-audio: Removed as obsolete. 
