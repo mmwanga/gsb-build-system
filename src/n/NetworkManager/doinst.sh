@@ -32,7 +32,7 @@ if [ ! -e etc/rc.d/rc.local_shutdown ]; then
 fi
 	
 # if rc.networkmanager is executable, run it on startup
-run=`grep ". /etc/rc.d/rc.networkmanager" etc/rc.d/rc.local`
+run=$(grep ". /etc/rc.d/rc.networkmanager" etc/rc.d/rc.local)
 if [[ "${run}" == "" ]]; then
 cat << EOF >>etc/rc.d/rc.local
 
@@ -44,7 +44,7 @@ EOF
 fi
 
 # if rc.networkmanager is executable, stop on shutdown
-run=`grep ". /etc/rc.d/rc.networkmanager" etc/rc.d/rc.local_shutdown`
+run=$(grep ". /etc/rc.d/rc.networkmanager" etc/rc.d/rc.local_shutdown)
 if [[ "${run}" == "" ]]; then
 cat << EOF >>etc/rc.d/rc.local_shutdown
 
@@ -55,16 +55,6 @@ fi
 EOF
 fi
 
-# Complain if dbus somehow was removed, and disable autostart.
-if [ ! -f etc/rc.d/rc.messagebus ]; then
-	echo "NetworkManager requires dbus.  You appear to be missing /etc/rc.d/rc.messagebus."
-	echo "Perhaps you need to reinstall the dbus package?"
-    chmod -x etc/rc.d/rc.networkmanager*;
-fi;
-# Make dbus executable if NetworkManager is installed
-if [ ! -x etc/rc.d/rc.messagebus ]; then
-    chmod +x etc/rc.d/rc.messagebus;
-fi;
 # By default, disable NetworkManager.  Users must enable if they wish.
 chmod -x etc/rc.d/rc.networkmanager*;
 # Now deprecated.
