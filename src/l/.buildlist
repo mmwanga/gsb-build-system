@@ -42,7 +42,6 @@ heimdal-libraries
 libdaemon
 libsigc++
 libtasn1
-libtool-compat
 libgtop
 libgalago
 pygdata
@@ -51,9 +50,11 @@ glibmm
 cairomm
 pangomm
 gtkmm
+gtksourceview
 gtksourceview2
 pygtksourceview
 python-dateutil
+python-ldap
 vobject
 libggz
 ggz-client-libs
@@ -69,5 +70,5 @@ goocanvasmm
 pygoocanvas
 psiconv
 slib
-#sg3_utils
+sg3_utils
 #notify-python
