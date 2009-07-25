@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=3
-VERSION=2.26.2.0
+BUILD=1
+VERSION=2.26.2.2
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glade3 devhelp subversion autogen libgnomeui gdl vte"
+REQUIRED_PACKAGES="glade3 devhelp subversion autogen libgnomeui gdl vte graphviz"
 
 # Build variables.
 TAG=${TAG:-gsb}
