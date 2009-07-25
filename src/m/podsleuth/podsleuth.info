@@ -1,0 +1,7 @@
+PKGNAME="podsleuth"
+VERSION="0.6.4"
+HOMEPAGE="http://www.banshee-project.org"
+DOWNLOAD="http://download.banshee-project.org/podsleuth/podsleuth-0.6.4.tar.bz2"
+MD5SUM="b51e7bc2dd3e2265e75a04fe35974c10"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
