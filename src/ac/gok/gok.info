@@ -1,0 +1,8 @@
+PKGNAME="gok"
+VERSION="2.26.0"
+HOMEPAGE="http://www.gok.ca/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gok/2.26/gok-2.26.0.tar.bz2"
+MD5SUM="8cc28ad6010a977c9ccbe8d5b690f636"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
