@@ -1,0 +1,7 @@
+PKGNAME="gtk-sharp"
+VERSION="2.12.9"
+HOMEPAGE="http://mono-project.com"
+DOWNLOAD="http://ftp.novell.com/pub/mono/sources/gtk-sharp212/gtk-sharp-2.12.9.tar.bz2"
+MD5SUM="2619f6cbba514f10582f8961ed84063b"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

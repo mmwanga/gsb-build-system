@@ -5,15 +5,11 @@ sqlite
 gtk-sharp
 gstreamer
 libmusicbrainz
-nautilus-cd-burner
 gtk+2
-hal
 avahi
-avahi-sharp
 libmtp
 karma-sharp
 gnome-sharp
-notification-daemon
 mono-addins
 taglib-sharp
 gst-plugins-base

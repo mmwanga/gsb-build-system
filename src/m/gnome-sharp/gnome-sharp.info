@@ -1,0 +1,8 @@
+PKGNAME="gnome-sharp"
+VERSION="2.24.1"
+HOMEPAGE="http://mono-project.com"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gnome-sharp/2.24/gnome-sharp-2.24.1.tar.bz2"
+MD5SUM="408f83f790a5189bcf76ea9299bc6410"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

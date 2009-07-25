@@ -1,0 +1,7 @@
+PKGNAME="mono-addins"
+VERSION="0.4"
+HOMEPAGE="http://mono-project.com"
+DOWNLOAD="http://ftp.novell.com/pub/mono/sources/mono-addins/mono-addins-0.4.tar.bz2"
+MD5SUM="3b7f3f6e55c95413df184d0e4c9233e4"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

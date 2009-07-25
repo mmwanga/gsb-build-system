@@ -1,12 +1,12 @@
-        |-----handy-ruler------------------------------------------------------|
-podsleuth: podsleuth (iPod (TM) Mono Discovery and Metadata Tool)
+         |-----handy-ruler------------------------------------------------------|
+podsleuth: podsleuth (Mono C# Discovery and Metadata Tool for iPod (TM))
 podsleuth:
-podsleuth: PodSleuth is a tool to discover detailed model information about 
-podsleuth: an Apple iPod (TM). Its primary role is a callout by HAL to scan 
-podsleuth: the device for required information. When the model information 
-podsleuth: is discovered, it is merged into HAL as properties for other 
-podsleuth: applications to use.  With PodSleuth installed, applications 
-podsleuth: can expect to have rich iPod metadata merged into the device 
-podsleuth: tree on the iPod data volume node.
+podsleuth: PodSleuth is a HAL tool to discover detailed model information about 
+podsleuth: an Apple iPod (TM). When the model information is discovered, it is 
+podsleuth: merged into HAL as properties for other applications to use.
+podsleuth:
+podsleuth:
+podsleuth:
+podsleuth:
 podsleuth:
 podsleuth:

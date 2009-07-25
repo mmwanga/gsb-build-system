@@ -6,7 +6,7 @@ gnome-keyring-sharp: Novell to develop an open source, UNIX version of the Micro
 gnome-keyring-sharp: development platform. Its objective is to enable UNIX developers to
 gnome-keyring-sharp: build and deploy cross-platform .NET Applications.
 gnome-keyring-sharp:
-gnome-keyring-sharp: This package contains Mono Bindings for the GNOME keyring. When the 
-gnome-keyring-sharp: keyring is running, you can use this to retrive/store confidential 
-gnome-keyring-sharp: information such as passwords, notes or network services user info.
+gnome-keyring-sharp: This package contains Mono Bindings for the GNOME keyring.
+gnome-keyring-sharp: 
+gnome-keyring-sharp: 
 gnome-keyring-sharp: 

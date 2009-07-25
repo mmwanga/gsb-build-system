@@ -25,7 +25,7 @@
 
 # Package variables.
 BUILD=2
-VERSION=2.4
+VERSION=2.4.2
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -163,6 +163,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --with-libgif \
   --with-libexif \
   --with-cairo=system \
+  --disable-static \
   || exit 1
 
 # Build and install.

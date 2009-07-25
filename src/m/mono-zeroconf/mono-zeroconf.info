@@ -1,0 +1,7 @@
+PKGNAME="mono-zeroconf"
+VERSION="0.9.0"
+HOMEPAGE="http://mono-project.com/Mono.Zeroconf"
+DOWNLOAD="http://download.banshee-project.org/mono-zeroconf/mono-zeroconf-0.9.0.tar.bz2"
+MD5SUM="cb25d50898442a7766c324dcb52ef9bf"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

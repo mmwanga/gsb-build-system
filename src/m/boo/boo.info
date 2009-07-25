@@ -1,0 +1,7 @@
+PKGNAME="boo"
+VERSION="0.9.1.3287"
+HOMEPAGE="http://mono-project.com"
+DOWNLOAD="http://ftp.novell.com/pub/mono/sources/boo/boo-0.9.1.3287.tar.bz2"
+MD5SUM="88afe963a6ccabc5df04db848362da2d"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

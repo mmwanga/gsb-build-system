@@ -1,7 +1,7 @@
-libgnomeui
-libexif
 mono
 gnome-sharp
+libgnomeui
+libexif
 gtk-sharp
 libgphoto2
 lcms
@@ -10,7 +10,6 @@ GConf
 glib2
 sqlite
 ndesk-dbus
-libgphoto2-sharp
 cairo
 gnome-keyring
 dbus
