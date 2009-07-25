@@ -155,12 +155,12 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-# Add extra slackware${LIBDIRSUFFIX} mirrors and gsb${LIBDIRSUFFIX} mirrors
+# Our custom slapt-getrc file
 ( cd $PKG/etc/slapt-get && mv slapt-getrc slapt-getrc.new ) || exit 1
 if [ "$ARCH" = "x86_64" ]; then
-  cat $CWD/slapt-getrc.x86_64 >> $PKG/etc/slapt-get/slapt-getrc.new || exit 1
+  cp $CWD/slapt-getrc.x86_64 $PKG/etc/slapt-get/slapt-getrc.new || exit 1
 else
-  cp $CWD/slapt-getrc.i386 >> $PKG/etc/slapt-get/slapt-getrc.new || exit 1
+  cp $CWD/slapt-getrc.i386 $PKG/etc/slapt-get/slapt-getrc.new || exit 1
 fi
 
 # Strip debugging symbols.

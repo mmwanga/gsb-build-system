@@ -5,9 +5,8 @@ gslapt
 slapt-update-notifier
 gparted
 gconf-editor
-#sabayon
-#pessulus
+sabayon
+pessulus
 #librsync
 #rdiff-backup
 #pybackpack
-#python-ldap

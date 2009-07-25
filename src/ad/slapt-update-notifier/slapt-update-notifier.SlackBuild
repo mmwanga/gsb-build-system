@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
+BUILD=3
 VERSION=0.4.1
 
 # List any packages here that are required to build this package.
@@ -115,13 +115,16 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # pretty up the rc.slapt-update-notifier
+  zcat $CWD/slapt-update-notifier.rc.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # pretty up the rc.slapt-update-notifier
+  zcat $CWD/slapt-update-notifier.rc.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # pretty up the rc.slapt-update-notifier
+  zcat $CWD/slapt-update-notifier.rc.diff.gz | patch -p1
 fi
 
 # Fix permissions for building.
@@ -166,13 +169,10 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-# configure cron stuff for slapt-update-notifier
-mkdir -p $PKG/etc/cron.daily/
-mkdir -p $PKG/etc/cron.hourly/
-cp $TMP/$PKGNAME-$VERSION/slapt_check $PKG/etc/cron.hourly/
-cp $TMP/$PKGNAME-$VERSION/slapt_update $PKG/etc/cron.daily/
-chown root:bin $PKG/etc/cron.hourly/slapt_check
-chown root:bin $PKG/etc/cron.hourly/slapt_update
+# Preserve settings
+mv $PKG/etc/slapt-get/slapt-update-notifier.conf \
+    $PKG/etc/slapt-get/slapt-update-notifier.conf.new || exit 1
+chmod 644 $PKG/etc/slapt-get/slapt-update-notifier.conf.new
 
 # GNOME autostart; I think this might be easier than messing with the default.session file
 mkdir -p $PKG/etc/gnome/xdg/autostart &&
