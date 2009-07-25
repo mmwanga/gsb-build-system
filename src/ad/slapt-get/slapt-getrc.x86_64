@@ -1,0 +1,30 @@
+# Working directory for local storage/cache.
+WORKINGDIR=/var/slapt-get
+
+# Exclude package names and expressions.
+# To exclude pre and beta packages, add this to the exclude: 
+#   [0-9\_\.\-]{1}pre[0-9\-\.\-]{1}
+EXCLUDE=^aaa_elflibs,^devs,^glibc-.*,^kernel-.*,^udev,.*-[0-9]+dl$,i[3456]86
+
+# Base url to directory with a PACKAGES.TXT.
+# This can point to any release, ie: 9.0, 10.0, current, etc.
+SOURCE=ftp://ftp.slackware.com/pub/slackware/slackware64-current/:OFFICIAL
+# Sources for the testing, extra, and pasture areas - if you use them.
+# SOURCE=ftp://ftp.slackware.com/pub/slackware/slackware64-current/extra/:PREFERRED
+# SOURCE=ftp://ftp.slackware.com/pub/slackware/slackware64-current/testing/
+# SOURCE=ftp://ftp.slackware.com/pub/slackware/slackware64-current/pasture/
+
+# Additional mirrors for Slackware64 can be found at http://slackware.com/getslack/
+
+# GNOME SlackBuild Mirrors
+SOURCE=http://get.gnomeslackbuild.org/gsb64/gsb64-2.26/:OFFICIAL
+#SOURCE=http://www.slackware.org.uk/gsb64/gsb64-2.26/
+#SOURCE=ftp://ftp.slackware.org.uk/gsb64/gsb64-2.26/
+#SOURCE=ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb64/gsb64-2.26/
+#SOURCE=http://slackware.rol.ru/gsb/gsb64/gsb64-2.26/
+
+# Packages on a CD/DVD.
+# SOURCE=file:///mnt/cdrom/:OFFICIAL
+
+# Home made packages.
+# SOURCE=file:///var/www/packages/:CUSTOM

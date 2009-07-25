@@ -1,0 +1,24 @@
+curl
+glib2
+gpgme
+gtk+2
+libX11
+libXau
+libXcursor
+libXdmcp
+libXext
+libXfixes
+libXi
+libXinerama
+libXrandr
+libXrender
+libgpg-error
+libidn
+libpng
+libxcb
+openssl-solibs | openssl
+pango
+slapt-get
+zlib
+gksu
+libgksu

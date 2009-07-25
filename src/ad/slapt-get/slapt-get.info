@@ -1,0 +1,7 @@
+PRGNAM="slapt-get"
+VERSION="0.10.1c"
+HOMEPAGE="http://software.jaos.org/"
+DOWNLOAD="http://software.jaos.org/source/slapt-get/slapt-get-0.10.1c.tar.gz"
+MD5SUM="01dd679d81f2d17d21864dbd7fe1d6ae"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

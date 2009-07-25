@@ -1,0 +1,12 @@
+        |-----handy-ruler------------------------------------------------------|
+libgksu: libgksu (GTK+2 Superuser Authorization Library)
+libgksu: 
+libgksu: Libgksu is a library from the gksu program that provides a simple API 
+libgksu: for using su and sudo in programs that need to execute tasks as other 
+libgksu: users. It provides X authentication facilities for running programs in 
+libgksu: a X session.
+libgksu: 
+libgksu: 
+libgksu: 
+libgksu: 
+libgksu: 
