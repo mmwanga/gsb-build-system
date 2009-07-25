@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables
-BUILD=2
+BUILD=3
 VERSION=2.26.0
 
 # List any packages here that are required to build this package.
@@ -33,8 +33,8 @@ REQUIRED_PACKAGES="libart_lgpl libglade libgnome cairo pango"
 
 # Build variables.
 TAG=${TAG:-gsb}
-ARCH=${ARCH:-i586}
-TUNE=${TUNE:-i586}
+ARCH=${ARCH:-i486}
+TUNE=${TUNE:-i486}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}

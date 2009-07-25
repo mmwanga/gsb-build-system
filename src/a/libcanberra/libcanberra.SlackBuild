@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=4
+BUILD=5
 VERSION=0.12
 
 # List any packages here that are required to build this package.
@@ -157,6 +157,12 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
+# Check to make sure we have libtool-2 installed on the build machine 
+if [ ! -f /usr/lib${LIBDIRSUFFIX}/libltdl.so.7.2.0 ]; then
+  echo "Unable to find libltdl.so.7.2.0 for runtime.  Do you have libtool-2 installed?"
+  exit 1;
+fi;
+
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS -L/usr/libexec/libtool2/lib -I/usr/libexec/libtool2/include" \
 CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
@@ -176,6 +182,13 @@ CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 # Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+# Grab our own runtime copy of libtool-2 from the build machine; this way we 
+# don't have to supply a full package for one runtime library.
+cd $PKG/usr/lib${LIBDIRSUFFIX} &&
+cp /usr/lib${LIBDIRSUFFIX}/libltdl.so.7.2.0 . &&
+ln -s libltdl.so.7.2.0 libltdl.so.7 || exit 1
+cd $TMP/$PKGNAME-$VERSION
 
 # install freedesktop specification
 ( tar xfj $CWD/sound-theme-freedesktop-0.2.tar.bz2 &&
@@ -212,7 +225,7 @@ rm -fr $PKG/usr/share/doc
   gzip -9 $PKG/usr/info/*.info
 }
 
-## Copy extra documentation into package.
+# Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a LGPL README doc/{README,README.html,style.css} \
   $PKG/usr/doc/$PKGNAME-$VERSION
