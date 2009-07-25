@@ -16,4 +16,4 @@ export ARCH="x86_64"
 export DISTRO="slackware"
 export TMP=/home/build
 export PKGDEST=/home/gsb64-tree
-export GSB_MAKE_FLAGS="-j8"
+export GSB_MAKE_FLAGS="-j4"

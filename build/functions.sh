@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Functions library :: for for GNOME SlackBuild build script
+# Functions library :: for the GNOME SlackBuild build script
 # <http://www.gnomeslackbuild.org>
 
 # echogreen will echo $@ in green color
@@ -22,6 +22,14 @@ control_c()
 header()
 {
    echo "[0;1m""$@""[0;0m"
+}
+
+error()
+{
+   echo 
+   echo -e """* Error:"""" $@"
+   echo 
+   exit 1
 }
 
 # Send info to changelog
@@ -159,7 +167,11 @@ function download_package() {
   }
   # Read in package info file
   . ./$1.info || exit 1
+
+  # Our environment
   MD5COUNT=1
+  ATTEMPT="3"
+  VALID=0
 
   for SOURCEPACKAGE in $DOWNLOAD ; 
   do
@@ -167,7 +179,10 @@ function download_package() {
     # Download if source file missing.
     if [ ! -f $FILENAME ]; then
       echogreen "* "; echo "Downloading source file."
-      wget -c $DOWNLOAD 
+      wget -c $DOWNLOAD || {
+        echo ; error "Failed to complete download."
+        exit 1
+      }
     fi;
 
     # Switch up if more than one md5sum
@@ -175,7 +190,7 @@ function download_package() {
       MD5CHECK=$(echo $MD5SUM | cut -f${MD5COUNT} -d" " ) ;
       MD5FILE=$(echo $MD5SUM | cut -f$(expr $MD5COUNT + 1) -d" " ) ;
       [ "${MD5FILE}" = "${FILENAME}" ] || {
-        echo "File md5sums out of order."
+        error "File md5sums out of order."
         exit 1
       }
       MD5COUNT=$(expr $MD5COUNT + 2)
@@ -184,14 +199,26 @@ function download_package() {
       MD5CHECK=${MD5SUM}
     fi; 
 
-    # md5sum comparison
-    if [ "$(md5sum ${FILENAME} | cut -f1 -d\ )" = "${MD5CHECK}" ] ; then
-      echo "* $FILENAME has valid md5sum $MD5CHECK."
-    else
+    # We'll try three times to download the package file
+    while [ $ATTEMPT -ne 0 ]; do
+      # md5sum comparison
+      [ "$(md5sum ${FILENAME} | cut -f1 -d\ )" = "${MD5CHECK}" ] && {
+          # We have a good md5sum check
+          echo "$1 has a valid md5sum $MD5CHECK."
+          VALID=1 ; break
+      }
+      # Try to redownload, perhaps a broken source file. 
+      wget -c $DOWNLOAD 
+      ATTEMPT=$[$ATTEMPT-1]
+    done;
+
+    # We couldn't get a decent copy of the source file
+    [ "$VALID" = "0" ] && {
+      echo ; echo "Couldn't retrieve $1." 
       header "* WARNING: $FILENAME has invalid md5sum!"
-      echo "$(md5sum ${FILENAME} | cut -f1 -d\ ) against $MD5CHECK"
+      echo "md5sum: $(md5sum ${FILENAME} | cut -f1 -d\ ) against info: $MD5CHECK"
       return 1;
-    fi;
+    }
   done;
   return 0
 } 

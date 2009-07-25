@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 # Version: 1.8 GSB Section SlackBuild - Do not remove this line!
 # Copyright (c) 2007, 2008, 2009
 #   Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>, Coventry, UK.
@@ -34,14 +34,6 @@
 
 # Trap keyboard interrupt 
 trap control_c SIGINT
-
-#========================================================================
-# STARTUP
-header "* Building GSB "
-if [ "$(id -u)" != "0" ]; then
-echo "* Error: Only root can build, install, upgrade, or remove packages."
-exit 1
-fi
 
 #========================================================================
 # ENVIRONMENT
@@ -80,12 +72,14 @@ NOPRUNE=0
 NOINSTALL=0
 NOMETAPACKAGES=0
 PUBLISH=0
+WGET_OPTIONS=""
 
 #========================================================================
 # COMMAND LINE PARSING 
 #
 if [ $# -eq 0 ]; then
   usage
+  exit 1;
 fi
 
 while [ -n "$1" ] ; do
@@ -120,12 +114,25 @@ while [ -n "$1" ] ; do
       shift
     ;;
     -help|--help)
-      echo -e "\n$1: Unknown option.\n"
       usage
+      exit 1
+    ;;
+    *)
+      usage ;
+      echo ;
+      echo "Invalid option: $1"
       exit 1
     ;;
   esac
 done
+
+#========================================================================
+# STARTUP
+echo ; header "* Building GSB "
+if [ "$(id -u)" != "0" ]; then
+echo "* Error: Only root can build, install, upgrade, or remove packages."
+exit 1
+fi
 
 # Temporary space, package and log file storage.
 mkdir -p $TMP
@@ -162,7 +169,7 @@ do
 ( 
 
 cd $SET || exit 1
-header "* Building set $SET"
+echo ; header "* Building set $SET"
 
 # Read in our set build list
 BUILDLIST=${BUILDLIST:-""}
@@ -184,18 +191,22 @@ do
 SKIP_BUILD=0
 SUBDIR=$GSBDIR/$PACKAGESDIR/$SET
 
+# Look for package
+[ ! -d $PACKAGE ] && { 
+  error "Can't find package $PACKAGE."
+}
+
 # Make sure we can run our SlackBuild
 [ ! -x "$PACKAGE/$PACKAGE.SlackBuild" ] && {
-  echo "* Error: '$PACKAGE.SlackBuild' is not executable."
-  exit 1
+  error "'$PACKAGE.SlackBuild' is not executable."
 }
+
 # Get package version and build numbers from the package SlackBuild.
 declare PACKAGE_$( egrep -m 1 "^VERSION=.*" $PACKAGE/$PACKAGE.SlackBuild )
 declare PACKAGE_$( egrep -m 1 "^BUILD=.*" $PACKAGE/$PACKAGE.SlackBuild )
 # Check that we got a version and build.
 [ -z "$PACKAGE_VERSION" ] || [ -z "$PACKAGE_BUILD" ] && {
-  echo "* Error: failed to get VERSION or BUILD from '$PACKAGE.SlackBuild' "
-  exit 1
+  error "Failed to get VERSION or BUILD from '$PACKAGE.SlackBuild' "
 }
 
 # Check if the package should be rebuilt, and where it should be put.
@@ -212,17 +223,19 @@ then
   else
     # Not in the main directory, check patches.
     if [ "$NOPATCHESDIR" = "0" ]; then
-      if find_package_files "$PKGDEST/$PATCHESDIR/$PACKAGESDIR" \
-        "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" \
-        "\.txz" >/dev/null
-      then
-        # Found in patches dir.
-        SKIP_BUILD=1
-        SUBDIR=$PATCHESDIR/$PACKAGESDIR
-      else
-        # No package in patches with the same version/build.
-        SUBDIR=$PATCHESDIR/$PACKAGESDIR
-      fi
+      [ -d $PKGDEST/$PATCHESDIR ] && {
+        if find_package_files "$PKGDEST/$PATCHESDIR/$PACKAGESDIR" \
+          "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" \
+          "\.txz" >/dev/null
+        then
+          # Found in patches dir.
+          SKIP_BUILD=1
+          SUBDIR=$PATCHESDIR/$PACKAGESDIR
+        else
+          # No package in patches with the same version/build.
+          SUBDIR=$PATCHESDIR/$PACKAGESDIR
+        fi
+      }
     fi
   fi
 fi
@@ -243,7 +256,7 @@ if [ "$SKIP_BUILD" = "0" ]; then
       "${PACKAGE//+/\+}" "" "" "" "" ) ) || exit 1
     }
 
-  echogreen "* "; echo "Building package '$PACKAGE'"
+  echo ; echogreen "* "; echo "Building package '$PACKAGE'"
   mkdir -p $PKGDEST/$SUBDIR
   mkdir -p $LOGSDIR/$SET
 
@@ -271,7 +284,7 @@ fi
 #========================================================================
 # PRUNE OLD FILES
 #
-if [ "${NOPRUNE}" = "1" ]; then
+if [ "${NOPRUNE}" = "0" ]; then
   PRUNE_FILES="$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
     "" "" "" "\.txz|\.txt|\.asc" | grep -v "$( find_package_files \
     "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" \
@@ -288,16 +301,14 @@ fi;
 if [ "$PUBLISH" = "1" ]; then
   make_pkg_txt "$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
     "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" )" || {
-    echo "* Error: failed to create txt description for '$PACKAGE'." 
-    exit 1 
+    error "Failed to create txt description for '$PACKAGE'." 
   }
   # Sign the package
   SIGN_PACKAGE="$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
     "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" )"
   if [ ! -f ${SIGN_PACKAGE}.asc ]; then
     make_pkg_asc "$SIGN_PACKAGE" || {
-      echo "* Error: failed to create asc signature for '$PACKAGE'." 
-      exit 1 
+      error "Failed to create asc signature for '$PACKAGE'." 
     }
   fi;
 fi;
@@ -305,19 +316,22 @@ fi;
 #========================================================================
 # INSTALL NEW PACKAGE
 #
+
 INSTALLED=$(find_package_files "/var/log/packages" "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" \
              "" "" "")
 if [ "$SKIP_BUILD" = "0" -o "${INSTALLED}" = "" ]; then
+  # FIX ME
+  echo "Waiting for input." ; read ;
   upgradepkg --install-new $( find_package_files "$PKGDEST/$SUBDIR" \
     "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" ) || {
-    echo "* Error: failed to install '$PACKAGE'."
-    exit 1
+    error "Failed to install '$PACKAGE'."
   }
 fi;
 
 ) || {
- echo "* Error: Failed building package '$PACKAGE' in set $SET."
+ echo "Failed building package '$PACKAGE' in set $SET."
  echo "Check the build logs in: $LOGSDIR"
+ echo
  exit 1
 }
 
