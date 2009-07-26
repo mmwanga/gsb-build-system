@@ -1,8 +1,8 @@
-PKGNAME="totem"
-VERSION="2.26.3"
+PKGNAME="gswitchit-plugins"
+VERSION="1.0"
 HOMEPAGE="http://projects.gnome.org/totem/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/totem/2.26/totem-2.26.3.tar.bz2"
-MD5SUM="f8f7390f5d93268cd200086a1b4f765a"
+DOWNLOAD="${GNOME_SERVER}/gswitchit-plugins/1.0/gswitchit-plugins-1.0.tar.bz2"
+MD5SUM="69abb90092847aa86b69607cc940a066"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
