@@ -34,9 +34,7 @@ nautilus-image-converter
 nautilus-open-terminal
 nautilus-sendto
 fast-user-switch-applet
-sound-juicer
 system-config-printer
-gst-python
 rhythmbox
 soundconverter
 hamster-applet
@@ -47,3 +45,11 @@ pavucontrol
 pavumeter
 dvgrab
 kino
+gst-plugins-base
+gst-python
+gst-ffmpeg
+gst-fluendo-mp3
+gst-plugins-bad
+gst-plugins-ugly
+gswitchit_plugins
+sound-juicer
