@@ -24,6 +24,8 @@ gnome-doc-utils
 policykit-gnome
 gnome-desktop
 gnome-menus
+#gnome-menus-kde
+#gnome-menus-xfce
 libgweather
 evo-openldap
 evolution-data-server
@@ -33,6 +35,7 @@ zenity
 metacity
 gvfs
 nautilus
+gnome-mount
 gnome-settings-daemon
 libcanberra
 gnome-control-center
@@ -42,3 +45,4 @@ gnome-applets
 libgnomecups
 libgnomeprint
 libgnomeprintui
+gnome-themes

@@ -37,6 +37,7 @@ ptlib
 opal
 nss
 libsexy
+sexy-python
 libcroco
 heimdal-libraries
 libdaemon

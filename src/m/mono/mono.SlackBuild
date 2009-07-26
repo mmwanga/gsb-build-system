@@ -204,7 +204,7 @@ mv $PKG/etc/mono/config $PKG/etc/mono/config.new
 
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a AUTHORS COPYING NEWS README \
+cp -a AUTHORS COPYING.LIB NEWS README LICENSE \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
