@@ -1,8 +1,0 @@
-PKGNAME="gnome-menus"
-VERSION="2.26.1"
-HOMEPAGE="http://www.gnome.org"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-menus/2.26/gnome-menus-2.26.1.tar.bz2"
-MD5SUM="c5100879f6ff9750d4bc7e553671ad93"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
