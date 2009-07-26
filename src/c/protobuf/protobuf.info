@@ -1,0 +1,7 @@
+PKGNAME="protobuf"
+VERSION="2.0.3"
+HOMEPAGE="http://code.google.com/p/protobuf/"
+DOWNLOAD="http://protobuf.googlecode.com/files/protobuf-2.0.3.tar.bz2"
+MD5SUM="37e6e4d63434672c70bd977be9c372cb"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

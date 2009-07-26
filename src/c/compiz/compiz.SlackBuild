@@ -24,12 +24,16 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
+BUILD=4
 VERSION=0.8.2
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libxml2 libnotify compiz protobuf"
+REQUIRED_PACKAGES="dbus libnotify GConf libpng glib2 gtk+2 librsvg libxslt mesa metacity libgnomeui libwnck renderproto fuse" 
+
+# We will need to rebuild the kwindor-decorator in order to stay compatible with 
+# Slackware's compiz package. 
+KDE_REQUIRED_PACKAGES="kdebase-workspace kdelibs qt"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -91,9 +95,22 @@ done
     exit 1
   }
 
+  # Make sure we don't build with the Slackware compiz installed.
+  check_installed "compiz" && {
+    echo "${0##*/}: Remove installed 'compiz' package before build."
+    exit 1
+  }
+
   for REQ in $REQUIRED_PACKAGES; do
     check_installed "$REQ" || {
       echo "${0##*/}: Required package '$REQ' not installed."
+      exit 1
+    }
+  done
+
+  for REQ in $KDE_REQUIRED_PACKAGES; do
+    check_installed "$REQ" || {
+      echo "${0##*/}: KDE package '$REQ' required for build to stay compatible with Slackware."
       exit 1
     }
   done
@@ -108,7 +125,8 @@ mkdir -p $PKGDEST
 
 # Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+rm -fr $PKGNAME-$VERSION &&
+tar xjf $CWD/compiz-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -160,14 +178,31 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --target=$ARCH-$DISTRO-linux \
   --disable-static \
   --enable-shared \
+  --disable-schemas-install \
+  --enable-kde4 \
+  --enable-gnome \
+  --enable-gtk \
+  --enable-metacity \
+  --enable-dbus \
+  --enable-dbus-glib \
+  --enable-inotify \
+  --enable-librsvg \
+  --enable-fuse \
+  --enable-gconf \
+  --enable-gnome-keybindings \
   || exit 1
 
 # Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-# Preserve settings
-mv $PKG/etc/compizconfig/config $PKG/etc/compizconfig/config.new
+# Setup for xinit and GDM
+mkdir -p $PKG/etc/X11/xinit
+mkdir -p $PKG/usr/share/xsessions
+cat $CWD/xinitrc.compiz-gnome | sed "s,@LIBDIR@,lib${LIBDIRSUFFIX},g" \
+  > $PKG/etc/X11/xinit/xinitrc.compiz-gnome.new
+cp $CWD/compiz-gnome.desktop $PKG/usr/share/xsessions || exit 1
+chmod +x $PKG/etc/X11/xinit/xinitrc.compiz-gnome.new
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -183,10 +218,33 @@ mv $PKG/etc/compizconfig/config $PKG/etc/compizconfig/config.new
 
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a AUTHORS COPYING NEWS \
+cp -a AUTHORS COPYING NEWS README TODO \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
+
+# Add schemas install to the doinst.sh if schemas are found.
+[ -d $PKG/etc/gconf/schemas ] && {
+# Make sure we have gconftool installed 
+echo "if [ -x usr/bin/gconftool-2 ]; then" >>$PKG/install/doinst.sh
+( cd $PKG/etc/gconf/schemas
+for schema in *; do
+  if [ -z "$(grep gconfentry ${schema})" ]; then
+    # Install schemas
+    echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
+    usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/${schema} >/dev/null 2>&1" \
+    >>$PKG/install/doinst.sh
+  else
+    # Load default schema if an entry file
+    echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
+    usr/bin/gconftool-2 --direct --load etc/gconf/schemas/${schema} >/dev/null 2>&1" \
+    >>$PKG/install/doinst.sh
+  fi
+done
+)
+# Finish off gconf block
+echo "fi" >>$PKG/install/doinst.sh
+}
 
 # Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
@@ -203,4 +261,7 @@ makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 # Cleanup
 [ "$NOCLEANUP" = "0" ] && {
   rm -rf $PKG $TMP/$PKGNAME-$VERSION
+  # Make sure to clean up build machine of any kde packages to prevent 
+  # unwanted dependencies. 
+  removepkg $KDE_REQUIRED_PACKAGES
 }

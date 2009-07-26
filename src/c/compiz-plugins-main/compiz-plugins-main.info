@@ -1,0 +1,7 @@
+PKGNAME="compiz-plugins-main"
+VERSION="0.8.2"
+HOMEPAGE="http://compiz-fusion.org/"
+DOWNLOAD="http://releases.compiz-fusion.org/0.8.2/compiz-plugins-main-0.8.2.tar.bz2"
+MD5SUM="089402b0b933ba96e8ad7138d957c470"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

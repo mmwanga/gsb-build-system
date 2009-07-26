@@ -14,8 +14,8 @@
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
-sysresources=/usr/lib/X11/xinit/.Xresources
-sysmodmap=/usr/lib/X11/xinit/.Xmodmap
+sysresources=/usr/@LIBDIR@/X11/xinit/.Xresources
+sysmodmap=/usr/@LIBDIR@/X11/xinit/.Xmodmap
 
 ## Default Session Settings
 GNOME_SESSION_SETTINGS=""
