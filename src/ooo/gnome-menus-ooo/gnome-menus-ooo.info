@@ -1,0 +1,5 @@
+PKGNAME="gnome-menus-ooo"
+VERSION="3.0.1.0"
+MD5SUM="e67dec0baa3d4b4dfbc888e1d9507647"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
