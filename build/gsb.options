@@ -1,7 +1,7 @@
 # Sample gsb.options configuration file
 # 
 
-TAG=gsb
+TAG="gsb"
 
 # For Slackware 12
 #export ARCH="i586"

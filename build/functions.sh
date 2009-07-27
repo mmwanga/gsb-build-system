@@ -24,14 +24,6 @@ header()
    echo "[0;1m""$@""[0;0m"
 }
 
-error()
-{
-   echo 
-   echo -e """* Error:"""" $@"
-   echo 
-   exit 1
-}
-
 # Send info to changelog
 changelog()
 {
@@ -82,24 +74,30 @@ function make_packages_txt() {
   # $1 = Sub-directory to process [required]
   # $2 = Sub-directory to put PACKAGES.TXT in, or empty for current directory
   [ -z "$1" ] && return 1
-  echo "Creating PACKAGES.TXT for ${1}."
+
+  echo -n "Creating PACKAGES.TXT for ${1}: "
+  touch /tmp/waiting ; spinning /tmp/waiting &
+
   { echo -e "PACKAGES.TXT; $( date )\n\n"
-    for FILE in $( find ./$1 -name \*.tgz \( -type f -o -type l \) \
+    for FILE in $( find ./$1 -name \*.txz \( -type f -o -type l \) \
       -printf "%f %p\n" | sort -k1 -f | cut -d' ' -f2 )
     do
-      SIZES="$( gunzip -l $FILE | tail -n 1 | tr -s ' ' )"
+      SIZE=$(du -bk $FILE | awk '{print $1}')
+      USIZE=$(expr $(cat $FILE | xz -dc | wc -c) / 1024)
       echo "PACKAGE NAME:  $( echo $FILE | rev | cut -d/ -f1 | rev )"
       echo "PACKAGE LOCATION:  $( echo $FILE | rev | cut -d/ -f2- | rev )"
-      echo "PACKAGE SIZE (compressed):  $(( $( echo \"$SIZES\" | cut -d' ' -f2 ) / 1024 )) K"
-      echo "PACKAGE SIZE (uncompressed):  $(( $( echo \"$SIZES\" | cut -d' ' -f3 ) / 1024 )) K"
-      echo "PACKAGE REQUIRED:  $( tar zxOf $FILE --occurrence=1 install/slack-required 2>/dev/null | tr '\n' ',' | sed -e 's/,$//' )"
-      echo "PACKAGE CONFLICTS:  $( tar zxOf $FILE --occurrence=1 install/slack-conflicts 2>/dev/null | tr '\n' ',' | sed -e 's/,$//' )"
-      echo "PACKAGE SUGGESTS:  $( tar zxOf $FILE --occurrence=1 install/slack-suggests 2>/dev/null | tr '\n' ' ' )"
+      echo "PACKAGE SIZE (compressed):  $SIZE K"
+      echo "PACKAGE SIZE (uncompressed):  $USIZE K"
+      echo "PACKAGE REQUIRED:  $( tar xOf $FILE --occurrence=1 install/slack-required 2>/dev/null | tr '\n' ',' | sed -e 's/,$//' )"
+      echo "PACKAGE CONFLICTS:  $( tar xOf $FILE --occurrence=1 install/slack-conflicts 2>/dev/null | tr '\n' ',' | sed -e 's/,$//' )"
+      echo "PACKAGE SUGGESTS:  $( tar xOf $FILE --occurrence=1 install/slack-suggests 2>/dev/null | tr '\n' ' ' )"
       echo "PACKAGE DESCRIPTION:"
-      tar xzOf $FILE --occurrence=1 install/slack-desc 2>/dev/null | grep -v "^#" | egrep "[[:alnum:]\+]+\:"
+      tar xOf $FILE --occurrence=1 install/slack-desc 2>/dev/null | grep -v "^#" | egrep "[[:alnum:]\+]+\:"
       echo 
     done } >${2:-.}/PACKAGES.TXT 2>/dev/null
   cat ${2:-.}/PACKAGES.TXT | gzip -9c >${2:-.}/PACKAGES.TXT.gz 2>/dev/null
+  rm /tmp/waiting ;
+  echo "done."
 }
 
 # Generate a FILELIST.TXT for a package tree
@@ -107,28 +105,30 @@ function make_filelist_txt() {
   # $1 = Sub-directory to process [required]
   # $2 = Sub-directory to put FILELIST.TXT in, or empty for current directory
   [ -z "$1" ] && return 1
-
-  echo "Creating FILELIST.TXT for ${1}."
-
+  echo -n "Creating FILELIST.TXT for ${1}: "
   ( cd $1
     echo -e "FILELIST.TXT; $( date )\n\n"
     find . ! -wholename ./FILELIST.TXT ! -wholename ./FILELIST.TXT.gz \
       ! -wholename ./CHECKSUMS.md5 ! -wholename ./CHECKSUMS.md5.gz | \
       sort | xargs ls -ld ) >${2:-.}/FILELIST.TXT 2>/dev/null
   cat ${2:-.}/FILELIST.TXT | gzip -9c >${2:-.}/FILELIST.TXT.gz 2>/dev/null
+  echo "done."
 }
 
 function make_checksums_md5() {
   # $1 = Sub-directory to process [required]
   # $2 = Sub-directory to put CHECKSUMS.md5 in, or empty for current directory
   [ -z "$1" ] && return 1
-  echo "Creating CHECKSUMS.md5 for ${1}."
+  echo -n "Creating CHECKSUMS.md5 for ${1}: "
   ( cd $1
     echo -e "CHECKSUMS.md5; $( date )\n\n"
     echo "MD5                               Filename"
     find . ! -wholename ./CHECKSUMS.md5 ! -wholename ./CHECKSUMS.md5.gz \
       \( -type f -o -type l \) -exec md5sum {} \; | \
       sort -k2 -f ) >${2:-.}/CHECKSUMS.md5 2>/dev/null
+  rm -fr ${2:-.}/CHECKSUMS.md5.asc ; 
+  echo "done."
+  echo "Please sign ${2:-.}/CHECKSUMS.md5: "; echo
   gpg -b -a ${2:-.}/CHECKSUMS.md5
 }
 
@@ -140,11 +140,10 @@ function make_manifest() {
 
   [ -z "$1" ] && return 1
 
-  echo "Creating MANIFEST.bz2 for ${1}."
-
+  echo -n "Creating MANIFEST.bz2 for ${1}: "
   manifest=.manifest
   rm -f $manifest
-  pkglist=($(find ${1} -name \*.tgz -type f | sort))
+  pkglist=($(find ${1} -name \*.txz -type f | sort))
   for x in ${pkglist[*]}; do
       xx=${x#./}
       echo '++========================================' >>$manifest
@@ -152,18 +151,18 @@ function make_manifest() {
       echo "||   Package:  $x"                          >>$manifest
       echo '||'                                         >>$manifest
       echo '++========================================' >>$manifest
-      tar tzvf $xx 2>/dev/null >>$manifest
+      tar tvf $xx 2>/dev/null >>$manifest
   done
   bzip2 -c $manifest > ${2:-.}/MANIFEST.bz2
-  rm -f $manifest
+  rm -f $manifest ;
+  echo "done."
 }
 
 function download_package() {
   # $1 is package name
   [ -z "$1" ] && return 1;
   [ ! -f ./$1.info ] && {
-    echo "* Error: Can't find $1.info."
-    return 1
+    error "* Error: Can't find $1.info." ; return 1
   }
   # Read in package info file
   . ./$1.info || exit 1
@@ -176,6 +175,9 @@ function download_package() {
   for SOURCEPACKAGE in $DOWNLOAD ; 
   do
     FILENAME="$(echo $SOURCEPACKAGE | awk -F/ '{print $NF}')"
+    [ -z $FILENAME ] && {
+       error "No file defined in info file." 
+    }
     # Download if source file missing.
     if [ ! -f $FILENAME ]; then
       echogreen "* "; echo "Downloading source file."
@@ -204,7 +206,7 @@ function download_package() {
       # md5sum comparison
       [ "$(md5sum ${FILENAME} | cut -f1 -d\ )" = "${MD5CHECK}" ] && {
           # We have a good md5sum check
-          echo "$1 has a valid md5sum $MD5CHECK."
+          echo "$FILENAME has a valid md5sum $MD5CHECK."
           VALID=1 ; break
       }
       # Try to redownload, perhaps a broken source file. 
@@ -279,4 +281,83 @@ Options:
 
   Options are passed down to the next level SlackBuild where appropriate.
 EOF
+}
+
+# Creates a spinning bar, borrowed from slackpkg.
+spinning() {
+        local WAITFILE
+        local SPININTERVAL
+        local COUNT
+
+        if [ "$SPIN" = "" ]; then
+                SPIN=( "|" "/" "-" "\\" )
+        fi
+        COUNT=${#SPIN[@]}
+
+        [ -n "$1" ] && WAITFILE=$1 || WAITFILE=/tmp/waitfile
+        [ -n "$2" ] && SPININTERVAL=$2 || SPININTERVAL=0.1
+
+        count=0
+        tput civis
+        while [ -e $WAITFILE ] ; do
+                count=$(( count + 1 ))
+                tput sc
+                echo -n ${SPIN[$(( count % COUNT ))]}
+                tput rc
+                sleep $SPININTERVAL
+        done
+        tput cnorm
+}
+
+# This function shamelessly stolen from /sbin/installpkg
+pkgbase() {
+  PKGEXT=$(echo $1 | rev | cut -f 1 -d . | rev)
+  case $PKGEXT in
+  'tgz' )
+    PKGRETURN=$(basename $1 .tgz)
+    ;;
+  'tbz' )
+    PKGRETURN=$(basename $1 .tbz)
+    ;;
+  'tlz' )
+    PKGRETURN=$(basename $1 .tlz)
+    ;;
+  'txz' )
+    PKGRETURN=$(basename $1 .txz)
+    ;;
+  *)
+    PKGRETURN=$(basename $1)
+    ;;
+  esac
+  echo $PKGRETURN
+}
+
+# This function shamelessly stolen from /sbin/installpkg
+package_name() {
+  STRING=$(pkgbase $1)
+  # Check for old style package name with one segment:
+  if [ "$(echo $STRING | cut -f 1 -d -)" = "$(echo $STRING | cut -f 2 -d -)" ]; then
+    echo $STRING
+  else # has more than one dash delimited segment
+    # Count number of segments:
+    INDEX=1
+    while [ ! "$(echo $STRING | cut -f $INDEX -d -)" = "" ]; do
+      INDEX=$(expr $INDEX + 1)
+    done
+    INDEX=$(expr $INDEX - 1) # don't include the null value
+    # If we don't have four segments, return the old-style (or out of spec) package name:
+    if [ "$INDEX" = "2" -o "$INDEX" = "3" ]; then
+      echo $STRING
+    else # we have four or more segments, so we'll consider this a new-style name:
+      NAME=$(expr $INDEX - 3)
+      NAME="$(echo $STRING | cut -f 1-$NAME -d -)"
+      echo $NAME
+      # cruft for later ;)
+      #VER=$(expr $INDEX - 2)
+      #VER="$(echo $STRING | cut -f $VER -d -)"
+      #ARCH=$(expr $INDEX - 1)
+      #ARCH="$(echo $STRING | cut -f $ARCH -d -)"
+      #BUILD="$(echo $STRING | cut -f $INDEX -d -)"
+    fi
+  fi
 }
