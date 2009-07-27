@@ -1,0 +1,8 @@
+PKGNAME="murrine-engine"
+VERSION="0.90.3"
+HOMEPAGE="http://www.cimitan.com/murrine/engine"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/murrine/0.90/murrine-0.90.3.tar.bz2"
+MD5SUM="58a10b5c7b5e114a8a7ff5705fe274f5"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

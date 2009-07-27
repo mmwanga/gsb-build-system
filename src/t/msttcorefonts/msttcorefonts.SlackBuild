@@ -1,35 +1,52 @@
 #!/bin/bash
-## Version: 1.6 GSB Package SlackBuild.
-## Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
-## Copyright (c) 2007 Steve Kennedy <sk238 (at) exeter.ac.uk>
-##
-## Licenced under the terms of the GNU General Public Licence version 3.
-##
-## Parts of this scripts are based on Eric Hameleers <alien@slackware.com>
+# Version: 1.7 GSB Package SlackBuild.
+# Copyright (c) 2007,2008,2009 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
+# Copyright (c) 2007,2008,2009 Steve Kennedy <steve (at) gnomeslackbuild.org>
+# All rights reserved.
+#
+# Licenced under the terms of the GNU General Public Licence version 3.
+#
+# Redistribution and use of this script, with or without modification, is
+# permitted provided that the following conditions are met:
+#
+# 1. Redistributions of this script must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#
+#  THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
+#  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+#  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO
+#  EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+#  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+#  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+#  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+#  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+#  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+#  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-## Package variables.
-BUILD=1
+# Package variables.
+BUILD=2
 VERSION=2.0
 
-## List any packages here that are required to build this package.
-## The list is space seperated and case sensitive.
+# List any packages here that are required to build this package.
+# The list is space seperated and case sensitive.
 REQUIRED_PACKAGES="cabextract"
 
-## Build variables.
+# Build variables.
+TAG=${TAG:-gsb}
 ARCH=noarch
-TUNE=${TUNE:-i586}
+TUNE=${TUNE:-i486}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}
 
-## Script variables.
+# Script variables.
 PKGNAME=$(basename $0 .SlackBuild)
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
 FORCEBUILD=0
 
-## Usage.
+# Usage.
 function usage() {
   cat << EOF
 Usage: ${0##*/} [options]
@@ -45,7 +62,7 @@ Options:  --force       The package will not be built if a package of the same
 EOF
 }
 
-## Parse command line arguments.
+# Parse command line arguments.
 while [ $# -gt 0 ]; do
   if [ "$1" = "-force" ] || [ "$1" = "--force" ]; then
     FORCEBUILD=1
@@ -62,7 +79,7 @@ while [ $# -gt 0 ]; do
   fi
 done
 
-## Package requirements and installation checks.
+# Package requirements and installation checks.
 [ "$FORCEBUILD" = "0" ] && {
   function check_installed() {
     ls -1 /var/log/packages | grep "^${1}-[^-]*-[^-]*-[^-]*$" >/dev/null 2>&1
@@ -82,15 +99,14 @@ done
   done
 }
 
-## Temporary space and package storage.
+# Temporary space and package storage.
 mkdir -p $TMP
 rm -rf $PKG
 mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
-## Extract and Install
-
+# Extract and Install
 # Font directory location depends on the X build prefix:
 # Determine what X we're running (the modular X returns the prefix
 # in the next command, while older versions stay silent):
@@ -109,7 +125,7 @@ for i in $FONTS ; do
   cabextract --lowercase --directory=cab-contents $CWD/$i.exe 2>/dev/null 1>/dev/null || exit 1
 done
 
-## for vista fonts
+# for vista fonts
 cabextract -L -F ppviewer.cab --directory=$TMP $CWD/PowerPointViewer.exe &&
 cabextract -L -F '*.TT[FC]' --directory=cab-contents $TMP/ppviewer.cab || exit 1
 ( cd cab-contents && mv cambria.ttc cambria.ttf && chmod 600 \
@@ -122,15 +138,7 @@ cd $PKG/$FONTDIR
 chown -R root:root *
 chmod -R u+w,go+r-w,a-s *
 
-# Add fontconfig info
-#mkdir -p $PKG/etc/fonts
-#for i in alias local misc ;
-#do
-  #cp $CWD/gsb/$i.conf $PKG/etc/fonts/$i.conf.new || exit 1;
-#done;
-#chown root:root $PKG/etc/fonts/*.conf.new || exit 1;
-
-## Package meta files
+# Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
 do
   [ -e $CWD/$FILE ] && {
@@ -138,11 +146,11 @@ do
   }
 done
 
-## Create the package
+# Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
-## Cleanup
+# Cleanup
 [ "$NOCLEANUP" = "0" ] && {
   rm -rf $PKG $TMP/cab-contents
 }

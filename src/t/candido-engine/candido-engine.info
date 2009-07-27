@@ -1,0 +1,7 @@
+PKGNAME="candido-engine"
+VERSION="0.9.1"
+HOMEPAGE="http://candido.berlios.de/pages/engine.php"
+DOWNLOAD="http://download.berlios.de/candido/candido-engine-0.9.1.tar.bz2"
+MD5SUM="19a9845ce4489220c39da53a072525f8"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
