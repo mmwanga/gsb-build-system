@@ -17,5 +17,5 @@ cairo
 gtk+2
 openssl-solibs | openssl
 nss
-ttf-liberation-fonts
+liberation-fonts-ttf
 gnome-menus-ooo
