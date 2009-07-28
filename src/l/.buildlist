@@ -3,6 +3,7 @@ gtk+2
 alsa-lib
 libelf
 libnotify
+notify-python
 libgc
 a52dec
 libdiscid
@@ -72,4 +73,3 @@ pygoocanvas
 psiconv
 slib
 sg3_utils
-#notify-python
