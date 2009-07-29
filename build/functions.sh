@@ -162,7 +162,7 @@ function download_package() {
   # $1 is package name
   [ -z "$1" ] && return 1;
   [ ! -f ./$1.info ] && {
-    error "* Error: Can't find $1.info." ; return 1
+    echo "* Error: Can't find $1.info." ; return 1
   }
   # Read in package info file
   . ./$1.info || exit 1
@@ -176,13 +176,13 @@ function download_package() {
   do
     FILENAME="$(echo $SOURCEPACKAGE | awk -F/ '{print $NF}')"
     [ -z $FILENAME ] && {
-       error "No file defined in info file." 
+       echo "* Error: No file defined in info file." ; exit 1
     }
     # Download if source file missing.
     if [ ! -f $FILENAME ]; then
       echogreen "* "; echo "Downloading source file."
       wget -c $DOWNLOAD || {
-        echo ; error "Failed to complete download."
+        echo ; echo "* Error: Failed to complete download."
         exit 1
       }
     fi;
@@ -192,7 +192,7 @@ function download_package() {
       MD5CHECK=$(echo $MD5SUM | cut -f${MD5COUNT} -d" " ) ;
       MD5FILE=$(echo $MD5SUM | cut -f$(expr $MD5COUNT + 1) -d" " ) ;
       [ "${MD5FILE}" = "${FILENAME}" ] || {
-        error "File md5sums out of order."
+        echo "Error: File md5sums out of order."
         exit 1
       }
       MD5COUNT=$(expr $MD5COUNT + 2)

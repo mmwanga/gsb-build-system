@@ -1,5 +1,5 @@
-			      GSB Credits
-			      ===========
+			      GNOME SlackBuild Credits
+			      ========================
 
 Developers
 ----------
@@ -9,7 +9,7 @@ Steve                           <steve (at) gnomeslackbuild.org>
 Freerock                        <freerock (at) gmail.com>
 malloc                          <woodwardj (at) jaos.org>
 
-Developers emeritus
+Developers Emeritus
 -------------------
 Gpl_Source                      <fernando.flores.ortiz (at) gmail.com>
 Thorsten Johannvorderbrueggen   <thorsten.johannvorderbrueggen (at) t-online.de>
@@ -22,8 +22,8 @@ Artwork
 -------
 Gpl_Source			<fernando.flores.ortiz (at) gmail.com>
 
-Contributors
-------------
+Past Contributors
+------------------
 
 Ariszlo                         <ariszlo (at) gmail.com>
   * GSB Menus (patched for XFCE and KDE items)

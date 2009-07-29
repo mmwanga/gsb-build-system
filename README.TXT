@@ -1,19 +1,19 @@
 
-Welcome to GNOME SlackBuild 2.26.1!
+Welcome to GNOME SlackBuild 2.26.3!
 
-GNOME SlackBuild v2.26.1 is a complete GNOME Desktop Environment for 
+GNOME SlackBuild v2.26.3 is a complete GNOME Desktop Environment for 
 Slackware Linux v12.2, encompassing all the needed packages for a full, 
 clean installation of GNOME for Slackware. It aims to provide a fully 
 functional desktop, including a wide range of multimedia, graphics, 
 and development tools, as well as a complete networking and office suite.  
 
-Here are some versions of major components of GNOME SlackBuild 2.26.1
+Here are some versions of major components of GNOME SlackBuild 2.26.3
 
-- Full GNOME Desktop     2.26.1
-	- Evolution      2.26.1
+- Full GNOME Desktop     2.26.3
+	- Evolution      2.26.3
 	- NetworkManager 0.7.1
 - PulseAudio		 0.9.15
-- Mono C#		 2.4
+- Mono C#		 2.4.2.2
 - OpenOffice.org         3.0.1.2
 - Compiz                 0.8.3
 - GNOME Office
@@ -23,10 +23,10 @@ Here are some versions of major components of GNOME SlackBuild 2.26.1
 For installation instructions, see the file 'INSTALL_GSB.TXT'
 
 For instructions to upgrade from GSB 2.24.3 and previous versions to 
-GSB 2.26.1, please see the 'UPGRADE.TXT'.  You would still be well 
+GSB 2.26.3, please see the 'UPGRADE.TXT'.  You would still be well 
 advised to backup your machine first if it contains any important data.
 
-For details of important changes between GSB 2.24.3 and GSB 2.26.1, see 
+For details of important changes between GSB 2.24.3 and GSB 2.26.3, see 
 'CHANGES_AND_HINTS.TXT'.
 
 These are some of the important files and directories found on the GSB 
@@ -35,14 +35,16 @@ FTP site:
  <ftp://ftp.slackware.org.uk/gsb/gsb-2.26/>
 
 .
-|-- BUILDING.TXT		Instructions on how to build GSB from scratch
 |-- CHECKSUMS.md5		MD5 format file checksums
+|-- CHECKSUMS.md5.asc		MD5 format file checksums, signed with gpg
 |-- COPYING			The GNU Public License, version 2.
 |-- COPYING3			The GNU Public License, version 3.
+|-- COPYRIGHT.TXT		A list copyrights used by the GNOME SlackBuild
+|                               project.
 |-- CREDITS			A brief list of those who help with the 
-                                GSB project.
+|                               GSB project.
 |-- ChangeLog.txt		Log of system changes from GSB 2.24.3 
-                                to GSB 2.26.1.
+|                               to GSB 2.26.3.
 |-- FILELIST.TXT		List of files on the GSB FTP site.
 |-- INSTALL.TXT			Instructions on how to install GSB.
 |-- SLACKWARE-12.2_CONFLICTS.TXT
@@ -52,11 +54,11 @@ FTP site:
 |                               Slackware.  Users should replace all of these
 |                               packages with official Slackware equivalents.
 |-- SLACKWARE-12.2_REPLACED_PACKAGES.TXT
-	                        Packages in GSB that will replace 
-                                standard Slackware packages.
+|  				Packages in GSB that will replace 
+|                               standard Slackware packages.
 |-- README.TXT			This file.
 |-- UPGRADE.TXT			Instructions on how to upgrade from GSB 2.24.3.
-|-- VERSIONS			Target versions for GSB 2.26.1.
+|-- VERSIONS			Target versions for GSB 2.26.3.
 |
 |-- extra/			This directory contains extra packages 
 |   |                           for GSB like mozilla-firefox, and pidgin 
@@ -64,33 +66,32 @@ FTP site:
 |   |                           12.2, users may prefer to use our 
 |   |                           version.
 |   |			
-|   |-- README.TXT		Explanation of each extra package.
-|   `-- packages/		Contains the *.tgz packages.
+|   `-- source/	                Source code for the extra packages.
 |
 |-- gsb/			This directory contains all the 
-|   |                           software you will need for GSB 2.26.1.
-|   `-- packages
-|       |-- accessibility	Packages for accesibility in GNOME.
-|       |-- administration	Packages for system administration.
-|       |-- applications	Useful applications for your GNOME desktop.
-|       |-- bindings		C++ and other bindings for GNOME libraries.
-|       |-- compiz		Compiz-fusion for GNOME.
-|       |-- desktop		Packages required for a basic GNOME desktop.
-|       |-- devel		Development applications for GNOME.
-|       |-- libraries		Base libraries for codecs, databases, anda
-|       |                       various dependencies.
-|       |-- media		Audio and video applications for GNOME.
-|       |-- metapackages	Our handy metapackages for easy installation.
-|       |-- mono		Mono C# 2.2 packages.
-|       |-- networking		Useful set of networking applications for GNOME.
-|       |-- office		GNOME Office.
-|       |-- ooo			OpenOffice.org 2.4.1.10.
-|       |-- platform		Base GNOME libraries and dependencies, like 
-|       |                       PolicyKit.
-|       |-- print		Handy applications for easy printing in GNOME.
-|       |-- themes		Some extra themes for your GNOME desktop, like 
-|       |                       Mac4Lin.
-|       `-- tools		System tools, like slapt-get, and cabextract.
+|   |                           software you will need for GSB 2.26.3.
+|   |-- a			The A (base) package series contains basic GNOME Desktop.
+|   |-- ac			The AC (accessibility) series.
+|   |-- ad			The AD (administration) series.
+|   |-- ap			The AP (applications) series.
+|   |-- c			The C (compiz) series.
+|   |-- d			The D (development) series.
+|   |-- l			The L (libraries) series.
+|   |-- m			The M (Mono C#) series.
+|   |-- n			The N (networking) series.
+|   |-- go			The GO (GNOME Office) series.
+|   |-- ooo			The OOO (OpenOffice.org 3.0) series.
+|   `-- t			The T (Themes) series.
+|
+|-- pasture/             These are packages that have been removed
+|   |                    from GNOME SlackBuild, but are useful enough to
+|   |                    keep around.  Might not be secure.
+|   |
+|   |                    Packages currently found here include:
+|   |
+|   `-- source/          Source code for the pasture packages.
+|
+
 |
 |-- source			This directory contains source code for the 
 |   |                           packages that are offered by the GSB project.  
@@ -103,35 +104,26 @@ FTP site:
 |   |
 |   |
 |   |-- README.TXT              A basic HOWTO to use our source SlackBuilds.
-|   |-- accessibility/		Source code for accessibility packages.
-|   |-- administration/		Source code for administration packages.
-|   |-- applications/		Source code for applications packages.
-|   |-- bindings/		Source code for bindings packages.
-|   |-- compiz/			Source code for compiz packages.
-|   |-- desktop/		Source code for desktop packages.
-|   |-- devel/			Source code for devel packages.
-|   |-- extra/			Source code for packages in extra/.
-|   |-- gsb.SlackBuild		Main script for building GSB.
-|   |-- gsb.options.sample	Sample file for the gsb.SlackBuild script.
-|   |-- libraries/		Source code for libraries packages.
-|   |-- media/			Source code for media packages.
-|   |-- metapackages/		Source code for metapackages.
-|   |-- mono/			Source code for mono packages.
-|   |-- networking/		Source code for networking packages.
-|   |-- office/			Source code for office packages.
-|   |-- ooo/			Source code for ooo packages.
-|   |-- platform/		Source code for platform packages.
-|   |-- print/			Source code for print packages.
-|   |-- testing/		Source code for testing packages.
-|   |-- themes/			Source code for themes packages.
-|   `-- tools/			Source code for tools packages.
+|   |-- a/			Source code for desktop packages.
+|   |-- ac/			Source code for accessibility packages.
+|   |-- ad/			Source code for administration packages.
+|   |-- ap/			Source code for applications packages.
+|   |-- c/			Source code for compiz packages.
+|   |-- d/			Source code for development packages.
+|   |-- l/			Source code for libraries packages.
+|   |-- m/			Source code for mono packages.
+|   |-- n/			Source code for networking packages.
+|   |-- go/			Source code for office packages.
+|   |-- ooo/			Source code for Openoffice packages.
+|   `-- t/			Source code for themes packages.
 |
-`-- testing/			This directory contains any packages we 
-    |                           considered might be useful for some people, but 
-    |                           didn't think stable enough to include in the 
-    |                           GSB packages tree.
-    |-- README.TXT		README about packages included in testing/.
-    `-- packages
+`-- testing/             This directory contained packages being tested
+                         for possible use in future versions of GSB.
+                         As the additions will not be part of GSB the 
+ 			 directory is shipped empty.  The new features will 
+ 			 continue development in the next gsb-current, 
+			 possibly to be merged into the main tree for the
+                         next GSB cycle.
 
 For more information about GNOME SlackBuild, please visit our website:
 

@@ -172,8 +172,6 @@ for REQ in $REQUIRED_PACKAGES; do
     [ "$ERR" != "0" ] && {
       exit $ERR
     }
-    # FIXME
-    echo "Waiting for input." ; read ;
     upgradepkg --install-new $( find_package_files "${TMP}" \
     "${REQ//+/\+}" "${PACKAGE_VERSION//-/_}" "" "" "\.txz" ) || {
        header "Failed to install '$PACKAGE'." ; exit 1
@@ -199,8 +197,6 @@ SETS=${SETS:-""}
 [ -f .setlist ] && {
 SETS="${SETS:-$( egrep -v "^#|^$" .setlist | cut -d'#' -f1 )}"
 }
-
-(
 
 #========================================================================
 # MAIN BUILD LOOP
@@ -242,12 +238,14 @@ SUBDIR=$GSBDIR/$SET
 
 # Look for package
 [ ! -d $PACKAGE ] && { 
-  header "Error: Can't find package $PACKAGE." ; exit 1 
+  header "Error: Can't find package $PACKAGE." ; 
+  exit 1 ;
 }
 
 # Make sure we can run our SlackBuild
 [ ! -x "$PACKAGE/$PACKAGE.SlackBuild" ] && {
-  header "'$PACKAGE.SlackBuild' is not executable." ; exit 1
+  header "'$PACKAGE.SlackBuild' is not executable." ; 
+  exit 1
 }
 
 # Get package version and build numbers from the package SlackBuild.
@@ -391,12 +389,6 @@ fi;
  exit 1
 }
 
-# Check for errors
-ERR=${PIPESTATUS[0]}
-[ "$ERR" != "0" ] && {
-  exit $ERR
-}
-
 # Done our PACKAGES loop
 done 
 
@@ -449,13 +441,13 @@ fi;
 
 # Done our SETS loop
 )
-done
 
-# Check for errors
-ERR=${PIPESTATUS[0]}
-[ "$ERR" != "0" ] && {
-  exit $ERR
+# Break out if there has been an error.
+[ "$?" != "0" ] && {
+  exit 1
 }
+
+done
 
 #========================================================================
 # EXPORT SOURCE TREE
@@ -548,8 +540,3 @@ fi;
   echo "* The complete GSB binary tree can be found in: $PKGDEST"
   echo "* Build logs can be found in: $LOGSDIR"
 }
-
-) | tee $LOGSDIR/buildgsb.log
-
-# Return the exit status from the sub-shell, not the tee command.
-exit ${PIPESTATUS[0]}

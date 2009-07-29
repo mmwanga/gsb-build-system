@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables
-BUILD=3
+BUILD=4
 VERSION=2.24.1
 
 # List any packages here that are required to build this package.
@@ -114,13 +114,16 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  #use nautilus to handle ftp transactions by default; gnome-vfs without definition.
+  zcat $CWD/gnome-vfs.ftphandler.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  #use nautilus to handle ftp transactions by default; gnome-vfs without definition.
+  zcat $CWD/gnome-vfs.ftphandler.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  #use nautilus to handle ftp transactions by default; gnome-vfs without definition.
+  zcat $CWD/gnome-vfs.ftphandler.diff.gz | patch -p1
 fi
 
 # Fix permissions for building.

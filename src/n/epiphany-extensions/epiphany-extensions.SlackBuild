@@ -160,7 +160,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --target=$ARCH-$DISTRO-linux \
   --disable-schemas-install \
   --with-engine=mozilla \
-  --with-gecko-home=/usr/$LIBDIR/xulrunner \
+  --with-gecko-home=/usr/lib${LIBDIRSUFFIX}/xulrunner \
   --with-gecko=libxul \
   --disable-scrollkeeper \
   --disable-network-manager \

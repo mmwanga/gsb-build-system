@@ -131,6 +131,7 @@ cabextract -L -F '*.TT[FC]' --directory=cab-contents $TMP/ppviewer.cab || exit 1
 ( cd cab-contents && mv cambria.ttc cambria.ttf && chmod 600 \
     calibri{,b,i,z}.ttf cambria{,b,i,z}.ttf candara{,b,i,z}.ttf \
     consola{,b,i,z}.ttf constan{,b,i,z}.ttf corbel{,b,i,z}.ttf )
+rm $TMP/ppviewer.cab
 
 # Install the fonts into the package directory.
 cp -v cab-contents/*.ttf $PKG/$FONTDIR

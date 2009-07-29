@@ -2,3 +2,4 @@ avahi
 python
 pygtk
 gnome-panel
+notify-python

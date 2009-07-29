@@ -1,8 +1,8 @@
 PKGNAME="gnome-terminal"
-VERSION="2.26.2"
+VERSION="2.26.3.1"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-terminal/2.26/gnome-terminal-2.26.2.tar.bz2"
-MD5SUM="3413fd051c5ecbfe98819a8fb4ac83dd"
+DOWNLOAD="${GNOME_SERVER}/gnome-terminal/2.26/gnome-terminal-2.26.3.1.tar.bz2"
+MD5SUM="b6c6c0f5f3e061da7e56f3a04385bb7b"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

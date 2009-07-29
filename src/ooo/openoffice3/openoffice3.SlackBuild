@@ -1,40 +1,52 @@
 #!/bin/bash
-## Version: 1.6 GSB Package SlackBuild.
-## Copyright (c) 2007 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
-## Copyright (c) 2007 Steve Kennedy <sk238 (at) exeter.ac.uk>
-##
-## Licenced under the terms of the GNU General Public Licence version 3.
-##
+# Version: 1.7 GSB Package SlackBuild.
+# Copyright (c) 2007,2008,2009 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
+# Copyright (c) 2007,2008,2009 Steve Kennedy <steve (at) gnomeslackbuild.org>
+# All rights reserved.
+#
+# Licenced under the terms of the GNU General Public Licence version 3.
+#
+# Redistribution and use of this script, with or without modification, is
+# permitted provided that the following conditions are met:
+#
+# 1. Redistributions of this script must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#
+#  THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
+#  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+#  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO
+#  EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+#  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+#  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+#  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+#  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+#  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+#  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-## Package variables.
+# Package variables.
 BUILD=1
-VERSION=3.0.1.3
+VERSION=3.1.0.6
 
-## List any packages here that are required to build this package.
-## We build with mono/java support on x86.  x86_64 does not yet support
-## this configuration.
-if [ "$ARCH" = "x86_64" ]; then
-  REQUIRED_PACKAGES="gtk+2 libgnomeui neon libsndfile gnome-vfs boost libgnomeui mozilla-xulrunner nss sane zlib librsvg libjpeg nss"
-else
-  REQUIRED_PACKAGES="gtk+2 libgnomeui neon libsndfile gnome-vfs boost libgnomeui mozilla-xulrunner nss sane zlib librsvg libjpeg jre nss jdk apache-ant"
-fi;
+# List any packages here that are required to build this package.
+REQUIRED_PACKAGES="gtk+2 libgnomeui neon libsndfile gnome-vfs boost libgnomeui mozilla-xulrunner nss sane zlib librsvg libjpeg jre nss jdk apache-ant"
 
 
-## Build variables.
-ARCH=${ARCH:-i586}
-TUNE=${TUNE:-i586}
+# Build variables.
+TAG=${TAG:-gsb}
+ARCH=${ARCH:-i486}
+TUNE=${TUNE:-i486}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}
 
-## Script variables.
+# Script variables.
 PKGNAME=$(basename $0 .SlackBuild)
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
 FORCEBUILD=0
 
-## Usage.
+# Usage.
 function usage() {
   cat << EOF
 Usage: ${0##*/} [options]
@@ -50,7 +62,7 @@ Options:  --force       The package will not be built if a package of the same
 EOF
 }
 
-## Parse command line arguments.
+# Parse command line arguments.
 while [ $# -gt 0 ]; do
   if [ "$1" = "-force" ] || [ "$1" = "--force" ]; then
     FORCEBUILD=1
@@ -67,7 +79,7 @@ while [ $# -gt 0 ]; do
   fi
 done
 
-## Package requirements and installation checks.
+# Package requirements and installation checks.
 [ "$FORCEBUILD" = "0" ] && {
   function check_installed() {
     ls -1 /var/log/packages | grep "^${1}-[^-]*-[^-]*-[^-]*$" >/dev/null 2>&1
@@ -87,32 +99,20 @@ done
   done
 }
 
-## Temporary space and package storage.
+# Temporary space and package storage.
 mkdir -p $TMP
 rm -rf $PKG
 mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
-## Decompress archive.
+# Decompress archive.
 cd $TMP &&
-# Disabled in case build fails;  ooo-build can
-# resume broken builds.
-#rm -rf $PKGNAME-$VERSION &&
 tar xzf $CWD/ooo-build-$VERSION.tar.gz &&
 cd ooo-build-$VERSION || exit 1
 
 # Apply ARCH specific patches.
-if [ "$ARCH" = "i386" ]; then
-  echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
-elif [ "$ARCH" = "i486" ]; then
-  echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
-elif [ "$ARCH" = "i586" ]; then
-  echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
-elif [ "$ARCH" = "i686" ]; then
+if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "x86_64" ]; then
@@ -123,90 +123,84 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
-## Configure, Tuning, GCC and Make options.
+# Fix permissions for building.
+chown -R root:root .
+find . \
+  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
+  -exec chmod 755 {} \; -o \
+  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
+  -exec chmod 644 {} \;
+
+# Configure, Tuning, GCC and Make options.
 CONFIGURE_FLAGS=${GSB_CONFIGURE_FLAGS:-""}
-if [ "$ARCH" = "i386" ]; then
+if [ "$ARCH" = "i486" -o "$ARCH" = "i586" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE"}
-elif [ "$ARCH" = "i486" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE"}
-elif [ "$ARCH" = "i586" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
+  LIBDIRSUFFIX=""
 elif [ "$ARCH" = "i686" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer"}
+  TUNE_CFLAGS="-O2 -march=i686 -mtune=i686"
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "s390" ]; then
+  TUNE_CFLAGS="-O2"
+  LIBDIRSUFFIX=""
 elif [ "$ARCH" = "x86_64" ]; then
-  LIBDIR=lib64
-  if [ "$TUNE" = "k8" -o "$TUNE" = "opteron" -o "$TUNE" = "athlon64" -o "$TUNE" = "athlon-fx" ]; then
-    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=$TUNE -mtune=$TUNE -pipe -fomit-frame-pointer -fPIC"}
-  else
-    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O3 -march=k8 -mtune=k8 -pipe -fomit-frame-pointer -fPIC"}
-  fi
-  [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS="--libdir=/usr/lib64 --with-num-cpus=2 --without-java --disable-mono"
-  }
+    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -fPIC"}
+    LIBDIRSUFFIX="64"
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
-  [ -z "$CONFIGURE_FLAGS" ] && {
-    CONFIGURE_FLAGS="--with-arch=ppc"
-  }
-else
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2"}
 fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
-LIBDIR=${LIBDIR:-"lib"}
 
-## Add GNOMESlackBuild sections to go-oo configure system
-#cp $CWD/gsb_art/*.bmp ./src || exit 1
-cp $CWD/patches/GNOMESlackBuild* ./distro-configs || exit 1
-patch -p1 < $CWD/patches/addgsb-$VERSION.patch || exit 1
-
-## We need to temporarily spam a directory on the build machine
+# Configure for GNOME SlackBuild
+cp $CWD/GNOMESlackBuild*.conf.in ./distro-configs || exit 1
+zcat $CWD/ooo-build.gsb.diff.gz | patch -p1 
+# We need to temporarily spam a directory on the build machine
 mkdir -p /usr/share/openclipart
-
-## Set our distro configuration
-if [ "$ARCH" = "x86_64" ]; then
-  OO_DISTRO=GNOMESlackBuild64
-else
-  OO_DISTRO=GNOMESlackBuild
-fi;
-
-## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
-  --with-distro=$OO_DISTRO \
-  --disable-static --enable-shared \
-  --disable-odk \
+  --mandir=/usr/man $CONFIGURE_FLAGS \
+  --with-distro=GNOMESlackBuild${LIBDIRSUFFIX} \
   --enable-access \
   --enable-cairo \
+  --with-system-expat \
+  --with-system-neon \
+  --with-system-sane-header \
+  --with-system-curl \
+  --with-system-libpwd \
+  --with-system-python \
+  --with-system-gcc \
+  --with-system-boost \
+  --with-system-db \
+  --with-system-mozilla=xulrunner \
+  --with-system-libsvg \
   --with-system-cairo \
   --with-system-sndfile \
-  --with-system-neon \
+  --enable-split-app-modules \
   --enable-gtk \
   --disable-kde \
   --disable-mono \
   --disable-pam \
-  --disable-pam-link \
   --disable-post-install-scripts \
-  --enable-openxml \
-  --with-system-libsvg \
-  --with-binsuffix=3.0 \
-  --with-docdir=/usr/share/doc/openoffice.org \
+  --disable-odk \
+  --with-binsuffix=3.1 \
+  --with-docdir=/usr/doc/openoffice.org \
   --with-gcc-speedup=ccache \
-  --with-openclipart=/usr/share/openclipart \
   --with-drink=ale \
   || exit 1
 
-## Copy over downloaded sources
-for i in $CWD/{ooo300*,lib*,biblio*,extras*,mdbtools*,scsolver*} ;
-do 
-	echo "Copying to source tree: $i"
-	cp $i ./src 
-done;
-echo
+# Copy over downloaded sources, rather than run the download script
+for i in $CWD/{ooo310*,lib*,biblio*,extras*,mdbtools*} ; do 
+  echo "Copying to source tree: $(basename $i)"
+  cp $i ./src 
+done; echo
 
-## Build and Install
-make $MAKE_FLAGS -j1 || exit 1
+# Build and Install
+make $MAKE_FLAGS -j2 || exit 1
+
+# FIXME
+echo "Waiting for input."
+read ;
+
 cd bin ; 
 OODESTDIR=$PKG ./package-ooo || exit 1
 
@@ -228,19 +222,19 @@ done;
 # Preserve files
 mv $PKG/etc/bash_completion.d/ooffice3.0.sh $PKG/etc/bash_completion.d/ooffice3.0.sh.new
 
-## Strip debugging symbols.
+# Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
 
-## Copy extra documentation into package.
+# Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 for i in README README.html LICENSE LICENSE.html THIRDPARTYLICENSEREADME.html ; do
-  mv -f $PKG/usr/$LIBDIR/ooo-3.0/$i $PKG/usr/doc/$PKGNAME-$VERSION ;
+  mv -f $PKG/usr/lib${LIBDIRSUFFIX}/ooo-3.0/$i $PKG/usr/doc/$PKGNAME-$VERSION ;
 done
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
-## Compress and fix manpage links.
+# Compress and fix manpage links.
 [ -e $PKG/usr/man ] && {
   find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
   find $PKG/usr/man -type l -name \*.? -printf \
@@ -248,7 +242,7 @@ chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }
 
-## Package meta files
+# Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
 do
   [ -e $CWD/$FILE ] && {
@@ -256,11 +250,11 @@ do
   }
 done
 
-## Create the package
+# Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz || exit 1
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz || exit 1
 
-## Cleanup
+# Cleanup
 [ "$NOCLEANUP" = "0" ] && {
   rm -rf $PKG $TMP/ooo-build-$VERSION
 }

@@ -28,12 +28,3 @@
 * Keep the ChangeLog up to date.
 
 * Credit yourself in CREDITS.
-
-* Don't commit changes to lib/gsb/{package,gsb.section}.SlackBuild without
-  talking to Tadgy or Steve (fidesratio) first.
-
-* Don't add any src/gsb.options you may have on your system to SVN.  We do not
-  need your customisation options in the main repo.
-
-* If you add a new package to the build system please use the template
-  package.SlackBuild, doinst.sh and slack-* files in the lib/gsb/ directory.

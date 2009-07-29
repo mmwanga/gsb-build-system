@@ -1,42 +1,29 @@
-# Version: 1.0 GSB doinst.sh - Do not remove this line!
-# Copyright (c) 2007, 2008:
-#   Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>, Coventry, UK.
-#   Steve Kennedy <steve (at) gnomeslackbuild.org>, Exeter, UK.
-# Licenced under the terms of the GNU General Public Licence version 3.
-#
-
-# Update new libraries
-ldconfig -r .
-
 # Preserve new configuration files
-function install_file() {
-  # $1 = File to process
-  FILE="$(dirname "$1")/$(basename "$1" .new)"
-  if [ ! -e "$FILE" ]
-  then
-    mv "$FILE.new" "$FILE"
-  elif [ "$(cat "$FILE" | md5sum)" != "$(cat "$FILE.new" | md5sum)" ]
-  then
-    #     |--------|--------------------------------------------------|
-    echo "WARNING: $FILE has been customised."
-    echo "         Examine the $FILE.new file"
-    echo "         and integrate any changes into the custom file."
-    echo
-  else
-    rm -f "$FILE.new"
+install_file() {
+  NEW="$1"
+  OLD="`dirname $NEW`/`basename $NEW .new`"
+  # If there's no config file by that name, mv it over:
+  if [ ! -r $OLD ]; then
+    mv $NEW $OLD
+  elif [ "`cat $OLD | md5sum`" = "`cat $NEW | md5sum`" ]; then # toss the redundant copy
+    rm $NEW
   fi
+  # Otherwise, we leave the .new copy for the admin to consider...
 }
 
 install_file etc/bash_completion.d/ooffice3.0.sh.new
 
+# update desktop entries
 if [ -x usr/bin/update-desktop-database ]; then
   usr/bin/update-desktop-database -q usr/share/applications
 fi
 
+# update mime database
 if [ -x usr/bin/update-mime-database ]; then
   usr/bin/update-mime-database usr/share/mime >/dev/null 2>&1
 fi
 
+# update hicolor icon cache
 if [ -e usr/share/icons/hicolor/icon-theme.cache ]; then
         rm -f usr/share/icons/hicolor/icon-theme.cache
 fi

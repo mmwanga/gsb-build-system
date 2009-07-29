@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=8
+BUILD=9
 VERSION=0.4.5
 
 # List any packages here that are required to build this package.
@@ -126,8 +126,8 @@ elif [ "$ARCH" = "powerpc" ]; then
 fi
 
 # patches for every platform
-zcat < $CWD/patches/pygtk-require.diff.gz | patch -p0 || exit 1
-zcat < $CWD/patches/sftp-no-terminal.patch.gz | patch -p0 || exit 1
+zcat < $CWD/pygtk-require.diff.gz | patch -p0 || exit 1
+zcat < $CWD/sftp-no-terminal.patch.gz | patch -p0 || exit 1
 
 # Fix permissions for building.
 chown -R root:root .

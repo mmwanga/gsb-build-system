@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.26.3
 
 # List any packages here that are required to build this package.
@@ -114,14 +114,36 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  zcat $CWD/epiphany.bookmarks_menu.diff.gz | patch -p1 || exit 1
+  # Remove bookmark icon from gnome menu
+  zcat $CWD/epiphany.bookmarks_menu.diff.gz | patch -p1
+  # Fix dbus calls
+  zcat $CWD/epiphany.dbusfix.diff.gz | patch -p1
+  # Stop download dialog from crashing
+  zcat $CWD/epiphany.download-dialog.diff.gz | patch -p1
+  # Add rss to epiphany safetype
+  zcat $CWD/epiphany.safetypes.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
+  # Fix python paths on x86_64
   zcat $CWD/epiphany.python.x86_64.diff.gz | patch -p1 || exit 1
-  zcat $CWD/epiphany.bookmarks_menu.diff.gz | patch -p1 || exit 1
+  # Remove bookmark icon from gnome menu
+  zcat $CWD/epiphany.bookmarks_menu.diff.gz | patch -p1
+  # Fix dbus calls
+  zcat $CWD/epiphany.dbusfix.diff.gz | patch -p1
+  # Stop download dialog from crashing
+  zcat $CWD/epiphany.download-dialog.diff.gz | patch -p1
+  # Add rss to epiphany safetype
+  zcat $CWD/epiphany.safetypes.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  zcat $CWD/epiphany.bookmarks_menu.diff.gz | patch -p1 || exit 1
+  # Remove bookmark icon from gnome menu
+  zcat $CWD/epiphany.bookmarks_menu.diff.gz | patch -p1
+  # Fix dbus calls
+  zcat $CWD/epiphany.dbusfix.diff.gz | patch -p1
+  # Stop download dialog from crashing
+  zcat $CWD/epiphany.download-dialog.diff.gz | patch -p1
+  # Add rss to epiphany safetype
+  zcat $CWD/epiphany.safetypes.diff.gz | patch -p1
 fi
 
 # Fix permissions for building.
@@ -161,7 +183,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --target=$ARCH-$DISTRO-linux \
   --disable-schemas-install \
   --with-engine=mozilla \
-  --with-gecko-home=/usr/$LIBDIR/xulrunner \
+  --with-gecko-home=/usr/lib${LIBDIRSUFFIX}/xulrunner \
   --with-gecko=libxul \
   --disable-scrollkeeper \
   --disable-network-manager \

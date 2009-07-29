@@ -1,11 +1,10 @@
 --with-vendor=\"GNOME\ SlackBuild\"
 --with-gcc-speedup=ccache
---disable-kde
 --with-openclipart=/usr/share/openclipart
 --with-java
+--disable-kde
 --with-ant-home=/usr/lib/apache-ant
 --enable-bonobo
---enable-gnome-vfs
 --enable-cairo
 --enable-access
 --with-x
@@ -29,6 +28,6 @@
 --with-system-libsvg
 --with-system-cairo
 --with-system-sndfile
---with-binsuffix=2.4
+--with-binsuffix=3.0
 --disable-pam
 --disable-pam-link

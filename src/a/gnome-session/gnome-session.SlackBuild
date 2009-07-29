@@ -180,7 +180,7 @@ rm -fr $PKG/etc/xdg || exit 1
 
 # add xinitrc script for gnome
 mkdir -p $PKG/etc/X11/xinit &&
-cat $CWD/xinitrc.gnome | sed -e "s,@LIBDIR@,lib${LIBDIRSUFF},g" \
+cat $CWD/xinitrc.gnome | sed -e "s,@LIBDIR@,lib${LIBDIRSUFFIX},g" \
   > $PKG/etc/X11/xinit/xinitrc.gnome.new &&
 chmod 755 $PKG/etc/X11/xinit/xinitrc.gnome.new || exit 1
 
