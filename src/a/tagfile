@@ -4,6 +4,7 @@ avahi: ADD
 bluez: ADD
 consolekit: ADD
 devicekit: ADD
+devicekit-disks: ADD
 devicekit-power: ADD
 evo-openldap: ADD
 evolution-data-server: ADD
@@ -16,7 +17,6 @@ gnome-menus: ADD
 gnome-menus-kde: SKP
 gnome-menus-xfce: SKP
 gnome-mime-data: ADD
-gnome-mount: ADD
 gnome-panel: ADD
 gnome-python: ADD
 gnome-session: ADD

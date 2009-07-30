@@ -1,0 +1,8 @@
+PKGNAME="libgail-gnome"
+VERSION="1.20.1"
+HOMEPAGE="http://live.gnome.org/Orca"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/libgail-gnome/1.20/libgail-gnome-1.20.1.tar.bz2"
+MD5SUM="5c5b71af5a8ab2a9403bdae52b20e46c"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

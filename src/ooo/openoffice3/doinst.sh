@@ -11,7 +11,7 @@ install_file() {
   # Otherwise, we leave the .new copy for the admin to consider...
 }
 
-install_file etc/bash_completion.d/ooffice3.0.sh.new
+install_file etc/bash_completion.d/ooffice3.1.sh.new
 
 # update desktop entries
 if [ -x usr/bin/update-desktop-database ]; then

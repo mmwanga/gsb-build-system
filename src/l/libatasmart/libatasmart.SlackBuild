@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=3.1.0.6
+VERSION=0.13
 
 # List any packages here that are required to build this package.
-REQUIRED_PACKAGES="gtk+2 libgnomeui neon libsndfile gnome-vfs boost libgnomeui mozilla-xulrunner nss sane zlib librsvg libjpeg jre nss jdk apache-ant"
-
+# The list is space seperated and case sensitive.
+REQUIRED_PACKAGES="udev"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -108,8 +108,9 @@ mkdir -p $PKGDEST
 
 # Decompress archive.
 cd $TMP &&
-tar xzf $CWD/ooo-build-$VERSION.tar.gz &&
-cd ooo-build-$VERSION || exit 1
+rm -rf $PKGNAME-$VERSION &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
+cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
@@ -151,83 +152,23 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-# Configure for GNOME SlackBuild
-cp $CWD/GNOMESlackBuild*.conf.in ./distro-configs || exit 1
-zcat $CWD/ooo-build.gsb.diff.gz | patch -p1 
-# We need to temporarily spam a directory on the build machine
-mkdir -p /usr/share/openclipart
+# Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS \
-  --with-distro=GNOMESlackBuild${LIBDIRSUFFIX} \
-  --enable-access \
-  --enable-cairo \
-  --with-system-expat \
-  --with-system-neon \
-  --with-system-sane-header \
-  --with-system-curl \
-  --with-system-libpwd \
-  --with-system-python \
-  --with-system-gcc \
-  --with-system-boost \
-  --with-system-db \
-  --with-system-mozilla=xulrunner \
-  --with-system-libsvg \
-  --with-system-cairo \
-  --with-system-sndfile \
-  --enable-gtk \
-  --disable-kde \
-  --disable-mono \
-  --disable-pam \
-  --disable-post-install-scripts \
-  --disable-odk \
-  --with-binsuffix=3.1 \
-  --with-docdir=/usr/doc/openoffice.org \
-  --with-gcc-speedup=ccache \
-  --with-drink=ale \
+  --libdir=/usr/lib${LIBDIRSUFFIX} \
+  --target=$ARCH-$DISTRO-linux \
+  --disable-static \
+  --enable-shared \
   || exit 1
 
-# Copy over downloaded sources, rather than run the download script
-for i in $CWD/{ooo310*,lib*,biblio*,extras*,mdbtools*} ; do 
-  echo "Copying to source tree: $(basename $i)"
-  cp $i ./src 
-done; echo
+# Build and install.
+make &&
+make DESTDIR=$PKG install || exit 1
 
-# Build and Install
-make $MAKE_FLAGS -j2 || exit 1
-
-cd bin ; 
-OODESTDIR=$PKG ./package-ooo || exit 1
-
-# Add /usr/share/pixmaps directory and link icons to it
-mkdir -p $PKG/usr/pixmaps
-( cd $PKG/usr/pixmaps
-  for APP in base calc draw impress math writer ; do
-    ln -sf /usr/share/icons/hicolor/48x48/apps/ooo-${APP}3.0.png . ;
-  done
-)
-
-# Make sure our icons specify that we're using 3.0 (and not 2.4)
-# since both can exist on the same system at once
-for i in $PKG/usr/share/applications/*.desktop ;
-do 
-   sed -i '/^Name/s/$/ 3.0/g' $i; 
-done;
-
-# Preserve files
-mv $PKG/etc/bash_completion.d/ooffice3.1.sh $PKG/etc/bash_completion.d/ooffice3.1.sh.new
-
-# Strip debugging symbols.
+## Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
-
-# Copy extra documentation into package.
-mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-for i in README README.html LICENSE LICENSE.html THIRDPARTYLICENSEREADME.html ; do
-  mv -f $PKG/usr/lib${LIBDIRSUFFIX}/ooo-3.1/$i $PKG/usr/doc/$PKGNAME-$VERSION ;
-done
-find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
-chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 # Compress and fix manpage links.
 [ -e $PKG/usr/man ] && {
@@ -236,6 +177,12 @@ chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
     "( cd '%h'; [ -e '%l.gz' ] &&
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }
+
+# Copy extra documentation into package.
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
+cp -a README LGPL $PKG/usr/doc/$PKGNAME-$VERSION
+find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
+chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 # Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
@@ -247,9 +194,9 @@ done
 
 # Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz || exit 1
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
 [ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/ooo-build-$VERSION
+  rm -rf $PKG $TMP/$PKGNAME-$VERSION
 }

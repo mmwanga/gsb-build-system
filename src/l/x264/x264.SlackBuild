@@ -29,7 +29,7 @@ VERSION=snapshot-20090521-2245
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2"
+REQUIRED_PACKAGES="gtk+2 yasm"
 
 # Build variables.
 TAG=${TAG:-gsb}

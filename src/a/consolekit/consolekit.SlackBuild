@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=9
+BUILD=10
 VERSION=0.3.0
 
 # List any packages here that are required to build this package.
@@ -171,9 +171,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --docdir=/usr/doc/$PKGNAME-$VERSION \
-  --enable-docbook-docs \
-  --disable-static --enable-shared \
+  --disable-static \
+   --enable-shared \
   --with-pid-file=/var/run/console-kit-daemon.pid \
   --disable-pam-module \
   || exit 1

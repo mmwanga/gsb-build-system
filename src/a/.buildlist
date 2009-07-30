@@ -5,6 +5,7 @@ policykit
 consolekit
 devicekit
 devicekit-power
+devicekit-disks
 GConf
 gnome-mime-data
 avahi
@@ -36,7 +37,6 @@ zenity
 metacity
 gvfs
 nautilus
-gnome-mount
 gnome-settings-daemon
 libcanberra
 gnome-control-center

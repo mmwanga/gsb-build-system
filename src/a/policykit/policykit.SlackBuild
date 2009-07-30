@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=8
+BUILD=9
 VERSION=0.9
 
 # List any packages here that are required to build this package.
@@ -125,13 +125,10 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
-# Patches for all platforms
 # Compability with ck 0.3 api
 zcat $CWD/policykit-ck-api-change.patch.gz | patch -p1 || exit 1
 # Fix memory leak
 zcat $CWD/policykit-entry-leak.patch.gz | patch -p1 || exit 1
-# Disable ptrace for security
-#zcat $CWD/policykit-noptrace.patch.gz | patch -p1 || exit 1
 zcat $CWD/policykit-src_kit_kit-string.patch.gz | patch -p1 || exit 1
 # Allow read access to dbus 
 zcat $CWD/policykit-dbus-policy.patch.gz | patch -p1 || exit 1
