@@ -38,7 +38,7 @@ trap control_c SIGINT
 #========================================================================
 # REQUIRED BUILD PACKAGES
 # List any packages here that are required to build other packages within GSB.
-REQUIRED_PACKAGES="cabextract libtool-compat apache-ant openoffice-perl"
+REQUIRED_PACKAGES="cabextract libtool-compat apache-ant openoffice-perl yasm"
 
 #========================================================================
 # ENVIRONMENT
@@ -213,7 +213,10 @@ for SET in $SETS ;
 do
 ( 
 
-cd $SET || exit 1
+cd $SET || {
+  echo "* Set ${SET} not found."
+  exit 1
+}
 echo ; header "* Building set $SET" ; echo ;
 
 # Read in our set build list
@@ -374,8 +377,6 @@ fi;
 INSTALLED=$(find_package_files "/var/log/packages" "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" \
              "" "" "")
 if [ "$SKIP_BUILD" = "0" -o "${INSTALLED}" = "" ]; then
-  # FIXME
-  echo "Waiting for input." ; read ;
   upgradepkg --install-new $( find_package_files "$PKGDEST/$SUBDIR" \
     "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" ) || {
     header "Failed to install '$PACKAGE'." ; exit 1
