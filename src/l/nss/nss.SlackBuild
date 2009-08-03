@@ -185,7 +185,7 @@ export NSS_USE_SYSTEM_SQLITE=1
 export CFLAGS="${TUNE_CFLAGS} $EXTRA_CFLAGS"
 export CXXFLAGS="${TUNE_CFLAGS} $EXTRA_CFLAGS"
 make BUILD_OPT=1 CC="gcc" NS_USE_GCC=1 NSS_USE_SYSTEM_SQLITE=1 \
-   ${MAKE_FLAGS} nss_build_all || exit 1;
+   nss_build_all || exit 1;
 cd ../../;
 NSS_LINUXDIR=$(basename $(ls -d $WORKINGDIR/dist/Linux*) 1);
 echo "Installing from $NSS_LINUXDIR."

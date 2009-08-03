@@ -164,7 +164,7 @@ make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Fix incorrect lib path on x86_64 platforms
-if [ -d $PKG/usr/lib ]; then
+if [ "$ARCH" = "x86_64" -a -d $PKG/usr/lib ]; then
  mv $PKG/usr/lib $PKG/usr/lib${LIBDIRSUFFIX} || exit 1;
 fi;
 

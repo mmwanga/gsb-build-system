@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=3
+BUILD=4
 VERSION=2.26.3
 
 # List any packages here that are required to build this package.
@@ -178,7 +178,8 @@ rm -fr $PKG/var/lib/log
 # Add a simple default mouse theme
 mkdir -p $PKG/usr/share/icons &&
 cd $PKG/usr/share/icons &&
-tar xfj $CWD/comixcursors.tar.bz2 &&
+tar xfj $CWD/comixcursors.tar.bz2 || exit 1
+cd $TMP/$PKGNAME-$VERSION || exit 1
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

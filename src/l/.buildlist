@@ -52,7 +52,6 @@ glibmm
 cairomm
 pangomm
 gtkmm
-gtksourceview
 gtksourceview2
 pygtksourceview
 python-dateutil
@@ -63,8 +62,6 @@ ggz-client-libs
 libicu
 libglademm
 gtksourceviewmm
-pyorbit
-alsa-plugins
 hal-cups-utils
 rhpl
 goocanvas
@@ -75,3 +72,6 @@ slib
 sg3_utils
 libatasmart
 pycrypto
+alsa-plugins
+pyorbit
+gtksourceview

@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=4.46
 
 # List any packages here that are required to build this package.
@@ -241,7 +241,7 @@ touch $PKG/etc/bluetooth/passkeys/default || exit 1
     etc/bluetooth/rfcomm.conf \
     etc/bluetooth/passkeys/default \
     etc/rc.d/rc.bluetooth \
-    etc/default/bluetooth ; do
+    ; do
       mv ${file} ${file}.new
   done
 )

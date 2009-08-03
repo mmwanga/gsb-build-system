@@ -29,7 +29,7 @@ VERSION=0.8
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gnome-keyring libgnomeui hal nautilus libnotify"
+REQUIRED_PACKAGES="gnome-keyring libgnomeui hal libnotify nautilus"
 
 # Build variables.
 TAG=${TAG:-gsb}

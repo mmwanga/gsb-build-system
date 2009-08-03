@@ -1,20 +1,15 @@
 # Preserve new configuration files
-function install_file() {
-  # $1 = File to process
-  FILE="$(dirname "$1")/$(basename "$1" .new)"
-  if [ ! -e "$FILE" ]
-  then
-    mv "$FILE.new" "$FILE"
-  elif [ "$(cat "$FILE" | md5sum)" != "$(cat "$FILE.new" | md5sum)" ]
-  then
-    #     |--------|--------------------------------------------------|
-    echo "WARNING: $FILE has been customised."
-    echo "         Examine the $FILE.new file"
-    echo "         and integrate any changes into the custom file."
-    echo
-  else
-    rm -f "$FILE.new"
+install_file() {
+  NEW="$1"
+  OLD="`dirname $NEW`/`basename $NEW .new`"
+  # If there's no config file by that name, mv it over:
+  if [ ! -r $OLD ]; then
+    mv $NEW $OLD
+  elif [ "`cat $OLD | md5sum`" = "`cat $NEW | md5sum`" ]; then 
+  # toss the redundant copy
+    rm $NEW
   fi
+  # Otherwise, we leave the .new copy for the admin to consider...
 }
 
 if [ ! -e etc/rc.d/rc.bluetooth -o ! -x etc/rc.d/rc.bluetooth ]; then
@@ -32,4 +27,4 @@ install_file etc/bluetooth/main.conf.new
 install_file etc/bluetooth/rfcomm.conf.new
 install_file etc/rc.d/rc.bluetooth.new
 install_file etc/bluetooth/passkeys/default.new
-install_file etc/default/bluetooth.new
+#install_file etc/default/bluetooth.new

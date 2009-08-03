@@ -3,6 +3,6 @@ VERSION="2.2.0"
 HOMEPAGE="http://www.gtksourceviewmm.org/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/gtksourceviewmm/2.2/gtksourceviewmm-2.2.0.tar.bz2"
-MD5SUM="f9ca5b67f6c551ea98790ab5f21c19d0"
+MD5SUM="2306402f31dff1cb9d3d664aa9153c28"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
