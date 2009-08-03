@@ -13,6 +13,9 @@ libnice
 farsight2
 loudmouth
 telepathy-farsight
+pyOpenSSL
+telepathy-python
+papyon
 telepathy-butterfly
 telepathy-gabble
 telepathy-salut

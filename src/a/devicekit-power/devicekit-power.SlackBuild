@@ -24,8 +24,8 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=3
-VERSION=007
+BUILD=1
+VERSION=009
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -174,11 +174,6 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 # preserve files
 mv $PKG/etc/dbus-1/system.d/org.freedesktop.DeviceKit.Power.conf \
   $PKG/etc/dbus-1/system.d/org.freedesktop.DeviceKit.Power.conf.new 
-
-# Fix for udev rules on Slackware
-mkdir -p $PKG/lib/udev/rules.d &&
-mv $PKG/etc/udev/rules.d/*.rules $PKG/lib/udev/rules.d &&
-rm -fr $PKG/etc/udev || exit 1;
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

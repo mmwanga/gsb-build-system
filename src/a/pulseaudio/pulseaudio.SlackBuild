@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=3
+BUILD=5
 VERSION=0.9.15
 
 # List any packages here that are required to build this package.
@@ -114,13 +114,25 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # contains various upstream git patches for stability
+  zcat $CWD/pulseaudio.git-upstream-stability-fixes.diff.gz | patch -p1
+  # http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2009-1894
+  zcat $CWD/pulseaudio.CVE-2009-1894.diff.gz | patch -p1 
+  autoreconf 
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # contains various upstream git patches for stability
+  zcat $CWD/pulseaudio.git-upstream-stability-fixes.diff.gz | patch -p1
+  # http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2009-1894
+  zcat $CWD/pulseaudio.CVE-2009-1894.diff.gz | patch -p1 
+  autoreconf 
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # contains various upstream git patches for stability
+  zcat $CWD/pulseaudio.git-upstream-stability-fixes.diff.gz | patch -p1
+  # http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2009-1894
+  zcat $CWD/pulseaudio.CVE-2009-1894.diff.gz | patch -p1 
+  autoreconf 
 fi
 
 # Fix permissions for building.
@@ -182,7 +194,7 @@ make $MAKE_FLAGS -j1 || exit 1
 make $MAKE_FLAGS -j1 install DESTDIR=$PKG || exit 1
 
 # Grab our own runtime copy of libtool-2 from the build machine; this way we 
-# don't have to supply a full package for one runtime library.
+# don't have to supply a full libtool package for one runtime library.
 cd $PKG/usr/lib${LIBDIRSUFFIX} &&
 cp /usr/lib${LIBDIRSUFFIX}/libltdl.so.7.2.0 . &&
 ln -s libltdl.so.7.2.0 libltdl.so.7 || exit 1

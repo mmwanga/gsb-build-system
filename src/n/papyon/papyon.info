@@ -1,0 +1,7 @@
+PKGNAME="papyon"
+VERSION="0.4.1"
+HOMEPAGE="http://telepathy.freedesktop.org"
+DOWNLOAD="http://telepathy.freedesktop.org/releases/papyon/papyon-0.4.1.tar.gz"
+MD5SUM="b78af3d244bf9bb6460dfec7e0f831bc"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

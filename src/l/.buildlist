@@ -74,3 +74,4 @@ psiconv
 slib
 sg3_utils
 libatasmart
+pycrypto

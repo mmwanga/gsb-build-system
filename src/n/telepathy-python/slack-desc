@@ -1,0 +1,13 @@
+                |-----handy-ruler------------------------------------------------------|
+telepathy-python: telepathy-python (Python bindings for Telepathy)
+telepathy-python: 
+telepathy-python: telepathy-python is a python package containing base classes for use 
+telepathy-python: in connection managers and has proxy classes for use in clients. It's 
+telepathy-python: used in Butterfly (MSN connection manager for GNOME Empathy)
+telepathy-python: 
+telepathy-python: 
+telepathy-python: 
+telepathy-python: 
+telepathy-python: 
+telepathy-python: 
+telepathy-python: 

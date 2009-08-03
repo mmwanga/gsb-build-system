@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
-VERSION=2.26.3
+BUILD=1
+VERSION=2.0.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gamin libglade GConf gnome-desktop gnome-keyring gnome-menus gnome-vfs gtk+2 startup-notification libwnck rarian libgnomecanvas libxml2 libgnome libgnomeui dbus freetype pango gtk+2 glib2 atk libpng evolution-data-server gstreamer libgweather libproxy" 
+REQUIRED_PACKAGES="python"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -46,7 +46,7 @@ CWD=$(pwd)
 NOCLEANUP=0
 FORCEBUILD=0
 
-# Usage.
+## Usage.
 function usage() {
   cat << EOF
 Usage: ${0##*/} [options]
@@ -108,22 +108,20 @@ mkdir -p $PKGDEST
 
 # Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+rm -rf $PKGNAME-$VERSION &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # force admin_auth for system time change
-  zcat $CWD/gnome-panel.pk_clock_permissions.diff.gz | patch -p1
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # force admin_auth for system time change
-  zcat $CWD/gnome-panel.pk_clock_permissions.diff.gz | patch -p1
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # force admin_auth for system time change
-  zcat $CWD/gnome-panel.pk_clock_permissions.diff.gz | patch -p1
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
 # Fix permissions for building.
@@ -154,31 +152,9 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-# Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  --mandir=/usr/man $CONFIGURE_FLAGS \
-  --libdir=/usr/lib${LIBDIRSUFFIX} \
-  --build=$ARCH-$DISTRO-linux \
-  --target=$ARCH-$DISTRO-linux \
-  --disable-static \
-  --enable-shared \
-  --disable-schemas-install \
-  --enable-eds \
-  --disable-network-manager \
-  || exit 1
-
 # Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-# preserve files
-mv $PKG/etc/dbus-1/system.d/org.gnome.ClockApplet.Mechanism.conf \
- $PKG/etc/dbus-1/system.d/org.gnome.ClockApplet.Mechanism.conf.new
-
-# Keep clean for Scrollkeeper
-rm -fr $PKG/var/lib/scrollkeeper
-rm -fr $PKG/var/lib/log
+python setup.py build &&
+python setup.py install --prefix=/usr --root=$PKG || exit 1
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -192,45 +168,12 @@ rm -fr $PKG/var/lib/log
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }
 
-# Deal with .info files.
-[ -e $PKG/usr/share/info ] && {
-  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
-  rmdir -p $PKG/usr/share
-  }
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
-}
-
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a AUTHORS COPYING NEWS README \
+cp -a README ACKS LICENSE \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
-
-# Add schemas install to the doinst.sh if schemas are found.
-[ -d $PKG/etc/gconf/schemas ] && {
-# Make sure we have gconftool installed 
-echo "if [ -x usr/bin/gconftool-2 ]; then" >>$PKG/install/doinst.sh
-( cd $PKG/etc/gconf/schemas
-for schema in *; do
-  if [ -z "$(grep gconfentry ${schema})" ]; then
-    # Install schemas
-    echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
-    usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/${schema} >/dev/null 2>&1" \
-    >>$PKG/install/doinst.sh
-  else
-    # Load default schema if an entry file
-    echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
-    usr/bin/gconftool-2 --direct --load etc/gconf/schemas/${schema} >/dev/null 2>&1" \
-    >>$PKG/install/doinst.sh
-  fi
-done
-)
-# Finish off gconf block
-echo "fi" >>$PKG/install/doinst.sh
-}
 
 # Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
