@@ -36,7 +36,6 @@ libgnomekbd
 zenity
 metacity
 gvfs
-gnome-mount
 nautilus
 gnome-mount
 gnome-settings-daemon
