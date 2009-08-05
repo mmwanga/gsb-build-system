@@ -116,15 +116,15 @@ cd $PKGNAME-$VERSION || exit 1
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # upstream patch from libgnomedb git to compile against libgda 4.0
-  zcat $CWD/libgnomedb.git7afeda22a266d80fd6bc61dc1f7ce0aef873c507.diff.gz | patch -p1
+  zcat $CWD/libgnomedb.git_libgda4.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # upstream patch from libgnomedb git to compile against libgda 4.0
-  zcat $CWD/libgnomedb.git7afeda22a266d80fd6bc61dc1f7ce0aef873c507.diff.gz | patch -p1
+  zcat $CWD/libgnomedb.git_libgda4.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # upstream patch from libgnomedb git to compile against libgda 4.0
-  zcat $CWD/libgnomedb.git7afeda22a266d80fd6bc61dc1f7ce0aef873c507.diff.gz | patch -p1
+  zcat $CWD/libgnomedb.git_libgda4.diff.gz | patch -p1
 fi
 
 # Fix permissions for building.

@@ -1,0 +1,8 @@
+PKGNAME="libgnomedb"
+VERSION="3.99.7"
+HOMEPAGE="http://www.gnome-db.org/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/libgnomedb/3.99/libgnomedb-3.99.7.tar.bz2"
+MD5SUM="5d6c77c6c156230ad624cdae190c9d52"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
