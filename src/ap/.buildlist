@@ -35,8 +35,6 @@ nautilus-open-terminal
 nautilus-sendto
 fast-user-switch-applet
 system-config-printer
-rhythmbox
-soundconverter
 hamster-applet
 padevchooser
 paman
@@ -54,3 +52,5 @@ gst-plugins-ugly
 gswitchit-plugins
 sound-juicer
 gnome-screensaver
+rhythmbox
+soundconverter

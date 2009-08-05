@@ -166,7 +166,7 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Make sure we're using right lib path on x86_64, since it seems cmake
 # doesn't honour the LIB_INSTAL_DIR setting
-if [ -d $PKG/usr/lib ]; then
+if [ "$ARCH" = "x86_64" -a -d $PKG/usr/lib ]; then
  mv $PKG/usr/lib $PKG/usr/lib64 ;
 fi;
 

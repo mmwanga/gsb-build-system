@@ -3,6 +3,6 @@ VERSION="4.0.2"
 HOMEPAGE="http://www.gnome-db.org/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/libgda/4.0/libgda-4.0.2.tar.bz2"
-MD5SUM="3d11f9aaa5a4923f0a5533962c87bdfb"
+MD5SUM="cd79f6542cdd9477017b76b5f81c776f"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

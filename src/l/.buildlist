@@ -54,6 +54,8 @@ pangomm
 gtkmm
 gtksourceview2
 pygtksourceview
+#
+# python-dateutil requires setuptools in d set
 python-dateutil
 python-ldap
 vobject
@@ -72,6 +74,12 @@ slib
 sg3_utils
 libatasmart
 pycrypto
+#
+# alsa-plugins requires pulseaudo in a set
 alsa-plugins
+#
+# pyorbit requires ORBit2 in a set
 pyorbit
+#
+# gtksourceview requires libgnomeprint in a set
 gtksourceview
