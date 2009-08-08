@@ -1,0 +1,7 @@
+PKGNAME="balsa"
+VERSION="2.4.0"
+HOMEPAGE="http://pawsa.fedorapeople.org/balsa/"
+DOWNLOAD="http://pawsa.fedorapeople.org/balsa/balsa-2.4.0.tar.bz2"
+MD5SUM="47d68219a5ee768f1ebd2502a9c3c6f2"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

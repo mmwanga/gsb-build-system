@@ -23,13 +23,13 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-## Package variables.
-BUILD=2
-VERSION=0.98.10
+# Package variables.
+BUILD=1
+VERSION=2.26.3
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="transcode perl gtk+2 glib2 ffmpeg mjpegtools hal imagemagick gnome-perl"
+REQUIRED_PACKAGES="perl gzip zlib"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -37,7 +37,7 @@ ARCH=${ARCH:-i486}
 TUNE=${TUNE:-i486}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
-PKGDEST=${PKGDEST:-$TMP}
+PKGDEST=${PKGDEST:-$TMP/gsb-tree/packages}
 
 # Script variables.
 PKGNAME=$(basename $0 .SlackBuild)
@@ -100,16 +100,11 @@ done
 }
 
 # Temporary space and package storage.
-mkdir -p $TMP
+mkdir -p $TMP/$PKGNAME
 rm -rf $PKG
 mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
-
-# Decompress archive.
-cd $TMP &&
-tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
-cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
@@ -122,14 +117,6 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
-
-# Fix permissions for building.
-chown -R root:root .
-find . \
-  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
-  -exec chmod 755 {} \; -o \
-  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
-  -exec chmod 644 {} \;
 
 # Configure, Tuning, GCC and Make options.
 CONFIGURE_FLAGS=${GSB_CONFIGURE_FLAGS:-""}
@@ -151,30 +138,64 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-# Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  --mandir=/usr/man $CONFIGURE_FLAGS \
-  --libdir=/usr/lib${LIBDIRSUFFIX} \
-  --build=$ARCH-$DISTRO-linux \
-  --target=$ARCH-$DISTRO-linux \
-  --disable-static \
-  --enable-shared \
-  || exit 1
-
-# Fix for manpages
-sed -i "s:/share/man:/man:g" Makefile
 # Build and install.
-make &&
-make DESTDIR=$PKG install || exit 1
+# This is a list of the perl modules with version numbers to include
+# in our package
+MODULE_LIST="
+libintl-perl-1.20.tar.gz
+ExtUtils-PkgConfig-1.12.tar.gz
+ExtUtils-Depends-0.302.tar.gz
+Glib-1.222.tar.gz
+Cairo-1.061.tar.gz
+Pango-1.220.tar.gz
+Gtk2-1.221.tar.gz
+Gnome2-GConf-1.044.tar.gz
+Gnome2-Canvas-1.002.tar.gz
+Gnome2-VFS-1.081.tar.gz
+Gnome2-1.042.tar.gz
+"
 
-# Install a pretty gnome icon
-mkdir -p $PKG/usr/share/applications &&
-mkdir -p $PKG/usr/share/pixmaps &&
-install -v -m644 $CWD/dvdrip.desktop $PKG/usr/share/applications &&
-install -v -m644 $CWD/gnome/dvdrip.png $PKG/usr/share/pixmaps || exit 1
+PERL_ARCH=$(perl -v | grep This | cut -d' ' -f 7)
+PERL_VERSION=$(perl -v | grep This | cut -d' ' -f4 | cut -dv -f2)
+# Set a perl include path so we don't have to spam the build machine
+while read pf; do
+  PERL5LIB=${PERL5LIB:+$PERL5LIB:}$pf
+done << EOPERL5LIB 
+$PKG/usr/lib${LIBDIRSUFFIX}/perl5
+$PKG/usr/lib${LIBDIRSUFFIX}/perl5/vendor_perl
+$PKG/usr/lib${LIBDIRSUFFIX}/perl5/vendor_perl/$PERL_VERSION/$PERL_ARCH
+EOPERL5LIB
+export PERL5LIB
+
+for MODULE in $MODULE_LIST; do
+# Decompress archive.
+cd $TMP/$PKGNAME &&
+rm -fr $MODULE && 
+tar xzf $CWD/$MODULE.tar.gz &&
+
+# Fix permissions for building.
+chown -R root:root .
+find . \
+  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
+  -exec chmod 755 {} \; -o \
+  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
+  -exec chmod 644 {} \;
+
+cd $MODULE || exit 1
+perl Makefile.PL || exit 1
+# Fix for manpages
+sed -i "s:/share/man:/man:g" Makefile || exit 1
+# Build
+make OPTIMIZE="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+     CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+     $MAKE_FLAGS &&
+make test &&
+make install_vendor DESTDIR=$PKG || exit 1
 eval $(perl '-V:archlib')
 mv $PKG/$archlib/perllocal.pod $PKG/$archlib/$(echo ${MODULE// /_} | tr 'A-Z' 'a-z').pod
+done;
+# Remove empty directories
+find $PKG/usr -depth -type d -empty -exec rm -rf {} \;
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -187,13 +208,6 @@ mv $PKG/$archlib/perllocal.pod $PKG/$archlib/$(echo ${MODULE// /_} | tr 'A-Z' 'a
     "( cd '%h'; [ -e '%l.gz' ] &&
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }
-
-# Copy extra documentation into package.
-mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a COPYRIGHT Credits README TODO \
-  $PKG/usr/doc/$PKGNAME-$VERSION
-find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
-chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 # Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
