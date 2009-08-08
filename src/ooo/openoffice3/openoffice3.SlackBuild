@@ -145,6 +145,7 @@ elif [ "$ARCH" = "s390" ]; then
 elif [ "$ARCH" = "x86_64" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -fPIC"}
     LIBDIRSUFFIX="64"
+    CONFIGURE_FLAGS="$CONFIGURE_FLAGS --without-java"
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
 fi
@@ -189,12 +190,14 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 
 # Copy over downloaded sources, rather than run the download script
 for i in $CWD/{ooo310*,lib*,biblio*,extras*,mdbtools*} ; do 
-  echo "Copying to source tree: $(basename $i)"
-  cp $i ./src 
+  if [ ! -f ./src/${i} ]; then
+    echo "Copying to source tree: $(basename $i)"
+    cp $i ./src 
+  fi;
 done; echo
 
 # Build and Install
-make $MAKE_FLAGS -j2 || exit 1
+make $MAKE_FLAGS || exit 1
 
 cd bin ; 
 OODESTDIR=$PKG ./package-ooo || exit 1

@@ -1,7 +1,7 @@
 --with-vendor=\"GNOME\ SlackBuild\"
 --with-gcc-speedup=ccache
 --with-openclipart=/usr/share/openclipart
---with-java
+--without-java
 --disable-kde
 --with-ant-home=/usr/lib64/apache-ant
 --enable-bonobo

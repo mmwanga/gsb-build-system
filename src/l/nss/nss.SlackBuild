@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=3
+BUILD=4
 VERSION=3.12.3
 NSPR_VERSION=4.7.4
 
@@ -218,7 +218,8 @@ install -v -m755 -d $PKG/usr/include/{nss,nspr} &&
 install -v -m644 {public,private}/nss/* $PKG/usr/include/nss || exit 1
 install -v -m755 $NSS_LINUXDIR/bin/{certutil,cmsutil,crlutil,modutil,pk12util,signtool,signver,ssltap,addbuiltin} $PKG/usr/bin || exit 1
 cp -v -RL $NSS_LINUXDIR/include/* $PKG/usr/include/nspr &&
-chmod -v 644 $PKG/usr/include/nspr/prvrsion.h || exit 1
+# Make sure nspr headers are globally readable
+chmod -v 644 $PKG/usr/include/nspr/*.h || exit 1
 # End of Build and Install;
 
 # Strip debugging symbols.

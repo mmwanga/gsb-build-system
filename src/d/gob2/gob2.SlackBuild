@@ -24,16 +24,16 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
-VERSION=2.0
+BUILD=1
+VERSION=2.0.16
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="cabextract"
+REQUIRED_PACKAGES="glib2"
 
 # Build variables.
 TAG=${TAG:-gsb}
-ARCH=noarch
+ARCH=${ARCH:-i486}
 TUNE=${TUNE:-i486}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
@@ -106,38 +106,82 @@ mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
-# Extract and Install
-# Font directory location depends on the X build prefix:
-# Determine what X we're running (the modular X returns the prefix
-# in the next command, while older versions stay silent):
-XPREF=`pkg-config --variable=prefix x11` || true
-if [ "$XPREF" == "" ]; then
-  XPREF='/usr/X11R6'
-  FONTDIR="$XPREF/lib/X11/fonts/TTF"
-else
-  FONTDIR="/usr/share/fonts/TTF"
+# Decompress archive.
+cd $TMP &&
+tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+cd $PKGNAME-$VERSION || exit 1
+
+# Apply ARCH specific patches.
+if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
+  echo "${0##*/}: Applying any patches for $ARCH"
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "x86_64" ]; then
+  echo "${0##*/}: Applying any patches for $ARCH"
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+elif [ "$ARCH" = "powerpc" ]; then
+  echo "${0##*/}: Applying any patches for $ARCH"
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
-mkdir -p $PKG/$FONTDIR
-FONTS="andale32 arial32 arialb32 comic32 courie32 georgi32 impact32 times32 trebuc32 verdan32 webdin32"
-cd $TMP
-mkdir -p $TMP/cab-contents ;
-for i in $FONTS ; do
-  cabextract --lowercase --directory=cab-contents $CWD/$i.exe 2>/dev/null 1>/dev/null || exit 1
-done
 
-# for vista fonts
-cabextract -L -F ppviewer.cab --directory=$TMP $CWD/PowerPointViewer.exe &&
-cabextract -L -F '*.TT[FC]' --directory=cab-contents $TMP/ppviewer.cab || exit 1
-( cd cab-contents && mv cambria.ttc cambria.ttf && chmod 600 \
-    calibri{,b,i,z}.ttf cambria{,b,i,z}.ttf candara{,b,i,z}.ttf \
-    consola{,b,i,z}.ttf constan{,b,i,z}.ttf corbel{,b,i,z}.ttf )
-rm $TMP/ppviewer.cab
+# Fix permissions for building.
+chown -R root:root .
+find . \
+  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
+  -exec chmod 755 {} \; -o \
+  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
+  -exec chmod 644 {} \;
 
-# Install the fonts into the package directory.
-cp -v cab-contents/*.ttf $PKG/$FONTDIR
-cd $PKG/$FONTDIR
-chown -R root:root *
-chmod -R u+w,go+r-w,a-s *
+# Configure, Tuning, GCC and Make options.
+CONFIGURE_FLAGS=${GSB_CONFIGURE_FLAGS:-""}
+if [ "$ARCH" = "i486" -o "$ARCH" = "i586" ]; then
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE"}
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "i686" ]; then
+  TUNE_CFLAGS="-O2 -march=i686 -mtune=i686"
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "s390" ]; then
+  TUNE_CFLAGS="-O2"
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "x86_64" ]; then
+    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -fPIC"}
+    LIBDIRSUFFIX="64"
+elif [ "$ARCH" = "powerpc" ]; then
+  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
+fi
+EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
+MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
+
+# Configure.
+CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  --mandir=/usr/man $CONFIGURE_FLAGS \
+  --libdir=/usr/lib${LIBDIRSUFFIX} \
+  --build=$ARCH-$DISTRO-linux \
+  --target=$ARCH-$DISTRO-linux \
+  || exit 1
+
+# Build and install.
+make $MAKE_FLAGS &&
+make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+# Strip debugging symbols.
+{ find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
+  cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
+
+# Compress and fix manpage links.
+[ -e $PKG/usr/man ] && {
+  find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
+  find $PKG/usr/man -type l -name \*.? -printf \
+    "( cd '%h'; [ -e '%l.gz' ] &&
+     { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
+}
+
+# Copy extra documentation into package.
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
+cp -a AUTHORS COPYING* NEWS README \
+  $PKG/usr/doc/$PKGNAME-$VERSION
+find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
+chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 # Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
@@ -153,5 +197,5 @@ makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
 [ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/cab-contents
+  rm -rf $PKG $TMP/$PKGNAME-$VERSION
 }
