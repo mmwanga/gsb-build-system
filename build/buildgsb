@@ -33,7 +33,7 @@
 }
 
 # Trap keyboard interrupt 
-trap control_c SIGINT
+trap error_out SIGINT
 
 #========================================================================
 # REQUIRED BUILD PACKAGES
@@ -100,7 +100,7 @@ SOURCE=0
 
 # Required for a few websites which expired certificates, like LaunchPad.
 # We check md5sums to cover ourselves. 
-WGET_OPTIONS="--no-check-certificates"
+WGET_OPTIONS="--no-check-certificate"
 
 
 #========================================================================
@@ -418,6 +418,7 @@ if [ "$PUBLISH" = "1" ]; then
     }
     echo " (asc signature passed) "
   else
+    echo ; echogreen "* " ; echo "Please sign for ${PACKAGE}:"
     make_pkg_asc "$SIGN_PACKAGE" || {
       header "Failed to create asc signature for '$PACKAGE'." ; exit 1
     }
@@ -459,7 +460,6 @@ done
 # 
 if [ "${PUBLISH}" = "1" ]; then
   echo ; echogreen "* " ; echo -n "Verifying contents of set $SET: " 
-  touch /tmp/waiting ; spinning /tmp/waiting &
   # Make sure we only have the number of packages identical to the number in 
   # the source directory
   PKGS_FOUND=$( find_package_files "${PKGDEST}/${GSBDIR}/${SET}" "" \
@@ -484,7 +484,6 @@ if [ "${PUBLISH}" = "1" ]; then
     done;
     rm ${TMP}/pkgsfound$$
     rm ${TMP}/buildlist$$
-    rm /tmp/waiting
     echo ; header "* Error: Package contents differ."
     [ -z ${PKG_NOT_IN_BUILDLIST} ] || {
        echo "The following packages were found, but not in the buildlist: ${PKG_NOT_IN_BUILDLIST}"
@@ -494,7 +493,6 @@ if [ "${PUBLISH}" = "1" ]; then
     }
     exit 1;
   fi;
-  rm /tmp/waiting ;
   echo "contents of ${SET} seem ok."
 fi;
 
@@ -514,10 +512,11 @@ done
 # Add a source directory to our gsb tree
 #
 if [ "${SOURCE}" = "1" ]; then
-  export_source $BUILDSOURCE $PKGDEST
-  export_source $EXTRASOURCE $PKGDEST/extra
-  export_source $PASTURESOURCE $PKGDEST/pasture
-  export_source $TESTINGSOURCE $PKGDEST/testing
+  echo ; header "Exporting source trees."
+  echo && export_source $BUILDSOURCE $PKGDEST &&
+  echo && export_source $EXTRASOURCE $PKGDEST/extra &&
+  echo && export_source $PASTURESOURCE $PKGDEST/pasture &&
+  echo && export_source $TESTINGSOURCE $PKGDEST/testing || error_out
 fi;
 
 #========================================================================
@@ -525,7 +524,6 @@ fi;
 #
 if [ "${PUBLISH}" = "1" ]; then
 (
-header "* Publishing documentation."
 cd $BUILDSOURCE/.. ;
 # Copy our main documentation
 for i in COPYING COPYING3 CREDITS INSTALL.TXT README.TXT UPGRADE.TXT \
@@ -539,16 +537,18 @@ done;
 # Copy extra documentation
 cp extra/README.TXT $PKGDEST/$EXTRADIR || exit 1
 if [ "$ARCH" = "x86_64" ]; then
-  cp ChangeLog.slackware64 $PKGDEST/ChangeLog &&
+  cp ChangeLog.slackware64 $PKGDEST/ChangeLog.txt &&
   cp VERSIONS.slackware64 $PKGDEST/VERSIONS || exit 1
 else
-  cp ChangeLog.slackware $PKGDEST/ChangeLog &&
+  cp ChangeLog.slackware $PKGDEST/ChangeLog.txt &&
   cp VERSIONS.slackware $PKGDEST/VERSIONS || exit 1
 fi
-( cd $PKGDEST && ln -sf ChangeLog ChangeLog.txt )
 [ -d $PKGDEST/$PATCHESDIR ] && {
   ( cd $PKGDEST/$PATCHESDIR && ln -sf ../ChangeLog.txt )
 }
+echo;
+header "* Published documentation."
+echo;
 )
 fi;
 
@@ -564,19 +564,19 @@ if [ "${PUBLISH}" = "1" ]; then
       [ -d $DIR ] && {
         make_packages_txt $DIR $DIR
         make_manifest $DIR $DIR
-        make_filelist_txt $DIR $DIR
+        make_filelist_txt "$DIR" "$DIR" "FILE_LIST"
         make_checksums_md5 $DIR $DIR
       }
     done
-    ln -sf $GSBDIR/PACKAGES.TXT PACKAGES.TXT
-    ln -sf $GSBDIR/PACKAGES.TXT.gz PACKAGES.TXT.gz
-    make_filelist_txt .
+    ( cd $PKGDEST ; mv $GSBDIR/PACKAGES.TXT . )
+    ( cd $GSBDIR ; ln -sf ../PACKAGES.TXT )
+    # Make a date stamped file list of our full set of files.
+    make_filelist_txt "." "" "" "1"
     make_checksums_md5 .
   )
 fi;
 
-[ "$ERR" = "0" ] && {
-  echo "* Finished building GSB!"
-  echo "* The complete GSB binary tree can be found in: $PKGDEST"
-  echo "* Build logs can be found in: $LOGSDIR"
-}
+echo "* Finished building GSB!"
+echo "* The complete GSB binary tree can be found in: $PKGDEST"
+echo "* Build logs can be found in: $LOGSDIR"
+echo ;

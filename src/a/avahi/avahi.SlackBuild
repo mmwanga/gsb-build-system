@@ -24,13 +24,13 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables
-BUILD=7
+BUILD=8
 VERSION=0.6.25
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
 REQUIRED_PACKAGES="glib2 desktop-file-utils dbus gtk+2 python pygtk dbus-python expat \
-                   libglade pygobject gdbm"
+                   libglade pygobject gdbm libdaemon"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -192,11 +192,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 # Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-# We need to re-enable signals in dbus for service browsing 
-#mkdir -p $PKG/etc/dbus-1 &&
-#cp $CWD/system-local.conf $PKG/etc/dbus-1/system-local.conf.new || exit 1
-#chmod 644 $PKG/etc/dbus-1/system-local.conf.new || exit 1
 
 # Setup up autoipd dirs
 mkdir -p ${PKG}/var/run/avahi-daemon

@@ -6,7 +6,7 @@ python
 pygtk
 dbus-python
 expat
-#libdaemon
+libdaemon
 libglade
 pygobject
 nss-mdns

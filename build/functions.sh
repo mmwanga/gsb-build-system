@@ -10,7 +10,7 @@ echogreen()
    echo -ne "[0;32m""$@""[0;39m"
 }
 
-control_c()
+error_out()
 {
   rm -fr /tmp/waiting
   echo 
@@ -79,12 +79,17 @@ function make_packages_txt() {
   echo -n "Creating PACKAGES.TXT for ${1}: "
   touch /tmp/waiting ; spinning /tmp/waiting &
 
-  { echo -e "PACKAGES.TXT; $( date )\n\n"
-    for FILE in $( find ./$1 -name \*.txz \( -type f -o -type l \) \
+  rm -fr ${2:-.}/PACKAGES.TXT*
+  local TOTAL_SIZE=0
+  local TOTAL_USIZE=0
+  {  for FILE in $( find ./$1 -name \*.txz \( -type f -o -type l \) \
       -printf "%f %p\n" | sort -k1 -f | cut -d' ' -f2 )
     do
       SIZE=$(du -bk $FILE | awk '{print $1}')
       USIZE=$(expr $(cat $FILE | xz -dc | wc -c) / 1024)
+      # Keep a running total for our PACKAGES.TXT
+      TOTAL_SIZE=$(expr $TOTAL_SIZE + $SIZE )
+      TOTAL_USIZE=$(expr $TOTAL_USIZE + $USIZE )
       echo "PACKAGE NAME:  $( echo $FILE | rev | cut -d/ -f1 | rev )"
       echo "PACKAGE LOCATION:  $( echo $FILE | rev | cut -d/ -f2- | rev )"
       echo "PACKAGE SIZE (compressed):  $SIZE K"
@@ -95,9 +100,25 @@ function make_packages_txt() {
       echo "PACKAGE DESCRIPTION:"
       tar xOf $FILE --occurrence=1 install/slack-desc 2>/dev/null | grep -v "^#" | egrep "[[:alnum:]\+]+\:"
       echo 
-    done } >${2:-.}/PACKAGES.TXT 2>/dev/null
-  cat ${2:-.}/PACKAGES.TXT | gzip -9c >${2:-.}/PACKAGES.TXT.gz 2>/dev/null
-  rm /tmp/waiting ;
+    done } >${2:-.}/PACKAGES.TXT.$$ 2>/dev/null
+
+    # Create a PACKAGES.TXT header with totals.
+    {
+    echo 
+    echo "PACKAGES.TXT;  $( date )"
+    echo
+    echo "This file provides details on the GNOME SlackBuild packages found"
+    echo "in the ./$(basename $1)/ directory."
+    echo
+    echo "Total size of all packages (compressed):  $(expr $TOTAL_SIZE / 1024) MB"
+    echo "Total size of all packages (uncompressed):  $(expr $TOTAL_USIZE / 1024) MB"
+    echo
+    echo
+    } >${2:-.}/PACKAGES.TXT 2>/dev/null
+    cat ${2:-.}/PACKAGES.TXT.$$ >> ${2:-.}/PACKAGES.TXT ;
+    rm -fr ${2:-.}/PACKAGES.TXT.$$
+  #cat ${2:-.}/PACKAGES.TXT | gzip -9c >${2:-.}/PACKAGES.TXT.gz 2>/dev/null
+  rm -f /tmp/waiting ;
   echo "done."
 }
 
@@ -105,14 +126,29 @@ function make_packages_txt() {
 function make_filelist_txt() {
   # $1 = Sub-directory to process [required]
   # $2 = Sub-directory to put FILELIST.TXT in, or empty for current directory
+  # $3 = Different file name for FILELIST.TXT if desired, defaults to FILELIST.TXT
+  # $4 = if $4 = "1", then at time stamp is made. 
   [ -z "$1" ] && return 1
-  echo -n "Creating FILELIST.TXT for ${1}: "
+  local FILELIST=${3:-FILELIST.TXT}
+  local DATED=${4:-0}
+  echo -n "Creating $FILELIST for $(basename ${1}): "
+  touch /tmp/waiting ; spinning /tmp/waiting &
+  rm -fr ${2:-.}/${FILELIST}*
   ( cd $1
-    echo -e "FILELIST.TXT; $( date )\n\n"
+  if [ "$DATED" = "1" ]; then
+    echo "$( date )"
+  fi;
+    echo ;
+    echo "Here is the file list for this directory.  If you are using a"
+    echo "mirror site and find missing or extra files in the disk"
+    echo "subdirectories, please have the archive administrator refresh"
+    echo "the mirror."
+    echo ""
     find . ! -wholename ./FILELIST.TXT ! -wholename ./FILELIST.TXT.gz \
       ! -wholename ./CHECKSUMS.md5 ! -wholename ./CHECKSUMS.md5.gz | \
-      sort | xargs ls -ld ) >${2:-.}/FILELIST.TXT 2>/dev/null
-  cat ${2:-.}/FILELIST.TXT | gzip -9c >${2:-.}/FILELIST.TXT.gz 2>/dev/null
+      sort | xargs ls -ld ) >${2:-.}/$FILELIST 2>/dev/null
+  #cat ${2:-.}/FILELIST.TXT | gzip -9c >${2:-.}/FILELIST.TXT.gz 2>/dev/null
+  rm -f /tmp/waiting ;
   echo "done."
 }
 
@@ -120,17 +156,34 @@ function make_checksums_md5() {
   # $1 = Sub-directory to process [required]
   # $2 = Sub-directory to put CHECKSUMS.md5 in, or empty for current directory
   [ -z "$1" ] && return 1
-  echo -n "Creating CHECKSUMS.md5 for ${1}: "
-  ( cd $1
-    echo -e "CHECKSUMS.md5; $( date )\n\n"
-    echo "MD5                               Filename"
+  touch /tmp/waiting ; spinning /tmp/waiting &
+  echo -n "Creating CHECKSUMS.md5 for $(basename ${1}): "
+  rm -fr ${2:-.}/CHECKSUMS.md5*
+
+  # Our header
+  cat <<EOT > ${2:-.}/CHECKSUMS.md5
+If you want to test your files, use 'md5sum' and compare the values to
+the ones listed here.
+
+To test all these files, use this command:
+
+md5sum -c CHECKSUMS.md5 | less
+
+'md5sum' can be found in the GNU coreutils package on ftp.gnu.org in
+/pub/gnu, or at any GNU mirror site.
+
+MD5 message digest                Filename
+EOT
+
+  # Make checkums
+  ( cd $1 
     find . ! -wholename ./CHECKSUMS.md5 ! -wholename ./CHECKSUMS.md5.gz \
       \( -type f -o -type l \) -exec md5sum {} \; | \
-      sort -k2 -f ) >${2:-.}/CHECKSUMS.md5 2>/dev/null
-  rm -fr ${2:-.}/CHECKSUMS.md5.asc ; 
+      sort -k2 -f ) >>${2:-.}/CHECKSUMS.md5 2>/dev/null
+  rm -f /tmp/waiting ;
   echo "done."
-  echo "Please sign ${2:-.}/CHECKSUMS.md5: "; echo
-  gpg -b -a ${2:-.}/CHECKSUMS.md5
+  echo "Please sign $(basename $1)/CHECKSUMS.md5: "; echo
+  gpg -b -a ${2:-.}/CHECKSUMS.md5 || exit 1
 }
 
 function make_manifest() {
@@ -142,8 +195,10 @@ function make_manifest() {
   [ -z "$1" ] && return 1
 
   echo -n "Creating MANIFEST.bz2 for ${1}: "
+  touch /tmp/waiting ; spinning /tmp/waiting &
+  rm -fr ${2:-.}/MANIFEST.bz2*
   manifest=.manifest
-  rm -f $manifest
+  rm -f $manifest 
   pkglist=($(find ${1} -name \*.txz -type f | sort))
   for x in ${pkglist[*]}; do
       xx=${x#./}
@@ -154,8 +209,11 @@ function make_manifest() {
       echo '++========================================' >>$manifest
       tar tvf $xx 2>/dev/null >>$manifest
   done
-  bzip2 -c $manifest > ${2:-.}/MANIFEST.bz2
+  if [ -s $manifest ] ; then
+    bzip2 -c $manifest > ${2:-.}/MANIFEST.bz2 ;
+  fi;
   rm -f $manifest ;
+  rm -f /tmp/waiting ;
   echo "done."
 }
 
@@ -166,25 +224,25 @@ function download_package() {
     echo "* Error: Can't find $1.info." ; return 1
   }
   # Read in package info file
-  . ./$1.info || exit 1
+  . ./$1.info || return 1
 
   # Our environment
-  MD5COUNT=1
-  ATTEMPT="3"
-  VALID=0
+  local MD5COUNT=1
+  local ATTEMPT="3"
+  local VALID=0
 
   for SOURCEPACKAGE in $DOWNLOAD ; 
   do
     FILENAME="$(echo $SOURCEPACKAGE | awk -F/ '{print $NF}')"
     [ -z $FILENAME ] && {
-       echo "* Error: No file defined in info file." ; exit 1
+       echo "* Error: No file defined in info file." ; return 1
     }
     # Download if source file missing.
     if [ ! -f $FILENAME ]; then
       echogreen "* "; echo "Downloading source file."
       wget ${WGET_OPTIONS} -c $DOWNLOAD || {
         echo ; echo "* Error: Failed to complete download."
-        exit 1
+        return 1
       }
     fi;
 
@@ -194,7 +252,7 @@ function download_package() {
       MD5FILE=$(echo $MD5SUM | cut -f$(expr $MD5COUNT + 1) -d" " ) ;
       [ "${MD5FILE}" = "${FILENAME}" ] || {
         echo "Error: File md5sums out of order."
-        exit 1
+        return 1
       }
       MD5COUNT=$(expr $MD5COUNT + 2)
     else
@@ -353,12 +411,6 @@ package_name() {
       NAME=$(expr $INDEX - 3)
       NAME="$(echo $STRING | cut -f 1-$NAME -d -)"
       echo $NAME
-      # cruft for later ;)
-      #VER=$(expr $INDEX - 2)
-      #VER="$(echo $STRING | cut -f $VER -d -)"
-      #ARCH=$(expr $INDEX - 1)
-      #ARCH="$(echo $STRING | cut -f $ARCH -d -)"
-      #BUILD="$(echo $STRING | cut -f $INDEX -d -)"
     fi
   fi
 }
@@ -368,26 +420,26 @@ export_source() {
   # $1 is svn source directory
   # $2 is exported destination
   [ -z "$1" -o -z "$2" ] && return 1;
-  PKGDEST=$2
+  local EXPORTDEST=$2
+  echo -n "Exporting source for "; echogreen "$(basename $EXPORTDEST)" ; echo -n ": " ;
   # Clean up our destination for stale files
-  rm -fr $PKGDEST/source ;
+  rm -fr $EXPORTDEST/source &&
+  mkdir -p $EXPORTDEST || return 1
   if [ -x /usr/bin/svn ]; then
-    echo -n "Exporting source: "
-    svn export --ignore-externals --force $1 $PKGDEST/source 1>/dev/null 2>/dev/null || {
+    svn export --ignore-externals --force $1 $EXPORTDEST/source || {
       echo ; echo "* Error: Failed to export source."
       return 1
     }
     # Clean up the export a bit
-    find $PKGDEST/source \( -o -name ".buildlist" \
+    find $EXPORTDEST/source \( -name ".buildlist" \
          -o -name ".setlist" \
          -o -name ".ignore" \
-         -o -name ".info" \) \
-         -maxdepth 2 -exec rm -rf {} \; || exit 1
+         -o -name "*.info" \) \
+         -maxdepth 2 -exec rm -rf {} \; || return 1
   else
      echo "You need subversion in order to export the source."
      return 1
   fi;
-  echo "done."
-  make_filelist_txt $PKGDEST/source $PKGDEST/source &&
-  make_checksums_md5 $PKGDEST/source $PKGDEST/source || exit 1
+  make_filelist_txt $EXPORTDEST/source $EXPORTDEST/source "FILE_LIST" &&
+  make_checksums_md5 $EXPORTDEST/source $EXPORTDEST/source || return 1
 }
