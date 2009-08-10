@@ -1,0 +1,7 @@
+PKGNAME="dvdrip"
+VERSION="0.98.10"
+HOMEPAGE="http://www2.exit1.org/dvdrip/"
+DOWNLOAD="http://www.exit1.org/dvdrip/dist/dvdrip-0.98.10.tar.gz"
+MD5SUM="368ce6bc8d6c641d41e126d447ca76b2"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
