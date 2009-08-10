@@ -1,28 +1,14 @@
-# run libtool to finish off installation
-chroot . libtool --finish --silent usr/lib*/pulse-*/modules/
-ldconfig -r .
-
 # Preserve new configuration files
-function install_file() {
-  # $1 = File to process
-
-  FILE="$(dirname "$1")/$(basename "$1" .new)"
-  if [ ! -e "$FILE" ]
-  then
-    mv "$FILE.new" "$FILE"
-  elif [ "$(cat "$FILE" | md5sum)" != "$(cat "$FILE.new" | md5sum)" ]
-  then
-    # We need to make sure to install our version of the file;
-    # Move the old versions out of the way.
-    if [ -f "$FILE" ];
-    then
-            mv "$FILE" "$FILE".old.$(date +%m%d%y);
-    fi;
-    # Install our new file.
-    mv "$FILE.new" "$FILE"
-  else
-    rm -f "$FILE.new"
+install_file() {
+  NEW="$1"
+  OLD="`dirname $NEW`/`basename $NEW .new`"
+  # If there's no config file by that name, mv it over:
+  if [ ! -r $OLD ]; then
+    mv $NEW $OLD
+  elif [ "`cat $OLD | md5sum`" = "`cat $NEW | md5sum`" ]; then # toss the redundant copy
+    rm $NEW
   fi
+  # Otherwise, we leave the .new copy for the admin to consider...
 }
 
 install_file etc/pulse/daemon.conf.new

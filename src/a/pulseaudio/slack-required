@@ -1,12 +1,12 @@
+glib2 >= 2.20
+alsa-lib >= 1.0.20
+alsa-plugins
 libsndfile
 GConf
 hal
 avahi
-glib2
 libsamplerate
 liboil
-alsa-lib
-alsa-plugins
 policykit
 consolekit
 speex

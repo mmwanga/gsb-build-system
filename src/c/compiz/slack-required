@@ -7,10 +7,8 @@ gtk+2
 librsvg
 libxslt
 mesa
-metacity
 libgnomeui
 libwnck
 renderproto
 fuse
-gnome-session
 ccsm
