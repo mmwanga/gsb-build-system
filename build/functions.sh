@@ -182,7 +182,7 @@ function download_package() {
     # Download if source file missing.
     if [ ! -f $FILENAME ]; then
       echogreen "* "; echo "Downloading source file."
-      wget -c $DOWNLOAD || {
+      wget ${WGET_OPTIONS} -c $DOWNLOAD || {
         echo ; echo "* Error: Failed to complete download."
         exit 1
       }
@@ -211,7 +211,7 @@ function download_package() {
           VALID=1 ; break
       }
       # Try to redownload, perhaps a broken source file. 
-      wget -c $DOWNLOAD 
+      wget ${WGET_OPTIONS} -c $DOWNLOAD 
       ATTEMPT=$[$ATTEMPT-1]
     done;
 

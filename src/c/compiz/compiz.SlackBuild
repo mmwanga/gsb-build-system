@@ -111,7 +111,7 @@ done
   for REQ in $KDE_REQUIRED_PACKAGES; do
     check_installed "$REQ" || {
       echo "${0##*/}: KDE package '$REQ' required for build to stay compatible with Slackware."
-      exit 1
+      slapt-get --install $REQ || exit 1
     }
   done
 }

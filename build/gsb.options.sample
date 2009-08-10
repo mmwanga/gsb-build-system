@@ -2,7 +2,7 @@
 # 
 
 # Tag append for packages
-# TAG="gsb"
+export TAG="gsb"
 
 # For Slackware 12
 #export ARCH="i486"
