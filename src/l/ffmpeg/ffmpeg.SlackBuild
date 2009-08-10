@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables. 
-BUILD=1
+BUILD=3
 VERSION=r19347
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="freetype sdl zlib x264 faac faad2 libvorbis lame yasm"
+REQUIRED_PACKAGES="freetype sdl zlib x264 libvorbis lame yasm"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -105,6 +105,34 @@ echo "*********************************************************************"
 echo "*** Warning: This package is built from a fixed svn source revision."
 echo "*********************************************************************"
 
+SOURCE="$CWD/${PKGNAME}-${VERSION}.tar.xz"
+# This function has been gratuitously stolen from Eric Hamleers
+# MPlayer.SlackBuild.  :^)  
+src_checkout() {
+  # Determine the tarball extension:
+  PEXT=$(echo "${1}" | sed -r -e 's/.*[^.].(tar.xz|tar.gz|tar.bz2|tgz).*/\1/')
+  case "$PEXT" in
+    "tar.xz") TARCOMP="J" ;;
+    "tar.gz") TARCOMP="z" ;;
+    "tgz") TARCOMP="z" ;;
+    "tar.bz2") TARCOMP="j" ;;
+    *) echo "Archive can only have extension 'tar.xz', '.tar.gz' '.tar.bz2' or '.tgz'" ; exit 1 ;;
+  esac
+  if [ "$(echo ${VERSION}|cut -c1)" == 'r' ]; then # revision instead of date
+    REV=$(echo ${VERSION} | cut -c2-)
+  else
+    REV="{${VERSION}}"
+  fi
+  mkdir $PKGNAME-${VERSION} \
+    && cd $PKGNAME-${VERSION} \
+    && svn checkout  --revision $REV svn://svn.mplayerhq.hu/ffmpeg/trunk . \
+    && find . -type d -name '.svn' -depth | xargs rm -rf \
+    && chown -R root:root . \
+    && cd .. \
+    && tar -v${TARCOMP}cf ${2} ${PKGNAME}-${VERSION} || exit 1
+  rm -rf ${PKGNAME}-${VERSION}
+}
+
 # Temporary space and package storage.
 mkdir -p $TMP
 rm -rf $PKG
@@ -112,10 +140,15 @@ mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
-# Copy SVN sources to temporary space
+# Grab from svn if file doesn't exist
+if [ ! -f ${SOURCE} ]; then
+ echo "Source '$(basename ${SOURCE})' not available yet..."
+ echo "Will checkout sources to $(dirname $SOURCE)"
+ src_checkout ${SOURCE} || exit 1
+fi;
 cd $TMP &&
 rm -rf $PKGNAME-$VERSION &&
-cp -ar $CWD/$PKGNAME $PKGNAME-$VERSION &&
+tar xf $CWD/$PKGNAME-$VERSION.tar.xz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -177,6 +210,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   || exit 1
 
 # Build and install.
+echo $VERSION > VERSION
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 

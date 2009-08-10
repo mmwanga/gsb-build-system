@@ -2,6 +2,7 @@
 --with-gcc-speedup=ccache
 --with-openclipart=/usr/share/openclipart
 --without-java
+--with-lang=ALL
 --disable-kde
 --with-ant-home=/usr/lib64/apache-ant
 --enable-bonobo

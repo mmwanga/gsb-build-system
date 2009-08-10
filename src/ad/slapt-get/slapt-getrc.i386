@@ -6,22 +6,28 @@ WORKINGDIR=/var/slapt-get
 #   [0-9\_\.\-]{1}pre[0-9\-\.\-]{1}
 EXCLUDE=^aaa_elflibs,^devs,^glibc-.*,^kernel-.*,^udev,.*-[0-9]+dl$,i[3456]86
 
+# Each SOURCE can be a assigned a priority level, by appending :{PRIORITY} to
+# the source URI.  For example:# 
+# SOURCE={url}:DEFAULT    is the default, lowest priority
+# SOURCE={url}:PREFERRED  assigns more weight to this source
+# SOURCE={url}:OFFICIAL   even more weight, used to denote official sources
+# SOURCE={url}:CUSTOM     highest priority, for your custom package source
 # Base url to directory with a PACKAGES.TXT.
 # This can point to any release, ie: 9.0, 10.0, current, etc.
 SOURCE=ftp://ftp.slackware.com/pub/slackware/slackware-current/:OFFICIAL
 # Sources for the testing, extra, and pasture areas - if you use them.
-# SOURCE=ftp://ftp.slackware.com/pub/slackware/slackware-current/extra/:PREFERRED
+# SOURCE=ftp://ftp.slackware.com/pub/slackware/slackware-current/extra/
 # SOURCE=ftp://ftp.slackware.com/pub/slackware/slackware-current/testing/
 # SOURCE=ftp://ftp.slackware.com/pub/slackware/slackware-current/pasture/
 
 # Additional mirrors for Slackware64 can be found at http://slackware.com/getslack/
 
 # GNOME SlackBuild Mirrors
-SOURCE=http://get.gnomeslackbuild.org/gsb/gsb-2.26/:OFFICIAL
-#SOURCE=http://www.slackware.org.uk/gsb/gsb-2.26/
-#SOURCE=ftp://ftp.slackware.org.uk/gsb/gsb-2.26/
-#SOURCE=ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-2.26/
-#SOURCE=http://slackware.rol.ru/gsb/gsb/gsb-2.26/
+SOURCE=http://get.gnomeslackbuild.org/gsb/gsb-2.26/:CUSTOM
+#SOURCE=http://www.slackware.org.uk/gsb/gsb-2.26/:CUSTOM
+#SOURCE=ftp://ftp.slackware.org.uk/gsb/gsb-2.26/:CUSTOM
+#SOURCE=ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-2.26/:CUSTOM
+#SOURCE=http://slackware.rol.ru/gsb/gsb/gsb-2.26/:CUSTOM
 
 # Packages on a CD/DVD.
 # SOURCE=file:///mnt/cdrom/:OFFICIAL

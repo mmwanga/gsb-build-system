@@ -2,8 +2,6 @@ freetype
 sdl
 zlib
 x264
-faac
-faad2
 lame
 libvorbis
 libogg

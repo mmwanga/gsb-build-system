@@ -145,7 +145,7 @@ elif [ "$ARCH" = "s390" ]; then
 elif [ "$ARCH" = "x86_64" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -fPIC"}
     LIBDIRSUFFIX="64"
-    CONFIGURE_FLAGS="$CONFIGURE_FLAGS --without-java"
+    CONFIGURE_FLAGS="$CONFIGURE_FLAGS --without-java --without-stlport"
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
 fi
@@ -157,31 +157,68 @@ cp $CWD/GNOMESlackBuild*.conf.in ./distro-configs || exit 1
 zcat $CWD/ooo-build.gsb.diff.gz | patch -p1 
 # We need to temporarily spam a directory on the build machine
 mkdir -p /usr/share/openclipart
+[ -z "${ANT_HOME}" ] && . /etc/profile.d/apache-ant.sh
+
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS \
+  --libdir=/usr/lib${LIBDIRSUFFIX} \
   --with-distro=GNOMESlackBuild${LIBDIRSUFFIX} \
+  --with-lang=ALL \
+  --disable-gnome-vfs\
+  --disable-binfilter\
+  --disable-pam \
+  --disable-evolution2\
+  --disable-kde\
+  --disable-lockdown\
+  --disable-mediawiki\
+  --disable-minimizer\
+  --disable-odk\
+  --disable-pdfimport\
+  --disable-qadevooo\
+  --disable-reportdesign\
+  --disable-systray\
+  --disable-mathmldtd\
   --enable-access \
   --enable-cairo \
-  --with-system-expat \
-  --with-system-neon \
-  --with-system-sane-header \
-  --with-system-curl \
-  --with-system-libpwd \
-  --with-system-python \
-  --with-system-gcc \
+  --enable-gio\
+  --enable-gtk\
+  --enable-cups\
+  --enable-dbus\
+  --enable-cairo\
+  --enable-crashdump=no\
+  --enable-vba\
+  --with-package-format=native\
   --with-system-boost \
-  --with-system-db \
-  --with-system-mozilla=xulrunner \
+  --with-system-db\
+  --with-system-cairo\
+  --with-system-curl\
+  --with-system-expat\
+  --with-system-freetype\
+  --with-system-gcc \
+  --with-system-icu\
+  --with-system-jpeg\
   --with-system-libsvg \
-  --with-system-cairo \
-  --with-system-sndfile \
-  --enable-gtk \
-  --disable-kde \
-  --disable-mono \
-  --disable-pam \
+  --with-system-libwpd\
+  --with-system-libxml\
+  --with-system-libxslt\
+  --with-system-neon\
+  --with-system-python\
+  --with-system-redland\
+  --with-system-sane-header\
+  --with-system-sndfile\
+  --with-system-stdlibs\
+  --with-system-xrender-headers\
+  --with-system-zlib\
+  --with-system-openssl\
+  --with-system-mozilla=xulrunner\
+  --without-fonts\
+  --without-afms\
+  --without-gpc\
+  --without-nas\
+  --with-ant-home=/usr/lib64/apache-ant \
+  --with-use-shell=bash\
   --disable-post-install-scripts \
-  --disable-odk \
   --with-binsuffix=3.1 \
   --with-docdir=/usr/doc/openoffice.org \
   --with-gcc-speedup=ccache \
@@ -206,15 +243,15 @@ OODESTDIR=$PKG ./package-ooo || exit 1
 mkdir -p $PKG/usr/pixmaps
 ( cd $PKG/usr/pixmaps
   for APP in base calc draw impress math writer ; do
-    ln -sf /usr/share/icons/hicolor/48x48/apps/ooo-${APP}3.0.png . ;
+    ln -sf /usr/share/icons/hicolor/48x48/apps/ooo-${APP}3.1.png . ;
   done
 )
 
-# Make sure our icons specify that we're using 3.0 (and not 2.4)
-# since both can exist on the same system at once
+# Make sure our GNOME icons specify that we're using 3.1 since both
+# ooo 3.1 and ooo 2.4 can exist on the same system at once
 for i in $PKG/usr/share/applications/*.desktop ;
 do 
-   sed -i '/^Name/s/$/ 3.0/g' $i; 
+   sed -i '/^Name/s/$/ 3.1/g' $i; 
 done;
 
 # Preserve files
@@ -224,10 +261,10 @@ mv $PKG/etc/bash_completion.d/ooffice3.1.sh $PKG/etc/bash_completion.d/ooffice3.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
 
-# Copy extra documentation into package.
+# Link extra documentation into /usr/doc
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 for i in README README.html LICENSE LICENSE.html THIRDPARTYLICENSEREADME.html ; do
-  mv -f $PKG/usr/lib${LIBDIRSUFFIX}/ooo-3.1/$i $PKG/usr/doc/$PKGNAME-$VERSION ;
+  ln -s $PKG/usr/lib${LIBDIRSUFFIX}/ooo-3.1/$i $PKG/usr/doc/$PKGNAME-$VERSION ;
 done
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
@@ -253,6 +290,7 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz || exit 1
 
 # Cleanup
-[ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/ooo-build-$VERSION
-}
+echo "Not cleaning up."
+#[ "$NOCLEANUP" = "0" ] && {
+  #rm -rf $PKG $TMP/ooo-build-$VERSION
+#}

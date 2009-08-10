@@ -31,3 +31,4 @@
 --with-binsuffix=3.0
 --disable-pam
 --disable-pam-link
+--without-stlport

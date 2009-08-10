@@ -1,7 +1,0 @@
-The ffmpeg subdirectory is external SVN link to
-	svn://svn.mplayerhq.hu/ffmpeg/trunk
-at a fixed revision.
-
-The svn link is maintaned at a fixed revision so that daily changes to their
-sources do not effect the stability of our builds.  We will only bump the svn
-version during a development phase or because of a security issue.
