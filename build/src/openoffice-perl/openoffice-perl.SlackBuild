@@ -153,9 +153,9 @@ PERL_VERSION=$(perl -v | grep This | cut -d' ' -f4 | cut -dv -f2)
 while read pf; do
   PERL5LIB=${PERL5LIB:+$PERL5LIB:}$pf
 done << EOPERL5LIB 
-$PKG/usr/$LIBDIR/perl5
-$PKG/usr/$LIBDIR/perl5/vendor_perl
-$PKG/usr/$LIBDIR/perl5/vendor_perl/$PERL_VERSION/$PERL_ARCH
+$PKG/usr/lib${LIBDIRSUFFIX}/perl5
+$PKG/usr/lib${LIBDIRSUFFIX}/perl5/vendor_perl
+$PKG/usr/lib${LIBDIRSUFFIX}/perl5/vendor_perl/$PERL_VERSION/$PERL_ARCH
 EOPERL5LIB
 export PERL5LIB
 

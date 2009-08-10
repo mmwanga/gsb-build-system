@@ -1,5 +1,5 @@
 #!/bin/bash
-# Version: 1.8 GSB Section SlackBuild - Do not remove this line!
+# Version: 1.9 GNOME SlackBuild Build Script
 # Copyright (c) 2007, 2008, 2009
 #   Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>, Coventry, UK.
 #   Steve Kennedy <steve (at) gnomeslackbuild.org>
@@ -38,7 +38,13 @@ trap control_c SIGINT
 #========================================================================
 # REQUIRED BUILD PACKAGES
 # List any packages here that are required to build other packages within GSB.
-REQUIRED_PACKAGES="cabextract libtool-compat apache-ant openoffice-perl yasm"
+REQUIRED_PACKAGES="cabextract libtool-compat apache-ant openoffice-perl yasm jdk"
+
+#========================================================================
+# IGNORED PACKAGES
+# List any packages here that are in the source tree but we don't want to build
+# on account of patent or distribution issues
+IGNORED_PACKAGES="msttcorefonts openoffice3"
 
 #========================================================================
 # ENVIRONMENT
@@ -78,7 +84,8 @@ GPGKEY=${GPGKEY:-"${BUILDSOURCE}/../GPG-KEY"}
 SOURCEDIR=${SOURCEDIR:-source}
 CHANGELOG=${CHANGELOG:-$LOGSDIR/ChangeLog.txt}
 TESTINGDIR=${TESTINGDIR:-testing}
-EXTRAGDIR=${EXTRADIR:-extra}
+EXTRADIR=${EXTRADIR:-extra}
+PASTUREDIR=${PASTUREDIR:-pasture}
 PATCHESDIR=${PATCHESDIR:-patches}
 
 # Option defaults.
@@ -89,16 +96,16 @@ NOPRUNE=0
 NOINSTALL=0
 NOMETAPACKAGES=0
 PUBLISH=0
-WGET_OPTIONS=""
+SOURCE=0
+
+# Required for a few websites which expired certificates, like LaunchPad.
+# We check md5sums to cover ourselves. 
+WGET_OPTIONS="--no-check-certificates"
+
 
 #========================================================================
 # COMMAND LINE PARSING 
 #
-if [ $# -eq 0 ]; then
-  usage
-  exit 1;
-fi
-
 while [ -n "$1" ] ; do
   case $1 in
     -force|--force)
@@ -124,6 +131,10 @@ while [ -n "$1" ] ; do
     ;;
     -publish|--publish)
       PUBLISH=1
+      shift
+    ;;
+    -export-source|--export-source)
+      SOURCE=1
       shift
     ;;
     -set=*|--set=*)
@@ -156,6 +167,13 @@ for REQ in $REQUIRED_PACKAGES; do
   check_installed "$REQ" || {
     echo ; header "${0##*/}: Required build package '$REQ' not installed."
     (
+
+    # Some required packages are available from Slackware, in the extra/ directory.
+    [ ! -d ${BASH_SOURCE%/*}/src/$REQ ] && {
+       echo "Package $REQ is found in the Slackware extra/ directory."
+       exit 1
+    }
+
     cd ${BASH_SOURCE%/*}/src/$REQ &&
     export PKGDEST=${TMP} || exit 1
     # Get package version and build numbers from the package SlackBuild.
@@ -182,9 +200,12 @@ for REQ in $REQUIRED_PACKAGES; do
 done
 
 # Temporary space, package and log file storage.
-mkdir -p $TMP
-mkdir -p $PKGDEST
-mkdir -p $LOGSDIR
+mkdir -p $TMP &&
+mkdir -p $PKGDEST &&
+mkdir -p $LOGSDIR &&
+mkdir -p $PKGDEST/${EXTRADIR} &&
+mkdir -p $PKGDEST/${PASTUREDIR} &&
+mkdir -p $PKGDEST/${TESTINGDIR} || exit 1
 
 #========================================================================
 # MAIN SET LIST
@@ -213,10 +234,20 @@ for SET in $SETS ;
 do
 ( 
 
-cd $SET || {
-  echo "* Set ${SET} not found."
-  exit 1
-}
+# Switch into our proper directory. 
+if [ "$SET" = "extra" ];
+  then
+  cd $EXTRASOURCE || exit 1;
+elif [ "$SET" = "testing" ];
+  then
+  cd $TESTINGSOURCE || exit 1;
+elif [ "$SET" = "pasture" ];
+  then
+  cd $PASTURESOURCE || exit 1;
+else
+  cd ${BUILDSOURCE}/$SET || exit 1;
+fi;
+
 echo ; header "* Building set $SET" ; echo ;
 
 # Read in our set build list
@@ -224,6 +255,11 @@ BUILDLIST=${BUILDLIST:-""}
 [ -f .buildlist ] && { 
   BUILDLIST="$( egrep -v "^#|^$" .buildlist | cut -d'#' -f1 )" 
 }
+# Strip ignored packages from build list
+for PKG in $IGNORED_PACKAGES; do 
+  BUILDLIST="${BUILDLIST//$PKG/}" 
+done;
+# Quit if no list.
 if [ -z "$BUILDLIST" ]; then
   echo "No packages to build."
   exit 1
@@ -237,7 +273,25 @@ do
 
 # Build defaults.
 SKIP_BUILD=0
-SUBDIR=$GSBDIR/$SET
+
+# Create our tree according to Slackware defaults
+case $SET in
+   extra)
+     SUBDIR=$GSBDIR/../${EXTRADIR}/${PACKAGE}
+     NOPATCHES=1
+     ;;
+   pasture)
+     SUBDIR=$GSBDIR/../${PASTUREDIR}
+     NOPATCHES=1
+     ;;
+   testing)
+     SUBDIR=$GSBDIR/../${TESTINGDIR}
+     NOPATCHES=1
+     ;;
+   *)
+     SUBDIR=$GSBDIR/$SET
+     ;;
+esac
 
 # Look for package
 [ ! -d $PACKAGE ] && { 
@@ -297,7 +351,7 @@ fi
 #
 if [ "$SKIP_BUILD" = "0" ]; then
   rm -f $( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
-    "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz|\.txt|\.asc" \
+    "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz|\.txt|\.txz\.asc" \
     | tr '\n' ' ' ) >/dev/null 2>&1
   find_package_files "/var/log/packages" "${PACKAGE//+/\+}" "" "" "" "" \
     >/dev/null && {
@@ -336,9 +390,9 @@ fi
 #
 if [ "${NOPRUNE}" = "0" ]; then
   PRUNE_FILES="$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
-    "" "" "" "\.txz|\.txt|\.asc" | grep -v "$( find_package_files \
+    "" "" "" "\.txz|\.txt|\.txz\.asc" | grep -v "$( find_package_files \
     "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" \
-    "${PACKAGE_BUILD}${TAG}" "\.txz" )" | tr '\n' ' ' )"
+    "${PACKAGE_BUILD}${TAG}" "\.txz|\.txz\.asc" )" | tr '\n' ' ' )"
   [ ! -z "$PRUNE_FILES" ] && {
       rm -f $PRUNE_FILES
   }
@@ -358,7 +412,9 @@ if [ "$PUBLISH" = "1" ]; then
     "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" )"
   if [ -f ${SIGN_PACKAGE}.asc ]; then
     gpg --verify ${SIGN_PACKAGE}.asc ${SIGN_PACKAGE} 1>/dev/null 2>/dev/null || {
-      header "$SIGN_PACKAGE failed to pass verification." ; exit 1
+      echo ;echo ; header "$SIGN_PACKAGE failed to pass asc verification."
+      echo "Has the package been corrupted?" ;
+      exit 1
     }
     echo " (asc signature passed) "
   else
@@ -457,30 +513,11 @@ done
 #
 # Add a source directory to our gsb tree
 #
-if [ "${PUBLISH}" = "1" ]; then
-  # Clean up our destination for stale files
-  rm -fr $PKGDEST/$SOURCEDIR
-  if [ -x /usr/bin/svn ]; then
-    echo -n "Exporting source: "
-    svn export --ignore-externals --force $BUILDSOURCE $PKGDEST/$SOURCEDIR 1>/dev/null 2>/dev/null || {
-      echo ; echo "* Error: Failed to export source."
-      exit 1
-    }
-    # Clean up the export a bit
-    find $PKGDEST/$SOURCEDIR \( -name "gsb.*" \
-         -o -name "*.SlackBuild" \
-         -o -name ".buildlist" \
-         -o -name ".setlist" \
-         -o -name ".info" \) \
-         -maxdepth 2 -exec rm -rf {} \; || exit 1
-  else
-     echo "You need subversion in order to export the source."
-     exit 1
-  fi;
-  echo "done."
-  cp ${BUILDSOURCE}/README.TXT $PKGDEST/$SOURCEDIR/README.TXT || exit 1
-  make_filelist_txt $PKGDEST/$SOURCEDIR $PKGDEST/$SOURCEDIR &&
-  make_checksums_md5 $PKGDEST/$SOURCEDIR $PKGDEST/$SOURCEDIR || exit 1
+if [ "${SOURCE}" = "1" ]; then
+  export_source $BUILDSOURCE $PKGDEST
+  export_source $EXTRASOURCE $PKGDEST/extra
+  export_source $PASTURESOURCE $PKGDEST/pasture
+  export_source $TESTINGSOURCE $PKGDEST/testing
 fi;
 
 #========================================================================
@@ -522,7 +559,7 @@ if [ "${PUBLISH}" = "1" ]; then
   header "* Generating package file lists and checksums."
   ( 
   cd $PKGDEST &&
-    for DIR in $GSBDIR $PATCHESDIR $TESTINGDIR $EXTRADIR
+    for DIR in $GSBDIR $PATCHESDIR $TESTINGDIR $EXTRADIR $PASTUREDIR
     do
       [ -d $DIR ] && {
         make_packages_txt $DIR $DIR

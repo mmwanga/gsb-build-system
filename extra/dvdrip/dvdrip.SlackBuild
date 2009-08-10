@@ -166,15 +166,15 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 sed -i "s:/share/man:/man:g" Makefile
 # Build and install.
 make &&
-make DESTDIR=$PKG install || exit 1
+make DESTDIR=$PKG install_vendor || exit 1
 
 # Install a pretty gnome icon
 mkdir -p $PKG/usr/share/applications &&
 mkdir -p $PKG/usr/share/pixmaps &&
 install -v -m644 $CWD/dvdrip.desktop $PKG/usr/share/applications &&
-install -v -m644 $CWD/gnome/dvdrip.png $PKG/usr/share/pixmaps || exit 1
+install -v -m644 $CWD/dvdrip.png $PKG/usr/share/pixmaps || exit 1
 eval $(perl '-V:archlib')
-mv $PKG/$archlib/perllocal.pod $PKG/$archlib/$(echo ${MODULE// /_} | tr 'A-Z' 'a-z').pod
+mv $PKG/$archlib/perllocal.pod $PKG/$archlib/$(echo ${PKGNAME// /_} | tr 'A-Z' 'a-z').pod
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

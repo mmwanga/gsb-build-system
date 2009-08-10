@@ -29,7 +29,7 @@ VERSION=2.1.6
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="flac libogg gtk+2 faad2 wavpack faac libmad id3lib libvorbis mpeg4ip"
+REQUIRED_PACKAGES="flac libogg gtk+2 faad2 wavpack faac libmad libvorbis mpeg4ip"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -114,13 +114,10 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  zcat $CWD/easytag.mpeg4ip.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  zcat $CWD/easytag.mpeg4ip.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  zcat $CWD/easytag.mpeg4ip.diff.gz | patch -p1
 fi
 
 # Fix permissions for building.
@@ -180,7 +177,8 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a AUTHORS COPYING* NEWS README \
+cp COPYING README THANKS ABOUT-NLS USER-GUIDE \
+  doc/EasyTAG_Documentation.html \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION

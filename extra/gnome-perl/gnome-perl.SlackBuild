@@ -100,7 +100,7 @@ done
 }
 
 # Temporary space and package storage.
-mkdir -p $TMP/$PKGNAME
+mkdir -p $TMP/$PKGNAME-$VERSION
 rm -rf $PKG
 mkdir -p $PKG
 mkdir -p $PKG/install
@@ -142,17 +142,17 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 # This is a list of the perl modules with version numbers to include
 # in our package
 MODULE_LIST="
-libintl-perl-1.20.tar.gz
-ExtUtils-PkgConfig-1.12.tar.gz
-ExtUtils-Depends-0.302.tar.gz
-Glib-1.222.tar.gz
-Cairo-1.061.tar.gz
-Pango-1.220.tar.gz
-Gtk2-1.221.tar.gz
-Gnome2-GConf-1.044.tar.gz
-Gnome2-Canvas-1.002.tar.gz
-Gnome2-VFS-1.081.tar.gz
-Gnome2-1.042.tar.gz
+libintl-perl-1.20
+ExtUtils-PkgConfig-1.12
+ExtUtils-Depends-0.302
+Glib-1.222
+Cairo-1.061
+Pango-1.220
+Gtk2-1.221
+Gnome2-GConf-1.044
+Gnome2-Canvas-1.002
+Gnome2-VFS-1.081
+Gnome2-1.042
 "
 
 PERL_ARCH=$(perl -v | grep This | cut -d' ' -f 7)
@@ -169,7 +169,7 @@ export PERL5LIB
 
 for MODULE in $MODULE_LIST; do
 # Decompress archive.
-cd $TMP/$PKGNAME &&
+cd $TMP/$PKGNAME-$VERSION &&
 rm -fr $MODULE && 
 tar xzf $CWD/$MODULE.tar.gz &&
 
@@ -189,7 +189,6 @@ sed -i "s:/share/man:/man:g" Makefile || exit 1
 make OPTIMIZE="$TUNE_CFLAGS $EXTRA_CFLAGS" \
      CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
      $MAKE_FLAGS &&
-make test &&
 make install_vendor DESTDIR=$PKG || exit 1
 eval $(perl '-V:archlib')
 mv $PKG/$archlib/perllocal.pod $PKG/$archlib/$(echo ${MODULE// /_} | tr 'A-Z' 'a-z').pod

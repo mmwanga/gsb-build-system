@@ -12,6 +12,7 @@ echogreen()
 
 control_c()
 {
+  rm -fr /tmp/waiting
   echo 
   echo "* Exiting buildgsb."
   exit $?
@@ -360,4 +361,33 @@ package_name() {
       #BUILD="$(echo $STRING | cut -f $INDEX -d -)"
     fi
   fi
+}
+
+# Export source through svn to directory
+export_source() {
+  # $1 is svn source directory
+  # $2 is exported destination
+  [ -z "$1" -o -z "$2" ] && return 1;
+  PKGDEST=$2
+  # Clean up our destination for stale files
+  rm -fr $PKGDEST/source ;
+  if [ -x /usr/bin/svn ]; then
+    echo -n "Exporting source: "
+    svn export --ignore-externals --force $1 $PKGDEST/source 1>/dev/null 2>/dev/null || {
+      echo ; echo "* Error: Failed to export source."
+      return 1
+    }
+    # Clean up the export a bit
+    find $PKGDEST/source \( -o -name ".buildlist" \
+         -o -name ".setlist" \
+         -o -name ".ignore" \
+         -o -name ".info" \) \
+         -maxdepth 2 -exec rm -rf {} \; || exit 1
+  else
+     echo "You need subversion in order to export the source."
+     return 1
+  fi;
+  echo "done."
+  make_filelist_txt $PKGDEST/source $PKGDEST/source &&
+  make_checksums_md5 $PKGDEST/source $PKGDEST/source || exit 1
 }

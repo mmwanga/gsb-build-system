@@ -161,8 +161,8 @@ mkdir -p $PKG/usr/lib${LIBDIRSUFFIX}/apache-ant &&
 mv $TMP/$PKGNAME-$VERSION/$PKGNAME-$VERSION/* $PKG/usr/lib${LIBDIRSUFFIX}/apache-ant || exit 1
 rm -fr $PKG/usr/lib${LIBDIRSUFFIX}/apache-ant/docs/manual
 mkdir -p $PKG/etc/profile.d &&
-cat $CWD/profile.d/ant.sh | sed "s,lib/,lib${LIBDIRSUFFIX},g" > $PKG/etc/profile.d/ant.sh || exit 1
-cat $CWD/profile.d/ant.csh | sed "s,lib/,lib${LIBDIRSUFFIX},g" > $PKG/etc/profile.d/ant.csh || exit 1
+cat $CWD/profile.d/ant.sh | sed "s,lib/,lib${LIBDIRSUFFIX}/,g" > $PKG/etc/profile.d/ant.sh || exit 1
+cat $CWD/profile.d/ant.csh | sed "s,lib/,lib${LIBDIRSUFFIX}/,g" > $PKG/etc/profile.d/ant.csh || exit 1
 chown 755 $PKG/etc/profile.d/ant.*
 
 # Strip debugging symbols.

@@ -1,0 +1,112 @@
+This file documents the instructions for upgrading to GNOME SlackBuild
+2.26.3 for Slackware 13.0, and lists any packages which have been
+added, removed, renamed, and/or split during the development cycle
+from GSB 2.26.3 for Slackware 12.2, as well as note some potential
+"gotchas" that users can avoid by arming themselves with a little
+knowledge.
+
+All packages that are built to replace a standard Slackware package
+are configured and built as closely as possible to how Patrick does
+it.  However, we could not avoid this time around replacing some major
+software.  For more information about what needs to be replaced, and
+why, please see our 'SLACKWARE-13.0_REPLACED_PACKAGES.TXT'.  
+
+First of all, GNOME SlackBuild has gone under a directory
+restructuring to bring it more into line with Slackware's own
+practice.  All our packages have been assigned to sets now, along with
+tagfiles.  This will help us to develop a Slackware type installer for
+GNOME SlackBuild as well as still being able to offer a slapt-get
+based installation.  
+
+NOTE ABOUT SLAPT-GET
+=============================
+With the latest version of slapt-get, be sure to add a ":CUSTOM" tag
+to the end of your SOURCE line which points to the GNOME SlackBuild
+repository.  Otherwise, the official Slackware package will outweigh
+some required package and they may not be installed.  
+=============================
+
+*** PACKAGE ADDITIONS SINCE 2.26.3 for Slackware 12.2 ***
+
+a/devicekit-disks: Added.
+extra/gnome-perl: Added.  This package now contains a full set of
+  GNOME bindings for perl, including Glib, Gtk2, Cairo, Pango,
+  Gnome2, Gnome2-VFS, and GConf.
+
+*** PACKAGE REMOVALS SINCE 2.26.3 for Slackware 12.2 ***
+
+boost-jam: Slackware supplies boost.  
+babl: Slackware supplies babl.
+boost: Slackware supplies boost.  
+cairo: Slackware supplies cairo.
+djvulibre: Slackware supplies djvulibre.  
+exiv2: Slackware supplies exiv2.  
+gegl: Slackware supplies gegl.  
+iso-codes: Slackware supplies iso-codes.  
+libarchive: Slackware supplies libarchive.  
+libdvdread: Slackware supplies libdvdread.  
+libjasper: Slackware supplies libjaspser.  
+libnl: Slackware supplies libnl.  
+libspectre: Slackware supplies libspectre.  
+openexr: Slackware supplies openexr.  
+pango: Slackware supplies pango.  
+poppler: Slackware supplies poppler.  
+yasm: Slackware supplies yasm in extra/.  
+libdiscid: Removed as obsolete.  
+tre: Removed as obsolete.  
+libexif-gtk: Removed as obsolete.  
+id3lib: Removed as obsolete.  
+libmatroska: Removed as obsolete.  
+libmpeg3: Removed as obsolete.  
+freealut: Removed as obsolete.  
+twolame: Removed as obsolete.  
+openal: Removed as obsolete.  
+lua: Removed as largely unused.  
+libebml: Removed as obsolete.  
+ode: Removed as obsolete.  
+libxklavier: Slackware supplies libxklavier.  
+gob2: Removed as obsolete. 
+NetworkManager-vpn: Has now been split into separate vpn packages, 
+   NetworkManager-pptp, NetworkManager-openvpn, NetworkManager-vpnc,
+   and NetworkManager-openconnect.
+libbtctl: Removed as obsolete.  
+obex-data-server: Replaced by obexd.  
+gnome-audio: Removed as obsolete. 
+
+*** OTHER NOTABLE CHANGES AND HINTS ***
+
+- Pulseaudio will grab the ALSA sound device, which may block other
+  applications from using sound while pulseaudio is running.  You may
+wish to install the alsa-plugins package, and then configure your
+/etc/asound.conf file to force ALSA to use pulesaudio.  This may be
+handy if you want to use flash video as well as using other pulsified
+applications.
+
+- You user must be in the 'audio' group to use audio, the 'netdev'
+  group to use avahi and NetworkManager, the 'plugdev' to use
+BlueTooth and removeable media in Nautilus, and the 'power' group to
+use hibernate/suspend with GNOME Power Manager.
+
+- If NetworkManager is running, but unused, Firefox will try to detect
+  an available connection and start up in offline mode (annoyingly).
+You can fix this behavior by disabling NetworkManager if you're not
+using it.
+
+- Poppler needed to be replaced unfortunately, but we have rebuilt it
+  with Qt bindings enabled to avoid breaking any KDE compatability.
+
+- Our Boost C++ libraries are built against libICU.
+
+- GSB now comes with PolicyKit/ConsoleKit support.  We have included a
+  default /etc/PolicyKit/PolicyKit.conf file with basic USB pluggable
+permissions, and some other examples to show to use the file.  See the
+manual page PolicyKit.conf(5) for the file format. In order to make
+use of PolicyKit, be sure to have the consolekit installed as well
+when you're running your GNOME session, otherwise, the PolicyKit will
+largely be ignored.  (If you run ck-list-session from a GNOME terminal
+you can see if consolekit is running.)  You will need to run
+consolekit if you want to reboot or shutdown from the gnome-menu or
+use some utilities such as the GNOME cpufreq applet.  For such things,
+it might be necessary to use polkit-gnome-authorization (run as root)
+and grant your user the abilities to use applications configured to
+use PolicyKit authorisations.

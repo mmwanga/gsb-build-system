@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
-VERSION=2.4.0
+BUILD=2
+VERSION=2.3.28
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 glib2 gmime openssl sqlite libnotify openldap-client gpgme libgnomeui gtkspell gtkhtml gtksourceview2 libesmtp gtkspell aspell libgnomeprintui libunique"
+REQUIRED_PACKAGES="gtk+2 glib2 gmime openssl sqlite libnotify openldap-client gpgme libgnomeui gtkspell gtkhtml gtksourceview2 libesmtp gtkspell aspell libgnomeprintui"
 
 # Build variables.
 TAG=${TAG:-gsb}

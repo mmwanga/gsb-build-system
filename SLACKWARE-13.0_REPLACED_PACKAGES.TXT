@@ -1,0 +1,50 @@
+# THIS IS THE REQUIRED PACKAGES LIST FOR GSB GNOME 2.26.3
+#
+# The following is a list of packages that can replace official 
+# Slackware 13.0 packages.
+#
+# Packages listed under 'Required' are Slackware packages that MUST be 
+# replaced by corresponding GNOME SlackBuild versions in order to use 
+# GNOME 2.26.3 on Slackware 13.0. Reasons for their replacement are 
+# given within brackets.
+#
+# Packages listed under 'Optional' are packages which replace official 
+# Slackware packages, but their replacement are only necessary for added 
+# functionality, or certain GNOME applications.  Their replacement is 
+# recommended, but not required if you do not plan to use certain 
+# applications, or are dead set against replacing any Slackware provided  
+# packages.
+#
+# Last updated: August 09, 2009 (stevek)
+#
+
+***********************************************
+-- REQUIRED Package Replacements --
+
+alsa-lib:         ( > 1.0.20 required by pulseaudio 0.9.15, libcanberra, and 
+                      gnome-control-center)
+bluez:            ( > 4.2 bluez replaces bluez-utils and bluez-libs, required 
+                    for gvfs support for Bluetooth, and other GNOME 2.26 
+                    bluetooth userspace applications)
+glib2:            ( > 2.20 required by libgnome, gvfs, nautilus, and others)
+gtk+2:            ( > 2.16 required by gnome-panel, among others )
+
+
+***********************************************
+-- Recommended Replacements --
+
+gst-plugins-base  ( > 0.10.23 rebuild against gvfs/gnomevfs to enable giosink, 
+                    required by sound-juicer)
+libgsf:           ( Slackware's libgsf lacks GNOME support; required for GNOME 
+                    Office applications like Gnumeric)
+gnome-icon-theme  ( We offer an updated gnome-icon-theme package; better icons, 
+                    and a rather trivial replacement.)
+
+***********************************************
+-- Optional Replacements --
+
+compiz-fusion:    ( Slackware comes with compiz 0.7.4; our compiz-fusion is 
+                    offers GNOME support, like CCSM and other goodies.)
+pidgin:           ( We offer the latest stable Pidgin package with 
+                    pulseaudio support for sounds in extra/.)
+MPlayer:          ( We have rebuilt MPlayer against pulseaudio; found in extra/.)

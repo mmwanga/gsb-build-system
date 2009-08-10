@@ -176,4 +176,4 @@ corresponds to your binaries from a network server in the case of materials
 which are licensed under the GPLv3 (see COPYING3 for the complete license).
 
 If you find something is missing online (even if you don't need a copy),
-please point it out to gsb-devel@gnomeslackbuild.org so it can be fixed.
+please point it out to our gsb-devel mailing list so it can be fixed. 
