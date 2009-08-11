@@ -236,8 +236,32 @@ done; echo
 # Build and Install
 make $MAKE_FLAGS || exit 1
 
-cd bin ; 
-OODESTDIR=$PKG ./package-ooo || exit 1
+# Do a full install
+cd bin ; OODESTDIR=$PKG ./package-ooo || exit 1
+
+# Split out language packs
+cd $PKG ; 
+LANGUAGES="af ar as-IN be-BY bg bn bn-BD bn-IN br brx bs by ca cs cy da de dgo dz el \
+ en-GB en-US en-ZA eo es et eu fa fi fr ga gd gl gu-IN he hi-IN hr hu it ja ka kk km \
+ kn-IN ko kok ks ku lo lt lv mai mk ml-IN mn mni mr-IN ms my nb ne nl nn nr ns oc \
+ or-IN pa-IN pl pt pt-BR ro ru rw sa-IN sat sc sd sh sk sl sr ss st sv sw sw-TZ \
+ ta-IN te-IN tg th ti-ER tn tr ts uk ur-IN uz ve vi xh zh-CN zh-TW zu"
+for lang in $LANGUAGES ; do
+  echo "Splitting langpack $lang."
+  (
+  mkdir -p $TMP/$PKGNAME-l10n-$lang ;
+  tar cf - --remove-files $(find . -name "README*$lang*" \
+                 -o -name "LICENSE*${lang}*" \
+		 -o -name "ooo${lang}.res" \
+		 -o -name "${lang}") \
+		 | ( cd $TMP/$PKGNAME-l10n-$lang ; tar xf - )
+  mkdir -p $TMP/$PKGNAME-l10n-$lang/install &&
+  cat $CWD/l10n/slack-desc.openoffice3-l10n-${lang} > \
+    $TMP/$PKGNAME-l10n-$lang/install/slack-desc ;
+  ( cd $TMP/$PKGNAME-l10n-$lang ;
+    makepkg -p -l y -c n $PKGDEST/$PKGNAME-l10n-${lang}-${VERSION//-/_}-noarch-${BUILD}${TAG}.txz)
+  )
+done;
 
 # Add /usr/share/pixmaps directory and link icons to it
 mkdir -p $PKG/usr/pixmaps
