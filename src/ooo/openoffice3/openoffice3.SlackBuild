@@ -216,7 +216,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --without-afms\
   --without-gpc\
   --without-nas\
-  --with-ant-home=/usr/lib64/apache-ant \
+  --with-ant-home=/usr/lib${LIBDIRSUFFIX}/apache-ant \
   --with-use-shell=bash\
   --disable-post-install-scripts \
   --with-binsuffix=3.1 \
