@@ -124,12 +124,12 @@ elif [ "$ARCH" = "powerpc" ]; then
 fi
 
 # Fix permissions for building.
-chown -R root:root .
-find . \
-  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
-  -exec chmod 755 {} \; -o \
-  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
-  -exec chmod 644 {} \;
+#chown -R root:root .
+#find . \
+  #\( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
+  #-exec chmod 755 {} \; -o \
+  #\( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
+  #-exec chmod 644 {} \;
 
 # Configure, Tuning, GCC and Make options.
 CONFIGURE_FLAGS=${GSB_CONFIGURE_FLAGS:-""}
@@ -157,7 +157,7 @@ cp $CWD/GNOMESlackBuild*.conf.in ./distro-configs || exit 1
 zcat $CWD/ooo-build.gsb.diff.gz | patch -p1 
 # We need to temporarily spam a directory on the build machine
 mkdir -p /usr/share/openclipart
-[ -z "${ANT_HOME}" ] && . /etc/profile.d/apache-ant.sh
+[ -z "${ANT_HOME}" ] && . /etc/profile.d/ant.sh
 
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
@@ -226,12 +226,12 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   || exit 1
 
 # Copy over downloaded sources, rather than run the download script
-for i in $CWD/{ooo310*,lib*,biblio*,extras*,mdbtools*} ; do 
-  if [ ! -f ./src/${i} ]; then
-    echo "Copying to source tree: $(basename $i)"
-    cp $i ./src 
-  fi;
-done; echo
+#for i in $CWD/{ooo310*,lib*,biblio*,extras*,mdbtools*} ; do 
+  #if [ ! -f ./src/${i} ]; then
+    #echo "Copying to source tree: $(basename $i)"
+    #cp $i ./src 
+  #fi;
+#done; echo
 
 # Build and Install
 make $MAKE_FLAGS || exit 1
@@ -242,7 +242,7 @@ cd bin ; OODESTDIR=$PKG ./package-ooo || exit 1
 # Split out language packs
 cd $PKG ; 
 LANGUAGES="af ar as-IN be-BY bg bn bn-BD bn-IN br brx bs by ca cs cy da de dgo dz el \
- en-GB en-US en-ZA eo es et eu fa fi fr ga gd gl gu-IN he hi-IN hr hu it ja ka kk km \
+ en-ZA eo es et eu fa fi fr ga gd gl gu-IN he hi-IN hr hu it ja ka kk km \
  kn-IN ko kok ks ku lo lt lv mai mk ml-IN mn mni mr-IN ms my nb ne nl nn nr ns oc \
  or-IN pa-IN pl pt pt-BR ro ru rw sa-IN sat sc sd sh sk sl sr ss st sv sw sw-TZ \
  ta-IN te-IN tg th ti-ER tn tr ts uk ur-IN uz ve vi xh zh-CN zh-TW zu"
@@ -252,7 +252,13 @@ for lang in $LANGUAGES ; do
   mkdir -p $TMP/$PKGNAME-l10n-$lang ;
   tar cf - --remove-files $(find . -name "README*$lang*" \
                  -o -name "LICENSE*${lang}*" \
-		 -o -name "ooo${lang}.res" \
+		 -o -name "*${lang}.res" \
+		 -o -name "*${lang}.dat" \
+		 -o -name "*${lang}.xcu" \
+		 -o -name "*${lang}.soe" \
+		 -o -name "*${lang}.sog" \
+		 -o -name "*${lang}.soh" \
+		 -o -name "*${lang}.oxt" \
 		 -o -name "${lang}") \
 		 | ( cd $TMP/$PKGNAME-l10n-$lang ; tar xf - )
   mkdir -p $TMP/$PKGNAME-l10n-$lang/install &&
@@ -261,6 +267,7 @@ for lang in $LANGUAGES ; do
   ( cd $TMP/$PKGNAME-l10n-$lang ;
     makepkg -p -l y -c n $PKGDEST/$PKGNAME-l10n-${lang}-${VERSION//-/_}-noarch-${BUILD}${TAG}.txz)
   )
+  rm -fr $TMP/$PKGNAME-l10n-$lang ;
 done;
 
 # Add /usr/share/pixmaps directory and link icons to it
