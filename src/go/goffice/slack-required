@@ -9,4 +9,4 @@ libgnomeui
 libgsf
 libxml2
 pango
-libgsf
+libgsf >= libgsf-1.14.15-@ARCH@-1gsb

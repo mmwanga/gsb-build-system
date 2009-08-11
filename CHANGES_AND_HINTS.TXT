@@ -18,6 +18,11 @@ tagfiles.  This will help us to develop a Slackware type installer for
 GNOME SlackBuild as well as still being able to offer a slapt-get
 based installation.  
 
+Also, all packages are now signed with gpg, and you can find the
+public key as GPG-KEY.  If you are using slapt-get to download and
+install your packages, make sure to run:
+  $ slapt-get --add-keys
+
 NOTE ABOUT SLAPT-GET
 =============================
 With the latest version of slapt-get, be sure to add a ":CUSTOM" tag

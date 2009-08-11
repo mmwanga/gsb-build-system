@@ -1,4 +1,4 @@
-# Icon cache refresh
+# refresh icon cache for gnome and hicolor
 for i in gnome hicolor
 do
         if [ -e usr/share/icons/$i/icon-theme.cache ]; then

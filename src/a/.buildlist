@@ -27,7 +27,7 @@ gnome-desktop
 notification-daemon
 gnome-menus
 #gnome-menus-kde
-#gnome-menus-xfce
+gnome-menus-xfce
 libgweather
 evo-openldap
 evolution-data-server
