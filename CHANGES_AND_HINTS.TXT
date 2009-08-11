@@ -80,6 +80,10 @@ gnome-audio: Removed as obsolete.
 
 *** OTHER NOTABLE CHANGES AND HINTS ***
 
+- When adding users to the netdev group, in order to use NetworkManager
+  and the network-manager-applet, you may need to reload dbus in order
+  for the new permissions to take effect.
+
 - Pulseaudio will grab the ALSA sound device, which may block other
   applications from using sound while pulseaudio is running.  You may
 wish to install the alsa-plugins package, and then configure your

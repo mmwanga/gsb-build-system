@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=9
+BUILD=10
 VERSION=0.4.5
 
 # List any packages here that are required to build this package.
@@ -112,22 +112,23 @@ rm -rf $PKGNAME-$VERSION &&
 tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
-
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  zcat $CWD/pygtk-require.diff.gz | patch -p0 || exit 1
+  zcat $CWD/sftp-no-terminal.patch.gz | patch -p0 || exit 1
+  zcat $CWD/service-discovery-applet]$ svn add service-discovery-applet.vinagre.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  zcat $CWD/pygtk-require.diff.gz | patch -p0 || exit 1
+  zcat $CWD/sftp-no-terminal.patch.gz | patch -p0 || exit 1
+  zcat $CWD/service-discovery-applet]$ svn add service-discovery-applet.vinagre.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  zcat $CWD/pygtk-require.diff.gz | patch -p0 || exit 1
+  zcat $CWD/sftp-no-terminal.patch.gz | patch -p0 || exit 1
+  zcat $CWD/service-discovery-applet]$ svn add service-discovery-applet.vinagre.diff.gz | patch -p1
 fi
-
-# patches for every platform
-zcat < $CWD/pygtk-require.diff.gz | patch -p0 || exit 1
-zcat < $CWD/sftp-no-terminal.patch.gz | patch -p0 || exit 1
 
 # Fix permissions for building.
 chown -R root:root .

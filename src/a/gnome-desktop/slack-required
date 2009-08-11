@@ -5,6 +5,7 @@ libbonoboui
 libgnomeui
 rarian
 startup-notification
+notification-daemon
 gnome-keyring
 gnome-vfs
 gtk+2
