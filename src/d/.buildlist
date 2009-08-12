@@ -16,6 +16,5 @@ anjuta
 gob2
 libgnomemm
 libgnomecanvasmm
-libglademm
-libgnomeuimm
 gnome-vfsmm
+libgnomeuimm
