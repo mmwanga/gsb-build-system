@@ -1,6 +1,8 @@
-curl
+atk
+cairo
+fontconfig
+freetype
 glib2
-gpgme
 gtk+2
 libX11
 libXau
@@ -10,9 +12,10 @@ libXext
 libXfixes
 libXi
 libXinerama
+libXcomposite
+libXdamage
 libXrandr
 libXrender
-libgpg-error
 libidn
 libpng
 libxcb
@@ -22,3 +25,4 @@ slapt-get
 zlib
 gksu
 libgksu
+pixman

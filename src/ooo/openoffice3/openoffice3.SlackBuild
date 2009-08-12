@@ -124,12 +124,12 @@ elif [ "$ARCH" = "powerpc" ]; then
 fi
 
 # Fix permissions for building.
-#chown -R root:root .
-#find . \
-  #\( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
-  #-exec chmod 755 {} \; -o \
-  #\( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
-  #-exec chmod 644 {} \;
+chown -R root:root .
+find . \
+  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
+  -exec chmod 755 {} \; -o \
+  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
+  -exec chmod 644 {} \;
 
 # Configure, Tuning, GCC and Make options.
 CONFIGURE_FLAGS=${GSB_CONFIGURE_FLAGS:-""}
@@ -226,12 +226,12 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   || exit 1
 
 # Copy over downloaded sources, rather than run the download script
-#for i in $CWD/{ooo310*,lib*,biblio*,extras*,mdbtools*} ; do 
-  #if [ ! -f ./src/${i} ]; then
-    #echo "Copying to source tree: $(basename $i)"
-    #cp $i ./src 
-  #fi;
-#done; echo
+for i in $CWD/{ooo310*,lib*,biblio*,extras*,mdbtools*} ; do 
+  if [ ! -f ./src/${i} ]; then
+    echo "Copying to source tree: $(basename $i)"
+    cp $i ./src 
+  fi;
+done; echo
 
 # Build and Install
 make $MAKE_FLAGS || exit 1
@@ -321,7 +321,6 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz || exit 1
 
 # Cleanup
-echo "Not cleaning up."
-#[ "$NOCLEANUP" = "0" ] && {
-  #rm -rf $PKG $TMP/ooo-build-$VERSION
-#}
+[ "$NOCLEANUP" = "0" ] && {
+  rm -rf $PKG $TMP/ooo-build-$VERSION
+}

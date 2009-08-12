@@ -16,8 +16,6 @@ libdvbpsi5
 libdvdcss
 libdvdnav
 libdvdread
-libebml
-libmatroska
 libmms
 libsndfile
 libquicktime
@@ -29,6 +27,4 @@ sdl
 alsa-lib
 glib2
 gtk+2
-openal
-mplayer-codecs
 speex

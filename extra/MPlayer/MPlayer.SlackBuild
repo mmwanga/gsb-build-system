@@ -42,7 +42,7 @@ BUILD=${BUILD:-1}
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libpng libjpeg libogg xvidcore a52dec ffmpeg faac faad2 mpeg4ip x264 libcddb libcdio libdvbpsi5 libdvdread libebml libmatroska libmms libsndfile libquicktime mpeg2dec libmpcdec libmad freetype sdl alsa-lib glib2 gtk+2 pulseaudio fontconfig libdvdnav svn"
+REQUIRED_PACKAGES="libpng libjpeg libogg xvidcore a52dec ffmpeg faac faad2 mpeg4ip x264 libcddb libcdio libdvbpsi5 libdvdread libmms libsndfile libquicktime mpeg2dec libmpcdec libmad freetype sdl alsa-lib glib2 gtk+2 pulseaudio fontconfig libdvdnav subversion"
 
 # Build variables
 ARCH=${ARCH:-i486}
@@ -230,8 +230,8 @@ set -u
 P1=${1:-1}
 
 # Create working directories:
-mkdir -p $TMP/tmp-$PKGNAME # location to build the source
-rm -rf $TMP/tmp-$PKGNAME/* # remove the remnants of previous build
+mkdir -p $TMP/$PKGNAME-$VERSION # location to build the source
+rm -rf $TMP/$PKGNAME-$VERSION/* # remove the remnants of previous build
 mkdir -p $PKG             # place for the package to be built
 rm -rf $PKG/*             # erase old package's contents
 mkdir -p $TMP          # place for the package to be saved
@@ -295,7 +295,7 @@ EOT
   sleep 5
 fi
 
-cd $TMP/tmp-$PKGNAME
+cd $TMP
 echo "Extracting the source archive(s) for $PKGNAME..."
 tar -xvf ${SOURCE[0]}
 [ "$USE_PATENTS" != "YES" ] && rm -rf libdvdcss
@@ -337,8 +337,8 @@ echo Building ...
             2>&1 | tee $TMP/configure-${PKGNAME}.log
 # So that MPlayer does not report "UNKNOWN" as it's version:
 echo $VERSION > VERSION
-make 2>&1 | tee $TMP/make-${PKGNAME}.log
-make DESTDIR=$PKG install 2>&1 |tee $TMP/install-${PKGNAME}.log
+make 2>&1 &&
+make DESTDIR=$PKG install 2>&1 || exit 1
 
 # Build the html documentation (not all languages are available):
 ( cd DOCS/xml
@@ -352,6 +352,7 @@ mkdir -p $PKG/etc/mplayer
 cp etc/example.conf $PKG/etc/mplayer/mplayer.conf.new
 
 # Install our default skin:
+mkdir -p $PKG/usr/share/mplayer/skins
 cd $PKG/usr/share/mplayer/skins
 tar -xvf ${SOURCE[1]}
 chown -R root:root *
@@ -416,12 +417,6 @@ mv $PKG/usr/doc/$PKGNAME-$VERSION/HTML-single $PKG/usr/doc/$PKGNAME-$VERSION/htm
 for i in etc/*.conf ; do
   cp $i $PKG/usr/doc/$PKGNAME-$VERSION/$(basename $i)-sample
 done
-# Save a transcript of all configured options for this specific build:
-if [ -n $TMP/configure-${PKGNAME}.log ]; then
-  cat $TMP/configure-${PKGNAME}.log \
-    | sed -n "/^Config files successfully generated/,/^'config.h' and 'config.mak' contain your configuration options./p" \
-    > $PKG/usr/doc/$PKGNAME-$VERSION/${PKGNAME}.configuration
-fi
 find $PKG/usr/doc -type f -exec chmod 644 {} \;
 
 # Compress the man page(s):
@@ -446,7 +441,7 @@ done
 
 # Build the package:
 cd $PKG
-makepkg --linkadd y --chown n $TMP/${PKGNAME}-${VERSION}-${ARCH}-${BUILD}${TAG}.txz 2>&1 | tee $TMP/makepkg-${PKGNAME}.log
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Warn about libdvdcss requirement (again):
 if [ "$USE_PATENTS" != "YES" ]; then

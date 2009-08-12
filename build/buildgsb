@@ -97,6 +97,7 @@ NOINSTALL=0
 NOMETAPACKAGES=0
 PUBLISH=0
 SOURCE=0
+VERIFY=0
 
 # Required for a few websites which expired certificates, like LaunchPad.
 # We check md5sums to cover ourselves. 
@@ -131,6 +132,10 @@ while [ -n "$1" ] ; do
     ;;
     -publish|--publish)
       PUBLISH=1
+      shift
+    ;;
+    -verify|--verify)
+      VERIFY=1
       shift
     ;;
     -export-source|--export-source)
@@ -388,6 +393,8 @@ fi
 #========================================================================
 # PRUNE OLD FILES
 #
+# Remove any old packages lying around
+#
 if [ "${NOPRUNE}" = "0" ]; then
   PRUNE_FILES="$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
     "" "" "" "\.txz|\.txt|\.txz\.asc" | grep -v "$( find_package_files \
@@ -430,7 +437,8 @@ fi;
 #========================================================================
 # INSTALL NEW PACKAGE
 #
-
+# Install our new package if necessary
+#
 INSTALLED=$(find_package_files "/var/log/packages" "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" \
              "" "" "${PACKAGE_BUILD}${TAG}")
 if [ "$SKIP_BUILD" = "0" -o "${INSTALLED}" = "" ]; then
@@ -458,7 +466,7 @@ done
 # Make sure our PACKAGESDIR has the same number of packages as found in our
 # source directory if we are publishing. We don't want to overlook anything. 
 # 
-if [ "${PUBLISH}" = "1" ]; then
+if [ "${VERIFY}" = "1" ]; then
   echo ; echogreen "* " ; echo -n "Verifying contents of set $SET: " 
   # Make sure we only have the number of packages identical to the number in 
   # the source directory
