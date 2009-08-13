@@ -1,0 +1,7 @@
+PKGNAME="gnomebaker"
+VERSION="0.6.4"
+HOMEPAGE="http://gnomebaker.sourceforge.net/"
+DOWNLOAD="http://downloads.sourceforge.net/project/gnomebaker/gnomebaker/0.6.4/gnomebaker-0.6.4.tar.gz"
+MD5SUM="5dfa37b730fe09b5c0f1050fe89ff93e"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

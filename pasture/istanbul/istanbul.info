@@ -1,0 +1,7 @@
+PKGNAME="istanbul"
+VERSION="3.3.1"
+HOMEPAGE="http://live.gnome.org/Istanbul"
+DOWNLOAD="http://zaheer.merali.org/istanbul-0.2.2.tar.bz2"
+MD5SUM="8ddcfd5a29dcd10fdafc10af9f66848b"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
