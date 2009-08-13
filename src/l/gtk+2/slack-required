@@ -1,4 +1,4 @@
-glib2 >= 2.20
+glib2 >= 2.20-@ARCH@-1
 pango
 cairo
 jasper

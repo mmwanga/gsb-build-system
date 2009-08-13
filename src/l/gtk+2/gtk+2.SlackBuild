@@ -25,7 +25,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=4
+BUILD=5
 VERSION=2.16.5
 
 # List any packages here that are required to build this package.
@@ -287,7 +287,7 @@ chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
 do
   [ -e $CWD/$FILE ] && {
-    cat $CWD/$FILE >>$PKG/install/$FILE
+    cat $CWD/$FILE | sed 's,@ARCH@,${ARCH},g' >>$PKG/install/$FILE
   }
 done
 
