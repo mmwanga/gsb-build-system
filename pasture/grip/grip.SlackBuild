@@ -163,15 +163,15 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-dependency-tracking \
   || exit 1
 
-## Build and install.
+# Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-## Strip debugging symbols.
+# Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
 
-## Compress and fix manpage links.
+# Compress and fix manpage links.
 [ -e $PKG/usr/man ] && {
   find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
   find $PKG/usr/man -type l -name \*.? -printf \
@@ -179,21 +179,14 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }
 
-## Deal with .info files.
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
-}
-
-## Copy extra documentation into package.
+# Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a \
-  AUTHORS COPYING* ChangeLog NEWS README \
+cp -a AUTHORS COPYING* README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
-## Package meta files
+# Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
 do
   [ -e $CWD/$FILE ] && {
@@ -201,11 +194,11 @@ do
   }
 done
 
-## Create the package
+# Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-$BUILD.tgz
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
-## Cleanup
+# Cleanup
 [ "$NOCLEANUP" = "0" ] && {
   rm -rf $PKG $TMP/$PKGNAME-$VERSION
 }

@@ -37,17 +37,17 @@
 #
 
 # Package variables
-VERSION=${VERSION:-r29390}
-BUILD=${BUILD:-1}
+VERSION=r29502
+BUILD=1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libpng libjpeg libogg xvidcore a52dec ffmpeg faac faad2 mpeg4ip x264 libcddb libcdio libdvbpsi5 libdvdread libmms libsndfile libquicktime mpeg2dec libmpcdec libmad freetype sdl alsa-lib glib2 gtk+2 pulseaudio fontconfig libdvdnav subversion"
+REQUIRED_PACKAGES="libpng libjpeg libogg xvidcore a52dec faac faad2 mpeg4ip x264 libcddb libcdio libdvbpsi5 libdvdread libmms libsndfile libquicktime mpeg2dec libmpcdec libmad freetype sdl alsa-lib glib2 gtk+2 pulseaudio fontconfig libdvdnav subversion"
 
 # Build variables
+TAG=${TAG:-gsb}
 ARCH=${ARCH:-i486}
 TUNE=${TUNE:-i486}
-TAG=${TAG:-gsb}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}
@@ -298,10 +298,10 @@ fi
 cd $TMP
 echo "Extracting the source archive(s) for $PKGNAME..."
 tar -xvf ${SOURCE[0]}
+cd ${PKGNAME}-${VERSION}
 [ "$USE_PATENTS" != "YES" ] && rm -rf libdvdcss
 chown -R root:root *
 chmod -R u+w,go+r-w,a-s *
-cd ${PKGNAME}-${VERSION}
 
 # Determine what X we're running (the modular X returns the prefix
 # in the next command, while older versions stay silent):
@@ -312,8 +312,7 @@ XPREF=$(pkg-config --variable=prefix x11) || true
 if [ "$USE_PATENTS" != "YES" ]; then
   DO_PATENTED="--disable-libdvdcss-internal \
                --disable-mp3lame --disable-mp3lame-lavc \
-               --disable-faac --disable-faac-lavc \
-               --disable-libamr_nb --disable-libamr_wb"
+               --disable-faac --disable-faac-lavc"
 else
   DO_PATENTED=""
 fi

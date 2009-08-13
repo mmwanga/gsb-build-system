@@ -108,7 +108,8 @@ mkdir -p $PKGDEST
 
 # Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
+mv gDesklets-$VERSION $PKGNAME-$VERSION &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -165,6 +166,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 # Build and install.
 make $MAKE_FLAGS -j1 &&
 make $MAKE_FLAGS -j1 DESTDIR=$PKG install || exit 1
+
+rm -fr $PKG/usr/share/applications/mimeinfo.cache 
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

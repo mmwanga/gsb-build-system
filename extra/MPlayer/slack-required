@@ -4,7 +4,6 @@ libjpeg
 libogg
 xvidcore
 a52dec
-ffmpeg
 faac
 faad2
 lame

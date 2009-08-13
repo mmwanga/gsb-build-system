@@ -29,7 +29,7 @@ VERSION=0.2.2
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES=""
+REQUIRED_PACKAGES="gst-python pygtk gnome-python-extras"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -151,7 +151,15 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
+# Install python-xlib
+( tar xfz $CWD/python-xlib-0.14.tar.gz
+cd python-xlib-0.14
+# Build and install.
+python setup.py build &&
+python setup.py install --prefix=/usr --root=$PKG)
+
 # Configure.
+PYTHONPATH="$PKG/usr/lib${LIBDIRSUFFIX}/python2.6/site-packages" \
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS \
@@ -181,7 +189,7 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a AUTHORS COPYING* NEWS README \
+cp -a COPYING* NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
