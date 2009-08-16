@@ -30,8 +30,7 @@ fi
 #  fi
 #done
 mkdir -p etc/gtk-2.0
-
-chroot . rm -f /usr/share/icons/*/icon-theme.cache 1> /dev/null 2> /dev/null
+# chroot . rm -f /usr/share/icons/*/icon-theme.cache 1> /dev/null 2> /dev/null
 
 # Run this if we are on an installed system.  Otherwise it will be
 # handled on first boot.
