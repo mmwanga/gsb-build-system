@@ -15,7 +15,7 @@
 # applications, or are dead set against replacing any Slackware provided  
 # packages.
 #
-# Last updated: August 09, 2009 (stevek)
+# Last updated: August 11, 2009 (stevek)
 #
 
 ***********************************************
@@ -23,12 +23,12 @@
 
 alsa-lib:         ( > 1.0.20 required by pulseaudio 0.9.15, libcanberra, and 
                       gnome-control-center)
-bluez:            ( > 4.2 bluez replaces bluez-utils and bluez-libs, required 
+bluez:            ( > 4.46 bluez replaces bluez-utils and bluez-libs, required 
                     for gvfs support for Bluetooth, and other GNOME 2.26 
                     bluetooth userspace applications)
 glib2:            ( > 2.20 required by libgnome, gvfs, nautilus, and others)
 gtk+2:            ( > 2.16 required by gnome-panel, among others )
-
+libwnck:          ( 2.26.2 )
 
 ***********************************************
 -- Recommended Replacements --
@@ -37,14 +37,12 @@ gst-plugins-base  ( > 0.10.23 rebuild against gvfs/gnomevfs to enable giosink,
                     required by sound-juicer)
 libgsf:           ( Slackware's libgsf lacks GNOME support; required for GNOME 
                     Office applications like Gnumeric)
-gnome-icon-theme  ( We offer an updated gnome-icon-theme package; better icons, 
-                    and a rather trivial replacement.)
 
 ***********************************************
 -- Optional Replacements --
 
-compiz-fusion:    ( Slackware comes with compiz 0.7.4; our compiz-fusion is 
-                    offers GNOME support, like CCSM and other goodies.)
+compiz:           ( Slackware comes with compiz 0.7.4; our compiz-fusion offers
+                    GNOME support, like CCSM and other goodies.)
 pidgin:           ( We offer the latest stable Pidgin package with 
                     pulseaudio support for sounds in extra/.)
 MPlayer:          ( We have rebuilt MPlayer against pulseaudio; found in extra/.)
