@@ -1,0 +1,8 @@
++--------------------------+
+Sun Aug 16 12:24:20 BST 2009
+Full rebuild of GNOME SlackBuild 2.26.3 for Slackware64 13.0 RC2.  GNOME
+SlackBuild has gone under a directory restructuring to bring it more into line
+with Slackware's own practice.  All our packages have been assigned to sets
+now, along with tagfiles.  This will help us to develop a Slackware type
+installer for GNOME SlackBuild as well as still being able to offer a slapt-get
+based installation.  
