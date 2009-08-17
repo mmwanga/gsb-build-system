@@ -165,7 +165,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --with-distro=GNOMESlackBuild${LIBDIRSUFFIX} \
   --with-ant-home=/usr/lib${LIBDIRSUFFIX}/apache-ant \
-  --with-lang="en-GB de fr it" \
+  --with-lang="en-US en-GB de fr it" \
   --disable-odk \
   --disable-pam \
   --disable-pam-link \
