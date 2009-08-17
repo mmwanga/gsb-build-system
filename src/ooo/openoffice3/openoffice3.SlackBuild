@@ -164,64 +164,26 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --mandir=/usr/man $CONFIGURE_FLAGS \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --with-distro=GNOMESlackBuild${LIBDIRSUFFIX} \
-  --with-lang=ALL \
-  --disable-gnome-vfs\
-  --disable-binfilter\
+  --with-ant-home=/usr/lib${LIBDIRSUFFIX}/apache-ant \
+  --with-lang="en-GB de fr it" \
+  --disable-odk \
   --disable-pam \
-  --disable-evolution2\
-  --disable-kde\
-  --disable-lockdown\
-  --disable-mediawiki\
-  --disable-minimizer\
-  --disable-odk\
-  --disable-pdfimport\
-  --disable-qadevooo\
-  --disable-reportdesign\
-  --disable-systray\
-  --disable-mathmldtd\
+  --disable-pam-link \
+  --disable-post-install-scripts \
   --enable-access \
   --enable-cairo \
-  --enable-gio\
-  --enable-gtk\
-  --enable-cups\
-  --enable-dbus\
-  --enable-cairo\
-  --enable-crashdump=no\
-  --enable-vba\
-  --with-package-format=native\
+  --with-system-cairo \
+  --with-system-neon \
+  --with-system-icu \
+  --with-system-expat \
   --with-system-boost \
-  --with-system-db\
-  --with-system-cairo\
-  --with-system-curl\
-  --with-system-expat\
-  --with-system-freetype\
-  --with-system-gcc \
-  --with-system-icu\
-  --with-system-jpeg\
-  --with-system-libsvg \
-  --with-system-libwpd\
-  --with-system-libxml\
-  --with-system-libxslt\
-  --with-system-neon\
-  --with-system-python\
-  --with-system-redland\
-  --with-system-sane-header\
-  --with-system-sndfile\
-  --with-system-stdlibs\
-  --with-system-xrender-headers\
-  --with-system-zlib\
-  --with-system-openssl\
-  --with-system-mozilla=xulrunner\
-  --without-fonts\
-  --without-afms\
-  --without-gpc\
-  --without-nas\
-  --with-ant-home=/usr/lib${LIBDIRSUFFIX}/apache-ant \
-  --with-use-shell=bash\
-  --disable-post-install-scripts \
+  --with-system-mozilla=libxul \
+  --enable-mono \
+  --enable-openxml \
   --with-binsuffix=3.1 \
-  --with-docdir=/usr/doc/openoffice.org \
+  --with-docdir=/usr/share/doc/openoffice.org \
   --with-gcc-speedup=ccache \
+  --with-openclipart=/usr/share/openclipart \
   --with-drink=ale \
   || exit 1
 
@@ -234,18 +196,14 @@ for i in $CWD/{ooo310*,lib*,biblio*,extras*,mdbtools*} ; do
 done; echo
 
 # Build and Install
-make $MAKE_FLAGS || exit 1
+make || exit 1
 
 # Do a full install
 cd bin ; OODESTDIR=$PKG ./package-ooo || exit 1
 
 # Split out language packs
 cd $PKG ; 
-LANGUAGES="af ar as-IN be-BY bg bn bn-BD bn-IN br brx bs by ca cs cy da de dgo dz el \
- en-ZA eo es et eu fa fi fr ga gd gl gu-IN he hi-IN hr hu it ja ka kk km \
- kn-IN ko kok ks ku lo lt lv mai mk ml-IN mn mni mr-IN ms my nb ne nl nn nr ns oc \
- or-IN pa-IN pl pt pt-BR ro ru rw sa-IN sat sc sd sh sk sl sr ss st sv sw sw-TZ \
- ta-IN te-IN tg th ti-ER tn tr ts uk ur-IN uz ve vi xh zh-CN zh-TW zu"
+LANGUAGES="en-GB de fr it"
 for lang in $LANGUAGES ; do
   echo "Splitting langpack $lang."
   (

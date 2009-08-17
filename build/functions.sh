@@ -226,7 +226,7 @@ function download_package() {
   # Read in package info file
   . ./$1.info || return 1
 
-  [ -z $DOWNLOAD ] && return 0
+  [ -z "$DOWNLOAD" ] && return 0
 
   # Our environment
   local MD5COUNT=1
