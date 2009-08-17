@@ -11,6 +11,7 @@ cdparanoia:ADD
 cdrdao:ADD
 cdrtools:ADD
 cupsddk:ADD
+dc3dd:SKP
 diffstat:ADD
 diffutils:ADD
 dmapi:ADD

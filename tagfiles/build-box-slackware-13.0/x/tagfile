@@ -58,10 +58,12 @@ fonttosfnt:ADD
 fslsfonts:ADD
 fstobdf:ADD
 gccmakedep:ADD
+glew:SKP
 glproto:ADD
 iceauth:ADD
 ico:ADD
 imake:ADD
+intel-gpu-tools:SKP
 inputproto:ADD
 kbproto:ADD
 lbxproxy:ADD
@@ -165,6 +167,7 @@ xbiff:ADD
 xbitmaps:ADD
 xcalc:ADD
 xcb-proto:ADD
+xcb-util:ADD
 xclipboard:ADD
 xclock:ADD
 xcmiscproto:ADD
@@ -294,6 +297,7 @@ xorg-cf-files:ADD
 xorg-docs:ADD
 xorg-server:ADD
 xorg-server-xnest:ADD
+xorg-server-xephyr:ADD
 xorg-server-xvfb:ADD
 xorg-sgml-doctools:ADD
 xphelloworld:ADD
@@ -302,11 +306,13 @@ xpr:ADD
 xprehashprinterlist:ADD
 xprop:ADD
 xproto:ADD
+xpyb:ADD
 xproxymanagementprotocol:ADD
 xrandr:ADD
 xrdb:ADD
 xrefresh:ADD
 xrx:ADD
+xscope:ADD
 xset:ADD
 xsetmode:ADD
 xsetpointer:ADD

@@ -39,9 +39,10 @@ ipw2100-fw:ADD
 ipw2200-fw:ADD
 irssi:SKP
 iw:ADD
-iwlwifi-3945-ucode:ADD
-iwlwifi-4965-ucode:ADD
-iwlwifi-5000-ucode:ADD
+iwlwifi-3945-ucode:SKP
+iwlwifi-4965-ucode:SKP
+iwlwifi-5000-ucode:SKP
+iwlwifi-5150-ucode:SKP
 lftp:SKP
 libassuan:ADD
 libgcrypt:ADD
@@ -57,7 +58,7 @@ mutt:SKP
 nc:SKP
 ncftp:ADD
 net-snmp:ADD
-net-tools:SKP
+net-tools:ADD
 netatalk:SKP
 netdate:SKP
 netkit-bootparamd:SKP
