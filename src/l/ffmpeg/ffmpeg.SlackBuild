@@ -25,7 +25,12 @@
 
 # Package variables. 
 BUILD=1
-VERSION=r19634
+VERSION=r19668
+
+# Make sure we use a set libswscale from mplayer;  the external dependency
+# is a trunk revision, and so checking out a set revision of ffmpeg may 
+# sometimes cause it to fail building with later changes to libswcale
+LIBSWSCALE_VERSION=r29540
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -120,12 +125,16 @@ src_checkout() {
   esac
   if [ "$(echo ${VERSION}|cut -c1)" == 'r' ]; then # revision instead of date
     REV=$(echo ${VERSION} | cut -c2-)
+    SW_REV=$(echo ${LIBSWSCALE_VERSION} | cut -c2-)
   else
     REV="{${VERSION}}"
+    SW_REV="{${LIBSWSCALE_VERSION}}"
   fi
-  mkdir $PKGNAME-${VERSION} \
+  mkdir -p $PKGNAME-${VERSION} \
     && cd $PKGNAME-${VERSION} \
     && svn checkout  --revision $REV svn://svn.mplayerhq.hu/ffmpeg/trunk . \
+    && ( rm -fr libswscale ; svn checkout --revision $SW_REV \
+         svn://svn.ffmpeg.org/mplayer/trunk/libswscale ./libswscale ) \
     && find . -type d -name '.svn' -depth | xargs rm -rf \
     && chown -R root:root . \
     && cd .. \

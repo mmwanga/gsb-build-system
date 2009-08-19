@@ -172,8 +172,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-post-install-scripts \
   --enable-access \
   --enable-cairo \
-  --disable-kde \
-  --enable-gtk \
   --with-system-cairo \
   --with-system-neon \
   --with-system-icu \
