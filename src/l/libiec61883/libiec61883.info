@@ -1,7 +1,6 @@
 PKGNAME="libiec61883"
 VERSION="1.2.0"
 HOMEPAGE="http://www.linux1394.org/"
-DOWNLOAD="http://www.linux1394.org/dl/libiec61883-1.2.0.tar.gz"
 MD5SUM="8af39fff74988073c3ad53fbab147da9"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
