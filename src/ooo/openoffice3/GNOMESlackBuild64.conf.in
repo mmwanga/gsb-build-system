@@ -6,7 +6,8 @@
 --disable-odk
 --disable-pam
 --disable-pam-link
---enable-mono
+--disable-mono
+--enable-gtk 
 --enable-bonobo
 --enable-cairo
 --enable-access

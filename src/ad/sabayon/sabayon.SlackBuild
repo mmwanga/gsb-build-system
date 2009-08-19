@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.25.0
+VERSION=2.27.91
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gamin GConf python xorg-server-xnest pygtk python-ldap"
+REQUIRED_PACKAGES="gamin GConf python xorg-server-xephyr pygtk python-ldap"
 
 # Build variables.
 TAG=${TAG:-gsb}

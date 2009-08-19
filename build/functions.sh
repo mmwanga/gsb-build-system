@@ -133,8 +133,9 @@ function make_filelist_txt() {
   local DATED=${4:-0}
   echo -n "Creating $FILELIST for $(basename ${1}): "
   touch /tmp/waiting ; spinning /tmp/waiting &
+
   rm -fr ${2:-.}/${FILELIST}*
-  ( cd $1
+  { ( cd $1
   if [ "$DATED" = "1" ]; then
     echo "$( date )"
   fi;
@@ -146,8 +147,8 @@ function make_filelist_txt() {
     echo ""
     find . ! -wholename ./FILELIST.TXT ! -wholename ./FILELIST.TXT.gz \
       ! -wholename ./CHECKSUMS.md5 ! -wholename ./CHECKSUMS.md5.gz | \
-      sort | xargs ls -ld ) >${2:-.}/$FILELIST 2>/dev/null
-  #cat ${2:-.}/FILELIST.TXT | gzip -9c >${2:-.}/FILELIST.TXT.gz 2>/dev/null
+      sort | xargs ls -ld )} >${2:-.}/$FILELIST 2>/dev/null
+
   rm -f /tmp/waiting ;
   echo "done."
 }

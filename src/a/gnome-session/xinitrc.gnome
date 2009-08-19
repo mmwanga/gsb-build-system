@@ -1,15 +1,14 @@
 #!/bin/sh
 #
-# GNOME xinitrc Session script.
-# Based on:
-# $XConsortium: xinitrc.cpp,v 1.4 91/08/22 11:41:34 rws Exp $
+# GNOME SlackBuild xinitrc GNOME Session script.
 #
 # Changelog: 
 #
-# Added ConsoleKit support (2008-10-30) stevek
-# Remove unneeded user started dbus session (2008-03-28) stevek
-# Add export to XDG_CONFIG_DIRS (2008-03-19) stevek
-# Inital version (2008-01-17) stevek
+#  Removed seahorse-agent, now in /etc/gnome/xdg/autostart (2009-30-07) stevek
+#  Added ConsoleKit support (2008-10-30) stevek
+#  Remove unneeded user started dbus session (2008-03-28) stevek
+#  Add export to XDG_CONFIG_DIRS (2008-03-19) stevek
+#  Inital version (2008-01-17) stevek
 #
 
 userresources=$HOME/.Xresources
@@ -44,11 +43,6 @@ fi
 # Use ssh-agent if available
 if [ -x /usr/bin/ssh-agent ]; then
   GNOME_SESSION_SETTINGS="$GNOME_SESSION_SETTINGS /usr/bin/ssh-agent"
-fi;
-
-# Use Seahorse if available
-if [ -x /usr/bin/seahorse-agent ]; then
-  GNOME_SESSION_SETTINGS="$GNOME_SESSION_SETTINGS /usr/bin/seahorse-agent --execute"
 fi;
 
 # Use ConsoleKit if available

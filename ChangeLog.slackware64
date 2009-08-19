@@ -1,6 +1,34 @@
+Wed Aug 19 10:06:53 BST 2009
++--------------------------+
+n/liferea-1.6.0-x86_64-1gsb.txz: Upgraded.  Latest stable version now fully
+  supports the use of webkit as a backend.  n/webkit-1.1.10-x86_64-1gsb.txz:
+  Upgraded.  We've stopped using the nightly builds from webkit.org and began
+  to use "release" (ie, slightly stripped versions of nightly builds) from
+  webkitgtk.org.  
+ad/sabayon-2.27.91-x86_64-1gsb.txz: Upgraded.  This version (finally) works 
+  from upstream development work.  It uses xorg-server-xephyr in
+  place of the xorg-server-xnest.  
+a/gnome-session-2.26.2-x86_64-3gsb.txz: Rebuilt.  Modified xinitrc.gnome to 
+  no longer use seahores-daemon;  instead this daemon now starts up from the 
+  xdg autostart directory in /etc/gnome. 
++--------------------------+
+Mon Aug 17 20:23:22 BST 2009
+ooo/openoffice3-3.1.0.6-x86_64-2gsb.txz: Rebuilt.  Added gtk+ widget support.
+ooo/openoffice3-l10n-*-3.1.0.6-noarch-2gsb.txz: Added.
+  Our OpenOffice3 packages now come with multilingual support, including
+  dictionaries and localisations. 
+a/libgnome-2.26.0-x86_64-6gsb.txz: Rebuilt. Fixes in doinst.sh.
+a/libwnck-2.26.2-x86_64-1gsb.txz: Added.  
+  We will continue to replace this package since it will quickly lag behind
+  once GNOME 2.28 is release.
+n/network-manager-applet-0.7.1-x86_64-4gsb.txz: Rebuilt. Added slack-suggests.
+ap/gnome-mplayer-0.9.6-x86_64-1gsb.txz: Rebuilt.
+go/goffice-0.6.6-x86_64-5gsb.txz: Rebuilt.  Force slack-required version for
+  libgsf built against libgnome.
+go/gtkmathview-0.8.0-x86_64-3gsb.txz: Rebuilt. Fixes in doinst.sh.
 +--------------------------+
 Sun Aug 16 12:24:20 BST 2009
-Full rebuild of GNOME SlackBuild 2.26.3 for Slackware64 13.0 RC2.  GNOME
+Full rebuild of GNOME SlackBuild 2.26.3 for Slackware64 13.0.  GNOME
 SlackBuild has gone under a directory restructuring to bring it more into line
 with Slackware's own practice.  All our packages have been assigned to sets
 now, along with tagfiles.  This will help us to develop a Slackware type

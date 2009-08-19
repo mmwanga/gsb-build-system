@@ -3,9 +3,11 @@
 --with-java
 --with-ant-home=/usr/lib/apache-ant
 --disable-odk
+--disable-kde
 --disable-pam
 --disable-pam-link
---enable-mono
+--disable-mono
+--enable-gtk
 --enable-bonobo
 --enable-cairo
 --enable-access

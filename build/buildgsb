@@ -521,10 +521,10 @@ done
 #
 if [ "${SOURCE}" = "1" ]; then
   echo ; header "Exporting source trees."
-  echo && export_source $BUILDSOURCE $PKGDEST &&
-  echo && export_source $EXTRASOURCE $PKGDEST/extra &&
-  echo && export_source $PASTURESOURCE $PKGDEST/pasture &&
-  echo && export_source $TESTINGSOURCE $PKGDEST/testing || error_out
+  export_source $BUILDSOURCE $PKGDEST &&
+  export_source $EXTRASOURCE $PKGDEST/extra &&
+  export_source $PASTURESOURCE $PKGDEST/pasture &&
+  export_source $TESTINGSOURCE $PKGDEST/testing || error_out
 fi;
 
 #========================================================================

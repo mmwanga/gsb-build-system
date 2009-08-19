@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=r44481
+VERSION=1.1.10
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libicu libxslt curl sqlite libjpeg libpng gperf cairo fontconfig freetype glib2 gtk+2 gnome-vfs gstreamer"
+REQUIRED_PACKAGES="libicu libxslt curl sqlite libjpeg libpng gperf cairo fontconfig freetype glib2 gtk+2 gnome-vfs gstreamer libsoup"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -41,7 +41,6 @@ PKGDEST=${PKGDEST:-$TMP}
 
 # Script variables.
 PKGNAME=$(basename $0 .SlackBuild)
-SRCNAME=WebKit
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
@@ -109,9 +108,9 @@ mkdir -p $PKGDEST
 
 # Decompress archive.
 cd $TMP &&
-rm -rf $SRCNAME-$VERSION &&
-tar xjf $CWD/$SRCNAME-${VERSION}.tar.bz2 &&
-cd $SRCNAME-$VERSION || exit 1
+rm -rf $PKGNAME-$VERSION &&
+tar xzf $CWD/$PKGNAME-${VERSION}.tar.gz &&
+cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
@@ -155,7 +154,7 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
@@ -190,16 +189,6 @@ make -f GNUmakefile $MAKE_FLAGS -j2 DESTDIR=$PKG install || exit 1
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }
 
-# Deal with .info files.
-[ -e $PKG/usr/share/info ] && {
-  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
-  rmdir -p $PKG/usr/share
-  }
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
-}
-
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a WebKit/LICENSE* $PKG/usr/doc/$PKGNAME-$VERSION
@@ -220,5 +209,5 @@ makepkg -p -l y -c n $PKGDEST/${PKGNAME}-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.tx
 
 # Cleanup
 [ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/$SRCNAME-$VERSION
+  rm -rf $PKG $TMP/$PKGNAME-$VERSION
 }

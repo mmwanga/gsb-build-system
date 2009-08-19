@@ -1,6 +1,6 @@
 gamin
 GConf
 python
-xorg-server-xnest
+xorg-server-xephyr
 pygtk
 python-ldap

@@ -4,6 +4,5 @@ GConf
 gnutls
 libnotify
 dbus
-mozilla-xulrunner
-gtkhtml
 nss
+webkit

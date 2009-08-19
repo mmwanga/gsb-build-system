@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
-VERSION=1.4.28
+BUILD=1
+VERSION=1.6.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glib2 gtk+2 GConf gnutls libnotify dbus mozilla-xulrunner gtkhtml nss"
+REQUIRED_PACKAGES="glib2 gtk+2 GConf gnutls libnotify dbus nss webkit"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -152,8 +152,6 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Configure.
-XULRUNNER_CFLAGS="$(pkg-config --cflags libxul-embedding-unstable)" \
-XULRUNNER_LIBS="$(pkg-config --libs libxul-embedding-unstable)" \
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man \
@@ -163,11 +161,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-schemas-install \
   --disable-static \
   --enable-shared \
-  --enable-gtkhtml2 \
-  --enable-gecko \
   --enable-libnotify \
   --disable-nm \
-  --disable-webkit \
   --program-prefix="" \
   || exit 1
 
@@ -185,16 +180,6 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
   find $PKG/usr/man -type l -name \*.? -printf \
     "( cd '%h'; [ -e '%l.gz' ] &&
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
-}
-
-# Deal with .info files.
-[ -e $PKG/usr/share/info ] && {
-  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
-  rmdir -p $PKG/usr/share
-  }
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
 }
 
 # Copy extra documentation into package.

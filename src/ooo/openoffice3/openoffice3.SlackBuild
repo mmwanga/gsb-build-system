@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=3.1.0.6
 
 # List any packages here that are required to build this package.
@@ -165,13 +165,15 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --with-distro=GNOMESlackBuild${LIBDIRSUFFIX} \
   --with-ant-home=/usr/lib${LIBDIRSUFFIX}/apache-ant \
-  --with-lang="en-US en-GB de fr it" \
+  --with-lang="en-US en-GB de fr it ar da el es fi he hi-IN hu ja ko nb nl pl pt-BR ro ru sv th tr uk zh-CN zh-TW" \
   --disable-odk \
   --disable-pam \
   --disable-pam-link \
   --disable-post-install-scripts \
   --enable-access \
   --enable-cairo \
+  --disable-kde \
+  --enable-gtk \
   --with-system-cairo \
   --with-system-neon \
   --with-system-icu \
@@ -203,7 +205,8 @@ cd bin ; OODESTDIR=$PKG ./package-ooo || exit 1
 
 # Split out language packs
 cd $PKG ; 
-LANGUAGES="en-GB de fr it"
+LANGUAGES="en-GB de fr it ar da el es fi he hi-IN hu ja ko \
+           nb nl pl pt-BR ro ru sv th tr uk zh-CN zh-TW"
 for lang in $LANGUAGES ; do
   echo "Splitting langpack $lang."
   (
