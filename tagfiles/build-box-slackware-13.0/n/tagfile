@@ -21,7 +21,7 @@ epic4:SKP
 ethtool:SKP
 fetchmail:SKP
 getmail:ADD
-gnupg:SKP
+gnupg:ADD
 gnupg2:ADD
 gnutls:ADD
 gpa:ADD

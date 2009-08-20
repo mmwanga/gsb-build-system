@@ -18,7 +18,7 @@ imagemagick:ADD
 mozilla-firefox:SKP
 mozilla-thunderbird:SKP
 pan:SKP
-pidgin:SKP
+pidgin:ADD
 rdesktop:ADD
 rxvt:ADD
 sane:ADD
