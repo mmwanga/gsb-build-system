@@ -20,7 +20,7 @@ SOURCE=ftp://ftp.slackware.com/pub/slackware/slackware-current/:OFFICIAL
 # SOURCE=ftp://ftp.slackware.com/pub/slackware/slackware-current/testing/
 # SOURCE=ftp://ftp.slackware.com/pub/slackware/slackware-current/pasture/
 
-# Additional mirrors for Slackware64 can be found at http://slackware.com/getslack/
+# Additional mirrors for Slackware can be found at http://slackware.com/getslack/
 
 # GNOME SlackBuild Mirrors
 SOURCE=http://get.gnomeslackbuild.org/gsb/gsb-2.26/:CUSTOM

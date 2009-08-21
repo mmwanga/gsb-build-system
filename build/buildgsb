@@ -44,7 +44,7 @@ REQUIRED_PACKAGES="cabextract libtool-compat apache-ant openoffice-perl yasm jdk
 # IGNORED PACKAGES
 # List any packages here that are in the source tree but we don't want to build
 # on account of patent or distribution issues
-IGNORED_PACKAGES="msttcorefonts"
+IGNORED_PACKAGES="msttcorefonts openoffice3"
 
 #========================================================================
 # ENVIRONMENT
@@ -443,7 +443,7 @@ INSTALLED=$(find_package_files "/var/log/packages" "${PACKAGE//+/\+}" "${PACKAGE
              "" "" "${PACKAGE_BUILD}${TAG}")
 if [ "$SKIP_BUILD" = "0" -o "${INSTALLED}" = "" ]; then
   # FIXME
-  echo "Waiting." ; read ;
+  # echo "Waiting." ; read ;
   upgradepkg --install-new $( find_package_files "$PKGDEST/$SUBDIR" \
     "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" ) || {
     header "Failed to install '$PACKAGE'." ; exit 1

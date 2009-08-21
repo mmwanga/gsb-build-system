@@ -1,7 +1,7 @@
 PKGNAME="postgresql"
 VERSION="8.3.7"
 HOMEPAGE="http://www.postgresql.org/"
-DOWNLOAD="http://wwwmaster.postgresql.org/redir/170/h/source/v8.3.7/postgresql-8.3.7.tar.bz2"
+DOWNLOAD="http://wwwmaster.postgresql.org/redir/398/f/source/v8.3.7/postgresql-8.3.7.tar.bz2"
 MD5SUM="7b7e91a2221e55fe1b167e663217a96d"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
