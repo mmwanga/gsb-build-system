@@ -1,3 +1,19 @@
+Fri Aug 28 15:54:02 BST 2009
+n/mozilla-xulrunner-1.9.0.13-i486-1gsb.txz: Upgraded.
+  This upgrade fixes incorrect handling of invalid URLs could be used for
+  spoofing the location bar and the SSL certificate status of a web page.
+  For more information, see:
+      http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2654
+  (* Security fix *)
+l/nss-3.12.4-i486-1gsb.txz: Upgraded.
+  This upgrade fixes several vulnerabilities have been discovered in the
+  Network Security Service libraries. 
+  For more information, see:
+      http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2404
+      http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2408
+      http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2409
+  (* Security fix *)
++--------------------------+
 Wed Aug 19 10:06:53 BST 2009
 +--------------------------+
 n/liferea-1.6.0-x86_64-1gsb.txz: Upgraded.  Latest stable version now fully
