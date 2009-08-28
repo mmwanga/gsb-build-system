@@ -24,8 +24,8 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
-VERSION=3.1.0.6
+BUILD=1
+VERSION=3.1.1.1
 
 # List any packages here that are required to build this package.
 REQUIRED_PACKAGES="gtk+2 libgnomeui neon libsndfile gnome-vfs boost libgnomeui mozilla-xulrunner nss sane zlib librsvg libjpeg jre nss jdk apache-ant"
@@ -145,7 +145,7 @@ elif [ "$ARCH" = "s390" ]; then
 elif [ "$ARCH" = "x86_64" ]; then
     TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -fPIC"}
     LIBDIRSUFFIX="64"
-    CONFIGURE_FLAGS="$CONFIGURE_FLAGS --without-java --without-stlport"
+    CONFIGURE_FLAGS="$CONFIGURE_FLAGS --without-java"
 elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
 fi
@@ -172,13 +172,16 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-post-install-scripts \
   --enable-access \
   --enable-cairo \
+  --disable-kde \
+  --disable-kde4 \
+  --enable-gtk \
   --with-system-cairo \
   --with-system-neon \
   --with-system-icu \
   --with-system-expat \
   --with-system-boost \
   --with-system-mozilla=libxul \
-  --enable-mono \
+  --disable-mono \
   --enable-openxml \
   --with-binsuffix=3.1 \
   --with-docdir=/usr/share/doc/openoffice.org \
@@ -188,10 +191,10 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   || exit 1
 
 # Copy over downloaded sources, rather than run the download script
-for i in $CWD/{ooo310*,lib*,biblio*,extras*,mdbtools*} ; do 
+for i in $CWD/{ooo_*,ooo-cli*,ooo310*,lib*,biblio*,extras*,mdbtools*} ; do 
   if [ ! -f ./src/${i} ]; then
-    echo "Copying to source tree: $(basename $i)"
-    cp $i ./src 
+    echo "Linking to source tree: $(basename $i)"
+    (cd src ; ln -s $i )
   fi;
 done; echo
 

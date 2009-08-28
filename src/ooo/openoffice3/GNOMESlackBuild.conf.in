@@ -6,6 +6,8 @@
 --disable-pam
 --disable-pam-link
 --disable-kde
+--disable-kde4
+--enable-gtk 
 --disable-mono
 --enable-bonobo
 --enable-cairo
