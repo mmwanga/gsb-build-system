@@ -110,7 +110,7 @@ mkdir -p $PKGDEST
 # Decompress archive.
 rm -fr $PKGNAME-$VERSION;
 cd $TMP &&
-tar xfj $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xfz $CWD/$PKGNAME-$VERSION.tar.gz &&
 tar xfz $CWD/nspr-$NSPR_VERSION.tar.gz &&
 cp -r nspr-$NSPR_VERSION/mozilla $PKGNAME-$VERSION &&
 rm -fr $TMP/nspr-$NSPR_VERSION &&
