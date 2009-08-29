@@ -117,19 +117,10 @@ cd $SRCNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # upstream git patch 4b16b875db66c72003606c4199b23899ed451e78
-  # to fix atom GDK warnings; BGO 580511
-  zcat $CWD/gtk+2.BGO580511.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # upstream git patch 4b16b875db66c72003606c4199b23899ed451e78
-  # to fix atom GDK warnings; BGO 580511
-  zcat $CWD/gtk+2.BGO580511.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # upstream git patch 4b16b875db66c72003606c4199b23899ed451e78
-  # to fix atom GDK warnings; BGO 580511
-  zcat $CWD/gtk+2.BGO580511.diff.gz | patch -p1
 fi
 
 # There's been this long standing debate about PNG and -lz
