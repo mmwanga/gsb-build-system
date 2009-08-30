@@ -2,7 +2,7 @@
 Welcome to GNOME SlackBuild 2.26.3!
 
 GNOME SlackBuild v2.26.3 is a complete GNOME Desktop Environment for 
-Slackware Linux v12.2, encompassing all the needed packages for a full, 
+Slackware Linux v13.0, encompassing all the needed packages for a full, 
 clean installation of GNOME for Slackware. It aims to provide a fully 
 functional desktop, including a wide range of multimedia, graphics, 
 and development tools, as well as a complete networking and office suite.  
@@ -14,7 +14,7 @@ Here are some versions of major components of GNOME SlackBuild 2.26.3
 	- NetworkManager 0.7.1
 - PulseAudio		 0.9.15
 - Mono C#		 2.4.2.2
-- OpenOffice.org         3.0.1.2
+- OpenOffice.org         3.1.1.1
 - Compiz                 0.8.3
 - GNOME Office
 	- Abiword        2.6.8 
@@ -47,13 +47,8 @@ FTP site:
 |                               to GSB 2.26.3.
 |-- FILELIST.TXT		List of files on the GSB FTP site.
 |-- INSTALL.TXT			Instructions on how to install GSB.
-|-- SLACKWARE-12.2_CONFLICTS.TXT
-|                               This file contains any packages that had
-|                               previously been offered by the GSB project
-|                               and which are now offered officially by
-|                               Slackware.  Users should replace all of these
-|                               packages with official Slackware equivalents.
-|-- SLACKWARE-12.2_REPLACED_PACKAGES.TXT
+|
+|-- SLACKWARE-13.0_REPLACED_PACKAGES.TXT
 |  				Packages in GSB that will replace 
 |                               standard Slackware packages.
 |-- README.TXT			This file.
@@ -63,7 +58,7 @@ FTP site:
 |-- extra/			This directory contains extra packages 
 |   |                           for GSB like mozilla-firefox, and pidgin 
 |   |                           which, though they come with Slackware 
-|   |                           12.2, users may prefer to use our 
+|   |                           13.0, users may prefer to use our 
 |   |                           version.
 |   |			
 |   `-- source/	                Source code for the extra packages.

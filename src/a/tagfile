@@ -24,6 +24,7 @@ gnome-session:ADD
 gnome-settings-daemon:ADD
 gnome-themes:ADD
 gnome-vfs:ADD
+gsb-desktop:SKP
 gtk-engines:ADD
 gvfs:ADD
 libbonobo:ADD

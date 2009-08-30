@@ -157,7 +157,6 @@ function make_checksums_md5() {
   # $1 = Sub-directory to process [required]
   # $2 = Sub-directory to put CHECKSUMS.md5 in, or empty for current directory
   [ -z "$1" ] && return 1
-  touch /tmp/waiting ; spinning /tmp/waiting &
   echo -n "Creating CHECKSUMS.md5 for $(basename ${1}): "
   rm -fr ${2:-.}/CHECKSUMS.md5*
 
@@ -181,7 +180,6 @@ EOT
     find . ! -wholename ./CHECKSUMS.md5 ! -wholename ./CHECKSUMS.md5.gz \
       \( -type f -o -type l \) -exec md5sum {} \; | \
       sort -k2 -f ) >>${2:-.}/CHECKSUMS.md5 2>/dev/null
-  rm -f /tmp/waiting ;
   echo "done."
   echo "Please sign $(basename $1)/CHECKSUMS.md5: "; echo
   gpg -b -a ${2:-.}/CHECKSUMS.md5 || exit 1
@@ -196,7 +194,6 @@ function make_manifest() {
   [ -z "$1" ] && return 1
 
   echo -n "Creating MANIFEST.bz2 for ${1}: "
-  touch /tmp/waiting ; spinning /tmp/waiting &
   rm -fr ${2:-.}/MANIFEST.bz2*
   manifest=.manifest
   rm -f $manifest 
@@ -214,7 +211,6 @@ function make_manifest() {
     bzip2 -c $manifest > ${2:-.}/MANIFEST.bz2 ;
   fi;
   rm -f $manifest ;
-  rm -f /tmp/waiting ;
   echo "done."
 }
 
@@ -437,8 +433,10 @@ export_source() {
     find $EXPORTDEST/source \( -name ".buildlist" \
          -o -name ".setlist" \
          -o -name ".ignore" \
+         -o -name "tagfile" \
+         -o -name "rebuild.list" \
          -o -name "*.info" \) \
-         -maxdepth 2 -exec rm -rf {} \; || return 1
+         -exec rm -rf {} \; || return 1
   else
      echo "You need subversion in order to export the source."
      return 1
