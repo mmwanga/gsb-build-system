@@ -24,8 +24,8 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=5
-VERSION=0.10.1c
+BUILD=1
+VERSION=0.10.2
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -114,19 +114,10 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # Fix conflict resolution bug, fixed upstream in 0.10.1d
-  echo "TESTING PURPOSES ONLY"
-  zcat $CWD/slapt-get.conflicts.diff.gz | patch -p1 
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # Fix conflict resolution bug, fixed upstream in 0.10.1d
-  echo "TESTING PURPOSES ONLY"
-  zcat $CWD/slapt-get.conflicts.diff.gz | patch -p1 
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # Fix conflict resolution bug, fixed upstream in 0.10.1d
-  echo "TESTING PURPOSES ONLY"
-  zcat $CWD/slapt-get.conflicts.diff.gz | patch -p1 
 fi
 
 # Fix permissions for building.

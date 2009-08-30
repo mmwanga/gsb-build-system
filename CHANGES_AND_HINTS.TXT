@@ -83,7 +83,6 @@ libraries/lua: Removed as largely unused.
 libraries/libebml: Removed as obsolete.  
 libraries/ode: Removed as obsolete.  
 libraries/libxklavier:
-applications/gob2: Removed as obsolete. 
 networking/NetworkManager-vpn: Has now been split into separate vpn packages, 
    NetworkManager-pptp, NetworkManager-openvpn, NetworkManager-vpnc,
    and NetworkManager-openconnect.

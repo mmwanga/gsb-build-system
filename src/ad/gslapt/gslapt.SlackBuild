@@ -24,8 +24,8 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=3
-VERSION=0.5.1a
+BUILD=1
+VERSION=0.5.1b
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -114,22 +114,10 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # Upstream fixes
-  zcat $CWD/gslapt.conflicts.diff.gz | patch -p1
-  zcat $CWD/gslapt.greeklang.desktop.diff.gz | patch -p1
-  zcat $CWD/gslapt.greeklang.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # Upstream fixes
-  zcat $CWD/gslapt.conflicts.diff.gz | patch -p1
-  zcat $CWD/gslapt.greeklang.desktop.diff.gz | patch -p1
-  zcat $CWD/gslapt.greeklang.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # Upstream fixes
-  zcat $CWD/gslapt.conflicts.diff.gz | patch -p1
-  zcat $CWD/gslapt.greeklang.desktop.diff.gz | patch -p1
-  zcat $CWD/gslapt.greeklang.diff.gz | patch -p1
 fi
 
 # Fix permissions for building.
