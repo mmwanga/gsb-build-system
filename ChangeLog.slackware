@@ -1,3 +1,18 @@
+Sun Aug 30 17:52:37 BST 2009
+l/glib2-2.20.5-i486-1gsb.txz: Upgraded.
+l/gtk+2-2.16.6-i486-1gsb.txz: Upgraded.
+ap/gnome-menus-2.26.2-i486-2gsb.txz: Rebuilt.
+  Updated for gnome-menus-ooo 3.1.
+ad/slapt-get-0.10.2-i486-1gsb.txz: Upgraded.
+ad/gslapt-0.5.1b-i486-1gsb.txz: Upgraded.
+ad/gksu-2.0.2-i486-3gsb.txz: Rebuilt.
+ooo/gnome-menus-ooo-3.1.1.1-i486-1gsb.txz: Upgraded.
+  Updated versions to 3.1.
+ooo/openoffice3-3.1.1.1-i486-1gsb.txz: Upgraded.
+ooo/openoffice3-l10n-*-noarch-1gsb.txz: Added.
+  Full internationalisation support (dictionaries and locale settings) for 
+  OpenOffice 3.1.
++--------------------------+
 Fri Aug 28 15:54:02 BST 2009
 n/mozilla-xulrunner-1.9.0.13-i486-1gsb.txz: Upgraded.
   This upgrade fixes incorrect handling of invalid URLs could be used for
