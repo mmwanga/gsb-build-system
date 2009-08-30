@@ -278,7 +278,7 @@ chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
 do
   [ -e $CWD/$FILE ] && {
-    cat $CWD/$FILE | sed 's,@ARCH@,${ARCH},g' >>$PKG/install/$FILE
+    cat $CWD/$FILE | sed "s,@ARCH@,${ARCH},g" >>$PKG/install/$FILE
   }
 done
 
