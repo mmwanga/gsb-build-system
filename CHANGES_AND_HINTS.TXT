@@ -82,7 +82,9 @@ libraries/openal: Removed as obsolete.
 libraries/lua: Removed as largely unused.  
 libraries/libebml: Removed as obsolete.  
 libraries/ode: Removed as obsolete.  
-libraries/libxklavier:
+libraries/libxklavier: Removed.  Now in Slackware.
+libraries/libtool-compat: Removed. 
+office/libgda-compat: Removed.  All packages now use 4.0.
 networking/NetworkManager-vpn: Has now been split into separate vpn packages, 
    NetworkManager-pptp, NetworkManager-openvpn, NetworkManager-vpnc,
    and NetworkManager-openconnect.
@@ -102,6 +104,8 @@ bindings/pysqlite: Removed.
 applications/simple-json: Removed. Now in Slackware's python.
 applications/bluez-gnome: Removed.  Obsoleted by gnome-bluetooth.
 desktop/libical: Removed.  Now in Slackware.
+libraries/vte: Removed. Slackware has decent version.
+platform/gnome-icon-theme: Slackware has 2.26 version.
 
 *** OTHER NOTABLE CHANGES AND HINTS ***
 

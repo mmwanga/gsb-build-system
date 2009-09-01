@@ -1,3 +1,13 @@
+Tue Sep  1 09:00:19 BST 2009
+extra/pidgin-2.6.1-i486-1gsb.txz: Upgraded.  This upgrade fixes libpurple.c, 
+  which did not follow the "require TLS/SSL" preference when connecting to 
+  older Jabber servers that do not follow the XMPP specification, which 
+  causes libpurple to connect to the server without the expected encryption 
+  and allows remote attackers to sniff sessions.  
+  For more information, see:
+      http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3026
+  (* Security fix *)
++--------------------------+
 Sun Aug 30 17:52:37 BST 2009
 l/glib2-2.20.5-i486-1gsb.txz: Upgraded.
 l/gtk+2-2.16.6-i486-1gsb.txz: Upgraded.
