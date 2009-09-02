@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.2.4.1
 
 # List any packages here that are required to build this package.
@@ -191,7 +191,9 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 mv $PKG/usr/share/doc/libsigc-2.0/docs $PKG/usr/doc/$PKGNAME-$VERSION 
-rmdir -p $PKG/usr/share/doc/libsigc-2.0
+# Remove massive set of documentation;  users can rebuilt the package
+# if they want to start developing with libsigc++
+rm -fr $PKG/usr/share
 cp -a AUTHORS COPYING NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;

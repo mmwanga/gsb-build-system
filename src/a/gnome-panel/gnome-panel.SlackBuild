@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
+BUILD=3
 VERSION=2.26.3
 
 # List any packages here that are required to build this package.
@@ -223,7 +223,8 @@ for schema in *; do
   else
     # Load default schema if an entry file
     echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
-    usr/bin/gconftool-2 --direct --load etc/gconf/schemas/${schema} >/dev/null 2>&1" \
+    usr/bin/gconftool-2 --direct --config-source\"xml::etc/gconf/gconf.xml.defaults\" \
+      --load etc/gconf/schemas/${schema} >/dev/null 2>&1" \
     >>$PKG/install/doinst.sh
   fi
 done
