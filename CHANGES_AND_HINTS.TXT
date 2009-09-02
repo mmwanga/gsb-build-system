@@ -109,6 +109,14 @@ platform/gnome-icon-theme: Slackware has 2.26 version.
 
 *** OTHER NOTABLE CHANGES AND HINTS ***
 
+- Slackware now offers packages seamonkey-solibs and seamonkey.  Be aware that
+  these packages can cause conflicts with GNOMESlackBuild's nss and xulrunner
+packages (in the n set).  We have marked them as "conflicts" in the
+slack-conflicts file.  If you want to use seamonkey, make sure to remove its
+entry from the /etc/ld.so.conf file, and re-run ldconfig.  Note that epiphany,
+and many packages like heimdal-libs and evolution will look for the GSB version
+of xulrunner and nss.  
+
 - When adding users to the netdev group, in order to use NetworkManager and the
   network-manager-applet, you may need to reload dbus in order for the new
 permissions to take effect.
