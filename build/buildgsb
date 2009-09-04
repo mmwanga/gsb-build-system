@@ -93,8 +93,6 @@ BUILD_DEPENDENCIES=0
 NOPATCHESDIR=0
 NOSKIP=0
 NOPRUNE=0
-NOINSTALL=0
-NOMETAPACKAGES=0
 PUBLISH=0
 SOURCE=0
 VERIFY=0
@@ -209,8 +207,8 @@ mkdir -p $TMP &&
 mkdir -p $PKGDEST &&
 mkdir -p $LOGSDIR &&
 mkdir -p $PKGDEST/${EXTRADIR} &&
-mkdir -p $PKGDEST/${PASTUREDIR} &&
-mkdir -p $PKGDEST/${TESTINGDIR} || exit 1
+mkdir -p $PKGDEST/${PASTUREDIR} || exit 1
+#mkdir -p $PKGDEST/${TESTINGDIR} || exit 1
 
 #========================================================================
 # MAIN SET LIST
@@ -523,8 +521,8 @@ if [ "${SOURCE}" = "1" ]; then
   echo ; header "Exporting source trees."
   export_source $BUILDSOURCE $PKGDEST &&
   export_source $EXTRASOURCE $PKGDEST/extra &&
-  export_source $PASTURESOURCE $PKGDEST/pasture &&
-  export_source $TESTINGSOURCE $PKGDEST/testing || error_out
+  export_source $PASTURESOURCE $PKGDEST/pasture || error_out
+  #export_source $TESTINGSOURCE $PKGDEST/testing || error_out
 fi;
 
 #========================================================================
@@ -535,7 +533,7 @@ if [ "${PUBLISH}" = "1" ]; then
 cd $BUILDSOURCE/.. ;
 # Copy our main documentation
 for i in COPYING COPYING3 CREDITS INSTALL.TXT README.TXT UPGRADE.TXT \
- CHANGES_AND_HINTS.TXT GPG-KEY COPYRIGHT.TXT \
+ CHANGES_AND_HINTS.TXT GPG-KEY COPYRIGHT.TXT MIRRORS.TXT \
  SLACKWARE-13.0_REPLACED_PACKAGES.TXT;
 do
  if [ -f $i ]; then
@@ -575,10 +573,11 @@ fi;
 # CREATE MD5 CHECKSUMS, FILELIST AND MANIFEST
 #
 if [ "${PUBLISH}" = "1" ]; then
-  header "* Generating package file lists and checksums."
+  echo ; header "* Generating package file lists and checksums."
   ( 
   cd $PKGDEST &&
-    for DIR in $GSBDIR $PATCHESDIR $TESTINGDIR $EXTRADIR $PASTUREDIR
+    for DIR in $GSBDIR $PATCHESDIR $EXTRADIR $PASTUREDIR
+    #for DIR in $GSBDIR $PATCHESDIR $EXTRADIR $PASTUREDIR $TESTINGDIR
     do
       [ -d $DIR ] && {
         make_packages_txt $DIR $DIR

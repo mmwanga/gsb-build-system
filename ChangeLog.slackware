@@ -1,3 +1,13 @@
+Fri Sep  4 15:11:57 BST 2009
+n/telepathy-gabble-0.8.2-i486-1gsb.txz: Upgraded to telepathy-gabble-0.8.2.
+ac/espeak-1.41.01-i486-1gsb.txz: Added.
+  This package provides voice drivers for Orca and gnome-speech, allowing
+  text-to-speech functionality for the GNOME accessibility packages.  Thanks to
+  Johnathan Nadeau for mentioning the missing package.
+ac/gnome-speech-0.4.25-i486-3gsb.txz: Rebuilt against the new espeak package.
+ooo/gnome-menus-ooo-3.1.1.1-i486-2gsb.txz: Rebuilt.  The menu file was
+  misplaced, causing the OpenOffice menu not to be displayed.
++--------------------------+
 Thu Sep  3 21:37:39 BST 2009
 a/gnome-panel-2.26.3-i486-4gsb.txz: Rebuilt.  Fixed a minor typo which
   prevented the panel default settings to be loaded into the gconf tree.
@@ -36,16 +46,21 @@ extra/pidgin-2.6.1-i486-1gsb.txz: Upgraded.  This upgrade fixes libpurple.c,
   (* Security fix *)
 +--------------------------+
 Sun Aug 30 17:52:37 BST 2009
-l/glib2-2.20.5-i486-1gsb.txz: Upgraded.
-l/gtk+2-2.16.6-i486-1gsb.txz: Upgraded.
-ap/gnome-menus-2.26.2-i486-2gsb.txz: Rebuilt.
-  Updated for gnome-menus-ooo 3.1.
-ad/slapt-get-0.10.2-i486-1gsb.txz: Upgraded.
-ad/gslapt-0.5.1b-i486-1gsb.txz: Upgraded.
+l/glib2-2.20.5-i486-1gsb.txz: Upgraded to glib2-2.20.5.
+l/gtk+2-2.16.6-i486-1gsb.txz: Upgraded to gtk+2-2.16.6.
+ap/gnome-menus-2.26.2-i486-2gsb.txz: Rebuilt. Updated for gnome-menus-ooo 3.1.
+ad/slapt-get-0.10.2-i486-1gsb.txz: Upgraded to slapt-get-0.10.2.
+ad/gslapt-0.5.1b-i486-1gsb.txz: Upgraded to gslapt-0.5.1b.
 ad/gksu-2.0.2-i486-3gsb.txz: Rebuilt.
-ooo/gnome-menus-ooo-3.1.1.1-i486-1gsb.txz: Upgraded.
-  Updated versions to 3.1.
-ooo/openoffice3-3.1.1.1-i486-1gsb.txz: Upgraded.
+ooo/gnome-menus-ooo-3.1.1.1-i486-1gsb.txz: Upgraded.  Updated versions to 3.1.
+ooo/openoffice3-3.1.1.1-i486-1gsb.txz: Upgraded to openoffice-3.1.1.1.  Integer 
+  underflow in OpenOffice.org (OOo) before 3.1.1 might allow remote at tackers
+  to execute arbitrary code via crafted records in the document table of a Word
+  document, leading to a heap-based buffer overflow. 
+  For more information, see:
+      http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0200
+      http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0201
+  (* Security fix *)
 ooo/openoffice3-l10n-*-noarch-1gsb.txz: Added.
   Full internationalisation support (dictionaries and locale settings) for 
   OpenOffice 3.1.
@@ -66,19 +81,19 @@ l/nss-3.12.4-i486-1gsb.txz: Upgraded.
       http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2409
   (* Security fix *)
 l/libsigc++-2.2.4.1-i486-1gsb.txz: Upgraded.
-n/telepathy-glib-0.7.34-i486-1gsb.txz: Upgraded.
-n/telepathy-gabble-0.8.1-i486-1gsb.txz: Upgraded.
-ap/rhythmbox-0.12.4-i486-1gsb.txz: Upgraded.
-go/libgda-4.0.3-i486-1gsb.txz: Upgraded.
-m/mono-2.4.2.3-i486-1gsb.txz: Upgraded.
-m/f-spot-0.6.1.1-i486-1gsb.txz: Upgraded.
+n/telepathy-glib-0.7.34-i486-1gsb.txz: Upgraded to telepathy-glib-0.7.34.
+n/telepathy-gabble-0.8.1-i486-1gsb.txz: Upgraded to telepathy-gabbel-0.8.1.
+ap/rhythmbox-0.12.4-i486-1gsb.txz: Upgraded to rhythmbox-0.12.4.
+go/libgda-4.0.3-i486-1gsb.txz: Upgraded to libgda-4.0.4.
+m/mono-2.4.2.3-i486-1gsb.txz: Upgraded to mono-2.4.2.3.
+m/f-spot-0.6.1.1-i486-1gsb.txz: Upgraded to f-spot 0.6.1.1.
 +--------------------------+
 Wed Aug 19 10:06:53 BST 2009
 n/liferea-1.6.0-i486-1gsb.txz: Upgraded.  Latest stable version now fully
-  supports the use of webkit as a backend.  n/webkit-1.1.10-i486-1gsb.txz:
-  Upgraded.  We've stopped using the nightly builds from webkit.org and began
-  to use "release" (ie, slightly stripped versions of nightly builds) from
-  webkitgtk.org.  
+  supports the use of webkit as a backend.  
+n/webkit-1.1.10-i486-1gsb.txz: Upgraded.  We've stopped using the nightly 
+  builds from webkit.org and began to use "release" (ie, slightly stripped
+  versions of nightly builds) from webkitgtk.org.  
 ad/sabayon-2.27.91-i486-1gsb.txz: Upgraded.  This version (finally) works 
   from upstream development work.  It uses xorg-server-xephyr in
   place of the xorg-server-xnest.  

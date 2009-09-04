@@ -12,7 +12,6 @@ echogreen()
 
 error_out()
 {
-  rm -fr /tmp/waiting
   echo 
   echo "* Exiting buildgsb."
   exit $?
@@ -76,31 +75,41 @@ function make_packages_txt() {
   # $2 = Sub-directory to put PACKAGES.TXT in, or empty for current directory
   [ -z "$1" ] && return 1
 
-  echo -n "Creating PACKAGES.TXT for ${1}: "
-  touch /tmp/waiting ; spinning /tmp/waiting &
-
+  echo ;
   rm -fr ${2:-.}/PACKAGES.TXT*
   local TOTAL_SIZE=0
   local TOTAL_USIZE=0
-  {  for FILE in $( find ./$1 -name \*.txz \( -type f -o -type l \) \
-      -printf "%f %p\n" | sort -k1 -f | cut -d' ' -f2 )
+  local COUNT=1
+  local PACKAGE_FILES=$( find ./$1 -name \*.txz \( -type f -o -type l \) -printf "%f %p\n" | sort -k1 -f | cut -d' ' -f2 )
+  local TOTAL_PACKAGE_FILES=$(echo $PACKAGE_FILES | wc -w )
+  echo -ne "\rCreating PACKAGES.TXT for ${1}: $COUNT / $TOTAL_PACKAGE_FILES   "
+  for FILE in $PACKAGE_FILES ;
     do
+      echo -ne "\rCreating PACKAGES.TXT for ${1}: $COUNT / $TOTAL_PACKAGE_FILES   "
+      COUNT=$(expr $COUNT + 1)
       SIZE=$(du -bk $FILE | awk '{print $1}')
       USIZE=$(expr $(cat $FILE | xz -dc | wc -c) / 1024)
       # Keep a running total for our PACKAGES.TXT
       TOTAL_SIZE=$(expr $TOTAL_SIZE + $SIZE )
       TOTAL_USIZE=$(expr $TOTAL_USIZE + $USIZE )
-      echo "PACKAGE NAME:  $( echo $FILE | rev | cut -d/ -f1 | rev )"
-      echo "PACKAGE LOCATION:  $( echo $FILE | rev | cut -d/ -f2- | rev )"
-      echo "PACKAGE SIZE (compressed):  $SIZE K"
-      echo "PACKAGE SIZE (uncompressed):  $USIZE K"
-      echo "PACKAGE REQUIRED:  $( tar xOf $FILE --occurrence=1 install/slack-required 2>/dev/null | tr '\n' ',' | sed -e 's/,$//' )"
-      echo "PACKAGE CONFLICTS:  $( tar xOf $FILE --occurrence=1 install/slack-conflicts 2>/dev/null | tr '\n' ',' | sed -e 's/,$//' )"
-      echo "PACKAGE SUGGESTS:  $( tar xOf $FILE --occurrence=1 install/slack-suggests 2>/dev/null | tr '\n' ' ' )"
-      echo "PACKAGE DESCRIPTION:"
-      tar xOf $FILE --occurrence=1 install/slack-desc 2>/dev/null | grep -v "^#" | egrep "[[:alnum:]\+]+\:"
-      echo 
-    done } >${2:-.}/PACKAGES.TXT.$$ 2>/dev/null
+      # Grab package information
+      rm -fr $TMP/install 
+      tar -C $TMP -xf $FILE install || exit 1
+      (echo "PACKAGE NAME:  $( echo $FILE | rev | cut -d/ -f1 | rev )" ; 
+       echo "PACKAGE LOCATION:  $( echo $FILE | rev | cut -d/ -f2- | rev )" ; 
+       echo "PACKAGE SIZE (compressed):  $SIZE K" ; 
+       echo "PACKAGE SIZE (uncompressed):  $USIZE K" ; 
+       echo "PACKAGE REQUIRED:  $( if [ -f $TMP/install/slack-required ]; then \
+          cat $TMP/install/slack-required | tr '\n' ',' | sed -e 's/,$//' ; fi)" ;
+	  echo "PACKAGE CONFLICTS:  $( if [ -f $TMP/install/slack-conflicts ]; then \
+	  cat $TMP/install/slack-conflicts | tr '\n' ',' | sed -e 's/,$//' ; fi)" ;
+	  echo "PACKAGE SUGGESTS:  $( if [ -f $TMP/install/slack-suggests ]; then \ 
+	  cat $TMP/install/slack-suggests | tr '\n' ' ' ; fi )" ;
+       echo "PACKAGE DESCRIPTION:" ;
+       cat $TMP/install/slack-desc | grep -v "^#" | egrep "[[:alnum:]\+]+\:" ;
+       echo) >>${2:-.}/PACKAGES.TXT.$$ 2>/dev/null
+    done
+    echo -ne "Creating PACKAGES.TXT for ${1}: done.                   "
 
     # Create a PACKAGES.TXT header with totals.
     {
@@ -117,9 +126,6 @@ function make_packages_txt() {
     } >${2:-.}/PACKAGES.TXT 2>/dev/null
     cat ${2:-.}/PACKAGES.TXT.$$ >> ${2:-.}/PACKAGES.TXT ;
     rm -fr ${2:-.}/PACKAGES.TXT.$$
-  #cat ${2:-.}/PACKAGES.TXT | gzip -9c >${2:-.}/PACKAGES.TXT.gz 2>/dev/null
-  rm -f /tmp/waiting ;
-  echo "done."
 }
 
 # Generate a FILELIST.TXT for a package tree
@@ -132,7 +138,6 @@ function make_filelist_txt() {
   local FILELIST=${3:-FILELIST.TXT}
   local DATED=${4:-0}
   echo -n "Creating $FILELIST for $(basename ${1}): "
-  touch /tmp/waiting ; spinning /tmp/waiting &
 
   rm -fr ${2:-.}/${FILELIST}*
   { ( cd $1
@@ -149,7 +154,6 @@ function make_filelist_txt() {
       ! -wholename ./CHECKSUMS.md5 ! -wholename ./CHECKSUMS.md5.gz | \
       sort | xargs ls -ld )} >${2:-.}/$FILELIST 2>/dev/null
 
-  rm -f /tmp/waiting ;
   echo "done."
 }
 
@@ -339,32 +343,6 @@ Options:
 
   Options are passed down to the next level SlackBuild where appropriate.
 EOF
-}
-
-# Creates a spinning bar, borrowed from slackpkg.
-spinning() {
-        local WAITFILE
-        local SPININTERVAL
-        local COUNT
-
-        if [ "$SPIN" = "" ]; then
-                SPIN=( "|" "/" "-" "\\" )
-        fi
-        COUNT=${#SPIN[@]}
-
-        [ -n "$1" ] && WAITFILE=$1 || WAITFILE=/tmp/waitfile
-        [ -n "$2" ] && SPININTERVAL=$2 || SPININTERVAL=0.1
-
-        count=0
-        tput civis
-        while [ -e $WAITFILE ] ; do
-                count=$(( count + 1 ))
-                tput sc
-                echo -n ${SPIN[$(( count % COUNT ))]}
-                tput rc
-                sleep $SPININTERVAL
-        done
-        tput cnorm
 }
 
 # This function shamelessly stolen from /sbin/installpkg

@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=3.1.1.1
 
 # List any packages here that are required to build this package.
@@ -107,10 +107,10 @@ mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
 # Copy files to package
-mkdir -p $PKG/etc/xdg/gnome/menus &&
+mkdir -p $PKG/etc/gnome/xdg/menus &&
 mkdir -p $PKG/usr/share/desktop-directories &&
 zcat $CWD/OpenOffice3.directory.gz > $PKG/usr/share/desktop-directories/OpenOffice3.directory &&
-zcat $CWD/gnome-menus-ooo3.menu.gz > $PKG/etc/xdg/gnome/menus/gnome-menus-ooo3.menu || exit 1
+zcat $CWD/gnome-menus-ooo3.menu.gz > $PKG/etc/gnome/xdg/menus/gnome-menus-ooo3.menu || exit 1
 
 # Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests

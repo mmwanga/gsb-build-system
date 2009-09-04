@@ -20,14 +20,14 @@ Here are some versions of major components of GNOME SlackBuild 2.26.3
 	- Abiword        2.6.8 
 	- Gnumeric       1.8.3
 
-For installation instructions, see the file 'INSTALL_GSB.TXT'
+For installation instructions, see the file 'INSTALL.TXT'
 
-For instructions to upgrade from GSB 2.24.3 and previous versions to 
-GSB 2.26.3, please see the 'UPGRADE.TXT'.  You would still be well 
+For instructions to upgrade from GSB 2.26.3 and previous versions to GSB 2.26.3
+for Slackware 13.0, please see the 'UPGRADE.TXT'.  You would still be well
 advised to backup your machine first if it contains any important data.
 
-For details of important changes between GSB 2.24.3 and GSB 2.26.3, see 
-'CHANGES_AND_HINTS.TXT'.
+For details of important changes between GSB 2.24.3 and GSB 2.26.3 for
+Slackware 13, see 'CHANGES_AND_HINTS.TXT'.
 
 These are some of the important files and directories found on the GSB 
 FTP site:
@@ -65,7 +65,7 @@ FTP site:
 |
 |-- gsb/			This directory contains all the 
 |   |                           software you will need for GSB 2.26.3.
-|   |-- a			The A (base) package series contains basic GNOME Desktop.
+|   |-- a			The A (base) package series.
 |   |-- ac			The AC (accessibility) series.
 |   |-- ad			The AD (administration) series.
 |   |-- ap			The AP (applications) series.
@@ -75,7 +75,7 @@ FTP site:
 |   |-- m			The M (Mono C#) series.
 |   |-- n			The N (networking) series.
 |   |-- go			The GO (GNOME Office) series.
-|   |-- ooo			The OOO (OpenOffice.org 3.0) series.
+|   |-- ooo			The OOO (OpenOffice.org 3.1) series.
 |   `-- t			The T (Themes) series.
 |
 |-- pasture/             These are packages that have been removed
@@ -95,7 +95,7 @@ FTP site:
 |   |                           SlackBuilds used to build GSB, as well as 
 |   |                           slack-desc, slack-requireds, and any patches we 
 |   |                           use. For more information about building GSB, 
-|   |                           please see the 'BUILDING_GSB.TXT'
+|   |                           please see the 'BUILDING.TXT'
 |   |
 |   |
 |   |-- README.TXT              A basic HOWTO to use our source SlackBuilds.

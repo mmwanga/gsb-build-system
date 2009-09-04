@@ -9,6 +9,12 @@ Bleeding edge 'gsb-current' tree:
   http://svn.gnomeslackbuild.org/gsb/branches/gsb-testing_slack13
 
   This tree contains the latest and most up to date GSB sources.  As such, at
-  any time it may be broken (ie, will not build fully).
-  This tree is usually only for the latest Slackware or Slackware64 and may
-  not work on other releases.
+any time it may be broken (ie, will not build fully).  This tree is usually
+only for the latest Slackware or Slackware64 and may not work on other
+releases.
+
+For additional branches:
+
+  http://svn.gnomeslackbuild.org/gsb/branches/gsb-2.26
+  http://svn.gnomeslackbuild.org/gsb/branches/gsb-2.24
+  http://svn.gnomeslackbuild.org/gsb/branches/gsb-2.22

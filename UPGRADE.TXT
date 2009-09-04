@@ -1,6 +1,6 @@
 
 GNOME SlackBuild 2.26.3 for Slackwarew 12.2 Upgrade to 
-  GNOME SlackBuild 2.26.3 for 13.0 <volkerdi@slackware.com>
+  GNOME SlackBuild 2.26.3 for 13.0 <steve@gnomeslackbuild.org>
 
 This document explains how to upgrade from earlier versions of GNOME
 Slackbuild to GNOME SlackBuild 2.26.3 for Slackware 13.0.
