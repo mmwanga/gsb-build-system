@@ -26,7 +26,7 @@ policykit-gnome
 gnome-desktop
 notification-daemon
 gnome-menus
-#gnome-menus-kde
+gnome-menus-kde
 gnome-menus-xfce
 libgweather
 evo-openldap
