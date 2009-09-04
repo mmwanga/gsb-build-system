@@ -1,13 +1,9 @@
 			  Building GSB: GNOME SlackBuild
 			  ===============================
-Written by: 
-   Darren 'Tadgy' Austin	<tadgy(at)gnomeslackbuild.org>
-Updated by: 
-   Steve Kennedy		<steve(at)gnomeslackbuild.org>
 
 GNOME SlackBuild (GSB) has two components; a full and complete system to build
 Slackware compliant packages from GNOME sources, and a binary distribution of
-those pre-built packages, suitable for Slackware and Slamd64.
+those pre-built packages, suitable for Slackware and Slackware64.
 
 This document provides information on using the GSB build system to produce
 your own packages of GNOME.  Included in the GSB build system are all the
@@ -37,14 +33,14 @@ Table of Contents
 --------------------
 
 This version of GSB is designed to build packages using:
-  Slackware 12.2
-  Slamd64 12.2
+  Slackware 13.0
+  Slackware64 13.0
 
 If you are trying to build GSB on systems other than the above you *will*
 encounter problems during the build.
 
 We cannot offer any form of support to users trying to build GSB on earlier 
-versions of Slackware or Slamd64.  However, if you do manage to get GSB built
+versions of Slackware or Slackware64.  However, if you do manage to get GSB built
 on other versions, please let us know what modifications you had to make to the
 build system in order to do so - if those changes can be integrated into our
 build system, you may find those versions supported out of the box in our
@@ -54,13 +50,13 @@ The developers use a strictly controled base of packages to build the binary
 packages for the project - we only install the minimum packages required to
 perform a build.  We work from a set of 'tagfiles' which specify exactly which
 packages get installed into our build environment.  We have included our
-tagfiles set in the lib/gsb/tagfiles/ directory for reference.
+tagfiles set in the tagfiles/ directory for reference.
 
-When it comes to building your own packages it is doubtfull your build will
+When it comes to building your own packages it is doubtful your build will
 succeed if you do not have every package marked with an "ADD" in our tagfiles
 installed on your system.  Those packages marked "ADD" form the basis of our
 build requirements - any missing packages from your system will likely cause
-the build to fail.  If you have a full installation of Slackware or Slamd64 you
+the build to stop.  If you have a full installation of Slackware or Slackware64 you
 should not have any problem doing a build, but the resulting packages may have
 more dependancies than indicated in our slack-required files (because many of
 the sources will find extra libraries when being configured and automatically
@@ -80,19 +76,19 @@ following is a list of our trees and the URIs which should be used to 'svn co'
 one of them before building. 
 
 Bleeding edge 'gsb-current' tree:
-  (At the time of writing, GNOME 2.26.1)
-  http://svn.gnomeslackbuild.org/gsb/trunk/
+  (At the time of writing, GNOME 2.26.3)
+  http://svn.gnomeslackbuild.org/gsb/branches/gsb-testing_slack13
 
   This tree contains the latest and most up to date GSB sources.  As such, at
   any time it may be broken (ie, will not build fully) or may cause your system
   to explode in a shower of wires and capacitors if you run it.
-  This tree is usually only for the latest Slackware/Slamd64 current and may
+  This tree is usually only for the latest Slackware/Slackware64 current and may
   not work on other releases.
 
 GNOME 2.22 tree:
   http://svn.gnomeslackbuild.org/gsb/branches/gsb-2.22/
 
-  This is our GNOME 2.22.3 stable tree for Slackware 12.1 and Slamd64 12.1.
+  This is our GNOME 2.22.3 stable tree for Slackware 12.1 and Slackware64 12.1.
   This tree is kept up to date with the GNOME 2.22.3 sources and will be
   maintained (at least for the short->medium timeframe) with the minor
   2.22.x releases GNOME provide.
@@ -100,7 +96,7 @@ GNOME 2.22 tree:
 GNOME 2.20 tree:
   http://svn.gnomeslackbuild.org/gsb/branches/gsb-2.20/
 
-  This is our GNOME 2.20 stable tree for Slackware and Slamd64 12.0 ONLY.
+  This is our GNOME 2.20 stable tree for Slackware and Slackware64 12.0 ONLY.
   This tree is kept up to date with the GNOME 2.20 sources and will be
   maintained (at least for the short->medium timeframe) with the minor
   2.20.x releases GNOME provide.
@@ -118,34 +114,33 @@ The GNOME (etc) source files are not distributed with GSB - part of the build
 process will download the source files for you.  Obviously you need an (active)
 internet connection to download the sources.
 
-Here's what to do:
-  $ ./bin/gsb_update.pl --dl --edit --build=gsb
-  $ cd src/
-  $ ./gsb.SlackBuild
+Before beginning, make sure to configure a gsb.options file.  You can copy over
+the gsb.options.sample and modify accordingly.  Then, as root, run:
 
-Downloading the sources (gsb_update.pl) may take a while depending on the speed
-of your internet connection.  Don't be surprised if it takes a few hours :)
+  $ cd build/
+  $ ./buildgsb
 
-The '--dl' option to gsb_update tells it to download the required sources.
-Without this option nothing will be downloaded.  You can stop and start the
-process as much as you like - gsb_update will not re-download sources it has
-downloaded previously.  With '--edit', gsb_update will edit the SlackBuild
-files with the version information from the source downloaded - you want this.
-Finally, '--build=gsb' provides a build tag for the packages.  You can specify
-any build tag you wish for your packages - we use 'gsb' to mark ours.  If no
-'--build' option is given, no tag is added to the BUILD and the built packages
-will be named just like standard packages (and thus very difficult to remove
-once installed).
-
-The build is started by running './gsb.SlackBuild' in the src/ directory.  The
-gsb.SlackBuild script has several options which effect the whole build process.
+The build is started by running './buildgsb' in the build/ directory.  The
+buildgsb script has several options which effect the whole build process.
 Normally, however, none of those options are required for a build; and you are
 advised *not* to use them unless you are a developer.  The options are
 explained in detail further down in this document.
 
-GSB requires that some standard Slackware/Slamd64 packages be upgraded to newer
+Dependencies are not yet automatically build, and so the build process may
+pause and complain about missing dependencies.  You may need to switch building
+sets to satisfy dependencies.  For example, if a package in the 'l' set
+complains that it needs the package 'setuptools', you may need to build a
+partial 'd' set before continuing.  You can do so by:
+
+  $ ./buildgsb --set=d
+
+When setuptools has been build, you can restart the build process.  Our build
+script will eventually be updated to automatically resolve these dependencies,
+but at the moment, it is done manually.  
+
+GSB requires that some standard Slackware/Slackware64 packages be upgraded to newer
 versions in order for other packages to compile and work correctly.  As part of
-the GSB build process, gsb.SlackBuild (and section SlackBuilds) will remove
+the GSB build process, buildgsb (and section SlackBuilds) will remove
 (using removepkg) any such packages which need to be updated.  The new
 (updated) package from GSB will then be built and installed.
 
@@ -154,7 +149,7 @@ or small cluster system.  It took 1-2 days to perform a full build of GSB on
 my build box (2.5GHz CPU, 2GB RAM) - you have been warned.
 
 If the build fails for some reason, you can correct the error and re-run the
-'./gsb.SlackBuild' command - the build system will continue from where it
+'./buildgsb' command - the build system will continue from where it
 failed, not restart the whole process again.
 
 At the end of the build process you will have a full copy of GSB installed on
@@ -204,7 +199,6 @@ to debug the problem - use the same 'init 3' command as detailed above.
 
 If you do have a problem like this or cannot figure out what the issue is,
 please visit us on the IRC channel for help - details are on the website.
-
 
 
 
@@ -263,7 +257,7 @@ TUNE
 DISTRO
   Setting DISTRO to anything other than "slackware" allows GSB to be built on
   different (Slackware based) distributions.  For example, this can be set to
-  "slamd64" when building GSB on the 64 bit Slackware based distro Slamd64.
+  "slackware" when building GSB on the 64 bit Slackware based distro Slackware64.
   The default is "slackware", and should not be over-ridden unless you are
   specifically building for another distribution.
 
@@ -295,15 +289,6 @@ The following options are less common but allow highly specific customisation
 of the build process.  You should not set these options unless you know exactly
 what needs to be set for each.
 
-GSB_SECTIONS
-  This environment option can be used to specify exactly what GSB sections
-  should be processed.  This option should contain a space separated list of
-  (valid) GSB sections (available using the '--list' option to gsb.SlackBuild),
-  in the order they should be processed.  Care should be taken to insure the
-  processing order is correct - packages in some sections rely on packages
-  previously built in others.
-  The default is to process all GSB sections (in the correct order).
-  
 GSB_CONFIGURE_FLAGS
   Any options specified in this environment variable are ADDED to the package
   specific options passed to the ./configure command in the SlackBuilds.
@@ -358,7 +343,7 @@ GSB_MAKE_FLAGS
 APPENDIX B. SlackBuild Arguments
 ----------------------------------
 
-There are several options which can be passed to gsb.SlackBuild when begining
+There are several options which can be passed to buildgsb when begining
 the build process.  Options given to a top-level SlackBuild will be passed
 down to the individual package Slackbuilds as a the build process continues.
 

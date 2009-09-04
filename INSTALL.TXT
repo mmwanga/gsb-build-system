@@ -1,6 +1,6 @@
 Written by, and Copyright (c) 2007, 2008:
    Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>, Coventry, UK.
-Update by Steve Kennedy <steve (at) gnomeslackbuild.org>
+Updated by Steve Kennedy <steve (at) gnomeslackbuild.org>
 
 		 HOW TO INSTALL GSB: GNOME SlackBuild 2.26.3
                         (for Slackware/Slackware64 13.0)
@@ -37,8 +37,8 @@ previous versions of Slackware and Slackware64.
 Reporting Bugs
 --------------
 
-Any questions or bug reports, please email gsb-dev@googlegroups.com or drop by the 
-#gsb channel on freenode. 
+Any questions or bug reports, please email gsb-dev@googlegroups.com or drop by
+the #gsb channel on freenode. 
 
 
 Quick-Start Installation using Slapt-get
@@ -313,10 +313,24 @@ problems and GSB will now be installed on your system.  Please read the section
 After installation
 ------------------
 
+IMPORTANT! Fix your config files.  Some of the config files in /etc are going
+to need your attention.  You'll find the new incoming config files on your
+system with the ".new" extension.  You may need to fill these in with
+information from your old config files and then move them over.
+
 It is highly recommended that you reboot your system after installation in
 order to insure that all services/daemons required by GNOME have been started.
 You can start the daemons manually and avoid the need to reboot, but there are
-a number of services that need to be started - it's just easier to reboot!
+a number of services that need to be started.  It may be easier to reboot;
+otherwise, to must reload udev and message bus.
+
+  $ /etc/rc.d/rc.udev reload
+  $ /etc/rc.d/rc.messagebus reload
+
+Depending on your packages installed, you may also want:
+  
+  $ /etc/rc.d/rc.avahidaemon start
+  $ /etc/rc.d/rc.networkmanager start
 
 If your system is configured to start at run level 4 (the X11 graphical login),
 your usual display manager should now have been replaced with GDM - the GNOME
@@ -343,31 +357,24 @@ support links and mailing lists.
 Uninstalling GNOME SlackBuild
 -----------------------------
 
-Firstly, why do you want to?
-Seriously, I mean, what are your alternatives?
-KDE?  No thanks, might as well use Windows.
-Dropline GNOME?  I'd rather not have PAM bastardising my system, thanks :)
-So, really, don't uninstall GSB :)
-
-So you still want to?  You will need to remove all GNOME SlackBuild packages,
-and then re-install any Slackware/Slackware64 provided packages that may have been
-replaced by GSB ones.
+You will need to remove all GNOME SlackBuild packages, and then re-install any
+Slackware/Slackware64 provided packages that may have been replaced by GSB.
 
 To remove all the GSB packages, run (as root):
-  $ removepkg /var/log/packages/*gsb | tee /tmp/gsb-uninstall.log
+  $ removepkg $(ls /var/log/packages/*gsb | grep -v slapt-get) | tee /tmp/gsb-uninstall.log
+
+This will remove all GNOMESlackBuild packages and leave slapt-get still
+installed to help reinstalling any required Slackware packages again.
 
 You should probably check the uninstall log at /tmp/gsb-uninstall.log to see if
 any files installed by GSB packages got left behind - it's up to you how much
-housekeeping you want to do on those files :)
+housekeeping you want to do on those files. :)
 
 Once all the GSB packages are removed and you've done any housekeeping, you
 will need to re-install any Slackware/Slackware64 packages which were replaced by
 the GSB provided ones.  A complete list of standard Slackware/Slackware64 packages
-GSB replaced during installation can be found here:
-  <http://svn.gnomeslackbuild.org/gsb/trunk/notes/replaced_packages_gsb-current>
-
-From the above list of packages, re-install any which may be required for your
-system to operate correctly.
+GSB replaced during installation can be found in our 
+SLACKWARE-13.0_REPLACED_PACKAGES.TXT.
 
 If you are using slapt-get to re-install the packages, you will need to comment
 out any SOURCE= line(s) for GSB in your /etc/slapt-get/slapt-getrc file (if any

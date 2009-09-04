@@ -109,6 +109,11 @@ platform/gnome-icon-theme: Slackware has 2.26 version.
 
 *** OTHER NOTABLE CHANGES AND HINTS ***
 
+- Fix your config files.  Some of the config files in /etc are going to need
+  your attention.  You'll find the new incoming config files on your system
+with the ".new" extension.  You may need to fill these in with information from
+your old config files and then move them over.
+
 - Slackware now offers packages seamonkey-solibs and seamonkey.  Be aware that
   these packages can cause conflicts with GNOMESlackBuild's nss and xulrunner
 packages (in the n set).  We have marked them as "conflicts" in the

@@ -543,6 +543,16 @@ do
  fi;
 done;
 
+cat << EOF > $PKGDEST/$GSBDIR/README.TXT
+
+This directory contains the primary GNOME SlackBuild packages -- the ones that
+actually install files to your hard drive.  You can install these packages with
+"pkgtool", or "installpkg".  See the man pages (man installpkg) for details.
+
+Have fun!
+
+EOF
+
 # Copy extra documentation
 cp extra/README.TXT $PKGDEST/$EXTRADIR || exit 1
 if [ "$ARCH" = "x86_64" ]; then

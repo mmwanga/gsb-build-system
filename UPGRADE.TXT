@@ -1,0 +1,102 @@
+
+GNOME SlackBuild 2.26.3 for Slackwarew 12.2 Upgrade to 
+  GNOME SlackBuild 2.26.3 for 13.0 <volkerdi@slackware.com>
+
+This document explains how to upgrade from earlier versions of GNOME
+Slackbuild to GNOME SlackBuild 2.26.3 for Slackware 13.0.
+
+----------------------------------------------------------------------------
+
+For details of important changes from GNOME SlackBuild for Slackware 12.2, see
+the file 'CHANGES_AND_HINTS.TXT'. 
+
+Before you begin, I would strongly recommend making a backup of your system,
+or, if not the entire system, at least the /etc directory.  You might find that
+you need to refer to a few things after the upgrade process is complete. Back
+it up, or take your chances.
+
+You will first need to upgrade to Slackware 13.0.  For the detailed
+instructions regarding this, please see Pat's own UPGRADE.TXT.  Follow the
+directions there first and upgrade your system fully to Slackware 13.0.  Once
+you have done that, then:
+
+
+0.  Put your machine in single-user mode:
+    telinit 1
+
+    This is not strictly required, however, more things can go wrong in
+multiuser, and some major libraries are upgrades and replaced (like glib2 and
+gtk+2), so it's better if applications which use these libraries aren't
+running.  
+
+1.  Update slapt-get
+
+    The default method of upgrade is through slapt-get which can easily resolve
+dependencies.  If you are unable to access the internet when upgrading, it is
+still possible to use slapt-get.  You will need to grab a full copy of the gsb
+or gsb64 directory from a mirror.  You can then point your SOURCE= line in the
+slapt-get file to file:///path/gsb, and rerun:
+   
+    $ slapt-get --update
+ 
+This will then use a local copy in place of a remote mirror.  If you wish to
+use a remote mirror when upgrading, make sure that you can use networking even
+in single user mode.  Before upgrading, be sure to have updated slapt-get using
+the above command.
+
+
+2.  Upgrade your required replacements.  These are found in:
+   SLACKWARE-13.0_REPLACED_PACKAGES.TXT.  It is recommended that your read this
+file to find out why certain standard Slackware packages need to be replaced. 
+
+    $ removepkg bluez-libs bluez-utils
+    $ slapt-get --install alsa-lib glib2 gtk+2 libwnck
+
+
+3.  Upgrade your previous GNOME SlackBuild installation:
+
+    $ slapt-get --upgrade
+
+slapt-get will upgrade all of your installed packages, and install any new packages required as dependencies.
+
+
+4.  Remove obsolete packages.  The CHANGES_AND_HINTS.TXT file should have a
+    list of these.  You may also wish to go into /var/log/packages and take
+    a look at the package list:
+
+    ls -lt | less
+
+    You may spot some old, obsolete, or discontinued packages.  If so,
+    you can remove these using 'removepkg'.
+
+
+5.  Fix your config files.  Some of the config files in /etc are going to 
+    need your attention.  You'll find the new incoming config files on 
+    your system with the ".new" extension.  You may need to fill these in 
+    with information from your old config files and then move them over.
+
+    This is important as some dbus, udev, and rc scripts are modified.  
+
+6.  If you use a non-en_US language pack for Openoffice and you already have it
+    installed, then you may upgrade it by moving into the gsb/ooo
+    directory and using this command:
+
+    upgradepkg --install-new openoffice3-l10n*<your locale>*txz
+
+    To have upgradepkg cycle through all of the available packages, and
+    see which ones need to be upgraded, use this in gsb/ooo:
+
+    upgradepkg *txz
+
+8.  Return to multi-user mode:
+    telinit 3
+
+
+9.  Reboot to start using the any new services you may have installed, such as Avahi, Bluez, or NetworkManager.  
+
+
+At this point you should be running GNOME SlackBuild 2.26.3 for Slackware 13.0.
+
+---
+
+The GNOME Slackbuild Team
