@@ -4,43 +4,46 @@ ac/espeak-1.41.01-x86_64-1gsb.txz: Added.
   This package provides voice drivers for Orca and gnome-speech, allowing
   text-to-speech functionality for the GNOME accessibility packages.  Thanks to
   Johnathan Nadeau for mentioning the missing package.
-ac/gnome-speech-0.4.25-x86_64-3gsb.txz: Rebuilt against the new espeak package.
-ooo/gnome-menus-ooo-3.1.1.1-x86_64-2gsb.txz: Rebuilt.  The menu file was
-  misplaced, causing the OpenOffice menu not to be displayed.
+ac/gnome-speech-0.4.25-x86_64-3gsb.txz: Rebuilt. 
+  Now built against the espeak package for the GNOME speak driver.
+ooo/gnome-menus-ooo-3.1.1.1-x86_64-2gsb.txz: Rebuilt.  
+  The menu file was misplaced, causing the OpenOffice menu not to be displayed.
 +--------------------------+
 Thu Sep  3 21:37:39 BST 2009
-a/gnome-panel-2.26.3-x86_64-4gsb.txz: Rebuilt.  Fixed a minor typo which
-  prevented the panel default settings to be loaded into the gconf tree.
+a/gnome-panel-2.26.3-x86_64-4gsb.txz: Rebuilt.  
+  Fixed a minor typo which prevented the panel default settings to be loaded into
+  the gconf tree.
 +--------------------------+
 Wed Sep  2 15:21:40 BST 2009
-l/libsigc++-2.2.4.1-x86_64-2gsb.txz: Rebuilt.  Removed some documentation, which
-  ended up being more than 90% of the package size. 
-l/libgc-7.1-x86_64-4gsb.txz: Rebuilt.  Removed libatomic_ops from slack-required. 
-  This package is no longer offered or needed.  Thanks to Carlos Diógenes for 
-  reporting the problem.
-l/nss-3.12.4-x86_64-2gsb.txz: Rebuilt.  Added slack-conflicts against 
-  seamonkey-solibs.  The nss libraries found in Slackware's seamonkey or 
-  seamonkey-solibs package will conflict with the GNOMESlackbuild nss and 
-  xulrunner packages.  If users want to use seamonkey, they will need to remove 
-  the seamonkey entry in the /etc/ld.so.conf file, and rerun ldconfig.  Thanks 
-  to byteframe for reporting the problem.
-a/gnome-desktop-2.26.3-x86_64-6gsb.txz: Rebuilt.  Added libgail-gnome to the 
-  slack-required.  This is not a runtime requirement, but is searched for by 
-  many GNOME applications.  
-go/tomboy-0.14.3-x86_64-2gsb.txz: Rebuilt.  Updated the slack-requireds to 
-  include mono-addins and gnome-desktop-sharp.  Thanks to Carlos Diógenes 
-  for reporting the missing requirements.
-a/gnome-panel-2.26.3-x86_64-3gsb.txz: Rebuilt.  Updated doinst.sh to load default
-  panel settings.  This was causing the GNOME panel to display nothing on new
-  installations.
+l/libsigc++-2.2.4.1-x86_64-2gsb.txz: Rebuilt.  
+  Removed some documentation, which ended up being more than 90% of the package
+  size. 
+l/libgc-7.1-x86_64-4gsb.txz: Rebuilt.  
+  Removed libatomic_ops from slack-required.  This package is no longer offered
+  or needed.  Thanks to Carlos Diógenes for reporting the problem.
+l/nss-3.12.4-x86_64-2gsb.txz: Rebuilt.  
+  Added slack-conflicts against seamonkey-solibs.  The nss libraries found in
+  Slackware's seamonkey or seamonkey-solibs package will conflict with the
+  GNOMESlackbuild nss and xulrunner packages.  If users want to use seamonkey,
+  they will need to remove the seamonkey entry in the /etc/ld.so.conf file, and
+  rerun ldconfig.  Thanks to byteframe for reporting the problem.
+a/gnome-desktop-2.26.3-x86_64-6gsb.txz: Rebuilt.  
+  Added libgail-gnome to the slack-required.  This is not a runtime
+  requirement, but is searched for by many GNOME applications.  
+go/tomboy-0.14.3-x86_64-2gsb.txz: Rebuilt.  
+  Updated the slack-requireds to include mono-addins and gnome-desktop-sharp.
+  Thanks to Carlos Diógenes for reporting the missing requirements.
+a/gnome-panel-2.26.3-x86_64-3gsb.txz: Rebuilt.  
+  Updated doinst.sh to load default panel settings.  This was causing the GNOME
+  panel to display nothing on new installations.
 go/libgda-4.0.4-x86_64-1gsb.txz: Upgraded to libgda-4.0.4.
 +--------------------------+
 Tue Sep  1 09:00:19 BST 2009
-extra/pidgin-2.6.1-x86_64-1gsb.txz: Upgraded.  This upgrade fixes libpurple.c, 
-  which did not follow the "require TLS/SSL" preference when connecting to 
-  older Jabber servers that do not follow the XMPP specification, which 
-  causes libpurple to connect to the server without the expected encryption 
-  and allows remote attackers to sniff sessions.  
+extra/pidgin-2.6.1-x86_64-1gsb.txz: Upgraded.  
+  This upgrade fixes libpurple.c, which did not follow the "require TLS/SSL"
+  preference when connecting to older Jabber servers that do not follow the
+  XMPP specification, which causes libpurple to connect to the server without
+  the expected encryption and allows remote attackers to sniff sessions.  
   For more information, see:
       http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3026
   (* Security fix *)
@@ -53,10 +56,10 @@ ad/slapt-get-0.10.2-x86_64-1gsb.txz: Upgraded to slapt-get-0.10.2.
 ad/gslapt-0.5.1b-x86_64-1gsb.txz: Upgraded to gslapt-0.5.1b.
 ad/gksu-2.0.2-x86_64-3gsb.txz: Rebuilt.
 ooo/gnome-menus-ooo-3.1.1.1-x86_64-1gsb.txz: Upgraded.  Updated versions to 3.1.
-ooo/openoffice3-3.1.1.1-x86_64-1gsb.txz: Upgraded to openoffice-3.1.1.1.  Integer 
-  underflow in OpenOffice.org (OOo) before 3.1.1 might allow remote at tackers
-  to execute arbitrary code via crafted records in the document table of a Word
-  document, leading to a heap-based buffer overflow. 
+ooo/openoffice3-3.1.1.1-x86_64-1gsb.txz: Upgraded to openoffice-3.1.1.1.  
+  Integer underflow in OpenOffice.org (OOo) before 3.1.1 might allow remote at
+  tackers to execute arbitrary code via crafted records in the document table
+  of a Word document, leading to a heap-based buffer overflow. 
   For more information, see:
       http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0200
       http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0201
@@ -89,17 +92,18 @@ m/mono-2.4.2.3-x86_64-1gsb.txz: Upgraded to mono-2.4.2.3.
 m/f-spot-0.6.1.1-x86_64-1gsb.txz: Upgraded to f-spot 0.6.1.1.
 +--------------------------+
 Wed Aug 19 10:06:53 BST 2009
-n/liferea-1.6.0-x86_64-1gsb.txz: Upgraded.  Latest stable version now fully
-  supports the use of webkit as a backend.  
-n/webkit-1.1.10-x86_64-1gsb.txz: Upgraded.  We've stopped using the nightly 
-  builds from webkit.org and began to use "release" (ie, slightly stripped
-  versions of nightly builds) from webkitgtk.org.  
-ad/sabayon-2.27.91-x86_64-1gsb.txz: Upgraded.  This version (finally) works 
-  from upstream development work.  It uses xorg-server-xephyr in
-  place of the xorg-server-xnest.  
-a/gnome-session-2.26.2-x86_64-3gsb.txz: Rebuilt.  Modified xinitrc.gnome to 
-  no longer use seahores-daemon;  instead this daemon now starts up from the 
-  xdg autostart directory in /etc/gnome. 
+n/liferea-1.6.0-x86_64-1gsb.txz: Upgraded.  
+  Latest stable version now fully supports the use of webkit as a backend.  
+n/webkit-1.1.10-x86_64-1gsb.txz: Upgraded.  
+  We've stopped using the nightly builds from webkit.org and began to use
+  "release" (ie, slightly stripped versions of nightly builds) from
+  webkitgtk.org.  
+ad/sabayon-2.27.91-x86_64-1gsb.txz: Upgraded.  
+  This version (finally) works from upstream development work.  It uses
+  xorg-server-xephyr in place of the xorg-server-xnest.  
+a/gnome-session-2.26.2-x86_64-3gsb.txz: Rebuilt.  
+  Modified xinitrc.gnome to no longer use seahores-daemon;  instead this daemon
+  now starts up from the xdg autostart directory in /etc/gnome. 
 +--------------------------+
 Mon Aug 17 20:23:22 BST 2009
 ooo/openoffice3-3.1.0.6-x86_64-2gsb.txz: Rebuilt.  Added gtk+ widget support.
@@ -117,7 +121,7 @@ go/goffice-0.6.6-x86_64-5gsb.txz: Rebuilt.  Force slack-required version for
 go/gtkmathview-0.8.0-x86_64-3gsb.txz: Rebuilt. Fixes in doinst.sh.
 +--------------------------+
 Sun Aug 16 12:24:20 BST 2009
-Full rebuild of GNOME SlackBuild 2.26.3 for Slackware64 13.0 RC2.  GNOME
+Full rebuild of GNOME SlackBuild 2.26.3 for Slackware 13.0 RC2.  GNOME
 SlackBuild has gone under a directory restructuring to bring it more into line
 with Slackware's own practice.  All our packages have been assigned to sets
 now, along with tagfiles.  This will help us to develop a Slackware type
