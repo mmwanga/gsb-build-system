@@ -86,6 +86,7 @@ libraries/ode: Removed as obsolete.
 libraries/libxklavier: Removed.  Now in Slackware.
 libraries/libtool-compat: Removed. 
 office/libgda-compat: Removed.  All packages now use 4.0.
+libraries/ilmbase: Removed.
 networking/NetworkManager-vpn: Has now been split into separate vpn packages, 
    NetworkManager-pptp, NetworkManager-openvpn, NetworkManager-vpnc,
    and NetworkManager-openconnect.

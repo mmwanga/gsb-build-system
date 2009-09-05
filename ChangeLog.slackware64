@@ -3,6 +3,9 @@ ad/gslapt-0.5.1b-x86_64-2gsb.txz: Rebuilt.
   Changed the gslapt.desktop to use gksu.
 m/boo-0.9.1.3287-x86_64-2gsb.txz: Rebuilt.  
   Fixed slack-required and removed gtksourceview-sharp.
+m/banshee-1-1.4.3-x86_64-3gsb.txz: Rebuilt.
+  Added notify-sharp and mono-zeroconf to slack-required so that DAAP plugin
+  and display notifications work by default.
 a/gsb-desktop-2.26.3-noarch-4gsb.txz: Rebuilt metapackage.
   Added gslapt and seahorse to default installation package.
 n/telepathy-butterfly-0.5.0-x86_64-3gsb.txz: Rebuilt.  

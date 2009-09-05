@@ -21,3 +21,5 @@ gst-fluendo-mp3
 gst-ffmpeg
 wavpack
 boo
+notify-sharp
+mono-zerconf
