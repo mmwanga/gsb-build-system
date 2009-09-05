@@ -30,6 +30,7 @@ gnome-terminal
 gnome-themes
 gnome-utils
 gnome-vfs
+gslapt
 gst-plugins-base
 gst-plugins-good
 gst-python
@@ -63,6 +64,7 @@ metacity
 nautilus
 notification-daemon
 rhythmbox
+seahorse-plugins
 shared-mime-info
 tango-icon-theme
 totem

@@ -1,3 +1,15 @@
+Sat Sep  5 14:25:22 BST 2009
+ad/gslapt-0.5.1b-i486-2gsb.txz: Rebuilt.
+  Changed the gslapt.desktop to use gksu.
+m/boo-0.9.1.3287-i486-2gsb.txz: Rebuilt.  
+  Fixed slack-required and removed gtksourceview-sharp.
+a/gsb-desktop-2.26.3-noarch-4gsb.txz: Rebuilt metapackage.
+  Added gslapt and seahorse to default installation package.
+n/telepathy-butterfly-0.5.0-i486-3gsb.txz: Rebuilt.  
+  Added telepathy-python to slack-required.
+n/telepathy-salut-0.3.9-i486-3gsb.txz: Rebuilt.  
+  Fixed typo in slack-desc.
++--------------------------+
 Fri Sep  4 22:52:08 BST 2009
 a/gnome-menus-kde-2.26.3-i486-2gsb.txz: Added.
   This allows users to access KDE applications from their GNOME menu.

@@ -1,3 +1,15 @@
+Sat Sep  5 14:25:22 BST 2009
+ad/gslapt-0.5.1b-x86_64-2gsb.txz: Rebuilt.
+  Changed the gslapt.desktop to use gksu.
+m/boo-0.9.1.3287-x86_64-2gsb.txz: Rebuilt.  
+  Fixed slack-required and removed gtksourceview-sharp.
+a/gsb-desktop-2.26.3-noarch-4gsb.txz: Rebuilt metapackage.
+  Added gslapt and seahorse to default installation package.
+n/telepathy-butterfly-0.5.0-x86_64-3gsb.txz: Rebuilt.  
+  Added telepathy-python to slack-required.
+n/telepathy-salut-0.3.9-x86_64-3gsb.txz: Rebuilt.  
+  Fixed typo in slack-desc.
++--------------------------+
 Fri Sep  4 15:11:57 BST 2009
 n/telepathy-gabble-0.8.2-x86_64-1gsb.txz: Upgraded to telepathy-gabble-0.8.2.
 ac/espeak-1.41.01-x86_64-1gsb.txz: Added.

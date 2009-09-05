@@ -1,6 +1,8 @@
 GNOME SlackBuild
 ----------------
 
+# United States
+http://get.gnomeslackbuild.org/gsb/gsb-current/
 # United Kingdom
 http://www.slackware.org.uk/gsb/gsb-current/
 ftp://ftp.slackware.org.uk/gsb/gsb-current/
@@ -11,10 +13,15 @@ ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-current/
 # Portugal
 http://darkstar.ist.utl.pt/pub/slackware/addon/gnomeslackbuild/gsb-current
 ftp://darkstar.ist.utl.pt/pub/slackware/addon/gnomeslackbuild/gsb-current
+# Belgium
+http://mirrors.dotsrc.org/gsb/gsb-current/
+ftp://mirrors.dotsrc.org/gsb/gsb-current/
 
 GNOME SlackBuild64
 ------------
 
+# United States
+http://get.gnomeslackbuild.org/gsb/gsb64-current/
 # United Kingdom
 http://www.slackware.org.uk/gsb/gsb64-current/
 ftp://ftp.slackware.org.uk/gsb/gsb64-current/
@@ -25,3 +32,6 @@ ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb64-current/
 # Portugal
 http://darkstar.ist.utl.pt/pub/slackware/addon/gnomeslackbuild/gsb64-current
 ftp://darkstar.ist.utl.pt/pub/slackware/addon/gnomeslackbuild/gsb64-current
+# Belgium
+http://mirrors.dotsrc.org/gsb/gsb64-current/
+ftp://mirrors.dotsrc.org/gsb/gsb64-current/

@@ -109,7 +109,7 @@ function make_packages_txt() {
        cat $TMP/install/slack-desc | grep -v "^#" | egrep "[[:alnum:]\+]+\:" ;
        echo) >>${2:-.}/PACKAGES.TXT.$$ 2>/dev/null
     done
-    echo -ne "Creating PACKAGES.TXT for ${1}: done.                   "
+    echo -e "\rCreating PACKAGES.TXT for ${1}: done.                   "
 
     # Create a PACKAGES.TXT header with totals.
     {
