@@ -4,7 +4,7 @@ extra/pidgin-2.6.2-i486-1gsb.txz: Upgraded.
   cause the applications to crash.
       http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2703
   (* Security fix *)
-m/banshee-1-1.4.3-x86_64-3gsb.txz: Rebuilt.
+m/banshee-1-1.4.3-i486-3gsb.txz: Rebuilt.
   Added notify-sharp and mono-zeroconf to slack-required so that DAAP plugin
   and display notifications work by default.
 +--------------------------+
