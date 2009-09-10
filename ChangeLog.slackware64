@@ -4,6 +4,10 @@ ap/gnome-power-manager-2.26.4-x86_64-1gsb.txz: Reconfigured.
   lid close on laptops.  Thanks to Philip Langdale for suggesting the change.
 ad/gslapt-0.5.1b-x86_64-3gsb.txz: Rebuilt.
   Actually apply the patch to use gksu in the .desktop files. :^)
+a/gsb-desktop-2.26.4-noarch-4gsb.txz: Rebuilt.
+  Add specific version information for glib2 and gtk+2 to metapackage so
+  libraries are upgraded properly;  this should help avoid any missed 
+  upgrades during installation.
 +--------------------------+
 Mon Sep  7 18:31:34 BST 2009
 extra/pidgin-2.6.2-x86_64-1gsb.txz: Upgraded.  
