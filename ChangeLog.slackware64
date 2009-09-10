@@ -1,3 +1,10 @@
+Thu Sep 10 23:09:17 BST 2009
+ap/gnome-power-manager-2.26.4-x86_64-1gsb.txz: Reconfigured.  
+  Enabled the switch --enable-legacy-buttons to enable HAL events like
+  lid close on laptops.  Thanks to Philip Langdale for suggesting the change.
+ad/gslapt-0.5.1b-x86_64-3gsb.txz: Rebuilt.
+  Actually apply the patch to use gksu in the .desktop files. :^)
++--------------------------+
 Mon Sep  7 18:31:34 BST 2009
 extra/pidgin-2.6.2-x86_64-1gsb.txz: Upgraded.  
   Pidgin libpurple multiple denial of service vulnerabilities, which could

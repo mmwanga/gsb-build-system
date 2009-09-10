@@ -1,3 +1,5 @@
+glib2 >= 2.20-@ARCH@-1
+gtk+2 >= 2.16-@ARCH@-1
 GConf
 ORBit2
 alacarte
@@ -11,7 +13,6 @@ evolution
 evolution-data-server
 gconf-editor
 gdm
-glib2
 gnome-applets
 gnome-backgrounds
 gnome-control-center
@@ -36,7 +37,6 @@ gst-plugins-good
 gst-python
 gstreamer
 gthumb
-gtk+2
 gtk-engines
 gtkhtml
 gtksourceview

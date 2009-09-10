@@ -88,7 +88,9 @@ your /etc/slapt-get/slapt-getrc file.  Afterwards:
        $ slapt-get --update
 2.  Update gpg keys:
        $ slapt-get --add-keys
-3.  Install the GSB desktop via the metapackage:
+3. Upgrade your packages:
+      $ slapt-get --upgrade
+4.  Install the GSB desktop via the metapackage:
        $ slapt-get --install gsb-desktop.
 
 All relevant packages will installed or upgraded through this metapackage.
@@ -98,8 +100,8 @@ from your new GNOME desktop.
 Other Installation methods
 ----------------------------
 
-GSB currently supports two other installation methos; a fully automated net based
-installer and installation from a local repository mirror.
+GSB currently supports two other installation methos; a fully automated net 
+based installer and installation from a local repository mirror.
 
 The automated net installer, obviously, requires an active internet connection
 to perform the installation - packages are downloaded from one of the GSB
@@ -155,8 +157,8 @@ after 20-30 seconds).  During the process, your active terminal may be changed,
 so you may not be returned to the shell prompt.  If the active terminal has
 changed, it will probably now show another 'login:' prompt.  If you are
 returned to the shell prompt after hitting Enter a couple of times, you do not
-need to log out (and can skip the rest of this section) - you are logged in
-as 'root' and can begin installation.
+need to log out (and can skip the rest of this section) - you are logged in as
+'root' and can begin installation.
 
 In either of the two cases above, if you have a text based 'login:' prompt on
 screen, you must login as 'root' using your own root password.
@@ -170,12 +172,13 @@ Automated net installation
 
 This is the simplest method of installation and requires very little detailed
 explanation - you simply run one command and a full installation of GSB, plus
-any of the required Slackware/Slackware64 package dependancies, will be installed.
+any of the required Slackware/Slackware64 package dependancies, will be
+installed.
 
-Depending on whether you have 'wget', 'curl' or 'lynx' available on your system,
-you can use one of the following commands to begin installation.
-Be sure to use the correct URI for your architecture - GSB supports both IA32
-(32 bit Slackware) and x86_64 (64 bit Slackware64).
+Depending on whether you have 'wget', 'curl' or 'lynx' available on your
+system, you can use one of the following commands to begin installation.  Be
+sure to use the correct URI for your architecture - GSB supports both IA32 (32
+bit Slackware) and x86_64 (64 bit Slackware64).
 
 Using wget:
   For IA32:
@@ -207,10 +210,10 @@ future updates.
 
 Before the slapt-getrc file can be created, you must select the GSB and
 Slackware/Slackware64 mirrors to be used for the installation.  Appendix A and
-Appendix B, towards the end of this document, list the available mirrors
-for GSB and Slackware/Slackware64 respectivly.  Please check those mirror lists now
-and select a mirror for GSB and Slackware/Slackware64 which will be added to the
-slapt-getrc file here.
+Appendix B, towards the end of this document, list the available mirrors for
+GSB and Slackware/Slackware64 respectivly.  Please check those mirror lists now
+and select a mirror for GSB and Slackware/Slackware64 which will be added to
+the slapt-getrc file here.
 
 To create the slapt-getrc for GSB, open a text editor (we recommend 'nano'):
   $ nano /etc/slapt-get/slapt-getrc.gsb
@@ -258,8 +261,8 @@ problems and GSB will now be installed on your system.  Please read the section
 Installing from a local copy
 ----------------------------
 
-Installing from a local copy of GSB and/or Slackware/Slackware64 is a very similar
-process to the manual slapt-get net installation detailed above - it is
+Installing from a local copy of GSB and/or Slackware/Slackware64 is a very
+similar process to the manual slapt-get net installation detailed above - it is
 recommended that you read that section in addition to this one, in order to
 understand the slapt-get installtion process.  Only brief instructions are
 given here.
@@ -267,9 +270,8 @@ given here.
 For the following instructions, </path/to/gsb> referrs to the local filesystem
 location for the GSB mirror, and </path/to/slackware> referrs to the local
 filesystem location to the Slackware/Slackware64 mirror.  Both of these should,
-obviously, be replaced with the full correct paths to each mirror.  These
-paths can also be on a CDROM or USB device if the mirrors are located on such
-media.
+obviously, be replaced with the full correct paths to each mirror.  These paths
+can also be on a CDROM or USB device if the mirrors are located on such media.
 
 As with the manual slapt-get net installation, a GSB slapt-getrc file must be
 created - however, the two SOURCE entries in the slapt-getrc for this install
@@ -371,9 +373,9 @@ any files installed by GSB packages got left behind - it's up to you how much
 housekeeping you want to do on those files. :)
 
 Once all the GSB packages are removed and you've done any housekeeping, you
-will need to re-install any Slackware/Slackware64 packages which were replaced by
-the GSB provided ones.  A complete list of standard Slackware/Slackware64 packages
-GSB replaced during installation can be found in our 
+will need to re-install any Slackware/Slackware64 packages which were replaced
+by the GSB provided ones.  A complete list of standard Slackware/Slackware64
+packages GSB replaced during installation can be found in our
 SLACKWARE-13.0_REPLACED_PACKAGES.TXT.
 
 If you are using slapt-get to re-install the packages, you will need to comment
@@ -387,9 +389,9 @@ running:
 
 where the <list of packages> is those obtained from the replaced packages list.
 
-If you don't use slapt-get to maintain your Slackware/Slackware64 packages, you can
-use 'installpkg' (or whatever your preferred package management front-end is)
-to simply re-install any required packages.
+If you don't use slapt-get to maintain your Slackware/Slackware64 packages, you
+can use 'installpkg' (or whatever your preferred package management front-end
+is) to simply re-install any required packages.
 
 It would also be a good idea to select an alternative window manager (as
 detailed in the 'After installation' section), and reboot your system to insure
@@ -454,11 +456,11 @@ For the x86_64 (opteron, athlon64, et al) version of GSB for Slackware64 13.0:
 Appendix B - Slackware/Slackware64 repositories/mirrors
 --------------------------------------------------------
 
-The follwoing is a non-exhaustive list of Slackware/Slackware64 mirrors which can
-be used to resolve dependancies during the GSB installation.  These mirrors
+The follwoing is a non-exhaustive list of Slackware/Slackware64 mirrors which
+can be used to resolve dependancies during the GSB installation.  These mirrors
 have been manually checked to insure they are alive and up to date, but we
-cannot guarantee how often they update or how long they will be available.
-You can, of course, use your own favourite Slackware/Slackware64 mirror instead.
+cannot guarantee how often they update or how long they will be available.  You
+can, of course, use your own favourite Slackware/Slackware64 mirror instead.
 
 Slackware/Slackware64 13.0 mirrors:
 (change slackware-13.0 to slackware64-13.0 as appropriate)
