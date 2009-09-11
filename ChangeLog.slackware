@@ -8,6 +8,10 @@ a/gsb-desktop-2.26.4-noarch-4gsb.txz: Rebuilt.
   Add specific version information for glib2 and gtk+2 to metapackage so
   libraries are upgraded properly;  this should help avoid any missed 
   upgrades during installation.
+a/nautilus-2.26.3-i486-6gsb.txz: Rebuilt.  Applied upstream git patch to fix a
+  nasty crash in nautilus-file-management-properties. 
+  For more information, see:
+    http://git.gnome.org/cgit/nautilus/commit/?id=bf6bfde36bcadf43a39fb095650b7fc78741d62a
 +--------------------------+
 Mon Sep  7 18:31:34 BST 2009
 extra/pidgin-2.6.2-i486-1gsb.txz: Upgraded.  

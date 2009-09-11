@@ -137,7 +137,8 @@ video as well as using other pulsified applications.
 - You user must be in the 'audio' group to use audio, the 'netdev' group to use
   avahi and NetworkManager, the 'plugdev' to use BlueTooth and removeable media
 in Nautilus, and the 'power' group to use hibernate/suspend with GNOME Power
-Manager and use the CPUfreq applet.
+Manager and use the CPUfreq applet.  (If you are not in the 'power' group, the
+CPUfreq applet will complain "CPU frequency scaling unsupported.")
 
 - If NetworkManager is running, but unused, Firefox will try to detect an
   available connection and start up in offline mode (annoyingly).  You can fix
