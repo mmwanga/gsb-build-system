@@ -33,6 +33,7 @@ REQUIRED_PACKAGES=""
 
 # Build variables.
 TAG=${TAG:-gsb}
+META_ARCH="${ARCH}"
 ARCH=noarch
 TUNE=${TUNE:-i486}
 DISTRO=${DISTRO:-slackware}
@@ -105,15 +106,6 @@ rm -rf $PKG
 mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
-
-# For slack-requried versioning
-if [ "$ARCH" = "i486" -o "$ARCH" = "i586" ]; then
-  META_ARCH=i486
-elif [ "$ARCH" = "i686" ]; then
-  META_ARCH=i486
-elif [ "$ARCH" = "x86_64" ]; then
-  META_ARCH=x86_64
-fi
 
 # Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
