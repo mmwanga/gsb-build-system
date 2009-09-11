@@ -1,0 +1,8 @@
+PKGNAME="orca"
+VERSION="2.26.3"
+HOMEPAGE="http://live.gnome.org/Orca"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/orca/2.26/orca-2.26.3.tar.bz2"
+MD5SUM="72dbf273bedd214e9023725690fb61b7"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

@@ -1,0 +1,13 @@
+libxklavier
+dbus
+GConf
+ORBit2
+pango
+libbonoboui
+libgnome
+cairo
+freetype
+glib2
+gtk+2
+libglade
+libgnomeui

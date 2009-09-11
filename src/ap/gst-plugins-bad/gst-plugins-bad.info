@@ -1,0 +1,7 @@
+PKGNAME="gst-plugins-bad"
+VERSION="0.10.13"
+HOMEPAGE="http://gstreamer.freedesktop.org/modules/gst-plugins-good.html"
+DOWNLOAD="http://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-0.10.13.tar.bz2"
+MD5SUM="bc77146c6af89b52f26ebfc8f06d0dfe"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

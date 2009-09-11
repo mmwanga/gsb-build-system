@@ -1,0 +1,7 @@
+PRGNAM="gslapt"
+VERSION="0.5.1b"
+HOMEPAGE="http://software.jaos.org/"
+DOWNLOAD="http://software.jaos.org/source/gslapt/gslapt-0.5.1b.tar.gz"
+MD5SUM="6ef5c81c7d2c3fe268e3d60efb311add"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

@@ -1,0 +1,5 @@
+PKGNAME="MPlayer"
+VERSION="r29502"
+HOMEPAGE="http://www.mplayerhq.hu/"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

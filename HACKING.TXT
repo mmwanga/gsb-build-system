@@ -1,0 +1,30 @@
+			     Notes for hackers
+			     =================
+
+* Before starting to hack it's a good idea to stop by #gsb on irc.freenode.net
+  to discuss the changes or work you'd like to make - we do have plans for the
+  future development of the project, so make sure your changes won't conflict
+  with our plans.
+
+* Unless you have svn commit access we will require an 'svn diff' of your
+  changes to the tree.  Please use 'svn diff' - we cannot work with the
+  output of a simple 'diff'.  Mail the diff to the gsb-dev mailing list.
+
+* Patches should have descriptive names, eg: fix-broken-something.patch.
+  If a patch is ARCH specific it should include the architecture it is
+  intended for in the filename.  eg: i586.fix-broken-something.patch.
+  If a patch can be used on multiple architectures (like i586, i686 etc)
+  a symlink should be used from the original filename to each of the arch
+  specific names.
+
+* Commits and patches should be atomic.  If a version number update is made
+  to the gsb_update system, the corresponding updates in the src/ tree should
+  be done at the same time.
+
+* Commit log messages should be descriptive.
+
+* Keep the VERSIONS file up to date.
+
+* Keep the ChangeLog up to date.
+
+* Credit yourself in CREDITS.

@@ -1,0 +1,158 @@
+CHANGES AND HINTS
+=================
+This file documents the instructions for upgrading to GNOME SlackBuild 2.26.3
+for Slackware 13.0, and lists any packages which have been added, removed,
+renamed, and/or split during the development cycle from GSB 2.26.3 for
+Slackware 12.2, as well as note some potential "gotchas" that users can avoid
+by arming themselves with a little knowledge.
+
+All packages that are built to replace a standard Slackware package are
+configured and built as closely as possible to how Patrick does.  For more
+information about what needs to be replaced, and why, please see our
+'SLACKWARE-13.0_REPLACED_PACKAGES.TXT'.  
+
+DIRECTORY RESTRUCTURE
+=====================
+GNOME SlackBuild has gone under a directory restructuring to bring it more into
+line with Slackware's own practice.  All our packages have been assigned to
+sets now, along with tagfiles.  This will help us to develop a Slackware type
+installer for GNOME SlackBuild as well as still being able to offer a slapt-get
+based installation.  
+
+GPG SIGNED PACKAGED
+===================
+All packages are now signed with gpg, and you can find the public key as
+./GPG-KEY.  If you are using slapt-get to download and install your packages,
+make sure to run:
+
+  $ slapt-get --add-keys
+
+UPDATES ABOUT SLAPT-GET
+=============================
+With the latest version of slapt-get, be sure to add a ":CUSTOM" tag to the end
+of your SOURCE line which points to the GNOME SlackBuild repository.
+Otherwise, the official Slackware package will outweigh some GNOME SlackBuild
+required package and they may not be installed.  
+
+
+*** PACKAGE ADDITIONS SINCE 2.26.3 for Slackware 12.2 ***
+
+a/devicekit-disks: Added.
+ac/espeak: Added.
+extra/gnome-perl: Added.  This package now contains a full set of
+  GNOME bindings for perl, including Glib, Gtk2, Cairo, Pango,
+  Gnome2, Gnome2-VFS, and GConf.
+n/NetworkManager-pptp: Added.  Split from NetworkManager-vpn.
+n/NetworkManager-openvpn: Added.  Split from NetworkManager-vpn.
+n/NetworkManager-vpnc: Added.  Split from NetworkManager-vpn.
+n/NetworkManager-openconnect: Added.  Split from NetworkManager-vpn.
+n/papyon: Added.  Latest MSN support for Empathy.
+n/telepathy-python: Added.
+n/pyOpenSSL: Added.
+l/pycrypto: Added.
+ooo/openoffice3-l10n-*: Added.  Multilingual support for OpenOffice.org 3.1.
+
+*** PACKAGE REMOVALS SINCE 2.26.3 for Slackware 12.2 ***
+
+tools/boost-jam: Removed. Now in Slackware.
+libraries/babl: Removed. Now in Slackware.
+libraries/boost: Removed. Now in Slackware.
+libraries/cairo: Removed. Now in Slackware.
+libraries/djvulibre: Removed. Now in Slackware.
+libraries/exiv2: Removed. Now in Slackware.
+libraries/gegl: Removed. Now in Slackware.
+libraries/iso-codes: Removed. Now in Slackware.
+libraries/libarchive: Removed. Now in Slackware.
+libraries/libdvdread: Removed. Now in Slackware.
+libraries/libjasper: Removed. Now in Slackware.
+libraries/libnl: Removed. Now in Slackware.
+libraries/libspectre: Removed. Now in Slackware.
+libraries/openexr: Removed. Now in Slackware.
+libraries/pango: Removed. Now in Slackware.
+libraries/poppler: Removed. Now in Slackware.
+libraries/yasm: Removed. 
+libraries/libdiscid: Removed as obsolete.  
+libraries/tre: Removed as obsolete.  
+libraries/libexif-gtk: Removed as obsolete.  
+libraries/id3lib: Removed as obsolete.  
+libraries/libmatroska: Removed as obsolete.  
+libraries/libmpeg3: Removed as obsolete.  
+libraries/freealut: Removed as obsolete.  
+libraries/twolame: Removed as obsolete.  
+libraries/openal: Removed as obsolete.  
+libraries/lua: Removed as largely unused.  
+libraries/libebml: Removed as obsolete.  
+libraries/ode: Removed as obsolete.  
+libraries/libxklavier: Removed.  Now in Slackware.
+libraries/libtool-compat: Removed. 
+office/libgda-compat: Removed.  All packages now use 4.0.
+libraries/ilmbase: Removed.
+networking/NetworkManager-vpn: Has now been split into separate vpn packages, 
+   NetworkManager-pptp, NetworkManager-openvpn, NetworkManager-vpnc,
+   and NetworkManager-openconnect.
+networking/libbtctl: Removed as obsolete.  
+networking/obex-data-server: Replaced by obexd.  
+applications/gnome-audio: Removed as obsolete. 
+bindings/glib-perl: Now subsumed under extra/gnome-perl package.
+bindings/gtk+2-perl: Now subsumed under extra/gnome-perl package.
+bindings/libintl-perl: Now subsumed under extra/gnome-perl.
+bindings/gnome2-perl: Moved to extra/ and renamed to gnome-perl.
+tools/cabextract: Removed.
+ooo/openoffice-perl: Removed.
+ooo/apache-ant: Removed.
+bindings/pyfeedparser: Removed.
+bindings/pyalsaaudio: Removed.
+bindings/pysqlite: Removed.
+applications/simple-json: Removed. Now in Slackware's python.
+applications/bluez-gnome: Removed.  Obsoleted by gnome-bluetooth.
+desktop/libical: Removed.  Now in Slackware.
+libraries/vte: Removed. Slackware has decent version.
+platform/gnome-icon-theme: Slackware has 2.26 version.
+
+*** OTHER NOTABLE CHANGES AND HINTS ***
+
+- Fix your config files.  Some of the config files in /etc are going to need
+  your attention.  You'll find the new incoming config files on your system
+with the ".new" extension.  You may need to fill these in with information from
+your old config files and then move them over.
+
+- Slackware now offers packages seamonkey-solibs and seamonkey.  Be aware that
+  these packages can cause conflicts with GNOMESlackBuild's nss and xulrunner
+packages (in the n set).  We have marked them as "conflicts" in the
+slack-conflicts file.  If you want to use seamonkey, make sure to remove its
+entry from the /etc/ld.so.conf file, and re-run ldconfig.  Note that epiphany,
+and many packages like heimdal-libs and evolution will look for the GSB version
+of xulrunner and nss.  
+
+- When adding users to the netdev group, in order to use NetworkManager and the
+  network-manager-applet, you may need to reload dbus in order for the new
+permissions to take effect.
+
+- Pulseaudio will grab the ALSA sound device, which may block other
+  applications from using sound while pulseaudio is running.  You may wish to
+install the alsa-plugins package, and then configure your /etc/asound.conf file
+to force ALSA to use pulesaudio.  This may be handy if you want to use flash
+video as well as using other pulsified applications.
+
+- You user must be in the 'audio' group to use audio, the 'netdev' group to use
+  avahi and NetworkManager, the 'plugdev' to use BlueTooth and removeable media
+in Nautilus, and the 'power' group to use hibernate/suspend with GNOME Power
+Manager and use the CPUfreq applet.  (If you are not in the 'power' group, the
+CPUfreq applet will complain "CPU frequency scaling unsupported.")
+
+- If NetworkManager is running, but unused, Firefox will try to detect an
+  available connection and start up in offline mode (annoyingly).  You can fix
+this behavior by disabling NetworkManager if you're not using it.
+
+- GSB comes with PolicyKit/ConsoleKit support.  We have included a default
+  /etc/PolicyKit/PolicyKit.conf file with basic USB pluggable permissions, and
+some other examples to show to use the file.  See the manual page
+PolicyKit.conf(5) for the file format. In order to make use of PolicyKit, be
+sure to have the consolekit installed as well when you're running your GNOME
+session, otherwise, the PolicyKit will largely be ignored.  (If you run
+ck-list-session from a GNOME terminal you can see if consolekit is running.)
+You will need to run consolekit if you want to reboot or shutdown from the
+gnome-menu or use some utilities such as the GNOME cpufreq applet.  For such
+things, it might be necessary to use polkit-gnome-authorization (run as root)
+and grant your user the abilities to use applications configured to use
+PolicyKit authorisations.

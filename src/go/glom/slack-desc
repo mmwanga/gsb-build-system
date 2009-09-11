@@ -1,0 +1,12 @@
+    |-----handy-ruler------------------------------------------------------|
+glom: glom (Database Design Tool)
+glom:
+glom: Glom is a database design tool, loosely based on FileMaker Pro, but 
+glom: with a separate database server. Its simple framework should be enough 
+glom: to implement most database applications. Glom has high-level features 
+glom: such as relationships, lookups, related fields, related records, 
+glom: calculated fields, drop-down choices, searching, reports, users and 
+glom: groups. Glom uses the PostgreSQL database backend.
+glom:
+glom: Glom is open source software, released under the GPL License.
+glom:

@@ -1,0 +1,8 @@
+PKGNAME="opal"
+VERSION="3.6.4"
+HOMEPAGE="http://www.opalvoip.org/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/opal/3.6/opal-3.6.4.tar.bz2"
+MD5SUM="d894c176818a33d34a04b21386798c4f"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

@@ -1,0 +1,12 @@
+     |-----handy-ruler------------------------------------------------------|
+ptlib: ptlib (Portable Tools Library)
+ptlib:
+ptlib: ptlib is a moderately large C++ class library that originated many
+ptlib: years ago as a method to produce applications that run on both
+ptlib: Microsoft Windows and Unix X-Windows systems. ptlib has an emphasised
+ptlib: focus on its networking, I/O portability, multi-threading and
+ptlib: portability, and is used to create high performance and highly 
+ptlib: portable network-centric applications.  ptlib is licensed under the 
+ptlib: Mozilla Public License (MPL).
+ptlib:
+ptlib:

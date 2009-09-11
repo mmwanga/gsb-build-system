@@ -1,0 +1,8 @@
+PKGNAME="gob2"
+VERSION="2.0.16"
+HOMEPAGE="http://www.jirka.org/gob.html"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gob2/2.0/gob2-2.0.16.tar.bz2"
+MD5SUM="aa5a15754d34b73bf39a77e482811461"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

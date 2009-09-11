@@ -1,0 +1,8 @@
+eKGNAME="tomboy"
+VERSION="0.14.3"
+HOMEPAGE="http://projects.gnome.org/totem/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/tomboy/0.14/tomboy-0.14.3.tar.bz2"
+MD5SUM="90c3f930b8b47152315e486180869d93"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

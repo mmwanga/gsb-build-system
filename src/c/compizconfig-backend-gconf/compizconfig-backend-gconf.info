@@ -1,0 +1,7 @@
+PKGNAME="compizconfig-backend-gconf"
+VERSION="0.8.2"
+HOMEPAGE="http://compiz-fusion.org/"
+DOWNLOAD="http://releases.compiz-fusion.org/0.8.2/compizconfig-backend-gconf-0.8.2.tar.bz2"
+MD5SUM="4be4ef08e811713277077ba89934c332"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

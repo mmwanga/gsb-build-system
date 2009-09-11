@@ -1,0 +1,7 @@
+PRGNAM="slapt-update-notifier"
+VERSION="0.4.1"
+HOMEPAGE="http://software.jaos.org/"
+DOWNLOAD="http://software.jaos.org/source/slapt-update-notifier/slapt-update-notifier-0.4.1.tar.gz"
+MD5SUM="7e63dc9ecb37a5f6345b71d59a0a6357"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

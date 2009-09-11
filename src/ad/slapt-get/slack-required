@@ -1,0 +1,8 @@
+curl
+glibc-solibs | glibc
+gpgme
+gnupg
+libgpg-error
+libidn
+openssl-solibs | openssl
+pkgtools

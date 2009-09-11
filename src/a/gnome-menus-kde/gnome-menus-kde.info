@@ -1,0 +1,5 @@
+PKGNAME="gnome-menus-kde"
+VERSION="2.26.3"
+HOMEPAGE="http://www.gnomeslackbuild.org"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

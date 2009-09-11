@@ -1,0 +1,12 @@
+glib2 >= 2.20-@ARCH@-1
+gtk+2 >= 2.16-@ARCH@-1
+GConf
+libxslt
+gnome-vfs
+esound
+audiofile
+libbonobo
+libxml2
+openssl-solibs | openssl
+ORBit2
+gnome-vfs

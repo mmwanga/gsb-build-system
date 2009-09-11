@@ -1,0 +1,8 @@
+PKGNAME="evolution-data-server"
+VERSION="2.26.3"
+HOMEPAGE="http://projects.gnome.org/evolution/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/evolution-data-server/2.26/evolution-data-server-2.26.3.tar.bz2"
+MD5SUM="01205605a598253bc227ff360c7c3dad"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

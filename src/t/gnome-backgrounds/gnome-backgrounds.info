@@ -1,0 +1,8 @@
+PKGNAME="gnome-backgrounds"
+VERSION="2.24.1"
+HOMEPAGE="http://projects.gnome.org/totem/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gnome-backgrounds/2.24/gnome-backgrounds-2.24.1.tar.bz2"
+MD5SUM="28e09fcdeef5616bc612b36e5068e413"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

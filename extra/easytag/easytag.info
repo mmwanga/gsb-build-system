@@ -1,0 +1,7 @@
+PKGNAME="easytag"
+VERSION="2.1.6"
+HOMEPAGE="http://easytag.sourceforge.net/"
+DOWNLOAD="http://downloads.sourceforge.net/project/easytag/easytag%20unstable%20%28gtk%202%29/2.1.6/easytag-2.1.6.tar.bz2"
+MD5SUM="6c5b9dc2bf1f3b0a11bd4efc81aaa9ee"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

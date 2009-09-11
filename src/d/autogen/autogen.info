@@ -1,0 +1,7 @@
+PKGNAME="autogen"
+VERSION="5.9.8"
+HOMEPAGE="http://autogen.sourceforge.net/"
+DOWNLOAD="http://downloads.sourceforge.net/project/autogen/AutoGen/AutoGen%205.9.8/autogen-5.9.8.tar.bz2"
+MD5SUM="c95716e70d8c20a805957b8c344e4587"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

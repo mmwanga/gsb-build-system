@@ -1,0 +1,12 @@
+             |-----handy-ruler------------------------------------------------------|
+libgnomeprint: libgnomeprint (GNOME Generic Printing Library)
+libgnomeprint:
+libgnomeprint: libgnomeprint is a C API that implements the Postscript imaging model. 
+libgnomeprint: It is part of the GNOME toolkit. It currently contains Postscript, 
+libgnomeprint: PDF, on-screen preview, Metafile and a Generic bitmap driver.
+libgnomeprint: 
+libgnomeprint:
+libgnomeprint:
+libgnomeprint:
+libgnomeprint:
+libgnomeprint:

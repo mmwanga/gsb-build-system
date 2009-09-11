@@ -1,0 +1,13 @@
+           |-----handy-ruler------------------------------------------------------|
+pywebkitgtk: pywebkitgtk (Python WebKit Bindings)
+pywebkitgtk:
+pywebkitgtk: PyWebKitGtk provides an API for developers to program WebKit/Gtk 
+pywebkitgtk: using Python.  This binding brings an alternative web engine to 
+pywebkitgtk: Python/GTK+ application developers who might need a web browser 
+pywebkitgtk: engine for their next application or developers who wish to have a
+pywebkitgtk: better browser engine that they can access to using the Python 
+pywebkitgtk: programming language. 
+pywebkitgtk:
+pywebkitgtk:
+pywebkitgtk:
+pywebkitgtk:

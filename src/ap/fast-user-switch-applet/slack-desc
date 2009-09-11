@@ -1,0 +1,12 @@
+                       |-----handy-ruler------------------------------------------------------|
+fast-user-switch-applet: fast-user-switch-applet (User-Switching Applet)
+fast-user-switch-applet: 
+fast-user-switch-applet: The Fast User-Switching Applet is an applet for the GNOME panel that 
+fast-user-switch-applet: provides a menu to switch between users without logging out. It 
+fast-user-switch-applet: integrates with GDM to switch between existing X11 sessions or 
+fast-user-switch-applet: create new ones as needed, and shows the same users as the 
+fast-user-switch-applet: GDM face browser.
+fast-user-switch-applet: 
+fast-user-switch-applet: 
+fast-user-switch-applet: 
+fast-user-switch-applet: 

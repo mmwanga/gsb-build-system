@@ -1,0 +1,8 @@
+PKGNAME="gnome-desktop"
+VERSION="2.26.3"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gnome-desktop/2.26/gnome-desktop-2.26.3.tar.bz2"
+MD5SUM="1668dcedde64b30aa02f0a73e59c957d"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

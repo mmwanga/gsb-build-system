@@ -1,0 +1,7 @@
+PKGNAME="mono-develop"
+VERSION="2.0"
+HOMEPAGE="http://mono-project.com"
+DOWNLOAD="http://ftp.novell.com/pub/mono/sources/monodevelop/monodevelop-2.0.tar.bz2"
+MD5SUM="0f527204ffd4785284d9556a75524c3e"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

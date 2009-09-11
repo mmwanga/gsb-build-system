@@ -1,0 +1,7 @@
+PKGNAME="pygdata"
+VERSION="0.17"
+HOMEPAGE="http://freedesktop.org/wiki/Software/pyxdg"
+DOWNLOAD="http://www.freedesktop.org/~lanius/pyxdg-0.17.tar.gz"
+MD5SUM="a086de99cc536095684d87f15594e4db"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

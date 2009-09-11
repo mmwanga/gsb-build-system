@@ -1,0 +1,8 @@
+PKGNAME="gnome-screensaver"
+VERSION="2.26.1"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gnome-screensaver/2.26/gnome-screensaver-2.26.1.tar.bz2"
+MD5SUM="13b9066bb2dfe9face50b3d852b67ded"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

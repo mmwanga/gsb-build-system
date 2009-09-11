@@ -1,0 +1,8 @@
+PKGNAME="glom"
+VERSION="1.10.1"
+HOMEPAGE="http://www.gnome-db.org/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/glom/1.10/glom-1.10.1.tar.bz2"
+MD5SUM="611a9cc73aadd1ff5fdc4dd81e240822"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

@@ -1,0 +1,8 @@
+PKGNAME="ttf-bitstream-vera"
+VERSION="1.10"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/ttf-bitstream-vera/1.10/ttf-bitstream-vera-1.10.tar.bz2"
+MD5SUM="bb22bd5b4675f5dbe17c6963d8c00ed6"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

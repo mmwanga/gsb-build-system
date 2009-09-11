@@ -1,0 +1,12 @@
+           |-----handy-ruler------------------------------------------------------|
+libiptcdata: libiptcdata (IPTC Metadata Library)
+libiptcdata: 
+libiptcdata: libiptcdata is a library, written in C, for manipulating the 
+libiptcdata: International Press Telecommunications Council (IPTC) metadata 
+libiptcdata: stored within multimedia files such as images. This metadata can 
+libiptcdata: include captions and keywords, often used by popular photo management 
+libiptcdata: applications. The library provides routines for parsing, viewing, 
+libiptcdata: modifying, and saving this metadata. The library is licensed under 
+libiptcdata: the GNU Library General Public License (GNU LGPL). 
+libiptcdata: 
+libiptcdata: 

@@ -1,0 +1,7 @@
+PKGNAME="libsamplerate"
+VERSION="0.1.7"
+HOMEPAGE="http://www.mega-nerd.com/SRC/"
+DOWNLOAD="http://www.mega-nerd.com/SRC/libsamplerate-0.1.7.tar.gz"
+MD5SUM="ad093e60ec44f0a60de8e29983ddbc0f"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

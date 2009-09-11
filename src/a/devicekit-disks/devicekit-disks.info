@@ -1,0 +1,7 @@
+PKGNAME="devicekit-disks"
+VERSION="004"
+HOMEPAGE="http://freedesktop.org/wiki/Software/DeviceKit"
+DOWNLOAD="http://hal.freedesktop.org/releases/DeviceKit-disks-004.tar.gz"
+MD5SUM="1ed8e1931f56ad3fc53ba485391434b5"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

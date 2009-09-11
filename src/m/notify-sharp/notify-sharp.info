@@ -1,0 +1,6 @@
+PKGNAME="notify-sharp"
+VERSION="r3038"
+HOMEPAGE="http://www.galago-project.org"
+MD5SUM="351967aca0cf0b210b17420b46059d88"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

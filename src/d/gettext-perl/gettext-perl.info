@@ -1,0 +1,7 @@
+PKGNAME="gettext-perl"
+VERSION="1.05"
+HOMEPAGE="http://search.cpan.org/~pvandry/gettext-1.05/"
+DOWNLOAD="http://search.cpan.org/CPAN/authors/id/P/PV/PVANDRY/gettext-1.05.tar.gz"
+MD5SUM="f3d3f474a1458f37174c410dfef61a46"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

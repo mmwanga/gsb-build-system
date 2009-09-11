@@ -1,0 +1,8 @@
+PKGNAME="dia"
+VERSION="0.97"
+HOMEPAGE="http://live.gnome.org/Dia"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/dia/0.97/dia-0.97.tar.bz2"
+MD5SUM="3d11f9aaa5a4923f0a5533962c87bdfb"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

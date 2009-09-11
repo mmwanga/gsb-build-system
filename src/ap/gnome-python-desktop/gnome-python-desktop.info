@@ -1,0 +1,8 @@
+PKGNAME="gnome-python-desktop"
+VERSION="2.26.0"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gnome-python-desktop/2.26/gnome-python-desktop-2.26.0.tar.bz2"
+MD5SUM="fbcf4ef5ec4a8c4eec4d390c5889c80f"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

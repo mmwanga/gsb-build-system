@@ -1,0 +1,8 @@
+PKGNAME="libgweather"
+VERSION="2.26.2.1"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/libgweather/2.26/libgweather-2.26.2.1.tar.bz2"
+MD5SUM="cef0447b62235c4662aa9691dd9a6c92"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

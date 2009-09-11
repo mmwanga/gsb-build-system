@@ -1,0 +1,8 @@
+PKGNAME="goffice"
+VERSION="0.6.6"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/goffice/0.6/goffice-0.6.6.tar.bz2"
+MD5SUM="92e51878b9cd9c2fa954953d708f2c47"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

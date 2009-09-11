@@ -1,0 +1,7 @@
+PKGNAME="libtasn1"
+VERSION="2.2"
+HOMEPAGE="http://josefsson.org/libtasn1/"
+DOWNLOAD="http://ftp.gnu.org/gnu/gnutls/libtasn1-2.2.tar.gz"
+MD5SUM="14cc361500d2e768a8a6ec538ce3fecb"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

@@ -1,0 +1,20 @@
+# Sample gsb.options configuration file
+# 
+
+# Tag append for packages
+export TAG="gsb"
+
+# For Slackware 12
+#export ARCH="i486"
+#export TUNE="i686"
+#export DISTRO="slackware"
+#export TMP=/alternative/tmp
+#export PKGDEST=/alternative/dir/gsb-tree
+#export GSB_MAKE_FLAGS="-j2"
+
+# For Slackware64
+#export ARCH="x86_64"
+#export DISTRO="slackware"
+#export TMP=/alternative/tmp
+#export PKGDEST=/alternative/dir/gsb64-tree
+#export GSB_MAKE_FLAGS="-j4"

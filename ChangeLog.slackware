@@ -1,0 +1,170 @@
+Thu Sep 10 23:09:17 BST 2009
+ap/gnome-power-manager-2.26.4-i486-1gsb.txz: Reconfigured.  
+  Enabled the switch --enable-legacy-buttons to enable HAL events like
+  lid close on laptops.  Thanks to Philip Langdale for suggesting the change.
+ad/gslapt-0.5.1b-i486-3gsb.txz: Rebuilt.
+  Actually apply the patch to use gksu in the .desktop files. :^)
+a/gsb-desktop-2.26.4-noarch-4gsb.txz: Rebuilt.
+  Add specific version information for glib2 and gtk+2 to metapackage so
+  libraries are upgraded properly;  this should help avoid any missed 
+  upgrades during installation.
+a/nautilus-2.26.3-i486-6gsb.txz: Rebuilt.  Applied upstream git patch to fix a
+  nasty crash in nautilus-file-management-properties. 
+  For more information, see:
+    http://git.gnome.org/cgit/nautilus/commit/?id=bf6bfde36bcadf43a39fb095650b7fc78741d62a
+a/gnome-menus-xfce-2.26.3-noarch-2gsb.txz: Rebuilt.
+  Relative path fix to avoid building package with incorrect directories.
++--------------------------+
+Mon Sep  7 18:31:34 BST 2009
+extra/pidgin-2.6.2-i486-1gsb.txz: Upgraded.  
+  Pidgin libpurple multiple denial of service vulnerabilities, which could
+  cause the applications to crash.
+      http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2703
+  (* Security fix *)
+m/banshee-1-1.4.3-i486-3gsb.txz: Rebuilt.
+  Added notify-sharp and mono-zeroconf to slack-required so that DAAP plugin
+  and display notifications work by default.
++--------------------------+
+Sat Sep  5 14:25:22 BST 2009
+ad/gslapt-0.5.1b-i486-2gsb.txz: Rebuilt.
+  Changed the gslapt.desktop to use gksu.
+m/boo-0.9.1.3287-i486-2gsb.txz: Rebuilt.  
+  Fixed slack-required and removed gtksourceview-sharp.
+a/gsb-desktop-2.26.3-noarch-4gsb.txz: Rebuilt metapackage.
+  Added gslapt and seahorse to default installation package.
+n/telepathy-butterfly-0.5.0-i486-3gsb.txz: Rebuilt.  
+  Added telepathy-python to slack-required.
+n/telepathy-salut-0.3.9-i486-3gsb.txz: Rebuilt.  
+  Fixed typo in slack-desc.
++--------------------------+
+Fri Sep  4 22:52:08 BST 2009
+a/gnome-menus-kde-2.26.3-i486-2gsb.txz: Added.
+  This allows users to access KDE applications from their GNOME menu.
+n/telepathy-gabble-0.8.2-i486-1gsb.txz: Upgraded to telepathy-gabble-0.8.2.
+ac/espeak-1.41.01-i486-1gsb.txz: Added.
+  This package provides voice drivers for Orca and gnome-speech, allowing
+  text-to-speech functionality for the GNOME accessibility packages.  Thanks to
+  Johnathan Nadeau for mentioning the missing package.
+ac/gnome-speech-0.4.25-i486-3gsb.txz: Rebuilt. 
+  Now built against the espeak package for the GNOME speak driver.
+ooo/gnome-menus-ooo-3.1.1.1-i486-2gsb.txz: Rebuilt.  
+  The menu file was misplaced, causing the OpenOffice menu not to be displayed.
++--------------------------+
+Thu Sep  3 21:37:39 BST 2009
+a/gnome-panel-2.26.3-i486-4gsb.txz: Rebuilt.  
+  Fixed a minor typo which prevented the panel default settings to be loaded into
+  the gconf tree.
++--------------------------+
+Wed Sep  2 15:21:40 BST 2009
+l/libsigc++-2.2.4.1-i486-2gsb.txz: Rebuilt.  
+  Removed some documentation, which ended up being more than 90% of the package
+  size. 
+l/libgc-7.1-i486-4gsb.txz: Rebuilt.  
+  Removed libatomic_ops from slack-required.  This package is no longer offered
+  or needed.  Thanks to Carlos Diógenes for reporting the problem.
+l/nss-3.12.4-i486-2gsb.txz: Rebuilt.  
+  Added slack-conflicts against seamonkey-solibs.  The nss libraries found in
+  Slackware's seamonkey or seamonkey-solibs package will conflict with the
+  GNOMESlackbuild nss and xulrunner packages.  If users want to use seamonkey,
+  they will need to remove the seamonkey entry in the /etc/ld.so.conf file, and
+  rerun ldconfig.  Thanks to byteframe for reporting the problem.
+a/gnome-desktop-2.26.3-i486-6gsb.txz: Rebuilt.  
+  Added libgail-gnome to the slack-required.  This is not a runtime
+  requirement, but is searched for by many GNOME applications.  
+go/tomboy-0.14.3-i486-2gsb.txz: Rebuilt.  
+  Updated the slack-requireds to include mono-addins and gnome-desktop-sharp.
+  Thanks to Carlos Diógenes for reporting the missing requirements.
+a/gnome-panel-2.26.3-i486-3gsb.txz: Rebuilt.  
+  Updated doinst.sh to load default panel settings.  This was causing the GNOME
+  panel to display nothing on new installations.
+go/libgda-4.0.4-i486-1gsb.txz: Upgraded to libgda-4.0.4.
++--------------------------+
+Tue Sep  1 09:00:19 BST 2009
+extra/pidgin-2.6.1-i486-1gsb.txz: Upgraded.  
+  This upgrade fixes libpurple.c, which did not follow the "require TLS/SSL"
+  preference when connecting to older Jabber servers that do not follow the
+  XMPP specification, which causes libpurple to connect to the server without
+  the expected encryption and allows remote attackers to sniff sessions.  
+  For more information, see:
+      http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3026
+  (* Security fix *)
++--------------------------+
+Sun Aug 30 17:52:37 BST 2009
+l/glib2-2.20.5-i486-1gsb.txz: Upgraded to glib2-2.20.5.
+l/gtk+2-2.16.6-i486-1gsb.txz: Upgraded to gtk+2-2.16.6.
+ap/gnome-menus-2.26.2-i486-2gsb.txz: Rebuilt. Updated for gnome-menus-ooo 3.1.
+ad/slapt-get-0.10.2-i486-1gsb.txz: Upgraded to slapt-get-0.10.2.
+ad/gslapt-0.5.1b-i486-1gsb.txz: Upgraded to gslapt-0.5.1b.
+ad/gksu-2.0.2-i486-3gsb.txz: Rebuilt.
+ooo/gnome-menus-ooo-3.1.1.1-i486-1gsb.txz: Upgraded.  Updated versions to 3.1.
+ooo/openoffice3-3.1.1.1-i486-1gsb.txz: Upgraded to openoffice-3.1.1.1.  
+  Integer underflow in OpenOffice.org (OOo) before 3.1.1 might allow remote at
+  tackers to execute arbitrary code via crafted records in the document table
+  of a Word document, leading to a heap-based buffer overflow. 
+  For more information, see:
+      http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0200
+      http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-0201
+  (* Security fix *)
+ooo/openoffice3-l10n-*-noarch-1gsb.txz: Added.
+  Full internationalisation support (dictionaries and locale settings) for 
+  OpenOffice 3.1.
++--------------------------+
+Fri Aug 28 15:54:02 BST 2009
+n/mozilla-xulrunner-1.9.0.13-i486-1gsb.txz: Upgraded.
+  This upgrade fixes incorrect handling of invalid URLs could be used for
+  spoofing the location bar and the SSL certificate status of a web page.
+  For more information, see:
+      http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2654
+  (* Security fix *)
+l/nss-3.12.4-i486-1gsb.txz: Upgraded.
+  This upgrade fixes several vulnerabilities have been discovered in the
+  Network Security Service libraries. 
+  For more information, see:
+      http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2404
+      http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2408
+      http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2409
+  (* Security fix *)
+l/libsigc++-2.2.4.1-i486-1gsb.txz: Upgraded.
+n/telepathy-glib-0.7.34-i486-1gsb.txz: Upgraded to telepathy-glib-0.7.34.
+n/telepathy-gabble-0.8.1-i486-1gsb.txz: Upgraded to telepathy-gabbel-0.8.1.
+ap/rhythmbox-0.12.4-i486-1gsb.txz: Upgraded to rhythmbox-0.12.4.
+go/libgda-4.0.3-i486-1gsb.txz: Upgraded to libgda-4.0.4.
+m/mono-2.4.2.3-i486-1gsb.txz: Upgraded to mono-2.4.2.3.
+m/f-spot-0.6.1.1-i486-1gsb.txz: Upgraded to f-spot 0.6.1.1.
++--------------------------+
+Wed Aug 19 10:06:53 BST 2009
+n/liferea-1.6.0-i486-1gsb.txz: Upgraded.  
+  Latest stable version now fully supports the use of webkit as a backend.  
+n/webkit-1.1.10-i486-1gsb.txz: Upgraded.  
+  We've stopped using the nightly builds from webkit.org and began to use
+  "release" (ie, slightly stripped versions of nightly builds) from
+  webkitgtk.org.  
+ad/sabayon-2.27.91-i486-1gsb.txz: Upgraded.  
+  This version (finally) works from upstream development work.  It uses
+  xorg-server-xephyr in place of the xorg-server-xnest.  
+a/gnome-session-2.26.2-i486-3gsb.txz: Rebuilt.  
+  Modified xinitrc.gnome to no longer use seahores-daemon;  instead this daemon
+  now starts up from the xdg autostart directory in /etc/gnome. 
++--------------------------+
+Mon Aug 17 20:23:22 BST 2009
+ooo/openoffice3-3.1.0.6-i486-2gsb.txz: Rebuilt.  Added gtk+ widget support.
+ooo/openoffice3-l10n-*-3.1.0.6-noarch-2gsb.txz: Added.
+  Our OpenOffice3 packages now come with multilingual support, including
+  dictionaries and localisations. 
+a/libgnome-2.26.0-i486-6gsb.txz: Rebuilt. Fixes in doinst.sh.
+a/libwnck-2.26.2-i486-1gsb.txz: Added.  
+  We will continue to replace this package since it will quickly lag behind
+  once GNOME 2.28 is release.
+n/network-manager-applet-0.7.1-i486-4gsb.txz: Rebuilt. Added slack-suggests.
+ap/gnome-mplayer-0.9.6-i486-1gsb.txz: Rebuilt.
+go/goffice-0.6.6-i486-5gsb.txz: Rebuilt.  Force slack-required version for
+  libgsf built against libgnome.
+go/gtkmathview-0.8.0-i486-3gsb.txz: Rebuilt. Fixes in doinst.sh.
++--------------------------+
+Sun Aug 16 12:24:20 BST 2009
+Full rebuild of GNOME SlackBuild 2.26.3 for Slackware 13.0 RC2.  GNOME
+SlackBuild has gone under a directory restructuring to bring it more into line
+with Slackware's own practice.  All our packages have been assigned to sets
+now, along with tagfiles.  This will help us to develop a Slackware type
+installer for GNOME SlackBuild as well as still being able to offer a slapt-get
+based installation.  

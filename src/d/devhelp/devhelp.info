@@ -1,0 +1,8 @@
+PKGNAME="devhelp"
+VERSION="0.22"
+HOMEPAGE="http://live.gnome.org/devhelp"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/devhelp/0.22/devhelp-0.22.tar.bz2"
+MD5SUM="7cdd0688dba0184b6dd2688532af24cb"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

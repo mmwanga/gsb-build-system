@@ -1,0 +1,8 @@
+PKGNAME="gnome-speech"
+VERSION="0.4.25"
+HOMEPAGE="http://live.gnome.org/Orca/GnomeSpeech"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gnome-speech/0.4/gnome-speech-0.4.25.tar.bz2"
+MD5SUM="89cbc23fc131c33396c0346085759f63"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

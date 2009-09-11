@@ -1,0 +1,7 @@
+PKGNAME="transcode"
+VERSION="1.1.0"
+HOMEPAGE="http://www.transcoding.org/"
+DOWNLOAD="http://download.berlios.de/tcforge/transcode-1.1.0.tar.bz2"
+MD5SUM="5ca205e32b546402a48ea8004a7b3232"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

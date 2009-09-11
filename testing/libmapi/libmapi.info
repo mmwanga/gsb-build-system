@@ -1,0 +1,7 @@
+PKGNAME="libmapi"
+VERSION="0.8.2"
+HOMEPAGE="http://www.openchange.org"
+DOWNLOAD="http://downloads.sourceforge.net/openchange/libmapi-0.8.2-ROMULUS.tar.gz"
+MD5SUM="b956870860cd786a0793bd89783df185"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

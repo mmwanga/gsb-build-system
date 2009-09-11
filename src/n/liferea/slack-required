@@ -1,0 +1,8 @@
+glib2
+gtk+2
+GConf
+gnutls
+libnotify
+dbus
+nss
+webkit

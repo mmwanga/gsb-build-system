@@ -1,0 +1,7 @@
+PKGNAME="sylpheed"
+VERSION="2.7.0"
+HOMEPAGE="http://sylpheed.sraoss.jp/en/news.html"
+DOWNLOAD="http://sylpheed.sraoss.jp/sylpheed/v2.7/sylpheed-2.7.0.tar.bz2"
+MD5SUM="977a8fc56dafc2af948e082f3ac28d9e"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

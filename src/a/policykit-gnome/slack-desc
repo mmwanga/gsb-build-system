@@ -1,0 +1,12 @@
+               |-----handy-ruler------------------------------------------------------|
+policykit-gnome: policykit-gnome (PolicyKit Framework for GNOME Integration)
+policykit-gnome:
+policykit-gnome: PolicyKit is an application-level toolkit for defining and handling 
+policykit-gnome: the policy that allows unprivileged processes to speak to privileged 
+policykit-gnome: processes. It is a framework for centralizing the decision making 
+policykit-gnome: process with respect to granting access to privileged operations for 
+policykit-gnome: unprivileged applications. PolicyKit is specifically targeting 
+policykit-gnome: applications in rich desktop environments like Linux.
+policykit-gnome:
+policykit-gnome: This package contains PolicyKit extensions for the GNOME Desktop.
+policykit-gnome:

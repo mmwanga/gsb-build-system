@@ -1,0 +1,16 @@
+GConf
+libXcomposite
+glib2
+gtk+2
+ORBit2
+startup-notification
+libgnome
+libgnomeui
+libXrender
+libXrandr
+libXinerama
+libXcursor
+pango
+cairo
+gnome-menus
+zenity

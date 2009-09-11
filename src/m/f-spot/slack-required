@@ -1,0 +1,16 @@
+mono
+gnome-sharp
+libgnomeui
+libexif
+gtk-sharp
+libgphoto2
+lcms
+libjpeg
+GConf
+glib2
+sqlite
+ndesk-dbus
+cairo
+gnome-keyring
+dbus
+mono-addins

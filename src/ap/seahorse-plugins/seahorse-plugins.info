@@ -1,0 +1,8 @@
+PKGNAME="seahorse-plugins"
+VERSION="2.26.2"
+HOMEPAGE="http://live.gnome.org/Seahorse"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/seahorse-plugins/2.26/seahorse-plugins-2.26.2.tar.bz2"
+MD5SUM="36b51b866fc729526f1be86bb0db7370"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

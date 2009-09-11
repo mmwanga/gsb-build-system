@@ -1,0 +1,8 @@
+PKGNAME="GConf"
+VERSION="2.26.2"
+HOMEPAGE="http://projects.gnome.org/gconf/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/GConf/2.26/GConf-2.26.2.tar.bz2"
+MD5SUM="8b55d58dab13e821e048627aa4f92b8b"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

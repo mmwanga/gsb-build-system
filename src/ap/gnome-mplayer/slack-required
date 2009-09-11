@@ -1,0 +1,9 @@
+GConf
+MPlayer
+libgnomeui
+gtk+2
+glib2
+alsa-lib
+libgpod
+libmusicbrainz
+libnotify

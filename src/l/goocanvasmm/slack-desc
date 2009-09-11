@@ -1,0 +1,12 @@
+           |-----handy-ruler------------------------------------------------------|
+goocanvasmm: goocanvasmm (C++ Bindings for the Cairo Canvas Widget for GTK+)
+goocanvasmm: 
+goocanvasmm: GooCanvas is a new canvas widget for GTK+ that uses the cairo 2D 
+goocanvasmm: library for drawing. It has a model/view split, and uses interfaces 
+goocanvasmm: for canvas items and views, so you can easily turn any application 
+goocanvasmm: object into canvas items.
+goocanvasmm: 
+goocanvasmm: This package contains C++ bindings for the goocanvas library.
+goocanvasmm: 
+goocanvasmm: 
+goocanvasmm: 

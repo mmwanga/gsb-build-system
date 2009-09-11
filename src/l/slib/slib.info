@@ -1,0 +1,7 @@
+PKGNAME="slib"
+VERSION="3b2"
+HOMEPAGE="http://people.csail.mit.edu/jaffer/SLIB"
+DOWNLOAD="http://groups.csail.mit.edu/mac/ftpdir/scm/slib-3b2.zip"
+MD5SUM="2f3a6ece49afb1e7db3bce7af039eaaa"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

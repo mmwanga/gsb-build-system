@@ -1,0 +1,7 @@
+PKGNAME="karma-sharp"
+VERSION="0.1.1"
+HOMEPAGE="http://www.freakysoft.de/libkarma/"
+DOWNLOAD="http://www.freakysoft.de/libkarma/libkarma-0.1.1.tar.gz"
+MD5SUM="3a49267ea0e8582ec0f719aa88a86e5c"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

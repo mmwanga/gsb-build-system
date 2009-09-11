@@ -1,0 +1,7 @@
+PKGNAME="compiz"
+VERSION="0.8.2"
+HOMEPAGE="http://compiz-fusion.org/"
+DOWNLOAD="http://releases.compiz-fusion.org/0.8.2/compiz-0.8.2.tar.bz2"
+MD5SUM="c161975eb0fe8deac7be8d99408a80fc"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

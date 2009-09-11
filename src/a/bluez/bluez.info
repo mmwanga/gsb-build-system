@@ -1,0 +1,7 @@
+PKGNAME="bluez"
+VERSION="4.47"
+HOMEPAGE="http://www.bluez.org/"
+DOWNLOAD="http://www.kernel.org/pub/linux/bluetooth/bluez-4.47.tar.gz"
+MD5SUM="b54a199004b578ec5652014a5e62aeaa"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

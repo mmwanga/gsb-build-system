@@ -1,0 +1,68 @@
+			      GNOME SlackBuild Credits
+			      ========================
+
+Developers
+----------
+chipster                        <chipster (at) gnomeslackbuild.org>
+Darren 'Tadgy' Austin           <tadgy (at) gnomeslackbuild.org>
+Steve                           <steve (at) gnomeslackbuild.org>
+malloc                          <woodwardj (at) jaos.org>
+
+Developers Emeritus
+-------------------
+Freerock                        <freerock (at) gmail.com>
+Gpl_Source                      <fernando.flores.ortiz (at) gmail.com>
+Thorsten Johannvorderbrueggen   <thorsten.johannvorderbrueggen (at) t-online.de>
+
+Webmaster
+---------
+chipster 			<chipster (at) gnomeslackbuild.org>
+
+Artwork
+-------
+Gpl_Source			<fernando.flores.ortiz (at) gmail.com>
+
+Past Contributors
+------------------
+
+Ariszlo                         <ariszlo (at) gmail.com>
+  * GSB Menus (patched for XFCE and KDE items)
+
+Chris Lewis			<burn03 (at) bellsouth.net>
+  * GWARE 02/16/2005
+  * rc.howl and krb5 build scripts
+
+Locustfurnace
+  * Screenshots of FRG in action
+
+Dropline GNOME project
+  * HAL patches and rc.hal script
+  * rc.dbus script
+  * Fix for librsvg doinst.sh to add svg to gdk
+
+Mark M. Young			<mmyoung57 (at) sbcglobal.net>
+  * Screenshots of FRG in action
+
+Dan Barber			<dan (at) mutagenix.org>
+  * Lots of feedback on scripts
+  * Mutagenix distribution, incorporating GSB
+
+Thomas "ZlatkO" Zajic		<zlatko (at) gmx.at>
+  * Lots of feedback and bugfixes
+
+Luca Cavalli			<loopback (at) slackit.org>
+  * gnome-pkgtool Slackbuild
+  * Jimmac cursors theme SlackBuild
+
+Eugene Crosser			<crosser (at) average.org>
+  * Lots of suggestions and fixes
+
+Darren 'Tadgy' Austin		<tadgy (at) afterdark.org.uk>
+  * Script to generate PACKAGES.TXT and CHECKSUMS.md5 (gen_metadata.sh)
+
+Jason Woodward			<woodwardj (at) jaos.org>
+  * slapt-get and gslapt
+  * x86_64 port
+
+Thorsten Johannvorderbrueggen	<thorsten.johannvorderbrueggen (at) t-online.de>
+  * Powerpc port

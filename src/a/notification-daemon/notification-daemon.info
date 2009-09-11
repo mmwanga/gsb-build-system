@@ -1,0 +1,7 @@
+PKGNAME="notification-daemon"
+VERSION="0.4.0"
+HOMEPAGE="http://www.galago-project.org/news/index.php"
+DOWNLOAD="http://www.galago-project.org/files/releases/source/notification-daemon/notification-daemon-0.4.0.tar.bz2"
+MD5SUM="e61eff9782551d81045bb53e8a801d58"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

@@ -1,0 +1,36 @@
+# Working directory for local storage/cache.
+WORKINGDIR=/var/slapt-get
+
+# Exclude package names and expressions.
+# To exclude pre and beta packages, add this to the exclude: 
+#   [0-9\_\.\-]{1}pre[0-9\-\.\-]{1}
+EXCLUDE=^aaa_elflibs,^devs,^glibc-.*,^kernel-.*,^udev,.*-[0-9]+dl$,x86_64
+
+# Each SOURCE can be a assigned a priority level, by appending :{PRIORITY} to
+# the source URI.  For example:# 
+# SOURCE={url}:DEFAULT    is the default, lowest priority
+# SOURCE={url}:PREFERRED  assigns more weight to this source
+# SOURCE={url}:OFFICIAL   even more weight, used to denote official sources
+# SOURCE={url}:CUSTOM     highest priority, for your custom package source
+# Base url to directory with a PACKAGES.TXT.
+# This can point to any release, ie: 9.0, 10.0, current, etc.
+SOURCE=ftp://ftp.slackware.com/pub/slackware/slackware-13.0/:OFFICIAL
+# Sources for the testing, extra, and pasture areas - if you use them.
+# SOURCE=ftp://ftp.slackware.com/pub/slackware/slackware-13.0/extra/
+# SOURCE=ftp://ftp.slackware.com/pub/slackware/slackware-13.0/testing/
+# SOURCE=ftp://ftp.slackware.com/pub/slackware/slackware-13.0/pasture/
+
+# Additional mirrors for Slackware can be found at http://slackware.com/getslack/
+
+# GNOME SlackBuild Mirrors
+SOURCE=http://get.gnomeslackbuild.org/gsb/gsb-current/:CUSTOM
+#SOURCE=http://www.slackware.org.uk/gsb/gsb-current/:CUSTOM
+#SOURCE=ftp://ftp.slackware.org.uk/gsb/gsb-current/:CUSTOM
+#SOURCE=ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-current/:CUSTOM
+#SOURCE=http://slackware.rol.ru/gsb/gsb/gsb-current/:CUSTOM
+
+# Packages on a CD/DVD.
+# SOURCE=file:///mnt/cdrom/:OFFICIAL
+
+# Home made packages.
+# SOURCE=file:///var/www/packages/:CUSTOM

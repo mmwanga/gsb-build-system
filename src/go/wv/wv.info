@@ -1,0 +1,7 @@
+PKGNAME="wv"
+VERSION="2.6.8"
+HOMEPAGE="http://wvware.sourceforge.net/"
+DOWNLOAD="http://downloads.sourceforge.net/sourceforge/wvware/wv-1.2.4.tar.gz"
+MD5SUM="c1861c560491f121e12917fa76970ac5"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

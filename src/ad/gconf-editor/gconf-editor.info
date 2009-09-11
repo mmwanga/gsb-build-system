@@ -1,0 +1,8 @@
+PKGNAME="gconf-editor"
+VERSION="2.26.0"
+HOMEPAGE="http://projects.gnome.org/gconf/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gconf-editor/2.26/gconf-editor-2.26.0.tar.bz2"
+MD5SUM="2dc76415b22d805cfacfcd5fb98f185c"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

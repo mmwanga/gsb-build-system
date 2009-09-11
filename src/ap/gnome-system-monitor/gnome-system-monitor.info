@@ -1,0 +1,8 @@
+PKGNAME="gnome-system-monitor"
+VERSION="2.26.1"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gnome-system-monitor/2.26/gnome-system-monitor-2.26.1.tar.bz2"
+MD5SUM="105eaf7f64a19848d5fe94e4cd4e4189"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

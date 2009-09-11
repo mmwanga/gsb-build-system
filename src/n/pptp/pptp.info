@@ -1,0 +1,7 @@
+PKGNAME="pptp"
+VERSION="1.7.2"
+HOMEPAGE="http://pptpclient.sourceforge.net/"
+DOWNLOAD="http://downloads.sourceforge.net/sourceforge/pptpclient/pptp-1.7.2.tar.gz"
+MD5SUM="4c3d19286a37459a632c7128c92a9857"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

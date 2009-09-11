@@ -1,0 +1,12 @@
+             |-----handy-ruler------------------------------------------------------|
+notify-python: notify-python (Python Bindings for libnotify)
+notify-python:
+notify-python: libnotify is a part of a desktop presence framework, designed to
+notify-python: transmit presence information between programs.  This package contains
+notify-python: python bindings for the Libnotify library.
+notify-python:
+notify-python:
+notify-python:
+notify-python:
+notify-python:
+notify-python:

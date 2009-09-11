@@ -1,0 +1,48 @@
+
+[Standard disclaimer follows... ]
+
+Welcome to gsb-current!
+
+*** upgradepkg glib2, gtk+2, and GConf before other ***
+*** packages.  Take care not to miss new packages   ***
+*** that were split from old ones:                  ***
+*** upgradepkg --install-new is  (as always) the    ***
+*** safest approach.                                ***
+
+gsb-current is a snapshot of the active GNOMESlackBuild development tree.
+It is intended to give developers (and other Linux gurus) a chance to test
+out the latest packages for GNOMESlackBuild.  The feedback we get will allow 
+us to make the next stable release better than ever.
+
+See the ChangeLog.txt for a list of changes in gsb-current.
+
+Please note that the code in this directory is unstable.  It might be
+inconsistent about which version of the Slackware packages are required, could
+be incomplete because it's in the process of being uploaded, or might not work
+for other reasons.  In most cases, we know about these things and are working
+to correct them, but still -- feel free to point out the bugs.
+
+Production use is AT YOUR OWN RISK and is not recommended.
+
+Security is NOT GUARANTEED.  In -current, forward progress often takes
+priority.  Security fixes take time and resources, and would often have to
+be done more than once.  It's more efficient to build the system and secure
+it as time permits and/or the development cycle nears completion.
+
+We do not promise to issue security advisories for gsb-current.
+
+gsb-current might DELETE FILES WITHOUT WARNING when packages are
+upgraded.  (If, for example, a directory location is replaced by a symbolic
+link to a new location.)  Upgrade packages carefully.  Examine incoming
+updates first if your machine's data is not expendable.  Again, we do not
+recommend using Slackware-current to store or process valuable data.
+It is a system in testing, not one that is ready to go (though often it does
+work just fine...  BUT DON'T COUNT ON IT) 
+
+#include BSD license warranty disclaimer here...
+
+Enjoy! :)
+
+---
+The GNOME SlackBuild Team
+

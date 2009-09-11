@@ -1,0 +1,7 @@
+PKGNAME="abiword-extras"
+VERSION="2.6.8"
+HOMEPAGE="http://www.abisource.com/"
+DOWNLOAD="http://www.abisource.com/downloads/abiword/2.6.8/source/abiword-extras-2.6.8.tar.gz"
+MD5SUM="e3cfff6ad4cda3e4200a75fd2665857a"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

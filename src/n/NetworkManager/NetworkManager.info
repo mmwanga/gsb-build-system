@@ -1,0 +1,8 @@
+PKGNAME="NetworkManager"
+VERSION="0.7.1"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/NetworkManager/0.7/NetworkManager-0.7.1.tar.bz2"
+MD5SUM="954742cfd47191204d62d8d57f2bc6dd"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

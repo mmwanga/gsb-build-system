@@ -1,0 +1,12 @@
+               |-----handy-ruler------------------------------------------------------|
+nautilus-sendto: nautilus-sendto (Sendto Extension for Nautilus)
+nautilus-sendto:
+nautilus-sendto: Nautilus is a highly-polished content manager for GNOME.  Nautilus
+nautilus-sendto: integrates access to files, applications, media, Internet-based
+nautilus-sendto: resources and the Web, delivering a dynamic and rich user experience.
+nautilus-sendto:
+nautilus-sendto: This package contains a plugin allowing Nautilus to send files
+nautilus-sendto: between Evolution, Pidgin, and Nautilus.
+nautilus-sendto:
+nautilus-sendto:
+nautilus-sendto:

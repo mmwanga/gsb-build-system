@@ -1,0 +1,6 @@
+cyrus-sasl
+openssl
+expat
+sdl
+openldap | openldap-client
+libdv

@@ -1,0 +1,8 @@
+PKGNAME="goocanvasmm"
+VERSION="0.14.0"
+HOMEPAGE="http://live.gnome.org/GooCanvas"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/goocanvasmm/0.14/goocanvasmm-0.14.0.tar.bz2"
+MD5SUM="12ade6affd1c25b33ece61dac9d366e6"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

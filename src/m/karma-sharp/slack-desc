@@ -1,0 +1,12 @@
+           |-----handy-ruler------------------------------------------------------|
+karma-sharp: karma-sharp (Karma MP3 Player Bindings for Mono)
+karma-sharp:
+karma-sharp: The Mono Project is an open development initiative sponsored by Novell 
+karma-sharp: to develop an open source, UNIX version of the Microsoft .NET 
+karma-sharp: development platform. Its objective is to enable UNIX developers to 
+karma-sharp: build and deploy cross-platform .NET Applications. 
+karma-sharp:
+karma-sharp: This package contains Mono Bindings for access to Karma Players
+karma-sharp: through the libkarma library.
+karma-sharp:
+karma-sharp:

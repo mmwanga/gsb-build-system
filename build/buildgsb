@@ -1,0 +1,600 @@
+#!/bin/bash
+# Version: 1.9 GNOME SlackBuild Build Script
+# Copyright (c) 2007, 2008, 2009
+#   Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>, Coventry, UK.
+#   Steve Kennedy <steve (at) gnomeslackbuild.org>
+# All rights reserved.
+#
+# Licenced under the terms of the GNU General Public Licence version 3.
+#
+# Redistribution and use of this script, with or without modification, is
+# permitted provided that the following conditions are met:
+#
+# 1. Redistributions of this script must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#
+#  THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
+#  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+#  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO
+#  EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+#  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+#  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+#  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+#  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+#  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+#  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+
+#========================================================================
+# FUNCTIONS
+. ${BASH_SOURCE%/*}/functions.sh || {
+   echo "Can't find functions.sh."
+   exit 1;
+}
+
+# Trap keyboard interrupt 
+trap error_out SIGINT
+
+#========================================================================
+# REQUIRED BUILD PACKAGES
+# List any packages here that are required to build other packages within GSB.
+REQUIRED_PACKAGES="cabextract libtool-compat apache-ant openoffice-perl yasm jdk"
+
+#========================================================================
+# IGNORED PACKAGES
+# List any packages here that are in the source tree but we don't want to build
+# on account of patent or distribution issues
+IGNORED_PACKAGES="msttcorefonts"
+
+#========================================================================
+# ENVIRONMENT
+
+# If the user created an options file, read it.
+[ -r ./gsb.options ] && {
+  . ./gsb.options
+  export OPTIONSREAD=1
+}
+
+# Basic settings
+TMP=${TMP:-/tmp}
+ARCH=${ARCH:-"$(arch)"}
+GSB_ARCH=${GSB_ARCH:-""}
+if [ "$ARCH" = "x86_64" ]; then
+  GSB_ARCH=64
+fi
+GSBDIR=${GSBDIR:-gsb${GSB_ARCH}}
+TAG=${TAG:-gsb}
+PKGDEST=${PKGDEST:-$TMP/gsb${GSB_ARCH}-tree}
+LOGSDIR=${LOGSDIR:-$TMP/gsb${GSB_ARCH}-buildlogs}
+
+# Location of our build source
+BUILDSOURCE=${BUILDSOURCE:-"${BASH_SOURCE%/*}/../src"}
+EXTRASOURCE=${EXTRASOURCE:-"${BASH_SOURCE%/*}/../extra"}
+PASTURESOURCE=${PASTURESOURCE:-"${BASH_SOURCE%/*}/../pasture"}
+TESTINGSOURCE=${TESTINGSOURCE:-"${BASH_SOURCE%/*}/../testing"}
+
+# GPG-KEY
+GPGKEY=${GPGKEY:-"${BUILDSOURCE}/../GPG-KEY"}
+[ ! -f ${GPGKEY} ] && {
+  echo ; header "WARNING: Can't find GPG-KEY for verification."
+  exit 1;
+}
+
+# We will mimic Slackware's tree
+SOURCEDIR=${SOURCEDIR:-source}
+CHANGELOG=${CHANGELOG:-$LOGSDIR/ChangeLog.txt}
+TESTINGDIR=${TESTINGDIR:-testing}
+EXTRADIR=${EXTRADIR:-extra}
+PASTUREDIR=${PASTUREDIR:-pasture}
+PATCHESDIR=${PATCHESDIR:-patches}
+
+# Option defaults.
+BUILD_DEPENDENCIES=0
+NOPATCHESDIR=0
+NOSKIP=0
+NOPRUNE=0
+PUBLISH=0
+SOURCE=0
+VERIFY=0
+
+# Required for a few websites which expired certificates, like LaunchPad.
+# We check md5sums to cover ourselves. 
+WGET_OPTIONS="--no-check-certificate"
+
+
+#========================================================================
+# COMMAND LINE PARSING 
+#
+while [ -n "$1" ] ; do
+  case $1 in
+    -force|--force)
+      SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}--force"
+      shift
+    ;;
+    -no-cleanup|--no-cleanup)
+      SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}--no-cleanup"
+      shift
+    ;;
+    -no-patchesdir|--no-patchesdir)
+      NOPATCHESDIR=1
+      shift
+    ;;
+    -no-skip|--no-skip)
+      NOSKIP=1
+      NOPATCHESDIR=1
+      shift
+    ;;
+    -no-prune|--no-prune)
+      NOPRUNE=1
+      shift
+    ;;
+    -publish|--publish)
+      PUBLISH=1
+      shift
+    ;;
+    -verify|--verify)
+      VERIFY=1
+      shift
+    ;;
+    -export-source|--export-source)
+      SOURCE=1
+      shift
+    ;;
+    -set=*|--set=*)
+      SETS=$(echo $1 | cut -f2 -d=)
+      shift
+    ;;
+    -help|--help)
+      usage
+      exit 1
+    ;;
+    *)
+      usage ;
+      echo ;
+      echo "Invalid option: $1"
+      exit 1
+    ;;
+  esac
+done
+
+#========================================================================
+# STARTUP
+echo ; header "* Building GSB "
+if [ "$(id -u)" != "0" ]; then
+echo "* Error: Only root can build, install, upgrade, or remove packages."
+exit 1
+fi
+
+# Make sure we have all required packages needed for building.
+for REQ in $REQUIRED_PACKAGES; do
+  check_installed "$REQ" || {
+    echo ; header "${0##*/}: Required build package '$REQ' not installed."
+    (
+
+    # Some required packages are available from Slackware, in the extra/ directory.
+    [ ! -d ${BASH_SOURCE%/*}/src/$REQ ] && {
+       echo "Package $REQ is found in the Slackware extra/ directory."
+       exit 1
+    }
+
+    cd ${BASH_SOURCE%/*}/src/$REQ &&
+    export PKGDEST=${TMP} || exit 1
+    # Get package version and build numbers from the package SlackBuild.
+    declare PACKAGE_$( egrep -m 1 "^VERSION=.*" $REQ.SlackBuild )
+    declare PACKAGE_$( egrep -m 1 "^BUILD=.*" $REQ.SlackBuild )
+    # Check that we got a version and build.
+    [ -z "$PACKAGE_VERSION" ] || [ -z "$PACKAGE_BUILD" ] && {
+      header "Failed to get VERSION or BUILD from '$PACKAGE.SlackBuild' " ; exit 1
+    }
+    download_package $REQ || exit $?
+    ./$REQ.SlackBuild $SLACKBUILD_ARGS 2>&1
+    )
+    ERR=${PIPESTATUS[0]}
+    [ "$ERR" != "0" ] && {
+      exit $ERR
+    }
+    upgradepkg --install-new $( find_package_files "${TMP}" \
+    "${REQ//+/\+}" "${PACKAGE_VERSION//-/_}" "" "" "\.txz" ) || {
+       header "Failed to install '$PACKAGE'." ; exit 1
+    }
+    rm $( find_package_files "${TMP}" "${REQ//+/\+}" \
+           "${PACKAGE_VERSION//-/_}" "" "" "\.txz" )
+  }
+done
+
+# Temporary space, package and log file storage.
+mkdir -p $TMP &&
+mkdir -p $PKGDEST &&
+mkdir -p $LOGSDIR &&
+mkdir -p $PKGDEST/${EXTRADIR} &&
+mkdir -p $PKGDEST/${PASTUREDIR} || exit 1
+#mkdir -p $PKGDEST/${TESTINGDIR} || exit 1
+
+#========================================================================
+# MAIN SET LIST
+# 
+# The set list is read in from .setlist in the current directory, with
+# any comments and blank lines removed.
+#
+cd ${BUILDSOURCE}
+SETS=${SETS:-""}
+[ -f .setlist ] && {
+SETS="${SETS:-$( egrep -v "^#|^$" .setlist | cut -d'#' -f1 )}"
+}
+
+#========================================================================
+# MAIN BUILD LOOP
+#
+# Do the build.
+
+# Stamp changelog
+changelog "+--------------------------+"
+changelog "$(date)"
+
+#========================================================================
+# LOOP THROUGH ALL SETS IN $SETS
+for SET in $SETS ; 
+do
+( 
+
+# Switch into our proper directory. 
+if [ "$SET" = "extra" ];
+  then
+  cd $EXTRASOURCE || exit 1;
+elif [ "$SET" = "testing" ];
+  then
+  cd $TESTINGSOURCE || exit 1;
+elif [ "$SET" = "pasture" ];
+  then
+  cd $PASTURESOURCE || exit 1;
+else
+  cd ${BUILDSOURCE}/$SET || exit 1;
+fi;
+
+echo ; header "* Building set $SET" ; echo ;
+
+# Read in our set build list
+BUILDLIST=${BUILDLIST:-""}
+[ -f .buildlist ] && { 
+  BUILDLIST="$( egrep -v "^#|^$" .buildlist | cut -d'#' -f1 )" 
+}
+# Strip ignored packages from build list
+for PKG in $IGNORED_PACKAGES; do 
+  BUILDLIST="${BUILDLIST//$PKG/}" 
+done;
+# Quit if no list.
+if [ -z "$BUILDLIST" ]; then
+  echo "No packages to build."
+  exit 1
+fi;
+
+#========================================================================
+# LOOP THROUGH ALL PACKAGES IN $BUILDLIST
+for PACKAGE in $BUILDLIST ;
+do 
+(
+
+# Build defaults.
+SKIP_BUILD=0
+
+# Create our tree according to Slackware defaults
+case $SET in
+   extra)
+     SUBDIR=$GSBDIR/../${EXTRADIR}/${PACKAGE}
+     NOPATCHES=1
+     ;;
+   pasture)
+     SUBDIR=$GSBDIR/../${PASTUREDIR}
+     NOPATCHES=1
+     ;;
+   testing)
+     SUBDIR=$GSBDIR/../${TESTINGDIR}
+     NOPATCHES=1
+     ;;
+   *)
+     SUBDIR=$GSBDIR/$SET
+     ;;
+esac
+
+# Look for package
+[ ! -d $PACKAGE ] && { 
+  header "Error: Can't find package $PACKAGE." ; 
+  exit 1 ;
+}
+
+# Make sure we can run our SlackBuild
+[ ! -x "$PACKAGE/$PACKAGE.SlackBuild" ] && {
+  header "'$PACKAGE.SlackBuild' is not executable." ; 
+  exit 1
+}
+
+# Get package version and build numbers from the package SlackBuild.
+declare PACKAGE_$( egrep -m 1 "^VERSION=.*" $PACKAGE/$PACKAGE.SlackBuild )
+declare PACKAGE_$( egrep -m 1 "^BUILD=.*" $PACKAGE/$PACKAGE.SlackBuild )
+# Check that we got a version and build.
+[ -z "$PACKAGE_VERSION" ] || [ -z "$PACKAGE_BUILD" ] && {
+  header "Failed to get VERSION or BUILD from '$PACKAGE.SlackBuild' " ; exit 1
+}
+
+# Check if the package should be rebuilt, and where it should be put.
+# The assumption is to always rebuild and put packages in the main
+# directory, unless modified by the checks below.
+if find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
+  "" "" "" "\.txz" >/dev/null && [ "$NOSKIP" = "0" ]
+then
+  if find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
+    "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" >/dev/null
+  then
+    # Package with same version/build was found in the main directory.
+    SKIP_BUILD=1
+  else
+    # Not in the main directory, check patches.
+    if [ "$NOPATCHESDIR" = "0" ]; then
+      [ -d $PKGDEST/$PATCHESDIR ] && {
+        if find_package_files "$PKGDEST/$PATCHESDIR" \
+          "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" \
+          "\.txz" >/dev/null
+        then
+          # Found in patches dir.
+          SKIP_BUILD=1
+          SUBDIR=$PATCHESDIR
+        else
+          # No package in patches with the same version/build.
+          SUBDIR=$PATCHESDIR
+        fi
+      }
+    fi
+  fi
+fi
+
+#========================================================================
+# BUILD PACKAGES
+#
+# Build package if required.
+#
+if [ "$SKIP_BUILD" = "0" ]; then
+  rm -f $( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
+    "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz|\.txt|\.txz\.asc" \
+    | tr '\n' ' ' ) >/dev/null 2>&1
+  find_package_files "/var/log/packages" "${PACKAGE//+/\+}" "" "" "" "" \
+    >/dev/null && {
+    echogreen "* "; echo "Removing old $PACKAGE and cleaning up files."
+    removepkg $( basename $( find_package_files "/var/log/packages" \
+      "${PACKAGE//+/\+}" "" "" "" "" ) ) || exit 1
+    }
+
+  echo ; echogreen "* "; echo "Building package '$PACKAGE'"
+  mkdir -p $PKGDEST/$SUBDIR
+  mkdir -p $LOGSDIR/$SET
+
+  # Run the SlackBuild
+  ( 
+    cd $PACKAGE && 
+    export PKGDEST=$PKGDEST/$SUBDIR || exit 1
+    download_package $PACKAGE || exit $?
+    ./$PACKAGE.SlackBuild $SLACKBUILD_ARGS 2>&1 
+  ) | tee $LOGSDIR/$SET/$PACKAGE-$( date +%Y%m%d-%H%M%S ).log
+
+  ERR=${PIPESTATUS[0]}
+  [ "$ERR" != "0" ] && { 
+    exit $ERR 
+  }
+
+  # Update ChangeLog if build successful
+  [ "$ERR" = "0" ] && {
+    changelog "${PACKAGE}-${PACKAGE_VERSION//-/_}-${ARCH}-${PACKAGE_BUILD}${TAG}.txz: Built." ;
+  }
+else
+  echo -n "* Found: $PACKAGE-${PACKAGE_VERSION}-${PACKAGE_BUILD}${TAG}.txz" 
+fi
+
+#========================================================================
+# PRUNE OLD FILES
+#
+# Remove any old packages lying around
+#
+if [ "${NOPRUNE}" = "0" ]; then
+  PRUNE_FILES="$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
+    "" "" "" "\.txz|\.txt|\.txz\.asc" | grep -v "$( find_package_files \
+    "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" \
+    "${PACKAGE_BUILD}${TAG}" "\.txz|\.txz\.asc" )" | tr '\n' ' ' )"
+  [ ! -z "$PRUNE_FILES" ] && {
+      rm -f $PRUNE_FILES
+  }
+fi;
+
+#========================================================================
+# MAKE CHECKSUMS AND DESCRIPTIONS
+#
+# Make a txt description of the package
+if [ "$PUBLISH" = "1" ]; then
+  make_pkg_txt "$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
+    "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" )" || {
+    header "Failed to create txt description for '$PACKAGE'." ; exit 1
+  }
+  # Sign the package
+  SIGN_PACKAGE="$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
+    "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" )"
+  if [ -f ${SIGN_PACKAGE}.asc ]; then
+    gpg --verify ${SIGN_PACKAGE}.asc ${SIGN_PACKAGE} 1>/dev/null 2>/dev/null || {
+      echo ;echo ; header "$SIGN_PACKAGE failed to pass asc verification."
+      echo "Has the package been corrupted?" ;
+      exit 1
+    }
+    echo " (asc signature passed) "
+  else
+    echo ; echogreen "* " ; echo "Please sign for ${PACKAGE}:"
+    make_pkg_asc "$SIGN_PACKAGE" || {
+      header "Failed to create asc signature for '$PACKAGE'." ; exit 1
+    }
+  fi;
+else
+  echo " (skipped asc and txt)."
+fi;
+
+#========================================================================
+# INSTALL NEW PACKAGE
+#
+# Install our new package if necessary
+#
+INSTALLED=$(find_package_files "/var/log/packages" "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" \
+             "" "" "${PACKAGE_BUILD}${TAG}")
+if [ "$SKIP_BUILD" = "0" -o "${INSTALLED}" = "" ]; then
+  # FIXME
+  # echo "Waiting." ; read ;
+  upgradepkg --install-new $( find_package_files "$PKGDEST/$SUBDIR" \
+    "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" ) || {
+    header "Failed to install '$PACKAGE'." ; exit 1
+  }
+fi;
+
+) || {
+ echo "Failed building package '$PACKAGE' in set $SET."
+ echo "Check the build logs in: $LOGSDIR"
+ echo
+ exit 1
+}
+
+# Done our PACKAGES loop
+done 
+
+#========================================================================
+# VERIFY SET CONTENTS
+#
+# Make sure our PACKAGESDIR has the same number of packages as found in our
+# source directory if we are publishing. We don't want to overlook anything. 
+# 
+if [ "${VERIFY}" = "1" ]; then
+  echo ; echogreen "* " ; echo -n "Verifying contents of set $SET: " 
+  # Make sure we only have the number of packages identical to the number in 
+  # the source directory
+  PKGS_FOUND=$( find_package_files "${PKGDEST}/${GSBDIR}/${SET}" "" \
+      "" "" "" "\.txz" )
+  if [ "$(echo ${PKGS_FOUND} | wc -w)" -ne "$(echo $BUILDLIST | wc -w )" ]; then
+    echo $PKGS_FOUND >> ${TMP}/pkgsfound$$
+    echo $BUILDLIST >> ${TMP}/buildlist$$
+    for PKG in $PKGS_FOUND ; do 
+      [ -f $PKG.asc ] || {
+        echo ; echo "WARNING: $(package_name $PKG) exists without a signature."
+      }
+      [ -f "${PKG//.txz/.txt}" ] || {
+        echo ; echo "WARNING: $(package_name $PKG) does not have a text description."
+      }
+      PKGNAME=$(package_name $PKG)
+      [ -z "$(grep ${PKGNAME} ${TMP}/buildlist$$ )" ] && { 
+         PKG_NOT_IN_BUILDLIST="${PKG_ERRORS} ${PKGNAME}"
+      }
+      [ -z "$(grep $BUILDLIST ${TMP}/pkgsfound$$ )" ] && { 
+         PKG_NOT_IN_TREE="${PKG_ERRORS} ${PKGNAME}"
+      }
+    done;
+    rm ${TMP}/pkgsfound$$
+    rm ${TMP}/buildlist$$
+    echo ; header "* Error: Package contents differ."
+    [ -z ${PKG_NOT_IN_BUILDLIST} ] || {
+       echo "The following packages were found, but not in the buildlist: ${PKG_NOT_IN_BUILDLIST}"
+    }
+    [ -z ${PKG_NOT_IN_TREE} ] || {
+       echo "The following packages were not found, but in the buildlist: ${PKG_NOT_IN_TREE}"
+    }
+    exit 1;
+  fi;
+  echo "contents of ${SET} seem ok."
+fi;
+
+# Done our SETS loop
+)
+
+# Break out if there has been an error.
+[ "$?" != "0" ] && {
+  exit 1
+}
+
+done
+
+#========================================================================
+# EXPORT SOURCE TREE
+#
+# Add a source directory to our gsb tree
+#
+if [ "${SOURCE}" = "1" ]; then
+  echo ; header "Exporting source trees."
+  export_source $BUILDSOURCE $PKGDEST &&
+  export_source $EXTRASOURCE $PKGDEST/extra &&
+  export_source $PASTURESOURCE $PKGDEST/pasture || error_out
+  #export_source $TESTINGSOURCE $PKGDEST/testing || error_out
+fi;
+
+#========================================================================
+# COPY DOCUMENTATION
+#
+if [ "${PUBLISH}" = "1" ]; then
+(
+cd $BUILDSOURCE/.. ;
+# Copy our main documentation
+for i in COPYING COPYING3 CREDITS INSTALL.TXT README.TXT UPGRADE.TXT \
+ CHANGES_AND_HINTS.TXT GPG-KEY COPYRIGHT.TXT MIRRORS.TXT CURRENT.WARNING \
+ SLACKWARE-13.0_REPLACED_PACKAGES.TXT;
+do
+ if [ -f $i ]; then
+   cp $i $PKGDEST || exit 1;
+ fi;
+done;
+
+cat << EOF > $PKGDEST/$GSBDIR/README.TXT
+
+This directory contains the primary GNOME SlackBuild packages -- the ones that
+actually install files to your hard drive.  You can install these packages with
+"pkgtool", or "installpkg".  See the man pages (man installpkg) for details.
+
+Have fun!
+
+EOF
+
+# Copy extra documentation
+cp extra/README.TXT $PKGDEST/$EXTRADIR || exit 1
+if [ "$ARCH" = "x86_64" ]; then
+  cp ChangeLog.slackware64 $PKGDEST/ChangeLog.txt &&
+  cp VERSIONS.slackware64 $PKGDEST/VERSIONS || exit 1
+else
+  cp ChangeLog.slackware $PKGDEST/ChangeLog.txt &&
+  cp VERSIONS.slackware $PKGDEST/VERSIONS || exit 1
+fi
+[ -d $PKGDEST/$PATCHESDIR ] && {
+  ( cd $PKGDEST/$PATCHESDIR && ln -sf ../ChangeLog.txt )
+}
+echo;
+header "* Published documentation."
+echo;
+)
+fi;
+
+#========================================================================
+# CREATE MD5 CHECKSUMS, FILELIST AND MANIFEST
+#
+if [ "${PUBLISH}" = "1" ]; then
+  echo ; header "* Generating package file lists and checksums."
+  ( 
+  cd $PKGDEST &&
+    for DIR in $GSBDIR $PATCHESDIR $EXTRADIR $PASTUREDIR
+    #for DIR in $GSBDIR $PATCHESDIR $EXTRADIR $PASTUREDIR $TESTINGDIR
+    do
+      [ -d $DIR ] && {
+        make_packages_txt $DIR $DIR
+        make_manifest $DIR $DIR
+        make_filelist_txt "$DIR" "$DIR" "FILE_LIST"
+        make_checksums_md5 $DIR $DIR
+      }
+    done
+    ( cd $PKGDEST ; mv $GSBDIR/PACKAGES.TXT . )
+    ( cd $GSBDIR ; ln -sf ../PACKAGES.TXT )
+    # Make a date stamped file list of our full set of files.
+    make_filelist_txt "." "" "" "1"
+    make_checksums_md5 .
+  )
+fi;
+
+echo "* Finished building GSB!"
+echo "* The complete GSB binary tree can be found in: $PKGDEST"
+echo "* Build logs can be found in: $LOGSDIR"
+echo ;

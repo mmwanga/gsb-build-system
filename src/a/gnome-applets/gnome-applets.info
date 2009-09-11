@@ -1,0 +1,8 @@
+PKGNAME="gnome-applets"
+VERSION="2.26.3"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gnome-applets/2.26/gnome-applets-2.26.3.tar.bz2"
+MD5SUM="23fb47b3e35ef2136d6ade3f0203328b"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

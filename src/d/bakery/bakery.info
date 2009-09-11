@@ -1,0 +1,8 @@
+PKGNAME="bakery"
+VERSION="2.6.3"
+HOMEPAGE="http://projects.gnome.org/nemiver/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/bakery/2.6/bakery-2.6.3.tar.bz2"
+MD5SUM="49d28fecf13252f4f2899461505e56e5"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

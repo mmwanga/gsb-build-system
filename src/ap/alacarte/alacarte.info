@@ -1,0 +1,8 @@
+PKGNAME="alacarte"
+VERSION="0.12.1"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/alacarte/0.12/alacarte-0.12.1.tar.bz2"
+MD5SUM="c6d77f7e5ee6129532e4bb1a35a07194"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

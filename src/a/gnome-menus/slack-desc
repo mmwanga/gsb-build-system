@@ -1,0 +1,12 @@
+	   |-----handy-ruler------------------------------------------------------|
+gnome-menus: gnome-menus (GNOME Freedesktop.org Menu Implementation)
+gnome-menus:
+gnome-menus: gnome-menus contains an implementation of the draft "Desktop Menu 
+gnome-menus: Specification" from freedesktop.org, as well as the GNOME menu layout 
+gnome-menus: configuration files, .directory files and assorted menu related 
+gnome-menus: utility programs.
+gnome-menus:
+gnome-menus:
+gnome-menus:
+gnome-menus:
+gnome-menus:

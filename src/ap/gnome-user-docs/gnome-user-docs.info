@@ -1,0 +1,8 @@
+PKGNAME="gnome-user-docs"
+VERSION="2.26.2"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gnome-user-docs/2.26/gnome-user-docs-2.26.2.tar.bz2"
+MD5SUM="b259de6dcb6a0421fcb28a66e3d20da1"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

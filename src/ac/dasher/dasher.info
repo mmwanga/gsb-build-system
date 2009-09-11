@@ -1,0 +1,8 @@
+PKGNAME="dasher"
+VERSION="4.10.1"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/dasher/4.10/dasher-4.10.1.tar.bz2"
+MD5SUM="83e556690ac54c4bb8c49c050510259e"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

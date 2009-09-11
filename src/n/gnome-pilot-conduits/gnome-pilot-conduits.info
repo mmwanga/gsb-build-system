@@ -1,0 +1,8 @@
+PKGNAME="gnome-pilot-conduits"
+VERSION="2.0.17"
+HOMEPAGE="http://live.gnome.org/GnomePilot"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gnome-pilot-conduits/2.0/gnome-pilot-conduits-2.0.17.tar.bz2"
+MD5SUM="27c7f665660ef68ec23552bdd0c9a571"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

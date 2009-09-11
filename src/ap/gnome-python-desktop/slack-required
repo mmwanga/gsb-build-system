@@ -1,0 +1,6 @@
+gnome-python
+libgnomeui
+libgnomeprintui
+pygtk
+pycairo
+pygobject

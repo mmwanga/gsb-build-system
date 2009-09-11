@@ -1,0 +1,7 @@
+PKGNAME="ipod-sharp"
+VERSION="0.8.2"
+HOMEPAGE="http://www.banshee-project.org"
+DOWNLOAD="http://download.banshee-project.org/ipod-sharp/ipod-sharp-0.8.2.tar.gz"
+MD5SUM="2a8cfd9792a55a49b14d25637e7cfeb5"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

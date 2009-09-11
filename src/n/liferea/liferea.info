@@ -1,0 +1,7 @@
+PKGNAME="liferea"
+VERSION="1.6.0"
+HOMEPAGE="http://liferea.sourceforge.net/"
+DOWNLOAD="http://downloads.sourceforge.net/sourceforge/liferea/liferea-1.6.0.tar.gz"
+MD5SUM="7c532101d3c9cfd71b76d3a8a82622fa"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

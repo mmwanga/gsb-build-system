@@ -1,0 +1,8 @@
+PKGNAME="empathy"
+VERSION="2.26.2"
+HOMEPAGE="http://live.gnome.org/Empathy"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/empathy/2.26/empathy-2.26.2.tar.bz2"
+MD5SUM="7d42b4c54373c3706a3da301cd616329"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

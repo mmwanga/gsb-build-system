@@ -1,0 +1,7 @@
+PKGNAME="gst-fluendo-mp3"
+VERSION="0.10.15"
+HOMEPAGE="http://www.fluendo.com"
+DOWNLOAD="http://core.fluendo.com/gstreamer/src/gst-fluendo-mp3/gst-fluendo-mp3-0.10.10.tar.bz2"
+MD5SUM="c525e23866a05ef26748c18ea5e096fe"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
