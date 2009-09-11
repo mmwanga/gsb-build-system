@@ -1,8 +1,0 @@
-at-spi
-libbonoboui
-glib2
-gtk+2
-GConf
-libgnomeui
-cairo
-libglade

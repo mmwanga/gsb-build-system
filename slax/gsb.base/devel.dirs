@@ -1,7 +1,0 @@
-# This file contains a list of any development directories
-# that we want to split out of our main module.
-/usr/include
-/usr/share/gtk-doc
-/usr/share/aclocal
-/usr/lib/pkgconfig
-/usr/share/idl

@@ -1,1 +1,0 @@
-"#undef GTK_DISABLE_DEPRECATED" needs to be defined in lqt_gtk.h if compiling libquicktime against GTK >= 2.12.  Slackware 12 comes with gtk+2 2.10, however, this patch may be necessary in the future for libquicktime 1.0.0.  Otherwise, there is no need for patching.
