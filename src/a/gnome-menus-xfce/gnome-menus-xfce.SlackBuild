@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.26.3
 
 # List any packages here that are required to build this package.
@@ -107,8 +107,12 @@ mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
 # Unpack menus
-cd $PKG &&
+cd $TMP &&
 tar xf $CWD/$PKGNAME-$VERSION.tar.xz &&
+cd $TMP/$PKGNAME-$VERSION || exit 1
+
+# Copy over files
+cp -vr ./* $PKG || exit 1
 chown -R root:root $PKG || exit 1
 
 # Package meta files
