@@ -35,7 +35,7 @@ gsb-current might DELETE FILES WITHOUT WARNING when packages are
 upgraded.  (If, for example, a directory location is replaced by a symbolic
 link to a new location.)  Upgrade packages carefully.  Examine incoming
 updates first if your machine's data is not expendable.  Again, we do not
-recommend using Slackware-current to store or process valuable data.
+recommend using gsb-current to store or process valuable data.
 It is a system in testing, not one that is ready to go (though often it does
 work just fine...  BUT DON'T COUNT ON IT) 
 

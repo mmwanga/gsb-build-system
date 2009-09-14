@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=1.9.0.13
 
 # List any packages here that are required to build this package.
@@ -202,11 +202,6 @@ done;
 
 # Softlink for xulrunner-plugin.pc
 (cd $PKG/usr/lib${LIBDIRSUFFIX}/pkgconfig ; ln -sf mozilla-plugin.pc xulrunner-plugin.pc)
-
-# login session settings
-mkdir -p $PKG/etc/profile.d
-install -m 755 $CWD/xulrunner.sh $PKG/etc/profile.d/xulrunner.sh.new || exit 1
-install -m 755 $CWD/xulrunner.csh $PKG/etc/profile.d/xulrunner.csh.new || exit 1
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

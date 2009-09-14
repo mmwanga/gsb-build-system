@@ -1,19 +1,3 @@
-# preserve settings
-install_file() {
-  NEW="$1"
-  OLD="`dirname $NEW`/`basename $NEW .new`"
-  # If there's no config file by that name, mv it over:
-  if [ ! -r $OLD ]; then
-    mv $NEW $OLD
-  elif [ "`cat $OLD | md5sum`" = "`cat $NEW | md5sum`" ]; then # toss the redundant copy
-    rm $NEW
-  fi
-  # Otherwise, we leave the .new copy for the admin to consider...
-}
-
-install_file etc/profile.d/xulrunner.sh.new
-install_file etc/profile.d/xulrunner.csh.new
-
 # Clean up previous softlinks
 if [ -r usr/@LIBDIR@/xulrunner ]; then
   chroot . rm -rf usr/@LIBDIR@/xulrunner ;
