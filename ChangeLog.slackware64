@@ -1,3 +1,10 @@
+Mon Sep 14 16:38:05 BST 2009
+n/mozilla-xulrunner-1.9.0.13-x86_64-2gsb.txz: Rebuilt.  Removed both profile.d
+  xulrunner.sh and xulrunner.csh scripts.  The doinst.sh already places the 
+  library paths in /etc/ld.so.conf, and the scripts set an unneeded (and in 
+  the x86_64 package) an incorrect LD_LIBRARY_PATH environment.  Thanks to 
+  Martin Vidovic for reporting the bug.  
++--------------------------+
 Thu Sep 10 23:09:17 BST 2009
 ap/gnome-power-manager-2.26.4-x86_64-1gsb.txz: Reconfigured.  
   Enabled the switch --enable-legacy-buttons to enable HAL events like
