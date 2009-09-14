@@ -4,6 +4,10 @@ n/mozilla-xulrunner-1.9.0.13-x86_64-2gsb.txz: Rebuilt.  Removed both profile.d
   library paths in /etc/ld.so.conf, and the scripts set an unneeded (and in 
   the x86_64 package) an incorrect LD_LIBRARY_PATH environment.  Thanks to 
   Martin Vidovic for reporting the bug.  
+extra/easytag-2.1.6-x86_64-4gsb.txz: Rebuilt.  Removed x-directory mime type 
+  from the easytag.desktop entry to prevent easytag from opening items listed 
+  on the Places menu in place of Nautilus.  Thanks to byteframe for the 
+  solution.
 +--------------------------+
 Thu Sep 10 23:09:17 BST 2009
 ap/gnome-power-manager-2.26.4-x86_64-1gsb.txz: Reconfigured.  
