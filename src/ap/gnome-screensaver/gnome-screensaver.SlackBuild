@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.26.1
 
 # List any packages here that are required to build this package.
@@ -114,13 +114,16 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # add gnome to desktop entry to differentiate from xscreensaver
+  zcat $CWD/gnome-screensaver.desktop.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # add gnome to desktop entry to differentiate from xscreensaver
+  zcat $CWD/gnome-screensaver.desktop.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # add gnome to desktop entry to differentiate from xscreensaver
+  zcat $CWD/gnome-screensaver.desktop.diff.gz | patch -p1
 fi
 
 # Fix permissions for building.
@@ -173,6 +176,15 @@ mv $PKG/etc/xdg $PKG/etc/gnome || exit 1
 # Make sure locking works with shadow passwords
 chown root $PKG/usr/libexec/gnome-screensaver-dialog
 chmod +s $PKG/usr/libexec/gnome-screensaver-dialog
+
+# convert xscreensaver hacks to gnomescreensaver format
+mkdir -p $PKG/usr/share/applications/screensavers
+HACKS_DIR="/usr/share/xscreensaver/config"
+(cd $PKG/usr/share/applications/screensavers ;
+$TMP/$PKGNAME-$VERSION/data/migrate-xscreensaver-config.sh ${HACKS_DIR}/*.xml)
+
+echo "pause"
+read ;
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

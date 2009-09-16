@@ -1,3 +1,8 @@
+Wed Sep 16 22:59:26 BST 2009
+ap/gnome-screensaver-2.26.1-i486-2gsb.txz: Rebuilt.  Added desktop entries so
+  that xscreensaver hacks are available to gnome-screensaver, and changed the 
+  desktop entry to avoid confusion with xscreensaver.
++--------------------------+
 Mon Sep 14 21:29:42 BST 2009
 n/mozilla-xulrunner-1.9.0.13-i486-2gsb.txz: Rebuilt.  Removed both profile.d
   xulrunner.sh and xulrunner.csh scripts.  The doinst.sh already places the 
