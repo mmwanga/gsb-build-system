@@ -1,8 +1,8 @@
 PKGNAME="gnome-keyring"
-VERSION="2.26.3"
+VERSION="2.27.92"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-keyring/2.26/gnome-keyring-2.26.3.tar.bz2"
-MD5SUM="d7639185dce46c26cf2e7d2a75028f78"
+DOWNLOAD="${GNOME_SERVER}/gnome-keyring/2.27/gnome-keyring-2.27.92.tar.bz2"
+MD5SUM="2680e94500f540247af9d89f6aa9270b"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

@@ -25,7 +25,7 @@
 
 # Package variables.
 BUILD=1
-VERSION=4.47
+VERSION=4.53
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -184,7 +184,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-dund \
   --enable-cups \
   --enable-pcmcia \
-  --enable-manpages \
   --enable-configfiles \
   --enable-udevrules \
   || exit 1
@@ -221,7 +220,7 @@ mkdir -p $PKG/etc/bluetooth &&
 cp -a audio/audio.conf $PKG/etc/bluetooth &&
 cp -a input/input.conf $PKG/etc/bluetooth &&
 cp -a network/network.conf $PKG/etc/bluetooth &&
-cp -a rfcomm/rfcomm.conf $PKG/etc/bluetooth &&
+cp -a tools/rfcomm.conf $PKG/etc/bluetooth &&
 chmod 644 $PKG/etc/bluetooth/*.conf || exit 1
 
 # Default PIN (using "1234" seems insecure, so let's use an empty file instead):
@@ -230,21 +229,23 @@ chmod 700 $PKG/etc/bluetooth/passkeys &&
 touch $PKG/etc/bluetooth/passkeys/default || exit 1
 
 # Do not overwrite configuration
-( cd $PKG
-  for file in \
-    etc/alsa/bluetooth.conf \
-    etc/dbus-1/system.d/bluetooth.conf \
-    etc/bluetooth/audio.conf \
-    etc/bluetooth/input.conf \
-    etc/bluetooth/main.conf \
-    etc/bluetooth/network.conf \
-    etc/bluetooth/rfcomm.conf \
-    etc/bluetooth/passkeys/default \
-    etc/rc.d/rc.bluetooth \
-    ; do
-      mv ${file} ${file}.new
-  done
-)
+cd $PKG
+for file in \
+  etc/alsa/bluetooth.conf \
+  etc/dbus-1/system.d/bluetooth.conf \
+  etc/bluetooth/audio.conf \
+  etc/bluetooth/input.conf \
+  etc/bluetooth/main.conf \
+  etc/bluetooth/network.conf \
+  etc/bluetooth/rfcomm.conf \
+  etc/bluetooth/passkeys/default \
+  etc/rc.d/rc.bluetooth \
+  ; 
+do
+    mv ${file} ${file}.new || exit 1
+done
+cd $TMP/$PKGNAME-$VERSION
+
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

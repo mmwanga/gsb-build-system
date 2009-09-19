@@ -1,8 +1,8 @@
 PKGNAME="metacity"
-VERSION="2.26.0"
+VERSION="2.27.1"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/metacity/2.26/metacity-2.26.0.tar.bz2"
-MD5SUM="eafb624e79fbcdab6da59acc222430b1"
+DOWNLOAD="${GNOME_SERVER}/metacity/2.27/metacity-2.27.1.tar.bz2"
+MD5SUM="9a952cdb925912d9b3b12ad460e25894"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

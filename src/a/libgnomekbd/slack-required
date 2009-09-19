@@ -1,4 +1,3 @@
-libxklavier
 dbus
 GConf
 ORBit2
@@ -11,3 +10,4 @@ glib2
 gtk+2
 libglade
 libgnomeui
+libxklavier >= 4.0-@ARCH@-1

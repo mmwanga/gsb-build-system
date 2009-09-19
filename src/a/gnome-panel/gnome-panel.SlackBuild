@@ -24,8 +24,8 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=4
-VERSION=2.26.3
+BUILD=1
+VERSION=2.27.92
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -164,8 +164,9 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static \
   --enable-shared \
   --disable-schemas-install \
-  --enable-eds \
   --disable-network-manager \
+  --disable-polkit \
+  --enable-eds \
   || exit 1
 
 # Build and install.
@@ -175,6 +176,8 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 # preserve files
 mv $PKG/etc/dbus-1/system.d/org.gnome.ClockApplet.Mechanism.conf \
  $PKG/etc/dbus-1/system.d/org.gnome.ClockApplet.Mechanism.conf.new
+# if we're not using polkit
+rmdir -p /etc/dbus-1/system.d
 
 # Keep clean for Scrollkeeper
 rm -fr $PKG/var/lib/scrollkeeper
@@ -211,26 +214,27 @@ chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 # Add schemas install to the doinst.sh if schemas are found.
 [ -d $PKG/etc/gconf/schemas ] && {
-# Make sure we have gconftool installed 
-echo "if [ -x usr/bin/gconftool-2 ]; then" >>$PKG/install/doinst.sh
+# Make sure we have gconftool installed
+echo "if [ -x usr/bin/gconftool-2 ]; then" >> $PKG/install/doinst.sh
 ( cd $PKG/etc/gconf/schemas
-for schema in *; do
-  if [ -z "$(grep gconfentry ${schema})" ]; then
-    # Install schemas
-    echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
-    usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/${schema} >/dev/null 2>&1" \
-    >>$PKG/install/doinst.sh
-  else
-    # Load default schema if an entry file
-    echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
-    usr/bin/gconftool-2 --direct --config-source=\"xml::etc/gconf/gconf.xml.defaults\" \
-      --load etc/gconf/schemas/${schema} >/dev/null 2>&1" \
-    >>$PKG/install/doinst.sh
-  fi
-done
+for schema in *.schemas; do
+ # Install schemas
+ echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
+   usr/bin/gconftool-2 --makefile-install-rule \
+   etc/gconf/schemas/${schema} >/dev/null 2>&1" \
+   >> $PKG/install/doinst.sh
+done;
+for entry in *.entries; do
+ # Load default schema if an entry file
+ echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
+   usr/bin/gconftool-2 --direct \
+   --config-source=\"xml::etc/gconf/gconf.xml.defaults\" \
+   --load etc/gconf/schemas/${entry} >/dev/null 2>&1" \
+   >> $PKG/install/doinst.sh
+done;
 )
 # Finish off gconf block
-echo "fi" >>$PKG/install/doinst.sh
+echo "fi" >> $PKG/install/doinst.sh
 }
 
 # Package meta files

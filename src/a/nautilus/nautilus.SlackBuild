@@ -24,8 +24,8 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=6
-VERSION=2.26.3
+BUILD=1
+VERSION=2.27.92
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -114,19 +114,10 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # Upstream git patch to fix a crash in the file-preferences dialog
-  # http://git.gnome.org/cgit/nautilus/commit/?id=bf6bfde36bcadf43a39fb095650b7fc78741d62a
-  zcat $CWD/nautilus.preferences.fix.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # Upstream git patch to fix a crash in the file-preferences dialog
-  # http://git.gnome.org/cgit/nautilus/commit/?id=bf6bfde36bcadf43a39fb095650b7fc78741d62a
-  zcat $CWD/nautilus.preferences.fix.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # Upstream git patch to fix a crash in the file-preferences dialog
-  # http://git.gnome.org/cgit/nautilus/commit/?id=bf6bfde36bcadf43a39fb095650b7fc78741d62a
-  zcat $CWD/nautilus.preferences.fix.diff.gz | patch -p1
 fi
 
 # Fix permissions for building.
@@ -209,25 +200,19 @@ chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 # Add schemas install to the doinst.sh if schemas are found.
 [ -d $PKG/etc/gconf/schemas ] && {
-# Make sure we have gconftool installed 
-echo "if [ -x usr/bin/gconftool-2 ]; then" >>$PKG/install/doinst.sh
+# Make sure we have gconftool installed
+echo "if [ -x usr/bin/gconftool-2 ]; then" >> $PKG/install/doinst.sh
 ( cd $PKG/etc/gconf/schemas
-for schema in *; do
-  if [ -z "$(grep gconfentry ${schema})" ]; then
-    # Install schemas
-    echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
-    usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/${schema} >/dev/null 2>&1" \
-    >>$PKG/install/doinst.sh
-  else
-    # Load default schema if an entry file
-    echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
-    usr/bin/gconftool-2 --direct --load etc/gconf/schemas/${schema} >/dev/null 2>&1" \
-    >>$PKG/install/doinst.sh
-  fi
-done
+for schema in *.schemas; do
+ # Install schemas
+ echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
+   usr/bin/gconftool-2 --makefile-install-rule \
+   etc/gconf/schemas/${schema} >/dev/null 2>&1" \
+   >> $PKG/install/doinst.sh
+done;
 )
 # Finish off gconf block
-echo "fi" >>$PKG/install/doinst.sh
+echo "fi" >> $PKG/install/doinst.sh
 }
 
 # Package meta files

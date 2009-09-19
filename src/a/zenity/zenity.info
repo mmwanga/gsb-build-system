@@ -1,8 +1,8 @@
 PKGNAME="zenity"
-VERSION="2.26.0"
+VERSION="2.27.90"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/zenity/2.26/zenity-2.26.0.tar.bz2"
-MD5SUM="6660ce6dac0a6ca495a0e954cb6b40a2"
+DOWNLOAD="${GNOME_SERVER}/zenity/2.27/zenity-2.27.90.tar.bz2"
+MD5SUM="2245c6f836e61d0115a826648d85758b"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

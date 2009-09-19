@@ -24,8 +24,8 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables
-BUILD=2
-VERSION=2.26.2
+BUILD=1
+VERSION=2.27.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -163,7 +163,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-gtk-doc \
   --enable-gtk \
   --with-openldap \
-  --enable-defaults-service \
+  --disable-defaults-service \
   || exit 1
 
 # Build and install.
@@ -174,10 +174,12 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 mkdir -p $PKG/etc/gconf/gconf.xml.system || exit 1
 
 # Preserve gconf settings
-mv $PKG/etc/gconf/2/path $PKG/etc/gconf/2/path.new
-mv $PKG/etc/gconf/2/evoldap.conf $PKG/etc/gconf/2/evoldap.conf.new
-mv $PKG/etc/dbus-1/system.d/org.gnome.GConf.Defaults.conf \
-  $PKG/etc/dbus-1/system.d/org.gnome.GConf.Defaults.conf.new
+mv $PKG/etc/gconf/2/path $PKG/etc/gconf/2/path.new || exit 1
+mv $PKG/etc/gconf/2/evoldap.conf $PKG/etc/gconf/2/evoldap.conf.new || exit 1
+
+# Only with --enable-defaults-service, requires policykit
+# mv $PKG/etc/dbus-1/system.d/org.gnome.GConf.Defaults.conf \
+  # $PKG/etc/dbus-1/system.d/org.gnome.GConf.Defaults.conf.new
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

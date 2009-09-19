@@ -1,8 +1,8 @@
 PKGNAME="gnome-menus"
-VERSION="2.26.2"
+VERSION="2.27.92"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-menus/2.26/gnome-menus-2.26.2.tar.bz2"
-MD5SUM="23a7375dd20238184f2fcccc4d83846b"
+DOWNLOAD="${GNOME_SERVER}/gnome-menus/2.27/gnome-menus-2.27.92.tar.bz2"
+MD5SUM="a65ee94cbc2b2d3cc576e18f70a0b53c"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

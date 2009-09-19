@@ -1,0 +1,8 @@
+PKGNAME="libxklavier"
+VERSION="4.0"
+HOMEPAGE="http://www.freedesktop.org/wiki/Software/LibXklavier"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/libxklavier/4.0/libxklavier-4.0.tar.bz2"
+MD5SUM="1b714ba04835fb49511f9e1444a5ea4c"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

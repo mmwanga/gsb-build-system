@@ -32,6 +32,7 @@ libgweather
 evo-openldap
 evolution-data-server
 gnome-panel
+libxklavier
 libgnomekbd
 zenity
 libwnck

@@ -1,0 +1,12 @@
+           |-----handy-ruler------------------------------------------------|
+libxklavier: libxklavier (XKB Library)
+libxklavier:
+libxklavier: libxklavier is a library providing high-level API for X 
+libxklavier: Keyboard Extension known as XKB. This library is indended to 
+libxklavier: support XFree86 and other commercial X servers. It is useful 
+libxklavier: for creating XKB-related software (for example, layout 
+libxklavier: indicators)
+libxklavier:
+libxklavier:
+libxklavier:
+libxklavier:

@@ -1,8 +1,8 @@
 PKGNAME="gnome-settings-daemon"
-VERSION="2.26.1"
+VERSION="2.27.92"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-settings-daemon/2.26/gnome-settings-daemon-2.26.1.tar.bz2"
-MD5SUM="7be383de54c0707c64843ae51563c43a"
+DOWNLOAD="${GNOME_SERVER}/gnome-settings-daemon/2.27/gnome-settings-daemon-2.27.92.tar.bz2"
+MD5SUM="6f35379b8bddc729dd4144b54b3557bc"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
