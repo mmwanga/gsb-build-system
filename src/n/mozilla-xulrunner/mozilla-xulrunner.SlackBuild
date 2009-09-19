@@ -24,8 +24,9 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
-VERSION=1.9.0.13
+BUILD=1
+VERSION=1.9.1.3
+MAJOR_VERSION=1.9.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -111,19 +112,19 @@ mkdir -p $PKGDEST
 cd $TMP &&
 rm -rf $PKGNAME-$VERSION &&
 tar xjf $CWD/$SRCNAME-$VERSION-source.tar.bz2 &&
-mv mozilla $PKGNAME-$VERSION &&
+mv mozilla-$MAJOR_VERSION $PKGNAME-$VERSION &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  zcat $CWD/mozilla-xulrunner.plugins-path.diff.gz | patch -p0
+  zcat $CWD/mozilla-xulrunner.plugins-path.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  zcat $CWD/mozilla-xulrunner.plugins-path.diff.gz | patch -p0
+  zcat $CWD/mozilla-xulrunner.plugins-path.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  zcat $CWD/mozilla-xulrunner.plugins-path64.diff.gz | patch -p0
+  zcat $CWD/mozilla-xulrunner.plugins-path64.diff.gz | patch -p1
 fi
 
 # Fix permissions for building.
@@ -169,7 +170,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-system-sqlite \
   --enable-strip \
   --enable-safe-browsing \
-  --enable-gnomevfs \
+  --disable-gnomevfs \
   --enable-gnomeui \
   --disable-pedantic \
   --disable-long-long-warning \
@@ -181,6 +182,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-installer \
   --disable-crashreporter \
   --disable-updater \
+  --disable-ogg \
   --with-system-zlib \
   --with-system-jpeg \
   --with-system-bz2 \

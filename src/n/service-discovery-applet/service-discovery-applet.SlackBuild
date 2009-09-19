@@ -204,25 +204,19 @@ chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 # Add schemas install to the doinst.sh if schemas are found.
 [ -d $PKG/etc/gconf/schemas ] && {
-# Make sure we have gconftool installed 
-echo "if [ -x usr/bin/gconftool-2 ]; then" >>$PKG/install/doinst.sh
+# Make sure we have gconftool installed
+echo "if [ -x usr/bin/gconftool-2 ]; then" >> $PKG/install/doinst.sh
 ( cd $PKG/etc/gconf/schemas
-for schema in *; do
-  if [ -z "$(grep gconfentry ${schema})" ]; then
-    # Install schemas
-    echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
-    usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/${schema} >/dev/null 2>&1" \
-    >>$PKG/install/doinst.sh
-  else
-    # Load default schema if an entry file
-    echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
-    usr/bin/gconftool-2 --direct --load etc/gconf/schemas/${schema} >/dev/null 2>&1" \
-    >>$PKG/install/doinst.sh
-  fi
-done
+for schema in *.schemas; do
+ # Install schemas
+ echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
+   usr/bin/gconftool-2 --makefile-install-rule \
+   etc/gconf/schemas/${schema} >/dev/null 2>&1" \
+   >> $PKG/install/doinst.sh
+done;
 )
 # Finish off gconf block
-echo "fi" >>$PKG/install/doinst.sh
+echo "fi" >> $PKG/install/doinst.sh
 }
 
 # Package meta files
