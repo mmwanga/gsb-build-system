@@ -1,0 +1,7 @@
+PKGNAME="libffi"
+VERSION="3.0.8"
+HOMEPAGE="http://sourceware.org/libffi/"
+DOWNLOAD="ftp://sourceware.org/pub/libffi/libffi-3.0.8.tar.gz"
+MD5SUM="188a4f79fdac2310044b44b7d3918ef9"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

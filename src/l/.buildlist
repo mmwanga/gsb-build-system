@@ -1,6 +1,13 @@
+#
+# glib2 replaces the slackware package
 glib2
+#
+# gtk+2 replaces the slackware package
 gtk+2
+#
+# alsa-lib replaces the slackware package
 alsa-lib
+#
 libelf
 libnotify
 notify-python
@@ -74,6 +81,7 @@ slib
 sg3_utils
 libatasmart
 pycrypto
+libffi
 #
 # alsa-plugins requires pulseaudo in a set
 alsa-plugins

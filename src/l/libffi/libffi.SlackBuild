@@ -23,9 +23,9 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-# Package variables.
-BUILD=2
-VERSION=1.2rc1
+# Package variables
+BUILD=1
+VERSION=3.0.8
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -99,7 +99,7 @@ done
   done
 }
 
-## Temporary space and package storage.
+# Temporary space and package storage.
 mkdir -p $TMP
 rm -rf $PKG
 mkdir -p $PKG
@@ -156,8 +156,6 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS \
-  --build=$ARCH-$DISTRO-linux \
-  --target=$ARCH-$DISTRO-linux \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --disable-static \
   --enable-shared \
@@ -190,9 +188,8 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 }
 
 # Copy extra documentation into package.
-rm -fr $PKG/usr/share/doc
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a AUTHORS COPYING NEWS README* doc/*.pdf \
+cp -a README LICENSE \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
