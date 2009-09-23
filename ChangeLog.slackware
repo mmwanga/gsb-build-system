@@ -13,6 +13,9 @@ t/mac4lin-theme-1.0-noarch-2gsb.txz: Rebuilt.  Removed msttcorefonts from
 a/gsb-desktop-2.26.3-noarch-6gsb.txz: Rebuilt metapackage.  Added
   gnome-system-monitor, file-roller, evince and gnome-screensaver as default
   packages.  
+a/nautilus-2.26.4-i486-1gsb.txz: Upgraded to nautilus-2.26.4.  Upgrade fixes 
+  a nasty crash in nautilus-file-management-properties, and improved
+  translations.
 +--------------------------+
 Sun Sep 20 09:30:08 BST 2009
 m/banshee-1-1.4.3-i486-4gsb.txz: Rebuilt.  Fixed a typo in the slack-required.
