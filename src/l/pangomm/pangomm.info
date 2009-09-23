@@ -1,8 +1,8 @@
 PKGNAME="pangomm"
-VERSION="2.14.1"
+VERSION="2.26.0"
 HOMEPAGE="http://www.gtkmm.org/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/pangomm/2.14/pangomm-2.14.1.tar.bz2"
-MD5SUM="c67228ea93dd977394d2872b61754b53"
+DOWNLOAD="${GNOME_SERVER}/pangomm/2.26/pangomm-2.26.0.tar.bz2"
+MD5SUM="37f54dc8e6cb73ed923b22f313352156"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

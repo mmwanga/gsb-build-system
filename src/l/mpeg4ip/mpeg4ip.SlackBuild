@@ -34,7 +34,7 @@ REQUIRED_PACKAGES="sdl a52dec xvidcore lame glib2 gtk+2 mpeg2dec x264"
 # Build variables.
 TAG=${TAG:-gsb}
 ARCH=${ARCH:-i486}
-TUNE=${TUNE:-i486}
+TUNE=${TUNE:-i686}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}

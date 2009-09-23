@@ -24,17 +24,17 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
-VERSION=2.14.1
+BUILD=1
+VERSION=2.26.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="cairomm glibmm"
+REQUIRED_PACKAGES="cairomm glibmm pango"
 
 # Build variables.
 TAG=${TAG:-gsb}
 ARCH=${ARCH:-i486}
-TUNE=${TUNE:-i486}
+TUNE=${TUNE:-i686}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}
@@ -159,44 +159,23 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
+  --disable-static \
+  --enable-shared \
+  --disable-documentation \
   || exit 1
 
 # Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-# Fix up documentation location for Slackware
-mkdir -p $PKG/usr/doc &&
-mv $PKG/usr/share/doc/pangomm-1.4 $PKG/usr/doc || exit 1
-rmdir -p $PKG/usr/share/doc
-( cd $PKG/usr/doc; ln -s pangomm-1.4 $PKGNAME-$VERSION )
-
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
 
-# Compress and fix manpage links.
-[ -e $PKG/usr/man ] && {
-  find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
-  find $PKG/usr/man -type l -name \*.? -printf \
-    "( cd '%h'; [ -e '%l.gz' ] &&
-     { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
-}
-
-# Deal with .info files.
-[ -e $PKG/usr/share/info ] && {
-  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
-  rmdir -p $PKG/usr/share
-  }
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
-}
-
 # Copy extra documentation into package.
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION &&
 cp -a AUTHORS COPYING NEWS README \
-  $PKG/usr/doc/$PKGNAME-$VERSION
+  $PKG/usr/doc/$PKGNAME-$VERSION || exit 1
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
@@ -204,7 +183,7 @@ chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
 do
   [ -e $CWD/$FILE ] && {
-    cat $CWD/$FILE >>$PKG/install/$FILE
+    cat $CWD/$FILE | sed "s,@ARCH@,${ARCH},g" >>$PKG/install/$FILE
   }
 done
 

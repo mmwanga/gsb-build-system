@@ -34,7 +34,7 @@ REQUIRED_PACKAGES="alsa-lib glib2 gtk+2 lame libogg libpng libvorbis faad2 libjp
 # Build variables.
 TAG=${TAG:-gsb}
 ARCH=${ARCH:-i486}
-TUNE=${TUNE:-i486}
+TUNE=${TUNE:-i686}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}

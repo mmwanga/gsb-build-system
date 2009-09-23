@@ -1,8 +1,8 @@
 PKGNAME="glibmm"
-VERSION="2.20.2"
+VERSION="2.22.1"
 HOMEPAGE="http://www.gtkmm.org/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/glibmm/2.20/glibmm-2.20.2.tar.bz2"
-MD5SUM="659ed7b3a123b23e686a1c422f216f7e"
+DOWNLOAD="${GNOME_SERVER}/glibmm/2.22/glibmm-2.22.1.tar.bz2"
+MD5SUM="1a96c7fde75ddbb421bc23fb4aa7adba"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

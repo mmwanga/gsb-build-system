@@ -1,8 +1,8 @@
 PKGNAME="gtk+2"
-VERSION="2.17.11"
+VERSION="2.18.0"
 HOMEPAGE="http://www.gtk.org/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gtk+/2.17/gtk+-2.17.11.tar.bz2"
-MD5SUM="46b3b78d9140b40efe8efaa8c477d1cd"
+DOWNLOAD="${GNOME_SERVER}/gtk+/2.18/gtk+-2.18.0.tar.bz2"
+MD5SUM="bb7ef5463a74a80454ced2c1d47a0192"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

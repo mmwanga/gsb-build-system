@@ -1,8 +1,8 @@
 PKGNAME="libgtop"
-VERSION="2.26.1"
+VERSION="2.28.0"
 HOMEPAGE="http://www.opalvoip.org/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/libgtop/2.26/libgtop-2.26.1.tar.bz2"
-MD5SUM="49fe5c91a6bbc103a0a05c6854a6cc11"
+DOWNLOAD="${GNOME_SERVER}/libgtop/2.28/libgtop-2.28.0.tar.bz2"
+MD5SUM="f74fabd765452e9a6893852afa93a7c7"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

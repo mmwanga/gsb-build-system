@@ -1,8 +1,8 @@
 PKGNAME="pygtksourceview"
-VERSION="2.6.0"
+VERSION="2.8.0"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/pygtksourceview/2.6/pygtksourceview-2.6.0.tar.bz2"
-MD5SUM="5587a1865bd5c785c6f34095c57cc96b"
+DOWNLOAD="${GNOME_SERVER}/pygtksourceview/2.8/pygtksourceview-2.8.0.tar.bz2"
+MD5SUM="bc344044113a52026b4eb7e433a24c29"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

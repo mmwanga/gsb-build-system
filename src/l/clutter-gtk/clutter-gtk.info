@@ -1,0 +1,7 @@
+PKGNAME="clutter-gtk"
+VERSION="0.10.2"
+HOMEPAGE="http://www.clutter-project.org/"
+DOWNLOAD="http://www.clutter-project.org/sources/clutter-gtk/0.10/clutter-gtk-0.10.2.tar.bz2"
+MD5SUM="bb275b07f722631ff1764dd212843d11"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

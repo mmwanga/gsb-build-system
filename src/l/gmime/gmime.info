@@ -1,0 +1,8 @@
+PKGNAME="gmime"
+VERSION="2.4.9"
+HOMEPAGE="http://spruce.sourceforge.net/gmime/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gmime/2.4/gmime-2.4.9.tar.bz2"
+MD5SUM="760d7324e9849f2dfc92ece6f4b2a611"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

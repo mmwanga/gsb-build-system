@@ -26,16 +26,18 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.17.11
+VERSION=2.18.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="pango cairo glib2 libpng libjpeg libtiff libXrender xproto renderproto libX11 kbproto libXau libXdmcp libxcb libpthread-stubs libXext cups inputproto libXi libXinerama libXrandr jasper"
+REQUIRED_PACKAGES="pango cairo glib2 libpng libjpeg libtiff libXrender xproto
+renderproto libX11 kbproto libXau libXdmcp libxcb libpthread-stubs libXext cups
+inputproto libXi libXinerama libXrandr jasper"
  
 # Build variables.
 TAG=${TAG:-gsb}
 ARCH=${ARCH:-i486}
-TUNE=${TUNE:-i486}
+TUNE=${TUNE:-i686}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}

@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=1.8.2
 
 # List any packages here that are required to build this package.
@@ -34,7 +34,7 @@ REQUIRED_PACKAGES="glibmm cairo"
 # Build variables.
 TAG=${TAG:-gsb}
 ARCH=${ARCH:-i486}
-TUNE=${TUNE:-i486}
+TUNE=${TUNE:-i686}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}
@@ -166,11 +166,9 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-# Fix up documentation location for Slackware
-mkdir -p $PKG/usr/doc &&
-mv $PKG/usr/share/doc/libcairomm-1.0 $PKG/usr/doc || exit 1
-rmdir -p $PKG/usr/share/doc
-( cd $PKG/usr/doc; ln -s libcairomm-1.0 $PKGNAME-$VERSION )
+# Remove unneeded development docs;  users who really want this can
+# rebuild the package if they need
+rm -fr $PKG/usr/share
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -195,6 +193,7 @@ rmdir -p $PKG/usr/share/doc
 }
 
 # Copy extra documentation into package.
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a AUTHORS COPYING NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;

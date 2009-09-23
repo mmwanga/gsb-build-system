@@ -9,6 +9,7 @@ ffmpeg:ADD
 ggz-client-libs:SKP
 glib2:ADD
 glibmm:ADD
+gmime:ADD
 goocanvas:ADD
 goocanvasmm:ADD
 gtk+2:ADD
@@ -29,7 +30,6 @@ libdvbpsi5:ADD
 libdvdcss:ADD
 libdvdnav:ADD
 libelf:ADD
-libffi:SKP
 libgalago:ADD
 libgc:ADD
 libggz:ADD

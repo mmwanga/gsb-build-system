@@ -57,6 +57,7 @@ pygdata
 pyxdg
 glibmm
 cairomm
+pango
 pangomm
 gtkmm
 gtksourceview2
@@ -81,7 +82,6 @@ slib
 sg3_utils
 libatasmart
 pycrypto
-libffi
 #
 # alsa-plugins requires pulseaudo in a set
 alsa-plugins
@@ -91,3 +91,9 @@ pyorbit
 #
 # gtksourceview requires libgnomeprint in a set
 gtksourceview
+#
+clutter
+clutter-gtk
+libchamplain
+gmime
+gstreamer
