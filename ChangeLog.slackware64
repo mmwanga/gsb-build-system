@@ -1,3 +1,19 @@
+Wed Sep 23 18:12:32 BST 2009
+GSB 2.26.3 x86_64 is released as stable!  Thanks to everyone who helped with
+bug reports and suggestions.  gsb-current will soon be aiming at the brand new
+2.80.0 GNOME desktop, but we will continue to maintain 2.26.3 with security
+updates.  Enjoy! 
+  - The GNOME SlackBuild Team
+n/deluge-1.1.9-x86_64-2gsb.txz: Rebuilt.  Added pyxdg to slack-required.  Thanks
+  to Derek Cordeiro for pointing out the missing package.
+t/mac4lin-theme-1.0-noarch-2gsb.txz: Rebuilt.  Removed msttcorefonts from
+  slack-required.  msttcorefonts was moved to extra in source only, since we
+  cannot distribute the fonts in a binary package.  Users can still build the
+  package themselves if they need the fonts.  
+a/gsb-desktop-2.26.3-noarch-6gsb.txz: Rebuilt metapackage.  Added
+  gnome-system-monitor, file-roller, evince and gnome-screensaver as default
+  packages.  
++--------------------------+
 Sun Sep 20 09:30:08 BST 2009
 m/banshee-1-1.4.3-x86_64-4gsb.txz: Rebuilt.  Fixed a typo in the slack-required.
 +--------------------------+
