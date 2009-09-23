@@ -85,7 +85,7 @@ openobex:ADD
 openssh:ADD
 openssl:ADD
 openvpn:ADD
-php:SKP
+php:ADD
 pidentd:ADD
 pinentry:ADD
 popa3d:ADD
