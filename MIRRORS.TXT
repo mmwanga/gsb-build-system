@@ -24,20 +24,20 @@ GNOME SlackBuild64
 ------------
 
 # United States
-http://get.gnomeslackbuild.org/gsb/gsb64-2.26_slackware-13.0/
+http://get.gnomeslackbuild.org/gsb/gsb64-2.26_slackware64-13.0/
 # United Kingdom
-http://www.slackware.org.uk/gsb/gsb64-2.26_slackware-13.0/
-ftp://ftp.slackware.org.uk/gsb/gsb64-2.26_slackware-13.0/
+http://www.slackware.org.uk/gsb/gsb64-2.26_slackware64-13.0/
+ftp://ftp.slackware.org.uk/gsb/gsb64-2.26_slackware64-13.0/
 # Russia
-http://slackware.rol.ru/gsb/gsb/gsb64-2.26_slackware-13.0/
+http://slackware.rol.ru/gsb/gsb/gsb64-2.26_slackware64-13.0/
 # Poland
-ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb64-2.26_slackware-13.0/
+ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb64-2.26_slackware64-13.0/
 # Portugal
-http://darkstar.ist.utl.pt/pub/slackware/addon/gnomeslackbuild/gsb64-2.26_slackware-13.0
-ftp://darkstar.ist.utl.pt/pub/slackware/addon/gnomeslackbuild/gsb64-2.26_slackware-13.0
+http://darkstar.ist.utl.pt/pub/slackware/addon/gnomeslackbuild/gsb64-2.26_slackware64-13.0
+ftp://darkstar.ist.utl.pt/pub/slackware/addon/gnomeslackbuild/gsb64-2.26_slackware64-13.0
 # Belgium
-http://mirrors.dotsrc.org/gsb/gsb64-2.26_slackware-13.0/
-ftp://mirrors.dotsrc.org/gsb/gsb64-2.26_slackware-13.0/
+http://mirrors.dotsrc.org/gsb/gsb64-2.26_slackware64-13.0/
+ftp://mirrors.dotsrc.org/gsb/gsb64-2.26_slackware64-13.0/
 # Switzerland
-http://mirror.switch.ch/ftp/mirror/gsb/gsb64-2.26_slackware-13.0/
-ftp://mirror.switch.ch/ftp/mirror/gsb/gsb64-2.26_slackware-13.0/
+http://mirror.switch.ch/ftp/mirror/gsb/gsb64-2.26_slackware64-13.0/
+ftp://mirror.switch.ch/ftp/mirror/gsb/gsb64-2.26_slackware64-13.0/
