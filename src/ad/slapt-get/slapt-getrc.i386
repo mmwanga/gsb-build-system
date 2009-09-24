@@ -23,11 +23,24 @@ SOURCE=ftp://ftp.slackware.com/pub/slackware/slackware-13.0/:OFFICIAL
 # Additional mirrors for Slackware can be found at http://slackware.com/getslack/
 
 # GNOME SlackBuild Mirrors
-SOURCE=http://get.gnomeslackbuild.org/gsb/gsb-current/:CUSTOM
-#SOURCE=http://www.slackware.org.uk/gsb/gsb-current/:CUSTOM
-#SOURCE=ftp://ftp.slackware.org.uk/gsb/gsb-current/:CUSTOM
-#SOURCE=ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-current/:CUSTOM
-#SOURCE=http://slackware.rol.ru/gsb/gsb/gsb-current/:CUSTOM
+# United States
+SOURCE=http://get.gnomeslackbuild.org/gsb/gsb-2.26_slackware-13.0/:CUSTOM
+# United Kingdom
+# http://www.slackware.org.uk/gsb/gsb-2.26_slackware-13.0/
+# ftp://ftp.slackware.org.uk/gsb/gsb-2.26_slackware-13.0/
+# Russia
+# http://slackware.rol.ru/gsb/gsb/gsb-2.26_slackware-13.0/
+# Poland
+# ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-2.26_slackware-13.0/
+# Portugal
+# http://darkstar.ist.utl.pt/pub/slackware/addon/gnomeslackbuild/gsb-2.26_slackware-13.0
+# ftp://darkstar.ist.utl.pt/pub/slackware/addon/gnomeslackbuild/gsb-2.26_slackware-13.0
+# Belgium
+# http://mirrors.dotsrc.org/gsb/gsb-2.26_slackware-13.0/
+# ftp://mirrors.dotsrc.org/gsb/gsb-2.26_slackware-13.0/
+# Switzerland
+# http://mirror.switch.ch/ftp/mirror/gsb/gsb-2.26_slackware-13.0/
+# ftp://mirror.switch.ch/ftp/mirror/gsb/gsb-2.26_slackware-13.0/
 
 # Packages on a CD/DVD.
 # SOURCE=file:///mnt/cdrom/:OFFICIAL
