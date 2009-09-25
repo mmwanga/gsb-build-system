@@ -385,7 +385,7 @@ if [ "$SKIP_BUILD" = "0" ]; then
     changelog "${PACKAGE}-${PACKAGE_VERSION//-/_}-${ARCH}-${PACKAGE_BUILD}${TAG}.txz: Built." ;
   }
 else
-  echo -n "* Found: $PACKAGE-${PACKAGE_VERSION}-${PACKAGE_BUILD}${TAG}.txz" 
+  echo -n "* Found: $PACKAGE-${PACKAGE_VERSION//-/_}-${ARCH}-${PACKAGE_BUILD}${TAG}.txz" 
 fi
 
 #========================================================================
@@ -440,8 +440,8 @@ fi;
 INSTALLED=$(find_package_files "/var/log/packages" "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" \
              "" "" "${PACKAGE_BUILD}${TAG}")
 if [ "$SKIP_BUILD" = "0" -o "${INSTALLED}" = "" ]; then
-  # FIXME
-  # echo "Waiting." ; read ;
+  # PAUSE ON ALL NEW PACKAGE
+  echo "Waiting." ; read ;
   upgradepkg --install-new $( find_package_files "$PKGDEST/$SUBDIR" \
     "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" ) || {
     header "Failed to install '$PACKAGE'." ; exit 1

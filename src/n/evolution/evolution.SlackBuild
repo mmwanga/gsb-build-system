@@ -25,11 +25,13 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.27.92
+VERSION=2.28.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="evolution-data-server gnome-keyring gnome-vfs gtk+2 libsoup libxml2 cyrus-sasl libgnomeui libgnome ORBit2 GConf libbonobo libbonoboui libsoup libnotify gstreamer sqlite bluez"
+REQUIRED_PACKAGES="evolution-data-server gnome-keyring gnome-vfs gtk+2 libsoup \
+libxml2 cyrus-sasl libgnomeui libgnome ORBit2 GConf libbonobo libbonoboui \
+libsoup libnotify gstreamer sqlite bluez NetworkManager libpst"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -88,13 +90,6 @@ done
 
   check_installed "$PKGNAME" && {
     echo "${0##*/}: Remove installed '$PKGNAME' package before build."
-    exit 1
-  }
-
-  # Make sure we don't build unwanted dependencies
-  # Evolution will force a link against libnm if found.
-  check_installed "NetworkManager" && {
-    echo "${0##*/}: Remove installed 'NetworkManager' package before build."
     exit 1
   }
 

@@ -1,0 +1,12 @@
+           |-----handy-ruler------------------------------------------------------|
+eog-plugins: eog-plugins (plugins for GNOME Image viewer)
+eog-plugins:
+eog-plugins: The Eye of GNOME image viewer is the official image viewer for the 
+eog-plugins: GNOME Desktop environment. With it, you can view single image files, 
+eog-plugins: as well as large image collections.  The Eye of GNOME supports a 
+eog-plugins: variety of image file formats. 
+eog-plugins:
+eog-plugins: This package contains extra plugins for Eye of GNOME.
+eog-plugins:
+eog-plugins:
+eog-plugins:

@@ -1,8 +1,8 @@
-PKGNAME="at-spi"
-VERSION="2.26.3"
-HOMEPAGE="http://www.gnome.org"
+PKGNAME="mouse-tweaks"
+VERSION="2.28.0"
+HOMEPAGE="http://live.gnome.org/Mousetweaks/Home"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/mousetweaks/2.26/mousetweaks-2.26.3.tar.bz2"
+DOWNLOAD="${GNOME_SERVER}/mousetweaks/2.28/mousetweaks-2.28.0.tar.bz2"
 MD5SUM="e4d5941b555de97c8880ea8b01310776"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

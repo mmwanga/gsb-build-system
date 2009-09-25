@@ -25,16 +25,16 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.27.92
+VERSION=2.28.0
 
-# List any packages here that are required to build this package.
-# The list is space seperated and case sensitive.
+# List any packages here that are required to build this package.  The list is
+# space seperated and case sensitive.
 REQUIRED_PACKAGES="gamin libglade GConf gnome-desktop gnome-keyring gnome-menus gnome-vfs gtk+2 startup-notification libwnck rarian libgnomecanvas libxml2 libgnome libgnomeui dbus freetype pango gtk+2 glib2 atk libpng evolution-data-server gstreamer libgweather libproxy" 
 
 # Build variables.
 TAG=${TAG:-gsb}
 ARCH=${ARCH:-i486}
-TUNE=${TUNE:-i486}
+TUNE=${TUNE:-i686}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}
@@ -174,8 +174,8 @@ make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # preserve files
-mv $PKG/etc/dbus-1/system.d/org.gnome.ClockApplet.Mechanism.conf \
- $PKG/etc/dbus-1/system.d/org.gnome.ClockApplet.Mechanism.conf.new
+# mv $PKG/etc/dbus-1/system.d/org.gnome.ClockApplet.Mechanism.conf \
+#  $PKG/etc/dbus-1/system.d/org.gnome.ClockApplet.Mechanism.conf.new || exit 1
 # if we're not using polkit
 rmdir -p /etc/dbus-1/system.d
 

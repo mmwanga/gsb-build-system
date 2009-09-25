@@ -25,7 +25,7 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.26.1
+VERSION=2.28.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -114,13 +114,16 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # add gnome to desktop entry to differentiate from xscreensaver
+  zcat $CWD/gnome-screensaver.desktop.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # add gnome to desktop entry to differentiate from xscreensaver
+  zcat $CWD/gnome-screensaver.desktop.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # add gnome to desktop entry to differentiate from xscreensaver
+  zcat $CWD/gnome-screensaver.desktop.diff.gz | patch -p1
 fi
 
 # Fix permissions for building.
@@ -174,6 +177,12 @@ mv $PKG/etc/xdg $PKG/etc/gnome || exit 1
 chown root $PKG/usr/libexec/gnome-screensaver-dialog
 chmod +s $PKG/usr/libexec/gnome-screensaver-dialog
 
+# convert xscreensaver hacks to gnomescreensaver format
+mkdir -p $PKG/usr/share/applications/screensavers
+HACKS_DIR="/usr/share/xscreensaver/config"
+(cd $PKG/usr/share/applications/screensavers ;
+$TMP/$PKGNAME-$VERSION/data/migrate-xscreensaver-config.sh ${HACKS_DIR}/*.xml)
+
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
@@ -195,25 +204,19 @@ chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 # Add schemas install to the doinst.sh if schemas are found.
 [ -d $PKG/etc/gconf/schemas ] && {
-# Make sure we have gconftool installed 
-echo "if [ -x usr/bin/gconftool-2 ]; then" >>$PKG/install/doinst.sh
+# Make sure we have gconftool installed
+echo "if [ -x usr/bin/gconftool-2 ]; then" >> $PKG/install/doinst.sh
 ( cd $PKG/etc/gconf/schemas
-for schema in *; do
-  if [ -z "$(grep gconfentry ${schema})" ]; then
-    # Install schemas
-    echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
-    usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/${schema} >/dev/null 2>&1" \
-    >>$PKG/install/doinst.sh
-  else
-    # Load default schema if an entry file
-    echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
-    usr/bin/gconftool-2 --direct --load etc/gconf/schemas/${schema} >/dev/null 2>&1" \
-    >>$PKG/install/doinst.sh
-  fi
-done
+for schema in *.schemas; do
+ # Install schemas
+ echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
+   usr/bin/gconftool-2 --makefile-install-rule \
+   etc/gconf/schemas/${schema} >/dev/null 2>&1" \
+   >> $PKG/install/doinst.sh
+done;
 )
 # Finish off gconf block
-echo "fi" >>$PKG/install/doinst.sh
+echo "fi" >> $PKG/install/doinst.sh
 }
 
 # Package meta files

@@ -1,8 +1,8 @@
 PKGNAME="gnome-doc-utils"
-VERSION="0.17.5"
+VERSION="0.18.0"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-doc-utils/0.17/gnome-doc-utils-0.17.5.tar.bz2"
-MD5SUM="74060b2e8c35ee1ee4b5b15469afc681"
+DOWNLOAD="${GNOME_SERVER}/gnome-doc-utils/0.18/gnome-doc-utils-0.18.0.tar.bz2"
+MD5SUM="5a25827673f9ff060a554c0858dbf020"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

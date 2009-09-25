@@ -1,5 +1,6 @@
 gnome-desktop 
-gst-plugins-good 
+gstreamer >= 0.10.24-@ARCH@-1
+gst-plugins-good >= 0.10.24-@ARCH@-1
 gst-plugins-base
 totem-pl-parser 
 libepc

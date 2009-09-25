@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
-VERSION=2.26.3
+BUILD=1
+VERSION=2.28.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomeui mozilla-xulrunner avahi"
+REQUIRED_PACKAGES="libgnomeui webkit avahi"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -117,11 +117,11 @@ if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   # Remove bookmark icon from gnome menu
   zcat $CWD/epiphany.bookmarks_menu.diff.gz | patch -p1
   # Fix dbus calls
-  zcat $CWD/epiphany.dbusfix.diff.gz | patch -p1
+  # zcat $CWD/epiphany.dbusfix.diff.gz | patch -p1
   # Stop download dialog from crashing
-  zcat $CWD/epiphany.download-dialog.diff.gz | patch -p1
+  # zcat $CWD/epiphany.download-dialog.diff.gz | patch -p1
   # Add rss to epiphany safetype
-  zcat $CWD/epiphany.safetypes.diff.gz | patch -p1
+  # zcat $CWD/epiphany.safetypes.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # Fix python paths on x86_64
@@ -129,21 +129,21 @@ elif [ "$ARCH" = "x86_64" ]; then
   # Remove bookmark icon from gnome menu
   zcat $CWD/epiphany.bookmarks_menu.diff.gz | patch -p1
   # Fix dbus calls
-  zcat $CWD/epiphany.dbusfix.diff.gz | patch -p1
+  # zcat $CWD/epiphany.dbusfix.diff.gz | patch -p1
   # Stop download dialog from crashing
-  zcat $CWD/epiphany.download-dialog.diff.gz | patch -p1
+  # zcat $CWD/epiphany.download-dialog.diff.gz | patch -p1
   # Add rss to epiphany safetype
-  zcat $CWD/epiphany.safetypes.diff.gz | patch -p1
+  # zcat $CWD/epiphany.safetypes.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # Remove bookmark icon from gnome menu
-  zcat $CWD/epiphany.bookmarks_menu.diff.gz | patch -p1
+  # zcat $CWD/epiphany.bookmarks_menu.diff.gz | patch -p1
   # Fix dbus calls
-  zcat $CWD/epiphany.dbusfix.diff.gz | patch -p1
+  # zcat $CWD/epiphany.dbusfix.diff.gz | patch -p1
   # Stop download dialog from crashing
-  zcat $CWD/epiphany.download-dialog.diff.gz | patch -p1
+  # zcat $CWD/epiphany.download-dialog.diff.gz | patch -p1
   # Add rss to epiphany safetype
-  zcat $CWD/epiphany.safetypes.diff.gz | patch -p1
+  # zcat $CWD/epiphany.safetypes.diff.gz | patch -p1
 fi
 
 # Fix permissions for building.
@@ -182,17 +182,9 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
   --disable-schemas-install \
-  --with-engine=mozilla \
-  --with-gecko-home=/usr/lib${LIBDIRSUFFIX}/xulrunner \
-  --with-gecko=libxul \
-  --disable-scrollkeeper \
-  --disable-network-manager \
-  --enable-zeroconf \
-  --enable-python \
-  --enable-desktop-file-plugin \
-  --enable-filepicker \
-  --enable-shared \
-  --disable-static \
+  --enable-nss \
+  --disable-introspection \
+  --disable-gtk-doc-html \
   --with-distributor-name="GNOME SlackBuild" \
   || exit 1
 

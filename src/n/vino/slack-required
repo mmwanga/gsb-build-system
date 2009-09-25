@@ -5,3 +5,6 @@ libjpeg
 zlib
 libgcrypt
 gnutls
+avahi
+gnome-keyring
+libtelepathy

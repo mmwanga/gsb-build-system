@@ -25,7 +25,7 @@
 
 # Package variables.
 BUILD=1
-VERSION=0.9.17
+VERSION=0.9.18
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -34,7 +34,7 @@ REQUIRED_PACKAGES="libsndfile GConf hal avahi glib2 libsamplerate liboil bluez c
 # Build variables.
 TAG=${TAG:-gsb}
 ARCH=${ARCH:-i486}
-TUNE=${TUNE:-i486}
+TUNE=${TUNE:-i686}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}
@@ -162,7 +162,8 @@ CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
+  --disable-static \
+  --enable-shared \
   --enable-avahi \
   --enable-hal \
   --enable-hal-compat \

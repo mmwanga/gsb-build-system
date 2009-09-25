@@ -1,1 +1,2 @@
 evolution-data-server
+gmime >= 2.4.9-@ARCH@-1

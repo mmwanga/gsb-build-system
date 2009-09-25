@@ -1,9 +1,8 @@
 glib2
-gtk+2 >= 2.16
+gtk+2
 libxml2
 ORBit2
 popt
 zlib
-policykit
 dbus-glib
 openldap-client

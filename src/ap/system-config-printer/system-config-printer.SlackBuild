@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
-VERSION=1.0.16
+BUILD=1
+VERSION=1.1.13
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-#REQUIRED_PACKAGES="pycups python cups pygtk rhpl notify-python"
+REQUIRED_PACKAGES="pycups python cups pygtk rhpl notify-python"
 
 # Build variables.
 TAG=${TAG:-gsb}

@@ -1,18 +1,18 @@
 
-Welcome to GNOME SlackBuild 2.26.3!
+Welcome to GNOME SlackBuild 2.28.0!
 
-GNOME SlackBuild v2.26.3 is a complete GNOME Desktop Environment for 
-Slackware Linux v13.0, encompassing all the needed packages for a full, 
+GNOME SlackBuild v2.28.0 is a complete GNOME Desktop Environment for 
+Slackware Linux 13.0, encompassing all the needed packages for a full, 
 clean installation of GNOME for Slackware. It aims to provide a fully 
 functional desktop, including a wide range of multimedia, graphics, 
 and development tools, as well as a complete networking and office suite.  
 
-Here are some versions of major components of GNOME SlackBuild 2.26.3
+Here are some versions of major components of GNOME SlackBuild 2.28.0
 
-- Full GNOME Desktop     2.26.3
-	- Evolution      2.26.3
+- Full GNOME Desktop     2.28.0
+	- Evolution      2.28.0
 	- NetworkManager 0.7.1
-- PulseAudio		 0.9.15
+- PulseAudio		 0.9.17
 - Mono C#		 2.4.2.2
 - OpenOffice.org         3.1.1.1
 - Compiz                 0.8.3
@@ -22,17 +22,17 @@ Here are some versions of major components of GNOME SlackBuild 2.26.3
 
 For installation instructions, see the file 'INSTALL.TXT'
 
-For instructions to upgrade from GSB 2.26.3 and previous versions to GSB 2.26.3
+For instructions to upgrade from GSB 2.28.0 and previous versions to GSB 2.28.0
 for Slackware 13.0, please see the 'UPGRADE.TXT'.  You would still be well
 advised to backup your machine first if it contains any important data.
 
-For details of important changes between GSB 2.24.3 and GSB 2.26.3 for
-Slackware 13, see 'CHANGES_AND_HINTS.TXT'.
+For details of important changes between GSB 2.26.3 and GSB 2.28.0 for
+Slackware 13.0, see 'CHANGES_AND_HINTS.TXT'.
 
 These are some of the important files and directories found on the GSB 
 FTP site:
 
- <ftp://ftp.slackware.org.uk/gsb/gsb-2.26/>
+ <ftp://ftp.slackware.org.uk/gsb/gsb-2.28/>
 
 .
 |-- CHECKSUMS.md5		MD5 format file checksums
@@ -44,7 +44,7 @@ FTP site:
 |-- CREDITS			A brief list of those who help with the 
 |                               GSB project.
 |-- ChangeLog.txt		Log of system changes from GSB 2.24.3 
-|                               to GSB 2.26.3.
+|                               to GSB 2.28.0.
 |-- FILELIST.TXT		List of files on the GSB FTP site.
 |-- INSTALL.TXT			Instructions on how to install GSB.
 |
@@ -52,19 +52,18 @@ FTP site:
 |  				Packages in GSB that will replace 
 |                               standard Slackware packages.
 |-- README.TXT			This file.
-|-- UPGRADE.TXT			Instructions on how to upgrade from GSB 2.24.3.
-|-- VERSIONS			Target versions for GSB 2.26.3.
+|-- UPGRADE.TXT			Instructions on how to upgrade from GSB 2.26.3.
+|-- VERSIONS			Target versions for GSB 2.28.0.
 |
 |-- extra/			This directory contains extra packages 
-|   |                           for GSB like mozilla-firefox, and pidgin 
-|   |                           which, though they come with Slackware 
-|   |                           13.0, users may prefer to use our 
-|   |                           version.
+|   |                           for GSB like MPlayer and pidgin which though
+|   |                           they come with Slackware 13.0 users may prefer
+|   |                           prefer to use our verion.
 |   |			
 |   `-- source/	                Source code for the extra packages.
 |
 |-- gsb/			This directory contains all the 
-|   |                           software you will need for GSB 2.26.3.
+|   |                           software you will need for GSB 2.28.0.
 |   |-- a			The A (base) package series.
 |   |-- ac			The AC (accessibility) series.
 |   |-- ad			The AD (administration) series.

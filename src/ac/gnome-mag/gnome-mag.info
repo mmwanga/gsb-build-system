@@ -1,8 +1,8 @@
 PKGNAME="gnome-mag"
-VERSION="0.15.7"
+VERSION="0.15.9"
 HOMEPAGE="https://launchpad.net/gnome-mag"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-mag/0.15/gnome-mag-0.15.7.tar.bz2"
+DOWNLOAD="${GNOME_SERVER}/gnome-mag/0.15/gnome-mag-0.15.9.tar.bz2"
 MD5SUM="40eb26385e3225ac5cb1eab87488cfc3"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

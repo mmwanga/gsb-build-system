@@ -1,0 +1,7 @@
+PKGNAME="libpst"
+VERSION="0.6.43"
+HOMEPAGE="http://www.five-ten-sg.com/libpst/"
+DOWNLOAD="http://www.five-ten-sg.com/libpst/packages/libpst-0.6.43.tar.gz"
+MD5SUM="f5da26a3d1fa0fa7f034a8947f2f2d34"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

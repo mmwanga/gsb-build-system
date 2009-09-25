@@ -1,8 +1,8 @@
 PKGNAME="gnome-user-share"
-VERSION="2.27.0"
+VERSION="2.28.0"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-user-share/2.27/gnome-user-share-2.27.0.tar.bz2"
-MD5SUM="c99133b74a81a78ac0e4e10ef73fada7"
+DOWNLOAD="${GNOME_SERVER}/gnome-user-share/2.28/gnome-user-share-2.28.0.tar.bz2"
+MD5SUM="8ccaca15e42036b42a54f997ffbac3a7"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

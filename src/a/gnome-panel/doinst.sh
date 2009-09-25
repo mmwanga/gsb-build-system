@@ -11,7 +11,8 @@ install_file() {
   # Otherwise, we leave the .new copy for the admin to consider...
 }
 
-install_file etc/dbus-1/system.d/org.gnome.ClockApplet.Mechanism.conf.new
+# Only needed for polkit
+# install_file etc/dbus-1/system.d/org.gnome.ClockApplet.Mechanism.conf.new
 
 # update rarian database
 if [ -x usr/bin/rarian-sk-update ]; then

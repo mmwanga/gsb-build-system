@@ -6,7 +6,7 @@ following is a list of our trees and the URIs which should be used to 'svn co'
 them.
 
 Bleeding edge 'gsb-current' tree:
-  http://svn.gnomeslackbuild.org/gsb/branches/gsb-testing_slack13
+  http://svn.gnomeslackbuild.org/gsb/trunk
 
   This tree contains the latest and most up to date GSB sources.  As such, at
 any time it may be broken (ie, will not build fully).  This tree is usually
@@ -15,6 +15,6 @@ releases.
 
 For additional branches:
 
-  http://svn.gnomeslackbuild.org/gsb/branches/gsb-2.26
-  http://svn.gnomeslackbuild.org/gsb/branches/gsb-2.24
-  http://svn.gnomeslackbuild.org/gsb/branches/gsb-2.22
+  http://svn.gnomeslackbuild.org/gsb/branches/gsb-2.26.3_slack13.0
+  http://svn.gnomeslackbuild.org/gsb/branches/gsb-2.26.3
+  http://svn.gnomeslackbuild.org/gsb/branches/gsb-2.24.3

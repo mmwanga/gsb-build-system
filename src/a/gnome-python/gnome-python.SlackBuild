@@ -24,17 +24,18 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
-VERSION=2.26.1
+BUILD=1
+VERSION=2.28.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="python glib2 gtk+2 pygtk pyorbit libgnome libgnomeui libbonobo libbonoboui libgnomecanvas gnome-vfs GConf"
+REQUIRED_PACKAGES="python glib2 gtk+2 pygtk pyorbit libgnome libgnomeui
+libbonobo libbonoboui libgnomecanvas gnome-vfs GConf"
 
 # Build variables.
 TAG=${TAG:-gsb}
 ARCH=${ARCH:-i486}
-TUNE=${TUNE:-i486}
+TUNE=${TUNE:-i686}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}
@@ -196,7 +197,7 @@ chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
 do
   [ -e $CWD/$FILE ] && {
-    cat $CWD/$FILE >>$PKG/install/$FILE
+    cat $CWD/$FILE | sed "s,@ARCH@,${ARCH},g" >>$PKG/install/$FILE
   }
 done
 

@@ -1,6 +1,8 @@
 mozilla-xulrunner
+webkit
 gtkhtml
 gnome-pilot
+libpst
 evolution
 gnome-pilot-conduits
 evolution-exchange
@@ -44,6 +46,5 @@ gnome-nettool
 libepc
 epiphany
 epiphany-extensions
-webkit
 pywebkitgtk
 liferea

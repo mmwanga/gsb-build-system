@@ -2,6 +2,7 @@ bug-buddy
 yelp
 gnome-user-docs
 alacarte
+gst-plugins-base
 gst-plugins-good
 totem-pl-parser
 totem
@@ -12,6 +13,7 @@ gedit
 seahorse-plugins
 gedit-plugins
 eog
+eog-plugins
 evince
 file-roller
 gcalctool
@@ -44,7 +46,6 @@ pavucontrol
 pavumeter
 dvgrab
 kino
-gst-plugins-base
 gst-python
 gst-ffmpeg
 gst-fluendo-mp3

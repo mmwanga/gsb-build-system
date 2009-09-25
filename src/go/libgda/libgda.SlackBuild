@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=4.0.4
 
 # List any packages here that are required to build this package.
@@ -160,6 +160,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --target=$ARCH-$DISTRO-linux \
   --with-mysql=/usr/bin \
   --with-postgres=/usr/bin \
+  --with-java=no \
   --enable-shared \
   --disable-static \
   || exit 1

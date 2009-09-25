@@ -1,4 +1,46 @@
-Mon Sep 14 21:29:42 BST 2009
+Fri Sep 18 10:26:26 BST 2009
+a/GConf-2.27.0-i486-1gsb.txz: Upgraded to GConf-2.27.0.
+a/pulseaudio-0.9.17-i486-1gsb.txz: Upgraded to pulesaudio-0.9.17.
+a/libgnome-2.27.5-i486-1gsb.txz: Upgraded to libgnome-2.27.5.
+a/gnome-keyring-2.27.92-i486-1gsb.txz: Upgraded to gnome-keyring-2.27.92.
+a/libproxy-0.3.0-i486-1gsb.txz: Upgraded to libproxy-0.3.0.
+a/libsoup-2.27.92-i486-1gsb.txz: Upgraded to libsoup-2.27.92.
+a/gnome-doc-utils-0.17.5-noarch-1gsb.txz: Upgraded to gnome-doc-util-0.17.5.
+a/gnome-desktop-2.27.92-i486-1gsb.txz: Upgraded to gnome-desktop-2.27.92.
+a/gnome-menus-2.27.92-i486-1gsb.txz: Upgraded to gnome-menus-2.27.92.
+a/libgweather-2.27.92-i486-1gsb.txz: Upgraded to libgweather-2.27.92.
+a/evolution-data-server-2.27.92-i486-1gsb.txz: Upgraded to
+  evolution-data-server-2.27.92.
+a/gnome-panel-2.27.92-i486-1gsb.txz: Upgraded to gnome-panel-2.27.92.
+a/libxklavier-4.0-i486-1gsb.txz: Upgraded to libxklavier-4.0.  This replaces
+  the default Slackware package.  
+a/libgnomekbd-2.27.91-i486-1gsb.txz: Upgraded to libgnomekbd-2.27.92.
+a/zenity-2.27.90-i486-1gsb.txz: Upgraded to zenity-2.27.90.
+a/libwnck-2.27.92-i486-1gsb.txz: Upgraded to libwnck-2.27.90.
+a/metacity-2.27.1-i486-1gsb.txz: Upgraded to metacity-2.27.1.
+a/gvfs-1.3.6-i486-1gsb.txz: Upgraded to gvfs-1.3.6.
+a/nautilus-2.27.92-i486-1gsb.txz: Upgraded to nautilus-2.27.92.
+a/gnome-settings-daemon-2.27.92-i486-1gsb.txz: Upgraded to
+  gnome-settings-daemon-2.27.92.
+a/gnome-control-center-2.27.91-i486-1gsb.txz: Upgraded to
+  gnome-control-center-2.27.91.
+a/gnome-session-2.27.92-i486-1gsb.txz: Upgraded to gnome-session-2.27.92.
+a/gnome-applets-2.27.92-i486-1gsb.txz: Upgraded to gnome-applets-2.27.92.
+a/gnome-themes-2.27.92-i486-1gsb.txz: Upgraded to gnome-themes-2.27.92.
+a/bluez-4.53-i486-1gsb.txz: Upgraded to bluez-4.53.
++--------------------------+
+Sat Sep 12 18:01:19 BST 2009
+ap/gnome-screensaver-2.26.1-i486-2gsb.txz: Rebuilt.  Added desktop entries so
+  that xscreensaver hacks are available to gnome-screensaver, and changed the 
+  desktop entry to avoid confusion with xscreensaver.
+m/f-spot-0.6.1.2-i486-1gsb.txz: Upgraded to f-spot 0.6.1.2.
+ap/system-config-printer-1.0.16-i486-3gsb.txz: Rebuilt.  Added notify-python to
+  slack-required.  Thanks to Carlos Diogenes for pointing out the missing
+  package.
+go/gnome-python-extras-2.25.3-i486-3gsb.txz: Rebuilt.  Added seamonkey and
+  seamonkey-solibs to slack-conflicts.  The gtkmozembed python will fail 
+  if the seamonkey libraries are installed, instead of using the libxul in the
+  mozilla-xulrunner package.  Thanks to camden for reporting the issue.
 n/mozilla-xulrunner-1.9.0.13-i486-2gsb.txz: Rebuilt.  Removed both profile.d
   xulrunner.sh and xulrunner.csh scripts.  The doinst.sh already places the 
   library paths in /etc/ld.so.conf, and the scripts set an unneeded (and in 
@@ -7,6 +49,18 @@ n/mozilla-xulrunner-1.9.0.13-i486-2gsb.txz: Rebuilt.  Removed both profile.d
 extra/easytag-2.1.6-i486-4gsb.txz: Rebuilt.  Removed x-directory mime type from
   the easytag.desktop entry to prevent easytag from opening items listed on the
   Places menu in place of Nautilus.  Thanks to byteframe for the solution.
+l/glib2-2.21.6-i486-1gsb.txz: Upgraded to glib2-2.21.6.
+l/gtk+2-2.17.11-i486-1gsb.txz: Upgraded to gtk+2-2.17.11.
++--------------------------+
+Fri Sep 11 17:58:00 BST 2009
+GNOME 2.27.92 tarballs are released.  This release is a feature, user interface
+and string frozen snapshot primarily intended for wide public scrutiny before
+the final GNOME 2.28 release in September.  
+
+gsb-current will be upgrading to development packages in preparation for the
+stable release scheduled for September 21. For more information about 2.27, the
+full schedules and the official modules list, please see our 2.27 page:
+  http://www.gnome.org/start/unstable/
 +--------------------------+
 Thu Sep 10 23:09:17 BST 2009
 ap/gnome-power-manager-2.26.4-i486-1gsb.txz: Reconfigured.  

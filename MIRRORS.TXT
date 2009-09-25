@@ -16,6 +16,9 @@ ftp://darkstar.ist.utl.pt/pub/slackware/addon/gnomeslackbuild/gsb-current
 # Belgium
 http://mirrors.dotsrc.org/gsb/gsb-current/
 ftp://mirrors.dotsrc.org/gsb/gsb-current/
+# Switzerland
+http://mirror.switch.ch/ftp/mirror/gsb/gsb-current/
+ftp://mirror.switch.ch/ftp/mirror/gsb/gsb-current/
 
 GNOME SlackBuild64
 ------------
@@ -35,3 +38,6 @@ ftp://darkstar.ist.utl.pt/pub/slackware/addon/gnomeslackbuild/gsb64-current
 # Belgium
 http://mirrors.dotsrc.org/gsb/gsb64-current/
 ftp://mirrors.dotsrc.org/gsb/gsb64-current/
+# Switzerland
+http://mirror.switch.ch/ftp/mirror/gsb/gsb64-current/
+ftp://mirror.switch.ch/ftp/mirror/gsb/gsb64-current/

@@ -1,0 +1,8 @@
+PKGNAME="pygobject"
+VERSION="2.20.0"
+HOMEPAGE="http://www.pygtk.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/pygobject/2.20/pygobject-2.20.0.tar.bz2"
+MD5SUM="10e1fb79be3d698476a28b1e1b0c5640"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

@@ -2,3 +2,4 @@ bluez
 obexd
 libunique
 libnotify
+GConf

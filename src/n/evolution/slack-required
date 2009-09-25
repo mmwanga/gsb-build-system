@@ -17,3 +17,5 @@ libnotify
 gstreamer
 sqlite
 bluez
+NetworkManager
+libpst

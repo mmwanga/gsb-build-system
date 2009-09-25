@@ -39,11 +39,11 @@ This version of GSB is designed to build packages using:
 If you are trying to build GSB on systems other than the above you *will*
 encounter problems during the build.
 
-We cannot offer any form of support to users trying to build GSB on earlier 
-versions of Slackware or Slackware64.  However, if you do manage to get GSB built
-on other versions, please let us know what modifications you had to make to the
-build system in order to do so - if those changes can be integrated into our
-build system, you may find those versions supported out of the box in our
+We cannot offer any form of support to users trying to build GSB on earlier
+versions of Slackware or Slackware64.  However, if you do manage to get GSB
+built on other versions, please let us know what modifications you had to make
+to the build system in order to do so - if those changes can be integrated into
+our build system, you may find those versions supported out of the box in our
 future releases.
 
 The developers use a strictly controled base of packages to build the binary
@@ -56,16 +56,16 @@ When it comes to building your own packages it is doubtful your build will
 succeed if you do not have every package marked with an "ADD" in our tagfiles
 installed on your system.  Those packages marked "ADD" form the basis of our
 build requirements - any missing packages from your system will likely cause
-the build to stop.  If you have a full installation of Slackware or Slackware64 you
-should not have any problem doing a build, but the resulting packages may have
-more dependancies than indicated in our slack-required files (because many of
-the sources will find extra libraries when being configured and automatically
-link against them).
+the build to stop.  If you have a full installation of Slackware or Slackware64
+you should not have any problem doing a build, but the resulting packages may
+have more dependancies than indicated in our slack-required files (because many
+of the sources will find extra libraries when being configured and
+automatically link against them).
 
 Unless you really know what you are doing with packages, understand what
-tagfiles and dependancies are all about, and really feel the need to "roll
-your own", it would be a far far better choice for you to download the
-pre-built binaries and install those.
+tagfiles and dependancies are all about, and really feel the need to "roll your
+own", it would be a far far better choice for you to download the pre-built
+binaries and install those.
 
 
 2. Obtaining the GNOME SlackBuild Source from SVN
@@ -77,30 +77,13 @@ one of them before building.
 
 Bleeding edge 'gsb-current' tree:
   (At the time of writing, GNOME 2.26.3)
-  http://svn.gnomeslackbuild.org/gsb/branches/gsb-testing_slack13
+  http://svn.gnomeslackbuild.org/gsb/trunk/
 
   This tree contains the latest and most up to date GSB sources.  As such, at
   any time it may be broken (ie, will not build fully) or may cause your system
   to explode in a shower of wires and capacitors if you run it.
   This tree is usually only for the latest Slackware/Slackware64 current and may
   not work on other releases.
-
-GNOME 2.22 tree:
-  http://svn.gnomeslackbuild.org/gsb/branches/gsb-2.22/
-
-  This is our GNOME 2.22.3 stable tree for Slackware 12.1 and Slackware64 12.1.
-  This tree is kept up to date with the GNOME 2.22.3 sources and will be
-  maintained (at least for the short->medium timeframe) with the minor
-  2.22.x releases GNOME provide.
-
-GNOME 2.20 tree:
-  http://svn.gnomeslackbuild.org/gsb/branches/gsb-2.20/
-
-  This is our GNOME 2.20 stable tree for Slackware and Slackware64 12.0 ONLY.
-  This tree is kept up to date with the GNOME 2.20 sources and will be
-  maintained (at least for the short->medium timeframe) with the minor
-  2.20.x releases GNOME provide.
-
 
 3. Quick Start Guide
 ---------------------
@@ -114,8 +97,10 @@ The GNOME (etc) source files are not distributed with GSB - part of the build
 process will download the source files for you.  Obviously you need an (active)
 internet connection to download the sources.
 
-Before beginning, make sure to configure a gsb.options file.  You can copy over
-the gsb.options.sample and modify accordingly.  Then, as root, run:
+1.  Before beginning, make sure to configure a gsb.options file.  You can copy
+over the gsb.options.sample and modify accordingly.  
+
+2.  Then, as root, run:
 
   $ cd build/
   $ ./buildgsb
@@ -138,23 +123,19 @@ When setuptools has been build, you can restart the build process.  Our build
 script will eventually be updated to automatically resolve these dependencies,
 but at the moment, it is done manually.  
 
-GSB requires that some standard Slackware/Slackware64 packages be upgraded to newer
-versions in order for other packages to compile and work correctly.  As part of
-the GSB build process, buildgsb (and section SlackBuilds) will remove
+GSB requires that some standard Slackware/Slackware64 packages be upgraded to
+newer versions in order for other packages to compile and work correctly.  As
+part of the GSB build process, buildgsb (and section SlackBuilds) will remove
 (using removepkg) any such packages which need to be updated.  The new
 (updated) package from GSB will then be built and installed.
 
-Building GSB will take a very long time unless you have some top-notch hardware
-or small cluster system.  It took 1-2 days to perform a full build of GSB on
-my build box (2.5GHz CPU, 2GB RAM) - you have been warned.
-
 If the build fails for some reason, you can correct the error and re-run the
-'./buildgsb' command - the build system will continue from where it
-failed, not restart the whole process again.
+'./buildgsb' command - the build system will continue from where it failed, not
+restart the whole process again.
 
 At the end of the build process you will have a full copy of GSB installed on
-your system ready to go, and a copy of the completed GSB binary package tree
-in /tmp/gsb-tree/ (see below for how to change this).
+your system ready to go, and a copy of the completed GSB binary package tree in
+/tmp/gsb-tree/ (see below for how to change this).
 
 
 4. Starting GSB/GNOME
@@ -164,46 +145,30 @@ Starting the GSB GNOME environment will depend on how you start your current X
 Window environment.  Both techniques are described below.
 
 If you login to your system at the text console and use 'startx' or similar,
-you should log in as your usual (not root!) user and run:
+you should log in as a normal user and run:
+
   $ xwmconfig
-... and select the GNOME option from the menu.
-You can also repeat the above as root to set the default for the whole system,
-but using root as your every day login user is a *really* *stupid* *idea*.
+
+Select the xinitrc.gnome (GNOME) option from the menu.
 
 Secondly, if you login to your system via a graphical login manager (such as
 kdm, xdm or other) you will need to exit the graphical login manager in order
-to allow gdm (the GNOME graphical login manager) to take over.
+to allow gdm (the GNOME graphical login manager) to take over. 
 
-To get gdm up and running you need to be at a text console [yes, an Xterm
-will work but you'll have to re-login after X Windows exits - it's just easier
-to do it this way, trust me]:  hold down Ctl and Alt and press F6 once.
-After a couple of seconds you should see a text based "login" prompt.
-
-At the text "login" prompt, login to your system as root and then run:
-  $ init 3
-... and wait for the system to close all of the X Window processes and return
-you to the usual prompt.  It may take up to a minute to do this, and try
-hitting Enter a couple of times to see when it's done.
-
-Once back to the prompt, run:
+As root, run:
   $ init 4
-... and wait for the new gdm graphical login manager to appear.
 
-You can now login to your new GSB GNOME desktop.  Make sure you select "GNOME"
-from the session selection menu, if it is not already the default.
+The gdm graphical login manager will appear.  You can now login to your new GSB
+GNOME desktop.  Make sure you select "GNOME" from the session selection menu,
+if it is not already the default.
 
-If you are returned to the prompt or your display keeps going on and off
-repeatidly, the gdm application has not started sucessfully and there is a
-problem.  You will need to return your system to the text based state in order
-to debug the problem - use the same 'init 3' command as detailed above.
-
-If you do have a problem like this or cannot figure out what the issue is,
-please visit us on the IRC channel for help - details are on the website.
+You can also edit /etc/inittab and set your default runlevel to 4 if you would
+like gdm to start on boot.
 
 
 
 APPENDIX A. Customising the Build Environment
----------------------------------
+---------------------------------------------
 
 When building GSB, there are several environment variables which can be used to
 tweak and customise the build process.  GSB supports two methods of setting
@@ -307,13 +272,9 @@ GSB_TUNE_CFLAGS
   the default ones.  Make sure you add any of the default options from the
   SlackBuilds back to this environment option if you choose to use it.
   Tuning is specific to each ARCH, with the defaults being:
-    i386, i486: -O3 -march=$ARCH -mtune=$TUNE
-    i586, i686: -O3 -march=$ARCH -mtune=$TUNE -pipe -fomit-frame-pointer 
-    x86_64, with default TUNE: -O3 -march=k8 -mtune=k8 -pipe \
-                               -fomit-frame-pointer -fPIC
-    x86_64, with custom TUNE: -O3 -march=$TUNE -mtune=$TUNE -pipe \
-                              -fomit-frame-pointer -fPIC
-    powerpc: -O2 -march=$ARCH
+    i[456]86: -O2 -march=$ARCH -mtune=$TUNE
+    x86_64:   -O2 -march=k8 -mtune=k8 -fPIC
+    powerpc:  -O2 -march=$ARCH
 
 GSB_EXTRA_CFLAGS
   This setting is used to add custom/additional gcc options to be used during
@@ -389,9 +350,6 @@ The following options are recognised:
 			This should only be used for testing as it WILL cause
 			serious problems - most builds rely on other GSB
 			packages being automatically installed first.
-
-  --no-metafiles	Do not create the package's .txt and .md5 meta files
-			which would usually be produced during a build.
 
 -- 
 Good luck!

@@ -1,9 +1,9 @@
 CHANGES AND HINTS
 =================
-This file documents the instructions for upgrading to GNOME SlackBuild 2.26.3
+This file documents the instructions for upgrading to GNOME SlackBuild 2.28.0
 for Slackware 13.0, and lists any packages which have been added, removed,
 renamed, and/or split during the development cycle from GSB 2.26.3 for
-Slackware 12.2, as well as note some potential "gotchas" that users can avoid
+Slackware 13.0, as well as note some potential "gotchas" that users can avoid
 by arming themselves with a little knowledge.
 
 All packages that are built to replace a standard Slackware package are
@@ -35,97 +35,35 @@ Otherwise, the official Slackware package will outweigh some GNOME SlackBuild
 required package and they may not be installed.  
 
 
-*** PACKAGE ADDITIONS SINCE 2.26.3 for Slackware 12.2 ***
+*** PACKAGE ADDITIONS SINCE 2.26.3 for Slackware 13.0 ***
 
-a/devicekit-disks: Added.
-ac/espeak: Added.
-extra/gnome-perl: Added.  This package now contains a full set of
-  GNOME bindings for perl, including Glib, Gtk2, Cairo, Pango,
-  Gnome2, Gnome2-VFS, and GConf.
-n/NetworkManager-pptp: Added.  Split from NetworkManager-vpn.
-n/NetworkManager-openvpn: Added.  Split from NetworkManager-vpn.
-n/NetworkManager-vpnc: Added.  Split from NetworkManager-vpn.
-n/NetworkManager-openconnect: Added.  Split from NetworkManager-vpn.
-n/papyon: Added.  Latest MSN support for Empathy.
-n/telepathy-python: Added.
-n/pyOpenSSL: Added.
-l/pycrypto: Added.
-ooo/openoffice3-l10n-*: Added.  Multilingual support for OpenOffice.org 3.1.
+a/libxklavier: Added.  Upgrades standard Slackware package.
+n/libpst: Added.
+a/pango: Added.  Upgrades standard Slackware package.
+l/pygobject: Added.  Upgrades standard Slackware package.
 
-*** PACKAGE REMOVALS SINCE 2.26.3 for Slackware 12.2 ***
+*** PACKAGE REMOVALS SINCE 2.26.3 for Slackware 13.0 ***
 
-tools/boost-jam: Removed. Now in Slackware.
-libraries/babl: Removed. Now in Slackware.
-libraries/boost: Removed. Now in Slackware.
-libraries/cairo: Removed. Now in Slackware.
-libraries/djvulibre: Removed. Now in Slackware.
-libraries/exiv2: Removed. Now in Slackware.
-libraries/gegl: Removed. Now in Slackware.
-libraries/iso-codes: Removed. Now in Slackware.
-libraries/libarchive: Removed. Now in Slackware.
-libraries/libdvdread: Removed. Now in Slackware.
-libraries/libjasper: Removed. Now in Slackware.
-libraries/libnl: Removed. Now in Slackware.
-libraries/libspectre: Removed. Now in Slackware.
-libraries/openexr: Removed. Now in Slackware.
-libraries/pango: Removed. Now in Slackware.
-libraries/poppler: Removed. Now in Slackware.
-libraries/yasm: Removed. 
-libraries/libdiscid: Removed as obsolete.  
-libraries/tre: Removed as obsolete.  
-libraries/libexif-gtk: Removed as obsolete.  
-libraries/id3lib: Removed as obsolete.  
-libraries/libmatroska: Removed as obsolete.  
-libraries/libmpeg3: Removed as obsolete.  
-libraries/freealut: Removed as obsolete.  
-libraries/twolame: Removed as obsolete.  
-libraries/openal: Removed as obsolete.  
-libraries/lua: Removed as largely unused.  
-libraries/libebml: Removed as obsolete.  
-libraries/ode: Removed as obsolete.  
-libraries/libxklavier: Removed.  Now in Slackware.
-libraries/libtool-compat: Removed. 
-office/libgda-compat: Removed.  All packages now use 4.0.
-libraries/ilmbase: Removed.
-networking/NetworkManager-vpn: Has now been split into separate vpn packages, 
-   NetworkManager-pptp, NetworkManager-openvpn, NetworkManager-vpnc,
-   and NetworkManager-openconnect.
-networking/libbtctl: Removed as obsolete.  
-networking/obex-data-server: Replaced by obexd.  
-applications/gnome-audio: Removed as obsolete. 
-bindings/glib-perl: Now subsumed under extra/gnome-perl package.
-bindings/gtk+2-perl: Now subsumed under extra/gnome-perl package.
-bindings/libintl-perl: Now subsumed under extra/gnome-perl.
-bindings/gnome2-perl: Moved to extra/ and renamed to gnome-perl.
-tools/cabextract: Removed.
-ooo/openoffice-perl: Removed.
-ooo/apache-ant: Removed.
-bindings/pyfeedparser: Removed.
-bindings/pyalsaaudio: Removed.
-bindings/pysqlite: Removed.
-applications/simple-json: Removed. Now in Slackware's python.
-applications/bluez-gnome: Removed.  Obsoleted by gnome-bluetooth.
-desktop/libical: Removed.  Now in Slackware.
-libraries/vte: Removed. Slackware has decent version.
-platform/gnome-icon-theme: Slackware has 2.26 version.
+None.
 
 *** OTHER NOTABLE CHANGES AND HINTS ***
 
-- Fix your config files.  Some of the config files in /etc are going to need
-  your attention.  You'll find the new incoming config files on your system
-with the ".new" extension.  You may need to fill these in with information from
-your old config files and then move them over.
+- Remember to fix your config files.  Some of the config files in /etc are
+  going to need your attention.  You'll find the new incoming config files on
+your system with the ".new" extension.  You may need to fill these in with
+information from your old config files and then move them over.
 
 - Slackware now offers packages seamonkey-solibs and seamonkey.  Be aware that
   these packages can cause conflicts with GNOMESlackBuild's nss and xulrunner
-packages (in the n set).  We have marked them as "conflicts" in the
-slack-conflicts file.  If you want to use seamonkey, make sure to remove its
-entry from the /etc/ld.so.conf file, and re-run ldconfig.  Note that epiphany,
-and many packages like heimdal-libs and evolution will look for the GSB version
-of xulrunner and nss.  
+packages (in the n set), and possibly other packages which depend on xulrunner
+and nss.  We have marked them as "conflicts" in the slack-conflicts file.  If
+you want to use seamonkey, make sure to remove its entry from the
+/etc/ld.so.conf file, and re-run ldconfig.  Note that epiphany, and many
+packages like heimdal-libs and evolution will look for the GSB version of
+xulrunner and nss.  
 
-- When adding users to the netdev group, in order to use NetworkManager and the
-  network-manager-applet, you may need to reload dbus in order for the new
+- When adding users to the netdev group (in order to use NetworkManager and the
+  network-manager-applet) you may need to reload dbus in order for the new
 permissions to take effect.
 
 - Pulseaudio will grab the ALSA sound device, which may block other

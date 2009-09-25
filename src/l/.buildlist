@@ -88,6 +88,7 @@ alsa-plugins
 #
 # pyorbit requires ORBit2 in a set
 pyorbit
+pygobject
 #
 # gtksourceview requires libgnomeprint in a set
 gtksourceview

@@ -1,8 +1,8 @@
 PKGNAME="pessulus"
-VERSION="2.26.2"
+VERSION="2.28.0"
 HOMEPAGE="http://live.gnome.org/Pessulus"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/pessulus/2.26/pessulus-2.26.2.tar.bz2"
-MD5SUM="255ec0743714b6fc50da796f6bc95009"
+DOWNLOAD="${GNOME_SERVER}/pessulus/2.28/pessulus-2.28.0.tar.bz2"
+MD5SUM="792485aac615a8f36f7d77bc06a40036"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

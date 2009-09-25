@@ -35,7 +35,7 @@ REQUIRED_PACKAGES="glib2 desktop-file-utils dbus gtk+2 python pygtk dbus-python 
 # Build variables.
 TAG=${TAG:-gsb}
 ARCH=${ARCH:-i486}
-TUNE=${TUNE:-i486}
+TUNE=${TUNE:-i686}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}
