@@ -227,10 +227,6 @@ SETS="${SETS:-$( egrep -v "^#|^$" .setlist | cut -d'#' -f1 )}"
 #
 # Do the build.
 
-# Stamp changelog
-changelog "+--------------------------+"
-changelog "$(date)"
-
 #========================================================================
 # LOOP THROUGH ALL SETS IN $SETS
 for SET in $SETS ; 
@@ -352,6 +348,7 @@ fi
 #
 # Build package if required.
 #
+SUCCESSFUL_NEW_BUILD=0
 if [ "$SKIP_BUILD" = "0" ]; then
   rm -f $( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
     "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz|\.txt|\.txz\.asc" \
@@ -379,11 +376,8 @@ if [ "$SKIP_BUILD" = "0" ]; then
   [ "$ERR" != "0" ] && { 
     exit $ERR 
   }
+  SUCCESSFUL_NEW_BUILD=1
 
-  # Update ChangeLog if build successful
-  [ "$ERR" = "0" ] && {
-    changelog "${PACKAGE}-${PACKAGE_VERSION//-/_}-${ARCH}-${PACKAGE_BUILD}${TAG}.txz: Built." ;
-  }
 else
   echo -n "* Found: $PACKAGE-${PACKAGE_VERSION//-/_}-${ARCH}-${PACKAGE_BUILD}${TAG}.txz" 
 fi
@@ -446,12 +440,17 @@ if [ "$SKIP_BUILD" = "0" -o "${INSTALLED}" = "" ]; then
     "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" ) || {
     header "Failed to install '$PACKAGE'." ; exit 1
   }
+  # Update changelog on success install and build of changed packages.
+  if [ "${SUCCESSFUL_NEW_BUILD}" = "1" ]; then
+     changelog "${SET}/${PACKAGE}-${PACKAGE_VERSION//-/_}-${ARCH}-${PACKAGE_BUILD}${TAG}.txz: Built." ;
+  fi;
 fi;
 
+# BUILDING PACKAGE
 ) || {
+ echo ; echo ;
  echo "Failed building package '$PACKAGE' in set $SET."
  echo "Check the build logs in: $LOGSDIR"
- echo
  exit 1
 }
 

@@ -6,3 +6,4 @@ libnotify
 dbus
 nss
 webkit
+libunique

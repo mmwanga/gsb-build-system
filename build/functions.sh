@@ -27,8 +27,17 @@ header()
 # Send info to changelog
 changelog()
 {
-   CHANGELOG=${CHANGELOG:-/tmp/Changelog.txt}
-   echo "$@" 2>/dev/null >> $CHANGELOG
+  CHANGELOGDATE="$(date +"%a %b %d")"
+  CHANGELOG=${CHANGELOG:-/tmp/Changelog.txt}
+  touch $CHANGELOG
+  # Stamp changelog if no date previously declared
+  if [ -z "$(grep "$(date +"%a %b %d")" $CHANGELOG )" ]; then
+    echo "+--------------------------+" >> $CHANGELOG
+    echo "$(date)" >> $CHANGELOG
+  fi; 
+  echo "$@" 2>/dev/null >> $CHANGELOG
+  echogreen "* " ; echo "Updated ChangeLog."
+
 }
 # Check for installed package
 function check_installed() {
@@ -330,16 +339,15 @@ Options:
 			than one package of the same name (but with different
 			version or build numbers) laying around.
 
-  --no-metapackages	Do not create the slapt-get meta packages for each of
-			the GSB sections, or the general purpose meta packages
-			used for installation (eg, gsb-complete, gsb-libs).
-
   --publish      	Create the package's .txt and .asc meta files, and
                         create the FILELIST, CHECKSUMS, and MANIFEST, as well
                         as export the SlackBuild source into a publishable
                         tree. 
 
   --set=<set>           Build only a specific set.
+
+  --export-source       Export the build source tree into source/ under the
+                        package destination directory. 
 
   Options are passed down to the next level SlackBuild where appropriate.
 EOF

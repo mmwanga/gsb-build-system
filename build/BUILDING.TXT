@@ -125,7 +125,7 @@ but at the moment, it is done manually.
 
 GSB requires that some standard Slackware/Slackware64 packages be upgraded to
 newer versions in order for other packages to compile and work correctly.  As
-part of the GSB build process, buildgsb (and section SlackBuilds) will remove
+part of the GSB build process, buildgsb (and set SlackBuilds) will remove
 (using removepkg) any such packages which need to be updated.  The new
 (updated) package from GSB will then be built and installed.
 
@@ -346,10 +346,17 @@ The following options are recognised:
 			than one package of the same name (but with different
 			version or build numbers) laying around.
 
-  --no-install		Build the packages but don't install them afterwards.
-			This should only be used for testing as it WILL cause
-			serious problems - most builds rely on other GSB
-			packages being automatically installed first.
+  --publish      	Create the package's .txt and .asc meta files, and
+                        create the FILELIST, CHECKSUMS, and MANIFEST, as well
+                        as export the SlackBuild source into a publishable
+                        tree. 
+
+  --set=<set>           Build only a specific set.
+
+  --export-source       Export the build source tree into source/ under the
+                        package destination directory. This is really only
+                        intended for the GSB publishers so that the source
+                        code is available to users other than through svn.
 
 -- 
 Good luck!

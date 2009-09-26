@@ -29,7 +29,7 @@ VERSION=2.28.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomeui libggz ggz-client-libs"
+REQUIRED_PACKAGES="libgnomeui libggz ggz-client-libs clutter-gtk"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -164,6 +164,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --with-sound=gstreamer \
   --with-platform=gnome \
   --with-gcrypt \
+  --disable-tests \
+  --enable-introspection=no \
   || exit 1
 
 # Build and install.
@@ -172,6 +174,16 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Preserve files
 mv $PKG/etc/ggz.modules $PKG/etc/ggz.modules.new
+
+# Put this in the doinst.sh so we don't clobber old scores by installing empty
+# score files.
+(cd $PKG/var/lib/games ;
+for score in *.scores ; do
+ echo "( touch var/lib/games/${score} ; chown games:games \
+ var/lib/games/${score} )" >> $PKG/install/doinst.sh
+done;)
+# Clean away empty files
+rm $PKG/var/lib/games/*.scores ;
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

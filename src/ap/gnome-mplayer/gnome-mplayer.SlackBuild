@@ -159,8 +159,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --disable-static \
-  --enable-shared \
   --disable-schemas-install \
   || exit 1
 
@@ -184,6 +182,9 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 mkdir -p $PKG/usr/doc &&
 mv $PKG/usr/share/doc/$PKGNAME $PKG/usr/doc/$PKGNAME-$VERSION &&
 rm -fr $PKG/usr/share/doc || exit 1
+# Remove empty files
+find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -size 0 -exec rm {} \;
+# correct permissions
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 

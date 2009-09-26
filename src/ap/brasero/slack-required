@@ -11,3 +11,4 @@ gst-plugins-base
 libxml2
 libnotify
 totem-pl-parser
+libunique

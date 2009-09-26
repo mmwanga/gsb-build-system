@@ -158,8 +158,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --target=$ARCH-$DISTRO-linux \
   --build=$ARCH-$DISTRO-linux \
-  --disable-static \
-  --enable-shared \
   || exit 1
 
 # Build and install.

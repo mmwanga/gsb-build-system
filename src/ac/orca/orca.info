@@ -3,6 +3,6 @@ VERSION="2.28.0"
 HOMEPAGE="http://live.gnome.org/Orca"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/orca/2.28/orca-2.28.0.tar.bz2"
-MD5SUM="72dbf273bedd214e9023725690fb61b7"
+MD5SUM="611b83b2200f78e82af2565aa66dfa28"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

@@ -3,6 +3,6 @@ VERSION="1.8.0"
 HOMEPAGE="http://live.gnome.org/Accerciser"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/accerciser/1.8/accerciser-1.8.0.tar.bz2"
-MD5SUM="9dd36435858f6eaf63694eb16584e777"
+MD5SUM="ede1d36e9820fa441bcc24cb634d59cc"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

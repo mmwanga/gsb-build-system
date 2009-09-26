@@ -165,8 +165,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-shared \
   --with-dpms-ext \
   --enable-applets \
-  --enable-policykit \
-  --enable-legacy-buttons \
+  --enable-hal \
   || exit 1
 
 # Build and install.

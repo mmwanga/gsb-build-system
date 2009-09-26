@@ -12,8 +12,8 @@ Here are some versions of major components of GNOME SlackBuild 2.28.0
 - Full GNOME Desktop     2.28.0
 	- Evolution      2.28.0
 	- NetworkManager 0.7.1
-- PulseAudio		 0.9.17
-- Mono C#		 2.4.2.2
+- PulseAudio		 0.9.18
+- Mono C#		 2.4.2.3
 - OpenOffice.org         3.1.1.1
 - Compiz                 0.8.3
 - GNOME Office
@@ -85,8 +85,6 @@ FTP site:
 |   |
 |   `-- source/          Source code for the pasture packages.
 |
-
-|
 |-- source			This directory contains source code for the 
 |   |                           packages that are offered by the GSB project.  
 |   |                           It doesn't contains any	source tarballs (as 
@@ -95,7 +93,6 @@ FTP site:
 |   |                           slack-desc, slack-requireds, and any patches we 
 |   |                           use. For more information about building GSB, 
 |   |                           please see the 'BUILDING.TXT'
-|   |
 |   |
 |   |-- README.TXT              A basic HOWTO to use our source SlackBuilds.
 |   |-- a/			Source code for desktop packages.

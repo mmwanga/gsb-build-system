@@ -24,13 +24,13 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables. 
-BUILD=2
-VERSION=r19668
+BUILD=1
+VERSION=r20024
 
 # Make sure we use a set libswscale from mplayer;  the external dependency
 # is a trunk revision, and so checking out a set revision of ffmpeg may 
 # sometimes cause it to fail building with later changes to libswcale
-LIBSWSCALE_VERSION=r29540
+LIBSWSCALE_VERSION=r29717
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.

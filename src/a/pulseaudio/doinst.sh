@@ -15,7 +15,6 @@ install_file etc/pulse/daemon.conf.new
 install_file etc/pulse/client.conf.new
 install_file etc/pulse/default.pa.new
 install_file etc/pulse/system.pa.new
-install_file etc/dbus-1/system.d/pulseaudio-system.conf.new
 
 # If the pulse group doesn't exist, add it
 # pulse is required for user level 

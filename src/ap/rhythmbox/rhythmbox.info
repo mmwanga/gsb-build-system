@@ -3,6 +3,6 @@ VERSION="0.12.5"
 HOMEPAGE="http://projects.gnome.org/rhythmbox/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/rhythmbox/0.12/rhythmbox-0.12.5.tar.bz2"
-MD5SUM="38116cbe4d86ec2a3c54f32e5c2dc7e7"
+MD5SUM="d70b26fc8a861bf1921e5709f9350893"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

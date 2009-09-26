@@ -23,9 +23,9 @@ according to your system.
   $ ./buildgsb
 
   It will download source files on the fly, md5sum check, and then build the
-  package.  All package information is kept in the .info files found in each
-  package directory.  If you want to upgrade versions, you will need to modify
-  both the .info and .SlackBuild file for the package.
+package.  All package information is kept in the .info files found in each
+package directory.  If you want to upgrade versions, you will need to modify
+both the .info and .SlackBuild file for the package.
 
 Running into dependency problems
 ----------------------------------

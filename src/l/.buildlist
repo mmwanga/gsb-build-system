@@ -8,6 +8,7 @@ gtk+2
 # alsa-lib replaces the slackware package
 alsa-lib
 #
+poppler
 libelf
 libnotify
 notify-python
@@ -98,3 +99,4 @@ clutter-gtk
 libchamplain
 gmime
 gstreamer
+vte

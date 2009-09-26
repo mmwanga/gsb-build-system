@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
+BUILD=1
 VERSION=0.3.16
 
 # List any packages here that are required to build this package.
@@ -115,16 +115,10 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # configure for webkit and gio
-  zcat $CWD/conduit.config.diff.gz | patch -p1 
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # configure for webkit and gio
-  zcat $CWD/conduit.config.diff.gz | patch -p1 
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # configure for webkit and gio
-  zcat $CWD/conduit.config.diff.gz | patch -p1 
 fi
 
 # Fix permissions for building.
@@ -162,8 +156,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --disable-static \
-  --enable-shared \
   --disable-scrollkeeper \
   || exit 1
 
@@ -173,9 +165,6 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Remove autostart
 rm -fr $PKG/usr/share/gnome/autostart/conduit-autostart.desktop
-
-# avoid xulrunner
-mv $PKG/usr/bin/conduit.real $PKG/usr/bin/conduit || exit 1
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -187,16 +176,6 @@ mv $PKG/usr/bin/conduit.real $PKG/usr/bin/conduit || exit 1
   find $PKG/usr/man -type l -name \*.? -printf \
     "( cd '%h'; [ -e '%l.gz' ] &&
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
-}
-
-# Deal with .info files.
-[ -e $PKG/usr/share/info ] && {
-  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
-  rmdir -p $PKG/usr/share
-  }
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
 }
 
 # Copy extra documentation into package.

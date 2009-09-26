@@ -41,6 +41,7 @@ a/libxklavier: Added.  Upgrades standard Slackware package.
 n/libpst: Added.
 a/pango: Added.  Upgrades standard Slackware package.
 l/pygobject: Added.  Upgrades standard Slackware package.
+l/vte: Added.  Upgrades standard Slackware package.
 
 *** PACKAGE REMOVALS SINCE 2.26.3 for Slackware 13.0 ***
 

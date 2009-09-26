@@ -3,6 +3,6 @@ VERSION="0.15.9"
 HOMEPAGE="https://launchpad.net/gnome-mag"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/gnome-mag/0.15/gnome-mag-0.15.9.tar.bz2"
-MD5SUM="40eb26385e3225ac5cb1eab87488cfc3"
+MD5SUM="db651bbd63f4ae3cfeb344c42f80d206"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

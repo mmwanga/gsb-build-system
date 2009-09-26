@@ -168,9 +168,9 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Fix up documentation location for Slackware
 mkdir -p $PKG/usr/doc &&
-mv $PKG/usr/share/doc/at-spi-1.26.0 $PKG/usr/doc || exit 1
+mv $PKG/usr/share/doc/at-spi-1.28.0 $PKG/usr/doc || exit 1
 rmdir -p $PKG/usr/share/doc
-( cd $PKG/usr/doc; ln -s at-spi-1.26.0 $PKGNAME-$VERSION )
+( cd $PKG/usr/doc; ln -s at-spi-1.28.0 $PKGNAME-$VERSION )
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -182,16 +182,6 @@ rmdir -p $PKG/usr/share/doc
   find $PKG/usr/man -type l -name \*.? -printf \
     "( cd '%h'; [ -e '%l.gz' ] &&
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
-}
-
-# Deal with .info files.
-[ -e $PKG/usr/share/info ] && {
-  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
-  rmdir -p $PKG/usr/share
-  }
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
 }
 
 # Copy extra documentation into package.

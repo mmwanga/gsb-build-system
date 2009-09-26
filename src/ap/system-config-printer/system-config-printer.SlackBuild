@@ -159,14 +159,20 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
+  --with-udev-rules \
   || exit 1
 
 # Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-# preserve settings
-mv $PKG/etc/dbus-1/system.d/newprinternotification.conf $PKG/etc/dbus-1/system.d/newprinternotification.conf.new || exit 1
+# Preserve settings
+mv $PKG/etc/dbus-1/system.d/newprinternotification.conf \
+  $PKG/etc/dbus-1/system.d/newprinternotification.conf.new || exit 1
+
+# Correct udev rules directory
+mv $PKG/etc/udev/rules.d $PKG/lib/udev/ || exit 1
+rmdir $PKG/etc/udev
 
 # Fix for Slackware non-PAM system.
 # Users now can add themselves to the "lp" group to use the print manager
@@ -174,10 +180,8 @@ sed -i "s/at_console=\"true\"/group=\"lp\"/g" \
   $PKG/etc/dbus-1/system.d/newprinternotification.conf.new || exit 1
 
 # Only start print applet during gnome session
-mkdir -p $PKG/etc/gnome/xdg/autostart &&
-mv $PKG/etc/xdg/autostart/redhat-print-applet.desktop \
-     $PKG/etc/gnome/xdg/autostart/print-applet.desktop || exit 1
-rm -fr $PKG/etc/xdg
+mkdir -p $PKG/etc/gnome &&
+mv $PKG/etc/xdg $PKG/etc/gnome || exit 1
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -189,16 +193,6 @@ rm -fr $PKG/etc/xdg
   find $PKG/usr/man -type l -name \*.? -printf \
     "( cd '%h'; [ -e '%l.gz' ] &&
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
-}
-
-# Deal with .info files.
-[ -e $PKG/usr/share/info ] && {
-  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
-  rmdir -p $PKG/usr/share
-  }
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
 }
 
 # Copy extra documentation into package.

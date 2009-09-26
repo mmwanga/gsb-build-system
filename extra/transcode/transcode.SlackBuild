@@ -23,8 +23,8 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-BUILD=3
-VERSION=1.1.0
+BUILD=1
+VERSION=1.1.4
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.

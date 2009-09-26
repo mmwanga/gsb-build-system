@@ -24,8 +24,8 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
-VERSION=0.9.18
+BUILD=7
+VERSION=0.9.15
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -34,7 +34,7 @@ REQUIRED_PACKAGES="libsndfile GConf hal avahi glib2 libsamplerate liboil bluez c
 # Build variables.
 TAG=${TAG:-gsb}
 ARCH=${ARCH:-i486}
-TUNE=${TUNE:-i686}
+TUNE=${TUNE:-i486}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}
@@ -114,10 +114,25 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
+  # contains various upstream git patches for stability
+  zcat $CWD/pulseaudio.git-upstream-stability-fixes.diff.gz | patch -p1
+  # http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2009-1894
+  zcat $CWD/pulseaudio.CVE-2009-1894.diff.gz | patch -p1 
+  autoreconf 
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
+  # contains various upstream git patches for stability
+  zcat $CWD/pulseaudio.git-upstream-stability-fixes.diff.gz | patch -p1
+  # http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2009-1894
+  zcat $CWD/pulseaudio.CVE-2009-1894.diff.gz | patch -p1 
+  autoreconf 
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
+  # contains various upstream git patches for stability
+  zcat $CWD/pulseaudio.git-upstream-stability-fixes.diff.gz | patch -p1
+  # http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2009-1894
+  zcat $CWD/pulseaudio.CVE-2009-1894.diff.gz | patch -p1 
+  autoreconf 
 fi
 
 # Fix permissions for building.
@@ -162,11 +177,9 @@ CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --disable-static \
-  --enable-shared \
+  --disable-static --enable-shared \
   --enable-avahi \
   --enable-hal \
-  --enable-hal-compat \
   --enable-gconf \
   --enable-glib2 \
   --enable-alsa \
@@ -175,7 +188,7 @@ CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   || exit 1
 
 # Build and install.
-make $MAKE_FLAGS -j1 || exit 1
+make $MAKE_FLAGS && make || exit 1
 # Make sure to install with -j1 otherwise libsocket-util.so 
 # strangely gets skipped. I almost went insane tracking this one down.  :/
 make $MAKE_FLAGS -j1 install DESTDIR=$PKG || exit 1
@@ -188,14 +201,11 @@ ln -s libltdl.so.7.2.0 libltdl.so.7 || exit 1
 cd $TMP/$PKGNAME-$VERSION
 
 # Preserve settings
-mv $PKG/etc/dbus-1/system.d/pulseaudio-system.conf \
-  $PKG/etc/dbus-1/system.d/pulseaudio-system.conf.new || exit 1
 mv $PKG/etc/pulse/daemon.conf $PKG/etc/pulse/daemon.conf.new || exit 1
 mv $PKG/etc/pulse/client.conf $PKG/etc/pulse/client.conf.new || exit 1
 mv $PKG/etc/pulse/default.pa $PKG/etc/pulse/default.pa.new || exit 1
 mv $PKG/etc/pulse/system.pa $PKG/etc/pulse/system.pa.new || exit 1
-# no udev rules with Slackware's udev package
-rmdir -p $PKG/lib/udev/rules.d
+mkdir -p $PKG/etc/pulse
 
 # Move pulseaudio to GNOME specific xdg
 mkdir $PKG/etc/gnome &&
