@@ -34,6 +34,10 @@ ad/sabayon-2.28.0-i486-1gsb.txz: Upgraded.
 ad/pessulus-2.28.0-i486-1gsb.txz: Upgraded.
 m/tomboy-1.0.0-i486-1gsb.txz: Upgraded.
 m/f-spot-0.6.1.2-i486-1gsb.txz: Upgraded.
+t/gnome-backgrounds-2.28.0-i486-1gsb.txz: Upgraded.
+extra/transcode-1.1.4-i486-1gsb.txz: Upgraded.
+extra/easytag-2.1.6-i486-4gsb.txz: Upgraded.
+go/tracker-0.7.0-i486-1gsb.txz: Upgraded.
 +--------------------------+
 Fri Sep 25 17:46:15 BST 2009
 l/vte-0.22.0-i486-1gsb.txz: Upgraded.

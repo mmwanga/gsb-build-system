@@ -162,7 +162,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-schemas-install \
   --enable-python=yes \
   --enable-map=yes \
-  --with-connectivity=nm \
+  ---with-connectivity=no \
   || exit 1
 
 # Build and install; parallel builds break

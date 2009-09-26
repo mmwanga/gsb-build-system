@@ -1,13 +1,246 @@
-Mon Sep 14 16:38:05 BST 2009
+Sat Sep 26 00:04:34 BST 2009
+ap/gst-python-0.10.16-x86_64-1gsb.txz: Upgraded.
+ap/gst-plugins-bad-0.10.14-x86_64-1gsb.txz: Upgraded.
+ap/gst-plugins-good-0.10.16-x86_64-1gsb.txz: Upgraded.
+ap/sound-juicer-2.28.0-x86_64-1gsb.txz: Upgraded.
+ap/gnome-screensaver-2.28.0-x86_64-1gsb.txz: Upgraded.
+ap/rhythmbox-0.12.5-x86_64-2gsb.txz: Rebuilt.
+go/libgda-4.0.4-x86_64-2gsb.txz: Rebuilt.
+go/gnome-python-extras-2.25.3-x86_64-3gsb.txz: Rebuilt.
+ap/gedit-plugins-2.28.0-x86_64-1gsb.txz: Upgraded.
+extra/MPlayer-r29718-x86_64-1gsb.txz: Upgraded.
+ap/gst-plugins-ugly-0.10.12-x86_64-2gsb.txz: Rebuilt.
+go/libgdamm-3.99.17.1-x86_64-1gsb.txz: Upgraded.
+a/pulseaudio-0.9.15-x86_64-7gsb.txz: Rebuilt.
+go/glom-1.12.0-x86_64-1gsb.txz: Upgraded.
+a/gnome-icon-theme-2.28.0-x86_64-1gsb.txz: Added.
+ap/conduit-0.3.16-x86_64-1gsb.txz: Upgraded.
+ap/nautilus-sendto-2.28.0-x86_64-1gsb.txz: Upgraded.
+l/vte-0.22.1-x86_64-1gsb.txz: Upgraded.
+ap/system-config-printer-1.1.13-x86_64-1gsb.txz: Upgraded.
+ap/hamster-applet-2.28.0-x86_64-1gsb.txz: Upgraded.
+d/gdl-2.28.0-x86_64-1gsb.txz: Upgraded.
+l/libunique-1.0.8-x86_64-3gsb.txz: Patched.  Fixed a broken include file which
+  does follow the single include policy of gtk.
+d/devhelp-2.28.0.1-x86_64-1gsb.txz: Upgraded.
+d/anjuta-2.28.0.0-x86_64-1gsb.txz: Upgraded.
+ac/at-spi-1.28.0-x86_64-1gsb.txz: Upgraded.
+ac/gnome-mag-0.15.9-x86_64-1gsb.txz: Upgraded.
+ac/gok-2.28.0-x86_64-1gsb.txz: Upgraded.
+ac/mousetweaks-2.28.0-x86_64-1gsb.txz: Upgraded.
+ac/orca-2.28.0-x86_64-1gsb.txz: Upgraded.
+ad/gconf-editor-2.28.0-x86_64-1gsb.txz: Upgraded.
+ad/sabayon-2.28.0-x86_64-1gsb.txz: Upgraded.
+ad/pessulus-2.28.0-x86_64-1gsb.txz: Upgraded.
+m/tomboy-1.0.0-x86_64-1gsb.txz: Upgraded.
+m/f-spot-0.6.1.2-x86_64-1gsb.txz: Upgraded.
+t/gnome-backgrounds-2.28.0-x86_64-1gsb.txz: Upgraded.
+extra/transcode-1.1.4-x86_64-1gsb.txz: Upgraded.
+extra/easytag-2.1.6-x86_64-4gsb.txz: Upgraded.
+go/tracker-0.7.0-x86_64-1gsb.txz: Upgraded.
++--------------------------+
+Fri Sep 25 17:46:15 BST 2009
+l/vte-0.22.0-x86_64-1gsb.txz: Upgraded.
+l/x264-snapshot_20090924_2245-x86_64-1gsb.txz: Upgraded.
+l/ffmpeg-r20024-x86_64-1gsb.txz: Upgraded.
+ap/gcalctool-5.28.0-x86_64-1gsb.txz: Upgraded.
+ap/gnome-commander-1.2.8.2-x86_64-1gsb.txz: Upgraded.
+ap/gnome-media-2.28.0-x86_64-1gsb.txz: Upgraded.
+ap/gnome-power-manager-2.28.0-x86_64-1gsb.txz: Upgraded.
+ap/gnome-system-monitor-2.28.0-x86_64-1gsb.txz: Upgraded.
+ap/gnome-terminal-2.28.0-x86_64-1gsb.txz: Upgraded.
+ap/gnome-mplayer-0.9.8-x86_64-1gsb.txz: Upgraded.
+ap/gnome-utils-2.28.0-x86_64-1gsb.txz: Upgraded.
+ap/gnome-python-desktop-2.28.0-x86_64-1gsb.txz: Upgraded.
+ap/deskbar-applet-2.28.0-x86_64-1gsb.txz: Upgraded.
+ap/gnome-games-2.28.0-x86_64-1gsb.txz: Upgraded.  The scores have been moved into
+  the doinst.sh so that empty files are no longer installed which might clobber
+  your previous scores.  :^)
+ap/gnome-games-extra-data-2.28.0-x86_64-1gsb.txz: Upgraded.
++--------------------------+
+Thu Sep 24 18:13:07 BST 2009
+l/poppler-0.12.0-x86_64-1gsb.txz: Added.  This poppler package is built against
+  qt4 and glib (but not qt3-compat).  If you require the poppler qt3 bindings,
+  then do not upgrade.
+l/clutter-1.0.6-x86_64-1gsb.txz: Upgraded.
+l/alsa-lib-1.0.21-x86_64-1gsb.txz: Upgraded.
+l/alsa-plugins-1.0.21-x86_64-1gsb.txz: Upgraded.
+l/pygobject-2.20.0-x86_64-1gsb.txz: Added.  Required by GNOME 2.28 python
+  bindings, and therefore most GNOME python applications (like deskbar).  
+a/libgnomekbd-2.28.0-x86_64-1gsb.txz: Upgraded.
+a/zenity-2.28.0-x86_64-1gsb.txz: Upgraded.
+a/libwnck-2.28.0-x86_64-1gsb.txz: Upgraded.
+a/metacity-2.28.0-x86_64-1gsb.txz: Upgraded.
+a/gvfs-1.4.0-x86_64-1gsb.txz: Upgraded.
+a/nautilus-2.28.0-x86_64-1gsb.txz: Upgraded.
+a/gnome-settings-daemon-2.28.0-x86_64-1gsb.txz: Upgraded.
+a/libcanberra-0.18-x86_64-1gsb.txz: Upgraded.
+a/gnome-control-center-2.28.0-x86_64-1gsb.txz: Upgraded.
+a/gnome-session-2.28.0-x86_64-1gsb.txz: Upgraded.
+a/gnome-python-2.28.0-x86_64-1gsb.txz: Upgraded.
+a/gnome-applets-2.28.0-x86_64-1gsb.txz: Upgraded.
+a/gnome-themes-2.28.0-x86_64-1gsb.txz: Upgraded.
+a/bluez-4.54-x86_64-1gsb.txz: Upgraded.
+a/gtk-engines-2.18.4-x86_64-1gsb.txz: Upgraded.
+n/gtkhtml-3.28.0-x86_64-1gsb.txz: Upgraded.
+n/evolution-2.28.0-x86_64-1gsb.txz: Upgraded.
+n/evolution-exchange-2.28.0-x86_64-1gsb.txz: Upgraded.
+n/evolution-webcal-2.28.0-x86_64-1gsb.txz: Upgraded.
+n/telepathy-glib-0.8.0-x86_64-1gsb.txz: Upgraded.
+n/papyon-0.4.2-x86_64-1gsb.txz: Upgraded.
+n/telepathy-butterfly-0.5.1-x86_64-1gsb.txz: Upgraded.
+n/telepathy-salut-0.3.10-x86_64-1gsb.txz: Upgraded.
+n/empathy-2.28.0-x86_64-1gsb.txz: Upgraded. 
+n/ekiga-3.2.6-x86_64-1gsb.txz: Upgraded.
+n/gnome-user-share-2.28.0-x86_64-1gsb.txz: Upgraded.
+n/gnome-bluetooth-2.28.0-x86_64-1gsb.txz: Upgraded.
+n/vinagre-2.28.0.1-x86_64-1gsb.txz: Upgraded.
+n/gnome-netstatus-2.28.0-x86_64-1gsb.txz: Upgraded.
+n/vino-2.28.0-x86_64-1gsb.txz: Upgraded.
+n/gnome-nettool-2.28.0-x86_64-1gsb.txz: Upgraded.
+n/webkit-1.1.15.1-x86_64-1gsb.txz: Upgraded.
+n/epiphany-2.28.0-x86_64-1gsb.txz: Upgraded.
+n/epiphany-extensions-2.28.0-x86_64-1gsb.txz: Upgraded.
+n/pywebkitgtk-1.1.6-x86_64-2gsb.txz: Upgraded.
+ap/bug-buddy-2.28.0-x86_64-1gsb.txz: Upgraded.
+ap/yelp-2.28.0-x86_64-1gsb.txz: Upgraded.
+ap/gnome-user-docs-2.28.0-x86_64-1gsb.txz: Upgraded.
+ap/alacarte-0.12.4-x86_64-1gsb.txz: Upgraded.
+ap/totem-pl-parser-2.28.0-x86_64-1gsb.txz: Upgraded.
+ap/totem-2.28.0-x86_64-1gsb.txz: Upgraded.
+ap/cheese-2.28.0.1-x86_64-1gsb.txz: Upgraded.
+ap/brasero-2.28.0-x86_64-1gsb.txz: Upgraded.
+ap/seahorse-2.28.0-x86_64-1gsb.txz: Upgraded.
+ap/gedit-2.28.0-x86_64-1gsb.txz: Upgraded.
+ap/seahorse-plugins-2.28.0-x86_64-1gsb.txz: Upgraded.
+ap/gedit-plugins-2.26.3-x86_64-2gsb.txz: Upgraded.
+ap/eog-2.28.0-x86_64-1gsb.txz: Upgraded.
+ap/eog-plugins-2.28.0-x86_64-1gsb.txz: Upgraded.
+ap/evince-2.28.0-x86_64-1gsb.txz: Upgraded.
+ap/file-roller-2.28.0-x86_64-1gsb.txz: Upgraded.
++--------------------------+
+Wed Sep 23 20:59:46 BST 2009
+  GNOME 2.26.3 has gone stable, and go gsb-current will switch to the latest
+  version, now that GNOME 2.28.0 is released.  Lots of package updates to come!
+l/exempi-2.1.1-x86_64-1gsb.txz: Upgraded.
+l/ptlib-2.6.5-x86_64-1gsb.txz: Upgraded.
+l/pygdata-2.0.2-x86_64-1gsb.txz: Upgraded.
+l/glibmm-2.22.1-x86_64-1gsb.txz: Upgraded.
+l/pango-1.26.0-x86_64-1gsb.txz: Added.
+l/cairomm-1.8.2-x86_64-2gsb.txz: Upgraded.
+l/pangomm-2.26.0-x86_64-1gsb.txz: Upgraded.
+l/libgtop-2.28.0-x86_64-1gsb.txz: Upgraded.
+l/gtkmm-2.18.0-x86_64-1gsb.txz: Upgraded.
+l/gtksourceview2-2.8.0-x86_64-1gsb.txz: Upgraded.
+l/pygtksourceview-2.8.0-x86_64-1gsb.txz: Upgraded.
+l/libicu-4.2.1-x86_64-1gsb.txz: Upgraded.
+l/libatasmart-0.15-x86_64-1gsb.txz: Upgraded.
+l/libbonobo-2.24.2-x86_64-1gsb.txz: Upgraded.
+l/libgnome-2.28.0-x86_64-1gsb.txz: Upgraded.
+l/libbonoboui-2.24.2-x86_64-1gsb.txz: Upgraded.
+a/gnome-keyring-2.28.0-x86_64-1gsb.txz: Upgraded.
+a/libgnomeui-2.24.2-x86_64-1gsb.txz: Upgraded.
+a/gtk-engines-2.18.3-x86_64-1gsb.txz: Upgraded.
+a/libsoup-2.28.0-x86_64-1gsb.txz: Upgraded.
+a/gnome-desktop-2.28.0-x86_64-1gsb.txz: Upgraded.
+a/gnome-menus-2.28.0-x86_64-1gsb.txz: Upgraded.
+a/libgweather-2.28.0-x86_64-1gsb.txz: Upgraded.
+a/evolution-data-server-2.28.0-x86_64-1gsb.txz: Upgraded.
+a/gnome-panel-2.28.0-x86_64-1gsb.txz: Upgraded.
++--------------------------+
+Sat Sep 19 15:54:22 BST 2009
+n/webkit-1.1.14-x86_64-1gsb.txz: Upgraded.
+n/evolution-rss-0.1.4-x86_64-1gsb.txz: Upgraded.
+l/clutter-1.0.4-x86_64-1gsb.txz: Added.
+l/clutter-gtk-0.10.2-x86_64-1gsb.txz: Added.
+l/libchamplain-0.4.0-x86_64-1gsb.txz: Added.
+n/empathy-2.27.92-x86_64-1gsb.txz: Upgraded.
+n/deluge-1.1.9-x86_64-2gsb.txz: Rebuilt.  Fixed slack-required to include pyxdg.
+n/gnome-user-share-2.27.0-x86_64-1gsb.txz: Upgraded.
+n/gnome-bluetooth-2.27.90-x86_64-1gsb.txz: Upgraded.
+n/gtk-vnc-0.3.9-x86_64-1gsb.txz: Upgraded.
+n/vinagre-2.27.92-x86_64-1gsb.txz: Upgraded.
+n/vino-2.27.92-x86_64-1gsb.txz: Upgraded.
+n/gnome-nettool-2.27.4-x86_64-1gsb.txz: Upgraded.
+n/epiphany-2.27.92-x86_64-1gsb.txz: Upgraded.
+n/epiphany-extensions-2.27.92-x86_64-1gsb.txz: Upgraded.
+n/pywebkitgtk-1.1.6-x86_64-1gsb.txz: Upgraded.
+ap/bug-buddy-2.27.92-x86_64-1gsb.txz: Upgraded.
+ap/yelp-2.27.5-x86_64-1gsb.txz: Upgraded.
+ap/gnome-user-docs-2.27.2-x86_64-1gsb.txz: Upgraded.
+ap/alacarte-0.12.3-x86_64-1gsb.txz: Upgraded.
+l/gmime-2.4.9-x86_64-1gsb.txz: Added.  This needs to replace the standard
+  Slackware package, and used by totem-pl-parser and GNOME 2.28 for gmime
+  handling. 
+ap/totem-pl-parser-2.27.92-x86_64-1gsb.txz: Upgraded.
+l/gstreamer-0.10.24-x86_64-1gsb.txz: Added.  Required by libcanberra,
+  gnome-control-panel, and GNOME 2.28 media backends.
+ap/gst-plugins-base-0.10.24-x86_64-1gsb.txz: Upgraded.
+ap/totem-2.27.92-x86_64-1gsb.txz: Upgraded.
+ap/cheese-2.27.92-x86_64-1gsb.txz: Upgraded.
+ap/brasero-2.27.92-x86_64-1gsb.txz: Upgraded.
+ap/seahorse-2.27.92-x86_64-1gsb.txz: Upgraded.
++--------------------------+
+Fri Sep 18 10:26:26 BST 2009
+a/GConf-2.27.0-x86_64-1gsb.txz: Upgraded.
+a/libgnome-2.27.5-x86_64-1gsb.txz: Upgraded.
+a/gnome-keyring-2.27.92-x86_64-1gsb.txz: Upgraded.
+a/libproxy-0.3.0-x86_64-1gsb.txz: Upgraded.
+a/libsoup-2.27.92-x86_64-1gsb.txz: Upgraded.
+a/gnome-doc-utils-0.17.5-noarch-1gsb.txz: Upgraded.
+a/gnome-desktop-2.27.92-x86_64-1gsb.txz: Upgraded.
+a/gnome-menus-2.27.92-x86_64-1gsb.txz: Upgraded.
+a/libgweather-2.27.92-x86_64-1gsb.txz: Upgraded.
+a/evolution-data-server-2.27.92-x86_64-1gsb.txz: Upgraded.
+a/gnome-panel-2.27.92-x86_64-1gsb.txz: Upgraded.
+a/libxklavier-4.0-x86_64-1gsb.txz: Upgraded.  This replaces the default 
+  Slackware package.  Library version are the same, so the upgrade shouldn't 
+  affect any applications
+a/libgnomekbd-2.27.91-x86_64-1gsb.txz: Upgraded.
+a/zenity-2.27.90-x86_64-1gsb.txz: Upgraded.
+a/libwnck-2.27.92-x86_64-1gsb.txz: Upgraded.
+a/metacity-2.27.1-x86_64-1gsb.txz: Upgraded.
+a/gvfs-1.3.6-x86_64-1gsb.txz: Upgraded.
+a/nautilus-2.27.92-x86_64-1gsb.txz: Upgraded.
+a/gnome-settings-daemon-2.27.92-x86_64-1gsb.txz: Upgraded.
+a/gnome-control-center-2.27.91-x86_64-1gsb.txz: Upgraded.
+a/gnome-session-2.27.92-x86_64-1gsb.txz: Upgraded.
+a/gnome-applets-2.27.92-x86_64-1gsb.txz: Upgraded.
+a/gnome-themes-2.27.92-x86_64-1gsb.txz: Upgraded.
+a/bluez-4.53-x86_64-1gsb.txz: Upgraded.
++--------------------------+
+Sat Sep 12 18:01:19 BST 2009
+ap/gnome-screensaver-2.26.1-x86_64-2gsb.txz: Rebuilt.  Added desktop entries so
+  that xscreensaver hacks are available to gnome-screensaver, and changed the 
+  desktop entry to avoid confusion with xscreensaver.
+m/f-spot-0.6.1.2-x86_64-1gsb.txz: Upgraded to f-spot 0.6.1.2.
+ap/system-config-printer-1.0.16-x86_64-3gsb.txz: Rebuilt.  Added notify-python to
+  slack-required.  Thanks to Carlos Diogenes for pointing out the missing
+  package.
+go/gnome-python-extras-2.25.3-x86_64-3gsb.txz: Rebuilt.  Added seamonkey and
+  seamonkey-solibs to slack-conflicts.  The gtkmozembed python will fail 
+  if the seamonkey libraries are installed, instead of using the libxul in the
+  mozilla-xulrunner package.  Thanks to camden for reporting the issue.
 n/mozilla-xulrunner-1.9.0.13-x86_64-2gsb.txz: Rebuilt.  Removed both profile.d
   xulrunner.sh and xulrunner.csh scripts.  The doinst.sh already places the 
   library paths in /etc/ld.so.conf, and the scripts set an unneeded (and in 
   the x86_64 package) an incorrect LD_LIBRARY_PATH environment.  Thanks to 
   Martin Vidovic for reporting the bug.  
-extra/easytag-2.1.6-x86_64-4gsb.txz: Rebuilt.  Removed x-directory mime type 
-  from the easytag.desktop entry to prevent easytag from opening items listed 
-  on the Places menu in place of Nautilus.  Thanks to byteframe for the 
-  solution.
+extra/easytag-2.1.6-x86_64-4gsb.txz: Rebuilt.  Removed x-directory mime type from
+  the easytag.desktop entry to prevent easytag from opening items listed on the
+  Places menu in place of Nautilus.  Thanks to byteframe for the solution.
+l/glib2-2.21.6-x86_64-1gsb.txz: Upgraded.
+l/gtk+2-2.17.11-x86_64-1gsb.txz: Upgraded.
++--------------------------+
+Fri Sep 11 17:58:00 BST 2009
+GNOME 2.27.92 tarballs are released.  This release is a feature, user interface
+and string frozen snapshot primarily intended for wide public scrutiny before
+the final GNOME 2.28 release in September.  
+
+gsb-current will be upgrading to development packages in preparation for the
+stable release scheduled for September 21. For more information about 2.27, the
+full schedules and the official modules list, please see our 2.27 page:
+  http://www.gnome.org/start/unstable/
 +--------------------------+
 Thu Sep 10 23:09:17 BST 2009
 ap/gnome-power-manager-2.26.4-x86_64-1gsb.txz: Reconfigured.  
@@ -19,8 +252,8 @@ a/gsb-desktop-2.26.4-noarch-4gsb.txz: Rebuilt.
   Add specific version information for glib2 and gtk+2 to metapackage so
   libraries are upgraded properly;  this should help avoid any missed 
   upgrades during installation.
-a/nautilus-2.26.3-x86_64-6gsb.txz: Rebuilt.  Applied upstream git patch to 
-  fix a nasty crash in nautilus-file-management-properties. 
+a/nautilus-2.26.3-x86_64-6gsb.txz: Rebuilt.  Applied upstream git patch to fix a
+  nasty crash in nautilus-file-management-properties. 
   For more information, see:
     http://git.gnome.org/cgit/nautilus/commit/?id=bf6bfde36bcadf43a39fb095650b7fc78741d62a
 a/gnome-menus-xfce-2.26.3-noarch-2gsb.txz: Rebuilt.
@@ -41,9 +274,6 @@ ad/gslapt-0.5.1b-x86_64-2gsb.txz: Rebuilt.
   Changed the gslapt.desktop to use gksu.
 m/boo-0.9.1.3287-x86_64-2gsb.txz: Rebuilt.  
   Fixed slack-required and removed gtksourceview-sharp.
-m/banshee-1-1.4.3-x86_64-3gsb.txz: Rebuilt.
-  Added notify-sharp and mono-zeroconf to slack-required so that DAAP plugin
-  and display notifications work by default.
 a/gsb-desktop-2.26.3-noarch-4gsb.txz: Rebuilt metapackage.
   Added gslapt and seahorse to default installation package.
 n/telepathy-butterfly-0.5.0-x86_64-3gsb.txz: Rebuilt.  
@@ -51,7 +281,9 @@ n/telepathy-butterfly-0.5.0-x86_64-3gsb.txz: Rebuilt.
 n/telepathy-salut-0.3.9-x86_64-3gsb.txz: Rebuilt.  
   Fixed typo in slack-desc.
 +--------------------------+
-Fri Sep  4 15:11:57 BST 2009
+Fri Sep  4 22:52:08 BST 2009
+a/gnome-menus-kde-2.26.3-x86_64-2gsb.txz: Added.
+  This allows users to access KDE applications from their GNOME menu.
 n/telepathy-gabble-0.8.2-x86_64-1gsb.txz: Upgraded to telepathy-gabble-0.8.2.
 ac/espeak-1.41.01-x86_64-1gsb.txz: Added.
   This package provides voice drivers for Orca and gnome-speech, allowing
@@ -174,7 +406,7 @@ go/goffice-0.6.6-x86_64-5gsb.txz: Rebuilt.  Force slack-required version for
 go/gtkmathview-0.8.0-x86_64-3gsb.txz: Rebuilt. Fixes in doinst.sh.
 +--------------------------+
 Sun Aug 16 12:24:20 BST 2009
-Full rebuild of GNOME SlackBuild 2.26.3 for Slackware 13.0 RC2.  GNOME
+Full rebuild of GNOME SlackBuild64 2.26.3 for Slackware 13.0 RC2.  GNOME
 SlackBuild has gone under a directory restructuring to bring it more into line
 with Slackware's own practice.  All our packages have been assigned to sets
 now, along with tagfiles.  This will help us to develop a Slackware type

@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=0.6.95
+VERSION=0.7.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libxml2 gstreamer sqlite gamin gnome-vfs gnome-desktop glib2 gtk+2 libglade poppler libexif libgsf zlib pango cairo dbus libpng gmime"
+REQUIRED_PACKAGES="libxml2 gstreamer sqlite gamin gnome-desktop glib2 gtk+2 libglade poppler libexif libgsf zlib pango cairo dbus libpng gmime devicekit-power"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -114,22 +114,10 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # disable automatic indexing in tracker daemon
-  zcat $CWD/tracker.dont_activate_indexing.diff.gz | patch -p1 
-  # don't display in KDE menus
-  zcat $CWD/tracker.no_kde.diff.gz | patch -p1 
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # disable automatic indexing in tracker daemon
-  zcat $CWD/tracker.dont_activate_indexing.diff.gz | patch -p1 
-  # don't display in KDE menus
-  zcat $CWD/tracker.no_kde.diff.gz | patch -p1 
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # disable automatic indexing in tracker daemon
-  zcat $CWD/tracker.dont_activate_indexing.diff.gz | patch -p1 
-  # don't display in KDE menus
-  zcat $CWD/tracker.no_kde.diff.gz | patch -p1 
 fi
 
 # Fix permissions for building.
@@ -167,20 +155,15 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --disable-static \
-  --enable-shared \
-  --enable-video-extractor=gstreamer \
   || exit 1
 
 # Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-# Disable autostart of tracker, the user can do this if they want.
-mkdir -p $PKG/usr/share/applications &&
-mkdir -p $PKG/etc/gnome/xdg/autostart &&
-mv $PKG/etc/xdg/autostart/*.desktop $PKG/etc/gnome/xdg/autostart &&
-rm -fr $PKG/etc/xdg || exit 1
+# Move into /etc/gnome 
+mkdir -p $PKG/etc/gnome &&
+mv $PKG/etc/xdg $PKG/etc/gnome || exit 1
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -192,16 +175,6 @@ rm -fr $PKG/etc/xdg || exit 1
   find $PKG/usr/man -type l -name \*.? -printf \
     "( cd '%h'; [ -e '%l.gz' ] &&
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
-}
-
-# Deal with .info files.
-[ -e $PKG/usr/share/info ] && {
-  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
-  rmdir -p $PKG/usr/share
-  }
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
 }
 
 # Copy extra documentation into package.

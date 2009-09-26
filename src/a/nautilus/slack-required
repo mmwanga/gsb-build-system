@@ -6,7 +6,6 @@ gamin
 gnome-desktop
 gnome-keyring
 gnome-menus
-gnome-vfs
 gtk+2
 avahi
 libart_lgpl

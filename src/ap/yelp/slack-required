@@ -7,7 +7,6 @@ startup-notification
 dbus
 dbus-glib
 gnome-keyring
-gnome-vfs
 gtk+2
 libglade
 libgnome

@@ -13,7 +13,7 @@
 # recommended, but not required if you do not plan to use certain applications,
 # or are dead set against replacing any Slackware provided  packages.
 #
-# Last updated: September 22, 2009 (stevek)
+# Last updated: September 26, 2009 (stevek)
 #
 
 *********************************************** 
@@ -40,6 +40,7 @@ pygobject:        ( 2.20 required by gnome-python 2.28, and GNOME python
 gst-plugins-base  ( > 0.10.24 rebuild against gvfs/gnomevfs to enable giosink,
                     required by sound-juicer) 
 gmime:            ( >= 2.4 required by totem and gnome-media )
+gnome-icon-theme  ( 2.28 has improved icon set and is a trivial upgrade )
 libgsf:           ( Slackware's libgsf lacks GNOME support; required for GNOME 
                     Office applications like Gnumeric)
 poppler:          ( 0.12 required by evince )

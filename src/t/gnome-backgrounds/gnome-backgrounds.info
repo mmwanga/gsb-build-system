@@ -3,6 +3,6 @@ VERSION="2.28.0"
 HOMEPAGE="http://www.gnome.org/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/gnome-backgrounds/2.28/gnome-backgrounds-2.28.0.tar.bz2"
-MD5SUM="28e09fcdeef5616bc612b36e5068e413"
+MD5SUM="a137eae321c12ba253a1ce55b13b622d"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
