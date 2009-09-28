@@ -42,6 +42,10 @@ n/libpst: Added.
 a/pango: Added.  Upgrades standard Slackware package.
 l/pygobject: Added.  Upgrades standard Slackware package.
 l/vte: Added.  Upgrades standard Slackware package.
+l/clutter: Added.
+l/clutter-gtk: Added.
+l/libchamlain: Added.
+ap/eog-plugins: Added.
 
 *** PACKAGE REMOVALS SINCE 2.26.3 for Slackware 13.0 ***
 
@@ -82,16 +86,3 @@ CPUfreq applet will complain "CPU frequency scaling unsupported.")
 - If NetworkManager is running, but unused, Firefox will try to detect an
   available connection and start up in offline mode (annoyingly).  You can fix
 this behavior by disabling NetworkManager if you're not using it.
-
-- GSB comes with PolicyKit/ConsoleKit support.  We have included a default
-  /etc/PolicyKit/PolicyKit.conf file with basic USB pluggable permissions, and
-some other examples to show to use the file.  See the manual page
-PolicyKit.conf(5) for the file format. In order to make use of PolicyKit, be
-sure to have the consolekit installed as well when you're running your GNOME
-session, otherwise, the PolicyKit will largely be ignored.  (If you run
-ck-list-session from a GNOME terminal you can see if consolekit is running.)
-You will need to run consolekit if you want to reboot or shutdown from the
-gnome-menu or use some utilities such as the GNOME cpufreq applet.  For such
-things, it might be necessary to use polkit-gnome-authorization (run as root)
-and grant your user the abilities to use applications configured to use
-PolicyKit authorisations.
