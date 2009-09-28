@@ -1,0 +1,8 @@
+PKGNAME="pango"
+VERSION="1.26.0"
+HOMEPAGE="http://www.gtkmm.org/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/pango/1.26/pango-1.26.0.tar.bz2"
+MD5SUM="74ce18cfcc3ad0008a6ad56cfc535061"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
