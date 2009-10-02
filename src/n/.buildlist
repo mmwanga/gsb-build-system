@@ -3,6 +3,7 @@ webkit
 gtkhtml
 gnome-pilot
 libpst
+NetworkManager
 evolution
 gnome-pilot-conduits
 evolution-exchange
@@ -30,7 +31,6 @@ gnokii
 obexd
 gnome-bluetooth
 gnome-phone-manager
-NetworkManager
 pptp
 NetworkManager-pptp
 NetworkManager-openconnect

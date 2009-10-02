@@ -37,12 +37,12 @@ libxklavier
 libgnomekbd
 zenity
 libwnck
-metacity
 gvfs
 nautilus
 gnome-mount
 gnome-settings-daemon
 libcanberra
+metacity
 gnome-control-center
 gnome-session
 gnome-python
