@@ -26,11 +26,11 @@ empathy
 deluge
 ekiga
 mod_dnssd
-gnome-user-share
-gnokii
 obexd
 gnome-bluetooth
+gnokii
 gnome-phone-manager
+gnome-user-share
 pptp
 NetworkManager-pptp
 NetworkManager-openconnect

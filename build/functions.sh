@@ -27,11 +27,10 @@ header()
 # Send info to changelog
 changelog()
 {
-  CHANGELOGDATE="$(date +"%a %b %d")"
   CHANGELOG=${CHANGELOG:-/tmp/Changelog.txt}
   touch $CHANGELOG
   # Stamp changelog if no date previously declared
-  if [ -z "$(grep "$(date +"%a %b %d")" $CHANGELOG )" ]; then
+  if [ -z "$(grep "$(date +"%a %b %_d")" $CHANGELOG )" ]; then
     echo "+--------------------------+" >> $CHANGELOG
     echo "$(date)" >> $CHANGELOG
   fi; 
