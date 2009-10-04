@@ -11,14 +11,6 @@ configured and built as closely as possible to how Patrick does.  For more
 information about what needs to be replaced, and why, please see our
 'SLACKWARE-13.0_REPLACED_PACKAGES.TXT'.  
 
-DIRECTORY RESTRUCTURE
-=====================
-GNOME SlackBuild has gone under a directory restructuring to bring it more into
-line with Slackware's own practice.  All our packages have been assigned to
-sets now, along with tagfiles.  This will help us to develop a Slackware type
-installer for GNOME SlackBuild as well as still being able to offer a slapt-get
-based installation.  
-
 GPG SIGNED PACKAGED
 ===================
 All packages are now signed with gpg, and you can find the public key as
@@ -52,6 +44,13 @@ ap/eog-plugins: Added.
 None.
 
 *** OTHER NOTABLE CHANGES AND HINTS ***
+
+- Where did my icons go?  GNOME 2.28 menus and buttons have been standardised
+  across all applications to not display icons by default. Menu items with
+dynamic objects, including applications, files or bookmarks, and devices are the
+exception and can display an icon. This change will standardise the look and
+feel of menus and present a cleaner interface to users.  You can turn this on
+and off using the 'Appearance' settings (under Interface). 
 
 - Remember to fix your config files.  Some of the config files in /etc are
   going to need your attention.  You'll find the new incoming config files on

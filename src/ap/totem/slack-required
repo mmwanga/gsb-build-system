@@ -1,7 +1,7 @@
 gnome-desktop 
 gstreamer >= 0.10.24-@ARCH@-1
-gst-plugins-good >= 0.10.24-@ARCH@-1
-gst-plugins-base
+gst-plugins-base >= 0.10.24-@ARCH@-1
+gst-plugins-good 
 totem-pl-parser 
 libepc
 libgalago

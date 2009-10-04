@@ -1,8 +1,8 @@
 PKGNAME="gtksourceview2"
-VERSION="2.8.0"
+VERSION="2.8.1"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gtksourceview/2.8/gtksourceview-2.8.0.tar.bz2"
-MD5SUM="b8456e21357bdffe5adb17b76d7e99a3"
+DOWNLOAD="${GNOME_SERVER}/gtksourceview/2.8/gtksourceview-2.8.1.tar.bz2"
+MD5SUM="7741e41d3c7c83a35014f0faef3c94a2"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
