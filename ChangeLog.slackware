@@ -1,10 +1,22 @@
+Tue Oct  6 17:45:22 BST 2009
+n/network-manager-applet-0.7.1-i486-5gsb.txz: Upgraded.
+ad/slapt-get-0.10.2a-i486-1gsb.txz: Upgraded.
+ad/gslapt-0.5.2-i486-1gsb.txz: Upgraded.
+ad/slapt-update-notifier-0.4.1-i486-5gsb.txz: Upgraded.
+l/gtk+2-2.18.2-i486-1gsb.txz: Upgraded.
+ap/brasero-2.28.1-i486-1gsb.txz: Upgraded.
+n/telepathy-mission-control-5.3.1-i486-1gsb.txz: Upgraded.
+n/telepathy-python-0.15.12-i486-1gsb.txz: Upgraded.
+n/telepathy-gabble-0.8.5-i486-1gsb.txz: Upgraded.
+go/glom-1.12.2-i486-1gsb.txz: Upgraded.
+n/empathy-2.28.0.1-i486-1gsb.txz: Upgraded.
++--------------------------+
 Sun Oct  4 16:57:27 BST 2009
 l/glib2-2.22.1-i486-1gsb.txz: Upgraded.
 l/gtk+2-2.18.1-i486-1gsb.txz: Upgraded.
 l/gtkmm-2.18.2-i486-1gsb.txz: Upgraded.
 l/gtksourceview2-2.8.1-i486-1gsb.txz: Upgraded.
 l/vte-0.22.2-i486-1gsb.txz: Upgraded.
-n/empathy-2.28.0.1-i486-1gsb.txz: Upgraded.
 n/gnome-bluetooth-2.28.1-i486-1gsb.txz: Upgraded.
 ap/totem-pl-parser-2.28.1-i486-1gsb.txz: Upgraded.
 ap/totem-2.28.1-i486-1gsb.txz: Upgraded.
