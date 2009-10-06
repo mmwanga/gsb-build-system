@@ -1,5 +1,5 @@
 telepathy-glib
-telepathy-mission-control
+telepathy-mission-control >= 5.3.1-@ARCH@-1
 telepathy-farsight
 libchamplain
 telepathy-butterfly

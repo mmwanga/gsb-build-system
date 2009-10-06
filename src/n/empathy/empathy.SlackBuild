@@ -157,11 +157,11 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --disable-static \
-  --enable-shared \
-  --disable-schemas-install \
-  --enable-python=yes \
-  --enable-map=yes \
+  --enable-python=no \
+  --enable-debug \
+  --enable-webkit=no \
+  --enable-spell=no \
+  --enable-map=no \
   --with-connectivity=no \
   || exit 1
 
@@ -209,7 +209,7 @@ echo "fi" >> $PKG/install/doinst.sh
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
 do
   [ -e $CWD/$FILE ] && {
-    cat $CWD/$FILE >>$PKG/install/$FILE
+    cat $CWD/$FILE | sed "s,@ARCH@,${ARCH},g" >>$PKG/install/$FILE
   }
 done
 
