@@ -1,8 +1,17 @@
+Wed Oct  7 17:56:51 BST 2009
+l/glib2-2.22.2-i486-1gsb.txz: Upgraded.
+a/libcanberra-0.18-i486-2gsb.txz: Rebuilt.  Upgraded the freedesktop.org sound
+  theme to 0.7.
+n/webkit-1.1.15.2-i486-1gsb.txz: Upgraded.
+ap/gnome-media-2.28.1-i486-1gsb.txz: Upgraded
++--------------------------+
 Tue Oct  6 17:45:22 BST 2009
-n/network-manager-applet-0.7.1-i486-5gsb.txz: Upgraded.
+n/network-manager-applet-0.7.1-i486-5gsb.txz: Rebuilt.  Removed seahorse from
+  the slack-suggests. 
 ad/slapt-get-0.10.2a-i486-1gsb.txz: Upgraded.
 ad/gslapt-0.5.2-i486-1gsb.txz: Upgraded.
-ad/slapt-update-notifier-0.4.1-i486-5gsb.txz: Upgraded.
+ad/slapt-update-notifier-0.4.1-i486-5gsb.txz: Rebuilt.  Added a doinst.sh to add
+  the daemon to the rc.local start up scripts. 
 l/gtk+2-2.18.2-i486-1gsb.txz: Upgraded.
 ap/brasero-2.28.1-i486-1gsb.txz: Upgraded.
 n/telepathy-mission-control-5.3.1-i486-1gsb.txz: Upgraded.

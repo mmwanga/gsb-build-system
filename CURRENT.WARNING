@@ -1,17 +1,23 @@
 TESTING! TESTING! TESTING!
 --------------------------
 
-This release is a feature, user interface and string frozen snapshot
-primarily intended for wide public scrutiny before the final GNOME 2.28
-release in September. GNOME uses odd minor version numbers to indicate
-development status.
+GNOME 2.28 Released!
 
-For more information about 2.27, the full schedules and the official
-modules list, please see our 2.27 page:
-  http://www.gnome.org/start/unstable/
+The GNOME project is proud to release this new version of the GNOME desktop
+environment and developer platform. Among the hundreds of bug fixes and
+user-requested improvements, GNOME 2.28 has several highly visible changes:
+seamless integration with bluetooth devices, simpler desktop sharing and a
+generally smoother user experience.
+
+For more information about 2.28, the full schedules and the official
+modules list, please see our 2.28 page:
+  http://library.gnome.org/misc/release-notes/2.28/
 
 Also take a look at the abbreviated schedule reminder page at:
   http://live.gnome.org/Schedule
+
+gsb-current brings the latest GNOME Desktop to Slackware, but it's still
+undergoing development.  Be aware that bugs are likely!
 
 GNOME SlackBuild -current
 -------------------------
@@ -20,9 +26,9 @@ WARNING: upgradepkg glib2 gtk+2 GConf before other upgrading other packages.
 Take care not to miss new packages that were split from old ones: 
    "upgradepkg --install-new" is (as always) the safest approach.  
 
-gsb-current is a snapshot of the active GNOMESlackBuild development tree.  It
+gsb-current is a snapshot of the active GNOME SlackBuild development tree.  It
 is intended to give developers (and other Linux gurus) a chance to test out the
-latest packages for GNOMESlackBuild.  The feedback we get will allow us to make
+latest packages for GNOME SlackBuild.  The feedback we get will allow us to make
 the next stable release better than ever.
 
 See the ChangeLog.txt for a list of changes in gsb-current.
@@ -49,8 +55,6 @@ machine's data is not expendable.  Again, we do not recommend using
 Slackware-current to store or process valuable data.  It is a system in
 testing, not one that is ready to go (though often it does work just fine...
 BUT DON'T COUNT ON IT) 
-
-#include BSD license warranty disclaimer here...
 
 Enjoy! :)
 

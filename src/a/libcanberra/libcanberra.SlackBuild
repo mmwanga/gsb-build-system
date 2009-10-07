@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=0.18
 
 # List any packages here that are required to build this package.
@@ -32,8 +32,8 @@ VERSION=0.18
 REQUIRED_PACKAGES="alsa-lib pulseaudio gtk+2 libvorbis"
 
 # We need the freedesktop sound theme specification as well
-if [ ! -f ${CWD}/sound-theme-freedesktop-0.4.tar.bz2 ]; then
-  wget -c http://people.freedesktop.org/~mccann/dist/sound-theme-freedesktop-0.4.tar.bz2 || exit 1
+if [ ! -f ${CWD}/sound-theme-freedesktop-0.7.tar.bz2 ]; then
+  wget -c http://cgit.freedesktop.org/sound-theme-freedesktop/snapshot/sound-theme-freedesktop-0.7.tar.bz2 || exit 1
 fi;
 
 # Build variables.
@@ -191,8 +191,8 @@ ln -s libltdl.so.7.2.0 libltdl.so.7 || exit 1
 cd $TMP/$PKGNAME-$VERSION
 
 # install freedesktop specification
-( tar xfj $CWD/sound-theme-freedesktop-0.4.tar.bz2 &&
-cd sound-theme-freedesktop-0.4 ;
+( tar xfj $CWD/sound-theme-freedesktop-0.7.tar.bz2 &&
+cd sound-theme-freedesktop-0.7 ;
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS \
