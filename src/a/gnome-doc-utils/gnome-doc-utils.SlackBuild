@@ -165,10 +165,9 @@ make $MAKE_FLAGS -j1 &&
 make $MAKE_FLAGS -j1 DESTDIR=$PKG install || exit 1
 
 # Fix location of pkgconfig file
-mkdir -p $PKG/usr/lib${LIBDIRSUFFIX}/pkgconfig &&
-mv $PKG/usr/share/pkgconfig/gnome-doc-utils.pc \
-  $PKG/usr/lib${LIBDIRSUFFIX}/pkgconfig/gnome-doc-utils.pc
-rmdir -p $PKG/usr/share/pkgconfig
+if [ "$ARCH" = "x86_64" ]; then
+  mv $PKG/usr/lib/pkgconfig $PKG/usr/lib64 || exit 1
+fi;
 
 # Keep clean for Scrollkeeper
 rm -fr $PKG/var/lib/scrollkeeper

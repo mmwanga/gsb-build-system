@@ -19,8 +19,7 @@
 *********************************************** 
 -- REQUIRED Package Replacements --
 
-alsa-lib:         ( > 1.0.20 required by pulseaudio 0.9.17, libcanberra, and
-                    gnome-control-center) 
+alsa-lib:         ( > 1.0.20 required by pulseaudio 0.9.15 )
 bluez:            ( > 4.53 bluez replaces bluez-utils and bluez-libs, required
                     for gvfs support for Bluetooth, and other GNOME 2.28
                     bluetooth userspace applications) 
