@@ -1,8 +1,8 @@
 PKGNAME="libgsf"
-VERSION="1.14.15"
+VERSION="1.14.16"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/libgsf/1.14/libgsf-1.14.15.tar.bz2"
-MD5SUM="5118e971b4257f50b6914404593f63cf"
+DOWNLOAD="${GNOME_SERVER}/libgsf/1.14/libgsf-1.14.16.tar.bz2"
+MD5SUM="8478d83fda0b6e57f36550c11a693ee1"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

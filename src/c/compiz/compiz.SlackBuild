@@ -24,8 +24,8 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=5
-VERSION=0.8.2
+BUILD=1
+VERSION=0.8.4
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -179,7 +179,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static \
   --enable-shared \
   --disable-schemas-install \
-  --enable-kde4 \
+  --disable-kde4 \
   --enable-gnome \
   --enable-gtk \
   --enable-metacity \
