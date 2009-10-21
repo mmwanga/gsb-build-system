@@ -119,7 +119,7 @@ mkdir -p $PKGDEST
 
 # Decompress archive.
 cd $TMP &&
-tar xzf $CWD/ooo-build-$VERSION.tar.gz &&
+#tar xzf $CWD/ooo-build-$VERSION.tar.gz &&
 cd ooo-build-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -135,12 +135,12 @@ elif [ "$ARCH" = "powerpc" ]; then
 fi
 
 # Fix permissions for building.
-chown -R root:root .
-find . \
-  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
-  -exec chmod 755 {} \; -o \
-  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
-  -exec chmod 644 {} \;
+#chown -R root:root .
+#find . \
+#  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
+#  -exec chmod 755 {} \; -o \
+#  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
+#  -exec chmod 644 {} \;
 
 # Configure, Tuning, GCC and Make options.
 CONFIGURE_FLAGS=${GSB_CONFIGURE_FLAGS:-""}
@@ -164,8 +164,8 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Configure for GNOME SlackBuild
-cp $CWD/GNOMESlackBuild*.conf.in ./distro-configs || exit 1
-zcat $CWD/ooo-build.gsb.diff.gz | patch -p1 
+#cp $CWD/GNOMESlackBuild*.conf.in ./distro-configs || exit 1
+#zcat $CWD/ooo-build.gsb.diff.gz | patch -p1 
 # We need to temporarily spam a directory on the build machine
 mkdir -p /usr/share/openclipart
 [ -z "${ANT_HOME}" ] && . /etc/profile.d/ant.sh
@@ -213,12 +213,12 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   || exit 1
 
 # Copy over downloaded sources, rather than run the download script
-for i in $CWD/{ooo_*,ooo-cli*,ooo310*,lib*,biblio*,extras*,mdbtools*} ; do 
-  if [ ! -f ./src/${i} ]; then
-    echo "Linking to source tree: $(basename $i)"
-    (cd src ; ln -fs $i )
-  fi;
-done; echo
+#for i in $CWD/{ooo_*,ooo-cli*,ooo310*,lib*,biblio*,extras*,mdbtools*} ; do 
+#  if [ ! -f ./src/${i} ]; then
+#    echo "Linking to source tree: $(basename $i)"
+#    (cd src ; ln -fs $i )
+#  fi;
+#done; echo
 
 # Build and Install
 make || exit 1

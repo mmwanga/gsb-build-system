@@ -1,8 +1,8 @@
 PKGNAME="libchamplain"
-VERSION="0.4.0"
+VERSION="0.4.1"
 HOMEPAGE="http://projects.gnome.org/libchamplain/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/libchamplain/0.4/libchamplain-0.4.0.tar.bz2"
-MD5SUM="159f8befb4b7ef616227977cda61e08d"
+DOWNLOAD="${GNOME_SERVER}/libchamplain/0.4/libchamplain-0.4.1.tar.bz2"
+MD5SUM="cd41e989c4c609e37fac2ad331919bcf"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

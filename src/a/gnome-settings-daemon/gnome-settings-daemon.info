@@ -1,8 +1,8 @@
 PKGNAME="gnome-settings-daemon"
-VERSION="2.28.0"
+VERSION="2.28.1"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-settings-daemon/2.28/gnome-settings-daemon-2.28.0.tar.bz2"
+DOWNLOAD="${GNOME_SERVER}/gnome-settings-daemon/2.28/gnome-settings-daemon-2.28.1.tar.bz2"
 MD5SUM="66c4e3651cb0e022b114d30ac217b095"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

@@ -1,3 +1,30 @@
+Sun Oct 18 13:20:38 BST 2009
+l/gtk+2-2.18.3-i486-1gsb.txz: Upgraded.
+l/gmime-2.4.10-i486-1gsb.txz: Upgraded.
+a/gnome-vfs-2.24.2-i486-1gsb.txz: Upgraded.
+a/gnome-keyring-2.28.1-i486-1gsb.txz: Upgraded.
+a/evolution-data-server-2.28.1-i486-1gsb.txz: Upgraded.
+n/gtkhtml-3.28.1-i486-1gsb.txz: Upgraded.
+n/evolution-2.28.1-i486-1gsb.txz: Upgraded.
+n/evolution-exchange-2.28.1-i486-1gsb.txz: Upgraded.
+n/telepathy-glib-0.8.1-i486-1gsb.txz: Upgraded.
+n/papyon-0.4.3-i486-1gsb.txz: Upgraded.
+n/telepathy-gabble-0.8.6-i486-1gsb.txz: Upgraded.
+ap/seahorse-2.28.1-i486-1gsb.txz: Upgraded.
+go/libgda-4.0.5-i486-1gsb.txz: Upgraded.
+go/libgsf-1.14.16-i486-1gsb.txz: Upgraded.
+c/compiz-0.8.4-i486-1gsb.txz: Upgraded.
+c/compiz-bcop-0.8.4-i486-1gsb.txz: Upgraded.
+c/libcompizconfig-0.8.4-i486-1gsb.txz: Upgraded.
+c/compiz-plugins-main-0.8.4-i486-1gsb.txz: Upgraded.
+c/compiz-plugins-extra-0.8.4-i486-1gsb.txz: Upgraded.
+c/emerald-0.8.4-i486-1gsb.txz: Upgraded.
+c/compizconfig-python-0.8.4-i486-1gsb.txz: Upgraded.
+c/compizconfig-backend-gconf-0.8.4-i486-1gsb.txz: Upgraded.
+c/ccsm-0.8.4-i486-1gsb.txz: Upgraded.
+n/epiphany-2.28.1-i486-1gsb.txz: Upgraded.
+n/epiphany-extensions-2.28.1-i486-1gsb.txz: Upgraded.
++--------------------------+
 Wed Oct  7 17:56:51 BST 2009
 l/glib2-2.22.2-i486-1gsb.txz: Upgraded.
 a/libcanberra-0.18-i486-2gsb.txz: Rebuilt.  Upgraded the freedesktop.org sound

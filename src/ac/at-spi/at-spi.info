@@ -1,8 +1,8 @@
 PKGNAME="at-spi"
-VERSION="1.28.0"
+VERSION="1.28.1"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/at-spi/1.28/at-spi-1.28.0.tar.bz2"
-MD5SUM="06f6da7873dffc8a26b04e304236e222"
+DOWNLOAD="${GNOME_SERVER}/at-spi/1.28/at-spi-1.28.1.tar.bz2"
+MD5SUM="ff29958339cbff5a0e0f34e4761e7633"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
