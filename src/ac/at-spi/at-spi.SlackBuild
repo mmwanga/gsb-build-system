@@ -168,9 +168,9 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Fix up documentation location for Slackware
 mkdir -p $PKG/usr/doc &&
-mv $PKG/usr/share/doc/at-spi-1.28.0 $PKG/usr/doc || exit 1
+mv $PKG/usr/share/doc/at-spi-1.28.1 $PKG/usr/doc || exit 1
 rmdir -p $PKG/usr/share/doc
-( cd $PKG/usr/doc; ln -s at-spi-1.28.0 $PKGNAME-$VERSION )
+( cd $PKG/usr/doc; ln -s at-spi-1.28.1 $PKGNAME-$VERSION )
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
