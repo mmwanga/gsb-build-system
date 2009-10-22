@@ -1,8 +1,8 @@
 PKGNAME="eog"
-VERSION="2.28.0"
+VERSION="2.28.1"
 HOMEPAGE="http://projects.gnome.org/eog/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/eog/2.28/eog-2.28.0.tar.bz2"
-MD5SUM="d36efde32f6669864023ebe838590a32"
+DOWNLOAD="${GNOME_SERVER}/eog/2.28/eog-2.28.1.tar.bz2"
+MD5SUM="efb488a22cbb0ca70f4b6a0f2d8aa83e"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

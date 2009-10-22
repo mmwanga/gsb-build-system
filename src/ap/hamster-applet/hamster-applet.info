@@ -1,8 +1,8 @@
 PKGNAME="hamster-applet"
-VERSION="2.28.0"
+VERSION="2.28.1"
 HOMEPAGE="http://live.gnome.org/ProjectHamster"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/hamster-applet/2.28/hamster-applet-2.28.0.tar.bz2"
-MD5SUM="a35224d3515a0395c1b086cfe4b9a2a5"
+DOWNLOAD="${GNOME_SERVER}/hamster-applet/2.28/hamster-applet-2.28.1.tar.bz2"
+MD5SUM="f4c68e02b487b9e0d284e63a411d8cdd"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

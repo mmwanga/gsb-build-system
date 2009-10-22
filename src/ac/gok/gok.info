@@ -1,8 +1,8 @@
 PKGNAME="gok"
-VERSION="2.28.0"
+VERSION="2.28.1"
 HOMEPAGE="http://www.gok.ca/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gok/2.28/gok-2.28.0.tar.bz2"
-MD5SUM="84a48b4caa35360d7b406236c21cc061"
+DOWNLOAD="${GNOME_SERVER}/gok/2.28/gok-2.28.1.tar.bz2"
+MD5SUM="d7305f12c703e13eeaed796f996dbc86"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

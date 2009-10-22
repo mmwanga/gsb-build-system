@@ -1,8 +1,8 @@
 PKGNAME="gnome-games"
-VERSION="2.28.0"
+VERSION="2.28.1"
 HOMEPAGE="http://live.gnome.org/GnomeGames/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-games/2.28/gnome-games-2.28.0.tar.bz2"
-MD5SUM="39101397625e931a74f40854eeb1d182"
+DOWNLOAD="${GNOME_SERVER}/gnome-games/2.28/gnome-games-2.28.1.tar.bz2"
+MD5SUM="c67497debd70aa8847874616660dae48"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
