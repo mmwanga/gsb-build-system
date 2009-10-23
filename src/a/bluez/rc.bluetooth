@@ -17,20 +17,30 @@ DAEMON_ENABLE=true
 
 [ -e /etc/default/bluetooth ] && . /etc/default/bluetooth
 
+bluetooth_start()
+{
+  echo -n "Starting $DESC:"
+  if $DAEMON_ENABLE && [ -x "$DAEMON_EXEC" ]; then
+    $DAEMON_EXEC
+    echo -n " $DAEMON_NAME"
+  fi
+  echo "."
+}
+
+bluetooth_stop()
+{
+  echo -n "Stopping $DESC:"
+  killall $DAEMON_NAME > /dev/null 2>&1 || true
+  echo -n " $DAEMON_NAME"
+  echo "."
+}
+
 case "$1" in
   start)
-	echo -n "Starting $DESC:"
-	if $DAEMON_ENABLE && [ -x "$DAEMON_EXEC" ]; then
-		$DAEMON_EXEC
-		echo -n " $DAEMON_NAME"
-	fi
-	echo "."
+        bluetooth_start ;
 	;;
   stop)
-	echo -n "Stopping $DESC:"
-	killall $DAEMON_NAME > /dev/null 2>&1 || true
-	echo -n " $DAEMON_NAME"
-	echo "."
+        bluetooth_stop ;
 	;;
   restart)
         bluetooth_stop ;
