@@ -1,5 +1,35 @@
+Mon Oct 26 21:54:05 GMT 2009
+l/libatasmart-0.16-i486-1gsb.txz: Upgraded.
+a/devicekit-disks-004-i486-2gsb.txz: Upgraded.
+n/empathy-2.28.1.1-i486-1gsb.txz: Upgraded.
+n/obexd-0.17-i486-1gsb.txz: Upgraded.
++--------------------------+
+Fri Oct 23 09:51:17 BST 2009
+a/bluez-4.56-i486-1gsb.txz: Upgraded.  This version also fixes a bug in the
+  rc.bluetooth script.  Thanks to Micke Hallberg for reporting the problem.
+extra/pidgin-2.6.3-i486-1gsb.txz: Upgraded.
+  protocols/jabber/auth.c in libpurple in Pidgin 2.6.0, and possibly other
+  versions, does not follow the "require TLS/SSL" preference when connecting to
+  older Jabber servers that do not follow the XMPP specification, which causes
+  libpurple to connect to the server without the expected encryption and allows
+  remote attackers to sniff sessions. 
+      http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3026
+  (* Security fix *)
++--------------------------+
 Thu Oct 22 11:53:21 BST 2009
 l/poppler-0.12.1-i486-1gsb.txz: Upgraded.
+  Integer overflow in the ImageStream::ImageStream function in Stream.cc in Xpdf
+  before 3.02pl4 and Poppler before 0.12.1, as used in GPdf, kdegraphics KPDF,
+  and CUPS pdftops, allows remote attackers to cause a denial of service
+  (application crash) via a crafted PDF document that triggers a NULL pointer
+  dereference or buffer over-read.  For more information, see:
+      http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3603
+      http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3604
+      http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3606
+      http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3607
+      http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3608
+      http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3609
+  (* Security fix *)
 l/clutter-1.0.8-i486-1gsb.txz: Upgraded.
 l/libchamplain-0.4.1-i486-1gsb.txz: Upgraded.
 a/nautilus-2.28.1-i486-1gsb.txz: Upgraded.
