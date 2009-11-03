@@ -1,8 +1,8 @@
 PKGNAME="vte"
-VERSION="0.22.2"
+VERSION="0.22.3"
 HOMEPAGE="http://www.gnome.org/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/vte/0.22/vte-0.22.2.tar.bz2"
-MD5SUM="c278925fd7da427998c506d5ba99478e"
+DOWNLOAD="${GNOME_SERVER}/vte/0.22/vte-0.22.3.tar.bz2"
+MD5SUM="304d38c205d7cf5fd5259b470671ecdd"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

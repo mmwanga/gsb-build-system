@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=3
+BUILD=4
 VERSION=2.26.1
 
 # List any packages here that are required to build this package.
@@ -182,6 +182,10 @@ mkdir -p $PKG/usr/share/applications/screensavers
 HACKS_DIR="/usr/share/xscreensaver/config"
 (cd $PKG/usr/share/applications/screensavers ;
 $TMP/$PKGNAME-$VERSION/data/migrate-xscreensaver-config.sh ${HACKS_DIR}/*.xml)
+
+# gnome-settings-daemon no longer autostarts gnome-screensaver, 
+# so we add our own .desktop file
+cp $CWD/gnome-screensaver.desktop $PKG/usr/share/applications || exit 1
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
