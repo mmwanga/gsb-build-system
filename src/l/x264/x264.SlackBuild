@@ -25,7 +25,7 @@
 
 # Package variables.
 BUILD=1
-VERSION=snapshot-20090924-2245
+VERSION=snapshot-20091103-2245
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.

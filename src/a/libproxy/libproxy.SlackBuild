@@ -164,7 +164,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --with-file \
   --with-gnome \
   --with-python \
-  --without-kde \
   --without-mozjs \
   --without-networkmanager \
   || exit 1

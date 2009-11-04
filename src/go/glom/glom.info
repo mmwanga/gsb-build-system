@@ -1,8 +1,8 @@
 PKGNAME="glom"
-VERSION="1.12.2"
+VERSION="1.12.3"
 HOMEPAGE="http://www.gnome-db.org/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/glom/1.12/glom-1.12.2.tar.bz2"
-MD5SUM="8f4de116f28501decc0df956ee003809"
+DOWNLOAD="${GNOME_SERVER}/glom/1.12/glom-1.12.3.tar.bz2"
+MD5SUM="36d547414bceb52c893e28408893e5ac"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
