@@ -25,7 +25,7 @@
 
 # Package variables.
 BUILD=1
-VERSION=0.3.0
+VERSION=0.3.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -109,7 +109,7 @@ mkdir -p $PKGDEST
 # Decompress archive.
 cd $TMP &&
 rm -rf $PKGNAME-$VERSION &&
-tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
+tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.

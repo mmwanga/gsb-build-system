@@ -1,5 +1,5 @@
 PKGNAME="gsb-desktop"
-VERSION="2.26.3"
+VERSION="2.28.1"
 HOMEPAGE="http://www.gnomeslackbuild.org"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
