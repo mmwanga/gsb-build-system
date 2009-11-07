@@ -191,17 +191,17 @@ ln -s libltdl.so.7.2.0 libltdl.so.7 || exit 1
 cd $TMP/$PKGNAME-$VERSION
 
 # install freedesktop specification
-( tar xfj $CWD/sound-theme-freedesktop-0.7.tar.bz2 &&
-cd sound-theme-freedesktop-0.7 ;
+tar xfj $CWD/sound-theme-freedesktop-0.7.tar.bz2 &&
+cd sound-theme-freedesktop-0.7 || exit 1
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./autogen --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
   && make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-)
+cd $TMP/$PKGNAME-$VERSION
 
 # Extraneous docs
 rm -fr $PKG/usr/share/doc

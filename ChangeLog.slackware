@@ -23,7 +23,7 @@ ad/sabayon-2.28.1-i486-1gsb.txz: Upgraded.
 m/f-spot-0.6.1.4-i486-1gsb.txz: Upgraded.
 l/x264-snapshot_20091103_2245-i486-1gsb.txz: Upgraded.
 l/ffmpeg-r20450-i486-1gsb.txz: Upgraded.
-a/libcanberra-0.18-i486-3gsb.txz: Upgraded.
+a/libcanberra-0.18-i486-3gsb.txz: Rebuilt.
 ap/gst-plugins-bad-0.10.14-i486-2gsb.txz: Rebuilt against the newer ffmpeg and
   x264 packages.
 go/glom-1.12.3-i486-1gsb.txz: Upgraded.
