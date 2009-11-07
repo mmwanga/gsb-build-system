@@ -1,6 +1,39 @@
+Sat Nov  7 20:01:37 GMT 2009
+  The preview of GNOME Shell 2.28 was released on October 7, 2009 and since
+  there are plans for it to included with GNOME 3.0 (whenever that happens to
+  be), there may be a few users out there who would like to try it out.  We are
+  providing preview packages in the testing/ directory. You will need to add
+  this as a SOURCE line in your slapt-getrc.  To try out GnomeShell, simply run:
+  "gnome-shell --replace" from a terminal.  
+testing/libffi-3.0.8-i486-1gsb.txz: Added.
+testing/gobject-introspection-0.6.5-i486-1gsb.txz: Added.
+testing/gir-repository-0.6.5-i486-1gsb.txz: Added.
+testing/gjs-0.4-i486-1gsb.txz: Added.
+testing/mutter-2.28.0-i486-1gsb.txz: Added.
+testing/gnome-shell-2.28.0-i486-1gsb.txz: Added.
+l/clutter-1.0.8-i486-2gsb.txz: Rebuilt to enable gobject-instrospection.
++--------------------------+
+Wed Nov  4 18:22:51 GMT 2009
+l/vte-0.22.3-i486-1gsb.txz: Upgraded.
+n/telepathy-mission-control-5.3.2-i486-1gsb.txz: Upgraded.
+n/telepathy-butterfly-0.5.3-i486-1gsb.txz: Upgraded.
+ap/gnome-commander-1.2.8.3-i486-1gsb.txz: Upgraded.
+ad/gparted-0.4.8-i486-1gsb.txz: Upgraded.
+ad/sabayon-2.28.1-i486-1gsb.txz: Upgraded.
+m/f-spot-0.6.1.4-i486-1gsb.txz: Upgraded.
+l/x264-snapshot_20091103_2245-i486-1gsb.txz: Upgraded.
+l/ffmpeg-r20450-i486-1gsb.txz: Upgraded.
+a/libcanberra-0.18-i486-3gsb.txz: Upgraded.
+ap/gst-plugins-bad-0.10.14-i486-2gsb.txz: Rebuilt against the newer ffmpeg and
+  x264 packages.
+go/glom-1.12.3-i486-1gsb.txz: Upgraded.
+extra/MPlayer-r29823-i486-2gsb.txz: Upgraded.
+a/libproxy-0.3.1-i486-1gsb.txz: Upgraded.
+a/gsb-desktop-2.28.1-i486-1gsb.txz: Bumped version.
++--------------------------+
 Mon Oct 26 21:54:05 GMT 2009
 l/libatasmart-0.16-i486-1gsb.txz: Upgraded.
-a/devicekit-disks-004-i486-2gsb.txz: Upgraded.
+a/devicekit-disks-004-i486-2gsb.txz: Rebuilt against newer libatasmart.
 n/empathy-2.28.1.1-i486-1gsb.txz: Upgraded.
 n/obexd-0.17-i486-1gsb.txz: Upgraded.
 +--------------------------+

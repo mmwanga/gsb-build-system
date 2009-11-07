@@ -37,8 +37,8 @@
 #
 
 # Package variables
-VERSION=r29718
-BUILD=1
+VERSION=r29823
+BUILD=2
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -159,7 +159,7 @@ CODECSDIR=/usr/lib${LIBDIRSUFFIX}/codecs   # Where the WIN32 codecs are expected
 # MPlayer with the option USE_PATENTS=YES which will include potentially
 # patent-encumbered code.
 # ---------------------------------------------------------------------------
-USE_PATENTS=${USE_PATENTS:-"NO"}
+USE_PATENTS=${USE_PATENTS:-"YES"}
 
 # MPlayer will try to use one of the TrueType fonts present on the target
 # system for it's On Screen Display (OSD) font.
@@ -207,7 +207,7 @@ src_checkout() {
      else
        REV="{${VERSION}}"
      fi
-     mkdir MPlayer-${VERSION} \
+     mkdir -p MPlayer-${VERSION} \
        && cd MPlayer-${VERSION} \
        && svn checkout  --revision $REV svn://svn.mplayerhq.hu/mplayer/trunk . \
        && find . -type d -name '.svn' -depth | xargs rm -rf \

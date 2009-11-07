@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=7
-VERSION=0.46
+BUILD=1
+VERSION=0.4
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 glib2 libjpeg libpng gnome-vfs pango cairo lcms popt libXft openssl libgc boost"
+REQUIRED_PACKAGES="gobject-introspection mozilla-xulrunner"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -108,7 +108,7 @@ mkdir -p $PKGDEST
 
 # Decompress archive.
 cd $TMP &&
-tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
+tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -122,13 +122,6 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
-
-# Allow compiling against newer poppler
-zcat $CWD/inkscape.poppler.diff.gz | patch -p1
-# Fix for bug in gtk+2 header
-zcat $CWD/inkscape.gtkincludes.diff.gz | patch -p1
-# Fix broken libpng include
-zcat $CWD/inkscape.earlypngheader.diff.gz | patch -p1
 
 # Fix permissions for building.
 chown -R root:root .
@@ -158,21 +151,18 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-# Configure.
+# Configure
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --disable-static \
-  --enable-shared \
-  --enable-inkboard \
   || exit 1
 
 # Build and install.
-make $MAKE_FLAGS -j2 &&
-make $MAKE_FLAGS -j2 DESTDIR=$PKG install || exit 1
+make $MAKE_FLAGS &&
+make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -186,20 +176,9 @@ make $MAKE_FLAGS -j2 DESTDIR=$PKG install || exit 1
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }
 
-# Deal with .info files.
-[ -e $PKG/usr/share/info ] && {
-  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
-  rmdir -p $PKG/usr/share
-  }
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
-}
-
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a AUTHORS COPYING COPYING.LIB NEWS README* TRANSLATORS \
-      HACKING* doc/{README.document,keys*,*.txt,inkscape*.README} \
+cp -a COPYING NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
