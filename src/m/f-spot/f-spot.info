@@ -1,8 +1,8 @@
 PKGNAME="f-spot"
-VERSION="0.6.1.4"
+VERSION="0.6.1.5"
 HOMEPAGE="http://f-spot.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/f-spot/0.6/f-spot-0.6.1.4.tar.bz2"
-MD5SUM="6b38f6609216c717c41563f65e57416f"
+DOWNLOAD="${GNOME_SERVER}/f-spot/0.6/f-spot-0.6.1.5.tar.bz2"
+MD5SUM="411bac8266a60d9a728218d19dd5e735"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

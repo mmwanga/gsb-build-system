@@ -1,3 +1,12 @@
+Sun Nov  8 00:12:09 GMT 2009
+go/inkscape-0.46-i486-7gsb.txz: Rebuilt against newer poppler library.
+m/f-spot-0.6.1.5-i486-1gsb.txz: Upgraded.
+ap/gnome-screensaver-2.26.1-i486-5gsb.txz: Rebuilt.  The .desktop entry has been
+  changed so that gnome-screensaver does not have an identical menu name as
+  xscreensaver.
+m/banshee-1-1.4.3-i486-4gsb.txz: Rebuilt to fix a typo in slack-required.
+extra/MPlayer-r29823-i486-2gsb.txz: Upgraded.
++--------------------------+
 Sat Nov  7 20:01:37 GMT 2009
   The preview of GNOME Shell 2.28 was released on October 7, 2009 and since
   there are plans for it to included with GNOME 3.0 (whenever that happens to
@@ -23,7 +32,9 @@ ad/sabayon-2.28.1-i486-1gsb.txz: Upgraded.
 m/f-spot-0.6.1.4-i486-1gsb.txz: Upgraded.
 l/x264-snapshot_20091103_2245-i486-1gsb.txz: Upgraded.
 l/ffmpeg-r20450-i486-1gsb.txz: Upgraded.
-a/libcanberra-0.18-i486-3gsb.txz: Rebuilt.
+a/libcanberra-0.18-i486-3gsb.txz: Rebuilt.  The sound theme had gone missing in
+  the previous package.  Sound effects should be working again.  Thanks to Joel
+  Adamson for pointing it out.
 ap/gst-plugins-bad-0.10.14-i486-2gsb.txz: Rebuilt against the newer ffmpeg and
   x264 packages.
 go/glom-1.12.3-i486-1gsb.txz: Upgraded.
