@@ -22,10 +22,13 @@
 #  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+# Thanks to Tim Goya for all of the hard work in making the 2.8.x releases
+# work correctly on Slackware - the patches are all from him
 
 # Package variables.
-BUILD=3
-VERSION=2.6.8
+BUILD=1
+VERSION=2.8.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -114,28 +117,19 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # build against the goffice-0.6 series
-  zcat $CWD/abiword.goffice.diff.gz | patch -p1
-  # enable autosave by default
-  zcat $CWD/abiword.autosave.diff.gz | patch -p1
-  # add extra file associations
-  zcat $CWD/abiword.keys.diff.gz | patch -p1
+  zcat $CWD/boost_asio.patch.gz | patch -p1
+  zcat $CWD/help_paths.patch.gz | patch -p1
+  zcat $CWD/url_show.patch.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # build against the goffice-0.6 series
-  zcat $CWD/abiword.goffice.diff.gz | patch -p1
-  # enable autosave by default
-  zcat $CWD/abiword.autosave.diff.gz | patch -p1
-  # add extra file associations
-  zcat $CWD/abiword.keys.diff.gz | patch -p1
+  zcat $CWD/boost_asio.patch.gz | patch -p1
+  zcat $CWD/help_paths.patch.gz | patch -p1
+  zcat $CWD/url_show.patch.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # build against the goffice-0.6 series
-  zcat $CWD/abiword.goffice.diff.gz | patch -p1
-  # enable autosave by default
-  zcat $CWD/abiword.autosave.diff.gz | patch -p1
-  # add extra file associations
-  zcat $CWD/abiword.keys.diff.gz | patch -p1
+  zcat $CWD/boost_asio.patch.gz | patch -p1
+  zcat $CWD/help_paths.patch.gz | patch -p1
+  zcat $CWD/url_show.patch.gz | patch -p1
 fi
 
 # Fix permissions for building.
@@ -175,9 +169,14 @@ CFLAGS="$CFLAGS $TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
+  --docdir=/usr/doc/$PKGNAME-$VERSION \
   --disable-static \
   --enable-shared \
-  --enable-extra-optimization \
+  --enable-clipart \
+  --enable-templates \
+  --enable-plugins \
+  --with-gio \
+  --without-gnomevfs \
   || exit 1
 
 # Build and install AbiWord
@@ -203,19 +202,9 @@ sed -i 's@text/html;@@' $PKG/usr/share/applications/abiword.desktop
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }
 
-# Deal with .info files.
-[ -e $PKG/usr/share/info ] && {
-  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
-  rmdir -p $PKG/usr/share
-  }
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
-}
-
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a COPYING COPYRIGHT.TXT CREDITS.TXT README.TXT \
+cp -a *.txt *.TXT COPYING COPYRIGHT.TXT CREDITS.TXT README.TXT \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION

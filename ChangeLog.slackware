@@ -6,6 +6,8 @@ ap/gnome-screensaver-2.26.1-i486-5gsb.txz: Rebuilt.  The .desktop entry has been
   xscreensaver.
 m/banshee-1-1.4.3-i486-4gsb.txz: Rebuilt to fix a typo in slack-required.
 extra/MPlayer-r29823-i486-2gsb.txz: Upgraded.
+go/abiword-plugins: Removed.
+go/abiword-extras: Removed.
 +--------------------------+
 Sat Nov  7 20:01:37 GMT 2009
   The preview of GNOME Shell 2.28 was released on October 7, 2009 and since
