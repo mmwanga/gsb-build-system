@@ -27,7 +27,7 @@
 # work correctly on Slackware - the patches are all from him
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.8.1
 
 # List any packages here that are required to build this package.
@@ -183,11 +183,7 @@ CFLAGS="$CFLAGS $TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-# Minor tweak for icon
-mkdir -p $PKG/usr/share/pixmaps &&
-mv $PKG/usr/share/icons/abiword_48.png $PKG/usr/share/pixmaps/abiword.png || exit 1
-rmdir -p $PKG/usr/share/icons
-sed -i 's@_48@@' $PKG/usr/share/applications/abiword.desktop
+# Don't open html with abiword
 sed -i 's@text/html;@@' $PKG/usr/share/applications/abiword.desktop
 
 # Strip debugging symbols.

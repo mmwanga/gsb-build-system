@@ -521,7 +521,7 @@ if [ "${SOURCE}" = "1" ]; then
   export_source $BUILDSOURCE $PKGDEST &&
   export_source $EXTRASOURCE $PKGDEST/extra &&
   export_source $PASTURESOURCE $PKGDEST/pasture || error_out
-  #export_source $TESTINGSOURCE $PKGDEST/testing || error_out
+  export_source $TESTINGSOURCE $PKGDEST/testing || error_out
 fi;
 
 #========================================================================

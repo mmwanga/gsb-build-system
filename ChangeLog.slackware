@@ -1,4 +1,12 @@
-Sun Nov  8 00:12:09 GMT 2009
+Sun Nov 15 09:56:53 GMT 2009
+a/libcanberra-0.22-i486-1gsb.txz: Upgraded.
+a/gnome-control-center-2.28.1-i486-2gsb.txz: Rebuilt.
+ap/gedit-2.28.2-i486-1gsb.txz: Upgraded.
+ap/gnome-screensaver-2.28.0-i486-1gsb.txz: Upgraded.
+n/telepathy-gabble-0.8.8-i486-1gsb.txz: Upgraded.
+go/abiword-2.8.1-i486-2gsb.txz: Rebuilt to fix a misplaced icon. 
++--------------------------+
+Sun Nov  8 23:27:03 GMT 2009
 go/inkscape-0.46-i486-7gsb.txz: Rebuilt against newer poppler library.
 m/f-spot-0.6.1.5-i486-1gsb.txz: Upgraded.
 ap/gnome-screensaver-2.26.1-i486-5gsb.txz: Rebuilt.  The .desktop entry has been
@@ -8,6 +16,8 @@ m/banshee-1-1.4.3-i486-4gsb.txz: Rebuilt to fix a typo in slack-required.
 extra/MPlayer-r29823-i486-2gsb.txz: Upgraded.
 go/abiword-plugins: Removed.
 go/abiword-extras: Removed.
+go/abiword-2.8.1-i486-1gsb.txz: Upgraded.
+go/abiword-docs-2.8.1-i486-1gsb.txz: Upgraded.
 +--------------------------+
 Sat Nov  7 20:01:37 GMT 2009
   The preview of GNOME Shell 2.28 was released on October 7, 2009 and since
