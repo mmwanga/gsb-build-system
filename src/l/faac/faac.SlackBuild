@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=1.28
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="vim"
+REQUIRED_PACKAGES="vim mpeg4ip"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -115,13 +115,17 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # add mp4 support to faac
+  zcat $CWD/faac.mp4v2.diff.gz | patch -p1
+  autoreconf 
 elif [ "$ARCH" = "x86_64" ]; then
-  echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # add mp4 support to faac
+  zcat $CWD/faac.mp4v2.diff.gz | patch -p1
+  autoreconf 
 elif [ "$ARCH" = "powerpc" ]; then
-  echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # add mp4 support to faac
+  zcat $CWD/faac.mp4v2.diff.gz | patch -p1
+  autoreconf 
 fi
 
 # Fix permissions for building.
@@ -159,8 +163,9 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --mandir=/usr/man $CONFIGURE_FLAGS \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
-  --without-mp4v2 \
+  --disable-static \
+  --enable-shared \
+  --with-mp4v2 \
   || exit 1
 
 # Build and install.
