@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
+BUILD=3
 VERSION=2.28.1
 
 # List any packages here that are required to build this package.
@@ -114,13 +114,16 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # Fix crash conditions in xrandr and aboutme applets
+  zcat $CWD/gnome-control-center-2.28.1.upstream_fixes.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # Fix crash conditions in xrandr and aboutme applets
+  zcat $CWD/gnome-control-center-2.28.1.upstream_fixes.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # Fix crash conditions in xrandr and aboutme applets
+  zcat $CWD/gnome-control-center-2.28.1.upstream_fixes.diff.gz | patch -p1
 fi
 
 # Fix permissions for building.
@@ -160,6 +163,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --target=$ARCH-$DISTRO-linux \
   --disable-static \
   --enable-shared \
+  --enable-aboutme \
   --disable-schemas-install \
   --disable-update-mimedb \
   || exit 1
