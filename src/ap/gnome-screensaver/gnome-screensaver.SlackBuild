@@ -176,6 +176,9 @@ HACKS_DIR="/usr/share/xscreensaver/config"
 (cd $PKG/usr/share/applications/screensavers ;
 $TMP/$PKGNAME-$VERSION/data/migrate-xscreensaver-config.sh ${HACKS_DIR}/*.xml)
 
+# keep gnome screensaver separate from xscreensaver
+cp $CWD/gnome-screensaver-preferences.desktop $PKG/usr/share/applications | exit 1
+
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null

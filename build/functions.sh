@@ -341,7 +341,12 @@ Options:
   --publish      	Create the package's .txt and .asc meta files, and
                         create the FILELIST, CHECKSUMS, and MANIFEST, as well
                         as export the SlackBuild source into a publishable
-                        tree. 
+                        tree. You will need to create a valid GPG-KEY. 
+
+  --keep-testing      	Normally the build script will remove all packages
+                        found in the testing/ directory in order to prevent
+		        unwanted dependencies.  Use this switch to prevent the
+                        build script from removing these packages.	
 
   --set=<set>           Build only a specific set.
 

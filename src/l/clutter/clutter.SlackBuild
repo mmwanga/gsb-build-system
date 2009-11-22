@@ -29,7 +29,7 @@ VERSION=1.0.8
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 mesa libXcomposite"
+REQUIRED_PACKAGES="gtk+2 mesa libXcomposite gobject-introspection"
 
 # Build variables.
 TAG=${TAG:-gsb}

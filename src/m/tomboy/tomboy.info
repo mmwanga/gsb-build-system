@@ -1,8 +1,8 @@
 eKGNAME="tomboy"
-VERSION="1.0.0"
+VERSION="1.0.1"
 HOMEPAGE="http://projects.gnome.org/totem/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/tomboy/1.0/tomboy-1.0.0.tar.bz2"
-MD5SUM="b7d679fc98a9585aae91a0fb7952b723"
+DOWNLOAD="${GNOME_SERVER}/tomboy/1.0/tomboy-1.0.1.tar.bz2"
+MD5SUM="80bdaee0cbaa360877c334e19661f69f"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

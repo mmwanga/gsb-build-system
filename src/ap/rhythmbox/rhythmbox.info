@@ -1,8 +1,8 @@
 PKGNAME="rhythmbox"
-VERSION="0.12.5"
+VERSION="0.12.6"
 HOMEPAGE="http://projects.gnome.org/rhythmbox/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/rhythmbox/0.12/rhythmbox-0.12.5.tar.bz2"
-MD5SUM="d70b26fc8a861bf1921e5709f9350893"
+DOWNLOAD="${GNOME_SERVER}/rhythmbox/0.12/rhythmbox-0.12.6.tar.bz2"
+MD5SUM="c22ff476c956afeb7f694e5d1a59cfb9"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
