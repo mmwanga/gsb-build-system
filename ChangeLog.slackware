@@ -1,5 +1,35 @@
+Sun Nov 22 18:10:19 GMT 2009
+l/faac-1.28-i486-2gsb.txz: Patched to add support for mp4. Thanks to Giorgio 
+  Moscardi for pointing out the missing feature.
+l/faad2-2.7-i486-4gsb.txz: Rebuilt.
+l/pango-1.26.1-i486-1gsb.txz: Upgraded.
+l/vte-0.22.5-i486-1gsb.txz: Upgraded.
+a/gnome-doc-utils-0.18.1-i486-1gsb.txz: Upgraded.
+n/epiphany-2.28.1-i486-2gsb.txz: Rebuilt.
+ap/yelp-2.28.1-i486-1gsb.txz: Upgraded.
+ap/gnome-user-docs-2.28.1-i486-1gsb.txz: Upgraded.
+ap/totem-2.28.4-i486-1gsb.txz: Upgraded.
+ap/nautilus-sendto-2.28.2-i486-1gsb.txz: Upgraded.
+l/gstreamer-0.10.25-i486-1gsb.txz: Upgraded.
+  Upgraded the gstreamer backend and the plugin sets.
+ap/gst-plugins-base-0.10.25-i486-1gsb.txz: Upgraded.
+ap/gst-python-0.10.17-i486-1gsb.txz: Upgraded.
+ap/gst-ffmpeg-0.10.9-i486-1gsb.txz: Upgraded.
+ap/gst-plugins-bad-0.10.16-i486-1gsb.txz: Upgraded.
+ap/gst-plugins-ugly-0.10.13-i486-1gsb.txz: Upgraded.
+ap/gst-plugins-good-0.10.16-i486-2gsb.txz: Rebuilt.
+ap/gnome-media-2.28.1-i486-2gsb.txz: Rebuilt against newer gstreamer backend.
+ap/gnome-screensaver-2.28.0-i486-1gsb.txz: Upgraded.
+ap/rhythmbox-0.12.6-i486-1gsb.txz: Upgraded.
+m/tomboy-1.0.1-i486-1gsb.txz: Upgraded.
+a/libcanberra-0.22-i486-2gsb.txz: Rebuilt.
+a/gnome-control-center-2.28.1-i486-3gsb.txz: Patched to fix crash condition in
+  xrandr capplet.  Added --enable-aboutme to add "About Me" capplet. 
++--------------------------+
 Sun Nov 15 09:56:53 GMT 2009
-a/libcanberra-0.22-i486-1gsb.txz: Upgraded.
+a/libcanberra-0.22-i486-1gsb.txz: Upgraded.  This fixes a bug where Epiphany
+  would crash with an error in gdkdrawable-x11.c.  For more information see:
+    http://git.0pointer.de/?p=libcanberra.git;a=commit;h=ed6f221e617537b1901211d41c0bd8018739e814
 a/gnome-control-center-2.28.1-i486-2gsb.txz: Rebuilt.
 ap/gedit-2.28.2-i486-1gsb.txz: Upgraded.
 ap/gnome-screensaver-2.28.0-i486-1gsb.txz: Upgraded.

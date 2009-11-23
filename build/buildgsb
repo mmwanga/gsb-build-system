@@ -222,7 +222,7 @@ done
   TESTING_PACKAGES="$( egrep -v "^#|^$" $TESTINGSOURCE/.buildlist | cut -d'#' -f1 )" 
 }
 
-[ -n "$TESTING_PACKAGES" -a "$WITH_TEST_PACKAGES" = "0" ] || {
+[ -n "$TESTING_PACKAGES" -a "$WITH_TEST_PACKAGES" = "1" ] || {
 for TESTPKG in $TESTING_PACKAGES; do
 find_package_files "/var/log/packages" "${TESTPKG//+/\+}" "" "" "" "" >/dev/null && {
   echogreen "* "; echo "Removing testing package '$TESTPKG' and cleaning up files."
