@@ -1,7 +1,7 @@
 PKGNAME="consolekit"
 VERSION="0.3.0"
 HOMEPAGE="http://freedesktop.org/wiki/Software/ConsoleKit"
-DOWNLOAD="http://people.freedesktop.org/~mccann/dist/ConsoleKit-0.3.0.tar.bz2"
+DOWNLOAD="http://www.freedesktop.org/software/ConsoleKit/dist/ConsoleKit-0.3.0.tar.bz2"
 MD5SUM="43b02a52212330b54cfb34c4044d9ce0"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
