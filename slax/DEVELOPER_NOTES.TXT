@@ -1,8 +1,0 @@
-The main "gsb" base module creates and ships with a full Gconf structure already created for 
-all its main packages.  All other additional modules which use gconf *MUST* use init scripts 
-(perhaps using rc.gsb.S as a template) to merge its private gconf settings into the gsb 
-gconf tree, at least once for persistent filesystems (USB), and on every boot for 
-non-persistent filesystems (like CDROMs) 
-
-Modules other than the main gsb module SHOULD NOT ship with a /etc/gconf tree, which 
-will otherwise clobber the main libgnome tree when mounted by the linux-live scripts.
