@@ -1,5 +1,5 @@
 #!/bin/bash
-# Version: 1.9.1 GNOME SlackBuild Build Script
+# Version: 1.9.2 GNOME SlackBuild Build Script
 # Copyright (c) 2007, 2008, 2009
 #   Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>, Coventry, UK.
 #   Steve Kennedy <steve (at) gnomeslackbuild.org>
@@ -175,8 +175,9 @@ mkdir -p $TMP &&
 mkdir -p $PKGDEST &&
 mkdir -p $LOGSDIR &&
 mkdir -p $PKGDEST/${EXTRADIR} &&
-mkdir -p $PKGDEST/${PASTUREDIR} || exit 1
-mkdir -p $PKGDEST/${TESTINGDIR} || exit 1
+mkdir -p $PKGDEST/${PASTUREDIR} &&
+mkdir -p $PKGDEST/${TESTINGDIR} &&
+mkdir -p $PKGDEST/${PATCHESDIR} || exit 1
 
 # Make sure we have all required packages needed for building.
 for REQ in $REQUIRED_PACKAGES; do
@@ -581,9 +582,6 @@ else
   cp ChangeLog.slackware $PKGDEST/ChangeLog.txt &&
   cp VERSIONS.slackware $PKGDEST/VERSIONS || exit 1
 fi
-[ -d $PKGDEST/$PATCHESDIR ] && {
-  ( cd $PKGDEST/$PATCHESDIR && ln -sf ../ChangeLog.txt )
-}
 echo;
 header "* Published documentation."
 echo;
@@ -597,7 +595,7 @@ if [ "${PUBLISH}" = "1" ]; then
   echo ; header "* Generating package file lists and checksums."
   ( 
   cd $PKGDEST &&
-    for DIR in $GSBDIR $PATCHESDIR $EXTRADIR $PASTUREDIR $TESTINGDIR
+    for DIR in $GSBDIR $PATCHESDIR $EXTRADIR $PASTUREDIR $TESTINGDIR $PATCHESDIR
     do
       [ -d $DIR ] && {
         make_packages_txt $DIR $DIR
