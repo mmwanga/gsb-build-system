@@ -1,3 +1,14 @@
+Sat Dec  5 12:39:37 GMT 2009
+patches/gnome-session-2.26.2-i486-4gsb.txz: Rebuilt.
+  This package adds the seahorse-agent to /etc/X11/xinit/xinitrc.gnome.  This
+  will allow seahorse to act as a GPG agent, and allow to use your gpg keys
+  with the GNOME keyring.  The package will install a xinitrc.gnome.new, so
+  users will need to move the new script and replace the old one. 
+  Thanks to Joel Adamson for pointing out the fact this fell out in the 
+  upgrade to Slackware 13.0.
+patches/totem-2.26.4-i486-1gsb.txz: Upgraded.
+patches/sound-juicer-2.26.2-i486-1gsb.txz: Upgraded.
++--------------------------+
 Wed Sep 23 18:12:32 BST 2009
 GSB 2.26.3 x86 is released as stable!  Thanks to everyone who helped with bug
 reports and suggestions.  gsb-current will soon be aiming at the brand new

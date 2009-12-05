@@ -1,8 +1,8 @@
 PKGNAME="sound-juicer"
-VERSION="2.26.1"
+VERSION="2.26.2"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/sound-juicer/2.26/sound-juicer-2.26.1.tar.bz2"
-MD5SUM="68d085cb577af88553f2dcaf3a0fc2a1"
+DOWNLOAD="${GNOME_SERVER}/sound-juicer/2.26/sound-juicer-2.26.2.tar.bz2"
+MD5SUM="13f0692c86a844fa98702846082472e8"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
