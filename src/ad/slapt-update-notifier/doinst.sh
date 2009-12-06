@@ -25,15 +25,13 @@ if [ ! -e etc/rc.d/rc.local_shutdown ]; then
   chmod 755 etc/rc.d/rc.local_shutdown
 fi
 
-etc/rc.d/rc.slapt-update-notifier
-
 # Add service start to rc.local
 if ! grep "/etc/rc.d/rc.slapt-update-notifier" etc/rc.d/rc.local >/dev/null 2>&1; then
   cat <<EOF >>etc/rc.d/rc.local
 
 # To disable slapt-update-notifier, chmod rc.slapt-update-notifier to 644
 if [ -x /etc/rc.d/rc.slapt-update-notifier ]; then
-  /etc/rc.d/rc.slapt-update-notifier start
+  . /etc/rc.d/rc.slapt-update-notifier start
 fi
 EOF
 fi
@@ -44,7 +42,7 @@ if ! grep "/etc/rc.d/rc.slapt-update-notifier" etc/rc.d/rc.local_shutdown >/dev/
 
 
 if [ -x /etc/rc.d/rc.slapt-update-notifier ]; then
-  /etc/rc.d/rc.slapt-update-notifier stop
+  . /etc/rc.d/rc.slapt-update-notifier stop
 fi
 EOF
 fi
