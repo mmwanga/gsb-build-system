@@ -26,7 +26,7 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.18.4
+VERSION=2.18.3
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -130,8 +130,8 @@ fi
 zcat $CWD/gtk.pnglz.diff.gz | patch -p1 || exit 1
 ## Fix for x86_64 (does not hurt the other archs but note that we will start
 ## using /etc/gtk-2.0/$host instead of /etc/gtk-2.0/ now):
- sed -i "s/GTK_SYSCONFDIR, \\\"gtk-2\\.0\\\"/GTK_SYSCONFDIR, \\\"gtk-2\\.0\\\", HOST/g" ./gtk/gtkrc.c ./gdk-pixbuf/gdk-pixbuf-io.c
- sed -i 's/sysconfdir)\\"/&      \\\n\t-DHOST=\\\"$(host_triplet)\\\"/g' \
+sed -i "s/GTK_SYSCONFDIR, \\\"gtk-2\\.0\\\"/GTK_SYSCONFDIR, \\\"gtk-2\\.0\\\", HOST/g" ./gtk/gtkrc.c ./gdk-pixbuf/gdk-pixbuf-io.c
+sed -i 's/sysconfdir)\\"/&      \\\n\t-DHOST=\\\"$(host_triplet)\\\"/g' \
  gdk-pixbuf/Makefile.am \
  gtk/Makefile.am \
  modules/input/Makefile.am
@@ -182,6 +182,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --mandir=/usr/man \
   --with-xinput=yes \
   --build=$ARCH-$DISTRO-linux \
+  --host=$ARCH-$DISTRO-linux \
   || exit 1
 
 make $MAKE_FLAGS || exit 1
