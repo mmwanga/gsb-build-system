@@ -154,7 +154,7 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
   $CONFIGURE_FLAGS \
   --mandir=/usr/man \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
