@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=1.2.0_rc4
+VERSION=1.76
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="python boost setuptools"
+REQUIRED_PACKAGES="gtk+2 curl libnotify openssl"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -39,14 +39,14 @@ DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}
 
-# Script variables.
+## Script variables.
 PKGNAME=$(basename $0 .SlackBuild)
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
 FORCEBUILD=0
 
-# Usage.
+## Usage.
 function usage() {
   cat << EOF
 Usage: ${0##*/} [options]
@@ -108,8 +108,7 @@ mkdir -p $PKGDEST
 
 # Decompress archive.
 cd $TMP &&
-rm -fr $PKGNAME-$VERSION &&
-tar xfj $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -152,17 +151,20 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-# Configure and Build
+# Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  python ./setup.py build || exit 1
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  --mandir=/usr/man $CONFIGURE_FLAGS \
+  --libdir=/usr/lib${LIBDIRSUFFIX} \
+  --build=$ARCH-$DISTRO-linux \
+  --target=$ARCH-$DISTRO-linux \
+  --disable-static \
+  --enable-shared \
+  || exit 1
 
 # Build and install.
-python ./setup.py install --prefix=/usr --root=$PKG || exit 1
-
-# Fix misplaced man pages
-mkdir -p $PKG/usr/man &&
-mv $PKG/usr/share/man/man1 $PKG/usr/man || exit 1
-rmdir -p $PKG/usr/share/man
+make $MAKE_FLAGS &&
+make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -176,19 +178,9 @@ rmdir -p $PKG/usr/share/man
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }
 
-# Deal with .info files.
-[ -e $PKG/usr/share/info ] && {
-  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
-  rmdir -p $PKG/usr/share
-  }
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
-}
-
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a README LICENSE \
+cp -a AUTHORS COPYING NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
