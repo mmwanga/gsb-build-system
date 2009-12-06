@@ -1,3 +1,13 @@
+Sun Dec  6 19:51:09 GMT 2009
+extra/pidgin-2.6.4-i486-1gsb.txz: Upgraded.  
+  protocols/jabber/auth.c in libpurple in Pidgin 2.6.0, and possibly other
+  versions, does not follow the "require TLS/SSL" preference when connecting to
+  older Jabber servers that do not follow the XMPP specification, which causes
+  libpurple to connect to the server without the expected encryption and allows
+  remote attackers to sniff sessions.
+      http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3026
+  (* Security fix *)
++--------------------------+
 Sat Dec  5 12:39:37 GMT 2009
 patches/gnome-session-2.26.2-i486-4gsb.txz: Rebuilt.
   This package adds the seahorse-agent to /etc/X11/xinit/xinitrc.gnome.  This
