@@ -207,8 +207,8 @@ mkdir -p $TMP &&
 mkdir -p $PKGDEST &&
 mkdir -p $LOGSDIR &&
 mkdir -p $PKGDEST/${EXTRADIR} &&
-mkdir -p $PKGDEST/${PASTUREDIR} || exit 1
-#mkdir -p $PKGDEST/${TESTINGDIR} || exit 1
+mkdir -p $PKGDEST/${PASTUREDIR} &&
+mkdir -p $PKGDEST/${PATCHESDIR} || exit 1
 
 #========================================================================
 # MAIN SET LIST
@@ -346,7 +346,6 @@ then
     fi
   fi
 fi
-
 #========================================================================
 # BUILD PACKAGES
 #
@@ -560,9 +559,6 @@ else
   cp ChangeLog.slackware $PKGDEST/ChangeLog.txt &&
   cp VERSIONS.slackware $PKGDEST/VERSIONS || exit 1
 fi
-[ -d $PKGDEST/$PATCHESDIR ] && {
-  ( cd $PKGDEST/$PATCHESDIR && ln -sf ../ChangeLog.txt )
-}
 echo;
 header "* Published documentation."
 echo;
@@ -576,8 +572,7 @@ if [ "${PUBLISH}" = "1" ]; then
   echo ; header "* Generating package file lists and checksums."
   ( 
   cd $PKGDEST &&
-    for DIR in $GSBDIR $PATCHESDIR $EXTRADIR $PASTUREDIR
-    #for DIR in $GSBDIR $PATCHESDIR $EXTRADIR $PASTUREDIR $TESTINGDIR
+    for DIR in $GSBDIR $PATCHESDIR $EXTRADIR $PASTUREDIR $PATCHESDIR
     do
       [ -d $DIR ] && {
         make_packages_txt $DIR $DIR
