@@ -1,10 +1,10 @@
 PKGNAME="pidgin"
-VERSION="2.6.2"
+VERSION="2.6.4"
 HOMEPAGE="http://www.pidgin.im/"
 DOWNLOAD="
-http://downloads.sourceforge.net/project/pidgin/Pidgin/2.6.2/pidgin-2.6.2.tar.bz2 
+http://downloads.sourceforge.net/project/pidgin/Pidgin/2.6.4/pidgin-2.6.4.tar.bz2 
 http://downloads.sourceforge.net/project/pidgin-encrypt/Releases/3.0/pidgin-encryption-3.0.tar.gz"
-MD5SUM="a1bbb3c9be7d4ee1f53590d319cbfa72  pidgin-2.6.2.tar.bz2
+MD5SUM="6e1dc8b9dd6983a54ff3a6de33efa778  pidgin-2.6.4.tar.bz2
 3f3f8e9a15d19e084d54bfbbd2db9d77  pidgin-encryption-3.0.tar.gz"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
