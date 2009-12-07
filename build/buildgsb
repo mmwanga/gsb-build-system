@@ -90,6 +90,7 @@ PATCHESDIR=${PATCHESDIR:-patches}
 
 # Option defaults.
 BUILD_DEPENDENCIES=0
+AUTO_DOWNLOAD=0
 NOPATCHESDIR=0
 NOSKIP=0
 NOPRUNE=0
@@ -147,6 +148,10 @@ while [ -n "$1" ] ; do
     ;;
     -set=*|--set=*)
       SETS=$(echo $1 | cut -f2 -d=)
+      shift
+    ;;
+    -auto-download|--auto-download)
+      AUTO_DOWNLOAD=1
       shift
     ;;
     -help|--help)
@@ -391,8 +396,8 @@ if [ "$SKIP_BUILD" = "0" ]; then
   ( 
     cd $PACKAGE && 
     export PKGDEST=$PKGDEST/$SUBDIR || exit 1
-    download_package $PACKAGE || exit $?
-    ./$PACKAGE.SlackBuild $SLACKBUILD_ARGS 2>&1 
+    download_package $PACKAGE $AUTO_DOWNLOAD || exit $?
+        ./$PACKAGE.SlackBuild $SLACKBUILD_ARGS 2>&1 
   ) | tee $LOGSDIR/$SET/$PACKAGE-$( date +%Y%m%d-%H%M%S ).log
 
   ERR=${PIPESTATUS[0]}

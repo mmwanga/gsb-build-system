@@ -228,7 +228,9 @@ function make_manifest() {
 
 function download_package() {
   # $1 is package name
+  # $2 is auto download switch
   [ -z "$1" ] && return 1;
+  [ -z "$2" ] && return 1;
   [ ! -f ./$1.info ] && {
     echo "* Error: Can't find $1.info." ; return 1
   }
@@ -249,12 +251,17 @@ function download_package() {
        echo "* Error: No file defined in info file." ; return 1
     }
     # Download if source file missing.
-    if [ ! -f $FILENAME ]; then
+    if [ ! -f $FILENAME -a "$2" = "1" ] ; then
       echogreen "* "; echo "Downloading source file."
       wget ${WGET_OPTIONS} -c $DOWNLOAD || {
         echo ; echo "* Error: Failed to complete download."
         return 1
       }
+    else
+      echo "**********************************"
+      echo "NOTE: Automatic fetching disabled."
+      echo "See help for more information.    "
+      echo "**********************************"
     fi;
 
     # Switch up if more than one md5sum
@@ -272,7 +279,7 @@ function download_package() {
     fi; 
 
     # We'll try three times to download the package file
-    while [ $ATTEMPT -ne 0 ]; do
+    while [ $ATTEMPT -ne 0 -a "$2" = "1" ]; do
       # md5sum comparison
       [ "$(md5sum ${FILENAME} | cut -f1 -d\ )" = "${MD5CHECK}" ] && {
           # We have a good md5sum check
@@ -287,8 +294,10 @@ function download_package() {
     # We couldn't get a decent copy of the source file
     [ "$VALID" = "0" ] && {
       echo ; echo "Couldn't retrieve $1." 
+      [ -f $FILENAME ] && {
       header "* WARNING: $FILENAME has invalid md5sum!"
       echo "md5sum: $(md5sum ${FILENAME} | cut -f1 -d\ ) against info: $MD5CHECK"
+      }
       return 1;
     }
   done;
@@ -347,6 +356,9 @@ Options:
                         found in the testing/ directory in order to prevent
 		        unwanted dependencies.  Use this switch to prevent the
                         build script from removing these packages.	
+
+  --auto-download      	Automatically fetch tarballs that aren't found in the
+    			src/ tree. 
 
   --set=<set>           Build only a specific set.
 
@@ -411,14 +423,15 @@ export_source() {
   [ -z "$1" -o -z "$2" ] && return 1;
   local EXPORTDEST=$2
   echo -n "Exporting source for "; echogreen "$(basename $EXPORTDEST)" ; echo -n ": " ;
-  # Clean up our destination for stale files
-  rm -fr $EXPORTDEST/source &&
   mkdir -p $EXPORTDEST || return 1
-  if [ -x /usr/bin/svn ]; then
-    svn export --ignore-externals --force $1 $EXPORTDEST/source || {
-      echo ; echo "* Error: Failed to export source."
-      return 1
+
+  if [ -x /usr/bin/rsync ]; then
+    rsync -C -r $1/ $EXPORTDEST/source/ || {
+    echo ; echo "* Error: Failed to export source."
+    return 1
     }
+    echo "Done export."
+
     # Clean up the export a bit
     find $EXPORTDEST/source \( -name ".buildlist" \
          -o -name ".setlist" \
@@ -428,9 +441,10 @@ export_source() {
          -o -name "*.info" \) \
          -exec rm -rf {} \; || return 1
   else
-     echo "You need subversion in order to export the source."
+     echo "You need rsync in order to export the source."
      return 1
   fi;
+
   make_filelist_txt $EXPORTDEST/source $EXPORTDEST/source "FILE_LIST" &&
   make_checksums_md5 $EXPORTDEST/source $EXPORTDEST/source || return 1
 }
