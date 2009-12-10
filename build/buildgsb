@@ -205,7 +205,7 @@ for REQ in $REQUIRED_PACKAGES; do
     [ -z "$PACKAGE_VERSION" ] || [ -z "$PACKAGE_BUILD" ] && {
       header "Failed to get VERSION or BUILD from '$PACKAGE.SlackBuild' " ; exit 1
     }
-    download_package $REQ || exit $?
+    download_package $REQ $AUTO_DOWNLOAD || exit $?
     ./$REQ.SlackBuild $SLACKBUILD_ARGS 2>&1
     )
     ERR=${PIPESTATUS[0]}

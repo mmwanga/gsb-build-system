@@ -278,17 +278,24 @@ function download_package() {
       MD5CHECK=${MD5SUM}
     fi; 
 
+    # md5sum comparison
+    [ "$(md5sum ${FILENAME} | cut -f1 -d\ )" = "${MD5CHECK}" ] && {
+       # We have a good md5sum check
+       echo "$FILENAME has a valid md5sum $MD5CHECK."
+       VALID=1 ; 
+    }
+
     # We'll try three times to download the package file
-    while [ $ATTEMPT -ne 0 -a "$2" = "1" ]; do
-      # md5sum comparison
-      [ "$(md5sum ${FILENAME} | cut -f1 -d\ )" = "${MD5CHECK}" ] && {
-          # We have a good md5sum check
-          echo "$FILENAME has a valid md5sum $MD5CHECK."
-          VALID=1 ; break
-      }
-      # Try to redownload, perhaps a broken source file. 
+    while [ "VALID" = "0" -a $ATTEMPT -ne 0 -a "$2" = "1" ]; do
+     # Try to redownload, perhaps a broken source file. 
       wget ${WGET_OPTIONS} -c $DOWNLOAD 
       ATTEMPT=$[$ATTEMPT-1]
+      # md5sum comparison
+      [ "$(md5sum ${FILENAME} | cut -f1 -d\ )" = "${MD5CHECK}" ] && {
+         # We have a good md5sum check
+         echo "$FILENAME has a valid md5sum $MD5CHECK."
+         VALID=1 ; 
+      }
     done;
 
     # We couldn't get a decent copy of the source file
