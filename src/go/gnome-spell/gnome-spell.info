@@ -1,0 +1,8 @@
+PKGNAME="gnome-spell"
+VERSION="1.0.8"
+HOMEPAGE="http://www.gnome.org/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gnome-spell/1.0/gnome-spell-1.0.8.tar.bz2"
+MD5SUM="6ccc46b4e3dc7cb1c6d413358e35d445"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
