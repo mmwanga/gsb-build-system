@@ -3,6 +3,6 @@ VERSION="1.26.2"
 HOMEPAGE="http://www.gtkmm.org/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/pango/1.26/pango-1.26.2.tar.bz2"
-MD5SUM="ed0dfa6d0ed67068cf71f5c1217ecae5"
+MD5SUM="f30212b8833af3ce5c82121dc309e3d0"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
