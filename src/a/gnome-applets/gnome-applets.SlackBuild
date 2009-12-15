@@ -115,15 +115,15 @@ cd $PKGNAME-$VERSION || exit 1
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # Upstream patch for bug #594797
-  zcat $CWD/gnome-applets.sticknotes.diff.gz | patch 1
+  zcat $CWD/gnome-applets.sticknotes.diff.gz | patch -p1 || exit 1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # Upstream patch for bug #594797
-  zcat $CWD/gnome-applets.sticknotes.diff.gz | patch 1
+  zcat $CWD/gnome-applets.sticknotes.diff.gz | patch -p1 || exit 1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # Upstream patch for bug #594797
-  zcat $CWD/gnome-applets.sticknotes.diff.gz | patch 1
+  zcat $CWD/gnome-applets.sticknotes.diff.gz | patch -p1 || exit 1
 fi
 
 # Fix permissions for building.
