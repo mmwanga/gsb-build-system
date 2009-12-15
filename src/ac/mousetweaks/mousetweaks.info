@@ -1,8 +1,8 @@
 PKGNAME="mouse-tweaks"
-VERSION="2.28.1"
+VERSION="2.28.2"
 HOMEPAGE="http://live.gnome.org/Mousetweaks/Home"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/mousetweaks/2.28/mousetweaks-2.28.1.tar.bz2"
-MD5SUM="a6d786f4df2be96202d76c4c0e6ba43c"
+DOWNLOAD="${GNOME_SERVER}/mousetweaks/2.28/mousetweaks-2.28.2.tar.bz2"
+MD5SUM="c8f8a2a57f02133adb6069f74bbd0004"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

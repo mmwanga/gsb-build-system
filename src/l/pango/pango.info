@@ -1,8 +1,8 @@
 PKGNAME="pango"
-VERSION="1.26.1"
+VERSION="1.26.2"
 HOMEPAGE="http://www.gtkmm.org/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/pango/1.26/pango-1.26.1.tar.bz2"
-MD5SUM="2cbc1f26639e335905f7d31c0da53fce"
+DOWNLOAD="${GNOME_SERVER}/pango/1.26/pango-1.26.2.tar.bz2"
+MD5SUM="ed0dfa6d0ed67068cf71f5c1217ecae5"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
