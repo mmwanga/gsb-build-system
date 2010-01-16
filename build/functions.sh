@@ -257,11 +257,6 @@ function download_package() {
         echo ; echo "* Error: Failed to complete download."
         return 1
       }
-    else
-      echo "**********************************"
-      echo "NOTE: Automatic fetching disabled."
-      echo "See help for more information.    "
-      echo "**********************************"
     fi;
 
     # Switch up if more than one md5sum

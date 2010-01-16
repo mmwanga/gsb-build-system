@@ -1,8 +1,8 @@
 PKGNAME="gtk-engines"
-VERSION="2.18.4"
+VERSION="2.18.5"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gtk-engines/2.18/gtk-engines-2.18.4.tar.bz2"
-MD5SUM="95748497eafdfe898588931f08b2fccc"
+DOWNLOAD="${GNOME_SERVER}/gtk-engines/2.18/gtk-engines-2.18.5.tar.bz2"
+MD5SUM="8ab438af9f460b1dacbe37437612c629"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

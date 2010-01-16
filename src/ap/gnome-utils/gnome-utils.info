@@ -1,8 +1,8 @@
 PKGNAME="gnome-utils"
-VERSION="2.28.1"
+VERSION="2.28.3"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-utils/2.28/gnome-utils-2.28.1.tar.bz2"
-MD5SUM="3c811993191ae0bbf8666405a504288a"
+DOWNLOAD="${GNOME_SERVER}/gnome-utils/2.28/gnome-utils-2.28.3.tar.bz2"
+MD5SUM="ccfd36710952fa5280612c1c00e915e8"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

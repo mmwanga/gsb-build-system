@@ -26,7 +26,7 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.18.3
+VERSION=2.18.6
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -130,11 +130,11 @@ fi
 zcat $CWD/gtk.pnglz.diff.gz | patch -p1 || exit 1
 ## Fix for x86_64 (does not hurt the other archs but note that we will start
 ## using /etc/gtk-2.0/$host instead of /etc/gtk-2.0/ now):
-sed -i "s/GTK_SYSCONFDIR, \\\"gtk-2\\.0\\\"/GTK_SYSCONFDIR, \\\"gtk-2\\.0\\\", HOST/g" ./gtk/gtkrc.c ./gdk-pixbuf/gdk-pixbuf-io.c
+sed -i "s/GTK_SYSCONFDIR, \\\"gtk-2\\.0\\\"/GTK_SYSCONFDIR, \\\"gtk-2\\.0\\\", HOST/g" ./gtk/gtkrc.c ./gdk-pixbuf/gdk-pixbuf-io.c || exit 1
 sed -i 's/sysconfdir)\\"/&      \\\n\t-DHOST=\\\"$(host_triplet)\\\"/g' \
  gdk-pixbuf/Makefile.am \
  gtk/Makefile.am \
- modules/input/Makefile.am
+ modules/input/Makefile.am || exit 1
 
 # The original config.{guess,sub} do not work on x86_64
 cp -p /usr/share/libtool/config.{guess,sub} .
@@ -172,12 +172,14 @@ autoreconf -vif
 
 # Autoconf changes linux to linux-gnu.
 # Our host is $ARCH-slackware-linux not $ARCH-slackware-linux-gnu:
-sed -i -e 's#linux|linux-gnu|#linux|linux|#' config.sub
+sed -i -e 's#linux|linux-gnu|#linux|linux|#' config.sub || exit 1
 
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+CFLAGS="$CFLAGS -DHOST=\\\"$HOST\\\"" \
   ./configure --prefix=/usr \
   --sysconfdir=/etc \
+  --enable-gtk-doc=no \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --mandir=/usr/man \
   --with-xinput=yes \
@@ -185,6 +187,9 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --host=$ARCH-$DISTRO-linux \
   || exit 1
 
+# This is needed with linuxdoc-tools < 0.9.66 ;
+sed -i "s,@GTKDOC_REBASE@,gtkdoc-rebase,g" \
+  $(find . -name Makefile) || exit 1
 make $MAKE_FLAGS || exit 1
 
 # Check the host value that is passed to the compile to the one in this script:

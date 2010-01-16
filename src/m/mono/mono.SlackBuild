@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.4.2.3
+VERSION=2.4.3
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgdiplus"
+REQUIRED_PACKAGES="libgdiplus libgc"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -115,15 +115,15 @@ cd $PKGNAME-$VERSION || exit 1
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   zcat $CWD/mono.configure.in.diff.gz | patch -p0
-  autoreconf 
+  libtoolize --force && autoreconf -vf
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   zcat $CWD/mono.configure.in.diff.gz | patch -p0
-  autoreconf 
+  libtoolize -c --force && autoreconf -vf
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   zcat $CWD/mono.configure.in.diff.gz | patch -p0
-  autoreconf 
+  libtoolize -c --force && autoreconf -vf
 fi
 
 # Fix permissions for building.
@@ -160,10 +160,13 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS \
+  --with-gc=boehm \
   --program-prefix="" \
   --infodir=/usr/info \
   || exit 1
 
+# Make sure we use the system libtool
+(ln -sf /usr/bin/libtool libtool) || exit 1
 # Build and install.
 make &&
 make DESTDIR=$PKG install || exit 1
