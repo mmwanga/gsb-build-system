@@ -3,6 +3,6 @@ VERSION="2.28.2"
 HOMEPAGE="http://projects.gnome.org/epiphany/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/epiphany/2.28/epiphany-2.28.2.tar.bz2"
-MD5SUM="7a8b885a4894d2a9e979b8cb8898db1e"
+MD5SUM="cf32404bfe6f0cb4d3f01d0c33c08def"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

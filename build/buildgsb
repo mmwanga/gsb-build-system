@@ -138,7 +138,7 @@ while [ -n "$1" ] ; do
       VERIFY=1
       shift
     ;;
-    -keep-testing|--keep-testing)
+    -with-testing|--with-testing)
       WITH_TEST_PACKAGES=1
       shift
     ;;
@@ -248,6 +248,10 @@ cd ${BUILDSOURCE}
 SETS=${SETS:-""}
 [ -f .setlist ] && {
 SETS="${SETS:-$( egrep -v "^#|^$" .setlist | cut -d'#' -f1 )}"
+}
+
+[ "$WITH_TEST_PACKAGES" = "1" ] && {
+  SETS="$SETS testing" ;
 }
 
 #========================================================================

@@ -24,8 +24,8 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=7
-VERSION=0.46
+BUILD=1
+VERSION=0.47
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -108,7 +108,7 @@ mkdir -p $PKGDEST
 
 # Decompress archive.
 cd $TMP &&
-tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
+tar xjf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -123,12 +123,12 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
-# Allow compiling against newer poppler
-zcat $CWD/inkscape.poppler.diff.gz | patch -p1
-# Fix for bug in gtk+2 header
-zcat $CWD/inkscape.gtkincludes.diff.gz | patch -p1
-# Fix broken libpng include
-zcat $CWD/inkscape.earlypngheader.diff.gz | patch -p1
+# Allow compiling against newer poppler (inkscape 0.46)
+# zcat $CWD/inkscape.poppler.diff.gz | patch -p1
+# Fix for bug in gtk+2 header (inkscape 0.46)
+# zcat $CWD/inkscape.gtkincludes.diff.gz | patch -p1
+# Fix broken libpng include (inkscape 0.46)
+# zcat $CWD/inkscape.earlypngheader.diff.gz | patch -p1
 
 # Fix permissions for building.
 chown -R root:root .
