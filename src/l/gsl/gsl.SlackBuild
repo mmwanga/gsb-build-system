@@ -23,26 +23,25 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-# Package variables.
+# Package variables
 BUILD=1
-VERSION=1.9.1.3
-MAJOR_VERSION=1.9.1
+VERSION=1.13
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 glib2 cairo pango libgnomeui nss pkg-config python jdk sqlite"
+REQUIRED_PACKAGES=""
+
 
 # Build variables.
 TAG=${TAG:-gsb}
 ARCH=${ARCH:-i486}
-TUNE=${TUNE:-i486}
+TUNE=${TUNE:-i686}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}
 
 # Script variables.
 PKGNAME=$(basename $0 .SlackBuild)
-SRCNAME=xulrunner
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
@@ -110,21 +109,19 @@ mkdir -p $PKGDEST
 
 # Decompress archive.
 cd $TMP &&
-rm -rf $PKGNAME-$VERSION &&
-tar xjf $CWD/$SRCNAME-$VERSION-source.tar.bz2 &&
-mv mozilla-$MAJOR_VERSION $PKGNAME-$VERSION &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  zcat $CWD/mozilla-xulrunner.plugins-path.diff.gz | patch -p1
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  zcat $CWD/mozilla-xulrunner.plugins-path.diff.gz | patch -p1
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  zcat $CWD/mozilla-xulrunner.plugins-path64.diff.gz | patch -p1
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
 # Fix permissions for building.
@@ -162,48 +159,12 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --with-default-mozilla-five-home=/usr/lib${LIBDIRSUFFIX}/xulrunner-$VERSION \
-  --enable-application=xulrunner \
-  --enable-optimize="$CFLAGS" \
-  --enable-system-cairo \
-  --enable-system-lcms \
-  --enable-system-sqlite \
-  --enable-strip \
-  --enable-safe-browsing \
-  --disable-gnomevfs \
-  --enable-gnomeui \
-  --disable-pedantic \
-  --disable-long-long-warning \
-  --disable-debug \
-  --disable-tests \
-  --disable-mailnews \
-  --disable-javaxpcom \
-  --disable-mochitest \
-  --disable-installer \
-  --disable-crashreporter \
-  --disable-updater \
-  --disable-ogg \
-  --with-system-zlib \
-  --with-system-jpeg \
-  --with-system-bz2 \
-  --with-system-nspr \
-  --with-system-nss \
+  --disable-static --enable-shared \
   || exit 1
 
 # Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-# Make sure we have proper dependencies for the embedding pkgconfig
-for pcfile in libxul-embedding-unstable.pc libxul-embedding.pc ;
-do
- if ! grep -q 'Requires:' $PKG/usr/lib${LIBDIRSUFFIX}/pkgconfig/$pcfile ; then
-	 echo "Requires: nspr >= 4.7.4" >> $PKG/usr/lib${LIBDIRSUFFIX}/pkgconfig/$pcfile ;
- fi;
-done;
-
-# Softlink for xulrunner-plugin.pc
-(cd $PKG/usr/lib${LIBDIRSUFFIX}/pkgconfig ; ln -sf mozilla-plugin.pc xulrunner-plugin.pc)
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -217,29 +178,15 @@ done;
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }
 
-# Deal with .info files.
-[ -e $PKG/usr/share/info ] && {
-  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
-  rmdir -p $PKG/usr/share
-  }
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
-}
-
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a LEGAL LICENSE README.txt \
+cp -a COPYING AUTHORS NEWS BUGS THANKS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
-# Install our doinst.sh
-cat $CWD/doinst.sh | sed "s,@VERSION@,${VERSION},g" \
-  | sed "s,@LIBDIR@,lib${LIBDIRSUFFIX},g" >> $PKG/install/doinst.sh || exit 1
-
 # Package meta files
-for FILE in slack-desc slack-required slack-conflicts slack-suggests
+for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
 do
   [ -e $CWD/$FILE ] && {
     cat $CWD/$FILE >>$PKG/install/$FILE

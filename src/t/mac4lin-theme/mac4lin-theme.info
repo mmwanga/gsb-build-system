@@ -1,7 +1,7 @@
 PKGNAME="mac4lin-theme"
 VERSION="1.0"
 HOMEPAGE="http://sourceforge.net/projects/mac4lin/"
-DOWNLOAD="http://downloads.sourceforge.net/project/mac4lin/mac4lin/ver.1.0/Mac4Lin_v1.0.tar.gz"
+DOWNLOAD="http://downloads.sourceforge.net/project/mac4lin/mac4lin/ver.1.0/Mac4Lin_Install_v1.0.zip"
 MD5SUM="6c6752e60e3ffab3b99e976e636b1472"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

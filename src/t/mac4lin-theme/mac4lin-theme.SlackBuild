@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
+BUILD=3
 VERSION=1.0
 
 # List any packages here that are required to build this package.
@@ -109,7 +109,8 @@ mkdir -p $PKGDEST
 # Decompress archive.
 mkdir -p $TMP/mac4lin &&
 cd $TMP/mac4lin &&
-tar xfz $CWD/Mac4Lin_v1.0.tar.gz &&
+unzip $CWD/Mac4Lin_Install_v1.0.zip &&
+rm -fr __MACOS &&
 cd Mac4Lin_Install_v1.0 || exit 1
 
 # Fix permissions for building.
