@@ -114,21 +114,17 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # Allow compiling against newer poppler (inkscape 0.47)
+  zcat $CWD/inkscape.poppler-0.12.2.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # Allow compiling against newer poppler (inkscape 0.47)
+  zcat $CWD/inkscape.poppler-0.12.2.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # Allow compiling against newer poppler (inkscape 0.47)
+  zcat $CWD/inkscape.poppler-0.12.2.diff.gz | patch -p1
 fi
-
-# Allow compiling against newer poppler (inkscape 0.46)
-# zcat $CWD/inkscape.poppler.diff.gz | patch -p1
-# Fix for bug in gtk+2 header (inkscape 0.46)
-# zcat $CWD/inkscape.gtkincludes.diff.gz | patch -p1
-# Fix broken libpng include (inkscape 0.46)
-# zcat $CWD/inkscape.earlypngheader.diff.gz | patch -p1
 
 # Fix permissions for building.
 chown -R root:root .
@@ -165,9 +161,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --disable-static \
-  --enable-shared \
-  --enable-inkboard \
   || exit 1
 
 # Build and install.
