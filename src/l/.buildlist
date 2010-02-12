@@ -18,9 +18,11 @@ libdiscid
 libmusicbrainz
 x264
 xvidcore
+lame
+mpeg2dec
+mpeg4ip
 faac
 faad2
-lame
 ffmpeg
 libdvbpsi5
 libdvdcss
@@ -30,8 +32,6 @@ libsndfile
 libsamplerate
 libdv
 libquicktime
-mpeg2dec
-mpeg4ip
 mjpegtools
 libmpcdec
 libopenraw
