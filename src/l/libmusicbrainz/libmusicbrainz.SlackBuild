@@ -105,12 +105,15 @@ rm -rf $PKG
 mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
+# gcc 4.4.x patch
+cp utils_private.patch $TMP/
 
 # Decompress archive.
 cd $TMP &&
 rm -rf $PKGNAME-$VERSION &&
 tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
+mv $TMP/utils_private.patch .
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
@@ -153,6 +156,9 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Build and install.
+# gcc 4.4.x patch
+patch -p0 < utils_private.patch
+
 cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr \
       -DCMAKE_C_FLAGS:STRING="$TUNE_CFLAGS" \
       -DCMAKE_CXX_FLAGS:STRING="$TUNE_CFLAGS" \
