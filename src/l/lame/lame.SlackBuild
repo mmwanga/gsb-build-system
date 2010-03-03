@@ -24,9 +24,8 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables
-BUILD=2
-VERSION=3.98.2
-TARVERSION=398-2
+BUILD=1
+VERSION=3.98.3
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -110,8 +109,8 @@ mkdir -p $PKGDEST
 # Decompress archive.
 cd $TMP &&
 rm -rf $PKGNAME-$VERSION &&
-tar xzf $CWD/$PKGNAME-$TARVERSION.tar.gz &&
-mv $PKGNAME-$TARVERSION $PKGNAME-$VERSION &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
+#mv $PKGNAME-$VERSION $PKGNAME-$VERSION &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.

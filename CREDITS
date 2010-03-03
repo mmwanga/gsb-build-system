@@ -1,12 +1,12 @@
 			      GNOME SlackBuild Credits
 			      ========================
 
-Developers
-----------
-chipster                        <chipster (at) gnomeslackbuild.org>
+Main Developers
+---------------
+Chip Cuccio                     <chipster (at) gnomeslackbuild.org>
 Darren 'Tadgy' Austin           <tadgy (at) gnomeslackbuild.org>
 fidesratio                      <steve (at) gnomeslackbuild.org>
-malloc                          <woodwardj (at) jaos.org>
+Jason "malloc" Woodward         <woodwardj (at) jaos.org>
 
 Developers Emeritus
 -------------------
@@ -16,15 +16,15 @@ Thorsten Johannvorderbrueggen   <thorsten.johannvorderbrueggen (at) t-online.de>
 
 Webmaster
 ---------
-chipster 			<chipster (at) gnomeslackbuild.org>
+Chip Cuccio 			<chipster (at) gnomeslackbuild.org>
 
 Artwork
 -------
 Gpl_Source			<fernando.flores.ortiz (at) gmail.com>
+Chip Cuccio 			<chipster (at) gnomeslackbuild.org>
 
 Past Contributors
 ------------------
-
 Ariszlo                         <ariszlo (at) gmail.com>
   * GSB Menus (patched for XFCE and KDE items)
 

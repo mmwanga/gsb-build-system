@@ -1,6 +1,7 @@
-Written by, and Copyright (c) 2007, 2008:
+Written by, and Copyright (c) 2007, 2008, 2009, 2010:
    Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>, Coventry, UK.
 Updated by Steve Kennedy <steve (at) gnomeslackbuild.org>
+Updated by Chip Cuccio <chipster (at) gnomeslackbuild.org>
 
 		 HOW TO INSTALL GSB: GNOME SlackBuild 2.26.3
                         (for Slackware/Slackware64 13.0)
