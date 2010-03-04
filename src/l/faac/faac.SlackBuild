@@ -29,7 +29,7 @@ VERSION=1.28
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="vim mpeg4ip"
+REQUIRED_PACKAGES="vim"
 
 # Build variables.
 TAG=${TAG:-gsb}

@@ -24,8 +24,8 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=7
-VERSION=0.9.15
+BUILD=1
+VERSION=0.9.21
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -114,25 +114,10 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # contains various upstream git patches for stability
-  zcat $CWD/pulseaudio.git-upstream-stability-fixes.diff.gz | patch -p1
-  # http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2009-1894
-  zcat $CWD/pulseaudio.CVE-2009-1894.diff.gz | patch -p1 
-  autoreconf 
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # contains various upstream git patches for stability
-  zcat $CWD/pulseaudio.git-upstream-stability-fixes.diff.gz | patch -p1
-  # http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2009-1894
-  zcat $CWD/pulseaudio.CVE-2009-1894.diff.gz | patch -p1 
-  autoreconf 
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # contains various upstream git patches for stability
-  zcat $CWD/pulseaudio.git-upstream-stability-fixes.diff.gz | patch -p1
-  # http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2009-1894
-  zcat $CWD/pulseaudio.CVE-2009-1894.diff.gz | patch -p1 
-  autoreconf 
 fi
 
 # Fix permissions for building.

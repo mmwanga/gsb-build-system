@@ -29,7 +29,7 @@ VERSION=0.10.16
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gstreamer gst-plugins-base faac faad2 libmms x264 xvidcore neon libmpcdec libmusicbrainz bzip2 sdl mpeg2dec wavpack libvorbis libtheora libiptcdata mjpegtools libdvdnav"
+REQUIRED_PACKAGES="gstreamer gst-plugins-base faad2 libmms x264 xvidcore neon libmpcdec libmusicbrainz bzip2 sdl mpeg2dec wavpack libvorbis libtheora libiptcdata libdvdnav"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -165,7 +165,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-neon \
   --enable-musepack \
   --enable-musicbrainz \
-  --enable-faac \
   --enable-faad \
   --enable-bz2 \
   --disable-examples \

@@ -20,8 +20,8 @@ x264
 xvidcore
 lame
 mpeg2dec
-mpeg4ip
-faac
+#mpeg4ip
+#faac
 faad2
 ffmpeg
 libdvbpsi5
@@ -32,7 +32,7 @@ libsndfile
 libsamplerate
 libdv
 libquicktime
-mjpegtools
+#mjpegtools
 libmpcdec
 libopenraw
 exempi

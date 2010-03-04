@@ -25,7 +25,7 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.3.43
+VERSION=2.4.21
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -128,7 +128,7 @@ fi
 
 # ntml patch: this patch adds NTML support to openldap and will allow evolution 
 # to connect to Microsoft Exchange Servers.
-zcat $CWD/evo-openldap.ntlm.diff.gz | patch -p1 
+ zcat $CWD/evo-openldap.ntlm.diff.gz | patch -p1 
 
 # Fix permissions for building.
 chown -R root:root .
