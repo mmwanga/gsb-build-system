@@ -354,7 +354,7 @@ Options:
                         as export the SlackBuild source into a publishable
                         tree. You will need to create a valid GPG-KEY. 
 
-  --keep-testing      	Normally the build script will remove all packages
+  --with-testing      	Normally the build script will remove all packages
                         found in the testing/ directory in order to prevent
 		        unwanted dependencies.  Use this switch to prevent the
                         build script from removing these packages.	
