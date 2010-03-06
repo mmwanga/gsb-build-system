@@ -84,7 +84,9 @@ sg3_utils
 libatasmart
 pycrypto
 #
-# alsa-plugins requires pulseaudo in a set
+# alsa-plugins requires pulseaudo (was in a set)
+bluez
+pulseaudio
 alsa-plugins
 #
 # pyorbit requires ORBit2 in a set

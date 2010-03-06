@@ -12,11 +12,11 @@ avahi
 nss-mdns
 gnome-vfs
 libgnome
-bluez
+#bluez
 libgnomecanvas
 libbonoboui
 gnome-keyring
-pulseaudio
+#pulseaudio
 libgnomeui
 gtk-engines
 libproxy
