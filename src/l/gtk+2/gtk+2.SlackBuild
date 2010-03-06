@@ -137,7 +137,7 @@ sed -i 's/sysconfdir)\\"/&      \\\n\t-DHOST=\\\"$(host_triplet)\\\"/g' \
  modules/input/Makefile.am || exit 1
 
 # The original config.{guess,sub} do not work on x86_64
-cp -p /usr/share/libtool/config.{guess,sub} .
+cp -p /usr/share/libtool/config/config.{guess,sub} .
 
 # Fix permissions for building.
 chown -R root:root .
