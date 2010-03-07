@@ -367,7 +367,7 @@ The following options are recognised:
 			  t       (GNOME themes)
 			  ooo     (OpenOffice.org)
 			  extra   (extra stuff)
-			  pasture  (old stuff)
+			  pasture (old stuff)
 
   --export-source       Export the build source tree into source/ under the
                         package destination directory. This is really only
