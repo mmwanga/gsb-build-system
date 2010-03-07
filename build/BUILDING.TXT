@@ -352,6 +352,22 @@ The following options are recognised:
                         tree. 
 
   --set=<set>           Build only a specific set.
+			The valid sets are:
+			
+			  l       (libs. needed to build &/or run GNOME & apps)
+			  a       (base GNOME system and apps)
+			  n       (networking & internet apps)
+			  ap      (GNOME applications)
+			  go      (GNOME office apps)
+			  d       (development tools)
+			  ac      (accessibility tools)
+			  ad      (administration tools)
+			  m       (mono tools - ugh)
+			  c       (compiz fustion stuff)
+			  t       (GNOME themes)
+			  ooo     (OpenOffice.org)
+			  extra   (extra stuff)
+			  pasture  (old stuff)
 
   --export-source       Export the build source tree into source/ under the
                         package destination directory. This is really only
