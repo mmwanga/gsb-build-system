@@ -2,7 +2,7 @@ These are packages I cannot, for whatever reason, build on a
 Slackware -current machine.  Any help here would be appreciated.
 ----------------------------------------------------------------
 
-*  gnome-scan: genric compile error
+*  gnome-scan: generic compile error
 *  gst-plugins-bad (mpeg4ip and faac):  mpeg4ip fails on compile.
    This code is abandoned, hence the bad" label :-/  faac depends
    on it, though.
@@ -10,3 +10,4 @@ Slackware -current machine.  Any help here would be appreciated.
    Perhaps the newer version pf boost would help?  Dunno.  There
    is a bootst_asio patch included, but I'm not sure if that's
    not working, etc.
+*  mjpegtools: generic compile error
