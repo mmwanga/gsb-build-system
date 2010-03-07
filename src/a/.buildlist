@@ -10,17 +10,9 @@ GConf
 gnome-mime-data
 avahi
 nss-mdns
-#gnome-vfs
-#libgnome
-#bluez
-#libgnomecanvas
 libbonoboui
-#gnome-keyring
-#pulseaudio
 libgnomeui
 gtk-engines
-#libproxy
-#libsoup
 gnome-doc-utils
 policykit-gnome
 gnome-desktop
@@ -47,8 +39,5 @@ gnome-control-center
 gnome-session
 gnome-python
 gnome-applets
-#libgnomecups
-#libgnomeprint
-#libgnomeprintui
 gnome-themes
 gsb-desktop

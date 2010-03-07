@@ -1,13 +1,9 @@
-#
 # glib2 replaces the slackware package
 glib2
-#
 # gtk+2 replaces the slackware package
 gtk+2
-#
 # alsa-lib replaces the slackware package
 alsa-lib
-#
 poppler
 libelf
 libnotify
@@ -20,8 +16,8 @@ x264
 xvidcore
 lame
 mpeg2dec
-#mpeg4ip
-#faac
+mpeg4ip
+faac
 faad2
 ffmpeg
 libdvbpsi5
@@ -32,7 +28,7 @@ libsndfile
 libsamplerate
 libdv
 libquicktime
-#mjpegtools
+mjpegtools
 libmpcdec
 libopenraw
 exempi
@@ -63,7 +59,6 @@ pangomm
 gtkmm
 gtksourceview2
 pygtksourceview
-#
 # python-dateutil requires setuptools in d set
 python-dateutil
 python-ldap
@@ -83,16 +78,13 @@ slib
 sg3_utils
 libatasmart
 pycrypto
-#
 # alsa-plugins requires pulseaudo (was in a set)
 bluez
 pulseaudio
 alsa-plugins
-#
 # pyorbit requires ORBit2 in a set
 pyorbit
 pygobject
-#
 # gtksourceview requires libgnomeprint (was in a set)
 libgnomecups
 gnome-vfs
@@ -101,7 +93,6 @@ libgnomecanvas
 libgnomeprint
 libgnomeprintui
 gtksourceview
-#
 clutter
 clutter-gtk
 libproxy

@@ -118,17 +118,14 @@ cd $PKGNAME-$VERSION || exit 1
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   zcat $CWD/boost_asio.patch.gz | patch -p1
-  zcat $CWD/help_paths.patch.gz | patch -p1
   zcat $CWD/url_show.patch.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   zcat $CWD/boost_asio.patch.gz | patch -p1
-  zcat $CWD/help_paths.patch.gz | patch -p1
   zcat $CWD/url_show.patch.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   zcat $CWD/boost_asio.patch.gz | patch -p1
-  zcat $CWD/help_paths.patch.gz | patch -p1
   zcat $CWD/url_show.patch.gz | patch -p1
 fi
 
