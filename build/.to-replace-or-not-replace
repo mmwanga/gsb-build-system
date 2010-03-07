@@ -1,0 +1,26 @@
+The following packages are part of Slackware -current, and
+we end up building & replaceming them anyway.  Could be
+legacy stuff, so I'm documenting them here, and will test
+a few builds *omitting* our versions to see if the "stock"
+Slackware packages work.  The less shit we replace, the
+better!
+------------------------------------------------------------
+
+alsa-lib
+glib2
+gmime
+gnome-icon-theme
+gst-plugins-base
+gst-plugins-good 
+gstreamer
+gtk+2
+libgsf
+libnotify
+libsamplerate
+libwnck
+libxklavier 
+notify-python
+pango
+poppler
+pygobject
+vte
