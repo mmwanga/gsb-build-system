@@ -93,11 +93,20 @@ alsa-plugins
 pyorbit
 pygobject
 #
-# gtksourceview requires libgnomeprint in a set
+# gtksourceview requires libgnomeprint (was in a set)
+libgnomecups
+gnome-vfs
+libgnome
+libgnomecanvas
+libgnomeprint
+libgnomeprintui
 gtksourceview
 #
 clutter
 clutter-gtk
+libproxy
+gnome-keyring
+libsoup
 libchamplain
 gmime
 gstreamer
