@@ -25,7 +25,7 @@
 
 # Package variables.
 BUILD=1
-VERSION=0.10.2a
+VERSION=0.10.2d
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -150,6 +150,7 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Build and install.
 make $MAKE_FLAGS &&
+cp default.slapt-getrc.i386 default.slapt-getrc.i486
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Our custom slapt-getrc file

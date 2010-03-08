@@ -24,8 +24,8 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
-VERSION=2.4.2
+BUILD=1
+VERSION=2.6
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -115,12 +115,15 @@ cd $PKGNAME-$VERSION || exit 1
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  zcat $CWD/libpng.patch.gz | patch -p0
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  zcat $CWD/libpng.patch.gz | patch -p0
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  zcat $CWD/libpng.patch.gz | patch -p0
 fi
 
 # Fix permissions for building.
