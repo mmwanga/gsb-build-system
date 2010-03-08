@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=3
+BUILD=4
 VERSION=0.8.0
 
 # List any packages here that are required to build this package.
@@ -117,14 +117,17 @@ if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # Fix includes to allow compiling with gcc 4.3.3
   zcat $CWD/gtkmathview.gcc43.diff.gz | patch -p1
+  zcat $CWD/abstract_logger.patch.gz | patch -p0
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # Fix includes to allow compiling with gcc 4.3.3
   zcat $CWD/gtkmathview.gcc43.diff.gz | patch -p1
+  zcat $CWD/abstract_logger.patch.gz | patch -p0
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # Fix includes to allow compiling with gcc 4.3.3
   zcat $CWD/gtkmathview.gcc43.diff.gz | patch -p1
+  zcat $CWD/abstract_logger.patch.gz | patch -p0
 fi
 
 # Fix permissions for building.

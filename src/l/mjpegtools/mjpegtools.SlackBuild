@@ -159,6 +159,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --disable-static --enable-shared \
   --program-prefix="" \
+  --with-x \
   --build=${ARCH}-${DISTRO}-linux \
   --host=${ARCH}-${DISTRO}-linux \
   || exit 1

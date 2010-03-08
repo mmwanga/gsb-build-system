@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables
-BUILD=1
+BUILD=2
 VERSION=3.98.3
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="ncurses nasm gtk+"
+REQUIRED_PACKAGES="ncurses gtk+"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -160,7 +160,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
-  --enable-nasm \
   || exit 1
 
 # Build and install.

@@ -27,12 +27,12 @@
 # work correctly on Slackware - the patches are all from him
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.8.2
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 glib2 zlib libpng fribidi expat libxml2 popt aspell enchant fontconfig libglade perl libjpeg gucharmap libbonoboui libgnomeui ORBit2 gnome-vfs freetype pango cairo poppler imagemagick libgsf libgnomeprintui goffice wv"
+REQUIRED_PACKAGES="boost gtk+2 glib2 zlib libpng fribidi expat libxml2 popt aspell enchant fontconfig libglade perl libjpeg gucharmap libbonoboui libgnomeui ORBit2 gnome-vfs freetype pango cairo poppler imagemagick libgsf libgnomeprintui goffice wv"
 
 # Build variables.
 TAG=${TAG:-gsb}
