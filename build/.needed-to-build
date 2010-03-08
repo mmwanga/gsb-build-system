@@ -4,4 +4,6 @@
 *  Install the t/ set (various package docs needs these)
 *  TONS of deps needed from x/ set.  May as well install the whole set
 *  All of l/ set
-*  gcharmap
+*  gcharmap for various gnome packs
+*  TCL (set) for postfix
+*  boost for abiwr0d
