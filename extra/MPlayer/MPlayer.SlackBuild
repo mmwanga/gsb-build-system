@@ -37,12 +37,12 @@
 #
 
 # Package variables
-VERSION=r29823
-BUILD=2
+VERSION="r30866"
+BUILD=1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libpng libjpeg libogg xvidcore a52dec faac faad2 mpeg4ip x264 libcddb libcdio libdvbpsi5 libdvdread libmms libsndfile libquicktime mpeg2dec libmpcdec libmad freetype sdl alsa-lib glib2 gtk+2 pulseaudio fontconfig libdvdnav subversion"
+REQUIRED_PACKAGES="libpng libjpeg libogg xvidcore a52dec faad2 x264 libcddb libcdio libdvbpsi5 libdvdread libmms libsndfile libquicktime mpeg2dec libmpcdec libmad freetype sdl alsa-lib glib2 gtk+2 pulseaudio fontconfig libdvdnav subversion"
 
 # Build variables
 TAG=${TAG:-gsb}
@@ -159,7 +159,7 @@ CODECSDIR=/usr/lib${LIBDIRSUFFIX}/codecs   # Where the WIN32 codecs are expected
 # MPlayer with the option USE_PATENTS=YES which will include potentially
 # patent-encumbered code.
 # ---------------------------------------------------------------------------
-USE_PATENTS=${USE_PATENTS:-"YES"}
+USE_PATENTS=${USE_PATENTS:-"NO"}
 
 # MPlayer will try to use one of the TrueType fonts present on the target
 # system for it's On Screen Display (OSD) font.
@@ -311,8 +311,8 @@ XPREF=$(pkg-config --variable=prefix x11) || true
 # Remove support for patent encumbered and possibly illegal code:
 if [ "$USE_PATENTS" != "YES" ]; then
   DO_PATENTED="--disable-libdvdcss-internal \
-               --disable-mp3lame --disable-mp3lame-lavc \
-               --disable-faac --disable-faac-lavc"
+               --disable-mp3lame --disable-mp3lame-lavc --disable-win32dll \
+               --disable-faac --disable-faac-lavc --disable-qtx"
 else
   DO_PATENTED=""
 fi
@@ -324,11 +324,12 @@ echo Building ...
             --mandir=/usr/man \
             --confdir=/etc/mplayer \
             --enable-gui \
+	    --disable-win32dll \
+	    --disable-qtx \
             --enable-menu \
             --enable-largefiles \
             --disable-arts \
             --codecsdir=${CODECSDIR} \
-            --win32codecsdir=${CODECSDIR} \
             --realcodecsdir=${CODECSDIR} \
             --language="${LANGUAGES}" \
             ${EXTRACONFIGUREOPTIONS} \
@@ -411,7 +412,8 @@ EOINS
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a $DOCS $PKG/usr/doc/$PKGNAME-$VERSION || true
 cp -a $CWD/$(basename $0) $PKG/usr/doc/$PKGNAME-$VERSION/$PKGNAME.SlackBuild
-mv $PKG/usr/doc/$PKGNAME-$VERSION/HTML-single $PKG/usr/doc/$PKGNAME-$VERSION/html
+# Broken:
+#mv $PKG/usr/doc/$PKGNAME-$VERSION/HTML-single $PKG/usr/doc/$PKGNAME-$VERSION/html
 # Save a sample of all configuration files:
 for i in etc/*.conf ; do
   cp $i $PKG/usr/doc/$PKGNAME-$VERSION/$(basename $i)-sample
