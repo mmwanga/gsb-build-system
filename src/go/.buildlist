@@ -14,7 +14,7 @@ wv
 abiword
 gtkmathview
 graphviz
-libgnomedb
+#libgnomedb
 abiword-docs
 libofx
 gnucash
