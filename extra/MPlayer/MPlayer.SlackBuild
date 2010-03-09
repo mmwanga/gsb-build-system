@@ -37,8 +37,8 @@
 #
 
 # Package variables
-VERSION="r30866"
-BUILD=1
+VERSION=r30866
+BUILD=9
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -112,7 +112,8 @@ done
   done
 }
 
-DOCS="AUTHORS Changelog Copyright LICENSE README DOCS/HTML-single DOCS/tech"
+#DOCS="AUTHORS Changelog Copyright LICENSE README DOCS/HTML-single DOCS/tech"
+DOCS="AUTHORS Changelog Copyright LICENSE README DOCS/tech"
 
 DEFSKIN=${DEFSKIN:-"Blue"}  # Download more skins at the following url:
 SKINVER=${SKINVER:-"1.7"}   # http://www.mplayerhq.hu/design7/dload.html
@@ -159,7 +160,7 @@ CODECSDIR=/usr/lib${LIBDIRSUFFIX}/codecs   # Where the WIN32 codecs are expected
 # MPlayer with the option USE_PATENTS=YES which will include potentially
 # patent-encumbered code.
 # ---------------------------------------------------------------------------
-USE_PATENTS=${USE_PATENTS:-"NO"}
+USE_PATENTS=${USE_PATENTS:-"YES"}
 
 # MPlayer will try to use one of the TrueType fonts present on the target
 # system for it's On Screen Display (OSD) font.
