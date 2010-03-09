@@ -465,7 +465,7 @@ fi;
 # Install our new package if necessary
 #
 INSTALLED=$(find_package_files "/var/log/packages" "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" \
-             "" "" "${PACKAGE_BUILD}${TAG}")
+             "" "${PACKAGE_BUILD}${TAG}" "") 
 if [ "$SKIP_BUILD" = "0" -o "${INSTALLED}" = "" ]; then
   # PAUSE ON ALL NEW PACKAGE
   # echo "Waiting." ; read ;
