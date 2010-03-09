@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=4
+BUILD=5
 VERSION=2.1.6
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="flac libogg gtk+2 faad2 wavpack faac libmad libvorbis mpeg4ip"
+REQUIRED_PACKAGES="flac libogg gtk+2 faad2 wavpack libmad libvorbis"
 
 # Build variables.
 TAG=${TAG:-gsb}

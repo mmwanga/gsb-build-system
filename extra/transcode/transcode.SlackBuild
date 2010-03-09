@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 BUILD=1
-VERSION=1.1.4
+VERSION=1.1.5
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -160,7 +160,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --disable-static \
   --enable-shared \
-  --enable-mjpegtools \
   --enable-v4l \
   --enable-libdv \
   --enable-ogg \
@@ -169,12 +168,10 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-gtk \
   --enable-libxml2 \
   --enable-freetype2 \
-  --enable-libquicktime \
   --enable-libmpeg3 \
   --enable-xvid \
   --enable-alsa \
   --enable-x264 \
-  --enable-faac \
   --enable-sdl \
   --enable-a52 \
   --enable-a52-default-decoder \

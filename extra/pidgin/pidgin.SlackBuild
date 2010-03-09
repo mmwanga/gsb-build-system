@@ -25,7 +25,7 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.6.4
+VERSION=2.6.6
 PIDGINENC=${PIDGINENC:-3.0}
 
 # List any packages here that are required to build this package.

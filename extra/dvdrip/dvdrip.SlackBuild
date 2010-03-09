@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ## Package variables.
-BUILD=2
+BUILD=3
 VERSION=0.98.10
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="transcode perl gtk+2 glib2 ffmpeg mjpegtools hal imagemagick gnome-perl"
+REQUIRED_PACKAGES="transcode perl gtk+2 glib2 ffmpeg hal imagemagick gnome-perl"
 
 # Build variables.
 TAG=${TAG:-gsb}
