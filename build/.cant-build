@@ -5,9 +5,5 @@ Slackware -current machine.  Any help here would be appreciated.
 *  gnome-scan: generic compile error
 *  gst-plugins-bad (mpeg4ip and faac):  mpeg4ip fails on compile.
    This code is abandoned, hence the bad" label :-/  faac depends
-   on it, though.
-*  abiword: (complains that it can't find '-lboost_system-mt')
-   Perhaps the newer version pf boost would help?  Dunno.  There
-   is a bootst_asio patch included, but I'm not sure if that's
-   not working, etc.
+   on it, though.  Tons of MM apps then depend on faac.
 *  mjpegtools: generic compile error
