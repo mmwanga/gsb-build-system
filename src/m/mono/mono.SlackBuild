@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=5
 VERSION=2.4.3
 
 # List any packages here that are required to build this package.
@@ -114,14 +114,17 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
+  #zcat $CWD/boehm-gc.patch.gz | patch -p1
   zcat $CWD/mono.configure.in.diff.gz | patch -p0
   libtoolize --force && autoreconf -vf
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
+  #zcat $CWD/boehm-gc.patch.gz | patch -p1
   zcat $CWD/mono.configure.in.diff.gz | patch -p0
   libtoolize -c --force && autoreconf -vf
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
+  #zcat $CWD/boehm-gc.patch.gz | patch -p1
   zcat $CWD/mono.configure.in.diff.gz | patch -p0
   libtoolize -c --force && autoreconf -vf
 fi
@@ -155,6 +158,7 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Configure.
+autoconf
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
