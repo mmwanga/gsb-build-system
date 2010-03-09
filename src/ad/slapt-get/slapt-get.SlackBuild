@@ -150,6 +150,7 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Build and install.
 make $MAKE_FLAGS &&
+#  temporary hack to get around missing/mis-named file during install
 cp default.slapt-getrc.i386 default.slapt-getrc.i486
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
