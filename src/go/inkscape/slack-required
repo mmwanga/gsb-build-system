@@ -16,3 +16,4 @@ libsigc++
 libxslt
 boost
 gsl
+fftw

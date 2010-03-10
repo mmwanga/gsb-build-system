@@ -29,7 +29,7 @@ VERSION=0.47
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 glib2 libjpeg libpng gnome-vfs pango cairo lcms popt libXft openssl libgc boost"
+REQUIRED_PACKAGES="gtk+2 glib2 fftw libjpeg libpng gnome-vfs pango cairo lcms popt libXft openssl libgc boost"
 
 # Build variables.
 TAG=${TAG:-gsb}
