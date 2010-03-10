@@ -1,6 +1,6 @@
 *  jdk (extra/)
 *  qt3 (extra/kde3-compat)
-*  Remove any trace of seamonkey!
+*  Remove any trace of seamonkey! Causes conflicts with builds that req. moz-xulunner (Evo-rss, etc.).
 *  Install the t/ set (various package docs needs these)
 *  TONS of deps needed from x/ set.  May as well install the whole set
 *  All of l/ set
