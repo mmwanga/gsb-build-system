@@ -1,3 +1,3 @@
-*  Update ooo/ set and rebuild (ugh)
 *  Look at dotfiles in build/ and address (blah)
 *  Audit all versions in all sets and update as appropriate (fuck me)
+*  Patch OO.o when l10n is fixed upstream (not a show-stopper)
