@@ -12,12 +12,18 @@ Pre-Build Run:
 	qt3 (extras/kde3-compat)
 	jdk (extras/jdk)
 
-Build Run:
-----------
+Build Run (this is where the build interrupts):
+-----------------------------------------------
 *  perhaps slapt-get shoule be installed and then
-   --update'd by our build   system early on?
+   --update'd by our build system early on?
    When running build, poppler failed because build system
    looks for package deps (qt in this case) then fires up
    slapt-get.  Fails obviously since slapt-get isn't present.
 
+*  l/python-dateutil requires d/setuptools
+
+*  l/bluez requires slack official bluez-libs & bluez-utils be removed
+   and interrupts the build.  Should this be automated?
+
+*  l/pulseaudio requires a/GConf
 
