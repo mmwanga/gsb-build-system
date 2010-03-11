@@ -1,9 +1,15 @@
 These are packages I cannot, for whatever reason, build on a
 Slackware -current machine.  Any help here would be appreciated.
 ----------------------------------------------------------------
+32bt:
 
 *  gnome-scan: generic compile error
 *  gst-plugins-bad (mpeg4ip and faac):  mpeg4ip fails on compile.
    This code is abandoned, hence the bad" label :-/  faac depends
    on it, though.  Tons of MM apps then depend on faac.
+   Temp workaraound is to disable mpeg4ip and faac :-/
 *  mjpegtools: generic compile error
+
+64bit:
+
+*  MPlayer: compile error
