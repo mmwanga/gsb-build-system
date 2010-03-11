@@ -1,7 +1,5 @@
 PKGNAME="MPlayer"
-VERSION="r30866"
+VERSION="20101103"
 HOMEPAGE="http://www.mplayerhq.hu/"
 MAINTAINER="Chip Cuccio"
 EMAIL="chipster@gnomeslackbuild.org"
-# The SlackBuild downloads the svn version from:
-#   svn://svn.mplayerhq.hu/mplayer/trunk

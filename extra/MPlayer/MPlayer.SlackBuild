@@ -37,8 +37,8 @@
 #
 
 # Package variables
-VERSION=r30866
-BUILD=9
+VERSION=20101103
+BUILD=1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -112,7 +112,6 @@ done
   done
 }
 
-#DOCS="AUTHORS Changelog Copyright LICENSE README DOCS/HTML-single DOCS/tech"
 DOCS="AUTHORS Changelog Copyright LICENSE README DOCS/tech"
 
 DEFSKIN=${DEFSKIN:-"Blue"}  # Download more skins at the following url:
@@ -210,7 +209,7 @@ src_checkout() {
      fi
      mkdir -p MPlayer-${VERSION} \
        && cd MPlayer-${VERSION} \
-       && svn checkout  --revision $REV svn://svn.mplayerhq.hu/mplayer/trunk . \
+       && svn checkout  svn://svn.mplayerhq.hu/mplayer/trunk . \
        && find . -type d -name '.svn' -depth | xargs rm -rf \
        && ([ "$USE_PATENTS" != "YES" ] && rm -rf libdvdcss || true) \
        && chown -R root:root . \
