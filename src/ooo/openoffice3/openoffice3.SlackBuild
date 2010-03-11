@@ -25,10 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=3.1.1.3
-WITH_LANGUAGES=${WITH_LANGUAGES:-"YES"}
-LANGUAGES="en-GB de fr it ar da el es fi he hi-IN hu ja ko \
-           nb nl pl pt ro ru sv th tr uk zh-CN zh-TW"
+VERSION=3.2.0.8
+WITH_LANGUAGES=${WITH_LANGUAGES:-"NO"}
+#LANGUAGES="en-US en-GB de fr it ar da el es fi he hi-IN hu ja ko \
+#           nb nl pl pt ro ru sv th tr uk zh-CN zh-TW"
+LANGUAGES=""
 
 # List any packages here that are required to build this package.
 REQUIRED_PACKAGES="gtk+2 libgnomeui neon libsndfile gnome-vfs boost libgnomeui mozilla-xulrunner nss sane zlib librsvg libjpeg jre nss jdk apache-ant"
@@ -119,7 +120,7 @@ mkdir -p $PKGDEST
 
 # Decompress archive.
 cd $TMP &&
-#tar xzf $CWD/ooo-build-$VERSION.tar.gz &&
+tar xzf $CWD/ooo-build-$VERSION.tar.gz &&
 cd ooo-build-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -164,28 +165,27 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Configure for GNOME SlackBuild
-#cp $CWD/GNOMESlackBuild*.conf.in ./distro-configs || exit 1
-#zcat $CWD/ooo-build.gsb.diff.gz | patch -p1 
+cp $CWD/GNOMESlackBuild*.conf.in ./distro-configs || exit 1
+zcat $CWD/ooo-build.gsb.diff.gz | patch -p1 
+
 # We need to temporarily spam a directory on the build machine
 mkdir -p /usr/share/openclipart
 [ -z "${ANT_HOME}" ] && . /etc/profile.d/ant.sh
-[ -f "/etc/profile.d/qt4.sh" ] && . /etc/profile.d/qt4.sh
-export QTDIR="${QT4DIR}"
-export QTINC="$QTDIR/include"
-export QTLIB="$QTDIR/lib"
+. /etc/profile.d/qt4.sh
+#export QTDIR="${QT4DIR}"
+export QT4DIR="${QT4DIR}"
+#export QTINC="$QTDIR/include"
+export QTI4NC="$QTDIR/include"
+#export QTLIB="$QTDIR/lib"
+#export QT4LIB="$QTDIR/lib"
 
-# Support multiple languages
-if [ "${WITH_LANGUAGES}" = "YES" ]; then
-  LANGUAGES="en-US ${LANGUAGES}"
-else
-  LANGUAGES="en-US"
-fi;
+LANGUAGES=""
 
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man \
   $CONFIGURE_FLAGS \
-  --with-lang="${LANGUAGES}" \
+  --with-lang="" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --with-distro=GNOMESlackBuild${LIBDIRSUFFIX} \
   --with-ant-home=/usr/lib${LIBDIRSUFFIX}/apache-ant \
@@ -196,6 +196,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-access \
   --enable-cairo \
   --disable-kde \
+  --disable-ldap \
+  --disable-openldap \
   --enable-kde4 \
   --enable-gtk \
   --with-system-cairo \
@@ -205,20 +207,20 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --with-system-boost \
   --with-system-mozilla \
   --disable-mono \
-  --with-binsuffix=3.1 \
+  --with-binsuffix=3.2 \
   --with-docdir=/usr/share/doc/openoffice.org \
   --with-gcc-speedup=ccache \
   --with-openclipart=/usr/share/openclipart \
   --with-drink=ale \
   || exit 1
 
-# Copy over downloaded sources, rather than run the download script
-#for i in $CWD/{ooo_*,ooo-cli*,ooo310*,lib*,biblio*,extras*,mdbtools*} ; do 
-#  if [ ! -f ./src/${i} ]; then
-#    echo "Linking to source tree: $(basename $i)"
-#    (cd src ; ln -fs $i )
-#  fi;
-#done; echo
+
+# To download the source packages, uncomment the "./download" line
+# below.  Or, if local copies of the source packages exist, uncomment
+# the next line which copies them in to place.  Do one or the other.
+#
+./download
+#cp -a $CWD/downloaded_resources/* ./src/
 
 # Build and Install
 make || exit 1
@@ -226,49 +228,23 @@ make || exit 1
 # Do a full install
 cd bin ; OODESTDIR=$PKG ./package-ooo || exit 1
 
-# Split out language packs
-if [ "${WITH_LANGUAGES}" = "YES" ]; then
-  cd $PKG ; 
-  for lang in ${LANGUAGES//en-US/} ; do
-    echo "Splitting langpack $lang."
-    (
-    mkdir -p $TMP/$PKGNAME-l10n-$lang ;
-    tar cf - --remove-files $(find . -name "README*$lang*" \
-                   -o -name "LICENSE*${lang}*" \
-		   -o -type d -name "${lang}" \
-		   -o -name "Lang_*${lang}.xba" \
-                   -o -name "Langpack-${lang}.xcu" \
-		   -o -name "*${lang}.oxt" ) | ( cd $TMP/$PKGNAME-l10n-$lang ; tar xf - )
-    mkdir -p $TMP/$PKGNAME-l10n-$lang/install &&
-    cat $CWD/l10n/slack-desc.openoffice3-l10n-${lang} > \
-      $TMP/$PKGNAME-l10n-$lang/install/slack-desc ;
-    # doinst dictionary installation
-    cat $CWD/doinst-l10n.sh | sed "s,@LIBDIRSUFFIX@,${LIBDIRSUFFIX},g" \
-      | sed "s,@LANG@,${lang//en-GB/en},g" > $TMP/$PKGNAME-l10n-$lang/install/doinst.sh ;
-    ( cd $TMP/$PKGNAME-l10n-$lang ;
-      makepkg -p -l y -c n $PKGDEST/$PKGNAME-l10n-${lang}-${VERSION//-/_}-noarch-${BUILD}${TAG}.txz)
-    )
-    rm -fr $TMP/$PKGNAME-l10n-$lang ;
-  done;
-fi;
-
 # Add /usr/share/pixmaps directory and link icons to it
 mkdir -p $PKG/usr/pixmaps
 ( cd $PKG/usr/pixmaps
   for APP in base calc draw impress math writer ; do
-    ln -sf /usr/share/icons/hicolor/48x48/apps/ooo-${APP}3.1.png . ;
+    ln -sf /usr/share/icons/hicolor/48x48/apps/ooo-${APP}3.2.png . ;
   done
 )
 
-# Make sure our GNOME icons specify that we're using 3.1 since both
-# ooo 3.1 and ooo 2.4 can exist on the same system at once
+# Make sure our GNOME icons specify that we're using 3.2 since both
+# ooo 3.2 and ooo 2.4 can exist on the same system at once
 for i in $PKG/usr/share/applications/*.desktop ;
 do 
-   sed -i '/^Name/s/$/ 3.1/g' $i; 
+   sed -i '/^Name/s/$/ 3.2/g' $i; 
 done;
 
 # Preserve files
-mv $PKG/etc/bash_completion.d/ooffice3.1.sh $PKG/etc/bash_completion.d/ooffice3.1.sh.new
+mv $PKG/etc/bash_completion.d/ooffice3.2.sh $PKG/etc/bash_completion.d/ooffice3.2.sh.new
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -277,7 +253,7 @@ mv $PKG/etc/bash_completion.d/ooffice3.1.sh $PKG/etc/bash_completion.d/ooffice3.
 # Link extra documentation into /usr/doc
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 for i in README README.html LICENSE LICENSE.html THIRDPARTYLICENSEREADME.html ; do
-  ln -s $PKG/usr/lib${LIBDIRSUFFIX}/ooo-3.1/$i $PKG/usr/doc/$PKGNAME-$VERSION ;
+  ln -s $PKG/usr/lib${LIBDIRSUFFIX}/ooo-3.2/$i $PKG/usr/doc/$PKGNAME-$VERSION ;
 done
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION

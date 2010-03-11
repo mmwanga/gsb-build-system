@@ -20,7 +20,6 @@
 --enable-minimizer
 --disable-gnome-vfs
 --enable-pdfimport
---with-openldap
 --with-system-openssl
 --with-system-icu
 --with-system-poppler
@@ -37,4 +36,4 @@
 --with-system-libsvg
 --with-system-cairo
 --with-system-sndfile
---with-binsuffix=3.1
+--with-binsuffix=3.2

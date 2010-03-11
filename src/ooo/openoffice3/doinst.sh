@@ -11,14 +11,14 @@ install_file() {
   # Otherwise, we leave the .new copy for the admin to consider...
 }
 
-install_file etc/bash_completion.d/ooffice3.1.sh.new
+install_file etc/bash_completion.d/ooffice3.2.sh.new
 
 # Install dictionary extensions for spellchecking
-if [ -x "usr/lib@LIBDIRSUFFIX@/ooo-3.1/program/unopkg" ]; then
+if [ -x "usr/lib@LIBDIRSUFFIX@/ooo-3.2/program/unopkg" ]; then
   UNOPKGTMP=$TMP/$$$$$$
-  if [ -f "usr/lib@LIBDIRSUFFIX@/ooo-3.1/share/extension/install/dict-@LANG@.oxt" ]; then
-    usr/lib@LIBDIRSUFFIX@/ooo-3.1/program/unopkg add --shared --shared \
-        usr/lib@LIBDIRSUFFIX@/ooo-3.1/share/extension/install/dict-@LANG@.oxt \
+  if [ -f "usr/lib@LIBDIRSUFFIX@/ooo-3.2/share/extension/install/dict-@LANG@.oxt" ]; then
+    usr/lib@LIBDIRSUFFIX@/ooo-3.2/program/unopkg add --shared --shared \
+        usr/lib@LIBDIRSUFFIX@/ooo-3.2/share/extension/install/dict-@LANG@.oxt \
         "-env:UserInstallation=file:///$UNOPKGTMP" 2>/dev/null 1>/dev/null
   fi;
   rm -rf $UNOPKGTMP
