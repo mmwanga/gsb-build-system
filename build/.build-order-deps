@@ -1,0 +1,6 @@
+When running through the build, it will stop because a dep
+needs to be built resides in another set, then the whole
+loop startes again.  Fucking annoying.  In the spirit of
+addressing that, I'm doc'ing those deps here.
+----------------------------------------------------------
+
