@@ -3,7 +3,7 @@ Slackware -current machine.  Any help here would be appreciated.
 ----------------------------------------------------------------
 32bt:
 
-*  gnome-scan: generic compile error
+*  gnome-scan: generic compile error - disabled in src/go/.buildlist
 *  gst-plugins-bad (mpeg4ip and faac):  mpeg4ip fails on compile.
    This code is abandoned, hence the bad" label :-/  faac depends
    on it, though.  Tons of MM apps then depend on faac.
