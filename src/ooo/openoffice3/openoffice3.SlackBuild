@@ -173,7 +173,7 @@ mkdir -p /usr/share/openclipart
 [ -z "${ANT_HOME}" ] && . /etc/profile.d/ant.sh
 . /etc/profile.d/qt4.sh
 export QT4DIR="${QT4DIR}"
-export QTI4NC="$QT4DIR/include"
+export QT4INC="$QT4DIR/include"
 #export QT4LIB="$QT4DIR/lib"
 
 LANGUAGES=""
