@@ -172,12 +172,9 @@ zcat $CWD/ooo-build.gsb.diff.gz | patch -p1
 mkdir -p /usr/share/openclipart
 [ -z "${ANT_HOME}" ] && . /etc/profile.d/ant.sh
 . /etc/profile.d/qt4.sh
-#export QTDIR="${QT4DIR}"
 export QT4DIR="${QT4DIR}"
-#export QTINC="$QTDIR/include"
-export QTI4NC="$QTDIR/include"
-#export QTLIB="$QTDIR/lib"
-#export QT4LIB="$QTDIR/lib"
+export QTI4NC="$QT4DIR/include"
+#export QT4LIB="$QT4DIR/lib"
 
 LANGUAGES=""
 
