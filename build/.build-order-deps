@@ -27,3 +27,9 @@ Build Run (this is where the build interrupts):
 
 *  l/pulseaudio requires a/GConf
 
+*  l/clutter requires testing/gobject-introspection
+
+*  a/notification-daemon requires (our) l/libnotify.  I
+   will install Pat's version to see if that works, then
+   we can modify the notification-daemon to use Pat's
+   and update our custom tagfiles.
