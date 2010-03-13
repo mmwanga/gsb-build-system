@@ -10,6 +10,7 @@ bin:ADD
 bzip2:ADD
 coreutils:ADD
 cpio:ADD
+cpufrequtils:ADD
 cryptsetup:ADD
 cups:ADD
 cxxlibs:ADD
