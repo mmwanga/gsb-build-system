@@ -41,7 +41,7 @@ man:ADD
 man-pages:ADD
 mc:SKP
 most:SKP
-mpeg123:SKP
+mpg123:SKP
 mpg321:SKP
 mysql:ADD
 nano:ADD
