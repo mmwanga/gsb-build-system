@@ -28,6 +28,7 @@ enchant:ADD
 esound:ADD
 exiv2:ADD
 expat:ADD
+fftw:ADD
 freetype:ADD
 fribidi:ADD
 fuse:ADD
@@ -35,6 +36,7 @@ gamin:ADD
 gd:ADD
 gdbm:ADD
 gegl:ADD
+giflib:ADD
 glib:ADD
 glib2:ADD
 glibc:ADD
@@ -44,7 +46,8 @@ gmime:ADD
 gmm:ADD
 gmp:ADD
 gnome-icon-theme:ADD
-gst-plugins-base:ADD
+gst-plugins-base:SKP
+gst-plugins-good:SKP
 gstreamer:ADD
 gtk+:ADD
 gtk+2:ADD
@@ -82,6 +85,7 @@ libidn:ADD
 libieee1284:ADD
 libjpeg:ADD
 libkarma:ADD
+liblastfm:SKP
 libmad:ADD
 libmcrypt:ADD
 libmcs:ADD
@@ -91,17 +95,20 @@ libmsn:ADD
 libmtp:ADD
 libnjb:ADD
 libnl:ADD
+libnotify:SKP
 libogg:ADD
 liboil:ADD
 libpng:ADD
 libraw1394:ADD
 librsvg:ADD
+libsamplerate:SKP
 libspectre:ADD
 libtermcap:ADD
 libtheora:ADD
 libtiff:ADD
 libungif:ADD
 libusb:ADD
+libv4l:SKP
 libvisual:ADD
 libvisual-plugins:ADD
 libvncserver:ADD
@@ -121,6 +128,7 @@ mpfr:ADD
 ncurses:ADD
 neon:ADD
 netpbm:ADD
+notify-python:SKP
 openexr:ADD
 pango:ADD
 parted:ADD

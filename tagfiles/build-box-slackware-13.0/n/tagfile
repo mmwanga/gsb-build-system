@@ -97,7 +97,7 @@ pssh:SKP
 pth:ADD
 rdist:SKP
 rp-pppoe:SKP
-rsync:SKP
+rsync:ADD
 rt61-firmware:ADD
 rt71w-firmware:ADD
 samba:ADD

@@ -39,6 +39,7 @@ lsscsi:ADD
 madplay:SKP
 man:ADD
 man-pages:ADD
+mpeg123:SKP
 mc:SKP
 most:SKP
 mpg321:ADD

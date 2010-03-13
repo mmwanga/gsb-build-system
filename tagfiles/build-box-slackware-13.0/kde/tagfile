@@ -13,9 +13,11 @@ kdeedu:SKP
 kdegames:SKP
 kdegraphics:SKP
 kdelibs:SKP
+kdelibs-experimental:SKP
 kdemultimedia:SKP
 kdenetwork:SKP
 kdepim:SKP
+kdepim-runtime:SKP
 kdepimlibs:SKP
 kdeplasma-addons:SKP
 kdesdk:SKP
@@ -26,6 +28,8 @@ kdevplatform:SKP
 kdewebdev:SKP
 koffice:SKP
 konq-plugins:SKP
+kopete-crypotgraphy:SKP
 ktorrent:SKP
 mplayerthumbs:SKP
+oxygen-icons:SKP
 skanlite:SKP

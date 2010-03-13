@@ -31,6 +31,7 @@ x11-ssh-askpass:ADD
 x3270:SKP
 xchat:SKP
 xfce:SKP
+xfce4-notifyd:SKP
 xfce4-power-manager:SKP
 xfractint:SKP
 xgames:SKP
