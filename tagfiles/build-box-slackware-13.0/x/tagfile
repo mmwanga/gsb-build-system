@@ -259,7 +259,7 @@ xf86-video-via:ADD
 xf86-video-vmware:ADD
 xf86-video-voodoo:ADD
 xf86-video-xgi:SKP
-xf86-video-xgip:SKP
+xf86-video-xgixp:SKP
 xf86bigfontproto:ADD
 xf86dga:ADD
 xf86dgaproto:ADD
