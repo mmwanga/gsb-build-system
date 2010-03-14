@@ -25,7 +25,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.18.7
 
 # List any packages here that are required to build this package.
@@ -176,7 +176,7 @@ sed -i -e 's#linux|linux-gnu|#linux|linux|#' config.sub || exit 1
 
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-CFLAGS="$CFLAGS -DHOST=\\\"$HOST\\\"" \
+CFLAGS="$CFLAGS" \
   ./configure --prefix=/usr \
   --sysconfdir=/etc \
   --enable-gtk-doc=no \
