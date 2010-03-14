@@ -175,8 +175,9 @@ autoreconf -vif
 sed -i -e 's#linux|linux-gnu|#linux|linux|#' config.sub || exit 1
 
 # Configure.
+# Removed by Tadgy for testing.  $HOST is never set, so this expands to nothing.
+# CFLAGS="$CFLAGS -DHOST=\\\"$HOST\\\"" \
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-CFLAGS="$CFLAGS" \
   ./configure --prefix=/usr \
   --sysconfdir=/etc \
   --enable-gtk-doc=no \
