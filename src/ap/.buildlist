@@ -40,8 +40,6 @@ system-config-printer
 hamster-applet
 padevchooser
 paman
-# ap/paprefs requires d/gconfmm
-gconfmm
 paprefs
 pavucontrol
 pavumeter
