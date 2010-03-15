@@ -1,6 +1,3 @@
-libffi
-gobject-introspection
-gir-repository
 gjs
 mutter
 gnome-shell

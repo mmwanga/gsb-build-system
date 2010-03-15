@@ -1,13 +1,14 @@
 # glib2 replaces the slackware package
 glib2
 # gtk+2 replaces the slackware package
-gtk+2
+#gtk+2
 # alsa-lib replaces the slackware package
 alsa-lib
 poppler
 libelf
-libnotify
-notify-python
+#  Slack ships these two packages as of 3/2010
+#libnotify
+#notify-python
 libgc
 a52dec
 libdiscid
@@ -16,6 +17,7 @@ x264
 xvidcore
 lame
 mpeg2dec
+#  these are broken
 #mpeg4ip
 #faac
 faad2
@@ -28,6 +30,7 @@ libsndfile
 libsamplerate
 libdv
 libquicktime
+# this is broken
 #mjpegtools
 libmpcdec
 libopenraw
@@ -59,7 +62,7 @@ pangomm
 gtkmm
 gtksourceview2
 pygtksourceview
-# python-dateutil requires setuptools in d set
+setuptools
 python-dateutil
 python-ldap
 vobject
@@ -78,21 +81,31 @@ slib
 sg3_utils
 libatasmart
 pycrypto
-# alsa-plugins requires pulseaudo (was in a set)
+gst-plugins-base
 bluez
+ORBit2
+policykit
+GConf
+avahi
+consolekit
 pulseaudio
 alsa-plugins
-# pyorbit requires ORBit2 in a set
 pyorbit
 pygobject
-# gtksourceview requires libgnomeprint (was in a set)
 libgnomecups
+libbonobo
+gnome-mime-data
 gnome-vfs
 libgnome
 libgnomecanvas
+libbonoboui
+gnome-vfs
 libgnomeprint
 libgnomeprintui
 gtksourceview
+libffi
+gobject-introspection
+gir-repository
 clutter
 clutter-gtk
 libproxy
@@ -103,3 +116,6 @@ gmime
 gstreamer
 vte
 gsl
+gdl
+libxml++
+bakery

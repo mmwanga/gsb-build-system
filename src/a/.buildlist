@@ -1,16 +1,8 @@
 rarian
-ORBit2
-libbonobo
-policykit
-consolekit
 devicekit
 devicekit-power
 devicekit-disks
-GConf
-gnome-mime-data
-avahi
 nss-mdns
-libbonoboui
 libgnomeui
 gtk-engines
 gnome-doc-utils

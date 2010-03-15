@@ -92,13 +92,13 @@ done
   }
 
   check_installed "bluez-libs" && {
-    echo "${0##*/}: Remove installed 'bluez-libs' package before build."
-    exit 1
+    echo "${0##*/}: Removing installed 'bluez-libs' package before build."
+    removepkg bluez-libs
   }
 
   check_installed "bluez-utils" && {
-    echo "${0##*/}: Remove installed 'bluez-utils' package before build."
-    exit 1
+    echo "${0##*/}: Removing installed 'bluez-utils' package before build."
+    removepkg bluez-utils
   }
 
   for REQ in $REQUIRED_PACKAGES; do

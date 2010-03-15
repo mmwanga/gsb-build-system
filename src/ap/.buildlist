@@ -2,7 +2,6 @@ bug-buddy
 yelp
 gnome-user-docs
 alacarte
-gst-plugins-base
 gst-plugins-good
 totem-pl-parser
 totem
@@ -41,6 +40,8 @@ system-config-printer
 hamster-applet
 padevchooser
 paman
+# ap/paprefs requires d/gconfmm
+gconfmm
 paprefs
 pavucontrol
 pavumeter
