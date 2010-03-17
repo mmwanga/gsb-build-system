@@ -20,7 +20,6 @@ gnome-panel
 libxklavier
 libgnomekbd
 zenity
-libwnck
 gvfs
 nautilus
 gnome-mount
