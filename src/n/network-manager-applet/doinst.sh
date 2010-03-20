@@ -11,7 +11,7 @@ install_file() {
   # Otherwise, we leave the .new copy for the admin to consider...
 }
 
-install_file $PKG/etc/dbus-1/system.d/nm-applet.conf.new
+install_file etc/dbus-1/system.d/nm-applet.conf.new
 
 # update desktop entries
 if [ -x usr/bin/update-desktop-database ]; then
