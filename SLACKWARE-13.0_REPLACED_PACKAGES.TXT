@@ -13,7 +13,7 @@
 # recommended, but not required if you do not plan to use certain applications,
 # or are dead set against replacing any Slackware provided  packages.
 #
-# Last updated: September 26, 2009 (stevek)
+# Last updated: March 20, 1010 (chipster)
 #
 
 *********************************************** 
@@ -23,8 +23,6 @@ alsa-lib:         ( > 1.0.20 required by pulseaudio 0.9.15 )
 bluez:            ( > 4.53 bluez replaces bluez-utils and bluez-libs, required
                     for gvfs support for Bluetooth, and other GNOME 2.28
                     bluetooth userspace applications) 
-glib2:            ( > 2.22 required by libgnome, gvfs, nautilus, and others) 
-gtk+2:            ( > 2.18 required by gnome-panel, among others ) 
 gstreamer:        ( >= 0.10.24 required by totem )
 libwnck:          ( 2.28.0 required by metacity )
 libxklavier:      ( 4.0 required by libgnomekbd 2.28, gnome-panel )
