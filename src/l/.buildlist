@@ -1,7 +1,3 @@
-# glib2 replaces the slackware package
-#glib2
-# gtk+2 replaces the slackware package
-#gtk+2
 # alsa-lib replaces the slackware package
 alsa-lib
 poppler
