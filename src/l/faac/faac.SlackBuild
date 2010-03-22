@@ -114,7 +114,7 @@ cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
-  echo "${h0##*/}: Applying any patches for $ARCH"
+  echo "${0##*/}: Applying any patches for $ARCH"
   # add mp4 support to faac
   cat $CWD/patches/001-keep-libtool-macros.patch | patch -p0 --verbose
   cat $CWD/patches/002-keep-libtool-macros.patch | patch -p0 --verbose
