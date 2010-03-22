@@ -1,0 +1,10 @@
+--- _configure.in	2010-03-21 06:18:01.547231065 +0100
++++ configure.in	2010-03-21 06:18:16.659446156 +0100
+@@ -3,6 +3,7 @@ AC_INIT(FAAC, 1.28, faac-dev@lists.sourc
+ AC_CONFIG_AUX_DIR(.)
+ AM_INIT_AUTOMAKE
+ 
++AC_CONFIG_MACRO_DIR([m4])
+ AM_CONFIG_HEADER(config.h)
+ 
+ AC_ARG_WITH( mp4v2,  [  --with-mp4v2            compile libmp4v2],WITHMP4V2=$withval, WITHMP4V2=yes)

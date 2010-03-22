@@ -116,13 +116,19 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  cat $CWD/patches/000-Makefile-am-keep-m4.patch | patch -p0 --verbose
+  cat $CWD/patches/001-adjust-nasm-version-switch.patch | patch -p0 --verbose
+  cat $CWD/patches/002-use-default-string-case-str.patch | patch -p0 --verbose
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  cat $CWD/patches/000-Makefile-am-keep-m4.patch | patch -p0 --verbose
+  cat $CWD/patches/001-adjust-nasm-version-switch.patch | patch -p0 --verbose
+  cat $CWD/patches/002-use-default-string-case-str.patch | patch -p0 --verbose
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  cat $CWD/patches/000-Makefile-am-keep-m4.patch | patch -p0 --verbose
+  cat $CWD/patches/001-adjust-nasm-version-switch.patch | patch -p0 --verbose
+  cat $CWD/patches/002-use-default-string-case-str.patch | patch -p0 --verbose
 fi
 
 # Fix permissions for building.
@@ -132,6 +138,18 @@ find . \
   -exec chmod 755 {} \; -o \
   \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
   -exec chmod 644 {} \;
+
+ln -s /usr/share/libtool/config/config.sub common/video/iso-mpeg4/config.sub --force
+ln -s /usr/share/libtool/config/config.guess common/video/iso-mpeg4/config.guess --force
+ln -s /usr/share/libtool/config/ltmain.sh common/video/iso-mpeg4/ltmain.sh --force
+ln -s /usr/share/automake-1.11/install-sh common/video/iso-mpeg4/install-sh --force
+ln -s /usr/share/automake-1.11/depcomp common/video/iso-mpeg4/depcomp --force
+ln -s /usr/share/automake-1.11/missing common/video/iso-mpeg4/missing --force
+
+aclocal
+automake --add-missing
+libtoolize
+autoreconf
 
 # Configure, Tuning, GCC and Make options.
 CONFIGURE_FLAGS=${GSB_CONFIGURE_FLAGS:-""}

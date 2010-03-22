@@ -1,0 +1,5 @@
+--- _Makefile.am	2010-03-21 06:19:01.537486671 +0100
++++ Makefile.am	2010-03-21 06:23:42.967109839 +0100
+@@ -1 +1,2 @@
++ACLOCAL_AMFLAGS=-I m4
+ SUBDIRS = include libfaac common frontend

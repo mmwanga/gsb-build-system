@@ -38,11 +38,11 @@
 
 # Package variables
 VERSION=20101103
-BUILD=1
+BUILD=3
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libpng libjpeg libogg xvidcore a52dec faad2 x264 libcddb libcdio libdvbpsi5 libdvdread libmms libsndfile libquicktime mpeg2dec libmpcdec libmad freetype sdl alsa-lib glib2 gtk+2 pulseaudio fontconfig libdvdnav subversion"
+REQUIRED_PACKAGES="faac mpeg4ip libpng libjpeg libogg xvidcore a52dec faad2 x264 libcddb libcdio libdvbpsi5 libdvdread libmms libsndfile libquicktime mpeg2dec libmpcdec libmad freetype sdl alsa-lib glib2 gtk+2 pulseaudio fontconfig libdvdnav subversion"
 
 # Build variables
 TAG=${TAG:-gsb}
@@ -324,8 +324,6 @@ echo Building ...
             --mandir=/usr/man \
             --confdir=/etc/mplayer \
             --enable-gui \
-	    --disable-win32dll \
-	    --disable-qtx \
             --enable-menu \
             --enable-largefiles \
             --disable-arts \

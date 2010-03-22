@@ -1,0 +1,19 @@
+--- _configure.in	2010-03-21 06:54:10.778313804 +0100
++++ configure.in	2010-03-21 06:54:50.719369616 +0100
+@@ -14,6 +14,7 @@ dnl Detect the canonical host and target
+ AC_CANONICAL_HOST
+ AC_CANONICAL_TARGET
+ 
++AC_CONFIG_MACRO_DIR([m4])
+ AM_INIT_AUTOMAKE([1.5 no-define])
+ 
+ dnl Checks for programs. 
+@@ -769,7 +770,7 @@ if test x$enable_mmx = xyes; then
+ 
+    if test x$USENASM = xtrue; then
+ 	AC_MSG_CHECKING(nasm version...)
+-	BILLSNASM_arg=`nasm -r | tr '.' ' '`
++	BILLSNASM_arg=`nasm -v | tr '.' ' '`
+         BILLSNASM_ret=`util/testnasm.sh $BILLSNASM_arg`
+ 	if test x$BILLSNASM_ret = x"yes"; then
+ 	   USENASM=true

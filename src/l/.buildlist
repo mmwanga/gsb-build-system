@@ -10,9 +10,8 @@ x264
 xvidcore
 lame
 mpeg2dec
-#  these are broken
-#mpeg4ip
-#faac
+mpeg4ip
+faac
 faad2
 ffmpeg
 libdvbpsi5
@@ -23,8 +22,7 @@ libsndfile
 libsamplerate
 libdv
 libquicktime
-# this is broken
-#mjpegtools
+mjpegtools
 libmpcdec
 libopenraw
 exempi

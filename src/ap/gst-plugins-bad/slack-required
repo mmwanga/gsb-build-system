@@ -1,6 +1,6 @@
 gstreamer
 gst-plugins-base
-#faac
+faac
 faad2
 libmms
 x264
@@ -15,5 +15,5 @@ wavpack
 libvorbis
 libtheora
 libiptcdata
-#mjpegtools
+mjpegtools
 libdvdnav

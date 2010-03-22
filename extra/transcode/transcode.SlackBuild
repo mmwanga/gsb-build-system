@@ -170,6 +170,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-freetype2 \
   --enable-libmpeg3 \
   --enable-xvid \
+  --enable-faac \
+  --enable-libquicktime \
   --enable-alsa \
   --enable-x264 \
   --enable-sdl \
