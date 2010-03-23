@@ -32,7 +32,7 @@ WITH_LANGUAGES=${WITH_LANGUAGES:-"NO"}
 LANGUAGES=""
 
 # List any packages here that are required to build this package.
-REQUIRED_PACKAGES="gtk+2 libgnomeui neon libsndfile gnome-vfs boost libgnomeui mozilla-xulrunner nss sane zlib librsvg libjpeg jre nss jdk apache-ant"
+REQUIRED_PACKAGES="gtk+2 libgnomeui neon libsndfile gnome-vfs boost libgnomeui mozilla-xulrunner nss sane zlib librsvg libjpeg jre nss jdk apache-ant rsync git"
 
 # We will want to build with gtk/kde and native widgets.
 KDE_REQUIRED_PACKAGES="kdebase-workspace kdelibs qt"
