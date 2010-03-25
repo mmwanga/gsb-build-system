@@ -13,7 +13,7 @@
 # recommended, but not required if you do not plan to use certain applications,
 # or are dead set against replacing any Slackware provided  packages.
 #
-# Last updated: March 20, 1010 (chipster)
+# Last updated: March 25, 2010 (chipster)
 #
 
 *********************************************** 
