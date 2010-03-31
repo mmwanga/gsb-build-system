@@ -1,11 +1,11 @@
-# THIS IS THE REQUIRED PACKAGES LIST FOR GSB GNOME 2.28.0
+# THIS IS THE REQUIRED PACKAGES LIST FOR GSB GNOME 2.30.0
 #
-# The following is a list of packages that can replace official Slackware 13.0
+# The following is a list of packages that can replace official Slackware 13.1
 # packages.
 #
 # Packages listed under 'Required' are Slackware packages that MUST be replaced
-# by corresponding GNOME SlackBuild versions in order to use GNOME 2.28.0 on
-# Slackware 13.0. Reasons for their replacement are given within brackets.
+# by corresponding GNOME SlackBuild versions in order to use GNOME 2.30.0 on
+# Slackware 13.1. Reasons for their replacement are given within brackets.
 #
 # Packages listed under 'Optional' are packages which replace official
 # Slackware packages, but their replacement are only necessary for added
@@ -21,14 +21,14 @@
 
 alsa-lib:         ( > 1.0.20 required by pulseaudio 0.9.15 )
 bluez:            ( > 4.53 bluez replaces bluez-utils and bluez-libs, required
-                    for gvfs support for Bluetooth, and other GNOME 2.28
+                    for gvfs support for Bluetooth, and other GNOME 2.30
                     bluetooth userspace applications) 
 gstreamer:        ( >= 0.10.24 required by totem )
-libwnck:          ( 2.28.0 required by metacity )
-libxklavier:      ( 4.0 required by libgnomekbd 2.28, gnome-panel )
+libwnck:          ( 2.30.0 required by metacity )
+libxklavier:      ( 4.0 required by libgnomekbd 2.30, gnome-panel )
 pango:            ( 1.26 required by gtkmm, and all the gnome C++ bindings, as
                     well as some GNOME office applications )
-pygobject:        ( 2.20 required by gnome-python 2.28, and GNOME python 
+pygobject:        ( 2.20 required by gnome-python 2.30, and GNOME python 
                     applications in general )
 
 *********************************************** 
@@ -37,7 +37,7 @@ pygobject:        ( 2.20 required by gnome-python 2.28, and GNOME python
 gst-plugins-base  ( > 0.10.24 rebuild against gvfs/gnomevfs to enable giosink,
                     required by sound-juicer) 
 gmime:            ( >= 2.4 required by totem and gnome-media )
-gnome-icon-theme  ( 2.28 has improved icon set and is a trivial upgrade )
+gnome-icon-theme  ( 2.30 has improved icon set and is a trivial upgrade )
 libgsf:           ( Slackware's libgsf lacks GNOME support; required for GNOME 
                     Office applications like Gnumeric)
 poppler:          ( 0.12 required by evince )

@@ -1,23 +1,23 @@
 
-GNOME SlackBuild 2.26.3 for Slackwarew 13.0 Upgrade to 
-  GNOME SlackBuild 2.28.0 for 13.0 <steve@gnomeslackbuild.org>
+GNOME SlackBuild 2.26.3 for Slackwarew 13.1 Upgrade to 
+  GNOME SlackBuild 2.30.0 for 13.1 <steve@gnomeslackbuild.org>
 
 This document explains how to upgrade from earlier versions of GNOME
-Slackbuild to GNOME SlackBuild 2.28.0 for Slackware 13.0.
+Slackbuild to GNOME SlackBuild 2.30.0 for Slackware 13.1.
 
 ----------------------------------------------------------------------------
 
 For details of important changes from GNOME SlackBuild 2.26.3 for Slackware
-13.0, see the file 'CHANGES_AND_HINTS.TXT'. 
+13.1, see the file 'CHANGES_AND_HINTS.TXT'. 
 
 Before you begin, I would strongly recommend making a backup of your system,
 or, if not the entire system, at least the /etc directory.  You might find that
 you need to refer to a few things after the upgrade process is complete. Back
 it up, or take your chances.
 
-You will first need to upgrade to Slackware 13.0.  For the detailed
+You will first need to upgrade to Slackware 13.1.  For the detailed
 instructions regarding this, please see Pat's own UPGRADE.TXT.  Follow the
-directions there first and upgrade your system fully to Slackware 13.0.  Once
+directions there first and upgrade your system fully to Slackware 13.1.  Once
 you have done that, then:
 
 
@@ -46,7 +46,7 @@ the above command.
 
 
 2.  Upgrade your required replacements.  These are found in:
-   SLACKWARE-13.0_REPLACED_PACKAGES.TXT.  It is recommended that your read this
+   SLACKWARE-13.1_REPLACED_PACKAGES.TXT.  It is recommended that your read this
 file to find out why certain standard Slackware packages need to be replaced. 
 
     $ removepkg bluez-libs bluez-utils
@@ -97,7 +97,7 @@ packages required as dependencies.
     Avahi, Bluez, or NetworkManager.  
 
 
-At this point you should be running GNOME SlackBuild 2.28.0 for Slackware 13.0.
+At this point you should be running GNOME SlackBuild 2.30.0 for Slackware 13.1.
 
 ---
 

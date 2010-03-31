@@ -4,7 +4,7 @@ Updated by Steve Kennedy <steve (at) gnomeslackbuild.org>
 Updated by Chip Cuccio <chipster (at) gnomeslackbuild.org>
 
 		 HOW TO INSTALL GSB: GNOME SlackBuild 2.26.3
-                        (for Slackware/Slackware64 13.0)
+                        (for Slackware/Slackware64 13.1)
                     =======================================
 
 Introduction
@@ -16,7 +16,7 @@ those pre-built packages, suitable for Slackware and Slackware64.
 
 Please give the CHANGES_AND_HINTS.TXT a quick read before installing.  Also, we
 still need to replace five standard Slackware packages.  Please see
-SLACKWARE-13.0_REPLACED_PACKAGES.TXT for more details about what needs to be
+SLACKWARE-13.1_REPLACED_PACKAGES.TXT for more details about what needs to be
 replaced, and why. 
 
 This document provides information on installing our pre-built GSB packages on
@@ -27,8 +27,8 @@ If you haven't yet, you should read about the GSB project before installing:
   <http://gnomeslackbuild.org/>
 
 This version of GSB is built and only supported on:
-  Slackware 13.0
-  Slackware64 13.0
+  Slackware 13.1
+  Slackware64 13.1
 
 If you are trying to use GSB on systems other than the above you *will*
 encounter problems.  If you are running a previous version of Slackware or
@@ -58,7 +58,7 @@ For Slackware:
 For Slackware64:
   http://www.slackware.org.uk/gsb/gsb64-current/gsb/ad/slapt-get-0.10.2-x86_64-1gsb.txz
 
-Update your /etc/slapt-get/slapt-getrc file to point to Slackware 13.0
+Update your /etc/slapt-get/slapt-getrc file to point to Slackware 13.1
 and GNOMESlackBuild repositories.  Make sure to add the :OFFICIAL tag to
 the end of your SOURCE= which points to the Slackware repository, and the
 tag :CUSTOM to the SOURCE= line which points to your GNOMESlackBuild
@@ -81,7 +81,7 @@ You can find a list of available mirrors from:
 3. Upgrade your packages:
       $ slapt-get --upgrade
 
-If you are installing on a fresh Slackware 13.0 system, then you will need
+If you are installing on a fresh Slackware 13.1 system, then you will need
 to grab a copy of slapt-get from the repository (above), and then update
 your /etc/slapt-get/slapt-getrc file.  Afterwards:
 
@@ -377,7 +377,7 @@ Once all the GSB packages are removed and you've done any housekeeping, you
 will need to re-install any Slackware/Slackware64 packages which were replaced
 by the GSB provided ones.  A complete list of standard Slackware/Slackware64
 packages GSB replaced during installation can be found in our
-SLACKWARE-13.0_REPLACED_PACKAGES.TXT.
+SLACKWARE-13.1_REPLACED_PACKAGES.TXT.
 
 If you are using slapt-get to re-install the packages, you will need to comment
 out any SOURCE= line(s) for GSB in your /etc/slapt-get/slapt-getrc file (if any
@@ -440,14 +440,14 @@ The following is a list of mirrors from which to download GSB.  Any of the
 mirrors can be used in slapt-get and each is synced with the master server at
 least once per day.
 
-For the IA32 (i586, i686 et al) version of GSB for Slackware 13.0:
+For the IA32 (i586, i686 et al) version of GSB for Slackware 13.1:
   <ftp://ftp.slackware.org.uk/gsb/gsb-current/>
   <http://www.slackware.org.uk/gsb/gsb-current/>
   <ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-current/>
   <http://slackware.rol.ru/gsb/gsb/gsb-current/>
   <http://get.gnomeslackbuild.org/gsb/gsb-current/>
 
-For the x86_64 (opteron, athlon64, et al) version of GSB for Slackware64 13.0:
+For the x86_64 (opteron, athlon64, et al) version of GSB for Slackware64 13.1:
   <ftp://ftp.slackware.org.uk/gsb/gsb64-current/>
   <http://www.slackware.org.uk/gsb/gsb64-current/>
   <ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb64-current/>
@@ -463,24 +463,24 @@ have been manually checked to insure they are alive and up to date, but we
 cannot guarantee how often they update or how long they will be available.  You
 can, of course, use your own favourite Slackware/Slackware64 mirror instead.
 
-Slackware/Slackware64 13.0 mirrors:
-(change slackware-13.0 to slackware64-13.0 as appropriate)
+Slackware/Slackware64 13.1 mirrors:
+(change slackware-13.1 to slackware64-13.1 as appropriate)
 
-  <ftp://ftp.slackware.at/slackware-13.0/>
-  <http://www.slackware.at/data/slackware-13.0/>
-  <ftp://ftp.slackware.org.uk/slackware/slackware-13.0/>
-  <http://www.slackware.org.uk/slackware/slackware-13.0/>
-  <ftp://slackware.oregonstate.edu/pub/slackware/slackware-13.0/>
-  <http://slackware.oregonstate.edu/slackware-13.0/>
-  <ftp://mirror.switch.ch/mirror/slackware/slackware-13.0/>
-  <http://mirror.switch.ch/ftp/mirror/slackware/slackware-13.0/>
-  <ftp://distro.ibiblio.org/pub/linux/distributions/slackware/slackware-13.0/>
-  <http://distro.ibiblio.org/pub/linux/distributions/slackware/slackware-13.0/>
-  <ftp://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-13.0/>
-  <http://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-13.0/>
-  <ftp://slackware.mirrors.tds.net/pub/slackware/slackware-13.0/>
-  <ftp://ftp.slackware.no/pub/linux/slackware/slackware-13.0/>
-  <http://slackware.rol.ru/slackware/slackware-13.0/>
+  <ftp://ftp.slackware.at/slackware-13.1/>
+  <http://www.slackware.at/data/slackware-13.1/>
+  <ftp://ftp.slackware.org.uk/slackware/slackware-13.1/>
+  <http://www.slackware.org.uk/slackware/slackware-13.1/>
+  <ftp://slackware.oregonstate.edu/pub/slackware/slackware-13.1/>
+  <http://slackware.oregonstate.edu/slackware-13.1/>
+  <ftp://mirror.switch.ch/mirror/slackware/slackware-13.1/>
+  <http://mirror.switch.ch/ftp/mirror/slackware/slackware-13.1/>
+  <ftp://distro.ibiblio.org/pub/linux/distributions/slackware/slackware-13.1/>
+  <http://distro.ibiblio.org/pub/linux/distributions/slackware/slackware-13.1/>
+  <ftp://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-13.1/>
+  <http://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-13.1/>
+  <ftp://slackware.mirrors.tds.net/pub/slackware/slackware-13.1/>
+  <ftp://ftp.slackware.no/pub/linux/slackware/slackware-13.1/>
+  <http://slackware.rol.ru/slackware/slackware-13.1/>
 
 
 Appendix C - gsb-desktop meta packages and sets
