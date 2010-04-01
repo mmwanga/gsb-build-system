@@ -1,20 +1,18 @@
-				SVN Branches
-				============
+				Source Code Branches
+				====================
 
-We currently maintain several SVN branches to produce our GSB releases.  The
-following is a list of our trees and the URIs which should be used to 'svn co'
-them.
+We currently maintain several code branches to produce our GSB releases.  The
+following is a list of our trees and the URIs which should be used.
 
-Bleeding edge 'gsb-current' tree:
-  http://svn.gnomeslackbuild.org/gsb/trunk
+Bleeding edge and main dev. tree is "master":
 
-  This tree contains the latest and most up to date GSB sources.  As such, at
+	<http://github.com/gnomeslackbuild/gsb-build-system>
+
+This tree contains the latest and most up to date GSB sources.  As such, at
 any time it may be broken (ie, will not build fully).  This tree is usually
 only for the latest Slackware or Slackware64 and may not work on other
 releases.
 
 For additional branches:
 
-  http://svn.gnomeslackbuild.org/gsb/branches/gsb-2.26.3_slack13.0
-  http://svn.gnomeslackbuild.org/gsb/branches/gsb-2.26.3
-  http://svn.gnomeslackbuild.org/gsb/branches/gsb-2.24.3
+	<http://github.com/gnomeslackbuild/gsb-build-system/branches>
