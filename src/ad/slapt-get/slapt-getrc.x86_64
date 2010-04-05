@@ -1,36 +1,65 @@
 # Working directory for local storage/cache.
+# This should really be /var/lib/slapt-get to follow the FHS...
 WORKINGDIR=/var/slapt-get
 
 # Exclude package names and expressions.
-# To exclude pre and beta packages, add this to the exclude: 
-#   [0-9\_\.\-]{1}pre[0-9\-\.\-]{1}
-EXCLUDE=^aaa_elflibs,^devs,^glibc-.*,^kernel-.*,^udev,.*-[0-9]+dl$,i[3456]86
+# These packages usually require special attention when upgrading, so they
+# should be excluded by default.
+EXCLUDE=^aaa_base,^aaa_elflibs,^kernel-.*,i[3456]86
 
-# Each SOURCE can be a assigned a priority level, by appending :{PRIORITY} to
-# the source URI.  For example:# 
-# SOURCE={url}:DEFAULT    is the default, lowest priority
-# SOURCE={url}:PREFERRED  assigns more weight to this source
-# SOURCE={url}:OFFICIAL   even more weight, used to denote official sources
-# SOURCE={url}:CUSTOM     highest priority, for your custom package source
-# Base url to directory with a PACKAGES.TXT.
-# This can point to any release, ie: 9.0, 10.0, current, etc.
-SOURCE=ftp://ftp.slackware.com/pub/slackware/slackware64-13.0/:OFFICIAL
-# Sources for the testing, extra, and pasture areas - if you use them.
-# SOURCE=ftp://ftp.slackware.com/pub/slackware/slackware64-13.0/extra/
-# SOURCE=ftp://ftp.slackware.com/pub/slackware/slackware64-13.0/testing/
-# SOURCE=ftp://ftp.slackware.com/pub/slackware/slackware64-13.0/pasture/
+# Slackware mirrors.
+# This is the primary mirror for Slackware.  Uncomment the SOURCEs for the
+# 'extra/', 'testing/' or 'pasture/' areas if you use packages from them.
+SOURCE=http://ftp.osuosl.org/pub/slackware/slackware64-13.1/:OFFICIAL
+#SOURCE=http://ftp.osuosl.org/pub/slackware/slackware64-13.1/extra/:OFFICIAL
+#SOURCE=http://ftp.osuosl.org/pub/slackware/slackware64-13.1/testing/:OFFICIAL
+#SOURCE=http://ftp.osuosl.org/pub/slackware/slackware64-13.1/pasture/:OFFICIAL
+# Below is a list of (some of the) other Slackware mirrors which can be used
+# instead of osuosl.  Any Slackware mirror can be used, but those listed here
+# have all been manually checked as working.  Add copies for the additional
+# extra/testing/pasture areas (like above) if you use them.
+#SOURCE=http://www.slackware.at/data/slackware64-13.1/:OFFICIAL
+#SOURCE=ftp://ftp.slackware.at/slackware64-13.1/:OFFICIAL
+#SOURCE=http://www.slackware.org.uk/slackware/slackware64-13.1/:OFFICIAL
+#SOURCE=ftp://ftp.slackware.org.uk/slackware/slackware64-13.1/:OFFICIAL
+#SOURCE=http://slackware.oregonstate.edu/slackware64-13.1/:OFFICIAL
+#SOURCE=ftp://slackware.oregonstate.edu/pub/slackware/slackware64-13.1/:OFFICIAL
+#SOURCE=http://mirror.switch.ch/ftp/mirror/slackware/slackware64-13.1/:OFFICIAL
+#SOURCE=ftp://mirror.switch.ch/mirror/slackware/slackware64-13.1/:OFFICIAL
+#SOURCE=http://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware64-13.1/:OFFICIAL
+#SOURCE=ftp://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware64-13.1/:OFFICIAL
+#SOURCE=http://slackware.mirrors.tds.net/pub/slackware/slackware64-13.1/:OFFICIAL
+#SOURCE=ftp://slackware.mirrors.tds.net/pub/slackware/slackware64-13.1/:OFFICIAL
+# Additional mirrors for Slackware can be found at:
+#  http://slackware.com/getslack/
+#  http://alphageek.dyndns.org/linux/slackware-mirrors.shtml
 
-# Additional mirrors for Slackware64 can be found at http://slackware.com/getslack/
-
-# GNOME SlackBuild Mirrors
-SOURCE=http://get.gnomeslackbuild.org/gsb64/gsb64-current/:CUSTOM
-#SOURCE=http://www.slackware.org.uk/gsb64/gsb64-current/:CUSTOM
-#SOURCE=ftp://ftp.slackware.org.uk/gsb64/gsb64-current/:CUSTOM
-#SOURCE=ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb64/gsb64-current/:CUSTOM
-#SOURCE=http://slackware.rol.ru/gsb/gsb64/gsb64-current/:CUSTOM
+# GNOME SlackBuild mirrors.
+# This is the primary mirror for GSB.  Uncomment the SOURCEs for the
+# 'extra/', 'testing/' or 'pasture/' areas if you use packages from them.
+SOURCE=http://mirrors.gnomeslackbuild.org/gsb64-2.30/:PREFERRED
+#SOURCE=http://mirrors.gnomeslackbuild.org/gsb64-2.30/extra/:PREFERRED
+#SOURCE=http://mirrors.gnomeslackbuild.org/gsb64-2.30/testing/:PREFERRED
+#SOURCE=http://mirrors.gnomeslackbuild.org/gsb64-2.30/pasture/:PREFERRED
+# Below is a list of (some of the) other GSB mirrors which can be used instead
+# of the one above.  Any GSB mirror can be used, but those listed here have
+# all been manually checked as working.  Add copies for the additional
+# extra/testing/pasture areas (like above) if you use them.
+#SOURCE=http://www.slackware.org.uk/gsb/gsb64-2.30/:PREFERRED
+#SOURCE=ftp://ftp.slackware.org.uk/gsb/gsb64-2.30/:PREFERRED
+#SOURCE=http://darkstar.ist.utl.pt/slackware/addon/gnomeslackbuild/gsb64-2.30/:PREFERRED
+#SOURCE=ftp://darkstar.ist.utl.pt/pub/slackware/addon/gnomeslackbuild/gsb64-2.30/:PREFERRED
+#SOURCE=http://mirror.switch.ch/ftp/mirror/gsb/gsb64-2.30/:PREFERRED
+#SOURCE=ftp://mirror.switch.ch/mirror/gsb/gsb64-2.30/:PREFERRED
+#SOURCE=http://mirrors.dotsrc.org/gsb/gsb64-2.30/:PREFERRED
+#SOURCE=ftp://mirrors.dotsrc.org/gsb/gsb64-2.30/:PREFERRED
+#SOURCE=http://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb64-2.30/:PREFERRED
+#SOURCE=ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb64-2.30/:PREFERRED
+#SOURCE=http://slackware.rol.ru/gsb/gsb/gsb64-2.30/:PREFERRED
+#SOURCE=http://get.gnomeslackbuild.org/gsb/gsb64-2.30/:PREFERRED
 
 # Packages on a CD/DVD.
-# SOURCE=file:///mnt/cdrom/:OFFICIAL
+#SOURCE=file:///mnt/cdrom/:CUSTOM
 
 # Home made packages.
-# SOURCE=file:///var/www/packages/:CUSTOM
+#SOURCE=file:///var/www/packages/:CUSTOM
