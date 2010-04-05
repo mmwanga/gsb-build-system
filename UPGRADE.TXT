@@ -1,9 +1,9 @@
 
 GNOME SlackBuild 2.26.3 for Slackwarew 13.1 Upgrade to 
-  GNOME SlackBuild 2.30.0 for 13.1 <steve@gnomeslackbuild.org>
+  GNOME SlackBuild 2.28.0 for 13.1 <steve@gnomeslackbuild.org>
 
 This document explains how to upgrade from earlier versions of GNOME
-Slackbuild to GNOME SlackBuild 2.30.0 for Slackware 13.1.
+Slackbuild to GNOME SlackBuild 2.28.0 for Slackware 13.1.
 
 ----------------------------------------------------------------------------
 
@@ -97,7 +97,7 @@ packages required as dependencies.
     Avahi, Bluez, or NetworkManager.  
 
 
-At this point you should be running GNOME SlackBuild 2.30.0 for Slackware 13.1.
+At this point you should be running GNOME SlackBuild 2.28.0 for Slackware 13.1.
 
 ---
 

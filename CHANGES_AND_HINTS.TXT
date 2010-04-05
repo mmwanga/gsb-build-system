@@ -1,6 +1,6 @@
 CHANGES AND HINTS
 =================
-This file documents the instructions for upgrading to GNOME SlackBuild 2.30.0
+This file documents the instructions for upgrading to GNOME SlackBuild 2.28.0
 for Slackware 13.1, and lists any packages which have been added, removed,
 renamed, and/or split during the development cycle from GSB 2.26.3 for
 Slackware 13.1, as well as note some potential "gotchas" that users can avoid
@@ -40,12 +40,12 @@ l/libchamlain: Added.
 ap/eog-plugins: Added.
 l/poppler: Added.  This poppler package is built against qt4 and glib (but not
   qt3-compat).  If you require the poppler qt3 bindings, then do not upgrade,
-  since this package only needs replacing if you want to use evince 2.30.0.
-a/gnome-icon-theme-2.30.0-i486-1gsb.txz: Added.  Upgrades Slackware package.
+  since this package only needs replacing if you want to use evince 2.28.0.
+a/gnome-icon-theme-2.28.0-i486-1gsb.txz: Added.  Upgrades Slackware package.
 l/gmime: Added.  This needs to replace the standard Slackware package, and used
-  by totem-pl-parser and GNOME 2.30 for gmime handling.  
+  by totem-pl-parser and GNOME 2.28 for gmime handling.  
 l/gstreamer: Added.  Required by libcanberra, gnome-control-panel, and GNOME
-  2.30 media backends.  
+  2.28 media backends.  
 a/libxklavier: Added.  This replaces the default Slackware package.  Library
   version are the same, so the upgrade shouldn't affect any applications
 
@@ -55,7 +55,7 @@ None.
 
 *** OTHER NOTABLE CHANGES AND HINTS ***
 
-- Where did my icons go?  GNOME 2.30 menus and buttons have been standardised
+- Where did my icons go?  GNOME 2.28 menus and buttons have been standardised
   across all applications to not display icons by default. Menu items with
 dynamic objects, including applications, files or bookmarks, and devices are the
 exception and can display an icon. This change will standardise the look and
