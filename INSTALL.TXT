@@ -3,7 +3,7 @@ Written by, and Copyright (c) 2007, 2008, 2009, 2010:
 Updated by Steve Kennedy <steve (at) gnomeslackbuild.org>
 Updated by Chip Cuccio <chipster (at) gnomeslackbuild.org>
 
-		 HOW TO INSTALL GSB: GNOME SlackBuild 2.28
+		 HOW TO INSTALL GSB: GNOME SlackBuild 2.30
                         (for Slackware/Slackware64 13.1)
                     =======================================
 
