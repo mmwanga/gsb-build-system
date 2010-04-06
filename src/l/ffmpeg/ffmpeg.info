@@ -1,7 +1,7 @@
 PKGNAME="ffmpeg"
 VERSION="r20450"
 HOMEPAGE="http://www.ffmpeg.org/"
+DOWNLOAD="http://sources.gnomeslackbuild.org/source/ffmpeg-r20450.tar.xz"
+MD5SUM="e566dd44e928abbbdf62b236e42e968d"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
-# The SlackBuild downloads the svn version from:
-#  svn://svn.mplayerhq.hu/ffmpeg/trunk

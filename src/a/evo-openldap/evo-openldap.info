@@ -1,7 +1,7 @@
 PKGNAME="evo-openldap"
 VERSION="2.4.21"
 HOMEPAGE="http://www.openldap.org/"
-DOWNLOAD="ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.21.tgz"
+DOWNLOAD="http://sources.gnomeslackbuild.org/source/openldap-2.4.21.tgz"
 MD5SUM="e7128c57b2bacd940e8906057c94ff26"
 MAINTAINER="Chip Cuccio"
 EMAIL="chipster@gnomeslackbuild.org"
