@@ -1,7 +1,7 @@
 PKGNAME="mozilla-xulrunner"
 VERSION="1.9.1.3"
 HOMEPAGE="http://www.mozilla.org"
-DOWNLOAD="http://releases.mozilla.org/pub/mozilla.org/xulrunner/releases/1.9.1.3/source/xulrunner-1.9.1.3-source.tar.bz2"
+DOWNLOAD="http://sources.gnomeslackbuild.org/source/xulrunner-1.9.1.3-source.tar.bz2"
 MD5SUM="ca167e69180ab1230aea0763da270a95"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
