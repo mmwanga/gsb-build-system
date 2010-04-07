@@ -1,11 +1,11 @@
 PKGNAME="openoffice-perl"
 VERSION="2.0"
 HOMEPAGE="http://www.cpan.org"
-DOWNLOAD="http://search.cpan.org/CPAN/authors/id/P/PM/PMQS/IO-Compress-Base-2.015.tar.gz http://search.cpan.org/CPAN/authors/id/P/PM/PMQS/Compress-Raw-Zlib-2.017.tar.gz http://search.cpan.org/CPAN/authors/id/P/PM/PMQS/IO-Compress-Zlib-2.015.tar.gz http://search.cpan.org/CPAN/authors/id/P/PM/PMQS/Compress-Zlib-2.015.tar.gz http://search.cpan.org/CPAN/authors/id/A/AD/ADAMK/Archive-Zip-1.25.tar.gz"
+DOWNLOAD="http://search.cpan.org/CPAN/authors/id/P/PM/PMQS/IO-Compress-Base-2.015.tar.gz http://search.cpan.org/CPAN/authors/id/P/PM/PMQS/Compress-Raw-Zlib-2.017.tar.gz http://search.cpan.org/CPAN/authors/id/P/PM/PMQS/IO-Compress-Zlib-2.015.tar.gz http://search.cpan.org/CPAN/authors/id/P/PM/PMQS/Compress-Zlib-2.015.tar.gz http://search.cpan.org/CPAN/authors/id/A/AD/ADAMK/Archive-Zip-1.28.tar.gz"
 MD5SUM="009813067e40c73c28c23fde8d9abfd5  IO-Compress-Base-2.015.tar.gz
 74ee681dd17a3a614741497daa09f4c7  Compress-Raw-Zlib-2.017.tar.gz
 22f3b677a6f1782713c8451966598d3f  IO-Compress-Zlib-2.015.tar.gz
 689ba2cc399b019d0bf76a0575c32947  Compress-Zlib-2.015.tar.gz
-1fbe16c73138e2594ceffa4a9273af0a  Archive-Zip-1.25.tar.gz"
+42c1b1ec20c9809a1f14b24f3a8b0595  Archive-Zip-1.28.tar.gz"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

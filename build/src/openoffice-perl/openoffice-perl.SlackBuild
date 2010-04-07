@@ -145,7 +145,7 @@ MODULE_LIST="IO-Compress-Base-2.015
 Compress-Raw-Zlib-2.017 
 IO-Compress-Zlib-2.015 
 Compress-Zlib-2.015 
-Archive-Zip-1.25"
+Archive-Zip-1.28"
 
 PERL_ARCH=$(perl -v | grep This | cut -d' ' -f 7)
 PERL_VERSION=$(perl -v | grep This | cut -d' ' -f4 | cut -dv -f2)
