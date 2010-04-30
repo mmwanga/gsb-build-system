@@ -95,7 +95,7 @@ libmsn:ADD
 libmtp:ADD
 libnjb:ADD
 libnl:ADD
-libnotify:SKP
+libnotify:ADD
 libogg:ADD
 liboil:ADD
 libpng:ADD
@@ -121,6 +121,7 @@ libxklavier:ADD
 libxml2:ADD
 libxslt:ADD
 libzip:ADD
+loudmouth:ADD
 lzo:ADD
 mhash:ADD
 mm:ADD
@@ -128,7 +129,7 @@ mpfr:ADD
 ncurses:ADD
 neon:ADD
 netpbm:ADD
-notify-python:SKP
+notify-python:ADD
 openexr:ADD
 pango:ADD
 parted:ADD

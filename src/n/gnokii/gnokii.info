@@ -1,7 +1,7 @@
 PKGNAME="gnokii"
 VERSION="0.6.28"
 HOMEPAGE="http://gnokii.org/"
-DOWNLOAD="http://sources.gnomeslackbuild.org/source/gnokii-0.6.28.tar.bz2"
+DOWNLOAD="http://www.gnokii.org/download/gnokii/0.6.x/gnokii-0.6.28.tar.bz2"
 MD5SUM="55d5567ea5d1ebf8cdc7ad662691fee1"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
