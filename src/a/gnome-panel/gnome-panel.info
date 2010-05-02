@@ -1,8 +1,8 @@
 PKGNAME="gnome-panel"
-VERSION="2.28.0"
+VERSION="2.30.0"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-panel/2.28/gnome-panel-2.28.0.tar.bz2"
-MD5SUM="9f0ea283d44bbcce67dc2e8a02fe9fad"
+DOWNLOAD="${GNOME_SERVER}/gnome-panel/2.30/gnome-panel-2.30.0.tar.bz2"
+MD5SUM="e17f25417b2c9011ed1c3ebd75706de6"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

@@ -1,4 +1,4 @@
-alsa-lib
-pulseaudio
 gtk+2
 libvorbis
+alsa-lib
+gstreamer

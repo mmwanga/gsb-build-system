@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
-VERSION=0.22
+BUILD=1
+VERSION=0.24
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="alsa-lib pulseaudio gtk+2 libvorbis"
+REQUIRED_PACKAGES="alsa-lib gstreamer gtk+2 libvorbis"
 
 # We need the freedesktop sound theme specification as well
 if [ ! -f ${CWD}/sound-theme-freedesktop-0.7.tar.bz2 ]; then
@@ -157,15 +157,8 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-# Check to make sure we have libtool-2 installed on the build machine 
-if [ ! -f /usr/lib${LIBDIRSUFFIX}/libltdl.so.7.2.0 ]; then
-  echo "Unable to find libltdl.so.7.2.0 for runtime.  Do you have libtool-2 installed?"
-  exit 1;
-fi;
-
 # Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS -L/usr/libexec/libtool2/lib -I/usr/libexec/libtool2/include" \
-CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
@@ -180,17 +173,10 @@ CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   || exit 1
 
 # Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+make $MAKE_FLAGS -j1 &&
+make $MAKE_FLAGS -j1 DESTDIR=$PKG install || exit 1
 
-# Grab our own runtime copy of libtool-2 from the build machine; this way we 
-# don't have to supply a full package for one runtime library.
-cd $PKG/usr/lib${LIBDIRSUFFIX} &&
-cp /usr/lib${LIBDIRSUFFIX}/libltdl.so.7.2.0 . &&
-ln -s libltdl.so.7.2.0 libltdl.so.7 || exit 1
-cd $TMP/$PKGNAME-$VERSION
-
-# install freedesktop specification
+# Install freedesktop specification
 tar xfj $CWD/sound-theme-freedesktop-0.7.tar.bz2 &&
 cd sound-theme-freedesktop-0.7 || exit 1
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
@@ -198,9 +184,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --mandir=/usr/man $CONFIGURE_FLAGS \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
-  --target=$ARCH-$DISTRO-linux \
-  && make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+  --target=$ARCH-$DISTRO-linux || exit 1
+make && make DESTDIR=$PKG install || exit 1
 cd $TMP/$PKGNAME-$VERSION
 
 # Extraneous docs
@@ -218,7 +203,7 @@ rm -fr $PKG/usr/share/doc
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }
 
-## Deal with .info files.
+# Deal with .info files.
 [ -e $PKG/usr/info ] && {
   rm -f $PKG/usr/info/dir
   gzip -9 $PKG/usr/info/*.info
