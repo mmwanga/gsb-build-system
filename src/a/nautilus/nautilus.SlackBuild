@@ -29,10 +29,8 @@ VERSION=2.30.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-#REQUIRED_PACKAGES="bzip2 dbus hal gamin gnome-desktop gnome-keyring gnome-menus 
-                   #gnome-vfs gtk+2 avahi libart_lgpl libbonobo libbonoboui libcroco 
-		   #libexif libglade libgnome libgnomecanvas libgnomeui libgsf libpng 
-		   #librsvg libxml2 openssl ORBit2 startup-notification GConf libunique" 
+REQUIRED_PACKAGES="bzip2 ntfs-3g gamin gnome-desktop libbonobo libbonoboui \
+                   libgnome ORBit2 GConf util-linux-ng libunique"
 
 # Build variables.
 TAG=${TAG:-gsb}
