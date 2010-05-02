@@ -1,8 +1,8 @@
 PKGNAME="libgnomecanvas"
-VERSION="2.26.0"
+VERSION="2.30.1"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/libgnomecanvas/2.26/libgnomecanvas-2.26.0.tar.bz2"
-MD5SUM="9bbc635e5ae70e63af071af74ba7e72f"
+DOWNLOAD="${GNOME_SERVER}/libgnomecanvas/2.30/libgnomecanvas-2.30.1.tar.bz2"
+MD5SUM="362ab7b81024b3c3b4a712e7df01b169"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
