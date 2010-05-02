@@ -1,8 +1,8 @@
 PKGNAME="libbonobo"
-VERSION="2.24.2"
+VERSION="2.24.3"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/libbonobo/2.24/libbonobo-2.24.2.tar.bz2"
-MD5SUM="5c7c5ea9c2f78a3c1e9ff2f1e27ad751"
+DOWNLOAD="${GNOME_SERVER}/libbonobo/2.24/libbonobo-2.24.3.tar.bz2"
+MD5SUM="b217cef6a187505290c66c5bf8225d38"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
