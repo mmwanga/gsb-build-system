@@ -1,4 +1,5 @@
 glib2
-libxml2
 gnutls
 net-snmp
+gnome-keyring
+libproxy
