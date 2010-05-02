@@ -24,8 +24,8 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables
-BUILD=3
-VERSION=0.13
+BUILD=1
+VERSION=0.14
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -157,6 +157,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
+  --docdir=/usr/doc/$PKGNAME-$VERSION \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
   --disable-static --enable-shared \
