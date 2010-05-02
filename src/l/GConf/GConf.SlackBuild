@@ -25,11 +25,11 @@
 
 # Package variables
 BUILD=1
-VERSION=2.28.0
+VERSION=2.28.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glib2 libxml2 ORBit2 popt zlib gtk+2 policykit openldap-client"
+REQUIRED_PACKAGES="glib2 libxml2 ORBit2 popt zlib gtk+2 openldap-client"
 
 # Build variables.
 TAG=${TAG:-gsb}
