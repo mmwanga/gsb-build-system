@@ -1,8 +1,8 @@
 PKGNAME="libgnome"
-VERSION="2.28.0"
+VERSION="2.30.0"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/libgnome/2.28/libgnome-2.28.0.tar.bz2"
-MD5SUM="5c7efe21dc28c137aa766a77a84c0c29"
+DOWNLOAD="${GNOME_SERVER}/libgnome/2.30/libgnome-2.30.0.tar.bz2"
+MD5SUM="1f85adc40b242b953c0e96ad017c2616"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

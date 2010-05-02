@@ -1,5 +1,3 @@
-glib2 >= 2.22-@ARCH@-1
-gtk+2 >= 2.18-@ARCH@-1
 GConf
 libxslt
 audiofile
