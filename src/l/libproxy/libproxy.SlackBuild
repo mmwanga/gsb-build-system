@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=0.3.1
+VERSION=0.4.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="python GConf"
+REQUIRED_PACKAGES="python GConf cmake"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -109,7 +109,7 @@ mkdir -p $PKGDEST
 # Decompress archive.
 cd $TMP &&
 rm -rf $PKGNAME-$VERSION &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -152,25 +152,22 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-# Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  --mandir=/usr/man $CONFIGURE_FLAGS \
-  --libdir=/usr/lib${LIBDIRSUFFIX} \
-  --build=$ARCH-$DISTRO-linux \
-  --target=$ARCH-$DISTRO-linux \
-  --disable-static \
-  --enable-shared \
-  --with-file \
-  --with-gnome \
-  --with-python \
-  --without-mozjs \
-  --without-networkmanager \
-  || exit 1
-
-# Build and install.
+# Run cmake
+cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr \
+      -DCMAKE_C_FLAGS:STRING="$TUNE_CFLAGS" \
+      -DCMAKE_CXX_FLAGS:STRING="$TUNE_CFLAGS" \
+      -DLIB_INSTALL_DIR:PATH=/usr/lib${LIBDIRSUFFIX} \
+      -DEXEC_INSTALL_PREFIX:PATH=/usr \
+     . || exit 1
+# Build and install
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+# Make sure we're using right lib path on x86_64, since it seems cmake
+# doesn't honour the LIB_INSTALL_DIR setting
+if [ "$ARCH" = "x86_64" -a -d $PKG/usr/lib ]; then
+ mv $PKG/usr/lib $PKG/usr/lib64 ;
+fi;
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
