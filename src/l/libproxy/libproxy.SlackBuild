@@ -115,13 +115,14 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # Make sure we install the pkg-config .pc file.
+  zcat $CWD/libproxy.pkgconfig.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # Make sure we install the pkg-config .pc file.
+  zcat $CWD/libproxy.pkgconfig.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
 # Fix permissions for building.
@@ -157,8 +158,7 @@ cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr \
       -DCMAKE_C_FLAGS:STRING="$TUNE_CFLAGS" \
       -DCMAKE_CXX_FLAGS:STRING="$TUNE_CFLAGS" \
       -DLIB_INSTALL_DIR:PATH=/usr/lib${LIBDIRSUFFIX} \
-      -DEXEC_INSTALL_PREFIX:PATH=/usr \
-     . || exit 1
+      -DEXEC_INSTALL_PREFIX:PATH=/usr ./ || exit 1
 # Build and install
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
