@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=1.4.3
+VERSION=1.6.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="GConf samba openobex obexftp fuse hal gnome-keyring dbus avahi httpd libgphoto2"
+REQUIRED_PACKAGES="GConf samba fuse GConf libgphoto2 libarchive avahi gnome-keyring bluez"
 
 # Build variables.
 TAG=${TAG:-gsb}
