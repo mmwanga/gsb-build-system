@@ -1,0 +1,5 @@
+      |-----handy-ruler------------------------------------------------------|
+eggdbus: eggdbus (GObject bindings for D-Bus)
+eggdbus:
+eggdbus: Required by polkit.
+eggdbus:
