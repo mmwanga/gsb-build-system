@@ -1,8 +1,8 @@
 PKGNAME="libgnomekbd"
-VERSION="2.28.2"
+VERSION="2.30.1"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/libgnomekbd/2.28/libgnomekbd-2.28.2.tar.bz2"
-MD5SUM="28dce813a6c76439a2136fbd2394a058"
+DOWNLOAD="${GNOME_SERVER}/libgnomekbd/2.30/libgnomekbd-2.30.1.tar.bz2"
+MD5SUM="9b828a4e35089d91b9ea16ddf981ff28"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
