@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.28.0
+VERSION=2.30.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 libgnomecanvas gnome-doc-utils perl libnotify"
+REQUIRED_PACKAGES="libnotify"
 
 # Build variables.
 TAG=${TAG:-gsb}
