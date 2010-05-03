@@ -1,8 +1,8 @@
 PKGNAME="evolution-webcal"
-VERSION="2.28.0"
+VERSION="2.28.1"
 HOMEPAGE="http://projects.gnome.org/evolution/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/evolution-webcal/2.28/evolution-webcal-2.28.0.tar.bz2"
-MD5SUM="7b506d06c56b579977d4ebc56463ff23"
+DOWNLOAD="${GNOME_SERVER}/evolution-webcal/2.28/evolution-webcal-2.28.1.tar.bz2"
+MD5SUM="c5bdefc1ad9128dab4fc2ec2e86ef07d"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
