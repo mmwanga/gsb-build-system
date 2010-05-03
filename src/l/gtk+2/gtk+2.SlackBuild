@@ -26,7 +26,7 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.20.0
+VERSION=2.20.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -132,7 +132,7 @@ zcat $CWD/gtk.pnglz.diff.gz | patch -p1 || exit 1
 
 # Do not flood the console or .xsession-errors with "trouble ahead"
 # warnings (most noticable when using Firefox and Flash):
-zcat $CWD/gtk.xid.nowarningflood.diff.gz | patch -p1 --verbose || exit 1
+zcat $CWD/gtk.xid.nowarningflood.diff.gz | patch -p1 || exit 1
 
 # Use /etc/gtk-2.0/$ARCH-slackware-linux instead of /etc/gtk-2.0/
 sed -i "s/GTK_SYSCONFDIR, \\\"gtk-2\\.0\\\"/GTK_SYSCONFDIR, \\\"gtk-2\\.0\\\", HOST/g" ./gtk/gtkrc.c ./gdk-pixbuf/gdk-pixbuf-io.c
@@ -142,7 +142,7 @@ gtk/Makefile.am \
 modules/input/Makefile.am
 
 # Use libpng-1.4.x:
-zcat $CWD/gtk.png14.diff.gz | patch -p1 --verbose || exit 1
+zcat $CWD/gtk.png14.diff.gz | patch -p1 || exit 1
 
 # Fix permissions for building.
 chown -R root:root .
