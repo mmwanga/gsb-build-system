@@ -23,13 +23,13 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-# Package variables.
-BUILD=2
-VERSION=0.10
+# Package variables
+BUILD=1
+VERSION=2.28.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="avahi lynx"
+REQUIRED_PACKAGES="glib2 libxml2 ORBit2 popt zlib gtk+2 openldap-client"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -106,10 +106,9 @@ mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
-## Decompress archive.
+# Decompress archive.
 cd $TMP &&
-rm -rf $PKGNAME-$VERSION &&
-tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
+tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -159,13 +158,28 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
-  --enable-avahi \
+  --disable-static \
+  --enable-shared \
+  --disable-gtk-doc \
+  --enable-gtk \
+  --with-openldap \
+  --disable-defaults-service \
   || exit 1
 
 # Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+# System-wide settings go here
+mkdir -p $PKG/etc/gconf/gconf.xml.system || exit 1
+
+# Preserve gconf settings
+mv $PKG/etc/gconf/2/path $PKG/etc/gconf/2/path.new || exit 1
+mv $PKG/etc/gconf/2/evoldap.conf $PKG/etc/gconf/2/evoldap.conf.new || exit 1
+
+# Only with --enable-defaults-service, requires policykit
+# mv $PKG/etc/dbus-1/system.d/org.gnome.GConf.Defaults.conf \
+  # $PKG/etc/dbus-1/system.d/org.gnome.GConf.Defaults.conf.new
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -191,7 +205,7 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a README LICENSE doc/README.html doc/style.css \
+cp -a AUTHORS COPYING NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
