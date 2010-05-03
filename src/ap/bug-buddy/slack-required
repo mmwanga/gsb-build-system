@@ -1,11 +1,2 @@
-gnome-menus
-gnome-vfs
-libglade
-libgnomeui
-gamin
 gnome-desktop
-gnome-keyring
-libgnomecanvas
-startup-notification
 libelf
-sqlite
