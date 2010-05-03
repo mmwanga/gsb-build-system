@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=1.1.15.4
+VERSION=1.2.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libicu libxslt curl sqlite libjpeg libpng gperf cairo fontconfig freetype glib2 gtk+2 gnome-vfs gstreamer libsoup"
+REQUIRED_PACKAGES="libicu libsoup sqlite gstreamer"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -115,13 +115,16 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # Fix WebCore/platform/text/TextBreakIterator.h for libicu 4.4.1.
+  zcat $CWD/webkit.icu.textbreakiterator.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # Fix WebCore/platform/text/TextBreakIterator.h for libicu 4.4.1.
+  zcat $CWD/webkit.icu.textbreakiterator.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # Fix WebCore/platform/text/TextBreakIterator.h for libicu 4.4.1.
+  zcat $CWD/webkit.icu.textbreakiterator.diff.gz | patch -p1
 fi
 
 # Fix permissions for building.
@@ -161,16 +164,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --target=$ARCH-$DISTRO-linux \
   --enable-shared \
   --disable-static \
-  --enable-fast-malloc \
-  --enable-svg \
-  --enable-svg-animation \
-  --enable-optimizations \
-  --enable-fast-malloc \
-  --enable-xslt \
-  --enable-xpath \
-  --enable-offline-web-applications \
-  --enable-database \
-  --enable-video \
   || exit 1
 
 # Build and install.
