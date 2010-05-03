@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.28.2
+VERSION=2.30.1.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="nautilus bzip2 tar gzip libgnomeui cdrtools"
+REQUIRED_PACKAGES="nautilus"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -161,6 +161,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static \
   --enable-shared \
   --disable-schemas-install \
+  --disable-packagekit \
   || exit 1
 
 # Build and install.

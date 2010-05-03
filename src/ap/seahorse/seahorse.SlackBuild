@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.28.1
+VERSION=2.30.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="openssh gpgme gnome-keyring libnotify libgnomeui dbus libgcrypt openldap-client libsoup"
+REQUIRED_PACKAGES="openssh gpgme gnome-keyring libnotify libgcrypt openldap-client libsoup"
 
 # Build variables.
 TAG=${TAG:-gsb}

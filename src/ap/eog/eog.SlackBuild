@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.28.2
+VERSION=2.30.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomeui libjpeg libexif gtk+2 pygtk python glib2 exempi lcms dbus python"
+REQUIRED_PACKAGES="gtk+2 exempi"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -165,10 +165,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 # Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-# keep clean for rarian
-rm -fr $PKG/var/lib/scrollkeeper
-rm -fr $PKG/var/lib/log
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

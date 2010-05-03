@@ -1,4 +1,6 @@
+GConf
+gstreamer
 gst-plugins-good 
-libgnomeui 
-xf86vidmodeproto 
-evolution-data-server
+gst-plugins-base
+libcanberra
+gnome-desktop

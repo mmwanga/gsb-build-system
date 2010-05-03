@@ -1,8 +1,8 @@
 PKGNAME="brasero"
-VERSION="2.28.3"
+VERSION="2.30.1"
 HOMEPAGE="http://projects.gnome.org/brasero/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/brasero/2.28/brasero-2.28.3.tar.bz2"
-MD5SUM="6ef5cc07325f1869577a85d15ac67eb3"
+DOWNLOAD="${GNOME_SERVER}/brasero/2.30/brasero-2.30.1.tar.bz2"
+MD5SUM="01c313f02939ee7dd277cafe11a5ef89"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

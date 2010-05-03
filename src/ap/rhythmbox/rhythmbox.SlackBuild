@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
-VERSION=0.12.6
+BUILD=1
+VERSION=0.12.8
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gst-plugins-base gstreamer libglade libbonoboui totem libnotify libgpod libgnomeui gnome-keyring libsexy pygtk brasero avahi gnome-media libgnomeui taglib libxml2 libmusicbrainz libmtp libsoup evolution-data-server gst-python"
+#REQUIRED_PACKAGES="gst-plugins-base gstreamer libglade libbonoboui totem libnotify libgpod libgnomeui gnome-keyring libsexy pygtk brasero avahi gnome-media libgnomeui taglib libxml2 libmusicbrainz libmtp libsoup evolution-data-server gst-python"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -161,22 +161,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static \
   --enable-shared \
   --disable-schemas-install \
-  --with-libnautilus-burn \
-  --with-database=tree \
-  --with-gnome-keyring  \
-  --with-mtp \
-  --with-ipod \
-  --with-hal \
   --disable-vala \
-  --enable-libnotify \
-  --enable-musicbrainz \
-  --enable-python \
-  --enable-fm-radio \
-  --with-mdns=avahi \
-  --enable-daap \
-  --enable-mmkeys \
-  --disable-vala \
-  --enable-browser-plugin \
+  --disable-browser-plugin \
   || exit 1
 
 # Build and install.

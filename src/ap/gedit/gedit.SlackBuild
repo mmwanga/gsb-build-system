@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.28.2
+VERSION=2.30.2
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="python aspell gtksourceview2 pygtksourceview enchant"
+REQUIRED_PACKAGES="gtksourceview libsoup enchant pygtksourceview python"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -160,7 +160,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static \
   --enable-shared \
   --disable-schemas-install \
-  --enable-python \
   || exit 1
 
 # Build and install.

@@ -1,9 +1,7 @@
 GConf
 libnotify
 devicekit-power
-libgnomeui
 libunique
 libxcb
-policykit-gnome
 libcanberra
 pm-utils

@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.28.3
+VERSION=2.30.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libnotify devicekit-power libgnomeui libunique libxcb policykit-gnome libcanberra pm-utils" 
+REQUIRED_PACKAGES="libnotify devicekit-power libunique libxcb libcanberra pm-utils" 
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -163,7 +163,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-docbook-docs \
   --disable-static \
   --enable-shared \
-  --with-dpms-ext \
   --enable-applets \
   --enable-hal \
   || exit 1
@@ -172,7 +171,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-# keep xdg in gnome
+# Keep xdg in gnome
 mkdir -p $PKG/etc/gnome &&
 mv $PKG/etc/xdg $PKG/etc/gnome || exit 1
 

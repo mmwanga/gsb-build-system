@@ -1,4 +1,5 @@
-aspell
-gtksourceview2
-pygtksourceview
+ispell
 enchant
+gtksourceview
+pygtksourceview
+libsoup
