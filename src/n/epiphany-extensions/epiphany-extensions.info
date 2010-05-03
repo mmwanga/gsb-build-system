@@ -1,8 +1,8 @@
 PKGNAME="epiphany-extensions"
-VERSION="2.28.1"
+VERSION="2.30.0"
 HOMEPAGE="http://projects.gnome.org/epiphany-extensions/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/epiphany-extensions/2.28/epiphany-extensions-2.28.1.tar.bz2"
-MD5SUM="565d32a8b94fd023f11a82dcef2bf634"
+DOWNLOAD="${GNOME_SERVER}/epiphany-extensions/2.30/epiphany-extensions-2.30.0.tar.bz2"
+MD5SUM="76dd4f6296a259d09554e693336187a2"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
