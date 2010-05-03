@@ -3,4 +3,4 @@ dbus
 glib2
 gstreamer
 gst-plugins-base
-libsndfile
+libusb
