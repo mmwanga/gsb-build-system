@@ -1,5 +1,4 @@
-gtk+2
 GConf
-avahi
 httpd
 mod_dnssd
+gnome-bluetooth
