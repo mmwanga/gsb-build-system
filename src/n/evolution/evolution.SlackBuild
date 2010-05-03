@@ -25,13 +25,13 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.28.2
+VERSION=2.30.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="evolution-data-server gnome-keyring gnome-vfs gtk+2 libsoup \
-libxml2 cyrus-sasl libgnomeui libgnome ORBit2 GConf libbonobo libbonoboui \
-libsoup libnotify gstreamer sqlite bluez NetworkManager libpst"
+REQUIRED_PACKAGES="GConf evolution-data-server gtkhtml gnome-keyring libsoup libgnome \
+                   libnotify gstreamer libunique seamonkey-solibs openldap-client \
+		   libcanberra libgweather gtkimageview libpst"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -155,23 +155,17 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Configure
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-# For static compilation of ntlm ldap
-LIBS="-lssl -lsasl2" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --mandir=/usr/man \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
   --disable-schemas-install \
-  --enable-nss=yes \
-  --enable-smime \
-  --enable-nntp \
-  --enable-python \
-  --enable-exchange \
-  --enable-pilot-conduits \
   --disable-mono \
-  --with-openldap=/usr/libexec/evo-openldap \
-  --with-static-ldap=yes \
+  --disable-nm \
+  --with-openldap \
+  --enable-python \
+  --enable-pst-import \
   --with-krb5=/usr \
   || exit 1
 
