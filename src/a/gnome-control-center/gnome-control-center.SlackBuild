@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=3
-VERSION=2.28.1
+BUILD=1
+VERSION=2.30.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gnome-doc-utils GConf metacity gnome-menus libgnomeui libgnome libbonobo libbonoboui ORBit2 gstreamer libgnomekbd libxklavier openssl dbus xscreensaver evolution-data-server alsa-lib gnome-settings-daemon"
+REQUIRED_PACKAGES="gnome-desktop metacity gnome-settings-daemon evolution-data-server"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -114,16 +114,10 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # Fix crash conditions in xrandr and aboutme applets
-  zcat $CWD/gnome-control-center-2.28.1.upstream_fixes.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # Fix crash conditions in xrandr and aboutme applets
-  zcat $CWD/gnome-control-center-2.28.1.upstream_fixes.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # Fix crash conditions in xrandr and aboutme applets
-  zcat $CWD/gnome-control-center-2.28.1.upstream_fixes.diff.gz | patch -p1
 fi
 
 # Fix permissions for building.
@@ -175,9 +169,9 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 # clean up empty mime file
 find $PKG/usr/share/mime -size 0 -type f -exec rm {} \;
 
-# move misplaced pkgconfig files
-mv $PKG/usr/share/pkgconfig/*.pc $PKG/usr/lib${LIBDIRSUFFIX}/pkgconfig
-rmdir -p $PKG/usr/share/pkgconfig
+# Move misplaced pkgconfig files
+#mv $PKG/usr/share/pkgconfig/*.pc $PKG/usr/lib${LIBDIRSUFFIX}/pkgconfig
+#rmdir -p $PKG/usr/share/pkgconfig
 
 # Preserve menu settings
 mkdir -p $PKG/etc/gnome/xdg/menus &&
@@ -189,10 +183,6 @@ mv $PKG/etc/xdg/autostart/gnome-at-session.desktop \
    $PKG/etc/gnome/xdg/autostart || exit 1
 rm -fr $PKG/etc/xdg
 rm -fr $PKG/usr/share/applications/mimeinfo.cache
-
-# keep clean for scrollkeeper
-rm -fr $PKG/var/lib/scrollkeeper
-rm -fr $PKG/var/lib/log
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
