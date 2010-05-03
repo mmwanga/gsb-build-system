@@ -19,5 +19,11 @@
 *********************************************** 
 -- REQUIRED Package Replacements --
 
-glib2:          ( 2.24.0 required by gtk+2-2.20.0 )
-gtk+2:          ( 2.20.0 required by gnome-panel and nautilus )
+glib2:             ( 2.24.0 required by gtk+2-2.20.0 )
+gtk+2:         	   ( 2.20.0 required by gnome-panel and nautilus )
+
+*********************************************** 
+-- OPTIONAL Package Replacements --
+
+bluez:		   ( 4.64 required by gvfs and gnome-bluetooth )
+gst-plugins-good:  ( 0.10.22 rebuilt against GConf for totem )
