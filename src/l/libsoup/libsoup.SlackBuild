@@ -161,7 +161,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static \
   --enable-shared \
   --enable-ssl \
-  --without-gnome \
+  --with-gnome \
   || exit 1
 
 # Build and install.
