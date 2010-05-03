@@ -29,7 +29,8 @@ VERSION=2.30.0
 
 # List any packages here that are required to build this package.  The list is
 # space seperated and case sensitive.
-REQUIRED_PACKAGES="GConf gnome-desktop gnome-menus libcanberra"
+REQUIRED_PACKAGES="gnome-desktop gnome-vfs startup-notification libwnck libcanberra gstreamer \
+                   evolution-data-server"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -160,22 +161,12 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-schemas-install \
   --disable-network-manager \
   --disable-polkit \
-  --enable-eds \
   || exit 1
 
 # Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-# Preserve files
-# mv $PKG/etc/dbus-1/system.d/org.gnome.ClockApplet.Mechanism.conf \
-#  $PKG/etc/dbus-1/system.d/org.gnome.ClockApplet.Mechanism.conf.new || exit 1
-# if we're not using polkit
 rmdir -p /etc/dbus-1/system.d
-
-# Keep clean for Scrollkeeper
-rm -fr $PKG/var/lib/scrollkeeper
-rm -fr $PKG/var/lib/log
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
