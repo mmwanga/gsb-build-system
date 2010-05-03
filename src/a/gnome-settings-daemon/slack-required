@@ -1,7 +1,2 @@
-libgnomeui
-gnome-panel
-pulseaudio
-gstreamer
-gst-plugins-base
 libgnomekbd
 libnotify
