@@ -181,6 +181,7 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 # Preserve configuration
 mv $PKG/etc/dbus-1/system.d/org.freedesktop.PolicyKit1.conf \
    $PKG/etc/dbus-1/system.d/org.freedesktop.PolicyKit1.conf.new ||exit 1
+cp $PKG/10-desktop-policy.pkla.sample $PKG/var/lib/polkit-1/localauthority/10-vendor.d || exit 1
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
