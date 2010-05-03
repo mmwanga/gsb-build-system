@@ -185,74 +185,16 @@ mkdir -p $PKGDEST/${PASTUREDIR} &&
 mkdir -p $PKGDEST/${TESTINGDIR} &&
 mkdir -p $PKGDEST/${PATCHESDIR} || exit 1
 
-# Make sure we have all required packages needed for building.
-for REQ in $REQUIRED_PACKAGES; do
-  check_installed "$REQ" || {
-    echo ; header "${0##*/}: Required build package '$REQ' not installed."
-    (
-
-    # Some required packages are available from Slackware, in the extra/ directory.
-    [ ! -d ${BASH_SOURCE%/*}/src/$REQ ] && {
-       echo "Package $REQ is found in the Slackware extra/ directory."
-       exit 1
-    }
-
-    cd ${BASH_SOURCE%/*}/src/$REQ &&
-    export PKGDEST=${TMP} || exit 1
-    # Get package version and build numbers from the package SlackBuild.
-    declare PACKAGE_$( egrep -m 1 "^VERSION=.*" $REQ.SlackBuild )
-    declare PACKAGE_$( egrep -m 1 "^BUILD=.*" $REQ.SlackBuild )
-    # Check that we got a version and build.
-    [ -z "$PACKAGE_VERSION" ] || [ -z "$PACKAGE_BUILD" ] && {
-      header "Failed to get VERSION or BUILD from '$PACKAGE.SlackBuild' " ; exit 1
-    }
-    download_package $REQ $AUTO_DOWNLOAD || exit $?
-    ./$REQ.SlackBuild $SLACKBUILD_ARGS 2>&1
-    )
-    ERR=${PIPESTATUS[0]}
-    [ "$ERR" != "0" ] && {
-      exit $ERR
-    }
-    upgradepkg --install-new $( find_package_files "${TMP}" \
-    "${REQ//+/\+}" "${PACKAGE_VERSION//-/_}" "" "" "\.txz" ) || {
-       header "Failed to install '$PACKAGE'." ; exit 1
-    }
-    rm $( find_package_files "${TMP}" "${REQ//+/\+}" \
-           "${PACKAGE_VERSION//-/_}" "" "" "\.txz" )
-  }
-done
-
 #========================================================================
-# REMOVE TEST PACKAGES
-# Make sure we have all removed all 'testing' packages before building
-[ -f $TESTINGSOURCE/.buildlist ] && {
-  TESTING_PACKAGES="$( egrep -v "^#|^$" $TESTINGSOURCE/.buildlist | cut -d'#' -f1 )" 
-}
-
-[ -n "$TESTING_PACKAGES" -a "$WITH_TEST_PACKAGES" = "1" ] || {
-for TESTPKG in $TESTING_PACKAGES; do
-find_package_files "/var/log/packages" "${TESTPKG//+/\+}" "" "" "" "" >/dev/null && {
-  echogreen "* "; echo "Removing testing package '$TESTPKG' and cleaning up files."
-  removepkg $( basename $( find_package_files "/var/log/packages" \
-  "${TESTPKG//+/\+}" "" "" "" "" ) ) >> $LOGSDIR/removepkg_packages.txt || exit 1
-  }
-done;
-}
-
-#========================================================================
-# MAIN SET LIST
+# MAIN LIST
 # 
-# The set list is read in from .setlist in the current directory, with
-# any comments and blank lines removed.
+# The set list is read in from buildlist.txt, with any comments and blank 
+# lines removed.
 #
 cd ${BUILDSOURCE}
-SETS=${SETS:-""}
-[ -f .setlist ] && {
-SETS="${SETS:-$( egrep -v "^#|^$" .setlist | cut -d'#' -f1 )}"
-}
-
-[ "$WITH_TEST_PACKAGES" = "1" ] && {
-  SETS="$SETS testing" ;
+BUILDLIST=${BUILDLIST:-""}
+[ -f buildlist.txt ] && {
+BUILDLIST="${BUILDLIST:-$( egrep -v "^#|^$" buildlist.txt | cut -d'#' -f1 )}"
 }
 
 #========================================================================
@@ -260,48 +202,15 @@ SETS="${SETS:-$( egrep -v "^#|^$" .setlist | cut -d'#' -f1 )}"
 #
 # Do the build.
 
-#========================================================================
-# LOOP THROUGH ALL SETS IN $SETS
-for SET in $SETS ; 
-do
-( 
-
-# Switch into our proper directory. 
-if [ "$SET" = "extra" ];
-  then
-  cd $EXTRASOURCE || exit 1;
-elif [ "$SET" = "testing" ];
-  then
-  cd $TESTINGSOURCE || exit 1;
-elif [ "$SET" = "pasture" ];
-  then
-  cd $PASTURESOURCE || exit 1;
-else
-  cd ${BUILDSOURCE}/$SET || exit 1;
-fi;
-
-echo ; header "* Building set $SET" ; echo ;
-
-# Read in our set build list
-BUILDLIST=${BUILDLIST:-""}
-[ -f .buildlist ] && { 
-  BUILDLIST="$( egrep -v "^#|^$" .buildlist | cut -d'#' -f1 )" 
-}
-# Strip ignored packages from build list
-for PKG in $IGNORED_PACKAGES; do 
-  BUILDLIST="${BUILDLIST//$PKG/}" 
-done;
-# Quit if no list.
-if [ -z "$BUILDLIST" ]; then
-  echo "No packages to build."
-  exit 1
-fi;
-
-#========================================================================
 # LOOP THROUGH ALL PACKAGES IN $BUILDLIST
-for PACKAGE in $BUILDLIST ;
+for listitem in $BUILDLIST ;
 do 
+
 (
+
+export SET="$(echo $listitem | cut -f1 -d/)"
+export PACKAGE="$(echo $listitem | cut -f2 -d/)"
+cd $BUILDSOURCE/$SET || exit 1
 
 # Build defaults.
 SKIP_BUILD=0
@@ -481,8 +390,8 @@ fi;
 
 # BUILDING PACKAGE
 ) || {
- echo ; echo ;
- echo "Failed building package '$PACKAGE' in set $SET."
+ #echo ; echo ;
+ #echo "Failed building package '$PACKAGE' in set $SET."
  echo "Check the build logs in: $LOGSDIR"
  exit 1
 }
@@ -534,15 +443,10 @@ if [ "${VERIFY}" = "1" ]; then
   echo "contents of ${SET} seem ok."
 fi;
 
-# Done our SETS loop
-)
-
 # Break out if there has been an error.
 [ "$?" != "0" ] && {
   exit 1
 }
-
-done
 
 #========================================================================
 # EXPORT SOURCE TREE
