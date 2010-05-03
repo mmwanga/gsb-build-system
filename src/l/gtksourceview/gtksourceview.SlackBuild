@@ -29,7 +29,7 @@ VERSION=2.10.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="python gtksourceview"
+REQUIRED_PACKAGES="gtk+2 libxml2"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -151,8 +151,6 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-# First grab a local copy of libtool
-( cp /usr/bin/libtool . )
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
@@ -161,7 +159,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
   --disable-static \
-  --disable-docs \
   --enable-shared \
   || exit 1
 
@@ -208,7 +205,7 @@ done
 
 # Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
+makepkg -p -l y -c n $PKGDEST/${PKGNAME}-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
 [ "$NOCLEANUP" = "0" ] && {

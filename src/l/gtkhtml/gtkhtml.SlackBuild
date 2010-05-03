@@ -25,16 +25,16 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.10.1
+VERSION=3.30.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="python gtksourceview"
+REQUIRED_PACKAGES="gtk+2 libsoup"
 
 # Build variables.
 TAG=${TAG:-gsb}
 ARCH=${ARCH:-i486}
-TUNE=${TUNE:-i686}
+TUNE=${TUNE:-i486}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}
@@ -151,8 +151,6 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-# First grab a local copy of libtool
-( cp /usr/bin/libtool . )
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
@@ -161,7 +159,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
   --disable-static \
-  --disable-docs \
   --enable-shared \
   || exit 1
 
@@ -181,19 +178,9 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }
 
-# Deal with .info files.
-[ -e $PKG/usr/share/info ] && {
-  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
-  rmdir -p $PKG/usr/share
-  }
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
-}
-
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a AUTHORS COPYING NEWS README \
+cp -a AUTHORS COPYING COPYING.LIB NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION

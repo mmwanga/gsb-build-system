@@ -1,0 +1,7 @@
+PKGNAME="webkit"
+VERSION="1.2.0"
+HOMEPAGE="http://webkitgtk.org"
+DOWNLOAD="http://webkitgtk.org/webkit-1.2.0.tar.gz"
+MD5SUM="b2bfcbc4bbf1d0a51f848cb54c21ee66"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

@@ -1,0 +1,12 @@
+      |-----handy-ruler------------------------------------------------------|
+libpst: libpst (library for accessing Outlook personal folders)
+libpst:
+libpst: libpst, part of the ol2mbox project, provides functions in library 
+libpst: form for accessing Outlook's Personal Folders, including utilities to
+libpst: to convert a pst file to mbox format. 
+libpst:
+libpst:
+libpst:
+libpst:
+libpst:
+libpst:

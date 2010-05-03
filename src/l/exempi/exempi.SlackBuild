@@ -162,7 +162,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static \
   --enable-shared \
   --with-boost=/usr \
-  --enable-unittest=yes \
+  --enable-unittest=no \
   || exit 1
 
 # Build and install.
