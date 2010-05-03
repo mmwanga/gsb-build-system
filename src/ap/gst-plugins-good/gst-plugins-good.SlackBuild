@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=0.10.18
+VERSION=0.10.22
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gstreamer liboil alsa-lib libogg libvisual pango libtheora libvorbis cdparanoia ffmpeg hal libjpeg libcdio cairo flac GConf libdv libpng libshout zlib taglib esound speex taglib wavpack libavc1394 flac libiec61883 libraw1394 pulseaudio slang"
+REQUIRED_PACKAGES="GConf gstreamer gst-plugins-base"
 
 # Build variables.
 TAG=${TAG:-gsb}
