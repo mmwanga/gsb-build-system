@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.28.2
+VERSION=2.30.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="GConf gnome-vfs libgnome libgnomeui libsoup avahi ORBit2 libbonobo libbonoboui libidl db44 nss gnome-keyring glib2 heimdal-libraries evo-openldap sqlite libgweather libical"
+REQUIRED_PACKAGES="libsoup seamonkey-solibs gnome-keyring heimdal-libraries libgweather seamonkey"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -167,11 +167,11 @@ LIBS="-lssl -lsasl2" \
   --enable-smime=yes \
   --enable-gnome-keyring=yes \
   --enable-calendar=yes \
-  --with-openldap=/usr/libexec/evo-openldap \
-  --with-static-ldap=yes \
+  --with-openldap \
   --with-krb5=/usr \
   --with-libdb=/usr \
   || exit 1
+#--with-openldap=/usr/libexec/evo-openldap \
 
 # Build and install.
 make $MAKE_FLAGS &&
