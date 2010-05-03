@@ -24,8 +24,8 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=11
-VERSION=0.3.0
+BUILD=1
+VERSION=0.4.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -118,23 +118,10 @@ if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  zcat $CWD/consolekit.x86_64.paths.diff.gz | patch -p1
+  #zcat $CWD/consolekit.x86_64.paths.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
 fi
-
-zcat $CWD/consolekit.vtfromdisplay.diff.gz | patch -p1 
-zcat $CWD/consolekit.allowsetidle.diff.gz | patch -p1 
-# http://bugs.freedesktop.org/show_bug.cgi?id=19020
-# http://bugs.freedesktop.org/show_bug.cgi?id=20471
-zcat $CWD/consolekit.dbusperms.diff.gz | patch -p1 
-zcat $CWD/consolekit.skipvalidation.diff.gz | patch -p1 
-# Fix directory leaks, bug #258685
-zcat $CWD/consolekit.dirleak.diff.gz | patch -p1 
-# Clean up at_console compat files, bug #257761
-zcat $CWD/consolekit.tagcleanup.diff.gz | patch -p1 
-# Fix inability to shutdown/restart
-zcat $CWD/consolekit.shutdown.diff.gz | patch -p1 
 
 # Fix permissions for building.
 chown -R root:root .
@@ -166,13 +153,13 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
+  ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
   --mandir=/usr/man $CONFIGURE_FLAGS \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
   --disable-static \
-   --enable-shared \
+  --enable-shared \
   --with-pid-file=/var/run/console-kit-daemon.pid \
   --disable-pam-module \
   || exit 1
@@ -190,8 +177,8 @@ mv $PKG/etc/ConsoleKit/seats.d/00-primary.seat \
 # PAM compatibility
 mkdir -p $PKG/usr/lib${LIBDIRSUFFIX}/ConsoleKit/run-session.d &&
 cp $CWD/pam-foreground-compat.ck $PKG/usr/lib${LIBDIRSUFFIX}/ConsoleKit/run-session.d/ &&
-chmod +x $PKG/usr/lib${LIBDIRSUFFIX}/ConsoleKit/run-session.d || exit 1
-# clean up empty pam module man page
+chmod +x $PKG/usr/lib${LIBDIRSUFFIX}/ConsoleKit/run-session.d/pam-foreground-compat.ck || exit 1
+# Clean up empty pam module man page
 rmdir -p $PKG/usr/man/man8 
 
 # Strip debugging symbols.
