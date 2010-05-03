@@ -1,8 +1,3 @@
-# Version: 1.0 - Do not remove this line!
-
-# Update new libraries
-ldconfig -r .
-
 # Preserve new configuration files
 function install_file() {
   # $1 = File to process
@@ -22,26 +17,4 @@ function install_file() {
   fi
 }
 
-install_file etc/PolicyKit/PolicyKit.conf.new
-install_file /etc/dbus-1/system.d/org.freedesktop.PolicyKit.conf.new
-
-# If the policykit group doesn't exist, add them
-if ! grep "^polkituser:" etc/group >/dev/null 2>&1; then
-  echo "polkituser:x:60:polkituser" >>etc/group
-fi
-if ! grep "^polkituser:" etc/gshadow >/dev/null 2>&1; then
-  echo "polkituser:*::polkituser" >>etc/gshadow
-fi
-
-# If the polkituser user doesn't exist, add it
-if ! grep "^polkituser:" etc/passwd >/dev/null 2>&1; then
-  echo "polkituser:x:60:60:polkituser:/var/run/PolicyKit-public:/bin/false" >>etc/passwd
-fi
-if ! grep "^polkituser:" etc/shadow >/dev/null 2>&1; then
-  echo "polkituser:*:9797:0:::::" >>etc/shadow
-fi
-
-# Allow hal to query the PolicyKit database to enforce privileges
-if ! usr/bin/polkit-auth --user haldaemon --explicit | grep -q 'org.freedesktop.policykit.read'; then
-   usr/bin/polkit-auth --user haldaemon --grant 'org.freedesktop.policykit.read'
-fi
+install_file etc/dbus-1/system.d/org.freedesktop.PolicyKit1.conf.new

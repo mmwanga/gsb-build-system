@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=9
-VERSION=0.9
+BUILD=1
+VERSION=0.96
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="dbus libxslt"
+REQUIRED_PACKAGES="eggdbus"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -110,30 +110,23 @@ mkdir -p $PKGDEST
 # Decompress archive.
 cd $TMP &&
 rm -rf $SRCNAME-$VERSION &&
-tar xzf $CWD/$SRCNAME-$VERSION.tar.gz &&
+tar xjf $CWD/$SRCNAME-$VERSION.tar.bz2 &&
 cd $SRCNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # Allows polkit to work with shadow authfw, patch from Andrew Psaltis.
+  # There are caveats, please see: 
+  #      http://lists.freedesktop.org/archives/polkit-devel/2010-March/000299.html
+  zcat $CWD/polkit-1-shadow.diff.gz | patch -p1 
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  zcat $CWD/polkit-1-shadow.diff.gz | patch -p1 
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  zcat $CWD/polkit-1-shadow.diff.gz | patch -p1 
 fi
-
-# Compability with ck 0.3 api
-zcat $CWD/policykit-ck-api-change.patch.gz | patch -p1 || exit 1
-# Fix memory leak
-zcat $CWD/policykit-entry-leak.patch.gz | patch -p1 || exit 1
-zcat $CWD/policykit-src_kit_kit-string.patch.gz | patch -p1 || exit 1
-# Allow read access to dbus 
-zcat $CWD/policykit-dbus-policy.patch.gz | patch -p1 || exit 1
-# Remove unneeded include pam header
-zcat $CWD/policykit-pamdisable.patch.gz | patch -p1 || exit 1
 
 # Fix permissions for building.
 chown -R root:root .
@@ -163,47 +156,31 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
+  ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
   --mandir=/usr/man $CONFIGURE_FLAGS \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
+  --disable-static \
+  --enable-shared \
   --with-authfw=shadow \
-  --disable-selinux \
-  --disable-tests \
   --enable-man-pages \
   --disable-gtk-doc \
+  --disable-introspection \
+  --with-os-type=slackware \
   || exit 1
 
 # Build 
 make $MAKE_FLAGS -j2 &&
 
-# Install hal relevant policykit policies for compatibility
-mkdir -p $PKG/usr/share/PolicyKit/policy || exit 1
-cp $CWD/hal/*.policy $PKG/usr/share/PolicyKit/policy || exit 1
-
-# Make sure our polkit user/group are available before "installing"
-if ! grep "^polkituser:" /etc/group >/dev/null 2>&1; then
-  /usr/sbin/groupadd -g 60 polkituser || exit 1
-fi;
-if ! grep "^polkituser:" /etc/passwd >/dev/null 2>&1; then
-  /usr/sbin/useradd -u 60 -g 60 -s /bin/false -d /var/run/PolicyKit-public polkituser || exit 1
-fi;
-
 # Install
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-# Install a nice default PolicyKit.conf
-install -m 644 $CWD/PolicyKit.conf $PKG/etc/PolicyKit || exit 1
-
-# Preserve settings
-mv $PKG/etc/PolicyKit/PolicyKit.conf $PKG/etc/PolicyKit/PolicyKit.conf.new || exit 1
-mv $PKG/etc/dbus-1/system.d/org.freedesktop.PolicyKit.conf \
-    $PKG/etc/dbus-1/system.d/org.freedesktop.PolicyKit.conf.new || exit 1
+# Preserve configuration
+mv $PKG/etc/dbus-1/system.d/org.freedesktop.PolicyKit1.conf \
+   $PKG/etc/dbus-1/system.d/org.freedesktop.PolicyKit1.conf.new ||exit 1
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
