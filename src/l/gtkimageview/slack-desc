@@ -1,0 +1,12 @@
+         |-----handy-ruler------------------------------------------------------|
+libunique: libunique (Single Instance Library)
+libunique: 
+libunique: libunique is a library for writing single instance application. If 
+libunique: you launch a single instance application twice, the second instance 
+libunique: will either just quit or will send a message to the running instance.  
+libunique: Unique makes it easy to write this kind of applications, by providing 
+libunique: a base class, taking care of all the IPC machinery needed to send 
+libunique: messages to a running instance, and also handling the startup 
+libunique: notification side. 
+libunique: 
+libunique: 
