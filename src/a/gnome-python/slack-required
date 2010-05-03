@@ -1,13 +1,5 @@
-GConf
 python
-pygobject >= 2.20-@ARCH@-1
-pygtk
-pyorbit
-glib2
-gtk+2
-libgnome
-libgnomeui
-libbonobo
-libbonoboui
-libgnomecanvas
+GConf
 gnome-vfs
+libgnome
+libgnomecanvas
