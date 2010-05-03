@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.28.3
+VERSION=2.30.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="bluez obexd libunique libnotify"
+REQUIRED_PACKAGES="GConf bluez libunique libnotify nautilus-sendto"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -172,7 +172,7 @@ make $MAKE_FLAGS -j1 DESTDIR=$PKG install || exit 1
 mkdir -p $PKG/etc/gnome &&
 mv $PKG/etc/xdg $PKG/etc/gnome || exit 1
 
-# minor cleanups
+# Minor cleanups
 rm -fr $PKG/usr/share/applications/mimeinfo.cache
 ( cd $PKG/usr/lib${LIBDIRSUFFIX}/pkgconfig ; ln -s gnome-bluetooth-1.0.pc gnome-bluetooth.pc )
 
