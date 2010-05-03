@@ -1,8 +1,0 @@
-PKGNAME="gtksourceview"
-VERSION="1.8.5"
-HOMEPAGE="http://www.gnome.org"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gtksourceview/1.8/gtksourceview-1.8.5.tar.bz2"
-MD5SUM="de67df2944c1cccbc2d0b4a738e11050"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
