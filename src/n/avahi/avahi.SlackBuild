@@ -24,17 +24,18 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables
-BUILD=1
-VERSION=0.6.45
+BUILD=10
+VERSION=0.6.25
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="boost"
+REQUIRED_PACKAGES="glib2 desktop-file-utils dbus gtk+2 python pygtk dbus-python expat \
+                   libglade pygobject gdbm libdaemon"
 
 # Build variables.
 TAG=${TAG:-gsb}
 ARCH=${ARCH:-i486}
-TUNE=${TUNE:-i486}
+TUNE=${TUNE:-i686}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}
@@ -108,7 +109,6 @@ mkdir -p $PKGDEST
 
 # Decompress archive.
 cd $TMP &&
-rm -rf $PKGNAME-$VERSION &&
 tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
@@ -152,22 +152,62 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
+# We need to make sure we have avahi added to /etc/passwd before configure
+if ! grep -q "^avahi:" /etc/passwd; then
+  /usr/sbin/useradd -u 85 -s /bin/false -d /dev/null avahi || exit 1
+  /usr/sbin/useradd -u 88 -s /bin/false -d /dev/null avahi-autoipd || exit 1
+fi 
+# We need to make sure we have avahi added to /etc/group before configure
+if ! grep -q "^avahi:" /etc/group; then
+  /usr/sbin/groupadd -g 85 avahi || exit 1
+fi 
+
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  --mandir=/usr/man $CONFIGURE_FLAGS \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
+  --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
-  --disable-python \
   --disable-static \
-  --enable-libpst-shared \
+  --enable-shared \
+  --disable-monodoc \
+  --disable-mono \
+  --enable-python-dbus \
+  --enable-pygtk\
+  --enable-glib \
+  --enable-dbus \
+  --enable-python \
+  --enable-gtk \
+  --disable-qt3 \
+  --disable-qt4 \
+  --enable-core-docs \
+  --with-avahi-user=avahi \
+  --with-avahi-group=avahi \
+  --with-autoipd-user=avahi-autoipd \
+  --with-autoipd-group=avahi-autoipd \
+  --with-distro=slackware \
+  --program-prefix= \
+  --program-suffix= \
   || exit 1
 
 # Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-# Clear development docs
-rm -fr $PKG/usr/share
+# Setup up autoipd dirs
+mkdir -p ${PKG}/var/run/avahi-daemon
+mkdir -p ${PKG}/var/run/avahi-autoipd 
+
+# Remove extraneous icons from gnome menus
+rm -fr $PKG/usr/share/applications/bssh.desktop
+rm -fr $PKG/usr/share/applications/bvnc.desktop
+
+# Preserve previously installed configuations.
+( cd $PKG/etc/rc.d
+  for i in avahidaemon avahidnsconfd
+  do
+    mv rc.$i rc.$i.new
+  done)
+mv $PKG/etc/dbus-1/system.d/avahi-dbus.conf $PKG/etc/dbus-1/system.d/avahi-dbus.conf.new || exit 1
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -181,9 +221,19 @@ rm -fr $PKG/usr/share
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }
 
+# Deal with .info files.
+[ -e $PKG/usr/share/info ] && {
+  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
+  rmdir -p $PKG/usr/share
+  }
+[ -e $PKG/usr/info ] && {
+  rm -f $PKG/usr/info/dir
+  gzip -9 $PKG/usr/info/*.info
+}
+
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a AUTHORS COPYING README NEWS \
+cp -a LICENSE docs/README docs/AUTHORS docs/NEWS docs/*.dia \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION

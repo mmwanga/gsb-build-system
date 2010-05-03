@@ -29,7 +29,7 @@ VERSION=0.3.10
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 gnutls pygtk python"
+REQUIRED_PACKAGES="gtk+2 gnutls cyrus-sasl"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -162,7 +162,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static \
   --enable-shared \
   --without-examples \
-  --with-python \
+  --without-python \
   || exit 1
 
 # Build and install.

@@ -1,4 +1,3 @@
 gtk+2
 gnutls
-pygtk
-python
+cyrus-sasl
