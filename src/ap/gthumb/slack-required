@@ -1,5 +1,3 @@
-libgnomeui
-libgnomeprintui
 libgphoto2
 libexif
 libiptcdata
@@ -9,11 +7,4 @@ libglade
 libopenraw
 libjpeg
 openexr
-glib2
 gtk+2
-pango
-cairo
-libxml2
-gnome-vfs
-dbus
-ORBit2

@@ -29,7 +29,7 @@ VERSION=0.12.8
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-#REQUIRED_PACKAGES="gst-plugins-base gstreamer libglade libbonoboui totem libnotify libgpod libgnomeui gnome-keyring libsexy pygtk brasero avahi gnome-media libgnomeui taglib libxml2 libmusicbrainz libmtp libsoup evolution-data-server gst-python"
+REQUIRED_PACKAGES="gstreamer gst-plugins-base gst-python libnotify libgpod brasero avahi gnome-media"
 
 # Build variables.
 TAG=${TAG:-gsb}

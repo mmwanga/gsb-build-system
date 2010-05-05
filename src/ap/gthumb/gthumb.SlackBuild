@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
-VERSION=2.10.11
+BUILD=1
+VERSION=2.10.12
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomeui libgnomeprintui libgphoto2 libexif libiptcdata libtiff libunique libglade gnome-doc-utils"
+#REQUIRED_PACKAGES="libgphoto2 libexif libiptcdata libtiff libunique libglade"
 
 # Build variables.
 TAG=${TAG:-gsb}

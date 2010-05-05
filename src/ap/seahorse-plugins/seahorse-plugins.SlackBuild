@@ -167,6 +167,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-gedit \
   --enable-agent \
   --enable-nautilus \
+  --disable-epiphany \
   || exit 1
 
 # Build and install.

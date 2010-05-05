@@ -161,7 +161,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-schemas-install \
   --disable-static \
   --enable-shared \
-  --disable-python \
+  --enable-python \
   --enable-nautilus \
   --disable-browser-plugins \
   || exit 1

@@ -1,5 +1,6 @@
 gstreamer
 gst-plugins-base
+gst-python
 libnotify
 libgpod
 brasero
