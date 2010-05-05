@@ -1,5 +1,2 @@
-gnome-keyring
-libgnomeui
-hal
+GConf
 libnotify
-nautilus
