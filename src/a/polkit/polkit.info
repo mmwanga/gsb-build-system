@@ -1,4 +1,4 @@
-PKGNAME="policykit"
+PKGNAME="polkit"
 VERSION="0.96"
 HOMEPAGE="http://freedesktop.org/wiki/Software/PolicyKit"
 DOWNLOAD="http://cgit.freedesktop.org/PolicyKit/snapshot/PolicyKit-0.96.tar.bz2"
