@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=5
-VERSION=2.4.3
+BUILD=1
+VERSION=2.6.4
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgdiplus libgc"
+REQUIRED_PACKAGES="libgdiplus"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -115,18 +115,18 @@ cd $PKGNAME-$VERSION || exit 1
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #zcat $CWD/boehm-gc.patch.gz | patch -p1
-  zcat $CWD/mono.configure.in.diff.gz | patch -p0
-  libtoolize --force && autoreconf -vf
+  #zcat $CWD/mono.configure.in.diff.gz | patch -p0
+  #libtoolize --force && autoreconf -vf
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #zcat $CWD/boehm-gc.patch.gz | patch -p1
-  zcat $CWD/mono.configure.in.diff.gz | patch -p0
-  libtoolize -c --force && autoreconf -vf
+  #zcat $CWD/mono.configure.in.diff.gz | patch -p0
+  #libtoolize -c --force && autoreconf -vf
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #zcat $CWD/boehm-gc.patch.gz | patch -p1
-  zcat $CWD/mono.configure.in.diff.gz | patch -p0
-  libtoolize -c --force && autoreconf -vf
+  #zcat $CWD/mono.configure.in.diff.gz | patch -p0
+  #libtoolize -c --force && autoreconf -vf
 fi
 
 # Fix permissions for building.
@@ -158,19 +158,17 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Configure.
-autoconf
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS \
-  --with-gc=boehm \
   --program-prefix="" \
   --infodir=/usr/info \
   || exit 1
 
 # Make sure we use the system libtool
-(ln -sf /usr/bin/libtool libtool) || exit 1
+#(ln -sf /usr/bin/libtool libtool) || exit 1
 # Build and install.
 make &&
 make DESTDIR=$PKG install || exit 1
@@ -230,5 +228,6 @@ makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
 [ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/$PKGNAME-$VERSION
+  #rm -rf $PKG $TMP/$PKGNAME-$VERSION
+  echo "Not removing package."
 }
