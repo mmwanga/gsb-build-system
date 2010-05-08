@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=0.9.21
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libsndfile GConf hal avahi glib2 libsamplerate liboil bluez consolekit alsa-lib"
+REQUIRED_PACKAGES="libsndfile GConf hal avahi glib2 libsamplerate liboil bluez ConsoleKit alsa-lib"
 
 # Build variables.
 TAG=${TAG:-gsb}

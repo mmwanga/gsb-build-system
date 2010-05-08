@@ -1,3 +1,4 @@
+ConsoleKit:ADD
 M2Crypto:SKP
 PyQt:SKP
 QScintilla:SKP
@@ -137,6 +138,8 @@ pcre:ADD
 phonon:SKP
 pil:ADD
 pilot-link:ADD
+polkit:ADD
+polkit-gnome:ADD
 poppler:ADD
 poppler-data:ADD
 popt:ADD

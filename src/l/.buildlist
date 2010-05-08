@@ -75,10 +75,8 @@ pycrypto
 gst-plugins-base
 bluez
 ORBit2
-policykit
 GConf
 avahi
-consolekit
 pulseaudio
 alsa-plugins
 pyorbit
