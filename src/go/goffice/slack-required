@@ -1,12 +1,3 @@
-cairo
-glib2
-gtk+2
-intltool
-libart_lgpl
-libglade
-libgnomeprint
-libgnomeui
+GConf
 libgsf
-libxml2
-pango
-libgsf >= 1.14.15-@ARCH@-1gsb
+cairo

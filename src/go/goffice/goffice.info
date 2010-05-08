@@ -1,8 +1,8 @@
 PKGNAME="goffice"
-VERSION="0.8.0"
+VERSION="0.8.2"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/goffice/0.8/goffice-0.8.0.tar.bz2"
-MD5SUM="afb3fcb152fb37ed433f30d1ed1e86e3"
-MAINTAINER="Chip Cuccio"
-EMAIL="chipster@gnomeslackbuild.org"
+DOWNLOAD="${GNOME_SERVER}/goffice/0.8/goffice-0.8.2.tar.bz2"
+MD5SUM="be9d328ce1c8245d234764a42a946ccb"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

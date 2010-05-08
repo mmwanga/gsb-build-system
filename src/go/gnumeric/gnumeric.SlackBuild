@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=1.10.0
+VERSION=1.10.2
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libbonoboui libgsf goffice libgnome libgnomeui python perl pygtk libglade libgnomeprintui ORBit2 psiconv"
+REQUIRED_PACKAGES="libbonoboui libgsf goffice libgnome"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -161,11 +161,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static \
   --enable-shared \
   --disable-schemas-install \
-  --with-python \
-  --with-perl \
-  --with-psiconv \
-  --with-gb \
-  --with-gda \
+  --with-gnome \
   || exit 1
 
 # Build and install.

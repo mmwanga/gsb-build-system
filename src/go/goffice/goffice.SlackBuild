@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=0.8.0
+VERSION=0.8.2
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="cairo glib2 gtk+2 intltool libart_lgpl libglade libgnomeprint libgnomeui libgsf libxml2 pango libgsf"
+REQUIRED_PACKAGES="GConf libgsf cairo"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -160,7 +160,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --target=$ARCH-$DISTRO-linux \
   --disable-static \
   --enable-shared \
-  --with-gnome \
   || exit 1
 
 # Build and install.
