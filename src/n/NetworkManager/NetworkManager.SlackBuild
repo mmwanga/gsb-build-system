@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=0.7.2
+VERSION=0.8
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libnl wpa_supplicant libgcrypt dbus hal gtk+2 libglade gnome-keyring libgnomeui gnome-keyring wireless-tools glib2 iproute2 GConf ppp perl policykit-gnome nss"
+REQUIRED_PACKAGES="GConf libnl libgcrypt wpa_supplicant gnutls dhcpcd polkit"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -152,39 +152,7 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-# NetworkManager requires dhcpcd5 in order to function properly; rather than
-# include another dhcpcd package, we'll put our NM dhcpcd5 privately in libexec
-# since on a Slackware system, pretty much only NM will use it.  
-# Grab our internal dhcpcd5
-
-# DHCP5 Download information
-DHCP_HOMEPAGE="http://roy.marples.name/projects/dhcpcd/wiki"
-DHCP_VERSION="5.1.3"
-DHCP_DOWNLOAD="http://roy.marples.name/downloads/dhcpcd/dhcpcd-5.1.3.tar.bz2"
-DHCP_MD5SUM="f852090ad221b6331478f50fc1aa539e"
-mkdir dhcpcd5 &&
-cd dhcpcd5 &&
-rm -fr dhcpcd* &&
-wget -c $DHCP_DOWNLOAD || exit 1
-[ "$(md5sum dhcpcd-${DHCP_VERSION}.tar.bz2 | cut -f1 -d\ )" = "${DHCP_MD5SUM}" ] || {
- echo "dhcpcd package has an invalid md5sum."
- exit 1
-}
-tar xfj dhcpcd-$DHCP_VERSION.tar.bz2 &&
-cd dhcpcd-$DHCP_VERSION &&
-./configure --prefix=/usr/libexec/dhcpcd5 --libexecdir=/usr/libexec/dhcpcd5 \
-  --dbdir=/var/lib/dhcpcd --sysconfdir=/usr/libexec/dhcpcd5 &&
-make ${MAKE_FLAGS} &&
-make DESTDIR=$PKG install || exit 1
-rm -fr $PKG/usr/libexec/dhcpcd5/share &&
-mv $PKG/usr/libexec/dhcpcd5/sbin/dhcpcd $PKG/usr/libexec/dhcpcd5 &&
-rm -fr $PKG/usr/libexec/dhcpcd/share &&
-rm -fr $PKG/usr/libexec/dhcpcd/sbin || exit 1
-# Done dhcpcd5 build
-# Restore proper CWD
-cd $TMP/$PKGNAME-$VERSION 
-
-# NetworkManager Configure.
+# Configure
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
@@ -194,9 +162,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static \
   --enable-shared \
   --with-distro=slackware \
-  --with-dhcp-client=/usr/libexec/dhcpcd5/dhcpcd \
-  --with-crypto=nss \
-  --with-docs \
+  --with-crypto=gnutls \
   || exit 1
 
 # Build and install.
@@ -211,9 +177,9 @@ mkdir -p $PKG/etc/NetworkManager &&
 cp $CWD/nm-system-settings.conf $PKG/etc/NetworkManager/nm-system-settings.conf.new || exit 1
 
 # Add wpa_supplicant dbus support
-mkdir -p $PKG/usr/share/dbus-1/system-services &&
-cp $CWD/fi.epitest.hostap.WPASupplicant.service \
-  $PKG/usr/share/dbus-1/system-services || exit 1
+#mkdir -p $PKG/usr/share/dbus-1/system-services &&
+#cp $CWD/fi.epitest.hostap.WPASupplicant.service \
+  #$PKG/usr/share/dbus-1/system-services || exit 1
 
 # Users now can add themselves to the "netdev" group to use networkmanager.
 sed -i "s/at_console=\"true\"/group=\"netdev\"/g" \
@@ -221,8 +187,7 @@ sed -i "s/at_console=\"true\"/group=\"netdev\"/g" \
 
 # Preserve previous settings
 mv $PKG/etc/rc.d/rc.networkmanager $PKG/etc/rc.d/rc.networkmanager.new || exit 1
-for i in nm-avahi-autoipd NetworkManager nm-system-settings \
-   nm-dhcp-client nm-dispatcher;
+for i in nm-avahi-autoipd NetworkManager nm-dhcp-client nm-dispatcher;
  do
    mv $PKG/etc/dbus-1/system.d/$i.conf $PKG/etc/dbus-1/system.d/$i.conf.new || exit 1
 done;
