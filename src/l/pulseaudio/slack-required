@@ -7,8 +7,8 @@ hal
 avahi
 libsamplerate
 liboil
-policykit
-consolekit
+polkit
+ConsoleKit
 speex
 libSM
 libICE

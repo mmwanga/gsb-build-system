@@ -6,7 +6,6 @@ nss-mdns
 libgnomeui
 gtk-engines
 gnome-doc-utils
-policykit-gnome
 gnome-desktop
 notification-daemon
 gnome-icon-theme
