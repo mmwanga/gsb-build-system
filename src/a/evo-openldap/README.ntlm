@@ -1,3 +1,0 @@
-This set of static libraries is based on openldap-2.3.43, patched to support
-NTML, and used by evolution-data-server to connection to Microsoft Exchange
-Servers.
