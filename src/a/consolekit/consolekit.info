@@ -1,7 +1,0 @@
-PKGNAME="consolekit"
-VERSION="0.4.1"
-HOMEPAGE="http://freedesktop.org/wiki/Software/ConsoleKit"
-DOWNLOAD="http://cgit.freedesktop.org/ConsoleKit/snapshot/ConsoleKit-0.4.1.tar.bz2"
-MD5SUM="13f7fac2c956fd4aabc6baa9e971e766"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
