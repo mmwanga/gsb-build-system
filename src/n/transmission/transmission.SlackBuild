@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=1.76
+VERSION=1.93
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 curl libnotify openssl"
+REQUIRED_PACKAGES="gtk+2 curl libnotify openssl libcanberra"
 
 # Build variables.
 TAG=${TAG:-gsb}

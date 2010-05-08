@@ -2,3 +2,4 @@ gtk+2
 curl
 libnotify
 openssl
+libcanberra
