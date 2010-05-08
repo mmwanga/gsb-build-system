@@ -1,7 +1,0 @@
-PKGNAME="eggdbus"
-VERSION="0.6"
-HOMEPAGE="http://cgit.freedesktop.org/~david/eggdbus/"
-DOWNLOAD="http://cgit.freedesktop.org/~david/eggdbus/snapshot/eggdbus-0.6.tar.bz2"
-MD5SUM="0a111faa54dfba2cf432c2c8e8a76e06"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

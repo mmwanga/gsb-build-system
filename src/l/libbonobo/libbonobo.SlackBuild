@@ -29,7 +29,6 @@ VERSION=2.24.3
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-
 REQUIRED_PACKAGES="ORBit2 glib2 intltool gettext"
 
 # Build variables.
