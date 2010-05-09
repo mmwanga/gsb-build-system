@@ -24,6 +24,7 @@ dbus-glib:ADD
 dbus-python:ADD
 desktop-file-utils:ADD
 djvulibre:ADD
+eggdbus:ADD
 eigen2:ADD
 enchant:ADD
 esound:ADD
