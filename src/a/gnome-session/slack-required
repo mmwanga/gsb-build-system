@@ -17,5 +17,5 @@ pavumeter
 pavucontrol
 gstreamer
 alsa-plugins
-policykit-gnome
+polkit-gnome
 consolekit

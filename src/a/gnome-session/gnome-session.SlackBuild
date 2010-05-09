@@ -30,7 +30,7 @@ VERSION=2.28.0
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
 REQUIRED_PACKAGES="gnome-control-center GConf gnome-keyring gnome-vfs gtk+2 \
-avahi libnotify esound pango cairo policykit-gnome" 
+avahi libnotify esound pango cairo polkit-gnome" 
 
 # Build variables.
 TAG=${TAG:-gsb}
