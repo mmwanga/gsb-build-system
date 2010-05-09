@@ -12,7 +12,7 @@ dbus
 libxml2
 pygtk
 libgnomekbd
-policykit-gnome
+polkit-gnome
 libgweather
 dbus-glib
 gnome-python

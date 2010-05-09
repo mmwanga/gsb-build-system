@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
+BUILD=3
 VERSION=2.28.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="GConf gnome-panel gnome-vfs libgtop gstreamer rarian gnome-desktop libwnck libnotify hal dbus libxml2 pygtk libgnomekbd policykit-gnome libgweather dbus-glib gnome-python"
+REQUIRED_PACKAGES="GConf gnome-panel gnome-vfs libgtop gstreamer rarian gnome-desktop libwnck libnotify hal dbus libxml2 pygtk libgnomekbd polkit-gnome libgweather dbus-glib gnome-python"
 
 # Build variables.
 TAG=${TAG:-gsb}
