@@ -4,6 +4,6 @@ devicekit-power
 libgnomeui
 libunique
 libxcb
-policykit-gnome
+polkit-gnome
 libcanberra
 pm-utils

@@ -12,5 +12,5 @@ gnome-keyring
 wireless-tools
 iproute2
 ppp
-policykit-gnome
+polkit-gnome
 nss

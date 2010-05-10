@@ -1,8 +1,8 @@
 PKGNAME="NetworkManager-openconnect"
-VERSION="0.7.2"
+VERSION="0.8"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/NetworkManager-openconnect/0.7/NetworkManager-openconnect-0.7.2.tar.bz2"
-MD5SUM="02240a490d15dd51efc701c0f6c9c425"
+DOWNLOAD="${GNOME_SERVER}/NetworkManager-openconnect/0.8/NetworkManager-openconnect-0.8.tar.bz2"
+MD5SUM="21bb018566616906d9107bee21298abe"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
