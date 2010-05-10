@@ -19,7 +19,7 @@ sysmodmap=/usr/@LIBDIR@/X11/xinit/.Xmodmap
 # default session settings
 GNOME_SESSION_SETTINGS=""
 
-# gnome xdg menu path
+# Gnome XDG Menu Path
 #
 # We keep the GNOME menu templates separate from KDE so the two 
 # don't interfere with each other. This path may be extended to 
@@ -43,11 +43,6 @@ fi
 # Use ssh-agent if available
 if [ -x /usr/bin/ssh-agent ]; then
   GNOME_SESSION_SETTINGS="$GNOME_SESSION_SETTINGS /usr/bin/ssh-agent"
-fi;
-
-# Use Seahorse if available
-if [ -x /usr/bin/seahorse-agent ]; then
-   GNOME_SESSION_SETTINGS="$GNOME_SESSION_SETTINGS /usr/bin/seahorse-agent --execute"
 fi;
 
 # Use ConsoleKit if available
