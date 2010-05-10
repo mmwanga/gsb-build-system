@@ -7,13 +7,6 @@ These can be installed using "installpkg".
 Available packages
 -----------------
 
-pidgin:
-	The latest stable pidgin package, built with support for pulseaudio.
-
-MPlayer:
-	The standard Slackware MPlayer package rebuilt with support for
-        pulseaudio.
-
 transcode:
         An alternate system for video encoding (other than MPlayer)
 
