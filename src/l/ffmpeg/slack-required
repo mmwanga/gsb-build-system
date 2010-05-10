@@ -5,4 +5,5 @@ x264
 lame
 libvorbis
 libogg
-alsa-oss
+alsa-lib
+xvidcore

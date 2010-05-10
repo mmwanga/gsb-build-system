@@ -25,7 +25,7 @@
 
 # Package variables.
 BUILD=1
-VERSION=snapshot-20091103-2245
+VERSION=20100509
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -109,7 +109,8 @@ mkdir -p $PKGDEST
 # Decompress archive.
 cd $TMP &&
 rm -rf $PKGNAME-$VERSION &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xjf $CWD/$PKGNAME-snapshot-$VERSION-2245.tar.bz2 &&
+mv $PKGNAME-snapshot-$VERSION-2245 $PKGNAME-$VERSION || exit 1
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -158,8 +159,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   ${CONFIGURE_FLAGS} \
-  --enable-pthread \
-  --enable-visualize \
   --enable-shared \
   || exit 1
 
@@ -191,6 +190,6 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/${PKGNAME}-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
-[ "$NOCLEANUP" = "0" ] && {
+if [ "$NOCLEANUP" = "0" ]; then
   rm -rf $PKG $TMP/$PKGNAME-$VERSION
-}
+fi;

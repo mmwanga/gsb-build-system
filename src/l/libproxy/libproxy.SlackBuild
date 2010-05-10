@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=0.4.0
 
 # List any packages here that are required to build this package.
@@ -166,7 +166,9 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 # Make sure we're using right lib path on x86_64, since it seems cmake
 # doesn't honour the LIB_INSTALL_DIR setting
 if [ "$ARCH" = "x86_64" -a -d $PKG/usr/lib ]; then
- mv $PKG/usr/lib $PKG/usr/lib64 ;
+ mkdir -p $PKG/usr/lib64 &&
+ mv $PKG/usr/lib/* $PKG/usr/lib64 && rmdir $PKG/usr/lib || exit 1
+ sed -i -e 's,usr/lib/,usr/lib64/,g' $PKG/usr/lib64/pkgconfig/libproxy-1.0.pc ;
 fi;
 
 # Strip debugging symbols.
