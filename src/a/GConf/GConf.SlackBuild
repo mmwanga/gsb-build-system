@@ -29,7 +29,7 @@ VERSION=2.28.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glib2 libxml2 ORBit2 popt zlib gtk+2 openldap-client"
+REQUIRED_PACKAGES="glib2 libxml2 ORBit2 popt zlib gtk+2 openldap-client polkit"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -163,7 +163,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-gtk-doc \
   --enable-gtk \
   --with-openldap \
-  --disable-defaults-service \
+  --enable-defaults-service \
   || exit 1
 
 # Build and install.
@@ -178,8 +178,8 @@ mv $PKG/etc/gconf/2/path $PKG/etc/gconf/2/path.new || exit 1
 mv $PKG/etc/gconf/2/evoldap.conf $PKG/etc/gconf/2/evoldap.conf.new || exit 1
 
 # Only with --enable-defaults-service, requires policykit
-# mv $PKG/etc/dbus-1/system.d/org.gnome.GConf.Defaults.conf \
-  # $PKG/etc/dbus-1/system.d/org.gnome.GConf.Defaults.conf.new
+mv $PKG/etc/dbus-1/system.d/org.gnome.GConf.Defaults.conf \
+  $PKG/etc/dbus-1/system.d/org.gnome.GConf.Defaults.conf.new
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \

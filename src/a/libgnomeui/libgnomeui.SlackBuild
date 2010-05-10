@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.24.2
+VERSION=2.24.3
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="GConf gnome-keyring gnome-vfs libbonoboui libgnome libgnomecanvas pango libjpeg esound libxml2 glib2 ORBit2 gtk+2 cairo libbonobo libglade"
+REQUIRED_PACKAGES="GConf gnome-keyring gnome-vfs libbonoboui libgnome libgnomecanvas"
 
 # Build variables.
 TAG=${TAG:-gsb}

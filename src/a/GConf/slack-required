@@ -6,3 +6,4 @@ popt
 zlib
 dbus-glib
 openldap-client
+polkit

@@ -30,7 +30,7 @@ VERSION=2.30.0
 # List any packages here that are required to build this package.  The list is
 # space seperated and case sensitive.
 REQUIRED_PACKAGES="gnome-desktop gnome-vfs startup-notification libwnck libcanberra gstreamer \
-                   evolution-data-server"
+                   evolution-data-server polkit polkit-gnome ConsoleKit"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -160,7 +160,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-shared \
   --disable-schemas-install \
   --disable-network-manager \
-  --disable-polkit \
+  --enable-polkit \
   || exit 1
 
 # Build and install.

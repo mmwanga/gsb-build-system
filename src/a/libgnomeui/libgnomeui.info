@@ -1,8 +1,8 @@
 PKGNAME="libgnomeui"
-VERSION="2.24.2"
+VERSION="2.24.3"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/libgnomeui/2.24/libgnomeui-2.24.2.tar.bz2"
-MD5SUM="d455674fa1a477903dbfcf603f060172"
+DOWNLOAD="${GNOME_SERVER}/libgnomeui/2.24/libgnomeui-2.24.3.tar.bz2"
+MD5SUM="ceab6f4370581d1a03c09f15cc103099"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
