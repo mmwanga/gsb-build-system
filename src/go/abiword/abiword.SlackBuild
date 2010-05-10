@@ -27,7 +27,7 @@
 # work correctly on Slackware - the patches are all from him
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.8.4
 
 # List any packages here that are required to build this package.
@@ -159,8 +159,6 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Configure AbiWord
-CFLAGS="$(pkg-config --cflags libgnomeprint-2.2)" \
-LIBS="$(pkg-config --libs libgnomeprint-2.2)" \
 CFLAGS="$CFLAGS $TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS \
@@ -216,6 +214,6 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
-[ "$NOCLEANUP" = "0" ] && {
+if [ "$NOCLEANUP" = "0" ]; then
   rm -rf $PKG $TMP/$PKGNAME-$VERSION
-}
+fi;
