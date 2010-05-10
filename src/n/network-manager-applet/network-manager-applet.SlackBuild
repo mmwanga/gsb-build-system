@@ -25,7 +25,7 @@
 
 # Package variables.
 BUILD=1
-VERSION=0.7.2
+VERSION=0.8
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -160,7 +160,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
+  --disable-static \
+  --enable-shared \
   || exit 1
 
 # Build and install.

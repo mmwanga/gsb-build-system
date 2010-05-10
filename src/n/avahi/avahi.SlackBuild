@@ -30,7 +30,7 @@ VERSION=0.6.25
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
 REQUIRED_PACKAGES="glib2 desktop-file-utils dbus gtk+2 python pygtk dbus-python expat \
-                   libglade pygobject gdbm libdaemon"
+                   libglade pygobject gdbm libdaemon qt mono gtk-sharp"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -170,15 +170,14 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static \
   --enable-shared \
   --disable-monodoc \
-  --disable-mono \
   --enable-python-dbus \
   --enable-pygtk\
   --enable-glib \
   --enable-dbus \
   --enable-python \
   --enable-gtk \
+  --enable-qt4 \
   --disable-qt3 \
-  --disable-qt4 \
   --enable-core-docs \
   --with-avahi-user=avahi \
   --with-avahi-group=avahi \
