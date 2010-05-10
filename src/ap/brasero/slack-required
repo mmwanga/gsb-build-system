@@ -4,3 +4,4 @@ gst-plugins-base
 libnotify
 totem-pl-parser
 libunique
+libcanberra
