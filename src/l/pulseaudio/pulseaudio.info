@@ -1,7 +1,0 @@
-PKGNAME="pulseaudio"
-VERSION="0.9.21"
-HOMEPAGE="http://www.pulseaudio.org/"
-DOWNLOAD="http://0pointer.de/lennart/projects/pulseaudio/pulseaudio-0.9.21.tar.gz"
-MD5SUM="76e623c4c72e2258bc8bdeb1599bad74  pulseaudio-0.9.21.tar.gz"
-MAINTAINER="Chip Cuccio"
-EMAIL="chipster@gnomeslackbuild.org"
