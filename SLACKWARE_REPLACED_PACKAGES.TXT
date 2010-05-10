@@ -13,7 +13,7 @@
 # recommended, but not required if you do not plan to use certain applications,
 # or are dead set against replacing any Slackware provided  packages.
 #
-# Last updated: May 02, 2010 (stevek)
+# Last updated: May 07, 2010 (stevek)
 #
 
 *********************************************** 
@@ -27,3 +27,4 @@ gtk+2:         	   ( 2.20.0 required by gnome-panel and nautilus )
 
 bluez:		   ( 4.64 required by gvfs and gnome-bluetooth )
 gst-plugins-good:  ( 0.10.22 rebuilt against GConf for totem )
+libgsf:            ( 0.14.12 rebuilt against libgnome, required by office apps)
