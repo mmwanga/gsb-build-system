@@ -1,0 +1,7 @@
+PKGNAME="portaudio"
+VERSION="V19"
+HOMEPAGE="http://www.portaudio.com/"
+DOWNLOAD="http://www.portaudio.com/archives/pa_stable_v19_20071207.tar.gz"
+MD5SUM="d2943e4469834b25afe62cc51adc025f"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
