@@ -28,11 +28,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=1.41.01
+VERSION=1.43.03
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="pulseaudio"
+REQUIRED_PACKAGES="portaudio"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -112,23 +112,19 @@ mkdir -p $PKGDEST
 # Decompress archive.
 cd $TMP &&
 unzip -qq $CWD/$PKGNAME-$VERSION-source.zip &&
+rm -fr $PKGNAME-$VERSION &&
 mv $PKGNAME-$VERSION-source $PKGNAME-$VERSION &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # configure to use pulseaudio
-  zcat $CWD/espeak.pulseaudio.diff.gz | patch -p1 
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # configure to use pulseaudio
-  zcat $CWD/espeak.pulseaudio.diff.gz | patch -p1
   # use lib64
   zcat $CWD/espeak.x86_64.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
 # Fix permissions for building.
@@ -162,7 +158,9 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 # Don't use the included binary voice dictionaries
 rm -f espeak-data/*_dict
 # Build and install.
-( cd src ; make $MAKE_FLAG )
+( cd src &&
+  cp portaudio19.h portaudio.h &&
+  make $MAKE_FLAG )
 
 # Compile the TTS voice dictionaries
 export ESPEAK_DATA_PATH=$TMP/$PKGNAME-$VERSION
@@ -225,6 +223,6 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
-[ "$NOCLEANUP" = "0" ] && {
+if [ "$NOCLEANUP" = "0" ]; then
   rm -rf $PKG $TMP/$PKGNAME-$VERSION
-}
+fi;
