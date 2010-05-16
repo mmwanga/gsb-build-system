@@ -1,8 +1,0 @@
-PKGNAME="libsigc++"
-VERSION="2.2.7"
-HOMEPAGE="http://libsigc.sourceforge.net/"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/libsigc++/2.2/libsigc++-2.2.7.tar.bz2"
-MD5SUM="e80c0862eb4e1435eff55d1870aef4b8"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
