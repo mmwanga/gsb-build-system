@@ -1,5 +1,5 @@
 # Remove old .new xinitrc
-rm $PKG/etc/X11/xinit/xinitrc.gnome.new
+rm -f $PKG/etc/X11/xinit/xinitrc.gnome.new
 
 # Update desktop entries
 if [ -x usr/bin/update-desktop-database ]; then

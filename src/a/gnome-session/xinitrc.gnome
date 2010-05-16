@@ -4,6 +4,7 @@
 #
 # Changelog: 
 #
+#  Added seahorse-agent again, found in seahorse-plugins. (2010-04-10) stevek
 #  Removed seahorse-agent, now in /etc/gnome/xdg/autostart (2009-30-07) stevek
 #  Added ConsoleKit support (2008-10-30) stevek
 #  Remove unneeded user started dbus session (2008-03-28) stevek
@@ -43,6 +44,11 @@ fi
 # Use ssh-agent if available
 if [ -x /usr/bin/ssh-agent ]; then
   GNOME_SESSION_SETTINGS="$GNOME_SESSION_SETTINGS /usr/bin/ssh-agent"
+fi;
+
+# Use seahorse-agent if available from seahorse-plugins
+if [ -x /usr/bin/seahorse-agent ]; then
+  GNOME_SESSION_SETTINGS="$GNOME_SESSION_SETTINGS /usr/bin/seahorse-agent"
 fi;
 
 # Use ConsoleKit if available
