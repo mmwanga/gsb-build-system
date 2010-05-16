@@ -1,8 +1,8 @@
 PKGNAME="totem"
-VERSION="2.30.1"
+VERSION="2.30.2"
 HOMEPAGE="http://projects.gnome.org/totem/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/totem/2.30/totem-2.30.1.tar.bz2"
-MD5SUM="c28e61767c1a57baea9ad4c0155cca9c"
+DOWNLOAD="${GNOME_SERVER}/totem/2.30/totem-2.30.2.tar.bz2"
+MD5SUM="4ff658d6178fdb57f310c54daf596de7"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
