@@ -177,9 +177,9 @@ mkdir -p $PKG/etc/NetworkManager &&
 cp $CWD/nm-system-settings.conf $PKG/etc/NetworkManager/nm-system-settings.conf.new || exit 1
 
 # Add wpa_supplicant dbus support
-#mkdir -p $PKG/usr/share/dbus-1/system-services &&
-#cp $CWD/fi.epitest.hostap.WPASupplicant.service \
-  #$PKG/usr/share/dbus-1/system-services || exit 1
+mkdir -p $PKG/usr/share/dbus-1/system-services &&
+cp $CWD/fi.epitest.hostap.WPASupplicant.service \
+  $PKG/usr/share/dbus-1/system-services || exit 1
 
 # Users now can add themselves to the "netdev" group to use networkmanager.
 sed -i "s/at_console=\"true\"/group=\"netdev\"/g" \
@@ -234,6 +234,6 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
-[ "$NOCLEANUP" = "0" ] && {
+if [ "$NOCLEANUP" = "0" ]; then
   rm -rf $PKG $TMP/$PKGNAME-$VERSION
-}
+fi;

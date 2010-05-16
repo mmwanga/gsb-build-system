@@ -64,12 +64,10 @@ fi;
 
 cat << EOF
 
-Note for Slackware Users:
------
-To allow users to connect to the NetworkManager daemon, they have to be in the
-group "netdev". 
+NOTE: To allow users to connect to the NetworkManager daemon, they have to be
+in the group "netdev". 
 
-By default, NetworkManager is disabled.  In order to enable it, you will need to 
-restart the dbus message system to load the new NetworkManager settings, and make
-the /etc/rc.d/rc.networkmanager executable.
+By default, NetworkManager is disabled.  In order to enable it, you will need
+to restart the dbus message system to load the new NetworkManager settings, and
+make the /etc/rc.d/rc.networkmanager executable.
 EOF
