@@ -30,18 +30,33 @@ required package and they may not be installed.
 *** PACKAGE ADDITIONS SINCE 2.28.3 for Slackware 13.0 ***
 
 l/portaudio: Added.
+l/gtkimageview: Added.
+l/gtksourceview: Renamed from gtksourceview2.  
 
 *** PACKAGE REMOVALS SINCE 2.28.3 for Slackware 13.0 ***
 
+l/libwnck: Removed. Slackware version is sufficient.
+l/gtksourceview1: Removed. The 1.x series is now almost wholly obsolete.
+l/poppler: Removed. 
+l/cairo: Removed.
+l/vte: Removed.
 l/nss: Removed.  We now use Slackware's seamonkey-solibs.
 l/bluez: Removed.  Slackware has upgrade to bluez-4.
+l/rhpl: Removed (alongside system-config-printer).
 a/pulseaudio: Removed.
 a/policykit: Removed.  Slackware now supplies polkit.
 a/policykit-gnome: Removed.  Slackware now supplied policykit-gnome.
 a/consolekit: Removed. Slackware provides ConsoleKit.
+go/system-config-printer: Removed. Now in Slackware.
 a/evo-openldap: Removed.  Obsoleted by evolution-mapi, which users may wish to
                 build for the latest connectors to Exchange 2007.  
-
+n/gnome-bluetooth: Removed. Not needed with blueman.
+m/avahi-sharp: Removed.  The avahi package itself now has mono bindings.
+extra/pidgin: Removed. (No longer rebuilt against pulseaudio).
+extra/MPlayer: Removed. (No longer rebuilt against pulseaudio).
+extra/deluge: Removed.  This has been replaced by the lighter transmission.
+extra/transcode: Removed.
+extra/dvdrip: Removed.
 
 *** OTHER NOTABLE CHANGES AND HINTS ***
 
