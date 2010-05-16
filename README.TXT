@@ -12,8 +12,8 @@ Here are some versions of major components of GNOME SlackBuild 2.28.0
 - Full GNOME Desktop    2.28.0
 - Evolution             2.28.0
 - NetworkManager        0.7.1
-- PulseAudio		    0.9.18
-- Mono C#		        2.4.2.3
+- PulseAudio		0.9.18
+- Mono C#		2.4.2.3
 - OpenOffice.org        3.1.1.1
 - Compiz                0.8.3
 - GNOME Office          .28
