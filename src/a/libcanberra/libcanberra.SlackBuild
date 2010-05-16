@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
+BUILD=3
 VERSION=0.22
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="alsa-lib pulseaudio gtk+2 libvorbis"
+REQUIRED_PACKAGES="alsa-lib gtk+2 libvorbis"
 
 # We need the freedesktop sound theme specification as well
 if [ ! -f ${CWD}/sound-theme-freedesktop-0.7.tar.bz2 ]; then
