@@ -24,8 +24,8 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
-VERSION=0.4.0
+BUILD=3
+VERSION=0.3.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -109,18 +109,18 @@ mkdir -p $PKGDEST
 # Decompress archive.
 cd $TMP &&
 rm -rf $PKGNAME-$VERSION &&
-tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
+tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # Make sure we install the pkg-config .pc file.
-  zcat $CWD/libproxy.pkgconfig.diff.gz | patch -p1
+  #zcat $CWD/libproxy.pkgconfig.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # Make sure we install the pkg-config .pc file.
-  zcat $CWD/libproxy.pkgconfig.diff.gz | patch -p1
+  #zcat $CWD/libproxy.pkgconfig.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
 fi
@@ -153,23 +153,26 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-# Run cmake
-cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr \
-      -DCMAKE_C_FLAGS:STRING="$TUNE_CFLAGS" \
-      -DCMAKE_CXX_FLAGS:STRING="$TUNE_CFLAGS" \
-      -DLIB_INSTALL_DIR:PATH=/usr/lib${LIBDIRSUFFIX} \
-      -DEXEC_INSTALL_PREFIX:PATH=/usr ./ || exit 1
+# Configure.
+CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  --mandir=/usr/man $CONFIGURE_FLAGS --target=$ARCH-$DISTRO-linux \
+  --libdir=/usr/lib${LIBDIRSUFFIX} \
+  --disable-static \
+  --without-dotnet \
+  --with-python \
+  --without-mozjs \
+  --with-gnome \
+  --with-file \
+  --with-gnu-ld \
+  --with-direct \
+  --with-envvar \
+  --without-networkmanager \
+  || exit 1
+
 # Build and install
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-# Make sure we're using right lib path on x86_64, since it seems cmake
-# doesn't honour the LIB_INSTALL_DIR setting
-if [ "$ARCH" = "x86_64" -a -d $PKG/usr/lib ]; then
- mkdir -p $PKG/usr/lib64 &&
- mv $PKG/usr/lib/* $PKG/usr/lib64 && rmdir $PKG/usr/lib || exit 1
- sed -i -e 's,usr/lib/,usr/lib64/,g' $PKG/usr/lib64/pkgconfig/libproxy-1.0.pc ;
-fi;
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -213,6 +216,6 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
-[ "$NOCLEANUP" = "0" ] && {
+if [ "$NOCLEANUP" = "0" ]; then
   rm -rf $PKG $TMP/$PKGNAME-$VERSION
-}
+fi;
