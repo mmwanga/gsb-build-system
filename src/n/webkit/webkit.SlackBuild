@@ -25,13 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.30.1.2
+VERSION=1.2.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="GConf evolution-data-server gtkhtml gnome-keyring libsoup libgnome \
-                   libnotify gstreamer libunique seamonkey-solibs openldap-client \
-		   libcanberra libgweather gtkimageview libpst"
+REQUIRED_PACKAGES="libicu libsoup sqlite gstreamer"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -110,19 +108,23 @@ mkdir -p $PKGDEST
 
 # Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+rm -rf $PKGNAME-$VERSION &&
+tar xzf $CWD/$PKGNAME-${VERSION}.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # Fix WebCore/platform/text/TextBreakIterator.h for libicu 4.4.1.
+  zcat $CWD/webkit.icu.textbreakiterator.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # Fix WebCore/platform/text/TextBreakIterator.h for libicu 4.4.1.
+  zcat $CWD/webkit.icu.textbreakiterator.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # Fix WebCore/platform/text/TextBreakIterator.h for libicu 4.4.1.
+  zcat $CWD/webkit.icu.textbreakiterator.diff.gz | patch -p1
 fi
 
 # Fix permissions for building.
@@ -153,27 +155,20 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-# Configure
+# Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  --mandir=/usr/man $CONFIGURE_FLAGS \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
-  --mandir=/usr/man \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --disable-schemas-install \
-  --disable-nm \
-  --with-openldap \
-  --enable-python \
-  --enable-pst-import \
-  --with-krb5=/usr \
+  --enable-shared \
+  --disable-static \
   || exit 1
 
 # Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-# Fix location of xdg
-mkdir -p $PKG/etc/gnome && mv $PKG/etc/xdg $PKG/etc/gnome || exit 1
+make -f GNUmakefile $MAKE_FLAGS -j2 &&
+make -f GNUmakefile $MAKE_FLAGS -j2 DESTDIR=$PKG install || exit 1
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -189,27 +184,9 @@ mkdir -p $PKG/etc/gnome && mv $PKG/etc/xdg $PKG/etc/gnome || exit 1
 
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a AUTHORS COPYING NEWS README \
-  $PKG/usr/doc/$PKGNAME-$VERSION
+cp -a WebKit/LICENSE* $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
-
-# Add schemas install to the doinst.sh if schemas are found.
-[ -d $PKG/etc/gconf/schemas ] && {
-# Make sure we have gconftool installed
-echo "if [ -x usr/bin/gconftool-2 ]; then" >> $PKG/install/doinst.sh
-( cd $PKG/etc/gconf/schemas
-for schema in *.schemas; do
- # Install schemas
- echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
-   usr/bin/gconftool-2 --makefile-install-rule \
-   etc/gconf/schemas/${schema} >/dev/null 2>&1" \
-   >> $PKG/install/doinst.sh
-done;
-)
-# Finish off gconf block
-echo "fi" >> $PKG/install/doinst.sh
-}
 
 # Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
@@ -221,7 +198,7 @@ done
 
 # Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
+makepkg -p -l y -c n $PKGDEST/${PKGNAME}-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
 if [ "$NOCLEANUP" = "0" ]; then

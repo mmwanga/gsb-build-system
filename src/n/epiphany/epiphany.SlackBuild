@@ -162,17 +162,13 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-schemas-install \
   --disable-introspection \
   --with-distributor-name="GNOME SlackBuild" \
-  --with-ca-file=/etc/ssl/certs/ca-certificates.crt \
+  --disable-network-manager \
+  --without-ca-file \
   || exit 1
 
 # Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-# Install ca-certificates 20090814.
-mkdir -p $PKG/usr/share/ca-certificates &&
-( cd $PKG/usr/share/ca-certificates && tar xfj $CWD/ca-certificates.20090814.tar.bz2 )
-chown root:root $PKG/usr/share/ca-certificates
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -223,6 +219,6 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
-[ "$NOCLEANUP" = "0" ] && {
+if [ "$NOCLEANUP" = "0" ]; then
   rm -rf $PKG $TMP/$PKGNAME-$VERSION
-}
+fi;
