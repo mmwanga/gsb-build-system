@@ -1,0 +1,8 @@
+PKGNAME="gtkmm"
+VERSION="2.20.3"
+HOMEPAGE="http://www.gtkmm.org/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gtkmm/2.20/gtkmm-2.20.3.tar.bz2"
+MD5SUM="c35f236091b4f96fe45c53b4107400a9"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
