@@ -2,10 +2,8 @@ alpine:SKP
 autofs:SKP
 biff+comsat:SKP
 bind:ADD
-bluez-firmware:ADD
 bluez-hcidump:ADD
-bluez-libs:ADD
-bluez-utils:ADD
+bluez:ADD
 bootp:SKP
 bridge-utils:SKP
 bsd-finger:SKP

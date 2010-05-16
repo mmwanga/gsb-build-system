@@ -1,7 +1,0 @@
-PKGNAME="poppler"
-VERSION="0.12.4"
-HOMEPAGE="http://poppler.freedesktop.org/"
-DOWNLOAD="http://poppler.freedesktop.org/poppler-0.12.4.tar.gz"
-MD5SUM="4155346f9369b192569ce9184ff73e43"
-MAINTAINER="Chip Cuccio"
-EMAIL="chipster@gnomeslackbuild.org"

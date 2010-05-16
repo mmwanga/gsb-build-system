@@ -1,6 +1,5 @@
 # alsa-lib replaces the slackware package
 alsa-lib
-poppler
 libelf
 libgc
 a52dec
@@ -73,11 +72,9 @@ sg3_utils
 libatasmart
 pycrypto
 gst-plugins-base
-bluez
 ORBit2
 GConf
 avahi
-pulseaudio
 alsa-plugins
 pyorbit
 pygobject
