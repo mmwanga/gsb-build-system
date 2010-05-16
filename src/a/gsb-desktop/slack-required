@@ -4,11 +4,13 @@ GConf
 alacarte
 bug-buddy
 epiphany
+evince
 evolution
 gconf-editor
 gdm
 notification-daemon
 gnome-applets
+gnome-backgrounds
 gnome-control-center
 gnome-desktop
 gnome-icon-theme
@@ -23,6 +25,7 @@ gnome-terminal
 gnome-themes
 gnome-utils
 gnome-vfs
+gst-ffmpeg
 gst-plugins-base
 gst-plugins-good
 gst-python
@@ -35,7 +38,6 @@ metacity
 nautilus
 rhythmbox
 seahorse
-shared-mime-info
 tango-icon-theme
 totem
 xdg-utils
