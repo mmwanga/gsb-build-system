@@ -114,19 +114,10 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #zcat $CWD/boehm-gc.patch.gz | patch -p1
-  #zcat $CWD/mono.configure.in.diff.gz | patch -p0
-  #libtoolize --force && autoreconf -vf
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #zcat $CWD/boehm-gc.patch.gz | patch -p1
-  #zcat $CWD/mono.configure.in.diff.gz | patch -p0
-  #libtoolize -c --force && autoreconf -vf
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #zcat $CWD/boehm-gc.patch.gz | patch -p1
-  #zcat $CWD/mono.configure.in.diff.gz | patch -p0
-  #libtoolize -c --force && autoreconf -vf
 fi
 
 # Fix permissions for building.
@@ -167,8 +158,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --infodir=/usr/info \
   || exit 1
 
-# Make sure we use the system libtool
-#(ln -sf /usr/bin/libtool libtool) || exit 1
 # Build and install.
 make &&
 make DESTDIR=$PKG install || exit 1
@@ -227,6 +216,6 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
-[ "$NOCLEANUP" = "0" ] && {
+if [ "$NOCLEANUP" = "0" ]; then
   rm -rf $PKG $TMP/$PKGNAME-$VERSION
-}
+fi;
