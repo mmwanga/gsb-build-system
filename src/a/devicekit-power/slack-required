@@ -3,3 +3,4 @@ udev
 glib2
 devicekit
 policykit
+eggdbus
