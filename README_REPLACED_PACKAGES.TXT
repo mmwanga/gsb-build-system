@@ -1,19 +1,19 @@
-# THIS IS THE REQUIRED PACKAGES LIST FOR GSB GNOME 2.30.0
+# THIS IS THE REPLACED PACKAGES LIST FOR GSB GNOME 2.30.0
 #
 # The following is a list of packages that can replace official Slackware 13.1
 # packages.
 #
 # Packages listed under 'Required' are Slackware packages that MUST be replaced
-# by corresponding GNOME SlackBuild versions in order to use GNOME 2.30.0 on
+# by corresponding GNOME SlackBuild versions in order to use GNOME 2.30 on
 # Slackware 13.1. Reasons for their replacement are given within brackets.
 #
 # Packages listed under 'Optional' are packages which replace official
 # Slackware packages, but their replacement are only necessary for added
 # functionality, or certain GNOME applications.  Their replacement is
 # recommended, but not required if you do not plan to use certain applications,
-# or are dead set against replacing any Slackware provided  packages.
+# or are dead set against replacing any Slackware provided packages.
 #
-# Last updated: May 07, 2010 (stevek)
+# Last updated: May 16, 2010 (stevek)
 #
 
 *********************************************** 
@@ -25,6 +25,5 @@ gtk+2:         	   ( 2.20.0 required by gnome-panel and nautilus )
 *********************************************** 
 -- OPTIONAL Package Replacements --
 
-bluez:		   ( 4.64 required by gvfs and gnome-bluetooth )
 gst-plugins-good:  ( 0.10.22 rebuilt against GConf for totem )
 libgsf:            ( 0.14.12 rebuilt against libgnome, required by office apps)
