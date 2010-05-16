@@ -1,7 +1,0 @@
-PKGNAME="transcode"
-VERSION="1.1.5"
-HOMEPAGE="http://www.transcoding.org/"
-DOWNLOAD="http://download.berlios.de/tcforge/transcode-1.1.5.tar.bz2"
-MD5SUM="41ac6b1c0fe30f3aab286e771fc31b9e"
-MAINTAINER="Chip Cuccio"
-EMAIL="chipster@gnomeslackbuild.org"
