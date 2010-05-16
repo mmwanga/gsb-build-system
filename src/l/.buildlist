@@ -101,7 +101,6 @@ libproxy
 gnome-keyring
 libsoup
 libchamplain
-gmime
 gstreamer
 vte
 gsl
