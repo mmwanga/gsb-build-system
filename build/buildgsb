@@ -40,6 +40,7 @@ trap error_out SIGINT
 # REQUIRED BUILD PACKAGES
 # List any packages here that are required to build other packages within GSB.
 #REQUIRED_PACKAGES="cabextract libtool-compat apache-ant openoffice-perl yasm jdk"
+#REQUIRED_PACKAGES="yasm"
 
 #========================================================================
 # IGNORED PACKAGES
@@ -70,9 +71,9 @@ LOGSDIR=${LOGSDIR:-$TMP/gsb${GSB_ARCH}-buildlogs}
 
 # Location of our build source
 BUILDSOURCE=${BUILDSOURCE:-"${BASH_SOURCE%/*}/../src"}
-EXTRASOURCE=${EXTRASOURCE:-"${BASH_SOURCE%/*}/../extra"}
-PASTURESOURCE=${PASTURESOURCE:-"${BASH_SOURCE%/*}/../pasture"}
-TESTINGSOURCE=${TESTINGSOURCE:-"${BASH_SOURCE%/*}/../testing"}
+EXTRASOURCE=${EXTRASOURCE:-"${BASH_SOURCE%/*}/../"}
+PASTURESOURCE=${PASTURESOURCE:-"${BASH_SOURCE%/*}/../"}
+TESTINGSOURCE=${TESTINGSOURCE:-"${BASH_SOURCE%/*}/../"}
 
 # GPG-KEY
 GPGKEY=${GPGKEY:-"${BUILDSOURCE}/../GPG-KEY"}
@@ -94,6 +95,7 @@ BUILD_DEPENDENCIES=0
 AUTO_DOWNLOAD=0
 NOPATCHESDIR=0
 NOSKIP=0
+SKIP_REBUILDS=0
 NOPRUNE=0
 PUBLISH=0
 SOURCE=0
@@ -133,6 +135,7 @@ while [ -n "$1" ] ; do
     ;;
     -publish|--publish)
       PUBLISH=1
+      SKIP_REBUILDS=1
       shift
     ;;
     -verify|--verify)
@@ -153,6 +156,10 @@ while [ -n "$1" ] ; do
     ;;
     -auto-download|--auto-download)
       AUTO_DOWNLOAD=1
+      shift
+    ;;
+    -skip-rebuilds|--skip-rebuilds)
+      SKIP_REBUILDS=1
       shift
     ;;
     -help|--help)
@@ -181,8 +188,8 @@ mkdir -p $TMP &&
 mkdir -p $PKGDEST &&
 mkdir -p $LOGSDIR &&
 mkdir -p $PKGDEST/${EXTRADIR} &&
-mkdir -p $PKGDEST/${PASTUREDIR} &&
-mkdir -p $PKGDEST/${TESTINGDIR} &&
+#mkdir -p $PKGDEST/${PASTUREDIR} &&
+#mkdir -p $PKGDEST/${TESTINGDIR} &&
 mkdir -p $PKGDEST/${PATCHESDIR} || exit 1
 
 #========================================================================
@@ -208,31 +215,42 @@ do
 
 (
 
-export SET="$(echo $listitem | cut -f1 -d/)"
-export PACKAGE="$(echo $listitem | cut -f2 -d/)"
-cd $BUILDSOURCE/$SET || exit 1
-
-# Build defaults.
+BUILD_OPTION="$(echo $listitem | cut -f1 -d:)"
+SET="$(echo $listitem | cut -f2 -d: | cut -f1 -d/)"
+PACKAGE="$(echo $listitem | cut -f2 -d: | cut -f2 -d/)"
 SKIP_BUILD=0
+SOURCE=$BUILDSOURCE
 
 # Create our tree according to Slackware defaults
 case $SET in
    extra)
      SUBDIR=$GSBDIR/../${EXTRADIR}/${PACKAGE}
+     SOURCE=$EXTRASOURCE
      NOPATCHES=1
      ;;
    pasture)
      SUBDIR=$GSBDIR/../${PASTUREDIR}
+     SOURCE=$PASTURESOURCE
      NOPATCHES=1
      ;;
    testing)
      SUBDIR=$GSBDIR/../${TESTINGDIR}
+     SOURCE=$TESTINGSOURCE
      NOPATCHES=1
      ;;
    *)
      SUBDIR=$GSBDIR/$SET
      ;;
 esac
+
+if [ -d $SOURCE/$SET ]; then
+  cd $SOURCE/$SET 
+else
+  echo "Can't find set directory $SOURCE/$SET."
+  exit 1
+fi
+
+
 
 # Look for package
 [ ! -d $PACKAGE ] && { 
@@ -261,7 +279,7 @@ if find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
   "" "" "" "\.txz" >/dev/null && [ "$NOSKIP" = "0" ]
 then
   if find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
-    "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" >/dev/null
+    "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" >/dev/null 
   then
     # Package with same version/build was found in the main directory.
     SKIP_BUILD=1
@@ -291,7 +309,7 @@ fi
 # Build package if required.
 #
 SUCCESSFUL_NEW_BUILD=0
-if [ "$SKIP_BUILD" = "0" ]; then
+if [ "$SKIP_BUILD" = "0" -o "$BUILD_OPTION" = "rebuild" -a "$SKIP_REBUILDS" = "0" ]; then
   rm -f $( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
     "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz|\.txt|\.txz\.asc" \
     | tr '\n' ' ' ) >/dev/null 2>&1
@@ -307,18 +325,20 @@ if [ "$SKIP_BUILD" = "0" ]; then
   mkdir -p $LOGSDIR/$SET
 
   # Run the SlackBuild
-  ( 
-    cd $PACKAGE && 
-    export PKGDEST=$PKGDEST/$SUBDIR || exit 1
-    download_package $PACKAGE $AUTO_DOWNLOAD || exit $?
-        ./$PACKAGE.SlackBuild $SLACKBUILD_ARGS 2>&1 
-  ) | tee $LOGSDIR/$SET/$PACKAGE-$( date +%Y%m%d-%H%M%S ).log
-
-  ERR=${PIPESTATUS[0]}
-  [ "$ERR" != "0" ] && { 
-    exit $ERR 
-  }
-  SUCCESSFUL_NEW_BUILD=1
+   ( 
+     cd $PACKAGE && 
+     export PKGDEST=$PKGDEST/$SUBDIR || exit 1
+     [ "$BUILD_OPTION" = "nofetch" ] || {
+        download_package $PACKAGE $AUTO_DOWNLOAD || exit $?
+     }
+     ./$PACKAGE.SlackBuild $SLACKBUILD_ARGS 2>&1 
+   ) | tee $LOGSDIR/$SET/$PACKAGE-$( date +%Y%m%d-%H%M%S ).log
+ 
+   ERR=${PIPESTATUS[0]}
+   [ "$ERR" != "0" ] && { 
+     exit $ERR 
+   }
+   SUCCESSFUL_NEW_BUILD=1
 
 else
   echo -n "* Found: $PACKAGE-${PACKAGE_VERSION//-/_}-${ARCH}-${PACKAGE_BUILD}${TAG}.txz" 
@@ -470,7 +490,7 @@ cd $BUILDSOURCE/.. ;
 # Copy our main documentation
 for i in COPYING COPYING3 CREDITS INSTALL.TXT README.TXT UPGRADE.TXT \
  CHANGES_AND_HINTS.TXT GPG-KEY COPYRIGHT.TXT MIRRORS.TXT CURRENT.WARNING \
- SLACKWARE-13.0_REPLACED_PACKAGES.TXT;
+ README_REPLACED_PACKAGES.TXT;
 do
  if [ -f $i ]; then
    cp $i $PKGDEST || exit 1;

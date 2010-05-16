@@ -47,7 +47,6 @@ function check_installed() {
 # Make a .txt after a package is built
 function make_pkg_txt() {
   # $1 = Package file to process [required].
-
   [ -z "$1" ] || [ ! -e "$1" ] && return 1
   tar xOf $1 install/slack-desc 2>/dev/null | \
     grep -v "^#" | egrep "[[:alnum:]\+]+\:" >${1%.txz}.txt
@@ -361,6 +360,9 @@ Options:
 
   --auto-download      	Automatically fetch tarballs that aren't found in the
     			src/ tree. 
+
+  --skip-rebuilds      	Do not rebuild packages when asked to do so in the
+    			buildlist.txt.
 
   --set=<set>           Build only a specific set.
 
