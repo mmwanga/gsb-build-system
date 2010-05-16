@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=4
+BUILD=5
 VERSION=1.2.1
 
 # List any packages here that are required to build this package.
@@ -151,7 +151,8 @@ elif [ "$ARCH" = "powerpc" ]; then
   TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
 fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
-MAKE_FLAGS=${GSB_MAKE_FLAGS:-"-j1"}
+#MAKE_FLAGS=${GSB_MAKE_FLAGS:-"-j1"}
+MAKE_FLAGS="-j1"
 
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
