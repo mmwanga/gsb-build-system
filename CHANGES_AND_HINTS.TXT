@@ -2,14 +2,14 @@ CHANGES AND HINTS
 =================
 This file documents the instructions for upgrading to GNOME SlackBuild 2.30.0
 for Slackware 13.1, and lists any packages which have been added, removed,
-renamed, and/or split during the development cycle from GSB 2.26.3 for
-Slackware 13.1, as well as note some potential "gotchas" that users can avoid
+renamed, and/or split during the development cycle from GSB 2.28.3 for
+Slackware 13.0, as well as note some potential "gotchas" that users can avoid
 by arming themselves with a little knowledge.
 
 All packages that are built to replace a standard Slackware package are
 configured and built as closely as possible to how Patrick does.  For more
 information about what needs to be replaced, and why, please see our
-'SLACKWARE-13.1_REPLACED_PACKAGES.TXT'.  
+'README_REPLACED_PACKAGES.TXT'.  
 
 GPG SIGNED PACKAGED
 ===================
@@ -27,33 +27,27 @@ Otherwise, the official Slackware package will outweigh some GNOME SlackBuild
 required package and they may not be installed.  
 
 
-*** PACKAGE ADDITIONS SINCE 2.26.3 for Slackware 13.1 ***
+*** PACKAGE ADDITIONS SINCE 2.28.3 for Slackware 13.0 ***
 
-a/libxklavier: Added.  Upgrades standard Slackware package.
-n/libpst: Added.
-a/pango: Added.  Upgrades standard Slackware package.
-l/pygobject: Added.  Upgrades standard Slackware package.
-l/vte: Added.  Upgrades standard Slackware package.
-l/clutter: Added.
-l/clutter-gtk: Added.
-l/libchamlain: Added.
-ap/eog-plugins: Added.
-l/poppler: Added.  This poppler package is built against qt4 and glib (but not
-  qt3-compat).  If you require the poppler qt3 bindings, then do not upgrade,
-  since this package only needs replacing if you want to use evince 2.30.0.
-a/gnome-icon-theme-2.30.0-i486-1gsb.txz: Added.  Upgrades Slackware package.
-l/gmime: Added.  This needs to replace the standard Slackware package, and used
-  by totem-pl-parser and GNOME 2.30 for gmime handling.  
-l/gstreamer: Added.  Required by libcanberra, gnome-control-panel, and GNOME
-  2.30 media backends.  
-a/libxklavier: Added.  This replaces the default Slackware package.  Library
-  version are the same, so the upgrade shouldn't affect any applications
+l/portaudio: Added.
 
-*** PACKAGE REMOVALS SINCE 2.26.3 for Slackware 13.1 ***
+*** PACKAGE REMOVALS SINCE 2.28.3 for Slackware 13.0 ***
 
-None.
+l/nss: Removed.  We now use Slackware's seamonkey-solibs.
+l/bluez: Removed.  Slackware has upgrade to bluez-4.
+a/pulseaudio: Removed.
+a/policykit: Removed.  Slackware now supplies polkit.
+a/policykit-gnome: Removed.  Slackware now supplied policykit-gnome.
+a/consolekit: Removed. Slackware provides ConsoleKit.
+a/evo-openldap: Removed.  Obsoleted by evolution-mapi, which users may wish to
+                build for the latest connectors to Exchange 2007.  
+
 
 *** OTHER NOTABLE CHANGES AND HINTS ***
+
+- Pulseaudio has been removed and we have returned to the ALSA/Gstreamer
+backend. Pulseaudio was a good option, but has proven just too slow and not as
+stable as ALSA. 
 
 - Where did my icons go?  GNOME 2.30 menus and buttons have been standardised
   across all applications to not display icons by default. Menu items with
@@ -67,24 +61,9 @@ and off using the 'Appearance' settings (under Interface).
 your system with the ".new" extension.  You may need to fill these in with
 information from your old config files and then move them over.
 
-- Slackware now offers packages seamonkey-solibs and seamonkey.  Be aware that
-  these packages can cause conflicts with GNOMESlackBuild's nss and xulrunner
-packages (in the n set), and possibly other packages which depend on xulrunner
-and nss.  We have marked them as "conflicts" in the slack-conflicts file.  If
-you want to use seamonkey, make sure to remove its entry from the
-/etc/ld.so.conf file, and re-run ldconfig.  Note that epiphany, and many
-packages like heimdal-libs and evolution will look for the GSB version of
-xulrunner and nss.  
-
 - When adding users to the netdev group (in order to use NetworkManager and the
   network-manager-applet) you may need to reload dbus in order for the new
 permissions to take effect.
-
-- Pulseaudio will grab the ALSA sound device, which may block other
-  applications from using sound while pulseaudio is running.  You may wish to
-install the alsa-plugins package, and then configure your /etc/asound.conf file
-to force ALSA to use pulesaudio.  This may be handy if you want to use flash
-video as well as using other pulsified applications.
 
 - You user must be in the 'audio' group to use audio, the 'netdev' group to use
   avahi and NetworkManager, the 'plugdev' to use BlueTooth and removeable media

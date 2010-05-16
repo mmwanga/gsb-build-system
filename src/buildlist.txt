@@ -64,7 +64,6 @@ l/libsexy
 l/notification-daemon
 #gnome-menus-kde
 #gnome-menus-xfce
-#evo-openldap
 t/gnome-themes
 a/gsb-desktop
 n/epiphany

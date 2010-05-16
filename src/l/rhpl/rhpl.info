@@ -1,6 +1,0 @@
-PKGNAME="rhpl"
-VERSION="0.220"
-DOWNLOAD="http://sources.gnomeslackbuild.org/source/rhpl-0.220.tar.bz2"
-MD5SUM="be021f2c1e342c37ad4757951744c257"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

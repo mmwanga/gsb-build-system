@@ -71,8 +71,8 @@ WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ----------------
 
-This product includes avahi, puleseaudio and other software developed by 
-Lennart Poettering.
+This product includes avahi, and other software developed by Lennart
+Poettering.
 
 ----------------
 
