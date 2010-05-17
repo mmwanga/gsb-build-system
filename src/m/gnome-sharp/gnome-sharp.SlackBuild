@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=3
+BUILD=4
 VERSION=2.24.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="mono gnome-vfs gtkhtml libart_lgpl libglade vte librsvg libgnomecanvas libgnome libgnomeui libgnomeprint libgnomeprintui gnome-panel"
+REQUIRED_PACKAGES="mono gnome-vfs libgnome libgnomeui gnome-panel"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -223,6 +223,6 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
-[ "$NOCLEANUP" = "0" ] && {
+if [ "$NOCLEANUP" = "0" ]; then
   rm -rf $PKG $TMP/$PKGNAME-$VERSION
-}
+fi;
