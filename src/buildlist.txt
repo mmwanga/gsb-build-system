@@ -31,8 +31,6 @@ l/libicu
 l/libproxy
 l/libsoup
 n/webkit
-# We rebuild to creat the pacman webkit modules.
-rebuild:l/libproxy
 a/rarian
 a/gnome-desktop
 a/gnome-menus
@@ -91,6 +89,8 @@ n/empathy
 #n/mozilla-xulrunner
 #n/gnome-pilot
 n/NetworkManager
+# We rebuild to creat the pacman webkit and NM modules 
+rebuild:l/libproxy
 #n/gnome-pilot-conduits
 #n/evolution-rss
 #n/libtelepathy
@@ -259,5 +259,7 @@ m/banshee-1
 #d/libgnomecanvasmm
 #d/gnome-vfsmm
 #d/libgnomeuimm
-## Build extra/
+#ooo/gnome-menus-ooo
+#ooo/openoffice3
+# Build packages in extra/
 extra/easytag
