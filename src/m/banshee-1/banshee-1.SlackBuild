@@ -24,12 +24,14 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=4
-VERSION=1.4.3
+BUILD=1
+VERSION=1.6.1
 
-## List any packages here that are required to build this package.
-## The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="mono gtk-sharp gstreamer libmusicbrainz sqlite ipod-sharp libmtp avahi avahi-sharp karma-sharp gnome-sharp mono-addins taglib-sharp boo"
+# List any packages here that are required to build this package.
+# The list is space seperated and case sensitive.
+REQUIRED_PACKAGES="mono gtk-sharp gstreamer avahi mono-addins \
+                   ndesk-dbus-glib boo taglib-sharp gnome-sharp \
+                   ipod-sharp mono-zeroconf"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -164,7 +166,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-docs \
   --program-prefix="" \
   --enable-release \
-  --enable-karma \
+  --disable-youtube \
+  --disable-webkit \
   || exit 1
 
 # Build and install.
@@ -209,6 +212,6 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
-[ "$NOCLEANUP" = "0" ] && {
+if [ "$NOCLEANUP" = "0" ]; then
   rm -rf $PKG $TMP/$PKGNAME-$VERSION
-}
+fi;
