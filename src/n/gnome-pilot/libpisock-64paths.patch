@@ -1,0 +1,26 @@
+--- configure.chip	2010-05-16 20:58:22.054509073 -0500
++++ configure	2010-05-16 21:16:07.017447706 -0500
+@@ -22027,10 +22027,10 @@
+ 	else
+ 	    PISOCK_CFLAGS="-I$withval/include"
+ 	    incdir="$withval/include"
+-	    PISOCK_LIBS="-L$withval/lib -lpisock -lpisync"
+-	    { echo "$as_me:$LINENO: checking \"for existance of $withval/lib/libpisock.so\"" >&5
+-echo $ECHO_N "checking \"for existance of $withval/lib/libpisock.so\"... $ECHO_C" >&6; }
+-	    if test -r $withval/lib/libpisock.so; then
++	    PISOCK_LIBS="-L$withval/lib64 -lpisock -lpisync"
++	    { echo "$as_me:$LINENO: checking \"for existance of $withval/lib64/libpisock.so\"" >&5
++echo $ECHO_N "checking \"for existance of $withval/lib64/libpisock.so\"... $ECHO_C" >&6; }
++	    if test -r $withval/lib64/libpisock.so; then
+ 		{ echo "$as_me:$LINENO: result: yes" >&5
+ echo "${ECHO_T}yes" >&6; }
+ 	    else
+@@ -22438,7 +22438,7 @@
+ 	                                                   piversion_include="$prefix/include/pi-version.h"
+ 						           if test x$PISOCK_LIBDIR = x; then
+ 							      incdir="$prefix/include"
+-							      PISOCK_LIBS="-L$prefix/lib -lpisock -lpisync"
++							      PISOCK_LIBS="-L$prefix/lib64 -lpisock -lpisync"
+                                                            fi
+ else
+   { { echo "$as_me:$LINENO: error: Unable to find pi-version.h" >&5

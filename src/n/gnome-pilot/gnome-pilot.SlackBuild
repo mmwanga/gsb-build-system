@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
+BUILD=3
 VERSION=2.0.17
 
 # List any packages here that are required to build this package.
@@ -117,7 +117,7 @@ if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  cat $CWD/libpisock-64paths.patch | patch -p0 --verbose
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
@@ -162,6 +162,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-usb \
   --enable-network \
   --disable-schemas-install \
+  --with-pisock=/usr \
   || exit 1
 
 # Build and install.
