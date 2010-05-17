@@ -1,9 +1,45 @@
+Mon May 17 11:53:23 BST 2010
+go/abiword-2.8.4-x86_64-2gsb.txz: Rebuilt.
+  Added goffice to slack-required.
+go/libgsf-1.14.16-x86_64-1gsb.txz: Upgraded.
+go/gnumeric-1.10.2-x86_64-1gsb.txz: Upgraded.
+ac/at-spi-1.30.1-x86_64-1gsb.txz: Upgraded.
+ac/dasher-4.10.1-x86_64-3gsb.txz: Upgraded.
+l/exempi-2.1.1-x86_64-2gsb.txz: Rebuilt.
+ac/gnome-mag-0.16.1-x86_64-1gsb.txz: Upgraded.
+l/portaudio-V19-x86_64-1gsb.txz: Added.
+ac/espeak-1.43.03-x86_64-1gsb.txz: Upgraded.
+ac/gnome-speech-0.4.25-x86_64-4gsb.txz: Rebuilt.
+  Rebuilt against the upgrade espeak.
+ac/gok-2.30.0-x86_64-1gsb.txz: Upgraded.
+ac/mousetweaks-2.30.1-x86_64-1gsb.txz: Upgraded.
+ac/orca-2.30.1-x86_64-1gsb.txz: Upgraded.
+t/gnome-backgrounds-2.30.0-x86_64-1gsb.txz: Upgraded.
+extra/easytag-2.1.6-x86_64-7gsb.txz: Rebuilt.
+ap/hamster-applet-2.30.1-x86_64-1gsb.txz: Upgraded.
+m/ndesk-dbus-0.6.1a-x86_64-7gsb.txz: Rebuilt.
+m/ndesk-dbus-glib-0.4.1-x86_64-7gsb.txz: Rebuilt.
+  The ndesk mono bindings rebuilt with mono 2.6.4.
+m/mono-addins-0.4-x86_64-5gsb.txz: Rebuilt.
+  The mono-addins package was rebuilt with mono 2.6.4.
+m/boo-0.9.2.3383-x86_64-1gsb.txz: Upgraded.
+m/taglib-sharp-2.0.3.7-x86_64-1gsb.txz: Upgraded.
+m/gnome-sharp-2.24.1-x86_64-4gsb.txz: Rebuilt.
+  The gnome-sharp package was rebuilt with mono 2.6.4.
+l/sg3_utils-1.29-x86_64-1gsb.txz: Upgraded.
+m/podsleuth-0.6.7-x86_64-1gsb.txz: Upgraded.
+m/ipod-sharp-0.8.5-x86_64-1gsb.txz: Upgraded.
+m/mono-zeroconf-0.9.0-x86_64-3gsb.txz: Rebuilt.
+  The mono-zeroconf package was rebuilt with mono 2.6.4.
+m/banshee-1-1.6.1-x86_64-1gsb.txz: Upgraded.
++--------------------------+
 Sun May 16 18:25:05 BST 2010
 extra/easytag-2.1.6-x86_64-6gsb.txz: Rebuilt.
 ap/rhythmbox-0.12.8-x86_64-2gsb.txz: Rebuilt.
   Added gst-python to slack-required, which is used for rhythmbox's plugins.
 +--------------------------+
 Sat May 15 01:26:32 BST 2010
+go/abiword-2.8.4-x86_64-1gsb.txz: Upgraded.
 go/goffice-0.8.2-x86_64-1gsb.txz: Upgraded.
 l/wv-1.2.4-x86_64-3gsb.txz: Rebuilt.
 go/libgda-4.0.8-x86_64-1gsb.txz: Upgraded.

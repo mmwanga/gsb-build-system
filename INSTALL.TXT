@@ -53,10 +53,10 @@ It is recommended that you upgrade to the latest slapt-get before installing or
 upgrading GSB.  You can find slapt-get at: 
 
 For Slackware:
-  http://www.slackware.org.uk/gsb/gsb-current/gsb/ad/slapt-get-0.10.2-i486-1gsb.txz
+  http://www.slackware.org.uk/gsb/gsb-current/gsb/ad/slapt-get-0.10.2d-i486-2gsb.txz
 
 For Slackware64:
-  http://www.slackware.org.uk/gsb/gsb64-current/gsb/ad/slapt-get-0.10.2-x86_64-1gsb.txz
+  http://www.slackware.org.uk/gsb/gsb64-current/gsb/ad/slapt-get-0.10.2d-x86_64-2gsb.txz
 
 Update your /etc/slapt-get/slapt-getrc file to point to Slackware 13.1
 and GNOMESlackBuild repositories.  Make sure to add the :OFFICIAL tag to
@@ -69,6 +69,10 @@ It it recommended that your drop to single user mode (with networking) before
 upgrading your machine or doing a full installation.  It is also wise to reboot
 afterward.  For more details, see below "Before Installation"
 
+** UPGRADING FROM A PREVIOUS INSTALLATION **
+
+For more details, please consult the UPGRADE.TXT.
+
 If you are upgrading your GSB from an earlier version, make sure to
 point your /etc/slapt-get/slapt-getrc SOURCE= to a gsb-current repository.
 You can find a list of available mirrors from:
@@ -80,6 +84,8 @@ You can find a list of available mirrors from:
       $ slapt-get --add-keys
 3. Upgrade your packages:
       $ slapt-get --upgrade
+
+** INSTALLING NEW **
 
 If you are installing on a fresh Slackware 13.1 system, then you will need
 to grab a copy of slapt-get from the repository (above), and then update
