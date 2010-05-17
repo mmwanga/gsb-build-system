@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=0.10.18
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gstreamer liboil alsa-lib libogg libvisual pango libtheora libvorbis cdparanoia ffmpeg hal libjpeg libcdio cairo flac GConf libdv libpng libshout zlib taglib esound speex taglib wavpack libavc1394 flac libiec61883 libraw1394 pulseaudio slang"
+REQUIRED_PACKAGES="gstreamer liboil alsa-lib libogg libvisual pango libtheora libvorbis cdparanoia ffmpeg hal libjpeg libcdio cairo flac GConf libdv libpng libshout zlib taglib esound speex taglib wavpack libavc1394 flac libiec61883 libraw1394 slang"
 
 # Build variables.
 TAG=${TAG:-gsb}
