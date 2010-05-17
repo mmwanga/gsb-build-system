@@ -5,7 +5,7 @@ gnome-python-extras
 inkscape
 glom
 dia
-libgsf
+#libgsf
 goffice
 tracker
 gnumeric
