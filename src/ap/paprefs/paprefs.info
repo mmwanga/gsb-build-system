@@ -1,7 +1,0 @@
-PKGNAME="paprefs"
-VERSION="0.9.8"
-HOMEPAGE="http://0pointer.de/lennart/projects/paprefs/"
-DOWNLOAD="http://0pointer.de/lennart/projects/paprefs/paprefs-0.9.8.tar.gz"
-MD5SUM="1c54aa1ef52e65097996f5930a816230"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
