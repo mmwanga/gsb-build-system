@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
+BUILD=3
 VERSION=0.9.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="mono avahi-sharp"
+REQUIRED_PACKAGES="mono avahi"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -116,15 +116,15 @@ cd $PKGNAME-$VERSION || exit 1
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # Fix library name
-  zcat $CWD/mono-zeroconf.libnss.diff.gz | patch -p1
+  # zcat $CWD/mono-zeroconf.libnss.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # Fix library name
-  zcat $CWD/mono-zeroconf.libnss.diff.gz | patch -p1
+  # zcat $CWD/mono-zeroconf.libnss.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # Fix library name
-  zcat $CWD/mono-zeroconf.libnss.diff.gz | patch -p1
+  # zcat $CWD/mono-zeroconf.libnss.diff.gz | patch -p1
 fi
 
 # Fix permissions for building.
@@ -163,6 +163,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
   --program-prefix="" \
+  --disable-docs \
   || exit 1
 
 # Build and install.
@@ -207,6 +208,6 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
-[ "$NOCLEANUP" = "0" ] && {
+if [ "$NOCLEANUP" = "0" ]; then
   rm -rf $PKG $TMP/$PKGNAME-$VERSION
-}
+fi;
