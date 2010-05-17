@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.28.5
 
 # List any packages here that are required to build this package.
@@ -168,8 +168,8 @@ make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # keep xdg in gnome 
-mkdir -p $PKG/etc/gnome &&
-mv $PKG/etc/xdg $PKG/etc/gnome || exit 1
+mkdir -p $PKG/etc/gnome
+#mv $PKG/etc/xdg $PKG/etc/gnome || exit 1
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
