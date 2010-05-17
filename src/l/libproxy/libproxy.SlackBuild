@@ -167,7 +167,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --with-gnu-ld \
   --with-direct \
   --with-envvar \
-  --without-networkmanager \
   || exit 1
 
 # Build and install
