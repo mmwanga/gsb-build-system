@@ -4,3 +4,4 @@ hal
 dbus
 libglade
 libusb
+bluez
