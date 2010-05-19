@@ -25,7 +25,7 @@
 
 # Package variables.
 BUILD=1
-VERSION=3.2.0.10
+VERSION=3.2.1.1
 WITH_LANGUAGES=${WITH_LANGUAGES:-"NO"}
 #LANGUAGES="en-US en-GB de fr it ar da el es fi he hi-IN hu ja ko \
 #           nb nl pl pt ro ru sv th tr uk zh-CN zh-TW"
