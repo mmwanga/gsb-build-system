@@ -75,7 +75,6 @@ GConf
 avahi
 alsa-plugins
 pyorbit
-pygobject
 libgnomecups
 libbonobo
 gnome-mime-data
