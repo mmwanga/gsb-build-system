@@ -46,7 +46,7 @@ the above command.
 
 
 2.  Upgrade your required replacements.  These are found in:
-   SLACKWARE-13.1_REPLACED_PACKAGES.TXT.  It is recommended that your read this
+   SLACKWARE_REPLACED_PACKAGES.TXT.  It is recommended that your read this
 file to find out why certain standard Slackware packages need to be replaced. 
 
     $ removepkg bluez-libs bluez-utils

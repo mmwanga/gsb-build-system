@@ -16,7 +16,7 @@ those pre-built packages, suitable for Slackware and Slackware64.
 
 Please give the CHANGES_AND_HINTS.TXT a quick read before installing.  Also, we
 still need to replace five standard Slackware packages.  Please see
-SLACKWARE-13.1_REPLACED_PACKAGES.TXT for more details about what needs to be
+SLACKWARE_REPLACED_PACKAGES.TXT for more details about what needs to be
 replaced, and why. 
 
 This document provides information on installing our pre-built GSB packages on
@@ -377,7 +377,7 @@ Once all the GSB packages are removed and you've done any housekeeping, you
 will need to re-install any Slackware/Slackware64 packages which were replaced
 by the GSB provided ones.  A complete list of standard Slackware/Slackware64
 packages GSB replaced during installation can be found in our
-SLACKWARE-13.1_REPLACED_PACKAGES.TXT.
+SLACKWARE_REPLACED_PACKAGES.TXT.
 
 If you are using slapt-get to re-install the packages, you will need to comment
 out any SOURCE= line(s) for GSB in your /etc/slapt-get/slapt-getrc file (if any

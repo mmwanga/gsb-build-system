@@ -47,7 +47,7 @@ FTP site:
 |-- FILELIST.TXT		List of files on the GSB FTP site.
 |-- INSTALL.TXT			Instructions on how to install GSB.
 |
-|-- SLACKWARE-13.1_REPLACED_PACKAGES.TXT
+|-- SLACKWARE_REPLACED_PACKAGES.TXT
 |  				        Packages in GSB that will replace 
 |                           standard Slackware packages.
 |-- README.TXT			This file. :-)

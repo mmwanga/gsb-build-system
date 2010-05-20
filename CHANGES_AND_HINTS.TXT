@@ -9,7 +9,7 @@ by arming themselves with a little knowledge.
 All packages that are built to replace a standard Slackware package are
 configured and built as closely as possible to how Patrick does.  For more
 information about what needs to be replaced, and why, please see our
-'SLACKWARE-13.1_REPLACED_PACKAGES.TXT'.  
+'SLACKWARE_REPLACED_PACKAGES.TXT'.  
 
 GPG SIGNED PACKAGED
 ===================
