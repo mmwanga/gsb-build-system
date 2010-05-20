@@ -12,11 +12,11 @@ Here are some versions of major components of GNOME SlackBuild 2.28.0
 - Full GNOME Desktop    2.28.0
 - Evolution             2.28.2
 - NetworkManager        0.7.1
-- Mono C#		2.4.2.3
-- OpenOffice.org        3.2.1
+- Mono C#		        2.4.2.3
+- OpenOffice.org        3.2.0
 - Compiz                0.8.3
 - GNOME Office          0.8.0
-- Abiword               2.6.8 
+- Abiword               2.8.2 
 - Gnumeric              1.8.3
 
 For installation instructions, see the file 'INSTALL.TXT'

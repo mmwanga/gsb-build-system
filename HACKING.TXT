@@ -6,8 +6,8 @@
   future development of the project, so make sure your changes won't conflict
   with our plans.
 
-* Unless you have svn commit access we will require an 'svn diff' of your
-  changes to the tree.  Please use 'svn diff' - we cannot work with the
+* Unless you have git commit access we will require an 'git diff' of your
+  changes to the tree.  Please use 'git diff' - we cannot work with the
   output of a simple 'diff'.  Mail the diff to the gsb-dev mailing list.
 
 * Patches should have descriptive names, eg: fix-broken-something.patch.
