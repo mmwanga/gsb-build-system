@@ -46,7 +46,6 @@ pygdata
 pyxdg
 glibmm
 cairomm
-pango
 pangomm
 gtkmm
 gtksourceview2
