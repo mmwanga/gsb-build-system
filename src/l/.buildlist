@@ -96,7 +96,6 @@ gnome-keyring
 libsoup
 libchamplain
 gstreamer
-vte
 gsl
 gdl
 libxml++
