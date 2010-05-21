@@ -1,5 +1,5 @@
 
-GNOME SlackBuild 2.26.3 for Slackwarew 13.1 Upgrade to 
+GNOME SlackBuild 2.28 for Slackwarew 13.1 Upgrade to 
   GNOME SlackBuild 2.28.0 for 13.1 <steve@gnomeslackbuild.org>
 
 This document explains how to upgrade from earlier versions of GNOME
@@ -7,7 +7,7 @@ Slackbuild to GNOME SlackBuild 2.28.0 for Slackware 13.1.
 
 ----------------------------------------------------------------------------
 
-For details of important changes from GNOME SlackBuild 2.26.3 for Slackware
+For details of important changes from GNOME SlackBuild 2.28 for Slackware
 13.1, see the file 'CHANGES_AND_HINTS.TXT'. 
 
 Before you begin, I would strongly recommend making a backup of your system,
