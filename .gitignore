@@ -2,4 +2,6 @@
 *.bz2
 *.tar.gz
 *.tgz
+*.zip
+*.jar
 gsb.options
