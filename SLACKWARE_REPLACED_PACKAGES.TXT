@@ -17,21 +17,14 @@
 *********************************************** 
 -- REQUIRED Package Replacements --
 
-gstreamer:        ( >= 0.10.24 required by totem )
-libwnck:          ( 2.28.0 required by metacity )
-pygobject:        ( 2.20 required by gnome-python 2.28, and GNOME python 
-                    applications in general )
 
 *********************************************** 
 -- Recommended Replacements --
 
 gst-plugins-base  ( > 0.10.24 rebuild against gvfs/gnomevfs to enable giosink,
                     required by sound-juicer) 
-vte:              ( 0.22 required for gnome-terminal )
-
 *********************************************** 
 -- Optional Replacements --
 
-compiz:           ( Slackware comes with compiz 0.7.8; our compiz offers GNOME
-                    support, like CCSM and other goodies.) 
+compiz:           ( our compiz offers GNOME support, like CCSM and other goodies.) 
 MPlayer:          ( MPlayer built against pulseaudio; found in extra/.)
