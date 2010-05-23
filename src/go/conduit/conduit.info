@@ -1,0 +1,8 @@
+PKGNAME="conduit"
+VERSION="0.3.17"
+HOMEPAGE="http://www.conduit-project.org/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/conduit/0.3/conduit-0.3.17.tar.bz2"
+MD5SUM="0c94b2b980e26ea71a470683bbd6a45f"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

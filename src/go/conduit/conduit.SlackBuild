@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
-VERSION=0.8.6
+BUILD=2
+VERSION=0.3.17
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="sqlite gstreamer libgsf exempi devicekit-power"
+REQUIRED_PACKAGES="pygoocanvas pywebkitgtk"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -108,16 +108,41 @@ mkdir -p $PKGDEST
 
 # Decompress archive.
 cd $TMP &&
+rm -rf $PKGNAME-$VERSION &&
 tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
+  # http://bugzilla.gnome.org/show_bug.cgi?id=583823
+  zcat $CWD/conduit.unicode.diff.gz | patch -p1
+  # http://bugzilla.gnome.org/show_bug.cgi?id=529301
+  zcat $CWD/conduit.escaping.characters.diff.gz | patch -p1
+  # Fix libdir
+  zcat $CWD/conduit.libdir.diff.gz | patch -p1
+  # Disable smug module
+  zcat $CWD/conduit.disable_smug.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
+  # http://bugzilla.gnome.org/show_bug.cgi?id=583823
+  zcat $CWD/conduit.unicode.diff.gz | patch -p1
+  # http://bugzilla.gnome.org/show_bug.cgi?id=529301
+  zcat $CWD/conduit.escaping.characters.diff.gz | patch -p1
+  # Fix libdir
+  zcat $CWD/conduit.lib64dir.diff.gz | patch -p1
+  # Disable smug module
+  zcat $CWD/conduit.disable_smug.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
+  # http://bugzilla.gnome.org/show_bug.cgi?id=583823
+  zcat $CWD/conduit.unicode.diff.gz | patch -p1
+  # http://bugzilla.gnome.org/show_bug.cgi?id=529301
+  zcat $CWD/conduit.escaping.characters.diff.gz | patch -p1
+  # Fix libdir
+  zcat $CWD/conduit.libdir.diff.gz | patch -p1
+  # Disable smug module
+  zcat $CWD/conduit.disable_smug.diff.gz | patch -p1
 fi
 
 # Fix permissions for building.
@@ -155,19 +180,15 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --disable-unit-tests \
-  --enable-gnome-keyring \
-  --disable-miner-kmail \
-  --enable-tracker-status-icon \
+  --disable-scrollkeeper \
   || exit 1
 
 # Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-# Move into /etc/gnome 
-mkdir -p $PKG/etc/gnome &&
-mv $PKG/etc/xdg $PKG/etc/gnome || exit 1
+# Remove autostart
+rm -fr $PKG/usr/share/gnome/autostart/conduit-autostart.desktop
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
