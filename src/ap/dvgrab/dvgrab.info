@@ -1,7 +1,0 @@
-PKGNAME="dvgrab"
-VERSION="3.5"
-HOMEPAGE="http://www.kinodv.org"
-DOWNLOAD="http://downloads.sourceforge.net/sourceforge/kino/dvgrab-3.5.tar.gz"
-MD5SUM="b39a242ce63e80fc347ab59931f75649"
-MAINTAINER="Chip Cuccio"
-EMAIL="chipster@gnomeslackuild.org"

@@ -6,3 +6,5 @@ libsoup
 libgpod
 avahi
 gnome-media
+gnome-python-desktop
+pywebkitgtk

@@ -1,8 +1,0 @@
-pulseaudio
-libglademm
-gtkmm
-gconfmm
-libXcomposite
-libXdamage
-libXfixes
-pixman

@@ -1,7 +1,0 @@
-PKGNAME="soundcoverter"
-VERSION="1.4.4"
-HOMEPAGE="http://soundconverter.berlios.de/"
-DOWNLOAD="http://download.berlios.de/soundconverter/soundconverter-1.4.4.tar.bz2"
-MD5SUM="c49c60cc466b50e000f83b8d50645ef8"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

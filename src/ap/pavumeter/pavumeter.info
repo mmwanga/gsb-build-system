@@ -1,7 +1,0 @@
-PKGNAME="pavumeter"
-VERSION="0.9.3"
-HOMEPAGE="http://0pointer.de/lennart/projects/pavumeter/"
-DOWNLOAD="http://0pointer.de/lennart/projects/pavumeter/pavumeter-0.9.3.tar.gz"
-MD5SUM="3a6b36cfefa8d6dd00084dafa50c934c"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
