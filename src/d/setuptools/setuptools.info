@@ -1,0 +1,7 @@
+PKGNAME="setuptools"
+VERSION="0.6c11"
+HOMEPAGE="http://pypi.python.org/pypi/setuptools"
+DOWNLOAD="http://pypi.python.org/packages/source/s/setuptools/setuptools-0.6c11.tar.gz"
+MD5SUM="7df2a529a074f613b509fb44feefe74e"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

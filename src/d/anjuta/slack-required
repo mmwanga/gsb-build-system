@@ -1,7 +1,5 @@
 libgda
-gdl
 libglade
+gdl
 vte
 libgnomeui
-autogen
-graphviz
