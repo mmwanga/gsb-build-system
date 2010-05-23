@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables. 
-BUILD=1
+BUILD=2
 VERSION=r20450
 
 # Make sure we use a set libswscale from mplayer;  the external dependency
