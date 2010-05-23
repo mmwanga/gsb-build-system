@@ -40,7 +40,7 @@ trap error_out SIGINT
 # REQUIRED BUILD PACKAGES
 # List any packages here that are required to build other packages within GSB.
 #REQUIRED_PACKAGES="cabextract libtool-compat apache-ant openoffice-perl yasm jdk"
-#REQUIRED_PACKAGES="yasm"
+#REQUIRED_PACKAGES="yasm apache-ant"
 
 #========================================================================
 # IGNORED PACKAGES
@@ -490,7 +490,7 @@ cd $BUILDSOURCE/.. ;
 # Copy our main documentation
 for i in COPYING COPYING3 CREDITS INSTALL.TXT README.TXT UPGRADE.TXT \
  CHANGES_AND_HINTS.TXT GPG-KEY COPYRIGHT.TXT MIRRORS.TXT CURRENT.WARNING \
- README_REPLACED_PACKAGES.TXT;
+ SLACKWARE_REPLACED_PACKAGES.TXT;
 do
  if [ -f $i ]; then
    cp $i $PKGDEST || exit 1;
