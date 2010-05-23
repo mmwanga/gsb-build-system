@@ -48,6 +48,12 @@ a/policykit: Removed.  Slackware now supplies polkit.
 a/policykit-gnome: Removed.  Slackware now supplied policykit-gnome.
 a/consolekit: Removed. Slackware provides ConsoleKit.
 go/system-config-printer: Removed. Now in Slackware.
+ap/dvgrab
+ap/kino
+ap/paman
+ap/padevchooser
+ap/pavumeter
+ap/pavolman
 a/evo-openldap: Removed.  Obsoleted by evolution-mapi, which users may wish to
                 build for the latest connectors to Exchange 2007.  
 n/gnome-bluetooth: Removed. Not needed with blueman.
@@ -61,15 +67,26 @@ extra/dvdrip: Removed.
 *** OTHER NOTABLE CHANGES AND HINTS ***
 
 - Pulseaudio has been removed and we have returned to the ALSA/Gstreamer
-backend. Pulseaudio was a good option, but has proven just too slow and not as
-stable as ALSA. 
+  backend. Pulseaudio was a good option, but has proven just too slow and not
+as stable as ALSA. You can also remove old pulse users and groups from
+/etc/passwd and /etc/group.
+
+- PolicyKit has been upgraded to polkit-1, and is now included in the official
+  Slackware repository.  If you had a previous GSB installation, you can now
+remove polkituser from /etc/passwd and /etc/group.
 
 - Where did my icons go?  GNOME 2.30 menus and buttons have been standardised
   across all applications to not display icons by default. Menu items with
-dynamic objects, including applications, files or bookmarks, and devices are the
-exception and can display an icon. This change will standardise the look and
-feel of menus and present a cleaner interface to users.  You can turn this on
-and off using the 'Appearance' settings (under Interface). 
+dynamic objects, including applications, files or bookmarks, and devices are
+the exception and can display an icon.  GNOME 2.30 has removed the 'Interface'
+tab from the Appearances applet.  To re-enable your menu icons, you will need
+to run: 
+    $ gconftool-2 --set --type boolean  \
+          /desktop/gnome/interface/menus_have_icons true
+
+- If you would like to have some control over volume management (i.e.,
+removeable media), then you will need to install the xfce and thunar-volman
+packages from the official Slackware repositories.
 
 - Remember to fix your config files.  Some of the config files in /etc are
   going to need your attention.  You'll find the new incoming config files on
