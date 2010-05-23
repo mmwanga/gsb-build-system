@@ -32,7 +32,7 @@ WITH_LANGUAGES=${WITH_LANGUAGES:-"NO"}
 LANGUAGES=""
 
 # List any packages here that are required to build this package.
-REQUIRED_PACKAGES="gtk+2 libgnomeui neon libsndfile gnome-vfs boost libgnomeui mozilla-xulrunner nss sane zlib librsvg libjpeg jre nss jdk apache-ant rsync git"
+REQUIRED_PACKAGES="gtk+2 neon libsndfile gnome-vfs boost libgnomeui sane zlib librsvg libjpeg jre jdk apache-ant rsync git"
 
 # We will want to build with gtk/kde and native widgets.
 KDE_REQUIRED_PACKAGES="kdebase-workspace kdelibs qt"
@@ -135,14 +135,6 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
-# Fix permissions for building.
-#chown -R root:root .
-#find . \
-#  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
-#  -exec chmod 755 {} \; -o \
-#  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
-#  -exec chmod 644 {} \;
-
 # Configure, Tuning, GCC and Make options.
 CONFIGURE_FLAGS=${GSB_CONFIGURE_FLAGS:-""}
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" ]; then
@@ -205,7 +197,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --with-system-mozilla \
   --disable-mono \
   --with-binsuffix=3.2 \
-  --with-docdir=/usr/share/doc/openoffice.org \
+  --with-docdir=/usr/doc/openoffice.org \
   --with-gcc-speedup=ccache \
   --with-openclipart=/usr/share/openclipart \
   --with-drink=ale \
@@ -280,9 +272,9 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz || exit 1
 
 # Cleanup
-[ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/ooo-build-$VERSION
+if [ "$NOCLEANUP" = "0" ]; then
+  rm -rf $PKG $TMP/$PKGNAME-$VERSION
   # Make sure to clean up build machine of any kde packages to prevent 
   # unwanted dependencies. 
   removepkg $KDE_REQUIRED_PACKAGES
-}
+fi;

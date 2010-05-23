@@ -6,7 +6,6 @@ libsndfile
 gnome-vfs
 boost
 libgnomeui
-mozilla-xulrunner
 zlib
 librsvg
 libjpeg
@@ -16,7 +15,5 @@ gstreamer
 cairo
 gtk+2
 openssl-solibs | openssl
-nss
 liberation-fonts-ttf
-gnome-menus-ooo
 libicu
