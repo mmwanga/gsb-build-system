@@ -48,7 +48,7 @@ fi;
 
 # Use seahorse-agent if available from seahorse-plugins
 if [ -x /usr/bin/seahorse-agent ]; then
-  GNOME_SESSION_SETTINGS="$GNOME_SESSION_SETTINGS /usr/bin/seahorse-agent"
+  GNOME_SESSION_SETTINGS="$GNOME_SESSION_SETTINGS /usr/bin/seahorse-agent --execute"
 fi;
 
 # Use ConsoleKit if available

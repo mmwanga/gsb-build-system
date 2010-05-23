@@ -2,11 +2,18 @@ glib2 >= 2.24-@ARCH@-1
 gtk+2 >= 2.20-@ARCH@-1
 GConf
 alacarte
+brasero
 bug-buddy
+deskbar-applet
+eog
 epiphany
+epiphany-extensions
 evince
 evolution
+file-roller
+gcalctool
 gconf-editor
+gedit
 gdm
 notification-daemon
 gnome-applets
@@ -34,10 +41,13 @@ gthumb
 gtk-engines
 gvfs
 hicolor-icon-theme
+liferea
 metacity
 nautilus
+network-manager-applet
 rhythmbox
 seahorse
+seahorse-plugins
 tango-icon-theme
 totem
 xdg-utils
