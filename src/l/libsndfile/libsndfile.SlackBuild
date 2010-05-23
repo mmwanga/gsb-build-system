@@ -24,8 +24,8 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
-VERSION=1.0.20
+BUILD=1
+VERSION=1.0.21
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -159,6 +159,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
+  --docdir=/usr/doc/$PKGNAME-$VERSION \
+  --htmldir=/usr/doc/$PKGNAME-$VERSION \
   --disable-static \
   --enable-shared \
   --program-prefix="" \
@@ -212,6 +214,6 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
-[ "$NOCLEANUP" = "0" ] && {
+if [ "$NOCLEANUP" = "0" ]; then
   rm -rf $PKG $TMP/$PKGNAME-$VERSION
-}
+fi;
