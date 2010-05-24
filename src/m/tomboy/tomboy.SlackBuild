@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=1.0.1
+VERSION=1.2.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gnome-sharp mono gtk-sharp ndesk-dbus-glib"
+REQUIRED_PACKAGES="gnome-sharp mono gtk-sharp ndesk-dbus-glib mono-addins gnome-desktop-sharp"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -159,6 +159,9 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
   --disable-schemas-install \
+  --disable-update-mimedb \
+  --enable-gnome \
+  --disable-evolution \
   || exit 1
 
 # Build and install.
@@ -226,6 +229,6 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
-[ "$NOCLEANUP" = "0" ] && {
+if [ "$NOCLEANUP" = "0" ]; then
   rm -rf $PKG $TMP/$PKGNAME-$VERSION
-}
+fi;
