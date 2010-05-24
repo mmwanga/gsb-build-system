@@ -32,7 +32,8 @@ WITH_LANGUAGES=${WITH_LANGUAGES:-"NO"}
 LANGUAGES=""
 
 # List any packages here that are required to build this package.
-REQUIRED_PACKAGES="gtk+2 neon libsndfile gnome-vfs boost libgnomeui sane zlib librsvg libjpeg jre jdk apache-ant rsync git"
+REQUIRED_PACKAGES="gtk+2 neon libsndfile gnome-vfs boost libgnomeui sane zlib \
+                   librsvg libjpeg jre jdk apache-ant rsync git seamonkey"
 
 # We will want to build with gtk/kde and native widgets.
 KDE_REQUIRED_PACKAGES="kdebase-workspace kdelibs qt"
@@ -194,7 +195,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --with-system-icu \
   --with-system-expat \
   --with-system-boost \
-  --with-system-mozilla \
+  --with-system-mozilla=seamonkey \
   --disable-mono \
   --with-binsuffix=3.2 \
   --with-docdir=/usr/doc/openoffice.org \
@@ -231,6 +232,12 @@ for i in $PKG/usr/share/applications/*.desktop ;
 do 
    sed -i '/^Name/s/$/ 3.2/g' $i; 
 done;
+
+# Copy menus 
+mkdir -p $PKG/etc/gnome/xdg/menus &&
+mkdir -p $PKG/usr/share/desktop-directories &&
+zcat $CWD/OpenOffice3.directory.gz > $PKG/usr/share/desktop-directories/OpenOffice3.directory &&
+zcat $CWD/gnome-menus-ooo3.menu.gz > $PKG/etc/gnome/xdg/menus/gnome-menus-ooo3.menu || exit 1
 
 # Preserve files
 mv $PKG/etc/bash_completion.d/ooffice3.2.sh $PKG/etc/bash_completion.d/ooffice3.2.sh.new

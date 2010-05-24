@@ -34,7 +34,7 @@
 --with-system-gcc
 --with-system-boost
 --with-system-db
---with-system-mozilla=libxul
+--with-system-mozilla=seamonkey
 --with-system-libsvg
 --with-system-cairo
 --with-system-sndfile
