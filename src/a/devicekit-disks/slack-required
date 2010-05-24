@@ -1,5 +1,5 @@
 dbus
 glib2
 devicekit
-policykit
+polkit
 libatasmart

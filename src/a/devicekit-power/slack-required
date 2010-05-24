@@ -2,5 +2,5 @@ dbus
 udev
 glib2
 devicekit
-policykit
+polkit
 eggdbus

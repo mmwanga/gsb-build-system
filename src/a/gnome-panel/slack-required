@@ -23,5 +23,5 @@ libpng
 evolution-data-server
 gstreamer
 libgweather
-policykit-gnome
+polkit-gnome
 libproxy
