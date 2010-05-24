@@ -1,8 +1,8 @@
 PKGNAME="NetworkManager-openvpn"
-VERSION="0.7.2"
+VERSION="0.8"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/NetworkManager-openvpn/0.7/NetworkManager-openvpn-0.7.2.tar.bz2"
-MD5SUM="b27306c0350a7060377831ab4ebe97f5"
+DOWNLOAD="${GNOME_SERVER}/NetworkManager-openvpn/0.8/NetworkManager-openvpn-0.8.tar.bz2"
+MD5SUM="5039d6a840be45445db876cd71d64d20"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

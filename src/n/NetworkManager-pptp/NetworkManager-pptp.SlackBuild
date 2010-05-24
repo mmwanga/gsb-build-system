@@ -25,12 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=0.7.2
+VERSION=0.8
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
 REQUIRED_PACKAGES="NetworkManager ppp"
-
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -188,16 +187,6 @@ mv $PKG/etc/dbus-1/system.d/nm-pptp-service.conf \
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }
 
-# Deal with .info files.
-[ -e $PKG/usr/share/info ] && {
-  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
-  rmdir -p $PKG/usr/share
-  }
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
-}
-
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a AUTHORS COPYING README \
@@ -218,6 +207,6 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
-[ "$NOCLEANUP" = "0" ] && {
+if [ "$NOCLEANUP" = "0" ]; then
   rm -rf $PKG $TMP/$PKGNAME-$VERSION
-}
+fi;
