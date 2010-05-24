@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=0.8.4
 
 # List any packages here that are required to build this package.
@@ -115,13 +115,22 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # http://bugs.sourcemage.org/show_bug.cgi?id=15693
+  zcat $CWD/emerald.widget.visibility.diff.gz | patch -p1
+  # Fix deprecated names
+  zcat $CWD/emerald.gtkobject.name.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # http://bugs.sourcemage.org/show_bug.cgi?id=15693
+  zcat $CWD/emerald.widget.visibility.diff.gz | patch -p1
+  # Fix deprecated names
+  zcat $CWD/emerald.gtkobject.name.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # http://bugs.sourcemage.org/show_bug.cgi?id=15693
+  zcat $CWD/emerald.widget.visibility.diff.gz | patch -p1
+  # Fix deprecated names
+  zcat $CWD/emerald.gtkobject.name.diff.gz | patch -p1
 fi
 
 # Fix permissions for building.
