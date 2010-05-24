@@ -1,6 +1,7 @@
-gamin
 GConf
-python
 xorg-server-xephyr
+python
 pygtk
-python-ldap
+pyxdg
+pessulus
+gksu-polkit
