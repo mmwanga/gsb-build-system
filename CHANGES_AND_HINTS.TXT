@@ -48,16 +48,22 @@ a/policykit: Removed.  Slackware now supplies polkit.
 a/policykit-gnome: Removed.  Slackware now supplied policykit-gnome.
 a/consolekit: Removed. Slackware provides ConsoleKit.
 go/system-config-printer: Removed. Now in Slackware.
-ap/dvgrab
-ap/kino
-ap/paman
-ap/padevchooser
-ap/pavumeter
-ap/pavolman
+ap/dvgrab: Removed.
+ap/kino: Removed.
+d/gob2: Removed.
+d/ghex: Removed.
+d/nemiver: Removed.
+a/paman: Removed with pulseaudio.
+ap/padevchooser: Removed with pulseaudio.
+ap/pavumeter: Removed with pulseaudio.
+ap/pavucontrol:Removed with pulseaudio.
+paprefs: Removed with pulseaudio.
 a/evo-openldap: Removed.  Obsoleted by evolution-mapi, which users may wish to
                 build for the latest connectors to Exchange 2007.  
 n/gnome-bluetooth: Removed. Not needed with blueman.
 m/avahi-sharp: Removed.  The avahi package itself now has mono bindings.
+m/karma-sharp: Removed.
+m/f-spot: Removed.
 extra/pidgin: Removed. (No longer rebuilt against pulseaudio).
 extra/MPlayer: Removed. (No longer rebuilt against pulseaudio).
 extra/deluge: Removed.  This has been replaced by the lighter transmission.

@@ -1,3 +1,56 @@
+Mon May 24 17:15:00 BST 2010
+m/gnome-desktop-sharp-2.26.0-i486-4gsb.txz: Rebuilt.
+   Rebuilt against newer mono.
+m/tomboy-1.2.1-i486-1gsb.txz: Upgraded.
+a/libcanberra-0.24-i486-2gsb.txz: Rebuilt.
+   Enabled valac definitions.
+go/tracker-0.8.6-i486-2gsb.txz: Rebuilt.
+   Changed the default monitoring status to disabled.  The tracker applet will
+   now start up if tracker is installed, but users will have to manually
+   enable it.
+c/compiz-0.8.6-i486-1gsb.txz: Upgraded.
+c/emerald-0.8.4-i486-2gsb.txz: Rebuilt.
+   Patched against the newer gtk+2 for symbol visibility.
+c/compiz-plugins-main-0.8.6-i486-1gsb.txz: Upgraded.
+c/compiz-plugins-extra-0.8.6-i486-1gsb.txz: Upgraded.
+c/protobuf-2.3.0-i486-1gsb.txz: Upgraded.
+c/compizconfig-python-0.8.4-i486-2gsb.txz: Rebuilt.
+c/compizconfig-backend-gconf-0.8.4-i486-2gsb.txz: Rebuilt.
+c/compiz-bcop-0.8.4-i486-2gsb.txz: Rebuilt.
++--------------------------+
+Mon May 24 09:31:49 BST 2010
+ad/sabayon-2.30.0-i486-1gsb.txz: Upgraded.
+ad/gksu-polkit-0.0.2-i486-1gsb.txz: Added.
+   This replaces the old gksu and libgksu packages.
+l/libgee-0.5.0-i486-1gsb.txz: Added.
+n/avahi-0.6.25-i486-11gsb.txz: Rebuilt.
+   Fixed doinst.sh.
+ad/pessulus-2.30.0-i486-1gsb.txz: Upgraded.
+l/pyxdg-0.19-i486-1gsb.txz: Upgraded.
+m/mono-zeroconf-0.9.0-i486-4gsb.txz: Rebuilt.
+   Patched to fix library nss_mdns name.
+extra/gst-plugins-ugly-0.10.14-i486-1gsb.txz: Upgraded.
+extra/gst-plugins-bad-0.10.18-i486-1gsb.txz: Upgraded.
++--------------------------+
+Wed May 19 23:47:19 BST 2010
+ap/rhythmbox-0.12.8-i486-3gsb.txz: Rebuilt.
+go/conduit-0.3.17-i486-2gsb.txz: Rebuilt.
+l/pygoocanvas-0.14.1-i486-2gsb.txz: Rebuilt.
+n/pywebkitgtk-1.1.7-i486-1gsb.txz: Upgraded.
+n/service-discovery-applet-0.4.5-i486-11gsb.txz: Rebuilt.
+go/tracker-0.8.6-i486-1gsb.txz: Upgraded.
+a/gsb-desktop-2.30.1-i486-6gsb.txz: Built.
+ap/gnome-python-desktop-2.30.0-i486-2gsb.txz: Rebuilt.
+a/gnome-session-2.30.0-i486-3gsb.txz: Rebuilt.
+   Fixed slack-required.
+d/anjuta-2.30.1.0-i486-1gsb.txz: Upgraded.
+d/vala-0.8.1-i486-1gsb.txz: Upgraded.
+d/glade3-3.6.7-i486-2gsb.txz: Rebuilt.
+d/devhelp-2.30.0-i486-1gsb.txz: Upgraded.
+d/gdl-2.30.0-i486-1gsb.txz: Upgraded.
+l/gst-ffmpeg-0.10.10-i486-2gsb.txz: Rebuilt.
+   Removed dependency on ffmpeg.
++--------------------------+
 Mon May 17 11:53:23 BST 2010
 go/abiword-2.8.4-i486-2gsb.txz: Rebuilt.
   Added goffice to slack-required.
