@@ -21,7 +21,6 @@ tango-icon-theme
 pygobject
 pygtk
 gstreamer
-pulseaudio
 padevchooser
 paprefs
 paman
