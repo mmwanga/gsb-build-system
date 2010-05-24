@@ -21,11 +21,6 @@ tango-icon-theme
 pygobject
 pygtk
 gstreamer
-padevchooser
-paprefs
-paman
-pavucontrol
-pavumeter
 alsa-plugins
 iceauth
 libgail-gnome

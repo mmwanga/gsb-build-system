@@ -9,11 +9,6 @@ libnotify
 esound
 pango
 cairo
-padevchooser
-paman
-paprefs
-pavumeter
-pavucontrol
 gstreamer
 alsa-plugins
 polkit-gnome
