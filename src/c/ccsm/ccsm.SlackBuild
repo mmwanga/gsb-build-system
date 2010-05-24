@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=0.8.4
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-#REQUIRED_PACKAGES="python pygtk libsexy sexy-python compizconfig-python pyrex compizconfig-backend-gconf"
+REQUIRED_PACKAGES="python pygtk libsexy sexy-python compizconfig-python pyrex compizconfig-backend-gconf"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -187,6 +187,6 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
-[ "$NOCLEANUP" = "0" ] && {
+if [ "$NOCLEANUP" = "0" ]; then
   rm -rf $PKG $TMP/$PKGNAME-$VERSION
-}
+fi;
