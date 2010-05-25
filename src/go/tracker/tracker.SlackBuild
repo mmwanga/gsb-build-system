@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=4
 VERSION=0.8.6
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="sqlite gstreamer libgsf exempi devicekit-power"
+REQUIRED_PACKAGES="sqlite gstreamer libgsf exempi devicekit-power libgee"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -159,6 +159,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-gnome-keyring \
   --disable-miner-kmail \
   --enable-tracker-status-icon \
+  --disable-miner-evolution \
   || exit 1
 
 # Build and install.
