@@ -1,8 +1,0 @@
-PKGNAME="gnome-screensaver"
-VERSION="2.28.3"
-HOMEPAGE="http://www.gnome.org"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-screensaver/2.28/gnome-screensaver-2.28.3.tar.bz2"
-MD5SUM="e6fb9b206f3470c04e21474ee6d69687"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
