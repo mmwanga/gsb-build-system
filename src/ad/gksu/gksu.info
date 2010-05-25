@@ -1,7 +1,0 @@
-PRGNAM="gksu"
-VERSION="2.0.2"
-HOMEPAGE="http://www.nongnu.org/gksu/"
-DOWNLOAD="http://people.debian.org/~kov/gksu/gksu-2.0.2.tar.gz"
-MD5SUM="cacbcac3fc272dce01c6ea38354489e2"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
