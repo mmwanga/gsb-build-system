@@ -32,6 +32,8 @@ required package and they may not be installed.
 l/portaudio: Added.
 l/gtkimageview: Added.
 l/gtksourceview: Renamed from gtksourceview2.  
+ad/gksu-polkit: Added. This replaces the old gksu application.
+l/libgee: Added.
 
 *** PACKAGE REMOVALS SINCE 2.28.3 for Slackware 13.0 ***
 
@@ -40,20 +42,24 @@ l/gtksourceview1: Removed. The 1.x series is now almost wholly obsolete.
 l/poppler: Removed. 
 l/cairo: Removed.
 l/vte: Removed.
+n/mozilla-xulrunner: Removed.  
 l/nss: Removed.  We now use Slackware's seamonkey-solibs.
-l/bluez: Removed.  Slackware has upgrade to bluez-4.
+l/bluez: Removed.  Slackware has upgraded to bluez-4.
 l/rhpl: Removed (alongside system-config-printer).
 a/pulseaudio: Removed.
 a/policykit: Removed.  Slackware now supplies polkit.
 a/policykit-gnome: Removed.  Slackware now supplied policykit-gnome.
 a/consolekit: Removed. Slackware provides ConsoleKit.
 go/system-config-printer: Removed. Now in Slackware.
+ad/gksu: Removed.  This has been replaced by gksu-polkit.
+ad/libgksu: Removed.
 ap/dvgrab: Removed.
 ap/kino: Removed.
 d/gob2: Removed.
 d/ghex: Removed.
 d/nemiver: Removed.
 a/paman: Removed with pulseaudio.
+ap/gnome-screensaver: Removed.  
 ap/padevchooser: Removed with pulseaudio.
 ap/pavumeter: Removed with pulseaudio.
 ap/pavucontrol:Removed with pulseaudio.
@@ -77,6 +83,11 @@ extra/dvdrip: Removed.
 as stable as ALSA. You can also remove old pulse users and groups from
 /etc/passwd and /etc/group.
 
+- xscreensaver is the preferred option for a screensaver, and we have dropped
+  support for GNOME Screensaver.  If you would like to start xscreensaver when
+you start your GNOME desktop, you can add it using 'Startup Applications' in
+the GNOME Control Panel.
+
 - PolicyKit has been upgraded to polkit-1, and is now included in the official
   Slackware repository.  If you had a previous GSB installation, you can now
 remove polkituser from /etc/passwd and /etc/group.
@@ -90,9 +101,9 @@ to run:
     $ gconftool-2 --set --type boolean  \
           /desktop/gnome/interface/menus_have_icons true
 
-- If you would like to have some control over volume management (i.e.,
-removeable media), then you will need to install the xfce and thunar-volman
-packages from the official Slackware repositories.
+- If you like the old style control over volume management (i.e., removeable
+  media), then you will need to install the xfce and thunar-volman packages
+from the official Slackware repositories.
 
 - Remember to fix your config files.  Some of the config files in /etc are
   going to need your attention.  You'll find the new incoming config files on

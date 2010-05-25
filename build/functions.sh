@@ -131,7 +131,7 @@ function make_packages_txt() {
     echo
     echo
     } >${2:-.}/PACKAGES.TXT 2>/dev/null
-    cat ${2:-.}/PACKAGES.TXT.$$ >> ${2:-.}/PACKAGES.TXT ;
+    cat ${2:-.}/PACKAGES.TXT.$$ >> ${2:-.}/PACKAGES.TXT 2>/dev/null
     rm -fr ${2:-.}/PACKAGES.TXT.$$
 }
 

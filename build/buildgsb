@@ -37,18 +37,6 @@
 trap error_out SIGINT
 
 #========================================================================
-# REQUIRED BUILD PACKAGES
-# List any packages here that are required to build other packages within GSB.
-#REQUIRED_PACKAGES="cabextract libtool-compat apache-ant openoffice-perl yasm jdk"
-#REQUIRED_PACKAGES="yasm apache-ant"
-
-#========================================================================
-# IGNORED PACKAGES
-# List any packages here that are in the source tree but we don't want to build
-# on account of patent or distribution issues
-IGNORED_PACKAGES="msttcorefonts"
-
-#========================================================================
 # ENVIRONMENT
 
 # If the user created an options file, read it.
@@ -529,7 +517,7 @@ if [ "${PUBLISH}" = "1" ]; then
   echo ; header "* Generating package file lists and checksums."
   ( 
   cd $PKGDEST &&
-    for DIR in $GSBDIR $PATCHESDIR $EXTRADIR $PASTUREDIR $TESTINGDIR $PATCHESDIR
+    for DIR in $GSBDIR $PATCHESDIR $EXTRADIR $PASTUREDIR # $TESTINGDIR
     do
       [ -d $DIR ] && {
         make_packages_txt $DIR $DIR

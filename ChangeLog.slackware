@@ -1,3 +1,25 @@
+Tue May 25 00:21:34 BST 2010
+ap/gnome-doc-utils-0.20.1-noarch-1gsb.txz: Built.
+ap/yelp-2.30.1-i486-1gsb.txz: Built.
+ap/gnome-user-docs-2.30.1-noarch-1gsb.txz: Upgraded.
++--------------------------+
+Mon May 24 22:22:48 BST 2010
+m/tomboy-1.2.1-i486-1gsb.txz: Upgraded.
+c/compiz-0.8.6-i486-1gsb.txz: Upgraded.
+c/compiz-bcop-0.8.4-i486-2gsb.txz: Rebuilt.
+c/compiz-plugins-main-0.8.6-i486-1gsb.txz: Upgraded.
+c/compiz-plugins-extra-0.8.6-i486-1gsb.txz: Upgraded.
+c/protobuf-2.3.0-i486-1gsb.txz: Upgraded.
+c/compizconfig-python-0.8.4-i486-2gsb.txz: Rebuilt.
+c/compizconfig-backend-gconf-0.8.4-i486-2gsb.txz: Rebuilt.
+d/bluefish-2.0.0-i486-1gsb.txz: Upgraded.
+n/pptp-1.7.2-i486-2gsb.txz: Rebuilt.
+n/NetworkManager-pptp-0.8-i486-1gsb.txz: Upgraded.
+n/NetworkManager-openvpn-0.8-i486-1gsb.txz: Upgraded.
+go/tracker-0.8.6-i486-3gsb.txz: Rebuilt.
+go/conduit-0.3.16-i486-3gsb.txz: Rebuilt.
+ooo/openoffice3-3.2.0.10-i486-1gsb.txz: Upgraded.
++--------------------------+
 Mon May 24 17:15:00 BST 2010
 m/gnome-desktop-sharp-2.26.0-i486-4gsb.txz: Rebuilt.
    Rebuilt against newer mono.
@@ -5,9 +27,7 @@ m/tomboy-1.2.1-i486-1gsb.txz: Upgraded.
 a/libcanberra-0.24-i486-2gsb.txz: Rebuilt.
    Enabled valac definitions.
 go/tracker-0.8.6-i486-2gsb.txz: Rebuilt.
-   Changed the default monitoring status to disabled.  The tracker applet will
-   now start up if tracker is installed, but users will have to manually
-   enable it.
+   Added libgee to slack-required.
 c/compiz-0.8.6-i486-1gsb.txz: Upgraded.
 c/emerald-0.8.4-i486-2gsb.txz: Rebuilt.
    Patched against the newer gtk+2 for symbol visibility.
@@ -34,12 +54,12 @@ extra/gst-plugins-bad-0.10.18-i486-1gsb.txz: Upgraded.
 +--------------------------+
 Wed May 19 23:47:19 BST 2010
 ap/rhythmbox-0.12.8-i486-3gsb.txz: Rebuilt.
-go/conduit-0.3.17-i486-2gsb.txz: Rebuilt.
+go/conduit-0.3.16-i486-2gsb.txz: Rebuilt.
 l/pygoocanvas-0.14.1-i486-2gsb.txz: Rebuilt.
 n/pywebkitgtk-1.1.7-i486-1gsb.txz: Upgraded.
 n/service-discovery-applet-0.4.5-i486-11gsb.txz: Rebuilt.
 go/tracker-0.8.6-i486-1gsb.txz: Upgraded.
-a/gsb-desktop-2.30.1-i486-6gsb.txz: Built.
+a/gsb-desktop-2.30.1-noarch-6gsb.txz: Built.
 ap/gnome-python-desktop-2.30.0-i486-2gsb.txz: Rebuilt.
 a/gnome-session-2.30.0-i486-3gsb.txz: Rebuilt.
    Fixed slack-required.
@@ -67,7 +87,7 @@ ac/gnome-speech-0.4.25-i486-4gsb.txz: Rebuilt.
 ac/gok-2.30.0-i486-1gsb.txz: Upgraded.
 ac/mousetweaks-2.30.1-i486-1gsb.txz: Upgraded.
 ac/orca-2.30.1-i486-1gsb.txz: Upgraded.
-t/gnome-backgrounds-2.30.0-i486-1gsb.txz: Upgraded.
+t/gnome-backgrounds-2.30.0-noarch-1gsb.txz: Upgraded.
 extra/easytag-2.1.6-i486-7gsb.txz: Rebuilt.
 ap/hamster-applet-2.30.1-i486-1gsb.txz: Upgraded.
 m/ndesk-dbus-0.6.1a-i486-7gsb.txz: Rebuilt.
@@ -164,8 +184,8 @@ l/libpst-0.6.45-i486-1gsb.txz: Upgraded.
 l/gtkhtml-3.30.1-i486-1gsb.txz: Upgraded.
 n/epiphany-extensions-2.30.1-i486-1gsb.txz: Upgraded.
 n/epiphany-2.30.2-i486-1gsb.txz: Upgraded.
-a/gsb-desktop-2.30.1-i486-3gsb.txz: Rebuilt.
-t/gnome-themes-2.30.1-i486-1gsb.txz: Upgraded.
+a/gsb-desktop-2.30.1-noarch-3gsb.txz: Rebuilt.
+t/gnome-themes-2.30.1-noarch-1gsb.txz: Upgraded.
   This has been moved to t/ set.
 l/notification-daemon-0.4.0-i486-5gsb.txz: Rebuilt.
 l/libsexy-0.1.11-i486-5gsb.txz: Rebuilt.
@@ -176,7 +196,7 @@ a/gnome-session-2.30.0-i486-2gsb.txz: Rebuilt.
   etc/X11/xinit/xinitrc.gnome without and .new extension.  
 +--------------------------+
 Sun May  9 15:22:16 BST 2010
-a/gsb-desktop-2.30.1-i486-2gsb.txz: Rebuilt.
+a/gsb-desktop-2.30.1-noarch-2gsb.txz: Rebuilt.
 a/gnome-session-2.30.0-i486-1gsb.txz: Upgraded.
 a/devicekit-power-014-i486-1gsb.txz: Upgraded.
 a/devicekit-003-i486-4gsb.txz: Rebuilt.
@@ -213,7 +233,7 @@ a/gnome-desktop-2.30.0-i486-1gsb.txz: Upgraded.
 a/rarian-0.8.1-i486-2gsb.txz: Rebuilt.
 +--------------------------+
 Sun May  7 15:22:16 BST 2010
-a/gsb-desktop-2.30.1-i486-1gsb.txz: Bumped version.
+a/gsb-desktop-2.30.1-noarch-1gsb.txz: Bumped version.
 a/gvfs-1.6.1-i486-1gsb.txz: Upgraded.
 l/webkit-1.2.0-i486-1gsb.txz: Upgraded.
 l/libsoup-2.30.1-i486-1gsb.txz: Upgraded.

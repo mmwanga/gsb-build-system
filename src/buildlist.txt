@@ -8,8 +8,10 @@
 #  nofetch:ap/foo
 #  rebuilt:ap/foo
 #
+# glib2 and gtk+2 are required replacements
 l/glib2
 l/gtk+2
+# Gnome libraries
 l/ORBit2
 a/GConf
 l/libbonobo
@@ -80,9 +82,18 @@ n/libnice
 n/farsight2
 n/telepathy-farsight
 n/nautilus-sendto
+n/telepathy-python
+n/pyOpenSSL
+l/pycrypto
+n/papyon
+n/telepathy-butterfly
+n/telepathy-gabble
+n/telepathy-salut
+n/telepathy-mission-control
+#n/libtelepathy
 n/empathy
 n/NetworkManager
-# We rebuild to creat the pacman webkit and NM modules 
+# We rebuild libproxy to create the pacman webkit and NM modules 
 rebuild:l/libproxy
 n/transmission
 n/network-manager-applet
@@ -166,6 +177,7 @@ d/gdl
 d/autogen
 d/gettext-perl
 d/anjuta
+l/libgee
 go/tracker
 n/service-discovery-applet
 d/setuptools
@@ -174,13 +186,14 @@ go/vobject
 l/goocanvas
 l/pygoocanvas
 go/conduit
-#ad/libgksu
-#ad/gksu
+m/gnome-desktop-sharp
+m/tomboy
+d/bluefish
+ap/gnome-doc-utils
+ap/yelp
+ap/gnome-user-docs
 #ad/gslapt
-#ad/slapt-update-notifier
 #ad/gparted
-#ad/sabayon
-#ad/pessulus
 #go/libgdamm
 #go/gnome-python-extras
 #go/inkscape
@@ -189,8 +202,6 @@ go/conduit
 #go/gnome-scan
 #ac/gail
 #ac/libgail-gnome
-#ap/yelp
-#ap/gnome-user-docs
 #ap/gnome-audio
 #ap/gnome-commander
 #l/x264
@@ -200,32 +211,21 @@ go/conduit
 #ap/gst-fluendo-mp3
 #ap/gswitchit-plugins
 #ap/sound-juicer
-#ap/gnome-screensaver
 #ap/soundconverter
 #n/mod_dnssd
 #n/gnome-user-share
-#n/mozilla-xulrunner
 #n/gnome-pilot
 #n/gnome-pilot-conduits
 #n/evolution-rss
-#n/libtelepathy
-#n/telepathy-mission-control
-#n/pyOpenSSL
-#n/telepathy-python
-#n/papyon
-#n/telepathy-butterfly
-#n/telepathy-gabble
-#n/telepathy-salut
 #n/ekiga
 #n/obexd
 #n/gnokii
 #n/gnome-phone-manager
-#n/pptp
-#n/NetworkManager-pptp
+n/pptp
+n/NetworkManager-pptp
+n/NetworkManager-openvpn
 #n/NetworkManager-openconnect
 #n/NetworkManager-vpnc
-#n/NetworkManager-openvpn
-#n/pywebkitgtk
 #ap/gnome-games-extra-data
 #ap/sensors-applet
 #ap/nautilus-image-converter
@@ -243,13 +243,8 @@ go/conduit
 #m/notify-sharp
 #m/mono-tools
 #m/monodevelop
-#m/tomboy
 #m/gnome-do
-#m/f-spot
-#m/karma-sharp
 #d/scons
-#d/bluefish
-#m/gnome-desktop-sharp
 #d/ghex
 #d/nemiver
 #d/gob2
@@ -258,12 +253,28 @@ go/conduit
 #d/gnome-vfsmm
 #d/libgnomeuimm
 #devicekit-disks
-#gnome-doc-utils
 #gnome-menus-kde
 #gnome-menus-xfce
+l/pyxdg
+ad/pessulus
+ad/gksu-polkit
+ad/sabayon
+# Compiz
+#c/compiz-manager
+c/compiz
+c/compiz-bcop
+c/compiz-plugins-main
+c/compiz-plugins-extra
+c/emerald
+c/protobuf
+c/libcompizconfig
+c/compizconfig-python
+c/compizconfig-backend-gconf
+c/ccsm
+c/fusion-icon
 l/libsndfile
+# Openoffice
 ooo/openoffice3
-#ooo/gnome-menus-ooo
 # Build packages in extra/
 extra/easytag
 extra/gst-plugins-bad
