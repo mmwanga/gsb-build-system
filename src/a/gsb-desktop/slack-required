@@ -41,6 +41,7 @@ gthumb
 gtk-engines
 gvfs
 hicolor-icon-theme
+libgee
 liferea
 metacity
 nautilus
