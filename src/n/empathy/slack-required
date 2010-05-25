@@ -3,3 +3,5 @@ telepathy-farsight
 gstreamer
 enchant
 webkit
+telepathy-python
+telepathy-mission-control

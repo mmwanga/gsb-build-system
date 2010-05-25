@@ -1,5 +1,5 @@
 PKGNAME="pyOpenSSL"
-VERSION="0.9."
+VERSION="0.9"
 HOMEPAGE="http://sourceforge.net/projects/pyopenssl/"
 DOWNLOAD="http://downloads.sourceforge.net/project/pyopenssl/pyopenssl/0.9/pyOpenSSL-0.9.tar.gz"
 MD5SUM="5bf282b2d6a03af921920c34079580f2"

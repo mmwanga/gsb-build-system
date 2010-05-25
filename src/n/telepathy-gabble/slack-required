@@ -1,4 +1,3 @@
-loudmouth
-telepathy-glib
-python
 libsoup
+python
+loudmouth
