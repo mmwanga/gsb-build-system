@@ -1,27 +1,47 @@
-Tue May 25 00:21:34 BST 2010
-ap/gnome-doc-utils-0.20.1-noarch-1gsb.txz: Built.
-ap/yelp-2.30.1-i486-1gsb.txz: Built.
++--------------------------+
+Wed May 26 18:23:17 BST 2010
+t/murrine-engine-0.90.3-i486-3gsb.txz: Recompiled.
+t/candido-engine-0.9.1-i486-4gsb.txz: Recompiled.
+extra/balsa-2.4.7-i486-1gsb.txz: Upgraded.
+extra/sylpheed-3.0.2-i486-1gsb.txz: Upgraded.
++--------------------------+
+Tue May 25 18:52:34 BST 2010
+n/telepathy-glib-0.10.6-i486-1gsb.txz: Upgraded.
+n/farsight2-0.0.19-i486-1gsb.txz: Upgraded.
+go/tracker-0.8.6-i486-4gsb.txz: Rebuilt.
+   Disable evolution miner.
+ad/gksu-polkit-0.0.2-i486-2gsb.txz: Patched.
+   Patched to use auth_adm instead of auth_self.
+n/telepathy-gabble-0.8.13-i486-1gsb.txz: Upgraded.
+n/telepathy-python-0.15.17-i486-1gsb.txz: Upgraded.
+n/papyon-0.4.7-i486-1gsb.txz: Upgraded.
+n/telepathy-butterfly-0.5.10-i486-1gsb.txz: Upgraded.
+n/telepathy-mission-control-5.4.0-i486-1gsb.txz: Upgraded.
+n/empathy-2.30.1-i486-2gsb.txz: Rebuilt.
+   Fixed slack-required.
+ap/yelp-2.30.1-i486-1gsb.txz: Upgraded.
+   This has been patched to use webkit as a backend.
 ap/gnome-user-docs-2.30.1-noarch-1gsb.txz: Upgraded.
 +--------------------------+
 Mon May 24 22:22:48 BST 2010
 m/tomboy-1.2.1-i486-1gsb.txz: Upgraded.
 c/compiz-0.8.6-i486-1gsb.txz: Upgraded.
-c/compiz-bcop-0.8.4-i486-2gsb.txz: Rebuilt.
+c/compiz-bcop-0.8.4-i486-2gsb.txz: Recompiled.
 c/compiz-plugins-main-0.8.6-i486-1gsb.txz: Upgraded.
 c/compiz-plugins-extra-0.8.6-i486-1gsb.txz: Upgraded.
 c/protobuf-2.3.0-i486-1gsb.txz: Upgraded.
-c/compizconfig-python-0.8.4-i486-2gsb.txz: Rebuilt.
-c/compizconfig-backend-gconf-0.8.4-i486-2gsb.txz: Rebuilt.
+c/compizconfig-python-0.8.4-i486-2gsb.txz: Recompiled.
+c/compizconfig-backend-gconf-0.8.4-i486-2gsb.txz: Recompiled.
 d/bluefish-2.0.0-i486-1gsb.txz: Upgraded.
-n/pptp-1.7.2-i486-2gsb.txz: Rebuilt.
+n/pptp-1.7.2-i486-2gsb.txz: Recompiled.
 n/NetworkManager-pptp-0.8-i486-1gsb.txz: Upgraded.
 n/NetworkManager-openvpn-0.8-i486-1gsb.txz: Upgraded.
 go/tracker-0.8.6-i486-3gsb.txz: Rebuilt.
-go/conduit-0.3.16-i486-3gsb.txz: Rebuilt.
+go/conduit-0.3.16-i486-3gsb.txz: Recompiled.
 ooo/openoffice3-3.2.0.10-i486-1gsb.txz: Upgraded.
 +--------------------------+
 Mon May 24 17:15:00 BST 2010
-m/gnome-desktop-sharp-2.26.0-i486-4gsb.txz: Rebuilt.
+m/gnome-desktop-sharp-2.26.0-i486-4gsb.txz: Recompiled.
    Rebuilt against newer mono.
 m/tomboy-1.2.1-i486-1gsb.txz: Upgraded.
 a/libcanberra-0.24-i486-2gsb.txz: Rebuilt.
@@ -34,9 +54,9 @@ c/emerald-0.8.4-i486-2gsb.txz: Rebuilt.
 c/compiz-plugins-main-0.8.6-i486-1gsb.txz: Upgraded.
 c/compiz-plugins-extra-0.8.6-i486-1gsb.txz: Upgraded.
 c/protobuf-2.3.0-i486-1gsb.txz: Upgraded.
-c/compizconfig-python-0.8.4-i486-2gsb.txz: Rebuilt.
-c/compizconfig-backend-gconf-0.8.4-i486-2gsb.txz: Rebuilt.
-c/compiz-bcop-0.8.4-i486-2gsb.txz: Rebuilt.
+c/compizconfig-python-0.8.4-i486-2gsb.txz: Recompiled.
+c/compizconfig-backend-gconf-0.8.4-i486-2gsb.txz: Recompiled.
+c/compiz-bcop-0.8.4-i486-2gsb.txz: Recompiled.
 +--------------------------+
 Mon May 24 09:31:49 BST 2010
 ad/sabayon-2.30.0-i486-1gsb.txz: Upgraded.
@@ -59,7 +79,7 @@ l/pygoocanvas-0.14.1-i486-2gsb.txz: Rebuilt.
 n/pywebkitgtk-1.1.7-i486-1gsb.txz: Upgraded.
 n/service-discovery-applet-0.4.5-i486-11gsb.txz: Rebuilt.
 go/tracker-0.8.6-i486-1gsb.txz: Upgraded.
-a/gsb-desktop-2.30.1-noarch-6gsb.txz: Built.
+a/gsb-desktop-2.30.1-noarch-6gsb.txz: Rebuilt.
 ap/gnome-python-desktop-2.30.0-i486-2gsb.txz: Rebuilt.
 a/gnome-session-2.30.0-i486-3gsb.txz: Rebuilt.
    Fixed slack-required.
@@ -165,7 +185,6 @@ ap/bug-buddy-2.30.0-i486-1gsb.txz: Upgraded.
 n/liferea-1.6.3-i486-1gsb.txz: Upgraded.
 n/transmission-1.93-i486-1gsb.txz: Upgraded.
 n/NetworkManager-0.8-i486-1gsb.txz: Upgraded.
-n/empathy-2.30.1-i486-1gsb.txz: Upgraded.
 n/nautilus-sendto-2.28.4-i486-1gsb.txz: Upgraded.
 n/empathy-2.30.1-i486-1gsb.txz: Upgraded.
 n/farsight2-0.0.18-i486-1gsb.txz: Upgraded.
