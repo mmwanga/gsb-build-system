@@ -192,7 +192,7 @@ d/bluefish
 ap/gnome-doc-utils
 ap/yelp
 ap/gnome-user-docs
-#ad/gslapt
+ad/gslapt
 #ad/gparted
 #go/libgdamm
 #go/gnome-python-extras

@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=1.12.4
+VERSION=1.14.2
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="bakery pygtk gtk+2 python gtksourceview2 iso-codes libgdamm libgda gnome-python-extras cairomm libepc gtksourceviewmm avahi"
+#REQUIRED_PACKAGES="bakery pygtk gtk+2 python gtksourceview2 iso-codes libgdamm libgda gnome-python-extras cairomm libepc gtksourceviewmm avahi"
 
 # Build variables.
 TAG=${TAG:-gsb}

@@ -1,5 +1,4 @@
 # Working directory for local storage/cache.
-# This should really be /var/lib/slapt-get to follow the FHS...
 WORKINGDIR=/var/slapt-get
 
 # Exclude package names and expressions.
