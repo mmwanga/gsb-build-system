@@ -74,6 +74,10 @@ n/gnome-bluetooth: Removed. Not needed with blueman.
 m/avahi-sharp: Removed.  The avahi package itself now has mono bindings.
 m/karma-sharp: Removed.
 m/f-spot: Removed.
+gnome-do: Removed.
+gnome-keyring-sharp: Removed.
+monodevelop: Removed.
+notify-sharp: Removed.
 ad/gparted: Removed.
 go/libgdamm: Removed.
 go/gnome-python-extras: Removed.
@@ -156,6 +160,7 @@ n/gnokii: Removed.
 n/gnome-phone-manager: Removed.
 n/NetworkManager-openconnect: Removed.
 n/NetworkManager-vpnc: Removed.
+n/libepc: Removed.
 ap/gnome-games-extra-data: Removed.
 ap/sensors-applet: Removed.
 ap/nautilus-image-converter: Removed.
@@ -183,9 +188,11 @@ d/libgnomemm: Removed.
 d/libgnomecanvasmm: Removed.
 d/gnome-vfsmm: Removed.
 d/libgnomeuimm: Removed.
+t/mac4lin: Removed.
 a/devicekit-disks: Removed.
 a/gnome-menus-kde: Removed.
 a/gnome-menus-xfce: Removed.
+ooo/gnome-menu-ooo: Removed.  Merged into openoffice.
 extra/pidgin: Removed. (No longer rebuilt against pulseaudio).
 extra/MPlayer: Removed. (No longer rebuilt against pulseaudio).
 extra/deluge: Removed.  This has been replaced by the lighter transmission.

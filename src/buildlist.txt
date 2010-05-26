@@ -216,7 +216,15 @@ c/fusion-icon
 l/libsndfile
 # Openoffice
 ooo/openoffice3
+# Themes
+t/gnome-themes-extras
+t/murrine-engine
+t/candido-engine
+t/ttf-bitstream-vera
 # Build packages in extra/
 extra/easytag
 extra/gst-plugins-bad
 extra/gst-plugins-ugly
+extra/libesmtp
+extra/balsa
+extra/sylpheed
