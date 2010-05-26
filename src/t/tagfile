@@ -1,6 +1,6 @@
-candido-engine:ADD
+candido-engine:SKP
 gnome-backgrounds:ADD
+gnome-themes:ADD
 gnome-themes-extras:SKP
-mac4lin-theme:SKP
-murrine-engine:ADD
+murrine-engine:SKP
 ttf-bitstream-vera:ADD
