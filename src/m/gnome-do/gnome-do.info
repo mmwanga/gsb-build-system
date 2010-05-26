@@ -1,7 +1,0 @@
-PKGNAME="gnome-do"
-VERSION="0.8.2"
-HOMEPAGE="http://do.davebsd.com/"
-DOWNLOAD="http://edge.launchpad.net/do/0.8/0.8.2/+download/gnome-do-0.8.2.tar.gz"
-MD5SUM="f84f05f08c12615e1665c6f0d392b8bb"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

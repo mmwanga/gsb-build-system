@@ -1,7 +1,0 @@
-PKGNAME="gnome-keyring-sharp"
-VERSION="1.0.0"
-HOMEPAGE="http://mono-project.com"
-DOWNLOAD="http://ftp.novell.com/pub/mono/sources/gnome-keyring-sharp/gnome-keyring-sharp-1.0.0.tar.bz2"
-MD5SUM="d459578d33eb6543dc400f0bf02f94bf"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
