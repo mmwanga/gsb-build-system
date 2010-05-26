@@ -1,5 +1,5 @@
 
-GNOME SlackBuild 2.26.3 for Slackwarew 13.1 Upgrade to 
+GNOME SlackBuild 2.28.3 for Slackwarew 13.0 Upgrade to 
   GNOME SlackBuild 2.30.0 for 13.1 <steve@gnomeslackbuild.org>
 
 This document explains how to upgrade from earlier versions of GNOME
@@ -15,10 +15,10 @@ or, if not the entire system, at least the /etc directory.  You might find that
 you need to refer to a few things after the upgrade process is complete. Back
 it up, or take your chances.
 
-You will first need to upgrade to Slackware 13.1.  For the detailed
-instructions regarding this, please see Pat's own UPGRADE.TXT.  Follow the
-directions there first and upgrade your system fully to Slackware 13.1.  Once
-you have done that, then:
+You will first need to upgrade to Slackware 13.1, if you are not already
+running it.  For the detailed instructions regarding this, please see Pat's own
+UPGRADE.TXT.  Follow the directions there first and upgrade your system fully
+to Slackware 13.1.  Once you have done that, then:
 
 
 0.  Put your machine in single-user mode:
@@ -34,8 +34,8 @@ running.
     The default method of upgrade is through slapt-get which can easily resolve
 dependencies.  Consult the MIRRORS.TXT to find a local mirror, and update your
 /etc/slapt-get/slapt-getrc file with a SOURCE= appropriately.  Be sure to add a
-:CUSTOM tag to the end of the line so that packages are weighted properly.  If
-you failed to add this, some required packages may not be updated
+:PREFERRED or :CUSTOM tag to the end of the line so that packages are weighted
+properly.  If you failed to add this, some required packages may not be updated
 automatically.  If you wish to use a remote mirror when upgrading, make sure
 that you can use networking even in single user mode. 
     If you are unable to access the internet when upgrading, it is still
@@ -46,17 +46,17 @@ of a remote mirror.
     Once you have updated this file, make sure to rerun:
    
     $ slapt-get --update
- 
 
-2.  Remove obsolete packages, and upgrade required replacements.  
+ 
+2.  Upgrade your previous GNOME SlackBuild installation and remove obsolete
+packages.
 
     A lot of packages have been removed from the standard gsb tree with this
 release, either due to having become obsolete or by being now included in the
 official Slackware repositories.  First remove all packages from your system
 which are listed in CHANGES_AND_HINTS.TXT either by using pkgtool or removepkg.
-If you have slapt-get installed, you can run:
-
-    $ slapt-get --remove-obsolete
+If you have slapt-get installed, you can use the '--remove-obsolete' option
+when upgrading.
 
 You may also wish to go into /var/log/packages and take a look at the package
 list:
@@ -71,36 +71,23 @@ which are found in SLACKWARE_REPLACED_PACKAGES.TXT.  It is recommended that your
 read this file to find out why certain standard Slackware packages need to be
 replaced. This is most easily done using step 3 which follows.
 
-3.  Upgrade your previous GNOME SlackBuild installation:
-
-    $ slapt-get --upgrade
+    $ slapt-get --remove-obsolete --upgrade
 
 slapt-get will upgrade all of your installed packages, and install any new
-packages required as dependencies.
+packages required as dependencies, and remove any discontinued packages.
 
 
-5.  Fix your config files.  Some of the config files in /etc are going to 
+3.  Fix your config files.  Some of the config files in /etc are going to 
     need your attention.  You'll find the new incoming config files on 
     your system with the ".new" extension.  You may need to fill these in 
     with information from your old config files and then move them over.
 
     This is important as some dbus, udev, and rc scripts are modified.  
 
-6.  If you use a non-en_US language pack for Openoffice and you already have it
-    installed, then you may upgrade it by moving into the gsb/ooo
-    directory and using this command:
-
-    upgradepkg --install-new openoffice3-l10n*<your locale>*txz
-
-    To have upgradepkg cycle through all of the available packages, and
-    see which ones need to be upgraded, use this in gsb/ooo:
-
-    upgradepkg *txz
-
-8.  Return to multi-user mode:
+4.  Return to multi-user mode:
     telinit 3
 
-9.  Reboot to start using the any new services you may have installed, such as
+5.  Reboot to start using the any new services you may have installed, such as
     Avahi, or NetworkManager.  
 
 
