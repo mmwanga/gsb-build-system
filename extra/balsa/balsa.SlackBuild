@@ -29,7 +29,7 @@ VERSION=2.4.7
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+2 glib2 gmime openssl sqlite libnotify openldap-client gpgme libgnomeui gtkspell gtkhtml gtksourceview2 libesmtp gtkspell aspell libgnomeprintui"
+REQUIRED_PACKAGES="gmime openssl libnotify gpgme gtkhtml gtksourceview libesmtp"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -158,8 +158,15 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --disable-static \
-  --enable-shared \
+  --with-ssl \
+  --with-libnotify \
+  --with-gtksourceview \
+  --with-canberra \
+  --with-gnome \
+  --enable-threads \
+  --enable-smime \
+  --with-gpgme=gpgme-config \
+  --with-gpg-app=/usr/bin/gpg2 \
   || exit 1
 
 # Build and install.
@@ -198,6 +205,6 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
-[ "$NOCLEANUP" = "0" ] && {
+if [ "$NOCLEANUP" = "0" ]; then
   rm -rf $PKG $TMP/$PKGNAME-$VERSION
-}
+fi;

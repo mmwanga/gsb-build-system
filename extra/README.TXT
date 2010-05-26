@@ -7,20 +7,22 @@ These can be installed using "installpkg".
 Available packages
 -----------------
 
-transcode:
-        An alternate system for video encoding (other than MPlayer)
-
-dvdrip:
-        A gnome supported application for encoding DVDs or other media, which 
-        using transcode.
-
-balsa / sylpheed:
+balsa:
         Light weight GNOME email clients as an alternatives to Evolution.
 
-gnome-perl:
-        A full set of perl bindings for GNOME. 
+sylpheed:
+        Sylpheed is a simple, lightweight email client for the GNOME
+        desktop.
 
-msttcorefonts:
-        Legally we are not allowed to ship the TTF files in a package, so we
-        offer this as a source package so users can build their own.  Please
-        see the package README.TXT and EULA.TXT for more information.
+easytag: 
+        EasyTAG is a utility for viewing and editing tags for various
+        music formats. 
+
+gst-plugins-bad:
+        A set of plugins for Gstreamer which might pose some problems for
+        licensing and distribution, such as Real audio and Quicktime.
+
+gst-plugins-ugly:
+	A set of plugins for Gstreamer which might pose some problems for
+        licensing and distribution such as MAD or the Windows ASF plugins.
+

@@ -24,11 +24,11 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 BUILD=1
-VERSION=3.0.0
+VERSION=3.0.2
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="openldap-client gtk+2 glib2 gpgme gtkspell openssl-solibs aspell"
+REQUIRED_PACKAGES="gtk+2 gpgme"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -157,13 +157,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --disable-static \
-  --enable-shared \
-  --enable-ipv6 \
-  --enable-gtkspell \
   --enable-ssl \
   --enable-gpgme \
-  --enable-ldap \
   --program-prefix="" \
   || exit 1
 
@@ -203,6 +198,6 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
-[ "$NOCLEANUP" = "0" ] && {
+if [ "$NOCLEANUP" = "0" ]; then
   rm -rf $PKG $TMP/$PKGNAME-$VERSION
-}
+fi;
