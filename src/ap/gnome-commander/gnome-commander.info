@@ -1,8 +1,0 @@
-PKGNAME="gnome-commander"
-VERSION="1.2.8.4"
-HOMEPAGE="http://www.nongnu.org/gcmd/"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-commander/1.2/gnome-commander-1.2.8.4.tar.bz2"
-MD5SUM="cca72a8c2f13bf47d5aaf3c2aad53eb2"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

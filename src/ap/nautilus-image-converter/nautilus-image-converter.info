@@ -1,8 +1,0 @@
-PKGNAME="nautilus-image-converter"
-VERSION="0.3.0"
-HOMEPAGE="http://www.bitron.ch/software/nautilus-image-converter.php"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/nautilus-image-converter/0.3/nautilus-image-converter-0.3.0.tar.bz2"
-MD5SUM="1eb9343c285281354bc9dbf81f566b5a"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

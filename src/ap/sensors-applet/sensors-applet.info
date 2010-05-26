@@ -1,7 +1,0 @@
-PKGNAME="sensors-applet"
-VERSION="2.2.4"
-HOMEPAGE="http://sensors-applet.sourceforge.net"
-DOWNLOAD="http://downloads.sourceforge.net/sourceforge/sensors-applet/sensors-applet-2.2.4.tar.gz"
-MD5SUM="778f637524a90a9b6475ab77b0e90dd9"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
