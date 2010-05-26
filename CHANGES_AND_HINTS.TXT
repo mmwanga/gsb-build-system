@@ -46,9 +46,9 @@ l/libgee: Added.
 
 l/libwnck: Removed. Slackware version is sufficient.
 l/gtksourceview1: Removed. The 1.x series is now almost wholly obsolete.
-l/poppler: Removed. 
-l/cairo: Removed.
-l/vte: Removed.
+l/poppler: Removed.  Slackware version.
+l/cairo: Removed. Slackware version.
+l/vte: Removed. Slackware version.
 n/mozilla-xulrunner: Removed.  
 l/nss: Removed.  We now use Slackware's seamonkey-solibs.
 l/bluez: Removed.  Slackware has upgraded to bluez-4.
@@ -89,6 +89,58 @@ l/x264: Removed.
 l/lame: Removed.
 l/xvidcore: Removed.
 l/ffmpeg: Removed.  Not realy needed with gst-ffmpeg.
+l/a52dec: Removed.
+l/alsa-lib: Removed. Using pulseaudio, we no longer need to replace this.
+l/alsa-plugins: Removed. Using pulseaudio, we no longer need to replace this.
+l/bakery: Removed.
+l/faac: Removed.
+l/faad2: Removed.
+l/gconfmm: Removed.
+l/ggz-client-libs
+l/gjs: Removed.
+l/gmime: Removed. Slackware has a good version.
+l/goocanvasmm: Removed.
+l/gsl: Removed.
+l/gtksourceviewmm: Removed.
+l/hal-cups-utils: Removed.
+l/lame: Removed.
+l/libatasmart: Removed.
+l/libavc1394: Removed.
+l/libchamplain: Removed.
+l/libcroco: Removed.
+l/libdiscid: Removed.
+l/libdv*: All DVB libraries have been removed since we no longer offer kino.
+l/libffi: Removed.
+l/libgc: Removed. Mono built with interal libgc, and we no longer offer inkscape.
+l/libggz: Removed.
+l/libglademm: Removed.
+l/libgnomecups: Removed. (Obsolete)
+l/libgnomeprint: Removed. (Obsolete)
+l/libgnomeprintui: Removed. (Obsolete)
+l/libiec61883: Removed.
+l/libiptcdata: Removed.
+l/libmms: Removed.
+l/libmpcdec: Removed.
+l/libmusicbrainz: Removed.
+l/libopenraw: Removed.
+l/libquicktime: Removed.
+l/libsamplerate: Removed.
+l/libshout: Removed.
+l/libxml++: Removed.
+l/mjpegtools: Removed.
+l/mpeg2dec: Removed.
+l/mpeg4ip: Removed.
+l/opal: Removed.
+l/pango: Removed.
+l/psiconv: Removed.
+l/ptlib: Removed.
+l/pygdata: Removed.
+l/pygobject: Removed.
+l/python-ldap: Removed.
+l/sexy-python: Removed.
+l/slib: Removed.
+l/x264: Removed.
+l/xvidcore: Removed.
 ap/gst-fluendo-mp3: Removed. License issues.
 ap/gswitchit-plugins: Removed.
 ap/sound-juicer: Removed.
