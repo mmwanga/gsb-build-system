@@ -1,8 +1,0 @@
-PKGNAME="NetworkManager-vpnc"
-VERSION="0.7.2"
-HOMEPAGE="http://www.gnome.org"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/NetworkManager-vpnc/0.7/NetworkManager-vpnc-0.7.2.tar.bz2"
-MD5SUM="d17225894eec9ee7579d913fdf2f4d08"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

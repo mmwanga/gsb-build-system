@@ -1,8 +1,0 @@
-PKGNAME="libepc"
-VERSION="0.3.10"
-HOMEPAGE="http://live.gnome.org/libepc/"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/libepc/0.3/libepc-0.3.10.tar.bz2"
-MD5SUM="d5c07dd755305ccdbda9c2b4a2a95d33"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

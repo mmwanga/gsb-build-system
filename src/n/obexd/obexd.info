@@ -1,7 +1,0 @@
-PKGNAME="obexd"
-VERSION="0.17"
-HOMEPAGE="http://www.bluez.org"
-DOWNLOAD="http://www.kernel.org/pub/linux/bluetooth/obexd-0.17.tar.gz"
-MD5SUM="e4abc602c9ba34a862d97951acab8ae7"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
