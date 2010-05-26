@@ -1,8 +1,0 @@
-PKGNAME="libgnomemm"
-VERSION="2.26.0"
-HOMEPAGE="http://www.gtkmm.org/"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/libgnomemm/2.26/libgnomemm-2.26.0.tar.bz2"
-MD5SUM="4801c2b60d73b08ea01fe79aafc678df"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

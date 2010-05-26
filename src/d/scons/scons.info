@@ -1,7 +1,0 @@
-PRGNAM="scons"
-VERSION="1.2.0"
-HOMEPAGE="http://www.scons.org/"
-DOWNLOAD="http://prdownloads.sourceforge.net/scons/scons-1.2.0.tar.gz"
-MD5SUM="53b6aa7281811717a57598e319441cf7"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
