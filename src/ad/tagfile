@@ -1,9 +1,6 @@
 gconf-editor:SKP
-gksu:ADD
-gparted:SKP
+gksu-polkit:ADD
 gslapt:ADD
-libgksu:ADD
 pessulus:SKP
 sabayon:SKP
 slapt-get:ADD
-slapt-update-notifier:ADD
