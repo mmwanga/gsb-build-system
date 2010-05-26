@@ -1,7 +1,0 @@
-PKGNAME="abiword-docs"
-VERSION="2.8.2"
-HOMEPAGE="http://www.abisource.com/"
-DOWNLOAD="http://www.abisource.com/downloads/abiword/2.8.2/source/abiword-docs-2.8.2.tar.gz"
-MD5SUM="82f41f5d47f83d652acdb2ddaf145886"
-MAINTAINER="Chip Cuccio"
-EMAIL="chipster@gnomeslackbuild.org"

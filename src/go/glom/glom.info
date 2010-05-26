@@ -1,8 +1,0 @@
-PKGNAME="glom"
-VERSION="1.14.2"
-HOMEPAGE="http://www.gnome-db.org/"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/glom/1.14/glom-1.14.2.tar.bz2"
-MD5SUM="3173706b36042563c8209af8d327b595"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

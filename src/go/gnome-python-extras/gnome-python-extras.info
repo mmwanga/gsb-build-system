@@ -1,8 +1,0 @@
-PKGNAME="gnome-python-extras"
-VERSION="2.25.3"
-HOMEPAGE="http://www.gnome-db.org/"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-python-extras/2.25/gnome-python-extras-2.25.3.tar.bz2"
-MD5SUM="9f3b7ec5c57130b96061cb486b79c076"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

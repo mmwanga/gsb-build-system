@@ -11,6 +11,13 @@ configured and built as closely as possible to how Patrick does.  For more
 information about what needs to be replaced, and why, please see our
 'README_REPLACED_PACKAGES.TXT'.  
 
+This version of GNOME SlackBuild has been considerably slimmed down.  It is
+difficult to maintain to a high quality so many peripheral packages. A full
+GNOME desktop, and a variety of office, multimedia, and networking applications
+is still offered.  Please check the 'Package Removals' section below for
+details.  Before installing or upgrading GSB, you are encourage to use
+'--remove-obsolete' when doing upgrades.
+
 GPG SIGNED PACKAGED
 ===================
 All packages are now signed with gpg, and you can find the public key as
@@ -55,9 +62,6 @@ ad/gksu: Removed.  This has been replaced by gksu-polkit.
 ad/libgksu: Removed.
 ap/dvgrab: Removed.
 ap/kino: Removed.
-d/gob2: Removed.
-d/ghex: Removed.
-d/nemiver: Removed.
 a/paman: Removed with pulseaudio.
 ap/gnome-screensaver: Removed.  
 ap/padevchooser: Removed with pulseaudio.
@@ -70,6 +74,66 @@ n/gnome-bluetooth: Removed. Not needed with blueman.
 m/avahi-sharp: Removed.  The avahi package itself now has mono bindings.
 m/karma-sharp: Removed.
 m/f-spot: Removed.
+ad/gparted: Removed.
+go/libgdamm: Removed.
+go/gnome-python-extras: Removed.
+go/inkscape: Removed.
+go/glom: Removed.
+go/dia: Removed.
+go/gnome-scan: Removed.
+ac/gail: Removed.
+ac/libgail-gnome: Removed.
+ap/gnome-audio: Removed.
+ap/gnome-commander: Removed.
+l/x264: Removed.
+l/lame: Removed.
+l/xvidcore: Removed.
+l/ffmpeg: Removed.  Not realy needed with gst-ffmpeg.
+ap/gst-fluendo-mp3: Removed. License issues.
+ap/gswitchit-plugins: Removed.
+ap/sound-juicer: Removed.
+ap/soundconverter: Removed.
+n/mod_dnssd: Removed.
+n/gnome-user-share: Removed.
+n/gnome-pilot: Removed.
+n/gnome-pilot-conduits: Removed.
+n/evolution-rss: Removed.  Rather buggy, liferea is a better choice. 
+n/ekiga: Removed.
+n/obexd: Removed.
+n/gnokii: Removed.  
+n/gnome-phone-manager: Removed.
+n/NetworkManager-openconnect: Removed.
+n/NetworkManager-vpnc: Removed.
+ap/gnome-games-extra-data: Removed.
+ap/sensors-applet: Removed.
+ap/nautilus-image-converter: Removed.
+ap/nautilus-open-terminal: Removed.
+ap/fast-user-switch-applet: Removed.
+go/gtkmathview: Removed.
+go/graphviz: Removed.
+go/gnome-spell: Removed.
+go/libgnomedb: Removed.
+go/abiword-docs: Removed.
+go/libofx: Removed.
+go/gnucash: Removed.
+go/gnucash-docs: Removed.
+go/drivel: Removed.
+m/gnome-keyring-sharp: Removed.
+m/notify-sharp: Removed.
+m/mono-tools: Removed.
+m/monodevelop: Removed.
+m/gnome-do: Removed.
+d/scons: Removed.
+d/ghex: Removed.
+d/nemiver: Removed.
+d/gob2: Removed.
+d/libgnomemm: Removed.
+d/libgnomecanvasmm: Removed.
+d/gnome-vfsmm: Removed.
+d/libgnomeuimm: Removed.
+a/devicekit-disks: Removed.
+a/gnome-menus-kde: Removed.
+a/gnome-menus-xfce: Removed.
 extra/pidgin: Removed. (No longer rebuilt against pulseaudio).
 extra/MPlayer: Removed. (No longer rebuilt against pulseaudio).
 extra/deluge: Removed.  This has been replaced by the lighter transmission.

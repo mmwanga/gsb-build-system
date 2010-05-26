@@ -1,7 +1,0 @@
-PKGNAME="drivel"
-VERSION="2.0.4"
-HOMEPAGE="http://dropline.net/past-projects/drivel-blog-editor/"
-DOWNLOAD="http://downloads.sourceforge.net/project/drivel/Drivel%20%28stable%29/2.0.4/drivel-2.0.4.tar.bz2"
-MD5SUM="9e6e4b2eb0912669461eb338d2bdc08d"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
