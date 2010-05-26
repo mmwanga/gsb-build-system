@@ -1,8 +1,0 @@
-PKGNAME="gail"
-VERSION="1.22.3"
-HOMEPAGE="http://live.gnome.org/Orca"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gail/1.22/gail-1.22.3.tar.bz2"
-MD5SUM="1b0d2b3d5f89fb620ce6122e52578b41"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
