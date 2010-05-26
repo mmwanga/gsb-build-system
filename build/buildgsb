@@ -135,7 +135,9 @@ while [ -n "$1" ] ; do
       shift
     ;;
     -export-source|--export-source)
-      SOURCE=1
+      #SOURCE=1
+      # Currently disable source exporting
+      SOURCE=0
       shift
     ;;
     -set=*|--set=*)
@@ -385,7 +387,7 @@ INSTALLED=$(find_package_files "/var/log/packages" "${PACKAGE//+/\+}" "${PACKAGE
              "" "${PACKAGE_BUILD}${TAG}" "") 
 if [ "$SKIP_BUILD" = "0" -o "${INSTALLED}" = "" ]; then
   # PAUSE ON ALL NEW PACKAGE
-  echo "Waiting." ; read ;
+  # echo "Waiting." ; read ;
   upgradepkg --install-new $( find_package_files "$PKGDEST/$SUBDIR" \
     "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" ) || {
     header "Failed to install '$PACKAGE'." ; exit 1
@@ -517,10 +519,12 @@ if [ "${PUBLISH}" = "1" ]; then
   echo ; header "* Generating package file lists and checksums."
   ( 
   cd $PKGDEST &&
-    for DIR in $GSBDIR $PATCHESDIR $EXTRADIR $PASTUREDIR # $TESTINGDIR
+    for DIR in $GSBDIR $PATCHESDIR $EXTRADIR $SOURCEDIR # $PASTUREDIR $TESTINGDIR
     do
       [ -d $DIR ] && {
-        make_packages_txt $DIR $DIR
+        if [ "$DIR" != "source" ]; then
+           make_packages_txt $DIR $DIR
+        fi;
         make_manifest $DIR $DIR
         make_filelist_txt "$DIR" "$DIR" "FILE_LIST"
         make_checksums_md5 $DIR $DIR
