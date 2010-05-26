@@ -1,6 +1,0 @@
-PKGNAME="mpeg4ip"
-VERSION="1.6.1"
-DOWNLOAD="http://sources.gnomeslackbuild.org/source/mpeg4ip-1.6.1.tar.bz2"
-MD5SUM="c333d79ed82bed7082c28ee01fd2e039  mpeg4ip-1.6.1.tar.bz2"
-MAINTAINER="Chip Cuccio"
-EMAIL="chipster@gnomeslackbuild.org"

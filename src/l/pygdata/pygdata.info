@@ -1,7 +1,0 @@
-PKGNAME="pygdata"
-VERSION="2.0.2"
-HOMEPAGE="http://code.google.com/p/gdata-python-client/"
-DOWNLOAD="http://gdata-python-client.googlecode.com/files/gdata-2.0.2.tar.gz"
-MD5SUM="8e886c7925d34ae0f9a5b9a094e790c5"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

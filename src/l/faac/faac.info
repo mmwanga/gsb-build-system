@@ -1,7 +1,0 @@
-PKGNAME="faac"
-VERSION="1.28"
-HOMEPAGE="http://sourceforge.net/projects/faac/"
-DOWNLOAD="http://downloads.sourceforge.net/sourceforge/faac/faac-1.28.tar.bz2"
-MD5SUM="c5dde68840cefe46532089c9392d1df0"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

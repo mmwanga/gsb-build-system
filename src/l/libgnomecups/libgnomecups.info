@@ -1,8 +1,0 @@
-PKGNAME="libgnomecups"
-VERSION="0.2.3"
-HOMEPAGE="http://www.gnome.org"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/libgnomecups/0.2/libgnomecups-0.2.3.tar.bz2"
-MD5SUM="dc4920c15c9f886f73ea74fbff0ae48b"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

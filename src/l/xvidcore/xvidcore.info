@@ -1,7 +1,0 @@
-PKGNAME="xvidcore"
-VERSION="1.2.2"
-HOMEPAGE="http://www.xvid.org"
-DOWNLOAD="http://downloads.xvid.org/downloads/xvidcore-1.2.2.tar.gz"
-MD5SUM="2ce9b1d280d703b5bc8e702c79e660b5"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

@@ -1,7 +1,0 @@
-PKGNAME="hal-cups-utils"
-VERSION="0.6.19"
-HOMEPAGE="https://fedorahosted.org/hal-cups-utils/"
-DOWNLOAD="https://fedorahosted.org/releases/h/a/hal-cups-utils/hal-cups-utils-0.6.19.tar.gz"
-MD5SUM="58e1c8f5597dd39e57dcf3c4aabe60f8"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

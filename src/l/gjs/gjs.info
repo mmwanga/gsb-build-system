@@ -1,8 +1,0 @@
-PKGNAME="gjs"
-VERSION="0.4"
-HOMEPAGE="http://live.gnome.org/Gjs/"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gjs/0.4/gjs-0.4.tar.bz2"
-MD5SUM="584594b22e433d56d660a7dda650809d"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

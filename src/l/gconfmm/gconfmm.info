@@ -1,8 +1,0 @@
-PKGNAME="gconfmm"
-VERSION="2.24.0"
-HOMEPAGE="http://projects.gnome.org/nemiver/"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gconfmm/2.24/gconfmm-2.24.0.tar.bz2"
-MD5SUM="cd2c3c919dbf8f90f703680d2fa088b2"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

@@ -1,7 +1,0 @@
-PKGNAME="psiconv"
-VERSION="0.9.8"
-HOMEPAGE="http://software.frodo.looijaard.name/psiconv/"
-DOWNLOAD="http://software.frodo.looijaard.name/psiconv/files/psiconv-0.9.8.tar.gz"
-MD5SUM="8d7548e3c6b9cd408544736133728acd"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

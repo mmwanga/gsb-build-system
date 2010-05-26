@@ -1,7 +1,0 @@
-PKGNAME="libavc1394"
-VERSION="0.5.3"
-HOMEPAGE="http://sourceforge.net/projects/libavc1394/"
-DOWNLOAD="http://downloads.sourceforge.net/sourceforge/libavc1394/libavc1394-0.5.3.tar.gz"
-MD5SUM="09e30b1fb5ae455b6d8407e457a711a3"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

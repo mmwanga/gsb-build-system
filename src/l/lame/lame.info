@@ -1,7 +1,0 @@
-PKGNAME="lame"
-VERSION="3.98.4"
-HOMEPAGE="http://lame.sourceforge.net/"
-DOWNLOAD="http://downloads.sourceforge.net/sourceforge/lame/lame-3.98.4.tar.gz"
-MD5SUM="8e9866ad6b570c6c95c8cba48060473f  lame-3.98.4.tar.gz"
-MAINTAINER="Chip Cuccio"
-EMAIL="chipster@gnomeslackbuild.org"

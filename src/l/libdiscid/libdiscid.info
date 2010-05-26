@@ -1,7 +1,0 @@
-PKGNAME="libdiscid"
-VERSION="0.2.2"
-HOMEPAGE="http://musicbrainz.org/doc/libdiscid"
-DOWNLOAD="http://users.musicbrainz.org/~matt/libdiscid-0.2.2.tar.gz"
-MD5SUM="ee21ddbe696a3c60e14827a75f3bcf5b"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

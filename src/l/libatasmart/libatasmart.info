@@ -1,7 +1,0 @@
-PKGNAME="libatasmart"
-VERSION="0.16"
-HOMEPAGE="http://0pointer.de/blog/projects/being-smart.html"
-DOWNLOAD="http://0pointer.de/public/libatasmart-0.16.tar.gz"
-MD5SUM="165b9b8c228a30b4f9cb10f0e42f7b67"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

@@ -1,7 +1,0 @@
-PKGNAME="libggz"
-VERSION="0.0.14.1"
-HOMEPAGE="http://www.ggzgamingzone.org"
-DOWNLOAD="http://mirrors.ibiblio.org/pub/mirrors/ggzgamingzone/ggz/0.0.14.1/libggz-0.0.14.1.tar.gz"
-MD5SUM="603739504648833779aa13b0327a1c3d"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

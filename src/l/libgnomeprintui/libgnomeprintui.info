@@ -1,8 +1,0 @@
-PKGNAME="libgnomeprintui"
-VERSION="2.18.4"
-HOMEPAGE="http://www.gnome.org"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/libgnomeprintui/2.18/libgnomeprintui-2.18.4.tar.bz2"
-MD5SUM="e76d763f6279b900a63e5fb2909f8810"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

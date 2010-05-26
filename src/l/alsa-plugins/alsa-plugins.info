@@ -1,7 +1,0 @@
-PKGNAME="alsa-plugins"
-VERSION="1.0.22"
-HOMEPAGE="http://www.alsa-project.org"
-DOWNLOAD="ftp://ftp.alsa-project.org/pub/plugins/alsa-plugins-1.0.22.tar.bz2"
-MD5SUM="a482cce4007b7c75e1c0a677f7f0fe07"
-MAINTAINER="Chip Cuccio"
-EMAIL="chipster@gnomeslackbuild.org"

@@ -1,7 +1,0 @@
-PRGNAM="python-ldap"
-VERSION="2.3.8"
-HOMEPAGE="http://www.python-ldap.org/"
-DOWNLOAD="http://pypi.python.org/packages/source/p/python-ldap/python-ldap-2.3.8.tar.gz"
-MD5SUM="645ef46405e4eb3963cea34f2e114f96"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

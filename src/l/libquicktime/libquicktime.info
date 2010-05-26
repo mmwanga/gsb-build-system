@@ -1,7 +1,0 @@
-PKGNAME="libquicktime"
-VERSION="1.1.4"
-HOMEPAGE="http://libquicktime.sourceforge.net/"
-DOWNLOAD="http://downloads.sourceforge.net/project/libquicktime/libquicktime/1.1.4/libquicktime-1.1.4.tar.gz"
-MD5SUM="ee4f8602e67a445ba906f809a83e0c34"
-MAINTAINER="Chip Cuccio"
-EMAIL="chipster@gnomeslackbuild.org"
