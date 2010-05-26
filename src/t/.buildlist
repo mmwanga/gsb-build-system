@@ -1,7 +1,5 @@
-gnome-themes-extras
-gnome-backgrounds
-murrine-engine
-candido-engine
-ttf-bitstream-vera
-mac4lin-theme
-msttcorefonts
+t/gnome-themes-extras
+t/gnome-backgrounds
+t/murrine-engine
+t/candido-engine
+t/ttf-bitstream-vera
