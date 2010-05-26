@@ -1,10 +1,11 @@
 accerciser:SKP
-at-spi:ADD
+at-spi:SKP
 dasher:SKP
+espeak:SKP
 gail:SKP
 gnome-mag:SKP
 gnome-speech:SKP
 gok:SKP
-libgail-gnome:ADD
+libgail-gnome:SKP
 mousetweaks:SKP
 orca:SKP
