@@ -1,8 +1,8 @@
 PKGNAME="gvfs"
-VERSION="1.6.1"
+VERSION="1.6.2"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gvfs/1.6/gvfs-1.6.1.tar.bz2"
-MD5SUM="dcaae9fafbb7df9df4e92f895849921a"
+DOWNLOAD="${GNOME_SERVER}/gvfs/1.6/gvfs-1.6.2.tar.bz2"
+MD5SUM="6ed1d943d1c1b8b15a6b180a6cd51043"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
