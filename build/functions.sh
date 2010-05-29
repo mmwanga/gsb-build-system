@@ -315,12 +315,6 @@ Options:
 
   --list		List the packages which will be built in this section.
 
-  --force		A package will not be built if a package of the same
-			name is already installed, or any of the pre-requisite
-			packages are not installed.  This option over-rides
-			the checks and attempts a build (which will probably
-			fail) anyway.
-
   --no-cleanup		By default, any source, temporary build and package
 			directories will be deleted once the package is built.
 			This option prevents those files from being removed.
@@ -363,11 +357,6 @@ Options:
 
   --skip-rebuilds      	Do not rebuild packages when asked to do so in the
     			buildlist.txt.
-
-  --set=<set>           Build only a specific set.
-
-  --export-source       Export the build source tree into source/ under the
-                        package destination directory. 
 
   Options are passed down to the next level SlackBuild where appropriate.
 EOF
