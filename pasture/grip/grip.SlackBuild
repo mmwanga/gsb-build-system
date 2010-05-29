@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=3
+BUILD=4
 VERSION=3.3.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomeui lame glib2 gtk+2 cdparanoia cdrtools libpng"
+REQUIRED_PACKAGES="libgnomeui glib2 gtk+2 cdparanoia cdrtools libpng"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -151,6 +151,9 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
+# Update auto tool info
+autoreconf -vif
+
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
@@ -160,7 +163,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --target=$ARCH-$DISTRO-linux \
   --disable-static \
   --enable-shared \
-  --disable-dependency-tracking \
+  --with-gnu-ld \
   || exit 1
 
 # Build and install.
@@ -199,6 +202,6 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
-[ "$NOCLEANUP" = "0" ] && {
+if [ "$NOCLEANUP" = "0" ]; then
   rm -rf $PKG $TMP/$PKGNAME-$VERSION
-}
+fi;

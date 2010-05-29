@@ -1,5 +1,4 @@
 libgnomeui
-lame
 glib2
 gtk+2
 cdparanoia
