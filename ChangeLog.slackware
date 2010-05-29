@@ -1,3 +1,7 @@
+Sat May 29 16:21:37 BST 2010
+ap/evince-2.30.1-i486-2gsb.txz: Recompiled.
+   Patched to fix crash when last_settings isn't found in the users' home
+   directory. See https://bugzilla.gnome.org/show_bug.cgi?id=617154.
 +--------------------------+
 Wed May 26 18:23:17 BST 2010
 t/murrine-engine-0.90.3-i486-3gsb.txz: Recompiled.

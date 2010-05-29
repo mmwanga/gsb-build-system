@@ -237,12 +237,27 @@ information from your old config files and then move them over.
   network-manager-applet) you may need to reload dbus in order for the new
 permissions to take effect.
 
-- You user must be in the 'audio' group to use audio, the 'netdev' group to use
-  avahi and NetworkManager, the 'plugdev' to use BlueTooth and removeable media
-in Nautilus, and the 'power' group to use hibernate/suspend with GNOME Power
-Manager and use the CPUfreq applet.  (If you are not in the 'power' group, the
-CPUfreq applet will complain "CPU frequency scaling unsupported.")
+- USER PERMISSIONS: You user must be in the 'audio' group to use audio, the
+  'netdev' group to use avahi and NetworkManager, the 'plugdev' to use
+BlueTooth and removeable media in Nautilus, and the 'power' group to use
+hibernate/suspend with GNOME Power Manager and use the CPUfreq applet.  (If you
+are not in the 'power' group, the CPUfreq applet will complain "CPU frequency
+scaling unsupported.") To get proper scoring working with gnome-games, you have
+to add the user name to group "games".
 
 - If NetworkManager is running, but unused, Firefox will try to detect an
   available connection and start up in offline mode (annoyingly).  You can fix
 this behavior by disabling NetworkManager if you're not using it.
+
+- GDM (the GNOME Display Manager) provides an alternate display manager for the
+X Window System. The X Window System by default uses the XDM display manager.
+However, resolving XDM configuration issues typically involves editing a
+configuration file. GDM allows users to customize or troubleshoot settings
+without having to resort to a command line. Users can pick their session type
+on a per-login basis. GDM also features easy customisation with themes.  If you
+would like to enable GDM on system boot, you will need to edit /etc/inittab and
+change the default run level from 3 to 4.  
+
+     # Default runlevel. (Do not set to 0 or 6)
+     id:4:initdefault:
+

@@ -1,7 +1,7 @@
 Written by, and Copyright (c) 2007, 2008, 2009, 2010:
    Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>, Coventry, UK.
-Updated by Steve Kennedy <steve (at) gnomeslackbuild.org>
-Updated by Chip Cuccio <chipster (at) gnomeslackbuild.org>
+   Updated by Steve Kennedy <steve (at) gnomeslackbuild.org>
+   Updated by Chip Cuccio <chipster (at) gnomeslackbuild.org>
 
 		 HOW TO INSTALL GSB: GNOME SlackBuild 2.30
                         (for Slackware/Slackware64 13.1)
@@ -16,7 +16,7 @@ those pre-built packages, suitable for Slackware and Slackware64.
 
 Please give the CHANGES_AND_HINTS.TXT a quick read before installing.  Also, we
 still need to replace five standard Slackware packages.  Please see
-SLACKWARE-13.1_REPLACED_PACKAGES.TXT for more details about what needs to be
+SLACKWARE_REPLACED_PACKAGES.TXT for more details about what needs to be
 replaced, and why. 
 
 This document provides information on installing our pre-built GSB packages on
