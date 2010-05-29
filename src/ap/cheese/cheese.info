@@ -1,8 +1,8 @@
 PKGNAME="cheese"
-VERSION="2.30.1"
+VERSION="2.28.1"
 HOMEPAGE="http://projects.gnome.org/cheese/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/cheese/2.30/cheese-2.30.1.tar.bz2"
-MD5SUM="1599fded8a1797ea51fb010af4e6c45b"
+DOWNLOAD="${GNOME_SERVER}/cheese/2.28/cheese-2.28.1.tar.bz2"
+MD5SUM="9accb0d6fa3f1f7644bade886c6078c3"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
