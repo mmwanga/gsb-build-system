@@ -228,3 +228,7 @@ extra/gst-plugins-ugly
 extra/libesmtp
 extra/balsa
 extra/sylpheed
+# Build packages in pasture/
+pasture/gdesklets
+pasture/grip
+# Build packages in testing/
