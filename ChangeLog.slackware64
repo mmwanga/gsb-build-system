@@ -1,3 +1,24 @@
+Sat May 29 16:21:37 BST 2010
+ap/evince-2.30.1-x86_64-2gsb.txz: Recompiled.
+   Patched to fix crash when last_settings isn't found in the users' home
+   directory. See https://bugzilla.gnome.org/show_bug.cgi?id=617154.
+a/gvfs-1.6.2-x86_64-1gsb.txz: Upgraded.
+ap/cheese-2.28.1-x86_64-2gsb.txz: Rebuilt.
+l/gtksourceview-2.10.3-x86_64-1gsb.txz: Upgraded.
+go/tracker-0.8.9-x86_64-1gsb.txz: Upgraded.
+l/heimdal-libraries-1.3.3-x86_64-1gsb.txz: Upgraded.
+  The OPTIONAL values in Kerberos protocols, in the ASN.1 encoder they are
+  encoded as a pointer to a structure. When the peer is not sending the 
+  OPTIONAL argument, the pointer set to NULL instead of a pointer to a 
+  structure.  In two places it fails to check for NULL pointer before 
+  trying to de-reference the NULL pointer, which results in crashing.
+  For more information, see:
+    http://www.h5l.org/advisories.html?show=2010-05-27
+  (* Security fix *)
+n/telepathy-farsight-0.0.14-x86_64-1gsb.txz: Upgraded.
+n/telepathy-mission-control-5.4.2-x86_64-1gsb.txz: Upgraded.
+pasture/gdesklets-0.36.1-x86_64-2gsb.txz: Rebuilt.
+pasture/grip-3.3.1-x86_64-4gsb.txz: Rebuilt.
 +--------------------------+
 Wed May 26 18:23:17 BST 2010
 t/murrine-engine-0.90.3-x86_64-3gsb.txz: Recompiled.
