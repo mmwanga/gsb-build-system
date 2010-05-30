@@ -1,3 +1,10 @@
+Sun May 30 00:20:14 BST 2010
+l/gtk+2-2.20.1-x86_64-2gsb.txz: Patched.
+  Grabbed a patch from git to fix gmem.c memory faults.  For more
+  information, please see https://bugzilla.gnome.org/show_bug.cgi?id=617878
+  and the patch here:
+    http://git.gnome.org/browse/gtk+/commit/?id=006d5718fa927d9d3509fca1a1c1ca6522110b57
++--------------------------+
 Sat May 29 16:21:37 BST 2010
    Hello!  GSB64-2.30 has come a long way and it almost ready for Slackware64
    13.1.  We're going to call this an RC1 candidate.  The desktop is stable,
