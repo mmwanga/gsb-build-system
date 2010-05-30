@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=3
+BUILD=4
 VERSION=2.30.0
 
 # List any packages here that are required to build this package.
@@ -184,6 +184,11 @@ mkdir -p $PKG/etc/X11/xinit &&
 cat $CWD/xinitrc.gnome | sed -e "s,@LIBDIR@,lib${LIBDIRSUFFIX},g" \
   > $PKG/etc/X11/xinit/xinitrc.gnome &&
 chmod 755 $PKG/etc/X11/xinit/xinitrc.gnome || exit 1
+
+# Install our splash screen
+mkdir -p $PKG/usr/share/pixmaps/splash &&
+cp $CWD/gsb-splash.png $PKG/usr/share/pixmaps/splash &&
+chown root.root $PKG/usr/share/pixmaps/splash/gsb-splash.png || exit 1
 
 # Add default `gnome` for gnome-session
 ( cd $PKG/usr/bin ; ln -s gnome-session gnome ); 
