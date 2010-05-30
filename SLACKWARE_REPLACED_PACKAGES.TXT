@@ -26,6 +26,6 @@ gtk+2:         	   ( 2.20.0 required by gnome-panel and nautilus )
 -- OPTIONAL Package Replacements --
 
 compiz:            ( 0.8.6 is rebuilt again GConf and gnome, but continues to 
-                     support KDE4 and is compatible with Slackware )
+                     support KDE4 )
 gst-plugins-good:  ( 0.10.22 rebuilt against GConf for totem )
 libgsf:            ( 0.14.12 rebuilt against libgnome, required by office apps)
