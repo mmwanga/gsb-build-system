@@ -519,7 +519,7 @@ if [ "${PUBLISH}" = "1" ]; then
   echo ; header "* Generating package file lists and checksums."
   ( 
   cd $PKGDEST &&
-    for DIR in $GSBDIR $PATCHESDIR $EXTRADIR $SOURCEDIR # $PASTUREDIR $TESTINGDIR
+    for DIR in $GSBDIR $PATCHESDIR $EXTRADIR $SOURCEDIR $PASTUREDIR # $TESTINGDIR
     do
       [ -d $DIR ] && {
         if [ "$DIR" != "source" ]; then
