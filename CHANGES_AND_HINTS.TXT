@@ -261,3 +261,6 @@ change the default run level from 3 to 4.
      # Default runlevel. (Do not set to 0 or 6)
      id:4:initdefault:
 
+- If you use Sabayon, you'll need to migrate your existing profiles with 2.30:
+      $ cp /etc/desktop-profiles/*.xml /etc/sabayon
+      $ cp /etc/desktop-profiles/*.zip /etc/sabayon/profiles

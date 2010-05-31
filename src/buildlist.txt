@@ -201,7 +201,6 @@ ad/pessulus
 ad/gksu-polkit
 ad/sabayon
 # Compiz
-#c/compiz-manager
 c/compiz
 c/compiz-bcop
 c/compiz-plugins-main
