@@ -2,7 +2,6 @@
 libelf
 libgc
 a52dec
-libdiscid
 libmusicbrainz
 x264
 xvidcore
@@ -17,7 +16,6 @@ libdvdcss
 libdvdnav
 libmms
 libsndfile
-libsamplerate
 libdv
 libquicktime
 mjpegtools
