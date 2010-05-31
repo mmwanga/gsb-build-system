@@ -67,7 +67,7 @@ slib
 sg3_utils
 libatasmart
 pycrypto
-gst-plugins-base
+#gst-plugins-base
 ORBit2
 GConf
 avahi
