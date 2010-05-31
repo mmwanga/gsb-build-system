@@ -2,42 +2,42 @@ GNOME SlackBuild
 ----------------
 
 # United States
-http://get.gnomeslackbuild.org/gsb/gsb-current/
+http://get.gnomeslackbuild.org/gsb/gsb-2.28_slackware-13.1/
 # United Kingdom
-http://www.slackware.org.uk/gsb/gsb-current/
-ftp://ftp.slackware.org.uk/gsb/gsb-current/
+http://www.slackware.org.uk/gsb/gsb-2.28_slackware-13.1/
+ftp://ftp.slackware.org.uk/gsb/gsb-2.28_slackware-13.1/
 # Russia
-http://slackware.rol.ru/gsb/gsb/gsb-current/
+http://slackware.rol.ru/gsb/gsb/gsb-2.28_slackware-13.1/
 # Poland
-ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-current/
+ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-2.28_slackware-13.1/
 # Portugal
-http://darkstar.ist.utl.pt/pub/slackware/addon/gnomeslackbuild/gsb-current
-ftp://darkstar.ist.utl.pt/pub/slackware/addon/gnomeslackbuild/gsb-current
+http://darkstar.ist.utl.pt/pub/slackware/addon/gnomeslackbuild/gsb-2.28_slackware-13.1
+ftp://darkstar.ist.utl.pt/pub/slackware/addon/gnomeslackbuild/gsb-2.28_slackware-13.1
 # Belgium
-http://mirrors.dotsrc.org/gsb/gsb-current/
-ftp://mirrors.dotsrc.org/gsb/gsb-current/
+http://mirrors.dotsrc.org/gsb/gsb-2.28_slackware-13.1/
+ftp://mirrors.dotsrc.org/gsb/gsb-2.28_slackware-13.1/
 # Switzerland
-http://mirror.switch.ch/ftp/mirror/gsb/gsb-current/
-ftp://mirror.switch.ch/ftp/mirror/gsb/gsb-current/
+http://mirror.switch.ch/ftp/mirror/gsb/gsb-2.28_slackware-13.1/
+ftp://mirror.switch.ch/ftp/mirror/gsb/gsb-2.28_slackware-13.1/
 
 GNOME SlackBuild64
 ------------
 
 # United States
-http://get.gnomeslackbuild.org/gsb/gsb64-current/
+http://get.gnomeslackbuild.org/gsb/gsb64-2.28_slackware64-13.1/
 # United Kingdom
-http://www.slackware.org.uk/gsb/gsb64-current/
-ftp://ftp.slackware.org.uk/gsb/gsb64-current/
+http://www.slackware.org.uk/gsb/gsb64-2.28_slackware64-13.1/
+ftp://ftp.slackware.org.uk/gsb/gsb64-2.28_slackware64-13.1/
 # Russia
-http://slackware.rol.ru/gsb/gsb/gsb64-current/
+http://slackware.rol.ru/gsb/gsb/gsb64-2.28_slackware64-13.1/
 # Poland
-ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb64-current/
+ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb64-2.28_slackware64-13.1/
 # Portugal
-http://darkstar.ist.utl.pt/pub/slackware/addon/gnomeslackbuild/gsb64-current
-ftp://darkstar.ist.utl.pt/pub/slackware/addon/gnomeslackbuild/gsb64-current
+http://darkstar.ist.utl.pt/pub/slackware/addon/gnomeslackbuild/gsb64-2.28_slackware64-13.1
+ftp://darkstar.ist.utl.pt/pub/slackware/addon/gnomeslackbuild/gsb64-2.28_slackware64-13.1
 # Belgium
-http://mirrors.dotsrc.org/gsb/gsb64-current/
-ftp://mirrors.dotsrc.org/gsb/gsb64-current/
+http://mirrors.dotsrc.org/gsb/gsb64-2.28_slackware64-13.1/
+ftp://mirrors.dotsrc.org/gsb/gsb64-2.28_slackware64-13.1/
 # Switzerland
-http://mirror.switch.ch/ftp/mirror/gsb/gsb64-current/
-ftp://mirror.switch.ch/ftp/mirror/gsb/gsb64-current/
+http://mirror.switch.ch/ftp/mirror/gsb/gsb64-2.28_slackware64-13.1/
+ftp://mirror.switch.ch/ftp/mirror/gsb/gsb64-2.28_slackware64-13.1/
