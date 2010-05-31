@@ -178,8 +178,8 @@ mkdir -p $TMP &&
 mkdir -p $PKGDEST &&
 mkdir -p $LOGSDIR &&
 mkdir -p $PKGDEST/${EXTRADIR} &&
-#mkdir -p $PKGDEST/${PASTUREDIR} &&
-#mkdir -p $PKGDEST/${TESTINGDIR} &&
+mkdir -p $PKGDEST/${PASTUREDIR} &&
+mkdir -p $PKGDEST/${TESTINGDIR} &&
 mkdir -p $PKGDEST/${PATCHESDIR} || exit 1
 
 #========================================================================
@@ -519,7 +519,7 @@ if [ "${PUBLISH}" = "1" ]; then
   echo ; header "* Generating package file lists and checksums."
   ( 
   cd $PKGDEST &&
-    for DIR in $GSBDIR $PATCHESDIR $EXTRADIR $SOURCEDIR $PASTUREDIR # $TESTINGDIR
+    for DIR in $GSBDIR $PATCHESDIR $EXTRADIR $SOURCEDIR $PASTUREDIR $TESTINGDIR
     do
       [ -d $DIR ] && {
         if [ "$DIR" != "source" ]; then
