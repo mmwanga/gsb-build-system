@@ -232,4 +232,7 @@ pasture/gdesklets
 pasture/grip
 # Build packages in testing/
 testing/mutter
+testing/libffi
+testing/gobject-introspection
+testing/gjs
 testing/gnome-shell
