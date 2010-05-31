@@ -249,18 +249,6 @@ to add the user name to group "games".
   available connection and start up in offline mode (annoyingly).  You can fix
 this behavior by disabling NetworkManager if you're not using it.
 
-- GDM (the GNOME Display Manager) provides an alternate display manager for the
-X Window System. The X Window System by default uses the XDM display manager.
-However, resolving XDM configuration issues typically involves editing a
-configuration file. GDM allows users to customize or troubleshoot settings
-without having to resort to a command line. Users can pick their session type
-on a per-login basis. GDM also features easy customisation with themes.  If you
-would like to enable GDM on system boot, you will need to edit /etc/inittab and
-change the default run level from 3 to 4.  
-
-     # Default runlevel. (Do not set to 0 or 6)
-     id:4:initdefault:
-
 - If you use Sabayon, you'll need to migrate your existing profiles with 2.30:
       $ cp /etc/desktop-profiles/*.xml /etc/sabayon
       $ cp /etc/desktop-profiles/*.zip /etc/sabayon/profiles

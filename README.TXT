@@ -41,14 +41,16 @@ FTP site:
 |                       project.
 |-- CREDITS             A brief list of those who help with the 
 |                       GSB project.
-|-- ChangeLog.tx        Log of system changes from GSB 2.24.3 
+|-- ChangeLog.txt       Log of system changes from GSB 2.24.3 
 |                       to GSB 2.30.0.
 |-- FILELIST.TXT        List of files on the GSB FTP site.
 |-- INSTALL.TXT         Instructions on how to install GSB.
+|-- FAQ.TXT             A list of questions commonly asked about GNOME or the 
+|                       GSB project. 
 |
 |-- SLACKWARE_REPLACED_PACKAGES.TXT
-|                       Packages in GSB that will replace 
-|                       standard Slackware packages.
+|                       Packages in GSB that will replace the standard 
+|                       Slackware packages.
 |-- README.TXT          This file. :-)
 |-- UPGRADE.TXT         Instructions on how to upgrade from GSB 2.28.3.
 |-- VERSIONS            Target versions for GSB 2.30.0.
@@ -58,7 +60,7 @@ FTP site:
 |   |                   they come with Slackware 13.1 users may prefer
 |   |                   prefer to use our verion.
 |   |			
-|   `-- src/            Source code for the extra packages.
+|   `-- source/         Source code for the extra packages.
 |
 |-- gsb/                This directory contains all the 
 |   |                   software you will need for GSB 2.30.0.
@@ -69,11 +71,11 @@ FTP site:
 |   |-- c	        The C (compiz) series.
 |   |-- d	        The D (development) series.
 |   |-- l	        The L (libraries) series.
-|   |-- m	        The M (Mono C#) series.
+|   |-- m	        The M (mono C#) series.
 |   |-- n	        The N (networking) series.
-|   |-- go              The GO (GNOME Office) series.
-|   |-- ooo             The OOO (OpenOffice.org) series.
-|   `-- t	        The T (Themes) series.
+|   |-- go              The GO (gnome office) series.
+|   |-- ooo             The OOO (openoffice.org) series.
+|   `-- t	        The T (themes) series.
 |
 |-- pasture/            These are packages that have been removed
 |   |                   from GNOME SlackBuild, but are useful enough to
@@ -81,9 +83,9 @@ FTP site:
 |   |
 |   |                   Packages currently found here include:
 |   |
-|   `-- src/            Source code for the pasture packages.
+|   `-- source/         Source code for the pasture packages.
 |
-|-- src	                This directory contains source code for the 
+|-- source              This directory contains source code for the 
 |   |                   packages that are offered by the GSB project.  
 |   |                   It doesn't contains any	source tarballs (as 
 |   |                   being too huge), but all the offical 
