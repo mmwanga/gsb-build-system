@@ -12,7 +12,7 @@ GCONF_CONFIG_SOURCE="xml::etc/gconf/gconf.xml.defaults" usr/bin/gconftool-2 --di
 
 # Set GSB splash screen as default
 GCONF_CONFIG_SOURCE="xml::etc/gconf/gconf.xml.defaults" usr/bin/gconftool-2 --direct --type string \
-  --set /apps/gnome-session/options/splash_image splash/gsb-splash.png 1> /dev/null 2> /dev/null
+  --set /apps/gnome-session/options/splash_image splash/gnome-splash.png 1> /dev/null 2> /dev/null
 
 # Disable splash screen by default
 GCONF_CONFIG_SOURCE="xml::etc/gconf/gconf.xml.defaults" usr/bin/gconftool-2 --direct --type boolean \
