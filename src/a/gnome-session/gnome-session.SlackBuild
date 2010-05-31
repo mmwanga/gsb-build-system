@@ -161,6 +161,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static \
   --enable-shared \
   --disable-schemas-install \
+  --with-default-wm=gnome-wm \
+  --enable-splash \
   || exit 1
 
 # Build and install.
