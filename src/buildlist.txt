@@ -231,3 +231,4 @@ extra/sylpheed
 pasture/gdesklets
 pasture/grip
 # Build packages in testing/
+testing/gnome-shell
