@@ -1,7 +1,0 @@
-PKGNAME="compiz-manager"
-VERSION="0.6.0"
-HOMEPAGE="http://compiz-fusion.org/"
-DOWNLOAD="http://releases.compiz-fusion.org/0.6.0/compiz-manager-0.6.0.tar.bz2"
-MD5SUM="3efdcb58bc8f6ea40b5141e39e5b5ff3"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
