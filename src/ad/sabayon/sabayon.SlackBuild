@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.30.0
 
 # List any packages here that are required to build this package.
@@ -116,14 +116,17 @@ if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # Use gksu when launching sabayon
   zcat $CWD/sabayon.gksu.diff.gz | patch -p1
+  zcat $CWD/sabayon.Xsession.path.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # Use gksu when launching sabayon
   zcat $CWD/sabayon.gksu.diff.gz | patch -p1
+  zcat $CWD/sabayon.Xsession.path.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # Use gksu when launching sabayon
   zcat $CWD/sabayon.gksu.diff.gz | patch -p1
+  zcat $CWD/sabayon.Xsession.path.diff.gz | patch -p1
 fi
 
 # Fix permissions for building.
@@ -165,6 +168,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-shared \
   --enable-console-helper=no \
   --with-distro=slackware \
+  --with-prototype-user=sabayon \
   || exit 1
 
 # Build and install.
