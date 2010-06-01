@@ -1,110 +1,85 @@
-k3b-i18n: SKP
-kde-i18n-af: SKP
-kde-i18n-ar: SKP
-kde-i18n-az: SKP
-kde-i18n-be: SKP
-kde-i18n-bg: SKP
-kde-i18n-bn: SKP
-kde-i18n-br: SKP
-kde-i18n-bs: SKP
-kde-i18n-ca: SKP
-kde-i18n-cs: SKP
-kde-i18n-csb: SKP
-kde-i18n-cy: SKP
-kde-i18n-da: SKP
-kde-i18n-de: SKP
-kde-i18n-el: SKP
-kde-i18n-en_GB: SKP
-kde-i18n-eo: SKP
-kde-i18n-es: SKP
-kde-i18n-et: SKP
-kde-i18n-eu: SKP
-kde-i18n-fa: SKP
-kde-i18n-fi: SKP
-kde-i18n-fr: SKP
-kde-i18n-fy: SKP
-kde-i18n-ga: SKP
-kde-i18n-gl: SKP
-kde-i18n-he: SKP
-kde-i18n-hi: SKP
-kde-i18n-hr: SKP
-kde-i18n-hu: SKP
-kde-i18n-is: SKP
-kde-i18n-it: SKP
-kde-i18n-ja: SKP
-kde-i18n-kk: SKP
-kde-i18n-km: SKP
-kde-i18n-ko: SKP
-kde-i18n-lt: SKP
-kde-i18n-lv: SKP
-kde-i18n-mk: SKP
-kde-i18n-mn: SKP
-kde-i18n-ms: SKP
-kde-i18n-nb: SKP
-kde-i18n-nds: SKP
-kde-i18n-nl: SKP
-kde-i18n-nn: SKP
-kde-i18n-pa: SKP
-kde-i18n-pl: SKP
-kde-i18n-pt: SKP
-kde-i18n-pt_BR: SKP
-kde-i18n-ro: SKP
-kde-i18n-ru: SKP
-kde-i18n-rw: SKP
-kde-i18n-se: SKP
-kde-i18n-sk: SKP
-kde-i18n-sl: SKP
-kde-i18n-sr: SKP
-kde-i18n-sr@Latn: SKP
-kde-i18n-ss: SKP
-kde-i18n-sv: SKP
-kde-i18n-ta: SKP
-kde-i18n-te: SKP
-kde-i18n-tg: SKP
-kde-i18n-th: SKP
-kde-i18n-tr: SKP
-kde-i18n-uk: SKP
-kde-i18n-uz: SKP
-kde-i18n-vi: SKP
-kde-i18n-wa: SKP
-kde-i18n-zh_CN: SKP
-kde-i18n-zh_TW: SKP
-koffice-l10n-bg: SKP
-koffice-l10n-ca: SKP
-koffice-l10n-cs: SKP
-koffice-l10n-cy: SKP
-koffice-l10n-da: SKP
-koffice-l10n-de: SKP
-koffice-l10n-el: SKP
-koffice-l10n-en_GB: SKP
-koffice-l10n-es: SKP
-koffice-l10n-et: SKP
-koffice-l10n-eu: SKP
-koffice-l10n-fa: SKP
-koffice-l10n-fi: SKP
-koffice-l10n-fr: SKP
-koffice-l10n-ga: SKP
-koffice-l10n-gl: SKP
-koffice-l10n-hu: SKP
-koffice-l10n-it: SKP
-koffice-l10n-ja: SKP
-koffice-l10n-km: SKP
-koffice-l10n-lv: SKP
-koffice-l10n-ms: SKP
-koffice-l10n-nb: SKP
-koffice-l10n-nds: SKP
-koffice-l10n-ne: SKP
-koffice-l10n-nl: SKP
-koffice-l10n-pl: SKP
-koffice-l10n-pt: SKP
-koffice-l10n-pt_BR: SKP
-koffice-l10n-ru: SKP
-koffice-l10n-sk: SKP
-koffice-l10n-sl: SKP
-koffice-l10n-sr: SKP
-koffice-l10n-sr@Latn: SKP
-koffice-l10n-sv: SKP
-koffice-l10n-tr: SKP
-koffice-l10n-uk: SKP
-koffice-l10n-zh_CN: SKP
-koffice-l10n-zh_TW: SKP
+kde-l10n-ar:SKP
+kde-l10n-bg:SKP
+kde-l10n-ca:SKP
+kde-l10n-ca@valencia:SKP
+kde-l10n-cs:SKP
+kde-l10n-csb:SKP
+kde-l10n-da:SKP
+kde-l10n-de:SKP
+kde-l10n-el:SKP
+kde-l10n-en_GB:SKP
+kde-l10n-eo:SKP
+kde-l10n-es:SKP
+kde-l10n-et:SKP
+kde-l10n-eu:SKP
+kde-l10n-fi:SKP
+kde-l10n-fr:SKP
+kde-l10n-fy:SKP
+kde-l10n-ga:SKP
+kde-l10n-gl:SKP
+kde-l10n-gu:SKP
+kde-l10n-he:SKP
+kde-l10n-hi:SKP
+kde-l10n-hr:SKP
+kde-l10n-hu:SKP
+kde-l10n-id:SKP
+kde-l10n-is:SKP
+kde-l10n-it:SKP
+kde-l10n-ja:SKP
+kde-l10n-kk:SKP
+kde-l10n-km:SKP
+kde-l10n-kn:SKP
+kde-l10n-ko:SKP
+kde-l10n-lt:SKP
+kde-l10n-lv:SKP
+kde-l10n-mai:SKP
+kde-l10n-mk:SKP
+kde-l10n-ml:SKP
+kde-l10n-nb:SKP
+kde-l10n-nds:SKP
+kde-l10n-nl:SKP
+kde-l10n-nn:SKP
+kde-l10n-pa:SKP
+kde-l10n-pl:SKP
+kde-l10n-pt:SKP
+kde-l10n-pt_BR:SKP
+kde-l10n-ro:SKP
+kde-l10n-ru:SKP
+kde-l10n-si:SKP
+kde-l10n-sk:SKP
+kde-l10n-sl:SKP
+kde-l10n-sr:SKP
+kde-l10n-sv:SKP
+kde-l10n-tg:SKP
+kde-l10n-tr:SKP
+kde-l10n-uk:SKP
+kde-l10n-wa:SKP
+kde-l10n-zh_CN:SKP
+kde-l10n-zh_TW:SKP
+koffice-l10n-ca:SKP
+koffice-l10n-ca@valencia:SKP
+koffice-l10n-da:SKP
+koffice-l10n-de:SKP
+koffice-l10n-el:SKP
+koffice-l10n-en_GB:SKP
+koffice-l10n-es:SKP
+koffice-l10n-et:SKP
+koffice-l10n-fr:SKP
+koffice-l10n-fy:SKP
+koffice-l10n-gl:SKP
+koffice-l10n-hne:SKP
+koffice-l10n-it:SKP
+koffice-l10n-ja:SKP
+koffice-l10n-kk:SKP
+koffice-l10n-nb:SKP
+koffice-l10n-nds:SKP
+koffice-l10n-nl:SKP
+koffice-l10n-pl:SKP
+koffice-l10n-pt:SKP
+koffice-l10n-pt_BR:SKP
+koffice-l10n-sv:SKP
+koffice-l10n-tr:SKP
+koffice-l10n-uk:SKP
+koffice-l10n-wa:SKP
+koffice-l10n-zh_CN:SKP
+koffice-l10n-zh_TW:SKP

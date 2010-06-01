@@ -13,7 +13,6 @@ kdeedu:SKP
 kdegames:SKP
 kdegraphics:SKP
 kdelibs:SKP
-kdelibs-experimental:SKP
 kdemultimedia:SKP
 kdenetwork:SKP
 kdepim:SKP
@@ -30,6 +29,7 @@ koffice:SKP
 konq-plugins:SKP
 kopete-cryptography:SKP
 ktorrent:SKP
-mplayerthumbs:SKP
 oxygen-icons:SKP
+polkit-kde-1:SKP
+polkit-qt-1:SKP
 skanlite:SKP

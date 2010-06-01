@@ -14,6 +14,5 @@ proceed; installing only the packages required for the build.
 
 In addition to the packages listed in the tagfiles for each set, the following
 packages from the extra/ directory are required for a full build of GSB:
+
     * jdk
-    * qt3
-    * yasm
