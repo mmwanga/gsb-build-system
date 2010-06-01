@@ -20,7 +20,7 @@ Q1: I've just installed GSB. How do I make it my default desktop environment?
 
 A: You should be able to simply select GNOME by running xwmconfig.  Choose
    xinitrc.gnome or xinitrc.compiz-gnome from the menu.  You can then start the
-   desktop using startx.
+desktop using startx.
 
 -----
 
@@ -28,12 +28,12 @@ Q2: How do I start the GNOME Display Manager?
 
 A: GDM (the GNOME Display Manager) provides an alternate display manager for
    the X Window System. The X Window System by default uses the XDM display
-   manager.  However, resolving XDM configuration issues typically involves
-   editing a configuration file. GDM allows users to customize or troubleshoot
-   settings without having to resort to a command line. Users can pick their
-   session type on a per-login basis. GDM also features easy customisation with
-   themes.  If you would like to enable GDM on system boot, you will need to edit
-   /etc/inittab and change the default run level from 3 to 4.  
+manager.  However, resolving XDM configuration issues typically involves
+editing a configuration file. GDM allows users to customize or troubleshoot
+settings without having to resort to a command line. Users can pick their
+session type on a per-login basis. GDM also features easy customisation with
+themes.  If you would like to enable GDM on system boot, you will need to edit
+/etc/inittab and change the default run level from 3 to 4.  
 
         # Default runlevel. (Do not set to 0 or 6)
         id:4:initdefault:
@@ -47,16 +47,16 @@ Q3: How do I uninstall GSB?
 
 A: Please note that when uninstalling, you will have to reinstall some packages
    from the "l" package set (and possibly others). Please read the
-   SLACKWARE_REPLACED_PACKAGES.TXT for a list of packages you will need to
-   reinstall from the official repository. We have 'tagged' all our packages with
-   a 'gsb' moniker.  It will easily allow you to identify and remove GSB packages.
-   Simply run:
+SLACKWARE_REPLACED_PACKAGES.TXT for a list of packages you will need to
+reinstall from the official repository. We have 'tagged' all our packages with
+a 'gsb' moniker.  It will easily allow you to identify and remove GSB packages.
+Simply run:
 
        $ cd /var/log/packages
        $ ls -1 | grep gsb$ | xargs -n 1 removepkg
 
    This will remove all GSB packages from your system.  Be sure to replace all
-   those files listed in SLACKWARE_REPLACED_PACKAGES.TXT using installpkg.  
+those files listed in SLACKWARE_REPLACED_PACKAGES.TXT using installpkg.  
 
    -----
 
@@ -72,13 +72,13 @@ Q5: My KDE Menus are all messed up after installing GSB. How do I fix them?
 
 A: The KDE menus might be changed if you install GSB because of the gnome-menus
    package, The gnome-menus package implements the freedesktop.org desktop menu
-   specification. There is a simple fix for this. Just add the following near the
-   top of the startkde script:
+specification. There is a simple fix for this. Just add the following near the
+top of the startkde script:
 
          export XDG_CONFIG_DIRS=/etc/kde/xdg
 
    If the improper menus persist, run kbuildsycoca from Konsole after you have
-   logged into KDE.
+logged into KDE.
 
     -----
 
@@ -86,8 +86,8 @@ Q6: I installed KDE after GSB was installed, and now some icons are missing or
     broken? How do I fix it?
 
 A: Installing the package "kdebase" can break the hicolor icon specification
-   for GSB. If you find that you're missing any GNOME icons, your best bet is to
-   reinstall the standard Slackware package "hicolor-icon-theme" again.
+   for GSB. If you find that you're missing any GNOME icons, your best bet is
+to reinstall the standard Slackware package "hicolor-icon-theme" again.
 
     -----
 
@@ -95,12 +95,12 @@ Q7: How do get the weather and temperature working in the GNOME panel clock
     applet?
 
 A: You will need to add your location by clicking the 'Edit' button within the
-   applet.  Your location will then be added to the list below the calendar.  If
-   you hover your mouse over top of your new location, a 'Set...' button will
-   appear.  You will need to 'Set' your location as home, and authenicate as
-   yourself.  A home icon will appear next to your location and weather and
-   temperature will work in the clock applet. (Be sure that you have the ticked in
-   your applet preferences.)
+   applet.  Your location will then be added to the list below the calendar.
+If you hover your mouse over top of your new location, a 'Set...' button will
+appear.  You will need to 'Set' your location as home, and authenicate as
+yourself.  A home icon will appear next to your location and weather and
+temperature will work in the clock applet. (Be sure that you have the ticked in
+your applet preferences.)
 
     -----
 
@@ -116,25 +116,25 @@ Q9: How do I install templates for Nautilus so that I can create new documents
 
 A: This is quite easy though not immediately obvious.  You'll need to create a
    directory in your home directory called ~/Templates. Then, using whatever
-   application you wish to create a template for, save an empty file in your
-   ~/Templates directory.  For example, start up abiword and create a blank new
-   document.  Then save this empty document in your ~/Templates directory with the
-   name "AbiWord Document".  Now, when you right click on your desktop and go to
-   'Create Document', your new file will be there.  You can do this with almost
-   any application that has a MIME type.  Just be sure not to overwrite your
-   template files with creating new documents from them.  
+application you wish to create a template for, save an empty file in your
+~/Templates directory.  For example, start up abiword and create a blank new
+document.  Then save this empty document in your ~/Templates directory with the
+name "AbiWord Document".  Now, when you right click on your desktop and go to
+'Create Document', your new file will be there.  You can do this with almost
+any application that has a MIME type.  Just be sure not to overwrite your
+template files with creating new documents from them.  
 
    You can also install various scripts for Nautilus.  For a wide range, please
-   see gnome-look.org.
+see gnome-look.org.
 
     -----
 
 Q10: What's the difference between GSB and Dropline GNOME?
 
 A: Not a whole lot, actually. Dropline GNOME is a similar project, and has been
-   around longer, though it is less maintained at the moment. It's simply another
-   choice/alternative of a GNOME distribution for Slackware. GSB does not
-   "compete" with Dropline, and in fact, the Dropline and GSB teams sometimes
-   collaborate together periodically.  The main difference is that  GSB does not
-   add PAM to Slackware, and tries to replace as few standard Slackware packages
-   as possible.
+   around longer, though it is less maintained at the moment. It's simply
+another choice/alternative of a GNOME distribution for Slackware. GSB does not
+"compete" with Dropline, and in fact, the Dropline and GSB teams sometimes
+collaborate together periodically.  The main difference is that  GSB does not
+add PAM to Slackware, and tries to replace as few standard Slackware packages
+as possible.
