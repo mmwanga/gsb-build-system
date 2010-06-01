@@ -1,10 +1,10 @@
-				Source Code Branches
-				====================
+GNOME SlackBuild GIT Branches
+==============================
 
 We currently maintain several code branches to produce our GSB releases.  The
 following is a list of our trees and the URIs which should be used.
 
-Bleeding edge and main dev. tree is "master":
+Bleeding edge and main development tree is "master":
 
 	<http://github.com/gnomeslackbuild/gsb-build-system>
 
@@ -25,11 +25,16 @@ You can view the different branches by using:
 
 And then you can switch to your desired version of GSB by using:
  
-  $ 
+  $ git checkout <branch-name>
+  $ git pull  (Just to ensure you have the latest)
 
-This tree contains the latest and most up to date GSB sources.  As such, at
-any time it may be broken (ie, will not build fully).  This tree is usually
-only for the latest Slackware or Slackware64 and may not work on other
+The master tree contains the latest and most up to date GSB sources.  As such,
+at any time it may be broken (i.e., will not build fully), however we try our
+best to ensure that it's always working.  If you want a stable version, stick
+to a branch that has been versioned (i.e., the gsb-2.x branches) 
+
+The 'master' branch is deemed to be cutting edge and is designed with the
+latest Slackware or Slackware64 in mind and may not work on other or earlier
 releases.
 
 For additional branches:

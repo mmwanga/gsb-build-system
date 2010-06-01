@@ -200,7 +200,7 @@ rm -fr $PKG/var/lib/log
 
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a AUTHORS COPYING COPYING-DOCS COPYING.LIB NEWS README ${CWD}/README.background \
+cp -a AUTHORS COPYING COPYING-DOCS COPYING.LIB NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
