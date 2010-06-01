@@ -209,7 +209,8 @@ as stable as ALSA. You can also remove old pulse users and groups from
 - xscreensaver is the preferred option for a screensaver, and we have dropped
   support for GNOME Screensaver.  If you would like to start xscreensaver when
 you start your GNOME desktop, you can add it using 'Startup Applications' in
-the GNOME Control Panel.
+the GNOME Control Panel.  You may also want to add a keyboard shortcut which
+runs 'xscreensaver-command -lock' (the default is Ctrl-Alt-L)
 
 - PolicyKit has been upgraded to polkit-1, and is now included in the official
   Slackware repository.  If you had a previous GSB installation, you can now

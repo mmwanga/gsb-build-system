@@ -12,8 +12,10 @@ Q7: How do get the weather and temperature working in the GNOME panel clock
 Q8: How come my scores aren't saved when I play the GNOME games?
 Q9: How do I install templates for Nautilus so that I can create new documents
     from my desktop?
-Q10: What's the difference between GSB and Dropline GNOME?
-Q11: Do you support GSB installed on Slackware-current?
+Q10: Where are my GNOME settings stored?  What do I need to copy if I switch
+     home directories?
+Q11: What's the difference between GSB and Dropline GNOME?
+Q12: Do you support GSB installed on Slackware-current?
 
 -----
 
@@ -130,7 +132,17 @@ see gnome-look.org.
 
     -----
 
-Q10: What's the difference between GSB and Dropline GNOME?
+Q10: Where are my GNOME settings stored?  What do I need to copy if I switch
+     home directories?
+
+A: You will need to copy the following directories over if you wish to preserve
+   your GNOME desktop settings: ~/.gconf, ~/.config, ~/.local, ~/.gnome2,
+~/.evolution.  If you would like to preserve your icons and themes, you will
+also need your ~/.icons and ~/.themes.
+
+    -----
+
+Q11: What's the difference between GSB and Dropline GNOME?
 
 A: Not a whole lot, actually. Dropline GNOME is a similar project, and has been
    around longer, though it is less maintained at the moment. It's simply
@@ -142,7 +154,7 @@ as possible.
 
     -----
 
-Q11: Do you support GSB installed on Slackware-current?
+Q12: Do you support GSB installed on Slackware-current?
 
 A: Unfortunately, no we do not, and only have time to support GSB on Slackware
    13.1 and Slackware64 13.1. You are of course welcome to try to install GSB
