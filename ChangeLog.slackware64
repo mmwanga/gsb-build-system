@@ -1,30 +1,58 @@
-Sun May 30 00:20:14 BST 2010
+Tue Jun  1 13:28:10 BST 2010
+a/nautilus-2.30.1-x86_64-2gsb.txz: Rebuilt.
+  Change default ftp-handler to nautilus.
+a/gnome-control-center-2.30.1-x86_64-2gsb.txz: Rebuilt.
+  Added user_modifiable for pessulus support.
+c/compiz-0.8.6-x86_64-2gsb.txz: Rebuilt.
+  Removed shadow_match from bars to avoid weird white space.
+ap/gnome-power-manager-2.30.1-x86_64-2gsb.txz: Rebuilt.
+  Force always_show icon in preferences.
+n/service-discovery-applet-0.4.5-x86_64-12gsb.txz: Rebuilt.
+  Removed default listening settings for pulse servers.
+l/heimdal-libraries-1.3.3-x86_64-2gsb.txz: Rebuilt.
+  This fixes a small bug in the doinst.sh when softlinking to
+  gssapi_generic.h.
+go/goffice-0.8.5-x86_64-1gsb.txz: Upgraded.
+go/gnumeric-1.10.5-x86_64-1gsb.txz: Upgraded.
 l/gtk+2-2.20.1-x86_64-2gsb.txz: Patched.
-  Grabbed a patch from git to fix gmem.c memory faults.  For more
-  information, please see https://bugzilla.gnome.org/show_bug.cgi?id=617878
-  and the patch here:
+  Grabbed a patch from git to fix gmem.c memory faults.  This only affects
+  x86_64 platforms.  This package has been rebuilt to stay in parallel with
+  GSB64. For more information, please see:
+    https://bugzilla.gnome.org/show_bug.cgi?id=617878
+  The patch can be found here:
     http://git.gnome.org/browse/gtk+/commit/?id=006d5718fa927d9d3509fca1a1c1ca6522110b57
+a/gnome-desktop-2.30.0-x86_64-2gsb.txz: Rebuilt.
+  Added a GSB GNOME 2.30 default background.
+a/gnome-session-2.30.0-x86_64-4gsb.txz: Rebuilt.
+  Added a GSB GNOME 2.30 splash screen.  This is obsolete for new servers of
+  GSB since by default GNOME no longer displays the splash screen, however I
+  have replaced the splash for users who have have upgraded from previous
+  version of GSB.
+ad/slapt-get-0.10.2d-x86_64-3gsb.txz: Rebuilt.
+  Fixed default URLs in /etc/slapt-get/slapt-getrc.
+ad/sabayon-2.30.0-x86_64-2gsb.txz: Patched.
+  Fixed XSESSION path in protosession.py to run /etc/X11/gdm/Xsession.
 +--------------------------+
 Sat May 29 16:21:37 BST 2010
-   Hello!  GSB64-2.30 has come a long way and it almost ready for Slackware64
-   13.1.  We're going to call this an RC1 candidate.  The desktop is stable,
-   but there are a few more package updates we're testing at the moment.
-   Please give GSB a try and help us make the project even better by reporting
-   bugs or offering suggestions.  
+  Hello!  GSB-2.30 has come a long way and it almost ready for Slackware
+  13.1.  We're going to call this an RC1 candidate.  The desktop is stable,
+  but there are a few more package updates we're testing at the moment.
+  Please give GSB a try and help us make the project even better by reporting
+  bugs or offering suggestions.  
 ap/evince-2.30.1-x86_64-2gsb.txz: Recompiled.
-   Patched to fix crash when last_settings isn't found in the users' home
-   directory. See https://bugzilla.gnome.org/show_bug.cgi?id=617154.
+  Patched to fix crash when last_settings isn't found in the users' home
+  directory. See https://bugzilla.gnome.org/show_bug.cgi?id=617154.
 a/gvfs-1.6.2-x86_64-1gsb.txz: Upgraded.
 ap/cheese-2.28.1-x86_64-2gsb.txz: Rebuilt.
 l/gtksourceview-2.10.3-x86_64-1gsb.txz: Upgraded.
 go/tracker-0.8.9-x86_64-1gsb.txz: Upgraded.
 l/heimdal-libraries-1.3.3-x86_64-1gsb.txz: Upgraded.
   The OPTIONAL values in Kerberos protocols, in the ASN.1 encoder they are
-  encoded as a pointer to a structure. When the peer is not sending the 
-  OPTIONAL argument, the pointer set to NULL instead of a pointer to a 
-  structure.  In two places it fails to check for NULL pointer before 
-  trying to de-reference the NULL pointer, which results in crashing.
-  For more information, see:
+  encoded as a pointer to a structure. When the peer is not sending the
+  OPTIONAL argument, the pointer set to NULL instead of a pointer to a
+  structure.  In two places it fails to check for NULL pointer before trying
+  to de-reference the NULL pointer, which results in crashing.  For more
+  information, see:
     http://www.h5l.org/advisories.html?show=2010-05-27
   (* Security fix *)
 n/telepathy-farsight-0.0.14-x86_64-1gsb.txz: Upgraded.
@@ -42,18 +70,18 @@ Tue May 25 18:52:34 BST 2010
 n/telepathy-glib-0.10.6-x86_64-1gsb.txz: Upgraded.
 n/farsight2-0.0.19-x86_64-1gsb.txz: Upgraded.
 go/tracker-0.8.6-x86_64-4gsb.txz: Rebuilt.
-   Disable evolution miner.
+  Disable evolution miner.
 ad/gksu-polkit-0.0.2-x86_64-2gsb.txz: Patched.
-   Patched to use auth_adm instead of auth_self.
+  Patched to use auth_adm instead of auth_self.
 n/telepathy-gabble-0.8.13-x86_64-1gsb.txz: Upgraded.
 n/telepathy-python-0.15.17-x86_64-1gsb.txz: Upgraded.
 n/papyon-0.4.7-x86_64-1gsb.txz: Upgraded.
 n/telepathy-butterfly-0.5.10-x86_64-1gsb.txz: Upgraded.
 n/telepathy-mission-control-5.4.0-x86_64-1gsb.txz: Upgraded.
 n/empathy-2.30.1-x86_64-2gsb.txz: Rebuilt.
-   Fixed slack-required.
+  Fixed slack-required.
 ap/yelp-2.30.1-x86_64-1gsb.txz: Upgraded.
-   This has been patched to use webkit as a backend.
+  This has been patched to use webkit as a backend.
 ap/gnome-user-docs-2.30.1-noarch-1gsb.txz: Upgraded.
 +--------------------------+
 Mon May 24 22:22:48 BST 2010
@@ -75,15 +103,15 @@ ooo/openoffice3-3.2.0.10-x86_64-1gsb.txz: Upgraded.
 +--------------------------+
 Mon May 24 17:15:00 BST 2010
 m/gnome-desktop-sharp-2.26.0-x86_64-4gsb.txz: Recompiled.
-   Rebuilt against newer mono.
+  Rebuilt against newer mono.
 m/tomboy-1.2.1-x86_64-1gsb.txz: Upgraded.
 a/libcanberra-0.24-x86_64-2gsb.txz: Rebuilt.
-   Enabled valac definitions.
+  Enabled valac definitions.
 go/tracker-0.8.6-x86_64-2gsb.txz: Rebuilt.
-   Added libgee to slack-required.
+  Added libgee to slack-required.
 c/compiz-0.8.6-x86_64-1gsb.txz: Upgraded.
 c/emerald-0.8.4-x86_64-2gsb.txz: Rebuilt.
-   Patched against the newer gtk+2 for symbol visibility.
+  Patched against the newer gtk+2 for symbol visibility.
 c/compiz-plugins-main-0.8.6-x86_64-1gsb.txz: Upgraded.
 c/compiz-plugins-extra-0.8.6-x86_64-1gsb.txz: Upgraded.
 c/protobuf-2.3.0-x86_64-1gsb.txz: Upgraded.
@@ -94,14 +122,14 @@ c/compiz-bcop-0.8.4-x86_64-2gsb.txz: Recompiled.
 Mon May 24 09:31:49 BST 2010
 ad/sabayon-2.30.0-x86_64-1gsb.txz: Upgraded.
 ad/gksu-polkit-0.0.2-x86_64-1gsb.txz: Added.
-   This replaces the old gksu and libgksu packages.
+  This replaces the old gksu and libgksu packages.
 l/libgee-0.5.0-x86_64-1gsb.txz: Added.
 n/avahi-0.6.25-x86_64-11gsb.txz: Rebuilt.
-   Fixed doinst.sh.
+  Fixed doinst.sh.
 ad/pessulus-2.30.0-x86_64-1gsb.txz: Upgraded.
 l/pyxdg-0.19-x86_64-1gsb.txz: Upgraded.
 m/mono-zeroconf-0.9.0-x86_64-4gsb.txz: Rebuilt.
-   Patched to fix library nss_mdns name.
+  Patched to fix library nss_mdns name.
 extra/gst-plugins-ugly-0.10.14-x86_64-1gsb.txz: Upgraded.
 extra/gst-plugins-bad-0.10.18-x86_64-1gsb.txz: Upgraded.
 +--------------------------+
@@ -115,14 +143,14 @@ go/tracker-0.8.6-x86_64-1gsb.txz: Upgraded.
 a/gsb-desktop-2.30.1-noarch-6gsb.txz: Rebuilt.
 ap/gnome-python-desktop-2.30.0-x86_64-2gsb.txz: Rebuilt.
 a/gnome-session-2.30.0-x86_64-3gsb.txz: Rebuilt.
-   Fixed slack-required.
+  Fixed slack-required.
 d/anjuta-2.30.1.0-x86_64-1gsb.txz: Upgraded.
 d/vala-0.8.1-x86_64-1gsb.txz: Upgraded.
 d/glade3-3.6.7-x86_64-2gsb.txz: Rebuilt.
 d/devhelp-2.30.0-x86_64-1gsb.txz: Upgraded.
 d/gdl-2.30.0-x86_64-1gsb.txz: Upgraded.
 l/gst-ffmpeg-0.10.10-x86_64-2gsb.txz: Rebuilt.
-   Removed dependency on ffmpeg.
+  Removed dependency on ffmpeg.
 +--------------------------+
 Mon May 17 11:53:23 BST 2010
 go/abiword-2.8.4-x86_64-2gsb.txz: Rebuilt.
@@ -244,8 +272,8 @@ l/libsexy-0.1.11-x86_64-5gsb.txz: Rebuilt.
 a/gtk-engines-2.20.1-x86_64-1gsb.txz: Upgraded.
 a/gnome-session-2.30.0-x86_64-2gsb.txz: Rebuilt.
   Removed splash screen which is no longer needed.  Updated the xinitrc.gnome
-  to include seahourse-agent if available, and this now installs directly into
-  etc/X11/xinit/xinitrc.gnome without and .new extension.  
+  to include seahourse-agent if available, and this now installs directly
+  into etc/X11/xinit/xinitrc.gnome without and .new extension.  
 +--------------------------+
 Sun May  9 15:22:16 BST 2010
 a/gsb-desktop-2.30.1-noarch-2gsb.txz: Rebuilt.
