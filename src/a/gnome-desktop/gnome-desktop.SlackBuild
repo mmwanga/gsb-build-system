@@ -218,6 +218,6 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
-if [ "$NOCLEANUP" = "0" ]; then
-  rm -rf $PKG $TMP/$PKGNAME-$VERSION
+rm -rf $PKG; if [ "$NOCLEANUP" = "0" ]; then
+  rm -rf $TMP/$PKGNAME-$VERSION
 fi;

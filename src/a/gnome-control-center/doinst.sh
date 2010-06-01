@@ -30,8 +30,7 @@ fi;
 
 ## Allow users to modify the list of user-specified or Favorite applications
 if [ -x usr/bin/gconftool-2 ]; then
-   GCONF_CONFIG_SOURCE="xml::etc/gconf/gconf.xml.defaults" usr/bin/gconftool-2 --direct --type string \
-     --set /desktop/gnome/applications/main-menu/lock-down/user_modifiable_apps True >/dev/null 2>&1
+  usr/bin/gconftool-2 --direct --config-source="$(usr/bin/gconftool-2 --get-default-source)" --type string --set /desktop/gnome/applications/main-menu/lock-down/user_modifiable_apps True >/dev/null 2>&1
 fi;
 
 # refresh gnome icon cache

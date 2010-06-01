@@ -7,16 +7,13 @@ if [ -x usr/bin/update-desktop-database ]; then
 fi
 
 # Enable gnome-wm as windowizer
-GCONF_CONFIG_SOURCE="xml::etc/gconf/gconf.xml.defaults" usr/bin/gconftool-2 --direct --type string \
-  --set /desktop/gnome/session/required_components/windowmanager gnome-wm 1> /dev/null 2> /dev/null
+usr/bin/gconftool-2 --direct --config-source="$(usr/bin/gconftool-2 --get-default-source)" --type string --set /desktop/gnome/session/required_components/windowmanager gnome-wm 1> /dev/null 2> /dev/null 
 
 # Set GSB splash screen as default
-GCONF_CONFIG_SOURCE="xml::etc/gconf/gconf.xml.defaults" usr/bin/gconftool-2 --direct --type string \
-  --set /apps/gnome-session/options/splash_image splash/gnome-splash.png 1> /dev/null 2> /dev/null
+usr/bin/gconftool-2 --direct --config-source="$(usr/bin/gconftool-2 --get-default-source)" --type string --set /apps/gnome-session/options/splash_image splash/gnome-splash.png 1> /dev/null 2> /dev/null
 
 # Disable splash screen by default
-GCONF_CONFIG_SOURCE="xml::etc/gconf/gconf.xml.defaults" usr/bin/gconftool-2 --direct --type boolean \
-  --set /apps/gnome-session/options/show_splash_screen false 1> /dev/null 2> /dev/null
+usr/bin/gconftool-2 --direct --config-source="$(usr/bin/gconftool-2 --get-default-source)" --type boolean --set /apps/gnome-session/options/show_splash_screen false 1> /dev/null 2> /dev/null
 
 # Update icons
 if [ -e usr/share/icons/hicolor/icon-theme.cache ]; then

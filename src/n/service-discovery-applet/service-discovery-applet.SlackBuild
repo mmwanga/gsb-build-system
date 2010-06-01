@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=11
+BUILD=12
 VERSION=0.4.5
 
 # List any packages here that are required to build this package.
