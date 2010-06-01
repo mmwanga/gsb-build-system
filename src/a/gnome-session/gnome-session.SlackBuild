@@ -189,8 +189,8 @@ chmod 755 $PKG/etc/X11/xinit/xinitrc.gnome || exit 1
 
 # Install our splash screen
 mkdir -p $PKG/usr/share/pixmaps/splash &&
-cp $CWD/gsb-splash.png $PKG/usr/share/pixmaps/splash &&
-chown root.root $PKG/usr/share/pixmaps/splash/gsb-splash.png || exit 1
+cp $CWD/gnome-splash.png $PKG/usr/share/pixmaps/splash &&
+chown root.root $PKG/usr/share/pixmaps/splash/gnome-splash.png || exit 1
 
 # Add default `gnome` for gnome-session
 ( cd $PKG/usr/bin ; ln -s gnome-session gnome ); 
@@ -258,9 +258,9 @@ done
 
 # Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz || exit 1
 
 # Cleanup
-if [ "$NOCLEANUP" = "0" ]; then
-  rm -rf $PKG $TMP/$PKGNAME-$VERSION
+rm -rf $PKG; if [ "$NOCLEANUP" = "0" ]; then
+  rm -rf $TMP/$PKGNAME-$VERSION
 fi;

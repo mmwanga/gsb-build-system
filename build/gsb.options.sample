@@ -1,5 +1,7 @@
 # Sample gsb.options configuration file
 # 
+# Be sure to change the TMP and PKGDEST destinations to a location where you
+# have lots of space.  The other options should be fine as defaults. 
 
 # Tag append for packages
 export TAG="gsb"

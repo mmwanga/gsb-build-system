@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.30.1
 
 # List any packages here that are required to build this package.
@@ -224,6 +224,6 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
-if [ "$NOCLEANUP" = "0" ]; then
-  rm -rf $PKG $TMP/$PKGNAME-$VERSION
+rm -rf $PKG; if [ "$NOCLEANUP" = "0" ]; then
+  rm -rf $TMP/$PKGNAME-$VERSION
 fi;
