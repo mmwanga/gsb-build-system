@@ -24,12 +24,13 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
-VERSION=2.30.1
+BUILD=3
+VERSION=0.6.5
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="GConf poppler cairo pango djvulibre"
+REQUIRED_PACKAGES="gobject-introspection"
+CONFLICT_PACKAGES="gst-plugins-bad"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -91,6 +92,13 @@ done
     exit 1
   }
 
+  for REQ in $CONFLICT_PACKAGES; do
+    check_installed "$REQ" && {
+      echo "${0##*/}: Conflicting package '$REQ' installed."
+      removepkg $CONFLICT_PACKAGES
+    }
+  done
+
   for REQ in $REQUIRED_PACKAGES; do
     check_installed "$REQ" || {
       echo "${0##*/}: Required package '$REQ' not installed."
@@ -114,16 +122,10 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # Fix dot dir segfault https://bugzilla.gnome.org/show_bug.cgi?id=617154
-  zcat $CWD/evince.dotdir.crash.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # Fix dot dir segfault https://bugzilla.gnome.org/show_bug.cgi?id=617154
-  zcat $CWD/evince.dotdir.crash.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # Fix dot dir segfault https://bugzilla.gnome.org/show_bug.cgi?id=617154
-  zcat $CWD/evince.dotdir.crash.diff.gz | patch -p1
 fi
 
 # Fix permissions for building.
@@ -154,27 +156,21 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-# Configure.
-KPATHSEA_CFLAGS="-L/usr/share/texmf/lib -I/usr/share/texmf/include/" \
-KPATHSEA_CPPFLAGS="-L/usr/share/texmf/lib -I/usr/share/texmf/include/" \
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS $KPATHSEA_CFLAGS" \
-CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS $KPATHSEA_CPPFLAGS" \
+# Configure
+CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --enable-shared \
-  --disable-static \
-  --disable-schemas-install \
-  --enable-nautilus \
-  --disable-gtk-doc \
-  --disable-scrollkeeper \
   || exit 1
 
 # Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+# Copy over clutter introspection
+( cd $PKG && tar xf $CWD/gir.clutter.txz )
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -190,27 +186,10 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a AUTHORS COPYING NEWS README \
+cp -a COPYING NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
-
-# Add schemas install to the doinst.sh if schemas are found.
-[ -d $PKG/etc/gconf/schemas ] && {
-# Make sure we have gconftool installed
-echo "if [ -x usr/bin/gconftool-2 ]; then" >> $PKG/install/doinst.sh
-( cd $PKG/etc/gconf/schemas
-for schema in *.schemas; do
- # Install schemas
- echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
-   usr/bin/gconftool-2 --makefile-install-rule \
-   etc/gconf/schemas/${schema} >/dev/null 2>&1" \
-   >> $PKG/install/doinst.sh
-done;
-)
-# Finish off gconf block
-echo "fi" >> $PKG/install/doinst.sh
-}
 
 # Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests

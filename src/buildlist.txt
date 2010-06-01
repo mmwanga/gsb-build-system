@@ -231,3 +231,10 @@ extra/sylpheed
 pasture/gdesklets
 pasture/grip
 # Build packages in testing/
+testing/gobject-introspection
+testing/gir-repository
+testing/mutter
+testing/libffi
+testing/gjs
+testing/libcroco
+testing/gnome-shell

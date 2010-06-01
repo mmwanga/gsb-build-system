@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
-VERSION=2.30.1
+BUILD=1
+VERSION=2.31.2
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="GConf poppler cairo pango djvulibre"
+REQUIRED_PACKAGES="clutter-gtk libcanberra"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -114,16 +114,13 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # Fix dot dir segfault https://bugzilla.gnome.org/show_bug.cgi?id=617154
-  zcat $CWD/evince.dotdir.crash.diff.gz | patch -p1
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # Fix dot dir segfault https://bugzilla.gnome.org/show_bug.cgi?id=617154
-  zcat $CWD/evince.dotdir.crash.diff.gz | patch -p1
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # Fix dot dir segfault https://bugzilla.gnome.org/show_bug.cgi?id=617154
-  zcat $CWD/evince.dotdir.crash.diff.gz | patch -p1
+  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
 # Fix permissions for building.
@@ -154,22 +151,15 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-# Configure.
-KPATHSEA_CFLAGS="-L/usr/share/texmf/lib -I/usr/share/texmf/include/" \
-KPATHSEA_CPPFLAGS="-L/usr/share/texmf/lib -I/usr/share/texmf/include/" \
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS $KPATHSEA_CFLAGS" \
-CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS $KPATHSEA_CPPFLAGS" \
+# Configure
+CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --enable-shared \
-  --disable-static \
+  --with-libcanberra \
   --disable-schemas-install \
-  --enable-nautilus \
-  --disable-gtk-doc \
-  --disable-scrollkeeper \
   || exit 1
 
 # Build and install.
@@ -222,7 +212,7 @@ done
 
 # Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
+makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz || exit 1
 
 # Cleanup
 rm -rf $PKG; if [ "$NOCLEANUP" = "0" ]; then
