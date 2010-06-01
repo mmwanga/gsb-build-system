@@ -29,7 +29,7 @@ VERSION=2.31.2
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-#REQUIRED_PACKAGES="mutter gjs gobject-introspection"
+REQUIRED_PACKAGES="mutter gjs gobject-introspection libcroco gnome-desktop seamonkey gir-repository"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -152,7 +152,8 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Configure
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
+CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS -I/usr/include/seamonkey/js" \
+CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS \
   --libdir=/usr/lib${LIBDIRSUFFIX} \

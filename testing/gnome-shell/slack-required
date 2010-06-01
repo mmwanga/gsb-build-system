@@ -2,3 +2,5 @@ mutter
 gobject-introspection
 gir-repository
 gjs
+gnome-desktop
+libcroco
