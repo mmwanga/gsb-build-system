@@ -13,6 +13,7 @@ Q8: How come my scores aren't saved when I play the GNOME games?
 Q9: How do I install templates for Nautilus so that I can create new documents
     from my desktop?
 Q10: What's the difference between GSB and Dropline GNOME?
+Q11: Do you support GSB installed on Slackware-current?
 
 -----
 
@@ -71,7 +72,7 @@ A: From GNOME Menu Bar, choose "Desktop -> Preferences -> Keyboard", then check
 Q5: My KDE Menus are all messed up after installing GSB. How do I fix them?
 
 A: The KDE menus might be changed if you install GSB because of the gnome-menus
-   package, The gnome-menus package implements the freedesktop.org desktop menu
+   package. The gnome-menus package implements the freedesktop.org desktop menu
 specification. There is a simple fix for this. Just add the following near the
 top of the startkde script:
 
@@ -138,3 +139,15 @@ another choice/alternative of a GNOME distribution for Slackware. GSB does not
 collaborate together periodically.  The main difference is that  GSB does not
 add PAM to Slackware, and tries to replace as few standard Slackware packages
 as possible.
+
+    -----
+
+Q11: Do you support GSB installed on Slackware-current?
+
+A: Unfortunately, no we do not, and only have time to support GSB on Slackware
+   13.1 and Slackware64 13.1. You are of course welcome to try to install GSB
+on Slackware-current, but we cannot help support it, usually due to the
+difficulty of package rebuilding against a changing foundation on -current
+(e.g., glibc, compilers, X, etc).
+
+
