@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
+BUILD=3
 VERSION=0.0.2
 
 # List any packages here that are required to build this package.
@@ -122,6 +122,8 @@ if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   zcat $CWD/gksu-polkit.environment.h.diff.gz | patch -p1
   # Use auth_admin in policy
   zcat $CWD/gksu-polkit.authadmin.diff.gz | patch -p1
+  # Make sure to send PATH to new environment
+  zcat $CWD/gksu-polkit.path.variable.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # Fix for 64int
@@ -132,6 +134,8 @@ elif [ "$ARCH" = "x86_64" ]; then
   zcat $CWD/gksu-polkit.environment.h.diff.gz | patch -p1
   # Use auth_admin in policy
   zcat $CWD/gksu-polkit.authadmin.diff.gz | patch -p1
+  # Make sure to send PATH to new environment
+  zcat $CWD/gksu-polkit.path.variable.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # Fix for 64int
@@ -142,6 +146,8 @@ elif [ "$ARCH" = "powerpc" ]; then
   zcat $CWD/gksu-polkit.environment.h.diff.gz | patch -p1
   # Use auth_admin in policy
   zcat $CWD/gksu-polkit.authadmin.diff.gz | patch -p1
+  # Make sure to send PATH to new environment
+  zcat $CWD/gksu-polkit.path.variable.diff.gz | patch -p1
 fi
 
 # Fix permissions for building.
