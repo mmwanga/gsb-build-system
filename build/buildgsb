@@ -224,7 +224,7 @@ case $SET in
      NOPATCHES=1
      ;;
    testing)
-     SUBDIR=$GSBDIR/../${TESTINGDIR}
+     SUBDIR=$GSBDIR/../${TESTINGDIR}/packages
      SOURCE=$TESTINGSOURCE
      NOPATCHES=1
      ;;

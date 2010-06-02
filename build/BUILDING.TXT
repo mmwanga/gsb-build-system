@@ -166,12 +166,12 @@ too many, things may fail to build.
    On the other hand, this allows you to easily add additional packages should
 you want extra functionality.  For example, you can grab any source package
 from SlackBuilds.org, keeping the SlackBuild, slack-required, and package .info
-file.  Simply extra it into any logical set and update the buildlist.txt.
-Voila, GSB will integrate it into the build system. For example, if you wanted
-iPod fs support in your GSB gvfs package, simply grab the libimobiledevice and
-usbdemux packages, or create them, insert them in the buildlist.txt before
-gvfs, and upon your finished build your GSB build will have iPod mounting
-capabilities. Neat, huh? :^)
+file.  Simply add it into any logical set and update the buildlist.txt.  Voila,
+GSB will integrate it into the build system. For example, if you wanted iPod fs
+support in your GSB gvfs package, simply grab the libimobiledevice and usbdemux
+packages, or create them, insert them in the buildlist.txt before gvfs, and
+upon your finished build your GSB build will have iPod mounting capabilities.
+Neat, huh? :^)
 
         -----
 
