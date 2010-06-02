@@ -22,6 +22,9 @@ ftp://mirrors.dotsrc.org/gsb/gsb-2.30_slackware-13.1/
 # Switzerland
 http://mirror.switch.ch/ftp/mirror/gsb/gsb-2.30_slackware-13.1/
 ftp://mirror.switch.ch/ftp/mirror/gsb/gsb-2.30_slackware-13.1/
+# Indonesia
+http://ftp.pnfi.kemdiknas.go.id/gsb/gsb-2.30_slackware-13.1/
+ftp://ftp.pnfi.kemdiknas.go.id/gsb/gsb-2.30_slackware-13.1/
 
 GNOME SlackBuild64
 ------------
@@ -47,3 +50,6 @@ ftp://mirrors.dotsrc.org/gsb/gsb64-2.30_slackware64-13.1/
 # Switzerland
 http://mirror.switch.ch/ftp/mirror/gsb/gsb64-2.30_slackware64-13.1/
 ftp://mirror.switch.ch/ftp/mirror/gsb/gsb64-2.30_slackware64-13.1/
+# Indonesia
+http://ftp.pnfi.kemdiknas.go.id/gsb/gsb64-2.30_slackware64-13.1/
+ftp://ftp.pnfi.kemdiknas.go.id/gsb/gsb64-2.30_slackware64-13.1/
