@@ -14,8 +14,9 @@ Q9: How do I install templates for Nautilus so that I can create new documents
     from my desktop?
 Q10: Where are my GNOME settings stored?  What do I need to copy if I switch
      home directories?
-Q11: What's the difference between GSB and Dropline GNOME?
-Q12: Do you support GSB installed on Slackware-current?
+Q11: How can I configure GNOME Power Manager to catch a power button press?
+Q12: What's the difference between GSB and Dropline GNOME?
+Q13: Do you support GSB installed on Slackware-current?
 
 -----
 
@@ -142,7 +143,20 @@ also need your ~/.icons and ~/.themes.
 
     -----
 
-Q11: What's the difference between GSB and Dropline GNOME?
+Q11: How can I configure GNOME Power Manager to catch a power button press?
+
+A: If you press the power button, Slackware will normally just halt the
+   machine.  If you prefer, you can configure GNOME so that gnome-power-manager
+will catch the shutdown button and display a dialog for shutdown/sleep (or
+simply do the one you choose). You need to comment out the following lines in
+/etc/acpi/acpi_handerl.sh:
+
+            power) /sbin/init 0
+                ;;
+
+    -----
+
+Q12: What's the difference between GSB and Dropline GNOME?
 
 A: Not a whole lot, actually. Dropline GNOME is a similar project, and has been
    around longer, though it is less maintained at the moment. It's simply
@@ -154,7 +168,7 @@ as possible.
 
     -----
 
-Q12: Do you support GSB installed on Slackware-current?
+Q13: Do you support GSB installed on Slackware-current?
 
 A: Unfortunately, no we do not, and only have time to support GSB on Slackware
    13.1 and Slackware64 13.1. You are of course welcome to try to install GSB
