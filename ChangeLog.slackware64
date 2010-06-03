@@ -17,6 +17,8 @@ testing/libcroco-0.6.2-x86_64-3gsb.txz: Rebuilt.
 testing/gnome-shell-2.31.2-x86_64-1gsb.txz: Added.
 testing/libffi-3.0.9-x86_64-1gsb.txz: Added.
 n/webkit-1.2.1-x86_64-1gsb.txz: Upgraded.
+a/gnome-desktop-2.30.0-x86_64-3gsb.txz: Rebuilt.
+  Add gconf string to set default wallpaper to 'stretch' rather than 'zoom'.  
 ad/gksu-polkit-0.0.2-x86_64-3gsb.txz: Patched.
   Patched to pass the PATH environment to spawned applications.
 a/gsb-desktop-2.30.1-x86_64-7gsb.txz: Rebuilt.

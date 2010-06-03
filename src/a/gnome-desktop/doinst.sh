@@ -11,6 +11,7 @@ fi
 # set gsb background as default
 if [ -x usr/bin/gconftool-2 ]; then
   usr/bin/gconftool-2 --direct --config-source="$(usr/bin/gconftool-2 --get-default-source)" --type string --set /desktop/gnome/background/picture_filename /usr/share/pixmaps/backgrounds/gsb-background.png 1> /dev/null 2> /dev/null
+  usr/bin/gconftool-2 --direct --config-source="$(usr/bin/gconftool-2 --get-default-source)" --type string --set /desktop/gnome/background/picture_options stretched 1> /dev/null 2> /dev/null
 fi;
 
 # refresh gnome icon cache
