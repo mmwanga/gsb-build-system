@@ -204,7 +204,8 @@ extra/dvdrip: Removed.
 - Pulseaudio has been removed and we have returned to the ALSA/Gstreamer
   backend. Pulseaudio was a good option, but has proven just too slow and not
 as stable as ALSA. You can also remove old pulse users and groups from
-/etc/passwd and /etc/group.
+/etc/passwd and /etc/group.  If you are missing your volume control applet, try
+the handy volti application found in extra/.
 
 - xscreensaver is the preferred option for a screensaver, and we have dropped
   support for GNOME Screensaver.  If you would like to start xscreensaver when

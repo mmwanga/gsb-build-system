@@ -227,6 +227,8 @@ extra/gst-plugins-ugly
 extra/libesmtp
 extra/balsa
 extra/sylpheed
+extra/pyalsaaudio
+extra/volti
 # Build packages in pasture/
 pasture/gdesklets
 pasture/grip
