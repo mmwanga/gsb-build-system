@@ -387,7 +387,7 @@ INSTALLED=$(find_package_files "/var/log/packages" "${PACKAGE//+/\+}" "${PACKAGE
              "" "${PACKAGE_BUILD}${TAG}" "") 
 if [ "$SKIP_BUILD" = "0" -o "${INSTALLED}" = "" ]; then
   # PAUSE ON ALL NEW PACKAGE
-  echo "Waiting." ; read ;
+  # echo "Waiting." ; read ;
   upgradepkg --install-new $( find_package_files "$PKGDEST/$SUBDIR" \
     "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" ) || {
     header "Failed to install '$PACKAGE'." ; exit 1

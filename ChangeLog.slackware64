@@ -2,11 +2,11 @@ Thu Jun  3 16:13:27 BST 2010
   This batch of updates now includes the GNOME Shell in testing/.  GNOME Shell
   replaces metacity as a window and "desktop" manager, and is designed to
   rival KDE4/Phonon as a desktop.  However, note that it is still under heavy
-  development, but there are plans that it will be included in the upcoming
-  GNOME 3.0, and so we offer it here for those users who wish to preview it.
-  It certainly is pretty!  It has shown itself quite stable already, but
-  probably not complete or reliable enough as a day to day desktop.  For more
-  details, please see the README.TXT in testing/.  
+  development. There are plans that it will be included in the upcoming GNOME
+  3.0 so we offer it here for those users who wish to preview it.  It
+  certainly is pretty!  It has shown itself quite stable already, but probably
+  not complete or reliable enough as a day to day desktop.  For more details,
+  please see the README.TXT in testing/.  
 testing/libcroco-0.6.2-x86_64-3gsb.txz: Added.
 testing/gobject-introspection-0.6.12-x86_64-1gsb.txz: Added.
 testing/gir-repository-0.6.5-x86_64-2gsb.txz: Added.
@@ -23,16 +23,24 @@ a/gnome-desktop-2.30.0-x86_64-3gsb.txz: Rebuilt.
 ad/gksu-polkit-0.0.2-x86_64-3gsb.txz: Patched.
   Patched to pass the PATH environment to spawned applications.
 a/gsb-desktop-2.30.1-x86_64-7gsb.txz: Rebuilt.
-  Include yelp in the default application install list.
+  Include yelp in the default application install list. Thanks to Eugen
+  Wissner for noticing that it was missing.
 n/farsight2-0.0.20-x86_64-1gsb.txz: Upgraded.
 ad/slapt-get-0.10.2e-x86_64-1gsb.txz: Upgraded.
 ad/gslapt-0.5.3b-x86_64-1gsb.txz: Upgraded.
+  Thanks to malloc for getting a patch out so quickly regarding the threading
+  issue.
 pasture/grip-3.3.1-x86_64-5gsb.txz: Rebuilt.
   Fixed the slack-required.
 a/nautilus-2.30.1-x86_64-3gsb.txz: Rebuilt.
   Adds gconf strings to force nautilus to be the default desktop handler for
   GNOME.  This prevents Dolphin or Thunar from trying to take over running
   GNOME.  ;^)  Thanks to chipster for suggesting and testing the fix.
+extra/pyalsaaudio-0.6-x86_64-1gsb.txz: Added.
+extra/volti-0.2.1-x86_64-1gsb.txz: Added.
+  Thanks to Widya Walesa and Kirby Ubben for their suggestions about using
+  this application to replace the pulsified gnome-volume-applet. 
+l/libtasn1-2.7-x86_64-1gsb.txz: Upgraded.
 +--------------------------+
 Tue Jun  1 13:28:10 BST 2010
 a/nautilus-2.30.1-x86_64-2gsb.txz: Rebuilt.
