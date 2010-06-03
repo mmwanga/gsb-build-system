@@ -108,19 +108,22 @@ mkdir -p $PKGDEST
 
 # Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  zcat $CWD/volti.man.path.diff.gz | patch -p1
+  zcat $CWD/volti.set.defaults.diff.gz | patch -p1 
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  zcat $CWD/volti.man.path.diff.gz | patch -p1
+  zcat $CWD/volti.set.defaults.diff.gz | patch -p1 
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  zcat $CWD/volti.man.path.diff.gz | patch -p1
+  zcat $CWD/volti.set.defaults.diff.gz | patch -p1 
 fi
 
 # Fix permissions for building.
@@ -155,6 +158,10 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 python setup.py build &&
 python setup.py install --prefix=/usr --root=$PKG || exit 1
 
+# Set up autostart
+mkdir -p $PKG/etc/gnome/xdg/autostart
+cp $PKG/usr/share/applications/volti.desktop $PKG/etc/gnome/xdg/autostart
+
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
@@ -187,6 +194,6 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
-if [ "$NOCLEANUP" = "0" ]; then
+rm -rf $PKG; if [ "$NOCLEANUP" = "0" ]; then
   rm -rf $PKG $TMP/$PKGNAME-$VERSION
 fi;
