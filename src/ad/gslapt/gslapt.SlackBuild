@@ -24,8 +24,8 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
-VERSION=0.5.3a
+BUILD=1
+VERSION=0.5.3b
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -116,23 +116,14 @@ if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # Use gksu
   zcat $CWD/gslapt.gksu.diff.gz | patch -p1
-  # make sure gtk_widget_destroy calls on windows are wrapped in gdk_threads_enter|leave
-  # upstream git 567e4a3c05040a9948740fc8547c6b3212a94995
-  zcat $CWD/gslapt.gtk_widget_destroy.git.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # Use gksu
   zcat $CWD/gslapt.gksu.diff.gz | patch -p1
-  # make sure gtk_widget_destroy calls on windows are wrapped in gdk_threads_enter|leave
-  # upstream git 567e4a3c05040a9948740fc8547c6b3212a94995
-  zcat $CWD/gslapt.gtk_widget_destroy.git.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # Use gksu
   zcat $CWD/gslapt.gksu.diff.gz | patch -p1
-  # make sure gtk_widget_destroy calls on windows are wrapped in gdk_threads_enter|leave
-  # upstream git 567e4a3c05040a9948740fc8547c6b3212a94995
-  zcat $CWD/gslapt.gtk_widget_destroy.git.diff.gz | patch -p1
 fi
 
 # Fix permissions for building.

@@ -29,7 +29,7 @@ VERSION=0.6.12
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glib2"
+REQUIRED_PACKAGES="glib2 libffi"
 
 # Build variables.
 TAG=${TAG:-gsb}
