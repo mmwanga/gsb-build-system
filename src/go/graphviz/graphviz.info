@@ -1,7 +1,0 @@
-PKGNAME="graphviz"
-VERSION="2.24.0"
-HOMEPAGE="http://www.graphviz.org/"
-DOWNLOAD="http://www.graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.24.0.tar.gz"
-MD5SUM="806a30dbc3f8deb219216f35be0e7a40"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
