@@ -1,3 +1,36 @@
+Thu Jun  3 16:13:27 BST 2010
+  This batch of updates now includes the GNOME Shell in testing/.  GNOME Shell
+  replaces metacity as a window and "desktop" manager, and is designed to
+  rival KDE4/Phonon as a desktop.  However, note that it is still under heavy
+  development, but there are plans that it will be included in the upcoming
+  GNOME 3.0, and so we offer it here for those users who wish to preview it.
+  It certainly is pretty!  It has shown itself quite stable already, but
+  probably not complete or reliable enough as a day to day desktop.  For more
+  details, please see the README.TXT in testing/.  
+testing/libcroco-0.6.2-x86_64-3gsb.txz: Added.
+testing/gobject-introspection-0.6.12-x86_64-1gsb.txz: Added.
+testing/gir-repository-0.6.5-x86_64-2gsb.txz: Added.
+testing/mutter-2.31.2-x86_64-1gsb.txz: Added.
+testing/libffi-3.0.9-x86_64-1gsb.txz: Added.
+testing/gjs-0.7-x86_64-1gsb.txz: Added.
+testing/libcroco-0.6.2-x86_64-3gsb.txz: Rebuilt.
+testing/gnome-shell-2.31.2-x86_64-1gsb.txz: Added.
+testing/libffi-3.0.9-x86_64-1gsb.txz: Added.
+n/webkit-1.2.1-x86_64-1gsb.txz: Upgraded.
+ad/gksu-polkit-0.0.2-x86_64-3gsb.txz: Patched.
+  Patched to pass the PATH environment to spawned applications.
+a/gsb-desktop-2.30.1-x86_64-7gsb.txz: Rebuilt.
+  Include yelp in the default application install list.
+n/farsight2-0.0.20-x86_64-1gsb.txz: Upgraded.
+ad/slapt-get-0.10.2e-x86_64-1gsb.txz: Upgraded.
+ad/gslapt-0.5.3b-x86_64-1gsb.txz: Upgraded.
+pasture/grip-3.3.1-x86_64-5gsb.txz: Rebuilt.
+  Fixed the slack-required.
+a/nautilus-2.30.1-x86_64-3gsb.txz: Rebuilt.
+  Adds gconf strings to force nautilus to be the default desktop handler for
+  GNOME.  This prevents Dolphin or Thunar from trying to take over running
+  GNOME.  ;^)  Thanks to chipster for suggesting and testing the fix.
++--------------------------+
 Tue Jun  1 13:28:10 BST 2010
 a/nautilus-2.30.1-x86_64-2gsb.txz: Rebuilt.
   Change default ftp-handler to nautilus.
@@ -14,10 +47,9 @@ l/heimdal-libraries-1.3.3-x86_64-2gsb.txz: Rebuilt.
   gssapi_generic.h.
 go/goffice-0.8.5-x86_64-1gsb.txz: Upgraded.
 go/gnumeric-1.10.5-x86_64-1gsb.txz: Upgraded.
-l/gtk+2-2.20.1-x86_64-2gsb.txz: Patched.
+l/gtk+2-2.20.1-x86_64-2gsb.txz: Rebuilt.
   Grabbed a patch from git to fix gmem.c memory faults.  This only affects
-  x86_64 platforms.  This package has been rebuilt to stay in parallel with
-  GSB64. For more information, please see:
+  x86_64 platforms.  For more information, please see:
     https://bugzilla.gnome.org/show_bug.cgi?id=617878
   The patch can be found here:
     http://git.gnome.org/browse/gtk+/commit/?id=006d5718fa927d9d3509fca1a1c1ca6522110b57
@@ -34,7 +66,7 @@ ad/sabayon-2.30.0-x86_64-2gsb.txz: Patched.
   Fixed XSESSION path in protosession.py to run /etc/X11/gdm/Xsession.
 +--------------------------+
 Sat May 29 16:21:37 BST 2010
-  Hello!  GSB-2.30 has come a long way and it almost ready for Slackware
+  Hello!  GSB64-2.30 has come a long way and it almost ready for Slackware64
   13.1.  We're going to call this an RC1 candidate.  The desktop is stable,
   but there are a few more package updates we're testing at the moment.
   Please give GSB a try and help us make the project even better by reporting
