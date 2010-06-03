@@ -1,5 +1,5 @@
       |-----handy-ruler------------------------------------------------------|
-libffi: libmms (portable foreign function interface library)
+libffi: libffi (portable foreign function interface library)
 libffi:
 libffi: The libffi library provides a portable, high level programming 
 libffi: interface to various calling conventions allowing calls to any
