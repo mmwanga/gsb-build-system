@@ -1,5 +1,5 @@
 
-Welcome to GNOME SlackBuild 2.30.0!
+Welcome to GNOME SlackBuild 2.30.0!   (@BINARY_EDITION@)
 
 GNOME SlackBuild v2.30.0 is a complete GNOME Desktop Environment for 
 Slackware Linux 13.1, encompassing all the needed packages for a full, 

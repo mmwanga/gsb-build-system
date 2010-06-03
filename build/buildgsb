@@ -478,7 +478,14 @@ if [ "${PUBLISH}" = "1" ]; then
 (
 cd $BUILDSOURCE/.. ;
 # Copy our main documentation
-for i in COPYING COPYING3 CREDITS INSTALL.TXT README.TXT UPGRADE.TXT \
+if [ "$ARCH" = "x86_64" ]; then
+  cat README.TXT | sed 's,@BINARY_EDITION@,64-bit x86_64 edition,g' > \
+    $PKGDEST/README.TXT ;
+else
+  cat README.TXT | sed 's,@BINARY_EDITION@,32-bit x86 edition,g' > \
+    $PKGDEST/README.TXT ;
+fi;
+for i in COPYING COPYING3 CREDITS INSTALL.TXT UPGRADE.TXT \
  CHANGES_AND_HINTS.TXT GPG-KEY COPYRIGHT.TXT MIRRORS.TXT CURRENT.WARNING \
  SLACKWARE_REPLACED_PACKAGES.TXT FAQ.TXT;
 do
@@ -520,21 +527,23 @@ if [ "${PUBLISH}" = "1" ]; then
   echo ; header "* Generating package file lists and checksums."
   ( 
   cd $PKGDEST &&
-    for DIR in $GSBDIR $PATCHESDIR $EXTRADIR $SOURCEDIR $PASTUREDIR $TESTINGDIR
+    for DIR in $GSBDIR $PATCHESDIR $EXTRADIR \
+          $SOURCEDIR $PASTUREDIR $TESTINGDIR/packages ;
     do
       [ -d $DIR ] && {
+        # Skip making packages for our source/
         if [ "$DIR" != "source" ]; then
-           make_packages_txt $DIR $DIR
+           make_packages_txt $DIR $DIR || exit 1
         fi;
-        make_manifest $DIR $DIR
-        make_filelist_txt "$DIR" "$DIR" "FILE_LIST"
-        make_checksums_md5 $DIR $DIR
+        make_manifest $DIR $DIR || exit 1
+        make_filelist_txt "$DIR" "$DIR" "FILE_LIST" || exit 1
+        make_checksums_md5 $DIR $DIR || exit 1
       }
     done
     ( cd $PKGDEST ; mv $GSBDIR/PACKAGES.TXT . )
     ( cd $GSBDIR ; ln -sf ../PACKAGES.TXT )
     # Make a date stamped file list of our full set of files.
-    make_filelist_txt "." "" "" "1"
+    make_filelist_txt "." "" "" "1" || exit 1
     make_checksums_md5 .
   )
 fi;
