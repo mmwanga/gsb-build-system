@@ -2,7 +2,6 @@ abiword:ADD
 conduit:SKP
 gnumeric:ADD
 goffice:ADD
-graphviz:SKP
 inkscape:SKP
 libgda:SKP
 libgsf:SKP
