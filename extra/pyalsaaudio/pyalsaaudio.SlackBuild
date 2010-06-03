@@ -108,7 +108,7 @@ mkdir -p $PKGDEST
 
 # Decompress archive.
 cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
+tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -159,17 +159,9 @@ python setup.py install --prefix=/usr --root=$PKG || exit 1
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
 
-# Compress and fix manpage links.
-[ -e $PKG/usr/man ] && {
-  find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
-  find $PKG/usr/man -type l -name \*.? -printf \
-    "( cd '%h'; [ -e '%l.gz' ] &&
-     { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
-}
-
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a AUTHORS COPYING NEWS MAINTAINERS README \
+cp -a README LICENSE \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
@@ -187,6 +179,6 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
-if [ "$NOCLEANUP" = "0" ]; then
+rm -rf $PKG; if [ "$NOCLEANUP" = "0" ]; then
   rm -rf $PKG $TMP/$PKGNAME-$VERSION
 fi;
