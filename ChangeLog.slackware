@@ -17,6 +17,7 @@ testing/libcroco-0.6.2-i486-3gsb.txz: Rebuilt.
 testing/gnome-shell-2.31.2-i486-1gsb.txz: Added.
 testing/libffi-3.0.9-i486-1gsb.txz: Added.
 n/webkit-1.2.1-i486-1gsb.txz: Upgraded.
+go/tracker-0.8.10-i486-1gsb.txz: Upgraded.
 a/gnome-desktop-2.30.0-i486-3gsb.txz: Rebuilt.
   Add gconf string to set default wallpaper to 'stretch' rather than 'zoom'.  
 ad/gksu-polkit-0.0.2-i486-3gsb.txz: Patched.
