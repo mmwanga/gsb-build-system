@@ -1,0 +1,7 @@
+PKGNAME="volti"
+VERSION="0.2.1"
+HOMEPAGE="http://code.google.com/p/volti/"
+DOWNLOAD="http://volti.googlecode.com/files/volti-0.2.1.tar.gz"
+MD5SUM="3ed059f1eab770b27d1eb92a84111972"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

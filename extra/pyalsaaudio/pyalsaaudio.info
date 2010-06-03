@@ -1,0 +1,7 @@
+PKGNAME="pyalsaaudio"
+VERSION="0.6"
+HOMEPAGE="http://pyalsaaudio.sourceforge.net/"
+DOWNLOAD="http://downloads.sourceforge.net/project/pyalsaaudio/pyalsaaudio-0.6.tar.gz"
+MD5SUM="94811fc4de883996eac4046d36fe2364"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

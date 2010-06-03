@@ -23,6 +23,10 @@ gst-plugins-bad:
         licensing and distribution, such as Real audio and Quicktime.
 
 gst-plugins-ugly:
-	A set of plugins for Gstreamer which might pose some problems for
+        A set of plugins for Gstreamer which might pose some problems for
         licensing and distribution such as MAD or the Windows ASF plugins.
 
+volti: 
+        Volti is a GTK+ application for controlling audio volume from the
+	system tray/notification area. It supports ALSA, multimedia keys 
+        on the keyboard, and desktop notifications on keys events.
