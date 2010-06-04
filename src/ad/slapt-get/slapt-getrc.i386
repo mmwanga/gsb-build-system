@@ -23,7 +23,7 @@ SOURCE=http://slackware.osuosl.org/slackware-13.1/:OFFICIAL
 # Additional mirrors for Slackware can be found at http://slackware.com/getslack/
 
 # GNOME SlackBuild Mirrors
-SOURCE=http://mirrors.gnomeslackbuild.org/gsb-2.28_slackware-13.1/:CUSTOM
+SOURCE=http://mirrors.gnomeslackbuild.org/gsb/gsb-2.28_slackware-13.1/:CUSTOM
 #SOURCE=http://www.slackware.org.uk/gsb/gsb-2.28_slackware-13.1/:CUSTOM
 #SOURCE=ftp://ftp.slackware.org.uk/gsb/gsb-2.28_slackware-13.1/:CUSTOM
 #SOURCE=ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-2.28_slackware-13.1/:CUSTOM
