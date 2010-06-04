@@ -31,9 +31,7 @@ if [ -x usr/bin/gconftool-2 ]; then
   # For nautilus to control ftp (otherwise annoying error box arises)
   usr/bin/gconftool-2 --direct --config-source="$(usr/bin/gconftool-2 --get-default-source)" --type string --set /desktop/gnome/url-handlers/ftp/command "nautilus \"%s\"" 1> /dev/null 2> /dev/null
   # Ensure that Nautilus is used for GNOME desktop, but Thunar or Dolphin
-  usr/bin/gconftool-2 --direct --config-source="$(usr/bin/gconftool-2 --get-default-source)" --type string --set /desktop/gnome/url-handlers/file/command "nautilus \"%s\"" 1> /dev/null 2> /dev/null
-  usr/bin/gconftool-2 --direct --config-source="$(usr/bin/gconftool-2 --get-default-source)" --type bool --set /desktop/gnome/url-handlers/file/enabled true 1> /dev/null 2> /dev/null
-  usr/bin/gconftool-2 --direct --config-source="$(usr/bin/gconftool-2 --get-default-source)" --type bool --set /desktop/gnome/url-handlers/file/need-terminal false 1> /dev/null 2> /dev/null
+  usr/bin/gconftool-2 --direct --config-source="$(usr/bin/gconftool-2 --get-default-source)" --type string --set /desktop/gnome/session/required_components/filemanager "nautilus" 1> /dev/null 2> /dev/null
 fi;
 
 # Restart gconfd-2 if running to reload new gconf settings
