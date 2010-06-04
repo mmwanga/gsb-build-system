@@ -181,6 +181,9 @@ mkdir -p $PKGDEST/${EXTRADIR} &&
 mkdir -p $PKGDEST/${PASTUREDIR} &&
 mkdir -p $PKGDEST/${TESTINGDIR} &&
 mkdir -p $PKGDEST/${PATCHESDIR} || exit 1
+# Clear away all tagfiles from build tree to prevent some applications
+# from being skipped
+find $PKGDEST/ -name tagfile -exec rm {} \;
 
 #========================================================================
 # MAIN LIST
@@ -459,24 +462,17 @@ fi;
 }
 
 #========================================================================
-# EXPORT SOURCE TREE
-#
-# Add a source directory to our gsb tree
-#
-if [ "${SOURCE}" = "1" ]; then
-  echo ; header "Exporting source trees."
-  export_source $BUILDSOURCE $PKGDEST &&
-  export_source $EXTRASOURCE $PKGDEST/extra &&
-  export_source $PASTURESOURCE $PKGDEST/pasture || error_out
-  export_source $TESTINGSOURCE $PKGDEST/testing || error_out
-fi;
-
-#========================================================================
-# COPY DOCUMENTATION
+# COPY DOCUMENTATION AND TAGFILES
 #
 if [ "${PUBLISH}" = "1" ]; then
 (
 cd $BUILDSOURCE/.. ;
+# Copy tagfiles
+for tagfile in $(find . -type f -name tagfile); 
+do 
+ cp $tagfile $PKGDEST/$GSBDIR/$(echo $tagfile | cut -f2 -d/) || exit 1
+done;
+
 # Copy our main documentation
 if [ "$ARCH" = "x86_64" ]; then
   cat README.TXT | sed 's,@BINARY_EDITION@,64-bit x86_64 edition,g' > \
