@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=5
+BUILD=1
 VERSION=3.2.0.10
 WITH_LANGUAGES=${WITH_LANGUAGES:-"NO"}
 #LANGUAGES="en-US en-GB de fr it ar da el es fi he hi-IN hu ja ko \
