@@ -21,10 +21,11 @@
 *********************************************** 
 -- Recommended Replacements --
 
-gst-plugins-base  ( > 0.10.24 rebuild against gvfs/gnomevfs to enable giosink,
-                    required by sound-juicer) 
+gst-plugins-base  ( enables giosink required by totem & sound-juicer) 
+gst-plugins-good  ( enables giosink required by totem & sound-juicer) 
+
 *********************************************** 
 -- Optional Replacements --
 
 compiz:           ( our compiz offers GNOME support, like CCSM and other goodies.) 
-MPlayer:          ( MPlayer built against pulseaudio; found in extra/.)
+MPlayer:          ( MPlayer built with decoder goodies; found in extra/.)
