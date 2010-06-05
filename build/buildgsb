@@ -524,7 +524,7 @@ if [ "${PUBLISH}" = "1" ]; then
   ( 
   cd $PKGDEST &&
     for DIR in $GSBDIR $PATCHESDIR $EXTRADIR \
-          $SOURCEDIR $PASTUREDIR $TESTINGDIR/packages ;
+          $SOURCEDIR $PASTUREDIR $TESTINGDIR ;
     do
       [ -d $DIR ] && {
         # Skip making packages for our source/
