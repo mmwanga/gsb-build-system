@@ -226,6 +226,12 @@ to run:
     $ gconftool-2 --set --type boolean  \
           /desktop/gnome/interface/menus_have_icons true
 
+  If you would like icons restored to your buttons (like OK, Cancel, etc), then you'll need to run:
+    $ gconftool-2 --set --type boolean \
+          /desktop/gnome/interface/buttons_have_icons true
+
+  (Thanks to byteframe for the suggestion.)
+
 - If you like the old style control over volume management (i.e., removeable
   media), then you will need to install the xfce and thunar-volman packages
 from the official Slackware repositories.
