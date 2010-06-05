@@ -1,4 +1,4 @@
-Thu Jun  3 16:13:27 BST 2010
+Fri Jun  4 15:19:09 BST 2010
   This batch of updates now includes the GNOME Shell in testing/.  GNOME Shell
   replaces metacity as a window and "desktop" manager, and is designed to
   rival KDE4/Phonon as a desktop.  However, note that it is still under heavy
@@ -41,6 +41,8 @@ extra/volti-0.2.1-i486-1gsb.txz: Added.
   Thanks to Widya Walesa and Kirby Ubben for their suggestions about using
   this application to replace the pulsified gnome-volume-applet. 
 l/libtasn1-2.7-i486-1gsb.txz: Upgraded.
+ap/cheese-2.30.1-i486-1gsb.txz: Upgraded.
+ap/gdm-2.20.11-i486-1gsb.txz: Upgraded.
 +--------------------------+
 Tue Jun  1 13:28:10 BST 2010
 a/nautilus-2.30.1-i486-2gsb.txz: Rebuilt.
