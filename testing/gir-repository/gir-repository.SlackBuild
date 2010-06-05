@@ -170,7 +170,7 @@ make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Copy over clutter introspection
-( cd $PKG && tar xf $CWD/gir.clutter.txz )
+( cd $PKG && tar xfj $CWD/gir.clutter.tar.bz2 )
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
