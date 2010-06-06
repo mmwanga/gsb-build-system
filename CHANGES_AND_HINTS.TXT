@@ -162,7 +162,6 @@ n/NetworkManager-openconnect: Removed.
 n/NetworkManager-vpnc: Removed.
 n/libepc: Removed.
 ap/gnome-games-extra-data: Removed.
-ap/sensors-applet: Removed.
 ap/nautilus-image-converter: Removed.
 ap/nautilus-open-terminal: Removed.
 ap/fast-user-switch-applet: Removed.

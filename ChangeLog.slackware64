@@ -1,3 +1,18 @@
+Sun Jun  6 01:19:48 BST 2010
+GNOME SlackBuild 2.30 for x86_64 stable is released!
+Things are very stable.  A lot of weight has been trimmed in this release of
+GSB64, and we now only needs to replace two Slackware packages.  The desktop
+is solid, responsive and polished and comes with a full set of great GNOME
+applications.  Please make sure to read CHANGES_AND_HINTS.TXT to see what has
+changed in this release, and for a few potential gotchas.  The next set of
+GNOME maintenance patches will be out in a few weeks.  For now, enjoy!
++--------------------------+
+Sun Jun  6 17:44:46 BST 2010
+d/anjuta-2.30.2.0-x86_64-1gsb.txz: Upgraded.
+ap/sensors-applet-2.2.5-x86_64-1gsb.txz: Upgraded.
+ad/sabayon-2.30.0-x86_64-2gsb.txz: Rebuilt.
+  Make sure to pass full path of sabayon to gksu.
++--------------------------+
 Fri Jun  4 15:19:09 BST 2010
   This batch of updates now includes the GNOME Shell in testing/.  GNOME Shell
   replaces metacity as a window and "desktop" manager, and is designed to
