@@ -1,0 +1,47 @@
+GNOME SlackBuild 2.30 for x86 and x86_64 is released!
+
+Things are very stable.  A lot of weight has been trimmed in this release of
+GSB, and we now only need to replace two Slackware packages.  The desktop is
+solid, responsive and polished and comes with a full set of great GNOME
+applications.  Please make sure to read CHANGES_AND_HINTS.TXT to see what has
+changed in this release, and for a few potential gotchas.  We have also written
+up a FAQ.TXT which has some further hints and tips about getting the most out
+of your new GNOME 2.30 desktop.
+
+The next set of GNOME maintenance patches will be out in a few weeks.  For now,
+enjoy!
+
+Here are some of the features in GNOME SlackBuild 2.30:
+
+- A full GNOME Desktop 2.30.0, along with all great improvement in this series
+  of GNOME including a better Nautilus, instant messaging with Empathy, Tomboy
+  note syncing, document viewing with Evince, a webkit backed Epiphany, and
+  better accessibility with Orca. 
+
+- Evolution 2.30.0, along with Exchange and Webcal plugins.
+
+- Mono C# 2.6.4 which is the open source, cross-platform, implementation of C#
+  and the CLR that is compatible with Microsoft.NET
+
+- OpenOffice.org 3.2.0.10 with both KDE and GTK+2 widgets for better
+  integration with your GNOME desktop.
+
+- GNOME office applications like Abiword 2.8.4 and Gnumeric 1.10.2.
+
+- Compiz 0.8.6 along with CCSM for GNOME eye candy.
+
+Downloading GNOME SlackBuild 2.30:
+----------------------------------
+
+The full version of GNOME SlackBuild 2.30 is available for download from
+the our central server at:
+
+x86 32-bit:
+   http://mirrors.gnomeslackbuild.org/gsb/gsb-2.30_slackware-13.1/
+
+x86_86
+   http://mirrors.gnomeslackbuild.org/gsb/gsb64-2.30_slackware64-13.1/
+
+If the sites are busy, see the list of official mirror sites here:
+
+   http://gnomeslackbuild.org/download/#mirrors
