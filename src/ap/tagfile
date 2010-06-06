@@ -26,6 +26,7 @@ hamster-applet:SKP
 rhythmbox:ADD
 seahorse:ADD
 seahorse-plugins:ADD
+sensors-applet:SKP
 totem:ADD
 totem-pl-parser:ADD
 yelp:ADD

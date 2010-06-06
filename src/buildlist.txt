@@ -159,6 +159,7 @@ l/clutter
 l/clutter-gtk
 ap/gnome-games
 ap/hamster-applet
+ap/sensors-applet
 m/boo
 m/taglib-sharp
 m/ndesk-dbus
