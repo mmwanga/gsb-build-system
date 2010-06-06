@@ -31,20 +31,6 @@ GNOME SlackBuild
     ftp://ftp5.gwdg.de/pub/linux/slackware/gsb/gsb-2.30_slackware-13.1/
 
 
-# Portugal
-
-    http://darkstar.ist.utl.pt/pub/slackware/addon/gnomeslackbuild/gsb-2.30_slackware-13.1
-
-    ftp://darkstar.ist.utl.pt/pub/slackware/addon/gnomeslackbuild/gsb-2.30_slackware-13.1
-
-
-# Belgium
-
-    http://mirrors.dotsrc.org/gsb/gsb-2.30_slackware-13.1/
-
-    ftp://mirrors.dotsrc.org/gsb/gsb-2.30_slackware-13.1/
-
-
 # Switzerland
 
     http://mirror.switch.ch/ftp/mirror/gsb/gsb-2.30_slackware-13.1/
