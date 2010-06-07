@@ -32,6 +32,8 @@ if [ -x usr/bin/gconftool-2 ]; then
   usr/bin/gconftool-2 --direct --config-source="$(usr/bin/gconftool-2 --get-default-source)" --type string --set /desktop/gnome/url-handlers/ftp/command "nautilus \"%s\"" 1> /dev/null 2> /dev/null
   # Ensure that Nautilus is used for GNOME desktop, but Thunar or Dolphin
   usr/bin/gconftool-2 --direct --config-source="$(usr/bin/gconftool-2 --get-default-source)" --type string --set /desktop/gnome/session/required_components/filemanager "nautilus" 1> /dev/null 2> /dev/null
+  # This ensure that nautilus will remember it's window size and position
+  usr/bin/gconftool-2 --direct --config-source="$(usr/bin/gconftool-2 --get-default-source)" --type string --set "/apps/nautilus/preferences/navigation_window_saved_geometry" "640x480+10+10" 1> /dev/null 2> /dev/null
 fi;
 
 # Restart gconfd-2 if running to reload new gconf settings
