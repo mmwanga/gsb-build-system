@@ -26,6 +26,9 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+# GNOME SlackBuild Version
+GSB_VERSION=2_30
+
 #========================================================================
 # FUNCTIONS
 . ${BASH_SOURCE%/*}/functions.sh || {
@@ -483,7 +486,7 @@ else
 fi;
 for i in COPYING COPYING3 CREDITS INSTALL.TXT UPGRADE.TXT \
  CHANGES_AND_HINTS.TXT GPG-KEY COPYRIGHT.TXT MIRRORS.TXT CURRENT.WARNING \
- SLACKWARE_REPLACED_PACKAGES.TXT FAQ.TXT;
+ SLACKWARE_REPLACED_PACKAGES.TXT FAQ.TXT ANNOUNCE.$GSB_VERSION;
 do
  if [ -f $i ]; then
    cp $i $PKGDEST || exit 1;
