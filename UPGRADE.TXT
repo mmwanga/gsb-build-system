@@ -34,8 +34,8 @@ running.
     The default method of upgrade is through slapt-get which can easily resolve
 dependencies.  Consult the MIRRORS.TXT to find a local mirror, and update your
 /etc/slapt-get/slapt-getrc file with a SOURCE= appropriately.  Be sure to add a
-:PREFERRED or :CUSTOM tag to the end of the line so that packages are weighted
-properly.  If you failed to add this, some required packages may not be updated
+:CUSTOM tag to the end of the line so that packages are weighted properly.  If
+you failed to add this, some required packages may not be updated
 automatically.  If you wish to use a remote mirror when upgrading, make sure
 that you can use networking even in single user mode. 
     If you are unable to access the internet when upgrading, it is still
