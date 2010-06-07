@@ -1,9 +1,8 @@
 +--------------------------+
-Wed May 19 10:02:38 CDT 2010
+Sat Jun  5 23:28:02 CDT 2010
 l/libelf-0.8.12-x86_64-1gsb.txz: Built.
 l/libgc-7.1-x86_64-4gsb.txz: Built.
 l/a52dec-0.7.4-x86_64-2gsb.txz: Built.
-l/libdiscid-0.2.2-x86_64-2gsb.txz: Built.
 l/libmusicbrainz-3.0.2-x86_64-1gsb.txz: Built.
 l/x264-snapshot_20091103_2245-x86_64-1gsb.txz: Built.
 l/xvidcore-1.2.2-x86_64-1gsb.txz: Built.
@@ -12,13 +11,12 @@ l/mpeg2dec-0.4.1-x86_64-3gsb.txz: Built.
 l/mpeg4ip-1.6.1-x86_64-8gsb.txz: Built.
 l/faac-1.28-x86_64-3gsb.txz: Built.
 l/faad2-2.7-x86_64-4gsb.txz: Built.
-l/ffmpeg-r20450-x86_64-1gsb.txz: Built.
+l/ffmpeg-r20450-x86_64-2gsb.txz: Built.
 l/libdvbpsi5-0.1.6-x86_64-3gsb.txz: Built.
 l/libdvdcss-1.2.10-x86_64-1gsb.txz: Built.
 l/libdvdnav-4.1.3-x86_64-3gsb.txz: Built.
 l/libmms-0.4-x86_64-2gsb.txz: Built.
 l/libsndfile-1.0.20-x86_64-2gsb.txz: Built.
-l/libsamplerate-0.1.7-x86_64-1gsb.txz: Built.
 l/libdv-1.0.0-x86_64-2gsb.txz: Built.
 l/libquicktime-1.1.4-x86_64-1gsb.txz: Built.
 l/mjpegtools-1.9.0-x86_64-2gsb.txz: Built.
@@ -30,6 +28,8 @@ l/libunique-1.0.8-x86_64-3gsb.txz: Built.
 l/libavc1394-0.5.3-x86_64-4gsb.txz: Built.
 l/libiec61883-1.2.0-x86_64-2gsb.txz: Built.
 l/speex-1.2rc1-x86_64-2gsb.txz: Built.
++--------------------------+
+Sun Jun  6 00:00:17 CDT 2010
 l/libshout-2.2.2-x86_64-3gsb.txz: Built.
 l/ptlib-2.6.5-x86_64-1gsb.txz: Built.
 l/opal-3.6.6-x86_64-1gsb.txz: Built.
@@ -47,7 +47,6 @@ l/pygdata-2.0.2-x86_64-1gsb.txz: Built.
 l/pyxdg-0.18-x86_64-1gsb.txz: Built.
 l/glibmm-2.22.1-x86_64-1gsb.txz: Built.
 l/cairomm-1.8.2-x86_64-2gsb.txz: Built.
-l/pango-1.26.2-x86_64-1gsb.txz: Built.
 l/pangomm-2.26.0-x86_64-1gsb.txz: Built.
 l/gtkmm-2.18.2-x86_64-1gsb.txz: Built.
 l/gtksourceview2-2.8.1-x86_64-1gsb.txz: Built.
@@ -71,13 +70,12 @@ l/slib-3b2-x86_64-1gsb.txz: Built.
 l/sg3_utils-1.27-x86_64-2gsb.txz: Built.
 l/libatasmart-0.16-x86_64-1gsb.txz: Built.
 l/pycrypto-2.0.1-x86_64-1gsb.txz: Built.
-l/gst-plugins-base-0.10.26-x86_64-1gsb.txz: Built.
+l/gst-plugins-base-0.10.29-x86_64-1gsb.txz: Built.
 l/ORBit2-2.14.17-x86_64-2gsb.txz: Built.
 l/GConf-2.28.0-x86_64-2gsb.txz: Built.
 l/avahi-0.6.25-x86_64-8gsb.txz: Built.
 l/alsa-plugins-1.0.22-x86_64-2gsb.txz: Built.
 l/pyorbit-2.24.0-x86_64-2gsb.txz: Built.
-l/pygobject-2.20.0-x86_64-1gsb.txz: Built.
 l/libgnomecups-0.2.3-x86_64-3gsb.txz: Built.
 l/libbonobo-2.24.2-x86_64-1gsb.txz: Built.
 l/gnome-mime-data-2.18.0-x86_64-3gsb.txz: Built.
@@ -97,23 +95,20 @@ l/libproxy-0.3.1-x86_64-1gsb.txz: Built.
 l/gnome-keyring-2.28.2-x86_64-1gsb.txz: Built.
 l/libsoup-2.28.2-x86_64-1gsb.txz: Built.
 l/libchamplain-0.4.2-x86_64-1gsb.txz: Built.
-l/gstreamer-0.10.29-x86_64-2gsb.txz: Built.
-l/vte-0.22.5-x86_64-1gsb.txz: Built.
 l/gsl-1.13-x86_64-1gsb.txz: Built.
 l/gdl-2.28.2-x86_64-1gsb.txz: Built.
 l/libxml++-2.26.1-x86_64-1gsb.txz: Built.
 l/gconfmm-2.24.0-x86_64-2gsb.txz: Built.
 l/bakery-2.6.3-x86_64-1gsb.txz: Built.
-l/portaudio-V19-x86_64-1gsb.txz: Built.
 a/rarian-0.8.1-x86_64-2gsb.txz: Built.
 a/devicekit-003-x86_64-4gsb.txz: Built.
-a/devicekit-power-014-x86_64-2gsb.txz: Built.
-a/devicekit-disks-009-x86_64-1gsb.txz: Built.
+a/devicekit-power-014-x86_64-3gsb.txz: Built.
+a/devicekit-disks-009-x86_64-2gsb.txz: Built.
 a/nss-mdns-0.10-x86_64-2gsb.txz: Built.
 a/libgnomeui-2.24.2-x86_64-1gsb.txz: Built.
 a/gtk-engines-2.18.5-x86_64-1gsb.txz: Built.
 a/gnome-doc-utils-0.18.1-x86_64-1gsb.txz: Built.
-a/gnome-desktop-2.28.1-x86_64-1gsb.txz: Built.
+a/gnome-desktop-2.28.1-x86_64-3gsb.txz: Built.
 a/notification-daemon-0.4.0-x86_64-4gsb.txz: Built.
 a/gnome-menus-2.28.0.1-x86_64-1gsb.txz: Built.
 a/gnome-menus-kde-2.26.3-x86_64-2gsb.txz: Built.
@@ -121,7 +116,7 @@ a/gnome-menus-xfce-2.26.3-x86_64-2gsb.txz: Built.
 a/libgweather-2.28.0-x86_64-1gsb.txz: Built.
 a/evo-openldap-2.4.21-x86_64-1gsb.txz: Built.
 a/evolution-data-server-2.28.2-x86_64-1gsb.txz: Built.
-a/gnome-panel-2.28.0-x86_64-1gsb.txz: Built.
+a/gnome-panel-2.28.0-x86_64-2gsb.txz: Built.
 a/libgnomekbd-2.28.2-x86_64-3gsb.txz: Built.
 a/zenity-2.28.0-x86_64-1gsb.txz: Built.
 a/gvfs-1.4.3-x86_64-1gsb.txz: Built.
@@ -131,7 +126,7 @@ a/gnome-settings-daemon-2.28.2-x86_64-2gsb.txz: Built.
 a/libcanberra-0.22-x86_64-3gsb.txz: Built.
 a/metacity-2.28.1-x86_64-1gsb.txz: Built.
 a/gnome-control-center-2.28.1-x86_64-3gsb.txz: Built.
-a/gnome-session-2.28.0-x86_64-3gsb.txz: Built.
+a/gnome-session-2.28.0-x86_64-5gsb.txz: Built.
 a/gnome-python-2.28.0-x86_64-1gsb.txz: Built.
 a/gnome-applets-2.28.0-x86_64-3gsb.txz: Built.
 a/gnome-themes-2.28.1-x86_64-1gsb.txz: Built.
@@ -152,7 +147,6 @@ n/libtelepathy-0.3.3-x86_64-3gsb.txz: Built.
 n/telepathy-mission-control-5.3.2-x86_64-1gsb.txz: Built.
 n/libnice-0.0.9-x86_64-1gsb.txz: Built.
 n/farsight2-0.0.17-x86_64-1gsb.txz: Built.
-n/loudmouth-1.4.3-x86_64-4gsb.txz: Built.
 n/telepathy-farsight-0.0.13-x86_64-1gsb.txz: Built.
 n/pyOpenSSL-0.9-x86_64-1gsb.txz: Built.
 n/telepathy-python-0.15.15-x86_64-1gsb.txz: Built.
@@ -190,7 +184,7 @@ ap/bug-buddy-2.28.0-x86_64-1gsb.txz: Built.
 ap/yelp-2.28.1-x86_64-1gsb.txz: Built.
 ap/gnome-user-docs-2.28.2-x86_64-1gsb.txz: Built.
 ap/alacarte-0.12.4-x86_64-1gsb.txz: Built.
-ap/gst-plugins-good-0.10.18-x86_64-2gsb.txz: Built.
+ap/gst-plugins-good-0.10.23-x86_64-1gsb.txz: Built.
 ap/totem-pl-parser-2.28.2-x86_64-1gsb.txz: Built.
 ap/totem-2.28.4-x86_64-1gsb.txz: Built.
 ap/cheese-2.28.1-x86_64-1gsb.txz: Built.
@@ -204,7 +198,7 @@ ap/eog-plugins-2.28.1-x86_64-1gsb.txz: Built.
 ap/evince-2.28.2-x86_64-1gsb.txz: Built.
 ap/file-roller-2.28.2-x86_64-1gsb.txz: Built.
 ap/gcalctool-5.28.2-x86_64-1gsb.txz: Built.
-ap/gdm-2.20.10-x86_64-8gsb.txz: Built.
+ap/gdm-2.20.10-x86_64-9gsb.txz: Built.
 ap/gnome-audio-2.22.2-x86_64-2gsb.txz: Built.
 ap/gnome-commander-1.2.8.4-x86_64-1gsb.txz: Built.
 ap/gnome-media-2.28.5-x86_64-2gsb.txz: Built.
@@ -224,7 +218,6 @@ ap/nautilus-image-converter-0.3.0-x86_64-4gsb.txz: Built.
 ap/nautilus-open-terminal-0.16-x86_64-2gsb.txz: Built.
 ap/nautilus-sendto-2.28.2-x86_64-1gsb.txz: Built.
 ap/fast-user-switch-applet-2.24.0-x86_64-3gsb.txz: Built.
-ap/system-config-printer-1.1.13-x86_64-1gsb.txz: Built.
 ap/hamster-applet-2.28.2-x86_64-1gsb.txz: Built.
 ap/dvgrab-3.5-x86_64-1gsb.txz: Built.
 ap/kino-1.3.3-x86_64-4gsb.txz: Built.
@@ -279,7 +272,7 @@ ac/libgail-gnome-1.20.1-x86_64-2gsb.txz: Built.
 ac/dasher-4.10.1-x86_64-2gsb.txz: Built.
 ac/gnome-mag-0.15.9-x86_64-1gsb.txz: Built.
 ac/mousetweaks-2.28.2-x86_64-1gsb.txz: Built.
-ad/slapt-get-0.10.2d-x86_64-1gsb.txz: Built.
+ad/slapt-get-0.10.2d-x86_64-3gsb.txz: Built.
 ad/libgksu-2.0.12-x86_64-1gsb.txz: Built.
 ad/gksu-2.0.2-x86_64-3gsb.txz: Built.
 ad/gslapt-0.5.3-x86_64-1gsb.txz: Built.
@@ -302,8 +295,6 @@ m/mono-addins-0.4-x86_64-4gsb.txz: Built.
 m/monodevelop-2.2.1-x86_64-1gsb.txz: Built.
 m/tomboy-1.0.1-x86_64-1gsb.txz: Built.
 m/gnome-do-0.8.2-x86_64-1gsb.txz: Built.
-+--------------------------+
-Thu May 20 00:00:09 CDT 2010
 m/f-spot-0.6.1.5-x86_64-1gsb.txz: Built.
 m/boo-0.9.1.3287-x86_64-2gsb.txz: Built.
 m/taglib-sharp-2.0.3.2-x86_64-2gsb.txz: Built.
@@ -313,17 +304,17 @@ m/avahi-sharp-0.6.25-x86_64-2gsb.txz: Built.
 m/mono-zeroconf-0.9.0-x86_64-2gsb.txz: Built.
 m/karma-sharp-0.1.1-x86_64-1gsb.txz: Built.
 m/banshee-1-1.4.3-x86_64-4gsb.txz: Built.
-c/compiz-0.8.4-x86_64-1gsb.txz: Built.
-c/compiz-bcop-0.8.4-x86_64-1gsb.txz: Built.
+c/compiz-0.8.6-x86_64-1gsb.txz: Built.
+c/compiz-bcop-0.8.4-x86_64-2gsb.txz: Built.
 c/protobuf-2.0.3-x86_64-2gsb.txz: Built.
-c/libcompizconfig-0.8.4-x86_64-1gsb.txz: Built.
-c/compiz-plugins-main-0.8.4-x86_64-1gsb.txz: Built.
-c/compiz-plugins-extra-0.8.4-x86_64-1gsb.txz: Built.
+c/libcompizconfig-0.8.4-x86_64-2gsb.txz: Built.
+c/compiz-plugins-main-0.8.6-x86_64-1gsb.txz: Built.
+c/compiz-plugins-extra-0.8.6-x86_64-1gsb.txz: Built.
 c/compiz-manager-0.6.0-x86_64-7gsb.txz: Built.
-c/emerald-0.8.4-x86_64-1gsb.txz: Built.
-c/compizconfig-python-0.8.4-x86_64-1gsb.txz: Built.
-c/compizconfig-backend-gconf-0.8.4-x86_64-1gsb.txz: Built.
-c/ccsm-0.8.4-x86_64-1gsb.txz: Built.
+c/emerald-0.8.4-x86_64-2gsb.txz: Built.
+c/compizconfig-python-0.8.4-x86_64-2gsb.txz: Built.
+c/compizconfig-backend-gconf-0.8.4-x86_64-2gsb.txz: Built.
+c/ccsm-0.8.4-x86_64-2gsb.txz: Built.
 c/fusion-icon-0.1.0-x86_64-8gsb.txz: Built.
 t/gnome-themes-extras-2.22.0-x86_64-4gsb.txz: Built.
 t/gnome-backgrounds-2.28.0-x86_64-1gsb.txz: Built.
@@ -345,5 +336,7 @@ pasture/gnomebaker-0.6.4-x86_64-2gsb.txz: Built.
 pasture/grip-3.3.1-x86_64-3gsb.txz: Built.
 pasture/istanbul-0.2.2-x86_64-6gsb.txz: Built.
 pasture/pstoedit-3.50-x86_64-1gsb.txz: Built.
-ooo/gnome-menus-ooo-3.2.1-x86_64-1gsb.txz: Built.
-ooo/openoffice3-3.2.0.10-x86_64-5gsb.txz: Built.
+ooo/gnome-menus-ooo-3.2.0-x86_64-2gsb.txz: Built.
++--------------------------+
+Mon Jun  7 01:38:46 CDT 2010
+ooo/openoffice3-3.2.0.10-x86_64-1gsb.txz: Built.
