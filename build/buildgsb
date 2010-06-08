@@ -282,17 +282,17 @@ then
   else
     # Not in the main directory, check patches.
     if [ "$NOPATCHESDIR" = "0" ]; then
-      [ -d $PKGDEST/$PATCHESDIR ] && {
-        if find_package_files "$PKGDEST/$PATCHESDIR" \
+      [ -d $PKGDEST/$PATCHESDIR/packages ] && {
+        if find_package_files "$PKGDEST/$PATCHESDIR/packages" \
           "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" \
           "\.txz" >/dev/null
         then
           # Found in patches dir.
           SKIP_BUILD=1
-          SUBDIR=$PATCHESDIR
+          SUBDIR=$PATCHESDIR/packages
         else
           # No package in patches with the same version/build.
-          SUBDIR=$PATCHESDIR
+          SUBDIR=$PATCHESDIR/packages
         fi
       }
     fi
