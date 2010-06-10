@@ -1,3 +1,4 @@
+----------------
 GNOME SlackBuild
 ----------------
 
@@ -20,8 +21,9 @@ ftp://mirrors.dotsrc.org/gsb/gsb-2.28_slackware-13.1/
 http://mirror.switch.ch/ftp/mirror/gsb/gsb-2.28_slackware-13.1/
 ftp://mirror.switch.ch/ftp/mirror/gsb/gsb-2.28_slackware-13.1/
 
+------------------
 GNOME SlackBuild64
-------------
+------------------
 
 # United States
 http://get.gnomeslackbuild.org/gsb/gsb64-2.28_slackware64-13.1/
