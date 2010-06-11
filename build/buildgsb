@@ -78,16 +78,15 @@ PASTUREDIR=${PASTUREDIR:-pasture}
 PATCHESDIR=${PATCHESDIR:-patches}
 
 # Option defaults.
-BUILD_DEPENDENCIES=0
+WITH_TEST_PACKAGES=0
 AUTO_DOWNLOAD=0
+ONLY_DOWNLOAD=0
+CONFIRM_INSTALL=0
 NOPATCHESDIR=0
 NOSKIP=0
 SKIP_REBUILDS=0
 NOPRUNE=0
 PUBLISH=0
-SOURCE=0
-VERIFY=0
-WITH_TEST_PACKAGES=0
 
 # Required for a few websites which expired certificates, like LaunchPad.
 # We check md5sums to cover ourselves. 
@@ -128,17 +127,19 @@ while [ -n "$1" ] ; do
       WITH_TEST_PACKAGES=1
       shift
     ;;
-    -export-source|--export-source)
-      #SOURCE=1
-      # Currently disable source exporting
-      SOURCE=0
+    -confirm-installs|--confirm-installs)
+      CONFIRM_INSTALLS=1
       shift
     ;;
     -set=*|--set=*)
       SETS=$(echo $1 | cut -f2 -d=)
       shift
     ;;
-    -auto-download|--auto-download)
+    -download-only|--download-only)
+      ONLY_DOWNLOAD=1
+      shift
+    ;;
+    -download|--download)
       AUTO_DOWNLOAD=1
       shift
     ;;
@@ -403,8 +404,11 @@ fi;
 INSTALLED=$(find_package_files "/var/log/packages" "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" \
              "" "${PACKAGE_BUILD}${TAG}" "") 
 if [ "$SKIP_BUILD" = "0" -o "${INSTALLED}" = "" ]; then
-  # PAUSE ON ALL NEW PACKAGE
-  # echo "Waiting." ; read ;
+  # Should we pause for before installing package?
+  [ "${CONFIRM_INSTALL}" = "1" ] && {
+     echo ;echo "Press enter to install new package." ; 
+     read goop;
+  }
   upgradepkg --install-new $( find_package_files "$PKGDEST/$SUBDIR" \
     "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" ) || {
     header "Failed to install '$PACKAGE'." ; exit 1
