@@ -158,8 +158,6 @@ simply do the one you choose). You need to comment out the following lines in
             power) /sbin/init 0
                 ;;
 
-   Thanks to byteframe for the suggestion.
-
     -----
 
 Q12: When I click 'Places' in the GNOME menu, Dolphin or Thunar start up
