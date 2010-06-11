@@ -1,4 +1,5 @@
 gnome-desktop
+eggdbus
 gnome-vfs
 startup-notification
 libwnck

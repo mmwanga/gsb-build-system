@@ -24,13 +24,14 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.30.0
 
 # List any packages here that are required to build this package.  The list is
 # space seperated and case sensitive.
-REQUIRED_PACKAGES="gnome-desktop gnome-vfs startup-notification libwnck libcanberra gstreamer \
-                   evolution-data-server polkit polkit-gnome ConsoleKit"
+REQUIRED_PACKAGES="gnome-desktop gnome-vfs startup-notification libwnck \
+		   libcanberra gstreamer evolution-data-server polkit \
+		   polkit-gnome ConsoleKit"
 
 # Build variables.
 TAG=${TAG:-gsb}
