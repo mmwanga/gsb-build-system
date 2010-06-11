@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.20.11
 
 # List any packages here that are required to build this package.
@@ -175,8 +175,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   || exit 1
 
 # Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+make $MAKE_FLAGS SUSPEND_COMMAND=/usr/sbin/pm-suspend &&
+make $MAKE_FLAGS SUSPEND_COMMAND=/usr/sbin/pm-suspend DESTDIR=$PKG install || exit 1
 
 # Make some handy softlinks
 ( cd $PKG/usr/bin; ln -s ../sbin/gdm . ; ln -s ../sbin/gdmsetup . )
