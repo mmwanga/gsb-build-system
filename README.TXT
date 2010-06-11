@@ -64,18 +64,18 @@ FTP site:
 |
 |-- gsb/                This directory contains all the 
 |   |                   software you will need for GSB 2.30.0.
-|   |-- a	        The A (base) package series.
-|   |-- ac  	        The AC (accessibility) series.
+|   |-- a               The A (base) package series.
+|   |-- ac              The AC (accessibility) series.
 |   |-- ad              The AD (administration) series.
 |   |-- ap              The AP (applications) series.
-|   |-- c	        The C (compiz) series.
-|   |-- d	        The D (development) series.
-|   |-- l	        The L (libraries) series.
-|   |-- m	        The M (mono C#) series.
-|   |-- n	        The N (networking) series.
+|   |-- c               The C (compiz) series.
+|   |-- d               The D (development) series.
+|   |-- l               The L (libraries) series.
+|   |-- m               The M (mono C#) series.
+|   |-- n               The N (networking) series.
 |   |-- go              The GO (gnome office) series.
 |   |-- ooo             The OOO (openoffice.org) series.
-|   `-- t	        The T (themes) series.
+|   `-- t               The T (themes) series.
 |
 |-- pasture/            These are packages that have been removed
 |   |                   from GNOME SlackBuild, but are useful enough to
