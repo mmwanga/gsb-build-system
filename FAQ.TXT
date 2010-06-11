@@ -15,12 +15,13 @@ Q9: How do I install templates for Nautilus so that I can create new documents
 Q10: Where are my GNOME settings stored?  What do I need to copy if I switch
      home directories?
 Q11: How can I configure GNOME Power Manager to catch a power button press?
-Q12: When I click 'Places' in the GNOME menu, Dolphin or Thunar start up
+Q12: How do I configure my laptop for hibernating and suspending in GNOME?
+Q13: When I click 'Places' in the GNOME menu, Dolphin or Thunar start up
      instead of Nautilus.  How do I fix that?
-Q13: When I reboot, my volume settings are reset.  How can I preseve these
+Q14: When I reboot, my volume settings are reset.  How can I preseve these
      settings?
-Q14: What's the difference between GSB and Dropline GNOME?
-Q15: Do you support GSB installed on Slackware-current?
+Q15: What's the difference between GSB and Dropline GNOME?
+Q16: Do you support GSB installed on Slackware-current?
 
 -----
 
@@ -160,7 +161,29 @@ simply do the one you choose). You need to comment out the following lines in
 
     -----
 
-Q12: When I click 'Places' in the GNOME menu, Dolphin or Thunar start up
+Q12: How do I configure my laptop for hibernating and suspending in GNOME?
+
+A: The first thing to do is make sure your laptop is correctly configured to
+suspend and hibernate without GNOME.  Make sure you have the pm-utils package
+installed from the official Slackware repositories, and read through
+/usr/doc/pm-utils-1.3.0/README.SLACKWARE.  You will need a swap parition to get
+hibernation working. 
+  Once suspend/hibernation are working, you should be able to 'suspend' from
+GDM.  For your GNOME desktop, make sure that the gnome-power-manager package is
+installed from GSB.  The default behavior is to hibernate after an idle time
+has passed -- this is configurable from the 'Preferences' menu; you can change
+the sleep type when you have critical battery life left, and for lid-close on
+battery.  You can also change the idle sleep time, but unfortunately, not the
+idle "sleep" type. You can manually change the default sleep type to "suspend"
+by typing:
+
+     $ /usr/bin/gconftool-2 --direct --config-source="$(usr/bin/gconftool-2 \
+         --get-default-source)" --type string \
+         --set /apps/gnome-power-manager/actions/sleep_type_battery suspend 
+
+    -----
+
+Q13: When I click 'Places' in the GNOME menu, Dolphin or Thunar start up
      instead of Nautilus.  How do I set Nautilus to be the default?
 
 A: You can fix this by setting a few gconf settings.  Run the following
@@ -174,7 +197,7 @@ A: You can fix this by setting a few gconf settings.  Run the following
 
     -----
 
-Q13: When I reboot, my volume settings are reset.  How can I preseve these
+Q14: When I reboot, my volume settings are reset.  How can I preseve these
      settings?
 
 A: This is properly a Slackware issue which doesn't save the alsa volume levels
@@ -184,9 +207,10 @@ A: This is properly a Slackware issue which doesn't save the alsa volume levels
          > should be executing:
          >           /usr/sbin/alsactl store
 
+
     -----
 
-Q14: What's the difference between GSB and Dropline GNOME?
+Q15: What's the difference between GSB and Dropline GNOME?
 
 A: Not a whole lot, actually. Dropline GNOME is a similar project, and has been
    around longer, though it is less maintained at the moment. It's simply
@@ -198,7 +222,7 @@ as possible.
 
     -----
 
-Q15: Do you support GSB installed on Slackware-current?
+Q16: Do you support GSB installed on Slackware-current?
 
 A: Unfortunately, no we do not, and only have time to support GSB on Slackware
    13.1 and Slackware64 13.1. You are of course welcome to try to install GSB
