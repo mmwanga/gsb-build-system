@@ -24,13 +24,16 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=1.9.1.3
 MAJOR_VERSION=1.9.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
 REQUIRED_PACKAGES="gtk+2 glib2 cairo pango libgnomeui nss pkg-config python jdk sqlite"
+
+# Packages which conflict and cause build to fail
+CONFLICTING_PACKAGES="seamonkey seamonkey-solibs"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -99,6 +102,12 @@ done
       exit 1
     }
   done
+}
+
+# Make sure we don't build with the Slackware seamonkey-solibs installed.
+check_installed $CONFLICTING_PACKAGES && {
+    echo "${0##*/}: Remove installed '$CONFLICTING_PACKAGES' package(s) before build."
+    exit 1
 }
 
 # Temporary space and package storage.

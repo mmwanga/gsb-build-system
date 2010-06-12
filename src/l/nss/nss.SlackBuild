@@ -24,13 +24,16 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
+BUILD=3
 VERSION=3.12.4
 NSPR_VERSION=4.7.4
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
 REQUIRED_PACKAGES="gcc sqlite"
+
+# Packages which conflict and cause build to fail
+CONFLICTING_PACKAGES="seamonkey seamonkey-solibs"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -99,6 +102,13 @@ done
     }
   done
 }
+
+# Make sure we don't build with the Slackware seamonkey-solibs installed.
+check_installed $CONFLICTING_PACKAGES && {
+    echo "${0##*/}: Remove installed '$CONFLICTING_PACKAGES' package(s) before build."
+        exit 1
+    }
+
 
 # Temporary space and package storage.
 mkdir -p $TMP
