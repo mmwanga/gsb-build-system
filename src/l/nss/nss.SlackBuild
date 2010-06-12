@@ -106,8 +106,8 @@ done
 # Make sure we don't build with the Slackware seamonkey-solibs installed.
 check_installed $CONFLICTING_PACKAGES && {
     echo "${0##*/}: Remove installed '$CONFLICTING_PACKAGES' package(s) before build."
-        exit 1
-    }
+    exit 1
+}
 
 
 # Temporary space and package storage.
