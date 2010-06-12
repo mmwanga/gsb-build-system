@@ -10,13 +10,13 @@ Here are some versions of major components of GNOME SlackBuild 2.28.0
 
 - Full GNOME Desktop    2.28.1
 - Evolution             2.28.2
-- NetworkManager        0.7.1
-- Mono C#		        2.4.2.3
+- NetworkManager        0.8
+- Mono C#               2.4.3
 - OpenOffice.org        3.2.0
-- Compiz                0.8.3
+- Compiz                0.8.6
 - GNOME Office          0.8.0
 - Abiword               2.8.2 
-- Gnumeric              1.8.3
+- Gnumeric              1.10
 
 For installation instructions, see the file 'INSTALL.TXT'
 
@@ -28,9 +28,9 @@ For details of important changes between GSB 2.26.3 and GSB 2.28.0 for
 Slackware 13.1, see 'CHANGES_AND_HINTS.TXT'.
 
 These are some of the important files and directories found on the GSB 
-FTP site:
+mirror(s) site:
 
- <ftp://ftp.slackware.org.uk/gsb/gsb-2.28/>
+ <http://mirrors.gnomeslackbuild.org/gsb/gsb-2.28/>
 
 .
 |-- CHECKSUMS.md5		MD5 format file checksums

@@ -24,15 +24,14 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=3.2.0.10
-WITH_LANGUAGES=${WITH_LANGUAGES:-"NO"}
-#LANGUAGES="en-US en-GB de fr it ar da el es fi he hi-IN hu ja ko \
-#           nb nl pl pt ro ru sv th tr uk zh-CN zh-TW"
-LANGUAGES=""
+WITH_LANGUAGES=${WITH_LANGUAGES:-"YES"}
+LANGUAGES="en-US en-GB de fr it"
 
 # List any packages here that are required to build this package.
-REQUIRED_PACKAGES="gtk+2 libgnomeui neon libsndfile gnome-vfs boost libgnomeui mozilla-xulrunner nss sane zlib librsvg libjpeg jre nss jdk apache-ant rsync git"
+REQUIRED_PACKAGES="gtk+2 neon libsndfile gnome-vfs boost libgnomeui sane zlib \
+                   librsvg libjpeg jre jdk apache-ant rsync git seamonkey"
 
 # We will want to build with gtk/kde and native widgets.
 KDE_REQUIRED_PACKAGES="kdebase-workspace kdelibs qt"
@@ -135,14 +134,6 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
-# Fix permissions for building.
-#chown -R root:root .
-#find . \
-#  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
-#  -exec chmod 755 {} \; -o \
-#  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
-#  -exec chmod 644 {} \;
-
 # Configure, Tuning, GCC and Make options.
 CONFIGURE_FLAGS=${GSB_CONFIGURE_FLAGS:-""}
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" ]; then
@@ -174,15 +165,18 @@ mkdir -p /usr/share/openclipart
 . /etc/profile.d/qt4.sh
 export QT4DIR="${QT4DIR}"
 export QT4INC="$QT4DIR/include"
-#export QT4LIB="$QT4DIR/lib"
 
-LANGUAGES=""
+# Support multiple languages
+if [ "${WITH_LANGUAGES}" = "YES" ]; then
+  LANGUAGES="en-US ${LANGUAGES}"
+else
+  LANGUAGES="en-US"
+fi;
 
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man \
   $CONFIGURE_FLAGS \
-  --with-lang="" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --with-distro=GNOMESlackBuild${LIBDIRSUFFIX} \
   --with-ant-home=/usr/lib${LIBDIRSUFFIX}/apache-ant \
@@ -190,6 +184,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-pam \
   --disable-pam-link \
   --disable-post-install-scripts \
+  --with-lang="${LANGUAGES}" \
   --enable-access \
   --enable-cairo \
   --disable-kde \
@@ -202,15 +197,14 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --with-system-icu \
   --with-system-expat \
   --with-system-boost \
-  --with-system-mozilla \
+  --with-system-mozilla=seamonkey \
   --disable-mono \
   --with-binsuffix=3.2 \
-  --with-docdir=/usr/share/doc/openoffice.org \
+  --with-docdir=/usr/doc/openoffice.org \
   --with-gcc-speedup=ccache \
   --with-openclipart=/usr/share/openclipart \
   --with-drink=ale \
   || exit 1
-
 
 # To download the source packages, uncomment the "./download" line
 # below.  Or, if local copies of the source packages exist, uncomment
@@ -224,6 +218,32 @@ make || exit 1
 
 # Do a full install
 cd bin ; OODESTDIR=$PKG ./package-ooo || exit 1
+
+# Split out language packs
+if [ "${WITH_LANGUAGES}" = "YES" ]; then
+  cd $PKG ; 
+  for lang in ${LANGUAGES//en-US/} ; do
+    echo "Splitting langpack $lang."
+    (
+    mkdir -p $TMP/$PKGNAME-l10n-$lang ;
+    tar cf - --remove-files $(find . -name "README*$lang*" \
+                   -o -name "LICENSE*${lang}*" \
+		   -o -type d -name "${lang}" \
+		   -o -name "Lang_*${lang}.xba" \
+                   -o -name "Langpack-${lang}.xcu" \
+		   -o -name "*${lang}.oxt" ) | ( cd $TMP/$PKGNAME-l10n-$lang ; tar xf - )
+    mkdir -p $TMP/$PKGNAME-l10n-$lang/install &&
+    cat $CWD/l10n/slack-desc.openoffice3-l10n-${lang} > \
+      $TMP/$PKGNAME-l10n-$lang/install/slack-desc ;
+    # doinst dictionary installation
+    cat $CWD/doinst-l10n.sh | sed "s,@LIBDIRSUFFIX@,${LIBDIRSUFFIX},g" \
+      | sed "s,@LANG@,${lang//en-GB/en},g" > $TMP/$PKGNAME-l10n-$lang/install/doinst.sh ;
+    ( cd $TMP/$PKGNAME-l10n-$lang ;
+      makepkg -p -l y -c n $PKGDEST/$PKGNAME-l10n-${lang}-${VERSION//-/_}-noarch-${BUILD}${TAG}.txz)
+    )
+    rm -fr $TMP/$PKGNAME-l10n-$lang ;
+  done;
+fi;
 
 # Add /usr/share/pixmaps directory and link icons to it
 mkdir -p $PKG/usr/pixmaps
@@ -239,6 +259,12 @@ for i in $PKG/usr/share/applications/*.desktop ;
 do 
    sed -i '/^Name/s/$/ 3.2/g' $i; 
 done;
+
+# Copy menus 
+mkdir -p $PKG/etc/gnome/xdg/menus &&
+mkdir -p $PKG/usr/share/desktop-directories &&
+zcat $CWD/OpenOffice3.directory.gz > $PKG/usr/share/desktop-directories/OpenOffice3.directory &&
+zcat $CWD/gnome-menus-ooo3.menu.gz > $PKG/etc/gnome/xdg/menus/gnome-menus-ooo3.menu || exit 1
 
 # Preserve files
 mv $PKG/etc/bash_completion.d/ooffice3.2.sh $PKG/etc/bash_completion.d/ooffice3.2.sh.new
@@ -273,16 +299,20 @@ done
 
 # doinst dictionary installation
 cat $CWD/doinst.sh | sed "s,@LIBDIRSUFFIX@,${LIBDIRSUFFIX},g" \
-  | sed "s,@LANG@,en,g" > $TMP/$PKG/install/doinst.sh ;
+  | sed "s,@LANG@,en,g" > $PKG/install/doinst.sh ;
+
+# pause
+echo "Wait to inspect doinst.sh"
+read; 
 
 # Create the package
 cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz || exit 1
 
+# Make sure to clean up build machine of any kde packages to prevent 
+# unwanted dependencies. 
+removepkg $KDE_REQUIRED_PACKAGES
 # Cleanup
-[ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/ooo-build-$VERSION
-  # Make sure to clean up build machine of any kde packages to prevent 
-  # unwanted dependencies. 
-  removepkg $KDE_REQUIRED_PACKAGES
-}
+if [ "$NOCLEANUP" = "0" ]; then
+  rm -rf $PKG $TMP/$PKGNAME-$VERSION
+fi;
