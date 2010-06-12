@@ -226,83 +226,50 @@ function make_manifest() {
 }
 
 function download_package() {
-  # $1 is package name
-  # $2 is auto download switch
+  # $1 is the $PKG name to download
   [ -z "$1" ] && return 1;
-  [ -z "$2" ] && return 1;
   [ ! -f ./$1.info ] && {
     echo "* Error: Can't find $1.info." ; return 1
   }
-  # Read in package info file
+  # Read in package info file, quit if not found.
   . ./$1.info || return 1
+  # Skip the package if no DOWNLOAD is present in the .info file.
+  if [ -z "$DOWNLOAD" ] ; then
+	  header "* Skipping the download of $1." 
+	  return 0 
+  fi;
+  # Check for source file.
+  FILENAME="$(echo $DOWNLOAD | awk -F/ '{print $NF}')"
+  echo "${MD5SUM}  ${FILENAME}" > $TMP/md5sum.$1.$$
+  [ -z $FILENAME ] && {
+     echo "* Error: No source file defined in $1.info file." ; return 1
+  }
 
-  [ -z "$DOWNLOAD" ] && return 0
-
-  # Our environment
-  local MD5COUNT=1
-  local ATTEMPT="3"
-  local VALID=0
-
-  for SOURCEPACKAGE in $DOWNLOAD ; 
-  do
-    FILENAME="$(echo $SOURCEPACKAGE | awk -F/ '{print $NF}')"
-    [ -z $FILENAME ] && {
-       echo "* Error: No file defined in info file." ; return 1
-    }
-    # Download if source file missing.
-    if [ ! -f $FILENAME -a "$2" = "1" ] ; then
-      echogreen "* "; echo "Downloading source file."
-      wget ${WGET_OPTIONS} -c $DOWNLOAD || {
-        echo ; echo "* Error: Failed to complete download."
-        return 1
-      }
+  local DOWNLOAD_ATTEMPT=0
+  local VALID_MD5=0
+  until [ $DOWNLOAD_ATTEMPT -eq 3 -o $VALID_MD5 -eq 1 ]; do
+    # MD5SUM Comparison
+    if [ -f $FILENAME ]; then
+       md5sum -c $TMP/md5sum.$1.$$ 2>/dev/null 1>/dev/null && VALID_MD5=1;
     fi;
-
-    # Switch up if more than one md5sum
-    if [ "$(echo $MD5SUM | wc -c)" -gt 33 ]; then
-      MD5CHECK=$(echo $MD5SUM | cut -f${MD5COUNT} -d" " ) ;
-      MD5FILE=$(echo $MD5SUM | cut -f$(expr $MD5COUNT + 1) -d" " ) ;
-      [ "${MD5FILE}" = "${FILENAME}" ] || {
-        echo "Error: File md5sums out of order."
-        return 1
-      }
-      MD5COUNT=$(expr $MD5COUNT + 2)
-    else
-      # There is only one md5sum
-      MD5CHECK=${MD5SUM}
-    fi; 
-
-    # md5sum comparison
-    [ "$(md5sum ${FILENAME} | cut -f1 -d\ )" = "${MD5CHECK}" ] && {
-       # We have a good md5sum check
-       echo "$FILENAME has a valid md5sum $MD5CHECK."
-       VALID=1 ; 
-    }
-
-    # We'll try three times to download the package file
-    while [ "VALID" = "0" -a $ATTEMPT -ne 0 -a "$2" = "1" ]; do
-     # Try to redownload, perhaps a broken source file. 
-      wget ${WGET_OPTIONS} -c $DOWNLOAD 
-      ATTEMPT=$[$ATTEMPT-1]
-      # md5sum comparison
-      [ "$(md5sum ${FILENAME} | cut -f1 -d\ )" = "${MD5CHECK}" ] && {
-         # We have a good md5sum check
-         echo "$FILENAME has a valid md5sum $MD5CHECK."
-         VALID=1 ; 
-      }
-    done;
-
-    # We couldn't get a decent copy of the source file
-    [ "$VALID" = "0" ] && {
-      echo ; echo "Couldn't retrieve $1." 
-      [ -f $FILENAME ] && {
-      header "* WARNING: $FILENAME has invalid md5sum!"
-      echo "md5sum: $(md5sum ${FILENAME} | cut -f1 -d\ ) against info: $MD5CHECK"
-      }
-      return 1;
-    }
+    if [ "${VALID_MD5}" = "0" ]; then
+       # Download the source file
+       wget ${WGET_OPTIONS} -c $DOWNLOAD || {
+         echo ; echo "* Error: Failed to complete download."
+         return 1
+       }
+    fi
+    DOWNLOAD_ATTEMPT=$[$DOWNLOAD_ATTEMPT+1];
   done;
-  return 0
+  rm $TMP/md5sum.$1.$$
+  # We couldn't get a decent copy of the source file
+  if [ "$VALID_MD5" = "0" ]; then
+     header "* WARNING: $FILENAME has invalid md5sum!"
+     return 1;
+  else 
+     echo "* $FILENAME has valid md5sum."
+     return 0
+  fi;
 } 
 
 # Usage function
@@ -352,8 +319,11 @@ Options:
 		        unwanted dependencies.  Use this switch to prevent the
                         build script from removing these packages.	
 
-  --auto-download      	Automatically fetch tarballs that aren't found in the
-    			src/ tree. 
+  --download      	As the build progresses, fetch tarballs that aren't
+                        found in the src/ tree.
+
+  --download-only      	Fetch tarballs that aren't found in the src/ tree, 
+                        but don't run a build.  This option is exclusive.
 
   --skip-rebuilds      	Do not rebuild packages when asked to do so in the
     			buildlist.txt.

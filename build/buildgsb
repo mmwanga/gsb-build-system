@@ -88,9 +88,9 @@ SKIP_REBUILDS=0
 NOPRUNE=0
 PUBLISH=0
 
-# Required for a few websites which expired certificates, like LaunchPad.
-# We check md5sums to cover ourselves. 
-WGET_OPTIONS="--no-check-certificate"
+# Download settings
+DOWNLOAD_ATTEMPTS=${DOWNLOAD_ATTEMPTS:-3}
+WGET_OPTIONS=""
 
 #========================================================================
 # COMMAND LINE PARSING 
@@ -201,7 +201,7 @@ BUILDLIST="$(egrep -v "^#|^$" buildlist.txt | \
 # Clear the system of any packages from testing/ which might be lying around.
 # This ensures that we don't accidently build against a package we don't want.
 #
-if [ "$WITH_TEST_PACKAGES" = "0" ]; then
+if [ "$WITH_TEST_PACKAGES" = "0" -a "${ONLY_DOWNLOAD}" = "0" ]; then
   echo; header "Removing any test packages."
 ( cd ${BUILDSOURCE}/../testing &&
   for testpkg in $(find . -type d -mindepth 1 -maxdepth 1); do
@@ -258,8 +258,6 @@ else
   exit 1
 fi
 
-
-
 # Look for package
 [ ! -d $PACKAGE ] && { 
   header "Error: Can't find package $PACKAGE." ; 
@@ -283,41 +281,46 @@ declare PACKAGE_$( egrep -m 1 "^BUILD=.*" $PACKAGE/$PACKAGE.SlackBuild )
 # Check if the package should be rebuilt, and where it should be put.
 # The assumption is to always rebuild and put packages in the main
 # directory, unless modified by the checks below.
-if find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
-  "" "" "" "\.txz" >/dev/null && [ "$NOSKIP" = "0" ]
-then
+if [ "${ONLY_DOWNLOAD}" = "0" ]; then 
   if find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
-    "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" >/dev/null 
+    "" "" "" "\.txz" >/dev/null && [ "$NOSKIP" = "0" ]
   then
-    # Package with same version/build was found in the main directory.
-    SKIP_BUILD=1
-  else
-    # Not in the main directory, check patches.
-    if [ "$NOPATCHESDIR" = "0" ]; then
-      [ -d $PKGDEST/$PATCHESDIR/packages ] && {
-        if find_package_files "$PKGDEST/$PATCHESDIR/packages" \
-          "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" \
-          "\.txz" >/dev/null
-        then
-          # Found in patches dir.
-          SKIP_BUILD=1
-          SUBDIR=$PATCHESDIR/packages
-        else
-          # No package in patches with the same version/build.
-          SUBDIR=$PATCHESDIR/packages
-        fi
-      }
+    if find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
+      "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" >/dev/null 
+    then
+      # Package with same version/build was found in the main directory.
+      SKIP_BUILD=1
+    else
+      # Not in the main directory, check patches.
+      if [ "$NOPATCHESDIR" = "0" ]; then
+        [ -d $PKGDEST/$PATCHESDIR/packages ] && {
+          if find_package_files "$PKGDEST/$PATCHESDIR/packages" \
+            "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" \
+            "\.txz" >/dev/null
+          then
+            # Found in patches dir.
+            SKIP_BUILD=1
+            SUBDIR=$PATCHESDIR/packages
+          else
+            # No package in patches with the same version/build.
+            SUBDIR=$PATCHESDIR/packages
+          fi
+        }
+      fi
     fi
   fi
-fi
-
+fi;
+  
 #========================================================================
 # BUILD PACKAGES
 #
 # Build package if required.
 #
 SUCCESSFUL_NEW_BUILD=0
-if [ "$SKIP_BUILD" = "0" -o "$BUILD_OPTION" = "rebuild" -a "$SKIP_REBUILDS" = "0" ]; then
+if [ "${ONLY_DOWNLOAD}" = "1" ]; then
+  cd $PACKAGE && 
+  download_package $PACKAGE || exit $?
+elif [ "$SKIP_BUILD" = "0" -o "$BUILD_OPTION" = "rebuild" -a "$SKIP_REBUILDS" = "0" ]; then
   rm -f $( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
     "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz|\.txt|\.txz\.asc" \
     | tr '\n' ' ' ) >/dev/null 2>&1
@@ -336,9 +339,11 @@ if [ "$SKIP_BUILD" = "0" -o "$BUILD_OPTION" = "rebuild" -a "$SKIP_REBUILDS" = "0
    ( 
      cd $PACKAGE && 
      export PKGDEST=$PKGDEST/$SUBDIR || exit 1
-     [ "$BUILD_OPTION" = "nofetch" ] || {
-        download_package $PACKAGE $AUTO_DOWNLOAD || exit $?
-     }
+     if [ "$AUTO_DOWNLOAD" = "1" ]; then
+       [ "$BUILD_OPTION" = "nofetch" ] || {
+        download_package $PACKAGE || exit $?
+       }
+     fi;
      ./$PACKAGE.SlackBuild $SLACKBUILD_ARGS 2>&1 
    ) | tee $LOGSDIR/$SET/$PACKAGE-$( date +%Y%m%d-%H%M%S ).log
  
@@ -347,9 +352,8 @@ if [ "$SKIP_BUILD" = "0" -o "$BUILD_OPTION" = "rebuild" -a "$SKIP_REBUILDS" = "0
      exit $ERR 
    }
    SUCCESSFUL_NEW_BUILD=1
-
 else
-  echo -n "* Found: $PACKAGE-${PACKAGE_VERSION//-/_}-${ARCH}-${PACKAGE_BUILD}${TAG}.txz" 
+  echo "* Found: $PACKAGE-${PACKAGE_VERSION//-/_}-${ARCH}-${PACKAGE_BUILD}${TAG}.txz" 
 fi
 
 #========================================================================
@@ -357,7 +361,7 @@ fi
 #
 # Remove any old packages lying around
 #
-if [ "${NOPRUNE}" = "0" ]; then
+if [ "${NOPRUNE}" = "0" -a "${ONLY_DOWNLOAD}" = "0" ]; then
   PRUNE_FILES="$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
     "" "" "" "\.txz|\.txt|\.txz\.asc" | grep -v "$( find_package_files \
     "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" \
@@ -371,7 +375,7 @@ fi;
 # MAKE CHECKSUMS AND DESCRIPTIONS
 #
 # Make a txt description of the package
-if [ "$PUBLISH" = "1" ]; then
+if [ "$PUBLISH" = "1" -a "${ONLY_DOWNLOAD}" = "0" ]; then
   make_pkg_txt "$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
     "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" )" || {
     header "Failed to create txt description for '$PACKAGE'." ; exit 1
@@ -385,15 +389,13 @@ if [ "$PUBLISH" = "1" ]; then
       echo "Has the package been corrupted?" ;
       exit 1
     }
-    echo " (asc signature passed) "
+    echo " (ASC Signature passed.) "
   else
     echo ; echogreen "* " ; echo "Please sign for ${PACKAGE}:"
     make_pkg_asc "$SIGN_PACKAGE" || {
       header "Failed to create asc signature for '$PACKAGE'." ; exit 1
     }
   fi;
-else
-  echo " (skipped asc and txt)."
 fi;
 
 #========================================================================
@@ -401,28 +403,27 @@ fi;
 #
 # Install our new package if necessary
 #
-INSTALLED=$(find_package_files "/var/log/packages" "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" \
-             "" "${PACKAGE_BUILD}${TAG}" "") 
-if [ "$SKIP_BUILD" = "0" -o "${INSTALLED}" = "" ]; then
-  # Should we pause for before installing package?
-  [ "${CONFIRM_INSTALL}" = "1" ] && {
-     echo ;echo "Press enter to install new package." ; 
-     read goop;
-  }
-  upgradepkg --install-new $( find_package_files "$PKGDEST/$SUBDIR" \
-    "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" ) || {
-    header "Failed to install '$PACKAGE'." ; exit 1
-  }
-  # Update changelog on success install and build of changed packages.
-  if [ "${SUCCESSFUL_NEW_BUILD}" = "1" ]; then
-     changelog "${SET}/${PACKAGE}-${PACKAGE_VERSION//-/_}-${ARCH}-${PACKAGE_BUILD}${TAG}.txz: Built." ;
+if [ "${ONLY_DOWNLOAD}" = "0" ]; then
+  INSTALLED=$(find_package_files "/var/log/packages" "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" \
+               "" "${PACKAGE_BUILD}${TAG}" "") 
+  if [ "$SKIP_BUILD" = "0" -o "${INSTALLED}" = "" ]; then
+    # Should we pause for before installing package?
+    [ "${CONFIRM_INSTALL}" = "1" ] && {
+       echo ;echo "Press enter to install new package." ; 
+       read goop;
+    }
+    upgradepkg --install-new $( find_package_files "$PKGDEST/$SUBDIR" \
+      "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" ) || {
+      header "Failed to install '$PACKAGE'." ; exit 1
+    }
+    # Update changelog on success install and build of changed packages.
+    if [ "${SUCCESSFUL_NEW_BUILD}" = "1" ]; then
+changelog "${SET}/${PACKAGE}-${PACKAGE_VERSION//-/_}-${ARCH}-${PACKAGE_BUILD}${TAG}.txz: Built." ;
+    fi;
   fi;
-fi;
-
+fi;  
 # BUILDING PACKAGE
 ) || {
- #echo ; echo ;
- #echo "Failed building package '$PACKAGE' in set $SET."
  echo "Check the build logs in: $LOGSDIR"
  exit 1
 }
@@ -438,7 +439,7 @@ done
 #========================================================================
 # COPY DOCUMENTATION AND TAGFILES
 #
-if [ "${PUBLISH}" = "1" ]; then
+if [ "${PUBLISH}" = "1" -a "${ONLY_DOWNLOAD}" = "0" ]; then
 (
 cd $BUILDSOURCE/.. ;
 # Copy tagfiles
