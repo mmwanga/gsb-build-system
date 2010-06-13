@@ -27,7 +27,8 @@
 BUILD=2
 VERSION=3.2.0.10
 WITH_LANGUAGES=${WITH_LANGUAGES:-"YES"}
-LANGUAGES="en-US en-GB de fr it"
+LANGUAGES="ca da de el es et en-GB fr gl it ja kk nb nl pl pt pt-BR \
+           sv tr uk zh-CN zh-TW"
 
 # List any packages here that are required to build this package.
 REQUIRED_PACKAGES="gtk+2 neon libsndfile gnome-vfs boost libgnomeui sane zlib \
@@ -300,10 +301,6 @@ done
 # doinst dictionary installation
 cat $CWD/doinst.sh | sed "s,@LIBDIRSUFFIX@,${LIBDIRSUFFIX},g" \
   | sed "s,@LANG@,en,g" > $PKG/install/doinst.sh ;
-
-# pause
-echo "Wait to inspect doinst.sh"
-read; 
 
 # Create the package
 cd $PKG
