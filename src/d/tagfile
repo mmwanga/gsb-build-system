@@ -19,3 +19,4 @@ nemiver:SKP
 scons:SKP
 setuptools:ADD
 vala:SKP
+gitg:SKP
