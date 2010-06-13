@@ -1,10 +1,10 @@
-        |-----handy-ruler------------------------------------------------------|
-gitg:   gitg (Visual git Front-end)
+    |-----handy-ruler------------------------------------------------------|
+gitg: gitg (gtk+ repository viewer for git)
 gitg:
-gitg:   gitg is a git repository viewer targeting gtk+/GNOME.
-gitg:   It is very much like a clone of GitX for Mac.
-gitg:
-gitg:
+gitg: gitg is a git repository viewer targeting gtk+/GNOME. It is very 
+gitg: much like a clone of GitX for Mac, and is useful in providing a 
+gitg: graphical representation of git data or actions or in getting an 
+gitg: overview of the repository
 gitg:
 gitg:
 gitg:
