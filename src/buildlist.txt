@@ -197,6 +197,7 @@ l/libgee
 go/tracker
 n/service-discovery-applet
 d/setuptools
+d/gitg
 go/python-dateutil
 go/vobject
 l/goocanvas

@@ -1,0 +1,7 @@
+PKGNAME="gitg"
+VERSION="0.0.6"
+HOMEPAGE="http://trac.novowork.com/gitg/"
+DOWNLOAD="http://trac.novowork.com/gitg/raw-attachment/wiki/Releases/gitg-0.0.6.tar.bz2"
+MD5SUM="5aab2b6fc97d72f2063f91f12dc014d8"
+MAINTAINER="Chip Cuccio"
+EMAIL="chipster@gnomeslackbuild.org"
