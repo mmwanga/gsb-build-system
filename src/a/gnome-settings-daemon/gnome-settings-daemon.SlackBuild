@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.30.1
 
 # List any packages here that are required to build this package.
@@ -115,10 +115,19 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
+  # https://bugzilla.gnome.org/show_bug.cgi?id=571145
+  # Re-enable media-keys plugin to support gstreamer/alsa/oss
+  zcat $CWD/gsd.acme.mediakeys.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
+  # https://bugzilla.gnome.org/show_bug.cgi?id=571145
+  # Re-enable media-keys plugin to support gstreamer/alsa/oss
+  zcat $CWD/gsd.acme.mediakeys.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
+  # https://bugzilla.gnome.org/show_bug.cgi?id=571145
+  # Re-enable media-keys plugin to support gstreamer/alsa/oss
+  zcat $CWD/gsd.acme.mediakeys.diff.gz | patch -p1
 fi
 
 # Fix permissions for building.
@@ -159,6 +168,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static --enable-shared \
   --disable-schemas-install \
   --disable-pulse \
+  --with-libnotify \
   || exit 1
 
 # Build and install.
