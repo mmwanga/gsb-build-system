@@ -316,14 +316,25 @@ Options:
 
   --with-testing      	Normally the build script will remove all packages
                         found in the testing/ directory in order to prevent
-		        unwanted dependencies.  Use this switch to prevent the
-                        build script from removing these packages.	
+		        unwanted dependencies, and skip building any 
+			testing/ packages..  Use this switch to prevent the
+                        build script from removing these packages, as well
+			as building the testing/ packages.
 
   --download      	As the build progresses, fetch tarballs that aren't
                         found in the src/ tree.
 
   --download-only      	Fetch tarballs that aren't found in the src/ tree, 
                         but don't run a build.  This option is exclusive.
+
+  --set=<set>      	Specifiy a particular set to build, like a,ap,d,c, 
+                        etc. This option can be used in coordination with 
+			--download-only to download only a selection of 
+			packages.
+
+  --package=<pkgname> 	Specifiy a particular package to build. This option
+                        can also be used with the --download or 
+			--download-only options to build a specific package.
 
   --skip-rebuilds      	Do not rebuild packages when asked to do so in the
     			buildlist.txt.

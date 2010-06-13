@@ -135,6 +135,10 @@ while [ -n "$1" ] ; do
       SETS=$(echo $1 | cut -f2 -d=)
       shift
     ;;
+    -package=*|--package=*)
+      PKG_ONLY=$(echo $1 | cut -f2 -d=)
+      shift
+    ;;
     -download-only|--download-only)
       ONLY_DOWNLOAD=1
       shift
@@ -192,7 +196,16 @@ BUILDLIST=${BUILDLIST:-""}
 [ -f buildlist.txt ] && {
 BUILDLIST="$(egrep -v "^#|^$" buildlist.txt | \
   # Remove our testing packages if not specified.
-  if [ "$WITH_TEST_PACKAGES" = "1" ]; then cat ; else egrep -v testing; fi;)"
+  if [ "$WITH_TEST_PACKAGES" = "1" ]; then cat ; else egrep -v testing; fi | \
+  # Perhaps the user only wants a certain set of packages.
+  if [ -z "$SETS" ]; then cat ; else egrep ^${SETS}; fi | \
+  # Perhaps the user only wants a specific package. 
+  if [ -z "$PKG_ONLY" ]; then cat ; else egrep ${PKG_ONLY}$; fi;)"
+}
+
+[ -z "$BUILDLIST" ] && {
+   echo "Nothing to build."
+   exit 1;
 }
 
 #========================================================================
