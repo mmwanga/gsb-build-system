@@ -178,8 +178,10 @@ mkdir -p $PKGDEST &&
 mkdir -p $LOGSDIR &&
 mkdir -p $PKGDEST/${EXTRADIR} &&
 mkdir -p $PKGDEST/${PASTUREDIR} &&
-mkdir -p $PKGDEST/${TESTINGDIR} &&
-mkdir -p $PKGDEST/${PATCHESDIR} || exit 1
+mkdir -p $PKGDEST/${TESTINGDIR} || exit 
+[ "$NOPATCHESDIR" = "0" ] && {
+  mkdir -p $PKGDEST/${PATCHESDIR}/packages || exit 1
+}
 
 # Clear away all tagfiles from build tree to prevent some applications
 # from being skipped when upgradepkg is called.
@@ -323,7 +325,7 @@ if [ "${ONLY_DOWNLOAD}" = "0" ]; then
     fi
   fi
 fi;
-  
+
 #========================================================================
 # BUILD PACKAGES
 #
