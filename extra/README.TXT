@@ -28,5 +28,5 @@ gst-plugins-ugly:
 
 volti: 
         Volti is a GTK+ application for controlling audio volume from the
-	system tray/notification area. It supports ALSA, multimedia keys 
+        system tray/notification area. It supports ALSA, multimedia keys 
         on the keyboard, and desktop notifications on keys events.
