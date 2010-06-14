@@ -456,7 +456,7 @@ done
 #
 if [ "${PUBLISH}" = "1" -a "${ONLY_DOWNLOAD}" = "0" ]; then
 (
-cd $BUILDSOURCE/.. ;
+cd $BUILDSOURCE ;
 # Copy tagfiles
 for tagfile in $(find . -type f -name tagfile); 
 do 
@@ -464,6 +464,7 @@ do
 done;
 
 # Copy our main documentation
+cd $BUILDSOURCE/.. ;
 if [ "$ARCH" = "x86_64" ]; then
   cat README.TXT | sed 's,@BINARY_EDITION@,64-bit x86_64 edition,g' > \
     $PKGDEST/README.TXT ;
