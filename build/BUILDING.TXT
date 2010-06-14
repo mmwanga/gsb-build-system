@@ -4,12 +4,11 @@ BUILDING.TXT -- How to Build GNOME SlackBuild for Slackware
 
 Last Updated: June 1 2010 (steve@gnomeslackbuild.org)
 
-GNOME SlackBuild (GSB) has offers to things: for those who want the simplicity
-of installing binaries, we offer a full assortment of pre-build packages
-suitable for Slackware and Slackware64;  for those who prefer to 'roll their
-own' packages, who want to customise or tweak their build settings and
-optimise, we also offer our complete system to build system and SlackBuild
-scripts.
+GNOME SlackBuild (GSB) offers two things: for those who want the simplicity of
+installing binaries, we offer a full assortment of pre-build packages suitable
+for Slackware and Slackware64;  for those who prefer to 'roll their own'
+packages, who want to customise or tweak their build settings and optimise, we
+also offer our complete system to build system and SlackBuild scripts.
 
 This document provides information on how to use the GSB build system to
 produce your own packages of GNOME.  Included in the GSB build system are all
@@ -65,8 +64,8 @@ notes would also be useful to other users.
 
    2.A.  Tag Files
 
-   When we build the public version of GSB, we use a strictly controled base of
-packages to build the binary packages for the project using a Slackware
+   When we build the public version of GSB, we use a strictly controlled base
+of packages to build the binary packages for the project using a Slackware
 'tagset'. This way, we only install the minimum packages required to perform a
 build.  We work from a set of 'tagfiles' which specify exactly which packages
 get installed into our build environment.  We have included our tagfiles set in
@@ -119,7 +118,7 @@ details.
 
    You must be root in order to build GSB. We do not host any GNOME source
 tarballs on our git sever, and so you will need to download each package source
-as you progress in the build.  You will need an active internet connection to
+as you progress in the build.  You will need an active Internet connection to
 perform the build.
 
    -----
@@ -129,7 +128,7 @@ perform the build.
    Before beginning, make sure to configure a gsb.options file.  You can copy
 over the gsb.options.sample and modify accordingly.  You will need to change
 the TMP and PKGDEST variables to point to locations which have a lot of
-diskspace -- we would recommend at least over 2GB free, even more if you plan
+disk space -- we would recommend at least over 2GB free, even more if you plan
 on building OpenOffice. You can also modify your ARCH and TUNE.  If you want
 even more finely tuned build options, see below Appendix A. 
 
@@ -241,8 +240,8 @@ APPENDIX A. Customising the Build Environment
 to tweak and customise the build process.  GSB supports two methods of setting
 these environment variables, described below.
 
-   The gsb.options file is read at the begining of every build process, and the
-options specified in this file will be saved accross multiple builds.  Using
+   The gsb.options file is read at the beginning of every build process, and the
+options specified in this file will be saved across multiple builds.  Using
 the gsb.options file is especially useful for repeat builds or for developers
 who want to set specific options when testing.  Here are the common environment
 variables which can be set to effect, tweak or customise the build process. Be
@@ -373,9 +372,9 @@ if you choose to use it.
 
 APPENDIX B. SlackBuild Arguments
 
-  There are several options which can be passed to buildgsb when begining the
+  There are several options which can be passed to buildgsb when beginning the
 build process.  Options given to a top-level SlackBuild will be passed down to
-the individual package Slackbuilds as a the build process continues.
+the individual package SlackBuilds as a the build process continues.
 
 The following options are recognised:
 
@@ -396,7 +395,7 @@ The following options are recognised:
 
   --no-skip		During the build process, packages that are up to date
 			(ie, the package version and build numbers match the
-			coresponding SlackBuild) will not be rebuilt.  This
+			corresponding SlackBuild) will not be rebuilt.  This
 			option forces packages to be rebuilt regardless of the
 			version and build numbers.  This option doesn't affect
 			the pre-build checks for installed packages (see the
