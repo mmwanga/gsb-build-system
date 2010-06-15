@@ -302,8 +302,8 @@ cat $CWD/doinst.sh | sed "s,@LIBDIRSUFFIX@,${LIBDIRSUFFIX},g" \
   | sed "s,@LANG@,en,g" > $PKG/install/doinst.sh ;
 
 # pause
-echo "Wait to inspect doinst.sh"
-read; 
+#echo "Wait to inspect doinst.sh"
+#read; 
 
 # Create the package
 cd $PKG
