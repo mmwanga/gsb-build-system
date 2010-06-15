@@ -89,7 +89,6 @@ ac/gail: Removed.
 ac/libgail-gnome: Removed.
 ap/gnome-audio: Removed.
 ap/gnome-commander: Removed.
-l/x264: Removed.
 l/lame: Removed.
 l/xvidcore: Removed.
 l/ffmpeg: Removed.  Not realy needed with gst-ffmpeg.
@@ -107,7 +106,6 @@ l/goocanvasmm: Removed.
 l/gsl: Removed.
 l/gtksourceviewmm: Removed.
 l/hal-cups-utils: Removed.
-l/lame: Removed.
 l/libatasmart: Removed.
 l/libavc1394: Removed.
 l/libchamplain: Removed.
@@ -144,7 +142,6 @@ l/python-ldap: Removed.
 l/sexy-python: Removed.
 l/slib: Removed.
 l/x264: Removed.
-l/xvidcore: Removed.
 ap/gst-fluendo-mp3: Removed. License issues.
 ap/gswitchit-plugins: Removed.
 ap/sound-juicer: Removed.
