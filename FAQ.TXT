@@ -181,6 +181,10 @@ by typing:
          --get-default-source)" --type string \
          --set /apps/gnome-power-manager/actions/sleep_type_battery suspend 
 
+  You can also configure GDM to use pm-utils as well!  You will need to edit
+your /etc/X11/gdm/custom.conf, and edit the line 'SuspendCommand' and tell it
+to use '/usr/sbin/pm-suspend'
+
     -----
 
 Q13: When I click 'Places' in the GNOME menu, Dolphin or Thunar start up
