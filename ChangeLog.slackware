@@ -1,3 +1,42 @@
+Sat Jun 19 11:43:15 BST 2010
+ooo/openoffice3-3.2.1.4-i486-1gsb.txz: Upgraded.
+  Now built with multilingual support.
+ooo/openoffice3-l10n-*-3.2.1.4-noarch-1gsb.txz: Added.
+  We now include 22 different language packages, each of which includes a
+  dictionary and locale interface language support.
+d/gitg-0.0.6-i486-1gsb.txz: Added.
+patches/seahorse-plugins-2.30.1-i486-2gsb.txz: Patched.
+  Applied upstream patches to fix two crash conditions, one of which prevented
+  the seahorse-tool from using gpgme to encrypt/decrypt.  For more
+  information, please see:
+   https://bugzilla.gnome.org/show_bug.cgi?id=579738
+   https://bugzilla.gnome.org/show_bug.cgi?id=607423
+patches/gsb-desktop-2.30.1-i486-8gsb.txz: Repackaged.
+  Removed libgee from the slack-required.
+patches/nautilus-2.30.1-i486-4gsb.txz: Rebuilt.
+  Added the (missing) gconf key navigation_window_saved_geometry so that
+  nautilus will remember its window size and placement.
+patches/gnome-panel-2.30.0-i486-2gsb.txz: Rebuilt.
+  Added eggdbus to slack-required.
+patches/gnome-settings-daemon-2.30.1-i486-2gsb.txz: Patched.
+  Revert upstream removal of acme.mediakeys which disabled dbus MediaKeys
+  support when using a gstreamer backend.  For more information, please see:
+    https://bugzilla.gnome.org/show_bug.cgi?id=571145
+patches/gnome-applets-2.30.0-i486-2gsb.txz: Reconfigured.
+  Added --enable-mixer-applet so that the 'deprecated' volume applet can still
+  be added to the gnome panel.  (The volti package in extra/ is nicer.)
+patches/gdm-2.20.11-i486-2gsb.txz: Rebuilt.
+  Add PM_SUSPEND to allow suspending from gdm using pm-utils.  Thanks to
+  rworkman for the suggestion.
+patches/gnome-media-2.30.0-i486-2gsb.txz: Patched.
+  Set "NoDisplay=false" for the gstreamer-properties icon so that it displays
+  in the GNOME Control Panel.
+patches/gnome-python-desktop-2.30.2-i486-1gsb.txz: Upgraded.
+patches/libgda-4.0.9-i486-1gsb.txz: Upgraded.
+patches/boo-0.9.2.3383-i486-2gsb.txz: Rebuilt.
+  Removed an orphaned /share directory by forcing GTKSOURCEVIEW_PATH=/usr.
+patches/tracker-0.8.12-i486-1gsb.txz: Upgraded.
++--------------------------+
 Thu Jun 10 19:02:49 BST 2010
 patches/empathy-2.30.1.1-i486-1gsb.txz: Upgraded.
   This is an upstream stable release, which fixes some critical issues,
