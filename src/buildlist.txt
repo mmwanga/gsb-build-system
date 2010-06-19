@@ -168,6 +168,8 @@ ac/espeak
 ac/gnome-speech
 ac/gok
 ac/mousetweaks
+ac/gail
+ac/libgail-gnome
 ac/orca
 t/gnome-backgrounds
 l/clutter
