@@ -1,4 +1,19 @@
-Sat Jun 19 11:43:15 BST 2010
+Sat Jun 19 12:04:38 BST 2010
+patches/telepathy-mission-control-5.4.3-i486-1gsb.txz: Upgraded.
+patches/gnome-games-2.30.1-i486-2gsb.txz: Reconfigured.
+  Removed lightsoff and swell-foop from game list. They require seed, which in
+  turn requires two more library dependencies.  This is a bit much for two
+  small javascript games.  
+patches/libgee-0.5.1-i486-1gsb.txz: Upgraded.
+ac/gail-1.22.3-i486-3gsb.txz: Added.
+ac/libgail-gnome-1.20.2-i486-1gsb.txz: Added.
+  gail and libgail-gnome have been added to improve accessibility with Orca.
+patches/banshee-1-1.6.1-i486-2gsb.txz: Patched.
+  If accessibility is enabled on gtk+2 >= 2.20, AlbumListView view doesn't
+  have a column and ColumnManager is null when BANSHEE_DISABLE_GRID is not
+  set, which causes banshee to crash in Gui.Accessibility.ListViewAccessible.
+  For more information, please see:
+    https://bugzilla.gnome.org/show_bug.cgi?id=615483
 ooo/openoffice3-3.2.1.4-i486-1gsb.txz: Upgraded.
   Now built with multilingual support.
 ooo/openoffice3-l10n-*-3.2.1.4-noarch-1gsb.txz: Added.
@@ -18,10 +33,6 @@ patches/nautilus-2.30.1-i486-4gsb.txz: Rebuilt.
   nautilus will remember its window size and placement.
 patches/gnome-panel-2.30.0-i486-2gsb.txz: Rebuilt.
   Added eggdbus to slack-required.
-patches/gnome-settings-daemon-2.30.1-i486-2gsb.txz: Patched.
-  Revert upstream removal of acme.mediakeys which disabled dbus MediaKeys
-  support when using a gstreamer backend.  For more information, please see:
-    https://bugzilla.gnome.org/show_bug.cgi?id=571145
 patches/gnome-applets-2.30.0-i486-2gsb.txz: Reconfigured.
   Added --enable-mixer-applet so that the 'deprecated' volume applet can still
   be added to the gnome panel.  (The volti package in extra/ is nicer.)
