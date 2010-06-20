@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.30.1
 
 # List any packages here that are required to build this package.
@@ -163,6 +163,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-schemas-install \
   --with-platform=gnome \
   --enable-introspection=no \
+  --with-games=aisleriot,quadrapassel,gnect,gnomine,,mahjongg,gtali,gnotravex,gnotski,glines,iagno,glchess,gnobots2,gnibbles,gnome-sudoku \
   || exit 1
 
 # Build and install.
