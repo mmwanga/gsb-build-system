@@ -39,3 +39,5 @@
 --with-system-cairo
 --with-system-sndfile
 --with-binsuffix=3.2
+--disable-pdfimport
+--disable-presenter-console

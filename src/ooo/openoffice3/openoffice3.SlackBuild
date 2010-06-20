@@ -127,15 +127,15 @@ cd ooo-build-$VERSION || exit 1
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # Remove a double applied upstream patch which halts build.
-  zcat $CWD/ooo-build.dev300.patch.fix.diff.gz | patch -p1
+  # zcat $CWD/ooo-build.dev300.patch.fix.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # Remove a double applied upstream patch which halts build.
-  zcat $CWD/ooo-build.dev300.patch.fix.diff.gz | patch -p1
+  # zcat $CWD/ooo-build.dev300.patch.fix.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
   # Remove a double applied upstream patch which halts build.
-  zcat $CWD/ooo-build.dev300.patch.fix.diff.gz | patch -p1
+  # zcat $CWD/ooo-build.dev300.patch.fix.diff.gz | patch -p1
 fi
 
 # Configure, Tuning, GCC and Make options.
