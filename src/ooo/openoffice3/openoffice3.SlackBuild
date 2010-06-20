@@ -126,13 +126,16 @@ cd ooo-build-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # Remove a double applied upstream patch which halts build.
+  zcat $CWD/ooo-build.dev300.patch.fix.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # Remove a double applied upstream patch which halts build.
+  zcat $CWD/ooo-build.dev300.patch.fix.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # Remove a double applied upstream patch which halts build.
+  zcat $CWD/ooo-build.dev300.patch.fix.diff.gz | patch -p1
 fi
 
 # Configure, Tuning, GCC and Make options.
@@ -207,12 +210,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --with-drink=ale \
   || exit 1
 
-# To download the source packages, uncomment the "./download" line
-# below.  Or, if local copies of the source packages exist, uncomment
-# the next line which copies them in to place.  Do one or the other.
-#
+# Download using git 
 ./download
-#cp -a $CWD/downloaded_resources/* ./src/
 
 # Build and Install
 make || exit 1
