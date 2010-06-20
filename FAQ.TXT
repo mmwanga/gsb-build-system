@@ -1,4 +1,4 @@
-
+Q0: How do I add KDE/XFCE/foo menu items to my menu?
 Q1: I've just installed GSB. How do I make it my default desktop environment?
 Q2: How do I start the GNOME Display Manager? (GDM)
 Q3: How do I uninstall GSB?
@@ -22,6 +22,13 @@ Q14: When I reboot, my volume settings are reset.  How can I preseve these
      settings?
 Q15: What's the difference between GSB and Dropline GNOME?
 Q16: Do you support GSB installed on Slackware-current?
+
+-----
+
+Q0: How do I add KDE/XFCE/foo menu items to my menu?
+
+A: Right-click your GNOME menu and select edit (launches alacarte menu editor).
+    Enable the items you wish to see in your menu.  Done!
 
 -----
 
