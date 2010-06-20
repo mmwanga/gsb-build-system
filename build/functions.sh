@@ -321,6 +321,8 @@ Options:
                         build script from removing these packages, as well
 			as building the testing/ packages.
 
+  --confirm-installs   	Wait for an enter press before installing any packages.
+
   --download      	As the build progresses, fetch tarballs that aren't
                         found in the src/ tree.
 
