@@ -1,8 +1,8 @@
 PKGNAME="devhelp"
-VERSION="2.30.0"
+VERSION="2.30.1"
 HOMEPAGE="http://live.gnome.org/devhelp"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/devhelp/2.30/devhelp-2.30.0.tar.bz2"
-MD5SUM="a24087cd1b4fe6722ec05f6e88104ace"
+DOWNLOAD="${GNOME_SERVER}/devhelp/2.30/devhelp-${VERSION}.tar.bz2"
+MD5SUM="447413a54d3bec2480e9a290e261703d"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
