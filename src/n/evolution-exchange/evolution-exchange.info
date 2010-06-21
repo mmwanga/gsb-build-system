@@ -1,8 +1,8 @@
 PKGNAME="evolution-exchange"
-VERSION="2.30.1"
+VERSION="2.30.2"
 HOMEPAGE="http://projects.gnome.org/evolution/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/evolution-exchange/2.30/evolution-exchange-2.30.1.tar.bz2"
-MD5SUM="9225241ba14d1e2183fe21078c7ed03e"
+DOWNLOAD="${GNOME_SERVER}/evolution-exchange/2.30/evolution-exchange-${VERSION}.tar.bz2"
+MD5SUM="6ab8102ef129bc3285c96e733f145092"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
