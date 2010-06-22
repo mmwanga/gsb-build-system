@@ -1,8 +1,8 @@
 PKGNAME="file-roller"
-VERSION="2.30.1.1"
+VERSION="2.30.2"
 HOMEPAGE="http://fileroller.sourceforge.net/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/file-roller/2.30/file-roller-2.30.1.1.tar.bz2"
-MD5SUM="a29a82396caf8c5726d7f0256e0ba02a"
+DOWNLOAD="${GNOME_SERVER}/file-roller/2.30/file-roller-${VERSION}.tar.bz2"
+MD5SUM="c13209518d2e2294ec1fa813e063b0c5"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
