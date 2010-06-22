@@ -1,8 +1,8 @@
 PKGNAME="gnome-terminal"
-VERSION="2.30.1"
+VERSION="2.30.2"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-terminal/2.30/gnome-terminal-2.30.1.tar.bz2"
-MD5SUM="fed3235a053ce34a16218bfe1c2202ca"
+DOWNLOAD="${GNOME_SERVER}/gnome-terminal/2.30/gnome-terminal-2.30.2.tar.bz2"
+MD5SUM="74c4528f00067072c2bd867d1f8fe844"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
