@@ -4,6 +4,10 @@ GNOME SlackBuild
 
 # United States
 
+    http://ftp.osuosl.org/pub/gnomeslackbuild/gsb-2.30_slackware-13.1/
+
+    ftp://ftp.osuosl.org/pub/gnomeslackbuild/gsb-2.30_slackware-13.1/
+
     http://get.gnomeslackbuild.org/gsb/gsb-2.30_slackware-13.1/
 
 
@@ -57,6 +61,10 @@ GNOME SlackBuild64
 ------------------
 
 # United States
+
+    http://ftp.osuosl.org/pub/gnomeslackbuild/gsb64-2.30_slackware64-13.1/
+
+    ftp://ftp.osuosl.org/pub/gnomeslackbuild/gsb64-2.30_slackware64-13.1/
 
     http://get.gnomeslackbuild.org/gsb/gsb64-2.30_slackware64-13.1/
 
