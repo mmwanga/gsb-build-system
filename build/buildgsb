@@ -81,7 +81,7 @@ PATCHESDIR=${PATCHESDIR:-patches}
 WITH_TEST_PACKAGES=0
 AUTO_DOWNLOAD=0
 ONLY_DOWNLOAD=0
-CONFIRM_INSTALL=0
+CONFIRM_INSTALLS=0
 NOPATCHESDIR=0
 NOSKIP=0
 SKIP_REBUILDS=0
@@ -423,7 +423,7 @@ if [ "${ONLY_DOWNLOAD}" = "0" ]; then
                "" "${PACKAGE_BUILD}${TAG}" "") 
   if [ "$SKIP_BUILD" = "0" -o "${INSTALLED}" = "" ]; then
     # Should we pause for before installing package?
-    [ "${CONFIRM_INSTALL}" = "1" ] && {
+    [ "${CONFIRM_INSTALLS}" = "1" ] && {
        echo ;echo "Press enter to install new package." ; 
        read goop;
     }
