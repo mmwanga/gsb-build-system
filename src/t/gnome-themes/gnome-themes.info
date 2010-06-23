@@ -1,8 +1,8 @@
 PKGNAME="gnome-themes"
-VERSION="2.30.1"
+VERSION="2.30.2"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-themes/2.30/gnome-themes-2.30.1.tar.bz2"
-MD5SUM="89828bdb7f50b540e4d90154760638b3"
+DOWNLOAD="${GNOME_SERVER}/gnome-themes/2.30/gnome-themes-${VERSION}.tar.bz2"
+MD5SUM="a14d46ac59f651e04a333ae1dff23848"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
