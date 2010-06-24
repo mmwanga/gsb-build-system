@@ -1,33 +1,27 @@
-Q0: How do I add KDE/XFCE/foo menu items to my menu?
 Q1: I've just installed GSB. How do I make it my default desktop environment?
 Q2: How do I start the GNOME Display Manager? (GDM)
 Q3: How do I uninstall GSB?
 Q4: After installing GSB, my keyboard does not repeat keys any longer. How is
     that fixed?
 Q5: My KDE Menus are all messed up after installing GSB. How do I fix them?
-Q6: I installed KDE after GSB was installed, and now some icons are missing or
+Q6: How do I add KDE/XFCE menu items to my menu?
+Q7: I installed KDE after GSB was installed, and now some icons are missing or
     broken? How do I fix it?
-Q7: How do get the weather and temperature working in the GNOME panel clock
+Q8: How do get the weather and temperature working in the GNOME panel clock
     applet?
-Q8: How come my scores aren't saved when I play the GNOME games?
-Q9: How do I install templates for Nautilus so that I can create new documents
+Q9: How come my scores aren't saved when I play the GNOME games?
+Q10: How do I install templates for Nautilus so that I can create new documents
     from my desktop?
-Q10: Where are my GNOME settings stored?  What do I need to copy if I switch
+Q11: Where are my GNOME settings stored?  What do I need to copy if I switch
      home directories?
-Q11: How can I configure GNOME Power Manager to catch a power button press?
-Q12: When I click 'Places' in the GNOME menu, Dolphin or Thunar start up
+Q12: How can I configure GNOME Power Manager to catch a power button press?
+Q13: How do I configure my laptop for hibernating and suspending in GNOME?
+Q14: When I click 'Places' in the GNOME menu, Dolphin or Thunar start up
      instead of Nautilus.  How do I fix that?
-Q13: When I reboot, my volume settings are reset.  How can I preseve these
+Q15: When I reboot, my volume settings are reset.  How can I preseve these
      settings?
-Q14: What's the difference between GSB and Dropline GNOME?
-Q15: Do you support GSB installed on Slackware-current?
-
------
-
-Q0: How do I add KDE/XFCE/foo menu items to my menu?
-
-A: Right-click your GNOME menu and select edit (launches alacarte menu editor).
-    Enable the items you wish to see in your menu.  Done!
+Q16: What's the difference between GSB and Dropline GNOME?
+Q17: Do you support GSB installed on Slackware-current?
 
 -----
 
@@ -97,7 +91,14 @@ logged into KDE.
 
     -----
 
-Q6: I installed KDE after GSB was installed, and now some icons are missing or
+Q6: How do I add KDE/XFCE menu items to my menu?
+
+A: Right-click your GNOME menu and select edit (launches alacarte menu editor).
+   Enable the items you wish to see in your menu.  Done!
+
+    -----
+
+Q7: I installed KDE after GSB was installed, and now some icons are missing or
     broken? How do I fix it?
 
 A: Installing the package "kdebase" can break the hicolor icon specification
@@ -106,7 +107,7 @@ to reinstall the standard Slackware package "hicolor-icon-theme" again.
 
     -----
 
-Q7: How do get the weather and temperature working in the GNOME panel clock
+Q8: How do get the weather and temperature working in the GNOME panel clock
     applet?
 
 A: You will need to add your location by clicking the 'Edit' button within the
@@ -119,14 +120,14 @@ your applet preferences.)
 
     -----
 
-Q8: How come my scores aren't saved when I play the GNOME games?
+Q9: How come my scores aren't saved when I play the GNOME games?
 
 A: To get proper scoring working with gnome-games, you have to add the user
    name to group "games".
 
     -----
 
-Q9: How do I install templates for Nautilus so that I can create new documents
+Q10: How do I install templates for Nautilus so that I can create new documents
     from my desktop?
 
 A: This is quite easy though not immediately obvious.  You'll need to create a
@@ -144,7 +145,7 @@ see gnome-look.org.
 
     -----
 
-Q10: Where are my GNOME settings stored?  What do I need to copy if I switch
+Q11: Where are my GNOME settings stored?  What do I need to copy if I switch
      home directories?
 
 A: You will need to copy the following directories over if you wish to preserve
@@ -154,7 +155,7 @@ also need your ~/.icons and ~/.themes.
 
     -----
 
-Q11: How can I configure GNOME Power Manager to catch a power button press?
+Q12: How can I configure GNOME Power Manager to catch a power button press?
 
 A: If you press the power button, Slackware will normally just halt the
    machine.  If you prefer, you can configure GNOME so that gnome-power-manager
@@ -165,11 +166,35 @@ simply do the one you choose). You need to comment out the following lines in
             power) /sbin/init 0
                 ;;
 
-   Thanks to byteframe for the suggestion.
+    -----
+
+Q13: How do I configure my laptop for hibernating and suspending in GNOME?
+
+A: The first thing to do is make sure your laptop is correctly configured to
+suspend and hibernate without GNOME.  Make sure you have the pm-utils package
+installed from the official Slackware repositories, and read through
+/usr/doc/pm-utils-1.3.0/README.SLACKWARE.  You will need a swap parition to get
+hibernation working. 
+  Once suspend/hibernation are working, you should be able to 'suspend' from
+GDM.  For your GNOME desktop, make sure that the gnome-power-manager package is
+installed from GSB.  The default behavior is to hibernate after an idle time
+has passed -- this is configurable from the 'Preferences' menu; you can change
+the sleep type when you have critical battery life left, and for lid-close on
+battery.  You can also change the idle sleep time, but unfortunately, not the
+idle "sleep" type. You can manually change the default sleep type to "suspend"
+by typing:
+
+     $ /usr/bin/gconftool-2 --direct --config-source="$(usr/bin/gconftool-2 \
+         --get-default-source)" --type string \
+         --set /apps/gnome-power-manager/actions/sleep_type_battery suspend 
+
+  You can also configure GDM to use pm-utils as well!  You will need to edit
+your /etc/X11/gdm/custom.conf, and edit the line 'SuspendCommand' and tell it
+to use '/usr/sbin/pm-suspend'
 
     -----
 
-Q12: When I click 'Places' in the GNOME menu, Dolphin or Thunar start up
+Q14: When I click 'Places' in the GNOME menu, Dolphin or Thunar start up
      instead of Nautilus.  How do I set Nautilus to be the default?
 
 A: You can fix this by setting a few gconf settings.  Run the following
@@ -183,7 +208,7 @@ A: You can fix this by setting a few gconf settings.  Run the following
 
     -----
 
-Q13: When I reboot, my volume settings are reset.  How can I preseve these
+Q15: When I reboot, my volume settings are reset.  How can I preseve these
      settings?
 
 A: This is properly a Slackware issue which doesn't save the alsa volume levels
@@ -193,9 +218,10 @@ A: This is properly a Slackware issue which doesn't save the alsa volume levels
          > should be executing:
          >           /usr/sbin/alsactl store
 
+
     -----
 
-Q14: What's the difference between GSB and Dropline GNOME?
+Q16: What's the difference between GSB and Dropline GNOME?
 
 A: Not a whole lot, actually. Dropline GNOME is a similar project, and has been
    around longer, though it is less maintained at the moment. It's simply
@@ -207,12 +233,11 @@ as possible.
 
     -----
 
-Q15: Do you support GSB installed on Slackware-current?
+Q17: Do you support GSB installed on Slackware-current?
 
 A: Unfortunately, no we do not, and only have time to support GSB on Slackware
    13.1 and Slackware64 13.1. You are of course welcome to try to install GSB
 on Slackware-current, but we cannot help support it, usually due to the
 difficulty of package rebuilding against a changing foundation on -current
 (e.g., glibc, compilers, X, etc).
-
 
