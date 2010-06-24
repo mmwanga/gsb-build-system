@@ -1,22 +1,36 @@
 # Sample gsb.options configuration file
 # 
 # Be sure to change the TMP and PKGDEST destinations to a location where you
-# have lots of space.  The other options should be fine as defaults. 
+# have lots of space.  The other options should be fine as defaults. If
+# you really want to tinker, please read the BUILDING.TXT file.
+#
 
-# Tag append for packages
+# TAG appended to packages
+# This is used to demarcate GSB packages from the official Slackware ones.
+#
 export TAG="gsb"
 
-# For Slackware
+# GNOME Server 
+#
+# Most of the .info files default to ftp://ftp.gnome.org/pub/GNOME/sources
+# but you can define a specific server here if you know of a close mirror.
+# Be sure to include the directory pointing to the GNOME source.
+#
+#export GNOME_SERVER="ftp://ftp.gnome.org/pub/GNOME/sources"
+
+# Build Environment for Slackware 13.1
+#
 #export ARCH="i486"
 #export TUNE="i686"
 #export DISTRO="slackware"
-#export TMP=/alternative/tmp
-#export PKGDEST=/alternative/dir/gsb-tree
+#export TMP=/tmp
+#export PKGDEST=$TMP/gsb-tree
 #export GSB_MAKE_FLAGS="-j2"
 
-# For Slackware64
+# Build Environment for Slackware 13.1
+#
 #export ARCH="x86_64"
 #export DISTRO="slackware"
-#export TMP=/alternative/tmp
-#export PKGDEST=/alternative/dir/gsb64-tree
+#export TMP=/tmp
+#export PKGDEST=$TMP/gsb64-tree
 #export GSB_MAKE_FLAGS="-j4"
