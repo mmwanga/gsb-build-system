@@ -1,25 +1,52 @@
-Sat Jun 19 12:04:38 BST 2010
+Fri Jun 25 21:01:27 BST 2010
+  This is the second and last update to the GNOME 2.30 series.  A number of
+  GNOME packages have been upgraded, some of which contain fixes for important
+  bugs, and many with documentation improvements and a large number of updated
+  translations. In addition to updated GNOME packages, in this round of
+  patches to GSB we have also included an upgraded and multilingual
+  OpenOffice, as well as better accessibility packages, and we have added a
+  new gitg package to the d/ set.
+patches/libgnomekbd-2.30.2-i486-1gsb.txz: Upgraded.
+patches/gnome-settings-daemon-2.30.2-i486-1gsb.txz: Upgraded.
+patches/gnome-session-2.30.2-i486-1gsb.txz: Upgraded.
+patches/gnome-themes-2.30.2-i486-1gsb.txz: Upgraded.
+patches/evolution-2.30.2-i486-1gsb.txz: Upgraded.
+patches/evolution-exchange-2.30.2-i486-1gsb.txz: Upgraded.
+patches/vinagre-2.30.2-i486-1gsb.txz: Upgraded.
+patches/telepathy-glib-0.10.7-i486-1gsb.txz: Upgraded.
 patches/telepathy-mission-control-5.4.3-i486-1gsb.txz: Upgraded.
-patches/gnome-games-2.30.1-i486-2gsb.txz: Reconfigured.
+patches/empathy-2.30.2-i486-1gsb.txz: Upgraded.
+patches/gst-plugins-good-0.10.23-i486-1gsb.txz: Upgraded.
+patches/brasero-2.30.2-i486-1gsb.txz: Upgraded.
+patches/gtksourceview-2.10.4-i486-1gsb.txz: Upgraded.
+patches/gedit-2.30.3-i486-1gsb.txz: Upgraded.
+patches/eog-2.30.2-i486-1gsb.txz: Upgraded.
+patches/evince-2.30.3-i486-1gsb.txz: Upgraded.
+patches/eog-plugins-2.30.1-i486-1gsb.txz: Upgraded.
+patches/file-roller-2.30.2-i486-1gsb.txz: Upgraded.
+patches/gcalctool-5.30.2-i486-1gsb.txz: Upgraded.
+patches/gnome-terminal-2.30.2-i486-1gsb.txz: Upgraded.
+patches/bug-buddy-2.30.0-i486-2gsb.txz: Rebuilt.
+  Rebuilt against the newer evolution-data-server.
+patches/gnome-python-desktop-2.30.2-i486-1gsb.txz: Upgraded.
+patches/libgda-4.0.9-i486-1gsb.txz: Upgraded.
+patches/mousetweaks-2.30.2-i486-1gsb.txz: Upgraded.
+patches/orca-2.30.2-i486-1gsb.txz: Upgraded.
+patches/hamster-applet-2.30.2-i486-1gsb.txz: Upgraded.
+patches/devhelp-2.30.1-i486-1gsb.txz: Upgraded.
+patches/anjuta-2.30.2.1-i486-1gsb.txz: Upgraded.
+patches/pessulus-2.30.2-i486-1gsb.txz: Upgraded.
+patches/gnome-games-2.30.2-i486-1gsb.txz: Upgraded.
   Removed lightsoff and swell-foop from game list. They require seed, which in
   turn requires two more library dependencies.  This is a bit much for two
   small javascript games.  
 patches/libgee-0.5.1-i486-1gsb.txz: Upgraded.
-ac/gail-1.22.3-i486-3gsb.txz: Added.
-ac/libgail-gnome-1.20.2-i486-1gsb.txz: Added.
-  gail and libgail-gnome have been added to improve accessibility with Orca.
 patches/banshee-1-1.6.1-i486-2gsb.txz: Patched.
   If accessibility is enabled on gtk+2 >= 2.20, AlbumListView view doesn't
   have a column and ColumnManager is null when BANSHEE_DISABLE_GRID is not
   set, which causes banshee to crash in Gui.Accessibility.ListViewAccessible.
   For more information, please see:
     https://bugzilla.gnome.org/show_bug.cgi?id=615483
-ooo/openoffice3-3.2.1.4-i486-1gsb.txz: Upgraded.
-  Now built with multilingual support.
-ooo/openoffice3-l10n-*-3.2.1.4-noarch-1gsb.txz: Added.
-  We now include 22 different language packages, each of which includes a
-  dictionary and locale interface language support.
-d/gitg-0.0.6-i486-1gsb.txz: Added.
 patches/seahorse-plugins-2.30.1-i486-2gsb.txz: Patched.
   Applied upstream patches to fix two crash conditions, one of which prevented
   the seahorse-tool from using gpgme to encrypt/decrypt.  For more
@@ -37,8 +64,9 @@ patches/gnome-applets-2.30.0-i486-2gsb.txz: Reconfigured.
   Added --enable-mixer-applet so that the 'deprecated' volume applet can still
   be added to the gnome panel.  (The volti package in extra/ is nicer.)
 patches/gdm-2.20.11-i486-2gsb.txz: Rebuilt.
-  Add PM_SUSPEND to allow suspending from gdm using pm-utils.  Thanks to
-  rworkman for the suggestion.
+  Add PM_SUSPEND to allow suspending from gdm using pm-utils.  Remember to
+  examine your new /etc/X11/gdm/custom.conf.  Thanks to rworkman for the
+  suggestion.
 patches/gnome-media-2.30.0-i486-2gsb.txz: Patched.
   Set "NoDisplay=false" for the gstreamer-properties icon so that it displays
   in the GNOME Control Panel.
@@ -47,6 +75,15 @@ patches/libgda-4.0.9-i486-1gsb.txz: Upgraded.
 patches/boo-0.9.2.3383-i486-2gsb.txz: Rebuilt.
   Removed an orphaned /share directory by forcing GTKSOURCEVIEW_PATH=/usr.
 patches/tracker-0.8.12-i486-1gsb.txz: Upgraded.
+ac/gail-1.22.3-i486-3gsb.txz: Upgraded.
+ac/libgail-gnome-1.20.3-i486-1gsb.txz: Upgraded.
+  gail and libgail-gnome have been added to improve accessibility with Orca.
+d/gitg-0.0.6-i486-1gsb.txz: Added.
+ooo/openoffice3-3.2.1.4-i486-1gsb.txz: Upgraded.
+  Now built with multilingual support.
+ooo/openoffice3-l10n-*-3.2.1.4-noarch-1gsb.txz: Added.
+  We now include 22 different language packages, each of which includes a
+  dictionary and locale interface language support.
 +--------------------------+
 Thu Jun 10 19:02:49 BST 2010
 patches/empathy-2.30.1.1-i486-1gsb.txz: Upgraded.
@@ -335,7 +372,6 @@ d/cairomm-1.8.4-i486-1gsb.txz: Upgraded.
 d/glibmm-2.24.2-i486-1gsb.txz: Upgraded.
 d/libsigc++-2.2.7-i486-1gsb.txz: Upgraded.
 ap/gnome-power-manager-2.30.1-i486-1gsb.txz: Upgraded.
-ap/gnome-media-2.30.0-i486-1gsb.txz: Upgraded.
 ap/gdm-2.20.10-i486-8gsb.txz: Rebuilt.
 ap/gcalctool-5.30.1-i486-1gsb.txz: Upgraded.
 ap/file-roller-2.30.1.1-i486-1gsb.txz: Upgraded.
@@ -392,7 +428,7 @@ a/gtk-engines-2.20.1-i486-1gsb.txz: Upgraded.
 a/gnome-session-2.30.0-i486-2gsb.txz: Rebuilt.
   Removed splash screen which is no longer needed.  Updated the xinitrc.gnome
   to include seahourse-agent if available, and this now installs directly
-  into etc/X11/xinit/xinitrc.gnome without and .new extension.  
+  into etc/X11/xinit/xinitrc.gnome without a .new extension.  
 +--------------------------+
 Sun May  9 15:22:16 BST 2010
 a/gsb-desktop-2.30.1-noarch-2gsb.txz: Rebuilt.
