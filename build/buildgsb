@@ -242,6 +242,7 @@ BUILD_OPTION="$(echo $listitem | cut -f1 -d:)"
 SET="$(echo $listitem | cut -f2 -d: | cut -f1 -d/)"
 PACKAGE="$(echo $listitem | cut -f2 -d: | cut -f2 -d/)"
 SKIP_BUILD=0
+DISALLOW_PATCHES=0
 SOURCE=$BUILDSOURCE
 
 # Create our tree according to Slackware defaults
@@ -249,17 +250,17 @@ case $SET in
    extra)
      SUBDIR=$GSBDIR/../${EXTRADIR}/${PACKAGE}
      SOURCE=$BUILDSOURCE/../
-     NOPATCHES=1
+     DISALLOW_PATCHES=1
      ;;
    pasture)
      SUBDIR=$GSBDIR/../${PASTUREDIR}
      SOURCE=$BUILDSOURCE/../
-     NOPATCHES=1
+     DISALLOW_PATCHES=1
      ;;
    testing)
      SUBDIR=$GSBDIR/../${TESTINGDIR}/packages
      SOURCE=$BUILDSOURCE/../
-     NOPATCHES=1
+     DISALLOW_PATCHES=1
      ;;
    *)
      SUBDIR=$GSBDIR/$SET
@@ -307,7 +308,7 @@ if [ "${ONLY_DOWNLOAD}" = "0" ]; then
       SKIP_BUILD=1
     else
       # Not in the main directory, check patches.
-      if [ "$NOPATCHESDIR" = "0" ]; then
+      if [ "$NOPATCHESDIR" = "0" -a "$DISALLOW_PATCHES" = "0" ]; then
         [ -d $PKGDEST/$PATCHESDIR/packages ] && {
           if find_package_files "$PKGDEST/$PATCHESDIR/packages" \
             "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" \
