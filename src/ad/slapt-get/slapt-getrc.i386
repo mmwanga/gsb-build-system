@@ -44,6 +44,8 @@ SOURCE=http://mirrors.gnomeslackbuild.org/gsb/gsb-2.30_slackware-13.1/:PREFERRED
 # of the one above.  Any GSB mirror can be used, but those listed here have
 # all been manually checked as working.  Add copies for the additional
 # extra/testing/pasture areas (like above) if you use them.
+#SOURCE=http://ftp.osuosl.org/pub/gsb/gsb-2.30_slackware-13.1/:PREFERRED
+#SOURCE=ftp://ftp.osuosl.org/pub/gsb/gsb-2.30_slackware-13.1/:PREFERRED
 #SOURCE=http://www.slackware.org.uk/gsb/gsb-2.30_slackware-13.1/:PREFERRED
 #SOURCE=ftp://ftp.slackware.org.uk/gsb/gsb-2.30_slackware-13.1/:PREFERRED
 #SOURCE=http://darkstar.ist.utl.pt/slackware/addon/gnomeslackbuild/gsb-2.30_slackware-13.1/:PREFERRED
