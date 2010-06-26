@@ -7,6 +7,8 @@ Fri Jun 25 21:01:27 BST 2010
   OpenOffice, as well as better accessibility packages, and we have added a
   new gitg package to the d/ set.
 patches/libgnomekbd-2.30.2-x86_64-1gsb.txz: Upgraded.
+patches/slapt-get-0.10.2e-x86_64-2gsb.txz: Rebuilt.
+  Added new OSUOSL mirrors to slapt-getrc.
 patches/gnome-settings-daemon-2.30.2-x86_64-1gsb.txz: Upgraded.
 patches/gnome-session-2.30.2-x86_64-1gsb.txz: Upgraded.
 patches/gnome-themes-2.30.2-x86_64-1gsb.txz: Upgraded.
@@ -28,6 +30,8 @@ patches/gcalctool-5.30.2-x86_64-1gsb.txz: Upgraded.
 patches/gnome-terminal-2.30.2-x86_64-1gsb.txz: Upgraded.
 patches/bug-buddy-2.30.0-x86_64-2gsb.txz: Rebuilt.
   Rebuilt against the newer evolution-data-server.
+patches/gnome-control-center-2.30.1-x86_64-3gsb.txz: Rebuilt.
+ Rebuilt against the newer evolution-data-server.
 patches/gnome-python-desktop-2.30.2-x86_64-1gsb.txz: Upgraded.
 patches/libgda-4.0.9-x86_64-1gsb.txz: Upgraded.
 patches/mousetweaks-2.30.2-x86_64-1gsb.txz: Upgraded.
