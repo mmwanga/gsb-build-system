@@ -1,3 +1,17 @@
+Sun Jul  4 14:10:59 BST 2010
+patches/avahi-0.6.26-x86_64-1gsb.txz: Built.
+  Possible DoS (assertion failure) after avahi received a packet with
+  corrupted checksum.  For more information, see:
+      http://www.openwall.com/lists/oss-security/2010/06/23/4
+      https://bugzilla.redhat.com/show_bug.cgi?id=607293
+  (* Security fix *)    
+patches/liferea-1.6.4-x86_64-1gsb.txz: Upgraded.
+  This upgrade fixes broken Google reader authentication.
+patches/tracker-0.8.14-x86_64-1gsb.txz: Upgraded.
+  Among other improvements, this upgrade fixes a segfault when tracker guesses
+  content type in mounts without path. For more information, see:
+    http://ftp.gnome.org/pub/GNOME/sources/tracker/0.8/tracker-0.8.14.news
++--------------------------+
 Fri Jun 25 21:01:27 BST 2010
   This is the second and last update to the GNOME 2.30 series.  A number of
   GNOME packages have been upgraded, some of which contain fixes for important
