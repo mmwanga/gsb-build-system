@@ -180,6 +180,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-gtk \
   --enable-qt4 \
   --disable-qt3 \
+  --disable-gtk3 \
   --enable-core-docs \
   --with-avahi-user=avahi \
   --with-avahi-group=avahi \
