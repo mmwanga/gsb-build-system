@@ -1,5 +1,5 @@
 Sun Jul  4 14:10:59 BST 2010
-patches/avahi-0.6.26-i486-1gsb.txz: Built.
+patches/avahi-0.6.26-i486-1gsb.txz: Upgraded.
   Possible DoS (assertion failure) after avahi received a packet with
   corrupted checksum.  For more information, see:
       http://www.openwall.com/lists/oss-security/2010/06/23/4
