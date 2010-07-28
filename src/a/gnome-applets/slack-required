@@ -2,6 +2,7 @@ GConf
 libwnck
 libnotify
 libgtop
+libsoup
 libgweather
 gnome-desktop
 gnome-icon-theme
