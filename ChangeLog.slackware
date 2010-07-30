@@ -1,5 +1,15 @@
+Tue Jul 20 00:14:29 BST 2010
+n/webkit-1.2.3-i486-1gsb.txz: Upgraded.
+  This is a new stable release of webkit which includes fixes the numerous
+  security issues. For a full list, please consult:
+    http://gitorious.org/webkitgtk/stable/blobs/master/WebKit/gtk/NEWS
+  (* Security fix *)    
+ap/rhythmbox-0.13.0-i486-1gsb.txz: Upgraded.
+  New stable release which fixes a number of crash conditions in the
+  previous 0.12 series, and offers better syncing for media players. 
++--------------------------+
 Sun Jul  4 14:10:59 BST 2010
-patches/avahi-0.6.26-i486-1gsb.txz: Built.
+patches/avahi-0.6.26-i486-1gsb.txz: Upgraded.
   Possible DoS (assertion failure) after avahi received a packet with
   corrupted checksum.  For more information, see:
       http://www.openwall.com/lists/oss-security/2010/06/23/4
