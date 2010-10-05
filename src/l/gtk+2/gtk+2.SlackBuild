@@ -25,15 +25,15 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
-VERSION=2.20.1
+BUILD=1
+VERSION=2.22.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
 REQUIRED_PACKAGES="pango cairo glib2 libpng libjpeg libtiff libXrender xproto \
                    renderproto libX11 kbproto libXau libXdmcp libxcb \
 		   libpthread-stubs libXext cups inputproto libXi libXinerama \
-		   libXrandr jasper"
+		   libXrandr jasper gdk-pixbuf"
  
 # Build variables.
 TAG=${TAG:-gsb}
@@ -111,7 +111,7 @@ mkdir -p $PKG
 mkdir -p $PKG/install
 mkdir -p $PKGDEST
 
-## Decompress archive.
+# Decompress archive.
 cd $TMP &&
 rm -rf $SRCNAME-$VERSION || exit 1
 tar xjf $CWD/$SRCNAME-$VERSION.tar.bz2 &&
@@ -127,23 +127,17 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
 fi
 
-# There's been this long standing debate about PNG and -lz
-# and this patch is the workaround.  ;-)
-zcat $CWD/gtk.pnglz.diff.gz | patch -p1 || exit 1
-
 # Do not flood the console or .xsession-errors with "trouble ahead"
 # warnings (most noticable when using Firefox and Flash):
-zcat $CWD/gtk.xid.nowarningflood.diff.gz | patch -p1 || exit 1
+zcat $CWD/gtk.xid.nowarningflood.diff.gz | patch -p1 
+# Disable building documentation
+zcat $CWD/gtk.remove.docs.diff.gz | patch -p1 
 
 # Use /etc/gtk-2.0/$ARCH-slackware-linux instead of /etc/gtk-2.0/
-sed -i "s/GTK_SYSCONFDIR, \\\"gtk-2\\.0\\\"/GTK_SYSCONFDIR, \\\"gtk-2\\.0\\\", HOST/g" ./gtk/gtkrc.c ./gdk-pixbuf/gdk-pixbuf-io.c
+sed -i "s/GTK_SYSCONFDIR, \\\"gtk-2\\.0\\\"/GTK_SYSCONFDIR, \\\"gtk-2\\.0\\\", HOST/g" ./gtk/gtkrc.c
 sed -i 's/sysconfdir)\\"/&      \\\n\t-DHOST=\\\"$(host_triplet)\\\"/g' \
-gdk-pixbuf/Makefile.am \
 gtk/Makefile.am \
 modules/input/Makefile.am
-
-# Use libpng-1.4.x:
-zcat $CWD/gtk.png14.diff.gz | patch -p1 || exit 1
 
 # Fix permissions for building.
 chown -R root:root .
@@ -180,6 +174,7 @@ autoreconf -vif
 # Autoconf changes linux to linux-gnu.
 # Our host is $ARCH-slackware-linux not $ARCH-slackware-linux-gnu:
 sed -i -e 's#linux|linux-gnu|#linux|linux|#' config.sub
+# Correction for missing doc dir.
 
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS -DHOST='"'"${ARCH}-slackware-linux"'"'" \
@@ -190,6 +185,7 @@ CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --mandir=/usr/man \
   --with-xinput=yes \
   --build=$ARCH-$DISTRO-linux \
+  --enable-gtk-doc-html=no \
   || exit 1
 
 make $MAKE_FLAGS || exit 1
