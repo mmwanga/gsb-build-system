@@ -1,8 +1,8 @@
 PKGNAME="ORBit2"
-VERSION="2.14.18"
+VERSION="2.14.19"
 HOMEPAGE="http://projects.gnome.org/ORBit2/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/ORBit2/2.14/ORBit2-2.14.18.tar.bz2"
-MD5SUM="3e80596171b1ea652707219c7144ff53"
+DOWNLOAD="${GNOME_SERVER}/ORBit2/2.14/ORBit2-${VERSION}.tar.bz2"
+MD5SUM="7082d317a9573ab338302243082d10d1"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
