@@ -1,3 +1,17 @@
+Tue Oct  5 18:00:22 BST 2010
+GNOME SlackBuild 2.32 for x86 begins!
+  GNOME 2.32 was released September, 29.  We're starting a new development
+  cycle to bring all the latest and great from GNOME to Slackware.  GNOME 2.32
+  is the last planned major release in the GNOME 2.x series, with only
+  maintenance releases for GNOME 2.x planned going forward.  GNOME 2.32
+  features a limited set of new features in some applications, as the
+  community continues to focus on the upcoming GNOME 3.0 release scheduled for
+  April, 2011.
+l/glib2-2.26.0-i486-1gsb.txz: Upgraded.
+l/gdk-pixbuf-2.22.0-i486-1gsb.txz: Added.
+  The gdk-pixbuf package has been split upstream from the gtk+ package, and
+  is now a compile-time dependency for gtk+.
++--------------------------+
 Wed Jul 28 00:58:53 BST 2010
 patches/avahi-0.6.27-i486-1gsb.txz: Upgraded.
   This latest version of avahi fixes a missing avahi-ui library. For more
