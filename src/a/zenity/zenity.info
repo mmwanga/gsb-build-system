@@ -1,8 +1,8 @@
 PKGNAME="zenity"
-VERSION="2.30.0"
+VERSION="2.32.0"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/zenity/2.30/zenity-2.30.0.tar.bz2"
-MD5SUM="15ba2f27d5e1a79c996e5e53e16f4380"
+DOWNLOAD="${GNOME_SERVER}/zenity/2.32/zenity-${VERSION}.tar.bz2"
+MD5SUM="3ab7a50811e20e9750dc4b32fd63c37b"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
