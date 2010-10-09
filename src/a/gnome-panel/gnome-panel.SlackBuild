@@ -30,8 +30,8 @@ VERSION=2.32.0.2
 # List any packages here that are required to build this package.  The list is
 # space seperated and case sensitive.
 REQUIRED_PACKAGES="gnome-desktop gnome-vfs startup-notification libwnck \
-		   libcanberra gstreamer evolution-data-server polkit \
-		   polkit-gnome ConsoleKit seamonkey"
+		   libcanberra gstreamer evolution-data-server \
+		   ConsoleKit seamonkey"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -159,11 +159,11 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --disable-static \
-  --enable-shared \
   --disable-schemas-install \
   --disable-network-manager \
-  --enable-polkit \
+  --enable-introspection=no \
+  --enable-eds \
+  --disable-static \
   || exit 1
 
 # Build and install.
@@ -181,16 +181,6 @@ rmdir -p /etc/dbus-1/system.d
   find $PKG/usr/man -type l -name \*.? -printf \
     "( cd '%h'; [ -e '%l.gz' ] &&
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
-}
-
-# Deal with .info files.
-[ -e $PKG/usr/share/info ] && {
-  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
-  rmdir -p $PKG/usr/share
-  }
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
 }
 
 # Copy extra documentation into package.

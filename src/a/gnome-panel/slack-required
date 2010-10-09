@@ -6,6 +6,3 @@ libwnck
 libcanberra
 gstreamer
 evolution-data-server
-polkit
-polkit-gnome
-ConsoleKit
