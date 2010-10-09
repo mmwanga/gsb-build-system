@@ -29,7 +29,8 @@ VERSION=2.32.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libsoup seamonkey-solibs gnome-keyring heimdal-libraries libgweather seamonkey"
+REQUIRED_PACKAGES="libsoup seamonkey-solibs gnome-keyring heimdal-libraries \
+                   libgweather seamonkey libgdata"
 
 # Build variables.
 TAG=${TAG:-gsb}
