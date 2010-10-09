@@ -1,0 +1,12 @@
+      |-----handy-ruler------------------------------------------------------|
+upower: upower (upower dbus support for power devices)
+upower:
+upower: upower is an abstraction for enumerating power devices, listening to
+upower: device events and querying history and statistics. Applications or
+upower: services on the system can access the upower service via the system
+upower: message bus to control the latency of different operations on your
+upower: computer, which enables you to save significant amounts of power.
+upower:
+upower:
+upower:
+upower:

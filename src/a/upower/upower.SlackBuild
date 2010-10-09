@@ -25,7 +25,7 @@
 
 # Package variables.
 BUILD=1
-VERSION=014
+VERSION=0.9.5
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -41,7 +41,6 @@ PKGDEST=${PKGDEST:-$TMP}
 
 # Script variables.
 PKGNAME=$(basename $0 .SlackBuild)
-SRCNAME=DeviceKit-power
 PKG=$TMP/package-$PKGNAME
 CWD=$(pwd)
 NOCLEANUP=0
@@ -110,21 +109,16 @@ mkdir -p $PKGDEST
 # Decompress archive.
 cd $TMP &&
 rm -rf $PKGNAME-$VERSION &&
-tar xjf $CWD/$SRCNAME-$VERSION.tar.bz2 &&
-mv $SRCNAME-$VERSION $PKGNAME-$VERSION &&
+tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # Fix gtkdoc automake arguments in configure script for 1.11 compatibility
-  zcat $CWD/devicekit-power.automake.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  zcat $CWD/devicekit-power.automake.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  zcat $CWD/devicekit-power.automake.diff.gz | patch -p1
 fi
 
 # Fix permissions for building.
@@ -157,24 +151,22 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
   --mandir=/usr/man $CONFIGURE_FLAGS \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
   --disable-static \
-  --enable-shared \
-  --enable-man-pages \
-  --disable-gtk-doc \
   || exit 1
 
 # Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-# Preserve files
-mv $PKG/etc/dbus-1/system.d/org.freedesktop.DeviceKit.Power.conf \
-  $PKG/etc/dbus-1/system.d/org.freedesktop.DeviceKit.Power.conf.new 
+# Preserve settings
+mv $PKG/etc/UPower/UPower.conf $PKG/etc/UPower/UPower.conf.new || exit 1
+mv $PKG/etc/dbus-1/system.d/org.freedesktop.UPower.conf \
+    $PKG/etc/dbus-1/system.d/org.freedesktop.UPower.conf.new || exit 1
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -186,16 +178,6 @@ mv $PKG/etc/dbus-1/system.d/org.freedesktop.DeviceKit.Power.conf \
   find $PKG/usr/man -type l -name \*.? -printf \
     "( cd '%h'; [ -e '%l.gz' ] &&
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
-}
-
-# Deal with .info files.
-[ -e $PKG/usr/share/info ] && {
-  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
-  rmdir -p $PKG/usr/share
-  }
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
 }
 
 # Copy extra documentation into package.

@@ -11,4 +11,8 @@ install_file() {
   # Otherwise, we leave the .new copy for the admin to consider...
 }
 
-install_file etc/dbus-1/system.d/org.freedesktop.DeviceKit.Power.conf.new
+install_file etc/dbus-1/system.d/org.freedesktop.UPower.conf.new
+install_file etc/UPower/UPower.conf.new
+
+# restart udev to load new upower rules.
+chroot . /etc/rc.d/rc.udev reload

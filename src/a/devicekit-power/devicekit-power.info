@@ -1,7 +1,0 @@
-PKGNAME="devicekit-power"
-VERSION="014"
-HOMEPAGE="http://freedesktop.org/wiki/Software/DeviceKit"
-DOWNLOAD="http://cgit.freedesktop.org/DeviceKit/DeviceKit-power/snapshot/DeviceKit-power-014.tar.bz2"
-MD5SUM="44d0cd31b909b08b2a6b6e42a9d079bb"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
