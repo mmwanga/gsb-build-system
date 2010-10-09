@@ -1,0 +1,7 @@
+PKGNAME="usbmuxd"
+VERSION="1.0.5"
+HOMEPAGE="http://www.libimobiledevice.org/"
+DOWNLOAD="http://marcansoft.com/uploads/usbmuxd/usbmuxd-${VERSION}.tar.bz2"
+MD5SUM="68e68b5c2bea3ad99917add839d32cb2"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
