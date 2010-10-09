@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.30.2
+VERSION=2.32.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libnotify libgnomekbd"
+REQUIRED_PACKAGES="libnotify libgnomekbd polkit-gnome"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -156,10 +156,11 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --disable-static --enable-shared \
+  --disable-static \
   --disable-schemas-install \
   --disable-pulse \
   --with-libnotify \
+  --enable-polkit \
   || exit 1
 
 # Build and install.
@@ -171,6 +172,10 @@ mkdir -p $PKG/etc/gnome/xdg/autostart &&
 mv $PKG/etc/xdg/autostart/gnome-settings-daemon.desktop \
    $PKG/etc/gnome/xdg/autostart || exit 1
 rm -fr $PKG/etc/xdg
+
+# Preserve dbus settings
+mv $PKG/etc/dbus-1/system.d/org.gnome.SettingsDaemon.DateTimeMechanism.conf \
+   $PKG/etc/dbus-1/system.d/org.gnome.SettingsDaemon.DateTimeMechanism.conf.new || exit 1
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
