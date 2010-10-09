@@ -131,7 +131,7 @@ fi
 # warnings (most noticable when using Firefox and Flash):
 zcat $CWD/gtk.xid.nowarningflood.diff.gz | patch -p1 
 # Disable building documentation
-zcat $CWD/gtk.remove.docs.diff.gz | patch -p1 
+zcat $CWD/fix_build_issues_on_tutorial_and_faq.diff.gz | patch -p1
 
 # Use /etc/gtk-2.0/$ARCH-slackware-linux instead of /etc/gtk-2.0/
 sed -i "s/GTK_SYSCONFDIR, \\\"gtk-2\\.0\\\"/GTK_SYSCONFDIR, \\\"gtk-2\\.0\\\", HOST/g" ./gtk/gtkrc.c
@@ -209,6 +209,9 @@ mkdir -p $PKG/etc/gtk-2.0/$host
 mv $PKG/etc/gtk-2.0/* $PKG/etc/gtk-2.0/$host/ 
 
 mv $PKG/etc/gtk-2.0/$host/im-multipress.conf $PKG/etc/gtk-2.0/$host/im-multipress.conf.new
+
+# Install a "starter" gtkrc
+cat $CWD/gtkrc.new > $PKG/etc/gtk-2.0/$host/gtkrc.new
 
 # We need to have separate 32-bit and 64-bit binaries
 # for places where we have two copies of the GTK+ package installed.

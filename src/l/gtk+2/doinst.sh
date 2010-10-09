@@ -12,10 +12,13 @@ config() {
 }
 if [ -d etc/gtk-2.0/$(uname -m)-slackware-linux ]; then
   config etc/gtk-2.0/$(uname -m)-slackware-linux/im-multipress.conf.new
+  config etc/gtk-2.0/$(uname -m)-slackware-linux/gtkrc.new
 elif [ -d etc/gtk-2.0/i486-slackware-linux ]; then
   config etc/gtk-2.0/i486-slackware-linux/im-multipress.conf.new
+  config etc/gtk-2.0/i486-slackware-linux/gtkrc.new
 elif [ -d etc/gtk-2.0/*-slackware-linux ]; then
   config etc/gtk-2.0/*-slackware-linux/im-multipress.conf.new
+  config etc/gtk-2.0/*-slackware-linux/gtkrc.new
 fi
 
 # Since the use of icon caching is optional, and has to be kept in sync
