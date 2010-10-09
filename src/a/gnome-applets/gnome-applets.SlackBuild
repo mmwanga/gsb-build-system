@@ -24,13 +24,13 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
-VERSION=2.30.0
+BUILD=1
+VERSION=2.32.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
 REQUIRED_PACKAGES="GConf libwnck libnotify libgtop libgweather gnome-desktop \
-                   gnome-icon-theme gnome-python gnome-settings-daemon"
+                   gnome-icon-theme gnome-python gnome-settings-daemon polkit-gnome"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -157,9 +157,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
   --disable-static \
-  --enable-shared \
   --disable-schemas-install \
-  --disable-polkit \
+  --enable-polkit \
   --enable-mixer-applet \
   || exit 1
 
