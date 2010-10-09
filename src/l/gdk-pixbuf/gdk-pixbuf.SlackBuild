@@ -165,6 +165,29 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
+# We need to have separate 32-bit and 64-bit binaries
+# for places where we have two copies of the GTK+ package installed.
+# (we might have x86_64 and i486 packages on the same system, for example.)
+host="$ARCH-slackware-linux"
+case "$host" in
+  s390x*|x86_64*)
+   mv $PKG/usr/bin/gdk-pixbuf-query-loaders{,-64}
+   ( cd $PKG/usr/bin
+     ln -sf gdk-pixbuf-query-loaders-64 gdk-pixbuf-query-loaders
+   )
+   ;;
+  *)
+   mv $PKG/usr/bin/gdk-pixbuf-query-loaders{,-32}
+   ( cd $PKG/usr/bin
+     ln -sf gdk-pixbuf-query-loaders-32 gdk-pixbuf-query-loaders
+   )
+   ;;
+esac
+
+# Install wrappers for the binaries:
+cp $CWD/update-gdk-pixbuf-loaders $PKG/usr/bin/update-gdk-pixbuf-loaders
+chmod 0755 $PKG/usr/bin/update-gdk-pixbuf-loaders
+
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
