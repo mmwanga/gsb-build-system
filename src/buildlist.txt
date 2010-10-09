@@ -12,6 +12,7 @@
 #
 # Glib2 and GTK+2 are required replacements
 l/glib2
+l/gdk-pixbuf
 l/gtk+2
 # GNOME core libraries
 l/ORBit2
@@ -41,14 +42,10 @@ n/pywebkitgtk
 a/rarian
 a/gnome-desktop
 a/gnome-menus
-#
-# For users who want iPod support in gvfs, they may wish to install
-# libimobiledevice and usbdmux from http://www.libimobiledevice.org/.  
-# The easiest way is to use the build scripts from the 
-# SlackBuilds.org project: 
-#   http://slackbuilds.org/repository/13.1/libraries/libimobiledevice/
-#   http://slackbuilds.org/repository/13.1/system/usbmuxd/
-# 
+# iPhone support for gvfs
+l/usbmuxd
+l/libplist
+l/libimobiledevice
 a/gvfs
 a/nautilus
 a/gnome-mount

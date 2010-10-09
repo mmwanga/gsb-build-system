@@ -3,6 +3,7 @@ clutter:ADD
 clutter-gtk:ADD
 exempi:ADD
 ffmpeg:ADD
+gdk-pixbuf:ADD
 glib2:ADD
 gnome-mime-data:ADD
 goocanvas:ADD
@@ -25,6 +26,8 @@ libgnome:ADD
 libgnomecanvas:ADD
 libgtop:ADD
 libicu:ADD
+libimobiledevice:ADD
+libplist:ADD
 libproxy:ADD
 libpst:ADD
 libsexy:ADD
@@ -41,4 +44,5 @@ pyorbit:ADD
 pyxdg:ADD
 sg3_utils:SKP
 speex:ADD
+usbmuxd:ADD
 wv:ADD
