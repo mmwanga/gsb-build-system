@@ -1,0 +1,7 @@
+PKGNAME="libimobiledevice"
+VERSION="1.0.3"
+HOMEPAGE="http://www.libimobiledevice.org/"
+DOWNLOAD="http://www.libimobiledevice.org/downloads/libimobiledevice-1.0.3.tar.bz2"
+MD5SUM="68e68b5c2bea3ad99917add839d32cb2"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
