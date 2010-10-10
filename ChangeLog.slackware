@@ -1,3 +1,40 @@
+Sun Oct 10 18:37:25 BST 2010
+ap/gnome-media-2.32.0-i486-1gsb.txz: Upgraded.
+ap/gnome-terminal-2.30.2-i486-1gsb.txz: Upgraded.
+ap/gnome-python-desktop-2.30.2-i486-1gsb.txz: Upgraded.
+l/libdmapsharing-2.0.4-i486-1gsb.txz: Added.
+  libdmapsharing is needed for DAAP music sharing in rhythmbox.
+ap/rhythmbox-0.13.1-i486-1gsb.txz: Upgraded.
+ad/slapt-get-0.10.2g-i486-1gsb.txz: Upgraded.
+go/libgda-4.0.12-i486-1gsb.txz: Upgraded.
+ac/mousetweaks-2.32.0-i486-1gsb.txz: Upgraded.
+ac/orca-2.32.0-i486-1gsb.txz: Upgraded.
+ap/gnome-games-2.32.0-i486-1gsb.txz: Upgraded.
+ap/hamster-applet-2.32.0-i486-1gsb.txz: Upgraded.
+m/mono-addins-0.5-i486-1gsb.txz: Upgraded.
+d/devhelp-2.32.0-i486-1gsb.txz: Upgraded.
+d/anjuta-2.30.2.1-i486-1gsb.txz: Upgraded.
+l/libgee-0.6.0-i486-1gsb.txz: Upgraded.
+go/tracker-0.8.17-i486-1gsb.txz: Upgraded.
+n/NetworkManager-pptp-0.8.1-i486-1gsb.txz: Upgraded.
+n/NetworkManager-openvpn-0.8.1-i486-1gsb.txz: Upgraded.
+ad/pessulus-2.30.3-i486-1gsb.txz: Upgraded.
++--------------------------+
+Sun Oct 10 15:14:14 BST 2010
+n/NetworkManager-0.8.1-i486-1gsb.txz: Upgraded.
+n/network-manager-applet-0.8.1-i486-1gsb.txz: Upgraded.
+n/liferea-1.6.5-i486-1gsb.txz: Upgraded.
+ap/bug-buddy-2.32.0-i486-1gsb.txz: Upgraded.
+l/gst-plugins-good-0.10.23-i486-1gsb.txz: Upgraded.
+ap/brasero-2.32.0-i486-1gsb.txz: Upgraded.
+l/gtksourceview-2.10.5-i486-1gsb.txz: Upgraded.
+ap/gedit-2.30.4-i486-1gsb.txz: Upgraded.
+ap/eog-2.32.0-i486-1gsb.txz: Upgraded.
+ap/evince-2.30.3-i486-1gsb.txz: Upgraded.
+ap/eog-plugins-2.30.1-i486-1gsb.txz: Upgraded.
+ap/file-roller-2.32.0-i486-1gsb.txz: Upgraded.
+ap/gcalctool-5.32.0-i486-1gsb.txz: Upgraded.
++--------------------------+
 Sun Oct 10 00:00:34 BST 2010
 a/gnome-control-center-2.32.0-i486-1gsb.txz: Upgraded.
 a/gnome-applets-2.32.0-i486-1gsb.txz: Upgraded.
