@@ -160,8 +160,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
   --program-prefix="" \
-  --disable-static \
-  --enable-shared \
   || exit 1
 
 # Build and install.
