@@ -1,8 +1,8 @@
 PKGNAME="gnome-power-manager"
-VERSION="2.30.1"
+VERSION="2.32.0"
 HOMEPAGE="http://projects.gnome.org/gnome-power-manager/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-power-manager/2.30/gnome-power-manager-2.30.1.tar.bz2"
+DOWNLOAD="${GNOME_SERVER}/gnome-power-manager/2.32/gnome-power-manager-${VERSION}.tar.bz2"
 MD5SUM="b85178b8db77db5d22e185430549a295"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

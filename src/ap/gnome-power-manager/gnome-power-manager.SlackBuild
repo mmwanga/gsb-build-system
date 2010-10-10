@@ -24,8 +24,8 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=2
-VERSION=2.30.1
+BUILD=1
+VERSION=2.32.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -162,9 +162,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-scrollkeeper \
   --disable-docbook-docs \
   --disable-static \
-  --enable-shared \
   --enable-applets \
-  --enable-hal \
   || exit 1
 
 # Build and install.
