@@ -150,6 +150,7 @@ ap/gnome-python-desktop
 ap/deskbar-applet
 l/gst-python
 l/gst-ffmpeg
+l/libdmapsharing
 ap/rhythmbox
 ad/slapt-get
 ad/gconf-editor
