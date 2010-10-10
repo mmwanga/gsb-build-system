@@ -15,9 +15,11 @@ install_file etc/rc.d/rc.networkmanager.new
 install_file etc/NetworkManager/nm-system-settings.conf.new
 install_file etc/dbus-1/system.d/nm-avahi-autoipd.conf.new
 install_file etc/dbus-1/system.d/NetworkManager.conf.new
-#install_file etc/dbus-1/system.d/nm-system-settings.conf.new
 install_file etc/dbus-1/system.d/nm-dhcp-client.conf.new
 install_file etc/dbus-1/system.d/nm-dispatcher.conf.new
+
+# Reload udev rules
+chroot . /etc/rc.d/rc.udev reload
 
 # If rc.local doesn't exist, create it
 if [ ! -e etc/rc.d/rc.local ]; then
@@ -71,3 +73,4 @@ By default, NetworkManager is disabled.  In order to enable it, you will need
 to restart the dbus message system to load the new NetworkManager settings, and
 make the /etc/rc.d/rc.networkmanager executable.
 EOF
+

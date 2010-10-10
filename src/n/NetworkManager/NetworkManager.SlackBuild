@@ -163,6 +163,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-shared \
   --with-distro=slackware \
   --with-crypto=gnutls \
+  --without-tests \
+  --disable-more-warnings \
   || exit 1
 
 # Build and install.
