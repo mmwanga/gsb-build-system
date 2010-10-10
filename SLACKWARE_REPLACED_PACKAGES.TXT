@@ -19,8 +19,9 @@
 *********************************************** 
 -- REQUIRED Package Replacements --
 
-glib2:             ( 2.24.0 required by gtk+2-2.20.0 )
-gtk+2:         	   ( 2.20.0 required by gnome-panel and nautilus )
+glib2:             ( 2.26.0 required by gtk+2-2.22.0 )
+gtk+2:         	   ( 2.22.0 required by gnome-panel and nautilus )
+gnome-icon-theme:  ( 2.30.3 required by evolution )
 
 *********************************************** 
 -- OPTIONAL Package Replacements --
