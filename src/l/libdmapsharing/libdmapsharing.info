@@ -1,0 +1,7 @@
+PKGNAME="libdmapsharing"
+VERSION="2.0.4"
+HOMEPAGE="http://www.flyn.org/projects/libdmapsharing/index.html"
+DOWNLOAD="http://www.flyn.org/projects/libdmapsharing/libdmapsharing-${VERSION}.tar.gz"
+MD5SUM="371e187f8d47e262c37dc00673d9ca5e"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
