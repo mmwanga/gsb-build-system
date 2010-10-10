@@ -19,6 +19,7 @@ heimdal-libraries:ADD
 libbonobo:ADD
 libbonoboui:ADD
 libdaemon:ADD
+libdmapsharing:ADD
 libelf:ADD
 libgalago:ADD
 libgdata:ADD
