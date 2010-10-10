@@ -1,0 +1,8 @@
+PKGNAME="libgdata"
+VERSION="0.6.5"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/libgdata/0.6/libgdata-${VERSION}.tar.bz2"
+MD5SUM="e12f52a3d25c25016856c64ca0331221"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
