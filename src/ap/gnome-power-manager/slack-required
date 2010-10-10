@@ -1,6 +1,6 @@
 GConf
 libnotify
-devicekit-power
+upower
 libunique
 libxcb
 libcanberra

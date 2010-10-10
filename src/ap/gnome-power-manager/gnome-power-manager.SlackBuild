@@ -29,7 +29,7 @@ VERSION=2.30.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libnotify devicekit-power libunique libxcb libcanberra pm-utils" 
+REQUIRED_PACKAGES="libnotify upower libunique libxcb libcanberra pm-utils" 
 
 # Build variables.
 TAG=${TAG:-gsb}
