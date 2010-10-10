@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.30.2
+VERSION=2.32.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="GConf gnome-desktop devicekit-power metacity"
+REQUIRED_PACKAGES="GConf gnome-desktop upower metacity"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -159,10 +159,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
   --disable-static \
-  --enable-shared \
   --disable-schemas-install \
   --with-default-wm=gnome-wm \
-  --enable-splash \
   || exit 1
 
 # Build and install.
@@ -176,21 +174,11 @@ chmod +x $PKG/usr/bin/gnome-wm
 mkdir -p $PKG/usr/share/applications &&
 cp $CWD/gnome-wm.desktop $PKG/usr/share/applications || exit 1
 
-# Keep gnome-at-session as gnome only
-mkdir -p $PKG/etc/gnome/xdg &&
-mv $PKG/etc/xdg/autostart $PKG/etc/gnome/xdg &&
-rm -fr $PKG/etc/xdg || exit 1
-
 # Add xinitrc script for gnome
 mkdir -p $PKG/etc/X11/xinit &&
 cat $CWD/xinitrc.gnome | sed -e "s,@LIBDIR@,lib${LIBDIRSUFFIX},g" \
   > $PKG/etc/X11/xinit/xinitrc.gnome &&
 chmod 755 $PKG/etc/X11/xinit/xinitrc.gnome || exit 1
-
-# Install our splash screen
-mkdir -p $PKG/usr/share/pixmaps/splash &&
-cp $CWD/gnome-splash.png $PKG/usr/share/pixmaps/splash &&
-chown root.root $PKG/usr/share/pixmaps/splash/gnome-splash.png || exit 1
 
 # Add default `gnome` for gnome-session
 ( cd $PKG/usr/bin ; ln -s gnome-session gnome ); 
