@@ -21,6 +21,7 @@ libbonoboui:ADD
 libdaemon:ADD
 libelf:ADD
 libgalago:ADD
+libgdata:ADD
 libgee:ADD
 libgnome:ADD
 libgnomecanvas:ADD
