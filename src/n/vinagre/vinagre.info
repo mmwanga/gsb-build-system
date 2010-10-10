@@ -1,8 +1,8 @@
 PKGNAME="vinagre"
-VERSION="2.30.2"
+VERSION="2.30.3"
 HOMEPAGE="http://projects.gnome.org/evolution/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/vinagre/2.30/vinagre-${VERSION}.tar.bz2"
-MD5SUM="2483369947e7914b5ac2aae8200f6452"
+MD5SUM="adfa70f0fab9171d01f4c4cd4ede9e90"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
