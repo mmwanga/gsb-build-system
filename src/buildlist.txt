@@ -51,6 +51,7 @@ a/nautilus
 a/gnome-mount
 a/libgweather
 l/heimdal-libraries
+l/libgdata
 a/evolution-data-server
 a/libcanberra
 a/gnome-panel
@@ -65,7 +66,7 @@ a/gnome-python
 l/libgtop
 a/gnome-applets
 a/devicekit
-a/devicekit-power
+a/upower
 a/gnome-session
 a/gtk-engines
 l/libsexy
@@ -77,6 +78,7 @@ n/epiphany-extensions
 l/gtkhtml
 l/libpst
 l/gtkimageview
+a/gnome-icon-theme
 n/evolution
 n/evolution-exchange
 n/evolution-webcal
@@ -98,6 +100,7 @@ n/telepathy-butterfly
 n/telepathy-gabble
 n/telepathy-salut
 n/telepathy-mission-control
+#n/folks - Needed for empathy 2.32.0.
 n/empathy
 n/NetworkManager
 #
