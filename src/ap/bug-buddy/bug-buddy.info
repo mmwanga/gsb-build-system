@@ -1,8 +1,8 @@
 PKGNAME="bug-buddy"
-VERSION="2.30.0"
+VERSION="2.32.0"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/bug-buddy/2.30/bug-buddy-2.30.0.tar.bz2"
-MD5SUM="da34ace8a806cd1c901ae960184e2997"
+DOWNLOAD="${GNOME_SERVER}/bug-buddy/2.32/bug-buddy-${VERSION}.tar.bz2"
+MD5SUM="86a84389c206396eba680e93288d04c8"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
