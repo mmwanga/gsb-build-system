@@ -115,13 +115,19 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # https://bugzilla.gnome.org/show_bug.cgi?id=615653
+  zcat $CWD/network-manager-applet.gseal_enable.diff.gz | patch -p1
+  autoreconf -vif
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # https://bugzilla.gnome.org/show_bug.cgi?id=615653
+  zcat $CWD/network-manager-applet.gseal_enable.diff.gz | patch -p1
+  autoreconf -vif
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  # https://bugzilla.gnome.org/show_bug.cgi?id=615653
+  zcat $CWD/network-manager-applet.gseal_enable.diff.gz | patch -p1
+  autoreconf -vif
 fi
 
 # Fix permissions for building.
@@ -161,7 +167,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
   --disable-static \
-  --enable-shared \
+  --disable-more-warnings \
   || exit 1
 
 # Build and install.
