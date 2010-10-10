@@ -1,3 +1,52 @@
+Sun Oct 10 00:00:34 BST 2010
+a/gnome-control-center-2.32.0-i486-1gsb.txz: Upgraded.
+a/gnome-applets-2.32.0-i486-1gsb.txz: Upgraded.
+a/gnome-session-2.32.0-i486-1gsb.txz: Upgraded.
+t/gnome-themes-2.32.0-i486-1gsb.txz: Upgraded.
+a/gsb-desktop-2.32.0-i486-1gsb.txz: Rebuilt.
+n/epiphany-2.30.6-i486-1gsb.txz: Upgraded.
+n/epiphany-extensions-2.32.0-i486-1gsb.txz: Upgraded.
+l/gtkhtml-3.32.0-i486-1gsb.txz: Upgraded.
+a/gnome-icon-theme-2.30.3-i486-1gsb.txz: Upgraded.
+n/evolution-2.32.0-i486-1gsb.txz: Upgraded.
+n/evolution-exchange-2.32.0-i486-1gsb.txz: Upgraded.
+n/vinagre-2.30.3-i486-1gsb.txz: Upgraded.
+n/telepathy-glib-0.12.0-i486-1gsb.txz: Upgraded.
+n/farsight2-0.0.21-i486-1gsb.txz: Upgraded.
+n/telepathy-python-0.15.18-i486-1gsb.txz: Upgraded.
+n/telepathy-mission-control-5.6.0-i486-1gsb.txz: Upgraded.
+n/empathy-2.30.3-i486-1gsb.txz: Upgraded.
++--------------------------+
+Sat Oct  9 16:11:41 BST 2010
+n/webkit-1.2.5-i486-1gsb.txz: Upgraded.
+a/gnome-desktop-2.32.0-i486-1gsb.txz: Upgraded.
+a/gnome-menus-2.30.4-i486-1gsb.txz: Upgraded.
+l/usbmuxd-1.0.5-i486-1gsb.txz: Added.
+l/libplist-1.3-i486-1gsb.txz: Added.
+l/libimobiledevice-1.0.3-i486-1gsb.txz: Added.
+a/gvfs-1.6.4-i486-1gsb.txz: Upgraded.
+  gvfs is now built against libimobiledevice to support the iPhone and other
+  Apple devices.
+a/nautilus-2.32.0-i486-1gsb.txz: Upgraded.
+a/libgweather-2.30.3-i486-1gsb.txz: Upgraded.
+l/heimdal-libraries-1.4-i486-1gsb.txz: Upgraded.
+l/libgdata-0.6.5-i486-1gsb.txz: Added.
+  libgdata package is now a dependency for evolution-data-server.
+a/evolution-data-server-2.32.0-i486-1gsb.txz: Upgraded.
+a/libcanberra-0.26-i486-1gsb.txz: Upgraded.
+a/gnome-panel-2.32.0.2-i486-1gsb.txz: Upgraded.
+  gnome-panel is no longer build against polkit since the clock mechanism has
+  been moved to the gnome-settings-daemon package.
+a/zenity-2.32.0-i486-1gsb.txz: Upgraded.
+a/metacity-2.30.3-i486-1gsb.txz: Upgraded.
+a/libgnomekbd-2.32.0-i486-1gsb.txz: Upgraded.
+a/gnome-settings-daemon-2.32.0-i486-1gsb.txz: Upgraded.
++--------------------------+
+Wed Oct  6 21:01:05 BST 2010
+l/libicu-4.4.2-i486-1gsb.txz: Upgraded.
+l/libproxy-0.4.6-i486-1gsb.txz: Upgraded.
+l/libsoup-2.32.0-i486-1gsb.txz: Upgraded.
++--------------------------+
 Tue Oct  5 18:00:22 BST 2010
 GNOME SlackBuild 2.32 for x86 begins!
   GNOME 2.32 was released September, 29.  We're starting a new development
@@ -11,6 +60,15 @@ l/glib2-2.26.0-i486-1gsb.txz: Upgraded.
 l/gdk-pixbuf-2.22.0-i486-1gsb.txz: Added.
   The gdk-pixbuf package has been split upstream from the gtk+ package, and
   is now a compile-time dependency for gtk+.
+l/gtk+2-2.22.0-i486-1gsb.txz: Upgraded.
+a/GConf-2.32.0-i486-1gsb.txz: Upgraded.
+l/libbonobo-2.32.0-i486-1gsb.txz: Upgraded.
+l/libgdiplus-2.6.7-i486-1gsb.txz: Upgraded.
+m/mono-2.6.7-i486-1gsb.txz: Upgraded.
+n/avahi-0.6.28-i486-1gsb.txz: Upgraded.
+l/libgnomecanvas-2.30.2-i486-1gsb.txz: Upgraded.
+l/libbonoboui-2.24.4-i486-1gsb.txz: Upgraded.
+l/libtasn1-2.8-i486-1gsb.txz: Upgraded.
 +--------------------------+
 Wed Jul 28 00:58:53 BST 2010
 patches/avahi-0.6.27-i486-1gsb.txz: Upgraded.
