@@ -1,8 +1,8 @@
 PKGNAME="gedit"
-VERSION="2.30.3"
+VERSION="2.30.4"
 HOMEPAGE="http://projects.gnome.org/gedit/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/gedit/2.30/gedit-${VERSION}.tar.bz2"
-MD5SUM="7c8ac5fe529285309f7d5750ee52b7bd"
+MD5SUM="e1eecb0a92a1a363b3d375ec5ac0fb3b"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
