@@ -29,7 +29,7 @@ VERSION=0.8.16
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="sqlite gstreamer libgsf exempi devicekit-power libgee"
+REQUIRED_PACKAGES="sqlite gstreamer libgsf exempi upower libgee"
 
 # Build variables.
 TAG=${TAG:-gsb}
