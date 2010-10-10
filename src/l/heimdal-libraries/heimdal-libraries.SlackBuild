@@ -166,12 +166,15 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS -ldl" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS -l
   --with-openldap=/usr \
   --with-openssl=/usr \
   --with-sqlite3=/usr \
+  --with-readline=/usr \
   --enable-pthread-support \
+  --disable-otp \
+  --enable-kcm \
   || exit 1
 
 # Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+make $MAKE_FLAGS -j1 &&
+make $MAKE_FLAGS -j1 DESTDIR=$PKG install || exit 1
 
 # Remove binaries and their manpages.  We just want the heimdal libraries.
 (
