@@ -25,7 +25,7 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.30.2
+VERSION=2.32.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -154,19 +154,16 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  ./waf --prefix=/usr \
+  --sysconfdir=/etc \
+  --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
-  --build=$ARCH-$DISTRO-linux \
-  --target=$ARCH-$DISTRO-linux \
-  --disable-static \
-  --enable-shared \
-  --disable-schemas-install \
+  configure build \
   || exit 1
 
-# Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+# Install
+./waf install --destdir=$PKG || exit 1
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
