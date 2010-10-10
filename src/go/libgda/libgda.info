@@ -1,8 +1,8 @@
 PKGNAME="libgda"
-VERSION="4.0.9"
+VERSION="4.0.12"
 HOMEPAGE="http://www.gnome-db.org/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/libgda/4.0/libgda-4.0.9.tar.bz2"
-MD5SUM="de14cf681c0bcfb3a4076a3ddc1508a2"
+DOWNLOAD="${GNOME_SERVER}/libgda/4.0/libgda-${VERSION}.tar.bz2"
+MD5SUM="0efada535948ec7fe7b93d07b28879a0"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
