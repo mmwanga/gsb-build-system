@@ -30,7 +30,7 @@ VERSION=2.30.2
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
 REQUIRED_PACKAGES="gnome-python libwnck libgtop gnome-keyring gnome-desktop \
-   bug-buddy totem-pl-parser metacity gnome-media evince"
+                   bug-buddy totem-pl-parser metacity gnome-media evince"
 
 # Build variables.
 TAG=${TAG:-gsb}
