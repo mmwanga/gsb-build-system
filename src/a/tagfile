@@ -1,7 +1,6 @@
 GConf:ADD
 devicekit:ADD
 devicekit-disks:ADD
-devicekit-power:ADD
 evolution-data-server:ADD
 gnome-applets:ADD
 gnome-control-center:ADD
@@ -25,4 +24,5 @@ libgweather:ADD
 metacity:ADD
 nautilus:ADD
 rarian:ADD
+upower:ADD
 zenity:ADD
