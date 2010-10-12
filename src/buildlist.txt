@@ -28,6 +28,7 @@ m/gtk-sharp
 n/avahi
 n/nss-mdns
 a/gnome-vfs
+a/libcanberra
 l/libgnome
 l/libgnomecanvas
 l/libbonoboui
@@ -53,7 +54,6 @@ a/libgweather
 l/heimdal-libraries
 l/libgdata
 a/evolution-data-server
-a/libcanberra
 a/gnome-panel
 a/zenity
 a/metacity
