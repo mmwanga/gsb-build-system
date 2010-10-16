@@ -34,184 +34,39 @@ Otherwise, the official Slackware package will outweigh some GNOME SlackBuild
 required package and they may not be installed.  
 
 
-*** PACKAGE ADDITIONS SINCE 2.28.3 for Slackware 13.0 ***
+*** PACKAGE ADDITIONS SINCE 2.30.0 for Slackware 13.1 ***
 
-l/portaudio: Added.
-l/gtkimageview: Added.
-l/gtksourceview: Renamed from gtksourceview2.  
-ad/gksu-polkit: Added. This replaces the old gksu application.
-l/libgee: Added.
+l/libdmapsharing: Added.
+l/usbmuxd: Added.
+l/libplist: Added.
+l/libimobiledevice: Added.
+l/libgdata: Added.
 
-*** PACKAGE REMOVALS SINCE 2.28.3 for Slackware 13.0 ***
+*** PACKAGE REMOVALS SINCE 2.30.0 for Slackware 13.1 ***
 
-l/libwnck: Removed. Slackware version is sufficient.
-l/gtksourceview1: Removed. The 1.x series is now almost wholly obsolete.
-l/poppler: Removed.  Slackware version.
-l/cairo: Removed. Slackware version.
-l/vte: Removed. Slackware version.
-n/mozilla-xulrunner: Removed.  
-l/nss: Removed.  We now use Slackware's seamonkey-solibs.
-l/bluez: Removed.  Slackware has upgraded to bluez-4.
-l/rhpl: Removed (alongside system-config-printer).
-a/pulseaudio: Removed.
-a/policykit: Removed.  Slackware now supplies polkit.
-a/policykit-gnome: Removed.  Slackware now supplied policykit-gnome.
-a/consolekit: Removed. Slackware provides ConsoleKit.
-go/system-config-printer: Removed. Now in Slackware.
-ad/gksu: Removed.  This has been replaced by gksu-polkit.
-ad/libgksu: Removed.
-ap/dvgrab: Removed.
-ap/kino: Removed.
-a/paman: Removed with pulseaudio.
-ap/gnome-screensaver: Removed.  
-ap/padevchooser: Removed with pulseaudio.
-ap/pavumeter: Removed with pulseaudio.
-ap/pavucontrol:Removed with pulseaudio.
-paprefs: Removed with pulseaudio.
-a/evo-openldap: Removed.  Obsoleted by evolution-mapi, which users may wish to
-                build for the latest connectors to Exchange 2007.  
-n/gnome-bluetooth: Removed. Not needed with blueman.
-m/avahi-sharp: Removed.  The avahi package itself now has mono bindings.
-m/karma-sharp: Removed.
-m/f-spot: Removed.
-gnome-do: Removed.
-gnome-keyring-sharp: Removed.
-monodevelop: Removed.
-notify-sharp: Removed.
-ad/gparted: Removed.
-go/libgdamm: Removed.
-go/gnome-python-extras: Removed.
-go/inkscape: Removed.
-go/glom: Removed.
-go/dia: Removed.
-go/gnome-scan: Removed.
-ac/gail: Removed.
-ac/libgail-gnome: Removed.
-ap/gnome-audio: Removed.
-ap/gnome-commander: Removed.
-l/lame: Removed.
-l/xvidcore: Removed.
-l/ffmpeg: Removed.  Not realy needed with gst-ffmpeg.
-l/a52dec: Removed.
-l/alsa-lib: Removed. Using pulseaudio, we no longer need to replace this.
-l/alsa-plugins: Removed. Using pulseaudio, we no longer need to replace this.
-l/bakery: Removed.
-l/faac: Removed.
-l/faad2: Removed.
-l/gconfmm: Removed.
-l/ggz-client-libs
-l/gjs: Removed.
-l/gmime: Removed. Slackware has a good version.
-l/goocanvasmm: Removed.
-l/gsl: Removed.
-l/gtksourceviewmm: Removed.
-l/hal-cups-utils: Removed.
-l/libatasmart: Removed.
-l/libavc1394: Removed.
-l/libchamplain: Removed.
-l/libcroco: Removed.
-l/libdiscid: Removed.
-l/libdv*: All DVB libraries have been removed since we no longer offer kino.
-l/libffi: Removed.
-l/libgc: Removed. Mono built with interal libgc, and we no longer offer inkscape.
-l/libggz: Removed.
-l/libglademm: Removed.
-l/libgnomecups: Removed. (Obsolete)
-l/libgnomeprint: Removed. (Obsolete)
-l/libgnomeprintui: Removed. (Obsolete)
-l/libiec61883: Removed.
-l/libiptcdata: Removed.
-l/libmms: Removed.
-l/libmpcdec: Removed.
-l/libmusicbrainz: Removed.
-l/libopenraw: Removed.
-l/libquicktime: Removed.
-l/libsamplerate: Removed.
-l/libshout: Removed.
-l/libxml++: Removed.
-l/mjpegtools: Removed.
-l/mpeg2dec: Removed.
-l/mpeg4ip: Removed.
-l/opal: Removed.
-l/pango: Removed.
-l/psiconv: Removed.
-l/ptlib: Removed.
-l/pygdata: Removed.
-l/pygobject: Removed.
-l/python-ldap: Removed.
-l/sexy-python: Removed.
-l/slib: Removed.
-l/x264: Removed.
-ap/gst-fluendo-mp3: Removed. License issues.
-ap/gswitchit-plugins: Removed.
-ap/sound-juicer: Removed.
-ap/soundconverter: Removed.
-n/mod_dnssd: Removed.
-n/gnome-user-share: Removed.
-n/gnome-pilot: Removed.
-n/gnome-pilot-conduits: Removed.
-n/evolution-rss: Removed.  Rather buggy, liferea is a better choice. 
-n/ekiga: Removed.
-n/obexd: Removed.
-n/gnokii: Removed.  
-n/gnome-phone-manager: Removed.
-n/NetworkManager-openconnect: Removed.
-n/NetworkManager-vpnc: Removed.
-n/libepc: Removed.
-ap/gnome-games-extra-data: Removed.
-ap/nautilus-image-converter: Removed.
-ap/nautilus-open-terminal: Removed.
-ap/fast-user-switch-applet: Removed.
-go/gtkmathview: Removed.
-go/graphviz: Removed.
-go/gnome-spell: Removed.
-go/libgnomedb: Removed.
-go/abiword-docs: Removed.
-go/libofx: Removed.
-go/gnucash: Removed.
-go/gnucash-docs: Removed.
-go/drivel: Removed.
-m/gnome-keyring-sharp: Removed.
-m/notify-sharp: Removed.
-m/mono-tools: Removed.
-m/monodevelop: Removed.
-m/gnome-do: Removed.
-d/scons: Removed.
-d/ghex: Removed.
-d/nemiver: Removed.
-d/gob2: Removed.
-d/libgnomemm: Removed.
-d/libgnomecanvasmm: Removed.
-d/gnome-vfsmm: Removed.
-d/libgnomeuimm: Removed.
-t/mac4lin: Removed.
-a/devicekit-disks: Removed.
-a/gnome-menus-kde: Removed.
-a/gnome-menus-xfce: Removed.
-ooo/gnome-menu-ooo: Removed.  Merged into openoffice.
-extra/pidgin: Removed. (No longer rebuilt against pulseaudio).
-extra/MPlayer: Removed. (No longer rebuilt against pulseaudio).
-extra/deluge: Removed.  This has been replaced by the lighter transmission.
-extra/transcode: Removed.
-extra/dvdrip: Removed.
+None.
 
 *** OTHER NOTABLE CHANGES AND HINTS ***
 
-- Pulseaudio has been removed and we have returned to the ALSA/Gstreamer
-  backend. Pulseaudio was a good option, but has proven just too slow and not
-as stable as ALSA. You can also remove old pulse users and groups from
-/etc/passwd and /etc/group.  If you are missing your volume control applet, try
-the handy volti application found in extra/.
+- Gtk-Message: Failed to load module "gnomebreakpad".  The latest 2.32 version
+of bug-buddy has removed the old google breakpad code and replaced it with
+gnomesegvhandler.  If you are getting this message at the terminal when
+starting applications, you will need to change a GConf string to silence this
+harmless message:
+    $ gconftool-2 --set --type boolean  \
+          /apps/gnome_settings_daemon/gtk-modules/gnomebreakpad false
+
+- Pulseaudio was removed in 2.30 and we now use the ALSA/Gstreamer backend.
+Pulseaudio was a good option, but has proven just too slow and not as stable as
+ALSA. You can also remove old pulse users and groups from /etc/passwd and
+/etc/group.  If you are missing your volume control applet, try the handy volti
+application found in extra/.
 
 - xscreensaver is the preferred option for a screensaver, and we have dropped
   support for GNOME Screensaver.  If you would like to start xscreensaver when
 you start your GNOME desktop, you can add it using 'Startup Applications' in
 the GNOME Control Panel.  You may also want to add a keyboard shortcut which
 runs 'xscreensaver-command -lock' (the default is Ctrl-Alt-L)
-
-- PolicyKit has been upgraded to polkit-1, and is now included in the official
-  Slackware repository.  If you had a previous GSB installation, you can now
-remove polkituser from /etc/passwd and /etc/group.
 
 - Where did my icons go?  GNOME 2.30 menus and buttons have been standardised
   across all applications to not display icons by default. Menu items with
@@ -226,19 +81,17 @@ to run:
     $ gconftool-2 --set --type boolean \
           /desktop/gnome/interface/buttons_have_icons true
 
-  (Thanks to byteframe for the suggestion.)
-
 - If you like the old style control over volume management (i.e., removeable
-  media), then you will need to install the xfce and thunar-volman packages
-from the official Slackware repositories.
+media), then you will need to install the xfce and thunar-volman packages from
+the official Slackware repositories.
 
 - Remember to fix your config files.  Some of the config files in /etc are
-  going to need your attention.  You'll find the new incoming config files on
+going to need your attention.  You'll find the new incoming config files on
 your system with the ".new" extension.  You may need to fill these in with
 information from your old config files and then move them over.
 
 - When adding users to the netdev group (in order to use NetworkManager and the
-  network-manager-applet) you may need to reload dbus in order for the new
+network-manager-applet) you may need to reload dbus in order for the new
 permissions to take effect.
 
 - USER PERMISSIONS: You user must be in the 'audio' group to use audio, the
@@ -250,7 +103,7 @@ scaling unsupported.") To get proper scoring working with gnome-games, you have
 to add the user name to group "games".
 
 - If NetworkManager is running, but unused, Firefox will try to detect an
-  available connection and start up in offline mode (annoyingly).  You can fix
+available connection and start up in offline mode (annoyingly).  You can fix
 this behavior by disabling NetworkManager if you're not using it.
 
 - If you use Sabayon, you'll need to migrate your existing profiles with 2.30:
