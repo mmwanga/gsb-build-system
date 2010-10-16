@@ -1,3 +1,16 @@
+Sat Oct 16 13:11:49 BST 2010
+ap/bug-buddy-2.32.0-x86_64-2gsb.txz: Rebuilt.
+  Disable the gnomebreakpad gconf string to prevent loading of removed module.
+ad/gksu-polkit-0.0.2-x86_64-4gsb.txz: Patched.  
+  Upstream git patch d7e31609efe8031dbd56b87caf4200330594488f.  This patch
+  fixes the annoying 100% CPU bug in gksu-polkit when there is no stdin.
++--------------------------+
+Tue Oct 12 17:00:17 BST 2010
+l/libgnome-2.32.0-x86_64-2gsb.txz: Rebuilt.
+  Linked against the latest libcanberra package.
+ap/gdm-2.20.11-x86_64-3gsb.txz: Reconfigured.
+  Disable building static libraries.
++--------------------------+
 Sun Oct 10 18:37:25 BST 2010
 ap/gnome-media-2.32.0-x86_64-1gsb.txz: Upgraded.
 ap/gnome-terminal-2.30.2-x86_64-1gsb.txz: Upgraded.
