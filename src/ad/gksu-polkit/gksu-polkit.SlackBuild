@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=3
+BUILD=4
 VERSION=0.0.2
 
 # List any packages here that are required to build this package.
@@ -114,41 +114,25 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # Fix for 64int
-  zcat $CWD/gksu-polkit.64int.diff.gz | patch -p1
-  # Add polkit-conf
-  zcat $CWD/gksu-polkit.polkit.conf.diff.gz | patch -p1
-  # Fix missing header
-  zcat $CWD/gksu-polkit.environment.h.diff.gz | patch -p1
-  # Use auth_admin in policy
-  zcat $CWD/gksu-polkit.authadmin.diff.gz | patch -p1
-  # Make sure to send PATH to new environment
-  zcat $CWD/gksu-polkit.path.variable.diff.gz | patch -p1
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # Fix for 64int
-  zcat $CWD/gksu-polkit.64int.diff.gz | patch -p1
-  # Add polkit-conf
-  zcat $CWD/gksu-polkit.polkit.conf.diff.gz | patch -p1
-  # Fix missing header
-  zcat $CWD/gksu-polkit.environment.h.diff.gz | patch -p1
-  # Use auth_admin in policy
-  zcat $CWD/gksu-polkit.authadmin.diff.gz | patch -p1
-  # Make sure to send PATH to new environment
-  zcat $CWD/gksu-polkit.path.variable.diff.gz | patch -p1
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # Fix for 64int
-  zcat $CWD/gksu-polkit.64int.diff.gz | patch -p1
-  # Add polkit-conf
-  zcat $CWD/gksu-polkit.polkit.conf.diff.gz | patch -p1
-  # Fix missing header
-  zcat $CWD/gksu-polkit.environment.h.diff.gz | patch -p1
-  # Use auth_admin in policy
-  zcat $CWD/gksu-polkit.authadmin.diff.gz | patch -p1
-  # Make sure to send PATH to new environment
-  zcat $CWD/gksu-polkit.path.variable.diff.gz | patch -p1
 fi
+
+# Fix for 64int
+zcat $CWD/gksu-polkit.64int.diff.gz | patch -p1
+# Add polkit-conf
+zcat $CWD/gksu-polkit.polkit.conf.diff.gz | patch -p1
+# Fix missing header
+zcat $CWD/gksu-polkit.environment.h.diff.gz | patch -p1
+# Use auth_admin in policy
+zcat $CWD/gksu-polkit.authadmin.diff.gz | patch -p1
+# Make sure to send PATH to new environment
+zcat $CWD/gksu-polkit.path.variable.diff.gz | patch -p1
+# If there is not stdin (or if it gets closed), we get a EOF, and we
+# should just stop trying to receive input.
+zcat $CWD/gksu-polkit.stdin.diff.gz | patch -p1
 
 # Fix permissions for building.
 chown -R root:root .
@@ -186,7 +170,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
   --disable-static \
-  --enable-shared \
   --disable-gtk-doc-html \
   || exit 1
 
