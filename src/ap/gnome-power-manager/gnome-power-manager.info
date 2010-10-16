@@ -3,6 +3,6 @@ VERSION="2.32.0"
 HOMEPAGE="http://projects.gnome.org/gnome-power-manager/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/gnome-power-manager/2.32/gnome-power-manager-${VERSION}.tar.bz2"
-MD5SUM="b85178b8db77db5d22e185430549a295"
+MD5SUM="9a08e85dce3ffb90775f15e3bda4adda"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
