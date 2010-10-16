@@ -1,3 +1,7 @@
+Sat Oct 16 13:11:49 BST 2010
+ap/bug-buddy-2.32.0-i486-2gsb.txz: Rebuilt.
+  Disable the gnomebreakpad gconf string to prevent loading of removed module.
++--------------------------+
 Tue Oct 12 17:00:17 BST 2010
 l/libgnome-2.32.0-i486-2gsb.txz: Rebuilt.
   Linked against the latest libcanberra package.
