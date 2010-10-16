@@ -4,6 +4,8 @@ ap/bug-buddy-2.32.0-x86_64-2gsb.txz: Rebuilt.
 ad/gksu-polkit-0.0.2-x86_64-4gsb.txz: Patched.  
   Upstream git patch d7e31609efe8031dbd56b87caf4200330594488f.  This patch
   fixes the annoying 100% CPU bug in gksu-polkit when there is no stdin.
+a/libgnomeui-2.24.4-x86_64-1gsb.txz: Upgraded.
+ac/at-spi-1.32.0-x86_64-1gsb.txz: Upgraded.
 +--------------------------+
 Tue Oct 12 17:00:17 BST 2010
 l/libgnome-2.32.0-x86_64-2gsb.txz: Rebuilt.
