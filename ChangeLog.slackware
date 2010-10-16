@@ -1,3 +1,9 @@
+Tue Oct 12 17:00:17 BST 2010
+l/libgnome-2.32.0-i486-2gsb.txz: Rebuilt.
+  Linked against the latest libcanberra package.
+ap/gdm-2.20.11-i486-3gsb.txz: Reconfigured.
+  Disable building static libraries.
++--------------------------+
 Sun Oct 10 18:37:25 BST 2010
 ap/gnome-media-2.32.0-i486-1gsb.txz: Upgraded.
 ap/gnome-terminal-2.30.2-i486-1gsb.txz: Upgraded.
