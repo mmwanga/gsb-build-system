@@ -1,9 +1,9 @@
 
-GNOME SlackBuild 2.28.3 for Slackwarew 13.0 Upgrade to 
-  GNOME SlackBuild 2.30.0 for 13.1 <steve@gnomeslackbuild.org>
+GNOME SlackBuild 2.30.0 for Slackwarew 13.0 Upgrade to 
+  GNOME SlackBuild 2.32.0 for 13.1 <steve@gnomeslackbuild.org>
 
 This document explains how to upgrade from earlier versions of GNOME
-Slackbuild to GNOME SlackBuild 2.30.0 for Slackware 13.1.
+Slackbuild to GNOME SlackBuild 2.32.0 for Slackware 13.1.
 
 ----------------------------------------------------------------------------
 
@@ -88,10 +88,10 @@ packages required as dependencies, and remove any discontinued packages.
     telinit 3
 
 5.  Reboot to start using the any new services you may have installed, such as
-    Avahi, or NetworkManager.  
+    Avahi, or NetworkManager.  You may need to enable startup scripts in /etc/rc.d.
 
 
-At this point you should be running GNOME SlackBuild 2.30.0 for Slackware 13.1.
+At this point you should be running GNOME SlackBuild 2.32.0 for Slackware 13.1.
 
 ---
 

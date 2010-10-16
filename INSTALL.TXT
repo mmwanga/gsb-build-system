@@ -1,69 +1,67 @@
-Written by, and Copyright (c) 2007, 2008, 2009, 2010:
-   Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>, Coventry, UK.
-   Updated by Steve Kennedy <steve (at) gnomeslackbuild.org>
-   Updated by Chip Cuccio <chipster (at) gnomeslackbuild.org>
 
-		 HOW TO INSTALL GSB: GNOME SlackBuild 2.30
+		 HOW TO INSTALL GSB: GNOME SlackBuild 2.32
                         (for Slackware/Slackware64 13.1)
                     =======================================
 
-Introduction
--------------
+Contents
+	1. Introduction
+	2. Reporting Bugs
+	3. Quick-Start Installation using Slapt-get
+	4. Other Installation methods
+		4.1 Before installation
+		4.2 Default Automated net installation
+		4.3 Full Manual Slapt-get installation method
+	5. After installation
+	6. Uninstalling GNOME SlackBuild
+	7. Questions, Comments and Support
 
-GNOME SlackBuild (GSB) has two components; a full and complete system to build
-Slackware compliant packages from GNOME sources, and a binary distribution of
-those pre-built packages, suitable for Slackware and Slackware64.
-
-Please give the CHANGES_AND_HINTS.TXT a quick read before installing.  Also, we
-still need to replace five standard Slackware packages.  Please see
-SLACKWARE_REPLACED_PACKAGES.TXT for more details about what needs to be
-replaced, and why. 
+1. Introduction
+---------------
 
 This document provides information on installing our pre-built GSB packages on
 Slackware and Slackware64.  GSB encompasses all needed packages for a fully
-configurable, customisable and usable GNOME desktop environment.
-
-If you haven't yet, you should read about the GSB project before installing:
+configurable, customisable and usable GNOME desktop environment.  If you
+haven't yet, you should read about the GSB project before installing:
   <http://gnomeslackbuild.org/>
 
 This version of GSB is built and only supported on:
   Slackware 13.1
   Slackware64 13.1
 
-If you are trying to use GSB on systems other than the above you *will*
-encounter problems.  If you are running a previous version of Slackware or
-Slackware64, you must upgrade.  Do not attempt to install this version of GSB on
-previous versions of Slackware and Slackware64.
+If you are trying to use GSB on systems other than the above you will encounter
+problems.  If you are running a previous version of Slackware or Slackware64,
+you must upgrade.  Do not attempt to install this version of GSB on previous
+versions of Slackware and Slackware64.
 
-Reporting Bugs
---------------
+2. Reporting Bugs
+------------------
 
 Any questions or bug reports, please email gsb-dev@googlegroups.com or drop by
 the #gsb channel on freenode. 
 
 
-Quick-Start Installation using Slapt-get
-----------------------------------------
+3. Quick-Start Installation using Slapt-get
+-------------------------------------------
 
 If you have not used slapt-get before then you should skip below to the section
 marked "Slapt-get Installation Method" and give it a quick read before
-proceeding.  
-
-It is recommended that you upgrade to the latest slapt-get before installing or
-upgrading GSB.  You can find slapt-get at: 
+proceeding.  It is recommended that you upgrade to the latest slapt-get before
+installing or upgrading GSB.  You can find the slapt-get package at: 
 
 For Slackware:
-  http://www.slackware.org.uk/gsb/gsb-current/gsb/ad/slapt-get-0.10.2d-i486-2gsb.txz
+  http://www.slackware.org.uk/gsb/gsb-current_slackware-13.1/gsb/ad/
 
 For Slackware64:
-  http://www.slackware.org.uk/gsb/gsb64-current/gsb/ad/slapt-get-0.10.2d-x86_64-2gsb.txz
+  http://www.slackware.org.uk/gsb/gsb64-current_slackware-13.1/gsb/ad/
 
-Update your /etc/slapt-get/slapt-getrc file to point to Slackware 13.1
-and GNOMESlackBuild repositories.  Make sure to add the :OFFICIAL tag to
-the end of your SOURCE= which points to the Slackware repository, and the
-tag :CUSTOM to the SOURCE= line which points to your GNOMESlackBuild
-repository.  Without the :CUSTOM tag, the official Slackware packages will
-outweigh GSB packages, and not all required packages will be upgraded. 
+For a list of available mirrors, please see MIRRORS.TXT.
+
+Update your /etc/slapt-get/slapt-getrc file to point to Slackware 13.1 and
+GNOMESlackBuild repositories.  Make sure to add the :OFFICIAL tag to the end of
+your SOURCE= which points to the Slackware repository, and the tag :CUSTOM to
+the SOURCE= line which points to your GNOMESlackBuild repository.  Without the
+:CUSTOM tag, the official Slackware packages will outweigh GSB packages, and
+not all required packages will be upgraded. 
 
 It it recommended that your drop to single user mode (with networking) before
 upgrading your machine or doing a full installation.  It is also wise to reboot
@@ -75,8 +73,6 @@ For more details, please consult the UPGRADE.TXT.
 
 If you are upgrading your GSB from an earlier version, make sure to
 point your /etc/slapt-get/slapt-getrc SOURCE= to a gsb-current repository.
-You can find a list of available mirrors from:
-       http://gnomeslackbuild.org/download#mirrors
 
 1. Upgrade slapt-get package and update repository:
       $ slapt-get --update && slapt-get --install slapt-get
@@ -98,14 +94,14 @@ your /etc/slapt-get/slapt-getrc file.  Afterwards:
 3. Upgrade your packages:
       $ slapt-get --upgrade
 4.  Install the GSB desktop via the metapackage:
-       $ slapt-get --install gsb-desktop.
+       $ slapt-get --install gsb-desktop
 
 All relevant packages will installed or upgraded through this metapackage.
 You can then add additional packages if you wish via slapt-get or gslapt
 from your new GNOME desktop. 
 
-Other Installation methods
-----------------------------
+4. Other Installation methods
+-----------------------------
 
 GSB currently supports two other installation methos; a fully automated net 
 based installer and installation from a local repository mirror.
@@ -130,21 +126,16 @@ Each of the procedures for installation is detailed below.  Once you have
 decided which option is best for you, please refer to the appropriate section
 for full instructions.
 
-If you regulaly use slapt-get to keep your packages up to date, or have
-multiple repositories in your slapt-getrc, it is important that you read the
-section titled 'Problems when using slapt-get' below.
+4.1 Before installation
+------------------------
 
-
-Before installation
--------------------
-
-The installation is best done at runlevel 3 - *without* X11 running.  It is not
+The installation is best done at runlevel 3 without X11 running.  It is not
 advisable to do the installation from within an XTerm or Terminal Emulator.
 
 If you have any X11 sessions open which were started with the 'startx' command
 (or similar) after you logged into the console in text mode, you must exit
 those sessions to insure the installation goes smoothly.  Once those are closed
-you will probably be returned to your normal (unprivilged) user account shell
+you will probably be returned to your normal (unprivileged) user account shell
 prompt, you should now logout using:
   $ logout
 
@@ -174,8 +165,8 @@ You should now be logged into your system as the 'root' user, your system
 should be at runlevel 3, and there should be no active X11 sessions.
 
 
-Automated net installation
---------------------------
+4.2 Default Automated net installation
+---------------------------------------
 
 This is the simplest method of installation and requires very little detailed
 explanation - you simply run one command and a full installation of GSB, plus
@@ -188,88 +179,46 @@ sure to use the correct URI for your architecture - GSB supports both IA32 (32
 bit Slackware) and x86_64 (64 bit Slackware64).
 
 Using wget:
-  For IA32:
+  For x86:
     $ wget -q -O- http://gnomeslackbuild.org/net-install | bash
   For x86_64:
     $ wget -q -O- http://gnomeslackbuild.org/net-install/64 | bash
 
 Using curl:
-  For IA32:
+  For x86:
     $ curl http://gnomeslackbuild.org/net-install | bash
   For x86_64:
     $ curl http://gnomeslackbuild.org/net-install/64 | bash
 
 Using lynx:
-  For IA32:
+  For x86:
     $ lynx --source http://gnomeslackbuild.org/net-install | bash
   For x86_64:
     $ lynx --source http://gnomeslackbuild.org/net-install/64 | bash
 
 
-Slapt-get Installation Method
------------------------------
+4.3 Full Manual Slapt-get installation method
+-----------------------------------------
 
-Once slapt-get is installed, a basic configuration file must be created for the
-installation.  We do not recommend editing your current slapt-get configuration
-unless you know what you are doing.  These instructions will create a new, GSB
-specific, slapt-getrc file which should be used just for installation and for
-future updates.
+You will need to update your /etc/slapt-get/slapt-getrc file according to the
+instructions above in "3. Quick-Start Installation using Slapt-get".
+Then you will need to update the slapt-get cache files:
+  $ slapt-get --update
 
-Before the slapt-getrc file can be created, you must select the GSB and
-Slackware/Slackware64 mirrors to be used for the installation.  Appendix A and
-Appendix B, towards the end of this document, list the available mirrors for
-GSB and Slackware/Slackware64 respectivly.  Please check those mirror lists now
-and select a mirror for GSB and Slackware/Slackware64 which will be added to
-the slapt-getrc file here.
-
-To create the slapt-getrc for GSB, open a text editor (we recommend 'nano'):
-  $ nano /etc/slapt-get/slapt-getrc.gsb
-
-Add the following lines exactly as shown (copy and paste is your friend):
-  WORKINGDIR=/var/slapt-get
-  EXCLUDE=^kernel-.*,^glibc.*,.*-[0-9]+dl$,^devs$,^udev$,aaa_elflibs
-
-In addition to the above, you will need to add two SOURCE= lines to the file -
-one SOURCE for GSB and one SOURCE for Slackware/Slackware64:
-  SOURCE=<your chosen GSB mirror URL from Appendix A>
-  SOURCE=<your chosen Slackware/Slackware64 mirror URL from Appendix B>
-
-Once all 4 of the above lines have been added to the file, save it and exit the
-text editor.  Configuration of slapt-get is now complete.
-
-You will now need to update the slapt-get cache files:
-  $ slapt-get -c /etc/slapt-get/slapt-getrc.gsb --update
-
-If the above update process ran without errors, you are now ready to begin
-installation by selecting which of the GSB software 'sets' you would like to
-install.
-
-Appendix C, towards the end of this document, details the available 'sets' of
-packages which can be installed.  We highly recommend installation of the
-'gsb-complete' set unless you are sure you know what you are doing.
-
-Once you have selected the set to be installed you can begin the install
-process with:
-  $ slapt-get -c /etc/slapt-get/slapt-getrc.gsb -y --retry 10 --upgrade
-  $ slapt-get -c /etc/slapt-get/slapt-getrc.gsb -y --retry 10 \
-      --install <your chosen package set from Appendix C>
-  (Note: the second command has been spanned over two lines for readability)
-
-For clarity, to install the 'gsb-complete' set (highly recommended) use the
-following commands:
-  $ slapt-get -c /etc/slapt-get/slapt-getrc.gsb -y --retry 10 --upgrade
-  $ slapt-get -c /etc/slapt-get/slapt-getrc.gsb -y --retry 10 --install gsb-complete
+To install all GSB packages, run the following command:
+  $ slapt-get --available | awk {'print $1'} | grep "gsb$" | grep -v l10n | \
+      xargs slapt-get --install -y 
 
 With any luck, the installation process will finish without any errors or
-problems and GSB will now be installed on your system.  Please read the section
-'After installation' (and the sections which follow it) below.
+problems and GSB will now be fully installed on your system.  Please read the
+section 'After installation' (and the sections which follow it) below.
 
 
-Installing from a local copy
-----------------------------
+4.5 Installing from a local copy
+--------------------------------
 
 Installing from a local copy of GSB and/or Slackware/Slackware64 is a very
-similar process to the manual slapt-get net installation detailed above - it is
+similar process to the manual slapt-get net installation detailed above. It is
 recommended that you read that section in addition to this one, in order to
 understand the slapt-get installtion process.  Only brief instructions are
 given here.
@@ -280,47 +229,18 @@ filesystem location to the Slackware/Slackware64 mirror.  Both of these should,
 obviously, be replaced with the full correct paths to each mirror.  These paths
 can also be on a CDROM or USB device if the mirrors are located on such media.
 
-As with the manual slapt-get net installation, a GSB slapt-getrc file must be
-created - however, the two SOURCE entries in the slapt-getrc for this install
-method will be local filesystem paths, not URIs.
-
-Create the slapt-getrc:
-  $ nano /etc/slapt-getrc.gsb
-
-Add the required configuration:
-  WORKINGDIR=/var/slapt-get
-  EXCLUDE=^kernel-.*,^glibc.*,.*-[0-9]+dl$,^devs$,^udev$,aaa_elflibs
-
-Finally, add the two SOURCE entries:
+Add the two SOURCE entries to point to a local mount and directory:
   SOURCE=file://</path/to/gsb>
   SOURCE=file://</path/to/slackware>
 
 Save the file and exit the text editor.  Use these commands to update the
 slapt-get cache files:
-  $ slapt-get -c /etc/slapt-get/slapt-getrc.gsb --update
+  $ slapt-get --update
 
-Finally, as with the manual slapt-get net installation, you must choose which
-'set' to install.  Details of the sets are in Appendix C below, but we highly
-recommend that you install 'gsb-complete'.
+You can then install packages as described above.
 
-To start the installation, use:
-  $ slapt-get -c /etc/slapt-get/slapt-getrc.gsb -y --retry 10 --upgrade
-  $ slapt-get -c /etc/slapt-get/slapt-getrc.gsb -y --retry 10 \
-      --install <your chosen package set from Appendix C>
-  (Note: the second command has been spanned over two lines for readability)
-
-For clarity, to install the 'gsb-complete' set (highly recommended) use the
-following commands:
-  $ slapt-get -c /etc/slapt-get/slapt-getrc.gsb -y --retry 10 --upgrade
-  $ slapt-get -c /etc/slapt-get/slapt-getrc.gsb -y --retry 10 --install gsb-complete
-
-With any luck, the installation process will finish without any errors or
-problems and GSB will now be installed on your system.  Please read the section
-'After installation' (and the sections which follow it) below.
-
-
-After installation
-------------------
+5. After installation
+---------------------
 
 IMPORTANT! Fix your config files.  Some of the config files in /etc are going
 to need your attention.  You'll find the new incoming config files on your
@@ -336,8 +256,11 @@ otherwise, to must reload udev and message bus.
   $ /etc/rc.d/rc.udev reload
   $ /etc/rc.d/rc.messagebus reload
 
-Depending on your packages installed, you may also want:
-  
+Depending on your packages installed, you may also want to enable new services
+at boot time.
+
+  $ chmod +x /etc/rc.d/rc.avahidaemon
+  $ chmod +x /etc/rc.d/rc.networkmanager
   $ /etc/rc.d/rc.avahidaemon start
   $ /etc/rc.d/rc.networkmanager start
 
@@ -352,19 +275,12 @@ use 'startx' or similar you should log in as your usual (not root!) user and
 run:
   $ xwmconfig
 
-and select the GNOME (or Compiz GNOME) option from the menu.
+Select the GNOME (or Compiz GNOME) option from the menu.  You can then use
+'startx' to start GSB as usual.  If you have any problems starting GSB or
+logging in, please see below for support links and mailing lists.
 
-You can also repeat the above as root to set the default for the whole system,
-but using root as your every day login user is a *really* *stupid* *idea*.
-
-You can then use 'startx' to start GSB as usual.
-
-If you have any problems starting GSB or logging in, please see below for
-support links and mailing lists.
-
-
-Uninstalling GNOME SlackBuild
------------------------------
+6. Uninstalling GNOME SlackBuild
+--------------------------------
 
 You will need to remove all GNOME SlackBuild packages, and then re-install any
 Slackware/Slackware64 provided packages that may have been replaced by GSB.
@@ -377,13 +293,13 @@ installed to help reinstalling any required Slackware packages again.
 
 You should probably check the uninstall log at /tmp/gsb-uninstall.log to see if
 any files installed by GSB packages got left behind - it's up to you how much
-housekeeping you want to do on those files. :)
+housekeeping you want to do on those files. :-)
 
 Once all the GSB packages are removed and you've done any housekeeping, you
 will need to re-install any Slackware/Slackware64 packages which were replaced
 by the GSB provided ones.  A complete list of standard Slackware/Slackware64
 packages GSB replaced during installation can be found in our
-SLACKWARE-13.1_REPLACED_PACKAGES.TXT.
+SLACKWARE_REPLACED_PACKAGES.TXT.
 
 If you are using slapt-get to re-install the packages, you will need to comment
 out any SOURCE= line(s) for GSB in your /etc/slapt-get/slapt-getrc file (if any
@@ -405,12 +321,11 @@ detailed in the 'After installation' section), and reboot your system to insure
 all GSB daemon/services have been stopped.
 
 
-Questions, Comments and Support
--------------------------------
+7. Questions, Comments and Support
+----------------------------------
 
 Do one of the following (in this order):
-  * Check the FAQs and other helpfull resources on the website:
-      <http://gnomeslackbuild.org/support/>
+  * Read the FAQ.TXT and CHANGES_AND_HINTS.TXT for extra hints.
 
   * For bug reports and feature requests, please check our issue tracker for
     previous reports of the same problem and possible solutions.  If your bug
@@ -436,69 +351,9 @@ Do one of the following (in this order):
 
     On IRC, we may appear to be always online, but we are frequently away from
     the console and you may not receive an answer for a while.  But stick
-    around since we'll try to give a reply, eventually  :)
+    around since we'll try to give a reply, eventually  :-)
 
 
-Appendix A - GSB repositories/mirrors
--------------------------------------
+---
 
-The following is a list of mirrors from which to download GSB.  Any of the
-mirrors can be used in slapt-get and each is synced with the master server at
-least once per day.
-
-For the IA32 (i586, i686 et al) version of GSB for Slackware 13.1:
-  <ftp://ftp.slackware.org.uk/gsb/gsb-current/>
-  <http://www.slackware.org.uk/gsb/gsb-current/>
-  <ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-current/>
-  <http://slackware.rol.ru/gsb/gsb/gsb-current/>
-  <http://get.gnomeslackbuild.org/gsb/gsb-current/>
-
-For the x86_64 (opteron, athlon64, et al) version of GSB for Slackware64 13.1:
-  <ftp://ftp.slackware.org.uk/gsb/gsb64-current/>
-  <http://www.slackware.org.uk/gsb/gsb64-current/>
-  <ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb64-current/>
-  <http://slackware.rol.ru/gsb/gsb/gsb64-current/>
-  <http://get.gnomeslackbuild.org/gsb/gsb64-current/>
-
-Appendix B - Slackware/Slackware64 repositories/mirrors
---------------------------------------------------------
-
-The follwoing is a non-exhaustive list of Slackware/Slackware64 mirrors which
-can be used to resolve dependancies during the GSB installation.  These mirrors
-have been manually checked to insure they are alive and up to date, but we
-cannot guarantee how often they update or how long they will be available.  You
-can, of course, use your own favourite Slackware/Slackware64 mirror instead.
-
-Slackware/Slackware64 13.1 mirrors:
-(change slackware-13.1 to slackware64-13.1 as appropriate)
-
-  <ftp://ftp.slackware.at/slackware-13.1/>
-  <http://www.slackware.at/data/slackware-13.1/>
-  <ftp://ftp.slackware.org.uk/slackware/slackware-13.1/>
-  <http://www.slackware.org.uk/slackware/slackware-13.1/>
-  <ftp://slackware.oregonstate.edu/pub/slackware/slackware-13.1/>
-  <http://slackware.oregonstate.edu/slackware-13.1/>
-  <ftp://mirror.switch.ch/mirror/slackware/slackware-13.1/>
-  <http://mirror.switch.ch/ftp/mirror/slackware/slackware-13.1/>
-  <ftp://distro.ibiblio.org/pub/linux/distributions/slackware/slackware-13.1/>
-  <http://distro.ibiblio.org/pub/linux/distributions/slackware/slackware-13.1/>
-  <ftp://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-13.1/>
-  <http://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-13.1/>
-  <ftp://slackware.mirrors.tds.net/pub/slackware/slackware-13.1/>
-  <ftp://ftp.slackware.no/pub/linux/slackware/slackware-13.1/>
-  <http://slackware.rol.ru/slackware/slackware-13.1/>
-
-
-Appendix C - gsb-desktop meta packages and sets
-------------------------------------------------
-
-GSB has been divided into package sets which can be selectivly installed to
-suit the need of the user.  We offer a "metapackage" of gsb-desktop to easy
-installations via slapt-get (so you don't need to enter every package by hand)
-
-  * gsb-desktop
-      This is the basic, yet fully functional GNOME Desktop Environment
-      provided by GSB.  It contains all the packages required for a working
-      GNOME Desktop, including Epiphany, Evolution, the GNOME Display Manager
-      (GDM), NetworkManager, Gslapt for package management and some basic 
-      themes and desktop utilities.
+The GNOME Slackbuild Team

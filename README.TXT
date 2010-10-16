@@ -1,18 +1,18 @@
 
-Welcome to GNOME SlackBuild 2.30.0!   (@BINARY_EDITION@)
+Welcome to GNOME SlackBuild 2.32.0!   (@BINARY_EDITION@)
 
-GNOME SlackBuild v2.30.0 is a complete GNOME Desktop Environment for 
+GNOME SlackBuild v2.32.0 is a complete GNOME Desktop Environment for 
 Slackware Linux 13.1, encompassing all the needed packages for a full, 
 clean installation of GNOME for Slackware. It aims to provide a fully 
 functional desktop, including a wide range of multimedia, graphics, 
 and development tools, as well as a complete networking and office suite.  
 
-Here are some versions of major components of GNOME SlackBuild 2.30.0
+Here are some versions of major components of GNOME SlackBuild 2.32.0
 
-- Full GNOME Desktop    2.30.0
-- Evolution             2.30.0
-- NetworkManager        0.8
-- Mono C#               2.6.4
+- Full GNOME Desktop    2.32.0
+- Evolution             2.32.0
+- NetworkManager        0.8.1
+- Mono C#               2.6.7
 - OpenOffice.org        3.2.0.10
 - Compiz                0.8.6
 - Abiword               2.8.4 
@@ -20,17 +20,17 @@ Here are some versions of major components of GNOME SlackBuild 2.30.0
 
 For installation instructions, see the file 'INSTALL.TXT'
 
-For instructions to upgrade from GSB 2.30.0 and previous versions to GSB 2.30.0
+For instructions to upgrade from GSB 2.30.0 and previous versions to GSB 2.32.0
 for Slackware 13.1, please see the 'UPGRADE.TXT'.  You would still be well
 advised to backup your machine first if it contains any important data.
 
-For details of important changes between GSB 2.26.3 and GSB 2.30.0 for
+For details of important changes between GSB 2.30.0 and GSB 2.32.0 for
 Slackware 13.1, see 'CHANGES_AND_HINTS.TXT'.
 
 These are some of the important files and directories found on the GSB 
 FTP site:
 
- <ftp://ftp.slackware.org.uk/gsb/gsb-2.30_slackware-13.1/>
+ <ftp://ftp.slackware.org.uk/gsb/gsb-2.32_slackware-13.1/>
 
 .
 |-- CHECKSUMS.md5       MD5 format file checksums
@@ -41,8 +41,8 @@ FTP site:
 |                       project.
 |-- CREDITS             A brief list of those who help with the 
 |                       GSB project.
-|-- ChangeLog.txt       Log of system changes from GSB 2.24.3 
-|                       to GSB 2.30.0.
+|-- ChangeLog.txt       Log of system changes from GSB 2.30.0 
+|                       to GSB 2.32.0.
 |-- FILELIST.TXT        List of files on the GSB FTP site.
 |-- INSTALL.TXT         Instructions on how to install GSB.
 |-- FAQ.TXT             A list of questions commonly asked about GNOME or the 
@@ -52,8 +52,8 @@ FTP site:
 |                       Packages in GSB that will replace the standard 
 |                       Slackware packages.
 |-- README.TXT          This file. :-)
-|-- UPGRADE.TXT         Instructions on how to upgrade from GSB 2.28.3.
-|-- VERSIONS            Target versions for GSB 2.30.0.
+|-- UPGRADE.TXT         Instructions on how to upgrade from GSB 2.30.0.
+|-- VERSIONS            Target versions for GSB 2.32.0.
 |
 |-- extra/              This directory contains extra packages 
 |   |                   for GSB like MPlayer and pidgin which though
@@ -63,7 +63,7 @@ FTP site:
 |   `-- source/         Source code for the extra packages.
 |
 |-- gsb/                This directory contains all the 
-|   |                   software you will need for GSB 2.30.0.
+|   |                   software you will need for GSB 2.32.0.
 |   |-- a               The A (base) package series.
 |   |-- ac              The AC (accessibility) series.
 |   |-- ad              The AD (administration) series.
