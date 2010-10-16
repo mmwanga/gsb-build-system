@@ -1,6 +1,9 @@
 Sat Oct 16 13:11:49 BST 2010
 ap/bug-buddy-2.32.0-i486-2gsb.txz: Rebuilt.
   Disable the gnomebreakpad gconf string to prevent loading of removed module.
+ad/gksu-polkit-0.0.2-i486-4gsb.txz: Patched.  
+  Upstream git patch d7e31609efe8031dbd56b87caf4200330594488f.  This patch
+  fixes the annoying 100% CPU bug in gksu-polkit when there is no stdin.
 +--------------------------+
 Tue Oct 12 17:00:17 BST 2010
 l/libgnome-2.32.0-i486-2gsb.txz: Rebuilt.
