@@ -1,3 +1,29 @@
+Sun Oct 24 12:59:51 BST 2010
+ap/gthumb-2.12.0-i486-1gsb.txz: Upgraded.
+ap/cheese-2.32.0-i486-1gsb.txz: Upgraded.
+ap/totem-pl-parser-2.32.0-i486-1gsb.txz: Upgraded.
+ap/seahorse-2.32.0-i486-1gsb.txz: Upgraded.
+ap/seahorse-plugins-2.30.1-i486-3gsb.txz: Rebuilt.
+  Rebuilt against latest seahorse package.
+ap/gnome-system-monitor-2.28.2-i486-1gsb.txz: Upgraded.
+ap/gnome-utils-2.32.0-i486-1gsb.txz: Upgraded.
+ap/deskbar-applet-2.32.0-i486-1gsb.txz: Upgraded.
+ap/gnome-doc-utils-0.20.2-i486-1gsb.txz: Upgraded.
+ap/gnome-user-docs-2.32.0-i486-1gsb.txz: Upgraded.
+a/gnome-session-2.32.0-i486-2gsb.txz: Rebuilt.
+  Changed the default GSETTINGS_BACKEND to gconf in the xinitrc.gnome.  If you
+  start gnome by startx, when you may want to rerun xwmconfig to update your
+  startup script.
+n/NetworkManager-0.8.1-i486-2gsb.txz: Rebuilt.
+  Create a /var/lib/dhclient directory for lease files.
+ap/brasero-2.32.0-i486-2gsb.txz: Rebuilt.
+  Update glib schemas in doinst.sh otherwise brasero will complain about not
+  being installed properly.  This will fix an annoying bug where
+  right-clicking on mounted volume would flicker.
+l/libevent-1.4.14b-i486-1gsb.txz: Added.
+  This package is needed by the latest transmission.
+n/transmission-2.11-i486-1gsb.txz: Upgraded.
++--------------------------+
 Sat Oct 16 13:11:49 BST 2010
 ap/bug-buddy-2.32.0-i486-2gsb.txz: Rebuilt.
   Disable the gnomebreakpad gconf string to prevent loading of removed module.
