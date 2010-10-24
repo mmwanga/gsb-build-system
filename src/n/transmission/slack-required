@@ -3,3 +3,4 @@ curl
 libnotify
 openssl
 libcanberra
+libevent
