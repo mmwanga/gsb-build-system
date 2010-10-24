@@ -107,6 +107,7 @@ n/NetworkManager
 # We rebuild libproxy to create the pacman webkit and NM modules.
 #
 rebuild:l/libproxy
+l/libevent
 n/transmission
 n/network-manager-applet
 n/liferea
