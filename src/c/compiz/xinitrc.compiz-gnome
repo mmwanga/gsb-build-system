@@ -24,6 +24,9 @@ GNOME_SESSION_SETTINGS=""
 # Change default window manager to compiz instead of metacity
 export WINDOW_MANAGER="compiz"
 
+# Set default gsettings backend as gconf
+export GSETTINGS_BACKEND="gconf"
+
 ## GNOME XDG Menu Path
 # We keep the GNOME menu templates separate from KDE so the two 
 # don't interfere with each other. This path may be extended to 
