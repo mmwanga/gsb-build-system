@@ -1,0 +1,7 @@
+PKGNAME="libevent"
+VERSION="1.4.14b"
+HOMEPAGE="http://monkey.org/~provos/libevent/"
+DOWNLOAD="http://monkey.org/~provos/libevent-1.4.14b-stable.tar.gz"
+MD5SUM="a00e037e4d3f9e4fe9893e8a2d27918c"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
