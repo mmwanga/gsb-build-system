@@ -1,8 +1,8 @@
 PKGNAME="gnome-user-docs"
-VERSION="2.30.1"
+VERSION="2.32.0"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-user-docs/2.30/gnome-user-docs-2.30.1.tar.bz2"
-MD5SUM="eccd6a238a499ba42dbb6d74b02dd25a"
+DOWNLOAD="${GNOME_SERVER}/gnome-user-docs/2.32/gnome-user-docs-2.32.0.tar.bz2"
+MD5SUM="3db5efe72b17f123d402912bd3fb39c1"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
