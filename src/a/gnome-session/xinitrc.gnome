@@ -20,6 +20,9 @@ sysmodmap=/usr/@LIBDIR@/X11/xinit/.Xmodmap
 # default session settings
 GNOME_SESSION_SETTINGS=""
 
+# Set default gsettings backend as gconf
+export GSETTINGS_BACKEND="gconf"
+
 # Gnome XDG Menu Path
 #
 # We keep the GNOME menu templates separate from KDE so the two 
