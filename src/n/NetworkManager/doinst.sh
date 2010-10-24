@@ -17,6 +17,7 @@ install_file etc/dbus-1/system.d/nm-avahi-autoipd.conf.new
 install_file etc/dbus-1/system.d/NetworkManager.conf.new
 install_file etc/dbus-1/system.d/nm-dhcp-client.conf.new
 install_file etc/dbus-1/system.d/nm-dispatcher.conf.new
+mkdir -p var/lib/dhclient
 
 # Reload udev rules
 chroot . /etc/rc.d/rc.udev reload
