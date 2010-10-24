@@ -158,11 +158,20 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
+  --disable-static \
+  --enable-shared \
+  --disable-schemas-install \
+  --disable-libburnia \
+  --disable-search \
+  --enable-preview \
   || exit 1
 
 # Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+# Fix missing logo icon
+cp $CWD/logo.png $PKG/usr/share/brasero || exit 1
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
