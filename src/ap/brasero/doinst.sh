@@ -8,6 +8,11 @@ if [ -x usr/bin/update-mime-database ]; then
   usr/bin/update-mime-database usr/share/mime 1> /dev/null 2> /dev/null
 fi
 
+# update glib schemas
+if [ -x usr/bin/glib-compile-schemas ]; then
+  usr/bin/glib-compile-schemas usr/share/glib-2.0/schemas 1> /dev/null 2> /dev/null
+fi
+
 # update desktop entries
 if [ -x usr/bin/update-desktop-database ]; then
   usr/bin/update-desktop-database 1> /dev/null 2> /dev/null
