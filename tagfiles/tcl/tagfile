@@ -1,6 +1,6 @@
 expect:ADD
 hfsutils:ADD
 tcl:ADD
-tclx:REC
+tclx:ADD
 tix:SKP
-tk:REC
+tk:ADD
