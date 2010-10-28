@@ -37,10 +37,12 @@ required package and they may not be installed.
 *** PACKAGE ADDITIONS SINCE 2.30.0 for Slackware 13.1 ***
 
 l/libdmapsharing: Added.
-l/usbmuxd: Added.
-l/libplist: Added.
-l/libimobiledevice: Added.
+l/libevent: Added.
 l/libgdata: Added.
+l/libimobiledevice: Added.
+l/libplist: Added.
+l/gdk-pixbuf: Added.
+l/usbmuxd: Added.
 
 *** PACKAGE REMOVALS SINCE 2.30.0 for Slackware 13.1 ***
 
