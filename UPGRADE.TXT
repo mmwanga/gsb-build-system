@@ -96,3 +96,4 @@ At this point you should be running GNOME SlackBuild 2.32.0 for Slackware 13.1.
 ---
 
 The GNOME Slackbuild Team
+<http://gnomeslackbuild.org>
