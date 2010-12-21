@@ -118,7 +118,7 @@ FTP site:
 
 For more information about GNOME SlackBuild, please visit our website:
 
-	http://gnomeslackbuild.org
+	<http://gnomeslackbuild.org>
 
 Enjoy!
 
