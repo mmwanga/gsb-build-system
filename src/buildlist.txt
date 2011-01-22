@@ -21,7 +21,7 @@ l/libbonobo
 l/libdaemon
 l/gnome-mime-data
 m/libgdiplus
-#l/libunique
+l/libunique
 # Build Mono early for bindings in later packages
 #m/mono
 #m/gtk-sharp
