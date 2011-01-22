@@ -90,7 +90,7 @@ PUBLISH=0
 
 # Download settings
 DOWNLOAD_ATTEMPTS=${DOWNLOAD_ATTEMPTS:-3}
-WGET_OPTIONS=""
+WGET_OPTIONS="-4"
 
 #========================================================================
 # COMMAND LINE PARSING 

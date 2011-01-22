@@ -1,4 +1,15 @@
 Thu Oct 28 15:03:54 BST 2010
+  There have been rumours that slackware-current is nearing the end of its
+  development cycle.  Since GNOME 3.0 is scheduled to be released until April
+  2011, we will be rebuilding GNOME 2.32.3 for Slackware 13.2 to fill the gap.
+  Here marks our new development cycle!
+l/glib2: Removed.  Provided by slackware-current.
+l/gtk+2: Removed.  Provided by slackware-current.
+l/gtk-pixbuf: Removed.  Added by slackware-current.
+l/ORBit2-2.14.19-i486-2gsb.txz: Rebuilt.
+a/GConf-2.32.0-i486-2gsb.txz: Rebuilt.
++--------------------------+
+Thu Oct 28 15:03:54 BST 2010
 n/NetworkManager-0.8.1-i486-3gsb.txz: Rebuilt.
   Removed vpn and pppd from 'plugins' in nm-system-settings.conf.  It was
   causing NetworkManager to complain about missing plugins but these are found
