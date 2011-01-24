@@ -1,8 +1,8 @@
 PKGNAME="libsoup"
-VERSION="2.32.0"
+VERSION="2.32.2"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/libsoup/2.32/libsoup-${VERSION}.tar.bz2"
-MD5SUM="c71d1635866fcd37569a85a9a1e9590d"
+MD5SUM="03f37350a2a31046ebabb8470e75abcc"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
