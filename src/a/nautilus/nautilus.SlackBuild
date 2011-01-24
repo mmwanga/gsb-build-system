@@ -25,12 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.32.0
+VERSION=2.32.2.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="bzip2 ntfs-3g gamin gnome-desktop libbonobo libbonoboui \
-                   libgnome ORBit2 GConf util-linux-ng libunique"
+REQUIRED_PACKAGES="bzip2 ntfs-3g gamin gnome-desktop ORBit2 GConf util-linux-ng libunique exempi"
 
 # Build variables.
 TAG=${TAG:-gsb}

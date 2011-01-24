@@ -2,10 +2,8 @@ bzip2
 ntfs-3g
 gamin
 gnome-desktop
-libbonobo
-libbonoboui
-libgnome
 ORBit2
 GConf
 util-linux-ng
 libunique
+exempi
