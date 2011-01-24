@@ -25,12 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.32.0
+VERSION=2.32.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gnome-vfs rarian startup-notification gnome-vfs gtk+2 libgnome \
-		   libxml2 openssl ORBit2 python"
+REQUIRED_PACKAGES="rarian startup-notification gtk+2 libxml2 openssl ORBit2 python"
 
 # Build variables.
 TAG=${TAG:-gsb}

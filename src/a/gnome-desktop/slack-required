@@ -1,11 +1,8 @@
 libXrandr
 GConf
-gnome-vfs
+gtk+2
 rarian
 startup-notification
-gnome-vfs
-gtk+2
-libgnome
 iceauth
 libxml2
 ORBit2
