@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
-VERSION=2.30.3
+BUILD=2
+VERSION=2.32.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="GConf poppler cairo pango djvulibre"
+REQUIRED_PACKAGES="GConf poppler cairo pango djvulibre gnome-keyring"
 
 # Build variables.
 TAG=${TAG:-gsb}
