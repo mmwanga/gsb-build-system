@@ -1,8 +1,8 @@
 PKGNAME="gnome-panel"
-VERSION="2.32.0.2"
+VERSION="2.32.1"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/gnome-panel/2.32/gnome-panel-${VERSION}.tar.bz2"
-MD5SUM="c5759370aa3dadb050c3f8b6ca1fd1b0"
+MD5SUM="a228035e1f7026abf296b797f1f7d2f9"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

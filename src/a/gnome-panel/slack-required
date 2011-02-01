@@ -1,8 +1,9 @@
 gnome-desktop
 eggdbus
-gnome-vfs
 startup-notification
 libwnck
 libcanberra
 gstreamer
 evolution-data-server
+gnome-menus
+libbonoboui
