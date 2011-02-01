@@ -24,13 +24,13 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables
-BUILD=2
+BUILD=4
 VERSION=2.32.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
 REQUIRED_PACKAGES="libxslt intltool audiofile GConf glib2 gtk+2 libbonobo libxml2 \
-                   gnome-vfs openssl ORBit2 popt zlib"
+                   openssl ORBit2 popt zlib"
 
 # Build variables.
 TAG=${TAG:-gsb}

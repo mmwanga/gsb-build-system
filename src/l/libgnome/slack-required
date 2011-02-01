@@ -5,5 +5,4 @@ libbonobo
 libxml2
 openssl-solibs | openssl
 ORBit2
-gnome-vfs
 libcanberra
