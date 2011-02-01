@@ -1,3 +1,22 @@
+Tue Feb  1 20:39:54 GMT 2011
+l/heimdal-libraries-1.4-i486-2gsb.txz: Rebuilt.
+l/libgdata-0.6.6-i486-1gsb.txz: Upgraded.
+a/libgweather-2.30.3-i486-2gsb.txz: Rebuilt.
+a/evolution-data-server-2.32.1-i486-1gsb.txz: Upgraded.
+a/libcanberra-0.26-i486-2gsb.txz: Built.
+a/gnome-menus-2.30.5-i486-1gsb.txz: Upgraded.
+a/gnome-panel-2.32.1-i486-1gsb.txz: Upgraded.
+a/zenity-2.32.1-i486-1gsb.txz: Upgraded.
+a/metacity-2.30.3-i486-2gsb.txz: Rebuilt.
+a/libgnomekbd-2.32.0-i486-2gsb.txz: Rebuilt.
+a/gnome-settings-daemon-2.32.1-i486-1gsb.txz: Upgraded.
+a/gnome-control-center-2.32.1-i486-1gsb.txz: Upgraded.
+l/libgnomecanvas-2.30.2-i486-2gsb.txz: Rebuilt.
+a/gnome-vfs-2.24.4-i486-1gsb.txz: Upgraded.
+l/libgnome-2.32.0-i486-4gsb.txz: Rebuilt.
+l/libbonoboui-2.24.4-i486-2gsb.txz: Rebuilt.
+a/gnome-panel-2.32.1-i486-1gsb.txz: Upgraded.
++--------------------------+
 Mon Jan 24 20:08:25 GMT 2011
 l/libplist: Removed.
   This package is now in the official Slackware repository.
