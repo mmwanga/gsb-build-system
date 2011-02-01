@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=1
+BUILD=2
 VERSION=2.30.3
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="GConf startup-notification libgnome libX11 libXrender libXrandr libXinerama \
+REQUIRED_PACKAGES="GConf startup-notification libX11 libXrender libXrandr libXinerama \
                    libXcursor pango cairo compositeproto libXcomposite zenity"
 
 # Build variables.

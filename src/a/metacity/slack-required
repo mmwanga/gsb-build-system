@@ -1,6 +1,5 @@
 GConf 
 startup-notification 
-libgnome 
 libX11 
 libXrender 
 libXrandr 
