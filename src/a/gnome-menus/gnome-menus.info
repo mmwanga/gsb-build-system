@@ -1,8 +1,8 @@
 PKGNAME="gnome-menus"
-VERSION="2.30.4"
+VERSION="2.30.5"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/gnome-menus/2.30/gnome-menus-${VERSION}.tar.bz2"
-MD5SUM="3a85f74f54d64155379de91587582df8"
+MD5SUM="caa6772e63ed5870cf43dc3d354e0624"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
