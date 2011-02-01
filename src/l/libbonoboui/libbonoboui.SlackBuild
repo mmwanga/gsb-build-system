@@ -24,12 +24,12 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables
-BUILD=1
+BUILD=2
 VERSION=2.24.4
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libbonobo libgnome libgnomecanvas gnome-vfs"
+REQUIRED_PACKAGES="libbonobo libgnome libgnomecanvas"
 
 # Build variables.
 TAG=${TAG:-gsb}

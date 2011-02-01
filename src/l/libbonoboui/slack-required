@@ -1,5 +1,2 @@
 libbonobo
-libgnome
-libgnomecanvas
-gnome-vfs
 openssl-solibs | openssl
