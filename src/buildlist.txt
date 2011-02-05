@@ -26,14 +26,11 @@ m/mono
 m/gtk-sharp
 n/avahi
 n/nss-mdns
-#l/libelf
 l/libtasn1
 a/gnome-keyring
 l/libicu
 l/libproxy
 l/libsoup
-#n/webkit
-#n/pywebkitgtk
 a/rarian
 a/gnome-desktop
 # iPhone support for gvfs
@@ -60,11 +57,13 @@ a/metacity
 a/libgnomekbd
 a/gnome-settings-daemon
 a/gnome-control-center
-#l/pyorbit
-#a/libgnomeui
+a/libgnomeui
+l/pyorbit
 a/gnome-python
 l/libgtop
 a/gnome-applets
+n/webkit
+#n/pywebkitgtk
 #a/devicekit
 #a/upower
 #a/gnome-session
@@ -111,6 +110,7 @@ a/gnome-applets
 #n/transmission
 #n/network-manager-applet
 #n/liferea
+#l/libelf
 #ap/bug-buddy
 #ap/alacarte
 #ap/totem-pl-parser
