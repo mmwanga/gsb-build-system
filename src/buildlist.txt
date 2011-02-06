@@ -11,16 +11,24 @@
 # START BUILDLIST
 #
 # Glib2 and GTK+2 are required replacements
-#l/glib2
-#l/gdk-pixbuf
-#l/gtk+2
+l/glib2
+l/gdk-pixbuf
+l/gtk+2
 # GNOME core libraries
 l/ORBit2
 a/GConf
+<<<<<<< HEAD
 l/libdaemon
 l/gnome-mime-data
 m/libgdiplus
 l/libunique
+=======
+#l/libbonobo
+#l/libdaemon
+#l/gnome-mime-data
+#m/libgdiplus
+#l/libunique
+>>>>>>> gnome-3.0
 # Build Mono early for bindings in later packages
 m/mono
 m/gtk-sharp

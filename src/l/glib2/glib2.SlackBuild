@@ -25,7 +25,7 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.26.0
+VERSION=2.27.93
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -164,8 +164,8 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   || exit 1
 
 # Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+make -j1 &&
+make -j1 DESTDIR=$PKG install || exit 1
 
 # Install profile scripts: 
 mkdir -p $PKG/etc/profile.d/ &&

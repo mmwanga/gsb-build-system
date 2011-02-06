@@ -29,6 +29,7 @@ koffice:SKP
 konq-plugins:SKP
 kopete-cryptography:SKP
 ktorrent:SKP
+libktorrent:SKP
 oxygen-icons:SKP
 polkit-kde-1:SKP
 polkit-qt-1:SKP

@@ -11,7 +11,7 @@ bzip2:ADD
 coreutils:ADD
 cpio:ADD
 cpufrequtils:ADD
-cryptsetup:SKP
+cryptsetup:ADD
 cups:ADD
 cxxlibs:ADD
 dbus:ADD
@@ -28,9 +28,9 @@ file:ADD
 findutils:ADD
 floppy:ADD
 gawk:ADD
-genpower:SKP
+genpower:ADD
 gettext:ADD
-getty-ps:SKP
+getty-ps:ADD
 glibc-solibs:ADD
 glibc-zoneinfo:ADD
 gpm:ADD
@@ -39,8 +39,8 @@ gzip:ADD
 hdparm:ADD
 infozip:ADD
 inotify-tools:ADD
-isapnptools:SKP
-jfsutils:SKP
+isapnptools:ADD
+jfsutils:ADD
 kbd:ADD
 kernel-firmware:ADD
 kernel-generic:ADD
@@ -51,14 +51,16 @@ kernel-modules:ADD
 kernel-modules-smp:ADD
 less:ADD
 lha:ADD
+libcgroup:ADD
 lilo:ADD
 logrotate:ADD
 lvm2:ADD
-mdadm:SKP
+mcelog:ADD
+mdadm:ADD
 minicom:ADD
 mkinitrd:ADD
 module-init-tools:ADD
-mt-st:SKP
+mt-st:ADD
 mtx:ADD
 ncompress:ADD
 ntfs-3g:ADD
@@ -68,7 +70,7 @@ pciutils:ADD
 pcmciautils:ADD
 pkgtools:ADD
 procps:ADD
-quota:SKP
+quota:ADD
 reiserfsprogs:ADD
 rpm2tgz:ADD
 sdparm:ADD
@@ -82,7 +84,7 @@ sysfsutils:ADD
 sysklogd:ADD
 syslinux:ADD
 sysvinit:ADD
-sysvinit-functions:SKP
+sysvinit-functions:ADD
 sysvinit-scripts:ADD
 tar:ADD
 tcsh:ADD
@@ -95,6 +97,6 @@ usbutils:ADD
 utempter:ADD
 util-linux-ng:ADD
 which:ADD
-xfsprogs:SKP
+xfsprogs:ADD
 xz:ADD
 zoo:ADD

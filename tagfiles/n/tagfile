@@ -8,8 +8,9 @@ bluez-hcidump:ADD
 bootp:SKP
 bridge-utils:SKP
 bsd-finger:SKP
+ca-certificates:ADD
 crda:ADD
-curl:ADD
+curl:SKP
 cyrus-sasl:ADD
 dhcp:SKP
 dhcpcd:ADD
@@ -20,7 +21,7 @@ epic5:SKP
 ethtool:SKP
 fetchmail:SKP
 getmail:ADD
-gnupg:SKP
+gnupg:ADD
 gnupg2:ADD
 gnutls:ADD
 gpa:ADD
@@ -30,7 +31,7 @@ httpd:ADD
 icmpinfo:SKP
 imapd:SKP
 inetd:ADD
-iproute2:SKP
+iproute2:ADD
 iptables:ADD
 iptraf:SKP
 iputils:ADD
@@ -58,8 +59,8 @@ mtr:SKP
 mutt:SKP
 nc:SKP
 ncftp:ADD
-net-snmp:ADD
-net-tools:ADD
+net-snmp:SKP
+net-tools:SKP
 netatalk:SKP
 netdate:SKP
 netkit-bootparamd:SKP
@@ -87,8 +88,8 @@ openldap-client:ADD
 openobex:ADD
 openssh:ADD
 openssl:ADD
-openvpn:ADD
-php:SKP
+openvpn:SKP
+php:ADD
 pidentd:ADD
 pinentry:ADD
 popa3d:ADD
@@ -99,13 +100,14 @@ proftpd:SKP
 pssh:SKP
 pth:ADD
 rdist:SKP
+rfkill:ADD
 rp-pppoe:SKP
 rsync:ADD
 rt2860-firmware:ADD
 rt2870-firmware:ADD
 rt61-firmware:ADD
 rt71w-firmware:ADD
-samba:ADD
+samba:SKP
 sendmail:ADD
 sendmail-cf:SKP
 slrn:SKP
