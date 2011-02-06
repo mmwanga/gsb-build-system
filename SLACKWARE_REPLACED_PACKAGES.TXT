@@ -1,10 +1,10 @@
-# THIS IS THE REPLACED PACKAGES LIST FOR GSB GNOME @GSB_VERSION@
+# THIS IS THE REPLACED PACKAGES LIST FOR GSB GNOME @GNOME_VERSION@
 #
 # The following is a list of packages that can replace official Slackware @SLACKWARE_VERSION@
 # packages.
 #
 # Packages listed under 'Required' are Slackware packages that MUST be replaced
-# by corresponding GNOME SlackBuild versions in order to use GNOME @GSB_VERSION@ on
+# by corresponding GNOME SlackBuild versions in order to use GNOME @GNOME_VERSION@ on
 # Slackware @SLACKWARE_VERSION@. Reasons for their replacement are given within brackets.
 #
 # Packages listed under 'Optional' are packages which replace official
