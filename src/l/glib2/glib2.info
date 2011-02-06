@@ -1,8 +1,8 @@
 PKGNAME="glib2"
-VERSION="2.26.0"
+VERSION="2.27.93"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/glib/2.26/glib-${VERSION}.tar.bz2"
-MD5SUM="9b7dc61f5e389e1cff277a6350c37397"
+DOWNLOAD="${GNOME_SERVER}/glib/$(echo $VERSION | cut -f1,2 -d.)/glib-${VERSION}.tar.bz2"
+MD5SUM="73954628c437408c189d62670a7032f7"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
