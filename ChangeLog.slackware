@@ -2,6 +2,31 @@ Sun Feb  6 17:19:08 GMT 2011
   Development begins on GNOME 2.91.6 tarballs in preparation for April's
   release of GNOME 3.0.  This is version is designed for Slackware-current and
   will be aimed that the next full release of Slackware.
+l/glib2-2.27.93-i486-1gsb.txz: Upgraded.
+l/gdk-pixbuf-2.23.0-i486-1gsb.txz: Upgraded.
+l/gtk+3-2.99.3-i486-1gsb.txz: Added.
+  This new gtk+3 package should be able to co-exist with Slackware's supported
+  gtk+2 and gtk+ packages and should cause no interference.  
+d/libsigc++-2.2.8-i486-1gsb.txz: Upgraded.
+l/ORBit2-2.14.19-i486-3gsb.txz: Rebuilt.
+  Rebuilt against latest glib2 package.
+a/GConf-2.32.1-i486-1gsb.txz: Upgraded and linked against gtk+3.
+l/usbmuxd-1.0.6-i486-1gsb.txz: Upgraded.
+l/libtasn1-2.9-i486-1gsb.txz: Upgraded.
+l/libimobiledevice-1.0.4-i486-2gsb.txz: Rebuilt.
+  Removed restart of hal from doinst.sh.
+a/upower-0.9.8-i486-1gsb.txz: Upgraded.
+  Removed devicekit from dependencies.
+a/GConf-2.32.1-i486-1gsb.txz: Upgraded.
+a/gnome-session-2.91.6-i486-1gsb.txz: Upgraded.
+a/gsettings-desktop-schemas-0.1.5-i486-1gsb.txz: Added.
+a/rarian-0.8.1-i486-4gsb.txz: Rebuilt.
+a/gnome-desktop-2.91.6.1-i486-1gsb.txz: Upgraded.
+a/gnome-session-2.91.6-i486-1gsb.txz: Upgraded.
+a/gnome-menus-2.91.6-i486-1gsb.txz: Upgraded.
+  Removed old references to xfce and kde menus.
+a/libcanberra-0.26-i486-3gsb.txz: Reconfigured.
+  Now built against gtk+3.
 +--------------------------+
 Thu Oct 28 15:03:54 BST 2010
   There have been rumours that slackware-current is nearing the end of its
