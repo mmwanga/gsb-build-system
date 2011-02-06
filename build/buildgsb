@@ -51,7 +51,7 @@ trap error_out SIGINT
 GSB_SOURCE_VERSION="2.32"
 GNOME_VERSION="2.32.1"
 SLACKWARE_VERSION="13.1"
-[ -r ../VERSIONS] && {
+[ -r ../VERSIONS ] && {
   . ../VERSIONS
 }
 
