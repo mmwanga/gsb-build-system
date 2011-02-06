@@ -1,4 +1,4 @@
-glib2 >= 2.24-@ARCH@-1
+glib2 >= 2.28-@ARCH@-1
 gdk-pixbuf
 pango
 cairo
