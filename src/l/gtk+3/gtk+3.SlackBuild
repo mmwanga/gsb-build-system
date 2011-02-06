@@ -225,7 +225,7 @@ case "$host" in
 esac
 
 # Install wrappers for the binaries:
-cp $CWD/update-gtk+3-immodules $PKG/usr/bin/update-gtk+3-immodules
+cp $CWD/update-immodules-3.0 $PKG/usr/bin/update-immodules-3.0
 chmod 0755 $PKG/usr/bin/update-*
 
 # I'm almost inclined to think this stuff is obsolete but I don't know for sure.
