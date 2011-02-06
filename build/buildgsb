@@ -25,9 +25,6 @@
 # IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
 # OF SUCH DAMAGE.
 
-# GNOME SlackBuild Version
-GSB_VERSION=2_30
-
 #========================================================================
 # FUNCTIONS
 . ${BASH_SOURCE%/*}/functions.sh || {
@@ -45,6 +42,17 @@ trap error_out SIGINT
 [ -r ./gsb.options ] && {
   . ./gsb.options
   export OPTIONSREAD=1
+}
+
+#========================================================================
+# VERSIONS
+
+# If the user created an options file, read it.
+GSB_SOURCE_VERSION="2.32"
+GNOME_VERSION="2.32.1"
+SLACKWARE_VERSION="13.1"
+[ -r ../VERSIONS] && {
+  . ../VERSIONS
 }
 
 # Basic settings
@@ -473,9 +481,13 @@ else
   cat README.TXT | sed 's,@BINARY_EDITION@,32-bit x86 edition,g' > \
     $PKGDEST/README.TXT ;
 fi;
+
+cat SLACKWARE_REPLACED_PACKAGES.TXT | sed 's,@GSB_VERSION@,ition,g' > \
+
+
 for i in COPYING COPYING3 CREDITS INSTALL.TXT UPGRADE.TXT \
  CHANGES_AND_HINTS.TXT GPG-KEY COPYRIGHT.TXT MIRRORS.TXT CURRENT.WARNING \
- SLACKWARE_REPLACED_PACKAGES.TXT FAQ.TXT ANNOUNCE.$GSB_VERSION;
+ FAQ.TXT ANNOUNCE.$GSB_VERSION;
 do
  if [ -f $i ]; then
    cp $i $PKGDEST || exit 1;
