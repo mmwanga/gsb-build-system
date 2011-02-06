@@ -1,7 +1,7 @@
 #!/bin/bash
 # Version: 1.7 GSB Package SlackBuild.
-# Copyright (c) 2007,2008,2009 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
-# Copyright (c) 2007,2008,2009 Steve Kennedy <steve (at) gnomeslackbuild.org>
+# Copyright (c) 2007, 2008,2009 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
+# Copyright (c) 2007, 2008, 2009, 2010, 2011 Steve Kennedy <steve (at) gnomeslackbuild.org>
 # Portions are Copyright 2008, 2009  Patrick J. Volkerding, Sebeka, MN, USA
 # All rights reserved.
 #
@@ -126,8 +126,8 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
 fi
 
-# Use /etc/gtk-2.0/$ARCH-slackware-linux instead of /etc/gtk-2.0/
-sed -i "s/GTK_SYSCONFDIR, \\\"gtk-2\\.0\\\"/GTK_SYSCONFDIR, \\\"gtk-2\\.0\\\", HOST/g" ./gtk/gtkrc.c
+# Use /etc/gtk-3.0/$ARCH-slackware-linux instead of /etc/gtk-3.0/
+sed -i "s/GTK_SYSCONFDIR, \\\"gtk-3\\.0\\\"/GTK_SYSCONFDIR, \\\"gtk-3\\.0\\\", HOST/g" ./gtk/gtkrc.c
 sed -i 's/sysconfdir)\\"/&      \\\n\t-DHOST=\\\"$(host_triplet)\\\"/g' \
 gtk/Makefile.am \
 modules/input/Makefile.am
@@ -194,38 +194,38 @@ make install DESTDIR=$PKG \
   RUN_QUERY_IMMODULES_TEST=false RUN_QUERY_LOADER_TEST=false \
   || exit 1
 
-# I'm spamming your root partition because /etc/gtk-2.0 won't install to $DESTDIR
+# I'm spamming your root partition because /etc/gtk-3.0 won't install to $DESTDIR
 make install || exit 1
-cp -a /etc/gtk-2.0/* $PKG/etc/gtk-2.0/ 
-rm -rf $PKG/etc/gtk-2.0/$host 
-mkdir -p $PKG/etc/gtk-2.0/$host 
-mv $PKG/etc/gtk-2.0/* $PKG/etc/gtk-2.0/$host/ 
+cp -a /etc/gtk-3.0/* $PKG/etc/gtk-3.0/ 
+rm -rf $PKG/etc/gtk-3.0/$host 
+mkdir -p $PKG/etc/gtk-3.0/$host 
+mv $PKG/etc/gtk-3.0/* $PKG/etc/gtk-3.0/$host/ 
 
-mv $PKG/etc/gtk-2.0/$host/im-multipress.conf $PKG/etc/gtk-2.0/$host/im-multipress.conf.new
+mv $PKG/etc/gtk-3.0/$host/im-multipress.conf $PKG/etc/gtk-3.0/$host/im-multipress.conf.new
 
 # Install a "starter" gtkrc
-cat $CWD/gtkrc.new > $PKG/etc/gtk-2.0/$host/gtkrc.new
+cat $CWD/gtkrc.new > $PKG/etc/gtk-3.0/$host/gtkrc.new
 
 # We need to have separate 32-bit and 64-bit binaries
 # for places where we have two copies of the GTK+ package installed.
 # (we might have x86_64 and i486 packages on the same system, for example.)
 case "$host" in
   s390x*|x86_64*)
-   mv $PKG/usr/bin/gtk-query-immodules-2.0{,-64}
+   mv $PKG/usr/bin/gtk-query-immodules-3.0{,-64}
    ( cd $PKG/usr/bin
-     ln -sf gtk-query-immodules-2.0-64 gtk-query-immodules-2.0
+     ln -sf gtk-query-immodules-3.0-64 gtk-query-immodules-3.0
    )
    ;;
   *)
-   mv $PKG/usr/bin/gtk-query-immodules-2.0{,-32}
+   mv $PKG/usr/bin/gtk-query-immodules-3.0{,-32}
    ( cd $PKG/usr/bin
-     ln -sf gtk-query-immodules-2.0-32 gtk-query-immodules-2.0
+     ln -sf gtk-query-immodules-3.0-32 gtk-query-immodules-3.0
    )
    ;;
 esac
 
 # Install wrappers for the binaries:
-cp $CWD/update-gtk-immodules $PKG/usr/bin/update-gtk-immodules
+cp $CWD/update-gtk+3-immodules $PKG/usr/bin/update-gtk+3-immodules
 chmod 0755 $PKG/usr/bin/update-*
 
 # I'm almost inclined to think this stuff is obsolete but I don't know for sure.
