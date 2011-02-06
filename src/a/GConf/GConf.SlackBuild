@@ -182,6 +182,10 @@ mv $PKG/etc/gconf/2/evoldap.conf $PKG/etc/gconf/2/evoldap.conf.new || exit 1
 mv $PKG/etc/dbus-1/system.d/org.gnome.GConf.Defaults.conf \
   $PKG/etc/dbus-1/system.d/org.gnome.GConf.Defaults.conf.new
 
+# Make sure to keep gnome stuff separate in /etc/gnome/xdg
+mkdir -p $PKG/etc/gnome && 
+mv $PKG/etc/xdg $PKG/etc/gnome || exit 1
+
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
