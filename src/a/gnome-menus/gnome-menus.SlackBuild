@@ -25,7 +25,7 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.30.5
+VERSION=2.91.6
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -157,7 +157,7 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc/gnome --localstatedir=/var/lib \
+  ./configure --prefix=/usr --sysconfdir=/etc/gnome \
   --mandir=/usr/man $CONFIGURE_FLAGS \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
@@ -174,7 +174,7 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # preserve any local modifications to menus
 (cd $PKG/etc/gnome/xdg/menus
-  for i in applications settings
+  for i in applications 
   do
     mv $i.menu $i.menu.new
 done)
@@ -189,16 +189,6 @@ done)
   find $PKG/usr/man -type l -name \*.? -printf \
     "( cd '%h'; [ -e '%l.gz' ] &&
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
-}
-
-# Deal with .info files.
-[ -e $PKG/usr/share/info ] && {
-  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
-  rmdir -p $PKG/usr/share
-  }
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
 }
 
 # Copy extra documentation into package.

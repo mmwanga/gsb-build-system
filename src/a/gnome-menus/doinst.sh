@@ -13,7 +13,6 @@ install_file() {
 
 # Preserve menus
 install_file etc/gnome/xdg/menus/applications.menu.new
-install_file etc/gnome/xdg/menus/settings.menu.new
 
 # Update desktop entries
 if [ -x usr/bin/update-desktop-database ]; then
