@@ -19,3 +19,8 @@ install_file etc/dbus-1/system.d/org.gnome.GConf.Defaults.conf.new
 if ps acx | grep -q gconfd-2 ; then
   killall -HUP gconfd-2 
 fi
+
+# glib2 compile schemas
+if [ -x usr/bin/glib-compile-schemas ]; then
+  usr/bin/glib-compile-schemas usr/share/glib-2.0/schemas
+fi

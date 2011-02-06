@@ -159,11 +159,12 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
   --disable-static \
-  --enable-shared \
   --disable-gtk-doc \
-  --enable-gtk \
+  --with-gtk=3.0 \
   --with-openldap \
   --enable-defaults-service \
+  --enable-gsettings-backend \
+  --enable-introspection=no \
   || exit 1
 
 # Build and install.
