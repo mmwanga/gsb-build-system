@@ -1,10 +1,7 @@
-libXrandr
 GConf
-gtk+2
-rarian
-startup-notification
+gtk+3
 iceauth
 libxml2
-ORBit2
-pygobject
-pygtk
+libXrandr
+gsettings-desktop-schemas
+startup-notification
