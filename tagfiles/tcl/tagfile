@@ -1,6 +1,6 @@
-expect:OPT
-hfsutils:OPT
-tcl:ADD
-tclx:REC
-tix:OPT
-tk:REC
+expect:SKP
+hfsutils:SKP
+tcl:SKP
+tclx:SKP
+tix:SKP
+tk:SKP
