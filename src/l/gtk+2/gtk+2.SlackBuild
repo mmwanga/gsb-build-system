@@ -26,7 +26,7 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.22.0
+VERSION=2.99.3
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -125,12 +125,6 @@ elif [ "$ARCH" = "x86_64" ]; then
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
 fi
-
-# Do not flood the console or .xsession-errors with "trouble ahead"
-# warnings (most noticable when using Firefox and Flash):
-zcat $CWD/gtk.xid.nowarningflood.diff.gz | patch -p1 
-# Disable building documentation
-zcat $CWD/fix_build_issues_on_tutorial_and_faq.diff.gz | patch -p1
 
 # Use /etc/gtk-2.0/$ARCH-slackware-linux instead of /etc/gtk-2.0/
 sed -i "s/GTK_SYSCONFDIR, \\\"gtk-2\\.0\\\"/GTK_SYSCONFDIR, \\\"gtk-2\\.0\\\", HOST/g" ./gtk/gtkrc.c
