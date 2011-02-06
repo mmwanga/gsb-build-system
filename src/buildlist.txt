@@ -13,7 +13,7 @@
 # Glib2 and GTK+2 are required replacements
 l/glib2
 l/gdk-pixbuf
-#l/gtk+2
+l/gtk+2
 # GNOME core libraries
 l/ORBit2
 a/GConf
