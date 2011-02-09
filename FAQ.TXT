@@ -76,13 +76,13 @@ A: You can use slapt-get to easily manage all your packages, and this includes
    installing all GSB packages.  Simply run:
   
        $ slapt-get --available | awk {'print $1'} | grep "gsb$" | \
-           xargs slapt-get --install
+           xargs slapt-get --install -y
 
    This will install everything, including all the Openoffice language
 packages.  You may want to exclude them when installing:
 
        $ slapt-get --available | awk {'print $1'} | grep "gsb$" | \
-           grep -v l10n | xargs slapt-get --install
+           grep -v l10n | xargs slapt-get --install -y
 
    -----
 
