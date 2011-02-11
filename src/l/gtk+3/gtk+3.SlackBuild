@@ -26,7 +26,7 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.99.3
+VERSION=3.0.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -176,9 +176,10 @@ CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --sysconfdir=/etc \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --mandir=/usr/man \
-  --with-xinput=yes \
+  --enable-xinput \
   --build=$ARCH-$DISTRO-linux \
   --enable-gtk-doc-html=no \
+  --enable-introspection=no \
   || exit 1
 
 make $MAKE_FLAGS || exit 1
@@ -225,7 +226,7 @@ case "$host" in
 esac
 
 # Install wrappers for the binaries:
-cp $CWD/update-immodules-3.0 $PKG/usr/bin/update-immodules-3.0
+cp $CWD/update-gtk-immodules-3.0 $PKG/usr/bin/update-gtk-immodules-3.0
 chmod 0755 $PKG/usr/bin/update-*
 
 # I'm almost inclined to think this stuff is obsolete but I don't know for sure.
