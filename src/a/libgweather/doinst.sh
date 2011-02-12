@@ -1,4 +1,4 @@
-# Restart gconfd-2 if running to reload new gconf settings
-if ps acx | grep -q gconfd-2 ; then
-        killall -HUP gconfd-2 ;
+# glib2 compile schemas
+if [ -x usr/bin/glib-compile-schemas ]; then
+  usr/bin/glib-compile-schemas usr/share/glib-2.0/schemas
 fi
