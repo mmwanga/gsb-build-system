@@ -1,3 +1,18 @@
+Sat Feb 12 15:40:02 GMT 2011
+a/libgnome-keyring-2.32.0-i486-1gsb.txz: Added.
+  This package has been split out of gnome-keyring.
+l/libsoup-2.33.6-i486-1gsb.txz: Upgraded.
+a/libgweather-2.91.6-i486-1gsb.txz: Upgraded.
+l/heimdal-libraries-1.4-i486-2gsb.txz: Rebuilt.
+l/libgdata-0.8.0-i486-1gsb.txz: Upgraded.
+a/evolution-data-server-2.91.6-i486-1gsb.txz: Upgraded.
++--------------------------+
+Fri Feb 11 22:17:31 GMT 2011
+l/libwnck-2.91.6-i486-1gsb.txz: Upgraded.
+l/libproxy-0.4.6-i486-2gsb.txz: Rebuilt.
+l/glib2-2.28.0-i486-1gsb.txz: Upgraded.
+l/gtk+3-3.0.0-i486-1gsb.txz: Upgraded.
++--------------------------+
 Sun Feb  6 17:19:08 GMT 2011
   Development begins on GNOME 2.91.6 tarballs in preparation for April's
   release of GNOME 3.0.  This is version is designed for Slackware-current and
