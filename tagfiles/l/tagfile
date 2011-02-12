@@ -163,7 +163,7 @@ qca-cyrus-sasl:SKP
 qca-gnupg:SKP
 qca-ossl:SKP
 qimageblitz:SKP
-qt:ADD
+qt:SKP
 qtscriptgenerator:SKP
 raptor:ADD
 rasqal:ADD
