@@ -25,7 +25,7 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.32.1
+VERSION=2.91.6
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -155,24 +155,18 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-# For static compilation of ntlm ldap
-LIBS="-lssl -lsasl2" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  --mandir=/usr/man $CONFIGURE_FLAGS \
+./configure --prefix=/usr $CONFIGURE_FLAGS \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --disable-gtk-doc \
-  --disable-schemas-install \
   --enable-ipv6 \
   --enable-smime=yes \
-  --enable-gnome-keyring=yes \
   --enable-calendar=yes \
+  --disable-gtk-doc \
   --with-openldap \
   --with-krb5=/usr \
   --with-libdb=/usr \
   || exit 1
-#--with-openldap=/usr/libexec/evo-openldap \
 
 # Build and install.
 make $MAKE_FLAGS &&
@@ -182,47 +176,12 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
 
-# Compress and fix manpage links.
-[ -e $PKG/usr/man ] && {
-  find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
-  find $PKG/usr/man -type l -name \*.? -printf \
-    "( cd '%h'; [ -e '%l.gz' ] &&
-     { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
-}
-
-# Deal with .info files.
-[ -e $PKG/usr/share/info ] && {
-  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
-  rmdir -p $PKG/usr/share
-  }
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
-}
-
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a COPYING MAINTAINERS NEWS \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
-
-# Add schemas install to the doinst.sh if schemas are found.
-[ -d $PKG/etc/gconf/schemas ] && {
-# Make sure we have gconftool installed
-echo "if [ -x usr/bin/gconftool-2 ]; then" >> $PKG/install/doinst.sh
-( cd $PKG/etc/gconf/schemas
-for schema in *.schemas; do
- # Install schemas
- echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
-   usr/bin/gconftool-2 --makefile-install-rule \
-   etc/gconf/schemas/${schema} >/dev/null 2>&1" \
-   >> $PKG/install/doinst.sh
-done;
-)
-# Finish off gconf block
-echo "fi" >> $PKG/install/doinst.sh
-}
 
 # Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
