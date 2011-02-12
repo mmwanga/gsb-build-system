@@ -1,7 +1,6 @@
 #!/bin/bash
 # Version: 1.7 GSB Package SlackBuild.
-# Copyright (c) 2007,2008,2009 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
-# Copyright (c) 2007,2008,2009 Steve Kennedy <steve (at) gnomeslackbuild.org>
+# Copyright (c) 2007, 2008, 2009, 2010, 2011 Steve Kennedy <steve (at) gnomeslackbuild.org>
 # All rights reserved.
 #
 # Licenced under the terms of the GNU General Public Licence version 3.
@@ -29,8 +28,7 @@ VERSION=0.6.28
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glib2 desktop-file-utils dbus gtk+2 python pygtk dbus-python expat \
-                   libglade pygobject gdbm libdaemon qt mono gtk-sharp"
+REQUIRED_PACKAGES="glib2 python libdaemon qt"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -170,17 +168,17 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --target=$ARCH-$DISTRO-linux \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --disable-static \
-  --enable-shared \
-  --disable-monodoc \
   --enable-python-dbus \
   --enable-pygtk\
   --enable-glib \
   --enable-dbus \
   --enable-python \
   --enable-gtk \
-  --enable-qt4 \
+  --enable-gtk3 \
   --disable-qt3 \
-  --disable-gtk3 \
+  --enable-qt4 \
+  --disable-mono \
+  --disable-monodoc \
   --enable-core-docs \
   --with-avahi-user=avahi \
   --with-avahi-group=avahi \
