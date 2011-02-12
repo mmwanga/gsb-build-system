@@ -1,0 +1,8 @@
+PKGNAME="libnotify"
+VERSION="0.6.0"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/libnotify/$(echo $VERSION | cut -f 1,2 -d.)/libnotify-${VERSION}.tar.bz2"
+MD5SUM="732c9d2cd5eb6a9069264a319d330516"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
