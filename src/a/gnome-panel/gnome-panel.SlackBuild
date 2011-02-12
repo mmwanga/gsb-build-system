@@ -25,13 +25,13 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.32.1
+VERSION=2.91.6
 
 # List any packages here that are required to build this package.  The list is
 # space seperated and case sensitive.
-REQUIRED_PACKAGES="gnome-desktop startup-notification libwnck \
-		   libcanberra gstreamer evolution-data-server \
-		   ConsoleKit seamonkey gnome-menus libbonoboui"
+#REQUIRED_PACKAGES="gnome-desktop startup-notification libwnck \
+		   #libcanberra gstreamer evolution-data-server \
+		   #ConsoleKit seamonkey gnome-menus libbonoboui"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -151,10 +151,11 @@ EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Configure.
-CFLAGS="$CFLAGS $(pkg-config --cflags --libs seamonkey-nss)" \
-CXXFLAGS="$CFLAGS $(pkg-config --cflags --libs seamonkey-nss)" \
+#CFLAGS="$CFLAGS $(pkg-config --cflags --libs seamonkey-nss)" \
+#CXXFLAGS="$CFLAGS $(pkg-config --cflags --libs seamonkey-nss)" \
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  ./configure --prefix=/usr --sysconfdir=/etc \
+  --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
@@ -169,7 +170,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 # Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-rmdir -p /etc/dbus-1/system.d
+#rmdir -p /etc/dbus-1/system.d
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
