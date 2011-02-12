@@ -154,15 +154,16 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc \
-  --localstatedir=/var/lib \
-  --mandir=/usr/man $CONFIGURE_FLAGS \
+  $CONFIGURE_FLAGS \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
   --enable-ssh-agent \
-  --disable-static \
-  --disable-pam \
+  --enable-acl-prompts \
+  --enable-gpg-agent \
+  --with-gtk=2.0 \
   --with-root-certs=/etc/ssl/certs \
+  --disable-pam \
   || exit 1
 
 # Build and install.
