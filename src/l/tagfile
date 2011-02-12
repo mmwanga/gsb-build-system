@@ -38,6 +38,7 @@ libsndfile:ADD
 libsoup:ADD
 libtasn1:ADD
 libunique:ADD
+libwnck:ADD
 notification-daemon:ADD
 portaudio:SKP
 pycrypto:ADD
