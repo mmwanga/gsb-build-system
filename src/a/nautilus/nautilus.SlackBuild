@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.32.2.1
+VERSION=2.91.9
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="bzip2 ntfs-3g gamin gnome-desktop ORBit2 GConf util-linux-ng libunique exempi"
+REQUIRED_PACKAGES="exempi"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -150,16 +150,15 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  ./configure --prefix=/usr \
   --mandir=/usr/man $CONFIGURE_FLAGS \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
   --disable-static \
-  --enable-shared \
-  --disable-schemas-install \
   --disable-update-mimedb \
   --disable-packagekit \
+  --enable-introspection=no \
   || exit 1
 
 # Build and install.
@@ -181,39 +180,12 @@ find $PKG/usr/share/mime -size 0 -type f -exec rm {} \;
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }
 
-# Deal with .info files.
-[ -e $PKG/usr/share/info ] && {
-  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
-  rmdir -p $PKG/usr/share
-  }
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
-}
-
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a AUTHORS COPYING NEWS README COPYING-DOCS COPYING.LIB \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
-
-# Add schemas install to the doinst.sh if schemas are found.
-[ -d $PKG/etc/gconf/schemas ] && {
-# Make sure we have gconftool installed
-echo "if [ -x usr/bin/gconftool-2 ]; then" >> $PKG/install/doinst.sh
-( cd $PKG/etc/gconf/schemas
-for schema in *.schemas; do
- # Install schemas
- echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
-   usr/bin/gconftool-2 --makefile-install-rule \
-   etc/gconf/schemas/${schema} >/dev/null 2>&1" \
-   >> $PKG/install/doinst.sh
-done;
-)
-# Finish off gconf block
-echo "fi" >> $PKG/install/doinst.sh
-}
 
 # Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests

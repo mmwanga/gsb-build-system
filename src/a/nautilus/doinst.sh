@@ -26,17 +26,8 @@ if [ -e usr/share/icons/hicolor/icon-theme.cache ]; then
 fi
 usr/bin/gtk-update-icon-cache -f -q usr/share/icons/hicolor 2>/dev/null 1>/dev/null
 
-# Set up nautilus as default ftp desktop handler
-if [ -x usr/bin/gconftool-2 ]; then
-  # For nautilus to control ftp (otherwise annoying error box arises)
-  usr/bin/gconftool-2 --direct --config-source="$(usr/bin/gconftool-2 --get-default-source)" --type string --set /desktop/gnome/url-handlers/ftp/command "nautilus \"%s\"" 1> /dev/null 2> /dev/null
-  # Ensure that Nautilus is used for GNOME desktop, but Thunar or Dolphin
-  usr/bin/gconftool-2 --direct --config-source="$(usr/bin/gconftool-2 --get-default-source)" --type string --set /desktop/gnome/session/required_components/filemanager "nautilus" 1> /dev/null 2> /dev/null
-  # This ensure that nautilus will remember it's window size and position
-  usr/bin/gconftool-2 --direct --config-source="$(usr/bin/gconftool-2 --get-default-source)" --type string --set "/apps/nautilus/preferences/navigation_window_saved_geometry" "640x480+10+10" 1> /dev/null 2> /dev/null
-fi;
-
-# Restart gconfd-2 if running to reload new gconf settings
-if ps acx | grep -q gconfd-2 ; then
-        killall -HUP gconfd-2 ;
+# compile glib2 schemas
+if [ -x usr/bin/glib-compile-schemas ]; then
+  usr/bin/glib-compile-schemas usr/share/glib-2.0/schemas
 fi
+
