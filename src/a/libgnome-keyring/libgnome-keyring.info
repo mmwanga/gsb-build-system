@@ -1,0 +1,8 @@
+PKGNAME="libgnome-keyring"
+VERSION="2.32.0"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/libgnome-keyring/2.32/libgnome-keyring-${VERSION}.tar.bz2"
+MD5SUM="c42b2ca66204835d901d3dbfc1fa5ae6"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
