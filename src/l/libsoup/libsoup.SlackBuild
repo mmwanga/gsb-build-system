@@ -1,7 +1,6 @@
 #!/bin/bash
 # Version: 1.7 GSB Package SlackBuild.
-# Copyright (c) 2007,2008,2009 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
-# Copyright (c) 2007,2008,2009 Steve Kennedy <steve (at) gnomeslackbuild.org>
+# Copyright (c) 2007, 2008, 2009, 2010, 2011 Steve Kennedy <steve (at) gnomeslackbuild.org>
 # All rights reserved.
 #
 # Licenced under the terms of the GNU General Public Licence version 3.
@@ -25,11 +24,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.32.2
+VERSION=2.33.6
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glib2 gnutls libproxy gnome-keyring net-snmp php"
+REQUIRED_PACKAGES="libproxy"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -123,6 +122,9 @@ elif [ "$ARCH" = "powerpc" ]; then
   #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
+# Disable gnome docs for disabled gnome
+zcat $CWD/libsoup.no.gnome.docs.diff.gz | patch -p1 || exit 1
+
 # Fix permissions for building.
 chown -R root:root .
 find . \
@@ -153,15 +155,14 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
+  ./configure --prefix=/usr --sysconfdir=/etc \
   --mandir=/usr/man $CONFIGURE_FLAGS \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
   --disable-static \
-  --enable-shared \
-  --enable-ssl \
-  --with-gnome \
+  --enable-introspection=no \
+  --without-gnome \
   || exit 1
 
 # Build and install.
@@ -178,16 +179,6 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
   find $PKG/usr/man -type l -name \*.? -printf \
     "( cd '%h'; [ -e '%l.gz' ] &&
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
-}
-
-# Deal with .info files.
-[ -e $PKG/usr/share/info ] && {
-  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
-  rmdir -p $PKG/usr/share
-  }
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
 }
 
 # Copy extra documentation into package.
