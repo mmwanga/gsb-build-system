@@ -28,7 +28,7 @@
 
 # Package variables.
 BUILD=1
-VERSION=0.6.0
+VERSION=0.7.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -171,7 +171,7 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a AUTHORS ChangeLog COPYING README $PKG/usr/doc/$PKGNAME-$VERSION
+cp -a AUTHORS ChangeLog COPYING $PKG/usr/doc/$PKGNAME-$VERSION
 ( cd $PKG/usr/doc/$PKGNAME-$VERSION ; ln -s ../../share/gtk-doc/html/libnotify html )
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
