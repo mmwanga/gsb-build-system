@@ -16,6 +16,7 @@ gtkhtml:ADD
 gtkimageview:ADD
 gtksourceview:ADD
 heimdal-libraries:ADD
+json-glib:ADD
 libbonobo:ADD
 libbonoboui:ADD
 libdaemon:ADD
