@@ -33,7 +33,7 @@ VERSION=3.0.0
 REQUIRED_PACKAGES="pango cairo glib2 libpng libjpeg libtiff libXrender xproto \
                    renderproto libX11 kbproto libXau libXdmcp libxcb \
 		   libpthread-stubs libXext cups inputproto libXi libXinerama \
-		   libXrandr jasper gdk-pixbuf"
+		   libXrandr jasper gdk-pixbuf2 gobject-introspection"
  
 # Build variables.
 TAG=${TAG:-gsb}
@@ -179,7 +179,7 @@ CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-xinput \
   --build=$ARCH-$DISTRO-linux \
   --enable-gtk-doc-html=no \
-  --enable-introspection=no \
+  --enable-introspection=yes \
   || exit 1
 
 make $MAKE_FLAGS || exit 1

@@ -1,5 +1,5 @@
 glib2 >= 2.28-@ARCH@-1
-gdk-pixbuf
+gdk-pixbuf2
 pango
 cairo
 jasper
