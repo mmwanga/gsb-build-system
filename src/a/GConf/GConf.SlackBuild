@@ -164,7 +164,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --with-openldap \
   --enable-defaults-service \
   --enable-gsettings-backend \
-  --enable-introspection=no \
+  --enable-introspection=yes \
   || exit 1
 
 # Build and install.
