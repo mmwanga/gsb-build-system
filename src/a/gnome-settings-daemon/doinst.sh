@@ -20,7 +20,7 @@ if [ -e usr/share/icons/hicolor/icon-theme.cache ]; then
 fi
 usr/bin/gtk-update-icon-cache -f -q usr/share/icons/hicolor 2>/dev/null 1>/dev/null
 
-# Restart gconfd-2 if running to reload new gconf settings
-if ps acx | grep -q gconfd-2 ; then
-        killall -HUP gconfd-2 ;
+# glib2 compile schema
+if [ -x usr/bin/glib-compile-schemas ]; then
+  usr/bin/glib-compile-schemas usr/share/glib-2.0/schemas
 fi
