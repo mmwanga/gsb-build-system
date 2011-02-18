@@ -28,7 +28,7 @@ VERSION=0.10.2
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gtk+3 libffi"
+REQUIRED_PACKAGES="libffi"
 
 # Build variables.
 TAG=${TAG:-gsb}
