@@ -12,7 +12,7 @@ if [ -e usr/share/icons/hicolor/icon-theme.cache ]; then
 fi
 usr/bin/gtk-update-icon-cache -f -q usr/share/icons/hicolor
 
-# glib2 compile FileChooser schema
+# glib2 compile schemas
 if [ -x usr/bin/glib-compile-schemas ]; then
   usr/bin/glib-compile-schemas usr/share/glib-2.0/schemas
 fi

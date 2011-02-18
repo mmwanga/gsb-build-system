@@ -29,7 +29,7 @@ VERSION=2.91.6
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="GConf upower"
+REQUIRED_PACKAGES="upower"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -114,14 +114,14 @@ cd $PKGNAME-$VERSION || exit
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
+
+# Default to use xscreensaver not gnome-screensaver which requires PAM
+zcat $CWD/gsm.xscreensaver.service.diff.gz | patch -p1 
 
 # Fix permissions for building.
 chown -R root:root .
@@ -169,13 +169,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-# Change gnome-wm to use compiz ccp if compiz selected
-#mv $PKG/usr/bin/gnome-wm $PKG/usr/bin/gnome-wm.orig || exit 1
-#cp $CWD/gnome-wm.gsb $PKG/usr/bin/gnome-wm || exit 1
-#chmod +x $PKG/usr/bin/gnome-wm
-#mkdir -p $PKG/usr/share/applications &&
-#cp $CWD/gnome-wm.desktop $PKG/usr/share/applications || exit 1
-
 # Add xinitrc script for gnome
 mkdir -p $PKG/etc/X11/xinit &&
 cat $CWD/xinitrc.gnome | sed -e "s,@LIBDIR@,lib${LIBDIRSUFFIX},g" \
@@ -184,6 +177,14 @@ chmod 755 $PKG/etc/X11/xinit/xinitrc.gnome || exit 1
 
 # Add default `gnome` for gnome-session
 ( cd $PKG/usr/bin ; ln -s gnome-session gnome ); 
+
+# Install a dbus service for xscreensaver
+mkdir -p $PKG/usr/share/dbus-1/services &&
+ cp $CWD/org.gnome.xscreensaver.service $PKG/usr/share/dbus-1/services &&
+chmod 644 $PKG/usr/share/dbus-1/services/org.gnome.xscreensaver.service || exit 1
+mkdir -p $PKG/usr/share/glib-2.0/schemas &&
+ cp $CWD/org.gnome.xscreensaver.gschema.xml \
+       $PKG/usr/share/glib-2.0/schemas || exit 1
 
 # Fix gdm session file (in case it's replaced)
 mkdir -p $PKG/usr/share/xsessions &&

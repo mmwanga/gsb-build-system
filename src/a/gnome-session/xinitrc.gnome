@@ -4,6 +4,7 @@
 #
 # Changelog: 
 #
+#  Changed GSETTINGS_BACKEND to glib. (2011-02-15) stevek
 #  Added seahorse-agent again, found in seahorse-plugins. (2010-04-10) stevek
 #  Removed seahorse-agent, now in /etc/gnome/xdg/autostart (2009-30-07) stevek
 #  Added ConsoleKit support (2008-10-30) stevek
@@ -21,7 +22,7 @@ sysmodmap=/usr/@LIBDIR@/X11/xinit/.Xmodmap
 GNOME_SESSION_SETTINGS=""
 
 # Set default gsettings backend as gconf
-export GSETTINGS_BACKEND="gconf"
+export GSETTINGS_BACKEND="glib"
 
 # Gnome XDG Menu Path
 #
