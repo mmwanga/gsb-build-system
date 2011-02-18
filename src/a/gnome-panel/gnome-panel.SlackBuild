@@ -162,7 +162,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --target=$ARCH-$DISTRO-linux \
   --disable-schemas-install \
   --disable-network-manager \
-  --enable-introspection=no \
+  --enable-introspection=yes \
   --enable-eds \
   --disable-static \
   || exit 1
