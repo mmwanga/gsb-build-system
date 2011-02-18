@@ -1,7 +1,6 @@
 #!/bin/bash
 # Version: 1.7 GSB Package SlackBuild.
-# Copyright (c) 2007,2008,2009 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
-# Copyright (c) 2007,2008,2009 Steve Kennedy <steve (at) gnomeslackbuild.org>
+# Copyright (c) 2007, 2008, 2009, 2010, 2011 Steve Kennedy <steve (at) gnomeslackbuild.org>
 # All rights reserved.
 #
 # Licenced under the terms of the GNU General Public Licence version 3.
@@ -25,11 +24,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.32.1
+VERSION=2.91.6
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gnome-desktop metacity gnome-settings-daemon evolution-data-server"
+REQUIRED_PACKAGES="gnome-settings-daemon"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -150,16 +149,13 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  --mandir=/usr/man $CONFIGURE_FLAGS \
+  ./configure --prefix=/usr --sysconfdir=/etc \
+  --mandir=/usr/man \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
   --disable-static \
-  --enable-shared \
-  --enable-aboutme \
-  --disable-schemas-install \
-  --disable-update-mimedb \
+  --disable-examples \
   || exit 1
 
 # Build and install.
@@ -169,20 +165,9 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 # clean up empty mime file
 find $PKG/usr/share/mime -size 0 -type f -exec rm {} \;
 
-# Move misplaced pkgconfig files
-#mv $PKG/usr/share/pkgconfig/*.pc $PKG/usr/lib${LIBDIRSUFFIX}/pkgconfig
-#rmdir -p $PKG/usr/share/pkgconfig
-
-# Preserve menu settings
-mkdir -p $PKG/etc/gnome/xdg/menus &&
-mv $PKG/etc/xdg/menus/gnomecc.menu \
-   $PKG/etc/gnome/xdg/menus/gnomecc.menu.new || exit 1
-# Keep gnome-at-session as GNOME only
-mkdir -p $PKG/etc/gnome/xdg/autostart &&
-mv $PKG/etc/xdg/autostart/gnome-at-session.desktop \
-   $PKG/etc/gnome/xdg/autostart || exit 1
-rm -fr $PKG/etc/xdg
-rm -fr $PKG/usr/share/applications/mimeinfo.cache
+# Preserve gnome xdg settings
+mkdir -p $PKG/etc/gnome &&
+mv $PKG/etc/xdg $PKG/etc/gnome || exit 1
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -195,23 +180,6 @@ rm -fr $PKG/usr/share/applications/mimeinfo.cache
     "( cd '%h'; [ -e '%l.gz' ] &&
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }
-
-# Deal with .info files.
-[ -e $PKG/usr/share/info ] && {
-  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
-  rmdir -p $PKG/usr/share
-  }
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
-}
-
-# Copy extra documentation into package.
-mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a AUTHORS COPYING NEWS README MAINTAINERS \
-  $PKG/usr/doc/$PKGNAME-$VERSION
-find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
-chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 # Add schemas install to the doinst.sh if schemas are found.
 [ -d $PKG/etc/gconf/schemas ] && {
@@ -229,6 +197,13 @@ done;
 # Finish off gconf block
 echo "fi" >> $PKG/install/doinst.sh
 }
+
+# Copy extra documentation into package.
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
+cp -a AUTHORS COPYING NEWS README MAINTAINERS \
+  $PKG/usr/doc/$PKGNAME-$VERSION
+find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
+chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
 
 # Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
