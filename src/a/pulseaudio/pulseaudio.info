@@ -1,0 +1,7 @@
+PKGNAME="pulseaudio"
+VERSION="0.9.22"
+HOMEPAGE="http://www.pulseaudio.org/"
+DOWNLOAD="http://0pointer.de/lennart/projects/pulseaudio/pulseaudio-${VERSION}.tar.gz"
+MD5SUM="ca85ab470669b05e100861654cf5eb3c"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
