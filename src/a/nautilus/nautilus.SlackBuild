@@ -158,7 +158,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --disable-static \
   --disable-update-mimedb \
   --disable-packagekit \
-  --enable-introspection=no \
+  --enable-introspection=yes \
   || exit 1
 
 # Build and install.
