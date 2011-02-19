@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=0.9.5
+VERSION=0.9.8
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="udev dbus devicekit glib2 polkit"
+REQUIRED_PACKAGES="udev dbus glib2 polkit"
 
 # Build variables.
 TAG=${TAG:-gsb}
