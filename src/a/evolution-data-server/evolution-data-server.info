@@ -1,8 +1,8 @@
 PKGNAME="evolution-data-server"
-VERSION="2.32.1"
+VERSION="2.32.2"
 HOMEPAGE="http://projects.gnome.org/evolution/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/evolution-data-server/2.32/evolution-data-server-${VERSION}.tar.bz2"
-MD5SUM="230f9dee68855c8a0ca09f3c3fea8faf"
+MD5SUM="19d230667c0dfb1c06b8fe951fd552ff"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

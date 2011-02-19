@@ -2,3 +2,4 @@ metacity
 gnome-desktop
 gnome-settings-daemon
 evolution-data-server
+libgtop
