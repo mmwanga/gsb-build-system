@@ -29,7 +29,7 @@ VERSION=2.91.6
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libsoup seamonkey-solibs gnome-keyring heimdal-libraries \
+REQUIRED_PACKAGES="libsoup seamonkey-solibs libgnome-keyring heimdal-libraries \
                    libgdata seamonkey libgweather"
 
 # Build variables.

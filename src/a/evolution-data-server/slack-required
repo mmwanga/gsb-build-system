@@ -1,6 +1,6 @@
 libsoup
 seamonkey-solibs
-gnome-keyring
+libgnome-keyring
 heimdal-libraries
 libgdata
 libgweather
