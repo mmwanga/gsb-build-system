@@ -1,7 +1,6 @@
 #!/bin/bash
 # Version: 1.7 GSB Package SlackBuild.
-# Copyright (c) 2007,2008,2009 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
-# Copyright (c) 2007,2008,2009 Steve Kennedy <steve (at) gnomeslackbuild.org>
+# Copyright (c) 2007, 2008, 2009, 2010, 2011 Steve Kennedy <steve (at) gnomeslackbuild.org>
 # All rights reserved.
 #
 # Licenced under the terms of the GNU General Public Licence version 3.
@@ -23,13 +22,13 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-# Package variables
-BUILD=2
+# Package variables.
+BUILD=1
 VERSION=2.32.0
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glib2 libxml2 ORBit2 popt zlib gtk+2 openldap-client polkit"
+REQUIRED_PACKAGES="libgcrypt"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -46,7 +45,7 @@ CWD=$(pwd)
 NOCLEANUP=0
 FORCEBUILD=0
 
-# Usage.
+## Usage.
 function usage() {
   cat << EOF
 Usage: ${0##*/} [options]
@@ -108,6 +107,7 @@ mkdir -p $PKGDEST
 
 # Decompress archive.
 cd $TMP &&
+rm -rf $PKGNAME-$VERSION &&
 tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
@@ -153,54 +153,20 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  --mandir=/usr/man $CONFIGURE_FLAGS \
+  ./configure --prefix=/usr --sysconfdir=/etc \
+  $CONFIGURE_FLAGS \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --disable-static \
-  --disable-gtk-doc \
-  --with-gtk=2.0 \
-  --with-openldap \
-  --enable-defaults-service \
   || exit 1
 
 # Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
-# System-wide settings go here
-mkdir -p $PKG/etc/gconf/gconf.xml.system || exit 1
-
-# Preserve gconf settings
-mv $PKG/etc/gconf/2/path $PKG/etc/gconf/2/path.new || exit 1
-mv $PKG/etc/gconf/2/evoldap.conf $PKG/etc/gconf/2/evoldap.conf.new || exit 1
-
-# Only with --enable-defaults-service, requires policykit
-mv $PKG/etc/dbus-1/system.d/org.gnome.GConf.Defaults.conf \
-  $PKG/etc/dbus-1/system.d/org.gnome.GConf.Defaults.conf.new
-
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
-
-# Compress and fix manpage links.
-[ -e $PKG/usr/man ] && {
-  find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
-  find $PKG/usr/man -type l -name \*.? -printf \
-    "( cd '%h'; [ -e '%l.gz' ] &&
-     { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
-}
-
-# Deal with .info files.
-[ -e $PKG/usr/share/info ] && {
-  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
-  rmdir -p $PKG/usr/share
-  }
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
-}
 
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
