@@ -1,7 +1,0 @@
-PKGNAME="libffi"
-VERSION="3.0.9"
-HOMEPAGE="http://sourceware.org/libffi/"
-DOWNLOAD="ftp://sourceware.org/pub/libffi/libffi-3.0.9.tar.gz"
-MD5SUM="1f300a7a7f975d4046f51c3022fa5ff1"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
