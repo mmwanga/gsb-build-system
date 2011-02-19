@@ -12,8 +12,7 @@ Here are some versions of major components of GNOME SlackBuild 2.32.0
 - Full GNOME Desktop    2.32.0
 - Evolution             2.32.0
 - NetworkManager        0.8.1
-- Mono C#               2.6.7
-- OpenOffice.org        3.2.0.10
+- Mono C#               2.8.2
 - Compiz                0.8.6
 - Abiword               2.8.4 
 - Gnumeric              1.10.2
@@ -74,7 +73,6 @@ FTP site:
 |   |-- m               The M (mono C#) series.
 |   |-- n               The N (networking) series.
 |   |-- go              The GO (gnome office) series.
-|   |-- ooo             The OOO (openoffice.org) series.
 |   `-- t               The T (themes) series.
 |
 |-- pasture/            These are packages that have been removed
@@ -105,7 +103,6 @@ FTP site:
 |   |-- m/              Source code for mono packages.
 |   |-- n/              Source code for networking packages.
 |   |-- go/             Source code for office packages.
-|   |-- ooo/            Source code for Openoffice packages.
 |   `-- t/              Source code for themes packages.
 |
 `-- testing/            This directory contained packages being tested

@@ -12,7 +12,7 @@
 #
 # Glib2 and GTK+2 are required replacements
 l/glib2
-l/gdk-pixbuf
+l/gdk-pixbuf2
 l/gtk+2
 # GNOME core libraries
 l/ORBit2
@@ -27,6 +27,7 @@ m/gtk-sharp
 n/avahi
 n/nss-mdns
 l/libtasn1
+a/libgnome-keyring
 a/gnome-keyring
 l/libicu
 l/libproxy

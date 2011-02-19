@@ -1,10 +1,10 @@
-# THIS IS THE REPLACED PACKAGES LIST FOR GSB GNOME 2.32.0
+# THIS IS THE REPLACED PACKAGES LIST FOR GSB GNOME 2.32.1
 #
 # The following is a list of packages that can replace official Slackware 13.1
 # packages.
 #
 # Packages listed under 'Required' are Slackware packages that MUST be replaced
-# by corresponding GNOME SlackBuild versions in order to use GNOME 2.30 on
+# by corresponding GNOME SlackBuild versions in order to use GNOME 2.32 on
 # Slackware 13.1. Reasons for their replacement are given within brackets.
 #
 # Packages listed under 'Optional' are packages which replace official
@@ -13,14 +13,14 @@
 # recommended, but not required if you do not plan to use certain applications,
 # or are dead set against replacing any Slackware provided packages.
 #
-# Last updated: October 16, 2010 (stevek)
+# Last updated: 03-20-2011 (stevek)
 #
 
 *********************************************** 
 -- REQUIRED Package Replacements --
 
-glib2:             ( 2.26.0 required by gtk+2-2.22.0 )
-gtk+2:         	   ( 2.22.0 required by gnome-panel and nautilus )
+glib2:             ( 2.26.1 required by gtk+2-2.22.1 )
+gtk+2:         	   ( 2.22.1 required by gnome-panel and nautilus )
 gnome-icon-theme:  ( 2.30.3 required by evolution )
 
 *********************************************** 

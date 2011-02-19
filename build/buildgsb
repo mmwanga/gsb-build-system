@@ -26,7 +26,7 @@
 # OF SUCH DAMAGE.
 
 # GNOME SlackBuild Version
-GSB_VERSION=2_30
+GSB_VERSION=2_32
 
 #========================================================================
 # FUNCTIONS

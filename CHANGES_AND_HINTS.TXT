@@ -1,9 +1,9 @@
 CHANGES AND HINTS
 =================
-This file documents the instructions for upgrading to GNOME SlackBuild 2.30.0
+This file documents the instructions for upgrading to GNOME SlackBuild 2.32.0
 for Slackware 13.1, and lists any packages which have been added, removed,
-renamed, and/or split during the development cycle from GSB 2.28.3 for
-Slackware 13.0, as well as note some potential "gotchas" that users can avoid
+renamed, and/or split during the development cycle from GSB 2.30.0 for
+Slackware 13.1, as well as note some potential "gotchas" that users can avoid
 by arming themselves with a little knowledge.
 
 All packages that are built to replace a standard Slackware package are
@@ -11,12 +11,9 @@ configured and built as closely as possible to how Patrick does.  For more
 information about what needs to be replaced, and why, please see our
 'README_REPLACED_PACKAGES.TXT'.  
 
-This version of GNOME SlackBuild has been considerably slimmed down.  It is
-difficult to maintain to a high quality so many peripheral packages. A full
-GNOME desktop, and a variety of office, multimedia, and networking applications
-is still offered.  Please check the 'Package Removals' section below for
-details.  Before installing or upgrading GSB, you are encourage to use
-'--remove-obsolete' when doing upgrades.
+Please check the 'Package Removals' section below for details.  Before
+installing or upgrading GSB, you are encourage to use '--remove-obsolete' when
+doing upgrades.
 
 GPG SIGNED PACKAGED
 ===================
@@ -36,19 +33,20 @@ required package and they may not be installed.
 
 *** PACKAGE ADDITIONS SINCE 2.30.0 for Slackware 13.1 ***
 
-l/libdmapsharing: Added.
-l/libevent: Added.
-l/libgdata: Added.
-l/libimobiledevice: Added.
-l/libplist: Added.
-l/gdk-pixbuf: Added.
-l/usbmuxd: Added.
+a/libgnome-keyring: Added.
 
 *** PACKAGE REMOVALS SINCE 2.30.0 for Slackware 13.1 ***
 
-None.
+ooo/: OpenOffice has been superceded by LibreOffice.  
 
 *** OTHER NOTABLE CHANGES AND HINTS ***
+
+- OpenOffice has been removed in preference for LibreOffice.  Instead of
+offering our own build, we recommend you use AlienBob's version which can be
+found here:
+    * http://slackware.com/~alien/slackbuilds/libreoffice/
+    * http://taper.alienbase.nl/mirrors/people/alien/slackbuilds/libreoffice/ (US mirror)
+    * http://www.slackware.org.uk/people/alien/slackbuilds/libreoffice/ (UK mirror)
 
 - Gtk-Message: Failed to load module "gnomebreakpad".  The latest 2.32 version
 of bug-buddy has removed the old google breakpad code and replaced it with
