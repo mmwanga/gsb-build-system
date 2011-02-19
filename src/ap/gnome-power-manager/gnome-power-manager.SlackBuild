@@ -1,7 +1,6 @@
 #!/bin/bash
 # Version: 1.7 GSB Package SlackBuild.
-# Copyright (c) 2007,2008,2009 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
-# Copyright (c) 2007,2008,2009 Steve Kennedy <steve (at) gnomeslackbuild.org>
+# Copyright (c) 2007, 2008, 2009, 2010, 2011 Steve Kennedy <steve (at) gnomeslackbuild.org>
 # All rights reserved.
 #
 # Licenced under the terms of the GNU General Public Licence version 3.
@@ -25,11 +24,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.32.0
+VERSION=2.91.5
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libnotify upower libunique libxcb libcanberra pm-utils" 
+REQUIRED_PACKAGES="libnotify upower libcanberra"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -114,13 +113,10 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
 # Fix permissions for building.
@@ -158,11 +154,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --disable-schemas-install \
-  --disable-scrollkeeper \
-  --disable-docbook-docs \
   --disable-static \
-  --enable-applets \
   || exit 1
 
 # Build and install.
@@ -191,23 +183,6 @@ cp -a AUTHORS COPYING NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
-
-# Add schemas install to the doinst.sh if schemas are found.
-[ -d $PKG/etc/gconf/schemas ] && {
-# Make sure we have gconftool installed
-echo "if [ -x usr/bin/gconftool-2 ]; then" >> $PKG/install/doinst.sh
-( cd $PKG/etc/gconf/schemas
-for schema in *.schemas; do
- # Install schemas
- echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
-   usr/bin/gconftool-2 --makefile-install-rule \
-   etc/gconf/schemas/${schema} >/dev/null 2>&1" \
-   >> $PKG/install/doinst.sh
-done;
-)
-# Finish off gconf block
-echo "fi" >> $PKG/install/doinst.sh
-}
 
 # Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests

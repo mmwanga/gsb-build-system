@@ -1,7 +1,7 @@
 # GNOME SlackBuild Buildlist
 #
 # Format:  
-# Single line have a: <set>/<package>
+# Eac line has: <set>/<package>
 #
 # You can prefix 'rebuild' to force a rebuild of a package, or 'nofetch' to
 # skip downloading and md5sum checking of source packages. e.g:
@@ -10,15 +10,58 @@
 #
 # START BUILDLIST
 #
-# Glib2 and GTK+2 are required replacements
-l/glib2
-l/gdk-pixbuf
-l/gtk+3
+# Install gobject-introspection 
+l/libffi
+l/gobject-introspection
 d/libsigc++
+# glib2 is a required replacement
+l/glib2
+l/gdk-pixbuf2
+l/gir-repository
+# gtk+3 can live beside gtk+2 safely
+l/gtk+3
 # GNOME core libraries
-#l/ORBit2
-#a/GConf
-#l/libdaemon
+l/ORBit2
+a/GConf
+l/usbmuxd
+l/libtasn1
+l/libimobiledevice
+a/upower
+a/gnome-session
+a/gsettings-desktop-schemas
+a/rarian
+a/gnome-desktop
+a/gnome-menus
+a/libcanberra
+l/libwnck
+l/libproxy
+l/heimdal-libraries
+a/libgnome-keyring
+l/libsoup
+a/libgweather
+l/libgdata
+a/evolution-data-server
+a/gnome-keyring
+a/gnome-panel
+l/exempi
+l/libnotify
+a/nautilus
+a/zenity
+a/metacity
+a/libgnomekbd
+a/gnome-settings-daemon
+l/speex
+l/libdaemon
+n/avahi
+a/pulseaudio
+l/libgtop
+a/gnome-control-center
+l/json-glib
+l/clutter
+a/mutter
+a/gnome-shell
+#ap/gnome-power-manager
+#a/gvfs
 #l/gnome-mime-data
 #m/libgdiplus
 #l/libunique
@@ -27,52 +70,24 @@ d/libsigc++
 #l/gnome-mime-data
 #m/libgdiplus
 #l/libunique
-# Build Mono early for bindings in later packages
+# Or build Mono early for bindings in later packages
 #m/mono
 #m/gtk-sharp
-#n/avahi
 #n/nss-mdns
-#l/libtasn1
-#a/gnome-keyring
 #l/libicu
-#l/libproxy
-#l/libsoup
-#a/rarian
-#a/gnome-desktop
-# iPhone support for gvfs
-#l/usbmuxd
-#l/libimobiledevice
-#a/gvfs
-#l/exempi
-#a/nautilus
 #a/gnome-mount
-#a/libgweather
-#l/heimdal-libraries
-#l/libgdata
-#a/evolution-data-server
-#a/libcanberra
-#a/gnome-menus
 #l/libbonobo
 #l/libgnomecanvas
 #a/gnome-vfs
 #l/libgnome
 #l/libbonoboui
-#a/gnome-panel
-#a/zenity
-#a/metacity
-#a/libgnomekbd
-#a/gnome-settings-daemon
-#a/gnome-control-center
 #a/libgnomeui
 #l/pyorbit
 #a/gnome-python
-#l/libgtop
 #a/gnome-applets
 #n/webkit
 #n/pywebkitgtk
 #a/devicekit
-#a/upower
-#a/gnome-session
 #a/gtk-engines
 #l/libsexy
 #l/notification-daemon
@@ -120,7 +135,6 @@ d/libsigc++
 #ap/bug-buddy
 #ap/alacarte
 #ap/totem-pl-parser
-#l/speex
 # 
 # We replace Slackware's gst-plugins-good to make it GConf aware.
 # 
@@ -141,7 +155,6 @@ d/libsigc++
 #ap/gcalctool
 #ap/gdm
 #ap/gnome-media
-#ap/gnome-power-manager
 #d/glibmm
 #d/cairomm
 #d/pangomm
@@ -178,8 +191,6 @@ d/libsigc++
 #ac/libgail-gnome
 #ac/orca
 #t/gnome-backgrounds
-#l/clutter
-#l/clutter-gtk
 #ap/gnome-games
 #ap/hamster-applet
 #ap/sensors-applet
@@ -269,9 +280,7 @@ d/libsigc++
 #
 # Build packages in testing/
 #
-#testing/libffi
 #testing/gobject-introspection
-#testing/gir-repository
 #testing/mutter
 #testing/gjs
 #testing/libcroco

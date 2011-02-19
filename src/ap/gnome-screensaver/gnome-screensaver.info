@@ -1,0 +1,8 @@
+PKGNAME="gnome-screensaver"
+VERSION="2.91.4"
+HOMEPAGE="http://live.gnome.org/GnomeScreensaver"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gnome-screensaver/2.91/gnome-screensaver-${VERSION}.tar.bz2"
+MD5SUM="c5fcb7181960c46dfc76aee0b103f167"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

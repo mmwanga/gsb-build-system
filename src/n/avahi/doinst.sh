@@ -11,6 +11,7 @@ install_file() {
   # Otherwise, we leave the .new copy for the admin to consider...
 }
 
+install_file etc/avahi/avahi-daemon.conf.new
 install_file etc/rc.d/rc.avahidaemon.new
 install_file etc/rc.d/rc.avahidnsconfd.new
 install_file etc/dbus-1/system.d/avahi-dbus.conf.new

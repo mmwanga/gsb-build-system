@@ -22,18 +22,18 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-# Package variables
-BUILD=2
-VERSION=0.6.28
+# Package variables.
+BUILD=1
+VERSION=2.91.4
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="glib2 python libdaemon qt"
+REQUIRED_PACKAGES=""
 
 # Build variables.
 TAG=${TAG:-gsb}
 ARCH=${ARCH:-i486}
-TUNE=${TUNE:-i686}
+TUNE=${TUNE:-i486}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}
@@ -107,19 +107,16 @@ mkdir -p $PKGDEST
 
 # Decompress archive.
 cd $TMP &&
-tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
+tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
 # Fix permissions for building.
@@ -150,65 +147,19 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-# We need to make sure we have avahi added to /etc/passwd before configure
-if ! grep -q "^avahi:" /etc/passwd; then
-  /usr/sbin/useradd -u 85 -s /bin/false -d /dev/null avahi || exit 1
-  /usr/sbin/useradd -u 88 -s /bin/false -d /dev/null avahi-autoipd || exit 1
-fi 
-# We need to make sure we have avahi added to /etc/group before configure
-if ! grep -q "^avahi:" /etc/group; then
-  /usr/sbin/groupadd -g 85 avahi || exit 1
-fi 
-
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc \
-  --localstatedir=/var \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS \
-  --target=$ARCH-$DISTRO-linux \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
+  --build=$ARCH-$DISTRO-linux \
+  --target=$ARCH-$DISTRO-linux \
   --disable-static \
-  --enable-python-dbus \
-  --enable-pygtk\
-  --enable-glib \
-  --enable-dbus \
-  --enable-python \
-  --enable-gtk \
-  --enable-gtk3 \
-  --disable-qt3 \
-  --enable-qt4 \
-  --disable-mono \
-  --disable-monodoc \
-  --enable-core-docs \
-  --with-avahi-user=avahi \
-  --with-avahi-group=avahi \
-  --with-autoipd-user=avahi-autoipd \
-  --with-autoipd-group=avahi-autoipd \
-  --with-distro=slackware \
-  --program-prefix= \
-  --program-suffix= \
   || exit 1
 
 # Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
-
-# Setup up autoipd dirs
-mkdir -p ${PKG}/var/run/avahi-daemon
-mkdir -p ${PKG}/var/run/avahi-autoipd 
-
-# Remove extraneous icons from gnome menus
-rm -fr $PKG/usr/share/applications/bssh.desktop
-rm -fr $PKG/usr/share/applications/bvnc.desktop
-
-# Preserve previously installed configuations.
-( cd $PKG/etc/rc.d
-  for i in avahidaemon avahidnsconfd
-  do
-    mv rc.$i rc.$i.new
-  done)
-mv $PKG/etc/dbus-1/system.d/avahi-dbus.conf $PKG/etc/dbus-1/system.d/avahi-dbus.conf.new || exit 1
-mv $PKG/etc/avahi/avahi-daemon.conf $PKG/etc/avahi/avahi-daemon.conf.new || exit 1
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -224,7 +175,7 @@ mv $PKG/etc/avahi/avahi-daemon.conf $PKG/etc/avahi/avahi-daemon.conf.new || exit
 
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a LICENSE docs/README docs/AUTHORS docs/NEWS docs/*.dia \
+cp -a AUTHORS COPYING NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
@@ -242,6 +193,6 @@ cd $PKG
 makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
 
 # Cleanup
-if [ "$NOCLEANUP" = "0" ]; then
-  rm -rf $PKG $TMP/$PKGNAME-$VERSION
+rm -rf $PKG; if [ "$NOCLEANUP" = "0" ]; then
+  rm -rf $TMP/$PKGNAME-$VERSION
 fi;
