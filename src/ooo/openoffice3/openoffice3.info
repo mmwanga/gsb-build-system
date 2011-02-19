@@ -1,7 +1,0 @@
-PKGNAME="openoffice3"
-VERSION="3.2.1.4"
-HOMEPAGE="http://www.openoffice.org/"
-DOWNLOAD="http://download.go-oo.org/OOO320/ooo-build-${VERSION}.tar.gz"
-MD5SUM="d3908a2e1f13b0adfee33c45572d4de3"
-MAINTAINER="Chip Cuccio"
-EMAIL="chipster@gnomeslackbuild.org"
