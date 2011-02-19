@@ -6,14 +6,14 @@
 # leave one space after the ':'.
 
           |-----handy-ruler------------------------------------------------------|
-gdk-pixbuf: gdk-pixbuf (gdk image handling library)
-gdk-pixbuf:
-gdk-pixbuf: The gdk-pixbuf library provides image loading, support for libart's
-gdk-pixbuf: ArtPixBuf structure, fast scaling and compositing of pixbufs, and
-gdk-pixbuf: simple animation loading.  
-gdk-pixbuf:
-gdk-pixbuf:
-gdk-pixbuf:
-gdk-pixbuf:
-gdk-pixbuf:
-gdk-pixbuf:
+gdk-pixbuf2: gdk-pixbuf2 (gdk image handling library)
+gdk-pixbuf2:
+gdk-pixbuf2: The gdk-pixbuf2 library provides image loading, support for libart's
+gdk-pixbuf2: ArtPixBuf structure, fast scaling and compositing of pixbufs, and
+gdk-pixbuf2: simple animation loading.  
+gdk-pixbuf2:
+gdk-pixbuf2:
+gdk-pixbuf2:
+gdk-pixbuf2:
+gdk-pixbuf2:
+gdk-pixbuf2:
