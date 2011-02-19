@@ -35,12 +35,13 @@ l/libsoup
 a/rarian
 a/gnome-desktop
 # iPhone support for gvfs
+l/libplist
 l/usbmuxd
 l/libimobiledevice
 a/gvfs
 l/exempi
 a/nautilus
-a/gnome-mount
+#a/gnome-mount
 a/libgweather
 l/heimdal-libraries
 l/libgdata

@@ -1,5 +1,5 @@
 glib2
 gnutls
 net-snmp
-gnome-keyring
+libgnome-keyring
 libproxy
