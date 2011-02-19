@@ -132,7 +132,7 @@ find . \
   -exec chmod 644 {} \;
 
 # Configure.
-./configure --prefix=/usr  \
+./configure --prefix=/usr --sysconfdir=/etc \
   || exit 1
 
 # Build and install.

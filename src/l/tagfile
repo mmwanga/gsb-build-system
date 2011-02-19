@@ -3,7 +3,7 @@ clutter:ADD
 clutter-gtk:ADD
 exempi:ADD
 ffmpeg:ADD
-gdk-pixbuf:ADD
+gdk-pixbuf2:ADD
 glib2:ADD
 gnome-mime-data:ADD
 goocanvas:ADD

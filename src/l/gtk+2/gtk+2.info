@@ -3,6 +3,6 @@ VERSION="2.22.1"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/gtk+/2.22/gtk+-2.22.1.tar.bz2"
-MD5SUM="abdb282a0ee55384babae7e82f5e7296"
+MD5SUM="fdce46ba354c155230b7d4090b17f7d9"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
