@@ -1,8 +1,0 @@
-PKGNAME="gok"
-VERSION="2.30.0"
-HOMEPAGE="http://www.gok.ca/"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gok/2.30/gok-2.30.0.tar.bz2"
-MD5SUM="853c7825eb62d7c425f5a0efdc07412a"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
