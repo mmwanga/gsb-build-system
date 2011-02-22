@@ -1,8 +1,8 @@
 PKGNAME="gtkhtml"
-VERSION="3.32.0"
+VERSION="3.32.2"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/gtkhtml/3.32/gtkhtml-${VERSION}.tar.bz2"
-MD5SUM="c9b0ff63447220329734f8ec282a1c2f"
+MD5SUM="3e1a1d56beef147aa0a95e5ebbf61c8c"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

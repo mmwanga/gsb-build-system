@@ -1,4 +1,4 @@
-PKGNAME="gtksourceview2"
+PKGNAME="gtksourceview"
 VERSION="2.10.5"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
