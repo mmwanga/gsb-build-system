@@ -25,7 +25,7 @@
 
 # Package variables.
 BUILD=1
-VERSION=0.8.1
+VERSION=0.8.2
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -115,19 +115,10 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # https://bugzilla.gnome.org/show_bug.cgi?id=615653
-  zcat $CWD/network-manager-applet.gseal_enable.diff.gz | patch -p1
-  autoreconf -vif
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # https://bugzilla.gnome.org/show_bug.cgi?id=615653
-  zcat $CWD/network-manager-applet.gseal_enable.diff.gz | patch -p1
-  autoreconf -vif
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  # https://bugzilla.gnome.org/show_bug.cgi?id=615653
-  zcat $CWD/network-manager-applet.gseal_enable.diff.gz | patch -p1
-  autoreconf -vif
 fi
 
 # Fix permissions for building.
@@ -162,7 +153,6 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var \
   $CONFIGURE_FLAGS \
-  --mandir=/usr/man \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
@@ -179,6 +169,7 @@ mv $PKG/etc/dbus-1/system.d/nm-applet.conf $PKG/etc/dbus-1/system.d/nm-applet.co
 mkdir -p $PKG/usr/share/applications
 mkdir -p $PKG/etc/gnome &&
 mv $PKG/etc/xdg $PKG/etc/gnome || exit 1
+rmdir -p $PKG/usr/lib/gnome-bluetooth/plugins/
 
 # Users now can add themselves to the "netdev" group to use networkmanager.
 sed -i "s/at_console=\"true\"/group=\"netdev\"/g" $PKG/etc/dbus-1/system.d/nm-applet.conf
@@ -188,24 +179,6 @@ mv $PKG/etc/dbus-1/system.d/nm-applet.conf $PKG/etc/dbus-1/system.d/nm-applet.co
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
-
-# Compress and fix manpage links.
-[ -e $PKG/usr/man ] && {
-  find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
-  find $PKG/usr/man -type l -name \*.? -printf \
-    "( cd '%h'; [ -e '%l.gz' ] &&
-     { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
-}
-
-# Deal with .info files.
-[ -e $PKG/usr/share/info ] && {
-  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
-  rmdir -p $PKG/usr/share
-  }
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
-}
 
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
