@@ -2,6 +2,6 @@ python
 gail
 libgail-gnome
 gnome-mag
-gnome-speech
+speech-dispatcher
 pyorbit
 pygtk
