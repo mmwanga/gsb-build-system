@@ -1,3 +1,76 @@
+Tue Feb 22 20:10:18 GMT 2011
+d/gtkmm-2.22.0-i486-1gsb.txz: Upgraded.
+  Now linked against new atkmm package.
+ap/gnome-mplayer-1.0.0-i486-1gsb.txz: Upgraded.
+ap/gthumb-2.12.2-i486-1gsb.txz: Upgraded.
+ap/gnome-python-desktop-2.32.0-i486-1gsb.txz: Upgraded.
+l/gst-ffmpeg-0.10.11-i486-1gsb.txz: Upgraded.
+l/libdmapsharing-2.1.9-i486-1gsb.txz: Upgraded.
+ad/slapt-get-0.10.2h-i486-1gsb.txz: Upgraded.
+go/goffice-0.8.13-i486-1gsb.txz: Upgraded.
+go/abiword-2.8.6-i486-1gsb.txz: Upgraded.
+go/libgsf-1.14.19-i486-1gsb.txz: Upgraded.
+go/gnumeric-1.10.13-i486-1gsb.txz: Upgraded.
+ac/gnome-mag-0.16.3-i486-1gsb.txz: Upgraded.
+ac/espeak-1.44.05-i486-1gsb.txz: Upgraded.
+ac/speech-dispatcher-0.7.1-i486-1gsb.txz: Added.
+  This package replaces the now obsolete and unmaintained gnome-speech.
+  Thanks to Jonathon Nadeau for mentioning the new package.
+ac/mousetweaks-2.32.1-i486-1gsb.txz: Upgraded.
+l/pyxdg-0.19-i486-2gsb.txz: Rebuilt.
+  Fixed typos in the slack-desc.
+ac/orca-2.32.1-i486-1gsb.txz: Upgraded.
+t/gnome-backgrounds-2.32.0-noarch-1gsb.txz: Upgraded.
+l/clutter-1.2.14-i486-1gsb.txz: Upgraded.
+l/clutter-gtk-0.10.8-i486-1gsb.txz: Upgraded.
+ap/gnome-games-2.32.1-i486-1gsb.txz: Upgraded.
+ap/hamster-applet-2.32.1-i486-1gsb.txz: Upgraded.
+ap/sensors-applet-2.2.7-i486-1gsb.txz: Upgraded.
+m/mono-addins-0.5-i486-2gsb.txz: Rebuilt.
+m/gnome-sharp-2.24.2-i486-1gsb.txz: Upgraded.
+m/gnome-desktop-sharp-2.26.0-i486-5gsb.txz: Rebuilt.
+  Rebuilt against newer gnome-sharp.
+d/gdl-2.30.1-i486-1gsb.txz: Upgraded.
+d/autogen-5.11.5-i486-1gsb.txz: Upgraded.
+d/gitg-0.0.8-i486-1gsb.txz: Upgraded.
+d/bluefish-2.0.2-i486-1gsb.txz: Upgraded.
+ap/yelp-2.30.1-i486-2gsb.txz: Rebuilt.
+  Removed dependency on gnome-doc-utils.
+ad/gslapt-0.5.3e-i486-1gsb.txz: Upgraded.
+n/pptp-1.7.2-i486-3gsb.txz: Rebuilt.
+n/NetworkManager-pptp-0.8.2-i486-1gsb.txz: Upgraded.
+n/NetworkManager-openvpn-0.8.2-i486-1gsb.txz: Upgraded.
+ad/pessulus-2.30.4-i486-1gsb.txz: Upgraded.
+ad/sabayon-2.30.1-i486-1gsb.txz: Upgraded.
+t/murrine-engine-0.98.1.1-i486-1gsb.txz: Upgraded.
+  We are removing several packages from the tree in order which are either no
+  longer used, or we have decided are not really GNOME requirements for a full
+  desktop. Many of these will be moved over to SlackBuilds.org.
+go/postgresql: Removed.
+go/gnome-speech: Removed.
+  Superceded by speech-dispatcher.
+m/boo: Removed.
+m/taglib-sharp: Removed.
+m/ndesk-dbus: Removed.
+m/ndesk-dbus-glib: Removed.
+m/gnome-sharp: Removed.
+m/podsleuth: Removed.
+m/ipod-sharp: Removed.
+m/mono-zeroconf: Removed.
+m/banshee-1: Removed.
+m/tomboy: Removed.
+ac/gok: Removed.  
+go/python-dateutil: Removed.
+go/vobject: Removed.
+l/goocanvas: Removed.
+l/pygoocanvas: Removed.
+go/conduit: Removed.
+ap/gnome-doc-utils: Removed.
+  Conflicts with Slackware's linuxdoc-tools.
+a/devicekit: Removed.
+a/devicekit-power: Removed.
+  Superceded by upower.
++--------------------------+
 Tue Feb 22 15:09:42 GMT 2011
 ap/brasero-2.32.1-i486-1gsb.txz: Upgraded.
 ap/eog-2.32.1-i486-1gsb.txz: Upgraded.
@@ -7,7 +80,7 @@ ap/gcalctool-5.32.2-i486-1gsb.txz: Upgraded.
 d/libsigc++-2.2.8-i486-1gsb.txz: Upgraded.
 d/cairomm-1.8.6-i486-1gsb.txz: Upgraded.
 d/pangomm-2.26.3-i486-1gsb.txz: Upgraded.
-d/atkmm-2.22.2-i486-1gsb.txz: Upgraded.
+d/atkmm-2.22.2-i486-1gsb.txz: Added.
 +--------------------------+
 Mon Feb 21 19:30:09 GMT 2011
 n/empathy-2.30.3-i486-2gsb.txz: Rebuilt.

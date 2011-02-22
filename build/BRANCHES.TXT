@@ -21,6 +21,9 @@ You can view the different branches by using:
   origin/gsb-2.26_slackware-12.2
   origin/gsb-2.28.1_slackware-13.0
   origin/gsb-2.28.1_slackware-13.1
+  origin/gsb-2.30.2-slackware-13.1
+  origin/gsb-2.30_slackware-13.1
+  origin/gsb-3.0-devel
   origin/master
 
 And then you can switch to your desired version of GSB by using:

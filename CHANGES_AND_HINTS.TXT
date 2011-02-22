@@ -34,9 +34,36 @@ required package and they may not be installed.
 *** PACKAGE ADDITIONS SINCE 2.30.0 for Slackware 13.1 ***
 
 a/libgnome-keyring: Added.
+d/atkmm: Added.
 
 *** PACKAGE REMOVALS SINCE 2.30.0 for Slackware 13.1 ***
 
+  We are removing several packages from the tree in order which are either no
+  longer used, or we have decided are not really GNOME requirements for a full
+  desktop. Many of these will be moved over to SlackBuilds.org.
+go/postgresql: Removed.
+a/devicekit: Removed.
+a/devicekit-power: Removed.
+go/gnome-speech: Removed.
+  Superceded by speech-dispatcher.
+m/boo: Removed.
+m/taglib-sharp: Removed.
+m/ndesk-dbus: Removed.
+m/ndesk-dbus-glib: Removed.
+m/gnome-sharp: Removed.
+m/podsleuth: Removed.
+m/ipod-sharp: Removed.
+m/mono-zeroconf: Removed.
+m/banshee-1: Removed.
+m/tomboy: Removed.
+ac/gok: Removed.  
+go/python-dateutil: Removed.
+go/vobject: Removed.
+l/goocanvas: Removed.
+l/pygoocanvas: Removed.
+go/conduit: Removed.
+ap/gnome-doc-utils: Removed.
+  Conflicts with Slackware's linuxdoc-tools.
 ooo/: OpenOffice has been superceded by LibreOffice.  
 
 *** OTHER NOTABLE CHANGES AND HINTS ***

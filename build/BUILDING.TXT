@@ -146,9 +146,7 @@ even more finely tuned build options, see below Appendix A.
    |   |-- BUILDING.TXT   This file.
    |   |-- BRANCHES.TXT   This file details our GIT branches.
    |   |-- buildgsb       The main build script.
-   |   |-- gsb.options    This file is read in by buildgsb.
-   |   `-- src/           This directory contains extra packages which may be
-   |                      required for building GSB, but not run-time.
+   |   `-- gsb.options    This file is read in by buildgsb.
    |
    `-- src/               Source directory for our main sets.
       |
