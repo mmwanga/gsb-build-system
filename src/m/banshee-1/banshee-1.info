@@ -1,7 +1,0 @@
-PKGNAME="banshee-1"
-VERSION="1.6.1"
-HOMEPAGE="http://banshee-project.org/"
-DOWNLOAD="http://download.banshee-project.org/banshee/stable/1.6.1/banshee-1-1.6.1.tar.bz2"
-MD5SUM="c3456dfa052d9a323f68d3763212c23d"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
