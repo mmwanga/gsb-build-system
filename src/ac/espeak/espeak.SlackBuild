@@ -28,7 +28,7 @@
 
 # Package variables.
 BUILD=1
-VERSION=1.43.03
+VERSION=1.44.05
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
