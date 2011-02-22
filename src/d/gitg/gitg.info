@@ -1,7 +1,8 @@
 PKGNAME="gitg"
-VERSION="0.0.6"
+VERSION="0.0.8"
 HOMEPAGE="http://trac.novowork.com/gitg/"
-DOWNLOAD="http://trac.novowork.com/gitg/raw-attachment/wiki/Releases/gitg-0.0.6.tar.bz2"
-MD5SUM="5aab2b6fc97d72f2063f91f12dc014d8"
-MAINTAINER="Chip Cuccio"
-EMAIL="chipster@gnomeslackbuild.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gitg/0.0/gitg-$VERSION.tar.bz2"
+MD5SUM="5da29043a8ed387fa1aa0c33cd571d86"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

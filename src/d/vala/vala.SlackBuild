@@ -25,11 +25,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=0.8.1
+VERSION=0.10.3
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnome pygtk"
+REQUIRED_PACKAGES=""
 
 # Build variables.
 TAG=${TAG:-gsb}
