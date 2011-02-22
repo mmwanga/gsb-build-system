@@ -1,0 +1,7 @@
+PKGNAME="speech-dispatcher"
+VERSION="0.7.1"
+HOMEPAGE="http://devel.freebsoft.org/speechd"
+DOWNLOAD="http://devel.freebsoft.org/pub/projects/speechd/speech-dispatcher-0.7.1.tar.gz"
+MD5SUM="ccfc30ac006673d36b4223eb760ed696"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
