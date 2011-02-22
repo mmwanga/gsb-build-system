@@ -1,3 +1,83 @@
+Tue Feb 22 15:09:42 GMT 2011
+ap/brasero-2.32.1-i486-1gsb.txz: Upgraded.
+ap/eog-2.32.1-i486-1gsb.txz: Upgraded.
+ap/eog-plugins-2.30.2-i486-1gsb.txz: Upgraded.
+ap/file-roller-2.32.1-i486-1gsb.txz: Upgraded.
+ap/gcalctool-5.32.2-i486-1gsb.txz: Upgraded.
+d/libsigc++-2.2.8-i486-1gsb.txz: Upgraded.
+d/cairomm-1.8.6-i486-1gsb.txz: Upgraded.
+d/pangomm-2.26.3-i486-1gsb.txz: Upgraded.
+d/atkmm-2.22.2-i486-1gsb.txz: Upgraded.
++--------------------------+
+Mon Feb 21 19:30:09 GMT 2011
+n/empathy-2.30.3-i486-2gsb.txz: Rebuilt.
+n/NetworkManager-0.8.2-i486-1gsb.txz: Upgraded.
+l/libevent-2.0.10-i486-1gsb.txz: Upgraded.
+n/transmission-2.20-i486-1gsb.txz: Upgraded.
+n/network-manager-applet-0.8.2-i486-1gsb.txz: Upgraded.
+ap/totem-pl-parser-2.32.3-i486-1gsb.txz: Upgraded.
++--------------------------+
+Sun Feb 20 16:43:07 GMT 2011
+a/gvfs-1.6.6-i486-1gsb.txz: Upgraded.
+a/nautilus-2.32.2.1-i486-1gsb.txz: Upgraded.
+l/libgdata-0.6.6-i486-1gsb.txz: Upgraded.
+a/evolution-data-server-2.32.2-i486-1gsb.txz: Upgraded.
+a/gnome-menus-2.30.5-i486-1gsb.txz: Upgraded.
+l/libgnomecanvas-2.30.3-i486-1gsb.txz: Upgraded.
+a/gnome-vfs-2.24.4-i486-1gsb.txz: Upgraded.
+l/libgnome-2.32.1-i486-1gsb.txz: Upgraded.
+a/gnome-panel-2.32.1-i486-1gsb.txz: Upgraded.
+a/zenity-2.32.1-i486-1gsb.txz: Upgraded.
+a/gnome-settings-daemon-2.32.1-i486-1gsb.txz: Upgraded.
+l/libgtop-2.28.2-i486-1gsb.txz: Upgraded.
+a/gnome-control-center-2.32.1-i486-1gsb.txz: Upgraded.
+a/libgnomeui-2.24.5-i486-1gsb.txz: Upgraded.
+a/gnome-applets-2.32.1.1-i486-1gsb.txz: Upgraded.
+n/webkit-1.2.7-i486-1gsb.txz: Upgraded.
+a/upower-0.9.5-i486-2gsb.txz: Rebuilt.
+a/gnome-session-2.32.1-i486-1gsb.txz: Upgraded.
+t/gnome-themes-2.32.1-i486-1gsb.txz: Upgraded.
+a/gsb-desktop-2.32.2-i486-1gsb.txz: Upgraded.
+l/gtkhtml-3.32.2-i486-1gsb.txz: Upgraded.
+l/libpst-0.6.49-i486-1gsb.txz: Upgraded.
+n/evolution-2.32.2-i486-1gsb.txz: Upgraded.
+n/evolution-exchange-2.32.2-i486-1gsb.txz: Upgraded.
+n/evolution-webcal-2.32.0-i486-1gsb.txz: Upgraded.
+n/gnome-netstatus-2.28.2-i486-1gsb.txz: Upgraded.
+n/gtk-vnc-0.4.3-i486-1gsb.txz: Upgraded.
+n/vino-2.32.1-i486-1gsb.txz: Upgraded.
+n/libnice-0.1.0-i486-1gsb.txz: Upgraded.
+n/farsight2-0.0.25-i486-1gsb.txz: Upgraded.
+n/telepathy-glib-0.13.13-i486-1gsb.txz: Upgraded.
+n/telepathy-farsight-0.0.16-i486-1gsb.txz: Upgraded.
+n/nautilus-sendto-2.32.0-i486-1gsb.txz: Upgraded.
+n/telepathy-python-0.15.19-i486-1gsb.txz: Upgraded.
+n/papyon-0.5.4-i486-1gsb.txz: Upgraded.
+n/telepathy-butterfly-0.5.15-i486-1gsb.txz: Upgraded.
+n/telepathy-gabble-0.10.5-i486-1gsb.txz: Upgraded.
+n/telepathy-mission-control-5.6.1-i486-1gsb.txz: Upgraded.
+l/libgee-0.6.1-i486-1gsb.txz: Upgraded.
++--------------------------+
+Sat Feb 19 14:32:34 GMT 2011
+l/glib2-2.26.1-i486-1gsb.txz: Upgraded.
+l/gdk-pixbuf2-2.22.1-i486-1gsb.txz: Upgraded.
+  This package has been renamed from gdk-pixuf to gdk-pixbuf2.
+l/gtk+2-2.22.1-i486-1gsb.txz: Upgraded.
+l/ORBit2-2.14.19-i486-2gsb.txz: Rebuilt.
+a/GConf-2.32.0-i486-2gsb.txz: Rebuilt.
+l/gnome-mime-data-2.18.0-i486-4gsb.txz: Rebuilt.
+m/libgdiplus-2.8.1-i486-1gsb.txz: Upgraded.
+m/mono-2.8.2-i486-1gsb.txz: Upgraded.
+m/gtk-sharp-2.12.10-i486-2gsb.txz: Rebuilt.
+l/libtasn1-2.9-i486-1gsb.txz: Upgraded.
+a/libgnome-keyring-2.32.0-i486-1gsb.txz: Added.
+a/gnome-keyring-2.32.1-i486-1gsb.txz: Upgraded.
+l/libicu-4.6-i486-1gsb.txz: Upgraded.
+l/libsoup-2.32.2-i486-1gsb.txz: Upgraded.
+a/gnome-desktop-2.32.1-i486-1gsb.txz: Upgraded.
+l/usbmuxd-1.0.6-i486-1gsb.txz: Upgraded.
+l/libimobiledevice-1.0.4-i486-1gsb.txz: Upgraded.
++--------------------------+
 Thu Oct 28 15:03:54 BST 2010
 n/NetworkManager-0.8.1-i486-3gsb.txz: Rebuilt.
   Removed vpn and pppd from 'plugins' in nm-system-settings.conf.  It was
