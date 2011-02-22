@@ -1,7 +1,0 @@
-PKGNAME="python-dateutil"
-VERSION="1.5"
-HOMEPAGE="http://labix.org/python-dateutil"
-DOWNLOAD="http://labix.org/download/python-dateutil/python-dateutil-1.5.tar.gz"
-MD5SUM="35f3732db3f2cc4afdc68a8533b60a52"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
