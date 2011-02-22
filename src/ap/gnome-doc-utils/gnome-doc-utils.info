@@ -1,8 +1,0 @@
-PKGNAME="gnome-doc-utils"
-VERSION="0.20.2"
-HOMEPAGE="http://www.gnome.org"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-doc-utils/0.20/gnome-doc-utils-0.20.2.tar.bz2"
-MD5SUM="920914c13c57e67616c6ff8594579786"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
