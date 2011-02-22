@@ -1,6 +1,4 @@
 GConf:ADD
-devicekit:ADD
-devicekit-disks:ADD
 evolution-data-server:ADD
 gnome-applets:ADD
 gnome-control-center:ADD
