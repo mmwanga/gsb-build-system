@@ -1,11 +1,6 @@
 abiword:ADD
-conduit:SKP
 gnumeric:ADD
 goffice:ADD
-inkscape:SKP
 libgda:SKP
 libgsf:SKP
-postgresql:SKP
-python-dateutil:SKP
 tracker:SKP
-vobject:SKP
