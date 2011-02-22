@@ -217,22 +217,22 @@ t/murrine-engine
 t/candido-engine
 t/ttf-bitstream-vera
 # Build packages in extra/
-#extra/easytag
-#extra/gst-plugins-bad
-#extra/gst-plugins-ugly
-#extra/libesmtp
-#extra/balsa
-#extra/sylpheed
-#extra/pyalsaaudio
-#extra/volti
+extra/easytag
+extra/gst-plugins-bad
+extra/gst-plugins-ugly
+extra/libesmtp
+extra/balsa
+extra/sylpheed
+extra/pyalsaaudio
+extra/volti
 # Build packages in pasture/
-#pasture/gdesklets
-#pasture/grip
+pasture/gdesklets
+pasture/grip
 # Build packages in testing/
-#testing/libffi
-#testing/gobject-introspection
-#testing/gir-repository
-#testing/mutter
-#testing/gjs
-#testing/libcroco
-#testing/gnome-shell
+testing/libffi
+testing/gobject-introspection
+testing/gir-repository
+testing/mutter
+testing/gjs
+testing/libcroco
+testing/gnome-shell
