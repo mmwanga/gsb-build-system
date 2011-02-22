@@ -156,9 +156,12 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
+  --infodir=/usr/info \
   --target=$ARCH-$DISTRO-linux \
   --build=$ARCH-$DISTRO-linux \
   --with-espeak \
+  --disable-static \
+  --enable-shared \
   --with-oss \
   --with-alsa \
   --with-libao \
@@ -167,6 +170,11 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 # Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+# Add client configuration for orca
+mkdir -p $PKG/etc/speech-dispatcher/clients &&
+  zcat $CWD/orca.conf.gz > $PKG/etc/speech-dispatcher/clients/orca.conf &&
+chmod 644 $PKG/etc/speech-dispatcher/clients/orca.conf || exit 1
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -178,6 +186,16 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
   find $PKG/usr/man -type l -name \*.? -printf \
     "( cd '%h'; [ -e '%l.gz' ] &&
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
+}
+
+# Deal with .info files.
+[ -e $PKG/usr/share/info ] && {
+  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
+  rmdir -p $PKG/usr/share
+  }
+[ -e $PKG/usr/info ] && {
+  rm -f $PKG/usr/info/dir
+  gzip -9 $PKG/usr/info/*.info
 }
 
 # Copy extra documentation into package.

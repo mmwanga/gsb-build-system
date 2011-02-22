@@ -1,8 +1,8 @@
 PKGNAME="mouse-tweaks"
-VERSION="2.32.0"
+VERSION="2.32.1"
 HOMEPAGE="http://live.gnome.org/Mousetweaks/Home"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/mousetweaks/2.32/mousetweaks-${VERSION}.tar.bz2"
-MD5SUM="326c7949bee47dba271811b14f2d1206"
+MD5SUM="1af7be870e0b8df9b0a2d481f77c7be5"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
