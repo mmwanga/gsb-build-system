@@ -1,7 +1,0 @@
-PKGNAME="postgresql"
-VERSION="8.3.10"
-HOMEPAGE="http://www.postgresql.org/"
-DOWNLOAD="http://wwwmaster.postgresql.org/redir/170/h/source/v8.3.10/postgresql-8.3.10.tar.bz2"
-MD5SUM="315118130e1800a87f0effe69b947810"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
