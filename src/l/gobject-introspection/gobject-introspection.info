@@ -1,8 +1,8 @@
 PKGNAME="gobject-introspection"
-VERSION="0.10.2"
+VERSION="0.10.3"
 HOMEPAGE="http://live.gnome.org/GObjectIntrospection"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/gobject-introspection/0.10/gobject-introspection-${VERSION}.tar.bz2"
-MD5SUM="6622131845e0908415345dc67b4a3775"
+MD5SUM="62287613b635591e150c6554550057e8"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
