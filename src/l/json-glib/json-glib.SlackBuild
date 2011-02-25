@@ -1,5 +1,4 @@
 #!/bin/bash
-# Version: 1.7 GSB Package SlackBuild.
 # Copyright (c) 2007, 2008, 2009, 2010, 2011 Steve Kennedy <steve (at) gnomeslackbuild.org>
 # All rights reserved.
 #
@@ -149,11 +148,12 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  --mandir=/usr/man $CONFIGURE_FLAGS \
+  ./configure --prefix=/usr \
+  --sysconfdir=/etc \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
+  --enable-introspection=yes \
   --disable-static \
   || exit 1
 
