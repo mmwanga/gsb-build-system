@@ -1,11 +1,12 @@
 ORBit2:ADD
 clutter:ADD
-#clutter-gtk:ADD
+clutter-gtk:ADD
 exempi:ADD
 ffmpeg:ADD
 gdk-pixbuf2:ADD
 glib2:ADD
 gnome-mime-data:ADD
+gobject-introspection:ADD
 goocanvas:ADD
 gst-ffmpeg:ADD
 gst-plugins-base:ADD
@@ -15,7 +16,6 @@ gtk+2:ADD
 gtkhtml:ADD
 gtkimageview:ADD
 gtksourceview:ADD
-gobject-introspection:ADD
 heimdal-libraries:ADD
 json-glib:ADD
 libbonobo:ADD
