@@ -1,8 +1,0 @@
-PRGNAM="apache-ant"
-VERSION="1.8.1"
-HOMEPAGE="http://ant.apache.org/"
-DOWNLOAD="http://www.apache.org/dist/ant/source/apache-ant-1.8.1-src.tar.bz2 http://downloads.sourceforge.net/sourceforge/junit/junit-4.5.jar"
-MD5SUM="8c31b30f6b9863d1fef4bdf484fc8507  apache-ant-1.8.1-src.tar.bz2
-896973b9728a697494024163343c8112  junit-4.5.jar"
-MAINTAINER="Chip Cuccio"
-EMAIL="chipster@gnomeslackbuild.org"
