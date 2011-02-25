@@ -1,10 +1,17 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
               |-----handy-ruler------------------------------------------------------|
-gir-repository: gir-repository (Gobject-Introspection Repository)
+gir-repository: gir-repository (GObject-Introspection Repository)
 gir-repository:
 gir-repository: Gobject-introspection is a library which will collect and extend the
 gir-repository: API metadata for GObject based libraries.  This package is a 
-gir-repository: repository of GIR interface description files until the project
-gir-repository: matures and these files eventually migrate upstream.
+gir-repository: repository of GIR interface description files for atk, pango, and
+gir-repository: gdk-pixbuf.
 gir-repository:
 gir-repository:
 gir-repository:
