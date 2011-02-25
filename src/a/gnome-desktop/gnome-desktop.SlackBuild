@@ -24,7 +24,7 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.91.6.1
+VERSION=2.91.90
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
@@ -153,51 +153,29 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc \
+  ./configure --prefix=/usr \
+  --sysconfdir=/etc \
   --localstatedir=/var/lib \
-  --mandir=/usr/man $CONFIGURE_FLAGS \
+  --mandir=/usr/man \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
   --disable-static \
   --with-gnome-distributor="GNOME SlackBuild${LIBDIRSUFFIX} (gnomeslackbuild.org)" \
-   --enable-introspection=no \
+  --enable-introspection=yes \
   || exit 1
 
 # Build and install.
 make ${MAKE_FLAGS} &&
 make ${MAKE_FLAGS} DESTDIR=$PKG install || exit 1
 
-# Install our splash screen
-mkdir -p $PKG/usr/share/pixmaps/backgrounds &&
-cp $CWD/gsb-background.png $PKG/usr/share/pixmaps/backgrounds &&
-chown root.root $PKG/usr/share/pixmaps/backgrounds/gsb-background.png || exit 1
-
 # Keep clean for scrollkeeper
-rm -fr $PKG/var/lib/scrollkeeper
-rm -fr $PKG/var/lib/log
+#rm -fr $PKG/var/lib/scrollkeeper
+#rm -fr $PKG/var/lib/log
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
-
-# Compress and fix manpage links.
-[ -e $PKG/usr/man ] && {
-  find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
-  find $PKG/usr/man -type l -name \*.? -printf \
-    "( cd '%h'; [ -e '%l.gz' ] &&
-     { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
-}
-
-# Deal with .info files.
-[ -e $PKG/usr/share/info ] && {
-  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
-  rmdir -p $PKG/usr/share
-  }
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
-}
 
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
