@@ -28,7 +28,7 @@
 #
 
 # Package variables.
-BUILD=2
+BUILD=3
 VERSION=1.0.4
 
 # List any packages here that are required to build this package.
@@ -185,7 +185,7 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a COPYING* README AUTHORS docs/* \
+cp -ra COPYING* README AUTHORS docs/html \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
