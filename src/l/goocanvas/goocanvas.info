@@ -1,8 +1,0 @@
-PKGNAME="goocanvas"
-VERSION="0.14"
-HOMEPAGE="http://live.gnome.org/GooCanvas"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/goocanvas/0.14/goocanvas-0.14.tar.bz2"
-MD5SUM="c2bfb5d717e602842981112dff61bf2e"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
