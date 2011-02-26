@@ -6,11 +6,11 @@
 # customary to leave one space after the ':'.
 
         |-----handy-ruler----------------------------------------------------|
-libgdata: libgdata (Google Services Protocols Library)
+libgdata: libgdata (Google services protocols library)
 libgdata:
-libgdata: Libgdata is a GLib-based library for accessing online service APIs
-libgdata: using the GData protocol most notably, Google's services. It
-libgdata: provides APIs to access the common Google services, and has full
+libgdata: libgdata is a glib-based library for accessing online service APIs
+libgdata: using the gdata protocol such as Google's services. It provides
+libgdata: APIs to access the common Google services, and has full
 libgdata: asynchronous support.
 libgdata:
 libgdata:
