@@ -148,14 +148,14 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc \
-  --mandir=/usr/man $CONFIGURE_FLAGS \
+  ./configure --prefix=/usr \
+  --sysconfdir=/etc \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --disable-static \
   --enable-introspection=yes \
   --with-gnome \
+  --disable-static \
   || exit 1
 
 # Build and install.
