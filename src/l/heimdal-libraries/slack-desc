@@ -1,12 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
                  |-----handy-ruler------------------------------------------------------|
-heimdal-libraries: heimdal-libraries (Heimdal Kerberos 5 Implementation)
+heimdal-libraries: heimdal-libraries (heimdal kerberos 5 library)
 heimdal-libraries:
-heimdal-libraries: Heimdal is a free implementation of Kerberos 5, protocol compatible 
-heimdal-libraries: with RFC 4120 and MIT Kerberos V5.  Kerberos is a system for 
-heimdal-libraries: authenticating users and services on a network. It is built upon the
-heimdal-libraries: assumption that the network is unsafe. For example, data sent over 
-heimdal-libraries: the network can be eavesdropped and altered, and addresses can also
-heimdal-libraries: be faked. Therefore they cannot be used for authentication purposes.
-heimdal-libraries: Kerberos is a trusted third-party service.
+heimdal-libraries: heimdal is a free Kerberos 5, PKIX, CMS, GSS-API, SPNEGO, NTLM, 
+heimdal-libraries: Digest-MD5 and, SASL implementation.  
+heimdal-libraries:
+heimdal-libraries:
+heimdal-libraries:
+heimdal-libraries:
+heimdal-libraries:
 heimdal-libraries:
 heimdal-libraries:

@@ -169,7 +169,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --enable-null \
   --enable-gtk \
   --enable-gtk3 \
-  --enable-oss \
+  --disable-oss \
   --enable-pulse \
   --enable-gstreamer \
   --enable-gtk-doc-html=no \
@@ -192,6 +192,7 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --target=$ARCH-$DISTRO-linux || exit 1
 make && make DESTDIR=$PKG install || exit 1
 cd $TMP/$PKGNAME-$VERSION
+rm -fr $PKG/usr/doc/README
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -205,15 +206,9 @@ cd $TMP/$PKGNAME-$VERSION
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }
 
-# Deal with .info files.
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
-}
-
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a LGPL README doc/{README,README.html,style.css} \
+cp -a LGPL doc/{README,README.html,style.css} \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
