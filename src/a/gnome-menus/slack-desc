@@ -1,8 +1,15 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
 	   |-----handy-ruler------------------------------------------------------|
-gnome-menus: gnome-menus (GNOME Freedesktop.org Menu Implementation)
+gnome-menus: gnome-menus (freedesktop.org GNOME menu implementation)
 gnome-menus:
-gnome-menus: gnome-menus contains an implementation of the draft "Desktop Menu 
-gnome-menus: Specification" from freedesktop.org, as well as the GNOME menu layout 
+gnome-menus: gnome-menus contains an implementation of the desktop menu 
+gnome-menus: specification from freedesktop.org, as well as the GNOME menu layout 
 gnome-menus: configuration files, .directory files and assorted menu related 
 gnome-menus: utility programs.
 gnome-menus:

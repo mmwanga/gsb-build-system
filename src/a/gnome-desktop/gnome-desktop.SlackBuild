@@ -1,5 +1,4 @@
 #!/bin/bash
-# Version: 1.7 GSB Package SlackBuild.
 # Copyright (c) 2007, 2008, 2009, 2010, 2011 Steve Kennedy <steve (at) gnomeslackbuild.org>
 # All rights reserved.
 #
@@ -168,10 +167,6 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
 # Build and install.
 make ${MAKE_FLAGS} &&
 make ${MAKE_FLAGS} DESTDIR=$PKG install || exit 1
-
-# Keep clean for scrollkeeper
-#rm -fr $PKG/var/lib/scrollkeeper
-#rm -fr $PKG/var/lib/log
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
