@@ -1,12 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
       |-----handy-ruler------------------------------------------------------|
-rarian: rarian (Freedesktop Cataloging System for Documentation)
+rarian: rarian (freedesktop.org documentation system)
 rarian:
 rarian: rarian is a cataloging system for documentation. It manages
 rarian: documentation metadata as specified by the Open Source Metadata
 rarian: Framework (OMF) and provides a simple API to allow help browsers to
-rarian: find, sort, and search the document catalog. It will also be able to
-rarian: communicate with catalog servers on the Net to search for documents
-rarian: which are not on the local system.
+rarian: find, sort, and search the document catalog. 
 rarian:
-rarian: Rarian is the new replacement for the old GNOME Scrollkeeper.
+rarian:
+rarian:
+rarian:
 rarian:
