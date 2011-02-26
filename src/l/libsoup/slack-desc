@@ -1,12 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
        |-----handy-ruler------------------------------------------------------|
-libsoup: libsoup (HTTP library)
+libsoup: libsoup (http library)
 libsoup:
-libsoup: libsoup is an HTTP client/server library for GNOME. It uses GObjects 
-libsoup: and the glib main loop, to integrate well with GNOME applications. It 
-libsoup: features both asynchronous and synchronous APIs, SSL Support using
-libsoup: GnuTLS, proxy support, including authentication and SSL tunneling,
-libsoup: client support for Digest, NTLM, and Basic authentication, server
-libsoup: support for Digest and Basic authentication, and basic client-side 
-libsoup: SOAP and XML-RPC support.
+libsoup: libsoup is an http client/server library for GNOME featuring 
+libsoup: asynchronous and synchronous APIs, ssl support using gnutls, proxy 
+libsoup: support with authentication and ssl tunneling, server and client 
+libsoup: support for digest, ntlm, and basic authentication, as well as SOAP 
+libsoup: and XML-RPC support.
+libsoup:
+libsoup:
 libsoup:
 libsoup:

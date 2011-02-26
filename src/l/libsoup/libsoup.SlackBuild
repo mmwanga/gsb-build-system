@@ -1,5 +1,4 @@
 #!/bin/bash
-# Version: 1.7 GSB Package SlackBuild.
 # Copyright (c) 2007, 2008, 2009, 2010, 2011 Steve Kennedy <steve (at) gnomeslackbuild.org>
 # All rights reserved.
 #
@@ -24,11 +23,11 @@
 
 # Package variables.
 BUILD=1
-VERSION=2.33.6
+VERSION=2.33.90
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libproxy"
+REQUIRED_PACKAGES="libproxy libgnome-keyring glib-networking"
 
 # Build variables.
 TAG=${TAG:-gsb}
@@ -113,13 +112,10 @@ cd $PKGNAME-$VERSION || exit 1
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
 # Fix permissions for building.
