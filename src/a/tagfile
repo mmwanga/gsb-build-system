@@ -16,6 +16,7 @@ gnome-settings-daemon:ADD
 gnome-shell:ADD
 gnome-vfs:ADD
 gsb-desktop:ADD
+gsettings-desktop-schemas:ADD
 gtk-engines:ADD
 gvfs:ADD
 libcanberra:ADD
