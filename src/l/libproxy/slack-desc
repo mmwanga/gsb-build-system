@@ -1,10 +1,17 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
        |-----handy-ruler------------------------------------------------------|
-libproxy: libproxy (Proxy configuration library)
+libproxy: libproxy (proxy configuration library)
 libproxy:
 libproxy: libproxy is a library that provides automatic proxy configuration 
-libproxy: management. libproxy has an extremely small core footprint, and 
-libproxy: allows dynamic adjustment to changing network topology in a 
-libproxy: standard way of dealing with proxy settings across all scenarios.
+libproxy: management. It has an extremely small core footprint, and allows
+libproxy: dynamic adjustment to changing network topology in a standard way
+libproxy: of dealing with proxy settings across all scenarios.
 libproxy:
 libproxy:
 libproxy:

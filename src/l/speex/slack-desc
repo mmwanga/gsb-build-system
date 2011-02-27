@@ -6,14 +6,14 @@
 # leave one space after the ':'.
 
      |-----handy-ruler------------------------------------------------------|
-speex: speex (speech codec)
+speex: speex (opensource speech codec)
 speex: 
 speex: speex is an Open Source/Free Software patent-free audio compression 
-speex: format designed for speech. The Speex Project aims to lower the 
-speex: barrier of entry for voice applications by providing a free
-speex: alternative to expensive proprietary speech codecs. Speex is 
-speex: well-adapted to Internet applications and provides useful features
-speex: that are not present in most other codecs. Speex is part of 
-speex: the GNU Project and is available under the revised BSD license.
+speex: format designed for speech.  Speex is part of the GNU Project and 
+speex: is available under the revised BSD license.
+speex: 
+speex: 
+speex: 
+speex: 
 speex: 
 speex: 

@@ -4,7 +4,6 @@ clutter-gtk:ADD
 exempi:ADD
 ffmpeg:ADD
 gdk-pixbuf2:ADD
-glib2:ADD
 glib-networking:ADD
 gjs:ADD
 gnome-mime-data:ADD
@@ -38,7 +37,6 @@ libplist:ADD
 libproxy:ADD
 libpst:ADD
 libsexy:ADD
-libsndfile:ADD
 libsoup:ADD
 libtasn1:ADD
 libunique:ADD
