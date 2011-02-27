@@ -1,8 +1,0 @@
-PKGNAME="gjs"
-VERSION="0.7"
-HOMEPAGE="http://live.gnome.org/Gjs/"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gjs/0.7/gjs-0.7.tar.bz2"
-MD5SUM="e4362407d5df0422fc526893d7f0097a"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
