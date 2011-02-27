@@ -1,7 +1,4 @@
 GConf
 gtk+3
-iceauth
-libxml2
-libXrandr
 gsettings-desktop-schemas
 startup-notification

@@ -1,5 +1,4 @@
 GConf
 clutter
 libcanberra
-gobject-introspection
 zenity

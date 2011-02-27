@@ -1,7 +1,7 @@
 mutter
 gobject-introspection
-gir-repository
 gjs
 telepathy-glib
 libcroco
 gnome-desktop
+evolution-data-server

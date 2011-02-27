@@ -6,14 +6,14 @@
 # leave one space after the ':'.
 
           |-----handy-ruler------------------------------------------------------|
-pulseaudio: pulseaudio (PulseAudio Sound Server)
+pulseaudio: pulseaudio (PulseAudio sound server)
 pulseaudio:
-pulseaudio: PulseAudio is a sound server for POSIX and Win32 systems. A sound 
-pulseaudio: server is basically a proxy for your sound applications. It allows 
-pulseaudio: you to do advanced operations on your sound data as it passes between 
-pulseaudio: your application and your hardware. Things like transferring the audio 
-pulseaudio: to a different machine, changing the sample format or channel count 
-pulseaudio: and mixing several sounds into one are easily achieved using a sound 
-pulseaudio: server.
+pulseaudio: PulseAudio is a networked sound server for POSIX systems and acts as 
+pulseaudio: a proxy for your sound applications. It allows you to do advanced 
+pulseaudio: operations on your sound data as it passes between your application 
+pulseaudio: and your hardware like transferring the audio to a different machine, 
+pulseaudio: changing the sample format or channel count and mixing several sounds 
+pulseaudio: into one.
+pulseaudio:
 pulseaudio:
 pulseaudio:

@@ -120,9 +120,6 @@ elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
 fi
 
-# Default to use xscreensaver not gnome-screensaver which requires PAM
-zcat $CWD/gsm.xscreensaver.service.diff.gz | patch -p1 
-
 # Fix permissions for building.
 chown -R root:root .
 find . \
@@ -153,8 +150,10 @@ MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  --mandir=/usr/man $CONFIGURE_FLAGS \
+  ./configure --prefix=/usr \
+  --sysconfdir=/etc \
+  --localstatedir=/var/lib \
+  --mandir=/usr/man \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --docdir=/usr/doc/$PKGNAME-$VERSION \
   --build=$ARCH-$DISTRO-linux \
@@ -177,14 +176,6 @@ chmod 755 $PKG/etc/X11/xinit/xinitrc.gnome || exit 1
 
 # Add default `gnome` for gnome-session
 ( cd $PKG/usr/bin ; ln -s gnome-session gnome ); 
-
-# Install a dbus service for xscreensaver
-mkdir -p $PKG/usr/share/dbus-1/services &&
- cp $CWD/org.gnome.xscreensaver.service $PKG/usr/share/dbus-1/services &&
-chmod 644 $PKG/usr/share/dbus-1/services/org.gnome.xscreensaver.service || exit 1
-mkdir -p $PKG/usr/share/glib-2.0/schemas &&
- cp $CWD/org.gnome.xscreensaver.gschema.xml \
-       $PKG/usr/share/glib-2.0/schemas || exit 1
 
 # Fix gdm session file (in case it's replaced)
 mkdir -p $PKG/usr/share/xsessions &&
