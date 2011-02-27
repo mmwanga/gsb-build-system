@@ -1,7 +1,70 @@
+Sat Feb 12 15:40:02 GMT 2011
+l/libffi-3.0.9-x86_64-1gsb.txz: Added.
+l/gobject-introspection-0.10.3-x86_64-1gsb.txz: Upgraded.
+l/gir-repository-0.10.3-x86_64-1gsb.txz: Added.
+l/gtk+3-3.0.1-x86_64-1gsb.txz: Upgraded.
+l/speex-1.2rc1-x86_64-5gsb.txz: Rebuilt.
+l/libdaemon-0.14-x86_64-3gsb.txz: Rebuilt.
+n/avahi-0.6.28-x86_64-2gsb.txz: Rebuilt.
+l/ORBit2-2.14.19-x86_64-3gsb.txz: Rebuilt.
+a/rarian-0.8.1-x86_64-5gsb.txz: Rebuilt.
+a/pulseaudio-0.9.22-x86_64-1gsb.txz: Added.
+l/json-glib-0.12.2-x86_64-1gsb.txz: Added.
+l/clutter-1.6.6-x86_64-1gsb.txz: Upgraded.
+l/libcanberra-0.26-x86_64-4gsb.txz: Rebuilt.
+  Recompiled against GConf.
+a/zenity-2.91.90-x86_64-1gsb.txz: Upgraded.
+a/mutter-2.91.90-x86_64-1gsb.txz: Upgraded.
+l/gjs-0.7.11-x86_64-1gsb.txz: Added.
+  Linked against seamonkey-2.1b2, however for runtime only the
+  seamonkey-solibs package is required.
+n/telepathy-glib-0.13.15-x86_64-1gsb.txz: Upgraded.
+a/gnome-menus-2.91.6-x86_64-1gsb.txz: Upgraded.
+l/libcroco-0.6.2-x86_64-5gsb.txz: Rebuilt.
+a/gsettings-desktop-schemas-0.1.7-x86_64-1gsb.txz: Added.
+a/gnome-desktop-2.91.90-x86_64-1gsb.txz: Upgraded.
+l/libproxy-0.4.6-x86_64-3gsb.txz: Rebuilt.
+a/libgnome-keyring-2.32.0-x86_64-1gsb.txz: Added.
+  This package has been split out of gnome-keyring.
+l/glib-networking-2.28.0-x86_64-1gsb.txz: Added.
+l/libsoup-2.33.90-x86_64-1gsb.txz: Upgraded.
+a/libgweather-2.91.6-x86_64-1gsb.txz: Upgraded.
+l/heimdal-libraries-1.4-x86_64-2gsb.txz: Rebuilt.
+l/libgdata-0.8.0-x86_64-1gsb.txz: Upgraded.
+a/evolution-data-server-2.91.90-x86_64-1gsb.txz: Upgraded.
+a/gnome-shell-2.91.90-x86_64-1gsb.txz: Added.
++--------------------------+
+Fri Feb 11 22:17:31 GMT 2011
+  GNOME 2.90.91 tarballs are released.
+l/glib2-2.28.1-x86_64-1gsb.txz: Removed.
+  This package is now available in the official Slackware tree.
++--------------------------+
 Sun Feb  6 17:19:08 GMT 2011
   Development begins on GNOME 2.91.6 tarballs in preparation for April's
   release of GNOME 3.0.  This is version is designed for Slackware-current and
   will be aimed that the next full release of Slackware.
+l/glib2-2.27.93-x86_64-1gsb.txz: Upgraded.
+l/gtk+3-2.99.3-x86_64-1gsb.txz: Added.
+  This new gtk+3 package should be able to co-exist with Slackware's supported
+  gtk+2 and gtk+ packages and should cause no interference.  
+l/ORBit2-2.14.19-x86_64-3gsb.txz: Rebuilt.
+  Rebuilt against latest glib2 package.
+a/GConf-2.32.1-x86_64-1gsb.txz: Upgraded. 
+  GConf is now linked against gtk+3.
+l/usbmuxd-1.0.6-x86_64-1gsb.txz: Upgraded.
+l/libtasn1-2.9-x86_64-1gsb.txz: Upgraded.
+l/libimobiledevice-1.0.4-x86_64-2gsb.txz: Rebuilt.
+  Removed restart of hal from doinst.sh.
+a/upower-0.9.8-x86_64-1gsb.txz: Upgraded.
+  Removed devicekit from dependencies.
+a/gnome-session-2.91.6-x86_64-1gsb.txz: Upgraded.
+a/gsettings-desktop-schemas-0.1.5-x86_64-1gsb.txz: Added.
+a/rarian-0.8.1-x86_64-4gsb.txz: Rebuilt.
+a/gnome-desktop-2.91.6.1-x86_64-1gsb.txz: Upgraded.
+a/gnome-menus-2.91.6-x86_64-1gsb.txz: Upgraded.
+  Removed old references to xfce and kde menus.
+a/libcanberra-0.26-x86_64-3gsb.txz: Reconfigured.
+  Now built against gtk+3.
 +--------------------------+
 Thu Oct 28 15:03:54 BST 2010
   There have been rumours that slackware-current is nearing the end of its
