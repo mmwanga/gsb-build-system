@@ -6,12 +6,12 @@
 # leave one space after the ':'.
 
               |-----handy-ruler------------------------------------------------------|
-gir-repository: gir-repository (GObject-Introspection Repository)
+gir-repository: gir-repository (gobject-introspection repository)
 gir-repository:
-gir-repository: Gobject-introspection is a library which will collect and extend the
-gir-repository: API metadata for GObject based libraries.  This package is a 
-gir-repository: repository of GIR interface description files for atk, pango, and
-gir-repository: gdk-pixbuf.
+gir-repository: gir-repository contains introspection description metadata for the
+gir-repository: the atk, pango, and gdk-pixbuf libraries. 
+gir-repository:
+gir-repository:
 gir-repository:
 gir-repository:
 gir-repository:
