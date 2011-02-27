@@ -1,0 +1,8 @@
+PKGNAME="dconf"
+VERSION="0.7.1"
+HOMEPAGE="http://live.gnome.org/dconf"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/dconf/0.7/dconf-${VERSION}.tar.bz2"
+MD5SUM="1db0be54fce4cfa154e2ac6a89bedee7"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
