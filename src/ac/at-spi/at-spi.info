@@ -1,8 +1,0 @@
-PKGNAME="at-spi"
-VERSION="1.32.0"
-HOMEPAGE="http://www.gnome.org"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/at-spi/1.32/at-spi-${VERSION}.tar.bz2"
-MD5SUM="bc62c41f18529d56271fa1ae6cad8629"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

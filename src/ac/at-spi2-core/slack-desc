@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
+            |-----handy-ruler------------------------------------------------------|
+at-spi2-core: at-spi2-core (assistive technology SPI core)
+at-spi2-core:
+at-spi2-core: This package includes the protocol definitions for the new D-Bus
+at-spi2-core: at-spi.  Also included is the daemon neccessary for forwarding device 
+at-spi2-core: events and registering accessible applications, D-Bus helper 
+at-spi2-core: libraries and the AT-SPI D-Bus specifications.
+at-spi2-core:
+at-spi2-core:
+at-spi2-core:
+at-spi2-core:
+at-spi2-core:
