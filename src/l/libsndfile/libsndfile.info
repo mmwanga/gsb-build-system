@@ -1,7 +1,0 @@
-PKGNAME="libsndfile"
-VERSION="1.0.21"
-HOMEPAGE="http://www.mega-nerd.com/libsndfile/"
-DOWNLOAD="http://www.mega-nerd.com/libsndfile/files/libsndfile-$VERSION.tar.gz"
-MD5SUM="880a40ec636ab2185b97f8927299b292"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
