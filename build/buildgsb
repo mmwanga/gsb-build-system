@@ -25,6 +25,8 @@
 # IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
 # OF SUCH DAMAGE.
 
+GSB_VERSION=3.0
+
 #========================================================================
 # FUNCTIONS
 . ${BASH_SOURCE%/*}/functions.sh || {
@@ -92,6 +94,7 @@ ONLY_DOWNLOAD=0
 CONFIRM_INSTALLS=0
 NOPATCHESDIR=0
 NOSKIP=0
+CLEANUP=0
 SKIP_REBUILDS=0
 NOPRUNE=0
 PUBLISH=0
@@ -105,12 +108,8 @@ WGET_OPTIONS="-4"
 #
 while [ -n "$1" ] ; do
   case $1 in
-    -force|--force)
-      SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}--force"
-      shift
-    ;;
-    -no-cleanup|--no-cleanup)
-      SLACKBUILD_ARGS="${SLACKBUILD_ARGS:+"$SLACKBUILD_ARGS "}--no-cleanup"
+    -cleanup|--cleanup)
+      CLEANUP=1
       shift
     ;;
     -no-patchesdir|--no-patchesdir)
@@ -376,6 +375,13 @@ elif [ "$SKIP_BUILD" = "0" -o "$BUILD_OPTION" = "rebuild" -a "$SKIP_REBUILDS" = 
      exit $ERR 
    }
    SUCCESSFUL_NEW_BUILD=1
+
+   [ "$CLEANUP" = "1" ] && {
+     echo "Cleaning up ${PACKAGE}."
+     rm -fr $TMP/${PACKAGE}-*
+     rm -fr $TMP/package-${PACKAGE}-*
+   }
+
 else
   echo "* Found: $PACKAGE-${PACKAGE_VERSION//-/_}-${ARCH}-${PACKAGE_BUILD}${TAG}.txz" 
 fi
@@ -487,7 +493,7 @@ cat SLACKWARE_REPLACED_PACKAGES.TXT | sed 's,@GSB_VERSION@,${GNOME_VERSION},g' >
 
 for i in COPYING COPYING3 CREDITS INSTALL.TXT UPGRADE.TXT \
  CHANGES_AND_HINTS.TXT GPG-KEY COPYRIGHT.TXT MIRRORS.TXT CURRENT.WARNING \
- FAQ.TXT ANNOUNCE.$GSB_VERSION;
+ FAQ.TXT ANNOUNCE.${GSB_VERSION//./_}
 do
  if [ -f $i ]; then
    cp $i $PKGDEST || exit 1;

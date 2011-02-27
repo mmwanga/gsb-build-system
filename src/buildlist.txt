@@ -10,56 +10,64 @@
 #
 # START BUILDLIST
 #
-# Install gobject-introspection 
+# install gobject-introspection and repository
 l/libffi
 l/gobject-introspection
-d/libsigc++
-# glib2 is a required replacement
-l/glib2
-l/gdk-pixbuf2
 l/gir-repository
 # gtk+3 can live beside gtk+2 safely
 l/gtk+3
-# GNOME core libraries
-l/ORBit2
-a/GConf
-l/usbmuxd
-l/libtasn1
-l/libimobiledevice
-a/upower
-a/gnome-session
-a/gsettings-desktop-schemas
-a/rarian
-a/gnome-desktop
-a/gnome-menus
-a/libcanberra
-l/libwnck
-l/libproxy
-l/heimdal-libraries
-a/libgnome-keyring
-l/libsoup
-a/libgweather
-l/libgdata
-a/evolution-data-server
-a/gnome-keyring
-a/gnome-panel
-l/exempi
-l/libnotify
-a/nautilus
-a/zenity
-a/metacity
-a/libgnomekbd
-a/gnome-settings-daemon
+# audio dependencies
 l/speex
 l/libdaemon
 n/avahi
+l/ORBit2
+a/GConf
+a/rarian
 a/pulseaudio
-l/libgtop
-a/gnome-control-center
+# GNOME shell
 l/json-glib
 l/clutter
+l/libcanberra
+a/zenity
 a/mutter
+l/gjs
+n/telepathy-glib
+a/gnome-menus
+l/libcroco
+a/gsettings-desktop-schemas
+a/gnome-desktop
+l/libproxy
+a/libgnome-keyring
+l/glib-networking
+l/libsoup
+a/libgweather
+l/heimdal-libraries
+l/libgdata
+a/evolution-data-server
 a/gnome-shell
+# GNOME core apps
+#l/usbmuxd
+#l/libtasn1
+#l/libimobiledevice
+#a/upower
+#a/gnome-session
+#l/libwnck
+#l/heimdal-libraries
+#a/libgnome-keyring
+#l/libsoup
+#a/libgweather
+#l/libgdata
+#a/evolution-data-server
+#a/gnome-keyring
+#a/gnome-panel
+#l/exempi
+#l/libnotify
+#a/nautilus
+#a/metacity
+#a/libgnomekbd
+#a/gnome-settings-daemon
+#l/libgtop
+#a/gnome-control-center
 #ap/gnome-power-manager
 #a/gvfs
 #l/gnome-mime-data
@@ -107,7 +115,6 @@ a/gnome-shell
 #n/gtk-vnc
 #n/vinagre
 #n/vino
-#n/telepathy-glib
 #n/libnice
 #n/farsight2
 #n/telepathy-farsight
@@ -207,6 +214,7 @@ a/gnome-shell
 #m/banshee-1
 #d/devhelp
 #d/glade3
+#d/libsigc++
 #d/vala
 #d/gdl
 #d/autogen
@@ -251,12 +259,6 @@ a/gnome-shell
 #c/ccsm
 #c/fusion-icon
 #
-# Openoffice.org, including i10n language packs.
-#
-#ooo/openoffice3
-#
-# Themes and default engines
-#
 #t/gnome-themes-extras
 #t/murrine-engine
 #t/candido-engine
@@ -277,11 +279,3 @@ a/gnome-shell
 #
 #pasture/gdesklets
 #pasture/grip
-#
-# Build packages in testing/
-#
-#testing/gobject-introspection
-#testing/mutter
-#testing/gjs
-#testing/libcroco
-#testing/gnome-shell
