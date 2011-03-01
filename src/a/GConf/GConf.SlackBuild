@@ -21,7 +21,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 VERSION=2.32.1
-BUILD=1
+BUILD=2
 TAG=${TAG:-gsb}
 
 NUMJOBS=${NUMJOBS:-" -j10 "}
@@ -99,6 +99,8 @@ mv $PKG/etc/gconf/2/evoldap.conf $PKG/etc/gconf/2/evoldap.conf.new || exit 1
 # Only with --enable-defaults-service, requires policykit
 mv $PKG/etc/dbus-1/system.d/org.gnome.GConf.Defaults.conf \
   $PKG/etc/dbus-1/system.d/org.gnome.GConf.Defaults.conf.new
+# Create dir for gsettings-data-convert
+mkdir -p $PKG/usr/share/GConf/gsettings
 
 # Make sure to keep gnome stuff separate in /etc/gnome/xdg
 mkdir -p $PKG/etc/gnome && 
