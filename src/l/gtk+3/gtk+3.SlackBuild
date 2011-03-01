@@ -143,13 +143,6 @@ esac
 cp $CWD/update-gtk-immodules-3.0 $PKG/usr/bin/update-gtk-immodules-3.0
 chmod 0755 $PKG/usr/bin/update-*
 
-# I'm almost inclined to think this stuff is obsolete but I don't know for sure.
-# I do know that leaving it in doesn't hurt (aside from a few wasted bytes, but
-# probably less than the comments here waste ;-)
-mkdir -p $PKG/etc/profile.d
-cp $CWD/profile.d/* $PKG/etc/profile.d
-chmod 755 $PKG/etc/profile.d/*
-
 find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded 2>/dev/null
 
