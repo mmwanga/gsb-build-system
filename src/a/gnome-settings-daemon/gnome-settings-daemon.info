@@ -1,8 +1,8 @@
 PKGNAME="gnome-settings-daemon"
-VERSION="2.91.9"
+VERSION="2.91.90"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-settings-daemon/$(echo $VERSION | cut -f1,2 -d.)/gnome-settings-daemon-${VERSION}.tar.bz2"
-MD5SUM="51ab015d3d08c7f0c85e3c60b733e179"
-MAINTAINER="Chip Cuccio"
-EMAIL="chipster@gnomeslackbuild.org"
+DOWNLOAD="${GNOME_SERVER}/gnome-settings-daemon/2.91/gnome-settings-daemon-${VERSION}.tar.bz2"
+MD5SUM="57a65d00ed96a42b2abaa6c21defdfe7"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

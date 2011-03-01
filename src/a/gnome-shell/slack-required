@@ -5,3 +5,8 @@ telepathy-glib
 libcroco
 gnome-desktop
 evolution-data-server
+dconf
+pulseaudio
+libcanberra
+gnome-themes
+gnome-menus
