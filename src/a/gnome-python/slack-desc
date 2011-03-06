@@ -1,11 +1,18 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
             |-----handy-ruler------------------------------------------------------|
-gnome-python: gnome-python (GNOME Python Bindings)
+gnome-python: gnome-python (python bindings for the gconf library)
 gnome-python: 
-gnome-python: gnome-python contains Python bindings for GNOME, which lets you to 
-gnome-python: easily create programs with a graphical user interface using the 
-gnome-python: Python programming language. The underlaying GTK+ library provides 
-gnome-python: all kind of visual elements and utilities for it and, if needed, you 
-gnome-python: can develop full featured applications for the GNOME Desktop.  
+gnome-python: gnome-python contains gconf python bindings for GNOME which allows
+gnome-python: python applications to use GConf to store their settings. 
+gnome-python: 
+gnome-python: 
+gnome-python: 
 gnome-python: 
 gnome-python: 
 gnome-python: 
