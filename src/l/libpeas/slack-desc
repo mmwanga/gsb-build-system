@@ -6,7 +6,7 @@
 # leave one space after the ':'.
 
        |-----handy-ruler------------------------------------------------------|
-libpeas: libpeas (plugin extensible application library)
+libpeas: libpeas (gobject plugins library)
 libpeas: 
 libpeas: libpeas is a gobject-based plugins engine and provides a set of
 libpeas: features mirroring the desiderata of most of the applications

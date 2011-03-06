@@ -81,11 +81,14 @@ CFLAGS="$GSBCFLAGS" \
 make ${NUMJOBS} || make || exit 1
 make DESTDIR=$PKG install || exit 1
 
+# Remove demo
+rm -fr $PKG/usr/lib/peas-demo || exit 1
+
 find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded 2>/dev/null
 
 mkdir -p $PKG/usr/doc/$PKGNAM-$VERSION
-cp -a AUTHORS COPYING NEWS README \
+cp -a AUTHORS COPYING README \
   $PKG/usr/doc/$PKGNAM-$VERSION
 find $PKG/usr/doc/$PKGNAM-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAM-$VERSION
