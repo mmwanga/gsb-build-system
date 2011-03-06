@@ -22,7 +22,7 @@
 
 VERSION=0.10.3
 GIRVERSION=0.10.3
-BUILD=1
+BUILD=2
 
 TAG=${TAG:-gsb}
 ARCH=${ARCH:-i486}
@@ -41,16 +41,25 @@ SRCVERSION[0]="2.22.1"
 SRCURL[0]="ftp://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.22/gdk-pixbuf-${SRCVERSION[0]}.tar.bz2"
 MD5SUM[0]="716c4593ead3f9c8cca63b8b1907a561"
 SOURCE[0]="${SRCDIR}/${SRCNAME[0]}-${SRCVERSION[0]}.tar.bz2"
+OPTIONS[0]=""
 SRCNAME[1]="pango"
 SRCVERSION[1]="1.28.3"
 SRCURL[1]="ftp://ftp.gnome.org/pub/gnome/sources/pango/1.28/pango-${SRCVERSION[1]}.tar.bz2"
 MD5SUM[1]="caa74baea47e7e16bc73c89f9089d522"
 SOURCE[1]="${SRCDIR}/${SRCNAME[1]}-${SRCVERSION[1]}.tar.bz2"
+OPTIONS[1]=""
 SRCNAME[2]="atk"
 SRCVERSION[2]="1.32.0"
 SRCURL[2]="ftp://ftp.gnome.org/pub/gnome/sources/atk/1.32/atk-${SRCVERSION[2]}.tar.bz2"
 MD5SUM[2]="b9a19a3e426cd9ca930f0108c4ee343f"
 SOURCE[2]="${SRCDIR}/${SRCNAME[2]}-${SRCVERSION[2]}.tar.bz2"
+OPTIONS[2]=""
+SRCNAME[3]="polkit"
+SRCVERSION[3]="0.100"
+SRCURL[3]="http://hal.freedesktop.org/releases/polkit-${SRCVERSION[3]}.tar.gz"
+MD5SUM[3]="9f957bf046ff5a32b0fa0ffe1e35c09c"
+SOURCE[3]="${SRCDIR}/${SRCNAME[3]}-${SRCVERSION[3]}.tar.gz"
+OPTIONS[3]="--with-authfw=shadow --enable-verbose-mode --with-os-type=Slackware"
 
 mkdir -p $TMP
 rm -rf $PKG
@@ -98,12 +107,14 @@ for (( i = 0; i < ${#SOURCE[*]}; i++ )) ; do
     \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
     -exec chmod 644 {} \;
 
+CFLAGS="$GSBCFLAGS" \
 ./configure --prefix=/usr \
    --sysconfdir=/etc \
    --mandir=/usr/man \
    --libdir=/usr/lib${LIBDIRSUFFIX} \
    --disable-static \
    --enable-introspection=yes \
+   ${OPTIONS[$i]} \
     || exit 1
 
 make $NUMJOBS || make || exit 1

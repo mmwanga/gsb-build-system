@@ -1,4 +1,4 @@
 This package is designed to recompile and extract the gobject-introspection
-metadata for the atk, pango, and gdk-pixbuf packages and gather them into one
-single repository package.  This allows us to add GIR and .typelibs for each
-package without having to replace any official Slackware package.
+metadata for the atk, pango, polkit and gdk-pixbuf packages and gather them
+into one single repository package.  This allows us to add GIR and .typelibs
+for each package without having to replace any official Slackware package.
