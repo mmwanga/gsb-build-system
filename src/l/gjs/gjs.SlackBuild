@@ -21,7 +21,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 VERSION=0.7.11
-BUILD=1
+BUILD=2
 TAG=${TAG:-gsb}
 
 NUMJOBS=${NUMJOBS:-" -j10 "}
@@ -74,6 +74,7 @@ find . \
   -exec chmod 644 {} \;
 
 CFLAGS="$GSBCFLAGS" \
+JS_CONFIG="${CWD}/js-config" \
 ./configure --prefix=/usr \
   --sysconfdir=/etc \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
@@ -81,10 +82,8 @@ CFLAGS="$GSBCFLAGS" \
   --disable-static \
   || exit 1
 
-# Fix broken configure detection of available symbols in seamonkey's libmozjs
-zcat $CWD/config.h.gz > config.h
 make ${NUMJOBS} || make || exit 1
-make DESTDIR=$PKG install || exit 1
+make check && make DESTDIR=$PKG install || exit 1
 
 find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded 2>/dev/null
