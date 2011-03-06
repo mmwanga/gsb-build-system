@@ -1,0 +1,8 @@
+PKGNAME="libunique"
+VERSION="2.91.4"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/libunique/2.91/libunique-${VERSION}.tar.bz2"
+MD5SUM="b9d27909765ccdb0e9941cb484bc2137"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
