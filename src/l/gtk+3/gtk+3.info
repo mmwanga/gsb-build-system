@@ -1,8 +1,8 @@
 PKGNAME="gtk+2"
-VERSION="3.0.1"
+VERSION="3.0.2"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gtk+/$(echo $VERSION | cut -f 1,2 -d.)/gtk+-${VERSION}.tar.bz2"
-MD5SUM="2b940e20219a24d6bd816e300101edc8"
+DOWNLOAD="${GNOME_SERVER}/gtk+/3.0/gtk+-${VERSION}.tar.bz2"
+MD5SUM="bac2d0a2dc8ccfe149cf740c04ff38d5"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
