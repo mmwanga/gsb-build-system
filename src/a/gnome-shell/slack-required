@@ -1,5 +1,6 @@
 mutter
 gobject-introspection
+gir-repository
 gjs
 telepathy-glib
 libcroco

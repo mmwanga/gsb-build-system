@@ -20,8 +20,8 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=2.91.90
-BUILD=3
+VERSION=2.91.91
+BUILD=1
 TAG=${TAG:-gsb}
 
 NUMJOBS=${NUMJOBS:-" -j10 "}
@@ -64,7 +64,10 @@ rm -rf $PKGNAM-$VERSION &&
 tar xvf $CWD/$PKGNAM-$VERSION.tar.?z* &&
 cd $PKGNAM-$VERSION || exit 1
 
+# polkit gobject-introspection is in gir-repository, don't bother with version checking
 zcat $CWD/gnome-shell.polkit.ver.diff.gz | patch -p1 || exit 1
+# set better default apps for gnome-shell favorites
+zcat $CWD/gnome-shell.default.apps.diff.gz | patch -p1 || exit 1
 
 chown -R root:root .
 find . \
@@ -87,14 +90,8 @@ CFLAGS="$GSBCFLAGS -I/usr/include/seamonkey" \
 make ${NUMJOBS} || make || exit 1
 make DESTDIR=$PKG install || exit 1
 
-# Fix incorrect location of typelibs
-mkdir -p $PKG/usr/lib${LIBDIRSUFFIX}/girepository-1.0 &&
-	mv $PKG/usr/lib/gnome-shell/*.typelib $PKG/usr/lib${LIBDIRSUFFIX}/girepository-1.0 || exit 1
-rmdir -p $PKG/usr/lib/gnome-shell
-
-# Preserve gnome settings
-mkdir -p $PKG/etc/gnome && 
- mv $PKG/etc/xdg $PKG/etc/gnome || exit 1
+# Fix mis-installed binary
+mv $PKG/usr/gnome-shell-calendar-server $PKG/usr/bin/gnome-shell-calendar-server || exit 1
 
 find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded 2>/dev/null

@@ -20,8 +20,8 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=2.91.4
-BUILD=2
+VERSION=2.91.91
+BUILD=1
 TAG=${TAG:-gsb}
 
 NUMJOBS=${NUMJOBS:-" -j10 "}
@@ -80,7 +80,6 @@ CFLAGS="$GSBCFLAGS" \
   --build=$ARCH-$DISTRO-linux \
   --disable-static \
   --enable-ssh-agent \
-  --enable-acl-prompts \
   --enable-gpg-agent \
   --with-gtk=3.0 \
   --with-root-certs=/etc/ssl/certs \

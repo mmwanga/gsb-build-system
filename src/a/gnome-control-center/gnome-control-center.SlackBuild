@@ -20,7 +20,7 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=2.91.90
+VERSION=2.91.91
 BUILD=1
 TAG=${TAG:-gsb}
 
@@ -64,7 +64,10 @@ rm -rf $PKGNAM-$VERSION &&
 tar xvf $CWD/$PKGNAM-$VERSION.tar.?z* &&
 cd $PKGNAM-$VERSION || exit 1
 
+# Remove requirement for gdk-pixbuf-devel 2.23.0
 zcat $CWD/gnome-control-center.gdk-pixbuf.diff.gz | patch -p1
+# Fix search locations for the freedesktop.org data
+zcat $CWD/gnome-control-center.xdg.chgdir.diff.gz | patch -p1
 
 chown -R root:root .
 find . \
@@ -83,10 +86,6 @@ CFLAGS="$GSBCFLAGS" \
 
 make ${NUMJOBS} || make || exit 1
 make check && make DESTDIR=$PKG install || exit 1
-
-# Preserve settings
-mkdir -p $PKG/etc/gnome && 
-  mv $PKG/etc/xdg $PKG/etc/gnome || exit 1
 
 find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded 2>/dev/null
