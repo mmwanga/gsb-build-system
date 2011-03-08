@@ -1,3 +1,102 @@
+Tue Mar  8 20:21:42 GMT 2011
+a/mutter-2.91.91-i486-1gsb.txz: Upgraded.
+a/gsettings-desktop-schemas-2.91.91-i486-1gsb.txz: Upgraded.
+t/gnome-themes-standard-2.91.91-i486-1gsb.txz: Upgraded.
+ac/at-spi2-core-1.91.91-i486-1gsb.txz: Upgraded.
+ac/at-spi2-atk-1.91.91-i486-1gsb.txz: Upgraded.
+a/gnome-shell-2.91.91-i486-1gsb.txz: Upgraded.
+a/libgnomekbd-2.91.91-i486-1gsb.txz: Upgraded.
+a/gnome-settings-daemon-2.91.91-i486-1gsb.txz: Upgraded.
+n/epiphany-2.91.91-i486-1gsb.txz: Upgraded.
+ap/eog-2.91.91-i486-1gsb.txz: Upgraded.
+a/gnome-control-center-2.91.91-i486-1gsb.txz: Upgraded.
+ap/file-roller-2.91.91-i486-1gsb.txz: Upgraded.
+a/evolution-data-server-2.91.91-i486-1gsb.txz: Upgraded.
+a/gnome-session-2.91.91-i486-1gsb.txz: Upgraded.
+a/nautilus-2.91.91-i486-1gsb.txz: Upgraded.
+a/gnome-keyring-2.91.91-i486-1gsb.txz: Upgraded.
+t/cantarell-fonts-0.0.4-i486-1gsb.txz: Upgraded.
++--------------------------+
+Mon Mar  7 00:07:52 GMT 2011
+a/gnome-control-center-2.91.90-i486-2gsb.txz: Patched.
+  Fixed freedesktop data search directory to /etc/gnome/xdg.
+l/gtk+3-3.0.2-i486-1gsb.txz: Upgraded.
+t/gnome-themes-standard-2.91.90.1-i486-1gsb.txz: Added.
+t/gnome-icon-theme-2.91.7-noarch-1gsb.txz: Upgraded.
+t/cantarell-fonts-0.0.4-noarch-1gsb.txz: Added.
+l/gtkhtml-3.91.91-i486-1gsb.txz: Upgraded.
+l/libpst-0.6.49-i486-1gsb.txz: Upgraded.
+l/clutter-1.6.8-i486-1gsb.txz: Upgraded.
+a/gnome-menus-2.91.91-i486-1gsb.txz: Upgraded.
+a/gnome-desktop-2.91.91-i486-1gsb.txz: Upgraded.
++--------------------------+
+Sun Mar  6 11:21:59 GMT 2011
+l/gir-repository-0.10.3-i486-2gsb.txz: Rebuilt.
+  This package now contains PolKitAgent from polkit.
+n/NetworkManager-0.8.995-i486-1gsb.txz: Upgraded.
+l/clutter-gst-1.3.6-i486-1gsb.txz: Added.
+l/libunique-2.91.4-i486-1gsb.txz: Upgraded.
+l/libgee-0.6.1-i486-1gsb.txz: Upgraded.
+l/clutter-gtk-0.10.8-i486-1gsb.txz: Upgraded.
+ap/gnome-video-effects-0.2.0-i486-1gsb.txz: Added.
+d/vala-0.10.3-i486-1gsb.txz: Upgraded.
+l/libpeas-0.7.3-i486-1gsb.txz: Added.
+ap/eog-2.91.90-i486-1gsb.txz: Upgraded.
++--------------------------+
+Sun Mar  6 11:21:59 GMT 2011
+a/gnome-python-2.28.1-i486-3gsb.txz: Rebuilt.
+  GNOME 3.0 will not required libgnome, bonoboui, or gnomevfs, so this package
+  really just contains the gconf python bindings which are required by
+  gnome-shell.
+a/gnome-shell-2.91.90-i486-3gsb.txz: Rebuilt.
+  Added gnome-python to slack-required.
+n/webkit-1.3.12-i486-1gsb.txz: Upgraded.
+  The development version of webkitgtk is now linked against gtk+3, and
+  required by epiphany.
+n/epiphany-2.91.90-i486-1gsb.txz: Upgraded.
+l/gjs-0.7.11-i486-2gsb.txz: Rebuilt.
+  Now configured with a js-config script.  The autotools were causing
+  segfaults by not finding the JS_NewCompartmentAndGlobalObject in libmozjs.
+  This should fix the problem.
++--------------------------+
+Fri Mar  4 18:39:26 GMT 2011
+a/gnome-keyring-2.91.4-i486-2gsb.txz: Reconfigured.
+  Configured with ssl root certificates option.
++--------------------------+
+Thu Mar  3 00:18:45 GMT 2011
+go/abiword-2.8.6-i486-2gsb.txz: Rebuilt.
++--------------------------+
+Wed Mar  2 23:05:50 GMT 2011
+a/GConf-2.32.1-i486-2gsb.txz: Rebuilt.
+  Add empty /usr/share/GConf/gsettings directory by default.
+a/pulseaudio-0.9.22-i486-2gsb.txz: Rebuilt.
+  Added speex to slack-required.
+ap/evince-2.91.90-i486-1gsb.txz: Upgraded.
+l/wv-1.2.4-i486-4gsb.txz: Rebuilt.
+go/goffice-0.8.13-i486-1gsb.txz: Upgraded.
++--------------------------+
+Tue Mar  1 00:08:14 GMT 2011
+l/libnotify-0.7.1-i486-1gsb.txz: Added.
+a/gnome-settings-daemon-2.91.90-i486-1gsb.txz: Upgraded.
+l/libgtop-2.28.2-i486-2gsb.txz: Rebuilt.
+a/gnome-control-center-2.91.90-i486-1gsb.txz: Upgraded.
+l/exempi-2.1.1-i486-3gsb.txz: Rebuilt.
+a/nautilus-2.91.90.1-i486-1gsb.txz: Upgraded.
+ap/gnome-power-manager-2.91.90-i486-1gsb.txz: Upgraded.
+ap/gnome-terminal-2.33.90-i486-1gsb.txz: Upgraded.
+l/libicu-4.6-i486-1gsb.txz: Upgraded.
++--------------------------+
+Mon Feb 28 00:07:36 GMT 2011
+a/dconf-0.7.1-i486-1gsb.txz: Added.
+a/gtk-engines-2.91.1-i486-1gsb.txz: Upgraded.
+t/gnome-themes-2.91.90-i486-1gsb.txz: Upgraded.
+ac/at-spi2-core-1.91.90-i486-1gsb.txz: Added.
+ac/at-spi2-atk-1.91.90-i486-1gsb.txz: Added.
+a/libgnomekbd-2.91.90-i486-1gsb.txz: Upgraded.
+a/gnome-session-2.91.90.1-i486-2gsb.txz: Rebuilt.
+  Removed GConf gsetting schema which was causing gsettings-data-convert to
+  segfault.
++--------------------------+
 Sat Feb 12 15:40:02 GMT 2011
 l/libffi-3.0.9-i486-1gsb.txz: Added.
 l/gobject-introspection-0.10.3-i486-1gsb.txz: Upgraded.
@@ -51,10 +150,7 @@ l/ORBit2-2.14.19-i486-3gsb.txz: Rebuilt.
   Rebuilt against latest glib2 package.
 a/GConf-2.32.1-i486-1gsb.txz: Upgraded. 
   GConf is now linked against gtk+3.
-l/usbmuxd-1.0.6-i486-1gsb.txz: Upgraded.
 l/libtasn1-2.9-i486-1gsb.txz: Upgraded.
-l/libimobiledevice-1.0.4-i486-2gsb.txz: Rebuilt.
-  Removed restart of hal from doinst.sh.
 a/upower-0.9.8-i486-1gsb.txz: Upgraded.
   Removed devicekit from dependencies.
 a/gnome-session-2.91.6-i486-1gsb.txz: Upgraded.
