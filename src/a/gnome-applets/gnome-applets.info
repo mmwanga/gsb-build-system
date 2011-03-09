@@ -1,8 +1,0 @@
-PKGNAME="gnome-applets"
-VERSION="2.32.1.1"
-HOMEPAGE="http://www.gnome.org"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-applets/2.32/gnome-applets-${VERSION}.tar.bz2"
-MD5SUM="031c207a18707263828b4a4fd784bbe4"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

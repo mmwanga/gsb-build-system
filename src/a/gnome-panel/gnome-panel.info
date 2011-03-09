@@ -1,8 +1,0 @@
-PKGNAME="gnome-panel"
-VERSION="2.91.90"
-HOMEPAGE="http://www.gnome.org"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-panel/$(echo $VERSION|cut -f1,2 -d.)/gnome-panel-${VERSION}.tar.bz2"
-MD5SUM="f4f6256a8df088c7cd47239fd5197b6f"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
