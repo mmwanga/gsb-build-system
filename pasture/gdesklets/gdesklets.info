@@ -1,7 +1,0 @@
-PKGNAME="gdesklets"
-VERSION="0.36.1"
-HOMEPAGE="http://www.gdesklets.de/"
-DOWNLOAD="http://www.gdesklets.de/files/gdesklets-0.36.1.tar.gz"
-MD5SUM="973d463ac6f0037801495de09ebc495a"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

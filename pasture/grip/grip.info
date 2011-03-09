@@ -1,7 +1,0 @@
-PKGNAME="grip"
-VERSION="3.3.1"
-HOMEPAGE="http://nostatic.org/grip/"
-DOWNLOAD="http://downloads.sourceforge.net/project/grip/grip/3.3.1/grip-3.3.1.tar.gz"
-MD5SUM="4b4233999b9f2bc85c711092553ea9aa"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

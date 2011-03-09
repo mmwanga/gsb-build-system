@@ -23,18 +23,18 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-# Package variables.
+# Package variables
 BUILD=2
-VERSION=0.36.1
+VERSION=2.24.4
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gnome-python libgtop librsvg pyorbit pygtk glib2 gtk+2 libgnomeui"
+REQUIRED_PACKAGES="libbonobo libgnome libgnomecanvas"
 
 # Build variables.
 TAG=${TAG:-gsb}
 ARCH=${ARCH:-i486}
-TUNE=${TUNE:-i486}
+TUNE=${TUNE:-i686}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}
@@ -108,8 +108,7 @@ mkdir -p $PKGDEST
 
 # Decompress archive.
 cd $TMP &&
-tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
-mv gDesklets-$VERSION $PKGNAME-$VERSION &&
+tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
@@ -152,38 +151,29 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-# Configure.
+
+## Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
   --mandir=/usr/man $CONFIGURE_FLAGS \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
-  --disable-static \
-  --enable-shared \
+  --disable-static --enable-shared \
+  --disable-gtk-doc \
   || exit 1
 
 # Build and install.
-make $MAKE_FLAGS -j1 &&
-make $MAKE_FLAGS -j1 DESTDIR=$PKG install || exit 1
-
-rm -fr $PKG/usr/share/applications/mimeinfo.cache 
+make $MAKE_FLAGS &&
+make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
 
-# Compress and fix manpage links.
-[ -e $PKG/usr/man ] && {
-  find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
-  find $PKG/usr/man -type l -name \*.? -printf \
-    "( cd '%h'; [ -e '%l.gz' ] &&
-     { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
-}
-
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a AUTHORS COPYING* NEWS README \
+cp -a COPYING.LIB NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION

@@ -1,0 +1,8 @@
+PKGNAME="metacity"
+VERSION="2.30.3"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/metacity/2.30/metacity-${VERSION}.tar.bz2"
+MD5SUM="553784f376d96b902e19ff437cd5b339"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

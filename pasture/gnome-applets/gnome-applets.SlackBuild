@@ -24,17 +24,18 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Package variables.
-BUILD=5
-VERSION=3.3.1
+BUILD=1
+VERSION=2.32.1.1
 
 # List any packages here that are required to build this package.
 # The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="libgnomeui glib2 gtk+2 cdparanoia cdrtools libpng"
+REQUIRED_PACKAGES="GConf libwnck libnotify libgtop libgweather gnome-desktop \
+                   gnome-icon-theme gnome-python gnome-settings-daemon polkit-gnome"
 
 # Build variables.
 TAG=${TAG:-gsb}
 ARCH=${ARCH:-i486}
-TUNE=${TUNE:-i486}
+TUNE=${TUNE:-i686}
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}
@@ -108,19 +109,16 @@ mkdir -p $PKGDEST
 
 # Decompress archive.
 cd $TMP &&
-tar xzf $CWD/$PKGNAME-$VERSION.tar.gz &&
+tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
 cd $PKGNAME-$VERSION || exit 1
 
 # Apply ARCH specific patches.
 if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "x86_64" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 elif [ "$ARCH" = "powerpc" ]; then
   echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
 fi
 
 # Fix permissions for building.
@@ -151,9 +149,6 @@ fi
 EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
 MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-# Update auto tool info
-autoreconf -vif
-
 # Configure.
 CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
@@ -162,13 +157,18 @@ CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
   --build=$ARCH-$DISTRO-linux \
   --target=$ARCH-$DISTRO-linux \
   --disable-static \
-  --enable-shared \
-  --with-gnu-ld \
+  --disable-schemas-install \
+  --enable-polkit \
+  --enable-mixer-applet \
   || exit 1
 
 # Build and install.
 make $MAKE_FLAGS &&
 make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+
+# preserve files
+mv $PKG/etc/dbus-1/system.d/org.gnome.CPUFreqSelector.conf \
+ $PKG/etc/dbus-1/system.d/org.gnome.CPUFreqSelector.conf.new
 
 # Strip debugging symbols.
 { find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
@@ -182,12 +182,39 @@ make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
      { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
 }
 
+# Deal with .info files.
+[ -e $PKG/usr/share/info ] && {
+  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
+  rmdir -p $PKG/usr/share
+  }
+[ -e $PKG/usr/info ] && {
+  rm -f $PKG/usr/info/dir
+  gzip -9 $PKG/usr/info/*.info
+}
+
 # Copy extra documentation into package.
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a AUTHORS COPYING* README \
+cp -a AUTHORS COPYING NEWS README \
   $PKG/usr/doc/$PKGNAME-$VERSION
 find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
+
+# Add schemas install to the doinst.sh if schemas are found.
+[ -d $PKG/etc/gconf/schemas ] && {
+# Make sure we have gconftool installed
+echo "if [ -x usr/bin/gconftool-2 ]; then" >> $PKG/install/doinst.sh
+( cd $PKG/etc/gconf/schemas
+for schema in *.schemas; do
+ # Install schemas
+ echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
+   usr/bin/gconftool-2 --makefile-install-rule \
+   etc/gconf/schemas/${schema} >/dev/null 2>&1" \
+   >> $PKG/install/doinst.sh
+done;
+)
+# Finish off gconf block
+echo "fi" >> $PKG/install/doinst.sh
+}
 
 # Package meta files
 for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests

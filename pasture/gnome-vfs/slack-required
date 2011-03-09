@@ -1,0 +1,16 @@
+GConf
+shared-mime-info
+gnome-mime-data
+libbonobo
+libxml2
+bzip2
+gamin
+glib2
+avahi
+openssl | openssl-solibs
+ORBit2
+popt
+zlib
+hal
+dbus
+neon

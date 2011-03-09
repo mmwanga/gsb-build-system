@@ -1,0 +1,11 @@
+GConf
+libwnck
+libnotify
+libgtop
+libsoup
+libgweather
+gnome-desktop
+gnome-icon-theme
+gnome-python
+gnome-settings-daemon
+polkit-gnome

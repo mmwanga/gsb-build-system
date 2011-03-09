@@ -1,0 +1,8 @@
+PKGNAME="libbonoboui"
+VERSION="2.24.4"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/libbonoboui/2.24/libbonoboui-${VERSION}.tar.bz2"
+MD5SUM="cc2fb47b79fb3bcc6816ff07d7496cf9"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
