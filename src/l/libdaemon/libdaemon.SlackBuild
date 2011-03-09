@@ -74,7 +74,6 @@ find . \
 CFLAGS="$GSBCFLAGS" \
 ./configure --prefix=/usr \
   --docdir=/usr/doc/$PKGNAM-$VERSION \
-  --mandir=/usr/man \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --disable-static \

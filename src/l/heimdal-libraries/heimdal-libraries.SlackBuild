@@ -73,8 +73,8 @@ find . \
 
 CFLAGS="$GSBCFLAGS" \
 ./configure --prefix=/usr \
-  --mandir=/usr/man \
   --infodir=/usr/info \
+  --mandir=/usr/man \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --enable-pthread-support \

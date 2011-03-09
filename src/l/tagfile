@@ -1,6 +1,6 @@
 ORBit2:ADD
 clutter:ADD
-clutter-gtk:ADD
+clutter-gst:ADD
 exempi:ADD
 ffmpeg:ADD
 gdk-pixbuf2:ADD
@@ -18,8 +18,6 @@ gtkimageview:ADD
 gtksourceview:ADD
 heimdal-libraries:ADD
 json-glib:ADD
-libbonobo:ADD
-libbonoboui:ADD
 libdaemon:ADD
 libdmapsharing:ADD
 libelf:ADD
@@ -33,6 +31,7 @@ libgnomecanvas:ADD
 libgtop:ADD
 libicu:ADD
 libimobiledevice:ADD
+libpeas:ADD
 libplist:ADD
 libproxy:ADD
 libpst:ADD
