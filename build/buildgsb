@@ -382,6 +382,17 @@ elif [ "$SKIP_BUILD" = "0" -o "$BUILD_OPTION" = "rebuild" -a "$SKIP_REBUILDS" = 
      rm -fr $TMP/package-${PACKAGE}-*
    }
 
+
+  SIGN_PACKAGE="$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
+	      "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" )"
+
+  make_pkg_txt "$SIGN_PACKAGE" || {
+      header "Failed to create txt description for '$PACKAGE'." ; exit 1
+  }
+  make_pkg_asc "$SIGN_PACKAGE" || {
+      header "Failed to create asc signature for '$PACKAGE'." ; exit 1
+  }
+
 else
   echo "* Found: $PACKAGE-${PACKAGE_VERSION//-/_}-${ARCH}-${PACKAGE_BUILD}${TAG}.txz" 
 fi
@@ -406,10 +417,6 @@ fi;
 #
 # Make a txt description of the package
 if [ "$PUBLISH" = "1" -a "${ONLY_DOWNLOAD}" = "0" ]; then
-  make_pkg_txt "$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
-    "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" )" || {
-    header "Failed to create txt description for '$PACKAGE'." ; exit 1
-  }
   # Sign the package
   SIGN_PACKAGE="$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
     "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" )"
@@ -475,6 +482,7 @@ cd $BUILDSOURCE ;
 # Copy tagfiles
 for tagfile in $(find . -type f -name tagfile); 
 do 
+ mkdir -p $PKGDEST/$GSBDIR/$(echo $tagfile | cut -f2 -d/) &&
  cp $tagfile $PKGDEST/$GSBDIR/$(echo $tagfile | cut -f2 -d/) || exit 1
 done;
 
@@ -516,12 +524,11 @@ cp extra/README.TXT $PKGDEST/$EXTRADIR || exit 1
   cp testing/README.TXT $PKGDEST/$TESTINGDIR || exit 1
 }
 if [ "$ARCH" = "x86_64" ]; then
-  cp ChangeLog.slackware64 $PKGDEST/ChangeLog.txt &&
-  cp VERSIONS.slackware64 $PKGDEST/VERSIONS || exit 1
+  cp ChangeLog.slackware64 $PKGDEST/ChangeLog.txt 
 else
-  cp ChangeLog.slackware $PKGDEST/ChangeLog.txt &&
-  cp VERSIONS.slackware $PKGDEST/VERSIONS || exit 1
+  cp ChangeLog.slackware $PKGDEST/ChangeLog.txt 
 fi
+cp VERSIONS $PKGDEST/VERSIONS 
 echo;
 header "* Published documentation."
 echo;
