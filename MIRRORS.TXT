@@ -51,9 +51,9 @@ GNOME SlackBuild
 
 # Indonesia
 
-    http://ftp.pnfi.kemdiknas.go.id/gsb/gsb-2.30_slackware-13.1/
+    http://ftp.paudni.kemdiknas.go.id/gsb/gsb-2.30_slackware-13.1/
 
-    ftp://ftp.pnfi.kemdiknas.go.id/gsb/gsb-2.30_slackware-13.1/
+    ftp://ftp.paudni.kemdiknas.go.id/gsb/gsb-2.30_slackware-13.1/
 
 
 ------------------
@@ -109,7 +109,7 @@ GNOME SlackBuild64
 
 # Indonesia
 
-    http://ftp.pnfi.kemdiknas.go.id/gsb/gsb64-2.30_slackware64-13.1/
+    http://ftp.paudni.kemdiknas.go.id/gsb/gsb64-2.30_slackware64-13.1/
 
-    ftp://ftp.pnfi.kemdiknas.go.id/gsb/gsb64-2.30_slackware64-13.1/
+    ftp://ftp.paudni.kemdiknas.go.id/gsb/gsb64-2.30_slackware64-13.1/
 
