@@ -1,3 +1,29 @@
+Sat Mar 12 10:03:21 GMT 2011
+d/vala-0.11.6-i486-1gsb.txz: Upgraded.
+l/libpeas-0.7.4-i486-1gsb.txz: Upgraded.
+ap/cheese-2.91.91.1-i486-1gsb.txz: Upgraded.
+a/gnome-control-center-2.91.91-i486-2gsb.txz: Rebuilt.
+  Built against cheese.
+n/evolution-2.91.91-i486-1gsb.txz: Upgraded.
+n/folks-0.3.6-i486-1gsb.txz: Added.
+n/telepathy-logger-0.2.5-i486-1gsb.txz: Added.
+l/libnice-0.1.0-i486-1gsb.txz: Upgraded.
+n/farsight2-0.0.26-i486-1gsb.txz: Upgraded.
+n/telepathy-farsight-0.0.16-i486-1gsb.txz: Upgraded.
+n/empathy-2.91.91-i486-1gsb.txz: Upgraded.
++--------------------------+
+Sat Mar 12 09:30:35 GMT 2011
+n/avahi-0.6.29-i486-1gsb.txz: Upgraded.
+a/gnome-session-2.91.91.3-i486-1gsb.txz: Upgraded.
+l/clutter-gtk-0.91.8-i486-1gsb.txz: Upgraded.
++--------------------------+
+Tue Mar  8 20:21:42 GMT 2011
+pasture/gdesklets: Removed.
+pasture/grip: Removed.
+ac/gnome-speech: Removed.
+  This is now largely unmaintained has been replaced upstream by
+  speech-dispatcher.
++--------------------------+
 Tue Mar  8 20:21:42 GMT 2011
 a/mutter-2.91.91-i486-1gsb.txz: Upgraded.
 a/gsettings-desktop-schemas-2.91.91-i486-1gsb.txz: Upgraded.
