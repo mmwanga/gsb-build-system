@@ -1,10 +1,17 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
          |-----handy-ruler------------------------------------------------------|
 evolution: evolution (Evolution Email, Calendar and Contact Manager)
 evolution:
 evolution: Evolution the official personal and workgroup information management 
 evolution: tool for GNOME. It combines e-mail, calendar, address book, and task 
 evolution: list management functions, and features iCalendar support, full-text 
-evolution: indexing, powerful email filters, and "Search Folders" feature.  
+evolution: indexing, powerful email filters, and search folders feature.  
 evolution: Evolution can be connect to a Microsoft Exchange Server, and can 
 evolution: synchronize with Palm Pilot devices, and OpenSync enables it to 
 evolution: synchronize with mobile phones and other PDAs. Evolution development 
