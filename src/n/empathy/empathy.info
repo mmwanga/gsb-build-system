@@ -1,8 +1,8 @@
 PKGNAME="empathy"
-VERSION="2.30.3"
+VERSION="2.91.91"
 HOMEPAGE="http://live.gnome.org/Empathy"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/empathy/2.30/empathy-${VERSION}.tar.bz2"
-MD5SUM="d797f30219da87d4564fb92705626cd3"
+DOWNLOAD="${GNOME_SERVER}/empathy/2.91/empathy-${VERSION}.tar.bz2"
+MD5SUM="c134716adfc30aec7acf87b39dbb4ef5"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

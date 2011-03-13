@@ -1,7 +1,7 @@
-telepathy-glib
-telepathy-farsight
-gstreamer
-enchant
+folks
+telepathy-logger
+evolution-data-server
 webkit
-telepathy-python
-telepathy-mission-control
+libnice
+farsight2
+telepathhy-farsight
