@@ -3,6 +3,6 @@ VERSION="0.3.6"
 HOMEPAGE="http://telepathy.freedesktop.org/wiki/Folks"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/folks/0.3/folks-${VERSION}.tar.bz2"
-MD5SUM="7823126987d56c37d9d51e3aeaada29a"
+MD5SUM="a708f45d67620294effd33fd88f2a81d"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
