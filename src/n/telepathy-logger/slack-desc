@@ -6,7 +6,7 @@
 # leave one space after the ':'.
 
                 |-----handy-ruler------------------------------------------------------|
-telepathy-logger: telepathy-logger (telepathy framework log client)
+telepathy-logger: telepathy-logger (telepathy framework logger client)
 telepathy-logger: 
 telepathy-logger: telepathy-logger is a headless observer client that logs information 
 telepathy-logger: received by the Telepathy framework. It features pluggable backends 

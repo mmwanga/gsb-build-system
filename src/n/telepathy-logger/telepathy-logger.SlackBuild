@@ -77,6 +77,7 @@ CFLAGS="$GSBCFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --disable-static \
+  --disable-introspection \
   || exit 1
 
 make ${NUMJOBS} || make || exit 1
@@ -93,6 +94,7 @@ chown -R root:root $PKG/usr/doc/$PKGNAM-$VERSION
 
 mkdir -p $PKG/install 
 cat $CWD/slack-desc > $PKG/install/slack-desc
+zcat $CWD/doinst.sh.gz > $PKG/install/doinst.sh
 
 cd $PKG
 makepkg -p -l y -c n $PKGDEST/${PKGNAM}-${VERSION}-$ARCH-${BUILD}${TAG}.txz
