@@ -76,6 +76,7 @@ CFLAGS="$GSBCFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --disable-static \
+  --enable-introspection=no \
   || exit 1
 
 make ${NUMJOBS} || make || exit 1

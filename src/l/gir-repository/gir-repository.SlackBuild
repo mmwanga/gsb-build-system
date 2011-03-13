@@ -20,9 +20,9 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=0.10.3
-GIRVERSION=0.10.3
-BUILD=2
+VERSION=0.10.4
+GIRVERSION=0.10.4
+BUILD=1
 
 TAG=${TAG:-gsb}
 ARCH=${ARCH:-i486}
@@ -55,9 +55,9 @@ MD5SUM[2]="b9a19a3e426cd9ca930f0108c4ee343f"
 SOURCE[2]="${SRCDIR}/${SRCNAME[2]}-${SRCVERSION[2]}.tar.bz2"
 OPTIONS[2]=""
 SRCNAME[3]="polkit"
-SRCVERSION[3]="0.100"
+SRCVERSION[3]="0.101"
 SRCURL[3]="http://hal.freedesktop.org/releases/polkit-${SRCVERSION[3]}.tar.gz"
-MD5SUM[3]="9f957bf046ff5a32b0fa0ffe1e35c09c"
+MD5SUM[3]="f925ac93aba3c072977370c1e27feb7f"
 SOURCE[3]="${SRCDIR}/${SRCNAME[3]}-${SRCVERSION[3]}.tar.gz"
 OPTIONS[3]="--with-authfw=shadow --enable-verbose-mode --with-os-type=Slackware"
 
