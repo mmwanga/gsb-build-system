@@ -1,3 +1,32 @@
+Sun Mar 13 18:20:38 GMT 2011
+ap/seahorse-2.91.91-i486-1gsb.txz: Built.
+a/gtk-engines-2.91.1-i486-2gsb.txz: Reconfigured.
+  This package now contains gtk-engines for both gtk+2 and gtk+3.
+t/gnome-themes-2.91.90-i486-2gsb.txz: Rebuilt.
+  Removed slack-required.
+a/accountsservice-0.6.5-i486-1gsb.txz: Added.
+a/apg-2.2.3-i486-1gsb.txz: Added.
+ap/totem-pl-parser-2.32.3-i486-1gsb.txz: Upgraded.
+ap/totem-2.91.91-i486-1gsb.txz: Upgraded.
+l/sg3_utils-1.31-i486-1gsb.txz: Upgraded.
+l/libatasmart-20100219-i486-1gsb.txz: Added.
+  Use patches from git upstream.
+a/udisks-1.0.2-i486-1gsb.txz: Added.
+a/gnome-disk-utility-2.91.6-i486-1gsb.txz: Added.
+a/gvfs-1.7.2-i486-1gsb.txz: Upgraded.
++--------------------------+
+Sun Mar 13 10:08:04 GMT 2011
+l/gobject-introspection-0.10.4-i486-1gsb.txz: Upgraded.
+l/gir-repository-0.10.4-i486-1gsb.txz: Upgraded.
+n/epiphany-2.91.91.1-i486-1gsb.txz: Upgraded.
+n/NetworkManager-0.8.996-i486-1gsb.txz: Upgraded.
+n/network-manager-applet-0.8.996-i486-1gsb.txz: Upgraded.
+n/telepathy-mission-control-5.7.7-i486-1gsb.txz: Upgraded.
+a/gnome-shell-2.91.91-i486-2gsb.txz: Rebuilt.
+  Fixed broken libexec dir.
+a/libgnome-keyring-2.91.92-i486-1gsb.txz: Upgraded.
+a/gnome-keyring-2.91.92-i486-1gsb.txz: Upgraded.
++--------------------------+
 Sat Mar 12 10:03:21 GMT 2011
 d/vala-0.11.6-i486-1gsb.txz: Upgraded.
 l/libpeas-0.7.4-i486-1gsb.txz: Upgraded.

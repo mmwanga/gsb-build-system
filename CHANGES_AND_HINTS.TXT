@@ -1,9 +1,9 @@
 CHANGES AND HINTS
 =================
-This file documents the instructions for upgrading to GNOME SlackBuild 2.30.0
-for Slackware 13.1, and lists any packages which have been added, removed,
-renamed, and/or split during the development cycle from GSB 2.28.3 for
-Slackware 13.0, as well as note some potential "gotchas" that users can avoid
+This file documents the instructions for upgrading to GNOME SlackBuild 3.0
+for Slackware 13.2, and lists any packages which have been added, removed,
+renamed, and/or split during the development cycle from GSB 2.32.0 for
+Slackware 13.1, as well as note some potential "gotchas" that users can avoid
 by arming themselves with a little knowledge.
 
 All packages that are built to replace a standard Slackware package are
@@ -34,80 +34,40 @@ Otherwise, the official Slackware package will outweigh some GNOME SlackBuild
 required package and they may not be installed.  
 
 
-*** PACKAGE ADDITIONS SINCE 2.30.0 for Slackware 13.1 ***
+*** PACKAGE ADDITIONS SINCE 2.32.0 for Slackware 13.1 ***
 
-l/libdmapsharing: Added.
-l/libevent: Added.
-l/libgdata: Added.
-l/libimobiledevice: Added.
-l/libplist: Added.
-l/gdk-pixbuf: Added.
-l/usbmuxd: Added.
+l/clutter-gst: Added.
+l/libpeas: Added.
+ap/gnome-video-effects: Added.
+t/gnome-themes-standard: Added.
+t/cantarell-fonts: Added.
+n/folks: Added.
+n/telepathy-logger: Added.
+l/libatasmart: Added.
+a/udisks: Added.
+a/gnome-disk-utility: Added.
+a/accountsservice: Added.
+a/apg: Added.
 
-*** PACKAGE REMOVALS SINCE 2.30.0 for Slackware 13.1 ***
+*** PACKAGE REMOVALS SINCE 2.32.0 for Slackware 13.1 ***
 
 None.
 
 *** OTHER NOTABLE CHANGES AND HINTS ***
 
-- Gtk-Message: Failed to load module "gnomebreakpad".  The latest 2.32 version
-of bug-buddy has removed the old google breakpad code and replaced it with
-gnomesegvhandler.  If you are getting this message at the terminal when
-starting applications, you will need to change a GConf string to silence this
-harmless message:
-    $ gconftool-2 --set --type boolean  \
-          /apps/gnome_settings_daemon/gtk-modules/gnomebreakpad false
+- "Suspend" now shows up by default in the user status menu; however, "Power
+  Off" is hidden and only shows up while holding down the Alt key.
 
-- Pulseaudio was removed in 2.30 and we now use the ALSA/Gstreamer backend.
-Pulseaudio was a good option, but has proven just too slow and not as stable as
-ALSA. You can also remove old pulse users and groups from /etc/passwd and
-/etc/group.  If you are missing your volume control applet, try the handy volti
-application found in extra/.
+- By default, GNOME Shell does not have the minimize and maximize buttons
+  enabled in the window title bars.  To maximise, you must drag a window to the
+top of the screen to maximize it. More problematically, there are no close
+button in the titlebar for the windows that have a "Close" button in the
+dialog.  If you wish to re-enable your window titlebar buttons:
 
-- xscreensaver is the preferred option for a screensaver, and we have dropped
-  support for GNOME Screensaver.  If you would like to start xscreensaver when
-you start your GNOME desktop, you can add it using 'Startup Applications' in
-the GNOME Control Panel.  You may also want to add a keyboard shortcut which
-runs 'xscreensaver-command -lock' (the default is Ctrl-Alt-L)
-
-- Where did my icons go?  GNOME 2.30 menus and buttons have been standardised
-  across all applications to not display icons by default. Menu items with
-dynamic objects, including applications, files or bookmarks, and devices are
-the exception and can display an icon.  GNOME 2.30 has removed the 'Interface'
-tab from the Appearances applet.  To re-enable your menu icons, you will need
-to run: 
-    $ gconftool-2 --set --type boolean  \
-          /desktop/gnome/interface/menus_have_icons true
-
-  If you would like icons restored to your buttons (like OK, Cancel, etc), then you'll need to run:
-    $ gconftool-2 --set --type boolean \
-          /desktop/gnome/interface/buttons_have_icons true
-
-- If you like the old style control over volume management (i.e., removeable
-media), then you will need to install the xfce and thunar-volman packages from
-the official Slackware repositories.
+ $ gconftool-2 -s -t string /desktop/gnome/shell/windows/button_layout \
+      ":minimize,maximize,close"
 
 - Remember to fix your config files.  Some of the config files in /etc are
-going to need your attention.  You'll find the new incoming config files on
+  going to need your attention.  You'll find the new incoming config files on
 your system with the ".new" extension.  You may need to fill these in with
 information from your old config files and then move them over.
-
-- When adding users to the netdev group (in order to use NetworkManager and the
-network-manager-applet) you may need to reload dbus in order for the new
-permissions to take effect.
-
-- USER PERMISSIONS: You user must be in the 'audio' group to use audio, the
-  'netdev' group to use avahi and NetworkManager, the 'plugdev' to use
-BlueTooth and removeable media in Nautilus, and the 'power' group to use
-hibernate/suspend with GNOME Power Manager and use the CPUfreq applet.  (If you
-are not in the 'power' group, the CPUfreq applet will complain "CPU frequency
-scaling unsupported.") To get proper scoring working with gnome-games, you have
-to add the user name to group "games".
-
-- If NetworkManager is running, but unused, Firefox will try to detect an
-available connection and start up in offline mode (annoyingly).  You can fix
-this behavior by disabling NetworkManager if you're not using it.
-
-- If you use Sabayon, you'll need to migrate your existing profiles with 2.30:
-      $ cp /etc/desktop-profiles/*.xml /etc/sabayon
-      $ cp /etc/desktop-profiles/*.zip /etc/sabayon/profiles
