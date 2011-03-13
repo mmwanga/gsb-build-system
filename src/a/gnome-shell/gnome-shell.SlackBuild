@@ -21,7 +21,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 VERSION=2.91.91
-BUILD=1
+BUILD=2
 TAG=${TAG:-gsb}
 
 NUMJOBS=${NUMJOBS:-" -j10 "}
@@ -77,7 +77,7 @@ find . \
 CFLAGS="$GSBCFLAGS -I/usr/include/seamonkey" \
 ./configure --prefix=/usr \
   --sysconfdir=/etc \
-  --libexec=/usr \
+  --libexec=/usr/bin \
   --mandir=/usr/man \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
@@ -87,9 +87,6 @@ CFLAGS="$GSBCFLAGS -I/usr/include/seamonkey" \
 
 make ${NUMJOBS} || make || exit 1
 make DESTDIR=$PKG install || exit 1
-
-# Fix mis-installed binary
-mv $PKG/usr/gnome-shell-calendar-server $PKG/usr/bin/gnome-shell-calendar-server || exit 1
 
 find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded 2>/dev/null
