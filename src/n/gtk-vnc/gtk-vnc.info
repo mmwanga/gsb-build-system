@@ -1,8 +1,8 @@
 PKGNAME="gtk-vnc"
-VERSION="0.3.10"
-HOMEPAGE="http://projects.gnome.org/evolution/"
+VERSION="0.4.3"
+HOMEPAGE="http://live.gnome.org/gtk-vnc/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gtk-vnc/0.3/gtk-vnc-0.3.10.tar.bz2"
-MD5SUM="9aa9d830b219255c8d6753ef55802932"
+DOWNLOAD="${GNOME_SERVER}/gtk-vnc/0.4/gtk-vnc-0.4.3.tar.bz2"
+MD5SUM="38d3fbacb5d00e630f939e88858206f1"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
