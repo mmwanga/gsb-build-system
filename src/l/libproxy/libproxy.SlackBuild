@@ -21,7 +21,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 VERSION=0.4.6
-BUILD=3
+BUILD=4
 TAG=${TAG:-gsb}
 
 NUMJOBS=${NUMJOBS:-" -j10 "}
@@ -64,6 +64,9 @@ rm -rf $PKGNAM-$VERSION &&
 tar xvf $CWD/$PKGNAM-$VERSION.tar.?z* &&
 cd $PKGNAM-$VERSION || exit 1
 
+# Build against webkitgtk 3.0
+zcat $CWD/libproxy.webkit3.diff.gz | patch -p1 || exit 1
+
 chown -R root:root .
 find . \
   \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -74,6 +77,7 @@ find . \
 CC=gcc cmake ./ -DCMAKE_INSTALL_PREFIX=/usr \
   -DLIB_INSTALL_DIR=/usr/lib${LIBDIRSUFFIX} \
   -DWITH_GNOME=yes \
+  -DWITH_WEBKIT3=yes \
   -DWITH_MOZJS=no \
   -DWITH_DOTNET=no \
   -DWITH_VALA=no \
