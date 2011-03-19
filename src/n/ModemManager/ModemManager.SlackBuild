@@ -24,7 +24,7 @@
 
 PRGNAM=ModemManager
 VERSION=0.4
-BUILD=2
+BUILD=1
 TAG=${TAG:-gsb}
 
 if [ -z "$ARCH" ]; then
@@ -92,7 +92,7 @@ find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
-  AUTHORS COPYING ChangeLog INSTALL NEWS README \
+  AUTHORS COPYING INSTALL README \
   $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
