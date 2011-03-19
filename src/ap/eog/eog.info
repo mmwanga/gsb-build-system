@@ -1,8 +1,8 @@
 PKGNAME="eog"
-VERSION="2.91.90"
+VERSION="2.91.91"
 HOMEPAGE="http://projects.gnome.org/eog/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/eog/2.91/eog-${VERSION}.tar.bz2"
-MD5SUM="e4ca5fa2c6d1476b29eed5d71ea07b8d"
+MD5SUM="c1bc0a9287418a3de4618f3db7f5d289"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
