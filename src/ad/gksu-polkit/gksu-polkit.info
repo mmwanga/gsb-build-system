@@ -1,7 +1,0 @@
-PRGNAM="gksu"
-VERSION="0.0.2"
-HOMEPAGE="http://live.gnome.org/gksu"
-DOWNLOAD="http://people.debian.org/~kov/gksu/gksu-polkit-0.0.2.tar.gz"
-MD5SUM="1b66e17010739871015ff5c4e4105734"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
