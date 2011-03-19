@@ -10,10 +10,10 @@ udisks: udisks (udisks dbus support for disk devices)
 udisks:
 udisks: udisks provides a storage daemon that implements D-Bus interfaces 
 udisks: that can be used to query and manipulate storage devices and a 
-udisks: command-line tool that can be used to query and use the daemon. udisksjI
-udisks: actions can be restricted using PolicyKit.
+udisks: command-line tool that can be used to query and use the daemon. 
+udisks: udisks' actions can be restricted using PolicyKit.
 udisks: 
-udisks: It is intended to replace parts of the functionality of HAL, which is 
-udisks: now deprecated.
+udisks: udisks is intended to replace parts of the functionality of HAL, 
+udisks: which is now deprecated.
 udisks: 
 udisks: 
