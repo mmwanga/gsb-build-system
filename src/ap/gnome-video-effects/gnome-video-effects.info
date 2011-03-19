@@ -1,8 +1,8 @@
 PKGNAME="gnome-video-effects"
-VERSION="0.2.0"
+VERSION="0.3.0"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-video-effects/0.2/gnome-video-effects-${VERSION}.tar.bz2"
-MD5SUM="b0fd0a14c908dbb2e23fd599fa7a9f34"
+DOWNLOAD="${GNOME_SERVER}/gnome-video-effects/0.3/gnome-video-effects-${VERSION}.tar.bz2"
+MD5SUM="16bce3872b2c84e6a043af203d7b2ad4"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

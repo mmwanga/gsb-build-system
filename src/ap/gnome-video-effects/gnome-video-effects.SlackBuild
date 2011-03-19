@@ -20,7 +20,7 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=0.2.0
+VERSION=0.3.0
 BUILD=1
 TAG=${TAG:-gsb}
 
@@ -73,10 +73,8 @@ find . \
 
 CFLAGS="$GSBCFLAGS" \
 ./configure --prefix=/usr \
-  --mandir=/usr/man \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
-  --disable-static \
   || exit 1
 
 make ${NUMJOBS} || make || exit 1
@@ -84,13 +82,6 @@ make DESTDIR=$PKG install || exit 1
 
 find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded 2>/dev/null
-
-( cd $PKG/usr/man ; for manpagedir in $(find . -type d -name "man*") ; do
-   ( cd $manpagedir ; for eachpage in $( find . -type l -maxdepth 1) ; do
-          ln -s $( readlink $eachpage ).gz $eachpage.gz
-          rm $eachpage
-        done ; gzip -9 *.*)
-    done )
 
 mkdir -p $PKG/usr/doc/$PKGNAM-$VERSION
 cp -a AUTHORS COPYING NEWS README \
