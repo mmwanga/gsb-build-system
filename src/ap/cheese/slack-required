@@ -1,6 +1,2 @@
-GConf
-gstreamer
-gst-plugins-good 
-gst-plugins-base
-libcanberra
-gnome-desktop
+clutter-gst
+gnome-video-effects
