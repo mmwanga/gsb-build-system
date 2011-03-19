@@ -1,7 +1,2 @@
-openssh
-gpgme
 gnome-keyring
-libnotify
-libgcrypt
-openldap-client
 libsoup
