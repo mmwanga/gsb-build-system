@@ -1,0 +1,8 @@
+PKGNAME="libgnome-media-profiles"
+VERSION="2.91.2"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/libgnome-media-profiles/2.91/libgnome-media-profiles-${VERSION}.tar.bz2"
+MD5SUM="501be1393a0a84f575e0ff7a1ca1e91a"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
