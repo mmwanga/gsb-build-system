@@ -21,7 +21,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 VERSION=2.91.6
-BUILD=1
+BUILD=2
 TAG=${TAG:-gsb}
 
 NUMJOBS=${NUMJOBS:-" -j10 "}
@@ -85,6 +85,10 @@ CFLAGS="$GSBCFLAGS" \
 
 make ${NUMJOBS} || make || exit 1
 make DESTDIR=$PKG install || exit 1
+
+# Preserve settings
+mkdir -p $PKG/etc/gnome &&
+mv $PKG/etc/xdg $PKG/etc/gnome || exit 1
 
 find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded 2>/dev/null
