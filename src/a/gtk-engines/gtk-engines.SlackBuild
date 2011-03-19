@@ -43,6 +43,18 @@ PKGNAM=gtk-engines
 PKG=$TMP/package-$PKGNAM
 CWD=$(pwd)
 
+# Source dir
+SRCDIR=$(cd $(dirname $0); pwd)
+# Packages to generate gtk-engines from:
+SRCVERSION[0]="2.20.2"
+SRCURL[0]="ftp://ftp.gnome.org/pub/gnome/sources/gtk-engines/2.20/gtk-engines-${SRCVERSION[0]}.tar.bz2"
+MD5SUM[0]="5deb287bc6075dc21812130604c7dc4f"
+SOURCE[0]="${SRCDIR}/gtk-engines-${SRCVERSION[0]}.tar.bz2"
+SRCVERSION[1]="2.91.1"
+SRCURL[1]="ftp://ftp.gnome.org/pub/gnome/sources/gtk-engines/2.91/gtk-engines-${SRCVERSION[1]}.tar.bz2"
+MD5SUM[1]="290d2fdb66743066dab92db694dd7b99"
+SOURCE[1]="${SRCDIR}/gtk-engines-${SRCVERSION[1]}.tar.bz2"
+
 if [ "$ARCH" = "i486" ]; then
   GSBCFLAGS=${GSBCFLAGS:-"-O2 -march=i486 -mtune=i686"}
   LIBDIRSUFFIX=""
@@ -59,29 +71,61 @@ fi
 
 rm -rf $PKG
 mkdir -p $TMP $PKGDEST
-cd $TMP &&
-rm -rf $PKGNAM-$VERSION &&
-tar xvf $CWD/$PKGNAM-$VERSION.tar.?z* &&
-cd $PKGNAM-$VERSION || exit 1
 
-chown -R root:root .
-find . \
-  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
-  -exec chmod 755 {} \; -o \
-  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
-  -exec chmod 644 {} \;
+for (( i = 0; i < ${#SOURCE[*]}; i++ )) ; do
+  # Download sources
+  if ! [ -f ${SOURCE[$i]} ]; then
+      wget -c -4 -T 20 -O "${SOURCE[$i]}" "${SRCURL[$i]}" || exit 1
+  fi;
+  echo "${MD5SUM[$i]}  ${SOURCE[$i]}" > $TMP/md5sum.${i}.$$
+  DOWNLOAD_ATTEMPT=0; VALID_MD5=0
+  until [ $DOWNLOAD_ATTEMPT -eq 3 -o $VALID_MD5 -eq 1 ]; do
+    # MD5SUM Comparison
+    if [ -f ${SOURCE[$i]} ]; then
+       md5sum -c $TMP/md5sum.${i}.$$ 2>/dev/null 1>/dev/null && VALID_MD5=1;
+    fi;
+    if [ "${VALID_MD5}" = "0" ]; then
+       # Download the source file
+      wget -c -4 -T 20 -O "${SOURCE[$i]}" "${SRCURL[$i]}" || {
+         echo ; echo "* Error: Failed to complete download."
+	 exit 1
+       }
+    fi
+    DOWNLOAD_ATTEMPT=$[$DOWNLOAD_ATTEMPT+1];
+    done;
+    rm -fr $TMP/md5sum.${i}.$$
+
+    if [ ! -f "${SOURCE[$i]}" -o ! -s "${SOURCE[$i]}" -o $VALID_MD5 -eq 0 ]; then
+      echo "File '$(basename ${SOURCE[$i]})' not available. Aborting the build."
+      exit 1
+    fi
+
+  cd $TMP &&
+  rm -rf $PKGNAM-${SRCVERSION[$i]} &&
+  tar xvf ${SOURCE[$i]} &&
+  cd $PKGNAM-${SRCVERSION[$i]} || exit 1
+
+  chown -R root:root .
+  find . \
+    \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
+    -exec chmod 755 {} \; -o \
+    \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
+    -exec chmod 644 {} \;
 
 CFLAGS="$GSBCFLAGS" \
 ./configure --prefix=/usr \
-  --sysconfdir=/etc \
-  --libdir=/usr/lib${LIBDIRSUFFIX} \
-  --build=$ARCH-$DISTRO-linux \
-  --disable-static \
+   --sysconfdir=/etc \
+   --mandir=/usr/man \
+   --libdir=/usr/lib${LIBDIRSUFFIX} \
+   --disable-static \
   --enable-animation \
-  || exit 1
+   ${OPTIONS[$i]} \
+    || exit 1
 
 make ${NUMJOBS} || make || exit 1
 make DESTDIR=$PKG install || exit 1
+
+done;
 
 find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded 2>/dev/null
