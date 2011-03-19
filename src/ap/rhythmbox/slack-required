@@ -1,11 +1,1 @@
-gstreamer
-gst-plugins-base
-gst-python
-libnotify
-libsoup
-libgpod
-avahi
-gnome-media
-gnome-python-desktop
-pywebkitgtk
-libdmapsharing
+libgnome-media-profiles
