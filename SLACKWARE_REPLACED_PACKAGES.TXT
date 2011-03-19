@@ -13,15 +13,14 @@
 # recommended, but not required if you do not plan to use certain applications,
 # or are dead set against replacing any Slackware provided packages.
 #
-# Last updated: February 12, 2011 (stevek)
+# Last updated: March 07, 2011 (stevek)
 #
 
 *********************************************** 
 -- REQUIRED Package Replacements --
 
-glib2:             ( 2.28.0 required by gtk+3-3.0.0 )
-gdk-pixbuf:        ( 2.23.0 required by gtk+3-3.0.0 )
-libwnck:           ( 2.91.6 required by gnome-panel-2.91.6 )
+gnome-icon-theme	(>= 2.91.7)	
+libnotify		(>= 0.7.1)
 
 *********************************************** 
 -- OPTIONAL Package Replacements --
