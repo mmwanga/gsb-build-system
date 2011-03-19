@@ -6,7 +6,6 @@ ffmpeg:ADD
 gdk-pixbuf2:ADD
 glib-networking:ADD
 gjs:ADD
-gnome-mime-data:ADD
 gobject-introspection:ADD
 gst-ffmpeg:ADD
 gst-plugins-base:ADD
@@ -26,11 +25,10 @@ libffi:ADD
 libgalago:ADD
 libgdata:ADD
 libgee:ADD
-libgnome:ADD
-libgnomecanvas:ADD
 libgtop:ADD
 libicu:ADD
 libimobiledevice:ADD
+libgnome-media-profiles:ADD
 libpeas:ADD
 libplist:ADD
 libproxy:ADD
