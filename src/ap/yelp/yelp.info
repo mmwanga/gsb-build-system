@@ -1,8 +1,8 @@
 PKGNAME="yelp"
-VERSION="2.30.1"
+VERSION="2.91.91"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/yelp/2.30/yelp-$VERSION.tar.bz2"
-MD5SUM="afd638cdaea1fcb9821ece88b819a022"
+DOWNLOAD="${GNOME_SERVER}/yelp/2.91/yelp-$VERSION.tar.bz2"
+MD5SUM="0b6b407c1bac709adadc6b98a21cd1e4"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
