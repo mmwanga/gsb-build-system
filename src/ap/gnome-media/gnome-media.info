@@ -1,8 +1,8 @@
 PKGNAME="gnome-media"
-VERSION="2.32.0"
+VERSION="2.91.2"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-media/2.32/gnome-media-${VERSION}.tar.bz2"
-MD5SUM="06fc8c67add34c98bc484e0dbc404d41"
+DOWNLOAD="${GNOME_SERVER}/gnome-media/2.91/gnome-media-${VERSION}.tar.bz2"
+MD5SUM="06caa0ae6be9a1ecc64a03002aeb093c"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
