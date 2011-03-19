@@ -1,8 +1,8 @@
 PKGNAME="folks"
-VERSION="0.3.6"
+VERSION="0.4.1"
 HOMEPAGE="http://telepathy.freedesktop.org/wiki/Folks"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/folks/0.3/folks-${VERSION}.tar.bz2"
-MD5SUM="a708f45d67620294effd33fd88f2a81d"
+DOWNLOAD="${GNOME_SERVER}/folks/0.4/folks-${VERSION}.tar.bz2"
+MD5SUM="73baead81b2750c32382293109acf959"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
