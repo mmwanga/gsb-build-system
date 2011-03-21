@@ -1,3 +1,47 @@
+Sun Mar 20 16:43:50 GMT 2011
+l/gdk-pixbuf2-2.23.1-i486-1gsb.txz: Upgraded.
+  This replaces the standard Slackware package, but it ABI compatible.  The
+  upgrade is needed for the new API: gdk_pixbuf_new_from_stream_async.
+a/gnome-control-center-2.91.91-i486-6gsb.txz: Rebuilt.
+n/avahi-0.6.29-i486-2gsb.txz: Rebuilt.
+  Added NoDisplay=true to icons for vnc and ssh browser.
+a/pulseaudio-0.9.22-i486-3gsb.txz: Rebuilt.
+  Disable HAL plugins.
+n/epiphany-2.91.91.1-i486-2gsb.txz: Rebuilt.
+  Added NoDisplay=true to Epiphany bookmarks.
+l/libdmapsharing-2.9.5-i486-1gsb.txz: Upgraded.
+l/gst-python-0.10.21-i486-1gsb.txz: Upgraded.
+l/gir-repository-0.10.4-i486-2gsb.txz: Rebuilt.
+  Added gstreamer GIRs to repository.
+l/gst-plugins-good-0.10.27-i486-1gsb.txz: Added.
+  This package is built using the official SlackBuild, but against GConf and
+  pulseaudio to create the sinks needed by totem.
+ap/totem-2.91.91-i486-2gsb.txz: Rebuilt.
+ap/rhythmbox-20110320-i486-1gsb.txz: Upgraded.
+  Using git version which supports gtk+3.
++--------------------------+
+Sun Mar 20 09:52:51 GMT 2011
+a/gsb-desktop-2.99-i486-1gsb.txz: Upgraded.
+n/vino-2.99.3-i486-1gsb.txz: Upgraded.
+n/nautilus-sendto-2.91.6-i486-1gsb.txz: Built.
+n/gnome-bluetooth-2.91.91-i486-1gsb.txz: Added.
+a/gnome-shell-2.91.91-i486-5gsb.txz: Rebuilt.
+  Now built against gnome-bluetooth.
++--------------------------+
+Sat Mar 19 18:48:20 GMT 2011
+n/NetworkManager-0.8.997-i486-1gsb.txz: Upgraded.
+  Upgrade NetworkManager to ~0.9 series.
+n/network-manager-applet-0.8.997-i486-1gsb.txz: Upgraded.
+n/empathy-2.91.91.1-i486-2gsb.txz: Rebuilt.
+  Rebuilt against newer NetworkManager.
+a/gnome-control-center-2.91.91-i486-5gsb.txz: Rebuilt.
+  Rebuilt against newer NetworkManager.
+a/gnome-shell-2.91.91-i486-4gsb.txz: Rebuilt.
++--------------------------+
+Sat Mar 19 18:04:01 GMT 2011
+a/gnome-control-center-2.91.91-i486-4gsb.txz: Rebuilt.
+  Reconfigure with --datadir to fix themes paths searching.
++--------------------------+
 Sat Mar 19 10:54:52 GMT 2011
 n/folks-0.4.1-i486-1gsb.txz: Upgraded.
 n/empathy-2.91.91.1-i486-1gsb.txz: Upgraded.
@@ -113,6 +157,7 @@ a/gnome-control-center-2.91.90-i486-2gsb.txz: Patched.
 l/gtk+3-3.0.2-i486-1gsb.txz: Upgraded.
 t/gnome-themes-standard-2.91.90.1-i486-1gsb.txz: Added.
 t/gnome-icon-theme-2.91.7-noarch-1gsb.txz: Upgraded.
+  This package replaces the standard Slackware package.
 t/cantarell-fonts-0.0.4-noarch-1gsb.txz: Added.
 l/gtkhtml-3.91.91-i486-1gsb.txz: Upgraded.
 l/libpst-0.6.49-i486-1gsb.txz: Upgraded.
@@ -166,6 +211,9 @@ go/goffice-0.8.13-i486-1gsb.txz: Upgraded.
 +--------------------------+
 Tue Mar  1 00:08:14 GMT 2011
 l/libnotify-0.7.1-i486-1gsb.txz: Added.
+  This unforunately is a required replace for Slackware's libnotify package,
+  and it not API compatible, affecting other applications like
+  system-config-printer.  I will see if I can somehow minimise problems.
 a/gnome-settings-daemon-2.91.90-i486-1gsb.txz: Upgraded.
 l/libgtop-2.28.2-i486-2gsb.txz: Rebuilt.
 a/gnome-control-center-2.91.90-i486-1gsb.txz: Upgraded.

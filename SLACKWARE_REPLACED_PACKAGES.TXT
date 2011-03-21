@@ -13,14 +13,17 @@
 # recommended, but not required if you do not plan to use certain applications,
 # or are dead set against replacing any Slackware provided packages.
 #
-# Last updated: March 07, 2011 (stevek)
+# Last updated: March 20, 2011 (stevek)
 #
 
 *********************************************** 
 -- REQUIRED Package Replacements --
 
-gnome-icon-theme	(>= 2.91.7)	
-libnotify		(>= 0.7.1)
+gdk-pixbuf		(>= 2.23.0)    New API async required by control-panel.
+gst-plugins-good        (>= 0.10.27)   Gconf and pulse sinks required.
+gnome-icon-theme	(>= 2.91.7)    Fancy new icons required by gnome-shell.
+libnotify		(>= 0.7.1)     Required by many GNOME 3.0 applications
+                                       for the new notify bar in gnome-shell.
 
 *********************************************** 
 -- OPTIONAL Package Replacements --
