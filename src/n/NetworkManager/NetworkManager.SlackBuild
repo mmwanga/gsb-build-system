@@ -20,7 +20,7 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=0.8.996
+VERSION=0.8.997
 BUILD=1
 TAG=${TAG:-gsb}
 
@@ -61,7 +61,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKGDEST
 cd $TMP &&
 rm -rf $PKGNAM-$VERSION &&
-tar xvf $CWD/$PKGNAM-$VERSION.tar.?z* &&
+tar xvf $CWD/$PKGNAM-$VERSION.tar.?z* -m &&
 cd $PKGNAM-$VERSION || exit 1
 
 chown -R root:root .
@@ -69,7 +69,12 @@ find . \
   \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
   -exec chmod 755 {} \; -o \
   \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
-  -exec chmod 644 {} \;
+  -exec chmod 644 {} \; 
+
+# Update ./configure
+autoreconf -vif
+intltoolize -c -f 
+aclocal
 
 CFLAGS="$GSBCFLAGS" \
 ./configure --prefix=/usr \
@@ -80,9 +85,13 @@ CFLAGS="$GSBCFLAGS" \
   --build=$ARCH-$DISTRO-linux \
   --disable-static \
   --with-distro=slackware \
-  --disable-wimax \
-  --with-crypto=gnutls \
   --with-system-ca-path=/etc/ssl/certs \
+  --with-pppd-plugin-dir=/usr/lib${LIBDIRSUFFIX}/pppd/2.4.5 \
+  --with-crypto=gnutls \
+  --without-resolvconf \
+  --with-dhcpcd=/sbin/dhcpcd \
+  --with-dhclient=yes \
+  --enable-introspection=no \
   || exit 1
 
 make ${NUMJOBS} || make || exit 1
@@ -91,17 +100,8 @@ make DESTDIR=$PKG install || exit 1
 # Empty dir for dhclient
 mkdir -p $PKG/var/lib/dhclient
 
-# Add rc start script
-mkdir -p $PKG/etc/rc.d &&
-  cp $CWD/rc.networkmanager $PKG/etc/rc.d/rc.networkmanager || exit 1
-
-# Add default nm-setting configuration
-mkdir -p $PKG/etc/NetworkManager &&
-cp $CWD/nm-system-settings.conf $PKG/etc/NetworkManager/nm-system-settings.conf.new || exit 1
-
-# Users now can add themselves to the "netdev" group to use networkmanager.
-sed -i "s/at_console=\"true\"/group=\"netdev\"/g" \
-  $PKG/etc/dbus-1/system.d/NetworkManager.conf || exit 1
+# Use netdev group 
+sed -i "s/at_console=\"true\"/group=\"netdev\"/g" $PKG/etc/dbus-1/system.d/NetworkManager.conf || exit 1
 
 # Preserve previous settings
 mv $PKG/etc/rc.d/rc.networkmanager $PKG/etc/rc.d/rc.networkmanager.new || exit 1
