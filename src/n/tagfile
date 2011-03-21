@@ -1,3 +1,4 @@
+ModemManager:ADD
 NetworkManager:ADD
 NetworkManager-openvpn:SKP
 NetworkManager-pptp:SKP
@@ -14,6 +15,7 @@ gnome-nettool:SKP
 gtk-vnc:SKP
 libnice:ADD
 liferea:ADD
+mobile-broadband-provider-info:ADD
 nautilus-sendto:SKP
 network-manager-applet:ADD
 nss-mdns:ADD
