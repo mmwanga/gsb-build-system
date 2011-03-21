@@ -4,14 +4,26 @@ TESTING! TESTING! TESTING!
 GNOME SlackBuild -current
 -------------------------
 
-WARNING: upgradepkg glib2 gtk+2 GConf before other upgrading other packages.
+
+This release is a snapshot of development code. Although it is usable, it is
+primarily intended for testing and hacking purposes.  GNOME uses odd minor
+version numbers to indicate development status.
+
+For more informations about 2.91, the full schedule and the official
+module lists, please see our colorful 2.91 page on the wiki:
+  http://www.gnome.org/start/unstable/
+
+For a quick overview of the GNOME schedule, please see:
+  http://live.gnome.org/Schedule
+
+WARNING: upgradepkg GConf before other upgrading other packages.
 Take care not to miss new packages that were split from old ones: 
    "upgradepkg --install-new" is (as always) the safest approach.  
 
 gsb-current is a snapshot of the active GNOME SlackBuild development tree.  It
 is intended to give developers (and other Linux gurus) a chance to test out the
-latest packages for GNOME SlackBuild.  The feedback we get will allow us to make
-the next stable release better than ever.
+latest packages for GNOME SlackBuild.  The feedback we get will allow us to
+make the next stable release better than ever.
 
 See the ChangeLog.txt for a list of changes in gsb-current.
 
@@ -33,10 +45,9 @@ We do not promise to issue security advisories for gsb-current.
 gsb-current might DELETE FILES WITHOUT WARNING when packages are upgraded.
 (If, for example, a directory location is replaced by a symbolic link to a new
 location.)  Upgrade packages carefully.  Examine incoming updates first if your
-machine's data is not expendable.  Again, we do not recommend using
-Slackware-current to store or process valuable data.  It is a system in
-testing, not one that is ready to go (though often it does work just fine...
-BUT DON'T COUNT ON IT) 
+machine's data is not expendable.  Again, we do not recommend using gsb-current
+to store or process valuable data.  It is a system in testing, not one that is
+ready to go (though often it does work just fine...  BUT DON'T COUNT ON IT) 
 
 Enjoy! :)
 
