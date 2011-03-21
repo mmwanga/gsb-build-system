@@ -81,7 +81,6 @@ CFLAGS="$GSBCFLAGS" \
   --disable-static \
   --enable-alsa \
   --enable-null \
-  --enable-gtk \
   --enable-gtk3 \
   --disable-oss \
   --enable-pulse \
