@@ -24,6 +24,7 @@ export TAG="gsb"
 #export TUNE="i686"
 #export DISTRO="slackware"
 #export TMP=/tmp
+#export PKGTYPE="txz"
 #export PKGDEST=$TMP/gsb-tree
 #export GSB_MAKE_FLAGS="-j2"
 

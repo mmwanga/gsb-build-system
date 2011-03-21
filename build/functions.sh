@@ -49,7 +49,7 @@ function make_pkg_txt() {
   # $1 = Package file to process [required].
   [ -z "$1" ] || [ ! -e "$1" ] && return 1
   tar xOf $1 install/slack-desc 2>/dev/null | \
-    egrep -v "^#|^$" | egrep "[[:alnum:]\+]+\:" | tee ${1%.txz}.txt > /dev/null
+    egrep -v "^#|^$" | egrep "[[:alnum:]\+]+\:" | tee ${1%.txz}.txt
   return $?
 }
 

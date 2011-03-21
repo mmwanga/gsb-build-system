@@ -383,13 +383,13 @@ elif [ "$SKIP_BUILD" = "0" -o "$BUILD_OPTION" = "rebuild" -a "$SKIP_REBUILDS" = 
    }
 
 
-  SIGN_PACKAGE="$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
+  CHK_PACKAGE="$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
 	      "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" )"
 
-  make_pkg_txt "$SIGN_PACKAGE" || {
+  make_pkg_txt "$CHK_PACKAGE" || {
       header "Failed to create txt description for '$PACKAGE'." ; exit 1
   }
-  make_pkg_asc "$SIGN_PACKAGE" || {
+  make_pkg_asc "$CHK_PACKAGE" || {
       header "Failed to create asc signature for '$PACKAGE'." ; exit 1
   }
 
@@ -406,7 +406,7 @@ if [ "${NOPRUNE}" = "0" -a "${ONLY_DOWNLOAD}" = "0" ]; then
   PRUNE_FILES="$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
     "" "" "" "\.txz|\.txt|\.txz\.asc" | grep -v "$( find_package_files \
     "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" "${PACKAGE_VERSION//-/_}" "" \
-    "${PACKAGE_BUILD}${TAG}" "\.txz|\.txz\.asc" )" | tr '\n' ' ' )"
+    "${PACKAGE_BUILD}${TAG}" "\.txt|\.txz|\.txz\.asc" )" | tr '\n' ' ' )"
   [ ! -z "$PRUNE_FILES" ] && {
       rm -f $PRUNE_FILES
   }
@@ -418,18 +418,21 @@ fi;
 # Make a txt description of the package
 if [ "$PUBLISH" = "1" -a "${ONLY_DOWNLOAD}" = "0" ]; then
   # Sign the package
-  SIGN_PACKAGE="$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
+  CHK_PACKAGE="$( find_package_files "$PKGDEST/$SUBDIR" "${PACKAGE//+/\+}" \
     "${PACKAGE_VERSION//-/_}" "" "${PACKAGE_BUILD}${TAG}" "\.txz" )"
-  if [ -f ${SIGN_PACKAGE}.asc ]; then
-    gpg --verify ${SIGN_PACKAGE}.asc ${SIGN_PACKAGE} 1>/dev/null 2>/dev/null || {
-      echo ;echo ; header "$SIGN_PACKAGE failed to pass asc verification."
+  if [ ! -f ${CHK_PACKAGE//txz/txt} ]; then
+	  echo "No .txt found for $CHK_PACKAGE." && exit 1 ;
+  fi;
+  if [ -f ${CHK_PACKAGE}.asc ]; then
+    gpg --verify ${CHK_PACKAGE}.asc ${CHK_PACKAGE} 1>/dev/null 2>/dev/null || {
+      echo ;echo ; header "$CHK_PACKAGE failed to pass asc verification."
       echo "Has the package been corrupted?" ;
       exit 1
     }
     echo " (ASC Signature passed.) "
   else
     echo ; echogreen "* " ; echo "Please sign for ${PACKAGE}:"
-    make_pkg_asc "$SIGN_PACKAGE" || {
+    make_pkg_asc "$CHK_PACKAGE" || {
       header "Failed to create asc signature for '$PACKAGE'." ; exit 1
     }
   fi;
