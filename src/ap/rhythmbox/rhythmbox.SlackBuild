@@ -20,7 +20,7 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=0.13.3
+VERSION=20110320
 BUILD=1
 TAG=${TAG:-gsb}
 
@@ -61,11 +61,8 @@ rm -rf $PKG
 mkdir -p $TMP $PKGDEST
 cd $TMP &&
 rm -rf $PKGNAM-$VERSION &&
-tar xvf $CWD/$PKGNAM-$VERSION.tar.?z* &&
+tar xvf $CWD/$PKGNAM-$VERSION.tar.xz &&
 cd $PKGNAM-$VERSION || exit 1
-
-# libgnome-media pkg-config fix for GNOME 3.0
-zcat $CWD/rhythmbox.libgnome-media-profiles.diff.gz | patch -p1 || exit 1
 
 chown -R root:root .
 find . \
@@ -82,10 +79,19 @@ CFLAGS="$GSBCFLAGS" \
   --build=$ARCH-$DISTRO-linux \
   --disable-static \
   --disable-browser-plugin \
+  --enable-mmkeys \
+  --disable-vala \
+  --enable-daap \
+  --without-hal \
+  --with-gudev \
+  --with-gnome-keyring \
+  --with-mdns=avahi \
+  --with-brasero \
+  --with-webkit \
   || exit 1
 
-make ${NUMJOBS} || make || exit 1
-make DESTDIR=$PKG install || exit 1
+make V=0 ${NUMJOBS} || make || exit 1
+make V=0 DESTDIR=$PKG install || exit 1
 
 find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded 2>/dev/null
