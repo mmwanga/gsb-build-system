@@ -73,6 +73,7 @@ find . \
 
 CFLAGS="$GSBCFLAGS" \
 ./configure --prefix=/usr \
+  --sysconfdir=/etc \
   --mandir=/usr/man \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
@@ -81,6 +82,10 @@ CFLAGS="$GSBCFLAGS" \
 
 make ${NUMJOBS} || make || exit 1
 make DESTDIR=$PKG install || exit 1
+
+# Preserve gnome settings
+mkdir -p $PKG/etc/gnome &&
+ mv $PKG/etc/xdg $PKG/etc/gnome || exit 1
 
 find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded 2>/dev/null
