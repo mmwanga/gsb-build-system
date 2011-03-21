@@ -21,7 +21,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 VERSION=2.91.91
-BUILD=1
+BUILD=2
 TAG=${TAG:-gsb}
 
 NUMJOBS=${NUMJOBS:-" -j10 "}
@@ -64,7 +64,8 @@ rm -rf $PKGNAM-$VERSION &&
 tar xvf $CWD/$PKGNAM-$VERSION.tar.?z* &&
 cd $PKGNAM-$VERSION || exit 1
 
-zcat $CWD/totem.gdu.and.gconfsink.check.diff.gz | patch -p1 || exit 1
+# Lower gnome-doc-utils version required
+zcat $CWD/totem.gdu.doc.version.diff.gz | patch -p1 || exit 1
 
 chown -R root:root .
 find . \
