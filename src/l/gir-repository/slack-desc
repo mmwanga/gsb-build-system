@@ -9,7 +9,7 @@
 gir-repository: gir-repository (gobject-introspection repository)
 gir-repository:
 gir-repository: gir-repository contains introspection description metadata for the
-gir-repository: the atk, pango, polkit and gdk-pixbuf libraries. 
+gir-repository: the atk, pango, polkit, gstreamer and gdk-pixbuf libraries. 
 gir-repository:
 gir-repository:
 gir-repository:
