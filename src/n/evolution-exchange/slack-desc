@@ -1,12 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
                   |-----handy-ruler------------------------------------------------------|
 evolution-exchange: evolution-exchange (Evolution Microsoft Exchange Connector)
 evolution-exchange:
-evolution-exchange: Evolution is the GNOME mailer, calendar, contact manager and 
-evolution-exchange: communications tool.  The tools which make up evolution are tightly 
-evolution-exchange: integrated with one another, and together they act as a seamless
-evolution-exchange: personal information-management tool.
-evolution-exchange:
 evolution-exchange: This packages contains plugins for Evolution to connect to Microsoft 
 evolution-exchange: Exchange 2000 and 2003.
+evolution-exchange:
+evolution-exchange:
+evolution-exchange:
+evolution-exchange:
+evolution-exchange:
 evolution-exchange:
 evolution-exchange:
