@@ -21,7 +21,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 VERSION=0.9.22
-BUILD=2
+BUILD=3
 TAG=${TAG:-gsb}
 
 NUMJOBS=${NUMJOBS:-" -j10 "}
@@ -79,11 +79,11 @@ CFLAGS="$GSBCFLAGS" \
   --mandir=/usr/man \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
+  --disable-static \
   --enable-avahi \
   --enable-bluez \
   --enable-alsa \
-  --enable-gconf \
-  --disable-static \
+  --disable-hal \
   || exit 1
 
 make ${NUMJOBS} || make || exit 1
