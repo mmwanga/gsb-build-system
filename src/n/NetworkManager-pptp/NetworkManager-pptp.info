@@ -1,8 +1,0 @@
-PKGNAME="NetworkManager-pptp"
-VERSION="0.8.1"
-HOMEPAGE="http://www.gnome.org"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/NetworkManager-pptp/0.8/NetworkManager-pptp-0.8.1.tar.bz2"
-MD5SUM="3eb00a9c5dc7e50fe76119da914148bc"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
