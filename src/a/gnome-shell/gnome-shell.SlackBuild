@@ -20,8 +20,8 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=2.91.91
-BUILD=5
+VERSION=2.91.92
+BUILD=1
 TAG=${TAG:-gsb}
 
 NUMJOBS=${NUMJOBS:-" -j10 "}
@@ -66,8 +66,6 @@ cd $PKGNAM-$VERSION || exit 1
 
 # set better default apps for gnome-shell favorites
 zcat $CWD/gnome-shell.default.apps.diff.gz | patch -p1 || exit 1
-# set xscreensaver as default screensaver, not gnome-screensaver
-zcat $CWD/gnome-shell.xscreensaver.diff.gz | patch -p1 || exit 1
 
 chown -R root:root .
 find . \

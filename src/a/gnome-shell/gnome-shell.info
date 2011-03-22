@@ -1,8 +1,8 @@
 PKGNAME="gnome-shell"
-VERSION="2.91.91"
+VERSION="2.91.92"
 HOMEPAGE="http://live.gnome.org/GnomeShell"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/gnome-shell/2.91/gnome-shell-$VERSION.tar.bz2"
-MD5SUM="fdd89714c9ae3bfffe56cf3199219cf6"
+MD5SUM="9e34b881a7a3ad6d8bd2d821e63986d0"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
