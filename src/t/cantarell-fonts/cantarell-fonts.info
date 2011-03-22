@@ -1,8 +1,8 @@
 PKGNAME="cantarell-fonts"
-VERSION="0.0.4"
+VERSION="0.0.5"
 HOMEPAGE="http://abattis.org/cantarell/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/cantarell-fonts/0.0/cantarell-fonts-${VERSION}.tar.bz2"
-MD5SUM="29426528a932807b17d27cf1aedc26e7"
+MD5SUM="cc1cc6ca1080853ab315ed1783c4f7a8"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
