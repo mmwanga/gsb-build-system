@@ -78,7 +78,6 @@ CFLAGS="$GSBCFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --disable-static \
-  --with-gtk=3.0 \
   --enable-ipv6 \
   --disable-schemas-install \
   || exit 1
