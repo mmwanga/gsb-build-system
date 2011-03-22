@@ -1,0 +1,7 @@
+PKGNAME="libzeitgeist"
+VERSION="0.3.6"
+HOMEPAGE="http://zeitgeist-project.com/"
+DOWNLOAD="http://launchpad.net/libzeitgeist/0.3/0.3.6/+download/libzeitgeist-0.3.6.tar.gz"
+MD5SUM="b765bacf340578aa7ce11f830c69b881"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
