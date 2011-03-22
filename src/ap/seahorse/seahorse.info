@@ -1,8 +1,8 @@
 PKGNAME="seahorse"
-VERSION="2.91.91"
+VERSION="2.91.92"
 HOMEPAGE="http://live.gnome.org/Seahorse"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/seahorse/2.91/seahorse-${VERSION}.tar.bz2"
-MD5SUM="6fb77cd7018bdff8e1c752f48d707d75"
+MD5SUM="e92127819412ea322a31188ab2ca32e9"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
