@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
+      |-----handy-ruler------------------------------------------------------|
+rdflib: rdflib (python library for working with RDF)
+rdflib:
+rdflib: rdflib is a python library for working with RDF, a simple yet 
+rdflib: powerful language for representing information.  The library contains 
+rdflib: parsers and serializers for RDF/XML, N3, NTriples, Turtle, TriX and 
+rdflib: RDFa and presents an interface which can be backed by any one of a 
+rdflib: number of store implementations, including, memory, MySQL, Redland, 
+rdflib: SQLite, Sleepycat, ZODB and SQLObject.
+rdflib:
+rdflib:
+rdflib:

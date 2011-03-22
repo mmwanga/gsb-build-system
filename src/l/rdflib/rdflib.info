@@ -1,0 +1,7 @@
+PKGNAME="rdflib"
+VERSION="3.0.0"
+HOMEPAGE="http://www.rdflib.net"
+DOWNLOAD="http://www.rdflib.net/rdflib-3.0.0.tar.gz"
+MD5SUM="226e615a5d82f12ebbc36e6af562384c"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
