@@ -1,8 +1,8 @@
 PKGNAME="gnome-themes-standard"
-VERSION="2.91.91.1"
+VERSION="2.91.92.1"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/gnome-themes-standard/2.91/gnome-themes-standard-${VERSION}.tar.bz2"
-MD5SUM="82a5e01c5f8e193e8b3739d68f2f4e47"
+MD5SUM="65ba81dfe5d233391ba231c0fa9512b0"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
