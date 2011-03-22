@@ -1,0 +1,6 @@
+PKGNAME="libdotconf"
+VERSION="1.3"
+HOMEPAGE="https://github.com/williamh/dotconf"
+MD5SUM="fb288022367fdb9199cfd20e56716595"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
