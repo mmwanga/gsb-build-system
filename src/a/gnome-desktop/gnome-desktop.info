@@ -1,8 +1,8 @@
 PKGNAME="gnome-desktop"
-VERSION="2.91.91"
+VERSION="2.91.92"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-desktop/$(echo $VERSION | cut -f1,2 -d.)/gnome-desktop-${VERSION}.tar.bz2"
-MD5SUM="bd978b7c6b8a81638efe0b94aa3db29a"
+DOWNLOAD="${GNOME_SERVER}/gnome-desktop/2.91/gnome-desktop-${VERSION}.tar.bz2"
+MD5SUM="1af6630057850c09fab6746017b10ed9"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
