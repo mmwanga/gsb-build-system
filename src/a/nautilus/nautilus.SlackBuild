@@ -20,7 +20,7 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=2.91.91
+VERSION=2.91.92
 BUILD=1
 TAG=${TAG:-gsb}
 
@@ -79,6 +79,7 @@ CFLAGS="$GSBCFLAGS" \
   --build=$ARCH-$DISTRO-linux \
   --disable-static \
   --disable-packagekit \
+  --disable-update-mimedb \
   || exit 1
 
 make ${NUMJOBS} || make || exit 1
