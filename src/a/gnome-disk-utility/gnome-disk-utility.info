@@ -1,8 +1,8 @@
 PKGNAME="gnome-disk-utility"
-VERSION="2.91.6"
+VERSION="2.91.7"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/gnome-disk-utility/2.91/gnome-disk-utility-${VERSION}.tar.bz2"
-MD5SUM="8d902c78f5f8a245dc97029d53fa12a4"
+MD5SUM="b711e76e023537944a7a4efcb24e9826"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
