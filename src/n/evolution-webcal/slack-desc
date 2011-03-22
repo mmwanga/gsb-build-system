@@ -1,12 +1,12 @@
                 |-----handy-ruler------------------------------------------------------|
 evolution-webcal: evolution-webcal (Evolution WebCal Plugins)
 evolution-webcal:
-evolution-webcal: Evolution is the GNOME mailer, calendar, contact manager and 
-evolution-webcal: communications tool.  The tools which make up evolution are tightly 
-evolution-webcal: integrated with one another, and together they act as a seamless
-evolution-webcal: personal information-management tool.
-evolution-webcal:
 evolution-webcal: This packages contains plugins for Evolution to handle webcal: urls,
 evolution-webcal: and allow subscriptions to those calendars.
+evolution-webcal:
+evolution-webcal:
+evolution-webcal:
+evolution-webcal:
+evolution-webcal:
 evolution-webcal:
 evolution-webcal:
