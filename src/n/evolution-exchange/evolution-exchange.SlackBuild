@@ -20,7 +20,7 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=2.91.91
+VERSION=2.91.92
 BUILD=1
 TAG=${TAG:-gsb}
 
@@ -73,15 +73,13 @@ find . \
 
 CFLAGS="$GSBCFLAGS" \
 ./configure --prefix=/usr \
-  --mandir=/usr/man \
+  --sysconfdir=/etc \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --disable-static \
-  --disable-nm \
   --with-openldap \
-  --enable-python \
-  --enable-pst-import \
   --with-krb5=/usr \
+  --disable-schemas-install \
   || exit 1
 
 make ${NUMJOBS} || make || exit 1
@@ -90,13 +88,6 @@ make DESTDIR=$PKG install || exit 1
 find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded 2>/dev/null
 
-( cd $PKG/usr/man ; for manpagedir in $(find . -type d -name "man*") ; do
-   ( cd $manpagedir ; for eachpage in $( find . -type l -maxdepth 1) ; do
-          ln -s $( readlink $eachpage ).gz $eachpage.gz
-          rm $eachpage
-        done ; gzip -9 *.*)
-    done )
-
 mkdir -p $PKG/usr/doc/$PKGNAM-$VERSION
 cp -a AUTHORS COPYING NEWS README \
   $PKG/usr/doc/$PKGNAM-$VERSION
@@ -104,6 +95,14 @@ find $PKG/usr/doc/$PKGNAM-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAM-$VERSION
 
 mkdir -p $PKG/install 
+# Install gconf schemas through doinst.sh
+echo "if [ -x usr/bin/gconftool-2 ]; then" >> $PKG/install/doinst.sh
+( cd $PKG/etc/gconf/schemas ; for schema in *.schemas; do
+ echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
+   usr/bin/gconftool-2 --makefile-install-rule \
+   etc/gconf/schemas/${schema} >/dev/null 2>&1" \
+   >> $PKG/install/doinst.sh
+done;) ; echo "fi" >> $PKG/install/doinst.sh
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
