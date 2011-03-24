@@ -78,8 +78,9 @@ CFLAGS="$GSBCFLAGS" \
   --build=$ARCH-$DISTRO-linux \
   --disable-static \
   --with-eds \
-  --enable-nautilus-sendto=no \
   --enable-webkit \
+  --enable-nautilus-sendto=no \
+  --with-connectivity=no \
   || exit 1
 
 make ${NUMJOBS} || make || exit 1
