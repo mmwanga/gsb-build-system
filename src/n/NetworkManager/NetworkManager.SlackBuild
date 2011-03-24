@@ -21,7 +21,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 VERSION=0.8.997
-BUILD=1
+BUILD=2
 TAG=${TAG:-gsb}
 
 NUMJOBS=${NUMJOBS:-" -j10 "}
@@ -91,7 +91,7 @@ CFLAGS="$GSBCFLAGS" \
   --without-resolvconf \
   --with-dhcpcd=/sbin/dhcpcd \
   --with-dhclient=yes \
-  --enable-introspection=no \
+  --enable-introspection=yes \
   || exit 1
 
 make ${NUMJOBS} || make || exit 1
