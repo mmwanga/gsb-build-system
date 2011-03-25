@@ -48,6 +48,14 @@ a/udisks: Added.
 a/gnome-disk-utility: Added.
 a/accountsservice: Added.
 a/apg: Added.
+t/gnome-icon-theme-symbolic: Added.
+l/rdflib-3.0.0: Added.
+go/zeitgeist: Added.
+go/libzeitgeist: Added.
+l/libdotconf: Added.
+ac/speech-dispatcher: Added.
+n/mobile-broadband-provider-info: Added.
+n/ModemManager: Added.
 
 *** PACKAGE REMOVALS SINCE 2.32.0 for Slackware 13.1 ***
 
