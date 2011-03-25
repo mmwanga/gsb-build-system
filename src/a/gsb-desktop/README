@@ -1,0 +1,2 @@
+This is a metapackage used for the installation of GNOMESlackBuild.  It is only
+an empty package with a requirement list used for a default desktop.
