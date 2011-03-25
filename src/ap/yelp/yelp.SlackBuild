@@ -21,7 +21,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 VERSION=2.91.92
-BUILD=1
+BUILD=2
 TAG=${TAG:-gsb}
 
 NUMJOBS=${NUMJOBS:-" -j10 "}
@@ -64,6 +64,11 @@ rm -rf $PKGNAM-$VERSION &&
 tar xvf $CWD/$PKGNAM-$VERSION.tar.?z* &&
 cd $PKGNAM-$VERSION || exit 1
 
+# I'm not sure why they split out the xsl style-sheet, but it's silly to put
+# them in a separate package from yelp.
+mkdir yelp-xsl &&
+tar xf $CWD/yelp-xsl-$VERSION.tar.?z* || exit 1
+
 chown -R root:root .
 find . \
   \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -71,6 +76,15 @@ find . \
   \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
   -exec chmod 644 {} \;
 
+cd yelp-xsl-$VERSION || exit 1
+./configure --prefix=/usr || exit 1
+make || exit 1
+# First we need to spam the build machine 
+make install || exit 1
+# Then we need to put the supporting xsl files into our package
+make install DESTDIR=$PKG || exit 1
+
+cd $TMP/$PKGNAM-$VERSION &&
 CFLAGS="$GSBCFLAGS" \
 ./configure --prefix=/usr \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
