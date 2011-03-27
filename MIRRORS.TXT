@@ -4,56 +4,56 @@ GNOME SlackBuild Mirrors
 
 # United States
 
-    http://ftp.osuosl.org/pub/gsb/gsb-2.30_slackware-13.1/
+    http://ftp.osuosl.org/pub/gsb/gsb-3.0_slackware-current/
 
-    ftp://ftp.osuosl.org/pub/gsb/gsb-2.30_slackware-13.1/
+    ftp://ftp.osuosl.org/pub/gsb/gsb-3.0_slackware-current/
 
-    http://get.gnomeslackbuild.org/gsb/gsb-2.30_slackware-13.1/
+    http://get.gnomeslackbuild.org/gsb/gsb-3.0_slackware-current/
 
 
 # United Kingdom
 
-    http://www.slackware.org.uk/gsb/gsb-2.30_slackware-13.1/
+    http://www.slackware.org.uk/gsb/gsb-3.0_slackware-current/
     
-    ftp://ftp.slackware.org.uk/gsb/gsb-2.30_slackware-13.1/
+    ftp://ftp.slackware.org.uk/gsb/gsb-3.0_slackware-current/
 
 
 # Russia
 
-    http://slackware.rol.ru/gsb/gsb/gsb-2.30_slackware-13.1/
+    http://slackware.rol.ru/gsb/gsb/gsb-3.0_slackware-current/
 
 
 # Poland
 
-    ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-2.30_slackware-13.1/
+    ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-3.0_slackware-current/
 
 
 # Germany
 
-    http://ftp5.gwdg.de/pub/linux/slackware/gsb/gsb-2.30_slackware-13.1/
+    http://ftp5.gwdg.de/pub/linux/slackware/gsb/gsb-3.0_slackware-current/
 
-    ftp://ftp5.gwdg.de/pub/linux/slackware/gsb/gsb-2.30_slackware-13.1/
+    ftp://ftp5.gwdg.de/pub/linux/slackware/gsb/gsb-3.0_slackware-current/
 
 
 # Belgium
 
-    http://mirrors.dotsrc.org/gsb/gsb-2.30_slackware-13.1/
+    http://mirrors.dotsrc.org/gsb/gsb-3.0_slackware-current/
 
-    ftp://mirrors.dotsrc.org/gsb/gsb-2.30_slackware-13.1/
+    ftp://mirrors.dotsrc.org/gsb/gsb-3.0_slackware-current/
 
 
 # Switzerland
 
-    http://mirror.switch.ch/ftp/mirror/gsb/gsb-2.30_slackware-13.1/
+    http://mirror.switch.ch/ftp/mirror/gsb/gsb-3.0_slackware-current/
 
-    ftp://mirror.switch.ch/ftp/mirror/gsb/gsb-2.30_slackware-13.1/
+    ftp://mirror.switch.ch/ftp/mirror/gsb/gsb-3.0_slackware-current/
 
 
 # Indonesia
 
-    http://ftp.paudni.kemdiknas.go.id/gsb/gsb-2.30_slackware-13.1/
+    http://ftp.paudni.kemdiknas.go.id/gsb/gsb-3.0_slackware-current/
 
-    ftp://ftp.paudni.kemdiknas.go.id/gsb/gsb-2.30_slackware-13.1/
+    ftp://ftp.paudni.kemdiknas.go.id/gsb/gsb-3.0_slackware-current/
 
 
 ------------------
