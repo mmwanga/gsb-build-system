@@ -1,8 +1,12 @@
 curl
-glibc-solibs | glibc
-gpgme
-gnupg
-libgpg-error
 libidn
+glibc-solibs | glibc
+binutils
 openssl-solibs | openssl
 pkgtools
+zlib
+gnupg
+gpgme
+libgpg-error
+cyrus-sasl
+openldap-client

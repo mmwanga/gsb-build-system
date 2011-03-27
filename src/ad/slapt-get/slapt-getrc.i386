@@ -9,26 +9,26 @@ EXCLUDE=^aaa_base,^aaa_elflibs,^kernel-.*,x86_64
 # Slackware mirrors.
 # This is the primary mirror for Slackware.  Uncomment the SOURCEs for the
 # 'extra/', 'testing/' or 'pasture/' areas if you use packages from them.
-SOURCE=http://ftp.osuosl.org/pub/slackware/slackware-13.1/:OFFICIAL
-#SOURCE=http://ftp.osuosl.org/pub/slackware/slackware-13.1/extra/:OFFICIAL
-#SOURCE=http://ftp.osuosl.org/pub/slackware/slackware-13.1/testing/:OFFICIAL
-#SOURCE=http://ftp.osuosl.org/pub/slackware/slackware-13.1/pasture/:OFFICIAL
+SOURCE=http://ftp.osuosl.org/pub/slackware/slackware-current/:OFFICIAL
+#SOURCE=http://ftp.osuosl.org/pub/slackware/slackware-current/extra/:OFFICIAL
+#SOURCE=http://ftp.osuosl.org/pub/slackware/slackware-current/testing/:OFFICIAL
+#SOURCE=http://ftp.osuosl.org/pub/slackware/slackware-current/pasture/:OFFICIAL
 # Below is a list of (some of the) other Slackware mirrors which can be used
 # instead of osuosl.  Any Slackware mirror can be used, but those listed here
 # have all been manually checked as working.  Add copies for the additional
 # extra/testing/pasture areas (like above) if you use them.
-#SOURCE=http://www.slackware.at/data/slackware-13.1/:OFFICIAL
-#SOURCE=ftp://ftp.slackware.at/slackware-13.1/:OFFICIAL
-#SOURCE=http://www.slackware.org.uk/slackware/slackware-13.1/:OFFICIAL
-#SOURCE=ftp://ftp.slackware.org.uk/slackware/slackware-13.1/:OFFICIAL
-#SOURCE=http://slackware.oregonstate.edu/slackware-13.1/:OFFICIAL
-#SOURCE=ftp://slackware.oregonstate.edu/pub/slackware/slackware-13.1/:OFFICIAL
-#SOURCE=http://mirror.switch.ch/ftp/mirror/slackware/slackware-13.1/:OFFICIAL
-#SOURCE=ftp://mirror.switch.ch/mirror/slackware/slackware-13.1/:OFFICIAL
-#SOURCE=http://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-13.1/:OFFICIAL
-#SOURCE=ftp://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-13.1/:OFFICIAL
-#SOURCE=http://slackware.mirrors.tds.net/pub/slackware/slackware-13.1/:OFFICIAL
-#SOURCE=ftp://slackware.mirrors.tds.net/pub/slackware/slackware-13.1/:OFFICIAL
+#SOURCE=http://www.slackware.at/data/slackware-current/:OFFICIAL
+#SOURCE=ftp://ftp.slackware.at/slackware-current/:OFFICIAL
+#SOURCE=http://www.slackware.org.uk/slackware/slackware-current/:OFFICIAL
+#SOURCE=ftp://ftp.slackware.org.uk/slackware/slackware-current/:OFFICIAL
+#SOURCE=http://slackware.oregonstate.edu/slackware-current/:OFFICIAL
+#SOURCE=ftp://slackware.oregonstate.edu/pub/slackware/slackware-current/:OFFICIAL
+#SOURCE=http://mirror.switch.ch/ftp/mirror/slackware/slackware-current/:OFFICIAL
+#SOURCE=ftp://mirror.switch.ch/mirror/slackware/slackware-current/:OFFICIAL
+#SOURCE=http://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-current/:OFFICIAL
+#SOURCE=ftp://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-current/:OFFICIAL
+#SOURCE=http://slackware.mirrors.tds.net/pub/slackware/slackware-current/:OFFICIAL
+#SOURCE=ftp://slackware.mirrors.tds.net/pub/slackware/slackware-current/:OFFICIAL
 # Additional mirrors for Slackware can be found at:
 #  http://slackware.com/getslack/
 #  http://alphageek.dyndns.org/linux/slackware-mirrors.shtml
@@ -36,28 +36,28 @@ SOURCE=http://ftp.osuosl.org/pub/slackware/slackware-13.1/:OFFICIAL
 # GNOME SlackBuild mirrors.
 # This is the primary mirror for GSB.  Uncomment the SOURCEs for the
 # 'extra/', 'testing/' or 'pasture/' areas if you use packages from them.
-SOURCE=http://mirrors.gnomeslackbuild.org/gsb/gsb-2.30_slackware-13.1/:PREFERRED
-#SOURCE=http://mirrors.gnomeslackbuild.org/gsb/gsb-2.30_slackware-13.1/extra:PREFERRED
-#SOURCE=http://mirrors.gnomeslackbuild.org/gsb/gsb-2.30_slackware-13.1/testing:PREFERRED
-#SOURCE=http://mirrors.gnomeslackbuild.org/gsb/gsb-2.30_slackware-13.1/pasture:PREFERRED
+SOURCE=http://mirrors.gnomeslackbuild.org/gsb/gsb-3.0_slackware-current/:PREFERRED
+#SOURCE=http://mirrors.gnomeslackbuild.org/gsb/gsb-3.0_slackware-current/extra:PREFERRED
+#SOURCE=http://mirrors.gnomeslackbuild.org/gsb/gsb-3.0_slackware-current/testing:PREFERRED
+#SOURCE=http://mirrors.gnomeslackbuild.org/gsb/gsb-3.0_slackware-current/pasture:PREFERRED
 # Below is a list of (some of the) other GSB mirrors which can be used instead
 # of the one above.  Any GSB mirror can be used, but those listed here have
 # all been manually checked as working.  Add copies for the additional
 # extra/testing/pasture areas (like above) if you use them.
-#SOURCE=http://ftp.osuosl.org/pub/gsb/gsb-2.30_slackware-13.1/:PREFERRED
-#SOURCE=ftp://ftp.osuosl.org/pub/gsb/gsb-2.30_slackware-13.1/:PREFERRED
-#SOURCE=http://www.slackware.org.uk/gsb/gsb-2.30_slackware-13.1/:PREFERRED
-#SOURCE=ftp://ftp.slackware.org.uk/gsb/gsb-2.30_slackware-13.1/:PREFERRED
-#SOURCE=http://darkstar.ist.utl.pt/slackware/addon/gnomeslackbuild/gsb-2.30_slackware-13.1/:PREFERRED
-#SOURCE=ftp://darkstar.ist.utl.pt/pub/slackware/addon/gnomeslackbuild/gsb-2.30_slackware-13.1/:PREFERRED
-#SOURCE=http://mirror.switch.ch/ftp/mirror/gsb/gsb-2.30_slackware-13.1/:PREFERRED
-#SOURCE=ftp://mirror.switch.ch/mirror/gsb/gsb-2.30_slackware-13.1/:PREFERRED
-#SOURCE=http://mirrors.dotsrc.org/gsb/gsb-2.30_slackware-13.1/:PREFERRED
-#SOURCE=ftp://mirrors.dotsrc.org/gsb/gsb-2.30_slackware-13.1/:PREFERRED
-#SOURCE=http://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-2.30_slackware-13.1/:PREFERRED
-#SOURCE=ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-2.30_slackware-13.1/:PREFERRED
-#SOURCE=http://slackware.rol.ru/gsb/gsb/gsb-2.30_slackware-13.1/:PREFERRED
-#SOURCE=http://get.gnomeslackbuild.org/gsb/gsb-2.30_slackware-13.1/:PREFERRED
+#SOURCE=http://ftp.osuosl.org/pub/gsb/gsb-3.0_slackware-current/:PREFERRED
+#SOURCE=ftp://ftp.osuosl.org/pub/gsb/gsb-3.0_slackware-current/:PREFERRED
+#SOURCE=http://www.slackware.org.uk/gsb/gsb-3.0_slackware-current/:PREFERRED
+#SOURCE=ftp://ftp.slackware.org.uk/gsb/gsb-3.0_slackware-current/:PREFERRED
+#SOURCE=http://darkstar.ist.utl.pt/slackware/addon/gnomeslackbuild/gsb-3.0_slackware-current/:PREFERRED
+#SOURCE=ftp://darkstar.ist.utl.pt/pub/slackware/addon/gnomeslackbuild/gsb-3.0_slackware-current/:PREFERRED
+#SOURCE=http://mirror.switch.ch/ftp/mirror/gsb/gsb-3.0_slackware-current/:PREFERRED
+#SOURCE=ftp://mirror.switch.ch/mirror/gsb/gsb-3.0_slackware-current/:PREFERRED
+#SOURCE=http://mirrors.dotsrc.org/gsb/gsb-3.0_slackware-current/:PREFERRED
+#SOURCE=ftp://mirrors.dotsrc.org/gsb/gsb-3.0_slackware-current/:PREFERRED
+#SOURCE=http://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-3.0_slackware-current/:PREFERRED
+#SOURCE=ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-3.0_slackware-current/:PREFERRED
+#SOURCE=http://slackware.rol.ru/gsb/gsb/gsb-3.0_slackware-current/:PREFERRED
+#SOURCE=http://get.gnomeslackbuild.org/gsb/gsb-3.0_slackware-current/:PREFERRED
 
 # Packages on a CD/DVD.
 #SOURCE=file:///mnt/cdrom/:CUSTOM
