@@ -20,8 +20,8 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=0.10.4
-GIRVERSION=0.10.4
+VERSION=0.10.6
+GIRVERSION=0.10.6
 BUILD=2
 
 TAG=${TAG:-gsb}
@@ -72,6 +72,20 @@ rm -rf $PKG
 mkdir -p $PKG
 mkdir -p $PKGDEST
 mkdir -p $TMP/${SRCNAME[$i]}
+
+if [ "$ARCH" = "i486" ]; then
+  GSBCFLAGS=${GSBCFLAGS:-"-O2 -march=i486 -mtune=i686"}
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "s390" ]; then
+  GSBCFLAGS="-O2"
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "x86_64" ]; then
+  GSBCFLAGS=${GSB_GSBCFLAGS:-"-O2 -fPIC"}
+  LIBDIRSUFFIX="64"
+else
+  GSBCFLAGS=${GSBCFLAGS:-"-O2"}
+  LIBDIRSUFFIX=""
+fi
 
 for (( i = 0; i < ${#SOURCE[*]}; i++ )) ; do
   # Download sources
