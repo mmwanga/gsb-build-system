@@ -1,7 +1,0 @@
-PKGNAME="emerald"
-VERSION="0.8.4"
-HOMEPAGE="http://compiz-fusion.org/"
-DOWNLOAD="http://releases.compiz-fusion.org/0.8.4/emerald-0.8.4.tar.bz2"
-MD5SUM="e92fbe8252ea393206d98ed6ae9af4ec"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

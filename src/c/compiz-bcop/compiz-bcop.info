@@ -1,7 +1,0 @@
-PKGNAME="compiz-bcomp"
-VERSION="0.8.4"
-HOMEPAGE="http://compiz-fusion.org/"
-DOWNLOAD="http://releases.compiz-fusion.org/0.8.4/compiz-bcop-0.8.4.tar.bz2"
-MD5SUM="17c4d1de361acf835f6649ab392f4c62"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

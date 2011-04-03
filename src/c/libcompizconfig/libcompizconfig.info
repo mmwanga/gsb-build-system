@@ -1,7 +1,0 @@
-PKGNAME="libcompizconfig"
-VERSION="0.8.4"
-HOMEPAGE="http://compiz-fusion.org/"
-DOWNLOAD="http://releases.compiz-fusion.org/0.8.4/libcompizconfig-0.8.4.tar.bz2"
-MD5SUM="723e076722370c35c47c2ab2ae445422"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

@@ -1,6 +1,0 @@
-PKGNAME="fusion-icon"
-VERSION="0.1.0"
-DOWNLOAD="http://sources.gnomeslackbuild.org/source/fusion-icon-0.1.0.tar.bz2"
-MD5SUM="e1544edfe26cb3f790af1530dbc02b53"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

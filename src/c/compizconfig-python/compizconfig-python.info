@@ -1,7 +1,0 @@
-PKGNAME="compizconfig-python"
-VERSION="0.8.4"
-HOMEPAGE="http://compiz-fusion.org/"
-DOWNLOAD="http://releases.compiz-fusion.org/0.8.4/compizconfig-python-0.8.4.tar.bz2"
-MD5SUM="702f83f63ce5dc3c6c1d27e07fb62fc3"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

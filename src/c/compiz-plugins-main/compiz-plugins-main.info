@@ -1,7 +1,0 @@
-PKGNAME="compiz-plugins-main"
-VERSION="0.8.6"
-HOMEPAGE="http://compiz-fusion.org/"
-DOWNLOAD="http://releases.compiz-fusion.org/0.8.6/compiz-plugins-main-0.8.6.tar.bz2"
-MD5SUM="bd72b7bc793fb4dae66faf286735760a"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

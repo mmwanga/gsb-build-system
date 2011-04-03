@@ -1,7 +1,0 @@
-PKGNAME="ccsm"
-VERSION="0.8.4"
-HOMEPAGE="http://compiz-fusion.org/"
-DOWNLOAD="http://releases.compiz-fusion.org/0.8.4/ccsm-0.8.4.tar.bz2"
-MD5SUM="6bad7a02a91cc8fc9c4c48f83e91c08c"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
