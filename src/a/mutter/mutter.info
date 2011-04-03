@@ -1,8 +1,8 @@
 PKGNAME="mutter"
-VERSION="2.91.92"
+VERSION="2.91.93"
 HOMEPAGE="http://blogs.gnome.org/metacity/2009/03/31/mutter-integration-the-story-so-far/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/mutter/2.91/mutter-${VERSION}.tar.bz2"
-MD5SUM="17c3df11c16f075b86056f11d460b0e8"
+MD5SUM="cb7ec4b694b3c0057b741fc553dbba68"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
