@@ -486,7 +486,14 @@ cd $BUILDSOURCE ;
 for tagfile in $(find . -type f -name tagfile); 
 do 
  mkdir -p $PKGDEST/$GSBDIR/$(echo $tagfile | cut -f2 -d/) &&
- cp $tagfile $PKGDEST/$GSBDIR/$(echo $tagfile | cut -f2 -d/) || exit 1
+ if [ ! -f $PKGDEST/$GSBDIR/$(echo $tagfile | cut -f2 -d/)/tagfile ];  then
+  cp $tagfile $PKGDEST/$GSBDIR/$(echo $tagfile | cut -f2 -d/) || exit 1
+ else
+ if [ "$(cat ${tagfile} | md5sum )" != "$(cat $PKGDEST/$GSBDIR/$(echo $tagfile | cut -f2 -d/)/tagfile | md5sum)" ];
+ then 
+  cp $tagfile $PKGDEST/$GSBDIR/$(echo $tagfile | cut -f2 -d/) || exit 1
+ fi;
+ fi;
 done;
 
 # Copy our main documentation
@@ -504,10 +511,15 @@ cat SLACKWARE_REPLACED_PACKAGES.TXT | sed 's,@GSB_VERSION@,${GNOME_VERSION},g' >
 
 for i in COPYING COPYING3 CREDITS INSTALL.TXT UPGRADE.TXT \
  CHANGES_AND_HINTS.TXT GPG-KEY COPYRIGHT.TXT MIRRORS.TXT CURRENT.WARNING \
- FAQ.TXT ANNOUNCE.${GSB_VERSION//./_}
+ FAQ.TXT 
+#ANNOUNCE.${GSB_VERSION//./_}
 do
  if [ -f $i ]; then
-   cp $i $PKGDEST || exit 1;
+   # Only copy over if changed in order to preserve timestamp
+   if [ "$(cat ${i} | md5sum )" != "$(cat $PKGDEST/${i} | md5sum )" ];
+     then 
+       cp $i $PKGDEST/${i} || exit 1;
+   fi;
  fi;
 done;
 
