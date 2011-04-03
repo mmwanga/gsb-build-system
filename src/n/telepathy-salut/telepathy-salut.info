@@ -1,4 +1,4 @@
-PKGNAME="telepathy-info"
+PKGNAME="telepathy-salut"
 VERSION="0.4.0"
 HOMEPAGE="http://telepathy.freedesktop.org"
 DOWNLOAD="http://telepathy.freedesktop.org/releases/telepathy-salut/telepathy-salut-${VERSION}.tar.gz"

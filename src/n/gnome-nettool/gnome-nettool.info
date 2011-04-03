@@ -1,8 +1,8 @@
 PKGNAME="gnome-nettool"
-VERSION="2.30.0"
+VERSION="2.91.5"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-nettool/2.30/gnome-nettool-2.30.0.tar.bz2"
-MD5SUM="2087259219cf16d434c52b4a5710b4c7"
+DOWNLOAD="${GNOME_SERVER}/gnome-nettool/2.91/gnome-nettool-2.91.5.tar.bz2"
+MD5SUM="0a092b747cd9247dd897742b67a47e1"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

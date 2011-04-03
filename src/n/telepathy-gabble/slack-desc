@@ -1,10 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+ 
                 |-----handy-ruler------------------------------------------------------|
 telepathy-gabble: telepathy-gabble (Telepathy Support for Gabble)
 telepathy-gabble: 
-telepathy-gabble: The Telepathy project is building a unified framework for many 
-telepathy-gabble: different kinds of real-time communications, such as instant 
-telepathy-gabble: messaging (both one-to-one and in groups), voice calls and video 
-telepathy-gabble: calls.
+telepathy-gabble: telepathy-gabble provides support for Gabble in Telepathy.
 telepathy-gabble: 
-telepathy-gabble: This package provides support for Gabble in Telepathy.
+telepathy-gabble: 
+telepathy-gabble: 
+telepathy-gabble: 
+telepathy-gabble: 
+telepathy-gabble: 
+telepathy-gabble: 
 telepathy-gabble: 
