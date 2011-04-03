@@ -1,6 +1,5 @@
-sqlite
-gstreamer
-libgsf
 exempi
 upower
 libgee
+libicu
+gnome-keyring
