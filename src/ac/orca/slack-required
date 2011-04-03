@@ -1,7 +1,3 @@
-python
-gail
-libgail-gnome
-gnome-mag
-gnome-speech
-pyorbit
-pygtk
+speech-dispatcher
+pyxdg
+pyatspi

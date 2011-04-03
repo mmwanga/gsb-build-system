@@ -1,8 +1,8 @@
 PKGNAME="at-spi2-core"
-VERSION="1.91.92"
+VERSION="1.91.93"
 HOMEPAGE="http://projects.gnome.org/accessibility/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/at-spi2-core/1.91/at-spi2-core-${VERSION}.tar.bz2"
-MD5SUM="e7a0fee638614c2ace9c45e16a17cd3b"
+MD5SUM="efadee156a68ec269779321aceb100a3"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
