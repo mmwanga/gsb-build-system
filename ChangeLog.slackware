@@ -1,3 +1,58 @@
+Sun Apr  3 10:28:42 GMT 2011
+go/gnumeric-1.10.14-i486-1gsb.txz: Upgraded.
+ap/gnome-games-2.91.93-i486-1gsb.txz: Upgraded.
++--------------------------+
+Sat Apr  2 13:20:34 GMT 2011
+l/gtk+3-3.0.7-i486-1gsb.txz: Upgraded.
+l/gir-repository-0.10.6-i486-2gsb.txz: Rebuilt.
+  Fixed CFLAGS and libdir path for both i486 and x86_64 builds.
+n/telepathy-python-0.15.18-i486-1gsb.txz: Upgraded.
+n/telepathy-butterfly-0.5.15-i486-1gsb.txz: Upgraded.
+n/telepathy-gabble-0.10.5-i486-1gsb.txz: Upgraded.
+n/telepathy-salut-0.4.0-i486-2gsb.txz: Rebuilt.
+l/libevent-2.0.10-i486-1gsb.txz: Upgraded.
+n/transmission-2.22-i486-1gsb.txz: Upgraded.
++--------------------------+
+Wed Mar 30 19:50:18 GMT 2011
+a/mutter-2.91.93-i486-1gsb.txz: Upgraded.
+ap/gnome-power-manager-2.91.93-i486-1gsb.txz: Upgraded.
+ap/gedit-2.91.11-i486-1gsb.txz: Upgraded.
+a/gnome-shell-2.91.93-i486-1gsb.txz: Upgraded.
++--------------------------+
+Sun Mar 27 22:40:03 GMT 2011
+l/portaudio-v19_20110317-i486-1gsb.txz: Upgraded.
+ac/espeak-1.45.02-i486-1gsb.txz: Upgraded.
+ac/speech-dispatcher-0.7.1-i486-2gsb.txz: Rebuilt.
++--------------------------+
+Sun Mar 27 16:03:40 GMT 2011
+l/gobject-introspection-0.10.6-i486-1gsb.txz: Upgraded.
+l/gir-repository-0.10.6-i486-1gsb.txz: Upgraded.
+ad/slapt-get-0.10.2h-i486-1gsb.txz: Upgraded.
+ac/caribou-0.1.92-i486-1gsb.txz: Added.
++--------------------------+
+Sun Mar 27 10:42:39 GMT 2011
+ac/pyatspi-1.91.92-i486-1gsb.txz: Added.
+l/pygobject-2.28.3-i486-1gsb.txz: Added.
+  We will need to replace Slackware's pygobject package in order to support
+  gtk/glib introspection in Python.
+l/pyxdg-0.19-i486-2gsb.txz: Rebuilt.
+ac/orca-2.91.93-i486-1gsb.txz: Upgraded.
+ac/mousetweaks-2.91.92-i486-1gsb.txz: Upgraded.
++--------------------------+
+Fri Mar 25 23:36:32 GMT 2011
+ap/file-roller-2.91.93-i486-1gsb.txz: Upgraded.
+ap/seahorse-2.91.93-i486-1gsb.txz: Upgraded.
+ap/yelp-2.91.92-i486-2gsb.txz: Rebuilt.
+  This package now incorporates the yelp-xsl which was split from the yelp
+  package upstream.
++--------------------------+
+Fri Mar 25 20:41:24 GMT 2011
+ac/at-spi2-core-1.91.93-i486-1gsb.txz: Upgraded.
+ac/at-spi2-atk-1.91.93-i486-1gsb.txz: Upgraded.
+ap/gnome-utils-2.91.93-i486-1gsb.txz: Upgraded.
+n/vino-2.99.5-i486-1gsb.txz: Upgraded.
+a/nautilus-2.91.93-i486-1gsb.txz: Upgraded.
++--------------------------+
 Fri Mar 25 18:23:31 GMT 2011
 a/gnome-settings-daemon-2.91.93-i486-1gsb.txz: Upgraded.
 l/libgtop-2.28.3-i486-3gsb.txz: Upgraded.
@@ -7,7 +62,7 @@ ap/evince-2.91.93-i486-1gsb.txz: Upgraded.
 ap/brasero-2.91.93-i486-1gsb.txz: Upgraded.
 go/goffice-0.8.14-i486-1gsb.txz: Upgraded.
 ap/gcalctool-5.91.93-i486-1gsb.txz: Upgraded.
-a/gsb-desktop-2.91.93-i486-1gsb.txz: Rebuilt.
+a/gsb-desktop-2.91.93-noarch-1gsb.txz: Rebuilt.
   Added gnome-icon-theme-symbolic to slack-required; bumped version to reflect
   latest 2.91.93 series release upstream.
 +--------------------------+
@@ -48,6 +103,9 @@ l/gtksourceview-2.91.9-i486-1gsb.txz: Upgraded.
 ap/gedit-2.91.10-i486-1gsb.txz: Upgraded.
 ap/gnome-user-docs-2.91.92-noarch-1gsb.txz: Upgraded.
 ap/yelp-2.91.92-i486-1gsb.txz: Upgraded.
+l/gdk-pixbuf2-2.23.1-i486-1gsb.txz: Removed.
+  This version, required by various GNOME apps, has been upgraded in the
+  official tree.
 +--------------------------+
 Mon Mar 21 23:00:05 GMT 2011
 t/gnome-themes-standard-2.91.92.1-i486-1gsb.txz: Upgraded.
