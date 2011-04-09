@@ -74,7 +74,7 @@ find . \
   \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
   -exec chmod 644 {} \;
 
-CFLAGS="$GSBCFLAGS" \
+CFLAGS="$GSBCFLAGS -L/usr/lib/seamonkey" \
 ./configure --prefix=/usr \
   --mandir=/usr/man \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
@@ -83,6 +83,7 @@ CFLAGS="$GSBCFLAGS" \
   --disable-introspection \
   --with-distributor-name="GNOME SlackBuild" \
   --disable-network-manager \
+  --enable-nss \
   --with-ca-file=/etc/ssl/certs/ca-certificates.crt \
   || exit 1
 

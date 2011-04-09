@@ -20,7 +20,7 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=2.91.93
+VERSION=3.0.0
 BUILD=1
 TAG=${TAG:-gsb}
 
@@ -63,6 +63,9 @@ cd $TMP &&
 rm -rf $PKGNAM-$VERSION &&
 tar xvf $CWD/$PKGNAM-$VERSION.tar.?z* &&
 cd $PKGNAM-$VERSION || exit 1
+
+# Fix building against gtk-vnc 0.4.3
+zcat $CWD/vinagre.gtkvnc.version.diff.gz | patch -p1 || exit 1
 
 chown -R root:root .
 find . \
