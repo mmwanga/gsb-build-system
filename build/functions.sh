@@ -239,12 +239,27 @@ function download_package() {
 	  return 0 
   fi;
   # Check for source file.
-  FILENAME="$(echo $DOWNLOAD | awk -F/ '{print $NF}')"
-  echo "${MD5SUM}  ${FILENAME}" > $TMP/md5sum.$1.$$
+  i=0
+  for CURRENT in ${DOWNLOAD};
+  do
+     FILENAME[i]="$(echo ${CURRENT} | awk -F/ '{print $NF}')"
+     i=`expr 1 + $i`
+  done
   [ -z $FILENAME ] && {
      echo "* Error: No source file defined in $1.info file." ; return 1
   }
-
+  i=0
+  for CURRENT in ${MD5SUM}
+  do
+     MD5SUMS[i]=${CURRENT}
+     i=`expr 1 + $i`
+  done
+  i=0
+  until [ $i -eq ${#MD5SUMS} ];
+  do
+     echo "${MD5SUMS[i]}  ${FILENAME[i]}" >> $TMP/md5sum.$1.$$
+     i=`expr 1 + $i`
+  done 
   local DOWNLOAD_ATTEMPT=0
   local VALID_MD5=0
   until [ $DOWNLOAD_ATTEMPT -eq 3 -o $VALID_MD5 -eq 1 ]; do
