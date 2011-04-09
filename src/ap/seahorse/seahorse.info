@@ -3,6 +3,6 @@ VERSION="3.0.0"
 HOMEPAGE="http://live.gnome.org/Seahorse"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/seahorse/3.0/seahorse-${VERSION}.tar.bz2"
-MD5SUM="4eec54bc32a0e31bc59144e776a039cb"
+MD5SUM="068343c6e01a8fe07618d8f33d2d1345"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

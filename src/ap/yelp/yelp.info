@@ -4,7 +4,7 @@ HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/yelp/3.0/yelp-$VERSION.tar.bz2 \
           ${GNOME_SERVER}/yelp-xsl/3.0/yelp-xsl-$VERSION.tar.bz2"
-MD5SUM="7549f98025fcbbe0bcd25d9a1ae26520 \
+MD5SUM="7549f98025fcbbe0bcd25d9a1ae26520\
 42f5f2b9c1818d37a10e60ab80bfff37"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
