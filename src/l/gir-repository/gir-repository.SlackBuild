@@ -20,9 +20,9 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=0.10.6
-GIRVERSION=0.10.6
-BUILD=2
+VERSION=0.10.7
+GIRVERSION=0.10.7
+BUILD=1
 
 TAG=${TAG:-gsb}
 ARCH=${ARCH:-i486}
@@ -37,9 +37,9 @@ CWD=$(pwd)
 SRCDIR=$(cd $(dirname $0); pwd)
 # Packages to generate GIRs from
 SRCNAME[0]="gdk-pixbuf"
-SRCVERSION[0]="2.23.1"
+SRCVERSION[0]="2.23.3"
 SRCURL[0]="ftp://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.23/gdk-pixbuf-${SRCVERSION[0]}.tar.bz2"
-MD5SUM[0]="f1b8cf15154ad0f1178f104d98f326f0"
+MD5SUM[0]="5d50c5311b4ce460d33983938d92109e"
 SOURCE[0]="${SRCDIR}/${SRCNAME[0]}-${SRCVERSION[0]}.tar.bz2"
 OPTIONS[0]=""
 SRCNAME[1]="pango"

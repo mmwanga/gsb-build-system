@@ -20,7 +20,7 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=0.10.6
+VERSION=0.10.8
 BUILD=1
 TAG=${TAG:-gsb}
 
@@ -74,9 +74,7 @@ find . \
   \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
   -exec chmod 644 {} \;
 
-# Make sure to have the evolution include flags added to CFLAGS in order to
-# build the evolution miner.
-CFLAGS="$GSBCFLAGS $(pkg-config evolution-mail-3.0 libgtkhtml-4.0 --cflags)" \
+CFLAGS="$GSBCFLAGS" \
 ./configure --prefix=/usr \
   --sysconfdir=/etc \
   --mandir=/usr/man \
@@ -84,14 +82,10 @@ CFLAGS="$GSBCFLAGS $(pkg-config evolution-mail-3.0 libgtkhtml-4.0 --cflags)" \
   --build=$ARCH-$DISTRO-linux \
   --disable-static \
   --disable-unit-tests \
-  --enable-gnome-keyring \
-  --with-unicode-support=libicu \
-  --enable-video-extractor=gstreamer \
-  --disable-qt \
-  --enable-gdkpixbuf \
   --disable-network-manager \
   --disable-hal \
-  --enable-upower \
+  --disable-miner-evolution \
+  --enable-gnome-keyring \
   || exit 1
 
 make ${NUMJOBS} || make || exit 1

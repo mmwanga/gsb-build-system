@@ -46,6 +46,8 @@ CWD=$(pwd)
 if [ "$ARCH" = "i486" ]; then
   GSBCFLAGS=${GSBCFLAGS:-"-O2 -march=i486 -mtune=i686"}
   LIBDIRSUFFIX=""
+  # Make sure our default slapt-getrc is our $ARCH
+  ln -s default.slapt-getrc.i386 default.slapt-getrc.$ARCH
 elif [ "$ARCH" = "s390" ]; then
   GSBCFLAGS="-O2"
   LIBDIRSUFFIX=""
@@ -64,8 +66,6 @@ rm -rf $PKGNAM-$VERSION &&
 tar xvf $CWD/$PKGNAM-$VERSION.tar.?z* &&
 cd $PKGNAM-$VERSION || exit 1
 
-# Make sure our default slapt-getrc is our $ARCH
-ln -s default.slapt-getrc.i386 default.slapt-getrc.$ARCH || exit 1
 
 chown -R root:root .
 find . \
@@ -80,9 +80,11 @@ make DESTDIR=$PKG install || exit 1
 
 mkdir -p $PKG/etc/slapt-get
 case "$( uname -m )" in
-  i?86) cp $CWD/slapt-getrc.i386 $PKG/etc/slapt-get/slapt-getrc.new ;;
-  x86_64) cp $CWD/slapt-getrc.x86_64 $PKG/etc/slapt-get/slapt-getrc.new ;;
+  i?86) cp $CWD/slapt-getrc.i386 $PKG/etc/slapt-get/slapt-getrc ;;
+  x86_64) cp $CWD/slapt-getrc.x86_64 $PKG/etc/slapt-get/slapt-getrc ;;
 esac
+mv $PKG/etc/slapt-get/slapt-getrc \
+  $PKG/etc/slapt-get/slapt-getrc.new || exit 1
 
 find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded 2>/dev/null

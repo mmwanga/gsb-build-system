@@ -16,7 +16,6 @@ l/gobject-introspection
 l/gir-repository
 # gtk+3 can live beside gtk+2 safely
 l/gtk+3
-l/gdk-pixbuf2
 # audio dependencies
 l/speex
 l/libdaemon
@@ -25,7 +24,7 @@ l/ORBit2
 a/GConf
 a/rarian
 a/pulseaudio
-# GNOME shell UX
+# GNOME shell UI
 l/json-glib
 l/clutter
 l/libcanberra
@@ -45,11 +44,13 @@ a/libgweather
 l/heimdal-libraries
 l/libgdata
 a/evolution-data-server
+d/vala
 a/dconf
 a/gtk-engines
 t/gnome-themes
 t/gnome-themes-standard
 t/gnome-icon-theme
+t/gnome-icon-theme-symbolic
 ac/at-spi2-core
 ac/at-spi2-atk
 a/upower
@@ -61,11 +62,13 @@ a/gnome-session
 # GNOME core apps
 a/libgnomekbd
 l/libnotify
+l/notification-daemon
 a/gnome-settings-daemon
 l/libgtop
 l/exempi
 a/nautilus
-ap/gnome-power-manager
+l/libwnck
+l/vte
 ap/gnome-terminal
 l/libicu
 n/webkit
@@ -77,11 +80,12 @@ l/clutter-gst
 l/libgee
 l/clutter-gtk
 ap/gnome-video-effects
-d/vala
 l/libpeas
 ap/eog
+l/mx
 ap/cheese
 a/gnome-control-center
+ap/gnome-power-manager
 t/gnome-backgrounds
 t/cantarell-fonts
 l/gtkhtml
@@ -91,6 +95,8 @@ ap/file-roller
 #l/gtkimageview -- Disabled for now without gtk+3 port: http://mail.gnome.org/archives/evolution-hackers/2011-January/msg00052.html
 l/libunique
 n/evolution
+n/evolution-exchange
+n/evolution-webcal
 n/folks
 n/telepathy-logger
 l/libnice
@@ -103,6 +109,9 @@ n/ModemManager
 ap/seahorse
 l/gst-plugins-good
 ap/totem-pl-parser
+l/rdflib
+go/zeitgeist
+go/libzeitgeist
 ap/totem
 l/libatasmart
 l/sg3_utils
@@ -124,24 +133,38 @@ n/pptp
 ad/gconf-editor
 ap/gcalctool
 ap/gnome-user-docs
-ap/yelp
+nofetch:ap/yelp
 ap/gnome-utils
 n/gtk-vnc
 n/nautilus-sendto
 n/gnome-bluetooth
 a/gnome-shell
-n/vino
-a/gsb-desktop
-#n/vinagre
+l/libdotconf
+l/portaudio
+ac/espeak
+ac/speech-dispatcher
+ap/eog-plugins
+l/pygobject
+ac/pyatspi
+l/pyxdg
+ac/orca
+ac/mousetweaks
+#ac/dasher
+#ac/gnome-mag
+#ac/gok
+#ac/gail
+#ac/libgail-gnome
+#
 #ap/gnome-system-monitor
 #n/gnome-netstatus
 #n/gnome-nettool
 #ap/gedit-plugins
-#ap/eog-plugins
 #ap/seahorse-plugins
-#n/epiphany-extensions
-#n/evolution-exchange
-#n/evolution-webcal
+n/epiphany-extensions
+n/vino
+#n/vinagre
+ad/slapt-get
+a/gsb-desktop
 #
 # Mono
 #m/libgdiplus
@@ -165,15 +188,15 @@ a/gsb-desktop
 #m/tomboy
 #
 # Telepathy backend
-#n/telepathy-python
-#n/pyOpenSSL
-#l/pycrypto
-#n/papyon
-#n/telepathy-butterfly
-#n/telepathy-gabble
-#n/telepathy-salut
-#l/libevent
-#n/transmission
+n/telepathy-python
+n/pyOpenSSL
+l/pycrypto
+n/papyon
+n/telepathy-butterfly
+n/telepathy-gabble
+n/telepathy-salut
+l/libevent
+n/transmission
 #n/liferea
 #ap/gdm
 #d/glibmm
@@ -185,26 +208,13 @@ a/gsb-desktop
 #ap/gnome-python-desktop
 #ap/deskbar-applet
 #l/gst-ffmpeg
-#ad/slapt-get
 #go/libgda
 #go/libgsf
-#go/gnumeric
-#
-# Accessibility
-#ac/at-spi
-#ac/dasher
-#ac/gnome-mag
-#l/portaudio
-#ac/espeak
-#ac/gnome-speech
-#ac/gok
-#ac/mousetweaks
-#ac/gail
-#ac/libgail-gnome
-#ac/orca
+go/gnumeric
+ap/gnome-games
+go/tracker
 #
 # GNOME apps
-#ap/gnome-games
 #ap/hamster-applet
 #ap/sensors-applet
 #d/devhelp
@@ -214,28 +224,13 @@ a/gsb-desktop
 #d/autogen
 #d/gettext-perl
 #d/anjuta
-#go/tracker
 #n/service-discovery-applet
 #d/setuptools
 #d/gitg
 #d/bluefish
 #ad/gslapt
-#l/pyxdg
 #ad/pessulus
 #ad/sabayon
-#
-# A Compiz for a GNOME Desktop, including CCSM
-#c/compiz
-#c/compiz-bcop
-#c/compiz-plugins-main
-#c/compiz-plugins-extra
-#c/emerald
-#c/protobuf
-#c/libcompizconfig
-#c/compizconfig-python
-#c/compizconfig-backend-gconf
-#c/ccsm
-#c/fusion-icon
 #
 # Themes engines
 #t/murrine-engine
@@ -245,7 +240,7 @@ a/gsb-desktop
 # Build packages in extra/
 #extra/easytag
 #extra/gst-plugins-bad
-#extra/gst-plugins-ugly
+extra/gst-plugins-ugly
 #extra/libesmtp
 #extra/balsa
 #extra/sylpheed

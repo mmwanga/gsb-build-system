@@ -19,6 +19,7 @@
 *********************************************** 
 -- REQUIRED Package Replacements --
 
+pygobject	        (>= 2.28)      gtk/glib introspection in Python.
 gst-plugins-good        (>= 0.10.27)   Gconf and pulse sinks required.
 gnome-icon-theme	(>= 2.91.7)    Fancy new icons required by gnome-shell.
 libnotify		(>= 0.7.1)     Required by many GNOME 3.0 applications

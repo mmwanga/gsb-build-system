@@ -1,8 +1,8 @@
 PKGNAME="gsettings-desktop-schemas"
-VERSION="2.91.92"
+VERSION="3.0.0"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gsettings-desktop-schemas/2.91/gsettings-desktop-schemas-${VERSION}.tar.bz2"
-MD5SUM="498e5ea8ab43ee39f4e0e2262a78936b"
+DOWNLOAD="${GNOME_SERVER}/gsettings-desktop-schemas/3.0/gsettings-desktop-schemas-${VERSION}.tar.bz2"
+MD5SUM="227f020980c746fbf4da21991b107184"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

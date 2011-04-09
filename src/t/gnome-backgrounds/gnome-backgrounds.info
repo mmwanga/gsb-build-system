@@ -1,8 +1,8 @@
 PKGNAME="gnome-backgrounds"
-VERSION="2.91.92"
+VERSION="3.0.0"
 HOMEPAGE="http://www.gnome.org/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-backgrounds/2.91/gnome-backgrounds-2.91.92.tar.bz2"
-MD5SUM="0adc72f1e59d4fcd7b08e6f98e09e9fc"
+DOWNLOAD="${GNOME_SERVER}/gnome-backgrounds/3.0/gnome-backgrounds-${VERSION}.tar.bz2"
+MD5SUM="c3a96bbeceda3e1cb94ca99470ef35d4"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

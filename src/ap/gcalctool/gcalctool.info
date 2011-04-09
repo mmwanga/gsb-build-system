@@ -1,8 +1,8 @@
 PKGNAME="gcalctool"
-VERSION="5.91.93"
+VERSION="6.0.0"
 HOMEPAGE="http://live.gnome.org/Gcalctool"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gcalctool/5.91/gcalctool-${VERSION}.tar.bz2"
-MD5SUM="5f4d7cb8ea6733ad57bd4fad9879152b"
+DOWNLOAD="${GNOME_SERVER}/gcalctool/6.0/gcalctool-${VERSION}.tar.bz2"
+MD5SUM="286fee052bf6355ea9af658db74b0164"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

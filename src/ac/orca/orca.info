@@ -1,8 +1,8 @@
 PKGNAME="orca"
-VERSION="2.91.93"
+VERSION="3.0.0"
 HOMEPAGE="http://live.gnome.org/Orca"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/orca/2.91/orca-${VERSION}.tar.bz2"
-MD5SUM="86eeaa4f83f245ac5f081e19f7936ef3"
+DOWNLOAD="${GNOME_SERVER}/orca/3.0/orca-${VERSION}.tar.bz2"
+MD5SUM="e5674a805075dae47d1624ddb8c0ce39"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

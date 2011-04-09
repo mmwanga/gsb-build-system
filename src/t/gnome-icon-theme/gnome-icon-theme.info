@@ -1,8 +1,8 @@
 PKGNAME="gnome-icon-theme"
-VERSION="2.91.92"
+VERSION="3.0.0"
 HOMEPAGE="http://www.gnome.org/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-icon-theme/2.91/gnome-icon-theme-${VERSION}.tar.bz2"
-MD5SUM="b226499994d5f7316dbc0c06a64796f5"
+DOWNLOAD="${GNOME_SERVER}/gnome-icon-theme/3.0/gnome-icon-theme-${VERSION}.tar.bz2"
+MD5SUM="077ac4a949800b4fe79731a472a41536"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

@@ -1,8 +1,8 @@
 PKGNAME="gnome-control-center"
-VERSION="2.91.92"
+VERSION="3.0.0"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-control-center/2.91/gnome-control-center-${VERSION}.tar.bz2"
-MD5SUM="30b55b94d6744045881f52806431b170"
+DOWNLOAD="${GNOME_SERVER}/gnome-control-center/3.0/gnome-control-center-${VERSION}.tar.bz2"
+MD5SUM="696bf1bf5677356523348ec33110b2f7"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

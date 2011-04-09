@@ -1,3 +1,23 @@
+Sun Apr  3 21:52:25 GMT 2011
+d/vala-0.12.0-x86_64-1gsb.txz: Upgraded.
++--------------------------+
+Sun Apr  3 16:57:40 GMT 2011
+t/gnome-themes-standard-2.91.93-noarch-1gsb.txz: Upgraded.
+t/gnome-icon-theme-2.91.93-noarch-1gsb.txz: Upgraded.
+a/gnome-control-center-2.91.93-x86_64-1gsb.txz: Upgraded.
+n/empathy-2.91.93-x86_64-1gsb.txz: Upgraded.
+ap/totem-2.91.93-x86_64-1gsb.txz: Upgraded.
+go/tracker-0.10.6-x86_64-1gsb.txz: Upgraded.
+ap/rhythmbox-20110402-x86_64-1gsb.txz: Upgraded.
+ap/evince-2.91.93-x86_64-3gsb.txz: Rebuilt.
+  Set NoDisplay=false in the evince.desktop so that Evince shows up in the
+  Application list.
+extra/gst-plugins-ugly-0.10.17-x86_64-1gsb.txz: Upgraded.
++--------------------------+
+Sun Apr  3 10:28:42 GMT 2011
+go/gnumeric-1.10.14-x86_64-1gsb.txz: Upgraded.
+ap/gnome-games-2.91.93-x86_64-1gsb.txz: Upgraded.
++--------------------------+
 Sat Apr  2 13:20:34 GMT 2011
 l/gtk+3-3.0.7-x86_64-1gsb.txz: Upgraded.
 l/gir-repository-0.10.6-x86_64-2gsb.txz: Rebuilt.
@@ -99,6 +119,9 @@ l/gtksourceview-2.91.9-x86_64-1gsb.txz: Upgraded.
 ap/gedit-2.91.10-x86_64-1gsb.txz: Upgraded.
 ap/gnome-user-docs-2.91.92-noarch-1gsb.txz: Upgraded.
 ap/yelp-2.91.92-x86_64-1gsb.txz: Upgraded.
+l/gdk-pixbuf2-2.23.1-x86_64-1gsb.txz: Removed.
+  This version, required by various GNOME apps, has been upgraded in the
+  official tree.
 +--------------------------+
 Mon Mar 21 23:00:05 GMT 2011
 t/gnome-themes-standard-2.91.92.1-x86_64-1gsb.txz: Upgraded.

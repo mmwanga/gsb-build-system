@@ -1,8 +1,8 @@
 PKGNAME="pyatspi"
-VERSION="1.91.92"
+VERSION="2.0.0"
 HOMEPAGE="http://live.gnome.org/Orca"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/pyatspi/1.91/pyatspi-${VERSION}.tar.bz2"
-MD5SUM="d35e7d97c2079ffef5bc96769b397200"
+DOWNLOAD="${GNOME_SERVER}/pyatspi/2.0/pyatspi-${VERSION}.tar.bz2"
+MD5SUM="fd502e877bced249c5220fd58414385c"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

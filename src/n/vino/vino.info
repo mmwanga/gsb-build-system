@@ -1,8 +1,8 @@
 PKGNAME="vino"
-VERSION="2.99.5"
+VERSION="3.0.0"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/vino/2.99/vino-2.99.5.tar.bz2"
-MD5SUM="69a00b7bdf4e0129c229c92691703307"
+DOWNLOAD="${GNOME_SERVER}/vino/3.0/vino-${VERSION}.tar.bz2"
+MD5SUM="62ce938520d5f29ac9fea00554b8ccd0"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

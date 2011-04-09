@@ -4,7 +4,6 @@ TESTING! TESTING! TESTING!
 GNOME SlackBuild -current
 -------------------------
 
-
 This release is a snapshot of development code. Although it is usable, it is
 primarily intended for testing and hacking purposes.  GNOME uses odd minor
 version numbers to indicate development status.

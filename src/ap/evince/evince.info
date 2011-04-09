@@ -1,8 +1,8 @@
 PKGNAME="evince"
-VERSION="2.91.93"
+VERSION="3.0.0"
 HOMEPAGE="http://projects.gnome.org/evince/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/evince/2.91/evince-${VERSION}.tar.bz2"
-MD5SUM="e93c70ec2a49001f1633dba2665794c3"
+DOWNLOAD="${GNOME_SERVER}/evince/3.0/evince-${VERSION}.tar.bz2"
+MD5SUM="9d8fdb4a2be479001e06fdc6fe81e7e7"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

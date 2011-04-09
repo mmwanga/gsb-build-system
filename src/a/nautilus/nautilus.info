@@ -1,8 +1,8 @@
 PKGNAME="nautilus"
-VERSION="2.91.93"
+VERSION="3.0.0"
 HOMEPAGE="http://live.gnome.org/Nautilus"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/nautilus/2.91/nautilus-${VERSION}.tar.bz2"
-MD5SUM="0c6e265ca18e1ad00a0cb0a500d28ee9"
+DOWNLOAD="${GNOME_SERVER}/nautilus/3.0/nautilus-${VERSION}.tar.bz2"
+MD5SUM="9adbdb30d988e4a200fc76863b3bafae"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

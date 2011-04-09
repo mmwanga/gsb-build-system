@@ -56,6 +56,8 @@ l/libdotconf: Added.
 ac/speech-dispatcher: Added.
 n/mobile-broadband-provider-info: Added.
 n/ModemManager: Added.
+ac/pyatspi: Added.
+l/pygobject: Added.
 
 *** PACKAGE REMOVALS SINCE 2.32.0 for Slackware 13.1 ***
 

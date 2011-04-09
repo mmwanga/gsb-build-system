@@ -1,8 +1,8 @@
 PKGNAME="evolution-exchange"
-VERSION="2.91.92"
+VERSION="3.0.0"
 HOMEPAGE="http://projects.gnome.org/evolution/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/evolution-exchange/2.91/evolution-exchange-${VERSION}.tar.bz2"
-MD5SUM="13f38d80b1f7ea5c58a36b7ec56d1109"
+DOWNLOAD="${GNOME_SERVER}/evolution-exchange/3.0/evolution-exchange-${VERSION}.tar.bz2"
+MD5SUM="7aeaa92408294836f484ff187434f0e7"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

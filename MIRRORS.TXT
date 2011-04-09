@@ -62,54 +62,54 @@ GNOME SlackBuild64
 
 # United States
 
-    http://ftp.osuosl.org/pub/gsb/gsb64-2.30_slackware64-13.1/
+    http://ftp.osuosl.org/pub/gsb/gsb64-3.0_slackware64-current/
 
-    ftp://ftp.osuosl.org/pub/gsb/gsb64-2.30_slackware64-13.1/
+    ftp://ftp.osuosl.org/pub/gsb/gsb64-3.0_slackware64-current/
 
-    http://get.gnomeslackbuild.org/gsb/gsb64-2.30_slackware64-13.1/
+    http://get.gnomeslackbuild.org/gsb/gsb64-3.0_slackware64-current/
 
 
 # United Kingdom
 
-    http://www.slackware.org.uk/gsb/gsb64-2.30_slackware64-13.1/
+    http://www.slackware.org.uk/gsb/gsb64-3.0_slackware64-current/
 
-    ftp://ftp.slackware.org.uk/gsb/gsb64-2.30_slackware64-13.1/
+    ftp://ftp.slackware.org.uk/gsb/gsb64-3.0_slackware64-current/
 
 
 # Germany
 
-    http://ftp5.gwdg.de/pub/linux/slackware/gsb/gsb64-2.30_slackware64-13.1/
+    http://ftp5.gwdg.de/pub/linux/slackware/gsb/gsb64-3.0_slackware64-current/
 
-    ftp://ftp5.gwdg.de/pub/linux/slackware/gsb/gsb64-2.30_slackware64-13.1/
+    ftp://ftp5.gwdg.de/pub/linux/slackware/gsb/gsb64-3.0_slackware64-current/
 
 
 # Russia
 
-    http://slackware.rol.ru/gsb/gsb/gsb64-2.30_slackware64-13.1/
+    http://slackware.rol.ru/gsb/gsb/gsb64-3.0_slackware64-current/
 
 
 # Poland
 
-    ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb64-2.30_slackware64-13.1/
+    ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb64-3.0_slackware64-current/
 
 
 # Belgium
 
-    http://mirrors.dotsrc.org/gsb/gsb64-2.30_slackware64-13.1/
+    http://mirrors.dotsrc.org/gsb/gsb64-3.0_slackware64-current/
 
-    ftp://mirrors.dotsrc.org/gsb/gsb64-2.30_slackware64-13.1/
+    ftp://mirrors.dotsrc.org/gsb/gsb64-3.0_slackware64-current/
 
 
 # Switzerland
 
-    http://mirror.switch.ch/ftp/mirror/gsb/gsb64-2.30_slackware64-13.1/
+    http://mirror.switch.ch/ftp/mirror/gsb/gsb64-3.0_slackware64-current/
 
-    ftp://mirror.switch.ch/ftp/mirror/gsb/gsb64-2.30_slackware64-13.1/
+    ftp://mirror.switch.ch/ftp/mirror/gsb/gsb64-3.0_slackware64-current/
 
 
 # Indonesia
 
-    http://ftp.paudni.kemdiknas.go.id/gsb/gsb64-2.30_slackware64-13.1/
+    http://ftp.paudni.kemdiknas.go.id/gsb/gsb64-3.0_slackware64-current/
 
-    ftp://ftp.paudni.kemdiknas.go.id/gsb/gsb64-2.30_slackware64-13.1/
+    ftp://ftp.paudni.kemdiknas.go.id/gsb/gsb64-3.0_slackware64-current/
 

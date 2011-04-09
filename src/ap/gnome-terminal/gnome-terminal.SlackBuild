@@ -20,7 +20,7 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=2.33.90
+VERSION=3.0.0
 BUILD=1
 TAG=${TAG:-gsb}
 
@@ -78,6 +78,7 @@ CFLAGS="$GSBCFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --disable-static \
+  --with-gtk=3.0 \
   || exit 1
 
 make ${NUMJOBS} || make || exit 1

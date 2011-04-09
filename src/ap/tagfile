@@ -21,6 +21,7 @@ gnome-system-monitor:ADD
 gnome-terminal:ADD
 gnome-user-docs:SKP
 gnome-utils:ADD
+gnome-video-effects:ADD
 gthumb:ADD
 hamster-applet:SKP
 rhythmbox:ADD

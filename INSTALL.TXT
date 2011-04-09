@@ -1,6 +1,6 @@
 
-		 HOW TO INSTALL GSB: GNOME SlackBuild 2.32
-                        (for Slackware/Slackware64 13.1)
+		 HOW TO INSTALL GSB: GNOME SlackBuild 3.0
+                        (for Slackware/Slackware64 13.37)
                     =======================================
 
 Contents
@@ -25,8 +25,8 @@ haven't yet, you should read about the GSB project before installing:
   <http://gnomeslackbuild.org/>
 
 This version of GSB is built and only supported on:
-  Slackware 13.1
-  Slackware64 13.1
+  Slackware 13.37
+  Slackware64 13.37
 
 If you are trying to use GSB on systems other than the above you will encounter
 problems.  If you are running a previous version of Slackware or Slackware64,
@@ -49,14 +49,14 @@ proceeding.  It is recommended that you upgrade to the latest slapt-get before
 installing or upgrading GSB.  You can find the slapt-get package at: 
 
 For Slackware:
-  http://www.slackware.org.uk/gsb/gsb-current_slackware-13.1/gsb/ad/
+  http://www.slackware.org.uk/gsb/gsb-3.0_slackware-13.37/gsb/ad/
 
 For Slackware64:
-  http://www.slackware.org.uk/gsb/gsb64-current_slackware-13.1/gsb/ad/
+  http://www.slackware.org.uk/gsb/gsb64-3.0_slackware-13.37/gsb/ad/
 
 For a list of available mirrors, please see MIRRORS.TXT.
 
-Update your /etc/slapt-get/slapt-getrc file to point to Slackware 13.1 and
+Update your /etc/slapt-get/slapt-getrc file to point to Slackware 13.37 and
 GNOMESlackBuild repositories.  Make sure to add the :OFFICIAL tag to the end of
 your SOURCE= which points to the Slackware repository, and the tag :CUSTOM to
 the SOURCE= line which points to your GNOMESlackBuild repository.  Without the
@@ -83,7 +83,7 @@ point your /etc/slapt-get/slapt-getrc SOURCE= to a gsb-current repository.
 
 ** INSTALLING NEW **
 
-If you are installing on a fresh Slackware 13.1 system, then you will need
+If you are installing on a fresh Slackware 13.37 system, then you will need
 to grab a copy of slapt-get from the repository (above), and then update
 your /etc/slapt-get/slapt-getrc file.  Afterwards:
 
@@ -91,9 +91,12 @@ your /etc/slapt-get/slapt-getrc file.  Afterwards:
        $ slapt-get --update
 2.  Update gpg keys:
        $ slapt-get --add-keys
-3. Upgrade your packages:
+3.  Remove obsolete or old packages which have been removed from the
+    repository.
+       $ slapt-get --remove-obsolete
+4. Upgrade your packages:
       $ slapt-get --upgrade
-4.  Install the GSB desktop via the metapackage:
+5.  Install the GSB desktop via the metapackage:
        $ slapt-get --install gsb-desktop
 
 All relevant packages will installed or upgraded through this metapackage.
@@ -275,9 +278,9 @@ use 'startx' or similar you should log in as your usual (not root!) user and
 run:
   $ xwmconfig
 
-Select the GNOME (or Compiz GNOME) option from the menu.  You can then use
-'startx' to start GSB as usual.  If you have any problems starting GSB or
-logging in, please see below for support links and mailing lists.
+Select the GNOME option from the menu.  You can then use 'startx' to start GSB
+as usual.  If you have any problems starting GSB or logging in, please see
+below for support links and mailing lists.
 
 6. Uninstalling GNOME SlackBuild
 --------------------------------
