@@ -39,7 +39,7 @@ fi
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}
-PKGNAM=libffi
+PKGNAM=libsigc++
 PKG=$TMP/package-$PKGNAM
 CWD=$(pwd)
 
@@ -87,15 +87,13 @@ find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded 2>/dev/null
 
 mkdir -p $PKG/usr/doc/$PKGNAM-$VERSION
-mv $PKG/usr/share/doc/libsigc-2.0/docs $PKG/usr/doc/$PKGNAME-$VERSION
-# Remove massive set of documentation;  users can rebuilt the package
-# if they want to start developing with libsigc++
 rm -fr $PKG/usr/share
 cp -a AUTHORS COPYING NEWS README \
   $PKG/usr/doc/$PKGNAM-$VERSION
 find $PKG/usr/doc/$PKGNAM-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAM-$VERSION
 
+mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
