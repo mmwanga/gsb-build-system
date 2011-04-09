@@ -34,6 +34,7 @@ gnome-desktop
 gnome-disk-utility
 gnome-icon-theme
 gnome-icon-theme-symbolic
+gnome-icon-theme-extras
 gnome-keyring
 gnome-media
 gnome-menus
@@ -84,6 +85,7 @@ mutter
 nautilus
 NetworkManager
 network-manager-applet
+notification-daemon
 ORBit2
 pptp
 pulseaudio
