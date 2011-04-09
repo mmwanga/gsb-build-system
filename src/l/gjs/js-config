@@ -25,7 +25,7 @@
 prefix=/usr
 
 major_version=2
-minor_version=1b1
+minor_version=1b3
 
 usage()
 {

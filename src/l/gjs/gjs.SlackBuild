@@ -21,7 +21,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 VERSION=0.7.14
-BUILD=1
+BUILD=2
 TAG=${TAG:-gsb}
 
 NUMJOBS=${NUMJOBS:-" -j10 "}
@@ -64,6 +64,9 @@ rm -rf $PKGNAM-$VERSION &&
 tar xvf $CWD/$PKGNAM-$VERSION.tar.?z* &&
 cd $PKGNAM-$VERSION || exit 1
 
+# Fix: https://bugzilla.gnome.org/show_bug.cgi?id=647127
+zcat $CWD/gjs.console.format.string.diff.gz | patch -p1 || exit 1
+# Build against Slackware's seamonkey libs
 zcat $CWD/gjs.use.seamonkey.mozjs.diff.gz | patch -p1 || exit 1
 
 chown -R root:root .
