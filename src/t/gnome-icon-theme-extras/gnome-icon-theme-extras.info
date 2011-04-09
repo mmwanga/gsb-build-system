@@ -1,0 +1,8 @@
+PKGNAME="gnome-icon-theme-extras"
+VERSION="3.0.0"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gnome-icon-theme-extras/3.0/gnome-icon-theme-extras-${VERSION}.tar.bz2"
+MD5SUM="9358d5e10ffbc7e083bd1831951469be"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
