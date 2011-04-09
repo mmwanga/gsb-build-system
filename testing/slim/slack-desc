@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
+    |-----handy-ruler------------------------------------------------------|
+slim: slim (Simple Login Manager)
+slim:
+slim: SLiM (Simple Login Manager) is a graphical login manager for X11.  It 
+slim: aims to be simple, fast and independent from the various desktop 
+slim: environments.  
+slim:
+slim: SLiM is based on latest stable release of Login.app by Per Lidén.
+slim:
+slim:
+slim:
+slim:
