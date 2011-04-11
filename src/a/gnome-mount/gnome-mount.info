@@ -1,7 +1,0 @@
-PKGNAME="gnome-mount"
-VERSION="0.8"
-HOMEPAGE="http://hal.freedesktop.org"
-DOWNLOAD="http://hal.freedesktop.org/releases/gnome-mount-0.8.tar.gz"
-MD5SUM="562ec9d0196e5e000bdd249a04a3aa6a"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

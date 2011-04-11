@@ -21,7 +21,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 VERSION=3.0.0
-BUILD=1
+BUILD=2
 TAG=${TAG:-gsb}
 
 NUMJOBS=${NUMJOBS:-" -j10 "}
@@ -72,6 +72,7 @@ find . \
   -exec chmod 644 {} \;
 
 ./configure --prefix=/usr \
+	--libdir=/usr/lib${LIBDIRSUFFIX} \
   || exit 1
 
 make ${NUMJOBS} || make || exit 1

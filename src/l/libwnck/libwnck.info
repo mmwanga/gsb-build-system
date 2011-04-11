@@ -1,8 +1,0 @@
-PKGNAME="libwnck"
-VERSION="3.0.0"
-HOMEPAGE="http://www.gnome.org"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/libwnck/3.0/libwnck-${VERSION}.tar.bz2"
-MD5SUM="05fd6d09dbe097805846e63cca3cbdc6"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

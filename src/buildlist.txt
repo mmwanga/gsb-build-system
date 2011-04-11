@@ -24,7 +24,7 @@ l/ORBit2
 a/GConf
 a/rarian
 a/pulseaudio
-# GNOME shell UI
+# GNOME shell UX
 l/json-glib
 l/clutter
 l/libcanberra
@@ -51,6 +51,7 @@ t/gnome-themes
 t/gnome-themes-standard
 t/gnome-icon-theme
 t/gnome-icon-theme-symbolic
+t/gnome-icon-theme-extras
 ac/at-spi2-core
 ac/at-spi2-atk
 a/upower
@@ -67,8 +68,6 @@ a/gnome-settings-daemon
 l/libgtop
 l/exempi
 a/nautilus
-l/libwnck
-l/vte
 ap/gnome-terminal
 l/libicu
 n/webkit
@@ -92,6 +91,13 @@ l/gtkhtml
 l/libpst
 ap/evince
 ap/file-roller
+d/libsigc++
+d/glibmm
+d/cairomm
+d/pangomm
+#d/atkmm
+#d/gtkmm
+#ap/gnome-system-monitor
 #l/gtkimageview -- Disabled for now without gtk+3 port: http://mail.gnome.org/archives/evolution-hackers/2011-January/msg00052.html
 l/libunique
 n/evolution
@@ -133,7 +139,7 @@ n/pptp
 ad/gconf-editor
 ap/gcalctool
 ap/gnome-user-docs
-nofetch:ap/yelp
+ap/yelp
 ap/gnome-utils
 n/gtk-vnc
 n/nautilus-sendto
@@ -155,16 +161,14 @@ ac/mousetweaks
 #ac/gail
 #ac/libgail-gnome
 #
-#ap/gnome-system-monitor
 #n/gnome-netstatus
 #n/gnome-nettool
 #ap/gedit-plugins
 #ap/seahorse-plugins
 n/epiphany-extensions
 n/vino
-#n/vinagre
+n/vinagre
 ad/slapt-get
-a/gsb-desktop
 #
 # Mono
 #m/libgdiplus
@@ -199,10 +203,6 @@ l/libevent
 n/transmission
 #n/liferea
 #ap/gdm
-#d/glibmm
-#d/cairomm
-#d/pangomm
-#d/gtkmm
 #ap/gnome-mplayer
 #ap/gthumb
 #ap/gnome-python-desktop
@@ -219,7 +219,6 @@ go/tracker
 #ap/sensors-applet
 #d/devhelp
 #d/glade3
-#d/libsigc++
 #d/gdl
 #d/autogen
 #d/gettext-perl
@@ -264,3 +263,6 @@ extra/gst-plugins-ugly
 # Old packages in pasture/
 #pasture/gdesklets
 #pasture/grip
+#
+# Installation package
+a/gsb-desktop
