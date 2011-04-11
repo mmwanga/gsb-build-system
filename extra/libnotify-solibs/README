@@ -1,0 +1,11 @@
+GNOME 3.0 requires the latest libnotify 0.7 which is *NOT* API-backwards
+compatible:
+
+   http://lists.fedoraproject.org/pipermail/devel/2010-November/144914.html
+
+The required upgrade to libnotify-0.7 will break some packages, particularly
+xfce-notifyd and system-config-printer.  There may be other packages as well.
+You can either remove these package, or if you want to get them working, you
+will need install our libnotify-solibs package which simply repackages the
+official Slackware libnotify usr/lib*/libnotify.so.* into your /usr/lib so that
+these applications can continue to run.
