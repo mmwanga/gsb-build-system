@@ -24,8 +24,6 @@ gst-plugins-good        (>= 0.10.27)   Gconf and pulse sinks required.
 gnome-icon-theme	(>= 3.0.0)     Fancy new icons required by gnome-shell.
 libnotify		(>= 0.7.1)     Required by many GNOME 3.0 applications
                                        for the new notify bar in gnome-shell.
-libwnck		        (>= 3.0)       gnome-panel-3.0.
-vte		        (>= 0.28)      gnome-terminal and gtk+3 support.
 
 *********************************************** 
 -- OPTIONAL Package Replacements --
