@@ -481,20 +481,20 @@ done
 #
 if [ "${PUBLISH}" = "1" -a "${ONLY_DOWNLOAD}" = "0" ]; then
 (
-cd $BUILDSOURCE ;
+#cd $BUILDSOURCE ;
 # Copy tagfiles
-for tagfile in $(find . -type f -name tagfile); 
-do 
- mkdir -p $PKGDEST/$GSBDIR/$(echo $tagfile | cut -f2 -d/) &&
- if [ ! -f $PKGDEST/$GSBDIR/$(echo $tagfile | cut -f2 -d/)/tagfile ];  then
-  cp $tagfile $PKGDEST/$GSBDIR/$(echo $tagfile | cut -f2 -d/) || exit 1
- else
- if [ "$(cat ${tagfile} | md5sum )" != "$(cat $PKGDEST/$GSBDIR/$(echo $tagfile | cut -f2 -d/)/tagfile | md5sum)" ];
- then 
-  cp $tagfile $PKGDEST/$GSBDIR/$(echo $tagfile | cut -f2 -d/) || exit 1
- fi;
- fi;
-done;
+#for tagfile in $(find . -type f -name tagfile); 
+#do 
+ #mkdir -p $PKGDEST/$GSBDIR/$(echo $tagfile | cut -f2 -d/) &&
+ #if [ ! -f $PKGDEST/$GSBDIR/$(echo $tagfile | cut -f2 -d/)/tagfile ];  then
+  #cp $tagfile $PKGDEST/$GSBDIR/$(echo $tagfile | cut -f2 -d/) || exit 1
+ #else
+ #if [ "$(cat ${tagfile} | md5sum )" != "$(cat $PKGDEST/$GSBDIR/$(echo $tagfile | cut -f2 -d/)/tagfile | md5sum)" ];
+ #then 
+  #cp $tagfile $PKGDEST/$GSBDIR/$(echo $tagfile | cut -f2 -d/) || exit 1
+ #fi;
+ #fi;
+#done;
 
 # Copy our main documentation
 cd $BUILDSOURCE/.. ;
