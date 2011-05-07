@@ -1,0 +1,8 @@
+PKGNAME="libgnomecanvas"
+VERSION="2.30.3"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/libgnomecanvas/2.30/libgnomecanvas-${VERSION}.tar.bz2"
+MD5SUM="ffcbb719c671ff5cd86e59aeba8d0b92"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
