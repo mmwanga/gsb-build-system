@@ -1,8 +1,0 @@
-PKGNAME="gnome-desktop-sharp"
-VERSION="2.26.0"
-HOMEPAGE="http://mono-project.com"
-GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-desktop-sharp/2.26/gnome-desktop-sharp-2.26.0.tar.bz2"
-MD5SUM="4bc990900bb318b2ba0b0e7998bb47d1"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

@@ -1,7 +1,0 @@
-PKGNAME="ndesk-dbus-glib"
-VERSION="0.4.1"
-HOMEPAGE="http://www.ndesk.org/DBusSharp"
-DOWNLOAD="http://www.ndesk.org/archive/dbus-sharp/ndesk-dbus-glib-0.4.1.tar.gz"
-MD5SUM="7faf8770b214956fa9de009def550826"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

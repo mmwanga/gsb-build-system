@@ -1,7 +1,0 @@
-PKGNAME="mono"
-VERSION="2.10.1"
-HOMEPAGE="http://mono-project.com"
-DOWNLOAD="http://ftp.novell.com/pub/mono/sources/mono/mono-${VERSION}.tar.bz2"
-MD5SUM="ae8d1875447527599e68dd6c1d82bc11"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

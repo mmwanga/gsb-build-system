@@ -1,7 +1,0 @@
-PKGNAME="mono-tools"
-VERSION="2.6.2"
-HOMEPAGE="http://mono-project.com"
-DOWNLOAD="http://ftp.novell.com/pub/mono/sources/mono-tools/mono-tools-2.6.2.tar.bz2"
-MD5SUM="c29f5993ae05d981769d2002a9f65d2a"
-MAINTAINER="Chip Cuccio"
-EMAIL="chipster@gnomeslackbuild.org"
