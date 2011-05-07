@@ -1,8 +1,8 @@
 PKGNAME="pygobject"
-VERSION="2.28.3"
+VERSION="2.28.4"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/pygobject/2.28/pygobject-${VERSION}.tar.bz2"
-MD5SUM="aa64900b274c4661a5c32e52922977f9"
+MD5SUM="14e700d5f4b8af00a68a6bcdd65a8db9"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

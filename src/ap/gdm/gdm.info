@@ -1,8 +1,8 @@
 PKGNAME="gdm"
 VERSION="2.20.11"
-HOMEPAGE="http://projects.gnome.org/gdm/"
+HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gdm/2.20/gdm-2.20.11.tar.bz2"
+DOWNLOAD="${GNOME_SERVER}/gdm/2.20/gdm-${VERSION}.tar.bz2"
 MD5SUM="67696b64c81c317f61065810a32e8b36"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

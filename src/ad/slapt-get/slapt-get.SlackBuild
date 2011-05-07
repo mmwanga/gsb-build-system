@@ -20,7 +20,7 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=0.10.2h
+VERSION=0.10.2i
 BUILD=1
 TAG=${TAG:-gsb}
 
@@ -46,8 +46,6 @@ CWD=$(pwd)
 if [ "$ARCH" = "i486" ]; then
   GSBCFLAGS=${GSBCFLAGS:-"-O2 -march=i486 -mtune=i686"}
   LIBDIRSUFFIX=""
-  # Make sure our default slapt-getrc is our $ARCH
-  ln -s default.slapt-getrc.i386 default.slapt-getrc.$ARCH
 elif [ "$ARCH" = "s390" ]; then
   GSBCFLAGS="-O2"
   LIBDIRSUFFIX=""
@@ -66,6 +64,9 @@ rm -rf $PKGNAM-$VERSION &&
 tar xvf $CWD/$PKGNAM-$VERSION.tar.?z* &&
 cd $PKGNAM-$VERSION || exit 1
 
+case "$ARCH" in
+  i?86) cp default.slapt-getrc.i386 default.slapt-getrc.i486 ;;
+esac 
 
 chown -R root:root .
 find . \
@@ -77,6 +78,7 @@ find . \
 CFLAGS="$GSBCFLAGS" \
 make ${NUMJOBS} || make || exit 1
 make DESTDIR=$PKG install || exit 1
+
 
 mkdir -p $PKG/etc/slapt-get
 case "$( uname -m )" in

@@ -1,7 +1,7 @@
 CHANGES AND HINTS
 =================
 This file documents the instructions for upgrading to GNOME SlackBuild 3.0
-for Slackware 13.2, and lists any packages which have been added, removed,
+for Slackware 13.37, and lists any packages which have been added, removed,
 renamed, and/or split during the development cycle from GSB 2.32.0 for
 Slackware 13.1, as well as note some potential "gotchas" that users can avoid
 by arming themselves with a little knowledge.
@@ -9,13 +9,15 @@ by arming themselves with a little knowledge.
 All packages that are built to replace a standard Slackware package are
 configured and built as closely as possible to how Patrick does.  For more
 information about what needs to be replaced, and why, please see our
-'README_REPLACED_PACKAGES.TXT'.  
+'SLACKWARE_REPLACED_PACKAGES.TXT'.  
 
 This version of GNOME SlackBuild has been considerably slimmed down.  It is
 difficult to maintain to a high quality so many peripheral packages. A full
 GNOME desktop, and a variety of office, multimedia, and networking applications
 is still offered.  Please check the 'Package Removals' section below for
-details.  Before installing or upgrading GSB, you are encourage to use
+details. 
+
+Before installing or upgrading GSB, you are encouraged to use
 '--remove-obsolete' when doing upgrades.
 
 GPG SIGNED PACKAGED
@@ -49,7 +51,7 @@ a/gnome-disk-utility: Added.
 a/accountsservice: Added.
 a/apg: Added.
 t/gnome-icon-theme-symbolic: Added.
-l/rdflib-3.0.0: Added.
+l/rdflib: Added.
 go/zeitgeist: Added.
 go/libzeitgeist: Added.
 l/libdotconf: Added.
@@ -58,6 +60,12 @@ n/mobile-broadband-provider-info: Added.
 n/ModemManager: Added.
 ac/pyatspi: Added.
 l/pygobject: Added.
+l/libwnck3: Added.
+l/vte3: Added.  Both libwnck and vte are parallel installable, and these are
+  required for some GTK+3 applications, including gnome-terminal and
+  gnome-system-monitor.
+d/atkmm: Added.
+l/mx: Added.
 
 *** PACKAGE REMOVALS SINCE 2.32.0 for Slackware 13.1 ***
 
@@ -69,10 +77,15 @@ None.
   xfce-notifyd and system-config-printer.  There may be other packages as well.
 You can either remove these package, or if you want to get them working, you
 will need grab a libnotify-0.5.2 package from an official Slackware FTP site,
-and explodepkg.  Then copy the usr/lib*/libnotify.so.* into your /usr/lib.  
+and explodepkg.  Then copy the usr/lib*/libnotify.so.* into your /usr/lib.  We
+have provided a libnotify-solibs package in extra/ which has simply repackaged
+the official Slackware libnotify libraries.
 
 - "Suspend" now shows up by default in the user status menu; however, "Power
-  Off" is hidden and only shows up while holding down the Alt key.
+  Off" is hidden and only shows up while holding down the Alt key.  If you're
+looking for the "Hibernate", "Suspend" and "Power Off", you'll need to install
+the gnome-shell-extensions package from extra/ to enable the alterateMenu
+extension.
 
 - By default, GNOME Shell does not have the minimize and maximize buttons
   enabled in the window title bars.  To maximise, you must drag a window to the

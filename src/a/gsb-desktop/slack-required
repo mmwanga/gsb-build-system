@@ -38,6 +38,7 @@ gnome-icon-theme-extras
 gnome-keyring
 gnome-media
 gnome-menus
+gnome-panel
 gnome-power-manager
 gnome-python
 gnome-session
@@ -79,6 +80,7 @@ libpst
 libsoup
 libtasn1
 libunique
+metacity
 mobile-broadband-provider-info
 ModemManager
 mutter

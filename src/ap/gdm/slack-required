@@ -1,6 +1,2 @@
-ConsoleKit
 zenity
-openssh
-dbus
-libglade
-gnome-session
+libgnomecanvas

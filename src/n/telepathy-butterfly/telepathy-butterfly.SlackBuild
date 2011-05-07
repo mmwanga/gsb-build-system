@@ -21,7 +21,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 VERSION=0.5.15
-BUILD=1
+BUILD=2
 TAG=${TAG:-gsb}
 
 NUMJOBS=${NUMJOBS:-" -j10 "}
@@ -63,6 +63,9 @@ cd $TMP &&
 rm -rf $PKGNAM-$VERSION &&
 tar xvf $CWD/$PKGNAM-$VERSION.tar.?z* &&
 cd $PKGNAM-$VERSION || exit 1
+
+# https://bugzilla.redhat.com/show_bug.cgi?id=673815
+zcat $CWD/telepathy-butterfly.module.import.fix.18b44dd2909b2cb75e8cc91a80f6e6b8ba253a7f.diff.gz | patch -p1 || exit 1
 
 chown -R root:root .
 find . \

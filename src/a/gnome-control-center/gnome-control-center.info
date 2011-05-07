@@ -1,8 +1,8 @@
 PKGNAME="gnome-control-center"
-VERSION="3.0.0.1"
+VERSION="3.0.1.1"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/gnome-control-center/3.0/gnome-control-center-${VERSION}.tar.bz2"
-MD5SUM="95df9948e7476bc691ee7dc182e11104"
+MD5SUM="2afa6de2b205283e5f98e49be32da4af"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

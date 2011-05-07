@@ -1,8 +1,8 @@
 PKGNAME="gvfs"
-VERSION="1.8.0"
+VERSION="1.8.1"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/gvfs/1.8/gvfs-${VERSION}.tar.bz2"
-MD5SUM="db09c9edcdde9b1166562a4ca54bbaa8"
+MD5SUM="ef6ca22c01aaa8e985cfdd144c9afbb5"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

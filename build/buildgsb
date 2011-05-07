@@ -40,19 +40,22 @@ trap error_out SIGINT
 #========================================================================
 # ENVIRONMENT
 
+ARCH=${ARCH:-$(uname -m)}
 # If the user created an options file, read it.
-[ -r ./gsb.options ] && {
-  . ./gsb.options
-  export OPTIONSREAD=1
-}
+if [ -r ./gsb.options.${ARCH} ]; then
+  . ./gsb.options.${ARCH} ;
+  export OPTIONSREAD=1 ;
+else
+  echo "Warning: no defined gsb.options.${ARCH}" && exit 1
+fi;
 
 #========================================================================
 # VERSIONS
 
 # If the user created an options file, read it.
-GSB_SOURCE_VERSION="2.32"
-GNOME_VERSION="2.32.1"
-SLACKWARE_VERSION="13.1"
+GSB_SOURCE_VERSION="3.0"
+GNOME_VERSION="3.0.1"
+SLACKWARE_VERSION="13.37"
 [ -r ../VERSIONS ] && {
   . ../VERSIONS
 }
@@ -89,6 +92,7 @@ PATCHESDIR=${PATCHESDIR:-patches}
 
 # Option defaults.
 WITH_TEST_PACKAGES=0
+WITH_PASTURE_PACKAGES=0
 AUTO_DOWNLOAD=0
 ONLY_DOWNLOAD=0
 CONFIRM_INSTALLS=0
@@ -132,6 +136,10 @@ while [ -n "$1" ] ; do
     ;;
     -with-testing|--with-testing)
       WITH_TEST_PACKAGES=1
+      shift
+    ;;
+    -with-pasture|--with-pasture)
+      WITH_PASTURE_PACKAGES=1
       shift
     ;;
     -confirm-installs|--confirm-installs)
@@ -206,6 +214,8 @@ BUILDLIST=${BUILDLIST:-""}
 BUILDLIST="$(egrep -v "^#|^$" buildlist.txt | \
   # Remove our testing packages if not specified.
   if [ "$WITH_TEST_PACKAGES" = "1" ]; then cat ; else egrep -v testing; fi | \
+  # Remove our pasture packages if not specified.
+  if [ "$WITH_PASTURE_PACKAGES" = "1" ]; then cat ; else egrep -v pasture; fi | \
   # Perhaps the user only wants a certain set of packages.
   if [ -z "$SETS" ]; then cat ; else egrep ^${SETS}; fi | \
   # Perhaps the user only wants a specific package. 
@@ -218,14 +228,24 @@ BUILDLIST="$(egrep -v "^#|^$" buildlist.txt | \
 }
 
 #========================================================================
-# CLEAN SYSTEM OF TESTING/ PACKAGES
+# CLEAN SYSTEM OF TESTING/ AND PASTURE/ PACKAGES
 #
-# Clear the system of any packages from testing/ which might be lying around.
-# This ensures that we don't accidently build against a package we don't want.
+# Clear the system of any packages from testing/ or pasture/ which might be
+# lying around.  This ensures that we don't accidently build against a package
+# we don't want.
 #
 if [ "$WITH_TEST_PACKAGES" = "0" -a "${ONLY_DOWNLOAD}" = "0" ]; then
-  echo; header "Removing any test packages."
+  echo; header "Removing any testing/ packages."
 ( cd ${BUILDSOURCE}/../testing &&
+  for testpkg in $(find . -type d -mindepth 1 -maxdepth 1); do
+    removepkg $testpkg 1>/dev/null 2>/dev/null
+  done;
+)
+fi;
+
+if [ "$WITH_PASTURE_PACKAGES" = "0" -a "${ONLY_DOWNLOAD}" = "0" ]; then
+  echo; header "Removing any pasture/ packages."
+( cd ${BUILDSOURCE}/../pasture &&
   for testpkg in $(find . -type d -mindepth 1 -maxdepth 1); do
     removepkg $testpkg 1>/dev/null 2>/dev/null
   done;
@@ -499,26 +519,27 @@ if [ "${PUBLISH}" = "1" -a "${ONLY_DOWNLOAD}" = "0" ]; then
 # Copy our main documentation
 cd $BUILDSOURCE/.. ;
 if [ "$ARCH" = "x86_64" ]; then
-  cat README.TXT | sed 's,@BINARY_EDITION@,64-bit x86_64 edition,g' > \
+  cat README.TXT | sed 's,@BINARY_EDITION@,64-bit x86_64 edition,g' \
+  | sed "s,@GNOME_VERSION@,${GNOME_VERSION},g" > \
     $PKGDEST/README.TXT ;
 else
-  cat README.TXT | sed 's,@BINARY_EDITION@,32-bit x86 edition,g' > \
+  cat README.TXT | sed 's,@BINARY_EDITION@,32-bit x86 edition,g' \
+  | sed "s,@GNOME_VERSION@,${GNOME_VERSION},g" > \
     $PKGDEST/README.TXT ;
 fi;
 
-cat SLACKWARE_REPLACED_PACKAGES.TXT | sed 's,@GSB_VERSION@,${GNOME_VERSION},g' > \
+cat SLACKWARE_REPLACED_PACKAGES.TXT | sed "s,@GNOME_VERSION@,${GNOME_VERSION},g" > \
 	$PKGDEST/SLACKWARE_REPLACED_PACKAGES.TXT || exit 1
 
 for i in COPYING COPYING3 CREDITS INSTALL.TXT UPGRADE.TXT \
  CHANGES_AND_HINTS.TXT GPG-KEY COPYRIGHT.TXT MIRRORS.TXT CURRENT.WARNING \
- FAQ.TXT 
-#ANNOUNCE.${GSB_VERSION//./_}
+ FAQ.TXT ANNOUNCE.${GSB_VERSION//./_}
 do
  if [ -f $i ]; then
    # Only copy over if changed in order to preserve timestamp
    if [ "$(cat ${i} | md5sum )" != "$(cat $PKGDEST/${i} | md5sum )" ];
      then 
-       cp $i $PKGDEST/${i} || exit 1;
+       cp -p $i $PKGDEST/${i} || exit 1;
    fi;
  fi;
 done;
@@ -534,16 +555,16 @@ Have fun!
 EOF
 
 # Copy extra documentation
-cp extra/README.TXT $PKGDEST/$EXTRADIR || exit 1
-[ "$WITH_TEST_PACKAGES" = "1" ] && {
-  cp testing/README.TXT $PKGDEST/$TESTINGDIR || exit 1
-}
+cp -p extra/README.TXT $PKGDEST/$EXTRADIR || exit 1
+#[ "$WITH_TEST_PACKAGES" = "1" ] && {
+  #cp -p testing/README.TXT $PKGDEST/$TESTINGDIR || exit 1
+#}
 if [ "$ARCH" = "x86_64" ]; then
-  cp ChangeLog.slackware64 $PKGDEST/ChangeLog.txt 
+  cp -p ChangeLog.slackware64 $PKGDEST/ChangeLog.txt 
 else
-  cp ChangeLog.slackware $PKGDEST/ChangeLog.txt 
+  cp -p ChangeLog.slackware $PKGDEST/ChangeLog.txt 
 fi
-cp VERSIONS $PKGDEST/VERSIONS 
+cp -p VERSIONS $PKGDEST/VERSIONS 
 echo;
 header "* Published documentation."
 echo;

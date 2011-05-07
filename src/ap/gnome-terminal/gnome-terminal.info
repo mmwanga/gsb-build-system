@@ -1,8 +1,8 @@
 PKGNAME="gnome-terminal"
-VERSION="3.0.0"
+VERSION="3.0.1"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/gnome-terminal/3.0/gnome-terminal-${VERSION}.tar.bz2"
-MD5SUM="ad3c6ad041c3af4a364ffb88667d898b"
+MD5SUM="63b1d72b22be15d5fa039260bc6fbd64"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

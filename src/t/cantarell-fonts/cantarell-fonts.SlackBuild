@@ -21,7 +21,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 VERSION=0.0.6
-BUILD=1
+BUILD=2
 TAG=${TAG:-gsb}
 
 NUMJOBS=${NUMJOBS:-" -j10 "}
@@ -60,6 +60,9 @@ mkdir -p $PKG/etc/fonts/conf.avail &&
 mv $PKG/usr/share/fontconfig/conf.avail/31-cantarell.conf \
  $PKG/etc/fonts/conf.avail/31-cantarell.conf || exit 1
 rmdir -p $PKG/usr/share/fontconfig/conf.avail
+(mkdir $PKG/etc/fonts/conf.d ; cd $PKG/etc/fonts/conf.d ; ln -s ../conf.avail/31-cantarell.conf )
+# Move otf files into share/fonts/OTF so X can pick them up
+mv $PKG/usr/share/fonts/cantarell $PKG/usr/share/fonts/OTF || exit 1
 
 mkdir -p $PKG/usr/doc/$PKGNAM-$VERSION
 cp -a COPYING NEWS README \

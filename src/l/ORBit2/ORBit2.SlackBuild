@@ -21,7 +21,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 VERSION=2.14.19
-BUILD=4
+BUILD=5
 TAG=${TAG:-gsb}
 
 NUMJOBS=${NUMJOBS:-" -j10 "}
@@ -77,14 +77,11 @@ CFLAGS="$GSBCFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --enable-shared \
-  --disable-static \
+  --enable-static \
   || exit 1
 
 make ${NUMJOBS} || make || exit 1
 make DESTDIR=$PKG install || exit 1
-
-# --disable-static is ignored
-rm $PKG/usr/lib${LIBDIRSUFFIX}/*.a
 
 find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded 2>/dev/null

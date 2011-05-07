@@ -1,7 +1,2 @@
-gmime 
-openssl 
-libnotify 
 gpgme 
-gtkhtml 
-gtksourceview 
 libesmtp

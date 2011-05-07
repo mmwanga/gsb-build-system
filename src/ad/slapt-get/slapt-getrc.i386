@@ -9,26 +9,26 @@ EXCLUDE=^aaa_base,^aaa_elflibs,^kernel-.*,x86_64
 # Slackware mirrors.
 # This is the primary mirror for Slackware.  Uncomment the SOURCEs for the
 # 'extra/', 'testing/' or 'pasture/' areas if you use packages from them.
-SOURCE=http://ftp.osuosl.org/pub/slackware/slackware-current/:OFFICIAL
-#SOURCE=http://ftp.osuosl.org/pub/slackware/slackware-current/extra/:OFFICIAL
-#SOURCE=http://ftp.osuosl.org/pub/slackware/slackware-current/testing/:OFFICIAL
-#SOURCE=http://ftp.osuosl.org/pub/slackware/slackware-current/pasture/:OFFICIAL
+SOURCE=http://ftp.osuosl.org/pub/slackware/slackware-13.37/:OFFICIAL
+#SOURCE=http://ftp.osuosl.org/pub/slackware/slackware-13.37/extra/:OFFICIAL
+#SOURCE=http://ftp.osuosl.org/pub/slackware/slackware-13.37/testing/:OFFICIAL
+#SOURCE=http://ftp.osuosl.org/pub/slackware/slackware-13.37/pasture/:OFFICIAL
 # Below is a list of (some of the) other Slackware mirrors which can be used
 # instead of osuosl.  Any Slackware mirror can be used, but those listed here
 # have all been manually checked as working.  Add copies for the additional
 # extra/testing/pasture areas (like above) if you use them.
-#SOURCE=http://www.slackware.at/data/slackware-current/:OFFICIAL
-#SOURCE=ftp://ftp.slackware.at/slackware-current/:OFFICIAL
-#SOURCE=http://www.slackware.org.uk/slackware/slackware-current/:OFFICIAL
-#SOURCE=ftp://ftp.slackware.org.uk/slackware/slackware-current/:OFFICIAL
-#SOURCE=http://slackware.oregonstate.edu/slackware-current/:OFFICIAL
-#SOURCE=ftp://slackware.oregonstate.edu/pub/slackware/slackware-current/:OFFICIAL
-#SOURCE=http://mirror.switch.ch/ftp/mirror/slackware/slackware-current/:OFFICIAL
-#SOURCE=ftp://mirror.switch.ch/mirror/slackware/slackware-current/:OFFICIAL
-#SOURCE=http://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-current/:OFFICIAL
-#SOURCE=ftp://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-current/:OFFICIAL
-#SOURCE=http://slackware.mirrors.tds.net/pub/slackware/slackware-current/:OFFICIAL
-#SOURCE=ftp://slackware.mirrors.tds.net/pub/slackware/slackware-current/:OFFICIAL
+#SOURCE=http://www.slackware.at/data/slackware-13.37/:OFFICIAL
+#SOURCE=ftp://ftp.slackware.at/slackware-13.37/:OFFICIAL
+#SOURCE=http://www.slackware.org.uk/slackware/slackware-13.37/:OFFICIAL
+#SOURCE=ftp://ftp.slackware.org.uk/slackware/slackware-13.37/:OFFICIAL
+#SOURCE=http://slackware.oregonstate.edu/slackware-13.37/:OFFICIAL
+#SOURCE=ftp://slackware.oregonstate.edu/pub/slackware/slackware-13.37/:OFFICIAL
+#SOURCE=http://mirror.switch.ch/ftp/mirror/slackware/slackware-13.37/:OFFICIAL
+#SOURCE=ftp://mirror.switch.ch/mirror/slackware/slackware-13.37/:OFFICIAL
+#SOURCE=http://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-13.37/:OFFICIAL
+#SOURCE=ftp://ftp.heanet.ie/mirrors/ftp.slackware.com/pub/slackware/slackware-13.37/:OFFICIAL
+#SOURCE=http://slackware.mirrors.tds.net/pub/slackware/slackware-13.37/:OFFICIAL
+#SOURCE=ftp://slackware.mirrors.tds.net/pub/slackware/slackware-13.37/:OFFICIAL
 # Additional mirrors for Slackware can be found at:
 #  http://slackware.com/getslack/
 #  http://alphageek.dyndns.org/linux/slackware-mirrors.shtml

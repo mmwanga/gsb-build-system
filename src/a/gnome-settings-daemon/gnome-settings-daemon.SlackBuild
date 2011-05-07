@@ -20,8 +20,8 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=3.0.0.1
-BUILD=1
+VERSION=3.0.1
+BUILD=2
 TAG=${TAG:-gsb}
 
 NUMJOBS=${NUMJOBS:-" -j10 "}
@@ -87,6 +87,11 @@ make check && make DESTDIR=$PKG install || exit 1
 
 # Make sure we only start gnome-setting-daemon in a gnome session
 mkdir -p $PKG/etc/gnome/xdg/autostart &&
+# Make sure the .desktop is available in the /usr/share/desktop directory
+# so that fallback works properly
+mkdir -p $PKG/usr/share/applications &&
+cp $PKG/etc/xdg/autostart/gnome-settings-daemon.desktop \
+ $PKG/usr/share/applications &&
   mv $PKG/etc/xdg/autostart/gnome-settings-daemon.desktop \
     $PKG/etc/gnome/xdg/autostart || exit 1
 rm -fr $PKG/etc/xdg

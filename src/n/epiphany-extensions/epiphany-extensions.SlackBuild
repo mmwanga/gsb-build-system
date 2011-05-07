@@ -20,8 +20,8 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=2.91.92
-BUILD=2
+VERSION=3.0.0
+BUILD=1
 TAG=${TAG:-gsb}
 
 NUMJOBS=${NUMJOBS:-" -j10 "}
@@ -63,9 +63,6 @@ cd $TMP &&
 rm -rf $PKGNAM-$VERSION &&
 tar xvf $CWD/$PKGNAM-$VERSION.tar.?z* &&
 cd $PKGNAM-$VERSION || exit 1
-
-# compile against epiphany 3.0 API
-zcat $CWD/epiphany-extensions.api3.diff.gz | patch -p1 || exit 1
 
 chown -R root:root .
 find . \

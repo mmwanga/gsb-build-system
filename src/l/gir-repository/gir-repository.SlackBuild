@@ -20,8 +20,8 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=0.10.7
-GIRVERSION=0.10.7
+VERSION=0.10.8
+GIRVERSION=0.10.8
 BUILD=1
 
 TAG=${TAG:-gsb}
@@ -66,6 +66,12 @@ SRCURL[4]="http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-${SRCVERSION
 MD5SUM[4]="442bc3d37b8511a73379143e7531d726"
 SOURCE[4]="${SRCDIR}/${SRCNAME[4]}-${SRCVERSION[4]}.tar.gz"
 OPTIONS[4]="--disable-debug --disable-gst-debug"
+SRCNAME[5]="gtk+"
+SRCVERSION[5]="2.24.4"
+SRCURL[5]="ftp://ftp.gnome.org/pub/gnome/sources/gtk+/2.24/gtk+-${SRCVERSION[5]}.tar.bz2"
+MD5SUM[5]="e05a700ba79c8813d56e83e80636ee21"
+SOURCE[5]="${SRCDIR}/${SRCNAME[5]}-${SRCVERSION[5]}.tar.gz"
+OPTIONS[5]="--enable-introspection"
 
 mkdir -p $TMP
 rm -rf $PKG
@@ -120,12 +126,37 @@ for (( i = 0; i < ${#SOURCE[*]}; i++ )) ; do
   tar xvf ${SOURCE[$i]} &&
   cd ${SRCNAME[$i]}-${SRCVERSION[$i]} || exit 1
 
+  # Customise builds
+  case "${SRCNAME[$i]}" in
+	"gtk+") 
+	# Fix build errors
+	zcat $CWD/fix_build_issues_on_tutorial_and_faq.diff.gz | patch -p1 --verbose || exit 1
+	# Do not flood the console or .xsession-errors with "trouble ahead"
+	# warnings (most noticable when using Firefox and Flash):
+	zcat $CWD/gtk.xid.nowarningflood.diff.gz | patch -p1 --verbose || exit 1
+	# Use /etc/gtk-2.0/$ARCH-slackware-linux instead of /etc/gtk-2.0/ for gtk.immodules
+	zcat $CWD/use_host_triplet_for_gtk_immodules.diff.gz | patch -p1 --verbose || exit 1
+	# Patch to restore commonly used icon names, otherwise everything breaks.
+	# I fail to see the point of this "cleanup"
+	zcat $CWD/gtk+-2.24.x.icon-compat.diff.gz | patch -p1 --verbose || exit 1
+	zcat $CWD/gtk+-2.24.x.icon-compat.am.diff.gz | patch -p1 --verbose || exit 1
+	# Regenerate ./configure:
+	libtoolize --force
+	autoreconf -vif
+	# Autoconf changes linux to linux-gnu.
+	# Our host is $ARCH-slackware-linux not $ARCH-slackware-linux-gnu:
+	sed -i -e 's#linux|linux-gnu|#linux|linux|#' config.sub
+	;;
+  esac
+
   chown -R root:root .
   find . \
     \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
     -exec chmod 755 {} \; -o \
     \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
     -exec chmod 644 {} \;
+
+
 
 CFLAGS="$GSBCFLAGS" \
 ./configure --prefix=/usr \
@@ -145,6 +176,8 @@ $(find . -depth -type f -name "*.gir" \
     -o -type f -name "*typelib" ) \
   | ( cd ${PKG} ; tar xf - ) || exit 1
 rm -fr $TMP/${SRCNAME[$i]}
+# Spam build machine for building gdk and gtk+ GIR
+cp -r ${PKG}/usr/* /usr 
 done;
 
 mkdir -p $PKG/usr/doc/$PKGNAM-$VERSION

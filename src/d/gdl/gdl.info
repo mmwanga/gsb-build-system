@@ -1,8 +1,8 @@
 PKGNAME="gdl"
-VERSION="2.30.0"
+VERSION="3.0.1"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gdl/2.30/gdl-2.30.0.tar.bz2"
-MD5SUM="ce4eef03a36bf6abd9f8cbad4806d7b8"
+DOWNLOAD="${GNOME_SERVER}/gdl/3.0/gdl-3.0.1.tar.bz2"
+MD5SUM="385c8f2dc537d45212cd58c9d0c895a9"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

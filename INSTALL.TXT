@@ -91,12 +91,10 @@ your /etc/slapt-get/slapt-getrc file.  Afterwards:
        $ slapt-get --update
 2.  Update gpg keys:
        $ slapt-get --add-keys
-3.  Remove obsolete or old packages which have been removed from the
-    repository.
-       $ slapt-get --remove-obsolete
-4. Upgrade your packages:
-      $ slapt-get --upgrade
-5.  Install the GSB desktop via the metapackage:
+3. Upgrade your packages and delete obsolete or old packages which have been
+   removed from the repository:
+      $ slapt-get --upgrade --remove-obsolete
+4.  Install the GSB desktop via the metapackage:
        $ slapt-get --install gsb-desktop
 
 All relevant packages will installed or upgraded through this metapackage.
@@ -328,6 +326,7 @@ all GSB daemon/services have been stopped.
 ----------------------------------
 
 Do one of the following (in this order):
+
   * Read the FAQ.TXT and CHANGES_AND_HINTS.TXT for extra hints.
 
   * For bug reports and feature requests, please check our issue tracker for
@@ -347,15 +346,10 @@ Do one of the following (in this order):
 
     Note: You must be subscribed to the mailing list in order to post messages.
 
-  * Join the #gsb IRC channel on irc.freenode.net and ask questions - without
-    whinging, bitching, repeatidly asking the same question, repeatidly asking
-    'is anyone here?' or being a general idiot.  We are a friendly bunch
-    (well, mostly anyway) and willing to help IF YOU GIVE US RESPECT.
-
-    On IRC, we may appear to be always online, but we are frequently away from
+  * Join the #gsb IRC channel on irc.freenode.net and ask questions.    On IRC,
+    we may appear to be always online, but we are frequently away from
     the console and you may not receive an answer for a while.  But stick
     around since we'll try to give a reply, eventually  :-)
-
 
 ---
 

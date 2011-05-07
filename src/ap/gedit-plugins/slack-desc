@@ -1,12 +1,12 @@
-     |-----handy-ruler------------------------------------------------------|
+             |-----handy-ruler------------------------------------------------------|
 gedit-plugins: gedit-plugins (GNOME Text Editor Plugins)
 gedit-plugins:
-gedit-plugins: gEdit is a small but powerful text editor designed for GNOME.  It
-gedit-plugins: includes such features as split-screen mode, a plugin API, which
-gedit-plugins: allows gEdit to be extended to support many features while remaining
-gedit-plugins: small at its core, multiple document editing through the use of a
-gedit-plugins: 'tabbed' notebook and many more functions, including Python
-gedit-plugins: modules.
-gedit-plugins:
 gedit-plugins: This package contains additional plugins for gEdit.
+gedit-plugins:
+gedit-plugins:
+gedit-plugins:
+gedit-plugins:
+gedit-plugins:
+gedit-plugins:
+gedit-plugins:
 gedit-plugins:

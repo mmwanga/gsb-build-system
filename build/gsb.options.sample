@@ -18,20 +18,18 @@ export TAG="gsb"
 #
 #export GNOME_SERVER="ftp://ftp.gnome.org/pub/GNOME/sources"
 
-# Build Environment for Slackware 13.1
+# Build Environment for Slackware 13.37
 #
 #export ARCH="i486"
-#export TUNE="i686"
 #export DISTRO="slackware"
 #export TMP=/tmp
 #export PKGTYPE="txz"
 #export PKGDEST=$TMP/gsb-tree
-#export GSB_MAKE_FLAGS="-j2"
 
-# Build Environment for Slackware 13.1
+# Build Environment for Slackware64 13.37
 #
 #export ARCH="x86_64"
 #export DISTRO="slackware"
 #export TMP=/tmp
+#export PKGTYPE="txz"
 #export PKGDEST=$TMP/gsb64-tree
-#export GSB_MAKE_FLAGS="-j4"

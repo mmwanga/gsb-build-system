@@ -1,8 +1,8 @@
 PKGNAME="seahorse"
-VERSION="3.0.0"
+VERSION="3.0.1"
 HOMEPAGE="http://live.gnome.org/Seahorse"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/seahorse/3.0/seahorse-${VERSION}.tar.bz2"
-MD5SUM="068343c6e01a8fe07618d8f33d2d1345"
+MD5SUM="b819d788a415fbe919e49547b22df78c"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

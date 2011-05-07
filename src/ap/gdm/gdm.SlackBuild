@@ -21,7 +21,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 VERSION=2.20.11
-BUILD=3
+BUILD=4
 TAG=${TAG:-gsb}
 
 NUMJOBS=${NUMJOBS:-" -j10 "}
@@ -72,9 +72,13 @@ find . \
   -exec chmod 644 {} \;
 
 CFLAGS="$GSBCFLAGS" \
-./configure --prefix=/usr \
+./configure --prefix=/usr  \
+  --sysconfdir=/etc \
+  --localstatedir=/var/lib \
+  --mandir=/usr/man $CONFIGURE_FLAGS \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
+  --target=$ARCH-$DISTRO-linux \
   --disable-scrollkeeper \
   --disable-static \
   --enable-ipv6 \
@@ -91,8 +95,8 @@ CFLAGS="$GSBCFLAGS" \
   || exit 1
 
 # Build and install.
-make ${NUMJOBS} SUSPEND_COMMAND=/usr/sbin/pm-suspend || make || exit 1
-make SUSPEND_COMMAND=/usr/sbin/pm-suspend DESTDIR=$PKG install || exit 1
+make ${NUMJOBS} SUSPEND_COMMAND=/usr/sbin/pm-suspend &&
+make ${NUMJOBS} SUSPEND_COMMAND=/usr/sbin/pm-suspend DESTDIR=$PKG install || exit 1
 
 # Make some handy softlinks
 ( cd $PKG/usr/bin; ln -s ../sbin/gdm . ; ln -s ../sbin/gdmsetup . )
@@ -106,15 +110,33 @@ chown -R root:root $PKG/usr/share/xsessions/* || exit 1;
 chmod 644 $PKG/usr/share/xsessions/* || exit 1;
 
 # preserve settings
-mv $PKG/etc/X11/gdm/Xsession $PKG/etc/X11/gdm/Xsession.new &&
-mv $PKG/etc/X11/gdm/custom.conf $PKG/etc/X11/gdm/custom.conf.new &&
-mv $PKG/etc/X11/gdm/PreSession/Default $PKG/etc/X11/gdm/PreSession/Default.new &&
-mv $PKG/etc/X11/gdm/PostSession/Default $PKG/etc/X11/gdm/PostSession/Default.new &&
-mv $PKG/etc/X11/gdm/PostLogin/Default.sample $PKG/etc/X11/gdm/PostLogin/Default.new &&
+mv $PKG/etc/X11/gdm/Xsession $PKG/etc/X11/gdm/Xsession.new || exit 1;
+#cp $CWD/custom.conf $PKG/etc/X11/gdm/custom.conf.new
+if [ -f $PKG/etc/X11/gdm/custom.conf ]; then
+  mv $PKG/etc/X11/gdm/custom.conf $PKG/etc/X11/gdm/custom.conf.new || exit 1;
+fi;
+mv $PKG/etc/X11/gdm/PreSession/Default $PKG/etc/X11/gdm/PreSession/Default.new || exit 1;
+mv $PKG/etc/X11/gdm/PostSession/Default $PKG/etc/X11/gdm/PostSession/Default.new || exit 1
+mv $PKG/etc/X11/gdm/PostLogin/Default.sample $PKG/etc/X11/gdm/PostLogin/Default.new || exit 1;
 chown -R root:root $PKG/etc/X11/gdm || exit 1;
 
 find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded 2>/dev/null
+
+# Compress and link manpages
+if [ -d $PKG/usr/man ]; then
+  ( cd $PKG/usr/man
+    for manpagedir in $(find . -type d -name "man*") ; do
+      ( cd $manpagedir
+        for eachpage in $( find . -type l -maxdepth 1) ; do
+          ln -s $( readlink $eachpage ).gz $eachpage.gz
+          rm $eachpage
+        done
+        gzip -9 *.?
+      )
+    done
+  )
+fi
 
 mkdir -p $PKG/usr/doc/$PKGNAM-$VERSION
 cp -a AUTHORS COPYING NEWS README \

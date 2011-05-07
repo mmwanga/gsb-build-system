@@ -10,7 +10,7 @@ gnome-shell: gnome-shell (GNOME shell)
 gnome-shell:
 gnome-shell: gnome-shell provides the core compositing user interface functions 
 gnome-shell: for the GNOME 3 desktop, like switching to windows and launching 
-gnoem-shell: applications. GNOME Shell takes advantage of the capabilities of 
+gnome-shell: applications. GNOME Shell takes advantage of the capabilities of 
 gnome-shell: modern graphics hardware and introduces innovative user interface 
 gnome-shell: concepts to provide an attractive and easy-to-use experience.
 gnome-shell:

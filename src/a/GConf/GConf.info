@@ -1,8 +1,8 @@
 PKGNAME="GConf"
-VERSION="2.32.2"
+VERSION="2.32.3"
 HOMEPAGE="http://projects.gnome.org/gconf/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/GConf/2.32/GConf-${VERSION}.tar.bz2"
-MD5SUM="0d19e59b8997b9968695ca863dd0acc8"
+MD5SUM="a7c683fe6566e05a67ecb1ee3b20056c"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

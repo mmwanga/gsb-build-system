@@ -78,6 +78,9 @@ make DESTDIR=$PKG install || exit 1
 find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
   cut -d: -f1 | xargs strip --strip-unneeded 2>/dev/null
 
+# Preserve settings
+mv $PKG/etc/slim.conf $PKG/etc/slim.conf.new
+
 # Compress and link manpages
 if [ -d $PKG/usr/man ]; then
   ( cd $PKG/usr/man

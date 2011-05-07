@@ -1,12 +1,19 @@
-	                  |-----handy-ruler------------------------------------------------------|
-network-manager-applet: network-manager-applet (Panel Applet for NetworkManager)
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+                      |-----handy-ruler------------------------------------------------------|
+network-manager-applet: network-manager-applet (NetworkManager Applet)
 network-manager-applet:
-network-manager-applet: NetworkManager attempts to make networking invisible. When moving 
-network-manager-applet: into areas you've been before, NetworkManager automatically connects 
-network-manager-applet: to the last network the user chose to connect to. Likewise, when 
-network-manager-applet: back at the desk, NetworkManager will switch to the faster, more 
-network-manager-applet: reliable wired network connection. 
-network-manager-applet: 
-network-manager-applet: This package contains a GNOME Panel applet to easily control 
-network-manager-applet: NetworkManager from the desktop.
-network-manager-applet: 
+network-manager-applet: nm-applet is a GNOME applet for controlling NetworkManager.
+network-manager-applet:
+network-manager-applet:
+network-manager-applet:
+network-manager-applet:
+network-manager-applet:
+network-manager-applet:
+network-manager-applet:
+network-manager-applet:

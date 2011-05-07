@@ -23,6 +23,7 @@ Q16: When I reboot, my volume settings are reset.  How can I preseve these
      settings?
 Q17: What's the difference between GSB and Dropline GNOME?
 Q18: Do you support GSB installed on Slackware-current?
+Q19: How come slapt-get does not upgrade some packages?
 
 -----
 
@@ -258,3 +259,15 @@ on Slackware-current, but we cannot help support it, usually due to the
 difficulty of package rebuilding against a changing foundation on -current
 (e.g., glibc, compilers, X, etc).
 
+    -----
+
+Q19: How come slapt-get does not upgrade some packages?
+
+A: slapt-get uses a weighted system for upgrading packages.  You might be
+interested in reading:
+  Slapt-get FAQ 57. How do I assign priorities to my package sources?
+  <http://software.jaos.org/git/slapt-get/plain/FAQ.html#slgFAQ57>
+
+  You will need to add a :CUSTOM entry to your SOURCE= which points to the GSB
+repository, otherwise it will consider official Slackware packages the most
+important and refuse to upgrade to other versions.

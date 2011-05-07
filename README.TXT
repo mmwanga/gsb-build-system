@@ -96,7 +96,6 @@ FTP site:
 |   |-- ap/             Source code for applications packages.
 |   |-- d/              Source code for development packages.
 |   |-- l/              Source code for libraries packages.
-|   |-- m/              Source code for mono packages.
 |   |-- n/              Source code for networking packages.
 |   `-- t/              Source code for themes packages.
 |

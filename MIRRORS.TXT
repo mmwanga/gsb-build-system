@@ -1,115 +1,90 @@
-------------------------
-GNOME SlackBuild Mirrors
-------------------------
+GNOME SlackBuild Worldwide Mirror Sites
+-----------------------------------------
+
+GNOME SlackBuild is distributed on a number of servers across the Internet.
+Using a nearby server will probably speed up your download, and also reduce the
+load on our main servers.  When you are configuring your slapt-get, please make
+sure to pick the mirror nearest you.
+
+We are happy to call OSUOSL a GSB sponsor (http://osuosl.org/), and that they
+graciously mirror the GSB software repository.  This is the same organization &
+mirror that is the official Slackware mirror :-) The OSUOSL mirror is our
+official US mirror.  OSUOSL sponsors and hosts a wide variety of excellent Open
+Source projects and initiatives, including, GNOME and Slackware.   Show them
+how much you appreciate what they give to the community by providing a donation
+(http://osuosl.org/donate).
+
+If you know of any mirrors that are missing from this list, please email
+steve@gnomeslackbuild.org or chipster@gnomeslackbuild.org.
+
+== GNOME SlackBuild ==
 
 # United States
-
-    http://ftp.osuosl.org/pub/gsb/gsb-3.0_slackware-current/
-
-    ftp://ftp.osuosl.org/pub/gsb/gsb-3.0_slackware-current/
-
-    http://get.gnomeslackbuild.org/gsb/gsb-3.0_slackware-current/
-
-
+http://ftp.osuosl.org/pub/gsb/gsb-3.0_slackware-current/
+ftp://ftp.osuosl.org/pub/gsb/gsb-3.0_slackware-current/
+http://get.gnomeslackbuild.org/gsb/gsb-3.0_slackware-current/
 # United Kingdom
-
-    http://www.slackware.org.uk/gsb/gsb-3.0_slackware-current/
-    
-    ftp://ftp.slackware.org.uk/gsb/gsb-3.0_slackware-current/
-
-
+http://www.slackware.org.uk/gsb/gsb-3.0_slackware-current/
+ftp://ftp.slackware.org.uk/gsb/gsb-3.0_slackware-current/
 # Russia
-
-    http://slackware.rol.ru/gsb/gsb/gsb-3.0_slackware-current/
-
-
+http://slackware.rol.ru/gsb/gsb/gsb-3.0_slackware-current/
 # Poland
-
-    ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-3.0_slackware-current/
-
-
+ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb-3.0_slackware-current/
 # Germany
-
-    http://ftp5.gwdg.de/pub/linux/slackware/gsb/gsb-3.0_slackware-current/
-
-    ftp://ftp5.gwdg.de/pub/linux/slackware/gsb/gsb-3.0_slackware-current/
-
-
+http://ftp5.gwdg.de/pub/linux/slackware/gsb/gsb-3.0_slackware-current/
+ftp://ftp5.gwdg.de/pub/linux/slackware/gsb/gsb-3.0_slackware-current/
+http://mirror.informatik.uni-mannheim.de/pub/linux/distributions/slackware-unsupported/gsb/gsb-3.0_slackware-current/
+ftp://mirror.informatik.uni-mannheim.de/pub/linux/distributions/slackware-unsupported/gsb/gsb-3.0_slackware-current/
 # Belgium
-
-    http://mirrors.dotsrc.org/gsb/gsb-3.0_slackware-current/
-
-    ftp://mirrors.dotsrc.org/gsb/gsb-3.0_slackware-current/
-
-
+http://mirrors.dotsrc.org/gsb/gsb-3.0_slackware-current/
+ftp://mirrors.dotsrc.org/gsb/gsb-3.0_slackware-current/
 # Switzerland
-
-    http://mirror.switch.ch/ftp/mirror/gsb/gsb-3.0_slackware-current/
-
-    ftp://mirror.switch.ch/ftp/mirror/gsb/gsb-3.0_slackware-current/
-
-
+http://mirror.switch.ch/ftp/mirror/gsb/gsb-3.0_slackware-current/
+ftp://mirror.switch.ch/ftp/mirror/gsb/gsb-3.0_slackware-current/
 # Indonesia
+http://ftp.paudni.kemdiknas.go.id/gsb/gsb-3.0_slackware-current/
+ftp://ftp.paudni.kemdiknas.go.id/gsb/gsb-3.0_slackware-current/
+# South Africa
+ftp://ftp.is.co.za/mirrors/ftp.slackware.com/pub/gsb/gsb-3.0_slackware-current/
+# Portugal
+http://darkstart.ist.pt/slackware/addon/gsb/gsb-3.0_slackware-current/
+# Brazil
+ftp://ftp.slackware-brasil.com.br/gsb/gsb-3.0_slackware-current/
 
-    http://ftp.paudni.kemdiknas.go.id/gsb/gsb-3.0_slackware-current/
-
-    ftp://ftp.paudni.kemdiknas.go.id/gsb/gsb-3.0_slackware-current/
-
-
-------------------
-GNOME SlackBuild64
-------------------
+== GNOME SlackBuild64 ==
 
 # United States
-
-    http://ftp.osuosl.org/pub/gsb/gsb64-3.0_slackware64-current/
-
-    ftp://ftp.osuosl.org/pub/gsb/gsb64-3.0_slackware64-current/
-
-    http://get.gnomeslackbuild.org/gsb/gsb64-3.0_slackware64-current/
-
-
+http://ftp.osuosl.org/pub/gsb/gsb64-3.0_slackware64-current/
+ftp://ftp.osuosl.org/pub/gsb/gsb64-3.0_slackware64-current/
+http://get.gnomeslackbuild.org/gsb/gsb64-3.0_slackware64-current/
 # United Kingdom
-
-    http://www.slackware.org.uk/gsb/gsb64-3.0_slackware64-current/
-
-    ftp://ftp.slackware.org.uk/gsb/gsb64-3.0_slackware64-current/
-
-
-# Germany
-
-    http://ftp5.gwdg.de/pub/linux/slackware/gsb/gsb64-3.0_slackware64-current/
-
-    ftp://ftp5.gwdg.de/pub/linux/slackware/gsb/gsb64-3.0_slackware64-current/
-
-
+http://www.slackware.org.uk/gsb/gsb64-3.0_slackware64-current/
+ftp://ftp.slackware.org.uk/gsb/gsb64-3.0_slackware64-current/
 # Russia
-
-    http://slackware.rol.ru/gsb/gsb/gsb64-3.0_slackware64-current/
-
-
+http://slackware.rol.ru/gsb/gsb/gsb64-3.0_slackware64-current/
 # Poland
-
-    ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb64-3.0_slackware64-current/
-
-
+ftp://ftp.slackware.pl/pub/gnomeslackbuild/gsb/gsb64-3.0_slackware64-current/
+# Germany
+http://ftp5.gwdg.de/pub/linux/slackware/gsb/gsb64-3.0_slackware64-current/
+ftp://ftp5.gwdg.de/pub/linux/slackware/gsb/gsb64-3.0_slackware64-current/
+http://mirror.informatik.uni-mannheim.de/pub/linux/distributions/slackware-unsupported/gsb/gsb64-3.0_slackware64-current/
+ftp://mirror.informatik.uni-mannheim.de/pub/linux/distributions/slackware-unsupported/gsb/gsb64-3.0_slackware64-current/
 # Belgium
-
-    http://mirrors.dotsrc.org/gsb/gsb64-3.0_slackware64-current/
-
-    ftp://mirrors.dotsrc.org/gsb/gsb64-3.0_slackware64-current/
-
-
+http://mirrors.dotsrc.org/gsb/gsb64-3.0_slackware64-current/
+ftp://mirrors.dotsrc.org/gsb/gsb64-3.0_slackware64-current/
 # Switzerland
-
-    http://mirror.switch.ch/ftp/mirror/gsb/gsb64-3.0_slackware64-current/
-
-    ftp://mirror.switch.ch/ftp/mirror/gsb/gsb64-3.0_slackware64-current/
-
-
+http://mirror.switch.ch/ftp/mirror/gsb/gsb64-3.0_slackware64-current/
+ftp://mirror.switch.ch/ftp/mirror/gsb/gsb64-3.0_slackware64-current/
 # Indonesia
+http://ftp.paudni.kemdiknas.go.id/gsb/gsb64-3.0_slackware64-current/
+ftp://ftp.paudni.kemdiknas.go.id/gsb/gsb64-3.0_slackware64-current/
+# South Africa
+ftp://ftp.is.co.za/mirrors/ftp.slackware.com/pub/gsb/gsb64-3.0_slackware64-current/
+# Portugal
+http://darkstart.ist.pt/slackware/addon/gsb/gsb64-3.0_slackware64-current/
+# Brazil
+ftp://ftp.slackware-brasil.com.br/gsb/gsb64-3.0_slackware64-current/
 
-    http://ftp.paudni.kemdiknas.go.id/gsb/gsb64-3.0_slackware64-current/
 
-    ftp://ftp.paudni.kemdiknas.go.id/gsb/gsb64-3.0_slackware64-current/
 
+Last Updated: Sat Apr 30 15:14:49 GMT 2011
