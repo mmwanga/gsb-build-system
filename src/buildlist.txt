@@ -139,7 +139,6 @@ ap/gnome-media
 ap/brasero
 l/libdmapsharing
 l/gst-python
-ap/rhythmbox
 l/gtksourceview
 ap/gedit
 ap/gedit-plugins
@@ -208,6 +207,9 @@ extra/gnome-tweak-tool
 #extra/volti
 l/libgnomecanvas
 ap/gdm
+# Mono applications
+#m/libgdiplus
+#m/mono
 # Pasture packages in pasture/
 pasture/gnome-mime-data
 pasture/gnome-vfs
@@ -218,5 +220,6 @@ pasture/libgnome
 # Testing packages in testing/
 testing/slim
 testing/gnome-shell-extensions
+testing/rhythmbox
 # Installation package
 a/gsb-desktop
