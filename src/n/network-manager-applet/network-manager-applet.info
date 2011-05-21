@@ -1,8 +1,8 @@
 PKGNAME="network-manager-applet"
-VERSION="0.8.998"
+VERSION="0.8.999"
 HOMEPAGE="http://live.gnome.org/NetworkManager"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/network-manager-applet/0.8/network-manager-applet-${VERSION}.tar.bz2"
-MD5SUM="60f33c7d2153a98a1036acab2bc71c6f"
+MD5SUM="5a0885e58da51d9398d4fd52092df13c"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

@@ -23,7 +23,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=ModemManager
-VERSION=0.4
+VERSION=0.4.996
 BUILD=1
 TAG=${TAG:-gsb}
 
@@ -68,9 +68,6 @@ find . \
  -exec chmod 755 {} \; -o \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
-
-# Let this build on -current (but no effect on 13.1)
-patch -p1 < $CWD/fixup_new_glib_api.patch
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
