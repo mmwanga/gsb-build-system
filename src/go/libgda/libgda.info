@@ -1,5 +1,5 @@
 PKGNAME="libgda"
-VERSION="4.2.6"
+VERSION="4.2.7"
 HOMEPAGE="http://www.gnome-db.org/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/libgda/4.2/libgda-${VERSION}.tar.bz2"
