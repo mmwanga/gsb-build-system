@@ -1,0 +1,6 @@
+PKGNAME="rhythmbox"
+VERSION="20110320"
+HOMEPAGE="http://projects.gnome.org/rhythmbox/"
+MD5SUM="7a7c059f32cb61703597c8cce34b7e93"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

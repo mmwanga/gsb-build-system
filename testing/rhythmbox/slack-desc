@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
+	 |-----handy-ruler------------------------------------------------------|
+rhythmbox: rhythmbox (GNOME Music Management)
+rhythmbox:
+rhythmbox: Rhythmbox is an integrated music management application, originally
+rhythmbox: inspired by Apple's iTunes. It is free software, designed to work 
+rhythmbox: under the GNOME Desktop, and based on the powerful GStreamer media
+rhythmbox: framework. It includes an easy to use music browser, Internet 
+rhythmbox: Radio support including last.fm streams, album art display, 
+rhythmbox: visualizations, support iPod, MTP, and USB Mass Storage music 
+rhythmbox: players, as well as Magnatune and Jamendo.
+rhythmbox:
+rhythmbox:
