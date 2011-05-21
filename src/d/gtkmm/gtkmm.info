@@ -1,8 +1,8 @@
 PKGNAME="gtkmm"
-VERSION="3.0.0"
+VERSION="3.0.1"
 HOMEPAGE="http://www.gtkmm.org/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gtkmm/3.0/gtkmm-3.0.0.tar.bz2"
-MD5SUM="90bb087152a3214c2cc348aa04f917c3"
+DOWNLOAD="${GNOME_SERVER}/gtkmm/3.0/gtkmm-3.0.1.tar.bz2"
+MD5SUM="169ed5b088538fa10483177f3035f77c"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
