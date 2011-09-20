@@ -22,7 +22,7 @@ Q15: When I click 'Places' in the GNOME menu, Dolphin or Thunar start up
 Q16: When I reboot, my volume settings are reset.  How can I preseve these
      settings?
 Q17: What's the difference between GSB and Dropline GNOME?
-Q18: Do you support GSB installed on Slackware-current?
+Q18: Do you support GSB installed on Slackware-current? READ THIS!!!
 
 -----
 
