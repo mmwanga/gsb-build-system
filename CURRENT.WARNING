@@ -21,7 +21,7 @@ be incomplete because it's in the process of being uploaded, or might not work
 for other reasons.  In most cases, we know about these things and are working
 to correct them, but still -- feel free to point out the bugs.
 
-Production use is AT YOUR OWN RISK and is not recommended.
+Production use is AT YOUR OWN RISK and is not recommended.  OK?
 
 Security is NOT GUARANTEED.  In -current, forward progress often takes
 priority.  Security fixes take time and resources, and would often have to be
