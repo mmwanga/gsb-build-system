@@ -103,7 +103,7 @@ from your new GNOME desktop.
 4. Other Installation methods
 -----------------------------
 
-GSB currently supports two other installation methos; a fully automated net 
+GSB currently supports two other installation methods; a fully automated net 
 based installer and installation from a local repository mirror.
 
 The automated net installer, obviously, requires an active internet connection
@@ -140,7 +140,7 @@ prompt, you should now logout using:
   $ logout
 
 You should now be back at the text based 'login:' prompt.  Skip the next 2
-paragraphs nad continue with the procedure.
+paragraphs and continue with the procedure.
 
 If your system boots (or has been put) into runlevel 4 (the graphical login
 runlevel), you must put the system back into runlevel 3.  Firstly, if you are
@@ -170,7 +170,7 @@ should be at runlevel 3, and there should be no active X11 sessions.
 
 This is the simplest method of installation and requires very little detailed
 explanation - you simply run one command and a full installation of GSB, plus
-any of the required Slackware/Slackware64 package dependancies, will be
+any of the required Slackware/Slackware64 package dependencies, will be
 installed.
 
 Depending on whether you have 'wget', 'curl' or 'lynx' available on your
@@ -220,11 +220,11 @@ section 'After installation' (and the sections which follow it) below.
 Installing from a local copy of GSB and/or Slackware/Slackware64 is a very
 similar process to the manual slapt-get net installation detailed above. It is
 recommended that you read that section in addition to this one, in order to
-understand the slapt-get installtion process.  Only brief instructions are
+understand the slapt-get installation process.  Only brief instructions are
 given here.
 
-For the following instructions, </path/to/gsb> referrs to the local filesystem
-location for the GSB mirror, and </path/to/slackware> referrs to the local
+For the following instructions, </path/to/gsb> refers to the local filesystem
+location for the GSB mirror, and </path/to/slackware> refers to the local
 filesystem location to the Slackware/Slackware64 mirror.  Both of these should,
 obviously, be replaced with the full correct paths to each mirror.  These paths
 can also be on a CDROM or USB device if the mirrors are located on such media.
