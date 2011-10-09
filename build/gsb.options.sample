@@ -25,6 +25,7 @@ export TAG="gsb"
 #export TMP=/tmp
 #export PKGTYPE="txz"
 #export PKGDEST=$TMP/gsb-tree
+#export NUMJOBS=" -j10 "
 
 # Build Environment for Slackware64 13.37
 #
@@ -33,3 +34,4 @@ export TAG="gsb"
 #export TMP=/tmp
 #export PKGTYPE="txz"
 #export PKGDEST=$TMP/gsb64-tree
+#export NUMJOBS=" -j10 "
