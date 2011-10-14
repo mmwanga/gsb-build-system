@@ -1,0 +1,7 @@
+PKGNAME="colord"
+VERSION="0.1.13"
+HOMEPAGE="http://www.freedesktop.org/software/colord/"
+DOWNLOAD="http://www.freedesktop.org/software/colord/releases/colord-${VERSION}.tar.xz"
+MD5SUM="37437a2119d7c89fe3c991ee4c148f94"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
