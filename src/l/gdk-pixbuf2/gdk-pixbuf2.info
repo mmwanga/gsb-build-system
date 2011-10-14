@@ -1,0 +1,8 @@
+PKGNAME="gdk-pixbuf2"
+VERSION="2.24.0"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gdk-pixbuf/2.24/gdk-pixbuf-${VERSION}.tar.xz"
+MD5SUM="bd7c2a9d23b573db467e39833f12103d"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
