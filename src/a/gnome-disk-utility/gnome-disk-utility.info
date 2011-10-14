@@ -1,8 +1,8 @@
 PKGNAME="gnome-disk-utility"
-VERSION="3.0.0"
+VERSION="3.0.2"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-disk-utility/3.0/gnome-disk-utility-${VERSION}.tar.bz2"
-MD5SUM="567a57df8555f5bbee3b664f40684518"
+DOWNLOAD="${GNOME_SERVER}/gnome-disk-utility/3.0/gnome-disk-utility-${VERSION}.tar.xz"
+MD5SUM="3916e3abfb3190367c7108b7a034b70d"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

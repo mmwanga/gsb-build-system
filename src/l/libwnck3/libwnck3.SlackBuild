@@ -22,7 +22,7 @@
 
 
 PKGNAM=libwnck
-VERSION=3.0.0
+VERSION=3.2.0
 BUILD=1
 TAG=${TAG:-gsb}
 

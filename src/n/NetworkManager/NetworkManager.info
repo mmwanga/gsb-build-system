@@ -1,8 +1,8 @@
 PKGNAME="NetworkManager"
-VERSION="0.8.999"
+VERSION="0.9.0"
 HOMEPAGE="http://live.gnome.org/NetworkManager"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/NetworkManager/0.8/NetworkManager-${VERSION}.tar.bz2"
-MD5SUM="6fad04853049e6eb152b66759667c50e"
+DOWNLOAD="${GNOME_SERVER}/NetworkManager/0.9/NetworkManager-${VERSION}.tar.xz"
+MD5SUM="658f1faa6dd42a0f9a81bdff43667ab8"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

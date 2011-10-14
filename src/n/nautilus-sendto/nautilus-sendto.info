@@ -1,8 +1,8 @@
 PKGNAME="nautilus-sendto"
-VERSION="3.0.0"
+VERSION="3.0.1"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/nautilus-sendto/3.0/nautilus-sendto-3.0.0.tar.bz2"
-MD5SUM="09ca82e6ccba4bc3f16c13b6d7492dcd"
+DOWNLOAD="${GNOME_SERVER}/nautilus-sendto/3.0/nautilus-sendto-${VERSION}.tar.bz2"
+MD5SUM="312a6eb65b035e9227a42b01c5cb9bc2"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

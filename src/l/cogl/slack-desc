@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
+    |-----handy-ruler------------------------------------------------------|
+cogl: cogl (clutter direct state 3D access library)
+cogl:
+cogl: cogl is a modern 3D graphics API with associated utility APIs 
+cogl: designed to expose the features of 3D graphics hardware using a 
+cogl: direct state access API design, as opposed to the state-machine 
+cogl: style of OpenGL.
+cogl:
+cogl: For more information, see http://wiki.clutter-project.org/wiki/Cogl
+cogl:
+cogl:
+cogl:

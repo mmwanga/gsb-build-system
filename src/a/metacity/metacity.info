@@ -1,8 +1,8 @@
 PKGNAME="metacity"
-VERSION="2.34.0"
+VERSION="2.34.1"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/metacity/2.34/metacity-${VERSION}.tar.bz2"
-MD5SUM="8291ab8ba4034f898895f38888377d74"
+DOWNLOAD="${GNOME_SERVER}/metacity/2.34/metacity-${VERSION}.tar.xz"
+MD5SUM="d505e2d7936bd9b11a3f48470a616767"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

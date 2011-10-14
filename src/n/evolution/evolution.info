@@ -1,8 +1,8 @@
 PKGNAME="evolution"
-VERSION="3.0.1"
+VERSION="3.2.0"
 HOMEPAGE="http://projects.gnome.org/evolution/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/evolution/3.0/evolution-${VERSION}.tar.bz2"
-MD5SUM="23e12e4c29325610dfc04b2d10464b72"
+DOWNLOAD="${GNOME_SERVER}/evolution/3.2/evolution-${VERSION}.tar.xz"
+MD5SUM="7c2143fe69343158ca220903b4f4b569"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

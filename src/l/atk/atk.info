@@ -1,0 +1,8 @@
+PKGNAME="atk"
+VERSION="2.2.0"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/atk/2.2/atk-${VERSION}.tar.xz"
+MD5SUM="377ab03f5a1c32141fd9dfa86c6a714a"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

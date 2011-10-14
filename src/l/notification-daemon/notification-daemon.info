@@ -1,8 +1,8 @@
 PKGNAME="notification-daemon"
-VERSION="0.7.1"
+VERSION="0.7.2"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/notification-daemon/0.7/notification-daemon-${VERSION}.tar.bz2"
-MD5SUM="6ef69d56ac727e8d3ad69e1abdbe98c5"
+DOWNLOAD="${GNOME_SERVER}/notification-daemon/0.7/notification-daemon-${VERSION}.tar.xz"
+MD5SUM="970f179b84ff7bfe58a6a3f686785d31"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

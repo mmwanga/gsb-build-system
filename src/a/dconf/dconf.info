@@ -1,8 +1,8 @@
 PKGNAME="dconf"
-VERSION="0.7.5"
+VERSION="0.8.0"
 HOMEPAGE="http://live.gnome.org/dconf"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/dconf/0.7/dconf-${VERSION}.tar.bz2"
-MD5SUM="d784f8afca04473d194a72047595c28e"
+DOWNLOAD="${GNOME_SERVER}/dconf/0.8/dconf-${VERSION}.tar.xz"
+MD5SUM="09491892594c45e895aea980d2c3abf9"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

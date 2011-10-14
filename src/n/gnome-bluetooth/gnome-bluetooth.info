@@ -1,8 +1,8 @@
 PKGNAME="gnome-bluetooth"
-VERSION="3.0.0"
+VERSION="3.2.0"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-bluetooth/3.0/gnome-bluetooth-${VERSION}.tar.bz2"
-MD5SUM="390f878091a0f21cf2578f3cbc36dbff"
+DOWNLOAD="${GNOME_SERVER}/gnome-bluetooth/3.2/gnome-bluetooth-${VERSION}.tar.xz"
+MD5SUM="07fd6df5b5bebbb99527928efe3efd1e"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

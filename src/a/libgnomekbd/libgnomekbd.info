@@ -1,8 +1,8 @@
 PKGNAME="libgnomekbd"
-VERSION="3.0.0.1"
+VERSION="3.2.0"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/libgnomekbd/3.0/libgnomekbd-${VERSION}.tar.bz2"
-MD5SUM="6f0506d7481922ac9b34b4f50987703e"
+DOWNLOAD="${GNOME_SERVER}/libgnomekbd/3.2/libgnomekbd-${VERSION}.tar.xz"
+MD5SUM="ba185a14cb128041205d618a465f9de3"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

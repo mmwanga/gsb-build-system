@@ -1,7 +1,0 @@
-PKGNAME="libgalago"
-VERSION="0.5.2"
-HOMEPAGE="http://www.galago-project.org"
-DOWNLOAD="http://www.galago-project.org/files/releases/source/libgalago/libgalago-0.5.2.tar.bz2"
-MD5SUM="47f27f58dd8b0e46d9d2e037c51063ed"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"

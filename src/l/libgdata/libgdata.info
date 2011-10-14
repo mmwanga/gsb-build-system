@@ -1,8 +1,8 @@
 PKGNAME="libgdata"
-VERSION="0.8.1"
+VERSION="0.9.1"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/libgdata/0.8/libgdata-${VERSION}.tar.bz2"
-MD5SUM="b36fb3b7a9f3368e0723d5876eb38a38"
+DOWNLOAD="${GNOME_SERVER}/libgdata/0.9/libgdata-${VERSION}.tar.xz"
+MD5SUM="1f806a0c7ef1f111a21bbc0fe1b78a2a"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

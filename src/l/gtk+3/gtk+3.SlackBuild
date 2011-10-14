@@ -20,7 +20,7 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=3.0.12
+VERSION=3.2.1
 BUILD=1
 TAG=${TAG:-gsb}
 
@@ -65,7 +65,7 @@ tar xvf $CWD/$PKGNAM-$VERSION.tar.?z* &&
 cd $PKGNAM-$VERSION || exit 1
 
 # Use /etc/gtk-3.0/$ARCH-slackware-linux instead of /etc/gtk-3.0/
-sed -i "s/GTK_SYSCONFDIR, \\\"gtk-3\\.0\\\"/GTK_SYSCONFDIR, \\\"gtk-3\\.0\\\", HOST/g" ./gtk/gtkrc.c
+#sed -i "s/GTK_SYSCONFDIR, \\\"gtk-3\\.0\\\"/GTK_SYSCONFDIR, \\\"gtk-3\\.0\\\", HOST/g" ./gtk/gtkrc.c
 sed -i 's/sysconfdir)\\"/&      \\\n\t-DHOST=\\\"$(host_triplet)\\\"/g' \
 gtk/Makefile.am \
 modules/input/Makefile.am
@@ -83,11 +83,11 @@ autoreconf -vif
 
 # Autoconf changes linux to linux-gnu.
 # Our host is $ARCH-slackware-linux not $ARCH-slackware-linux-gnu:
-sed -i -e 's#linux|linux-gnu|#linux|linux|#' config.sub
+sed -i -e 's#linux|linux-gnu|#linux|linux|#' ./build-aux/config.sub
 
 CFLAGS="$GSBCFLAGS -DHOST='"'"${ARCH}-slackware-linux"'"'" \
 ./configure --prefix=/usr \
-  --sysconfdir=/etc \
+  --sysconfdir=/etc/gtk-3.0/$ARCH-slackware-linux \
   --mandir=/usr/man \
   --enable-xinput \
   --libdir=/usr/lib${LIBDIRSUFFIX} \

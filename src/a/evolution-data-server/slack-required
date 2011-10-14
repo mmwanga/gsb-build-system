@@ -5,3 +5,6 @@ libgdata
 libgweather
 seamonkey-solibs
 heimdal-libraries
+json-glib
+liboauth
+gnome-online-accounts

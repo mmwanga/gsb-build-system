@@ -1,8 +1,8 @@
 PKGNAME="libpeas"
-VERSION="1.0.0"
+VERSION="1.2.0"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/libpeas/1.0/libpeas-${VERSION}.tar.bz2"
-MD5SUM="d716358eec12d4439d04c337733f1f60"
+DOWNLOAD="${GNOME_SERVER}/libpeas/1.2/libpeas-${VERSION}.tar.xz"
+MD5SUM="ed23e817108920dd6d3ef8fe487ba520"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

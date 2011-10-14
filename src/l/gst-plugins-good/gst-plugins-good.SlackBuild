@@ -26,7 +26,7 @@
 
 PKGNAM=gst-plugins-good
 VERSION=0.10.28
-BUILD=2
+BUILD=3
 
 # Automatically determine the architecture we're building on:
 if [ -z "$ARCH" ]; then

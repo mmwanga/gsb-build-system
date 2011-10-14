@@ -78,6 +78,7 @@ CFLAGS="$GSBCFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --disable-static \
+  --enable-nss \
   || exit 1
 
 make ${NUMJOBS} || make || exit 1
@@ -102,7 +103,7 @@ if [ -d $PKG/usr/man ]; then
 fi
 
 mkdir -p $PKG/usr/doc/$PKGNAM-$VERSION
-cp -a AUTHORS COPYING NEWS README* doc/*.pdf \
+cp -a AUTHORS COPYING README* \
   $PKG/usr/doc/$PKGNAM-$VERSION
 find $PKG/usr/doc/$PKGNAM-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAM-$VERSION

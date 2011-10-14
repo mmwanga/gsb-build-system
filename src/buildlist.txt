@@ -12,9 +12,14 @@
 #
 # install gobject-introspection and repository
 l/libffi
+l/glib2
 l/gobject-introspection
-l/gir-repository
+l/atk
+l/gdk-pixbuf2
 # gtk+3 can live beside gtk+2 safely
+l/pango
+l/lcms2
+l/colord
 l/gtk+3
 # audio dependencies
 l/speex
@@ -23,9 +28,11 @@ n/avahi
 l/ORBit2
 a/GConf
 a/rarian
+l/json-c
+l/json-glib
 a/pulseaudio
 # GNOME shell UX
-l/json-glib
+l/cogl
 l/clutter
 l/libcanberra
 a/zenity
@@ -39,16 +46,22 @@ a/gnome-desktop
 l/libproxy
 a/libgnome-keyring
 l/glib-networking
+l/libicu
 l/libsoup
+n/webkit
 a/libgweather
 l/heimdal-libraries
 l/libgdata
+l/libnotify
+l/librest
+a/gnome-online-accounts
+l/liboauth
 a/evolution-data-server
 d/vala
 a/dconf
 a/gtk-engines
 t/gnome-themes
-t/gnome-themes-standard
+#t/gnome-themes-standard
 t/gnome-icon-theme
 t/gnome-icon-theme-symbolic
 t/gnome-icon-theme-extras
@@ -62,7 +75,6 @@ a/accountsservice
 a/apg
 a/gnome-session
 a/libgnomekbd
-l/libnotify
 l/notification-daemon
 a/gnome-settings-daemon
 l/libgtop
@@ -71,9 +83,8 @@ a/nautilus
 l/libwnck3
 l/vte3
 ap/gnome-terminal
-l/libicu
-n/webkit
 l/libtasn1
+l/p11-kit
 a/gnome-keyring
 n/epiphany
 n/NetworkManager
@@ -86,8 +97,8 @@ ap/gnome-video-effects
 l/libpeas
 ap/eog
 l/mx
-ap/cheese
 a/gnome-control-center
+ap/cheese
 ap/gnome-power-manager
 t/gnome-backgrounds
 t/cantarell-fonts

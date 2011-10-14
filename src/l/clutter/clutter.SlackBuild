@@ -20,7 +20,7 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=1.6.14
+VERSION=1.8.0
 BUILD=1
 TAG=${TAG:-gsb}
 
@@ -82,7 +82,6 @@ CFLAGS="$GSBCFLAGS" \
   --with-flavour=glx \
   --enable-introspection=yes \
   --enable-xinput \
-  --with-imagebackend=gdk-pixbuf \
   || exit 1
 
 make ${NUMJOBS} || make || exit 1

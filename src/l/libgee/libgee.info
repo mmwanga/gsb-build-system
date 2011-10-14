@@ -1,8 +1,8 @@
 PKGNAME="libgee"
-VERSION="0.6.1"
+VERSION="0.6.2.1"
 HOMEPAGE="http://live.gnome.org/Libgee"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/libgee/0.6/libgee-$VERSION.tar.bz2"
-MD5SUM="9cf60f41f3aa10ac7f1f7e1d094e05a1"
+DOWNLOAD="${GNOME_SERVER}/libgee/0.6/libgee-$VERSION.tar.xz"
+MD5SUM="fdb1b75dfd39f73403d89a7ce6453909"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

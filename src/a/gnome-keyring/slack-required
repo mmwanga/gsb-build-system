@@ -1,3 +1,4 @@
 gtk+3
 libgcrypt
 libtasn1
+p11-kit

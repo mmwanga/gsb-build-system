@@ -1,8 +1,8 @@
 PKGNAME="gnome-desktop"
-VERSION="3.0.1"
+VERSION="3.2.0"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-desktop/3.0/gnome-desktop-${VERSION}.tar.bz2"
-MD5SUM="ffc0ce6e9413786f78f59f18655e8523"
+DOWNLOAD="${GNOME_SERVER}/gnome-desktop/3.2/gnome-desktop-${VERSION}.tar.bz2"
+MD5SUM="daa4cbe4e1201ff2eb8e39e3406817f5"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

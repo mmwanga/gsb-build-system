@@ -1,8 +1,8 @@
 PKGNAME="glib-networking"
-VERSION="2.28.6.1"
+VERSION="2.30.0"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/glib-networking/2.28/glib-networking-${VERSION}.tar.bz2"
-MD5SUM="d7d99c1f993398f06818a88ada04bcce"
+DOWNLOAD="${GNOME_SERVER}/glib-networking/2.30/glib-networking-${VERSION}.tar.xz"
+MD5SUM="a147c0d5aced1ba0fcc1feea53873a52"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

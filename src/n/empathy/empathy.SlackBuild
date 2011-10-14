@@ -20,8 +20,8 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=3.0.1
-BUILD=2
+VERSION=3.2.0.1
+BUILD=1
 TAG=${TAG:-gsb}
 
 NUMJOBS=${NUMJOBS:-" -j10 "}
@@ -77,9 +77,7 @@ CFLAGS="$GSBCFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --disable-static \
-  --with-eds \
-  --enable-webkit \
-  --enable-nautilus-sendto=no \
+  --without-cheese \
   --with-connectivity=no \
   || exit 1
 

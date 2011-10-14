@@ -20,8 +20,8 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=0.10.8
-GIRVERSION=0.10.8
+VERSION=1.30.0
+GIRVERSION=1.30.0
 BUILD=1
 
 TAG=${TAG:-gsb}
@@ -48,30 +48,24 @@ SRCURL[1]="ftp://ftp.gnome.org/pub/gnome/sources/pango/1.28/pango-${SRCVERSION[1
 MD5SUM[1]="caa74baea47e7e16bc73c89f9089d522"
 SOURCE[1]="${SRCDIR}/${SRCNAME[1]}-${SRCVERSION[1]}.tar.bz2"
 OPTIONS[1]=""
-SRCNAME[2]="atk"
-SRCVERSION[2]="1.32.0"
-SRCURL[2]="ftp://ftp.gnome.org/pub/gnome/sources/atk/1.32/atk-${SRCVERSION[2]}.tar.bz2"
-MD5SUM[2]="b9a19a3e426cd9ca930f0108c4ee343f"
-SOURCE[2]="${SRCDIR}/${SRCNAME[2]}-${SRCVERSION[2]}.tar.bz2"
-OPTIONS[2]=""
-SRCNAME[3]="polkit"
-SRCVERSION[3]="0.101"
-SRCURL[3]="http://hal.freedesktop.org/releases/polkit-${SRCVERSION[3]}.tar.gz"
-MD5SUM[3]="f925ac93aba3c072977370c1e27feb7f"
+SRCNAME[2]="polkit"
+SRCVERSION[2]="0.101"
+SRCURL[2]="http://hal.freedesktop.org/releases/polkit-${SRCVERSION[2]}.tar.gz"
+MD5SUM[2]="f925ac93aba3c072977370c1e27feb7f"
+SOURCE[2]="${SRCDIR}/${SRCNAME[2]}-${SRCVERSION[2]}.tar.gz"
+OPTIONS[2]="--with-authfw=shadow --enable-verbose-mode --with-os-type=Slackware"
+SRCNAME[3]="gstreamer"
+SRCVERSION[3]="0.10.35"
+SRCURL[3]="http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-${SRCVERSION[3]}.tar.bz2"
+MD5SUM[3]="442bc3d37b8511a73379143e7531d726"
 SOURCE[3]="${SRCDIR}/${SRCNAME[3]}-${SRCVERSION[3]}.tar.gz"
-OPTIONS[3]="--with-authfw=shadow --enable-verbose-mode --with-os-type=Slackware"
-SRCNAME[4]="gstreamer"
-SRCVERSION[4]="0.10.32"
-SRCURL[4]="http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-${SRCVERSION[4]}.tar.bz2"
-MD5SUM[4]="442bc3d37b8511a73379143e7531d726"
+OPTIONS[3]="--disable-debug --disable-gst-debug"
+SRCNAME[4]="gtk+"
+SRCVERSION[4]="2.24.4"
+SRCURL[4]="ftp://ftp.gnome.org/pub/gnome/sources/gtk+/2.24/gtk+-${SRCVERSION[4]}.tar.bz2"
+MD5SUM[4]="e05a700ba79c8813d56e83e80636ee21"
 SOURCE[4]="${SRCDIR}/${SRCNAME[4]}-${SRCVERSION[4]}.tar.gz"
-OPTIONS[4]="--disable-debug --disable-gst-debug"
-SRCNAME[5]="gtk+"
-SRCVERSION[5]="2.24.4"
-SRCURL[5]="ftp://ftp.gnome.org/pub/gnome/sources/gtk+/2.24/gtk+-${SRCVERSION[5]}.tar.bz2"
-MD5SUM[5]="e05a700ba79c8813d56e83e80636ee21"
-SOURCE[5]="${SRCDIR}/${SRCNAME[5]}-${SRCVERSION[5]}.tar.gz"
-OPTIONS[5]="--enable-introspection"
+OPTIONS[4]="--enable-introspection"
 
 mkdir -p $TMP
 rm -rf $PKG
