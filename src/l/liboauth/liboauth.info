@@ -1,0 +1,7 @@
+PKGNAME="liboauth"
+VERSION="0.9.4"
+HOMEPAGE="http://liboauth.sourceforge.net/"
+DOWNLOAD="http://downloads.sourceforge.net/projects/liboauth/files/liboauth-0.9.4.tar.gz"
+MD5SUM="c4438b22c08e5811ff10e2b06ee9b9ae"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
