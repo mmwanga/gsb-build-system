@@ -1,0 +1,7 @@
+PKGNAME="json-c"
+VERSION="0.9"
+HOMEPAGE="http://www.json.org/"
+DOWNLOAD="http://oss.metaparadigm.com/json-c/json-c-0.9.tar.gz"
+MD5SUM="3a13d264528dcbaf3931b0cede24abae"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

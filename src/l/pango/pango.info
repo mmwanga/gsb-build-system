@@ -1,0 +1,8 @@
+PKGNAME="pango"
+VERSION="1.29.4"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/pango/1.29/pango-${VERSION}.tar.xz"
+MD5SUM="9d5aba73897d2e8e8115b3f4fddbc0af"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

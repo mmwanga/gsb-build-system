@@ -1,0 +1,8 @@
+PKGNAME="rest"
+VERSION="0.7.10"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/rest/0.7/rest-${VERSION}.tar.bz2"
+MD5SUM="f47850d26bfb6148d1a3db9e74426e20"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

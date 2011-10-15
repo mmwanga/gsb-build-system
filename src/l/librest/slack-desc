@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
+       |-----handy-ruler------------------------------------------------------|
+librest: librest (library for representational state transfers)
+librest:
+librest: librest has been designed to make it easier to access RESTful web 
+librest: services, i.e., urls that represent remote objects which methods can 
+librest: then be called on. RESTful end-points usually have an API
+librest: that is simpler to use compared to other types of APIs they may 
+librest: support (XML-RPC, for instance). It is this kind of API that this 
+librest: library is attempting to support.
+librest: 
+librest: 
+librest: 
