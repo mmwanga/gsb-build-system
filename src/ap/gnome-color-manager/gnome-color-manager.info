@@ -1,0 +1,8 @@
+PKGNAME="gnome-color-manager"
+VERSION="3.2.1"
+HOMEPAGE="http://projects.gnome.org/gnome-color-manager/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gnome-color-manager/3.2/gnome-color-manager-${VERSION}.tar.xz"
+MD5SUM="04e0ba0947ad8181a62a7fdf67aff332"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
