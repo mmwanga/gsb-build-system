@@ -1,8 +1,8 @@
 PKGNAME="cogl"
-VERSION="1.8.0"
+VERSION="1.8.2"
 HOMEPAGE="http://wiki.clutter-project.org/wiki/Cogl"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/cogl/1.8/cogl-${VERSION}.tar.xz"
-MD5SUM="f38d1d9f7e399dd03d1fe1b8e1c0643a"
+MD5SUM="db2cbaef8c9719b03ef454ebd0351eeb"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
