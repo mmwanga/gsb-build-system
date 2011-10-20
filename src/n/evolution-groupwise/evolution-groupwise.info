@@ -1,0 +1,8 @@
+PKGNAME="evolution-groupwise"
+VERSION="3.2.1"
+HOMEPAGE="http://projects.gnome.org/evolution/"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/evolution-groupwise/3.2/evolution-groupwise-${VERSION}.tar.xz"
+MD5SUM="990806e5baf55be0411f1fdf5a67f601"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
