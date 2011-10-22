@@ -1,0 +1,8 @@
+PKGNAME="seahorse-sharing"
+VERSION="3.2.1"
+HOMEPAGE="http://live.gnome.org/Seahorse"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/seahorse-sharing/3.2/seahorse-sharing-${VERSION}.tar.xz"
+MD5SUM="a249808be7842879f85782893ec364ad"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
