@@ -23,8 +23,11 @@
 glib2			(>= 2.28)      needed for gobject-introspection.
 gdk-pixbuf              (>= 2.24)      needed for clutter.
 atk			(>= 2.2)       the latest 2.2 series needed for mutter.
-pygobject	        (>= 2.28)      gtk/glib introspection in Python.
-gst-plugins-good        (>= 0.10.27)   Gconf and pulse sinks required.
+pango			(>= 2.2)       the latest gtk+3 series
+pygobject	        (>= 3.0)       gtk/glib introspection in Python.
+startup-notifications   (>= 0.12)      needed by gnome-shell.
+gstreamer		(>= 0.10.35)   required by totem, brasero, and others.
+gst-plugins-good        (>= 0.10.30)   Gconf and pulse sinks required.
 gnome-icon-theme	(>= 3.0.0)     Fancy new icons required by gnome-shell.
 libnotify		(>= 0.7.1)     Required by many GNOME 3.0 applications
                                        for the new notify bar in gnome-shell.

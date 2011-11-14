@@ -1,14 +1,14 @@
 
-GNOME SlackBuild 2.30.0 for Slackware 13.1 Upgrade to 
-  GNOME SlackBuild 3.0 for 13.37 <steve@gnomeslackbuild.org>
+GNOME SlackBuild 3.0.0 for Slackware 13.37 Upgrade to 
+  GNOME SlackBuild 3.2.0 for 13.37 <steve@gnomeslackbuild.org>
 
 This document explains how to upgrade from earlier versions of GNOME
-Slackbuild to GNOME SlackBuild 3.0 for Slackware 13.37.
+Slackbuild to GNOME SlackBuild 3.2 for Slackware 13.37.
 
 ----------------------------------------------------------------------------
 
-For details of important changes from GNOME SlackBuild 2.32.0 for Slackware
-13.1, see the file 'CHANGES_AND_HINTS.TXT'. 
+For details of important changes from GNOME SlackBuild 3.0.0 for Slackware
+13.37, see the file 'CHANGES_AND_HINTS.TXT'. 
 
 Before you begin, I would strongly recommend making a backup of your system,
 or, if not the entire system, at least the /etc directory.  You might find that
@@ -91,7 +91,7 @@ packages required as dependencies, and remove any discontinued packages.
     Avahi, or NetworkManager.  You may need to enable startup scripts in /etc/rc.d.
 
 
-At this point you should be running GNOME SlackBuild 3.0 for Slackware 13.37.
+At this point you should be running GNOME SlackBuild 3.2 for Slackware 13.37.
 
 ---
 

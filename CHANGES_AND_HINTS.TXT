@@ -1,10 +1,10 @@
 CHANGES AND HINTS
 =================
-This file documents the instructions for upgrading to GNOME SlackBuild 3.0
-for Slackware 13.37, and lists any packages which have been added, removed,
-renamed, and/or split during the development cycle from GSB 2.32.0 for
-Slackware 13.1, as well as note some potential "gotchas" that users can avoid
-by arming themselves with a little knowledge.
+This file documents the instructions for upgrading to GNOME SlackBuild 3.2 for
+Slackware 13.37, and lists any packages which have been added, removed,
+renamed, and/or split during the development cycle from GSB 3.0.0 for Slackware
+13.37, as well as note some potential "gotchas" that users can avoid by arming
+themselves with a little knowledge.
 
 All packages that are built to replace a standard Slackware package are
 configured and built as closely as possible to how Patrick does.  For more
@@ -36,40 +36,15 @@ Otherwise, the official Slackware package will outweigh some GNOME SlackBuild
 required package and they may not be installed.  
 
 
-*** PACKAGE ADDITIONS SINCE 2.32.0 for Slackware 13.1 ***
+*** PACKAGE ADDITIONS SINCE 3.2.0 for Slackware 13.37 ***
 
-l/clutter-gst: Added.
-l/libpeas: Added.
-ap/gnome-video-effects: Added.
-t/gnome-themes-standard: Added.
-t/cantarell-fonts: Added.
-n/folks: Added.
-n/telepathy-logger: Added.
-l/libatasmart: Added.
-a/udisks: Added.
-a/gnome-disk-utility: Added.
-a/accountsservice: Added.
-a/apg: Added.
-t/gnome-icon-theme-symbolic: Added.
-l/rdflib: Added.
-go/zeitgeist: Added.
-go/libzeitgeist: Added.
-l/libdotconf: Added.
-ac/speech-dispatcher: Added.
-n/mobile-broadband-provider-info: Added.
-n/ModemManager: Added.
-ac/pyatspi: Added.
-l/pygobject: Added.
-l/libwnck3: Added.
-l/vte3: Added.  Both libwnck and vte are parallel installable, and these are
-  required for some GTK+3 applications, including gnome-terminal and
-  gnome-system-monitor.
-d/atkmm: Added.
-l/mx: Added.
+*** PACKAGE REMOVALS SINCE 3.0.0 for Slackware 13.37 ***
 
-*** PACKAGE REMOVALS SINCE 2.32.0 for Slackware 13.1 ***
+d/gdl.
+n/liferea.
+m/*.  The mono (m/) set has been removed.  It is just too slow,
+clumsy and ugly to keep maintaining.
 
-None.
 
 *** OTHER NOTABLE CHANGES AND HINTS ***
 
@@ -84,7 +59,7 @@ the official Slackware libnotify libraries.
 - "Suspend" now shows up by default in the user status menu; however, "Power
   Off" is hidden and only shows up while holding down the Alt key.  If you're
 looking for the "Hibernate", "Suspend" and "Power Off", you'll need to install
-the gnome-shell-extensions package from extra/ to enable the alterateMenu
+the gnome-shell-extensions package from a/ to enable the alterateMenu
 extension.
 
 - By default, GNOME Shell does not have the minimize and maximize buttons
