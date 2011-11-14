@@ -1,8 +1,8 @@
 PKGNAME="anjuta"
-VERSION="3.0.1.0"
+VERSION="3.2.1"
 HOMEPAGE="http://projects.gnome.org/anjuta/index.shtml"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/anjuta/3.0/anjuta-$VERSION.tar.bz2"
-MD5SUM="30206f46588c485dc157fda5cf4e953c"
+DOWNLOAD="${GNOME_SERVER}/anjuta/3.2/anjuta-$VERSION.tar.xz"
+MD5SUM="9a3625ce57bfb301d81e95fdaae62755"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

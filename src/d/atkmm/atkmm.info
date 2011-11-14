@@ -1,8 +1,8 @@
 PKGNAME="atkmm"
-VERSION="2.22.5"
+VERSION="2.22.6"
 HOMEPAGE="http://www.gtkmm.org/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/atkmm/2.22/atkmm-2.22.5.tar.bz2"
-MD5SUM="d56fe2b29d4c88fa270918e5572fc8cf"
+DOWNLOAD="${GNOME_SERVER}/atkmm/2.22/atkmm-${VERSION}.tar.xz"
+MD5SUM="30f8e34c92b14f17ba3029937b2f218a"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
