@@ -1,5 +1,0 @@
-PKGNAME="gnome-shell-extensions"
-VERSION="3.0.0.2"
-HOMEPAGE="http://live.gnome.org/GnomeShell/Extensions"
-MAINTAINER="Steve Kennedy"
-EMAIL="steve@gnomeslackbuild.org"
