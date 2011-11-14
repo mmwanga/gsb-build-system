@@ -1,8 +1,8 @@
 PKGNAME="eog"
-VERSION="3.2.0"
+VERSION="3.2.1"
 HOMEPAGE="http://projects.gnome.org/eog/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/eog/3.2/eog-${VERSION}.tar.xz"
-MD5SUM="f9c0d4f549473d1ed2b79a90abb187ce"
+MD5SUM="07dfad601e60bd35871508db688057b4"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

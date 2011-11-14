@@ -1,8 +1,8 @@
 PKGNAME="gthumb"
-VERSION="2.12.2"
+VERSION="2.14.0"
 HOMEPAGE="http://gthumb.sourceforge.net/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gthumb/2.12/gthumb-${VERSION}.tar.bz2"
+DOWNLOAD="${GNOME_SERVER}/gthumb/2.14/gthumb-${VERSION}.tar.xz"
 MD5SUM="5f6cb5957a4dcf196cedc6bb836169dc"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

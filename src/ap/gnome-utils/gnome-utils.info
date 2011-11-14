@@ -1,8 +1,8 @@
 PKGNAME="gnome-utils"
-VERSION="3.0.1"
+VERSION="3.2.1"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-utils/3.0/gnome-utils-${VERSION}.tar.bz2"
-MD5SUM="5bd230c484eedd290c39e34e48e363b1"
+DOWNLOAD="${GNOME_SERVER}/gnome-utils/3.2/gnome-utils-${VERSION}.tar.xz"
+MD5SUM="9c173160a4c5d5c315f6cef4a87a9620"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

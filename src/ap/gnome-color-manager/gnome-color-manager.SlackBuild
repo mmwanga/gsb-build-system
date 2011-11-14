@@ -110,7 +110,6 @@ find $PKG/usr/doc/$PKGNAM-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAM-$VERSION
 
 mkdir -p $PKG/install 
-zcat $CWD/doinst.sh.gz > $PKG/install/doinst.sh
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG

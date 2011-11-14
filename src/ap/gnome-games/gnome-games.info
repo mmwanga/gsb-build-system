@@ -1,8 +1,8 @@
 PKGNAME="gnome-games"
-VERSION="3.0.1.1"
+VERSION="3.2.1"
 HOMEPAGE="http://live.gnome.org/GnomeGames/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-games/3.0/gnome-games-${VERSION}.tar.bz2"
-MD5SUM="2b59a0e039d015180e3340707092b408"
+DOWNLOAD="${GNOME_SERVER}/gnome-games/3.2/gnome-games-${VERSION}.tar.xz"
+MD5SUM="ea918bdb469f7bf550750862bbda2b12"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

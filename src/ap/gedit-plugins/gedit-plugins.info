@@ -1,8 +1,8 @@
 PKGNAME="gedit-plugins"
-VERSION="3.0.2"
+VERSION="3.2.1"
 HOMEPAGE="http://projects.gnome.org/gedit-plugins/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gedit-plugins/3.0/gedit-plugins-${VERSION}.tar.bz2"
-MD5SUM="3218c7a08a75b1583fd2a16972549fa9"
+DOWNLOAD="${GNOME_SERVER}/gedit-plugins/3.2/gedit-plugins-${VERSION}.tar.xz"
+MD5SUM="7859ba038e0e3f82710968ca58eaa937"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

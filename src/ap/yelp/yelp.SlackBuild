@@ -20,8 +20,8 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=3.0.2
-XSL_VERSION=3.0.1
+VERSION=3.2.1
+XSL_VERSION=3.2.1
 BUILD=1
 TAG=${TAG:-gsb}
 
@@ -82,6 +82,23 @@ cd yelp-xsl-$XSL_VERSION || exit 1
 make || exit 1
 # First we need to spam the build machine 
 make install || exit 1
+# Then we need to put the supporting xsl files into our package
+make install DESTDIR=$PKG || exit 1
+
+# Now they've also split the tools into a separate package.
+mkdir yelp-tools &&
+tar xf $CWD/yelp-tools-$XSL_VERSION.tar.?z* || exit 1
+
+chown -R root:root .
+find . \
+  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
+  -exec chmod 755 {} \; -o \
+  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
+  -exec chmod 644 {} \;
+
+cd yelp-tools-$XSL_VERSION || exit 1
+./configure --prefix=/usr || exit 1
+make || exit 1
 # Then we need to put the supporting xsl files into our package
 make install DESTDIR=$PKG || exit 1
 

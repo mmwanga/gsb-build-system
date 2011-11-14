@@ -1,8 +1,8 @@
 PKGNAME="gnome-system-monitor"
-VERSION="3.2.0"
+VERSION="3.2.1"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/gnome-system-monitor/3.2/gnome-system-monitor-${VERSION}.tar.xz"
-MD5SUM="47c323e62a43800856affcc563aaf796"
+MD5SUM="2683987b8fb5ad46e0e11b56f20333dd"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

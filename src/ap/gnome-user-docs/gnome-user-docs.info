@@ -1,8 +1,8 @@
 PKGNAME="gnome-user-docs"
-VERSION="3.0.3"
+VERSION="3.2.1"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnome-user-docs/3.0/gnome-user-docs-${VERSION}.tar.bz2"
-MD5SUM="ee885731c5d43dd2036e3a3c4a4ad01d"
+DOWNLOAD="${GNOME_SERVER}/gnome-user-docs/3.2/gnome-user-docs-${VERSION}.tar.xz"
+MD5SUM="51182e15701fb4a9dc3f5ce3a779ae7a"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

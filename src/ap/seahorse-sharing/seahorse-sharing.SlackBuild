@@ -64,9 +64,6 @@ rm -rf $PKGNAM-$VERSION &&
 tar xvf $CWD/$PKGNAM-$VERSION.tar.?z* &&
 cd $PKGNAM-$VERSION || exit 1
 
-# fix for gsb /etc/gnome xdg patch
-zcat $CWD/seahorse.xdgpatch.diff.gz | patch -p1 
-
 chown -R root:root .
 find . \
   \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -81,14 +78,6 @@ CFLAGS="$GSBCFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --disable-static \
-  --enable-introspection=no \
-  --enable-ssh \
-  --enable-pkcs11 \
-  --enable-libnotify \
-  --enable-sharing \
-  --enable-ldap \
-  --enable-hkp \
-  --enable-pgp \
   || exit 1
 
 make ${NUMJOBS} || make || exit 1

@@ -1,8 +1,8 @@
 PKGNAME="brasero"
-VERSION="3.0.0"
+VERSION="3.2.0"
 HOMEPAGE="http://projects.gnome.org/brasero/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/brasero/3.0/brasero-${VERSION}.tar.bz2"
-MD5SUM="1e12a6539ce8e7e7ec68fdeacd133a3e"
+DOWNLOAD="${GNOME_SERVER}/brasero/3.2/brasero-${VERSION}.tar.xz"
+MD5SUM="b4b13ce81a344b81ddd3a64a3003787b"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
