@@ -1,8 +1,8 @@
 PKGNAME="accerciser"
-VERSION="1.8.0"
+VERSION="3.2.1"
 HOMEPAGE="http://live.gnome.org/Accerciser"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/accerciser/1.8/accerciser-1.8.0.tar.bz2"
-MD5SUM="ede1d36e9820fa441bcc24cb634d59cc"
+DOWNLOAD="${GNOME_SERVER}/accerciser/3.2/accerciser-${VERSION}.tar.xz"
+MD5SUM="862eb800643b822975f4f32e7da528ef"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

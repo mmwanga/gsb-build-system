@@ -1,10 +1,7 @@
-#!/bin/bash
-# Version: 1.7 GSB Package SlackBuild.
-# Copyright (c) 2007,2008,2009 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
-# Copyright (c) 2007,2008,2009 Steve Kennedy <steve (at) gnomeslackbuild.org>
+#!/bin/sh
+
+# Copyright (c) 2007-2011 Steve Kennedy <steve (at) gnomeslackbuild.org>
 # All rights reserved.
-#
-# Licenced under the terms of the GNU General Public Licence version 3.
 #
 # Redistribution and use of this script, with or without modification, is
 # permitted provided that the following conditions are met:
@@ -23,107 +20,50 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-# Package variables.
+VERSION=3.2.1
 BUILD=1
-VERSION=1.8.0
-
-# List any packages here that are required to build this package.
-# The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="pygtk at-spi"
-
-# Build variables.
 TAG=${TAG:-gsb}
-ARCH=${ARCH:-i486}
-TUNE=${TUNE:-i486}
+
+NUMJOBS=${NUMJOBS:-" -j10 "}
+
+# Automatically determine the architecture we're building on:
+if [ -z "$ARCH" ]; then
+  case "$( uname -m )" in
+    i?86) export ARCH=i486 ;;
+    arm*) export ARCH=arm ;;
+    # Unless $ARCH is already set, use uname -m for all other archs:
+       *) export ARCH=$( uname -m ) ;;
+  esac
+fi
+
 DISTRO=${DISTRO:-slackware}
 TMP=${TMP:-/tmp}
 PKGDEST=${PKGDEST:-$TMP}
-
-# Script variables.
-PKGNAME=$(basename $0 .SlackBuild)
-PKG=$TMP/package-$PKGNAME
+PKGNAM=accerciser
+PKG=$TMP/package-$PKGNAM
 CWD=$(pwd)
-NOCLEANUP=0
-FORCEBUILD=0
 
-# Usage.
-function usage() {
-  cat << EOF
-Usage: ${0##*/} [options]
-
-Options:  --force       The package will not be built if a package of the same
-                        name is already installed, or any of the packages
-                        required to build are missing.  This option over-rides
-                        these checks and attempts a build anyway.
-          --no-cleanup  By default any temporary source, build and package
-                        directories will be deleted once the package is built.
-                        This option prevents those files from being removed.
-          --help        Show this help screen.
-EOF
-}
-
-# Parse command line arguments.
-while [ $# -gt 0 ]; do
-  if [ "$1" = "-force" ] || [ "$1" = "--force" ]; then
-    FORCEBUILD=1
-    shift
-  elif [ "$1" = "-no-cleanup" ] || [ "$1" = "--no-cleanup" ]; then
-    NOCLEANUP=1
-    shift
-  elif [ "$1" = "-help" ] || [ "$1" = "--help" ]; then
-    usage
-    exit 0
-  else
-    echo "${0##*/}: Unknown option: $1"
-    exit 1
-  fi
-done
-
-# Package requirements and installation checks.
-[ "$FORCEBUILD" = "0" ] && {
-  function check_installed() {
-    ls -1 /var/log/packages | grep "^${1}-[^-]*-[^-]*-[^-]*$" >/dev/null 2>&1
-    return $?
-  }
-
-  check_installed "$PKGNAME" && {
-    echo "${0##*/}: Remove installed '$PKGNAME' package before build."
-    exit 1
-  }
-
-  for REQ in $REQUIRED_PACKAGES; do
-    check_installed "$REQ" || {
-      echo "${0##*/}: Required package '$REQ' not installed."
-      exit 1
-    }
-  done
-}
-
-# Temporary space and package storage.
-mkdir -p $TMP
-rm -rf $PKG
-mkdir -p $PKG
-mkdir -p $PKG/install
-mkdir -p $PKGDEST
-
-# Decompress archive.
-cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
-cd $PKGNAME-$VERSION || exit 1
-
-# Apply ARCH specific patches.
-if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
-  echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+if [ "$ARCH" = "i486" ]; then
+  GSBCFLAGS=${GSBCFLAGS:-"-O2 -march=i486 -mtune=i686"}
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "s390" ]; then
+  GSBCFLAGS="-O2"
+  LIBDIRSUFFIX=""
 elif [ "$ARCH" = "x86_64" ]; then
-  echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
-elif [ "$ARCH" = "powerpc" ]; then
-  echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+  GSBCFLAGS=${GSB_GSBCFLAGS:-"-O2 -fPIC"}
+  LIBDIRSUFFIX="64"
+else
+  GSBCFLAGS=${GSBCFLAGS:-"-O2"}
+  LIBDIRSUFFIX=""
 fi
 
-# Fix permissions for building.
+rm -rf $PKG
+mkdir -p $TMP $PKGDEST
+cd $TMP &&
+rm -rf $PKGNAM-$VERSION &&
+tar xvf $CWD/$PKGNAM-$VERSION.tar.?z* &&
+cd $PKGNAM-$VERSION || exit 1
+
 chown -R root:root .
 find . \
   \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -131,105 +71,43 @@ find . \
   \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
   -exec chmod 644 {} \;
 
-# Configure, Tuning, GCC and Make options.
-CONFIGURE_FLAGS=${GSB_CONFIGURE_FLAGS:-""}
-if [ "$ARCH" = "i486" -o "$ARCH" = "i586" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE"}
-  LIBDIRSUFFIX=""
-elif [ "$ARCH" = "i686" ]; then
-  TUNE_CFLAGS="-O2 -march=i686 -mtune=i686"
-  LIBDIRSUFFIX=""
-elif [ "$ARCH" = "s390" ]; then
-  TUNE_CFLAGS="-O2"
-  LIBDIRSUFFIX=""
-elif [ "$ARCH" = "x86_64" ]; then
-    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -fPIC"}
-    LIBDIRSUFFIX="64"
-elif [ "$ARCH" = "powerpc" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
-fi
-EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
-MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
-
-# Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  --mandir=/usr/man $CONFIGURE_FLAGS \
+CFLAGS="$GSBCFLAGS" \
+./configure --prefix=/usr \
+  --mandir=/usr/man \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
-  --target=$ARCH-$DISTRO-linux \
-  --disable-schemas-install \
   || exit 1
 
-# Build and install.
-make $MAKE_FLAGS &&
+make ${NUMJOBS} || make || exit 1
 make DESTDIR=$PKG install || exit 1
 
-# Strip debugging symbols.
-{ find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
-  cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
+find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
+  cut -d: -f1 | xargs strip --strip-unneeded 2>/dev/null
 
-# Compress and fix manpage links.
-[ -e $PKG/usr/man ] && {
-  find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
-  find $PKG/usr/man -type l -name \*.? -printf \
-    "( cd '%h'; [ -e '%l.gz' ] &&
-     { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
-}
+# Compress and link manpages
+if [ -d $PKG/usr/man ]; then
+  ( cd $PKG/usr/man
+    for manpagedir in $(find . -type d -name "man*") ; do
+      ( cd $manpagedir
+        for eachpage in $( find . -type l -maxdepth 1) ; do
+          ln -s $( readlink $eachpage ).gz $eachpage.gz
+          rm $eachpage
+        done
+        gzip -9 *.?
+      )
+    done
+  )
+fi
 
-# Deal with .info files.
-[ -e $PKG/usr/share/info ] && {
-  mkdir -p $PKG/usr && mv $PKG/usr/share/info $PKG/usr || exit 1;
-  rmdir -p $PKG/usr/share
-  }
-[ -e $PKG/usr/info ] && {
-  rm -f $PKG/usr/info/dir
-  gzip -9 $PKG/usr/info/*.info
-}
-
-# Copy extra documentation into package.
-mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
+mkdir -p $PKG/usr/doc/$PKGNAM-$VERSION
 cp -a AUTHORS COPYING NEWS README \
-  $PKG/usr/doc/$PKGNAME-$VERSION
-find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
-chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
+  $PKG/usr/doc/$PKGNAM-$VERSION
+find $PKG/usr/doc/$PKGNAM-$VERSION/ -type f -exec chmod 644 {} \;
+chown -R root:root $PKG/usr/doc/$PKGNAM-$VERSION
 
-# Add schemas install to the doinst.sh if schemas are found.
-[ -d $PKG/etc/gconf/schemas ] && {
-# Make sure we have gconftool installed 
-echo "if [ -x usr/bin/gconftool-2 ]; then" >>$PKG/install/doinst.sh
-( cd $PKG/etc/gconf/schemas
-for schema in *; do
-  if [ -z "$(grep gconfentry ${schema})" ]; then
-    # Install schemas
-    echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
-    usr/bin/gconftool-2 --makefile-install-rule etc/gconf/schemas/${schema} >/dev/null 2>&1" \
-    >>$PKG/install/doinst.sh
-  else
-    # Load default schema if an entry file
-    echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
-    usr/bin/gconftool-2 --direct --load etc/gconf/schemas/${schema} >/dev/null 2>&1" \
-    >>$PKG/install/doinst.sh
-  fi
-done
-)
-# Finish off gconf block
-echo "fi" >>$PKG/install/doinst.sh
-}
+mkdir -p $PKG/install 
+cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/slack-required > $PKG/install/slack-required
 
-# Package meta files
-for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
-do
-  [ -e $CWD/$FILE ] && {
-    cat $CWD/$FILE >>$PKG/install/$FILE
-  }
-done
-
-# Create the package
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
-
-# Cleanup
-[ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/$PKGNAME-$VERSION
-}
+makepkg -p -l y -c n $PKGDEST/${PKGNAM}-${VERSION}-$ARCH-${BUILD}${TAG}.txz
