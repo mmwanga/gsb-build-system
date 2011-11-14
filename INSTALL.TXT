@@ -1,5 +1,5 @@
 
-		 HOW TO INSTALL GSB: GNOME SlackBuild 3.0
+		 HOW TO INSTALL GSB: GNOME SlackBuild 3.2
                         (for Slackware/Slackware64 13.37)
                     =======================================
 
@@ -49,10 +49,10 @@ proceeding.  It is recommended that you upgrade to the latest slapt-get before
 installing or upgrading GSB.  You can find the slapt-get package at: 
 
 For Slackware:
-  http://www.slackware.org.uk/gsb/gsb-3.0_slackware-13.37/gsb/ad/
+  http://www.slackware.org.uk/gsb/gsb-3.2_slackware-13.37/gsb/ad/
 
 For Slackware64:
-  http://www.slackware.org.uk/gsb/gsb64-3.0_slackware-13.37/gsb/ad/
+  http://www.slackware.org.uk/gsb/gsb64-3.2_slackware-13.37/gsb/ad/
 
 For a list of available mirrors, please see MIRRORS.TXT.
 
