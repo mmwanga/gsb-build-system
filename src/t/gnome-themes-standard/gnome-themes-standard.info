@@ -3,6 +3,6 @@ VERSION="3.2.1"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/gnome-themes-standard/3.2/gnome-themes-standard-${VERSION}.tar.xz"
-MD5SUM="3ee05d89970a74ee52bf8fb2df969d55"
+MD5SUM="991014e1ea1e844fcdaa52ff08cfb3e5"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
