@@ -1,8 +1,8 @@
 PKGNAME="gnome-session"
-VERSION="3.2.0"
+VERSION="3.2.1"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/gnome-session/3.2/gnome-session-${VERSION}.tar.xz"
-MD5SUM="c9c8f87fad491e9f040b2a9d6b8874a4"
+MD5SUM="05012cdf82e48feab17b5bc1804e37cf"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

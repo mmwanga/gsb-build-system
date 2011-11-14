@@ -1,8 +1,8 @@
 PKGNAME="gnome-online-accounts"
-VERSION="3.2.0.1"
+VERSION="3.2.1"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/gnome-online-accounts/3.2/gnome-online-accounts-${VERSION}.tar.xz"
-MD5SUM="c79928e680b1dca2fd85afcc8066abde"
+MD5SUM="54ca322afd4c899238460baba4fad7db"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

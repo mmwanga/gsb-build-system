@@ -1,8 +1,8 @@
 PKGNAME="gnome-settings-daemon"
-VERSION="3.2.0"
+VERSION="3.2.2"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/gnome-settings-daemon/3.2/gnome-settings-daemon-${VERSION}.tar.xz"
-MD5SUM="418c880430529c91e0503c22c8db8774"
+MD5SUM="eb21af36feace3529965ebe17a063d63"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

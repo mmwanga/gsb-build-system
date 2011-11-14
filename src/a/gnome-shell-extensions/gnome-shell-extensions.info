@@ -1,0 +1,8 @@
+PKGNAME="gnome-shell-extensions"
+VERSION="3.2.0"
+HOMEPAGE="http://live.gnome.org/GnomeShell"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gnome-shell-extensions/3.2/gnome-shell-extensions-$VERSION.tar.xz"
+MD5SUM="f67a451349d8b052e3801af6280f89e4"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
