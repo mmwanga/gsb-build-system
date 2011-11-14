@@ -1,0 +1,8 @@
+PKGNAME="gnome-contacts"
+VERSION="3.2.1"
+HOMEPAGE="http://www.gnome.org"
+GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
+DOWNLOAD="${GNOME_SERVER}/gnome-contacts/3.2/gnome-contacts-${VERSION}.tar.xz"
+MD5SUM="1e579be01a98eeff9f44296604597428"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
