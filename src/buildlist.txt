@@ -51,11 +51,11 @@ l/libsoup
 n/webkit
 a/libgweather
 l/heimdal-libraries
+l/liboauth
 l/libgdata
 l/libnotify
 l/librest
 a/gnome-online-accounts
-l/liboauth
 a/evolution-data-server
 d/vala
 a/dconf
@@ -118,6 +118,7 @@ l/libunique
 n/evolution
 n/evolution-exchange
 n/evolution-webcal
+n/evolution-groupwise
 n/folks
 n/telepathy-logger
 l/libnice
@@ -128,6 +129,9 @@ n/network-manager-applet
 n/mobile-broadband-provider-info
 n/ModemManager
 ap/seahorse
+ap/seahorse-sharing
+l/gstreamer
+l/gst-plugins-base
 l/gst-plugins-good
 ap/totem-pl-parser
 l/rdflib
@@ -143,8 +147,11 @@ n/nautilus-sendto
 n/gnome-bluetooth
 a/metacity
 a/gnome-panel
+l/startup-notification
 a/gnome-shell
+a/gnome-shell-extensions
 # unbranded GNOME applications
+go/gnome-contacts
 l/libgnome-media-profiles
 ap/gnome-media
 ap/brasero
@@ -195,42 +202,37 @@ l/pyxdg
 ac/liblouis
 ac/orca
 ac/mousetweaks
-#ac/dasher
-#ac/gnome-mag
-#ac/gok
+ac/accerciser
+ac/caribou
 #n/liferea
 # Development
-d/gdl
+#d/gdl
 go/libgda
 d/anjuta
 d/bluefish
 d/devhelp
-#d/glade3
-#d/autogen
-#d/setuptools
 #d/gitg
 # Build packages in extra/
-extra/easytag
-extra/gst-plugins-ugly
-extra/gnome-tweak-tool
+####extra/easytag
+####extra/gst-plugins-ugly
+####extra/gnome-tweak-tool
 #extra/sylpheed
 #extra/pyalsaaudio
 #extra/volti
-l/libgnomecanvas
-ap/gdm
+####l/libgnomecanvas
+####ap/gdm
 # Mono applications
 #m/libgdiplus
 #m/mono
 # Pasture packages in pasture/
-pasture/gnome-mime-data
-pasture/gnome-vfs
-pasture/libbonobo
-pasture/libgnome
+####pasture/gnome-mime-data
+####pasture/gnome-vfs
+####pasture/libbonobo
+####pasture/libgnome
 #pasture/libbonoboui
 #pasture/libgnomeui
 # Testing packages in testing/
-testing/slim
-testing/gnome-shell-extensions
-testing/rhythmbox
+#testing/slim
+####testing/rhythmbox
 # Installation package
 a/gsb-desktop
