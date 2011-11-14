@@ -1,8 +1,8 @@
 PKGNAME="epiphany-extensions"
-VERSION="3.0.0"
+VERSION="3.2.0"
 HOMEPAGE="http://projects.gnome.org/epiphany-extensions/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/epiphany-extensions/3.0/epiphany-extensions-${VERSION}.tar.bz2"
-MD5SUM="a3472422ff93b043c32650a84e2ca552"
+DOWNLOAD="${GNOME_SERVER}/epiphany-extensions/3.2/epiphany-extensions-${VERSION}.tar.xz"
+MD5SUM="abe7a73d7be0414a2ea0c0b634f12093"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

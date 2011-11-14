@@ -1,5 +1,5 @@
 PKGNAME="telepathy-salut"
-VERSION="0.4.0"
+VERSION="0.6.0"
 HOMEPAGE="http://telepathy.freedesktop.org"
 DOWNLOAD="http://telepathy.freedesktop.org/releases/telepathy-salut/telepathy-salut-${VERSION}.tar.gz"
 MD5SUM="95f0cf9681912104474b0f4c4d00807f"

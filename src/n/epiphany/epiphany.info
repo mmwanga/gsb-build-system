@@ -1,8 +1,8 @@
 PKGNAME="epiphany"
-VERSION="3.2.0"
+VERSION="3.2.1"
 HOMEPAGE="http://projects.gnome.org/epiphany/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/epiphany/3.2/epiphany-${VERSION}.tar.xz"
-MD5SUM="b17e955680cdccd06bd2ee741cf671ec"
+MD5SUM="b07a47656a07f695c70eb56b628f9df7"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

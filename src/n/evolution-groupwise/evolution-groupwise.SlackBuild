@@ -77,9 +77,6 @@ CFLAGS="$GSBCFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --disable-static \
-  --with-openldap \
-  --with-krb5=/usr \
-  --disable-schemas-install \
   || exit 1
 
 make ${NUMJOBS} || make || exit 1
@@ -95,14 +92,6 @@ find $PKG/usr/doc/$PKGNAM-$VERSION/ -type f -exec chmod 644 {} \;
 chown -R root:root $PKG/usr/doc/$PKGNAM-$VERSION
 
 mkdir -p $PKG/install 
-# Install gconf schemas through doinst.sh
-echo "if [ -x usr/bin/gconftool-2 ]; then" >> $PKG/install/doinst.sh
-( cd $PKG/etc/gconf/schemas ; for schema in *.schemas; do
- echo "GCONF_CONFIG_SOURCE=\"xml::etc/gconf/gconf.xml.defaults\" \
-   usr/bin/gconftool-2 --makefile-install-rule \
-   etc/gconf/schemas/${schema} >/dev/null 2>&1" \
-   >> $PKG/install/doinst.sh
-done;) ; echo "fi" >> $PKG/install/doinst.sh
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
