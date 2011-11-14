@@ -1,8 +1,8 @@
 PKGNAME="gnumeric"
-VERSION="1.10.14"
+VERSION="1.10.17"
 HOMEPAGE="http://projects.gnome.org/gnumeric/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gnumeric/1.10/gnumeric-${VERSION}.tar.bz2"
-MD5SUM="d712851505e33f01d40e32b0c6dae56a"
+DOWNLOAD="${GNOME_SERVER}/gnumeric/1.10/gnumeric-${VERSION}.tar.xz"
+MD5SUM="ee824d9656a271957d949b8769341f40"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

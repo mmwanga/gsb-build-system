@@ -1,8 +1,8 @@
 PKGNAME="libgda"
-VERSION="4.2.7"
+VERSION="4.2.11"
 HOMEPAGE="http://www.gnome-db.org/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/libgda/4.2/libgda-${VERSION}.tar.bz2"
+DOWNLOAD="${GNOME_SERVER}/libgda/4.2/libgda-${VERSION}.tar.xz"
 MD5SUM="f4be691e398ba7b82e7a89ebb840a15e"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
