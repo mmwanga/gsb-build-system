@@ -1,8 +1,8 @@
 PKGNAME="vte"
-VERSION="0.30.0"
+VERSION="0.30.1"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/vte/0.30/vte-${VERSION}.tar.xz"
-MD5SUM="3eb5dd5831e383a376333d83000f1fa8"
+MD5SUM="514f48346f176f91297731f6fdb1cffc"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"
