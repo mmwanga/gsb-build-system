@@ -1,0 +1,7 @@
+PKGNAME="startup-notification"
+VERSION="0.12"
+HOMEPAGE="http://www.freedesktop.org/wiki/Software/startup-notification"
+DOWNLOAD="http://www.freedesktop.org/software/startup-notification/releases/startup-notification-0.12.tar.gz"
+MD5SUM="2cd77326d4dcaed9a5a23a1232fb38e9"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"

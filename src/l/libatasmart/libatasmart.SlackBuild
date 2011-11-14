@@ -61,12 +61,12 @@ rm -rf $PKG
 mkdir -p $TMP $PKGDEST
 cd $TMP &&
 rm -rf $PKGNAM-$VERSION &&
-tar xvf $CWD/$PKGNAM-0.17.tar.?z* &&
-mv $PKGNAM-0.17 $PKGNAM-$VERSION &&
+tar xvf $CWD/$PKGNAM-${VERSION}.tar.?z* &&
+#mv $PKGNAM-0.17 $PKGNAM-$VERSION &&
 cd $PKGNAM-$VERSION || exit 1
 
 # Apply upstream git patch
-zcat $CWD/libatasmart.git20100219.diff.gz | patch -p1 || exit 1
+#zcat $CWD/libatasmart.git20100219.diff.gz | patch -p1 || exit 1
 
 chown -R root:root .
 find . \

@@ -21,8 +21,9 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 VERSION=4.8.1
-BUILD=1
+BUILD=2
 TAG=${TAG:-gsb}
+LIBRARY_BITS=${LIBRARY_BITS:-32}
 
 NUMJOBS=${NUMJOBS:-" -j10 "}
 
@@ -52,6 +53,7 @@ elif [ "$ARCH" = "s390" ]; then
 elif [ "$ARCH" = "x86_64" ]; then
   GSBCFLAGS=${GSB_GSBCFLAGS:-"-O2 -fPIC"}
   LIBDIRSUFFIX="64"
+  LIBRARY_BITS=64
 else
   GSBCFLAGS=${GSBCFLAGS:-"-O2"}
   LIBDIRSUFFIX=""
@@ -74,12 +76,15 @@ find . \
 CFLAGS="$GSBCFLAGS" \
 CXXFLAGS="$GSBCFLAGS" \
 ./configure --prefix=/usr \
+  ${CONFIGURE_FLAGS} \
   --mandir=/usr/man \
   --docdir=/usr/doc/$PKGNAM-$VERSION \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-$DISTRO-linux \
   --disable-static \
   --enable-release \
+  --enable-shared \
+  --with-library-bits=${LIBRARY_BITS} \
   || exit 1
 
 make ${NUMJOBS} || make || exit 1

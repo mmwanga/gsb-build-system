@@ -1,8 +1,8 @@
 PKGNAME="gtksourceview"
-VERSION="3.0.1"
+VERSION="3.2.3"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/gtksourceview/3.0/gtksourceview-${VERSION}.tar.bz2"
-MD5SUM="43db02e4ca1a52ee0c69f0dbd7421cd4"
+DOWNLOAD="${GNOME_SERVER}/gtksourceview/3.2/gtksourceview-${VERSION}.tar.xz"
+MD5SUM="ebef871b40f145c5d09a5c94b6e5ec03"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

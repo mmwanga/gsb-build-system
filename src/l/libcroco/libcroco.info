@@ -1,8 +1,8 @@
 PKGNAME="libcroco"
-VERSION="0.6.2"
+VERSION="0.6.3"
 HOMEPAGE="http://www.freespiders.org/projects/libcroco/"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/libcroco/0.6/libcroco-0.6.2.tar.bz2"
-MD5SUM="1429c597aa4b75fc610ab3a542c99209"
+DOWNLOAD="${GNOME_SERVER}/libcroco/0.6/libcroco-0.6.3.tar.xz"
+MD5SUM="3f687747728ca5eaf9b42d9d4bd2cd53"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

@@ -1,8 +1,8 @@
 PKGNAME="libwnck"
-VERSION="3.2.0"
+VERSION="3.2.1"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
 DOWNLOAD="${GNOME_SERVER}/libwnck/3.2/libwnck-${VERSION}.tar.xz"
-MD5SUM="519cb824cfe7ed111833e0e2df235426"
+MD5SUM="f6c719f341232d1269d1689b0da178b6"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

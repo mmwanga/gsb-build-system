@@ -25,8 +25,8 @@
 
 
 PKGNAM=gst-plugins-good
-VERSION=0.10.28
-BUILD=3
+VERSION=0.10.30
+BUILD=1
 
 # Automatically determine the architecture we're building on:
 if [ -z "$ARCH" ]; then
@@ -69,8 +69,6 @@ cd $TMP
 rm -rf $PKGNAM-$VERSION
 tar xvf $CWD/$PKGNAM-$VERSION.tar.?z* || exit 1
 cd $PKGNAM-$VERSION
-
-zcat $CWD/gst-plugins-good.6b86b56abd8a28b9e94cee679e3d86367a9a0ab3.diff.gz | patch -p1 || exit 1
 
 chown -R root:root .
 find . \

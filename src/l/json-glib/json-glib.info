@@ -1,8 +1,8 @@
 PKGNAME="json-glib"
-VERSION="0.12.6"
+VERSION="0.14.2"
 HOMEPAGE="http://www.gnome.org"
 GNOME_SERVER=${GNOME_SERVER:-ftp://ftp.gnome.org/pub/GNOME/sources}
-DOWNLOAD="${GNOME_SERVER}/json-glib/0.12/json-glib-${VERSION}.tar.xz"
-MD5SUM="840fa7ff4ef6524307f371f06faf21ea"
+DOWNLOAD="${GNOME_SERVER}/json-glib/0.14/json-glib-${VERSION}.tar.xz"
+MD5SUM="2a22832c4654156a35b38ee027f6f065"
 MAINTAINER="Steve Kennedy"
 EMAIL="steve@gnomeslackbuild.org"

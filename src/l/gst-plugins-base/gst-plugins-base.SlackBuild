@@ -1,212 +1,120 @@
-#!/bin/bash
-# Version: 1.7 GSB Package SlackBuild.
-# Copyright (c) 2007,2008,2009 Darren 'Tadgy' Austin <darren (at) gnomeslackbuild.org>
-# Copyright (c) 2007,2008,2009 Steve Kennedy <steve (at) gnomeslackbuild.org>
+#!/bin/sh
+
+# Copyright 2008 Michiel van Wessem <michiel@slackbuilds.org>
+# Copyright 2008, 2009, 2010  Patrick J. Volkerding, Sebeka, Minnesota, USA
 # All rights reserved.
 #
-# Licenced under the terms of the GNU General Public Licence version 3.
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are
+# met:
 #
-# Redistribution and use of this script, with or without modification, is
-# permitted provided that the following conditions are met:
+# * Redistributions of source code must retain the above copyright
+# notice, this list of conditions and the following disclaimer.
 #
-# 1. Redistributions of this script must retain the above copyright
-#    notice, this list of conditions and the following disclaimer.
-#
-#  THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
-#  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-#  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO
-#  EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-#  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-#  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
-#  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-#  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
-#  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-#  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+# "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+# LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+# A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+# OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+# DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+# THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-# Package variables.
+
+PKGNAM=gst-plugins-base
+VERSION=0.10.35
 BUILD=1
-VERSION=0.10.26
 
-# List any packages here that are required to build this package.
-# The list is space seperated and case sensitive.
-REQUIRED_PACKAGES="gstreamer liboil alsa-lib libogg libvisual pango libtheora libvorbis cdparanoia ffmpeg perl libsamplerate"
-
-# Build variables.
 TAG=${TAG:-gsb}
-ARCH=${ARCH:-i486}
-TUNE=${TUNE:-i486}
-DISTRO=${DISTRO:-slackware}
-TMP=${TMP:-/tmp}
-PKGDEST=${PKGDEST:-$TMP}
 
-# Script variables.
-PKGNAME=$(basename $0 .SlackBuild)
-PKG=$TMP/package-$PKGNAME
-CWD=$(pwd)
-NOCLEANUP=0
-FORCEBUILD=0
-
-# Usage.
-function usage() {
-  cat << EOF
-Usage: ${0##*/} [options]
-
-Options:  --force       The package will not be built if a package of the same
-                        name is already installed, or any of the packages
-                        required to build are missing.  This option over-rides
-                        these checks and attempts a build anyway.
-          --no-cleanup  By default any temporary source, build and package
-                        directories will be deleted once the package is built.
-                        This option prevents those files from being removed.
-          --help        Show this help screen.
-EOF
-}
-
-# Parse command line arguments.
-while [ $# -gt 0 ]; do
-  if [ "$1" = "-force" ] || [ "$1" = "--force" ]; then
-    FORCEBUILD=1
-    shift
-  elif [ "$1" = "-no-cleanup" ] || [ "$1" = "--no-cleanup" ]; then
-    NOCLEANUP=1
-    shift
-  elif [ "$1" = "-help" ] || [ "$1" = "--help" ]; then
-    usage
-    exit 0
-  else
-    echo "${0##*/}: Unknown option: $1"
-    exit 1
-  fi
-done
-
-# Package requirements and installation checks.
-[ "$FORCEBUILD" = "0" ] && {
-  function check_installed() {
-    ls -1 /var/log/packages | grep "^${1}-[^-]*-[^-]*-[^-]*$" >/dev/null 2>&1
-    return $?
-  }
-
-  check_installed "$PKGNAME" && {
-    echo "${0##*/}: Remove installed '$PKGNAME' package before build."
-    exit 1
-  }
-
-  for REQ in $REQUIRED_PACKAGES; do
-    check_installed "$REQ" || {
-      echo "${0##*/}: Required package '$REQ' not installed."
-      exit 1
-    }
-  done
-}
-
-# Temporary space and package storage.
-mkdir -p $TMP
-rm -rf $PKG
-mkdir -p $PKG
-mkdir -p $PKG/install
-mkdir -p $PKGDEST
-
-# Decompress archive.
-cd $TMP &&
-tar xjf $CWD/$PKGNAME-$VERSION.tar.bz2 &&
-cd $PKGNAME-$VERSION || exit 1
-
-# Apply ARCH specific patches.
-if [ "$ARCH" = "i486" -o "$ARCH" = "i586" -o "$ARCH" = "i686" ]; then
-  echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
-elif [ "$ARCH" = "x86_64" ]; then
-  echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
-elif [ "$ARCH" = "powerpc" ]; then
-  echo "${0##*/}: Applying any patches for $ARCH"
-  #cat $CWD/patches/foo.patch | patch -p0 --verbose
+# Automatically determine the architecture we're building on:
+if [ -z "$ARCH" ]; then
+  case "$( uname -m )" in
+    i?86) export ARCH=i486 ;;
+    arm*) export ARCH=arm ;;
+    # Unless $ARCH is already set, use uname -m for all other archs:
+       *) export ARCH=$( uname -m ) ;;
+  esac
 fi
 
-# Fix permissions for building.
-chown -R root:root .
-find . \
-  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
-  -exec chmod 755 {} \; -o \
-  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
-  -exec chmod 644 {} \;
+NUMJOBS=${NUMJOBS:-" -j7 "}
 
-# Configure, Tuning, GCC and Make options.
-CONFIGURE_FLAGS=${GSB_CONFIGURE_FLAGS:-""}
-if [ "$ARCH" = "i486" -o "$ARCH" = "i586" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH -mtune=$TUNE"}
+CWD=$(pwd)
+TMP=${TMP:-/tmp}
+PKG=$TMP/package-$PKGNAM
+
+if [ "$ARCH" = "i486" ]; then
+  SLKCFLAGS="-O2 -march=i486 -mtune=i686"
   LIBDIRSUFFIX=""
 elif [ "$ARCH" = "i686" ]; then
-  TUNE_CFLAGS="-O2 -march=i686 -mtune=i686"
+  SLKCFLAGS="-O2 -march=i686 -mtune=i686"
   LIBDIRSUFFIX=""
 elif [ "$ARCH" = "s390" ]; then
-  TUNE_CFLAGS="-O2"
+  SLKCFLAGS="-O2"
   LIBDIRSUFFIX=""
 elif [ "$ARCH" = "x86_64" ]; then
-    TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -fPIC"}
-    LIBDIRSUFFIX="64"
-elif [ "$ARCH" = "powerpc" ]; then
-  TUNE_CFLAGS=${GSB_TUNE_CFLAGS:-"-O2 -march=$ARCH"}
+  SLKCFLAGS="-O2 -fPIC"
+  LIBDIRSUFFIX="64"
+else
+  SLKCFLAGS="-O2"
+  LIBDIRSUFFIX=""
 fi
-EXTRA_CFLAGS=${GSB_EXTRA_CFLAGS:-""}
-MAKE_FLAGS=${GSB_MAKE_FLAGS:-""}
 
-# Configure.
-CFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" CXXFLAGS="$TUNE_CFLAGS $EXTRA_CFLAGS" \
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib \
-  --mandir=/usr/man $CONFIGURE_FLAGS \
+rm -rf $PKG
+mkdir -p $TMP $PKG
+cd $TMP
+rm -rf $PKGNAM-$VERSION
+tar xvf $CWD/$PKGNAM-$VERSION.tar.?z* || exit 1
+cd $PKGNAM-$VERSION
+chown -R root:root .
+find . \
+ \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
+  -exec chmod 755 {} \; -o \
+ \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
+    -exec chmod 644 {} \;   
+
+CFLAGS="$SLKCFLAGS" \
+CXXFLAGS="$SLKCFLAGS" \
+./configure \
+  --prefix=/usr \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
-  --build=$ARCH-$DISTRO-linux \
-  --target=$ARCH-$DISTRO-linux \
-  --enable-introspection=no \
+  --sysconfdir=/etc \
+  --localstatedir=/var \
+  --mandir=/usr/man \
+  --disable-debug \
   --disable-static \
-  --enable-shared \
-  --disable-valgrind \
-  --enable-ogg \
-  --enable-vorbis \
-  --enable-alsa \
-  --enable-experimental \
-  --enable-gio \
-  --disable-gtk-doc \
-  --disable-examples \
-  || exit 1
+  --build=$ARCH-slackware-linux
 
-# Build and install.
-make $MAKE_FLAGS &&
-make $MAKE_FLAGS DESTDIR=$PKG install || exit 1
+make $NUMJOBS || make || exit 1
+make install DESTDIR=$PKG || exit 1
 
-# Strip debugging symbols.
-{ find $PKG | xargs file | egrep "executable|shared object" | grep "ELF" | \
-  cut -d: -f1 | xargs strip --strip-unneeded ; } 2>/dev/null
+find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
+  | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
 
-# Compress and fix manpage links.
-[ -e $PKG/usr/man ] && {
-  find $PKG/usr/man -type f -name \*.? -exec gzip -9f {} \;
-  find $PKG/usr/man -type l -name \*.? -printf \
-    "( cd '%h'; [ -e '%l.gz' ] &&
-     { rm -f '%f'; ln -sf '%l.gz' '%f.gz'; } );\n" | bash
-}
+( cd $PKG/usr/man
+  find . -type f -exec gzip -9 {} \;
+  for i in $(find . -type l) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
+)
 
-# Copy extra documentation into package.
-mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a AUTHORS COPYING* NEWS README \
-  $PKG/usr/doc/$PKGNAME-$VERSION
-find $PKG/usr/doc/$PKGNAME-$VERSION/ -type f -exec chmod 644 {} \;
-chown -R root:root $PKG/usr/doc/$PKGNAME-$VERSION
+mkdir -p $PKG/usr/doc/$PKGNAM-$VERSION
+cp -a \
+  ABOUT-NLS AUTHORS COPYING* INSTALL NEWS README* RELEASE REQUIREMENTS \
+  $PKG/usr/doc/$PKGNAM-$VERSION
 
-# Package meta files
-for FILE in doinst.sh slack-desc slack-required slack-conflicts slack-suggests
-do
-  [ -e $CWD/$FILE ] && {
-    cat $CWD/$FILE >>$PKG/install/$FILE
-  }
-done
+# If there's a ChangeLog, installing at least part of the recent history
+# is useful, but don't let it get totally out of control:
+if [ -r ChangeLog ]; then
+  DOCSDIR=$(echo $PKG/usr/doc/${PKGNAM}-$VERSION)
+  cat ChangeLog | head -n 1000 > $DOCSDIR/ChangeLog
+  touch -r ChangeLog $DOCSDIR/ChangeLog
+fi
 
-# Create the package
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
 cd $PKG
-makepkg -p -l y -c n $PKGDEST/$PKGNAME-${VERSION//-/_}-$ARCH-${BUILD}${TAG}.txz
+/sbin/makepkg -l y -c n $PKGDEST/$PKGNAM-$VERSION-$ARCH-${BUILD}${TAG}.txz
 
-# Cleanup
-[ "$NOCLEANUP" = "0" ] && {
-  rm -rf $PKG $TMP/$PKGNAME-$VERSION
-}

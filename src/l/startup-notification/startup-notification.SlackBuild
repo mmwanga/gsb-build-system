@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Copyright 2008, 2009, 2010, 2011  Patrick J. Volkerding, Sebeka, Minnesota, USA
+# Copyright 2008, 2009, 2010  Patrick J. Volkerding, Sebeka, Minnesota, USA
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -21,8 +21,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-PKGNAM=libwnck
-VERSION=3.2.1
+VERSION=0.12
 BUILD=1
 TAG=${TAG:-gsb}
 
@@ -37,6 +36,7 @@ if [ -z "$ARCH" ]; then
        *) export ARCH=$( uname -m ) ;;
   esac
 fi
+
 
 if [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mtune=i686"
@@ -54,14 +54,14 @@ fi
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-libwnck
+PKG=$TMP/package-startup-notification
 
 rm -rf $PKG
 mkdir -p $TMP $PKG
 cd $TMP
-rm -rf libwnck-$VERSION
-tar xvf $CWD/libwnck-$VERSION.tar.?z* || exit 1
-cd libwnck-$VERSION
+rm -rf startup-notification-$VERSION
+tar xvf $CWD/startup-notification-$VERSION.tar.gz || exit 1
+cd startup-notification-$VERSION
 chown -R root:root .
 find . \
   \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -75,7 +75,7 @@ CFLAGS="$SLKCFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --sysconfdir=/etc \
   --localstatedir=/var/lib \
-  --enable-static=no \
+  --disable-static \
   --build=$ARCH-slackware-linux
 
 make $NUMJOBS || make || exit 1
@@ -84,37 +84,15 @@ make install DESTDIR=$PKG || exit 1
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
 
-mkdir -p $PKG/usr/doc/libwnck-$VERSION
+mkdir -p $PKG/usr/doc/startup-notification-$VERSION
 cp -a \
-  AUTHORS COPYING* NEWS README* \
-  $PKG/usr/doc/libwnck-$VERSION
-
-# If there's a ChangeLog, installing at least part of the recent history
-# is useful, but don't let it get totally out of control:
-if [ -r ChangeLog ]; then
-  DOCSDIR=$(echo $PKG/usr/doc/*-$VERSION)
-  cat ChangeLog | head -n 1000 > $DOCSDIR/ChangeLog
-  touch -r ChangeLog $DOCSDIR/ChangeLog
-fi
-
-# Compress and link manpages, if any:
-if [ -d $PKG/usr/man ]; then
-  ( cd $PKG/usr/man
-    for manpagedir in $(find . -type d -name "man*") ; do
-      ( cd $manpagedir
-        for eachpage in $( find . -type l -maxdepth 1) ; do
-          ln -s $( readlink $eachpage ).gz $eachpage.gz
-          rm $eachpage
-        done
-        gzip -9 *.?
-      )
-    done
-  )
-fi
+  AUTHORS BUGS COPYING NEWS README \
+  doc/startup-notification.txt \
+  $PKG/usr/doc/startup-notification-$VERSION
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-/sbin/makepkg -l y -c n $PKGDEST/libwnck3-$VERSION-$ARCH-$BUILD${TAG}.txz
+/sbin/makepkg -l y -c n $PKGDEST/startup-notification-$VERSION-$ARCH-${BUILD}${TAG}.txz
 
