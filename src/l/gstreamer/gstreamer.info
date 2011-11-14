@@ -1,0 +1,7 @@
+PKGNAME="gstreamer"
+VERSION="0.10.35"
+HOMEPAGE="http://gstreamer.freedesktop.org/download/"
+DOWNLOAD="http://gstreamer.freedesktop.org/src/gstreamer/gstreamer-0.10.35.tar.bz2"
+MD5SUM="4a0a00edad7a2c83de5211ca679dfaf9"
+MAINTAINER="Steve Kennedy"
+EMAIL="steve@gnomeslackbuild.org"
